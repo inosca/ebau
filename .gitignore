@@ -1,0 +1,6 @@
+.vagrant
+cache/
+camac/cache
+nbproject
+*.vpp~*
+camac.vpp.*
