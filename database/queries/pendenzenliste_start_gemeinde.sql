@@ -46,5 +46,5 @@ WHERE
 		FROM
 			"GROUP_LOCATION"
 		WHERE
-			"GROUP_ID" = 22
+			"GROUP_ID" = [GROUP_ID]
 	)
