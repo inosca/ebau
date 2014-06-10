@@ -4,3 +4,6 @@ camac/cache
 nbproject
 *.vpp~*
 camac.vpp.*
+tmp
+*.swp
+.sass-cache/
