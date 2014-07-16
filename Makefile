@@ -5,7 +5,7 @@ SHELL:=/bin/bash
 up:
 	@echo "( The vagrant box needs vagrant 1.2.3 or later please download from )"
 	@echo "( http://downloads.vagrantup.com                                    )"
-	tools/vagrant/if_get_box
+	tools/vagrant/get_software
 	vagrant up --provision
 
 halt:
