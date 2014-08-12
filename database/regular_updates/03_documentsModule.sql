@@ -1,6 +1,7 @@
 Insert into AVAILABLE_INSTANCE_RESOURCE (AVAILABLE_INSTANCE_RESOURCE_ID,MODULE_NAME,CONTROLLER_NAME,DESCRIPTION) values ('documents','documents','list','List the Documents');
 Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','list',0);
 Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','upload',1);
+Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','download',1);
 --------------------------------------------------------
 --  File created - Friday-June-06-2014   
 --------------------------------------------------------
