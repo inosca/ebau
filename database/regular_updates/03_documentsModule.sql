@@ -3,6 +3,7 @@ Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) value
 Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','upload',1);
 Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','download',1);
 Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','preview',1);
+Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('documents','delete',1);
 --------------------------------------------------------
 --  File created - Friday-June-06-2014   
 --------------------------------------------------------
