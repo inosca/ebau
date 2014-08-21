@@ -1,3 +1,8 @@
+Insert into AVAILABLE_INSTANCE_RESOURCE (AVAILABLE_INSTANCE_RESOURCE_ID,MODULE_NAME,CONTROLLER_NAME,DESCRIPTION) values ('workflow','workflow','list','Show the workflow entries');
+Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('workflow','list',0);
+Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('workflow','save',1);
+
+
 INSERT INTO "AVAILABLE_ACTION" (AVAILABLE_ACTION_ID, MODULE_NAME, DESCRIPTION)
 VALUES
 ('workflow', 'workflow', 'Set workflow date');
