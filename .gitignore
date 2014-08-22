@@ -1,6 +1,7 @@
 .vagrant
 cache/
 camac/cache
+camac/data
 nbproject
 *.vpp~*
 camac.vpp.*
