@@ -5,7 +5,29 @@ select
 	"LOCATION"."NAME"    as "COMMUNITY",
 	"USER"."USERNAME"        AS "USER",
 	"ANSWER_PETITION"."ANSWER" AS "PETITION",
-	"ANSWER_INTENT"."ANSWER"   AS "INTENT",
+	(
+		SELECT
+			LISTAGG("ANSWER_LIST"."NAME", ', ') WITHIN GROUP (ORDER BY "ANSWER_LIST"."NAME")
+		FROM
+			table(json_unserialize((
+				SELECT
+					"ANSWER" as "ANSW"
+				FROM
+					"ANSWER"
+				WHERE
+					"ANSWER"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"
+					AND
+					"QUESTION_ID" = 97
+					AND
+					"CHAPTER_ID" = 21
+					AND
+					"ITEM" = 1
+				))
+			)
+		JOIN "ANSWER_LIST" ON (
+			"VAL" = "ANSWER_LIST_ID"
+		)
+	) AS "INTENT",
 	"ANSWER_CITY"."ANSWER"     AS "CITY",
 	GET_STATE_NAME_BY_ID("INSTANCE"."INSTANCE_STATE_ID") AS "STATUS"
 
