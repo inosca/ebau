@@ -5,7 +5,6 @@ camac/data
 nbproject
 *.vpp~*
 camac.vpp.*
-tmp
 *.swp
 .sass-cache/
 tools/software/
