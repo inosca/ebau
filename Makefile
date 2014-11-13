@@ -20,3 +20,9 @@ destroy:
 dup: destroy up
 
 hup: halt up
+
+css:
+	@cd camac/configuration/public/css/; make css
+
+watch:
+	@cd camac/configuration/public/css/; make watch
