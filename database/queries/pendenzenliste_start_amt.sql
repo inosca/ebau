@@ -25,7 +25,7 @@ SELECT
 					))
 				)
 		JOIN "ANSWER_LIST" ON (
-			"VAL" = "ANSWER_LIST_ID"
+			"VAL" = "VALUE"
 		)
 	) AS "INTENT",
 	"ANSWER_CITY"."ANSWER"     AS "CITY",
