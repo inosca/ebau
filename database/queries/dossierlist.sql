@@ -1,4 +1,4 @@
-select 
+SELECT  DISTINCT
 	"INSTANCE"."INSTANCE_ID",
 	"DOSSIERNR"."ANSWER" as "DOSSIER_NR",
 	"FORM"."NAME"        as "FORM",
