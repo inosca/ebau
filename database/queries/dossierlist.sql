@@ -25,7 +25,7 @@ SELECT  DISTINCT
 					))
 				)
 		JOIN "ANSWER_LIST" ON (
-			"VAL" = "ANSWER_LIST_ID"
+			"VAL" = "VALUE"
 		)
 	) AS "INTENT",
 	CASE
