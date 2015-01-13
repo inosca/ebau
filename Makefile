@@ -26,8 +26,3 @@ css:
 
 watch:
 	@cd camac/configuration/public/css/; make watch
-
-classmap:
-	@cd camac/; rm tmp
-	@cd camac/; php -c ../tools/zend ../tools/zend/classmap_generator.php
-	@cd camac/; ln -s /tmp
