@@ -10,3 +10,4 @@ tmp
 .sass-cache/
 tools/software/
 tags
+*.css.map
