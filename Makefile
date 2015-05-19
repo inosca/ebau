@@ -26,3 +26,8 @@ css:
 
 watch:
 	@cd camac/configuration/public/css/; make watch
+
+log:
+	tmux new-session -n camac-log -d 'tail -f camac/logs/application.log'
+	tmux split-window -v 'vagrant ssh -c "sudo tail -f /var/log/apache2/vagrant-error.log"'
+	tmux -2 attach-session -d
