@@ -37,3 +37,7 @@ log:
 	tmux new-session -n camac-log -d 'tail -f camac/logs/application.log'
 	tmux split-window -v 'vagrant ssh -c "sudo tail -f /var/log/apache2/vagrant-error.log"'
 	tmux -2 attach-session -d
+
+dumper:
+	docker cp tools/camac/dumper.php docker_front_1:/var/local/
+	docker exec -it docker_front_1 php /var/local/dumper.php
