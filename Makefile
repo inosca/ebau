@@ -9,15 +9,15 @@ fancy-up:
 	tmux -2 attach-session -d
 
 reset-db:
-	docker cp docker/db docker_db_1:/usr/local/src
-	docker exec -it docker_db_1 chmod +x /usr/local/src/db/drop_user.sh
-	docker exec -it docker_db_1 /usr/local/src/db/drop_user.sh
+	docker cp docker/db docker_camac_db_1:/usr/local/src
+	docker exec -it docker_camac_db_1 chmod +x /usr/local/src/db/drop_user.sh
+	docker exec -it docker_camac_db_1 /usr/local/src/db/drop_user.sh
 	#make init-db
 
 init-db:
-	docker cp docker/db docker_db_1:/usr/local/src/
-	docker exec -it docker_db_1 chmod +x /usr/local/src/db/init_db.sh
-	docker exec -it docker_db_1 /usr/local/src/db/init_db.sh
+	docker cp docker/db docker_camac_db_1:/usr/local/src/
+	docker exec -it docker_camac_db_1 chmod +x /usr/local/src/db/init_db.sh
+	docker exec -it docker_camac_db_1 /usr/local/src/db/init_db.sh
 
 up:
 	docker-compose -f docker/docker-compose.yml up
