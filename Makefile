@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 
-.PHONY: docs help up reset-db init-db watch fancy-up
+.PHONY: docs help up reset-db init-db watch fancy-up classloader dumper 
 
 fancy-up:
 	tmux new-session -n 'camac runner' -d 'make up'
@@ -24,7 +24,7 @@ classloader:
 	docker exec -it docker_camac_web_1 php -c /usr/src/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php
 	docker exec -it docker_camac_web_1 php -c /usr/src/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php
 
-up: classloader
+up:
 	chmod o+w camac/logs
 	docker-compose -f docker/docker-compose.yml up
 
@@ -47,3 +47,6 @@ log:
 dumper:
 	docker cp tools/camac/dumper.php docker_camac_web_1:/var/local/
 	docker exec -it docker_camac_web_1 php /var/local/dumper.php
+
+build: classloader
+	echo "Not implemented yet"
