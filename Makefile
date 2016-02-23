@@ -24,11 +24,12 @@ classloader:
 	docker exec -it docker_camac_web_1 php -c /usr/src/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php
 	docker exec -it docker_camac_web_1 php -c /usr/src/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php
 
-up:
+up: classloader
+	chmod o+w camac/logs
 	docker-compose -f docker/docker-compose.yml up
 
 init: up init-db
-	docker exec -it docker_front_1 chown -R www-data /var/www/html/logs /var/www/html/cache
+	docker exec -it docker_camac_web_1 chown -R www-data /var/www/html/logs /var/www/html/cache
 
 css:
 	@cd camac/configuration/public/css/; make css
@@ -44,5 +45,5 @@ log:
 	tmux -2 attach-session -d
 
 dumper:
-	docker cp tools/camac/dumper.php docker_front_1:/var/local/
-	docker exec -it docker_front_1 php /var/local/dumper.php
+	docker cp tools/camac/dumper.php docker_camac_web_1:/var/local/
+	docker exec -it docker_camac_web_1 php /var/local/dumper.php
