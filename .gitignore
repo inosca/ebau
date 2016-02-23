@@ -12,3 +12,4 @@ tools/software/
 tags
 *.css.map
 FINJA
+class_map.php
