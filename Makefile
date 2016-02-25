@@ -2,6 +2,8 @@ SHELL:=/bin/bash
 
 .PHONY: docs help up reset-db init-db watch fancy-up classloader dumper 
 
+PHP_DEFINES=-d log_errors=1 -d display_errors=1 -d error_reporting=32767 -d display_startup_errors=1
+
 fancy-up:
 	tmux new-session -n 'camac runner' -d 'make up'
 	tmux split-window -v 'make watch'
@@ -45,8 +47,8 @@ log:
 	tmux -2 attach-session -d
 
 dumper:
-	docker cp tools/camac/dumper.php docker_camac_web_1:/var/local/
-	docker exec -it docker_camac_web_1 php /var/local/dumper.php
+	@docker cp tools/camac/ docker_camac_web_1:/var/local/
+	@docker exec -it docker_camac_web_1 php $(PHP_DEFINES) /var/local/camac/dumper.php
 
 build: classloader
 	echo "Not implemented yet"
