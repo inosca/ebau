@@ -52,3 +52,12 @@ dumper:
 
 build: classloader
 	echo "Not implemented yet"
+
+init_live_db:
+	@docker ps | grep docker_camac_live_db_1 || echo "You must run the live version of the Database"
+	docker cp -L database/ docker_camac_live_db_1:/var/local/
+	docker exec -it docker_camac_live_db_1 chmod +x /var/local/database/create_camac_user.sh
+	docker exec -it docker_camac_live_db_1 /var/local/database/create_camac_user.sh
+	docker exec -it docker_camac_live_db_1 chmod +x /var/local/database/uri_dumps/insert.sh
+	docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/database/
+	docker exec -it docker_camac_live_db_1 /var/local/database/uri_dumps/insert.sh
