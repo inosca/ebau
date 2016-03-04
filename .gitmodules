@@ -1,0 +1,3 @@
+[submodule "database"]
+	path = database
+	url = git@git.adfinis-sygroup.ch:kantonur/camac5-db-data.src.git
