@@ -21,6 +21,9 @@ fancy-up:
 	tmux -2 attach-session -d
 
 reset-db:
+	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/drop_user.sh
+	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/drop_user.sh
+	@make init-db
 
 init-db:
 	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
@@ -56,10 +59,10 @@ log:
 build: classloader
 	echo "Not implemented yet"
 
-init_live_db:
+init-live-db:
 	@docker ps | grep docker_camac_live_db_1 || echo "You must run the live version of the Database"
-	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/bin/create_camac_user.sh
-	@docker exec -it docker_camac_live_db_1 /var/local/bin/create_camac_user.sh
-	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/bin/uri_dumps/insert.sh
-	@docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/bin/
-	@docker exec -it docker_camac_live_db_1 /var/local/bin/uri_dumps/insert.sh
+	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/tools/database/create_camac_user.sh
+	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/create_camac_user.sh
+	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/tools/database/insert_uri_dump.sh
+	@docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/database/
+	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/insert_uri_dump.sh
