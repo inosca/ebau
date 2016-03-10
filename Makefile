@@ -66,3 +66,7 @@ init-live-db:
 	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/tools/database/insert_uri_dump.sh
 	@docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/database/
 	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/insert_uri_dump.sh
+
+export-structure: 
+	@docker exec -it $(DB_CONTAINER) chown -R oracle /var/local/database/
+	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/export_structure.sh
