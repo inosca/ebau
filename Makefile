@@ -38,6 +38,7 @@ classloader:
 
 up:
 	@chmod o+w camac/logs
+	@chmod o+w camac/configuration/upload
 	@docker-compose -f docker/docker-compose.yml up
 
 init: up init-db
