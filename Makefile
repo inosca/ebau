@@ -16,7 +16,6 @@ fancy-up:
 	tmux new-session -n 'camac runner' -d 'make up'
 	tmux split-window -v 'make follow-log'
 	tmux select-pane -U
-	tmux select-pane -U
 	tmux split-window -h 'make watch'
 	tmux -2 attach-session -d
 
