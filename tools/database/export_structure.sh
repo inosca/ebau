@@ -12,6 +12,6 @@ EOF
 
 date=$(date +%Y-%m-%d-%H-%M)
 
-expdp camac/camac DIRECTORY=strucdir DUMPFILE="structure-"$date TABLES=ATTACHMENT
+expdp camac/camac DIRECTORY=strucdir DUMPFILE="structure-"$date SCHEMAS=camac CONTENT=metadata_only
 
 exit 

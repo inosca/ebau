@@ -35,12 +35,13 @@ export-structure:
 	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/export_structure.sh
 
 classloader:
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/application/ -o /var/www/html/application/class_map.php
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /usr/src/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php
+	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/application/ -o /var/www/html/application/class_map.php
+	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php
+	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php
 
 up:
 	@chmod o+w camac/logs
+	@chmod o+w camac/configuration/upload
 	@docker-compose -f docker/docker-compose.yml up
 
 init: up init-db
@@ -69,4 +70,3 @@ init-live-db:
 	@docker exec -it docker_camac_live_db_1 chmod +x /var/local/tools/database/insert_uri_dump.sh
 	@docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/database/
 	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/insert_uri_dump.sh
-
