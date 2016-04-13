@@ -40,12 +40,12 @@ classloader:
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php
 
 up:
-	#@rm camac/configurations/configs/application.ini
+	@rm camac/configuration/configs/application.ini
 	@ln -rs camac/configuration/configs/application-dev.ini \
 		camac/configuration/configs/application.ini
-	#@chmod o+w camac/logs
-	#@chmod o+w camac/configuration/upload
-	#@docker-compose -f docker/docker-compose.yml up
+	@chmod o+w camac/logs
+	@chmod o+w camac/configuration/upload
+	@docker-compose -f docker/docker-compose.yml up
 
 init: up init-db
 	@docker exec -it docker_camac_web_1 chown -R www-data /var/www/html/logs /var/www/html/cache
