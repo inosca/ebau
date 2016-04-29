@@ -84,3 +84,6 @@ deploy-test-server: css classloader
 	#@ssh sy-jump "mkdir /mnt/sshfs/root@camac.sycloud.ch/usr/src/camac"
 	#@rsync -avz database/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/usr/src/camac/
 
+
+start-deploy-db:
+	docker-compose -f docker/docker-deploy-db.yml up
