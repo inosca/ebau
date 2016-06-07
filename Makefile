@@ -41,7 +41,9 @@ classloader:
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php || true
 
 init:
-	@ln -rfs kt_uri/configuration/ camac/configuration/
+	@rm -f camac/configuration
+	@ln -rfs kt_uri/configuration camac/configuration
+	@for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	@for i in `ls kt_uri/library/`; do ln -rsf "kt_uri/library/$$i" "camac/library/$$i"; done
 
 up: init
