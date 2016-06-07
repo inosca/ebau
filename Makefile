@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 
-.PHONY: docs help up reset-db init-db watch fancy-up classloader dumper 
+.PHONY: docs help up reset-db init-db watch fancy-up classloader dumper  init
 
 PHP_DEFINES=-d log_errors=1 -d display_errors=1 -d error_reporting=32767 -d display_startup_errors=1
 
@@ -40,16 +40,17 @@ classloader:
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php || true
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php || true
 
-up:
+init:
+	@ln -rfs kt_uri/configuration/ camac/configuration/
+	@for i in `ls kt_uri/library/`; do ln -rsf "kt_uri/library/$$i" "camac/library/$$i"; done
+
+up: init
 	@rm camac/configuration/configs/application.ini
 	@ln -rs camac/configuration/configs/application-dev.ini \
 		camac/configuration/configs/application.ini
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
 	@docker-compose -f docker/docker-compose.yml up
-
-init: up init-db
-	@docker exec -it docker_camac_web_1 chown -R www-data /var/www/html/logs /var/www/html/cache
 
 css:
 	@cd camac/configuration/public/css/; make css
