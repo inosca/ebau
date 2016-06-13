@@ -1,6 +1,6 @@
 SHELL:=/bin/bash
 
-.PHONY: docs help up reset-db init-db watch fancy-up classloader dumper  init
+.PHONY: docs help up reset-db init-db watch fancy-up classloader dumper init
 
 PHP_DEFINES=-d log_errors=1 -d display_errors=1 -d error_reporting=32767 -d display_startup_errors=1
 
@@ -35,7 +35,7 @@ export-structure:
 	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/export_structure.sh
 
 classloader:
-	# for some reason, i have to append || true here. The command returns non zero
+	@# for some reason, i have to append || true here. The command returns non zero
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/application/ -o /var/www/html/application/class_map.php || true
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php || true
 	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php || true
@@ -79,15 +79,12 @@ init-live-db:
 	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/insert_uri_dump.sh
 
 deploy-test-server: css classloader
-	@rsync -avz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log
+	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log
 	@ssh sy-jump "rm /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/application.ini"
 	@ssh sy-jump "cd /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/; ln -s application-testserver.ini application.ini"
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-htaccess sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/public/.htaccess
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
-	#@ssh sy-jump "mkdir /mnt/sshfs/root@camac.sycloud.ch/usr/src/camac"
-	#@rsync -avz database/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/usr/src/camac/
-
 
 start-deploy-db:
 	docker-compose -f docker/docker-deploy-db.yml up
