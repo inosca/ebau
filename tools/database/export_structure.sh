@@ -10,8 +10,11 @@ GRANT read,write ON DIRECTORY strucdir TO camac;
 
 EOF
 
-date=$(date +%Y-%m-%d-%H-%M)
+#date=$(date +%Y-%m-%d-%H-%M)
+#filename=$date"-structure"
 
-expdp camac/camac DIRECTORY=strucdir DUMPFILE="structure-"$date SCHEMAS=camac CONTENT=metadata_only
+filename=$1
 
-exit 
+expdp camac/camac DIRECTORY=strucdir DUMPFILE=$filename SCHEMAS=camac CONTENT=metadata_only
+
+exit
