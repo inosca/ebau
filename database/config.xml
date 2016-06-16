@@ -1,4 +1,4 @@
-<config_data version="5b970905-2378-474f-a8bc-ba267bce388f">
+<config_data version="d11bd665-d0a5-4f26-aa52-8f4bd0e6dc4f">
   <configuration.Mapping table="mapping">
     <entry>
       <mapping_id type="int">21</mapping_id>
@@ -30309,22 +30309,15 @@ Gemeindebaubehörde [@authority]&#13;
   </configuration.DocgenActivationactionAction>
   <configuration.ConfigurationVersion table="configuration_version">
     <entry>
-      <id type="int">1</id>
-      <hash type="str">3cdcb90b-7d80-4810-a56d-acc2d48f2c1a</hash>
-      <export_date type="date">2016-06-16</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
-    </entry>
-    <entry>
-      <id type="int">2</id>
-      <hash type="str">c480654e-ff4d-4330-8971-214892eaf4df</hash>
-      <export_date type="date">2016-06-16</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
-    </entry>
-    <entry>
       <id type="int">3</id>
       <hash type="str">5b970905-2378-474f-a8bc-ba267bce388f</hash>
+      <export_date type="date">2016-06-16</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry>
+      <id type="int">4</id>
+      <hash type="str">d11bd665-d0a5-4f26-aa52-8f4bd0e6dc5f</hash>
       <export_date type="date">2016-06-16</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
