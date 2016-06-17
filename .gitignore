@@ -13,3 +13,4 @@ tags
 *.css.map
 FINJA
 class_map.php
+.venv/
