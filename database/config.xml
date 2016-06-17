@@ -1,4 +1,4 @@
-<config_data version="e4b2fcc4-7cda-40f5-a206-fa11cdc5547c">
+<config_data version="52ef138f-f65e-4747-aff1-ed1cab229f79">
   <configuration.Mapping table="mapping">
     <entry>
       <mapping_id type="int">1</mapping_id>
@@ -30270,56 +30270,63 @@ ORDER BY "INSTANCE_ID"</query>
     <entry>
       <id type="int">1</id>
       <hash type="str">79390d58-9338-41bf-80e1-5f6f5d320ced</hash>
-      <export_date type="str">2016-06-17 00:00:00</export_date>
+      <export_date type="datetime">2016-06-17 00:00:00</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">3</id>
       <hash type="str">5b970905-2378-474f-a8bc-ba267bce388f</hash>
-      <export_date type="str">2016-06-16 00:00:00</export_date>
+      <export_date type="datetime">2016-06-16 00:00:00</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">4</id>
       <hash type="str">d11bd665-d0a5-4f26-aa52-8f4bd0e6dc5f</hash>
-      <export_date type="str">2016-06-16 00:00:00</export_date>
+      <export_date type="datetime">2016-06-16 00:00:00</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">21</id>
       <hash type="str">86fb182c-344a-4cd4-92ee-8b33133bca4b</hash>
-      <export_date type="str">2016-06-17 00:11:00</export_date>
+      <export_date type="datetime">2016-06-17 00:11:00</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">22</id>
       <hash type="str">561bf571-711f-4fdf-ab08-9e22c26a8d37</hash>
-      <export_date type="str">2016-06-17 00:00:00</export_date>
+      <export_date type="datetime">2016-06-17 00:00:00</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">23</id>
       <hash type="str">cd281c91-ea0e-4830-97bd-0f6bac94e54c</hash>
-      <export_date type="str">2016-06-17 00:10:00</export_date>
+      <export_date type="datetime">2016-06-17 00:10:00</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">24</id>
       <hash type="str">0b145b20-32c6-4cf7-8bf1-82636a3a9d4d</hash>
-      <export_date type="str">2016-06-17 13:20:44</export_date>
+      <export_date type="datetime">2016-06-17 13:20:44</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry>
       <id type="int">26</id>
       <hash type="str">e4b2fcc4-7cda-40f5-a206-fa11cdc5547c</hash>
-      <export_date type="str">2016-06-17 13:30:14</export_date>
+      <export_date type="datetime">2016-06-17 13:30:14</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry>
+      <id type="int">27</id>
+      <hash type="str">52ef138f-f65e-4747-aff1-ed1cab229f79</hash>
+      <export_date type="datetime">2016-06-17 13:34:55</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
