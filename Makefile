@@ -15,7 +15,7 @@ _log-follow: # Tail the log of the application
 
 
 run-fancy: ## Create a tmux session that runs several useful commands at once: make up, make log-follow and make watch
-	@tmux new-session -n 'camac runner' -d 'make up'
+	@tmux new-session -n 'camac runner' -d 'make run'
 	@tmux split-window -v 'make _log-follow' # split vertically
 	@tmux select-pane -U # go one pane upwards
 	@tmux select-pane -U # go one pane upwards
