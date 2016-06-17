@@ -106,6 +106,8 @@ config-import: ## import the current database configuration. This will override 
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
 
+config-shell: ## start a database shell from the configuration management application
+	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
 
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
