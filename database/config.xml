@@ -1,4 +1,4 @@
-<config_data version="9a36929f-5349-4994-89f2-c14d7524a15a">
+<config_data version="e74f8b8b-30e8-4c97-9d49-3524c35cd432">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -31865,61 +31865,61 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">42</docgen_template_class_id>
       <name type="str">TestDocxClass</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/TestDocxClass.php</path>
+      <path type="str">TestDocxClass.php</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">62</docgen_template_class_id>
       <name type="str">Brief an Gesuchsteller</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/letterClass.php</path>
+      <path type="str">letterClass.php</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">64</docgen_template_class_id>
       <name type="str">Test PDF Class</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/testPdfClass.php</path>
+      <path type="str">testPdfClass.php</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">82</docgen_template_class_id>
       <name type="str">Laufzettel</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/Laufzettel.php</path>
+      <path type="str">Laufzettel.php</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">84</docgen_template_class_id>
       <name type="str">Rückmeldung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/Rueckmeldung.php</path>
+      <path type="str">Rueckmeldung.php</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">102</docgen_template_class_id>
       <name type="str">Baubewilligung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/buildingPermitClass.php</path>
+      <path type="str">buildingPermitClass.php</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">122</docgen_template_class_id>
       <name type="str">Rechnung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/Rechnung.php</path>
+      <path type="str">Rechnung.php</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">142</docgen_template_class_id>
       <name type="str">Publikation</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/Publikation.php</path>
+      <path type="str">Publikation.php</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">162</docgen_template_class_id>
       <name type="str">Laufzettel NP</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/LaufzettelNP.php</path>
+      <path type="str">LaufzettelNP.php</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template_class">
       <docgen_template_class_id type="int">201</docgen_template_class_id>
       <name type="str">Rechnung NP</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templateclasses/RechnungNP.php</path>
+      <path type="str">RechnungNP.php</path>
       <type type="int">1</type>
     </entry>
   </configuration.DocgenTemplateClass>
@@ -31927,61 +31927,61 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">61</docgen_template_id>
       <name type="str">Brief an Gesuchsteller</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/letter.docx</path>
+      <path type="str">letter.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">63</docgen_template_id>
       <name type="str">Test File</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/test.zip</path>
+      <path type="str">test.zip</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">81</docgen_template_id>
       <name type="str">Laufzettel</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/laufzettel.zip</path>
+      <path type="str">laufzettel.zip</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">83</docgen_template_id>
       <name type="str">Rückmeldung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/rueckmeldung.zip</path>
+      <path type="str">rueckmeldung.zip</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">101</docgen_template_id>
       <name type="str">Baubewilligung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/building_permit.docx</path>
+      <path type="str">building_permit.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">121</docgen_template_id>
       <name type="str">Rechnung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/bill.docx</path>
+      <path type="str">bill.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">141</docgen_template_id>
       <name type="str">Publikation</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/publish_print.docx</path>
+      <path type="str">publish_print.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">161</docgen_template_id>
       <name type="str">Laufzettel Nutzungsplanung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/laufzettelnp.zip</path>
+      <path type="str">laufzettelnp.zip</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">181</docgen_template_id>
       <name type="str">Rückmeldung Nutzungsplanung</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/rueckmeldungNP.zip</path>
+      <path type="str">rueckmeldungNP.zip</path>
       <type type="int">2</type>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">202</docgen_template_id>
       <name type="str">Rechnung NP</name>
-      <path type="str">/var/www/html/configuration/resources/docgen/templates/billnp.docx</path>
+      <path type="str">billnp.docx</path>
       <type type="int">1</type>
     </entry>
   </configuration.DocgenTemplate>
@@ -32113,78 +32113,67 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">1</id>
       <hash type="str">79390d58-9338-41bf-80e1-5f6f5d320ced</hash>
       <export_date type="datetime">2016-06-17 00:00:00</export_date>
-      <author type="str">christian.zosel@adfinis-sygroup.ch
-</author>
+      <author type="str">christian.zosel@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">3</id>
       <hash type="str">5b970905-2378-474f-a8bc-ba267bce388f</hash>
       <export_date type="datetime">2016-06-16 00:00:00</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">4</id>
       <hash type="str">d11bd665-d0a5-4f26-aa52-8f4bd0e6dc5f</hash>
       <export_date type="datetime">2016-06-16 00:00:00</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">21</id>
       <hash type="str">86fb182c-344a-4cd4-92ee-8b33133bca4b</hash>
       <export_date type="datetime">2016-06-17 00:11:00</export_date>
-      <author type="str">christian.zosel@adfinis-sygroup.ch
-</author>
+      <author type="str">christian.zosel@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">22</id>
       <hash type="str">561bf571-711f-4fdf-ab08-9e22c26a8d37</hash>
       <export_date type="datetime">2016-06-17 00:00:00</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">23</id>
       <hash type="str">cd281c91-ea0e-4830-97bd-0f6bac94e54c</hash>
       <export_date type="datetime">2016-06-17 00:10:00</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">24</id>
       <hash type="str">0b145b20-32c6-4cf7-8bf1-82636a3a9d4d</hash>
       <export_date type="datetime">2016-06-17 13:20:44</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">26</id>
       <hash type="str">e4b2fcc4-7cda-40f5-a206-fa11cdc5547c</hash>
       <export_date type="datetime">2016-06-17 13:30:14</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">27</id>
       <hash type="str">52ef138f-f65e-4747-aff1-ed1cab229f79</hash>
       <export_date type="datetime">2016-06-17 13:34:55</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">28</id>
       <hash type="str">de5d5eb4-7bc7-43d1-bac8-0e9803457742</hash>
       <export_date type="datetime">2016-06-20 08:46:12</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">48</id>
       <hash type="str">9a36929f-5349-4994-89f2-c14d7524a15a</hash>
       <export_date type="datetime">2016-06-20 14:15:43</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
     </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">

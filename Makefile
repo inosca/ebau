@@ -1,13 +1,15 @@
 SHELL:=/bin/bash
 
 .PHONY: help run run-fancy db-reset db-init css css-watch _classloader init structure-export config-export config-import \
-	deploy-test-server run-deploy-db run-live-db _log-follow
+	deploy-test-server run-deploy-db run-live-db _log-follow _sync_db_tools
 
 .DEFAULT_GOAL := help
 
 PHP_DEFINES=-d log_errors=1 -d display_errors=1 -d error_reporting=32767 -d display_startup_errors=1
 
 DB_CONTAINER?=docker_camac_db_1
+DB_CONTAINER_HOSTNAME?=localhost
+DB_CONTAINER_PORT?=49160
 
 
 _log-follow: # Tail the log of the application
@@ -25,36 +27,43 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 
 _init: _submodule-update  # Initialise the code, create the necessary symlinks
-	@rm camac/configuration/configs/application.ini
-	@ln -rs camac/configuration/configs/application-dev.ini \
-		camac/configuration/configs/application.ini
 	@rm -f camac/configuration
 	@ln -rfs kt_uri/configuration camac/configuration
-	@for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
-	@for i in `ls kt_uri/library/`; do ln -rsf "kt_uri/library/$$i" "camac/library/$$i"; done
+	@rm -f camac/configuration/configs/application.ini
+	@ln -rs camac/configuration/configs/application-dev.ini \
+		camac/configuration/configs/application.ini
+	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
+	for i in `ls kt_uri/library/`; do ln -rsf "kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
 
 
 _submodule-update:
-	git submodule update --recursive
+	@git submodule update --init --recursive || true
 
 
-run: _init _classloader ## Runs the docker containers
+run: _init ## Runs the docker containers
 	@docker-compose -f docker/docker-compose.yml up
 
+_sync_db_tools:
+	@echo "Syncing tools to docker container"
+	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
+	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
 
-db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/drop_user.sh
-	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/drop_user.sh
+
+db-reset: _sync_db_tools ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
+	@echo "Resetting the database"
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/drop_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) /var/local/tools/database/drop_user.sh
 	@make db-init
 
 
-db-init: ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
-	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/create_camac_user.sh
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/insert_base_structure.sh
-	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/insert_base_structure.sh
+db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
+	@echo "Initialise the database"
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/create_camac_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/create_camac_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/insert_base_structure.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/insert_base_structure.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
@@ -62,12 +71,8 @@ structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable
 	@tools/camac/export-structure.sh $(DB_CONTAINER)
 
 
-_classloader: # Build the classmaps. These are important for performance
-	@# for some reason, i have to append || true here. The command returns non zero
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/application/ -o /var/www/html/application/class_map.php || true
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/configuration/ -o /var/www/html/configuration/class_map.php || true
-	@docker exec -it docker_camac_web_1 php -c /var/local/tools/zend/php_cli.ini /var/local/tools/zend/classmap_generator.php -w -l  /var/www/html/library/ -o /var/www/html/library/class_map.php || true
-
+#  _classloader: # Build the classmaps. These are important for performance
+#  	@docker exec -it docker_camac_web_1 bash /var/local/tools/camac/classmap_generator.sh
 
 css: ## Create the css files from the sass files
 	@cd camac/configuration/public/css/; make css
@@ -106,6 +111,15 @@ config-import: ## import the current database configuration. This will override 
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
 
+config-import-ci: 
+	@make -C db_admin/ importconfig-ci
+	@echo "Config successfully imported"
+
+data-truncate: ## Truncate the data in the database
+	@make -C db_admin/ truncatedata
+	# @make -C db_admin/ reset_sequences # TODO
+	@echo "Data sucessfully truncated"
+
 config-shell: ## start a database shell from the configuration management application
 	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
 
@@ -115,3 +129,9 @@ help: ## Show the help messages
 
 run-acceptance-tests: ## run the acceptance tests
 	@make -C db_admin/ run-acceptance-tests ${ARGS}
+
+run-acceptance-tests-ci: ## run the acceptance tests in CI
+	@rm -f camac/configuration/configs/application.ini
+	@ln -rs camac/configuration/configs/application-ci.ini \
+		camac/configuration/configs/application.ini
+	@make -C db_admin/ run-acceptance-tests-ci ${ARGS}
