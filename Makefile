@@ -106,6 +106,11 @@ config-import: ## import the current database configuration. This will override 
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
 
+data-truncate: ## Truncate the data in the database
+	@make -C db_admin/ truncatedata
+	# @make -C db_admin/ reset_sequences # TODO
+	@echo "Data sucessfully truncated"
+
 config-shell: ## start a database shell from the configuration management application
 	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
 
