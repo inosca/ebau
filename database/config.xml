@@ -1,4 +1,4 @@
-<config_data version="e74f8b8b-30e8-4c97-9d49-3524c35cd432">
+<config_data version="a0c8536c-dd01-4dca-8efb-e746d0dd6637">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2703,7 +2703,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-23</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2718,7 +2718,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-23</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4443,7 +4443,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-23</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -31910,18 +31910,6 @@ ORDER BY "INSTANCE_ID"</query>
       <path type="str">Publikation.php</path>
       <type type="int">1</type>
     </entry>
-    <entry table="docgen_template_class">
-      <docgen_template_class_id type="int">162</docgen_template_class_id>
-      <name type="str">Laufzettel NP</name>
-      <path type="str">LaufzettelNP.php</path>
-      <type type="int">2</type>
-    </entry>
-    <entry table="docgen_template_class">
-      <docgen_template_class_id type="int">201</docgen_template_class_id>
-      <name type="str">Rechnung NP</name>
-      <path type="str">RechnungNP.php</path>
-      <type type="int">1</type>
-    </entry>
   </configuration.DocgenTemplateClass>
   <configuration.DocgenTemplate table="docgen_template">
     <entry table="docgen_template">
@@ -31957,7 +31945,7 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">121</docgen_template_id>
       <name type="str">Rechnung</name>
-      <path type="str">bill.docx</path>
+      <path type="str">billKOORBG.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
@@ -31981,7 +31969,19 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">202</docgen_template_id>
       <name type="str">Rechnung NP</name>
-      <path type="str">billnp.docx</path>
+      <path type="str">billKOORNP.docx</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">203</docgen_template_id>
+      <name type="str">Laufzettel Baudirektion</name>
+      <path type="str">laufzettelBD.zip</path>
+      <type type="int">2</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">204</docgen_template_id>
+      <name type="str">Rechnung BD</name>
+      <path type="str">bill2KOORBD.docx</path>
       <type type="int">1</type>
     </entry>
   </configuration.DocgenTemplate>
@@ -31995,11 +31995,6 @@ ORDER BY "INSTANCE_ID"</query>
       <docgen_template type="int">81</docgen_template>
       <docgen_template_class type="int">82</docgen_template_class>
       <action type="int">453</action>
-    </entry>
-    <entry table="docgen_pdf_action">
-      <docgen_template type="int">81</docgen_template>
-      <docgen_template_class type="int">82</docgen_template_class>
-      <action type="int">981</action>
     </entry>
     <entry table="docgen_pdf_action">
       <docgen_template type="int">83</docgen_template>
@@ -32018,13 +32013,18 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_pdf_action">
       <docgen_template type="int">161</docgen_template>
-      <docgen_template_class type="int">162</docgen_template_class>
+      <docgen_template_class type="int">82</docgen_template_class>
       <action type="int">661</action>
     </entry>
     <entry table="docgen_pdf_action">
       <docgen_template type="int">181</docgen_template>
       <docgen_template_class type="int">84</docgen_template_class>
       <action type="int">810</action>
+    </entry>
+    <entry table="docgen_pdf_action">
+      <docgen_template type="int">203</docgen_template>
+      <docgen_template_class type="int">82</docgen_template_class>
+      <action type="int">981</action>
     </entry>
   </configuration.DocgenPdfAction>
   <configuration.DocgenDocxAction table="docgen_docx_action">
@@ -32059,19 +32059,19 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">438</action>
     </entry>
     <entry table="docgen_docx_action">
-      <docgen_template type="int">121</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
-      <action type="int">998</action>
-    </entry>
-    <entry table="docgen_docx_action">
       <docgen_template type="int">141</docgen_template>
       <docgen_template_class type="int">142</docgen_template_class>
       <action type="int">481</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">202</docgen_template>
-      <docgen_template_class type="int">201</docgen_template_class>
+      <docgen_template_class type="int">122</docgen_template_class>
       <action type="int">790</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">204</docgen_template>
+      <docgen_template_class type="int">122</docgen_template_class>
+      <action type="int">998</action>
     </entry>
   </configuration.DocgenDocxAction>
   <configuration.DocgenActivationactionAction table="docgen_activationaction_action">
@@ -32180,6 +32180,27 @@ ORDER BY "INSTANCE_ID"</query>
       <hash type="str">e74f8b8b-30e8-4c97-9d49-3524c35cd432</hash>
       <export_date type="datetime">2016-06-22 11:13:01</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">51</id>
+      <hash type="str">4887019e-5dda-48f5-8db5-30b5982ced7f</hash>
+      <export_date type="datetime">2016-06-22 14:09:04</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">52</id>
+      <hash type="str">39df9606-a9ec-4d94-99f9-616df5a253ff</hash>
+      <export_date type="datetime">2016-06-23 11:33:41</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">53</id>
+      <hash type="str">a0c8536c-dd01-4dca-8efb-e746d0dd6637</hash>
+      <export_date type="datetime">2016-06-23 11:53:04</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
   </configuration.ConfigurationVersion>
