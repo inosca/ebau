@@ -1,25 +1,25 @@
-before_script:
-  - source /etc/profile
-  - source /opt/xvfb.sh
-
-services:
-  - adsy/camac_php_oracle:v1
-  - memcached
-  - wnameless/oracle-xe-11g
-
-stages:
-  - test
-
-run-test:
-  stage: test
-  script:
-    - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-    - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
-    - make _init 
-    - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
-    - make config-import-ci
-    - make run-acceptance-tests-ci
-
-variables:
-  LANG: C.UTF-8
-  LC_ALL: C.UTF-8
+#before_script:
+#  - source /etc/profile
+#  - source /opt/xvfb.sh
+#
+#services:
+#  - adsy/camac_php_oracle:v1
+#  - memcached
+#  - wnameless/oracle-xe-11g
+#
+#stages:
+#  - test
+#
+#run-test:
+#  stage: test
+#  script:
+#    - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
+#    - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
+#    - make _init 
+#    - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+#    - make config-import-ci
+#    - make run-acceptance-tests-ci
+#
+#variables:
+#  LANG: C.UTF-8
+#  LC_ALL: C.UTF-8
