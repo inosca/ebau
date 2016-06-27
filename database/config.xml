@@ -4448,7 +4448,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-20</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -32090,6 +32090,11 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">453</action>
     </entry>
     <entry table="docgen_pdf_action">
+      <docgen_template type="int">81</docgen_template>
+      <docgen_template_class type="int">82</docgen_template_class>
+      <action type="int">981</action>
+    </entry>
+    <entry table="docgen_pdf_action">
       <docgen_template type="int">83</docgen_template>
       <docgen_template_class type="int">84</docgen_template_class>
       <action type="int">370</action>
@@ -32150,6 +32155,11 @@ ORDER BY "INSTANCE_ID"</query>
       <docgen_template type="int">121</docgen_template>
       <docgen_template_class type="int">122</docgen_template_class>
       <action type="int">438</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">121</docgen_template>
+      <docgen_template_class type="int">122</docgen_template_class>
+      <action type="int">998</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">141</docgen_template>
