@@ -1,4 +1,4 @@
-<config_data version="25b541a8-9c6f-41e6-bba9-8de36d110350">
+<config_data version="c3ee0722-24d9-472e-8e9d-33c1c1a09310">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2708,7 +2708,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-27</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2723,7 +2723,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-27</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4448,7 +4448,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-27</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -9792,7 +9792,7 @@ JOIN&#13;
 WHERE&#13;
 	"INSTANCE"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"&#13;
 	AND&#13;
-	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 30&#13;
+	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 241&#13;
 ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="r_list">
@@ -32090,11 +32090,6 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">453</action>
     </entry>
     <entry table="docgen_pdf_action">
-      <docgen_template type="int">81</docgen_template>
-      <docgen_template_class type="int">82</docgen_template_class>
-      <action type="int">981</action>
-    </entry>
-    <entry table="docgen_pdf_action">
       <docgen_template type="int">83</docgen_template>
       <docgen_template_class type="int">84</docgen_template_class>
       <action type="int">370</action>
@@ -32155,11 +32150,6 @@ ORDER BY "INSTANCE_ID"</query>
       <docgen_template type="int">121</docgen_template>
       <docgen_template_class type="int">122</docgen_template_class>
       <action type="int">438</action>
-    </entry>
-    <entry table="docgen_docx_action">
-      <docgen_template type="int">121</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
-      <action type="int">998</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">141</docgen_template>
@@ -32310,6 +32300,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">54</id>
       <hash type="str">25b541a8-9c6f-41e6-bba9-8de36d110350</hash>
       <export_date type="datetime">2016-06-24 14:15:45</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">55</id>
+      <hash type="str">c3ee0722-24d9-472e-8e9d-33c1c1a09310</hash>
+      <export_date type="datetime">2016-06-27 15:07:17</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
