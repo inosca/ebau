@@ -1,4 +1,4 @@
-<config_data version="e74f8b8b-30e8-4c97-9d49-3524c35cd432">
+<config_data version="25b541a8-9c6f-41e6-bba9-8de36d110350">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -76,6 +76,11 @@
       <form_group_id type="int">243</form_group_id>
       <name type="str">Nur Dossier Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet</name>
       <description type="str">Weil dieses Dossier eine andere Seite hat</description>
+    </entry>
+    <entry table="form_group">
+      <form_group_id type="int">244</form_group_id>
+      <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD</name>
+      <description type="str"></description>
     </entry>
   </configuration.FormGroup>
   <configuration.AvailableResource table="available_resource">
@@ -1432,7 +1437,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">0</sort>
-      <form_group type="int">30</form_group>
+      <form_group type="int">244</form_group>
     </entry>
     <entry table="instance_resource">
       <instance_resource_id type="int">46</instance_resource_id>
@@ -1667,12 +1672,12 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <available_instance_resource type="str">editnotice</available_instance_resource>
       <resource type="int">41</resource>
       <name type="str">Stellungnahme</name>
-      <description type="str">Zirkulation dossiers von der Koordinationsstelle BG</description>
+      <description type="str">Zirkulation dossiers von der Koordinationsstelle BG und BD</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">3</sort>
-      <form_group type="int">32</form_group>
+      <form_group type="int">244</form_group>
     </entry>
     <entry table="instance_resource">
       <instance_resource_id type="int">387</instance_resource_id>
@@ -2703,7 +2708,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-24</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2718,7 +2723,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-20</last_request_date>
+      <last_request_date type="date">2016-06-24</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -15269,7 +15274,7 @@ ORDER BY "INSTANCE_ID"</query>
       <description type="str"></description>
       <success_message type="str"></success_message>
       <error_message type="str"></error_message>
-      <execute_always type="bool">False</execute_always>
+      <execute_always type="bool">True</execute_always>
       <sort type="int">3</sort>
     </entry>
     <entry table="action">
@@ -31860,6 +31865,94 @@ ORDER BY "INSTANCE_ID"</query>
       <form_group type="int">243</form_group>
       <form type="int">247</form>
     </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">41</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">42</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">43</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">45</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">46</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">121</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">181</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">201</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">221</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">222</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">223</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">224</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">225</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">241</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">242</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">243</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">244</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">245</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">246</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">247</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">248</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">244</form_group>
+      <form type="int">249</form>
+    </entry>
   </configuration.FormGroupForm>
   <configuration.DocgenTemplateClass table="docgen_template_class">
     <entry table="docgen_template_class">
@@ -31910,18 +32003,6 @@ ORDER BY "INSTANCE_ID"</query>
       <path type="str">Publikation.php</path>
       <type type="int">1</type>
     </entry>
-    <entry table="docgen_template_class">
-      <docgen_template_class_id type="int">162</docgen_template_class_id>
-      <name type="str">Laufzettel NP</name>
-      <path type="str">LaufzettelNP.php</path>
-      <type type="int">2</type>
-    </entry>
-    <entry table="docgen_template_class">
-      <docgen_template_class_id type="int">201</docgen_template_class_id>
-      <name type="str">Rechnung NP</name>
-      <path type="str">RechnungNP.php</path>
-      <type type="int">1</type>
-    </entry>
   </configuration.DocgenTemplateClass>
   <configuration.DocgenTemplate table="docgen_template">
     <entry table="docgen_template">
@@ -31957,7 +32038,7 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">121</docgen_template_id>
       <name type="str">Rechnung</name>
-      <path type="str">bill.docx</path>
+      <path type="str">billKOORBG.docx</path>
       <type type="int">1</type>
     </entry>
     <entry table="docgen_template">
@@ -31981,7 +32062,19 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">202</docgen_template_id>
       <name type="str">Rechnung NP</name>
-      <path type="str">billnp.docx</path>
+      <path type="str">billKOORNP.docx</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">203</docgen_template_id>
+      <name type="str">Laufzettel Baudirektion</name>
+      <path type="str">laufzettelBD.zip</path>
+      <type type="int">2</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">204</docgen_template_id>
+      <name type="str">Rechnung BD</name>
+      <path type="str">bill2KOORBD.docx</path>
       <type type="int">1</type>
     </entry>
   </configuration.DocgenTemplate>
@@ -32018,13 +32111,18 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_pdf_action">
       <docgen_template type="int">161</docgen_template>
-      <docgen_template_class type="int">162</docgen_template_class>
+      <docgen_template_class type="int">82</docgen_template_class>
       <action type="int">661</action>
     </entry>
     <entry table="docgen_pdf_action">
       <docgen_template type="int">181</docgen_template>
       <docgen_template_class type="int">84</docgen_template_class>
       <action type="int">810</action>
+    </entry>
+    <entry table="docgen_pdf_action">
+      <docgen_template type="int">203</docgen_template>
+      <docgen_template_class type="int">82</docgen_template_class>
+      <action type="int">981</action>
     </entry>
   </configuration.DocgenPdfAction>
   <configuration.DocgenDocxAction table="docgen_docx_action">
@@ -32070,8 +32168,13 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">202</docgen_template>
-      <docgen_template_class type="int">201</docgen_template_class>
+      <docgen_template_class type="int">122</docgen_template_class>
       <action type="int">790</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">204</docgen_template>
+      <docgen_template_class type="int">122</docgen_template_class>
+      <action type="int">998</action>
     </entry>
   </configuration.DocgenDocxAction>
   <configuration.DocgenActivationactionAction table="docgen_activationaction_action">
@@ -32174,6 +32277,41 @@ ORDER BY "INSTANCE_ID"</query>
       <hash type="str">9a36929f-5349-4994-89f2-c14d7524a15a</hash>
       <export_date type="datetime">2016-06-20 14:15:43</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch </author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">50</id>
+      <hash type="str">e74f8b8b-30e8-4c97-9d49-3524c35cd432</hash>
+      <export_date type="datetime">2016-06-22 11:13:01</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">51</id>
+      <hash type="str">4887019e-5dda-48f5-8db5-30b5982ced7f</hash>
+      <export_date type="datetime">2016-06-22 14:09:04</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">52</id>
+      <hash type="str">39df9606-a9ec-4d94-99f9-616df5a253ff</hash>
+      <export_date type="datetime">2016-06-23 11:33:41</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">53</id>
+      <hash type="str">a0c8536c-dd01-4dca-8efb-e746d0dd6637</hash>
+      <export_date type="datetime">2016-06-23 11:53:04</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">54</id>
+      <hash type="str">25b541a8-9c6f-41e6-bba9-8de36d110350</hash>
+      <export_date type="datetime">2016-06-24 14:15:45</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
     </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
