@@ -1,4 +1,4 @@
-<config_data version="25b541a8-9c6f-41e6-bba9-8de36d110350">
+<config_data version="c6654c26-8229-4fab-9bba-b6e8279afe48">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -1984,7 +1984,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <instance_resource_id type="int">586</instance_resource_id>
       <available_instance_resource type="str">page</available_instance_resource>
       <resource type="int">41</resource>
-      <name type="str">Kommissionsmitglieder</name>
+      <name type="str">Dossier freischalten für:</name>
       <description type="str">Verwalten der Kommissionsmitglieder</description>
       <template type="str">/dept/commissioners.phtml</template>
       <class_field type="str">commissioners</class_field>
@@ -2157,13 +2157,13 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">45</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Plangenehmigungsverfahren nach Luftfahrtgesetz</name>
+      <name type="str">PGV nach Luftfahrtgesetz</name>
       <description type="str">KOOR BG</description>
     </entry>
     <entry table="form">
       <form_id type="int">46</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Plangenehmigungsverfahren für militärische Bauten</name>
+      <name type="str">PGV für militärische Bauten</name>
       <description type="str">KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2229,7 +2229,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">121</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch</name>
+      <name type="str">Reklame-Gesuch via Gemeinde</name>
       <description type="str">GEM, KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2318,8 +2318,8 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     </entry>
     <entry table="form">
       <form_id type="int">246</form_id>
-      <form_state type="int">2</form_state>
-      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2, Artikel 0 (ORR)</name>
+      <form_state type="int">1</form_state>
+      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2, Artikel 3 (ORR)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
@@ -2337,7 +2337,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">249</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch BD</name>
+      <name type="str">Reklame-Gesuch via BD</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
   </configuration.Form>
@@ -2708,7 +2708,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-29</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2723,7 +2723,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-29</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2738,7 +2738,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-04-28</last_request_date>
+      <last_request_date type="date">2016-06-29</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4448,7 +4448,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-24</last_request_date>
+      <last_request_date type="date">2016-06-29</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -11131,7 +11131,7 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">21</group_id>
       <role type="int">1061</role>
       <service type="int">87</service>
-      <name type="str">ARE - Abteilung Raumplanung - Koordination Nutzungsplanung</name>
+      <name type="str">KOOR NP - ARE - Koordination Nutzungsplanung</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -11251,7 +11251,7 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">142</group_id>
       <role type="int">3</role>
       <service type="int">1</service>
-      <name type="str">ARE - Abteilung Raumplanung - Koordination Baugesuche</name>
+      <name type="str">KOOR BG - ARE - Koordinationsstelle für Baueingaben</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -12295,7 +12295,7 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">502</group_id>
       <role type="int">1101</role>
       <service type="int">302</service>
-      <name type="str">Koordinationsstelle Baudirektion</name>
+      <name type="str">KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -16109,6 +16109,11 @@ ORDER BY "INSTANCE_ID"</query>
       <default_group type="bool">False</default_group>
     </entry>
     <entry table="user_group">
+      <user type="int">21</user>
+      <group type="int">502</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
       <user type="int">41</user>
       <group type="int">22</group>
       <default_group type="bool">True</default_group>
@@ -18661,6 +18666,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_role_acl">
       <resource type="int">222</resource>
       <role type="int">3</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">222</resource>
+      <role type="int">4</role>
     </entry>
     <entry table="r_role_acl">
       <resource type="int">223</resource>
@@ -28150,11 +28159,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="ir_role_acl">
       <instance_resource type="int">4</instance_resource>
       <role type="int">3</role>
-      <instance_state type="int">21</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">4</instance_resource>
-      <role type="int">3</role>
       <instance_state type="int">22</instance_state>
     </entry>
     <entry table="ir_role_acl">
@@ -28535,81 +28539,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="ir_role_acl">
       <instance_resource type="int">205</instance_resource>
       <role type="int">3</role>
-      <instance_state type="int">27</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">1</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">21</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">22</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">23</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">24</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">25</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">26</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">3</role>
-      <instance_state type="int">27</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">21</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">22</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">23</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">24</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">25</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
-      <instance_state type="int">26</instance_state>
-    </entry>
-    <entry table="ir_role_acl">
-      <instance_resource type="int">225</instance_resource>
-      <role type="int">6</role>
       <instance_state type="int">27</instance_state>
     </entry>
     <entry table="ir_role_acl">
@@ -29624,6 +29553,31 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">605</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">605</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">605</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
       <role type="int">1101</role>
       <instance_state type="int">24</instance_state>
     </entry>
@@ -32207,6 +32161,13 @@ ORDER BY "INSTANCE_ID"</query>
       <hash type="str">79390d58-9338-41bf-80e1-5f6f5d320ced</hash>
       <export_date type="datetime">2016-06-17 00:00:00</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch </author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">2</id>
+      <hash type="str">c6654c26-8229-4fab-9bba-b6e8279afe48</hash>
+      <export_date type="datetime">2016-06-29 12:25:10</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
     </entry>
     <entry table="configuration_version">
       <id type="int">3</id>
