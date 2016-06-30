@@ -1,4 +1,4 @@
-<config_data version="e5653af7-05d5-4914-a681-cd22e8c8a129">
+<config_data version="0e4c9fd9-680f-4acc-b58a-5df0dfc063a0">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -80,11 +80,16 @@
     <entry table="form_group">
       <form_group_id type="int">244</form_group_id>
       <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD</name>
-      <description type="str"></description>
+      <description type="str">Alle Dossiers von Koor BG und BD erstellt</description>
     </entry>
     <entry table="form_group">
       <form_group_id type="int">245</form_group_id>
       <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD, auch die von der Gemeinde, ohne das Verfahren mit kantonalem Gebiet</name>
+      <description type="str"></description>
+    </entry>
+    <entry table="form_group">
+      <form_group_id type="int">246</form_group_id>
+      <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD egal wer dass erstellt</name>
       <description type="str"></description>
     </entry>
   </configuration.FormGroup>
@@ -1525,7 +1530,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">7</sort>
+      <sort type="int">9</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1657,7 +1662,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str">/global/involved-department.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">8</sort>
+      <sort type="int">10</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1669,7 +1674,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">4</sort>
+      <sort type="int">6</sort>
       <form_group type="int">181</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1681,7 +1686,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">3</sort>
+      <sort type="int">5</sort>
       <form_group type="int">244</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1693,7 +1698,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">5</sort>
+      <sort type="int">7</sort>
       <form_group type="int">32</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1729,7 +1734,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">6</sort>
+      <sort type="int">8</sort>
       <form_group type="int">181</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1922,7 +1927,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">2</sort>
+      <sort type="int">3</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1994,7 +1999,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str">/dept/commissioners.phtml</template>
       <class_field type="str">commissioners</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">9</sort>
+      <sort type="int">11</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -2725,7 +2730,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-29</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2740,7 +2745,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-29</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4465,7 +4470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-29</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -18734,10 +18739,6 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">3</role>
     </entry>
     <entry table="r_role_acl">
-      <resource type="int">222</resource>
-      <role type="int">4</role>
-    </entry>
-    <entry table="r_role_acl">
       <resource type="int">223</resource>
       <role type="int">1061</role>
     </entry>
@@ -32424,10 +32425,6 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
-      <form type="int">21</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
       <form type="int">41</form>
     </entry>
     <entry table="form_group_form">
@@ -32440,31 +32437,11 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
-      <form type="int">44</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
       <form type="int">45</form>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
       <form type="int">46</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
-      <form type="int">47</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
-      <form type="int">61</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
-      <form type="int">121</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
-      <form type="int">141</form>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
@@ -32517,10 +32494,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
       <form type="int">246</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
-      <form type="int">247</form>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
@@ -32632,6 +32605,110 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">245</form_group>
+      <form type="int">249</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">21</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">41</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">42</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">43</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">44</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">45</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">46</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">61</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">121</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">141</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">181</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">201</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">221</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">222</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">223</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">224</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">225</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">241</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">242</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">243</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">244</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">245</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">246</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">247</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">248</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
       <form type="int">249</form>
     </entry>
   </configuration.FormGroupForm>
@@ -32890,13 +32967,6 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">christian.zosel@adfinis-sygroup.ch </author>
     </entry>
     <entry table="configuration_version">
-      <id type="int">2</id>
-      <hash type="str">c6654c26-8229-4fab-9bba-b6e8279afe48</hash>
-      <export_date type="datetime">2016-06-29 12:25:10</export_date>
-      <author type="str">stefan.heinemann@adfinis-sygroup.ch
-</author>
-    </entry>
-    <entry table="configuration_version">
       <id type="int">3</id>
       <hash type="str">5b970905-2378-474f-a8bc-ba267bce388f</hash>
       <export_date type="datetime">2016-06-16 00:00:00</export_date>
@@ -33009,6 +33079,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">76</id>
       <hash type="str">e5653af7-05d5-4914-a681-cd22e8c8a129</hash>
       <export_date type="datetime">2016-06-29 12:03:48</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">77</id>
+      <hash type="str">0e4c9fd9-680f-4acc-b58a-5df0dfc063a0</hash>
+      <export_date type="datetime">2016-06-30 08:11:24</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
