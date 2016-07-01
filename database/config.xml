@@ -1,4 +1,4 @@
-<config_data version="c3ee0722-24d9-472e-8e9d-33c1c1a09310">
+<config_data version="0e4c9fd9-680f-4acc-b58a-5df0dfc063a0">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -80,6 +80,16 @@
     <entry table="form_group">
       <form_group_id type="int">244</form_group_id>
       <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD</name>
+      <description type="str">Alle Dossiers von Koor BG und BD erstellt</description>
+    </entry>
+    <entry table="form_group">
+      <form_group_id type="int">245</form_group_id>
+      <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD, auch die von der Gemeinde, ohne das Verfahren mit kantonalem Gebiet</name>
+      <description type="str"></description>
+    </entry>
+    <entry table="form_group">
+      <form_group_id type="int">246</form_group_id>
+      <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD egal wer dass erstellt</name>
       <description type="str"></description>
     </entry>
   </configuration.FormGroup>
@@ -1432,12 +1442,12 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <available_instance_resource type="str">formpage</available_instance_resource>
       <resource type="int">41</resource>
       <name type="str">Dossier ansehen</name>
-      <description type="str"></description>
+      <description type="str">Dossier Ansehen alle Dossiers von BG und BD</description>
       <template type="str">/form/read.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">0</sort>
-      <form_group type="int">244</form_group>
+      <form_group type="int">245</form_group>
     </entry>
     <entry table="instance_resource">
       <instance_resource_id type="int">46</instance_resource_id>
@@ -1520,7 +1530,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">7</sort>
+      <sort type="int">9</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1652,7 +1662,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str">/global/involved-department.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">8</sort>
+      <sort type="int">10</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1664,7 +1674,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">4</sort>
+      <sort type="int">6</sort>
       <form_group type="int">181</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1676,7 +1686,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">3</sort>
+      <sort type="int">5</sort>
       <form_group type="int">244</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1688,7 +1698,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">5</sort>
+      <sort type="int">7</sort>
       <form_group type="int">32</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1724,7 +1734,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">6</sort>
+      <sort type="int">8</sort>
       <form_group type="int">181</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1917,7 +1927,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">2</sort>
+      <sort type="int">3</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1984,12 +1994,12 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <instance_resource_id type="int">586</instance_resource_id>
       <available_instance_resource type="str">page</available_instance_resource>
       <resource type="int">41</resource>
-      <name type="str">Kommissionsmitglieder</name>
+      <name type="str">Dossier freischalten für:</name>
       <description type="str">Verwalten der Kommissionsmitglieder</description>
       <template type="str">/dept/commissioners.phtml</template>
       <class_field type="str">commissioners</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">9</sort>
+      <sort type="int">11</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -2112,6 +2122,18 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <sort type="int">1</sort>
       <form_group type="int">243</form_group>
     </entry>
+    <entry table="instance_resource">
+      <instance_resource_id type="int">650</instance_resource_id>
+      <available_instance_resource type="str">formpage</available_instance_resource>
+      <resource type="int">41</resource>
+      <name type="str">Dossier ansehen</name>
+      <description type="str">Ansehen Dossier Baubewilligungsverfahren für die Beanspruchung von Kantonsgebiet</description>
+      <template type="str">/form/bd-form-247-read.phtml</template>
+      <class_field type="str"></class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">2</sort>
+      <form_group type="int">243</form_group>
+    </entry>
   </configuration.InstanceResource>
   <configuration.FormState table="form_state">
     <entry table="form_state">
@@ -2157,13 +2179,13 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">45</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Plangenehmigungsverfahren nach Luftfahrtgesetz</name>
+      <name type="str">PGV nach Luftfahrtgesetz</name>
       <description type="str">KOOR BG</description>
     </entry>
     <entry table="form">
       <form_id type="int">46</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Plangenehmigungsverfahren für militärische Bauten</name>
+      <name type="str">PGV für militärische Bauten</name>
       <description type="str">KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2229,7 +2251,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">121</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch</name>
+      <name type="str">Reklame-Gesuch via Gemeinde</name>
       <description type="str">GEM, KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2318,8 +2340,8 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     </entry>
     <entry table="form">
       <form_id type="int">246</form_id>
-      <form_state type="int">2</form_state>
-      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2, Artikel 0 (ORR)</name>
+      <form_state type="int">1</form_state>
+      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2, Artikel 3 (ORR)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
@@ -2337,7 +2359,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">249</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch BD</name>
+      <name type="str">Reklame-Gesuch via BD</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
   </configuration.Form>
@@ -2708,7 +2730,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-06-27</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2723,7 +2745,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-27</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4448,7 +4470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-06-27</last_request_date>
+      <last_request_date type="date">2016-06-30</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -7240,6 +7262,10 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_group_id type="int">66</service_group_id>
       <name type="str">Fachstellen Finanzdirektion</name>
     </entry>
+    <entry table="service_group">
+      <service_group_id type="int">67</service_group_id>
+      <name type="str">Gemeinden als Vernehmlassungsstellen</name>
+    </entry>
   </configuration.ServiceGroup>
   <configuration.Service table="service">
     <entry table="service">
@@ -8012,6 +8038,20 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <email type="str"></email>
       <website type="str"></website>
     </entry>
+    <entry table="service">
+      <service_id type="int">322</service_id>
+      <service_group type="int">67</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Altdorf</name>
+      <description type="str">Gemeinde Altdorf als Vernehmlassungsstelle</description>
+      <sort type="int">0</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
   </configuration.Service>
   <configuration.Role table="role">
     <entry table="role">
@@ -8068,6 +8108,11 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <role_id type="int">1101</role_id>
       <role_parent type="NoneType">None</role_parent>
       <name type="str">Koordinationsstelle Baudirektion BD</name>
+    </entry>
+    <entry table="role">
+      <role_id type="int">1102</role_id>
+      <role_parent type="NoneType">None</role_parent>
+      <name type="str">Gemeinde als Vernehmlassungsstelle</name>
     </entry>
   </configuration.Role>
   <configuration.RSearch table="r_search">
@@ -11131,7 +11176,7 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">21</group_id>
       <role type="int">1061</role>
       <service type="int">87</service>
-      <name type="str">ARE - Abteilung Raumplanung - Koordination Nutzungsplanung</name>
+      <name type="str">KOOR NP - ARE - Koordination Nutzungsplanung</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -11251,7 +11296,7 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">142</group_id>
       <role type="int">3</role>
       <service type="int">1</service>
-      <name type="str">ARE - Abteilung Raumplanung - Koordination Baugesuche</name>
+      <name type="str">KOOR BG - ARE - Koordinationsstelle für Baueingaben</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -12295,7 +12340,19 @@ ORDER BY "INSTANCE_ID"</query>
       <group_id type="int">502</group_id>
       <role type="int">1101</role>
       <service type="int">302</service>
-      <name type="str">Koordinationsstelle Baudirektion</name>
+      <name type="str">KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren</name>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="group">
+      <group_id type="int">503</group_id>
+      <role type="int">1102</role>
+      <service type="int">322</service>
+      <name type="str">Gemeinde Altdorf als Vernehmlassungsstelle</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -16109,6 +16166,11 @@ ORDER BY "INSTANCE_ID"</query>
       <default_group type="bool">False</default_group>
     </entry>
     <entry table="user_group">
+      <user type="int">21</user>
+      <group type="int">502</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
       <user type="int">41</user>
       <group type="int">22</group>
       <default_group type="bool">True</default_group>
@@ -16980,6 +17042,11 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="user_group">
       <user type="int">286</user>
+      <group type="int">82</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">286</user>
       <group type="int">122</group>
       <default_group type="bool">False</default_group>
     </entry>
@@ -17016,6 +17083,11 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="user_group">
       <user type="int">286</user>
       <group type="int">502</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">286</user>
+      <group type="int">503</group>
       <default_group type="bool">False</default_group>
     </entry>
     <entry table="user_group">
@@ -18595,6 +18667,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1021</role>
     </entry>
     <entry table="r_role_acl">
+      <resource type="int">41</resource>
+      <role type="int">1102</role>
+    </entry>
+    <entry table="r_role_acl">
       <resource type="int">42</resource>
       <role type="int">3</role>
     </entry>
@@ -20032,6 +20108,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">21</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">41</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -20266,6 +20348,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">41</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">42</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -20548,6 +20636,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">42</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">43</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -20782,6 +20876,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">43</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">44</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -21022,6 +21122,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">44</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">45</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -21256,6 +21362,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">45</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">46</form>
       <role type="int">3</role>
       <instance_state type="int">1</instance_state>
@@ -21486,6 +21598,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">1</page>
       <form type="int">46</form>
       <role type="int">1081</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">46</form>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
@@ -21677,7 +21795,49 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
       <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1021</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
       <role type="int">1081</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">47</form>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
@@ -21875,7 +22035,97 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
       <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1021</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
       <role type="int">1081</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">61</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">101</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">102</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">103</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">104</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">105</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">106</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">107</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">108</form>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
@@ -22102,32 +22352,38 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
-      <form type="int">141</form>
-      <role type="int">3</role>
-      <instance_state type="int">1</instance_state>
-    </entry>
-    <entry table="page_form_role_acl">
-      <page type="int">1</page>
-      <form type="int">141</form>
-      <role type="int">3</role>
-      <instance_state type="int">21</instance_state>
-    </entry>
-    <entry table="page_form_role_acl">
-      <page type="int">1</page>
-      <form type="int">141</form>
-      <role type="int">3</role>
-      <instance_state type="int">22</instance_state>
-    </entry>
-    <entry table="page_form_role_acl">
-      <page type="int">1</page>
-      <form type="int">141</form>
-      <role type="int">3</role>
+      <form type="int">121</form>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
       <form type="int">141</form>
       <role type="int">3</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">141</form>
+      <role type="int">3</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">141</form>
+      <role type="int">3</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">141</form>
+      <role type="int">3</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">141</form>
+      <role type="int">3</role>
       <instance_state type="int">24</instance_state>
     </entry>
     <entry table="page_form_role_acl">
@@ -22324,6 +22580,18 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">141</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">161</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">181</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -22534,6 +22802,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">181</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">201</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -22744,6 +23018,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">201</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">221</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -22954,6 +23234,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">221</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">222</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -23164,6 +23450,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">222</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">223</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -23374,6 +23666,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">223</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">224</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -23584,6 +23882,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">224</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">225</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -23794,6 +24098,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">225</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">241</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -24004,6 +24314,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">241</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">242</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -24214,6 +24530,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">242</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">243</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -24424,6 +24746,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">243</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">244</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -24634,6 +24962,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">244</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">245</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -24844,6 +25178,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">245</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">246</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -25054,6 +25394,18 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">246</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">247</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">248</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -25264,6 +25616,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
+      <form type="int">248</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
       <form type="int">249</form>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -25473,6 +25831,12 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">27</instance_state>
     </entry>
     <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">249</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
       <page type="int">81</page>
       <form type="int">101</form>
       <role type="int">4</role>
@@ -25714,6 +26078,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">101</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">102</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -25960,6 +26330,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">102</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">103</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -26206,6 +26582,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">103</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">104</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -26446,6 +26828,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">104</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">105</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -26692,6 +27080,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">105</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">106</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -26938,6 +27332,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">106</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">107</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -27184,6 +27584,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">81</page>
+      <form type="int">107</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
       <form type="int">108</form>
       <role type="int">4</role>
       <instance_state type="int">1</instance_state>
@@ -27426,6 +27832,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">81</page>
       <form type="int">108</form>
       <role type="int">1081</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">81</page>
+      <form type="int">108</form>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
@@ -27603,6 +28015,12 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="page_form_role_acl">
+      <page type="int">81</page>
+      <form type="int">161</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
       <page type="int">82</page>
       <form type="int">247</form>
       <role type="int">4</role>
@@ -27811,6 +28229,12 @@ ORDER BY "INSTANCE_ID"</query>
       <form type="int">247</form>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">82</page>
+      <form type="int">247</form>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
   </configuration.PageFormRoleAcl>
   <configuration.PageFormGroupAcl table="page_form_group_acl"/>
@@ -28221,6 +28645,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_resource type="int">22</instance_resource>
       <role type="int">1021</role>
       <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">22</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">46</instance_resource>
@@ -29363,6 +29792,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">26</instance_state>
     </entry>
     <entry table="ir_role_acl">
+      <instance_resource type="int">505</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
       <instance_resource type="int">525</instance_resource>
       <role type="int">4</role>
       <instance_state type="int">23</instance_state>
@@ -29628,6 +30062,31 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">24</instance_state>
     </entry>
     <entry table="ir_role_acl">
+      <instance_resource type="int">605</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">605</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">606</instance_resource>
+      <role type="int">1101</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
       <instance_resource type="int">606</instance_resource>
       <role type="int">1101</role>
       <instance_state type="int">25</instance_state>
@@ -29847,6 +30306,76 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
     </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1081</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">650</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
   </configuration.IrRoleAcl>
   <configuration.IrPage table="ir_page">
     <entry table="ir_page">
@@ -29968,6 +30497,11 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="ir_formpage">
       <instance_resource type="int">606</instance_resource>
       <page type="int">1</page>
+      <pdf_class type="str"></pdf_class>
+    </entry>
+    <entry table="ir_formpage">
+      <instance_resource type="int">650</instance_resource>
+      <page type="int">82</page>
       <pdf_class type="str"></pdf_class>
     </entry>
   </configuration.IrFormpage>
@@ -30256,6 +30790,30 @@ ORDER BY "INSTANCE_ID"</query>
       <ir_editcirculation_sg_id type="int">211</ir_editcirculation_sg_id>
       <instance_resource type="int">625</instance_resource>
       <service_group type="int">66</service_group>
+      <localized type="bool">False</localized>
+    </entry>
+    <entry table="ir_editcirculation_sg">
+      <ir_editcirculation_sg_id type="int">212</ir_editcirculation_sg_id>
+      <instance_resource type="int">305</instance_resource>
+      <service_group type="int">67</service_group>
+      <localized type="bool">False</localized>
+    </entry>
+    <entry table="ir_editcirculation_sg">
+      <ir_editcirculation_sg_id type="int">213</ir_editcirculation_sg_id>
+      <instance_resource type="int">315</instance_resource>
+      <service_group type="int">67</service_group>
+      <localized type="bool">False</localized>
+    </entry>
+    <entry table="ir_editcirculation_sg">
+      <ir_editcirculation_sg_id type="int">214</ir_editcirculation_sg_id>
+      <instance_resource type="int">467</instance_resource>
+      <service_group type="int">67</service_group>
+      <localized type="bool">False</localized>
+    </entry>
+    <entry table="ir_editcirculation_sg">
+      <ir_editcirculation_sg_id type="int">215</ir_editcirculation_sg_id>
+      <instance_resource type="int">625</instance_resource>
+      <service_group type="int">67</service_group>
       <localized type="bool">False</localized>
     </entry>
   </configuration.IrEditcirculationSg>
@@ -31887,10 +32445,6 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
-      <form type="int">121</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
       <form type="int">181</form>
     </entry>
     <entry table="form_group_form">
@@ -31943,14 +32497,218 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
-      <form type="int">247</form>
-    </entry>
-    <entry table="form_group_form">
-      <form_group type="int">244</form_group>
       <form type="int">248</form>
     </entry>
     <entry table="form_group_form">
       <form_group type="int">244</form_group>
+      <form type="int">249</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">21</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">41</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">42</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">43</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">44</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">45</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">46</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">47</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">61</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">121</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">141</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">181</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">201</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">221</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">222</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">223</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">224</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">225</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">241</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">242</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">243</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">244</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">245</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">246</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">248</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">245</form_group>
+      <form type="int">249</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">21</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">41</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">42</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">43</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">44</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">45</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">46</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">61</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">121</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">141</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">181</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">201</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">221</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">222</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">223</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">224</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">225</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">241</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">242</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">243</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">244</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">245</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">246</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">247</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
+      <form type="int">248</form>
+    </entry>
+    <entry table="form_group_form">
+      <form_group type="int">246</form_group>
       <form type="int">249</form>
     </entry>
   </configuration.FormGroupForm>
@@ -32307,6 +33065,27 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">55</id>
       <hash type="str">c3ee0722-24d9-472e-8e9d-33c1c1a09310</hash>
       <export_date type="datetime">2016-06-27 15:07:17</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">75</id>
+      <hash type="str">44c8a319-a6b5-460c-81f3-2eb97df6010c</hash>
+      <export_date type="datetime">2016-06-29 12:03:37</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">76</id>
+      <hash type="str">e5653af7-05d5-4914-a681-cd22e8c8a129</hash>
+      <export_date type="datetime">2016-06-29 12:03:48</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">77</id>
+      <hash type="str">0e4c9fd9-680f-4acc-b58a-5df0dfc063a0</hash>
+      <export_date type="datetime">2016-06-30 08:11:24</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
@@ -32695,12 +33474,24 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
       <page type="int">21</page>
       <role type="int">1081</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">1</chapter>
+      <page type="int">21</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
       <page type="int">81</page>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -32905,6 +33696,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">1</chapter>
+      <page type="int">81</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
       <page type="int">82</page>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -33108,6 +33905,12 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">27</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">82</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
       <chapter type="int">2</chapter>
       <page type="int">1</page>
       <role type="int">3</role>
@@ -33400,6 +34203,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">1</page>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">2</chapter>
@@ -33409,6 +34218,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">2</chapter>
+      <page type="int">21</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
       <page type="int">81</page>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -33613,6 +34428,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">2</chapter>
+      <page type="int">81</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
       <page type="int">82</page>
       <role type="int">4</role>
       <instance_state type="int">21</instance_state>
@@ -33814,6 +34635,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">82</page>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">82</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">3</chapter>
@@ -34144,6 +34971,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">1</page>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">21</chapter>
@@ -34152,6 +34985,12 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">21</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
       <chapter type="int">101</chapter>
       <page type="int">81</page>
       <role type="int">4</role>
@@ -34356,6 +35195,12 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
+      <chapter type="int">101</chapter>
+      <page type="int">81</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
       <chapter type="int">102</chapter>
       <page type="int">82</page>
       <role type="int">4</role>
@@ -34570,6 +35415,12 @@ ORDER BY "INSTANCE_ID"</query>
       <page type="int">82</page>
       <role type="int">1101</role>
       <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">102</chapter>
+      <page type="int">82</page>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
   </configuration.ChapterPageRoleAcl>
   <configuration.ChapterPageGroupAcl table="chapter_page_group_acl"/>
