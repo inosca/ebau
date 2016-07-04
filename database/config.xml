@@ -1,4 +1,4 @@
-<config_data version="ecea16b3-dff4-42e2-8073-84a79a33bcfa">
+<config_data version="bcb156d7-c4f6-498e-9198-ac653fcbf2dc">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -18805,13 +18805,6 @@ ORDER BY "INSTANCE_ID"</query>
       <sort type="int">0</sort>
     </entry>
     <entry table="r_list_column">
-      <r_list_column_id type="int">35</r_list_column_id>
-      <resource type="int">24</resource>
-      <column_name type="str">DOSSIER_NR</column_name>
-      <alias type="str">Dossier-Nr.</alias>
-      <sort type="int">1</sort>
-    </entry>
-    <entry table="r_list_column">
       <r_list_column_id type="int">36</r_list_column_id>
       <resource type="int">24</resource>
       <column_name type="str">FORM</column_name>
@@ -19262,13 +19255,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_list_column">
       <r_list_column_id type="int">326</r_list_column_id>
       <resource type="int">62</resource>
-      <column_name type="str">STREET</column_name>
-      <alias type="str">Strasse/Flurname</alias>
-      <sort type="int">7</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">327</r_list_column_id>
-      <resource type="int">24</resource>
       <column_name type="str">STREET</column_name>
       <alias type="str">Strasse/Flurname</alias>
       <sort type="int">7</sort>
@@ -19860,6 +19846,20 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STATE_DESCRIPTION</column_name>
       <alias type="str">Statusbeschreibung</alias>
       <sort type="int">9</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">556</r_list_column_id>
+      <resource type="int">24</resource>
+      <column_name type="str">DOSSIER_NR</column_name>
+      <alias type="str">DOSSIER_NR</alias>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">557</r_list_column_id>
+      <resource type="int">24</resource>
+      <column_name type="str">STREET</column_name>
+      <alias type="str">STREET</alias>
+      <sort type="int">7</sort>
     </entry>
   </configuration.RListColumn>
   <configuration.RGroupAcl table="r_group_acl"/>
@@ -28877,6 +28877,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
       <instance_resource type="int">205</instance_resource>
       <role type="int">3</role>
       <instance_state type="int">22</instance_state>
@@ -29227,6 +29232,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">24</instance_state>
     </entry>
     <entry table="ir_role_acl">
+      <instance_resource type="int">348</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
       <instance_resource type="int">367</instance_resource>
       <role type="int">4</role>
       <instance_state type="int">23</instance_state>
@@ -29245,6 +29255,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_resource type="int">367</instance_resource>
       <role type="int">1021</role>
       <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">367</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">387</instance_resource>
@@ -29775,6 +29790,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_resource type="int">525</instance_resource>
       <role type="int">1021</role>
       <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">525</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">526</instance_resource>
@@ -33044,6 +33064,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">98</id>
       <hash type="str">ecea16b3-dff4-42e2-8073-84a79a33bcfa</hash>
       <export_date type="datetime">2016-07-04 08:13:41</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">118</id>
+      <hash type="str">bcb156d7-c4f6-498e-9198-ac653fcbf2dc</hash>
+      <export_date type="datetime">2016-07-04 14:39:26</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
@@ -37354,6 +37381,36 @@ ORDER BY "INSTANCE_ID"</query>
       <role_id type="int">1</role_id>
       <mode type="str">admin</mode>
     </entry>
+    <entry table="attachment_section_role">
+      <id type="int">106</id>
+      <attachment_section type="int">41</attachment_section>
+      <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">107</id>
+      <attachment_section type="int">25</attachment_section>
+      <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">108</id>
+      <attachment_section type="int">23</attachment_section>
+      <role_id type="int">1102</role_id>
+      <mode type="str">read</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">109</id>
+      <attachment_section type="int">24</attachment_section>
+      <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">110</id>
+      <attachment_section type="int">21</attachment_section>
+      <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
   </configuration.AttachmentSectionRole>
   <configuration.AttachmentExtensionService table="attachment_extension_service">
     <entry table="attachment_extension_service">
@@ -37446,6 +37503,12 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">55</id>
       <attachment_extension type="int">43</attachment_extension>
       <role type="int">1061</role>
+      <mode type="str"></mode>
+    </entry>
+    <entry table="attachment_extension_role">
+      <id type="int">56</id>
+      <attachment_extension type="int">41</attachment_extension>
+      <role type="int">1102</role>
       <mode type="str"></mode>
     </entry>
   </configuration.AttachmentExtensionRole>
