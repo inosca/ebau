@@ -23,7 +23,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 _init: _init_project _submodule-update
 
-_init-ci: _init_project
+_init-ci: _init_project _submodule-update
 
 _init_project:   # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
