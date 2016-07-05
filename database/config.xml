@@ -1,4 +1,4 @@
-<config_data version="bcb156d7-c4f6-498e-9198-ac653fcbf2dc">
+<config_data version="4a2eaacc-03e2-4210-8bb7-becd1a47919a">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2730,7 +2730,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2745,7 +2745,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4470,7 +4470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -33074,6 +33074,20 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">119</id>
+      <hash type="str">db8a8c98-bbcd-43e5-8053-5f12bd79de59</hash>
+      <export_date type="datetime">2016-07-05 09:06:14</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">120</id>
+      <hash type="str">4a2eaacc-03e2-4210-8bb7-becd1a47919a</hash>
+      <export_date type="datetime">2016-07-05 11:20:47</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -35443,7 +35457,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Abteilung Gewässerschutz.</name>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
-      <predefined type="int">1</predefined>
+      <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">46</billing_account_id>
@@ -35677,41 +35691,6 @@ ORDER BY "INSTANCE_ID"</query>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
-      <billing_account_id type="int">282</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">GSUD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">283</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">JD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">284</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">LAB</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">285</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">SID</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">286</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">VD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
       <billing_account_id type="int">287</billing_account_id>
       <name type="str">Gebühr für spezielle Nutzungen</name>
       <account_number type="str">2100.4210.01</account_number>
@@ -35730,6 +35709,27 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Behandlung von Baugesuchen und Voreinfragen durch die Abteilung Raumplanung.</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / RP</department>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">322</billing_account_id>
+      <name type="str">Gebühren für Mitberichte und Stellungnahmen für Plangenehmigungsverfahren (PGV) des Bundes</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">323</billing_account_id>
+      <name type="str">Gebühren für Mitberichte und Stellungnahmen für kantonale Konzessionsverfahren</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">324</billing_account_id>
+      <name type="str">Gebühren gemäss Rechnung</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
       <predefined type="int">1</predefined>
     </entry>
   </configuration.BillingAccount>
