@@ -18,7 +18,7 @@ stages:
 run-test:
     stage: test
     script:
-        - make _init
+        - make _init-ci
         - make db-init
         - make config-import-ci
         - make run-acceptance-tests-ci
