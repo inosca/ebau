@@ -4,10 +4,10 @@ before_script:
     - apk update
     - apk add py-pip
     - pip install docker-compose
-    - docker-compose up -d -f docker/gitlab-ci-compose.yml
+    - docker-compose -f docker/gitlab-ci-compose.yml up -d
 
 after_script:
-    - docker-compose stop -f docker/gitlab-ci-compose.yml
+    - docker-compose -f docker/gitlab-ci-compose.yml stop
  
 
 services:
