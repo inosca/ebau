@@ -2,7 +2,7 @@ image: docker:vcamac-dind
 
 before_script:
     - pip install docker-compose
-    - docker-compose -f docker/gitlab-ci-compose.yml up
+    - docker-compose -f docker/gitlab-ci-compose.yml up -d
 
 after_script:
     - docker-compose -f docker/gitlab-ci-compose.yml stop
@@ -13,6 +13,9 @@ stages:
 run-test:
     stage: test
     script:
+        - docker run -it --rm --name config-import -v "$PWD"/:/usr/src/camac \
+                                                            -e 'USE_DB=docker_dev' \
+                                                            -w /usr/src/camac/ adsy/camac_python_oracle:v8 python .wait-for-oracle-db.py camac_db 1521
         - make _init-ci
         - make db-init
         - make config-import-ci
