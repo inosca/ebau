@@ -1,4 +1,4 @@
-<config_data version="4a2eaacc-03e2-4210-8bb7-becd1a47919a">
+<config_data version="7a035752-5423-4fc7-be35-3607fa0f40e4">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -33088,6 +33088,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">121</id>
+      <hash type="str">7a035752-5423-4fc7-be35-3607fa0f40e4</hash>
+      <export_date type="datetime">2016-07-05 11:26:55</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -35457,7 +35464,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Abteilung Gewässerschutz.</name>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
-      <predefined type="int">0</predefined>
+      <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">46</billing_account_id>
