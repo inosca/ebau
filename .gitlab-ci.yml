@@ -2,6 +2,7 @@ image: docker:latest
 
 before_script:
     - apk update
+    - apk add automake
     - apk add py-pip
     - pip install docker-compose
     - docker-compose -f docker/gitlab-ci-compose.yml up -d
