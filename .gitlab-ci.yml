@@ -15,7 +15,6 @@ stages:
 run-test:
     stage: test
     script:
-        - python .wait-for-oracle-db.py docker_camac_db_1 49161
         - make _init
         - make db-init
         - make config-import-ci
