@@ -9,13 +9,6 @@ before_script:
 after_script:
     - docker-compose -f docker/gitlab-ci-compose.yml stop
  
-
-services:
-    - docker:dind
-    #  - adsy/camac_php_oracle:v1
-    #  - memcached
-    #  - wnameless/oracle-xe-11g
-
 stages:
     - test
 
