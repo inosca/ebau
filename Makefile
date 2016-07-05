@@ -95,13 +95,16 @@ deploy-test-server: css _classloader ## Move the code onto the test server
 run-deploy-db: ## This is merely a command to help run another docker instance for deploying
 	docker-compose -f docker/docker-deploy-db.yml up
 
+
 config-export: ## export the current database configuration
 	@make -C db_admin/ exportconfig
 	@echo "Config successfully written"
 
+
 config-import: ## import the current database configuration. This will override your existing stuff!
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
+
 
 config-import-ci: 
 	docker run -it --rm --name config-import -v "$PWD"/db_admin:/usr/src/camac \
@@ -109,13 +112,16 @@ config-import-ci:
 		-w /usr/src/camac/ adsy/camac_python_oracle:v8 python uri_database/manage.py importconfig
 	@echo "Config successfully imported"
 
+
 data-truncate: ## Truncate the data in the database
 	@make -C db_admin/ truncatedata
 	# @make -C db_admin/ reset_sequences # TODO
 	@echo "Data sucessfully truncated"
 
+
 config-shell: ## start a database shell from the configuration management application
 	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
+
 
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -123,6 +129,7 @@ help: ## Show the help messages
 
 run-acceptance-tests: ## run the acceptance tests
 	@make -C db_admin/ run-acceptance-tests ${ARGS}
+
 
 run-acceptance-tests-ci: ## run the acceptance tests in CI
 	docker run -it --rm --name config-import -v "$PWD"/db_admin:/usr/src/camac \
