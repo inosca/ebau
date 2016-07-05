@@ -5,8 +5,6 @@ SHELL:=/bin/bash
 
 .DEFAULT_GOAL := help
 
-PHP_DEFINES=-d log_errors=1 -d display_errors=1 -d error_reporting=32767 -d display_startup_errors=1
-
 DB_CONTAINER?=docker_camac_db_1
 
 
