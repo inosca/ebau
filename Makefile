@@ -30,6 +30,7 @@ _init_project:   # Initialise the code, create the necessary symlinks
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@rm -f camac/configuration/configs/application.ini
 	@ln -s application-dev.ini camac/configuration/configs/application.ini
+	ls 
 	ls camac/library/
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	ls camac/library/
