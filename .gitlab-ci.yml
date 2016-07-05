@@ -1,4 +1,4 @@
-image: docker:latest
+image: docker:vcamac-dind
 
 before_script:
     - apk update
