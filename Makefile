@@ -71,8 +71,8 @@ structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable
 	@tools/camac/export-structure.sh $(DB_CONTAINER)
 
 
-#  _classloader: # Build the classmaps. These are important for performance
-#  	@docker exec -it docker_camac_web_1 bash /var/local/tools/camac/classmap_generator.sh
+_classloader: # Build the classmaps. These are important for performance
+	@docker exec -it docker_camac_web_1 bash /var/local/tools/camac/classmap_generator.sh
 
 css: ## Create the css files from the sass files
 	@cd camac/configuration/public/css/; make css
