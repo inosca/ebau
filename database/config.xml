@@ -1,4 +1,4 @@
-<config_data version="950d7741-e9e4-42b0-b755-0479b3959d28">
+<config_data version="5532b6a4-1b6a-4818-aa67-54ec046267f1">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2730,7 +2730,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-07-05</last_request_date>
+      <last_request_date type="date">2016-07-06</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2745,7 +2745,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-05</last_request_date>
+      <last_request_date type="date">2016-07-06</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4470,7 +4470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-05</last_request_date>
+      <last_request_date type="date">2016-07-06</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -33102,6 +33102,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">123</id>
+      <hash type="str">5532b6a4-1b6a-4818-aa67-54ec046267f1</hash>
+      <export_date type="datetime">2016-07-06 10:49:44</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -36317,8 +36324,18 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
+      <button type="int">290</button>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
       <button type="int">291</button>
       <role type="int">4</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">291</button>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
@@ -36342,8 +36359,18 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
+      <button type="int">304</button>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
       <button type="int">305</button>
       <role type="int">4</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">305</button>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
@@ -36652,8 +36679,18 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
+      <button type="int">628</button>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
       <button type="int">648</button>
       <role type="int">4</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">648</button>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
@@ -36662,8 +36699,18 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
+      <button type="int">649</button>
+      <role type="int">1102</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
       <button type="int">650</button>
       <role type="int">4</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">650</button>
+      <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="b_role_acl">
