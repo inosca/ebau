@@ -51,11 +51,11 @@ db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER vari
 
 
 db-init: ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
-	@echo "Initialise the database"
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
-	@docker exec -it $(DB_CONTAINER) bash /var/local/tools/database/create_camac_user.sh
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/insert_base_structure.sh
-	@docker exec -it $(DB_CONTAINER) bash /var/local/tools/database/insert_base_structure.sh
+	echo "Initialise the database"
+	docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
+	docker exec -it $(DB_CONTAINER) bash /var/local/tools/database/create_camac_user.sh
+	docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/insert_base_structure.sh
+	docker exec -it $(DB_CONTAINER) bash /var/local/tools/database/insert_base_structure.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
