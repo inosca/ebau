@@ -2760,7 +2760,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-06</last_request_date>
+      <last_request_date type="date">2016-04-28</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -15516,39 +15516,6 @@ ORDER BY "INSTANCE_ID"</query>
       <available_action type="str">workflow</available_action>
       <button type="int">711</button>
       <name type="str">Archivieren WorkflowDate</name>
-      <description type="str"></description>
-      <success_message type="str"></success_message>
-      <error_message type="str"></error_message>
-      <execute_always type="bool">False</execute_always>
-      <sort type="int">1</sort>
-    </entry>
-    <entry table="action">
-      <action_id type="int">995</action_id>
-      <available_action type="str">docx</available_action>
-      <button type="int">712</button>
-      <name type="str">Brief generieren</name>
-      <description type="str"></description>
-      <success_message type="str"></success_message>
-      <error_message type="str"></error_message>
-      <execute_always type="bool">False</execute_always>
-      <sort type="int">0</sort>
-    </entry>
-    <entry table="action">
-      <action_id type="int">996</action_id>
-      <available_action type="str">activation</available_action>
-      <button type="int">713</button>
-      <name type="str">Kommentar speichern</name>
-      <description type="str"></description>
-      <success_message type="str"></success_message>
-      <error_message type="str"></error_message>
-      <execute_always type="bool">False</execute_always>
-      <sort type="int">0</sort>
-    </entry>
-    <entry table="action">
-      <action_id type="int">997</action_id>
-      <available_action type="str">pdf</available_action>
-      <button type="int">713</button>
-      <name type="str">Stellungnahme generieren</name>
       <description type="str"></description>
       <success_message type="str"></success_message>
       <error_message type="str"></error_message>
@@ -32892,11 +32859,6 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">374</action>
     </entry>
     <entry table="docgen_pdf_action">
-      <docgen_template type="int">83</docgen_template>
-      <docgen_template_class type="int">84</docgen_template_class>
-      <action type="int">997</action>
-    </entry>
-    <entry table="docgen_pdf_action">
       <docgen_template type="int">161</docgen_template>
       <docgen_template_class type="int">82</docgen_template_class>
       <action type="int">661</action>
@@ -32922,11 +32884,6 @@ ORDER BY "INSTANCE_ID"</query>
       <docgen_template type="int">61</docgen_template>
       <docgen_template_class type="int">62</docgen_template_class>
       <action type="int">473</action>
-    </entry>
-    <entry table="docgen_docx_action">
-      <docgen_template type="int">61</docgen_template>
-      <docgen_template_class type="int">62</docgen_template_class>
-      <action type="int">995</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">101</docgen_template>
@@ -32987,10 +32944,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_activationaction_action">
       <docgen_activation_action type="int">21</docgen_activation_action>
       <action type="int">811</action>
-    </entry>
-    <entry table="docgen_activationaction_action">
-      <docgen_activation_action type="int">21</docgen_activation_action>
-      <action type="int">996</action>
     </entry>
   </configuration.DocgenActivationactionAction>
   <configuration.ConfigurationVersion table="configuration_version">
@@ -33183,6 +33136,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">124</id>
       <hash type="str">96fc9182-7ea7-41de-a2a9-5b11d1832dca</hash>
       <export_date type="datetime">2016-07-06 13:33:15</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+<entry table="configuration_version">
+      <id type="int">143</id>
+      <hash type="str">29e38a39-66a4-41f5-9431-1b0d8fa2b807</hash>
+      <export_date type="datetime">2016-07-06 11:34:51</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
@@ -36889,71 +36849,6 @@ ORDER BY "INSTANCE_ID"</query>
       <button type="int">711</button>
       <role type="int">1101</role>
       <instance_state type="int">24</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">22</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">23</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">24</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">25</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">26</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">712</button>
-      <role type="int">1101</role>
-      <instance_state type="int">27</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">21</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">22</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">23</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">24</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">25</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">26</instance_state>
-    </entry>
-    <entry table="b_role_acl">
-      <button type="int">713</button>
-      <role type="int">1101</role>
-      <instance_state type="int">27</instance_state>
     </entry>
     <entry table="b_role_acl">
       <button type="int">714</button>
