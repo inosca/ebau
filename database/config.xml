@@ -1,4 +1,4 @@
-<config_data version="29e38a39-66a4-41f5-9431-1b0d8fa2b807">
+<config_data version="96fc9182-7ea7-41de-a2a9-5b11d1832dca">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2155,7 +2155,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">41</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">BGBB / Apparzellierung</name>
+      <name type="str">Verfahren nach BGBB / und Apparzellierungsverfahren</name>
       <description type="str">KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2251,7 +2251,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">121</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch via Gemeinde</name>
+      <name type="str">Reklame-Gesuch (eingereicht via Gemeinde)</name>
       <description type="str">GEM, KOOR BG</description>
     </entry>
     <entry table="form">
@@ -2269,55 +2269,55 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">181</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV Kantonsstrasse Art. 30 StrG</name>
+      <name type="str">PGV Kantonsstrasse (Artikel 30 StrG)</name>
       <description type="str">KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">201</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV Gemeindestrasse 30 StrG</name>
+      <name type="str">PGV Gemeindestrasse (Artikel 30 StrG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">221</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV Korporationsstrasse Art. 30 StrG</name>
+      <name type="str">PGV Korporationsstrasse (Artikel 30 StrG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">222</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV vereinfachtes Verfahren Art. 31 StrG</name>
+      <name type="str">PGV vereinfachtes Verfahren (Artikel 31 StrG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">223</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV öffentliche Gewässer Art. 12 WBG</name>
+      <name type="str">PGV öffentliche Gewässer (Artikel 12 WBG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">224</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">PGV private Gewässer Art. 19 WBG</name>
+      <name type="str">PGV private Gewässer (Artikel 19 WBG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">225</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW, Artikel 18</name>
+      <name type="str">Konzessionsverfahren Regierungsrat für Anlagen bis 1000 kW (Artikel 18 GNG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">241</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Konzessionsverfahren Landrat für Anlagen ab 1000 kW, Artikel 18 GNG</name>
+      <name type="str">Konzessionsverfahren Landrat für Anlagen ab 1000 kW (Artikel 18 GNG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
       <form_id type="int">242</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Konzessionsverfahren Baudirektion für Wärmeentnahmen, Artikel 40 (GNG)</name>
+      <name type="str">Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
@@ -2341,7 +2341,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">246</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2, Artikel 3 (ORR)</name>
+      <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
     <entry table="form">
@@ -2359,7 +2359,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     <entry table="form">
       <form_id type="int">249</form_id>
       <form_state type="int">1</form_state>
-      <name type="str">Reklame-Gesuch via BD</name>
+      <name type="str">Reklame-Gesuch (eingereicht via Baudirektion)</name>
       <description type="str">Ersteller: KOOR BD</description>
     </entry>
   </configuration.Form>
@@ -6613,7 +6613,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <surname type="str">Marianne</surname>
       <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
       <phone type="str"></phone>
-      <disabled type="bool">False</disabled>
+      <disabled type="bool">True</disabled>
       <language type="str">de</language>
       <last_request_date type="NoneType">None</last_request_date>
       <address type="str"></address>
@@ -6628,7 +6628,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <surname type="str">Daniel</surname>
       <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
       <phone type="str"></phone>
-      <disabled type="bool">False</disabled>
+      <disabled type="bool">True</disabled>
       <language type="str">de</language>
       <last_request_date type="NoneType">None</last_request_date>
       <address type="str"></address>
@@ -6673,7 +6673,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <surname type="str">Toni</surname>
       <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
       <phone type="str"></phone>
-      <disabled type="bool">False</disabled>
+      <disabled type="bool">True</disabled>
       <language type="str">de</language>
       <last_request_date type="NoneType">None</last_request_date>
       <address type="str"></address>
@@ -7212,6 +7212,51 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <name type="str">Duss</name>
       <surname type="str">Herbert</surname>
       <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+      <phone type="str"></phone>
+      <disabled type="bool">False</disabled>
+      <language type="str">de</language>
+      <last_request_date type="NoneType">None</last_request_date>
+      <address type="str"></address>
+      <city type="str"></city>
+      <zip type="str"></zip>
+    </entry>
+    <entry table="user">
+      <user_id type="int">1206</user_id>
+      <username type="str">NHSK11</username>
+      <password type="str">b66885ff072a092214c01d0b570484d2</password>
+      <name type="str">Bösch</name>
+      <surname type="str">Martin</surname>
+      <email type="str"></email>
+      <phone type="str"></phone>
+      <disabled type="bool">False</disabled>
+      <language type="str">de</language>
+      <last_request_date type="NoneType">None</last_request_date>
+      <address type="str"></address>
+      <city type="str"></city>
+      <zip type="str"></zip>
+    </entry>
+    <entry table="user">
+      <user_id type="int">1207</user_id>
+      <username type="str">NHSK12</username>
+      <password type="str">f044e25321c37a0d560ef053a9abe791</password>
+      <name type="str">Lämmler</name>
+      <surname type="str">Rahel</surname>
+      <email type="str"></email>
+      <phone type="str"></phone>
+      <disabled type="bool">False</disabled>
+      <language type="str">de</language>
+      <last_request_date type="NoneType">None</last_request_date>
+      <address type="str"></address>
+      <city type="str"></city>
+      <zip type="str"></zip>
+    </entry>
+    <entry table="user">
+      <user_id type="int">1208</user_id>
+      <username type="str">NHSK13</username>
+      <password type="str">13e7b3e6083bc2f838e364600f08ce1a</password>
+      <name type="str">Schuler</name>
+      <surname type="str">Kurt</surname>
+      <email type="str"></email>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
@@ -13153,6 +13198,24 @@ ORDER BY "INSTANCE_ID"</query>
       <sort type="int">2</sort>
     </entry>
     <entry table="button">
+      <button_id type="int">712</button_id>
+      <instance_resource type="int">646</instance_resource>
+      <name type="str">Brief an GesuchstellerIn</name>
+      <description type="str"></description>
+      <class_field type="str">downloady</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">713</button_id>
+      <instance_resource type="int">646</instance_resource>
+      <name type="str">Entscheid / Stellungnahme öffnen</name>
+      <description type="str"></description>
+      <class_field type="str">downloady trigger-modal</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="button">
       <button_id type="int">714</button_id>
       <instance_resource type="int">646</instance_resource>
       <name type="str">Rechnung öffnen</name>
@@ -16120,6 +16183,11 @@ ORDER BY "INSTANCE_ID"</query>
       <default_group type="bool">False</default_group>
     </entry>
     <entry table="user_group">
+      <user type="int">21</user>
+      <group type="int">503</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
       <user type="int">41</user>
       <group type="int">22</group>
       <default_group type="bool">True</default_group>
@@ -16207,6 +16275,11 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="user_group">
       <user type="int">141</user>
       <group type="int">62</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">141</user>
+      <group type="int">503</group>
       <default_group type="bool">False</default_group>
     </entry>
     <entry table="user_group">
@@ -18227,6 +18300,21 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="user_group">
       <user type="int">1205</user>
       <group type="int">463</group>
+      <default_group type="bool">True</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">1206</user>
+      <group type="int">282</group>
+      <default_group type="bool">True</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">1207</user>
+      <group type="int">282</group>
+      <default_group type="bool">True</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">1208</user>
+      <group type="int">282</group>
       <default_group type="bool">True</default_group>
     </entry>
   </configuration.UserGroup>
@@ -33045,6 +33133,13 @@ ORDER BY "INSTANCE_ID"</query>
 </author>
     </entry>
     <entry table="configuration_version">
+      <id type="int">124</id>
+      <hash type="str">96fc9182-7ea7-41de-a2a9-5b11d1832dca</hash>
+      <export_date type="datetime">2016-07-06 13:33:15</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+<entry table="configuration_version">
       <id type="int">143</id>
       <hash type="str">29e38a39-66a4-41f5-9431-1b0d8fa2b807</hash>
       <export_date type="datetime">2016-07-06 11:34:51</export_date>
@@ -35685,7 +35780,7 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">281</billing_account_id>
-      <name type="str">Gebühr für spezielle Nutzungen</name>
+      <name type="str">Gebühr für die Prüfung von PGV Dossiers</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
@@ -35701,7 +35796,7 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">305</billing_account_id>
-      <name type="str">Gebühr für spezielle Nutzungen</name>
+      <name type="str">Gebühr für die Prüfung von Dossiers im Konzessionsverfahren</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
