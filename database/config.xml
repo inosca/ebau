@@ -1,4 +1,4 @@
-<config_data version="bcb156d7-c4f6-498e-9198-ac653fcbf2dc">
+<config_data version="950d7741-e9e4-42b0-b755-0479b3959d28">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2730,7 +2730,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -2745,7 +2745,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -4470,7 +4470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">de</language>
-      <last_request_date type="date">2016-07-04</last_request_date>
+      <last_request_date type="date">2016-07-05</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -33074,6 +33074,34 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">119</id>
+      <hash type="str">db8a8c98-bbcd-43e5-8053-5f12bd79de59</hash>
+      <export_date type="datetime">2016-07-05 09:06:14</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">120</id>
+      <hash type="str">4a2eaacc-03e2-4210-8bb7-becd1a47919a</hash>
+      <export_date type="datetime">2016-07-05 11:20:47</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">121</id>
+      <hash type="str">7a035752-5423-4fc7-be35-3607fa0f40e4</hash>
+      <export_date type="datetime">2016-07-05 11:26:55</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">122</id>
+      <hash type="str">950d7741-e9e4-42b0-b755-0479b3959d28</hash>
+      <export_date type="datetime">2016-07-05 14:20:31</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -35415,6 +35443,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Behandlung von Baugesuchen und Voreinfragen durch die Koordinationsstelle für Baueingaben.</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35422,6 +35451,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für Prüfung und Entscheid der Justizdirektion betreffend Bauten und Anlagen ausserhalb der Bauzonen.</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / BaB</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35429,6 +35459,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für Prüfung und Entscheid der Justizdirektion betreffend Bauten und Anlagen am Seeufer.</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / SU</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35436,6 +35467,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Abteilung Natur- und Heimatschutz.</name>
       <account_number type="str">2533.4210.01</account_number>
       <department type="str">JD / ARE / NHS</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35443,6 +35475,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Abteilung Gewässerschutz.</name>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
+      <service_group type="int">62</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35450,6 +35483,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Abteilung Immissionsschutz.</name>
       <account_number type="str">2425.4210.01.01</account_number>
       <department type="str">GSUD / AFU / IS</department>
+      <service_group type="int">62</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35457,6 +35491,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch die Baudirektion.</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
+      <service_group type="int">2</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35464,6 +35499,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch das Amt für Arbeit und Migration.</name>
       <account_number type="str">2730.4210.01</account_number>
       <department type="str">VD / AfAM</department>
+      <service_group type="int">64</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35471,6 +35507,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch das Amt für Landwirtschaft.</name>
       <account_number type="str">2740.4210.01</account_number>
       <department type="str">VD / ALA</department>
+      <service_group type="int">64</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35478,6 +35515,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen betreffend Brandschutz durch das Amt für Bevölkerungsschutz und Militär.</name>
       <account_number type="str">2630.4210.02</account_number>
       <department type="str">SID / ABMBS</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35485,6 +35523,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen betreffend Schutzraumpflicht durch das Amt für Bevölkerungsschutz und Militär.</name>
       <account_number type="str">2630.4210.02</account_number>
       <department type="str">SID / ABMZS</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35492,6 +35531,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Erteilung einer Rodungsbewilligung.</name>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35499,6 +35539,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Beanspruchung von Waldboden für nichtforstliche Kleinbauten.</name>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35506,6 +35547,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Bewilligung zur Unterschreitung des Waldabstandes.</name>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35513,6 +35555,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch das Amt für Forst und Jagd.</name>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35520,6 +35563,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr (Ersatzbeitrag) für Naturschutzmassnahmen im Wald.</name>
       <account_number type="str">2665.4210.01</account_number>
       <department type="str">SID / AFJ</department>
+      <service_group type="int">63</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35527,6 +35571,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Beurteilung von Voreinfragen und Baugesuchen durch die Procap (BeHiG; Bundesgesetzes über das behindertengerechte Bauen)</name>
       <account_number type="str">direct</account_number>
       <department type="str">Procap</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35534,6 +35579,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Voreinfragen und Baugesuchen durch das Laboratorium der Urkantone (Trinkwasserinspektorat / Lebensmittelgesetz)</name>
       <account_number type="str">direct</account_number>
       <department type="str">LABT</department>
+      <service_group type="int">21</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35541,6 +35587,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Voreinfragen und Baugesuchen durch das Laboratorium der Urkantone (Lebensmittelinspektorat / Lebensmittelgesetz)</name>
       <account_number type="str">direct</account_number>
       <department type="str">LABL</department>
+      <service_group type="int">21</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35548,6 +35595,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Leistung und so</name>
       <account_number type="str">Konto 123</account_number>
       <department type="str">Ein Amt</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35555,6 +35603,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">sdfasdfasdf</name>
       <account_number type="str">-</account_number>
       <department type="str">31321</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35562,6 +35611,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35569,6 +35619,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35576,6 +35627,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35583,6 +35635,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35590,6 +35643,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35597,6 +35651,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">-</name>
       <account_number type="str">-</account_number>
       <department type="str">-</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35604,6 +35659,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Behandlung von Quartier- und Quartiergestaltungsplanungen durch die Koordinationsstelle für Nutzungsplanungen</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR NP</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35611,6 +35667,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Quartier- und Quartiergestaltungsplanungen durch die Abteilung Raumplanung</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / RP</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35618,6 +35675,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Quartier- und Quartiergestaltungsplanungen durch die Abteilung Natur- und Heimatschutz</name>
       <account_number type="str">2533.4210.01</account_number>
       <department type="str">JD / ARE / NHS</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35625,6 +35683,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Quartier- und Quartiergestaltungsplanungen durch die Abteilung Gewässerschutz.</name>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
+      <service_group type="int">62</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35632,6 +35691,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Quartier- und Quartiergestaltungsplanungen durch die Abteilung Immissionsschutz.</name>
       <account_number type="str">2425.4210.01.01</account_number>
       <department type="str">GSUD / AFU / IS</department>
+      <service_group type="int">62</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35639,6 +35699,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Leistung</name>
       <account_number type="str">Konto</account_number>
       <department type="str">Amt</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35646,6 +35707,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für Prüfung und Entscheid der Justizdirektion betreffend Baute ausserhalb der Bauzone, BGBB (Feststellungsverfügung nach VBB)</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / BGBB</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35653,6 +35715,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Behandlung von Reklamegesuchen</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35660,6 +35723,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Prüfung von Reklamegesuchen</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
+      <service_group type="int">2</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35667,6 +35731,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Leistung</name>
       <account_number type="str">Konto</account_number>
       <department type="str">Amt</department>
+      <service_group type="NoneType">None</service_group>
       <predefined type="int">0</predefined>
     </entry>
     <entry table="billing_account">
@@ -35674,41 +35739,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für spezielle Nutzungen</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">282</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">GSUD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">283</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">JD</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">284</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">LAB</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">285</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">SID</department>
-      <predefined type="int">1</predefined>
-    </entry>
-    <entry table="billing_account">
-      <billing_account_id type="int">286</billing_account_id>
-      <name type="str">-</name>
-      <account_number type="str">-</account_number>
-      <department type="str">VD</department>
+      <service_group type="int">2</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35716,6 +35747,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für spezielle Nutzungen</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
+      <service_group type="int">2</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35723,6 +35755,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für spezielle Nutzungen</name>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
+      <service_group type="int">2</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35730,7 +35763,48 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühr für die Behandlung von Baugesuchen und Voreinfragen durch die Abteilung Raumplanung.</name>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / RP</department>
+      <service_group type="int">61</service_group>
       <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">322</billing_account_id>
+      <name type="str">Gebühren für Mitberichte und Stellungnahmen für Plangenehmigungsverfahren (PGV) des Bundes</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
+      <service_group type="int">67</service_group>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">323</billing_account_id>
+      <name type="str">Gebühren für Mitberichte und Stellungnahmen für kantonale Konzessionsverfahren</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
+      <service_group type="int">67</service_group>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">324</billing_account_id>
+      <name type="str">Gebühren gemäss Rechnung</name>
+      <account_number type="str">direct</account_number>
+      <department type="str">TODO</department>
+      <service_group type="int">67</service_group>
+      <predefined type="int">1</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">325</billing_account_id>
+      <name type="str">Leistung</name>
+      <account_number type="str">123</account_number>
+      <department type="str">Amt</department>
+      <service_group type="NoneType">None</service_group>
+      <predefined type="int">0</predefined>
+    </entry>
+    <entry table="billing_account">
+      <billing_account_id type="int">326</billing_account_id>
+      <name type="str">123</name>
+      <account_number type="str">123</account_number>
+      <department type="str">123</department>
+      <service_group type="NoneType">None</service_group>
+      <predefined type="int">0</predefined>
     </entry>
   </configuration.BillingAccount>
   <configuration.BUserAcl table="b_user_acl"/>
