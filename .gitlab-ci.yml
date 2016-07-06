@@ -12,6 +12,7 @@ stages:
 run-test:
     stage: test
     script:
+        - set -x
         - ls -al
         - pwd
         - docker run -i --rm --name db-waiter -v /builds/kantonur/camac5.src:/usr/src/camac:ro -e 'USE_DB=docker_dev' --link=docker_camac_db_1:camac_db adsy/camac_python_oracle:v8 ls -lah /usr/src/camac
