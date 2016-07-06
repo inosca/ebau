@@ -21,7 +21,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 	@tmux -2 attach-session -d
 
-_init-ci: _submodule-update _init_project 
+_init-ci: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@rm -f camac/configuration/configs/application.ini
