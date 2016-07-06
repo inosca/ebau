@@ -114,8 +114,13 @@ config-import: ## import the current database configuration. This will override 
 
 config-import-ci: 
 	docker run -i --rm --name config-import -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_dev' \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v8 python manage.py importconfig
+		-e 'USE_DB=docker_ci' \
+		--link=docker_camac_db_1:camac_db \
+		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 cat /etc/hosts
+	docker run -i --rm --name camac-config-importer -v "$$PWD":/usr/src/camac \
+		-e 'USE_DB=docker_ci' \
+		--link=docker_camac_db_1:camac_db \
+		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python manage.py importconfig
 	@echo "Config successfully imported"
 
 
@@ -138,6 +143,12 @@ run-acceptance-tests: ## run the acceptance tests
 
 
 run-acceptance-tests-ci: ## run the acceptance tests in CI
-	docker run -i --rm --name config-import -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_dev' \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v8 python pytest_run.py
+	docker ps
+	docker run -i --rm --name camac-acceptance-tester -v "$$PWD":/usr/src/camac \
+		-e 'USE_DB=docker_ci' \
+		-e 'TEST_BROWSER=Firefox' \
+		-e 'TEST_HOST=camac_web' \
+		-e 'TEST_PORT=80' \
+		--link=docker_camac_db_1:camac_db \
+		--link=docker_camac_web_1:camac_web \
+		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py
