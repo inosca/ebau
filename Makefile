@@ -107,9 +107,9 @@ config-import: ## import the current database configuration. This will override 
 
 
 config-import-ci: 
-	docker run -i --rm --name config-import -v "$PWD"/db_admin:/usr/src/camac \
+	docker run -i --rm --name config-import -v "$PWD":/usr/src/camac \
 		-e 'USE_DB=docker_dev' \
-		-w /usr/src/camac/ adsy/camac_python_oracle:v8 python uri_database/manage.py importconfig
+		-w /usr/src/camac/db_admin/ adsy/camac_python_oracle:v8 python uri_database/manage.py importconfig
 	@echo "Config successfully imported"
 
 
@@ -132,6 +132,6 @@ run-acceptance-tests: ## run the acceptance tests
 
 
 run-acceptance-tests-ci: ## run the acceptance tests in CI
-	docker run -i --rm --name config-import -v "$PWD"/db_admin:/usr/src/camac \
+	docker run -i --rm --name config-import -v "$PWD":/usr/src/camac \
 		-e 'USE_DB=docker_dev' \
-		-w /usr/src/camac/ adsy/camac_python_oracle:v8 python uri_database/pytest_run.py
+		-w /usr/src/camac/db_admin/ adsy/camac_python_oracle:v8 python uri_database/pytest_run.py
