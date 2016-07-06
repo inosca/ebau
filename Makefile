@@ -21,11 +21,17 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 	@tmux -2 attach-session -d
 
-_init: _init_project _submodule-update
-
 _init-ci: _submodule-update _init_project 
+	@rm -f camac/configuration
+	@ln -fs ../kt_uri/configuration camac/configuration
+	@rm -f camac/configuration/configs/application.ini
+	@ln -s application-ci.ini camac/configuration/configs/application.ini
+	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
+	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
+	@chmod o+w camac/logs
+	@chmod o+w camac/configuration/upload
 
-_init_project:   # Initialise the code, create the necessary symlinks
+_init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@rm -f camac/configuration/configs/application.ini
