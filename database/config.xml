@@ -1,4 +1,4 @@
-<config_data version="3f6ed6b3-d354-4dd6-9376-aa163ac38dab">
+<config_data version="101ddc4d-7334-4dfa-85f2-e193224659b4">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -317,16 +317,6 @@ ORDER BY "AUTHORITY"."NAME"</query>
     </entry>
   </configuration.AnswerQuery>
   <configuration.Resource table="resource">
-    <entry table="resource">
-      <resource_id type="int">1</resource_id>
-      <available_resource type="str">list</available_resource>
-      <name type="str">Dossierliste</name>
-      <description type="str"></description>
-      <template type="str"></template>
-      <class_field type="str"></class_field>
-      <hidden type="bool">False</hidden>
-      <sort type="int">14</sort>
-    </entry>
     <entry table="resource">
       <resource_id type="int">22</resource_id>
       <available_resource type="str">page</available_resource>
@@ -1548,7 +1538,7 @@ Die die Comm sind, können ja eh bearbeitet werden.</description>
     <entry table="instance_resource">
       <instance_resource_id type="int">225</instance_resource_id>
       <available_instance_resource type="str">formpage</available_instance_resource>
-      <resource type="int">1</resource>
+      <resource type="int">42</resource>
       <name type="str">Dossier anschauen</name>
       <description type="str"></description>
       <template type="str">/form/read.phtml</template>
@@ -1939,7 +1929,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str">/form/read.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">0</sort>
+      <sort type="int">1</sort>
       <form_group type="int">30</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1951,7 +1941,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str">/form/np-read.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">1</sort>
+      <sort type="int">2</sort>
       <form_group type="int">141</form_group>
     </entry>
     <entry table="instance_resource">
@@ -1963,7 +1953,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <template type="str"></template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">2</sort>
+      <sort type="int">3</sort>
       <form_group type="int">161</form_group>
     </entry>
     <entry table="instance_resource">
@@ -8429,106 +8419,6 @@ WHERE&#13;
   </configuration.RSearch>
   <configuration.RList table="r_list">
     <entry table="r_list">
-      <resource type="int">1</resource>
-      <query type="str">SELECT  DISTINCT&#13;
-	"INSTANCE"."INSTANCE_ID",&#13;
-	"DOSSIERNR"."ANSWER" as "DOSSIER_NR",&#13;
-	"FORM"."NAME"        as "FORM",&#13;
-	"LOCATION"."NAME"    as "COMMUNITY",&#13;
-	"USER"."USERNAME"        AS "USER",&#13;
-	(SELECT LISTAGG("ANSWER", ', ') WITHIN GROUP (ORDER BY "QUESTION_ID" DESC)&#13;
-		FROM&#13;
-			"ANSWER"&#13;
-		WHERE&#13;
-			"INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID"&#13;
-			AND&#13;
-			(&#13;
-				"ANSWER"."QUESTION_ID" = 23&#13;
-				OR&#13;
-				"ANSWER"."QUESTION_ID" = 221&#13;
-			)&#13;
-			AND&#13;
-			"ANSWER"."CHAPTER_ID" = 1&#13;
-			AND&#13;
-			"ANSWER"."ITEM" = 1&#13;
-	) AS "APPLICANT",&#13;
-	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
-		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
-	CASE&#13;
-		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
-		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
-	END AS "STREET",&#13;
-	GET_STATE_NAME_BY_ID("INSTANCE"."INSTANCE_STATE_ID") AS "STATE",&#13;
-	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
-&#13;
-	&#13;
-FROM "INSTANCE"&#13;
-&#13;
-JOIN "INSTANCE_LOCATION" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
-)&#13;
-&#13;
-JOIN "LOCATION" ON (&#13;
-		"INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
-)&#13;
-&#13;
-LEFT JOIN "ANSWER"  "DOSSIERNR" ON (&#13;
-		"DOSSIERNR"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
-		AND&#13;
-		"DOSSIERNR"."QUESTION_ID" = 6&#13;
-		AND&#13;
-		"DOSSIERNR"."CHAPTER_ID" = 2&#13;
-		AND&#13;
-		"DOSSIERNR"."ITEM" = 1&#13;
-	)&#13;
-LEFT JOIN&#13;
-	"ANSWER" "ANSWER_STREET_BG" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_BG"."INSTANCE_ID"&#13;
-		AND&#13;
-		"ANSWER_STREET_BG"."QUESTION_ID" = 93&#13;
-		AND&#13;
-		"ANSWER_STREET_BG"."CHAPTER_ID" = 21&#13;
-		AND&#13;
-		"ANSWER_STREET_BG"."ITEM" = 1&#13;
-	)&#13;
-LEFT JOIN&#13;
-	"ANSWER" "ANSWER_STREET_NP" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_NP"."INSTANCE_ID"&#13;
-		AND&#13;
-		"ANSWER_STREET_NP"."QUESTION_ID" = 93&#13;
-		AND&#13;
-		"ANSWER_STREET_NP"."CHAPTER_ID" = 101&#13;
-		AND&#13;
-		"ANSWER_STREET_NP"."ITEM" = 1&#13;
-	)&#13;
-&#13;
-join "FORM" ON (&#13;
-	"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
-)&#13;
-&#13;
-JOIN "USER" ON (&#13;
-		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
-)&#13;
-LEFT JOIN&#13;
-	"INSTANCE_STATE_DESCRIPTION" ON (&#13;
-		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
-	)&#13;
-&#13;
-JOIN&#13;
-	"FORM_GROUP_FORM" ON (&#13;
-	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
-)&#13;
-&#13;
-WHERE&#13;
-	([ROLE_ID] = 3 AND "FORM_GROUP_FORM"."FORM_GROUP_ID" = 30)&#13;
-	OR&#13;
-	([ROLE_ID] = 1061 AND "FORM_GROUP_FORM"."FORM_GROUP_ID" = 141)&#13;
-	OR&#13;
-	([ROLE_ID] = 1101 AND "FORM_GROUP_FORM"."FORM_GROUP_ID" = 241)&#13;
-	OR&#13;
-	([ROLE_ID] NOT IN (3, 1061, 1101))</query>
-    </entry>
-    <entry table="r_list">
       <resource type="int">23</resource>
       <query type="str">SELECT&#13;
 	"INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",&#13;
@@ -13196,24 +13086,6 @@ ORDER BY "INSTANCE_ID"</query>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">2</sort>
-    </entry>
-    <entry table="button">
-      <button_id type="int">712</button_id>
-      <instance_resource type="int">646</instance_resource>
-      <name type="str">Brief an GesuchstellerIn</name>
-      <description type="str"></description>
-      <class_field type="str">downloady</class_field>
-      <hidden type="bool">False</hidden>
-      <sort type="int">0</sort>
-    </entry>
-    <entry table="button">
-      <button_id type="int">713</button_id>
-      <instance_resource type="int">646</instance_resource>
-      <name type="str">Entscheid / Stellungnahme öffnen</name>
-      <description type="str"></description>
-      <class_field type="str">downloady trigger-modal</class_field>
-      <hidden type="bool">False</hidden>
-      <sort type="int">1</sort>
     </entry>
     <entry table="button">
       <button_id type="int">714</button_id>
@@ -18652,22 +18524,6 @@ ORDER BY "INSTANCE_ID"</query>
   </configuration.RSearchColumn>
   <configuration.RRoleAcl table="r_role_acl">
     <entry table="r_role_acl">
-      <resource type="int">1</resource>
-      <role type="int">3</role>
-    </entry>
-    <entry table="r_role_acl">
-      <resource type="int">1</resource>
-      <role type="int">4</role>
-    </entry>
-    <entry table="r_role_acl">
-      <resource type="int">1</resource>
-      <role type="int">1061</role>
-    </entry>
-    <entry table="r_role_acl">
-      <resource type="int">1</resource>
-      <role type="int">1101</role>
-    </entry>
-    <entry table="r_role_acl">
       <resource type="int">22</resource>
       <role type="int">3</role>
     </entry>
@@ -18800,13 +18656,6 @@ ORDER BY "INSTANCE_ID"</query>
   </configuration.RPage>
   <configuration.RListColumn table="r_list_column">
     <entry table="r_list_column">
-      <r_list_column_id type="int">1</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">INSTANCE_ID</column_name>
-      <alias type="str">ID</alias>
-      <sort type="int">0</sort>
-    </entry>
-    <entry table="r_list_column">
       <r_list_column_id type="int">21</r_list_column_id>
       <resource type="int">23</resource>
       <column_name type="str">INSTANCE_ID</column_name>
@@ -18858,34 +18707,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_list_column">
       <r_list_column_id type="int">38</r_list_column_id>
       <resource type="int">24</resource>
-      <column_name type="str">USER</column_name>
-      <alias type="str">Ersteller</alias>
-      <sort type="int">4</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">44</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">DOSSIER_NR</column_name>
-      <alias type="str">Dossier-Nr.</alias>
-      <sort type="int">1</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">45</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">FORM</column_name>
-      <alias type="str">Verfahren</alias>
-      <sort type="int">2</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">46</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">COMMUNITY</column_name>
-      <alias type="str">Gemeinde</alias>
-      <sort type="int">3</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">47</r_list_column_id>
-      <resource type="int">1</resource>
       <column_name type="str">USER</column_name>
       <alias type="str">Ersteller</alias>
       <sort type="int">4</sort>
@@ -19043,13 +18864,6 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STATE</column_name>
       <alias type="str">Status</alias>
       <sort type="int">8</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">125</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">INTENT</column_name>
-      <alias type="str">Vorhaben</alias>
-      <sort type="int">6</sort>
     </entry>
     <entry table="r_list_column">
       <r_list_column_id type="int">165</r_list_column_id>
@@ -19297,13 +19111,6 @@ ORDER BY "INSTANCE_ID"</query>
       <sort type="int">7</sort>
     </entry>
     <entry table="r_list_column">
-      <r_list_column_id type="int">328</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">STREET</column_name>
-      <alias type="str">Strasse/Flurname</alias>
-      <sort type="int">7</sort>
-    </entry>
-    <entry table="r_list_column">
       <r_list_column_id type="int">329</r_list_column_id>
       <resource type="int">24</resource>
       <column_name type="str">STATE_DESCRIPTION</column_name>
@@ -19316,20 +19123,6 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STATE_DESCRIPTION</column_name>
       <alias type="str">Statusbeschreibung</alias>
       <sort type="int">9</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">344</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">STATE_DESCRIPTION</column_name>
-      <alias type="str">Statusbeschreibung</alias>
-      <sort type="int">9</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">345</r_list_column_id>
-      <resource type="int">1</resource>
-      <column_name type="str">STATE</column_name>
-      <alias type="str">Status</alias>
-      <sort type="int">8</sort>
     </entry>
     <entry table="r_list_column">
       <r_list_column_id type="int">346</r_list_column_id>
@@ -19453,13 +19246,6 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_list_column">
       <r_list_column_id type="int">457</r_list_column_id>
       <resource type="int">182</resource>
-      <column_name type="str">APPLICANT</column_name>
-      <alias type="str">Gesuchsteller</alias>
-      <sort type="int">5</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">458</r_list_column_id>
-      <resource type="int">1</resource>
       <column_name type="str">APPLICANT</column_name>
       <alias type="str">Gesuchsteller</alias>
       <sort type="int">5</sort>
@@ -33146,11 +32932,18 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
-    <entry table="configuration_version">
+<entry table="configuration_version">
       <id type="int">144</id>
       <hash type="str">3f6ed6b3-d354-4dd6-9376-aa163ac38dab</hash>
       <export_date type="datetime">2016-07-06 14:26:24</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">163</id>
+      <hash type="str">101ddc4d-7334-4dfa-85f2-e193224659b4</hash>
+      <export_date type="datetime">2016-07-06 13:54:32</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
   </configuration.ConfigurationVersion>
