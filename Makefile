@@ -151,4 +151,4 @@ run-acceptance-tests-ci: ## run the acceptance tests in CI
 		-e 'TEST_PORT=80' \
 		--link=docker_camac_db_1:camac_db \
 		--link=docker_camac_web_1:camac_web \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py -x
+		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py -x acceptance_tests/test_community_service.py::test_nfd
