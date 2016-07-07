@@ -5,6 +5,7 @@ before_script:
 
 after_script:
     - docker-compose -f docker/gitlab-ci-compose.yml stop
+    - yes | docker-compose -f docker/gitlab-ci-compose rm camac_cache
  
 stages:
     - test
