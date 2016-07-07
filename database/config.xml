@@ -1,4 +1,4 @@
-<config_data version="2d4d49a1-1b0a-4f06-9da4-edb5a69591b6">
+<config_data version="82ee0516-2724-4bc3-9857-3ae6bab3d313">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2710,7 +2710,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-07-06</last_request_date>
+      <last_request_date type="date">2016-07-07</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -7287,10 +7287,6 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_group_id type="int">66</service_group_id>
       <name type="str">Fachstellen Finanzdirektion</name>
     </entry>
-    <entry table="service_group">
-      <service_group_id type="int">67</service_group_id>
-      <name type="str">Gemeinden als Vernehmlassungsstellen</name>
-    </entry>
   </configuration.ServiceGroup>
   <configuration.Service table="service">
     <entry table="service">
@@ -7899,7 +7895,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_id type="int">281</service_id>
       <service_group type="int">41</service_group>
       <service_parent type="NoneType">None</service_parent>
-      <name type="str">Gemeinde Andermatt</name>
+      <name type="str">Gemeinde Andermatt als Vernehmlassungsstelle</name>
       <description type="str">Gemeinde Andermatt</description>
       <sort type="int">10</sort>
       <phone type="str"></phone>
@@ -7913,7 +7909,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_id type="int">301</service_id>
       <service_group type="int">41</service_group>
       <service_parent type="NoneType">None</service_parent>
-      <name type="str">Gemeinde Altdorf</name>
+      <name type="str">Gemeinde Altdorf als Vernehmlassungsstelle</name>
       <description type="str">Gemeinde Altdorf</description>
       <sort type="int">2</sort>
       <phone type="str"></phone>
@@ -8056,20 +8052,6 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <name type="str">BGBB</name>
       <description type="str">Bundesgesetz über das bäuerliche Bodenrecht</description>
       <sort type="int">19</sort>
-      <phone type="str"></phone>
-      <zip type="str"></zip>
-      <city type="str"></city>
-      <address type="str"></address>
-      <email type="str"></email>
-      <website type="str"></website>
-    </entry>
-    <entry table="service">
-      <service_id type="int">322</service_id>
-      <service_group type="int">67</service_group>
-      <service_parent type="NoneType">None</service_parent>
-      <name type="str">Altdorf</name>
-      <description type="str">Gemeinde Altdorf als Vernehmlassungsstelle</description>
-      <sort type="int">0</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -12170,7 +12152,7 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="group">
       <group_id type="int">503</group_id>
       <role type="int">1102</role>
-      <service type="int">322</service>
+      <service type="int">301</service>
       <name type="str">Gemeinde Altdorf als Vernehmlassungsstelle</name>
       <phone type="str"></phone>
       <zip type="str"></zip>
@@ -30392,30 +30374,6 @@ ORDER BY "INSTANCE_ID"</query>
       <service_group type="int">66</service_group>
       <localized type="bool">False</localized>
     </entry>
-    <entry table="ir_editcirculation_sg">
-      <ir_editcirculation_sg_id type="int">212</ir_editcirculation_sg_id>
-      <instance_resource type="int">305</instance_resource>
-      <service_group type="int">67</service_group>
-      <localized type="bool">False</localized>
-    </entry>
-    <entry table="ir_editcirculation_sg">
-      <ir_editcirculation_sg_id type="int">213</ir_editcirculation_sg_id>
-      <instance_resource type="int">315</instance_resource>
-      <service_group type="int">67</service_group>
-      <localized type="bool">False</localized>
-    </entry>
-    <entry table="ir_editcirculation_sg">
-      <ir_editcirculation_sg_id type="int">214</ir_editcirculation_sg_id>
-      <instance_resource type="int">467</instance_resource>
-      <service_group type="int">67</service_group>
-      <localized type="bool">False</localized>
-    </entry>
-    <entry table="ir_editcirculation_sg">
-      <ir_editcirculation_sg_id type="int">215</ir_editcirculation_sg_id>
-      <instance_resource type="int">625</instance_resource>
-      <service_group type="int">67</service_group>
-      <localized type="bool">False</localized>
-    </entry>
   </configuration.IrEditcirculationSg>
   <configuration.IrCirculation table="ir_circulation">
     <entry table="ir_circulation">
@@ -32749,7 +32707,7 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
-<entry table="configuration_version">
+    <entry table="configuration_version">
       <id type="int">144</id>
       <hash type="str">3f6ed6b3-d354-4dd6-9376-aa163ac38dab</hash>
       <export_date type="datetime">2016-07-06 14:26:24</export_date>
@@ -32767,6 +32725,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">183</id>
       <hash type="str">2d4d49a1-1b0a-4f06-9da4-edb5a69591b6</hash>
       <export_date type="datetime">2016-07-07 08:01:42</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">184</id>
+      <hash type="str">82ee0516-2724-4bc3-9857-3ae6bab3d313</hash>
+      <export_date type="datetime">2016-07-07 12:46:30</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
@@ -35439,7 +35404,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühren für Mitberichte und Stellungnahmen für Plangenehmigungsverfahren (PGV) des Bundes</name>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
-      <service_group type="int">67</service_group>
+      <service_group type="int">41</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35447,7 +35412,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühren für Mitberichte und Stellungnahmen für kantonale Konzessionsverfahren</name>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
-      <service_group type="int">67</service_group>
+      <service_group type="int">41</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
@@ -35455,7 +35420,7 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Gebühren gemäss Rechnung</name>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
-      <service_group type="int">67</service_group>
+      <service_group type="int">41</service_group>
       <predefined type="int">1</predefined>
     </entry>
     <entry table="billing_account">
