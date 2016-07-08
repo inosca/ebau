@@ -36663,12 +36663,6 @@ ORDER BY "INSTANCE_ID"</query>
       <mode type="str">read</mode>
     </entry>
     <entry table="attachment_section_role">
-      <id type="int">101</id>
-      <attachment_section type="int">25</attachment_section>
-      <role_id type="int">1101</role_id>
-      <mode type="str">admin</mode>
-    </entry>
-    <entry table="attachment_section_role">
       <id type="int">102</id>
       <attachment_section type="int">24</attachment_section>
       <role_id type="int">1101</role_id>
@@ -36720,6 +36714,12 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">110</id>
       <attachment_section type="int">21</attachment_section>
       <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">111</id>
+      <attachment_section type="int">23</attachment_section>
+      <role_id type="int">1101</role_id>
       <mode type="str">write</mode>
     </entry>
   </configuration.AttachmentSectionRole>
