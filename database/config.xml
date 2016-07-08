@@ -34798,7 +34798,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">42</billing_account_id>
@@ -34806,7 +34806,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / BaB</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">43</billing_account_id>
@@ -34814,7 +34814,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / SU</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">44</billing_account_id>
@@ -34822,7 +34822,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2533.4210.01</account_number>
       <department type="str">JD / ARE / NHS</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">45</billing_account_id>
@@ -34830,7 +34830,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
       <service_group type="int">62</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">46</billing_account_id>
@@ -34838,7 +34838,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2425.4210.01.01</account_number>
       <department type="str">GSUD / AFU / IS</department>
       <service_group type="int">62</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">47</billing_account_id>
@@ -34846,7 +34846,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">48</billing_account_id>
@@ -34854,7 +34854,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2730.4210.01</account_number>
       <department type="str">VD / AfAM</department>
       <service_group type="int">64</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">49</billing_account_id>
@@ -34862,7 +34862,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2740.4210.01</account_number>
       <department type="str">VD / ALA</department>
       <service_group type="int">64</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">50</billing_account_id>
@@ -34870,7 +34870,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2630.4210.02</account_number>
       <department type="str">SID / ABMBS</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">51</billing_account_id>
@@ -34878,7 +34878,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2630.4210.02</account_number>
       <department type="str">SID / ABMZS</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">52</billing_account_id>
@@ -34886,7 +34886,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">53</billing_account_id>
@@ -34894,7 +34894,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
       <service_group type="NoneType">None</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">54</billing_account_id>
@@ -34902,7 +34902,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">55</billing_account_id>
@@ -34910,7 +34910,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2640.4210.01</account_number>
       <department type="str">SID / AFJ</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">56</billing_account_id>
@@ -34918,7 +34918,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2665.4210.01</account_number>
       <department type="str">SID / AFJ</department>
       <service_group type="int">63</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">57</billing_account_id>
@@ -34926,7 +34926,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">Procap</department>
       <service_group type="NoneType">None</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">60</billing_account_id>
@@ -34934,7 +34934,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">LABT</department>
       <service_group type="int">21</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">61</billing_account_id>
@@ -34942,7 +34942,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">LABL</department>
       <service_group type="int">21</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">121</billing_account_id>
@@ -34950,7 +34950,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR NP</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">141</billing_account_id>
@@ -34958,7 +34958,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / RP</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">142</billing_account_id>
@@ -34966,7 +34966,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2533.4210.01</account_number>
       <department type="str">JD / ARE / NHS</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">143</billing_account_id>
@@ -34974,7 +34974,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2420.4210.01.02</account_number>
       <department type="str">GSUD / AFU / GS</department>
       <service_group type="int">62</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">144</billing_account_id>
@@ -34982,7 +34982,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2425.4210.01.01</account_number>
       <department type="str">GSUD / AFU / IS</department>
       <service_group type="int">62</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">201</billing_account_id>
@@ -34990,7 +34990,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / BGBB</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">221</billing_account_id>
@@ -34998,7 +34998,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / KOOR</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">222</billing_account_id>
@@ -35006,7 +35006,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">281</billing_account_id>
@@ -35014,7 +35014,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">287</billing_account_id>
@@ -35022,7 +35022,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">305</billing_account_id>
@@ -35030,7 +35030,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2100.4210.01</account_number>
       <department type="str">BD</department>
       <service_group type="int">2</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">321</billing_account_id>
@@ -35038,7 +35038,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">2530.4210.01</account_number>
       <department type="str">JD / ARE / RP</department>
       <service_group type="int">61</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">322</billing_account_id>
@@ -35046,7 +35046,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
       <service_group type="int">41</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">323</billing_account_id>
@@ -35054,7 +35054,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
       <service_group type="int">41</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
       <billing_account_id type="int">324</billing_account_id>
@@ -35062,7 +35062,7 @@ ORDER BY "INSTANCE_ID"</query>
       <account_number type="str">direct</account_number>
       <department type="str">TODO</department>
       <service_group type="int">41</service_group>
-      <predefined type="int">1</predefined>
+      <predefined type="bool">True</predefined>
     </entry>
   </configuration.BillingAccount>
   <configuration.BUserAcl table="b_user_acl"/>
