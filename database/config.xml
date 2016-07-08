@@ -1,4 +1,4 @@
-<config_data version="303315ab-af96-471e-8e65-354f07d58c4c">
+<config_data version="2aa88213-bb78-4bef-8b1d-770c69ada327">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2710,7 +2710,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <phone type="str"></phone>
       <disabled type="bool">False</disabled>
       <language type="str">en</language>
-      <last_request_date type="date">2016-07-07</last_request_date>
+      <last_request_date type="date">2016-07-08</last_request_date>
       <address type="str"></address>
       <city type="str"></city>
       <zip type="str"></zip>
@@ -32745,6 +32745,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">186</id>
+      <hash type="str">2aa88213-bb78-4bef-8b1d-770c69ada327</hash>
+      <export_date type="datetime">2016-07-08 12:40:27</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -39080,7 +39087,9 @@ LEFT JOIN "GROUP" ON (&#13;
 &#13;
 WHERE "ROLE_ID" = 3&#13;
 AND&#13;
-"USER"."EMAIL" IS NOT NULL</query>
+"USER"."EMAIL" IS NOT NULL&#13;
+and&#13;
+"USER"."DISABLED" = 0</query>
       <title type="str">Dossier [ID] von Gemeinde frei geschalten</title>
       <text type="str">CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)&#13;
 &#13;
@@ -39110,7 +39119,9 @@ LEFT JOIN "GROUP_LOCATION" ON (&#13;
 &#13;
 WHERE "GROUP_LOCATION"."LOCATION_ID" = [INSTANCE_LOCATION_ID]&#13;
 AND&#13;
-"USER"."EMAIL" IS NOT NULL</query>
+"USER"."EMAIL" IS NOT NULL&#13;
+and&#13;
+"USER"."DISABLED" = 0</query>
       <title type="str">Dossier an Gemeinde zurück geschickt</title>
       <text type="str">CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)&#13;
 &#13;
@@ -39156,7 +39167,9 @@ LEFT JOIN "GROUP_LOCATION" ON (&#13;
 &#13;
 WHERE "GROUP_LOCATION"."LOCATION_ID" = [INSTANCE_LOCATION_ID]&#13;
 AND&#13;
-"USER"."EMAIL" IS NOT NULL</query>
+"USER"."EMAIL" IS NOT NULL&#13;
+and&#13;
+"USER"."DISABLED" = 0</query>
       <title type="str">Dossier an Gemeinde zurück geschickt</title>
       <text type="str">CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)&#13;
 &#13;
@@ -39201,7 +39214,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39261,7 +39276,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	and&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39318,7 +39335,9 @@ LEFT JOIN "GROUP" ON (&#13;
 &#13;
 WHERE "ROLE_ID" = 1061&#13;
 AND&#13;
-"USER"."EMAIL" IS NOT NULL</query>
+"USER"."EMAIL" IS NOT NULL&#13;
+and&#13;
+"USER"."DISABLED" = 0</query>
       <title type="str">Dossier [ID] von Gemeinde frei geschalten</title>
       <text type="str">CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)&#13;
 &#13;
@@ -39351,7 +39370,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39408,7 +39429,9 @@ LEFT JOIN "GROUP_LOCATION" ON (&#13;
 &#13;
 WHERE "GROUP_LOCATION"."LOCATION_ID" = [INSTANCE_LOCATION_ID]&#13;
 AND&#13;
-"USER"."EMAIL" IS NOT NULL</query>
+"USER"."EMAIL" IS NOT NULL&#13;
+and&#13;
+"USER"."DISABLED" = 0</query>
       <title type="str">Dossier an Gemeinde zurück geschickt</title>
       <text type="str">Sehr geehrte Dame&#13;
 Sehr geehrter Herr&#13;
@@ -39456,7 +39479,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39516,7 +39541,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39576,7 +39603,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39636,7 +39665,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	and&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
@@ -39696,7 +39727,9 @@ WHERE&#13;
 	AND&#13;
 	u.EMAIL IS NOT NULL&#13;
 	AND&#13;
-	a.CIRCULATION_STATE_ID = 21</query>
+	a.CIRCULATION_STATE_ID = 21&#13;
+	and&#13;
+	u.DISABLED = 0</query>
       <title type="str">Zirkulation gestartet</title>
       <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet&#13;
 &#13;
