@@ -1,4 +1,4 @@
-<config_data version="2aa88213-bb78-4bef-8b1d-770c69ada327">
+<config_data version="7560a499-1c62-49ec-8e39-52153426caeb">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -13014,22 +13014,22 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="attachment_section">
       <attachment_section_id type="int">23</attachment_section_id>
       <name type="str">Fachstellen</name>
-      <sort type="int">3</sort>
+      <sort type="int">2</sort>
     </entry>
     <entry table="attachment_section">
       <attachment_section_id type="int">24</attachment_section_id>
       <name type="str">Gemeinde (Protokolle, Baubewilligungen usw.)</name>
-      <sort type="int">5</sort>
+      <sort type="int">3</sort>
     </entry>
     <entry table="attachment_section">
       <attachment_section_id type="int">25</attachment_section_id>
       <name type="str">Lisag (Nutzungsplandokumente, ITF Dateien)</name>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="attachment_section">
       <attachment_section_id type="int">41</attachment_section_id>
       <name type="str">Rechtsmitteldokumente (nur eingeschränkt sichtbar)</name>
-      <sort type="int">2</sort>
+      <sort type="int">4</sort>
     </entry>
   </configuration.AttachmentSection>
   <configuration.AttachmentExtension table="attachment_extension">
@@ -32446,6 +32446,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">186</id>
       <hash type="str">2aa88213-bb78-4bef-8b1d-770c69ada327</hash>
       <export_date type="datetime">2016-07-08 12:40:27</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">187</id>
+      <hash type="str">7560a499-1c62-49ec-8e39-52153426caeb</hash>
+      <export_date type="datetime">2016-07-08 12:57:41</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
