@@ -1,4 +1,4 @@
-<config_data version="7560a499-1c62-49ec-8e39-52153426caeb">
+<config_data version="d69b7a12-2ded-4523-b509-e993519e9425">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -13002,7 +13002,7 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="authority">
       <authority_id type="int">88</authority_id>
-      <name type="str">Bundesamt für Zivilluftfahrt</name>
+      <name type="str">Bundesamt für Zivilluftfahrt (BAZL)</name>
     </entry>
   </configuration.Authority>
   <configuration.AttachmentSection table="attachment_section">
@@ -32456,6 +32456,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">188</id>
+      <hash type="str">d69b7a12-2ded-4523-b509-e993519e9425</hash>
+      <export_date type="datetime">2016-07-08 13:06:23</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -36663,12 +36670,6 @@ ORDER BY "INSTANCE_ID"</query>
       <mode type="str">read</mode>
     </entry>
     <entry table="attachment_section_role">
-      <id type="int">101</id>
-      <attachment_section type="int">25</attachment_section>
-      <role_id type="int">1101</role_id>
-      <mode type="str">admin</mode>
-    </entry>
-    <entry table="attachment_section_role">
       <id type="int">102</id>
       <attachment_section type="int">24</attachment_section>
       <role_id type="int">1101</role_id>
@@ -36720,6 +36721,12 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">110</id>
       <attachment_section type="int">21</attachment_section>
       <role_id type="int">1102</role_id>
+      <mode type="str">write</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">111</id>
+      <attachment_section type="int">23</attachment_section>
+      <role_id type="int">1101</role_id>
       <mode type="str">write</mode>
     </entry>
   </configuration.AttachmentSectionRole>
