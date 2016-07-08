@@ -1,4 +1,4 @@
-<config_data version="d69b7a12-2ded-4523-b509-e993519e9425">
+<config_data version="265e253a-ec8f-46b7-a344-57268fd5e12a">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -12686,6 +12686,42 @@ ORDER BY "INSTANCE_ID"</query>
       <hidden type="bool">False</hidden>
       <sort type="int">2</sort>
     </entry>
+    <entry table="button">
+      <button_id type="int">718</button_id>
+      <instance_resource type="int">107</instance_resource>
+      <name type="str">Wiedereröffnen</name>
+      <description type="str">Von Arch zurück zu Redac</description>
+      <class_field type="str">button_reopen</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">719</button_id>
+      <instance_resource type="int">605</instance_resource>
+      <name type="str">Wiedereröffnen</name>
+      <description type="str"></description>
+      <class_field type="str">button_reopen</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">720</button_id>
+      <instance_resource type="int">649</instance_resource>
+      <name type="str">Wiedereröffnen</name>
+      <description type="str"></description>
+      <class_field type="str">button_reopen</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">721</button_id>
+      <instance_resource type="int">445</instance_resource>
+      <name type="str">Wiedereröffnen</name>
+      <description type="str"></description>
+      <class_field type="str">button_reopen</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">4</sort>
+    </entry>
   </configuration.Button>
   <configuration.AvailableAction table="available_action">
     <entry table="available_action">
@@ -15026,6 +15062,50 @@ ORDER BY "INSTANCE_ID"</query>
       <error_message type="str"></error_message>
       <execute_always type="bool">False</execute_always>
       <sort type="int">1</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1004</action_id>
+      <available_action type="str">formtransition</available_action>
+      <button type="int">718</button>
+      <name type="str">Wiedereröffnen ARCH - REDAC</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1005</action_id>
+      <available_action type="str">formtransition</available_action>
+      <button type="int">719</button>
+      <name type="str">Transition Arch - Redac</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1006</action_id>
+      <available_action type="str">formtransition</available_action>
+      <button type="int">720</button>
+      <name type="str">Transition Arch - Redac</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1007</action_id>
+      <available_action type="str">formtransition</available_action>
+      <button type="int">721</button>
+      <name type="str">Transition Arch - Redac</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
     </entry>
   </configuration.Action>
   <configuration.ALocation table="a_location">
@@ -32463,6 +32543,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">189</id>
+      <hash type="str">265e253a-ec8f-46b7-a344-57268fd5e12a</hash>
+      <export_date type="datetime">2016-07-08 14:05:57</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -36166,6 +36253,26 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1101</role>
       <instance_state type="int">25</instance_state>
     </entry>
+    <entry table="b_role_acl">
+      <button type="int">718</button>
+      <role type="int">3</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">719</button>
+      <role type="int">1101</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">720</button>
+      <role type="int">1101</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">721</button>
+      <role type="int">1061</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
   </configuration.BRoleAcl>
   <configuration.BGroupAcl table="b_group_acl"/>
   <configuration.AuthorityType table="authority_type">
@@ -38677,6 +38784,26 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">1002</action>
       <current_instance_state type="int">24</current_instance_state>
       <next_instance_state type="int">26</next_instance_state>
+    </entry>
+    <entry table="a_formtransition">
+      <action type="int">1004</action>
+      <current_instance_state type="int">26</current_instance_state>
+      <next_instance_state type="int">24</next_instance_state>
+    </entry>
+    <entry table="a_formtransition">
+      <action type="int">1005</action>
+      <current_instance_state type="int">26</current_instance_state>
+      <next_instance_state type="int">24</next_instance_state>
+    </entry>
+    <entry table="a_formtransition">
+      <action type="int">1006</action>
+      <current_instance_state type="int">26</current_instance_state>
+      <next_instance_state type="int">24</next_instance_state>
+    </entry>
+    <entry table="a_formtransition">
+      <action type="int">1007</action>
+      <current_instance_state type="int">26</current_instance_state>
+      <next_instance_state type="int">24</next_instance_state>
     </entry>
   </configuration.AFormtransition>
   <configuration.AEmail table="a_email">
