@@ -1,4 +1,4 @@
-<config_data version="15cf1d0f-ca51-48c1-8cb2-c5f24adcb405">
+<config_data version="1ae8ca2a-044f-463a-aa93-b8a72d96efb4">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -7002,7 +7002,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
     </entry>
     <entry table="service_group">
       <service_group_id type="int">41</service_group_id>
-      <name type="str">Gemeinden</name>
+      <name type="str">Gemeinden als Vernehmlassungsstellen</name>
     </entry>
     <entry table="service_group">
       <service_group_id type="int">61</service_group_id>
@@ -7106,7 +7106,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ABM ZS</name>
       <description type="str">Amt für Bevölkerungsschutz und Militär Abteilung Zivilschutz</description>
-      <sort type="int">28</sort>
+      <sort type="int">46</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7120,7 +7120,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ABM BS</name>
       <description type="str">Amt für Bevölkerungsschutz und Militär Fachstelle Brandschutz</description>
-      <sort type="int">20</sort>
+      <sort type="int">38</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7134,7 +7134,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">Procap</name>
       <description type="str">Procap Behindertengerechtes Bauen</description>
-      <sort type="int">40</sort>
+      <sort type="int">58</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7148,7 +7148,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AWU</name>
       <description type="str">Abwasser Uri</description>
-      <sort type="int">42</sort>
+      <sort type="int">60</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7162,7 +7162,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">LABT</name>
       <description type="str">Laboratorium der Urkantone Trinkwasserinspektorat</description>
-      <sort type="int">44</sort>
+      <sort type="int">62</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7176,7 +7176,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">LABL</name>
       <description type="str">Laboratorium der Urkantone Lebensmittelinspektorat</description>
-      <sort type="int">46</sort>
+      <sort type="int">64</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7190,7 +7190,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">LABV</name>
       <description type="str">Laboratorium der Urkantone Veterinäramt</description>
-      <sort type="int">47</sort>
+      <sort type="int">65</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7204,7 +7204,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE KOOR NP</name>
       <description type="str">Koordinationsstelle Nutzungplanung</description>
-      <sort type="int">16</sort>
+      <sort type="int">34</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7232,7 +7232,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">TRA</name>
       <description type="str">Fachstelle Tourismusressort Andermatt</description>
-      <sort type="int">39</sort>
+      <sort type="int">57</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7246,7 +7246,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE NP</name>
       <description type="str">Amt für Raumentwicklung Abteilung Nutzungsplanung</description>
-      <sort type="int">24</sort>
+      <sort type="int">42</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7260,7 +7260,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE NHS A</name>
       <description type="str">Amt für Raumentwicklung Abteilung Natur- und Heimatschutz Fachbereich Archäologie</description>
-      <sort type="int">41</sort>
+      <sort type="int">59</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7288,7 +7288,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AfKP</name>
       <description type="str">Amt für Kantonspolizei</description>
-      <sort type="int">37</sort>
+      <sort type="int">55</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7316,7 +7316,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AfWoeV</name>
       <description type="str">Amt für Wirtschaft und öffentlichen Verkehr</description>
-      <sort type="int">14</sort>
+      <sort type="int">32</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7330,7 +7330,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ALA</name>
       <description type="str">Amt für Landwirtschaft</description>
-      <sort type="int">18</sort>
+      <sort type="int">36</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7344,7 +7344,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">Alpiq</name>
       <description type="str">Alpiq Hochspannungsleitung</description>
-      <sort type="int">49</sort>
+      <sort type="int">67</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7358,7 +7358,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE NHS L</name>
       <description type="str">Amt für Raumentwicklung Abteilung Natur- und Heimatschutz</description>
-      <sort type="int">43</sort>
+      <sort type="int">61</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7372,7 +7372,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE SU</name>
       <description type="str">Amt für Raumentwicklung Fachbereich Seeufer innerhalb Bauzone</description>
-      <sort type="int">33</sort>
+      <sort type="int">51</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7386,7 +7386,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE WBF</name>
       <description type="str">Amt für Raumentwicklung Wanderweg- und Bikefachstelle</description>
-      <sort type="int">36</sort>
+      <sort type="int">54</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7400,7 +7400,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ASSV</name>
       <description type="str">Amt für Strassen- und Schiffsverkehr</description>
-      <sort type="int">29</sort>
+      <sort type="int">47</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7414,7 +7414,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">Test</name>
       <description type="str">Test</description>
-      <sort type="int">30</sort>
+      <sort type="int">48</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7428,7 +7428,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">SBB</name>
       <description type="str">SBB Hochspannungsleitung</description>
-      <sort type="int">52</sort>
+      <sort type="int">70</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7442,7 +7442,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">BeDi</name>
       <description type="str">Justizdirektion Beschwerdedienst</description>
-      <sort type="int">54</sort>
+      <sort type="int">72</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7456,7 +7456,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ReDi</name>
       <description type="str">Justizdirektion Rechtsdienst</description>
-      <sort type="int">51</sort>
+      <sort type="int">69</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7470,7 +7470,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">JDDS</name>
       <description type="str">Justizdirektion Direktionssekretariat</description>
-      <sort type="int">50</sort>
+      <sort type="int">68</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7484,7 +7484,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE BG</name>
       <description type="str">Mitbericht Fachstelle Koordination (proforma Zirkulation)</description>
-      <sort type="int">48</sort>
+      <sort type="int">66</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7498,7 +7498,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">LSSV</name>
       <description type="str">Landschaftsschutzverband Vierwaldstättersee</description>
-      <sort type="int">53</sort>
+      <sort type="int">71</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7512,7 +7512,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">TEST KOORNP</name>
       <description type="str">Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)</description>
-      <sort type="int">27</sort>
+      <sort type="int">45</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7526,7 +7526,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">BAV</name>
       <description type="str">Bundesamt für Verkehr</description>
-      <sort type="int">25</sort>
+      <sort type="int">43</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7540,7 +7540,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ZAKU</name>
       <description type="str">Zentralverband Abfallbewirtschaftung Kanton Uri</description>
-      <sort type="int">23</sort>
+      <sort type="int">41</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7554,7 +7554,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">SWR</name>
       <description type="str">Geometer Vermessung</description>
-      <sort type="int">35</sort>
+      <sort type="int">53</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7582,7 +7582,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ZUBI</name>
       <description type="str">Zentralschweizer Umweltbauinspektorat</description>
-      <sort type="int">13</sort>
+      <sort type="int">31</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7596,7 +7596,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE NHS D</name>
       <description type="str">Amt für Raumentwicklung Heimatschutz und Denkmalpflege</description>
-      <sort type="int">45</sort>
+      <sort type="int">63</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7610,7 +7610,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE BaB Kreis 2</name>
       <description type="str">Amt für Raumentwicklung Fachstelle Bauten ausserhalb der Bauzone Kreis 2</description>
-      <sort type="int">12</sort>
+      <sort type="int">30</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7624,7 +7624,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ARE BaB Kreis 3</name>
       <description type="str">Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 3</description>
-      <sort type="int">17</sort>
+      <sort type="int">35</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7636,8 +7636,8 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_id type="int">281</service_id>
       <service_group type="int">41</service_group>
       <service_parent type="NoneType">None</service_parent>
-      <name type="str">Gemeinde Andermatt als Vernehmlassungsstelle</name>
-      <description type="str">Gemeinde Andermatt</description>
+      <name type="str">Gemeinde Andermatt</name>
+      <description type="str">Gemeinde Andermatt als Vernehmlassungsstelle</description>
       <sort type="int">10</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
@@ -7650,8 +7650,8 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_id type="int">301</service_id>
       <service_group type="int">41</service_group>
       <service_parent type="NoneType">None</service_parent>
-      <name type="str">Gemeinde Altdorf als Vernehmlassungsstelle</name>
-      <description type="str">Gemeinde Altdorf</description>
+      <name type="str">Gemeinde Altdorf</name>
+      <description type="str">Gemeinde Altdorf als Vernehmlassungsstelle</description>
       <sort type="int">2</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
@@ -7666,7 +7666,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">KOOR BD</name>
       <description type="str">KOOR BD</description>
-      <sort type="int">22</sort>
+      <sort type="int">40</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7680,7 +7680,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">WB</name>
       <description type="str">Baudirektion Abteilung Wasserbau</description>
-      <sort type="int">11</sort>
+      <sort type="int">29</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7694,7 +7694,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AS</name>
       <description type="str">Baudirektion Abteilung Strassen</description>
-      <sort type="int">21</sort>
+      <sort type="int">39</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7708,7 +7708,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">BK</name>
       <description type="str">Baudirektion Betrieb Kantonsstrassen</description>
-      <sort type="int">26</sort>
+      <sort type="int">44</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7722,7 +7722,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AfE</name>
       <description type="str">Baudirektion Amt für Energie</description>
-      <sort type="int">31</sort>
+      <sort type="int">49</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7736,7 +7736,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AfBN</name>
       <description type="str">Baudirektion Amt für Betrieb Nationalstrassen</description>
-      <sort type="int">34</sort>
+      <sort type="int">52</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7750,7 +7750,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">AfH</name>
       <description type="str">Baudirektion Amt für Hochbau</description>
-      <sort type="int">38</sort>
+      <sort type="int">56</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7764,7 +7764,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">ASTRA</name>
       <description type="str">Bundesamt für Strassen</description>
-      <sort type="int">32</sort>
+      <sort type="int">50</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7778,7 +7778,7 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">BVP</name>
       <description type="str">Bereitschafts- und Verkehrspolizei</description>
-      <sort type="int">15</sort>
+      <sort type="int">33</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -7792,7 +7792,259 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <service_parent type="NoneType">None</service_parent>
       <name type="str">BGBB</name>
       <description type="str">Bundesgesetz über das bäuerliche Bodenrecht</description>
+      <sort type="int">37</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">322</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Attinghausen</name>
+      <description type="str">Gemeinde Attinghausen als Vernehmlassungsstelle</description>
+      <sort type="int">11</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">323</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Bauen</name>
+      <description type="str">Gemeinde Bauen als Vernehmlassungsstelle</description>
+      <sort type="int">12</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">324</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Bürglen</name>
+      <description type="str">Gemeinde Bürglen als Vernehmlassungsstelle</description>
+      <sort type="int">13</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">325</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Erstfeld</name>
+      <description type="str">Gemeinde Erstfeld  als Vernehmlassungsstelle</description>
+      <sort type="int">14</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">326</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Flüelen</name>
+      <description type="str">Gemeinde Flüelen als Vernehmlassungsstelle</description>
+      <sort type="int">15</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">327</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Göschenen</name>
+      <description type="str">Gemeinde Göschenen als Vernehmlassungsstelle</description>
+      <sort type="int">16</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">328</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Gurtnellen</name>
+      <description type="str">Gemeinde Gurtnellen als Vernehmlassungsstelle</description>
+      <sort type="int">17</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">329</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Hospental</name>
+      <description type="str">Gemeinde Hospental als Vernehmlassungsstelle</description>
+      <sort type="int">18</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">330</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Isenthal</name>
+      <description type="str">Gemeinde Isenthal als Vernehmlassungsstelle</description>
       <sort type="int">19</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">331</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Realp</name>
+      <description type="str">Gemeinde Realp als Vernehmlassungsstelle</description>
+      <sort type="int">20</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">332</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Schattdorf</name>
+      <description type="str">Gemeinde Schattdorf als Vernehmlassungsstelle</description>
+      <sort type="int">21</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">333</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Seedorf</name>
+      <description type="str">Gemeinde Seedorf als Vernehmlassungsstelle</description>
+      <sort type="int">22</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">334</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Seelisberg</name>
+      <description type="str">Gemeinde Seelisberg als Vernehmlassungsstelle</description>
+      <sort type="int">23</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">335</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Silenen</name>
+      <description type="str">Gemeinde Silenen als Vernehmlassungsstelle</description>
+      <sort type="int">24</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">336</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Sisikon</name>
+      <description type="str">Gemeinde Sisikon als Vernehmlassungsstelle</description>
+      <sort type="int">25</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">337</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Spiringen</name>
+      <description type="str">Gemeinde Spiringen als Vernehmlassungsstelle</description>
+      <sort type="int">26</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">338</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Unterschächen</name>
+      <description type="str">Gemeinde Unterschächen als Vernehmlassungsstelle</description>
+      <sort type="int">27</sort>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
+    <entry table="service">
+      <service_id type="int">339</service_id>
+      <service_group type="int">41</service_group>
+      <service_parent type="NoneType">None</service_parent>
+      <name type="str">Gemeinde Wassen</name>
+      <description type="str">Gemeinde Wassen als Vernehmlassungsstelle</description>
+      <sort type="int">28</sort>
       <phone type="str"></phone>
       <zip type="str"></zip>
       <city type="str"></city>
@@ -32623,9 +32875,9 @@ ORDER BY "INSTANCE_ID"</query>
 </author>
     </entry>
     <entry table="configuration_version">
-      <id type="int">207</id>
-      <hash type="str">15cf1d0f-ca51-48c1-8cb2-c5f24adcb405</hash>
-      <export_date type="datetime">2016-07-11 09:29:09</export_date>
+      <id type="int">208</id>
+      <hash type="str">1ae8ca2a-044f-463a-aa93-b8a72d96efb4</hash>
+      <export_date type="datetime">2016-07-11 12:44:58</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
