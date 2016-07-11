@@ -1,4 +1,4 @@
-<config_data version="265e253a-ec8f-46b7-a344-57268fd5e12a">
+<config_data version="15cf1d0f-ca51-48c1-8cb2-c5f24adcb405">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -1333,6 +1333,50 @@ if (options.length == 2) {&#13;
       <javascript type="str"></javascript>
       <regex type="str"></regex>
       <default_answer type="str"></default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">251</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Prüfungshinweise Gemeindebaubehörde</name>
+      <description type="str">Wird nur für die Baudirektion verwendet</description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">252</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Detailangaben zum Vorhaben</name>
+      <description type="str"></description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">253</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Detailangaben zum Nutzungsplan</name>
+      <description type="str"></description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">254</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Detailangaben zur Nutzung</name>
+      <description type="str"></description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
     </entry>
   </configuration.Question>
   <configuration.Page table="page">
@@ -9453,14 +9497,14 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">2</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">3</sort>
+      <sort type="int">4</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">4</question>
       <chapter type="int">2</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">5</question>
@@ -9481,7 +9525,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">22</question>
@@ -9775,7 +9819,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">5</sort>
+      <sort type="int">6</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">94</question>
@@ -9796,7 +9840,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">6</sort>
+      <sort type="int">7</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">95</question>
@@ -9817,7 +9861,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">7</sort>
+      <sort type="int">8</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">96</question>
@@ -9831,14 +9875,14 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">8</sort>
+      <sort type="int">10</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">98</question>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">9</sort>
+      <sort type="int">11</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">98</question>
@@ -9852,35 +9896,35 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">10</sort>
+      <sort type="int">13</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">100</question>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">11</sort>
+      <sort type="int">14</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">101</question>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">12</sort>
+      <sort type="int">15</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">102</question>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">13</sort>
+      <sort type="int">16</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">103</question>
       <chapter type="int">21</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">14</sort>
+      <sort type="int">17</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">103</question>
@@ -9993,6 +10037,34 @@ ORDER BY "INSTANCE_ID"</query>
       <required type="bool">False</required>
       <item type="int">1</item>
       <sort type="int">14</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">251</question>
+      <chapter type="int">2</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">252</question>
+      <chapter type="int">21</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">9</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">253</question>
+      <chapter type="int">21</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">254</question>
+      <chapter type="int">21</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">12</sort>
     </entry>
   </configuration.QuestionChapter>
   <configuration.PageFormMode table="page_form_mode">
@@ -32547,6 +32619,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">189</id>
       <hash type="str">265e253a-ec8f-46b7-a344-57268fd5e12a</hash>
       <export_date type="datetime">2016-07-08 14:05:57</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">207</id>
+      <hash type="str">15cf1d0f-ca51-48c1-8cb2-c5f24adcb405</hash>
+      <export_date type="datetime">2016-07-11 09:29:09</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
