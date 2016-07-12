@@ -1,4 +1,4 @@
-<config_data version="1ae8ca2a-044f-463a-aa93-b8a72d96efb4">
+<config_data version="0f70ad85-ad65-4701-9f93-38b16c1b738a">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -440,7 +440,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
     <entry table="resource">
       <resource_id type="int">222</resource_id>
       <available_resource type="str">list</available_resource>
-      <name type="str">Dossiers in Zirkulation</name>
+      <name type="str">Koor BG Dossiers in Zirkulation</name>
       <description type="str">Dossier in Zirkulation für Koordinationsstelle Baugesuche</description>
       <template type="str">/list/circ-list.phtml</template>
       <class_field type="str">show_list_count</class_field>
@@ -450,7 +450,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
     <entry table="resource">
       <resource_id type="int">223</resource_id>
       <available_resource type="str">list</available_resource>
-      <name type="str">Dossiers in Zirkulation</name>
+      <name type="str">Koor NP Dossiers in Zirkulation</name>
       <description type="str">Dossiers in Zirkulation für die Koordinationsstelle NP</description>
       <template type="str">/list/circ-list.phtml</template>
       <class_field type="str">show_list_count</class_field>
@@ -480,7 +480,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
     <entry table="resource">
       <resource_id type="int">244</resource_id>
       <available_resource type="str">list</available_resource>
-      <name type="str">Dossiers in Zirkulation</name>
+      <name type="str">Koor BD Dossiers in Zirkulation</name>
       <description type="str">Liste für die Dossiers in Zirkulation für die Koordinationsstelle Baudirektion BD</description>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
@@ -18595,6 +18595,14 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">3</role>
     </entry>
     <entry table="r_role_acl">
+      <resource type="int">222</resource>
+      <role type="int">4</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">223</resource>
+      <role type="int">4</role>
+    </entry>
+    <entry table="r_role_acl">
       <resource type="int">223</resource>
       <role type="int">1061</role>
     </entry>
@@ -18605,6 +18613,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_role_acl">
       <resource type="int">243</resource>
       <role type="int">1101</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">244</resource>
+      <role type="int">1061</role>
     </entry>
     <entry table="r_role_acl">
       <resource type="int">244</resource>
@@ -32878,6 +32890,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">208</id>
       <hash type="str">1ae8ca2a-044f-463a-aa93-b8a72d96efb4</hash>
       <export_date type="datetime">2016-07-11 12:44:58</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">209</id>
+      <hash type="str">0f70ad85-ad65-4701-9f93-38b16c1b738a</hash>
+      <export_date type="datetime">2016-07-12 11:29:01</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
