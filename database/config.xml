@@ -1,4 +1,4 @@
-<config_data version="0f70ad85-ad65-4701-9f93-38b16c1b738a">
+<config_data version="b5411273-fc71-4b44-81c9-40d6d5f35d09">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -32900,6 +32900,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">210</id>
+      <hash type="str">b5411273-fc71-4b44-81c9-40d6d5f35d09</hash>
+      <export_date type="datetime">2016-07-13 09:04:29</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -37284,6 +37291,12 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">56</id>
       <attachment_extension type="int">41</attachment_extension>
       <role type="int">1102</role>
+      <mode type="str"></mode>
+    </entry>
+    <entry table="attachment_extension_role">
+      <id type="int">57</id>
+      <attachment_extension type="int">41</attachment_extension>
+      <role type="int">1101</role>
       <mode type="str"></mode>
     </entry>
   </configuration.AttachmentExtensionRole>
