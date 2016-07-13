@@ -1,4 +1,4 @@
-<config_data version="0f70ad85-ad65-4701-9f93-38b16c1b738a">
+<config_data version="f2a1d24f-0445-43b4-bf7b-a18cb71c8a33">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -19603,7 +19603,67 @@ ORDER BY "INSTANCE_ID"</query>
   <configuration.QuestionChapterServiceAcl table="question_chapter_service_acl"/>
   <configuration.QuestionChapterRoleAcl table="question_chapter_role_acl"/>
   <configuration.QuestionChapterGroupAcl table="question_chapter_group_acl"/>
-  <configuration.PublicationSetting table="publication_setting"/>
+  <configuration.PublicationSetting table="publication_setting">
+    <entry table="publication_setting">
+      <publication_setting_id type="int">1</publication_setting_id>
+      <key type="str">duration</key>
+      <value type="str">20 Tage</value>
+    </entry>
+    <entry table="publication_setting">
+      <publication_setting_id type="int">2</publication_setting_id>
+      <key type="str">fromEmail</key>
+      <value type="str">camac@ur.ch</value>
+    </entry>
+    <entry table="publication_setting">
+      <publication_setting_id type="int">3</publication_setting_id>
+      <key type="str">toEmail</key>
+      <value type="str">amtsblatt@ur.ch</value>
+    </entry>
+    <entry table="publication_setting">
+      <publication_setting_id type="int">4</publication_setting_id>
+      <key type="str">text</key>
+      <value type="str">
+Gemeindebaubehörde [@authority]
+
+Standeskanzlei Uri
+Redaktion Amtsblatt
+Rathaus
+6460 Altdorf
+
+[@zip] [@location], [@date]
+
+
+Meldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik
+"Bau und Planungsrecht"
+
+Sehr geehrte Damen und Herren
+
+Wir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]
+zu publizieren:
+
+[@community]
+
+Bauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]
+Bauvorhaben: [@intent]
+Bauplatz: [@c21q93i1]
+Parzelle: [@c21q91i1]
+Bemerkungen: [@note]
+
+
+
+
+Wir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung
+
+Freundliche Grüsse
+
+Gemeindebaubehörde [@authority]
+
+
+[@zip] [@location], [@date]
+
+</value>
+    </entry>
+  </configuration.PublicationSetting>
   <configuration.PageFormUserAcl table="page_form_user_acl"/>
   <configuration.PageFormServiceAcl table="page_form_service_acl"/>
   <configuration.PageFormRoleAcl table="page_form_role_acl">
@@ -32897,6 +32957,27 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">209</id>
       <hash type="str">0f70ad85-ad65-4701-9f93-38b16c1b738a</hash>
       <export_date type="datetime">2016-07-12 11:29:01</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">210</id>
+      <hash type="str">5bc94a55-5098-4eee-9ffb-544d0668dd7a</hash>
+      <export_date type="datetime">2016-07-13 10:48:39</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">211</id>
+      <hash type="str">94b92f5d-ccd4-40d5-87bd-4169c98b99b8</hash>
+      <export_date type="datetime">2016-07-13 10:48:49</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">212</id>
+      <hash type="str">f2a1d24f-0445-43b4-bf7b-a18cb71c8a33</hash>
+      <export_date type="datetime">2016-07-13 10:51:20</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
