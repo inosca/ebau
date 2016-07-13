@@ -1,4 +1,4 @@
-<config_data version="0f70ad85-ad65-4701-9f93-38b16c1b738a">
+<config_data version="4f0ec5b9-6833-4748-a09b-65b34c3be8f9">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -1373,6 +1373,17 @@ if (options.length == 2) {&#13;
       <mapping type="int">1</mapping>
       <answer_query type="NoneType">None</answer_query>
       <name type="str">Detailangaben zur Nutzung</name>
+      <description type="str"></description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">255</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Detailangaben zum Nutzungsplan</name>
       <description type="str"></description>
       <javascript type="str"></javascript>
       <regex type="str"></regex>
@@ -9791,7 +9802,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">23</question>
@@ -10085,7 +10096,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">5</sort>
+      <sort type="int">6</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">95</question>
@@ -10106,7 +10117,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">6</sort>
+      <sort type="int">7</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">96</question>
@@ -10120,7 +10131,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">7</sort>
+      <sort type="int">8</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">97</question>
@@ -10253,28 +10264,28 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">8</sort>
+      <sort type="int">9</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">245</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">9</sort>
+      <sort type="int">10</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">246</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">10</sort>
+      <sort type="int">11</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">247</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">11</sort>
+      <sort type="int">12</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">249</question>
@@ -10317,6 +10328,13 @@ ORDER BY "INSTANCE_ID"</query>
       <required type="bool">False</required>
       <item type="int">1</item>
       <sort type="int">12</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">255</question>
+      <chapter type="int">102</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">4</sort>
     </entry>
   </configuration.QuestionChapter>
   <configuration.PageFormMode table="page_form_mode">
@@ -32897,6 +32915,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">209</id>
       <hash type="str">0f70ad85-ad65-4701-9f93-38b16c1b738a</hash>
       <export_date type="datetime">2016-07-12 11:29:01</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">229</id>
+      <hash type="str">4f0ec5b9-6833-4748-a09b-65b34c3be8f9</hash>
+      <export_date type="datetime">2016-07-13 08:59:14</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
