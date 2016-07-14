@@ -1,4 +1,4 @@
-<config_data version="b5411273-fc71-4b44-81c9-40d6d5f35d09">
+<config_data version="247bf523-2503-4989-be12-e33589b7433b">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -15483,6 +15483,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">1</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">10</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15493,6 +15497,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">10</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">10</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">13</workflow_item>
@@ -15507,6 +15515,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">13</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">14</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15523,6 +15535,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">14</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">21</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15533,6 +15549,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">21</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">21</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">41</workflow_item>
@@ -15543,12 +15563,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">41</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">42</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">42</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">42</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">43</workflow_item>
@@ -15559,6 +15587,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">43</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">47</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15569,6 +15601,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">47</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">47</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">48</workflow_item>
@@ -15583,6 +15619,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">48</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">49</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15593,6 +15633,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">49</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">49</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">50</workflow_item>
@@ -15607,6 +15651,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">50</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">51</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15617,6 +15665,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">51</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">51</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">52</workflow_item>
@@ -15631,6 +15683,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">52</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">53</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15641,6 +15697,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">53</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">53</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">54</workflow_item>
@@ -15655,6 +15715,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">54</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">55</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15665,6 +15729,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">55</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">55</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">56</workflow_item>
@@ -15675,12 +15743,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">56</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">57</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">57</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">57</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">58</workflow_item>
@@ -15691,12 +15767,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">58</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">59</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">59</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">59</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">60</workflow_item>
@@ -15707,12 +15791,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">60</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">61</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">61</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">61</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">63</workflow_item>
@@ -15727,6 +15819,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">63</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">64</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15737,6 +15833,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">64</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">64</workflow_item>
+      <role type="int">1101</role>
     </entry>
   </configuration.WorkflowRole>
   <configuration.WorkflowAction table="workflow_action">
@@ -32922,6 +33022,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">210</id>
       <hash type="str">b5411273-fc71-4b44-81c9-40d6d5f35d09</hash>
       <export_date type="datetime">2016-07-13 09:04:29</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">211</id>
+      <hash type="str">247bf523-2503-4989-be12-e33589b7433b</hash>
+      <export_date type="datetime">2016-07-14 13:16:27</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
