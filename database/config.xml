@@ -1,4 +1,4 @@
-<config_data version="f2a1d24f-0445-43b4-bf7b-a18cb71c8a33">
+<config_data version="9d34ea77-a312-4e63-aadf-02c8e1d11a17">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -1373,6 +1373,17 @@ if (options.length == 2) {&#13;
       <mapping type="int">1</mapping>
       <answer_query type="NoneType">None</answer_query>
       <name type="str">Detailangaben zur Nutzung</name>
+      <description type="str"></description>
+      <javascript type="str"></javascript>
+      <regex type="str"></regex>
+      <default_answer type="str">0</default_answer>
+    </entry>
+    <entry table="question">
+      <question_id type="int">255</question_id>
+      <question_type type="int">6</question_type>
+      <mapping type="int">1</mapping>
+      <answer_query type="NoneType">None</answer_query>
+      <name type="str">Detailangaben zum Nutzungsplan</name>
       <description type="str"></description>
       <javascript type="str"></javascript>
       <regex type="str"></regex>
@@ -8135,22 +8146,17 @@ Die die Comm sind, können ja bearbeitet werden.</description>
 	CASE&#13;
 		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
 		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
 	END AS "STREET",&#13;
 	GET_STATE_NAME_BY_ID("INSTANCE"."INSTANCE_STATE_ID") AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
-&#13;
-&#13;
-	&#13;
 FROM "INSTANCE"&#13;
-&#13;
 JOIN "INSTANCE_LOCATION" ON (&#13;
 		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
 )&#13;
-&#13;
 JOIN "LOCATION" ON (&#13;
 		"INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
 )&#13;
-&#13;
 LEFT JOIN "ANSWER"  "DOSSIERNR" ON (&#13;
 		"DOSSIERNR"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 		AND&#13;
@@ -8205,33 +8211,34 @@ LEFT JOIN "ANSWER" "ANSWER_STREET_NP" ON (&#13;
 		AND&#13;
 		"ANSWER_STREET_NP"."ITEM" = 1&#13;
 	)&#13;
-&#13;
-&#13;
-&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
+	)&#13;
 join "FORM" ON (&#13;
 	"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
 )&#13;
-&#13;
 JOIN "USER" ON (&#13;
 		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
 )&#13;
-&#13;
 LEFT JOIN "INSTANCE_STATE_DESCRIPTION" ON (&#13;
 		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
 	)&#13;
-&#13;
 LEFT JOIN "ANSWER"  "PARCEL_NR" ON ( &#13;
   "INSTANCE"."INSTANCE_ID" = "PARCEL_NR"."INSTANCE_ID" AND "PARCEL_NR"."QUESTION_ID" = 91 AND "PARCEL_NR"."CHAPTER_ID" = 21 AND "PARCEL_NR"."ITEM" = 1&#13;
   )&#13;
-&#13;
 JOIN "FORM_GROUP_FORM" ON (&#13;
 	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
 )&#13;
-&#13;
 left JOIN "GROUP_LOCATION" ON (&#13;
 	 	"GROUP_LOCATION"."GROUP_ID" = [GROUP_ID]&#13;
 	)&#13;
-	&#13;
 LEFT JOIN "CIRCULATION" ON (&#13;
 	"CIRCULATION"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 )&#13;
@@ -8596,6 +8603,7 @@ ORDER BY "INSTANCE_ID"</query>
 	CASE&#13;
 		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
 		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
 	END AS "STREET",&#13;
 	"ACTIVATION"."REASON"      AS "REASON",&#13;
 	"CIRCULATION_STATE"."NAME" AS "CIRC_STATE"&#13;
@@ -8647,6 +8655,16 @@ LEFT JOIN&#13;
 		"ANSWER_STREET_NP"."CHAPTER_ID" = 101&#13;
 		AND&#13;
 		"ANSWER_STREET_NP"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
 	)&#13;
 &#13;
 JOIN&#13;
@@ -9216,6 +9234,7 @@ ORDER BY "INSTANCE_ID"</query>
 	CASE&#13;
 		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
 		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
 	END AS "STREET",&#13;
 	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
@@ -9267,6 +9286,21 @@ LEFT JOIN&#13;
 		"ANSWER_STREET_NP"."CHAPTER_ID" = 101&#13;
 		AND&#13;
 		"ANSWER_STREET_NP"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
+	)&#13;
+&#13;
+JOIN&#13;
+	"CIRCULATION" ON (&#13;
+		"CIRCULATION"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 	)&#13;
 &#13;
 JOIN&#13;
@@ -9487,7 +9521,10 @@ ORDER BY "INSTANCE_ID"</query>
 	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
 		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
 &#13;
-	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+	CASE&#13;
+		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
+    END AS "STREET",&#13;
 	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
 FROM&#13;
@@ -9519,14 +9556,25 @@ JOIN&#13;
 		"ANSWER_DOK_NR"."ITEM" = 1&#13;
 	)&#13;
 LEFT JOIN&#13;
-	"ANSWER" "ANSWER_STREET" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+	"ANSWER" "ANSWER_STREET_BG" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_BG"."INSTANCE_ID"&#13;
 		AND&#13;
-		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		"ANSWER_STREET_BG"."QUESTION_ID" = 93&#13;
 		AND&#13;
-		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		"ANSWER_STREET_BG"."CHAPTER_ID" = 21&#13;
 		AND&#13;
-		"ANSWER_STREET"."ITEM" = 1&#13;
+		"ANSWER_STREET_BG"."ITEM" = 1&#13;
+	)&#13;
+&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
 	)&#13;
 JOIN &#13;
 	"INSTANCE_STATE" ON (&#13;
@@ -9574,7 +9622,11 @@ ORDER BY "INSTANCE_ID"</query>
 	) AS "APPLICANT",&#13;
 	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
 		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
-	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+&#13;
+	CASE&#13;
+		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
+    END AS "STREET",&#13;
 	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
 FROM&#13;
@@ -9606,14 +9658,25 @@ JOIN&#13;
 		"ANSWER_DOK_NR"."ITEM" = 1&#13;
 	)&#13;
 LEFT JOIN&#13;
-	"ANSWER" "ANSWER_STREET" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+	"ANSWER" "ANSWER_STREET_BG" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_BG"."INSTANCE_ID"&#13;
 		AND&#13;
-		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		"ANSWER_STREET_BG"."QUESTION_ID" = 93&#13;
 		AND&#13;
-		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		"ANSWER_STREET_BG"."CHAPTER_ID" = 21&#13;
 		AND&#13;
-		"ANSWER_STREET"."ITEM" = 1&#13;
+		"ANSWER_STREET_BG"."ITEM" = 1&#13;
+	)&#13;
+&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
 	)&#13;
 JOIN &#13;
 	"INSTANCE_STATE" ON (&#13;
@@ -9661,7 +9724,10 @@ ORDER BY "INSTANCE_ID"</query>
 	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
 		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
 &#13;
-	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+	CASE&#13;
+		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
+    END AS "STREET",&#13;
 	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
 FROM&#13;
@@ -9693,14 +9759,25 @@ JOIN&#13;
 		"ANSWER_DOK_NR"."ITEM" = 1&#13;
 	)&#13;
 LEFT JOIN&#13;
-	"ANSWER" "ANSWER_STREET" ON (&#13;
-		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+	"ANSWER" "ANSWER_STREET_BG" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_BG"."INSTANCE_ID"&#13;
 		AND&#13;
-		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		"ANSWER_STREET_BG"."QUESTION_ID" = 93&#13;
 		AND&#13;
-		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		"ANSWER_STREET_BG"."CHAPTER_ID" = 21&#13;
 		AND&#13;
-		"ANSWER_STREET"."ITEM" = 1&#13;
+		"ANSWER_STREET_BG"."ITEM" = 1&#13;
+	)&#13;
+&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
 	)&#13;
 JOIN &#13;
 	"INSTANCE_STATE" ON (&#13;
@@ -9791,7 +9868,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">23</question>
@@ -10085,7 +10162,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">5</sort>
+      <sort type="int">6</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">95</question>
@@ -10106,7 +10183,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">6</sort>
+      <sort type="int">7</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">96</question>
@@ -10120,7 +10197,7 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">7</sort>
+      <sort type="int">8</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">97</question>
@@ -10253,28 +10330,28 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">8</sort>
+      <sort type="int">9</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">245</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">9</sort>
+      <sort type="int">10</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">246</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">10</sort>
+      <sort type="int">11</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">247</question>
       <chapter type="int">102</chapter>
       <required type="bool">False</required>
       <item type="int">1</item>
-      <sort type="int">11</sort>
+      <sort type="int">12</sort>
     </entry>
     <entry table="question_chapter">
       <question type="int">249</question>
@@ -10317,6 +10394,13 @@ ORDER BY "INSTANCE_ID"</query>
       <required type="bool">False</required>
       <item type="int">1</item>
       <sort type="int">12</sort>
+    </entry>
+    <entry table="question_chapter">
+      <question type="int">255</question>
+      <chapter type="int">102</chapter>
+      <required type="bool">False</required>
+      <item type="int">1</item>
+      <sort type="int">4</sort>
     </entry>
   </configuration.QuestionChapter>
   <configuration.PageFormMode table="page_form_mode">
@@ -15465,6 +15549,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">1</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">10</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15475,6 +15563,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">10</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">10</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">13</workflow_item>
@@ -15489,6 +15581,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">13</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">14</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15505,6 +15601,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">14</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">21</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15515,6 +15615,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">21</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">21</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">41</workflow_item>
@@ -15525,12 +15629,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">41</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">42</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">42</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">42</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">43</workflow_item>
@@ -15541,6 +15653,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">43</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">47</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15551,6 +15667,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">47</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">47</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">48</workflow_item>
@@ -15565,6 +15685,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">48</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">49</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15575,6 +15699,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">49</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">49</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">50</workflow_item>
@@ -15589,6 +15717,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">50</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">51</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15599,6 +15731,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">51</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">51</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">52</workflow_item>
@@ -15613,6 +15749,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">52</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">53</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15623,6 +15763,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">53</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">53</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">54</workflow_item>
@@ -15637,6 +15781,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">54</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">55</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15647,6 +15795,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">55</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">55</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">56</workflow_item>
@@ -15657,12 +15809,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">56</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">57</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">57</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">57</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">58</workflow_item>
@@ -15673,12 +15833,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">58</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">59</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">59</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">59</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">60</workflow_item>
@@ -15689,12 +15857,20 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">6</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">60</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">61</workflow_item>
       <role type="int">3</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">61</workflow_item>
       <role type="int">6</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">61</workflow_item>
+      <role type="int">1101</role>
     </entry>
     <entry table="workflow_role">
       <workflow_item type="int">63</workflow_item>
@@ -15709,6 +15885,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
     </entry>
     <entry table="workflow_role">
+      <workflow_item type="int">63</workflow_item>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="workflow_role">
       <workflow_item type="int">64</workflow_item>
       <role type="int">3</role>
     </entry>
@@ -15719,6 +15899,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_role">
       <workflow_item type="int">64</workflow_item>
       <role type="int">1061</role>
+    </entry>
+    <entry table="workflow_role">
+      <workflow_item type="int">64</workflow_item>
+      <role type="int">1101</role>
     </entry>
   </configuration.WorkflowRole>
   <configuration.WorkflowAction table="workflow_action">
@@ -19595,6 +19779,27 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STREET</column_name>
       <alias type="str">STREET</alias>
       <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">578</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">DEADLINE</column_name>
+      <alias type="str">DEADLINE</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">579</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">REASON</column_name>
+      <alias type="str">REASON</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">580</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">CIRC_STATE</column_name>
+      <alias type="str">CIRC_STATE</alias>
+      <sort type="int">9</sort>
     </entry>
   </configuration.RListColumn>
   <configuration.RGroupAcl table="r_group_acl"/>
@@ -32962,22 +33167,29 @@ Gemeindebaubehörde [@authority]
     </entry>
     <entry table="configuration_version">
       <id type="int">210</id>
-      <hash type="str">5bc94a55-5098-4eee-9ffb-544d0668dd7a</hash>
-      <export_date type="datetime">2016-07-13 10:48:39</export_date>
+      <hash type="str">b5411273-fc71-4b44-81c9-40d6d5f35d09</hash>
+      <export_date type="datetime">2016-07-13 09:04:29</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry table="configuration_version">
       <id type="int">211</id>
-      <hash type="str">94b92f5d-ccd4-40d5-87bd-4169c98b99b8</hash>
-      <export_date type="datetime">2016-07-13 10:48:49</export_date>
+      <hash type="str">247bf523-2503-4989-be12-e33589b7433b</hash>
+      <export_date type="datetime">2016-07-14 13:16:27</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
     <entry table="configuration_version">
-      <id type="int">212</id>
-      <hash type="str">f2a1d24f-0445-43b4-bf7b-a18cb71c8a33</hash>
-      <export_date type="datetime">2016-07-13 10:51:20</export_date>
+      <id type="int">233</id>
+      <hash type="str">e4027af6-32eb-4fea-89ca-48bce6c4974a</hash>
+      <export_date type="datetime">2016-07-19 08:37:35</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">234</id>
+      <hash type="str">9d34ea77-a312-4e63-aadf-02c8e1d11a17</hash>
+      <export_date type="datetime">2016-07-19 12:12:37</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
@@ -37365,6 +37577,12 @@ Gemeindebaubehörde [@authority]
       <id type="int">56</id>
       <attachment_extension type="int">41</attachment_extension>
       <role type="int">1102</role>
+      <mode type="str"></mode>
+    </entry>
+    <entry table="attachment_extension_role">
+      <id type="int">57</id>
+      <attachment_extension type="int">41</attachment_extension>
+      <role type="int">1101</role>
       <mode type="str"></mode>
     </entry>
   </configuration.AttachmentExtensionRole>
