@@ -1,4 +1,4 @@
-<config_data version="9d34ea77-a312-4e63-aadf-02c8e1d11a17">
+<config_data version="eb4c513c-251d-4c11-a2dc-a8efc4bf854c">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -8689,7 +8689,9 @@ WHERE&#13;
 		"ACTIVATION"."CIRCULATION_STATE_ID" = 1&#13;
 		OR&#13;
 		"ACTIVATION"."CIRCULATION_STATE_ID" = 41&#13;
-	)</query>
+	)&#13;
+    AND&#13;
+    "INSTANCE"."INSTANCE_STATE_ID" = 23</query>
     </entry>
     <entry table="r_list">
       <resource type="int">62</resource>
@@ -33109,6 +33111,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">234</id>
       <hash type="str">9d34ea77-a312-4e63-aadf-02c8e1d11a17</hash>
       <export_date type="datetime">2016-07-19 12:12:37</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">235</id>
+      <hash type="str">eb4c513c-251d-4c11-a2dc-a8efc4bf854c</hash>
+      <export_date type="datetime">2016-07-19 13:08:39</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
