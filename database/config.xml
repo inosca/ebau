@@ -1,4 +1,4 @@
-<config_data version="e4027af6-32eb-4fea-89ca-48bce6c4974a">
+<config_data version="9d34ea77-a312-4e63-aadf-02c8e1d11a17">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -8146,22 +8146,17 @@ Die die Comm sind, können ja bearbeitet werden.</description>
 	CASE&#13;
 		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
 		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
 	END AS "STREET",&#13;
 	GET_STATE_NAME_BY_ID("INSTANCE"."INSTANCE_STATE_ID") AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
-&#13;
-&#13;
-	&#13;
 FROM "INSTANCE"&#13;
-&#13;
 JOIN "INSTANCE_LOCATION" ON (&#13;
 		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
 )&#13;
-&#13;
 JOIN "LOCATION" ON (&#13;
 		"INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
 )&#13;
-&#13;
 LEFT JOIN "ANSWER"  "DOSSIERNR" ON (&#13;
 		"DOSSIERNR"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 		AND&#13;
@@ -8216,33 +8211,34 @@ LEFT JOIN "ANSWER" "ANSWER_STREET_NP" ON (&#13;
 		AND&#13;
 		"ANSWER_STREET_NP"."ITEM" = 1&#13;
 	)&#13;
-&#13;
-&#13;
-&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
+	)&#13;
 join "FORM" ON (&#13;
 	"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
 )&#13;
-&#13;
 JOIN "USER" ON (&#13;
 		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
 )&#13;
-&#13;
 LEFT JOIN "INSTANCE_STATE_DESCRIPTION" ON (&#13;
 		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
 	)&#13;
-&#13;
 LEFT JOIN "ANSWER"  "PARCEL_NR" ON ( &#13;
   "INSTANCE"."INSTANCE_ID" = "PARCEL_NR"."INSTANCE_ID" AND "PARCEL_NR"."QUESTION_ID" = 91 AND "PARCEL_NR"."CHAPTER_ID" = 21 AND "PARCEL_NR"."ITEM" = 1&#13;
   )&#13;
-&#13;
 JOIN "FORM_GROUP_FORM" ON (&#13;
 	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
 )&#13;
-&#13;
 left JOIN "GROUP_LOCATION" ON (&#13;
 	 	"GROUP_LOCATION"."GROUP_ID" = [GROUP_ID]&#13;
 	)&#13;
-	&#13;
 LEFT JOIN "CIRCULATION" ON (&#13;
 	"CIRCULATION"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 )&#13;
@@ -9238,6 +9234,7 @@ ORDER BY "INSTANCE_ID"</query>
 	CASE&#13;
 		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
 		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_247"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_247"."ANSWER"&#13;
 	END AS "STREET",&#13;
 	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
 	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
@@ -9289,6 +9286,21 @@ LEFT JOIN&#13;
 		"ANSWER_STREET_NP"."CHAPTER_ID" = 101&#13;
 		AND&#13;
 		"ANSWER_STREET_NP"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_247" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_247"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."CHAPTER_ID" = 102&#13;
+		AND&#13;
+		"ANSWER_STREET_247"."ITEM" = 1&#13;
+	)&#13;
+&#13;
+JOIN&#13;
+	"CIRCULATION" ON (&#13;
+		"CIRCULATION"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
 	)&#13;
 &#13;
 JOIN&#13;
@@ -19279,25 +19291,11 @@ ORDER BY "INSTANCE_ID"</query>
       <sort type="int">4</sort>
     </entry>
     <entry table="r_list_column">
-      <r_list_column_id type="int">450</r_list_column_id>
-      <resource type="int">41</resource>
-      <column_name type="str">DEADLINE</column_name>
-      <alias type="str">Frist</alias>
-      <sort type="int">3</sort>
-    </entry>
-    <entry table="r_list_column">
       <r_list_column_id type="int">451</r_list_column_id>
       <resource type="int">41</resource>
       <column_name type="str">APPLICANT</column_name>
       <alias type="str">Gesuchsteller</alias>
       <sort type="int">5</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">452</r_list_column_id>
-      <resource type="int">41</resource>
-      <column_name type="str">REASON</column_name>
-      <alias type="str">Grund</alias>
-      <sort type="int">8</sort>
     </entry>
     <entry table="r_list_column">
       <r_list_column_id type="int">453</r_list_column_id>
@@ -19396,13 +19394,6 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STATE_DESCRIPTION</column_name>
       <alias type="str">Statusbeschreibung</alias>
       <sort type="int">8</sort>
-    </entry>
-    <entry table="r_list_column">
-      <r_list_column_id type="int">484</r_list_column_id>
-      <resource type="int">41</resource>
-      <column_name type="str">CIRC_STATE</column_name>
-      <alias type="str">Status</alias>
-      <sort type="int">9</sort>
     </entry>
     <entry table="r_list_column">
       <r_list_column_id type="int">485</r_list_column_id>
@@ -19767,6 +19758,27 @@ ORDER BY "INSTANCE_ID"</query>
       <column_name type="str">STREET</column_name>
       <alias type="str">STREET</alias>
       <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">578</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">DEADLINE</column_name>
+      <alias type="str">DEADLINE</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">579</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">REASON</column_name>
+      <alias type="str">REASON</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">580</r_list_column_id>
+      <resource type="int">41</resource>
+      <column_name type="str">CIRC_STATE</column_name>
+      <alias type="str">CIRC_STATE</alias>
+      <sort type="int">9</sort>
     </entry>
   </configuration.RListColumn>
   <configuration.RGroupAcl table="r_group_acl"/>
@@ -33090,6 +33102,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">233</id>
       <hash type="str">e4027af6-32eb-4fea-89ca-48bce6c4974a</hash>
       <export_date type="datetime">2016-07-19 08:37:35</export_date>
+      <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">234</id>
+      <hash type="str">9d34ea77-a312-4e63-aadf-02c8e1d11a17</hash>
+      <export_date type="datetime">2016-07-19 12:12:37</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
