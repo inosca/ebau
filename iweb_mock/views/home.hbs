@@ -1,0 +1,16 @@
+<p>Willkommen!</p>
+
+<form action="/hash" method="POST">
+	<input type="submit" value="get Hash">
+</form>
+
+{{#if hash}}
+<p>Got Hash: {{hash}}</p>
+<form action="http://localhost:4300/portal/user/entry/resource-id/245" method="POST">
+  <input type="hidden" name="camacSession" value={{hash}}>
+  <input type="hidden" name="firstName" value="Hans">
+  <input type="hidden" name="lastName" value="Peter">
+
+  <input type="submit" value="go to camac">
+</form>
+{{/if}}
