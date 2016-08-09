@@ -1,0 +1,11 @@
+{
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"rules": {
+		"indent": [2, "tab"],
+		"no-multi-spaces": 0
+	},
+	"extends": "standard"
+}
