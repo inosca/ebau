@@ -1,4 +1,4 @@
-<config_data version="eb4c513c-251d-4c11-a2dc-a8efc4bf854c">
+<config_data version="33937bf4-724c-42e2-b565-22049a47f751">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -92,6 +92,11 @@
       <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD egal wer dass erstellt</name>
       <description type="str"></description>
     </entry>
+    <entry table="form_group">
+      <form_group_id type="int">247</form_group_id>
+      <name type="str">Alle Dossiers Portal</name>
+      <description type="str">Alle Dossiers, die von Nutzern des öffentlichen Portals erstellt werden können</description>
+    </entry>
   </configuration.FormGroup>
   <configuration.AvailableResource table="available_resource">
     <entry table="available_resource">
@@ -117,6 +122,12 @@
       <module_name type="str">default</module_name>
       <controller_name type="str">index</controller_name>
       <description type="str">Page from template</description>
+    </entry>
+    <entry table="available_resource">
+      <available_resource_id type="str">portal</available_resource_id>
+      <module_name type="str">portal</module_name>
+      <controller_name type="str">user</controller_name>
+      <description type="str">Portal user controller</description>
     </entry>
     <entry table="available_resource">
       <available_resource_id type="str">search</available_resource_id>
@@ -325,7 +336,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/global/home.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">17</sort>
+      <sort type="int">18</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">23</resource_id>
@@ -345,7 +356,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">4</sort>
+      <sort type="int">5</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">41</resource_id>
@@ -365,7 +376,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/global/search.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">16</sort>
+      <sort type="int">17</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">62</resource_id>
@@ -375,7 +386,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">7</sort>
+      <sort type="int">9</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">63</resource_id>
@@ -385,7 +396,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">8</sort>
+      <sort type="int">10</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">102</resource_id>
@@ -395,7 +406,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/buildom/search.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">15</sort>
+      <sort type="int">16</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">122</resource_id>
@@ -415,7 +426,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">5</sort>
+      <sort type="int">7</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">182</resource_id>
@@ -425,7 +436,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">9</sort>
+      <sort type="int">11</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">202</resource_id>
@@ -445,7 +456,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/list/circ-list.phtml</template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">11</sort>
+      <sort type="int">13</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">223</resource_id>
@@ -455,7 +466,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/list/circ-list.phtml</template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">12</sort>
+      <sort type="int">14</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">242</resource_id>
@@ -465,7 +476,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">6</sort>
+      <sort type="int">8</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">243</resource_id>
@@ -475,7 +486,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">10</sort>
+      <sort type="int">12</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">244</resource_id>
@@ -485,7 +496,27 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str"></template>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">13</sort>
+      <sort type="int">15</sort>
+    </entry>
+    <entry table="resource">
+      <resource_id type="int">245</resource_id>
+      <available_resource type="str">portal</available_resource>
+      <name type="str">Portal User Resource</name>
+      <description type="str">Diese Resource stellt die API für das i-Web Portal bereit</description>
+      <template type="str"></template>
+      <class_field type="str"></class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">6</sort>
+    </entry>
+    <entry table="resource">
+      <resource_id type="int">246</resource_id>
+      <available_resource type="str">list</available_resource>
+      <name type="str">Pendenzenliste Start</name>
+      <description type="str">Pendenzenliste Start für Portal Nutzer</description>
+      <template type="str"></template>
+      <class_field type="str">show_list_count</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">4</sort>
     </entry>
   </configuration.Resource>
   <configuration.QuestionType table="question_type">
@@ -2168,6 +2199,18 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <hidden type="bool">False</hidden>
       <sort type="int">2</sort>
       <form_group type="int">243</form_group>
+    </entry>
+    <entry table="instance_resource">
+      <instance_resource_id type="int">651</instance_resource_id>
+      <available_instance_resource type="str">newform</available_instance_resource>
+      <resource type="int">22</resource>
+      <name type="str">Dossier erstellen</name>
+      <description type="str">Erstellung durch Portal Nutzer</description>
+      <template type="str"></template>
+      <class_field type="str"></class_field>
+      <hidden type="bool">True</hidden>
+      <sort type="int">5</sort>
+      <form_group type="int">247</form_group>
     </entry>
   </configuration.InstanceResource>
   <configuration.FormState table="form_state">
@@ -6997,6 +7040,20 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <city type="str"></city>
       <zip type="str"></zip>
     </entry>
+    <entry table="user">
+      <user_id type="int">1209</user_id>
+      <username type="str">portalUser</username>
+      <password type="str">58e44234bee22b016ea9f88637ec4ada</password>
+      <name type="str">Portal</name>
+      <surname type="str">User</surname>
+      <email type="str"></email>
+      <phone type="str"></phone>
+      <disabled type="bool">False</disabled>
+      <language type="str">de</language>
+      <address type="str"></address>
+      <city type="str"></city>
+      <zip type="str"></zip>
+    </entry>
   </configuration.User>
   <configuration.ServiceGroup table="service_group">
     <entry table="service_group">
@@ -8124,6 +8181,11 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <role_id type="int">1102</role_id>
       <role_parent type="NoneType">None</role_parent>
       <name type="str">Gemeinde als Vernehmlassungsstelle</name>
+    </entry>
+    <entry table="role">
+      <role_id type="int">1103</role_id>
+      <role_parent type="NoneType">None</role_parent>
+      <name type="str">Portal User</name>
     </entry>
   </configuration.Role>
   <configuration.RSearch table="r_search">
@@ -9799,6 +9861,103 @@ WHERE&#13;
 	AND&#13;
 	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 241&#13;
 ORDER BY "INSTANCE_ID"</query>
+    </entry>
+    <entry table="r_list">
+      <resource type="int">246</resource>
+      <query type="str">SELECT&#13;
+	"INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",&#13;
+	"ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",&#13;
+	"FORM"."NAME"              AS "FORM",&#13;
+	"LOCATION"."NAME"          AS "COMMUNITY",&#13;
+	"USER"."USERNAME"          AS "USER",&#13;
+	(SELECT LISTAGG("ANSWER", ', ') WITHIN GROUP (ORDER BY "QUESTION_ID" DESC)&#13;
+		FROM&#13;
+			"ANSWER"&#13;
+		WHERE&#13;
+			"INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID"&#13;
+			AND&#13;
+			(&#13;
+				"ANSWER"."QUESTION_ID" = 23&#13;
+				OR&#13;
+				"ANSWER"."QUESTION_ID" = 221&#13;
+			)&#13;
+			AND&#13;
+			"ANSWER"."CHAPTER_ID" = 1&#13;
+			AND&#13;
+			"ANSWER"."ITEM" = 1&#13;
+	) AS "APPLICANT",&#13;
+	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
+		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
+	CASE&#13;
+		WHEN "ANSWER_STREET_BG"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_BG"."ANSWER"&#13;
+		WHEN "ANSWER_STREET_NP"."ANSWER" IS NOT NULL THEN "ANSWER_STREET_NP"."ANSWER"&#13;
+	END AS "STREET",&#13;
+	"INSTANCE_STATE"."NAME"    AS "STATE",&#13;
+	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
+FROM&#13;
+	"INSTANCE"&#13;
+JOIN&#13;
+	"INSTANCE_LOCATION" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
+	)&#13;
+JOIN &#13;
+	"LOCATION" ON (&#13;
+	 "INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
+	)&#13;
+JOIN&#13;
+	FORM ON (&#13;
+		"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
+)&#13;
+JOIN&#13;
+	"USER" ON (&#13;
+		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
+)&#13;
+JOIN&#13;
+	"ANSWER" "ANSWER_DOK_NR" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_DOK_NR"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."QUESTION_ID" = 6&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."CHAPTER_ID" = 2&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_BG" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_BG"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_BG"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_BG"."CHAPTER_ID" = 21&#13;
+		AND&#13;
+		"ANSWER_STREET_BG"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET_NP" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET_NP"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET_NP"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET_NP"."CHAPTER_ID" = 101&#13;
+		AND&#13;
+		"ANSWER_STREET_NP"."ITEM" = 1&#13;
+	)&#13;
+JOIN &#13;
+	"INSTANCE_STATE" ON (&#13;
+	"INSTANCE_STATE"."NAME" = 'comm'&#13;
+)&#13;
+JOIN&#13;
+	"INSTANCE_PORTAL" ON (&#13;
+	"INSTANCE"."INSTANCE_ID" = "INSTANCE_PORTAL"."INSTANCE_ID"&#13;
+	 AND&#13;
+	"INSTANCE_PORTAL"."PORTAL_IDENTIFIER" = '[PORTAL_USER]'&#13;
+)&#13;
+LEFT JOIN&#13;
+	"INSTANCE_STATE_DESCRIPTION" ON (&#13;
+		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"&#13;
+	)&#13;
+WHERE&#13;
+	"INSTANCE"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"</query>
     </entry>
   </configuration.RList>
   <configuration.QuestionChapter table="question_chapter">
@@ -12268,6 +12427,18 @@ ORDER BY "INSTANCE_ID"</query>
       <email type="str"></email>
       <website type="str"></website>
     </entry>
+    <entry table="group">
+      <group_id type="int">504</group_id>
+      <role type="int">1103</role>
+      <service type="NoneType">None</service>
+      <name type="str">Portal User</name>
+      <phone type="str"></phone>
+      <zip type="str"></zip>
+      <city type="str"></city>
+      <address type="str"></address>
+      <email type="str"></email>
+      <website type="str"></website>
+    </entry>
   </configuration.Group>
   <configuration.DocgenActivationAction table="docgen_activation_action">
     <entry table="docgen_activation_action">
@@ -13132,6 +13303,15 @@ ORDER BY "INSTANCE_ID"</query>
       <hidden type="bool">False</hidden>
       <sort type="int">4</sort>
     </entry>
+    <entry table="button">
+      <button_id type="int">722</button_id>
+      <instance_resource type="int">651</instance_resource>
+      <name type="str">Erstellen</name>
+      <description type="str"></description>
+      <class_field type="str"></class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">0</sort>
+    </entry>
   </configuration.Button>
   <configuration.AvailableAction table="available_action">
     <entry table="available_action">
@@ -13228,6 +13408,11 @@ ORDER BY "INSTANCE_ID"</query>
       <available_action_id type="str">savepdf</available_action_id>
       <module_name type="str">default</module_name>
       <description type="str">Save PDF from a form</description>
+    </entry>
+    <entry table="available_action">
+      <available_action_id type="str">session</available_action_id>
+      <module_name type="str">portal</module_name>
+      <description type="str">Get a Session for a Portal user</description>
     </entry>
     <entry table="available_action">
       <available_action_id type="str">validate</available_action_id>
@@ -15517,6 +15702,61 @@ ORDER BY "INSTANCE_ID"</query>
       <execute_always type="bool">False</execute_always>
       <sort type="int">0</sort>
     </entry>
+    <entry table="action">
+      <action_id type="int">1008</action_id>
+      <available_action type="str">save</available_action>
+      <button type="int">722</button>
+      <name type="str">Speichern</name>
+      <description type="str"></description>
+      <success_message type="str">Dossier erfolgreich erstellt.</success_message>
+      <error_message type="str">Dossier konnte nicht erstellt werden!</error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1009</action_id>
+      <available_action type="str">location</available_action>
+      <button type="int">722</button>
+      <name type="str">Standort Setzen</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1010</action_id>
+      <available_action type="str">php</available_action>
+      <button type="int">722</button>
+      <name type="str">Dossier nummer setzen</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1011</action_id>
+      <available_action type="str">workflow</available_action>
+      <button type="int">722</button>
+      <name type="str">Workflow Datum setzen Dossier erfasst</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1012</action_id>
+      <available_action type="str">php</available_action>
+      <button type="int">722</button>
+      <name type="str">Portal User setzen</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">2</sort>
+    </entry>
   </configuration.Action>
   <configuration.ALocation table="a_location">
     <entry table="a_location">
@@ -15533,6 +15773,9 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="a_location">
       <action type="int">950</action>
+    </entry>
+    <entry table="a_location">
+      <action type="int">1009</action>
     </entry>
   </configuration.ALocation>
   <configuration.ACopydata table="a_copydata"/>
@@ -16003,6 +16246,10 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="workflow_action">
       <action type="int">1003</action>
       <workflow_item type="int">62</workflow_item>
+    </entry>
+    <entry table="workflow_action">
+      <action type="int">1011</action>
+      <workflow_item type="int">12</workflow_item>
     </entry>
   </configuration.WorkflowAction>
   <configuration.UserGroup table="user_group">
@@ -18346,6 +18593,16 @@ ORDER BY "INSTANCE_ID"</query>
       <group type="int">282</group>
       <default_group type="bool">True</default_group>
     </entry>
+    <entry table="user_group">
+      <user type="int">1209</user>
+      <group type="int">2</group>
+      <default_group type="bool">False</default_group>
+    </entry>
+    <entry table="user_group">
+      <user type="int">1209</user>
+      <group type="int">504</group>
+      <default_group type="bool">True</default_group>
+    </entry>
   </configuration.UserGroup>
   <configuration.ServiceAnswerActivation table="service_answer_activation"/>
   <configuration.RUserAcl table="r_user_acl"/>
@@ -18697,6 +18954,10 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1101</role>
     </entry>
     <entry table="r_role_acl">
+      <resource type="int">22</resource>
+      <role type="int">1103</role>
+    </entry>
+    <entry table="r_role_acl">
       <resource type="int">23</resource>
       <role type="int">6</role>
     </entry>
@@ -18807,6 +19068,14 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="r_role_acl">
       <resource type="int">244</resource>
       <role type="int">1101</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">245</resource>
+      <role type="int">2</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">246</resource>
+      <role type="int">1103</role>
     </entry>
   </configuration.RRoleAcl>
   <configuration.RPage table="r_page">
@@ -19762,6 +20031,20 @@ ORDER BY "INSTANCE_ID"</query>
       <sort type="int">7</sort>
     </entry>
     <entry table="r_list_column">
+      <r_list_column_id type="int">576</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">INSTANCE_ID</column_name>
+      <alias type="str">INSTANCE_ID</alias>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">577</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">DOSSIER_NR</column_name>
+      <alias type="str">DOSSIER_NR</alias>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="r_list_column">
       <r_list_column_id type="int">578</r_list_column_id>
       <resource type="int">41</resource>
       <column_name type="str">DEADLINE</column_name>
@@ -19780,6 +20063,62 @@ ORDER BY "INSTANCE_ID"</query>
       <resource type="int">41</resource>
       <column_name type="str">CIRC_STATE</column_name>
       <alias type="str">CIRC_STATE</alias>
+      <sort type="int">9</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">581</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">FORM</column_name>
+      <alias type="str">FORM</alias>
+      <sort type="int">2</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">582</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">COMMUNITY</column_name>
+      <alias type="str">COMMUNITY</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">583</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">USER</column_name>
+      <alias type="str">USER</alias>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">584</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">APPLICANT</column_name>
+      <alias type="str">APPLICANT</alias>
+      <sort type="int">5</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">585</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">INTENT</column_name>
+      <alias type="str">INTENT</alias>
+      <sort type="int">6</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">586</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STREET</column_name>
+      <alias type="str">STREET</alias>
+      <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">587</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STATE</column_name>
+      <alias type="str">STATE</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">588</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STATE_DESCRIPTION</column_name>
+      <alias type="str">STATE_DESCRIPTION</alias>
       <sort type="int">9</sort>
     </entry>
   </configuration.RListColumn>
@@ -21046,6 +21385,18 @@ ORDER BY "INSTANCE_ID"</query>
       <form type="int">44</form>
       <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">44</form>
+      <role type="int">1103</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="page_form_role_acl">
+      <page type="int">1</page>
+      <form type="int">44</form>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
     </entry>
     <entry table="page_form_role_acl">
       <page type="int">1</page>
@@ -30257,6 +30608,11 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
     </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">651</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
   </configuration.IrRoleAcl>
   <configuration.IrPage table="ir_page">
     <entry table="ir_page">
@@ -30313,6 +30669,11 @@ ORDER BY "INSTANCE_ID"</query>
       <instance_resource type="int">608</instance_resource>
       <instance_state type="int">22</instance_state>
       <page_form_group type="int">1</page_form_group>
+    </entry>
+    <entry table="ir_newform">
+      <instance_resource type="int">651</instance_resource>
+      <instance_state type="int">21</instance_state>
+      <page_form_group type="NoneType">None</page_form_group>
     </entry>
   </configuration.IrNewform>
   <configuration.IrLetter table="ir_letter"/>
@@ -32575,6 +32936,10 @@ ORDER BY "INSTANCE_ID"</query>
       <form_group type="int">246</form_group>
       <form type="int">249</form>
     </entry>
+    <entry table="form_group_form">
+      <form_group type="int">247</form_group>
+      <form type="int">44</form>
+    </entry>
   </configuration.FormGroupForm>
   <configuration.DocgenTemplateClass table="docgen_template_class">
     <entry table="docgen_template_class">
@@ -33119,6 +33484,13 @@ ORDER BY "INSTANCE_ID"</query>
       <hash type="str">eb4c513c-251d-4c11-a2dc-a8efc4bf854c</hash>
       <export_date type="datetime">2016-07-19 13:08:39</export_date>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">236</id>
+      <hash type="str">33937bf4-724c-42e2-b565-22049a47f751</hash>
+      <export_date type="datetime">2016-08-10 06:46:14</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
   </configuration.ConfigurationVersion>
@@ -34696,6 +35068,12 @@ ORDER BY "INSTANCE_ID"</query>
       <chapter type="int">3</chapter>
       <page type="int">1</page>
       <role type="int">1101</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">3</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
       <instance_state type="int">1</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
@@ -36844,6 +37222,11 @@ ORDER BY "INSTANCE_ID"</query>
       <role type="int">1061</role>
       <instance_state type="int">26</instance_state>
     </entry>
+    <entry table="b_role_acl">
+      <button type="int">722</button>
+      <role type="int">1103</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
   </configuration.BRoleAcl>
   <configuration.BGroupAcl table="b_group_acl"/>
   <configuration.AuthorityType table="authority_type">
@@ -37559,6 +37942,16 @@ ORDER BY "INSTANCE_ID"</query>
       <available_resource type="str">page</available_resource>
       <action_name type="str">index</action_name>
       <hidden type="bool">False</hidden>
+    </entry>
+    <entry table="ar_action">
+      <available_resource type="str">portal</available_resource>
+      <action_name type="str">entry</action_name>
+      <hidden type="bool">True</hidden>
+    </entry>
+    <entry table="ar_action">
+      <available_resource type="str">portal</available_resource>
+      <action_name type="str">session</action_name>
+      <hidden type="bool">True</hidden>
     </entry>
     <entry table="ar_action">
       <available_resource type="str">search</available_resource>
@@ -39140,6 +39533,14 @@ ORDER BY "INSTANCE_ID"</query>
       <action type="int">1000</action>
       <php_class type="str">SaveParcelPicture</php_class>
     </entry>
+    <entry table="a_php">
+      <action type="int">1010</action>
+      <php_class type="str">DossierNR</php_class>
+    </entry>
+    <entry table="a_php">
+      <action type="int">1012</action>
+      <php_class type="str">SetPortalUser</php_class>
+    </entry>
   </configuration.APhp>
   <configuration.APageredirect table="a_pageredirect">
     <entry table="a_pageredirect">
@@ -39232,6 +39633,12 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="a_location_qc">
       <a_location_qc_id type="int">101</a_location_qc_id>
       <action type="int">950</action>
+      <question type="int">2</question>
+      <chapter type="int">3</chapter>
+    </entry>
+    <entry table="a_location_qc">
+      <a_location_qc_id type="int">102</a_location_qc_id>
+      <action type="int">1009</action>
       <question type="int">2</question>
       <chapter type="int">3</chapter>
     </entry>
