@@ -29,7 +29,7 @@
     </table>
   {{/if}}
 <form action="http://localhost:4300/portal/user/entry/resource-id/245" method="POST">
-  <input type="hidden" name="camacSession" value={{hash}}>
+  <input type="hidden" name="X-Camac-Session" value={{hash}}>
   <input type="hidden" name="firstName" value="Hans">
   <input type="hidden" name="lastName" value="Peter">
 
