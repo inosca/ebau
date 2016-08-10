@@ -1,4 +1,4 @@
-<config_data version="33937bf4-724c-42e2-b565-22049a47f751">
+<config_data version="e0f3b3fb-7a1e-407f-bb49-2530403172f8">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -13410,11 +13410,6 @@ WHERE&#13;
       <description type="str">Save PDF from a form</description>
     </entry>
     <entry table="available_action">
-      <available_action_id type="str">session</available_action_id>
-      <module_name type="str">portal</module_name>
-      <description type="str">Get a Session for a Portal user</description>
-    </entry>
-    <entry table="available_action">
       <available_action_id type="str">validate</available_action_id>
       <module_name type="str">default</module_name>
       <description type="str">Validate the form</description>
@@ -19072,6 +19067,10 @@ WHERE&#13;
     <entry table="r_role_acl">
       <resource type="int">245</resource>
       <role type="int">2</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">245</resource>
+      <role type="int">1103</role>
     </entry>
     <entry table="r_role_acl">
       <resource type="int">246</resource>
@@ -33493,6 +33492,13 @@ WHERE&#13;
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">256</id>
+      <hash type="str">e0f3b3fb-7a1e-407f-bb49-2530403172f8</hash>
+      <export_date type="datetime">2016-08-10 11:33:00</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -37946,6 +37952,11 @@ WHERE&#13;
     <entry table="ar_action">
       <available_resource type="str">portal</available_resource>
       <action_name type="str">entry</action_name>
+      <hidden type="bool">True</hidden>
+    </entry>
+    <entry table="ar_action">
+      <available_resource type="str">portal</available_resource>
+      <action_name type="str">overview</action_name>
       <hidden type="bool">True</hidden>
     </entry>
     <entry table="ar_action">
