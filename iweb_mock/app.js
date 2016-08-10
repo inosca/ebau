@@ -15,7 +15,9 @@ app.set('view engine', '.hbs')
 
 app.get('/', (req, res) => {
 	res.render('home', {
-		hash: req.cookies.camacSession
+		hash: req.cookies.camacSession,
+		id: req.cookies.portalId,
+		overview: req.cookies.camacData
 	})
 })
 
@@ -38,6 +40,30 @@ app.post('/hash', (req, res) => {
 		try {
 			const json = JSON.parse(body)
 			res.cookie('camacSession', json.hash)
+			res.cookie('portalId', req.body.id)
+		} catch (e) {
+			// do nothing
+		}
+		res.redirect('/')
+	})
+})
+
+app.post('/overview', (req, res) => {
+	request.post({
+		url: 'http://localhost:4300/portal/user/overview/resource-id/245',
+		headers: {
+			'X-Camac-Session': req.cookies.camacSession,
+			'User-Agent': 'foo'
+		}
+	}, (err, httpResponse, body) => {
+		if (err) {
+			console.log('err', err)
+			return
+		}
+		console.log('got response', body)
+		try {
+			const json = JSON.parse(body)
+			res.cookie('camacData', json)
 		} catch (e) {
 			// do nothing
 		}
