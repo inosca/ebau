@@ -1,4 +1,4 @@
-<config_data version="e0f3b3fb-7a1e-407f-bb49-2530403172f8">
+<config_data version="b3a236d1-24a4-42ee-b830-635c22dee50d">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -2210,6 +2210,18 @@ Die die Comm sind, können ja bearbeitet werden.</description>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
       <sort type="int">5</sort>
+      <form_group type="int">247</form_group>
+    </entry>
+    <entry table="instance_resource">
+      <instance_resource_id type="int">671</instance_resource_id>
+      <available_instance_resource type="str">editformpage</available_instance_resource>
+      <resource type="int">246</resource>
+      <name type="str">Dossier bearbeiten</name>
+      <description type="str">Dossiers vom Portal User</description>
+      <template type="str">/form/bg-form.phtml</template>
+      <class_field type="str"></class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">0</sort>
       <form_group type="int">247</form_group>
     </entry>
   </configuration.InstanceResource>
@@ -13312,6 +13324,15 @@ WHERE&#13;
       <hidden type="bool">False</hidden>
       <sort type="int">0</sort>
     </entry>
+    <entry table="button">
+      <button_id type="int">742</button_id>
+      <instance_resource type="int">671</instance_resource>
+      <name type="str">Speichern</name>
+      <description type="str"></description>
+      <class_field type="str"></class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">0</sort>
+    </entry>
   </configuration.Button>
   <configuration.AvailableAction table="available_action">
     <entry table="available_action">
@@ -15751,6 +15772,17 @@ WHERE&#13;
       <error_message type="str"></error_message>
       <execute_always type="bool">False</execute_always>
       <sort type="int">2</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1028</action_id>
+      <available_action type="str">save</available_action>
+      <button type="int">742</button>
+      <name type="str">Speichern</name>
+      <description type="str"></description>
+      <success_message type="str">Speichern erfolgreich.</success_message>
+      <error_message type="str">Speichern fehlgeschlagen!</error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
     </entry>
   </configuration.Action>
   <configuration.ALocation table="a_location">
@@ -30612,6 +30644,46 @@ WHERE&#13;
       <role type="int">1103</role>
       <instance_state type="int">1</instance_state>
     </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">671</instance_resource>
+      <role type="int">1103</role>
+      <instance_state type="int">27</instance_state>
+    </entry>
   </configuration.IrRoleAcl>
   <configuration.IrPage table="ir_page">
     <entry table="ir_page">
@@ -30816,6 +30888,11 @@ WHERE&#13;
     <entry table="ir_editformpage">
       <instance_resource type="int">649</instance_resource>
       <page type="int">82</page>
+      <pdf_class type="str"></pdf_class>
+    </entry>
+    <entry table="ir_editformpage">
+      <instance_resource type="int">671</instance_resource>
+      <page type="int">1</page>
       <pdf_class type="str"></pdf_class>
     </entry>
   </configuration.IrEditformpage>
@@ -33499,6 +33576,13 @@ WHERE&#13;
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">257</id>
+      <hash type="str">b3a236d1-24a4-42ee-b830-635c22dee50d</hash>
+      <export_date type="datetime">2016-08-10 15:30:38</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -33890,6 +33974,48 @@ WHERE&#13;
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">1</chapter>
       <page type="int">21</page>
       <role type="int">1081</role>
       <instance_state type="int">23</instance_state>
@@ -34619,6 +34745,48 @@ WHERE&#13;
       <page type="int">1</page>
       <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">2</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">27</instance_state>
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">2</chapter>
@@ -35396,6 +35564,48 @@ WHERE&#13;
     </entry>
     <entry table="chapter_page_role_acl">
       <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
+      <page type="int">1</page>
+      <role type="int">1103</role>
+      <instance_state type="int">27</instance_state>
+    </entry>
+    <entry table="chapter_page_role_acl">
+      <chapter type="int">21</chapter>
       <page type="int">21</page>
       <role type="int">1081</role>
       <instance_state type="int">23</instance_state>
@@ -35974,7 +36184,7 @@ WHERE&#13;
       <name type="str">Gebühr für die Beurteilung von Voreinfragen und Baugesuchen durch die Procap (BeHiG; Bundesgesetzes über das behindertengerechte Bauen)</name>
       <account_number type="str">direct</account_number>
       <department type="str">Procap</department>
-      <service_group type="NoneType">None</service_group>
+      <service_group type="int">21</service_group>
       <predefined type="bool">True</predefined>
     </entry>
     <entry table="billing_account">
@@ -37232,6 +37442,46 @@ WHERE&#13;
       <button type="int">722</button>
       <role type="int">1103</role>
       <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">1</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">21</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">22</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">24</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">742</button>
+      <role type="int">1103</role>
+      <instance_state type="int">27</instance_state>
     </entry>
   </configuration.BRoleAcl>
   <configuration.BGroupAcl table="b_group_acl"/>

@@ -67,6 +67,7 @@ app.post('/overview', (req, res) => {
 		} else {
 			try {
 				const json = JSON.parse(body)
+				console.log('got overview', json)
 				res.cookie('camacData', json)
 			} catch (e) {
 				// do nothing
