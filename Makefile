@@ -152,3 +152,10 @@ run-acceptance-tests-ci: ## run the acceptance tests in CI
 		--link=docker_camac_db_1:camac_db \
 		--link=docker_camac_web_1:camac_web \
 		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py -x
+
+install-api-doc: ## installs the api doc generator tool
+	npm i -g apidoc
+
+generate-api-doc: ## generates documentation for the i-web portal API
+	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
+	@echo "Documentation was saved in /doc folder."

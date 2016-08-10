@@ -29,7 +29,7 @@ app.post('/hash', (req, res) => {
 			'User-Agent': 'foo'
 		},
 		form: {
-			identifier: req.body.id
+			portalId: req.body.id
 		}
 	}, (err, response, body) => {
 		if (err || response.statusCode >= 300) {
