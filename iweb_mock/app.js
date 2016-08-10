@@ -25,25 +25,27 @@ app.post('/hash', (req, res) => {
 	request.post({
 		url: 'http://localhost:4300/portal/user/session/resource-id/245',
 		headers: {
-			'X-Auth': '123qwe',
+			'X-Auth': '340acc71664cde7b4b6608a29fe7bd717c5a1d5f863054e8f260225fc7e0ad5f',
 			'User-Agent': 'foo'
 		},
 		form: {
 			identifier: req.body.id
 		}
-	}, (err, httpResponse, body) => {
-		if (err) {
-			console.log('err', err)
-			return
-		}
-		console.log('got response', httpResponse.statusCode, body)
-		try {
-			const json = JSON.parse(body)
-			res.cookie('camacSession', json)
-			res.cookie('portalId', req.body.id)
-		} catch (e) {
+	}, (err, response, body) => {
+		if (err || response.statusCode >= 300) {
+			console.log('error', err, response.statusCode, body)
 			res.clearCookie('camacSession')
 			res.clearCookie('portalId')
+		} else {
+			try {
+				const json = JSON.parse(body)
+				console.log('got session hash', json.hash)
+				res.cookie('camacSession', json.hash)
+				res.cookie('portalId', req.body.id)
+				res.clearCookie('camacData')
+			} catch (e) {
+				// do nothing
+			}
 		}
 		res.redirect('/')
 	})
@@ -56,19 +58,19 @@ app.post('/overview', (req, res) => {
 			'X-Camac-Session': req.cookies.camacSession,
 			'User-Agent': 'foo'
 		}
-	}, (err, httpResponse, body) => {
-		if (err) {
-			console.log('err', err)
-			return
-		}
-		console.log('got response', body)
-		try {
-			const json = JSON.parse(body)
-			res.cookie('camacData', json)
-		} catch (e) {
+	}, (err, response, body) => {
+		if (err || response.statusCode >= 300) {
+			console.log('error', err, response.statusCode, body)
 			res.clearCookie('camacSession')
 			res.clearCookie('portalId')
 			res.clearCookie('camacData')
+		} else {
+			try {
+				const json = JSON.parse(body)
+				res.cookie('camacData', json)
+			} catch (e) {
+				// do nothing
+			}
 		}
 		res.redirect('/')
 	})
