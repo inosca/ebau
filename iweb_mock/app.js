@@ -36,10 +36,10 @@ app.post('/hash', (req, res) => {
 			console.log('err', err)
 			return
 		}
-		console.log('got response', body)
+		console.log('got response', httpResponse.statusCode, body)
 		try {
 			const json = JSON.parse(body)
-			res.cookie('camacSession', json.hash)
+			res.cookie('camacSession', json)
 			res.cookie('portalId', req.body.id)
 		} catch (e) {
 			res.clearCookie('camacSession')
