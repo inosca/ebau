@@ -42,7 +42,8 @@ app.post('/hash', (req, res) => {
 			res.cookie('camacSession', json.hash)
 			res.cookie('portalId', req.body.id)
 		} catch (e) {
-			// do nothing
+			res.clearCookie('camacSession')
+			res.clearCookie('portalId')
 		}
 		res.redirect('/')
 	})
@@ -65,7 +66,9 @@ app.post('/overview', (req, res) => {
 			const json = JSON.parse(body)
 			res.cookie('camacData', json)
 		} catch (e) {
-			// do nothing
+			res.clearCookie('camacSession')
+			res.clearCookie('portalId')
+			res.clearCookie('camacData')
 		}
 		res.redirect('/')
 	})
