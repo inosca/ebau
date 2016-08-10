@@ -2,11 +2,32 @@
 
 <form action="/hash" method="POST">
   <input type="text" name="id" required placeholder="Portal Identifier">
-	<input type="submit" value="get Hash">
+	<input type="submit" value="Login">
 </form>
 
-{{#if hash}}
-<p>Got Hash: {{hash}}</p>
+{{#if id}}
+<p>Currently logged in as {{id}} (Hash: {{hash}})</p>
+<form action="/overview" method="POST">
+  <input type="submit" value="get overview">
+</form>
+  {{#if overview}}
+    <table>
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Dossiernr.</td>
+          <td>Letzte Änderung</td>
+          <td>Status</td>
+    {{#each overview as |entry|}}
+      <tr>
+        <td>{{entry.INSTANCE_ID}}</td>
+        <td>{{entry.ANSWER}}</td>
+        <td>{{entry.MODIFICATION_DATE}}</td>
+        <td>{{entry.INSTANCE_STATE_ID}}</td>
+      </tr>
+    {{/each}}
+    </table>
+  {{/if}}
 <form action="http://localhost:4300/portal/user/entry/resource-id/245" method="POST">
   <input type="hidden" name="camacSession" value={{hash}}>
   <input type="hidden" name="firstName" value="Hans">
