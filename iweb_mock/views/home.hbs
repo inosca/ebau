@@ -24,6 +24,12 @@
 				<td>{{entry.name}}</td>
 				<td>{{entry.last_modified}}</td>
 				<td>{{entry.status}}</td>
+				<td>
+					<form action="http://localhost:4300/portal/user/entry/resource-id/245/instance-id/{{entry.id}}" method="POST">
+						<input type="hidden" name="X-Camac-Session" value={{../hash}}>
+						<input type="submit" value="open">
+					</form>
+				</td>
 			</tr>
 			{{/each}}
 </table>
