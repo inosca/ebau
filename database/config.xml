@@ -13477,6 +13477,11 @@ ORDER BY "INSTANCE_ID"</query>
       <name type="str">Rechtsmitteldokumente (nur eingeschränkt sichtbar)</name>
       <sort type="int">4</sort>
     </entry>
+    <entry table="attachment_section">
+      <attachment_section_id type="int">61</attachment_section_id>
+      <name type="str">Gebühren</name>
+      <sort type="int">0</sort>
+    </entry>
   </configuration.AttachmentSection>
   <configuration.AttachmentExtension table="attachment_extension">
     <entry table="attachment_extension">
@@ -33121,6 +33126,13 @@ ORDER BY "INSTANCE_ID"</query>
       <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
     </entry>
+    <entry table="configuration_version">
+      <id type="int">236</id>
+      <hash type="str">6950f979-b33b-4e48-aee1-a2af9bff8e62</hash>
+      <export_date type="datetime">2016-08-23 14:14:19</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
   </configuration.ConfigurationVersion>
   <configuration.CirculationState table="circulation_state">
     <entry table="circulation_state">
@@ -37407,6 +37419,24 @@ ORDER BY "INSTANCE_ID"</query>
       <role_id type="int">1101</role_id>
       <mode type="str">write</mode>
     </entry>
+    <entry table="attachment_section_role">
+      <id type="int">112</id>
+      <attachment_section type="int">61</attachment_section>
+      <role_id type="int">3</role_id>
+      <mode type="str">admin</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">113</id>
+      <attachment_section type="int">61</attachment_section>
+      <role_id type="int">1101</role_id>
+      <mode type="str">admin</mode>
+    </entry>
+    <entry table="attachment_section_role">
+      <id type="int">114</id>
+      <attachment_section type="int">61</attachment_section>
+      <role_id type="int">1061</role_id>
+      <mode type="str">admin</mode>
+    </entry>
   </configuration.AttachmentSectionRole>
   <configuration.AttachmentExtensionService table="attachment_extension_service">
     <entry table="attachment_extension_service">
@@ -38738,6 +38768,11 @@ ORDER BY "INSTANCE_ID"</query>
       <available_instance_resource type="str">allformpages</available_instance_resource>
       <action_name type="str">index</action_name>
       <hidden type="bool">False</hidden>
+    </entry>
+    <entry table="air_action">
+      <available_instance_resource type="str">billing</available_instance_resource>
+      <action_name type="str">complete</action_name>
+      <hidden type="bool">True</hidden>
     </entry>
     <entry table="air_action">
       <available_instance_resource type="str">billing</available_instance_resource>
