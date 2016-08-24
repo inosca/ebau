@@ -1,4 +1,4 @@
-<config_data version="eb4c513c-251d-4c11-a2dc-a8efc4bf854c">
+<config_data version="f1356334-931d-4d68-8575-3d4c77d393d9">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -12554,7 +12554,7 @@ ORDER BY "INSTANCE_ID"</query>
       <description type="str"></description>
       <class_field type="str">downloady trigger-modal</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">2</sort>
+      <sort type="int">1</sort>
     </entry>
     <entry table="button">
       <button_id type="int">248</button_id>
@@ -12572,7 +12572,7 @@ ORDER BY "INSTANCE_ID"</query>
       <description type="str"></description>
       <class_field type="str">downloady</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">1</sort>
+      <sort type="int">0</sort>
     </entry>
     <entry table="button">
       <button_id type="int">251</button_id>
@@ -12586,16 +12586,16 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="button">
       <button_id type="int">268</button_id>
       <instance_resource type="int">306</instance_resource>
-      <name type="str">Rechnung öffnen</name>
+      <name type="str">Rechnung Baubewilligung</name>
       <description type="str"></description>
       <class_field type="str">downloady</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">3</sort>
+      <sort type="int">2</sort>
     </entry>
     <entry table="button">
       <button_id type="int">272</button_id>
       <instance_resource type="int">314</instance_resource>
-      <name type="str">Rechnung öffnen</name>
+      <name type="str">Rechnung Baubewilligung</name>
       <description type="str"></description>
       <class_field type="str">downloady</class_field>
       <hidden type="bool">False</hidden>
@@ -12883,7 +12883,7 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="button">
       <button_id type="int">528</button_id>
       <instance_resource type="int">486</instance_resource>
-      <name type="str">Rechnung öffnen</name>
+      <name type="str">Rechnung Baubewilligung</name>
       <description type="str"></description>
       <class_field type="str">downloady</class_field>
       <hidden type="bool">False</hidden>
@@ -12905,7 +12905,7 @@ ORDER BY "INSTANCE_ID"</query>
       <description type="str"></description>
       <class_field type="str">downloady trigger-modal</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">1</sort>
+      <sort type="int">2</sort>
     </entry>
     <entry table="button">
       <button_id type="int">568</button_id>
@@ -13063,11 +13063,11 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="button">
       <button_id type="int">714</button_id>
       <instance_resource type="int">646</instance_resource>
-      <name type="str">Rechnung öffnen</name>
+      <name type="str">Rechnung Baubewilligung</name>
       <description type="str"></description>
       <class_field type="str">downloady</class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">2</sort>
+      <sort type="int">0</sort>
     </entry>
     <entry table="button">
       <button_id type="int">715</button_id>
@@ -13131,6 +13131,42 @@ ORDER BY "INSTANCE_ID"</query>
       <class_field type="str">button_reopen</class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">4</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">722</button_id>
+      <instance_resource type="int">306</instance_resource>
+      <name type="str">Rechnung Baubegleitung</name>
+      <description type="str"></description>
+      <class_field type="str">downloady</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">723</button_id>
+      <instance_resource type="int">314</instance_resource>
+      <name type="str">Rechnung Baubegleitung</name>
+      <description type="str"></description>
+      <class_field type="str">downloady</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">724</button_id>
+      <instance_resource type="int">486</instance_resource>
+      <name type="str">Rechnung Baubegleitung</name>
+      <description type="str"></description>
+      <class_field type="str">downloady</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="button">
+      <button_id type="int">725</button_id>
+      <instance_resource type="int">646</instance_resource>
+      <name type="str">Rechnung Baubegleitung</name>
+      <description type="str"></description>
+      <class_field type="str">downloady</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">1</sort>
     </entry>
   </configuration.Button>
   <configuration.AvailableAction table="available_action">
@@ -15516,6 +15552,50 @@ ORDER BY "INSTANCE_ID"</query>
       <available_action type="str">formtransition</available_action>
       <button type="int">721</button>
       <name type="str">Transition Arch - Redac</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1008</action_id>
+      <available_action type="str">docx</available_action>
+      <button type="int">722</button>
+      <name type="str">Rechnung generieren</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1009</action_id>
+      <available_action type="str">docx</available_action>
+      <button type="int">723</button>
+      <name type="str">Rechnung generieren</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1010</action_id>
+      <available_action type="str">docx</available_action>
+      <button type="int">724</button>
+      <name type="str">Rechnung generieren</name>
+      <description type="str"></description>
+      <success_message type="str"></success_message>
+      <error_message type="str"></error_message>
+      <execute_always type="bool">False</execute_always>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="action">
+      <action_id type="int">1011</action_id>
+      <available_action type="str">docx</available_action>
+      <button type="int">725</button>
+      <name type="str">Rechnung Baubegleitung</name>
       <description type="str"></description>
       <success_message type="str"></success_message>
       <error_message type="str"></error_message>
@@ -28799,13 +28879,43 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">185</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
+      <role type="int">4</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
       <role type="int">1021</role>
       <instance_state type="int">23</instance_state>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">185</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
+      <role type="int">1021</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
       <role type="int">1102</role>
       <instance_state type="int">23</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="ir_role_acl">
+      <instance_resource type="int">185</instance_resource>
+      <role type="int">1102</role>
+      <instance_state type="int">26</instance_state>
     </entry>
     <entry table="ir_role_acl">
       <instance_resource type="int">205</instance_resource>
@@ -32630,6 +32740,18 @@ ORDER BY "INSTANCE_ID"</query>
       <path type="str">Publikation.php</path>
       <type type="int">1</type>
     </entry>
+    <entry table="docgen_template_class">
+      <docgen_template_class_id type="int">208</docgen_template_class_id>
+      <name type="str">Rechnung Baubewilligung</name>
+      <path type="str">RechnungBew.php</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template_class">
+      <docgen_template_class_id type="int">225</docgen_template_class_id>
+      <name type="str">Rechnung Baubegleitung</name>
+      <path type="str">RechnungBgl.php</path>
+      <type type="int">1</type>
+    </entry>
   </configuration.DocgenTemplateClass>
   <configuration.DocgenTemplate table="docgen_template">
     <entry table="docgen_template">
@@ -32664,7 +32786,7 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_template">
       <docgen_template_id type="int">121</docgen_template_id>
-      <name type="str">Rechnung</name>
+      <name type="str">Rechnung BG</name>
       <path type="str">billKOORBG.docx</path>
       <type type="int">1</type>
     </entry>
@@ -32701,7 +32823,25 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="docgen_template">
       <docgen_template_id type="int">204</docgen_template_id>
       <name type="str">Rechnung BD</name>
-      <path type="str">bill2KOORBD.docx</path>
+      <path type="str">billKOORBD.docx</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">205</docgen_template_id>
+      <name type="str">Rechnung NP BGL</name>
+      <path type="str">billKOORNP_BGL.docx</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">206</docgen_template_id>
+      <name type="str">Rechnung BD BGL</name>
+      <path type="str">billKOORBD_BGL.docx</path>
+      <type type="int">1</type>
+    </entry>
+    <entry table="docgen_template">
+      <docgen_template_id type="int">207</docgen_template_id>
+      <name type="str">Rechnung BG BGL</name>
+      <path type="str">billKOORBG_BGL.docx</path>
       <type type="int">1</type>
     </entry>
   </configuration.DocgenTemplate>
@@ -32760,12 +32900,12 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">121</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
+      <docgen_template_class type="int">208</docgen_template_class>
       <action type="int">432</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">121</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
+      <docgen_template_class type="int">208</docgen_template_class>
       <action type="int">438</action>
     </entry>
     <entry table="docgen_docx_action">
@@ -32775,13 +32915,33 @@ ORDER BY "INSTANCE_ID"</query>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">202</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
+      <docgen_template_class type="int">208</docgen_template_class>
       <action type="int">790</action>
     </entry>
     <entry table="docgen_docx_action">
       <docgen_template type="int">204</docgen_template>
-      <docgen_template_class type="int">122</docgen_template_class>
+      <docgen_template_class type="int">208</docgen_template_class>
       <action type="int">998</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">205</docgen_template>
+      <docgen_template_class type="int">225</docgen_template_class>
+      <action type="int">1010</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">206</docgen_template>
+      <docgen_template_class type="int">225</docgen_template_class>
+      <action type="int">1011</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">207</docgen_template>
+      <docgen_template_class type="int">225</docgen_template_class>
+      <action type="int">1008</action>
+    </entry>
+    <entry table="docgen_docx_action">
+      <docgen_template type="int">207</docgen_template>
+      <docgen_template_class type="int">225</docgen_template_class>
+      <action type="int">1009</action>
     </entry>
   </configuration.DocgenDocxAction>
   <configuration.DocgenActivationactionAction table="docgen_activationaction_action">
@@ -33130,6 +33290,20 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">236</id>
       <hash type="str">6950f979-b33b-4e48-aee1-a2af9bff8e62</hash>
       <export_date type="datetime">2016-08-23 14:14:19</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">256</id>
+      <hash type="str">103ebcd0-e32f-458b-80ea-4666770f9158</hash>
+      <export_date type="datetime">2016-08-24 12:22:51</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">257</id>
+      <hash type="str">f1356334-931d-4d68-8575-3d4c77d393d9</hash>
+      <export_date type="datetime">2016-08-24 12:37:56</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
@@ -36854,6 +37028,46 @@ ORDER BY "INSTANCE_ID"</query>
     <entry table="b_role_acl">
       <button type="int">721</button>
       <role type="int">1061</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">722</button>
+      <role type="int">3</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">722</button>
+      <role type="int">3</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">723</button>
+      <role type="int">3</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">723</button>
+      <role type="int">3</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">724</button>
+      <role type="int">1061</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">724</button>
+      <role type="int">1061</role>
+      <instance_state type="int">26</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">725</button>
+      <role type="int">1101</role>
+      <instance_state type="int">25</instance_state>
+    </entry>
+    <entry table="b_role_acl">
+      <button type="int">725</button>
+      <role type="int">1101</role>
       <instance_state type="int">26</instance_state>
     </entry>
   </configuration.BRoleAcl>
