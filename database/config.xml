@@ -1,4 +1,4 @@
-<config_data version="f1356334-931d-4d68-8575-3d4c77d393d9">
+<config_data version="334ef637-4117-4eac-a8ce-7f7ab3ec1720">
   <configuration.Mapping table="mapping">
     <entry table="mapping">
       <mapping_id type="int">1</mapping_id>
@@ -325,7 +325,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/global/home.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">17</sort>
+      <sort type="int">19</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">23</resource_id>
@@ -365,7 +365,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/global/search.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">False</hidden>
-      <sort type="int">16</sort>
+      <sort type="int">18</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">62</resource_id>
@@ -395,7 +395,7 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <template type="str">/buildom/search.phtml</template>
       <class_field type="str"></class_field>
       <hidden type="bool">True</hidden>
-      <sort type="int">15</sort>
+      <sort type="int">17</sort>
     </entry>
     <entry table="resource">
       <resource_id type="int">122</resource_id>
@@ -486,6 +486,36 @@ ORDER BY "AUTHORITY"."NAME"</query>
       <class_field type="str">show_list_count</class_field>
       <hidden type="bool">False</hidden>
       <sort type="int">13</sort>
+    </entry>
+    <entry table="resource">
+      <resource_id type="int">245</resource_id>
+      <available_resource type="str">list</available_resource>
+      <name type="str">Pendenzenliste Gebühren</name>
+      <description type="str">Pendenzenliste Gebühren für Koordinationsstelle Baugesuche</description>
+      <template type="str"></template>
+      <class_field type="str">show_list_count</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">14</sort>
+    </entry>
+    <entry table="resource">
+      <resource_id type="int">246</resource_id>
+      <available_resource type="str">list</available_resource>
+      <name type="str">Pendenzenliste Gebühren</name>
+      <description type="str">Pendenzenliste Gebühren für Koordinationsstelle Baudirektion BD</description>
+      <template type="str"></template>
+      <class_field type="str">show_list_count</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">15</sort>
+    </entry>
+    <entry table="resource">
+      <resource_id type="int">247</resource_id>
+      <available_resource type="str">list</available_resource>
+      <name type="str">Pendenzenliste Gebühren</name>
+      <description type="str">Pendenzenliste Gebühren für Koordinationsstelle NP</description>
+      <template type="str"></template>
+      <class_field type="str">show_list_count</class_field>
+      <hidden type="bool">False</hidden>
+      <sort type="int">16</sort>
     </entry>
   </configuration.Resource>
   <configuration.QuestionType table="question_type">
@@ -9800,6 +9830,291 @@ WHERE&#13;
 	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 241&#13;
 ORDER BY "INSTANCE_ID"</query>
     </entry>
+    <entry table="r_list">
+      <resource type="int">245</resource>
+      <query type="str">SELECT&#13;
+	"INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",&#13;
+	"ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",&#13;
+	"FORM"."NAME"              AS "FORM",&#13;
+	"LOCATION"."NAME"          AS "COMMUNITY",&#13;
+	"USER"."USERNAME"          AS "USER",&#13;
+	(SELECT LISTAGG("ANSWER", ', ') WITHIN GROUP (ORDER BY "QUESTION_ID" DESC)&#13;
+		FROM&#13;
+			"ANSWER"&#13;
+		WHERE&#13;
+			"INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID"&#13;
+			AND&#13;
+			(&#13;
+				"ANSWER"."QUESTION_ID" = 23&#13;
+				OR&#13;
+				"ANSWER"."QUESTION_ID" = 221&#13;
+			)&#13;
+			AND&#13;
+			"ANSWER"."CHAPTER_ID" = 1&#13;
+			AND&#13;
+			"ANSWER"."ITEM" = 1&#13;
+	) AS "APPLICANT",&#13;
+	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
+		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
+&#13;
+	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+	"INSTANCE_STATE"."NAME"      AS "STATE",&#13;
+	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
+FROM&#13;
+	"INSTANCE"&#13;
+JOIN&#13;
+	"INSTANCE_LOCATION" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
+	)&#13;
+JOIN &#13;
+	"LOCATION" ON (&#13;
+	 "INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
+	)&#13;
+JOIN&#13;
+	FORM ON (&#13;
+		"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
+)&#13;
+JOIN&#13;
+	"USER" ON (&#13;
+		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
+)&#13;
+JOIN&#13;
+	"ANSWER" "ANSWER_DOK_NR" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_DOK_NR"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."QUESTION_ID" = 6&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."CHAPTER_ID" = 2&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		AND&#13;
+		"ANSWER_STREET"."ITEM" = 1&#13;
+	)&#13;
+JOIN &#13;
+	"INSTANCE_STATE" ON (&#13;
+&#13;
+	"INSTANCE"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"&#13;
+)&#13;
+LEFT JOIN&#13;
+	"INSTANCE_STATE_DESCRIPTION" ON (&#13;
+		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
+	)&#13;
+JOIN&#13;
+	"FORM_GROUP_FORM" ON (&#13;
+	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
+)&#13;
+WHERE&#13;
+	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 30&#13;
+	AND&#13;
+	"INSTANCE"."INSTANCE_ID" IN (&#13;
+		SELECT "INSTANCE_ID" FROM "BILLING_ENTRY"&#13;
+	  	WHERE &#13;
+	  		"BILLING_ENTRY"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
+	  	AND &#13;
+	  	"BILLING_ENTRY"."INVOICED" = 0&#13;
+		AND &#13;
+		  "BILLING_ENTRY"."TYPE" = 1&#13;
+	  )&#13;
+ORDER BY "INSTANCE_ID"</query>
+    </entry>
+    <entry table="r_list">
+      <resource type="int">246</resource>
+      <query type="str">SELECT&#13;
+	"INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",&#13;
+	"ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",&#13;
+	"FORM"."NAME"              AS "FORM",&#13;
+	"LOCATION"."NAME"          AS "COMMUNITY",&#13;
+	"USER"."USERNAME"          AS "USER",&#13;
+	(SELECT LISTAGG("ANSWER", ', ') WITHIN GROUP (ORDER BY "QUESTION_ID" DESC)&#13;
+		FROM&#13;
+			"ANSWER"&#13;
+		WHERE&#13;
+			"INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID"&#13;
+			AND&#13;
+			(&#13;
+				"ANSWER"."QUESTION_ID" = 23&#13;
+				OR&#13;
+				"ANSWER"."QUESTION_ID" = 221&#13;
+			)&#13;
+			AND&#13;
+			"ANSWER"."CHAPTER_ID" = 1&#13;
+			AND&#13;
+			"ANSWER"."ITEM" = 1&#13;
+	) AS "APPLICANT",&#13;
+	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
+		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
+&#13;
+	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+	"INSTANCE_STATE"."NAME"      AS "STATE",&#13;
+	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
+FROM&#13;
+	"INSTANCE"&#13;
+JOIN&#13;
+	"INSTANCE_LOCATION" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
+	)&#13;
+JOIN &#13;
+	"LOCATION" ON (&#13;
+	 "INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
+	)&#13;
+JOIN&#13;
+	FORM ON (&#13;
+		"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
+)&#13;
+JOIN&#13;
+	"USER" ON (&#13;
+		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
+)&#13;
+JOIN&#13;
+	"ANSWER" "ANSWER_DOK_NR" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_DOK_NR"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."QUESTION_ID" = 6&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."CHAPTER_ID" = 2&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		AND&#13;
+		"ANSWER_STREET"."ITEM" = 1&#13;
+	)&#13;
+JOIN &#13;
+	"INSTANCE_STATE" ON (&#13;
+&#13;
+	"INSTANCE"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"&#13;
+)&#13;
+LEFT JOIN&#13;
+	"INSTANCE_STATE_DESCRIPTION" ON (&#13;
+		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
+	)&#13;
+JOIN&#13;
+	"FORM_GROUP_FORM" ON (&#13;
+	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
+)&#13;
+WHERE&#13;
+	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 241&#13;
+	AND&#13;
+	"INSTANCE"."INSTANCE_ID" IN (&#13;
+		SELECT "INSTANCE_ID" FROM "BILLING_ENTRY"&#13;
+	  	WHERE &#13;
+	  		"BILLING_ENTRY"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
+	  	AND &#13;
+	  	"BILLING_ENTRY"."INVOICED" = 0&#13;
+		AND &#13;
+		  "BILLING_ENTRY"."TYPE" = 1&#13;
+	  )&#13;
+ORDER BY "INSTANCE_ID"</query>
+    </entry>
+    <entry table="r_list">
+      <resource type="int">247</resource>
+      <query type="str">SELECT&#13;
+	"INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",&#13;
+	"ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",&#13;
+	"FORM"."NAME"              AS "FORM",&#13;
+	"LOCATION"."NAME"          AS "COMMUNITY",&#13;
+	"USER"."USERNAME"          AS "USER",&#13;
+	(SELECT LISTAGG("ANSWER", ', ') WITHIN GROUP (ORDER BY "QUESTION_ID" DESC)&#13;
+		FROM&#13;
+			"ANSWER"&#13;
+		WHERE&#13;
+			"INSTANCE"."INSTANCE_ID" = "ANSWER"."INSTANCE_ID"&#13;
+			AND&#13;
+			(&#13;
+				"ANSWER"."QUESTION_ID" = 23&#13;
+				OR&#13;
+				"ANSWER"."QUESTION_ID" = 221&#13;
+			)&#13;
+			AND&#13;
+			"ANSWER"."CHAPTER_ID" = 1&#13;
+			AND&#13;
+			"ANSWER"."ITEM" = 1&#13;
+	) AS "APPLICANT",&#13;
+	(SELECT LISTAGG("NAME", ', ') WITHIN GROUP (ORDER BY "NAME") &#13;
+		FROM INTENTIONS WHERE "INSTANCE_ID" = "INSTANCE"."INSTANCE_ID") AS "INTENT",&#13;
+&#13;
+	"ANSWER_STREET"."ANSWER"     AS "STREET",&#13;
+	"INSTANCE_STATE"."NAME"      AS "STATE",&#13;
+	"INSTANCE_STATE_DESCRIPTION"."DESCRIPTION"    AS "STATE_DESCRIPTION"&#13;
+FROM&#13;
+	"INSTANCE"&#13;
+JOIN&#13;
+	"INSTANCE_LOCATION" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "INSTANCE_LOCATION"."INSTANCE_ID"&#13;
+	)&#13;
+JOIN &#13;
+	"LOCATION" ON (&#13;
+	 "INSTANCE_LOCATION"."LOCATION_ID" = "LOCATION"."LOCATION_ID"&#13;
+	)&#13;
+JOIN&#13;
+	FORM ON (&#13;
+		"INSTANCE"."FORM_ID" = "FORM"."FORM_ID"&#13;
+)&#13;
+JOIN&#13;
+	"USER" ON (&#13;
+		"INSTANCE"."USER_ID" = "USER"."USER_ID"&#13;
+)&#13;
+JOIN&#13;
+	"ANSWER" "ANSWER_DOK_NR" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_DOK_NR"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."QUESTION_ID" = 6&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."CHAPTER_ID" = 2&#13;
+		AND&#13;
+		"ANSWER_DOK_NR"."ITEM" = 1&#13;
+	)&#13;
+LEFT JOIN&#13;
+	"ANSWER" "ANSWER_STREET" ON (&#13;
+		"INSTANCE"."INSTANCE_ID" = "ANSWER_STREET"."INSTANCE_ID"&#13;
+		AND&#13;
+		"ANSWER_STREET"."QUESTION_ID" = 93&#13;
+		AND&#13;
+		"ANSWER_STREET"."CHAPTER_ID" = 21&#13;
+		AND&#13;
+		"ANSWER_STREET"."ITEM" = 1&#13;
+	)&#13;
+JOIN &#13;
+	"INSTANCE_STATE" ON (&#13;
+&#13;
+	"INSTANCE"."INSTANCE_STATE_ID" = "INSTANCE_STATE"."INSTANCE_STATE_ID"&#13;
+)&#13;
+LEFT JOIN&#13;
+	"INSTANCE_STATE_DESCRIPTION" ON (&#13;
+		"INSTANCE_STATE_DESCRIPTION"."INSTANCE_STATE_ID" = "INSTANCE"."INSTANCE_STATE_ID"&#13;
+	)&#13;
+JOIN&#13;
+	"FORM_GROUP_FORM" ON (&#13;
+	"FORM_GROUP_FORM"."FORM_ID" = "INSTANCE"."FORM_ID"&#13;
+)&#13;
+WHERE&#13;
+	"FORM_GROUP_FORM"."FORM_GROUP_ID" = 141&#13;
+	AND&#13;
+	"INSTANCE"."INSTANCE_ID" IN (&#13;
+		SELECT "INSTANCE_ID" FROM "BILLING_ENTRY"&#13;
+	  	WHERE &#13;
+	  		"BILLING_ENTRY"."INSTANCE_ID" = "INSTANCE"."INSTANCE_ID"&#13;
+	  	AND &#13;
+	  	"BILLING_ENTRY"."INVOICED" = 0&#13;
+		AND &#13;
+		  "BILLING_ENTRY"."TYPE" = 1&#13;
+	  )&#13;
+ORDER BY "INSTANCE_ID"</query>
+    </entry>
   </configuration.RList>
   <configuration.QuestionChapter table="question_chapter">
     <entry table="question_chapter">
@@ -18893,6 +19208,22 @@ ORDER BY "INSTANCE_ID"</query>
       <resource type="int">244</resource>
       <role type="int">1101</role>
     </entry>
+    <entry table="r_role_acl">
+      <resource type="int">245</resource>
+      <role type="int">3</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">245</resource>
+      <role type="int">4</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">246</resource>
+      <role type="int">1101</role>
+    </entry>
+    <entry table="r_role_acl">
+      <resource type="int">247</resource>
+      <role type="int">1061</role>
+    </entry>
   </configuration.RRoleAcl>
   <configuration.RPage table="r_page">
     <entry table="r_page">
@@ -19865,6 +20196,216 @@ ORDER BY "INSTANCE_ID"</query>
       <resource type="int">41</resource>
       <column_name type="str">CIRC_STATE</column_name>
       <alias type="str">CIRC_STATE</alias>
+      <sort type="int">9</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">601</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">INSTANCE_ID</column_name>
+      <alias type="str">INSTANCE_ID</alias>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">602</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">DOSSIER_NR</column_name>
+      <alias type="str">DOSSIER_NR</alias>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">603</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">FORM</column_name>
+      <alias type="str">FORM</alias>
+      <sort type="int">2</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">604</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">COMMUNITY</column_name>
+      <alias type="str">COMMUNITY</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">605</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">USER</column_name>
+      <alias type="str">USER</alias>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">606</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">APPLICANT</column_name>
+      <alias type="str">APPLICANT</alias>
+      <sort type="int">5</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">607</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">INTENT</column_name>
+      <alias type="str">INTENT</alias>
+      <sort type="int">6</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">608</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">STREET</column_name>
+      <alias type="str">STREET</alias>
+      <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">609</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">STATE</column_name>
+      <alias type="str">STATE</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">610</r_list_column_id>
+      <resource type="int">245</resource>
+      <column_name type="str">STATE_DESCRIPTION</column_name>
+      <alias type="str">STATE_DESCRIPTION</alias>
+      <sort type="int">9</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">611</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">INSTANCE_ID</column_name>
+      <alias type="str">INSTANCE_ID</alias>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">612</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">DOSSIER_NR</column_name>
+      <alias type="str">DOSSIER_NR</alias>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">613</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">FORM</column_name>
+      <alias type="str">FORM</alias>
+      <sort type="int">2</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">614</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">COMMUNITY</column_name>
+      <alias type="str">COMMUNITY</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">615</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">USER</column_name>
+      <alias type="str">USER</alias>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">616</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">APPLICANT</column_name>
+      <alias type="str">APPLICANT</alias>
+      <sort type="int">5</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">617</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">INTENT</column_name>
+      <alias type="str">INTENT</alias>
+      <sort type="int">6</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">618</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STREET</column_name>
+      <alias type="str">STREET</alias>
+      <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">619</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STATE</column_name>
+      <alias type="str">STATE</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">620</r_list_column_id>
+      <resource type="int">246</resource>
+      <column_name type="str">STATE_DESCRIPTION</column_name>
+      <alias type="str">STATE_DESCRIPTION</alias>
+      <sort type="int">9</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">621</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">INSTANCE_ID</column_name>
+      <alias type="str">INSTANCE_ID</alias>
+      <sort type="int">0</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">622</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">DOSSIER_NR</column_name>
+      <alias type="str">DOSSIER_NR</alias>
+      <sort type="int">1</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">623</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">FORM</column_name>
+      <alias type="str">FORM</alias>
+      <sort type="int">2</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">624</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">COMMUNITY</column_name>
+      <alias type="str">COMMUNITY</alias>
+      <sort type="int">3</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">625</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">USER</column_name>
+      <alias type="str">USER</alias>
+      <sort type="int">4</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">626</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">APPLICANT</column_name>
+      <alias type="str">APPLICANT</alias>
+      <sort type="int">5</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">627</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">INTENT</column_name>
+      <alias type="str">INTENT</alias>
+      <sort type="int">6</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">628</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">STREET</column_name>
+      <alias type="str">STREET</alias>
+      <sort type="int">7</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">629</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">STATE</column_name>
+      <alias type="str">STATE</alias>
+      <sort type="int">8</sort>
+    </entry>
+    <entry table="r_list_column">
+      <r_list_column_id type="int">630</r_list_column_id>
+      <resource type="int">247</resource>
+      <column_name type="str">STATE_DESCRIPTION</column_name>
+      <alias type="str">STATE_DESCRIPTION</alias>
       <sort type="int">9</sort>
     </entry>
   </configuration.RListColumn>
@@ -33304,6 +33845,13 @@ ORDER BY "INSTANCE_ID"</query>
       <id type="int">257</id>
       <hash type="str">f1356334-931d-4d68-8575-3d4c77d393d9</hash>
       <export_date type="datetime">2016-08-24 12:37:56</export_date>
+      <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+    </entry>
+    <entry table="configuration_version">
+      <id type="int">258</id>
+      <hash type="str">334ef637-4117-4eac-a8ce-7f7ab3ec1720</hash>
+      <export_date type="datetime">2016-08-24 14:41:37</export_date>
       <author type="str">christian.zosel@adfinis-sygroup.ch
 </author>
     </entry>
