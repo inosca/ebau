@@ -1,0 +1,9 @@
+<row>
+  <table_name>workflow_action</table_name>
+  <model_name>configuration.WorkflowAction</model_name>
+  <data>
+    <action_id type="int">590</action_id>
+    <workflow_item_id type="int">46</workflow_item_id>
+  </data>
+</row>
+

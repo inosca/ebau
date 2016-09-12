@@ -1,0 +1,9 @@
+<row>
+  <table_name>circulation_answer_type</table_name>
+  <model_name>configuration.CirculationAnswerType</model_name>
+  <data>
+    <circulation_answer_type_id type="int">1</circulation_answer_type_id>
+    <name type="str">Response</name>
+  </data>
+</row>
+

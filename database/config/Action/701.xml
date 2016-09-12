@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">701</action_id>
+    <available_action_id type="str">formtransition</available_action_id>
+    <button_id type="int">472</button_id>
+    <name type="str">Archivieren</name>
+    <description type="str">ANY (Gemeinde) zu ARCH</description>
+    <success_message type="str">Das Dossier wurde archiviert.</success_message>
+    <error_message type="str">Das Dossier konnte nich archiviert werden, da ein Fehler aufgetreten ist!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

@@ -1,0 +1,11 @@
+<row>
+  <table_name>docgen_template</table_name>
+  <model_name>configuration.DocgenTemplate</model_name>
+  <data>
+    <docgen_template_id type="int">203</docgen_template_id>
+    <name type="str">Laufzettel Baudirektion</name>
+    <path type="str">laufzettelBD.zip</path>
+    <type type="int">2</type>
+  </data>
+</row>
+

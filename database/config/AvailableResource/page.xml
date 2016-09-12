@@ -1,0 +1,11 @@
+<row>
+  <table_name>available_resource</table_name>
+  <model_name>configuration.AvailableResource</model_name>
+  <data>
+    <available_resource_id type="str">page</available_resource_id>
+    <module_name type="str">default</module_name>
+    <controller_name type="str">index</controller_name>
+    <description type="str">Page from template</description>
+  </data>
+</row>
+

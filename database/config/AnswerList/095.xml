@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">95</answer_list_id>
+    <question_id type="int">94</question_id>
+    <value type="str">EO</value>
+    <name type="str">Einzelobjekt in Kern- und Schutzzonen</name>
+    <sort type="int">46</sort>
+  </data>
+</row>
+

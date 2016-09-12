@@ -1,0 +1,11 @@
+<row>
+  <table_name>docgen_template</table_name>
+  <model_name>configuration.DocgenTemplate</model_name>
+  <data>
+    <docgen_template_id type="int">63</docgen_template_id>
+    <name type="str">Test File</name>
+    <path type="str">test.zip</path>
+    <type type="int">2</type>
+  </data>
+</row>
+

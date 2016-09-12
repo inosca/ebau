@@ -1,0 +1,9 @@
+<row>
+  <table_name>workflow_role</table_name>
+  <model_name>configuration.WorkflowRole</model_name>
+  <data>
+    <workflow_item_id type="int">10</workflow_item_id>
+    <role_id type="int">3</role_id>
+  </data>
+</row>
+

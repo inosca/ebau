@@ -1,0 +1,11 @@
+<row>
+  <table_name>chapter_page_role_acl</table_name>
+  <model_name>configuration.ChapterPageRoleAcl</model_name>
+  <data>
+    <chapter_id type="int">2</chapter_id>
+    <page_id type="int">81</page_id>
+    <role_id type="int">1061</role_id>
+    <instance_state_id type="int">22</instance_state_id>
+  </data>
+</row>
+

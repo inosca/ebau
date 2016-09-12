@@ -1,0 +1,10 @@
+<row>
+  <table_name>form_group</table_name>
+  <model_name>configuration.FormGroup</model_name>
+  <data>
+    <form_group_id type="int">182</form_group_id>
+    <name type="str">Baubewilligungen</name>
+    <description type="str">Beide Baubewilligungen. Nötig für die Publikation</description>
+  </data>
+</row>
+

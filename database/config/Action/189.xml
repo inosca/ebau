@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">189</action_id>
+    <available_action_id type="str">email</available_action_id>
+    <button_id type="int">4</button_id>
+    <name type="str">E-Mail an Koord</name>
+    <description type="str"></description>
+    <success_message type="str">E-Mail wurde an die Koordinationsstelle versandt!</success_message>
+    <error_message type="str">Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">3</sort>
+  </data>
+</row>
+
