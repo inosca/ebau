@@ -1,0 +1,11 @@
+<row>
+  <table_name>page</table_name>
+  <model_name>configuration.Page</model_name>
+  <data>
+    <page_id type="int">81</page_id>
+    <name type="str">Hauptformular Nutzungsplanung</name>
+    <description type="str"></description>
+    <javascript type="str"></javascript>
+  </data>
+</row>
+

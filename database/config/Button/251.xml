@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">251</button_id>
+    <instance_resource_id type="int">2</instance_resource_id>
+    <name type="str">Baubewilligung erstellen</name>
+    <description type="str"></description>
+    <class type="str">downloady building_permit</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">4</sort>
+  </data>
+</row>
+

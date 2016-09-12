@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">697</action_id>
+    <available_action_id type="str">formtransition</available_action_id>
+    <button_id type="int">470</button_id>
+    <name type="str">Freigeben an Koord COMM - EXT</name>
+    <description type="str"></description>
+    <success_message type="str">Dossier erfolgreich freigegeben.</success_message>
+    <error_message type="str">Beim Freigeben des Dossiers ist ein Fehler aufgetreten!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

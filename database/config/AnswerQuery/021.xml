@@ -1,0 +1,13 @@
+<row>
+  <table_name>answer_query</table_name>
+  <model_name>configuration.AnswerQuery</model_name>
+  <data>
+    <answer_query_id type="int">21</answer_query_id>
+    <name type="str">Zonenplan</name>
+    <query type="str">SELECT
+ ID, DESCRIPTION
+FROM
+ MAP_ZONE2</query>
+  </data>
+</row>
+

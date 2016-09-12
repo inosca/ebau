@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">228</action_id>
+    <available_action_id type="str">email</available_action_id>
+    <button_id type="int">124</button_id>
+    <name type="str">Sende E-Mail an Gemeinde</name>
+    <description type="str"></description>
+    <success_message type="str">E-Mail an Gemeinde geschickt</success_message>
+    <error_message type="str">E-Mail an Gemeinde konnte nicht verschickt werden</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

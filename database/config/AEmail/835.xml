@@ -1,0 +1,67 @@
+<row>
+  <table_name>a_email</table_name>
+  <model_name>configuration.AEmail</model_name>
+  <data>
+    <action_id type="int">835</action_id>
+    <sender_name type="str">Camac</sender_name>
+    <sender_email type="str">camac@ur.ch</sender_email>
+    <query type="str">SELECT
+  u.NAME || ' ' || u.SURNAME as name,
+  u.EMAIL as email,
+  a.ACTIVATION_ID as activationID
+FROM
+  CIRCULATION c
+JOIN
+  ACTIVATION a ON a.CIRCULATION_ID = c.CIRCULATION_ID
+JOIN
+  "GROUP" g ON g.SERVICE_ID = a.SERVICE_ID
+JOIN
+  USER_GROUP ug ON ug.GROUP_ID = g.GROUP_ID
+  AND
+  ug.DEFAULT_GROUP = 1
+JOIN
+  "USER" u ON u.USER_ID = ug.USER_ID
+WHERE
+  c.CIRCULATION_ID = [CIRCULATION_ID]
+  AND
+  u.EMAIL IS NOT NULL
+  AND
+  a.CIRCULATION_STATE_ID = 21
+  and
+  u.DISABLED = 0</query>
+    <title type="str">Zirkulation gestartet</title>
+    <text type="str">Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet
+
+Sehr geehrte Dame
+Sehr geehrter Herr
+
+CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)
+
+Meldung an kantonale Fachstelle
+
+Im CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu prüfen und uns die entsprechende Rückmeldung (Stellungnahme / Verfügung / Planvisum usw.) innert Frist zurückzuschicken.
+
+BITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN
+
+-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)
+-  Kurzantwort auswählen (speichern)
+-  Art der Sachbearbeitung auswählen (speichern)
+-  Senden
+
+Kurzkommentare für die Koordinationsstelle oder für die Gemeindebaubehörde können direkt im Camac erfasst werden.
+
+Sofern Sie weitere Unterlagen benötigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig darüber in Kenntnis zu setzen (mail).
+
+Bei Fragen stehen wir Ihnen gerne zur Verfügung.
+
+Amt für Raumentwicklung
+Koordinationsstelle für Baueingaben
+Rathausplatz 5
+6460 Altdorf
+
+Tel.  041 875 24 24
+Fax: 041 875 24 25
+E-Mail: paul.walker@ur.ch</text>
+  </data>
+</row>
+

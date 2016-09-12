@@ -1,0 +1,18 @@
+<row>
+  <table_name>instance_resource</table_name>
+  <model_name>configuration.InstanceResource</model_name>
+  <data>
+    <instance_resource_id type="int">3</instance_resource_id>
+    <available_instance_resource_id type="str">formpage</available_instance_resource_id>
+    <resource_id type="int">23</resource_id>
+    <name type="str">Dossier anschauen</name>
+    <description type="str">Zum alle Dossier anschauen, ohne jedoch die, die comm sind.
+Die die Comm sind, können ja eh bearbeitet werden.</description>
+    <template type="str">/form/read.phtml</template>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">3</sort>
+    <form_group_id type="int">30</form_group_id>
+  </data>
+</row>
+

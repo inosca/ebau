@@ -1,0 +1,14 @@
+<row>
+  <table_name>r_search_filter</table_name>
+  <model_name>configuration.RSearchFilter</model_name>
+  <data>
+    <r_search_filter_id type="int">1</r_search_filter_id>
+    <resource_id type="int">42</resource_id>
+    <question_id type="int">6</question_id>
+    <field_name type="str">dossiernumber</field_name>
+    <label type="str">Dossiernummer</label>
+    <query type="str">"DOSSIERNR"."ANSWER" = ?</query>
+    <wildcard type="int">0</wildcard>
+  </data>
+</row>
+

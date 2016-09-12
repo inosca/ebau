@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">653</action_id>
+    <available_action_id type="str">formtransition</available_action_id>
+    <button_id type="int">430</button_id>
+    <name type="str">Archivieren</name>
+    <description type="str"></description>
+    <success_message type="str">Dossier erfolgreich archiviert.</success_message>
+    <error_message type="str">Dossier konnte nicht archiviert werden!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">100</answer_list_id>
+    <question_id type="int">95</question_id>
+    <value type="str">GSAp</value>
+    <name type="str">Grundwasserschutzareale provisorisch</name>
+    <sort type="int">3</sort>
+  </data>
+</row>
+

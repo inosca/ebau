@@ -1,0 +1,14 @@
+<row>
+  <table_name>r_search_filter</table_name>
+  <model_name>configuration.RSearchFilter</model_name>
+  <data>
+    <r_search_filter_id type="int">22</r_search_filter_id>
+    <resource_id type="int">42</resource_id>
+    <question_id type="NoneType">None</question_id>
+    <field_name type="str">creationfrom</field_name>
+    <label type="str">Erstellung von</label>
+    <query type="str">"INSTANCE"."CREATION_DATE" &gt;= (TO_DATE(?, 'DD-MM-YY'))</query>
+    <wildcard type="int">0</wildcard>
+  </data>
+</row>
+

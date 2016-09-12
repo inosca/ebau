@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">111</answer_list_id>
+    <question_id type="int">97</question_id>
+    <value type="str">22</value>
+    <name type="str">Umbau</name>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

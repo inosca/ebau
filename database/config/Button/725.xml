@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">725</button_id>
+    <instance_resource_id type="int">646</instance_resource_id>
+    <name type="str">Rechnung Baubegleitung</name>
+    <description type="str"></description>
+    <class type="str">downloady</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

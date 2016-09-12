@@ -1,0 +1,9 @@
+<row>
+  <table_name>page_form_group</table_name>
+  <model_name>configuration.PageFormGroup</model_name>
+  <data>
+    <page_form_group_id type="int">1</page_form_group_id>
+    <name type="str">Group 1</name>
+  </data>
+</row>
+

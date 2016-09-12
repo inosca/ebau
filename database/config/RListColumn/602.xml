@@ -1,0 +1,12 @@
+<row>
+  <table_name>r_list_column</table_name>
+  <model_name>configuration.RListColumn</model_name>
+  <data>
+    <r_list_column_id type="int">602</r_list_column_id>
+    <resource_id type="int">245</resource_id>
+    <column_name type="str">DOSSIER_NR</column_name>
+    <alias type="str">DOSSIER_NR</alias>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

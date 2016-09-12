@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">912</action_id>
+    <available_action_id type="str">circulationtransition</available_action_id>
+    <button_id type="int">650</button_id>
+    <name type="str">NFD - RUN</name>
+    <description type="str">Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollständig)</description>
+    <success_message type="str">Dossier als vollständig markiert!</success_message>
+    <error_message type="str">Dossier konnte nicht als vollständig markiert werden!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

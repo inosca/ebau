@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">171</action_id>
+    <available_action_id type="str">workflow</available_action_id>
+    <button_id type="int">4</button_id>
+    <name type="str">Workflow Datum setzen</name>
+    <description type="str">COMM zu EXT</description>
+    <success_message type="str">Workflow Datum gesetzt</success_message>
+    <error_message type="str">Workflow Datum konnte nicht gesetzt werden</error_message>
+    <execute_always type="bool">True</execute_always>
+    <sort type="int">4</sort>
+  </data>
+</row>
+

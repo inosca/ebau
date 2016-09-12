@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">105</answer_list_id>
+    <question_id type="int">95</question_id>
+    <value type="str">NOrnl</value>
+    <name type="str">Naturobjekt regional / national, linear</name>
+    <sort type="int">11</sort>
+  </data>
+</row>
+

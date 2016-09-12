@@ -1,0 +1,13 @@
+<row>
+  <table_name>billing_account</table_name>
+  <model_name>configuration.BillingAccount</model_name>
+  <data>
+    <billing_account_id type="int">121</billing_account_id>
+    <name type="str">Gebühr für die Behandlung von Quartier- und Quartiergestaltungsplanungen durch die Koordinationsstelle für Nutzungsplanungen</name>
+    <account_number type="str">2530.4210.01</account_number>
+    <department type="str">JD / ARE / KOOR NP</department>
+    <service_group_id type="int">61</service_group_id>
+    <predefined type="bool">True</predefined>
+  </data>
+</row>
+
