@@ -3,12 +3,12 @@
   <model_name>configuration.Button</model_name>
   <data>
     <button_id type="int">722</button_id>
-    <instance_resource_id type="int">651</instance_resource_id>
-    <name type="str">Erstellen</name>
+    <instance_resource_id type="int">306</instance_resource_id>
+    <name type="str">Rechnung Baubegleitung</name>
     <description type="str"></description>
-    <class type="str"></class>
+    <class type="str">downloady</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">0</sort>
+    <sort type="int">3</sort>
   </data>
 </row>
 

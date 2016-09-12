@@ -1,0 +1,26 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">1009</action_id>
+<<<<<<< HEAD
+    <available_action_id type="str">location</available_action_id>
+    <button_id type="int">722</button_id>
+    <name type="str">Standort Setzen</name>
+=======
+    <available_action_id type="str">docx</available_action_id>
+    <button_id type="int">723</button_id>
+    <name type="str">Rechnung generieren</name>
+>>>>>>> master
+    <description type="str"></description>
+    <success_message type="str"></success_message>
+    <error_message type="str"></error_message>
+    <execute_always type="bool">False</execute_always>
+<<<<<<< HEAD
+    <sort type="int">1</sort>
+=======
+    <sort type="int">0</sort>
+>>>>>>> master
+  </data>
+</row>
+

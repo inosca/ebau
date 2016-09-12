@@ -1,0 +1,14 @@
+<row>
+  <table_name>resource</table_name>
+  <model_name>configuration.Resource</model_name>
+  <data>
+    <resource_id type="int">248</resource_id>
+    <available_resource_id type="str">portal</available_resource_id>
+    <name type="str">Portal User Resource</name>
+    <description type="str">Diese Resource stellt die API für das i-Web Portal bereit</description>
+    <template type="str"></template>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">6</sort>
+  </data>
+</row>

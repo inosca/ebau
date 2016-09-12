@@ -1,0 +1,19 @@
+<row>
+  <table_name>resource</table_name>
+  <model_name>configuration.Resource</model_name>
+  <data>
+    <resource_id type="int">42</resource_id>
+    <available_resource_id type="str">search</available_resource_id>
+    <name type="str">Dossiersuche</name>
+    <description type="str">Allgemeine Suche</description>
+    <template type="str">/global/search.phtml</template>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+<<<<<<< HEAD
+    <sort type="int">17</sort>
+=======
+    <sort type="int">18</sort>
+>>>>>>> master
+  </data>
+</row>
+

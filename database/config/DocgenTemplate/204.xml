@@ -4,7 +4,7 @@
   <data>
     <docgen_template_id type="int">204</docgen_template_id>
     <name type="str">Rechnung BD</name>
-    <path type="str">bill2KOORBD.docx</path>
+    <path type="str">billKOORBD.docx</path>
     <type type="int">1</type>
   </data>
 </row>
