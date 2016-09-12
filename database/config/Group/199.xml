@@ -1,0 +1,17 @@
+<row>
+  <table_name>group</table_name>
+  <model_name>configuration.Group</model_name>
+  <data>
+    <group_id type="int">199</group_id>
+    <role_id type="int">7</role_id>
+    <service_id type="NoneType">None</service_id>
+    <name type="str">Gemeinderat Unterschächen</name>
+    <phone type="str"></phone>
+    <zip type="str"></zip>
+    <city type="str"></city>
+    <address type="str"></address>
+    <email type="str"></email>
+    <website type="str"></website>
+  </data>
+</row>
+

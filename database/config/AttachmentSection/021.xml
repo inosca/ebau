@@ -1,0 +1,10 @@
+<row>
+  <table_name>attachment_section</table_name>
+  <model_name>configuration.AttachmentSection</model_name>
+  <data>
+    <attachment_section_id type="int">21</attachment_section_id>
+    <name type="str">Gesuchsteller (Projektunterlagen)</name>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

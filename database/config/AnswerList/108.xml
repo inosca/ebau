@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">108</answer_list_id>
+    <question_id type="int">95</question_id>
+    <value type="str">FFF</value>
+    <name type="str">Fruchtfolgefläche</name>
+    <sort type="int">15</sort>
+  </data>
+</row>
+

@@ -1,0 +1,10 @@
+<row>
+  <table_name>authority_type</table_name>
+  <model_name>configuration.AuthorityType</model_name>
+  <data>
+    <authority_type_id type="int">3</authority_type_id>
+    <tag type="str">NP</tag>
+    <name type="str">Nutzungsplan</name>
+  </data>
+</row>
+

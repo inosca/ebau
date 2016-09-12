@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">248</answer_list_id>
+    <question_id type="int">22</question_id>
+    <value type="str">ABE</value>
+    <name type="str">Gewerbesonderzone Eielen</name>
+    <sort type="int">39</sort>
+  </data>
+</row>
+

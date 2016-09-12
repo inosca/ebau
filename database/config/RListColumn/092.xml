@@ -1,0 +1,12 @@
+<row>
+  <table_name>r_list_column</table_name>
+  <model_name>configuration.RListColumn</model_name>
+  <data>
+    <r_list_column_id type="int">92</r_list_column_id>
+    <resource_id type="int">63</resource_id>
+    <column_name type="str">USER</column_name>
+    <alias type="str">Ersteller</alias>
+    <sort type="int">4</sort>
+  </data>
+</row>
+

@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">67</answer_list_id>
+    <question_id type="int">94</question_id>
+    <value type="str">LpB</value>
+    <name type="str">Gebiet mit landschaftsprägenden Bauten</name>
+    <sort type="int">6</sort>
+  </data>
+</row>
+

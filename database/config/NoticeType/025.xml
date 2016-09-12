@@ -1,0 +1,10 @@
+<row>
+  <table_name>notice_type</table_name>
+  <model_name>configuration.NoticeType</model_name>
+  <data>
+    <notice_type_id type="int">25</notice_type_id>
+    <circulation_type_id type="int">61</circulation_type_id>
+    <name type="str">Mitteilungen an die Gemeindebaubehörde</name>
+  </data>
+</row>
+

@@ -1,0 +1,11 @@
+<row>
+  <table_name>docgen_template</table_name>
+  <model_name>configuration.DocgenTemplate</model_name>
+  <data>
+    <docgen_template_id type="int">206</docgen_template_id>
+    <name type="str">Rechnung BD BGL</name>
+    <path type="str">billKOORBD_BGL.docx</path>
+    <type type="int">1</type>
+  </data>
+</row>
+
