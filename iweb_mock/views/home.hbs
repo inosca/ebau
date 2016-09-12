@@ -6,32 +6,36 @@
 </form>
 
 {{#if id}}
-<p>Currently logged in as {{id}} (Hash: {{hash}})</p>
+<p id="hash">Currently logged in as {{id}} (Hash: {{hash}})</p>
 <form action="/overview" method="POST">
-	<input type="submit" value="get overview">
+	<input type="submit" id="overview" value="get overview">
 </form>
 {{#if overview}}
-<table>
+<table id="overview">
 	<thead>
 		<tr>
 			<td>Dossiernr.</td>
 			<td>Name</td>
 			<td>Letzte Änderung</td>
 			<td>Status</td>
-			{{#each overview as |entry|}}
-			<tr>
-				<td>{{entry.dossier_nr}}</td>
-				<td>{{entry.name}}</td>
-				<td>{{entry.last_modified}}</td>
-				<td>{{entry.status}}</td>
-				<td>
-					<form action="http://localhost:4300/portal/user/entry/resource-id/245/instance-id/{{entry.id}}" method="POST">
-						<input type="hidden" name="X-Camac-Session" value={{../hash}}>
-						<input type="submit" value="open">
-					</form>
-				</td>
-			</tr>
-			{{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each overview as |entry|}}
+    <tr>
+      <td>{{entry.dossier_nr}}</td>
+      <td>{{entry.name}}</td>
+      <td>{{entry.last_modified}}</td>
+      <td>{{entry.status}}</td>
+      <td>
+        <form action="http://localhost:4300/portal/user/entry/resource-id/245/instance-id/{{entry.id}}" method="POST">
+          <input type="hidden" name="X-Camac-Session" value={{../hash}}>
+          <input type="submit" id="open" value="open">
+        </form>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
 </table>
 {{/if}}
 <form action="http://localhost:4300/portal/user/entry/resource-id/245" method="POST">
@@ -39,6 +43,6 @@
 	<input type="hidden" name="firstName" value="Hans">
 	<input type="hidden" name="lastName" value="Peter">
 
-	<input type="submit" value="go to camac">
+	<input type="submit" id="toCamac" value="go to camac">
 </form>
 {{/if}}
