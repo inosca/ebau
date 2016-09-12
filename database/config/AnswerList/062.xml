@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">62</answer_list_id>
+    <question_id type="int">94</question_id>
+    <value type="str">OS</value>
+    <name type="str">Ortsbildschutzzone</name>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

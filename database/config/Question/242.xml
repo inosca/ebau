@@ -1,0 +1,16 @@
+<row>
+  <table_name>question</table_name>
+  <model_name>configuration.Question</model_name>
+  <data>
+    <question_id type="int">242</question_id>
+    <question_type_id type="int">2</question_type_id>
+    <mapping_id type="int">1</mapping_id>
+    <answer_query_id type="NoneType">None</answer_query_id>
+    <name type="str">Hinweis Nachforderung</name>
+    <description type="str">Text für die Nachforderung</description>
+    <javascript type="str"></javascript>
+    <regex type="str"></regex>
+    <default_answer type="str"></default_answer>
+  </data>
+</row>
+

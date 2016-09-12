@@ -1,0 +1,9 @@
+<row>
+  <table_name>question_type</table_name>
+  <model_name>configuration.QuestionType</model_name>
+  <data>
+    <question_type_id type="int">3</question_type_id>
+    <name type="str">Select</name>
+  </data>
+</row>
+

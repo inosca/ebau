@@ -1,0 +1,9 @@
+<row>
+  <table_name>authority</table_name>
+  <model_name>configuration.Authority</model_name>
+  <data>
+    <authority_id type="int">76</authority_id>
+    <name type="str">Bundesamt für Umweltschutz (BAfU)</name>
+  </data>
+</row>
+

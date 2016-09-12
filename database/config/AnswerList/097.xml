@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">97</answer_list_id>
+    <question_id type="int">95</question_id>
+    <value type="str">GSZ</value>
+    <name type="str">Grundwasserschutzzonen</name>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

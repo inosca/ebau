@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">45</answer_list_id>
+    <question_id type="int">22</question_id>
+    <value type="str">GR</value>
+    <name type="str">Gewässerraumzone</name>
+    <sort type="int">48</sort>
+  </data>
+</row>
+

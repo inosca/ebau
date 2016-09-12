@@ -1,0 +1,11 @@
+<row>
+  <table_name>circulation_reason</table_name>
+  <model_name>configuration.CirculationReason</model_name>
+  <data>
+    <circulation_reason_id type="int">43</circulation_reason_id>
+    <circulation_type_id type="int">61</circulation_type_id>
+    <name type="str">E-Dossier</name>
+    <sort type="int">1</sort>
+  </data>
+</row>
+

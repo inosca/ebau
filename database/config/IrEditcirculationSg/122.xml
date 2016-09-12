@@ -1,0 +1,11 @@
+<row>
+  <table_name>ir_editcirculation_sg</table_name>
+  <model_name>configuration.IrEditcirculationSg</model_name>
+  <data>
+    <ir_editcirculation_sg_id type="int">122</ir_editcirculation_sg_id>
+    <instance_resource_id type="int">315</instance_resource_id>
+    <service_group_id type="int">21</service_group_id>
+    <localized type="bool">False</localized>
+  </data>
+</row>
+

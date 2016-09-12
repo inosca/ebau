@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">251</action_id>
+    <available_action_id type="str">email</available_action_id>
+    <button_id type="int">147</button_id>
+    <name type="str">E-Mail an Gemeinde</name>
+    <description type="str">Wenn Status von REDAC zu DONE</description>
+    <success_message type="str">Email an die Gemeinde wurde erfolgreich versandt.</success_message>
+    <error_message type="str">Die Email an die Gemeinde konnte nicht versandt werden!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">2</sort>
+  </data>
+</row>
+

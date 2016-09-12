@@ -1,0 +1,12 @@
+<row>
+  <table_name>circulation_answer</table_name>
+  <model_name>configuration.CirculationAnswer</model_name>
+  <data>
+    <circulation_answer_id type="int">63</circulation_answer_id>
+    <circulation_type_id type="int">41</circulation_type_id>
+    <circulation_answer_type_id type="int">1</circulation_answer_type_id>
+    <name type="str">Ja mit Auflagen</name>
+    <sort type="int">7</sort>
+  </data>
+</row>
+

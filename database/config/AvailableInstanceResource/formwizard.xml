@@ -1,0 +1,11 @@
+<row>
+  <table_name>available_instance_resource</table_name>
+  <model_name>configuration.AvailableInstanceResource</model_name>
+  <data>
+    <available_instance_resource_id type="str">formwizard</available_instance_resource_id>
+    <module_name type="str">default</module_name>
+    <controller_name type="str">form</controller_name>
+    <description type="str">Wizard for the creation of a form</description>
+  </data>
+</row>
+

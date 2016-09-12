@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">325</button_id>
+    <instance_resource_id type="int">389</instance_resource_id>
+    <name type="str">Antwort Speichern</name>
+    <description type="str"></description>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

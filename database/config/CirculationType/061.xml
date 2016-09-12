@@ -1,0 +1,10 @@
+<row>
+  <table_name>circulation_type</table_name>
+  <model_name>configuration.CirculationType</model_name>
+  <data>
+    <circulation_type_id type="int">61</circulation_type_id>
+    <name type="str">Zirkulation Dossiers von der Gemeinde</name>
+    <page_id type="int">41</page_id>
+  </data>
+</row>
+

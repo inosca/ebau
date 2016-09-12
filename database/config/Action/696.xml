@@ -1,0 +1,16 @@
+<row>
+  <table_name>action</table_name>
+  <model_name>configuration.Action</model_name>
+  <data>
+    <action_id type="int">696</action_id>
+    <available_action_id type="str">save</available_action_id>
+    <button_id type="int">470</button_id>
+    <name type="str">Speichern</name>
+    <description type="str"></description>
+    <success_message type="str">Dossier gespeichert.</success_message>
+    <error_message type="str">Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!</error_message>
+    <execute_always type="bool">False</execute_always>
+    <sort type="int">0</sort>
+  </data>
+</row>
+

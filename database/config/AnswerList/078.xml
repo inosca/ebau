@@ -1,0 +1,12 @@
+<row>
+  <table_name>answer_list</table_name>
+  <model_name>configuration.AnswerList</model_name>
+  <data>
+    <answer_list_id type="int">78</answer_list_id>
+    <question_id type="int">94</question_id>
+    <value type="str">SFü</value>
+    <name type="str">Zone für Sport- und Freizeitanlagen, überlagert</name>
+    <sort type="int">19</sort>
+  </data>
+</row>
+

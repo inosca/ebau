@@ -1,0 +1,12 @@
+<row>
+  <table_name>workflow_item</table_name>
+  <model_name>configuration.WorkflowItem</model_name>
+  <data>
+    <workflow_item_id type="int">14</workflow_item_id>
+    <position type="int">4</position>
+    <name type="str">Dossier vollstandig</name>
+    <automatical type="bool">False</automatical>
+    <different_color type="bool">False</different_color>
+  </data>
+</row>
+

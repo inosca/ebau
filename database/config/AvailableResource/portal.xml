@@ -1,0 +1,11 @@
+<row>
+  <table_name>available_resource</table_name>
+  <model_name>configuration.AvailableResource</model_name>
+  <data>
+    <available_resource_id type="str">portal</available_resource_id>
+    <module_name type="str">portal</module_name>
+    <controller_name type="str">user</controller_name>
+    <description type="str">Portal user controller</description>
+  </data>
+</row>
+

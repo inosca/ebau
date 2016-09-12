@@ -1,0 +1,10 @@
+<row>
+  <table_name>ar_action</table_name>
+  <model_name>configuration.ArAction</model_name>
+  <data>
+    <available_resource_id type="str">page</available_resource_id>
+    <action_name type="str">index</action_name>
+    <hidden type="bool">False</hidden>
+  </data>
+</row>
+
