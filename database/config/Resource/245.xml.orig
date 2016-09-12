@@ -1,0 +1,25 @@
+<row>
+  <table_name>resource</table_name>
+  <model_name>configuration.Resource</model_name>
+  <data>
+    <resource_id type="int">245</resource_id>
+<<<<<<< HEAD
+    <available_resource_id type="str">portal</available_resource_id>
+    <name type="str">Portal User Resource</name>
+    <description type="str">Diese Resource stellt die API für das i-Web Portal bereit</description>
+    <template type="str"></template>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">6</sort>
+=======
+    <available_resource_id type="str">list</available_resource_id>
+    <name type="str">Pendenzenliste Gebühren</name>
+    <description type="str">Pendenzenliste Gebühren für Koordinationsstelle Baugesuche</description>
+    <template type="str"></template>
+    <class type="str">show_list_count</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">14</sort>
+>>>>>>> master
+  </data>
+</row>
+

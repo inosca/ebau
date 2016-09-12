@@ -1,0 +1,17 @@
+<row>
+  <table_name>billing_account</table_name>
+  <model_name>configuration.BillingAccount</model_name>
+  <data>
+    <billing_account_id type="int">57</billing_account_id>
+    <name type="str">Gebühr für die Beurteilung von Voreinfragen und Baugesuchen durch die Procap (BeHiG; Bundesgesetzes über das behindertengerechte Bauen)</name>
+    <account_number type="str">direct</account_number>
+    <department type="str">Procap</department>
+<<<<<<< HEAD
+    <service_group_id type="int">21</service_group_id>
+=======
+    <service_group_id type="NoneType">None</service_group_id>
+>>>>>>> master
+    <predefined type="bool">True</predefined>
+  </data>
+</row>
+
