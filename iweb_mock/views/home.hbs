@@ -28,7 +28,7 @@
       <td>{{entry.last_modified}}</td>
       <td>{{entry.status}}</td>
       <td>
-        <form action="http://localhost:4300/portal/user/entry/resource-id/245/instance-id/{{entry.id}}" method="POST">
+        <form action="http://localhost:4300/portal/user/entry/resource-id/248/instance-id/{{entry.id}}" method="POST">
           <input type="hidden" name="X-Camac-Session" value={{../hash}}>
           <input type="submit" id="open" value="open">
         </form>
@@ -38,7 +38,7 @@
   </tbody>
 </table>
 {{/if}}
-<form action="http://localhost:4300/portal/user/entry/resource-id/245" method="POST">
+<form action="http://localhost:4300/portal/user/entry/resource-id/248" method="POST">
 	<input type="hidden" name="X-Camac-Session" value={{hash}}>
 	<input type="hidden" name="firstName" value="Hans">
 	<input type="hidden" name="lastName" value="Peter">
