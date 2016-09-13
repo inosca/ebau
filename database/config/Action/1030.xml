@@ -4,7 +4,7 @@
   <data>
     <action_id type="int">1030</action_id>
     <available_action_id type="str">location</available_action_id>
-    <button_id type="int">722</button_id>
+    <button_id type="int">743</button_id>
     <name type="str">Standort Setzen</name>
     <description type="str"></description>
     <success_message type="str"></success_message>
@@ -13,3 +13,4 @@
     <sort type="int">1</sort>
   </data>
 </row>
+

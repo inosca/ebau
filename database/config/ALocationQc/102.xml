@@ -3,7 +3,7 @@
   <model_name>configuration.ALocationQc</model_name>
   <data>
     <a_location_qc_id type="int">102</a_location_qc_id>
-    <action_id type="int">1009</action_id>
+    <action_id type="int">1030</action_id>
     <question_id type="int">2</question_id>
     <chapter_id type="int">3</chapter_id>
   </data>
