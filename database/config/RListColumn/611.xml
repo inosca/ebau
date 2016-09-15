@@ -5,7 +5,7 @@
     <r_list_column_id type="int">611</r_list_column_id>
     <resource_id type="int">246</resource_id>
     <column_name type="str">INSTANCE_ID</column_name>
-    <alias type="str">INSTANCE_ID</alias>
+    <alias type="str">ID</alias>
     <sort type="int">0</sort>
   </data>
 </row>

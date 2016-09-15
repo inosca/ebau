@@ -5,7 +5,7 @@
     <r_list_column_id type="int">614</r_list_column_id>
     <resource_id type="int">246</resource_id>
     <column_name type="str">COMMUNITY</column_name>
-    <alias type="str">COMMUNITY</alias>
+    <alias type="str">Gemeinde</alias>
     <sort type="int">3</sort>
   </data>
 </row>
