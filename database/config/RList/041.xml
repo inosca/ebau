@@ -118,7 +118,8 @@ WHERE
     "ACTIVATION"."CIRCULATION_STATE_ID" = 41
   )
     AND
-    "INSTANCE"."INSTANCE_STATE_ID" = 23</query>
+    "INSTANCE"."INSTANCE_STATE_ID" = GET_INST_STATE_ID_BY_NAME('circ')
+    </query>
   </data>
 </row>
 
