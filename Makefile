@@ -88,14 +88,21 @@ run-live-db: ## This is merely a command to help run another docker instance of 
 	@docker exec -it docker_camac_live_db_1 chown -R oracle /var/local/database/
 	@docker exec -it docker_camac_live_db_1 /var/local/tools/database/insert_uri_dump.sh
 
+_deployment_confirmation:
+	@echo "Configuration will be overridden on the server"
+	@echo "Press ctrl-c to abort"
+	@read ohyeah
 
-deploy-test-server: css _classloader ## Move the code onto the test server
+deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
+	@git checkout test
+	@git commit --allow-empty -m "Test-Server deployment"
 	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log
 	@ssh sy-jump "rm /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/application.ini"
 	@ssh sy-jump "cd /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/; ln -s application-testserver.ini application.ini"
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-htaccess sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/public/.htaccess
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
+	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
 
 
 run-deploy-db: ## This is merely a command to help run another docker instance for deploying
