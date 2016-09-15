@@ -5,7 +5,7 @@
     <r_list_column_id type="int">627</r_list_column_id>
     <resource_id type="int">247</resource_id>
     <column_name type="str">INTENT</column_name>
-    <alias type="str">INTENT</alias>
+    <alias type="str">Vorhaben</alias>
     <sort type="int">6</sort>
   </data>
 </row>
