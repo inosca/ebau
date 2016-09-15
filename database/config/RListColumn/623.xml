@@ -5,7 +5,7 @@
     <r_list_column_id type="int">623</r_list_column_id>
     <resource_id type="int">247</resource_id>
     <column_name type="str">FORM</column_name>
-    <alias type="str">FORM</alias>
+    <alias type="str">Verfahren</alias>
     <sort type="int">2</sort>
   </data>
 </row>
