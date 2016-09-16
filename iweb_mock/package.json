@@ -19,10 +19,11 @@
     "eslint-plugin-standard": "^2.0.0",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "request": "^2.74.0",
-    "nodemon": "^1.10.0"
+    "express-http-proxy": "^0.10.0",
+    "nodemon": "^1.10.0",
+    "request": "^2.74.0"
   },
-  "devDepencencies":{
-    "nodemon":" ^1.10.0"
+  "devDepencencies": {
+    "nodemon": " ^1.10.0"
   }
 }
