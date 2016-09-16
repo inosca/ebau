@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const request = require('request')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const proxy = require('express-http-proxy')
 
 const PORT = 4400
 const camacUrl = 'http://camac_web'
@@ -11,8 +12,14 @@ const app = express()
 app.use(cookieParser())
 app.use(bodyParser())
 
-app.engine('.hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('.hbs', exphbs({ defaultLayout: 'portal', extname: '.hbs' }))
 app.set('view engine', '.hbs')
+
+app.use('/public', proxy(camacUrl, {
+	forwardPath (req, res) {
+		return require('url').parse('/public' + req.url).path
+	}
+}))
 
 app.get('/', (req, res) => {
 	res.render('home', {
