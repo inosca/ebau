@@ -5,7 +5,7 @@
     <r_list_column_id type="int">606</r_list_column_id>
     <resource_id type="int">245</resource_id>
     <column_name type="str">APPLICANT</column_name>
-    <alias type="str">APPLICANT</alias>
+    <alias type="str">Gesuchsteller</alias>
     <sort type="int">5</sort>
   </data>
 </row>
