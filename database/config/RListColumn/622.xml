@@ -5,7 +5,7 @@
     <r_list_column_id type="int">622</r_list_column_id>
     <resource_id type="int">247</resource_id>
     <column_name type="str">DOSSIER_NR</column_name>
-    <alias type="str">DOSSIER_NR</alias>
+    <alias type="str">Dossier-NR</alias>
     <sort type="int">1</sort>
   </data>
 </row>
