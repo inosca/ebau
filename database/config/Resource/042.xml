@@ -9,7 +9,7 @@
     <template type="str">/global/search.phtml</template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">18</sort>
+    <sort type="int">19</sort>
   </data>
 </row>
 
