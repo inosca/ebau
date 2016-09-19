@@ -4,12 +4,12 @@
   <data>
     <resource_id type="int">249</resource_id>
     <available_resource_id type="str">list</available_resource_id>
-    <name type="str">Portal Resource</name>
+    <name type="str">Pendenzenliste Start</name>
     <description type="str">Pendenzenliste Start für Portal Nutzer</description>
     <template type="str"></template>
     <class type="str">show_list_count</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">22</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 
