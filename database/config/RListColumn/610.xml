@@ -5,7 +5,7 @@
     <r_list_column_id type="int">610</r_list_column_id>
     <resource_id type="int">245</resource_id>
     <column_name type="str">STATE_DESCRIPTION</column_name>
-    <alias type="str">Statusbeschreibung</alias>
+    <alias type="str">STATE_DESCRIPTION</alias>
     <sort type="int">9</sort>
   </data>
 </row>
