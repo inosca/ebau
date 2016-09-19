@@ -5,7 +5,7 @@
     <r_search_column_id type="int">121</r_search_column_id>
     <resource_id type="int">102</resource_id>
     <column_name type="str">COMMUNITY</column_name>
-    <alias type="str">Gemeinde</alias>
+    <alias type="str">COMMUNITY</alias>
     <sort type="int">3</sort>
   </data>
 </row>
