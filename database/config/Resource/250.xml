@@ -2,14 +2,14 @@
   <table_name>resource</table_name>
   <model_name>configuration.Resource</model_name>
   <data>
-    <resource_id type="int">23</resource_id>
+    <resource_id type="int">250</resource_id>
     <available_resource_id type="str">list</available_resource_id>
-    <name type="str">Pendenzenliste Start</name>
-    <description type="str">Start Pendenzenliste fur Gemeinden</description>
+    <name type="str">Bürger-Dossiers</name>
+    <description type="str">Dossiers, die von den Bürgern eingereicht wurden</description>
     <template type="str"></template>
-    <class type="str">show_list_count</class>
+    <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">4</sort>
+    <sort type="int">3</sort>
   </data>
 </row>
 
