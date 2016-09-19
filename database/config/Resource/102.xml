@@ -9,7 +9,7 @@
     <template type="str">/buildom/search.phtml</template>
     <class type="str"></class>
     <hidden type="bool">True</hidden>
-    <sort type="int">17</sort>
+    <sort type="int">18</sort>
   </data>
 </row>
 
