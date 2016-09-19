@@ -4,7 +4,7 @@
   <data>
     <r_search_column_id type="int">122</r_search_column_id>
     <resource_id type="int">42</resource_id>
-    <column_name type="str">PETITION</column_name>
+    <column_name type="str">APPLICANT</column_name>
     <alias type="str">Gesuchsteller</alias>
     <sort type="int">5</sort>
   </data>
