@@ -3,7 +3,7 @@
   <model_name>configuration.IrNewform</model_name>
   <data>
     <instance_resource_id type="int">651</instance_resource_id>
-    <instance_state_id type="int">28</instance_state_id>
+    <instance_state_id type="int">21</instance_state_id>
     <page_form_group_id type="NoneType">None</page_form_group_id>
   </data>
 </row>
