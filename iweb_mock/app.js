@@ -4,10 +4,14 @@ const request = require('request')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const proxy = require('express-http-proxy')
+const config = require('config')
 
 const PORT = 4400
-const camacUrl = 'http://camac_web'
+const base = config.get('base')
+const auth = config.has('httpAuth') ? config.get('httpAuth') : undefined
 const app = express()
+const camacUrl = app.locals.camacUrl = config.get('camacUrl')
+app.locals.base = base
 
 app.use(cookieParser())
 app.use(bodyParser())
@@ -29,8 +33,12 @@ app.get('/', (req, res) => {
 	})
 })
 
+function authenticate (conf) {
+	return auth ? Object.assign({}, conf, { auth }) : conf
+}
+
 app.post('/hash', (req, res) => {
-	request.post({
+	request.post(authenticate({
 		url: camacUrl + '/portal/user/session/resource-id/248',
 		headers: {
 			'X-Auth': '340acc71664cde7b4b6608a29fe7bd717c5a1d5f863054e8f260225fc7e0ad5f',
@@ -39,9 +47,12 @@ app.post('/hash', (req, res) => {
 		form: {
 			portalId: req.body.id
 		}
-	}, (err, response, body) => {
+	}), (err, response, body) => {
 		if (err || response.statusCode >= 300) {
-			console.log('error', err, response.statusCode, body)
+			console.log('error', err)
+			if (response) {
+				console.log(response.statusCode, body)
+			}
 			res.clearCookie('camacSession')
 			res.clearCookie('portalId')
 		} else {
@@ -55,18 +66,19 @@ app.post('/hash', (req, res) => {
 				// do nothing
 			}
 		}
-		res.redirect('/')
+		res.redirect(base)
 	})
 })
 
 app.post('/overview', (req, res) => {
-	request.post({
+	request.post(authenticate({
 		url: camacUrl + '/portal/user/overview/resource-id/248',
+		auth,
 		headers: {
 			'X-Camac-Session': req.cookies.camacSession,
 			'User-Agent': 'foo'
 		}
-	}, (err, response, body) => {
+	}), (err, response, body) => {
 		if (err || response.statusCode >= 300) {
 			console.log('error', err, response.statusCode, body)
 			res.clearCookie('camacSession')
@@ -81,7 +93,7 @@ app.post('/overview', (req, res) => {
 				// do nothing
 			}
 		}
-		res.redirect('/')
+		res.redirect(base)
 	})
 })
 

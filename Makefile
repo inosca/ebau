@@ -104,6 +104,9 @@ deploy-test-server: _deployment_confirmation css _classloader ## Move the code o
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
 
+deploy-portal-test-server:
+	@rsync -avz iweb_mock/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/iweb/ --exclude=node_modules/*
+	# TODO: npm install, forever restart. How to call a command on the server?
 
 run-deploy-db: ## This is merely a command to help run another docker instance for deploying
 	docker-compose -f docker/docker-deploy-db.yml up
