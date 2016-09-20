@@ -1,0 +1,10 @@
+<row>
+  <table_name>instance_state</table_name>
+  <model_name>configuration.InstanceState</model_name>
+  <data>
+    <instance_state_id type="int">28</instance_state_id>
+    <name type="str">new_portal</name>
+    <sort type="int">8</sort>
+  </data>
+</row>
+
