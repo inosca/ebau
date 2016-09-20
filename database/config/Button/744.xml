@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">744</button_id>
+    <instance_resource_id type="int">671</instance_resource_id>
+    <name type="str">Einschicken</name>
+    <description type="str">Gibt das Dossier für die Gemeinde Frei. Momentan für wenn es neu ist sowie wenn es in NFD ist das selbe.</description>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">1</sort>
+  </data>
+</row>
+
