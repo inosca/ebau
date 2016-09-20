@@ -119,7 +119,7 @@ config-import: ## import the current database configuration. This will override 
 	@echo "Config successfully imported"
 
 
-config-import-ci: 
+config-import-ci:
 	docker run -i --rm --name config-import -v "$$PWD":/usr/src/camac \
 		-e 'USE_DB=docker_ci' \
 		--link=docker_camac_db_1:camac_db \
@@ -148,8 +148,10 @@ help: ## Show the help messages
 run-acceptance-tests: ## run the acceptance tests
 	@make -C db_admin/ run-acceptance-tests ${ARGS}
 
+run-acceptance-tests-fast: ## run the acceptance tests fast - meaning, don't runn quite every test
+	@make -C db_admin/ run-acceptance-tests-fast ${ARGS}
 
-run-acceptance-tests-ci: ## run the acceptance tests in CI
+run-acceptance-tests-ci: ## Run a subset of the acceptance tests
 	docker ps
 	docker run -i --rm --name camac-acceptance-tester -v "$$PWD":/usr/src/camac \
 		-e 'USE_DB=docker_ci' \
