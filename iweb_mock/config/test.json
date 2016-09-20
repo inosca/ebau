@@ -1,0 +1,8 @@
+{
+	"camacUrl": "http://camac-uri.sycloud.ch",
+	"base": "/portal-test/",
+	"httpAuth": {
+		"user": "paulwalker",
+		"pass": "kantonuri"
+	}
+}
