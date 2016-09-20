@@ -1,6 +1,5 @@
 root = true
 
-
 [*]
 end_of_line = lf
 insert_final_newline = true
@@ -8,7 +7,6 @@ trim_trailing_whitespace = true
 
 [*.php]
 indent_style = tab
-
 
 [*.sass]
 indent_style = space
