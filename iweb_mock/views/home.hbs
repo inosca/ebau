@@ -1,18 +1,7 @@
 <p>Willkommen!</p>
 
-<form action="{{base}}hash" method="POST">
-	<input type="text" name="id" required placeholder="Nutzername">
-	<input type="submit" value="Login">
-</form>
-
 {{#if id}}
-<p id="hash">Sie sind angemeldet als {{id}} (Hash: {{hash}})</p>
-<form action="{{base}}overview" method="POST">
-	<input type="submit" id="overview" value="get overview">
-</form>
-<form action="/logout" method="POST">
-	<input type="submit" id="logout" value="Logout">
-</form>
+<p id="hash">Sie sind angemeldet als <strong>{{id}}</strong>.</p>
 {{#if overview}}
 <table id="overview">
 	<thead>
@@ -47,5 +36,13 @@
 	<input type="hidden" name="lastName" value="Peter">
 
 	<input type="submit" id="toCamac" value="Dossier erstellen">
+</form>
+<form action="/logout" method="POST">
+	<input type="submit" id="logout" value="Logout">
+</form>
+{{else}}
+<form action="{{base}}hash" method="POST">
+	<input type="text" name="id" required placeholder="Nutzername">
+	<input type="submit" value="Login">
 </form>
 {{/if}}
