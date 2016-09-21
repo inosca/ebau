@@ -6,8 +6,8 @@
     <available_resource_id type="str">list</available_resource_id>
     <name type="str">Bürger-Dossiers</name>
     <description type="str">Dossiers, die von den Bürgern eingereicht wurden</description>
-    <template type="str"></template>
-    <class type="str"></class>
+    <template type="str">/list/portal-list.phtml</template>
+    <class type="str">show_list_count</class>
     <hidden type="bool">False</hidden>
     <sort type="int">3</sort>
   </data>
