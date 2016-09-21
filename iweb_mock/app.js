@@ -131,7 +131,7 @@ app.post('/logout', (req, res) => {
 				// do nothing
 			}
 		}
-		res.redirect('/')
+		res.redirect(base)
 	})
 })
 
