@@ -1,0 +1,10 @@
+<row>
+  <table_name>billing_account_state</table_name>
+  <model_name>configuration.BillingAccountState</model_name>
+  <data>
+    <billing_account_state_id type="int">514</billing_account_state_id>
+    <billing_account_id type="int">222</billing_account_id>
+    <instance_state_id type="int">21</instance_state_id>
+  </data>
+</row>
+
