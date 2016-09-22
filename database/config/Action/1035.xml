@@ -10,7 +10,7 @@
     <success_message type="str">Dossier erfolgreich akzeptiert</success_message>
     <error_message type="str">Beim akzeptieren ist ein Fehler aufgetreten</error_message>
     <execute_always type="bool">False</execute_always>
-    <sort type="int">0</sort>
+    <sort type="int">1</sort>
   </data>
 </row>
 
