@@ -8,7 +8,7 @@
     <description type="str">Gibt das Dossier für die Gemeinde Frei. Momentan für wenn es neu ist sowie wenn es in NFD ist das selbe.</description>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">0</sort>
+    <sort type="int">1</sort>
   </data>
 </row>
 
