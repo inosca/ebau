@@ -1,0 +1,9 @@
+<row>
+  <table_name>r_page</table_name>
+  <model_name>configuration.RPage</model_name>
+  <data>
+    <resource_id type="int">251</resource_id>
+    <pdf_class type="str"></pdf_class>
+  </data>
+</row>
+

@@ -4,7 +4,7 @@
   <data>
     <instance_resource_id type="int">671</instance_resource_id>
     <available_instance_resource_id type="str">editformpage</available_instance_resource_id>
-    <resource_id type="int">249</resource_id>
+    <resource_id type="int">251</resource_id>
     <name type="str">Dossier bearbeiten</name>
     <description type="str">Dossiers vom Portal User</description>
     <template type="str">/form/bg-form.phtml</template>
