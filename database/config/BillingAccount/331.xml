@@ -1,0 +1,13 @@
+<row>
+  <table_name>billing_account</table_name>
+  <model_name>configuration.BillingAccount</model_name>
+  <data>
+    <billing_account_id type="int">331</billing_account_id>
+    <name type="str">Gebühren Baubegleitung</name>
+    <account_number type="str">2630.4210.02</account_number>
+    <department type="str">SID / ABM / BS</department>
+    <service_group_id type="int">63</service_group_id>
+    <predefined type="bool">True</predefined>
+  </data>
+</row>
+
