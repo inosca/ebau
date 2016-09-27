@@ -1,31 +1,19 @@
-#  image: docker:vcamac-dind
-#  
-#  before_script:
-#      - docker-compose -f docker/gitlab-ci-compose.yml up -d
-#  
-#  after_script:
-#      - docker-compose -f docker/gitlab-ci-compose.yml stop
-#      - yes | docker-compose -f docker/gitlab-ci-compose.yml rm camac_cache
-#   
-#  stages:
-#      - test
-#  
-#  run-test:
-#      stage: test
-#      script:
-#          - hostname
-#          - ls -al
-#          - echo $PWD
-#          - mount
-#          - pwd
-#          - docker run -i --rm --name db-waiter -v "$PWD":/usr/src/camac:ro -e 'USE_DB=docker_dev' --link=docker_camac_db_1:camac_db adsy/camac_python_oracle:v9 ls -lah /usr/src/camac
-#          - docker run -i --rm --name db-waiter -v "$PWD":/usr/src/camac -e 'USE_DB=docker_dev' --link=docker_camac_db_1:camac_db adsy/camac_python_oracle:v9 python /usr/src/camac/wait-for-oracle-db.py camac_db 1521
-#          - make _init-ci
-#          - make db-init
-#          - docker info
-#          - make config-import-ci
-#          - make run-acceptance-tests-ci
-#  
-#  variables:
-#    LANG: C.UTF-8
-#    LC_ALL: C.UTF-8
+before_script:
+  - source /etc/profile
+  - pyenv local 3.5.1
+  - export PIP_CACHE_DIR='pip-cache'
+  - pip install -r docker/requirements.txt
+
+services:
+    - oracle
+    - memcached
+
+stages:
+    - test
+
+run-test:
+    stage: test
+    script:
+        - hostname
+        - echo $PWD
+
