@@ -5,7 +5,7 @@ before_script:
   - pip install -r docker/requirements.txt
 
 services:
-    - oracle
+    - wnameless/oracle-xe-11g
     - memcached
 
 stages:
