@@ -1,8 +1,7 @@
 before_script:
   - source /etc/profile
-  - pyenv local 3.5.1
-  - export PIP_CACHE_DIR='pip-cache'
-  - pip install -r docker/requirements.txt
+  - source /opt/xvfb.sh
+  - pip install -r db_admin/requirements.txt
 
 services:
     - wnameless/oracle-xe-11g
@@ -11,9 +10,18 @@ services:
 stages:
     - test
 
+
 run-test:
     stage: test
     script:
         - hostname
         - echo $PWD
+        - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
+        - make _init
+        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+        - make config-import-ci
+        - make run-acceptance-tests-ci
 
+variables:
+  LANG: C.UTF-8
+  LC_ALL: C.UTF-8
