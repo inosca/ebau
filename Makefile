@@ -162,9 +162,9 @@ ci-config-import:
 
 
 ci-db-init:
-	$(SSH_PASS) ssh root@localhost mkdir -p /var/local/database /var/local/tools
-	$(SSH_PASS) scp tools/database root@localhost:/var/local/tools/
-	$(SSH_PASS) scp database/structure_dumps root@localhost:/var/local/database
-	$(SSH_PASS) ssh root@localhost bash /var/local/tools/database/insert_base_structure.sh
+	$(SSH_PASS) ssh root@wnameless__oracle-xe-11g mkdir -p /var/local/database /var/local/tools
+	$(SSH_PASS) scp tools/database root@wnameless__oracle-xe-11g:/var/local/tools/
+	$(SSH_PASS) scp database/structure_dumps root@wnameless__oracle-xe-11g:/var/local/database
+	$(SSH_PASS) ssh root@wnameless__oracle-xe-11g bash /var/local/tools/database/insert_base_structure.sh
 
 
