@@ -19,9 +19,9 @@ run-test:
         - echo $PWD
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - make _init
-        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
-        - make config-import-ci
-        - make run-acceptance-tests-ci
+        - make ci-db-init
+        - make ci-config-import
+        - make ci-run-acceptance-tests
 
 variables:
     LANG: C.UTF-8
