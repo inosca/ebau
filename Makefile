@@ -162,9 +162,9 @@ ci-config-import:
 
 
 ci-db-init:
-	$(SSH_PASS) ssh -p 22 root@wnameless__oracle-xe-11g "mkdir -p /var/local/database /var/local/tools"
-	$(SSH_PASS) scp -r -P 22 tools/database root@wnameless__oracle-xe-11g:/var/local/tools/
-	$(SSH_PASS) scp -r -P 22 database/structure_dumps root@wnameless__oracle-xe-11g:/var/local/database
-	$(SSH_PASS) ssh -p 22 root@wnameless__oracle-xe-11g "bash /var/local/tools/database/insert_base_structure.sh"
+	sshpass -p 'admin' ssh -v -p 22 root@wnameless__oracle-xe-11g "mkdir -p /var/local/database /var/local/tools"
+	sshpass -p 'admin' scp -r -P 22 tools/database root@wnameless__oracle-xe-11g:/var/local/tools/
+	sshpass -p 'admin' scp -r -P 22 database/structure_dumps root@wnameless__oracle-xe-11g:/var/local/database
+	sshpass -p 'admin' ssh -p 22 root@wnameless__oracle-xe-11g "bash /var/local/tools/database/insert_base_structure.sh"
 
 
