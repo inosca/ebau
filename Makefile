@@ -126,18 +126,6 @@ config-import: ## import the current database configuration. This will override 
 	@echo "Config successfully imported"
 
 
-ci-config-import:
-	@make -C db_admin/  importconfig-ci
-	@echo "config successfully imported"
-
-
-ci-db-init:
-	$(SSH_PASS) ssh root@localhost -p 49160 mkdir -p /var/local/database /var/local/tools
-	$(SSH_PASS) scp tools/database -p 49160 root@localhost:/var/local/tools/
-	$(SSH_PASS) scp database/structure_dumps -p 4916 root@localhost:/var/local/database
-	$(SSH_PASS) ssh root@localhost -p 49160 bash /var/local/tools/database/insert_base_structure.sh
-
-
 data-truncate: ## Truncate the data in the database
 	@make -C db_admin/ truncatedata
 	# @make -C db_admin/ reset_sequences # TODO
@@ -167,3 +155,16 @@ install-api-doc: ## installs the api doc generator tool
 generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
+
+ci-config-import:
+	@make -C db_admin/  importconfig-ci
+	@echo "config successfully imported"
+
+
+ci-db-init:
+	$(SSH_PASS) ssh root@localhost mkdir -p /var/local/database /var/local/tools
+	$(SSH_PASS) scp tools/database root@localhost:/var/local/tools/
+	$(SSH_PASS) scp database/structure_dumps root@localhost:/var/local/database
+	$(SSH_PASS) ssh root@localhost bash /var/local/tools/database/insert_base_structure.sh
+
+
