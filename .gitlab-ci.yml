@@ -20,6 +20,7 @@ run-test:
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
         - make ci-run-acceptance-tests
+        - cat /var/log/apache2/error.log
 
 variables:
     LANG: C.UTF-8
