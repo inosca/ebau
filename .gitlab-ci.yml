@@ -1,7 +1,10 @@
 before_script:
-  - source /etc/profile
-  - source /opt/xvfb.sh
-  - pip install -r db_admin/requirements.txt
+    - source /etc/profile
+    - source /opt/xvfb.sh
+    - pip install -r db_admin/requirements.txt
+
+after_script:
+    - cat /var/log/apache2/error.log
 
 services:
     - memcached
@@ -9,7 +12,6 @@ services:
 
 stages:
     - test
-
 
 run-test:
     stage: test
@@ -20,7 +22,6 @@ run-test:
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
         - make ci-run-acceptance-tests
-        - cat /var/log/apache2/error.log
 
 variables:
     LANG: C.UTF-8
