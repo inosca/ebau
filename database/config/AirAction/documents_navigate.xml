@@ -4,7 +4,7 @@
   <data>
     <available_instance_resource_id type="str">documents</available_instance_resource_id>
     <action_name type="str">navigate</action_name>
-    <hidden type="bool">False</hidden>
+    <hidden type="bool">True</hidden>
   </data>
 </row>
 
