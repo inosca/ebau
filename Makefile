@@ -8,8 +8,8 @@ SHELL:=/bin/bash
 .DEFAULT_GOAL := help
 
 DB_CONTAINER?=docker_camac_db_1
-
-SSH_PASS=sshpass -p 'admin'
+DB_CONTAINER_HOSTNAME?=localhost
+DB_CONTAINER_PORT?=49160
 
 
 _log-follow: # Tail the log of the application
@@ -59,13 +59,17 @@ db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER vari
 	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/drop_user.sh
 	@make db-init
 
+_sync_db_tools:
+	@echo "Syncing tools to docker container"
+	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
+	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
 
-db-init: ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
-	echo "Initialise the database"
-	docker exec -i $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
-	docker exec -i $(DB_CONTAINER) bash /var/local/tools/database/create_camac_user.sh
-	docker exec -i $(DB_CONTAINER) chmod +x /var/local/tools/database/insert_base_structure.sh
-	docker exec -i $(DB_CONTAINER) bash /var/local/tools/database/insert_base_structure.sh
+db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
+	@echo "Initialise the database"
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/create_camac_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/create_camac_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/insert_base_structure.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/insert_base_structure.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
@@ -159,12 +163,3 @@ generate-api-doc: ## generates documentation for the i-web portal API
 ci-config-import:
 	@make -C db_admin/  importconfig-ci
 	@echo "config successfully imported"
-
-
-ci-db-init:
-	sshpass -p 'admin' ssh -v -p 22 root@wnameless__oracle-xe-11g "mkdir -p /var/local/database /var/local/tools"
-	sshpass -p 'admin' scp -r -P 22 tools/database root@wnameless__oracle-xe-11g:/var/local/tools/
-	sshpass -p 'admin' scp -r -P 22 database/structure_dumps root@wnameless__oracle-xe-11g:/var/local/database
-	sshpass -p 'admin' ssh -p 22 root@wnameless__oracle-xe-11g "bash /var/local/tools/database/insert_base_structure.sh"
-
-

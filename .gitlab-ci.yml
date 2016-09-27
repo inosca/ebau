@@ -4,8 +4,8 @@ before_script:
   - pip install -r db_admin/requirements.txt
 
 services:
-    - wnameless/oracle-xe-11g
     - memcached
+    - wnameless/oracle-xe-11g
 
 stages:
     - test
@@ -20,7 +20,7 @@ run-test:
         - echo $PWD
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - make _init
-        - make ci-db-init
+        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
         - make ci-run-acceptance-tests
 
