@@ -25,3 +25,4 @@ run-test:
 variables:
   LANG: C.UTF-8
   LC_ALL: C.UTF-8
+  ORACLE_HOME: /usr/local/lib/instantclient_11_2
