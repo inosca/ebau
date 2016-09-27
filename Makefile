@@ -1,11 +1,15 @@
 SHELL:=/bin/bash
 
-.PHONY: help run run-fancy db-reset db-init css css-watch _classloader init structure-export config-export config-import \
+.PHONY: help run run-fancy db-reset db-init css css-watch _classloader \
+	init structure-export config-export config-import \
 	deploy-test-server run-deploy-db run-live-db _log-follow
+	ci-config-import ci-db-init
 
 .DEFAULT_GOAL := help
 
 DB_CONTAINER?=docker_camac_db_1
+
+SSH_PASS=sshpass -p 'admin'
 
 
 _log-follow: # Tail the log of the application
@@ -65,7 +69,7 @@ db-init: ## Initialises the default database structure (without any data). Use t
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
-	@chmod +x tools/camac/export-structure.sh 
+	@chmod +x tools/camac/export-structure.sh
 	@tools/camac/export-structure.sh $(DB_CONTAINER)
 
 
@@ -122,16 +126,16 @@ config-import: ## import the current database configuration. This will override 
 	@echo "Config successfully imported"
 
 
-config-import-ci:
-	docker run -i --rm --name config-import -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		--link=docker_camac_db_1:camac_db \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 cat /etc/hosts
-	docker run -i --rm --name camac-config-importer -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		--link=docker_camac_db_1:camac_db \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python manage.py importconfig
-	@echo "Config successfully imported"
+ci-config-import:
+	@make -C db_admin/  importconfig-ci
+	@echo "config successfully imported"
+
+
+ci-db-init:
+	$(SSH_PASS) ssh root@localhost -p 49160 mkdir -p /var/local/database /var/local/tools
+	$(SSH_PASS) scp tools/database -p 49160 root@localhost:/var/local/tools/
+	$(SSH_PASS) scp database/structure_dumps -p 4916 root@localhost:/var/local/database
+	$(SSH_PASS) ssh root@localhost -p 49160 bash /var/local/tools/database/insert_base_structure.sh
 
 
 data-truncate: ## Truncate the data in the database
@@ -154,16 +158,8 @@ run-acceptance-tests: ## run the acceptance tests
 run-acceptance-tests-fast: ## run the acceptance tests fast - meaning, don't runn quite every test
 	@make -C db_admin/ run-acceptance-tests-fast ${ARGS}
 
-run-acceptance-tests-ci: ## Run a subset of the acceptance tests
-	docker ps
-	docker run -i --rm --name camac-acceptance-tester -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		-e 'TEST_BROWSER=Firefox' \
-		-e 'TEST_HOST=camac_web' \
-		-e 'TEST_PORT=80' \
-		--link=docker_camac_db_1:camac_db \
-		--link=docker_camac_web_1:camac_web \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py -x
+ci-run-acceptance-tests: ## Run a subset of the acceptance tests
+	@make -C db_admin/ run-acceptance-tests-ci
 
 install-api-doc: ## installs the api doc generator tool
 	npm i -g apidoc
