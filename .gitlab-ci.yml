@@ -14,10 +14,6 @@ stages:
 run-test:
     stage: test
     script:
-        - apt-get install -y sshpass # just for testing
-        - echo $LD_LIBRARY_PATH
-        - hostname
-        - echo $PWD
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
         - make _init
