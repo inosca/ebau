@@ -3,10 +3,6 @@ before_script:
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
 
-after_script:
-    - cat /var/log/apache2/error.log
-    - cat /builds/kantonur/camac5.src/camac/log/application.log
-
 services:
     - memcached
     - wnameless/oracle-xe-11g
