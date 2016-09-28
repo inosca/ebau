@@ -1,0 +1,10 @@
+{
+	"camacUrl": "http://localhost",
+	"camacApi": "http://localhost",
+	"base": "/",
+	"httpAuth": {
+		"user": "paulwalker",
+		"pass": "kantonuri"
+	}
+}
+
