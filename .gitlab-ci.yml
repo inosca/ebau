@@ -17,6 +17,7 @@ stages:
 run-test:
     stage: test
     script:
+        - source /etc/apache2/envvars
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
         - make _init-ci
