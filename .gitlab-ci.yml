@@ -21,7 +21,7 @@ run-test:
         - apt-get install -y curl
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
-        - make _init
+        - make _init-ci
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
         - make ci-run-acceptance-tests
