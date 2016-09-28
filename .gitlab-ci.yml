@@ -3,6 +3,9 @@ before_script:
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
 
+after_script:
+    - rm ~/.ssh/known_hosts
+
 services:
     - memcached
     - wnameless/oracle-xe-11g
