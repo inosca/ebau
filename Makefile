@@ -60,18 +60,18 @@ db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER vari
 	@make db-init
 
 _sync_db_tools:
-	@echo "Syncing tools to docker container"
-	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
-	@sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
+	echo "Syncing tools to docker container"
+	sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
+	sshpass -p "admin" scp -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
 
 db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
-	@echo "Initialise the database"
-	@echo "Create the camac user"
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/create_camac_user.sh
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/create_camac_user.sh
-	@echo "Insert the base structure"
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/insert_base_structure.sh
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/insert_base_structure.sh
+	echo "Initialise the database"
+	echo "Create the camac user"
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/create_camac_user.sh
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/create_camac_user.sh
+	echo "Insert the base structure"
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/insert_base_structure.sh
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/insert_base_structure.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
