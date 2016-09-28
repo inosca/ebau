@@ -66,8 +66,10 @@ _sync_db_tools:
 
 db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
 	@echo "Initialise the database"
+	@echo "Create the camac user"
 	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/create_camac_user.sh
 	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/create_camac_user.sh
+	@echo "Insert the base structure"
 	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) chmod +x /var/local/tools/database/insert_base_structure.sh
 	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) bash /var/local/tools/database/insert_base_structure.sh
 
