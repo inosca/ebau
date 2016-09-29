@@ -2,8 +2,8 @@ SHELL:=/bin/bash
 
 .PHONY: help run run-fancy db-reset db-init css css-watch _classloader \
 	init structure-export config-export config-import \
-	deploy-test-server run-deploy-db run-live-db _log-follow
-	ci-config-import ci-db-init
+	deploy-test-server run-deploy-db run-live-db _log-follow \
+	ci-config-import ci-db-init _ci-init ci-run-acceptance_tests
 
 .DEFAULT_GOAL := help
 
@@ -25,7 +25,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 	@tmux -2 attach-session -d
 
-_init-ci: _submodule-update
+_ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@rm -f camac/configuration/configs/application.ini
@@ -165,3 +165,15 @@ generate-api-doc: ## generates documentation for the i-web portal API
 ci-config-import:
 	@make -C db_admin/  importconfig-ci
 	@echo "config successfully imported"
+
+ci-pretend:
+	@source /etc/profile
+	@source /opt/xvfb.sh
+	@pip install -r db_admin/requirements.txt
+	@source /etc/apache2/envvars
+	@python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
+	@ssh-keyscan -H wnameless__oracle-xe-11g > ~/.ssh/known_hosts
+	@make _ci-init
+	@make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+	@make ci-config-import
+	@make ci-run-acceptance-tests
