@@ -4,7 +4,7 @@
   <data>
     <question_id type="int">5</question_id>
     <chapter_id type="int">3</chapter_id>
-    <required type="bool">True</required>
+    <required type="bool">False</required>
     <item type="int">1</item>
     <sort type="int">2</sort>
   </data>
