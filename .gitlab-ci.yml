@@ -15,6 +15,7 @@ run-test:
     script:
         - source /etc/apache2/envvars
         - make _ci-init
+        - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
