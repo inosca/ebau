@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">COMMUNITY</column_name>
     <alias type="str">Gemeinde</alias>
-    <sort type="int">3</sort>
+    <sort type="int">2</sort>
   </data>
 </row>
 
