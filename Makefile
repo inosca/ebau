@@ -1,11 +1,15 @@
 SHELL:=/bin/bash
 
-.PHONY: help run run-fancy db-reset db-init css css-watch _classloader init structure-export config-export config-import \
-	deploy-test-server run-deploy-db run-live-db _log-follow
+.PHONY: help run run-fancy db-reset db-init css css-watch _classloader \
+	init structure-export config-export config-import \
+	deploy-test-server run-deploy-db run-live-db _log-follow \
+	ci-config-import ci-db-init _ci-init ci-run-acceptance_tests
 
 .DEFAULT_GOAL := help
 
 DB_CONTAINER?=docker_camac_db_1
+DB_CONTAINER_HOSTNAME?=localhost
+DB_CONTAINER_PORT?=49160
 
 
 _log-follow: # Tail the log of the application
@@ -21,7 +25,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 	@tmux -2 attach-session -d
 
-_init-ci: _submodule-update
+_ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@rm -f camac/configuration/configs/application.ini
@@ -55,17 +59,23 @@ db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER vari
 	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/drop_user.sh
 	@make db-init
 
+_sync_db_tools:
+	echo "Syncing tools to docker container"
+	sshpass -p "admin" scp -o StrictHostKeyChecking=no -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
+	sshpass -p "admin" scp -o StrictHostKeyChecking=no -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
 
-db-init: ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
+db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
 	echo "Initialise the database"
-	docker exec -i $(DB_CONTAINER) chmod +x /var/local/tools/database/create_camac_user.sh
-	docker exec -i $(DB_CONTAINER) bash /var/local/tools/database/create_camac_user.sh
-	docker exec -i $(DB_CONTAINER) chmod +x /var/local/tools/database/insert_base_structure.sh
-	docker exec -i $(DB_CONTAINER) bash /var/local/tools/database/insert_base_structure.sh
+	echo "Create the camac user"
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no  chmod +x /var/local/tools/database/create_camac_user.sh
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/create_camac_user.sh
+	echo "Insert the base structure"
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no chmod +x /var/local/tools/database/insert_base_structure.sh
+	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/insert_base_structure.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
-	@chmod +x tools/camac/export-structure.sh 
+	@chmod +x tools/camac/export-structure.sh
 	@tools/camac/export-structure.sh $(DB_CONTAINER)
 
 
@@ -122,18 +132,6 @@ config-import: ## import the current database configuration. This will override 
 	@echo "Config successfully imported"
 
 
-config-import-ci:
-	docker run -i --rm --name config-import -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		--link=docker_camac_db_1:camac_db \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 cat /etc/hosts
-	docker run -i --rm --name camac-config-importer -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		--link=docker_camac_db_1:camac_db \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python manage.py importconfig
-	@echo "Config successfully imported"
-
-
 data-truncate: ## Truncate the data in the database
 	@make -C db_admin/ truncatedata
 	# @make -C db_admin/ reset_sequences # TODO
@@ -154,16 +152,8 @@ run-acceptance-tests: ## run the acceptance tests
 run-acceptance-tests-fast: ## run the acceptance tests fast - meaning, don't runn quite every test
 	@make -C db_admin/ run-acceptance-tests-fast ${ARGS}
 
-run-acceptance-tests-ci: ## Run a subset of the acceptance tests
-	docker ps
-	docker run -i --rm --name camac-acceptance-tester -v "$$PWD":/usr/src/camac \
-		-e 'USE_DB=docker_ci' \
-		-e 'TEST_BROWSER=Firefox' \
-		-e 'TEST_HOST=camac_web' \
-		-e 'TEST_PORT=80' \
-		--link=docker_camac_db_1:camac_db \
-		--link=docker_camac_web_1:camac_web \
-		-w /usr/src/camac/db_admin/uri_database/ adsy/camac_python_oracle:v9 python pytest_run.py -x
+ci-run-acceptance-tests: ## Run a subset of the acceptance tests
+	@make -C db_admin/ run-acceptance-tests-ci
 
 install-api-doc: ## installs the api doc generator tool
 	npm i -g apidoc
@@ -171,3 +161,19 @@ install-api-doc: ## installs the api doc generator tool
 generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
+
+ci-config-import:
+	@make -C db_admin/  importconfig-ci
+	@echo "config successfully imported"
+
+ci-pretend:
+	@source /etc/profile
+	@source /opt/xvfb.sh
+	@pip install -r db_admin/requirements.txt
+	@source /etc/apache2/envvars
+	@python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
+	@ssh-keyscan -H wnameless__oracle-xe-11g > ~/.ssh/known_hosts
+	@make _ci-init
+	@make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+	@make ci-config-import
+	@make ci-run-acceptance-tests
