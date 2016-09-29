@@ -7,7 +7,7 @@
     <resource_id type="int">251</resource_id>
     <name type="str">Dossier erstellen</name>
     <description type="str">Erstellung durch Portal Nutzer</description>
-    <template type="str"></template>
+    <template type="str">/portal/new.phtml</template>
     <class type="str"></class>
     <hidden type="bool">True</hidden>
     <sort type="int">0</sort>
