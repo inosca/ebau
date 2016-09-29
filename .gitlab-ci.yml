@@ -3,9 +3,6 @@ before_script:
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
 
-after_script:
-    - rm ~/.ssh/known_hosts
-
 services:
     - memcached
     - wnameless/oracle-xe-11g
@@ -18,7 +15,7 @@ run-test:
     script:
         - source /etc/apache2/envvars
         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-        - ssh-keyscan -H wnameless__oracle-xe-11g > ~/.ssh/known_hosts
+        - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
         - make _ci-init
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
