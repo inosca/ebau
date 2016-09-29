@@ -13,7 +13,7 @@ stages:
 run-test:
     stage: test
     script:
-        - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_PATH) /builds/kantonur"
+        - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
         - make _ci-init
         - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
