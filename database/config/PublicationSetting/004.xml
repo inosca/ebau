@@ -1,0 +1,10 @@
+<row>
+  <table_name>publication_setting</table_name>
+  <model_name>configuration.PublicationSetting</model_name>
+  <data>
+    <publication_setting_id type="int">4</publication_setting_id>
+    <key type="str">text</key>
+    <value type="str">Gemeindebaubehörde [@authority] Standeskanzlei Uri Redaktion Amtsblatt Rathaus 6460 Altdorf [@zip] [@location], [@date] Meldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik "Bau und Planungsrecht" Sehr geehrte Damen und Herren Wir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate] zu publizieren: [@community] Bauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1] Bauvorhaben: [@intent] Bauplatz: [@c21q93i1] Parzelle: [@c21q91i1] Bemerkungen: [@note] Wir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung Freundliche Grüsse Gemeindebaubehörde [@authority] [@zip] [@location], [@date] </value>
+  </data>
+</row>
+

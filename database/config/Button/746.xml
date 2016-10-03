@@ -4,9 +4,9 @@
   <data>
     <button_id type="int">746</button_id>
     <instance_resource_id type="int">672</instance_resource_id>
-    <name type="str">Akzeptieren</name>
+    <name type="str">Dossier annehmen</name>
     <description type="str">Akzeptieren vom Dossier, d.h., in den echten Workflow übernehmen</description>
-    <class type="str"></class>
+    <class type="str">button_accept</class>
     <hidden type="bool">False</hidden>
     <sort type="int">1</sort>
   </data>

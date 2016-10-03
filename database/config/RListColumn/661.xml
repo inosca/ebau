@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">INTENT</column_name>
     <alias type="str">Vorhaben</alias>
-    <sort type="int">6</sort>
+    <sort type="int">5</sort>
   </data>
 </row>
 
