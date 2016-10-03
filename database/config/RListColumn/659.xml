@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">USER</column_name>
     <alias type="str">Ersteller</alias>
-    <sort type="int">4</sort>
+    <sort type="int">3</sort>
   </data>
 </row>
 

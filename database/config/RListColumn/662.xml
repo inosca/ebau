@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">STREET</column_name>
     <alias type="str">Strasse</alias>
-    <sort type="int">7</sort>
+    <sort type="int">6</sort>
   </data>
 </row>
 
