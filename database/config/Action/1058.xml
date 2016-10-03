@@ -2,15 +2,15 @@
   <table_name>action</table_name>
   <model_name>configuration.Action</model_name>
   <data>
-    <action_id type="int">1031</action_id>
+    <action_id type="int">1058</action_id>
     <available_action_id type="str">php</available_action_id>
-    <button_id type="int">743</button_id>
-    <name type="str">Dossier nummer setzen</name>
-    <description type="str"></description>
+    <button_id type="int">746</button_id>
+    <name type="str">Dossier-NR generieren</name>
+    <description type="str">Dossier nummer beim übernehmen in Camac generieren</description>
     <success_message type="str"></success_message>
     <error_message type="str"></error_message>
     <execute_always type="bool">False</execute_always>
-    <sort type="int">3</sort>
+    <sort type="int">2</sort>
   </data>
 </row>
 

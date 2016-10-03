@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">APPLICANT</column_name>
     <alias type="str">Gesuchsteller</alias>
-    <sort type="int">5</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 

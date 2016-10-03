@@ -6,7 +6,7 @@
     <resource_id type="int">250</resource_id>
     <column_name type="str">STATE_DESCRIPTION</column_name>
     <alias type="str">Statusbeschreibung</alias>
-    <sort type="int">9</sort>
+    <sort type="int">8</sort>
   </data>
 </row>
 
