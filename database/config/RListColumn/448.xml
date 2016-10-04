@@ -5,7 +5,7 @@
     <r_list_column_id type="int">448</r_list_column_id>
     <resource_id type="int">23</resource_id>
     <column_name type="str">USER</column_name>
-    <alias type="str">Benutzer</alias>
+    <alias type="str">Ersteller</alias>
     <sort type="int">4</sort>
   </data>
 </row>

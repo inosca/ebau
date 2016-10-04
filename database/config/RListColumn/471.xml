@@ -5,7 +5,7 @@
     <r_list_column_id type="int">471</r_list_column_id>
     <resource_id type="int">202</resource_id>
     <column_name type="str">STREET</column_name>
-    <alias type="str">Strasse / Flurname</alias>
+    <alias type="str">Strasse/Flurname</alias>
     <sort type="int">6</sort>
   </data>
 </row>
