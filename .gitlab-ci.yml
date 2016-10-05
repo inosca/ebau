@@ -13,16 +13,15 @@ stages:
 run-test:
     stage: test
     script:
-        - python -c "import os; print(os.environ)"
-          #         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
-          #         - source /etc/apache2/envvars
-          #         - make _ci-init
-          #         - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
-          #         - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-          #         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
-          #         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
-          #         - make ci-config-import
-          #         - make ci-run-acceptance-tests
+        - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
+        - source /etc/apache2/envvars
+        - make _ci-init
+        - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
+        - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
+        - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
+        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+        - make ci-config-import
+        - make ci-run-acceptance-tests
 
 variables:
     LANG: C.UTF-8
