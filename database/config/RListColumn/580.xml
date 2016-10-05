@@ -5,7 +5,7 @@
     <r_list_column_id type="int">580</r_list_column_id>
     <resource_id type="int">41</resource_id>
     <column_name type="str">CIRC_STATE</column_name>
-    <alias type="str">CIRC_STATE</alias>
+    <alias type="str">Status</alias>
     <sort type="int">9</sort>
   </data>
 </row>
