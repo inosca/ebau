@@ -21,7 +21,7 @@ run-test:
         - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
         - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
         - make ci-config-import
-        - FAST_TEST=True make ci-run-acceptance-tests
+        - make ci-run-acceptance-tests
 
 variables:
     LANG: C.UTF-8
