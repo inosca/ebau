@@ -4,18 +4,16 @@
 <p id="hash">Sie sind angemeldet als <strong>{{id}}</strong>.</p>
 {{#if overview}}
 <table id="overview">
-	<thead>
-		<tr>
-			<td>Dossiernr.</td>
-			<td>Name</td>
-			<td>Letzte Änderung</td>
-			<td>Status</td>
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Letzte Änderung</td>
+      <td>Status</td>
     </tr>
   </thead>
   <tbody>
     {{#each overview as |entry|}}
     <tr>
-      <td>{{entry.dossier_nr}}</td>
       <td>{{entry.name}}</td>
       <td>{{entry.last_modified}}</td>
       <td>{{entry.status}}</td>
@@ -31,18 +29,18 @@
 </table>
 {{/if}}
 <form action="{{camacUrl}}/portal/user/entry/resource-id/248" method="POST">
-	<input type="hidden" name="X-Camac-Session" value={{hash}}>
-	<input type="hidden" name="firstName" value="Hans">
-	<input type="hidden" name="lastName" value="Peter">
+  <input type="hidden" name="X-Camac-Session" value={{hash}}>
+  <input type="hidden" name="firstName" value="Hans">
+  <input type="hidden" name="lastName" value="Peter">
 
-	<input type="submit" id="toCamac" value="Dossier erstellen">
+  <input type="submit" id="toCamac" value="Dossier erstellen">
 </form>
-<form action="{{base}}logout" method="POST">
-	<input type="submit" id="logout" value="Logout">
+<form action="{{base}}/logout" method="POST">
+  <input type="submit" id="logout" value="Logout">
 </form>
 {{else}}
 <form action="{{base}}hash" method="POST">
-	<input type="text" name="id" required placeholder="Nutzername">
-	<input type="submit" value="Login">
+  <input type="text" name="id" required placeholder="Nutzername">
+  <input type="submit" value="Login">
 </form>
 {{/if}}
