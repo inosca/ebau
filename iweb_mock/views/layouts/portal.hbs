@@ -1,409 +1,409 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<head>
-	<meta charset="UTF-8">
-	<title>Kanton Uri: Baugesuche</title>
-	<script type="text/javascript">
-	function UpdateArrays(){}
-	</script>
+  <head>
+    <meta charset="UTF-8">
+    <title>Kanton Uri: Baugesuche</title>
+    <script type="text/javascript">
+function UpdateArrays(){}
+    </script>
 
-	<!-- camac scripts -->
-	<script type="text/javascript">
-		var language = "<?php echo $session->language ?>";
-		var baseurl = "<?php echo $this->baseUrl() ?>/";
-		var instanceId = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('instance-id'); ?>";
-		var instanceResourceId = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('instance-resource-id'); ?>";
-		var dateFormat = "<?php echo Zend_Registry::get('config')->date->application->jsFormat; ?>";
-		var controllerName = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('controller') ?>";
-	</script>
-	<script src="<?php echo $this->baseUrl('public/lib/jquery/jquery.min.js') ?>"></script>
-	<script src="<?php echo $this->baseUrl('public/lib/jquery/jquery-ui.custom.min.js') ?>"></script>
+    <!-- camac scripts -->
+    <script type="text/javascript">
+var language = "<?php echo $session->language ?>";
+var baseurl = "<?php echo $this->baseUrl() ?>/";
+var instanceId = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('instance-id'); ?>";
+var instanceResourceId = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('instance-resource-id'); ?>";
+var dateFormat = "<?php echo Zend_Registry::get('config')->date->application->jsFormat; ?>";
+var controllerName = "<?php echo Zend_Controller_Front::getInstance()->getRequest()->getParam('controller') ?>";
+    </script>
+    <script src="<?php echo $this->baseUrl('public/lib/jquery/jquery.min.js') ?>"></script>
+    <script src="<?php echo $this->baseUrl('public/lib/jquery/jquery-ui.custom.min.js') ?>"></script>
 
-	<script src="<?php echo $this->baseUrl('public/js/datepicker-de.js') ?>"></script>
-	<script src="<?php echo $this->baseUrl('public/js/layout.js') ?>"></script>
-	<script src="<?php echo $this->baseUrl('public/js/sidebar.js') ?>"></script>
-	<script src="<?php echo $this->baseUrl('public/lib/moment.js') ?>"></script>
-	<!-- camac scripts end -->
+    <script src="<?php echo $this->baseUrl('public/js/datepicker-de.js') ?>"></script>
+    <script src="<?php echo $this->baseUrl('public/js/layout.js') ?>"></script>
+    <script src="<?php echo $this->baseUrl('public/js/sidebar.js') ?>"></script>
+    <script src="<?php echo $this->baseUrl('public/lib/moment.js') ?>"></script>
+    <!-- camac scripts end -->
 
-	<meta name="Keywords" content="Uri, kanton uri, kt. uri, uri kanton, uri kt., kt uri, uri kt, kantons web, innovative, kanton, verwaltung, dienstleistungen, telefonnummern, politik">
-	<meta name="Description" content="Auf dieser Seite finden Sie alles Wissenswerte zum Kanton Uri.">
-	<script type="text/javascript" src="/public/js/cookieHandler.js"></script>
-	<script type="text/javascript" src="/public/js/jquery.autocomplete_compatible.js"></script>
-	<script type="text/javascript" src="/public/js/akkordeon.js"></script>
-	<link href="/public/css/gemeinde_global.css" rel="stylesheet" type="text/css">
-	<link href="/public/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
-	<link href="/public/css/akkordeon.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript">
+    <meta name="Keywords" content="Uri, kanton uri, kt. uri, uri kanton, uri kt., kt uri, uri kt, kantons web, innovative, kanton, verwaltung, dienstleistungen, telefonnummern, politik">
+    <meta name="Description" content="Auf dieser Seite finden Sie alles Wissenswerte zum Kanton Uri.">
+    <script type="text/javascript" src="/public/js/cookieHandler.js"></script>
+    <script type="text/javascript" src="/public/js/jquery.autocomplete_compatible.js"></script>
+    <script type="text/javascript" src="/public/js/akkordeon.js"></script>
+    <link href="/public/css/gemeinde_global.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/akkordeon.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript">
 /* [origin: useFeature(searchSugestion):design.inc:4570/, useFeature(searchSugestion):design.inc:4570/] */
 
-                    $(document).ready (function() {
-                        $("form.suchform").each(function() {
-                            var form_id = "#" + $(this).attr("id");
-                            $(this).find("input.suchbox").autocomplete2("../../includes/searchsuggestion.php", {
-                                minChars: 3,
-                                selectFirst: false,
-                                extraParams: {
-                                    project_name: "dweb",
-                                    search_table: "search_word_de_uri",
-                                    search_word_wrapper: "_WORD_%25",
-                                    search_restriction: function() { return $(form_id).find("input[name='page_restriction']:checked").val() + "," + $(form_id).find("input[name='doc_restriction']:checked").val() + "," + $(form_id).find("input[name='newsarchiv']:checked").val() + "," + $(form_id).find("input[name='page_restriction']:hidden").val() + "," + $(form_id).find("input[name='doc_restriction']:hidden").val() + "," + $(form_id).find("input[name='newsarchiv']:hidden").val(); },
-                                    newsarchiv_techname: "%27newsarchiv%27"
-                                }
-                            });
+$(document).ready (function() {
+  $("form.suchform").each(function() {
+    var form_id = "#" + $(this).attr("id");
+    $(this).find("input.suchbox").autocomplete2("../../includes/searchsuggestion.php", {
+      minChars: 3,
+      selectFirst: false,
+      extraParams: {
+        project_name: "dweb",
+        search_table: "search_word_de_uri",
+        search_word_wrapper: "_WORD_%25",
+        search_restriction: function() { return $(form_id).find("input[name='page_restriction']:checked").val() + "," + $(form_id).find("input[name='doc_restriction']:checked").val() + "," + $(form_id).find("input[name='newsarchiv']:checked").val() + "," + $(form_id).find("input[name='page_restriction']:hidden").val() + "," + $(form_id).find("input[name='doc_restriction']:hidden").val() + "," + $(form_id).find("input[name='newsarchiv']:hidden").val(); },
+        newsarchiv_techname: "%27newsarchiv%27"
+      }
+    });
 
-                        });
-                    });
+  });
+});
 /* [origin: useFeature(searchHighlight):design.inc:4588/, useFeature(searchHighlight):design.inc:4588/] */
 
-                    jQuery.fn.getUrlParameterByName = function(name)
-                        {
+jQuery.fn.getUrlParameterByName = function(name)
+{
 
-                            var match = RegExp('[?&]' + name + '=([^&]*)')
-                                            .exec(window.location.search);
+  var match = RegExp('[?&]' + name + '=([^&]*)')
+    .exec(window.location.search);
 
-                            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+  return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 
-                        };
-                    jQuery.fn.highlight = function()
-                        {
-                            var o = {
-                                        words: this.getUrlParameterByName('highlight'),
-                                        caseSensitive: false,
-                                        template: '$1<span class=\'highlight\' style=\'background-color: #a0aebd;\'>$2</span>$3'
-                                    },
-                                    pattern,
-                                    a = this;
-                            if (o.words == null || o.words.length == 0) { return a; };
+};
+jQuery.fn.highlight = function()
+{
+  var o = {
+    words: this.getUrlParameterByName('highlight'),
+    caseSensitive: false,
+    template: '$1<span class=\'highlight\' style=\'background-color: #a0aebd;\'>$2</span>$3'
+  },
+  pattern,
+  a = this;
+  if (o.words == null || o.words.length == 0) { return a; };
 
-                            var words = o.words.split(' ');
-                            if( a.length > 1 )
-                            {
-                                a= $(a[a.length-1]);
-                            }
-                            $.each(words,function( index, value )
-                            {
-                                pattern = new RegExp('(>[^<]*)(' + value + ')([^<]*)', o.caseSensitive ? "" : "ig");
-                                var textContent = a.html();
-                                a.html(textContent.replace(pattern, o.template));
-                            });
+  var words = o.words.split(' ');
+  if( a.length > 1 )
+  {
+    a= $(a[a.length-1]);
+  }
+  $.each(words,function( index, value )
+      {
+        pattern = new RegExp('(>[^<]*)(' + value + ')([^<]*)', o.caseSensitive ? "" : "ig");
+        var textContent = a.html();
+        a.html(textContent.replace(pattern, o.template));
+      });
 
-                            return this;
-                        };
+  return this;
+};
 
-                   $(document).ready(function() {
-                        $('#page,.page,#centercol,#content').highlight();
-                   });
+$(document).ready(function() {
+  $('#page,.page,#centercol,#content').highlight();
+});
 /* [origin: ():gemeinde_design.inc:301/makeSlider():gemeinde_design.inc:334/useFeaturesTop():design.inc:2571/GetTemplate():gemeinde_design.inc:352/] */
- $(document).ready(function() {
-				
-                var selectorToShow = "#mydiv4, #mydiv3";
-                var selectorToHide = "#mydiv5";
-                var selectorToSlide = "#mydiv2";
-	
-				
-				 $( selectorToHide ).click(function(){
-					 
-					$(".slidescontainer").children("div").hide();
-					$(selectorToSlide).slideUp(800);						 					
-					$(selectorToHide).hide();
-					$(selectorToShow).fadeIn(1000);	
-					
-					" . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuHide'] . ',0);' : '') . "
-					__createCookie("sliderState",true,1);			
-   
-                });
-			
-                $( selectorToShow ).click(function(){
-									
-					$(".slidescontainer").children("div").show();
-					$(selectorToSlide).slideDown(800);
-					
-					" . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuShow'] . ',0);' : '') . "
-					__createCookie("sliderState",false,1);						
-					$(selectorToHide).show();
-					$(selectorToShow).hide();
+$(document).ready(function() {
 
-           		});
-				var slideCloseState = __readCookie("sliderState");
-				var currentSliderState = slideCloseState ? slideCloseState : "false";
-				if( currentSliderState != "false" )
-				{
-					$( selectorToShow ).show();
-					$( selectorToSlide ).hide();
-					$( selectorToHide ).hide();
-					" . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuHide'] . ',0);' : '') . "
-					__createCookie("sliderState",true,1);
-					}else{			
-					$( selectorToShow ).hide();
-					$( selectorToHide ).show();
-					" . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuShow'] . ',0);' : '') . "
-					__createCookie("sliderState",false,1);
-					}
-				});
+  var selectorToShow = "#mydiv4, #mydiv3";
+  var selectorToHide = "#mydiv5";
+  var selectorToSlide = "#mydiv2";
+
+
+  $( selectorToHide ).click(function(){
+
+    $(".slidescontainer").children("div").hide();
+    $(selectorToSlide).slideUp(800);
+    $(selectorToHide).hide();
+    $(selectorToShow).fadeIn(1000);
+
+    " . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuHide'] . ',0);' : '') . "
+      __createCookie("sliderState",true,1);
+
+  });
+
+  $( selectorToShow ).click(function(){
+
+    $(".slidescontainer").children("div").show();
+    $(selectorToSlide).slideDown(800);
+
+    " . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuShow'] . ',0);' : '') . "
+      __createCookie("sliderState",false,1);
+    $(selectorToHide).show();
+    $(selectorToShow).hide();
+
+  });
+  var slideCloseState = __readCookie("sliderState");
+  var currentSliderState = slideCloseState ? slideCloseState : "false";
+  if( currentSliderState != "false" )
+  {
+    $( selectorToShow ).show();
+    $( selectorToSlide ).hide();
+    $( selectorToHide ).hide();
+    " . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuHide'] . ',0);' : '') . "
+      __createCookie("sliderState",true,1);
+  }else{
+    $( selectorToShow ).hide();
+    $( selectorToHide ).show();
+    " . ($flagHMMenu ? 'changeHMMenu(' . $parameter['topMenuShow'] . ',0);' : '') . "
+      __createCookie("sliderState",false,1);
+  }
+});
 /* [origin: useFeature(PopupNavigation):gemeinde_design.inc:336/useFeaturesTop():design.inc:2571/GetTemplate():gemeinde_design.inc:352/] */
 
-        function pnMouseOver(el)
-        {
-            if (el.parentNode.className.substring(0,20) == "popup-navigation-nav") {
-                level = parseInt(el.parentNode.className.substring(20));
-                if (level == 0) {
-                    while (level < 1) {
-                        $("#" + el.id).addClass("navigatorActive").find("ul.popup-navigation-nav"+(level + 1)).show();
-                        $("#" + el.id).children("a").addClass("navigatorActive");
-                        
-                        level++;
-                    }
-                } else if (level >= 1) {
-                    $("#" + el.id).addClass("navigatorActive").children("ul").show();
-                    $("#" + el.id).children("a").addClass("navigatorActive");
-                    
-                }
-            }
-        }
+function pnMouseOver(el)
+{
+  if (el.parentNode.className.substring(0,20) == "popup-navigation-nav") {
+    level = parseInt(el.parentNode.className.substring(20));
+    if (level == 0) {
+      while (level < 1) {
+        $("#" + el.id).addClass("navigatorActive").find("ul.popup-navigation-nav"+(level + 1)).show();
+        $("#" + el.id).children("a").addClass("navigatorActive");
 
-        function pnMouseOut(el)
-        {
-            if (el.parentNode.className.substring(0,20) == "popup-navigation-nav") {
-                level = parseInt(el.parentNode.className.substring(20));
-                if (level == 0) {
-                    while (level < 1) {
-                        $("#" + el.id).removeClass("navigatorActive").find("ul.popup-navigation-nav"+(level + 1)).hide();
-                        $("#" + el.id).children("a").removeClass("navigatorActive");
-                        
-                        level++;
-                    }
-                } else if (level >= 1) {
-                    $("#" + el.id).removeClass("navigatorActive").children("ul").hide();
-                    $("#" + el.id).children("a").removeClass("navigatorActive");
-                    
-                }
-            }
-        }
-</script>
+        level++;
+      }
+    } else if (level >= 1) {
+      $("#" + el.id).addClass("navigatorActive").children("ul").show();
+      $("#" + el.id).children("a").addClass("navigatorActive");
+
+    }
+  }
+}
+
+function pnMouseOut(el)
+{
+  if (el.parentNode.className.substring(0,20) == "popup-navigation-nav") {
+    level = parseInt(el.parentNode.className.substring(20));
+    if (level == 0) {
+      while (level < 1) {
+        $("#" + el.id).removeClass("navigatorActive").find("ul.popup-navigation-nav"+(level + 1)).hide();
+        $("#" + el.id).children("a").removeClass("navigatorActive");
+
+        level++;
+      }
+    } else if (level >= 1) {
+      $("#" + el.id).removeClass("navigatorActive").children("ul").hide();
+      $("#" + el.id).children("a").removeClass("navigatorActive");
+
+    }
+  }
+}
+    </script>
 
 
-	<script src="/public/js/HM_Loader.js" type="text/javascript"></script>
-	<script src="/public/js/gemeinde.js" type="text/javascript"></script>
-	<script src="/public/js/fontsizer.js" type="text/javascript"></script>
+    <script src="/public/js/HM_Loader.js" type="text/javascript"></script>
+    <script src="/public/js/gemeinde.js" type="text/javascript"></script>
+    <script src="/public/js/fontsizer.js" type="text/javascript"></script>
 
-	
-	
-	<link rel="icon" href="/public/favicon.ico" type="image/ico">
-	<link rel="SHORTCUT ICON" href="/public/favicon.ico">
-	<link href="/public/css/style_portal.css" rel="stylesheet" type="text/css">
-	<link href="/public/css/portal.css" rel="stylesheet" type="text/css">
 
-</head> 
-	
-<!-- Code last generated 2016/07/18 18:00:14 by KantoneWeb 1.0, (c) by Innovative Web AG (info@i-web.ch) -->
 
-<body>		
+    <link rel="icon" href="/public/favicon.ico" type="image/ico">
+    <link rel="SHORTCUT ICON" href="/public/favicon.ico">
+    <link href="/public/css/style_portal.css" rel="stylesheet" type="text/css">
+    <link href="/public/css/portal.css" rel="stylesheet" type="text/css">
 
-<div class="sr-only"><a id="top"></a><br><h1>Willkommen auf der Website der Gemeinde Kanton Uri</h1><br><br>
-<h2 class="sr-only"><a id="sprungnavi" class="sprungblind">Sprungnavigation</a><br></h2>
-<span class="sr-only">Von hier aus können Sie direkt zu folgenden Bereichen springen:<br></span></div>
+  </head>
 
-<span class="sr-only"><a title="Startseite" href="../">Startseite</a></span>
-<span class="sr-only"><a title="Navigation" href="#mainnavigation">Navigation</a></span>
-<span class="sr-only"><a title="Inhalt" href="#centercol">Inhalt</a></span>
-<span class="sr-only"><a title="Suche" href="#suchen">Suche</a></span>
-<span class="sr-only"><a title="Index" href="../toolbar/index/">Inhaltsverzeichnis</a></span>
+  <!-- Code last generated 2016/07/18 18:00:14 by KantoneWeb 1.0, (c) by Innovative Web AG (info@i-web.ch) -->
 
-<span class="sr-only"><a href="/de/toolbar/?print=print" target="_blank">Seite drucken</a></span>
-<span class="sr-only"><a href="/de/toolbar/welcome.php/printversion.pdf?print=pdf" target="_blank">PDF von aktueller Seite erzeugen</a></span>
-<div id="closebuttons">
-	<div id="mydiv5" class="btn-collapse" style="display:none;"><img src="/public/img/btn-collapse.png" alt="" width="24" height="23"></div>
-	<div id="mydiv4" class="btn-collapse" style="display:none;"><img src="/public/img/btn-collapse2.png" alt="" width="24" height="23"></div>
-</div>
-<div id="title">
-  <div id="page-top">
-    <div id="header">
-      <div id="logo"><a href="../" title="Kanton URI"><img src="/public/img/logo.png" alt="Kanton URI" width="150" height="73"></a></div>
-      <div id="header-content">
-        <div class="toolbar">
-          <div class="btn-home"><a href="../"><img src="/public/img/ico-home.png" alt="Home" width="19" height="18"></a></div>
-          <div class="font-size">
-            <ul>
-             <li><a href="#" onclick="changeFontSize(-2); return false;">A-</a></li>
-             <li><a href="#" onclick="revertStyles(); return false;"><strong>A</strong></a></li>
-             <li><a href="#" onclick="changeFontSize(2); return false;">A+</a></li>
-            </ul>
-          </div>
-          <div id="search">
-             <form action="https://secure.i-web.ch/dweb/uri/de/toolbar/suchen/" method="get" name="suchform">
-                <fieldset>
+  <body>
+
+    <div class="sr-only"><a id="top"></a><br><h1>Willkommen auf der Website der Gemeinde Kanton Uri</h1><br><br>
+      <h2 class="sr-only"><a id="sprungnavi" class="sprungblind">Sprungnavigation</a><br></h2>
+      <span class="sr-only">Von hier aus können Sie direkt zu folgenden Bereichen springen:<br></span></div>
+
+    <span class="sr-only"><a title="Startseite" href="../">Startseite</a></span>
+    <span class="sr-only"><a title="Navigation" href="#mainnavigation">Navigation</a></span>
+    <span class="sr-only"><a title="Inhalt" href="#centercol">Inhalt</a></span>
+    <span class="sr-only"><a title="Suche" href="#suchen">Suche</a></span>
+    <span class="sr-only"><a title="Index" href="../toolbar/index/">Inhaltsverzeichnis</a></span>
+
+    <span class="sr-only"><a href="/de/toolbar/?print=print" target="_blank">Seite drucken</a></span>
+    <span class="sr-only"><a href="/de/toolbar/welcome.php/printversion.pdf?print=pdf" target="_blank">PDF von aktueller Seite erzeugen</a></span>
+    <div id="closebuttons">
+      <div id="mydiv5" class="btn-collapse" style="display:none;"><img src="/public/img/btn-collapse.png" alt="" width="24" height="23"></div>
+      <div id="mydiv4" class="btn-collapse" style="display:none;"><img src="/public/img/btn-collapse2.png" alt="" width="24" height="23"></div>
+    </div>
+    <div id="title">
+      <div id="page-top">
+        <div id="header">
+          <div id="logo"><a href="../" title="Kanton URI"><img src="/public/img/logo.png" alt="Kanton URI" width="150" height="73"></a></div>
+          <div id="header-content">
+            <div class="toolbar">
+              <div class="btn-home"><a href="../"><img src="/public/img/ico-home.png" alt="Home" width="19" height="18"></a></div>
+              <div class="font-size">
+                <ul>
+                  <li><a href="#" onclick="changeFontSize(-2); return false;">A-</a></li>
+                  <li><a href="#" onclick="revertStyles(); return false;"><strong>A</strong></a></li>
+                  <li><a href="#" onclick="changeFontSize(2); return false;">A+</a></li>
+                </ul>
+              </div>
+              <div id="search">
+                <form action="https://secure.i-web.ch/dweb/uri/de/toolbar/suchen/" method="get" name="suchform">
+                  <fieldset>
                     <legend class="search-legend">Suchen</legend>
                     <label class="search-label" for="suchen">Suchbegriff</label>
                     <input type="text" name="sl_q" id="suchen" placeholder="Suchbegriff eingeben...">
                     <label class="sr-only" for="search-button">Suchen</label>
                     <input id="search-button" type="image" alt="Suche" src="/public/img/btn-search.png" class="btn-search">
-                </fieldset>
-			</form>
-          </div>
-          <!--/search --> 
-        </div>
-        <div class="nav-top">
-          <ul>
-            <li><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
-<li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/links/">Links</a></li>
-<li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/sitemap/">Sitemap</a></li>
-<li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/index/">Index</a></li>
-<li class="sep">&nbsp;</li>
-          </ul>
-        </div>
-        <!--/nav-top --> 
-      </div>
-      <!--/header-content--> 
-      
-    </div>
-    <!--/header --> 
-  </div>
-  <!--/page-top -->
-    <div id="mydiv2" class="title-pic" style="display: block; height: 218px; zoom: 1; width: auto;">
-			<div id="slider">
-              <div id="stimmungsbild">
-                  <div class="slidescontainer">
-                  	<img src="/public/img/02.jpg" alt="">
-                       
-                  </div>
+                  </fieldset>
+                </form>
               </div>
-    		</div>
-	</div>
-    <div id="mydiv3" class="title-pic" style="display:none; overflow:hidden; height:0px; width: auto; margin:-9px 0 0 0">
-    	<div id="slider2">
+              <!--/search -->
+            </div>
+            <div class="nav-top">
+              <ul>
+                <li><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
+                <li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/links/">Links</a></li>
+                <li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/sitemap/">Sitemap</a></li>
+                <li class="sep">&nbsp;</li><li><a href="http://www.ur.ch/de/toolbar/index/">Index</a></li>
+                <li class="sep">&nbsp;</li>
+              </ul>
+            </div>
+            <!--/nav-top -->
+          </div>
+          <!--/header-content-->
+
+        </div>
+        <!--/header -->
+      </div>
+      <!--/page-top -->
+      <div id="mydiv2" class="title-pic" style="display: block; height: 218px; zoom: 1; width: auto;">
+        <div id="slider">
+          <div id="stimmungsbild">
+            <div class="slidescontainer">
+              <img src="/public/img/02.jpg" alt="">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="mydiv3" class="title-pic" style="display:none; overflow:hidden; height:0px; width: auto; margin:-9px 0 0 0">
+        <div id="slider2">
           <div id="stimmungsbild2">
-          <div class="slidescontainer">
-              
-          </div>
+            <div class="slidescontainer">
+
+            </div>
           </div>
         </div>
-	</div> 
-</div>
-<!--/title -->
-<div class="nav1">
-  <div class="menu-nav1" id="mainnavigation">
-       <div id="popup-navigation"><ul class="popup-navigation-nav0"><li id="behoerdenmain" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/">Beh&ouml;rden</a><ul class="popup-navigation-nav1 behoerdenmain"><li id="landrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/">Landrat</a><ul class="popup-navigation-nav2 landrat"><li id="landratsmitglieder" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/landratsmitglieder/">Landratsmitglieder</a></li><li id="landratssekretariat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/landratssekretariat/">Landratssekretariat</a></li><li id="sitzung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/sitzung/">Sessionen</a></li><li id="sitzordnung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/sitzordnung/">Sitzordnung</a></li><li id="politbusiness" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/politbusiness/">Gesch&auml;fte</a></li><li id="kommissionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/kommissionen/">Kommissionen</a></li><li id="fraktionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/fraktionen/">Fraktionen</a></li><li id="stiftung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/stiftung/">Interkantonale Vertretungen</a></li><li id="behoerdenmitglieder" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/behoerdenmitglieder/">Beh&ouml;rdenmitglieder</a></li></ul></li><li id="regierungsrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/">Regierungsrat</a><ul class="popup-navigation-nav2 regierungsrat"><li id="exekutive" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/exekutive/">Regierungsratsmitglieder</a></li><li id="planungberichtereg" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/planungberichtereg/">Planungen und Berichte</a></li><li id="kommissionenrr" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/kommissionenrr/">Gremien und Kommissionen</a></li></ul></li><li id="gerichtetop" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/">Richterliche Beh&ouml;rden</a><ul class="popup-navigation-nav2 gerichtetop"><li id="gerichtefs" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/gerichtefs/">Instanzen</a></li><li id="rechtsgebiete" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/rechtsgebiete/">Dienste A-Z</a></li><li id="parteivertretung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/parteivertretung/">Parteivertretung</a></li><li id="personen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/personen-judikative/">Personen</a></li><li id="verhandlungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/verhandlungen/">Verhandlungen</a></li><li id="mitteilungen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/mitteilungen-judikative/">Mitteilungen</a></li><li id="rechtsprechung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/rechtsprechung/">Rechtsprechung</a></li><li id="formular-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/formular-judikative/">Formulare</a></li><li id="publikationen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/publikationen-judikative/">Publikationen</a></li></ul></li><li id="gemeinden" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gemeinden/">Gemeinden</a></li></ul></li><li id="verwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/">Verwaltung</a><ul class="popup-navigation-nav1 verwaltung"><li id="uebersichtverwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/uebersichtverwaltung/">Organigramm</a></li><li id="verwaltungorg" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/verwaltungorg/">Verwaltungseinheiten</a></li><li id="personenregister" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/personenregister/">Personenregister</a></li><li id="kommissionenverwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/kommissionenverwaltung/">Kommissionen</a></li><li id="publikationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/publikationen/">Publikationen</a></li><li id="dienstleistungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/dienstleistungen/">Dienste A-Z</a></li><li id="online-schalter" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/online-schalter/">Online-Schalter</a></li></ul></li><li id="themen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/">Themen</a><ul class="popup-navigation-nav1 themen"><li id="persoenliches" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/persoenliches/">Pers&ouml;nliches</a></li><li id="bildungforschung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/bildungforschung/">Bildung &amp; Forschung</a></li><li id="kulturmedien" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/kulturmedien/">Kultur &amp; Medien</a></li><li id="gesundheitsoziales" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/gesundheitsoziales/">Familie &amp; Soziales</a></li><li id="gesundheit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/gesundheit/">Gesundheit</a></li><li id="staatrecht" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/staatrecht/">Staat &amp; Recht</a></li><li id="arbeit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/arbeit/">Arbeit &amp; Migration</a></li><li id="mobilitaettourismus" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/mobilitaettourismus/">Tourismus &amp; Mobilit&auml;t</a></li><li id="wirtschaftsfoerderung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/wirtschaftsfoerderung/">Wirtschaft</a></li><li id="netzwerke" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/netzwerke/">Netzwerke</a></li><li id="sicherheit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/sicherheit/">Sicherheit</a></li><li id="themenstatistik" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/themenstatistik/">Statistik</a></li><li id="steuern" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/steuern/">Steuern</a></li><li id="umwelt" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/umwelt/">Umwelt</a></li><li id="landforst" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/landforst/">Land- und Forstwirtschaft</a></li><li id="strasseninfrastruktur" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/strasseninfrastruktur/">Strassen &amp; Infrastruktur</a></li><li id="energie" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/energie/">Energie</a></li></ul></li><li id="aktuelles" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/">Aktuelles</a><ul class="popup-navigation-nav1 aktuelles"><li id="aktuellesinformationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/">News</a><ul class="popup-navigation-nav2 aktuellesinformationen"><li id="mmregierungsrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmregierungsrat/">Medienmitteilungen Regierungsrat</a></li><li id="politikinformationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmlandrat/">Medienmitteilungen Landrat</a></li><li id="mmdirektionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmdirektionen/">Medienmitteilungen Direktionen</a></li><li id="polizeimeldungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/polizeimeldungen/">Polizeimeldungen</a></li><li id="newsarchiv" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/newsarchiv/">Newsarchiv</a></li></ul></li><li id="exekutivgeschaefte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/vernehmlassungen/">Vernehmlassungen</a></li><li id="staatskalender" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/staatskalender/">Staatskalender</a></li><li id="amtsblatt" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/amtsblatt/">Amtsblatt</a></li><li id="rechtsbuchonline" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://ur.lexspider.com/uri/page/search?execution=e1s1" target="_blank">Rechtsbuch online</a></li><li id="abstimmungsresultate" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/">Wahlen &amp; Abstimmungen</a><ul class="popup-navigation-nav2 abstimmungsresultate"><li id="polvorlagen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/polvorlagen/">Archiv / Suche</a></li><li id="newsurnengaenge" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/newsurnengaenge/">News zu Urneng&auml;nge</a></li></ul></li><li id="stellen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/stellen/">Offene Stellen</a></li><li id="anlaesseaktuelles" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/anlaesseaktuelles/">Veranstaltungskalender</a></li><li id="newsletterlink" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://mw.weaver.ch/f/s.aspx?164412EEF52653F3FDA646546315731FB3" target="_blank">Newsletter</a></li><li id="shop" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/shop/">Shop</a></li></ul></li><li id="portrait" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/">Portrait</a><ul class="popup-navigation-nav1 portrait"><li id="uebersichtportrait" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/uebersichtportrait/">Der Kanton Uri</a></li><li id="ortsplan" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/ortsplan/">Landkarte</a></li><li id="fotoalbum" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/fotoalbum/">Fotoalbum</a></li><li id="geschichte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/geschichte/">Geschichte</a></li><li id="tourismusfs" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/tourismusfs/">Tourismus</a></li><li id="steuernpor" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/steuernpor/">Steuern</a></li><li id="telldenkmal" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/">Telldenkmal</a><ul class="popup-navigation-nav2 telldenkmal"><li id="tellgeschichte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellgeschichte/">Geschichte</a></li><li id="wilhelmtell" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/wilhelmtell/">Wilhelm Tell</a></li><li id="tellpresse" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellinfos/">Informationen</a></li><li id="schulreisen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/schulreisen/">Schulreisen</a></li><li id="tellpublikationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellpublikationen/">Downloads</a></li><li id="tellpersonen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellpersonen/">Kontaktadressen</a></li><li id="tellfotos" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellfotos/">Fotogalerie</a></li><li id="telldienste" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/telldienste/">Tellorte / Telldenkm&auml;ler</a></li></ul></li></ul></li></ul><br style="clear:both;"></div>
-           <div class="direktnav" id="accordion2">
-        	<div class="direktnav-title"><a data-toggle="collapse" class="toggle collapsed" data-parent="#accordion2" href="#seccollapse1">Direktnavigation<img src="/public/img/ico-arrow.png" alt="Direktnavigation" width="20" height="18"></a></div>
-              	<div id="seccollapse1" class="panel-collapse collapse">
-					<ul>
-					<li><a href="http://www.ur.ch/de/portrait/uebersichtportrait/">Video: Uri - wo das Leben Freude macht!</a></li><li><a href="https://secure.i-web.ch/dweb/uri/de/verwaltung/online-schalter/">Online-Schalter</a></li><li><a href="http://www.ur.ch/de/aktuelles/stellen/">Offene Stellen</a></li><li><a href="http://www.ur.ch/de/verwaltung/uebersichtverwaltung/">&Uuml;bersicht Verwaltung</a></li><li><a href="http://www.ur.ch/de/verwaltung/personenregister/">Person suchen</a></li><li><a href="http://www.standort-uri.ch" target="_blank">Wirtschafts- und Wohnstandort Uri</a></li><li><a href="http://www.ur.ch/de/toolbar/suchen/welcome.php?searchstyle=advanced&amp;help=1&amp;all_words=Suchbegriff+eingeben&amp;get=1&amp;icms_doc=&amp;icms_page=icms_page&amp;newsarchiv=" target="_blank">Erweiterte Suche</a></li><li><a href="http://ur.lexspider.com/uri/page/search?execution=e1s1" target="_blank">Rechtsbuch des Kantons Uri</a></li>            		</ul> 
-              	</div>
+      </div>
+    </div>
+    <!--/title -->
+    <div class="nav1">
+      <div class="menu-nav1" id="mainnavigation">
+        <div id="popup-navigation"><ul class="popup-navigation-nav0"><li id="behoerdenmain" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/">Beh&ouml;rden</a><ul class="popup-navigation-nav1 behoerdenmain"><li id="landrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/">Landrat</a><ul class="popup-navigation-nav2 landrat"><li id="landratsmitglieder" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/landratsmitglieder/">Landratsmitglieder</a></li><li id="landratssekretariat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/landratssekretariat/">Landratssekretariat</a></li><li id="sitzung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/sitzung/">Sessionen</a></li><li id="sitzordnung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/sitzordnung/">Sitzordnung</a></li><li id="politbusiness" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/politbusiness/">Gesch&auml;fte</a></li><li id="kommissionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/kommissionen/">Kommissionen</a></li><li id="fraktionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/fraktionen/">Fraktionen</a></li><li id="stiftung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/stiftung/">Interkantonale Vertretungen</a></li><li id="behoerdenmitglieder" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/landrat/behoerdenmitglieder/">Beh&ouml;rdenmitglieder</a></li></ul></li><li id="regierungsrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/">Regierungsrat</a><ul class="popup-navigation-nav2 regierungsrat"><li id="exekutive" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/exekutive/">Regierungsratsmitglieder</a></li><li id="planungberichtereg" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/planungberichtereg/">Planungen und Berichte</a></li><li id="kommissionenrr" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/regierungsrat/kommissionenrr/">Gremien und Kommissionen</a></li></ul></li><li id="gerichtetop" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/">Richterliche Beh&ouml;rden</a><ul class="popup-navigation-nav2 gerichtetop"><li id="gerichtefs" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/gerichtefs/">Instanzen</a></li><li id="rechtsgebiete" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/rechtsgebiete/">Dienste A-Z</a></li><li id="parteivertretung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/parteivertretung/">Parteivertretung</a></li><li id="personen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/personen-judikative/">Personen</a></li><li id="verhandlungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/verhandlungen/">Verhandlungen</a></li><li id="mitteilungen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/mitteilungen-judikative/">Mitteilungen</a></li><li id="rechtsprechung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/rechtsprechung/">Rechtsprechung</a></li><li id="formular-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/formular-judikative/">Formulare</a></li><li id="publikationen-judikative" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gerichtetop/publikationen-judikative/">Publikationen</a></li></ul></li><li id="gemeinden" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/behoerdenmain/gemeinden/">Gemeinden</a></li></ul></li><li id="verwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/">Verwaltung</a><ul class="popup-navigation-nav1 verwaltung"><li id="uebersichtverwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/uebersichtverwaltung/">Organigramm</a></li><li id="verwaltungorg" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/verwaltungorg/">Verwaltungseinheiten</a></li><li id="personenregister" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/personenregister/">Personenregister</a></li><li id="kommissionenverwaltung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/kommissionenverwaltung/">Kommissionen</a></li><li id="publikationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/publikationen/">Publikationen</a></li><li id="dienstleistungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/dienstleistungen/">Dienste A-Z</a></li><li id="online-schalter" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/verwaltung/online-schalter/">Online-Schalter</a></li></ul></li><li id="themen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/">Themen</a><ul class="popup-navigation-nav1 themen"><li id="persoenliches" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/persoenliches/">Pers&ouml;nliches</a></li><li id="bildungforschung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/bildungforschung/">Bildung &amp; Forschung</a></li><li id="kulturmedien" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/kulturmedien/">Kultur &amp; Medien</a></li><li id="gesundheitsoziales" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/gesundheitsoziales/">Familie &amp; Soziales</a></li><li id="gesundheit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/gesundheit/">Gesundheit</a></li><li id="staatrecht" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/staatrecht/">Staat &amp; Recht</a></li><li id="arbeit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/arbeit/">Arbeit &amp; Migration</a></li><li id="mobilitaettourismus" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/mobilitaettourismus/">Tourismus &amp; Mobilit&auml;t</a></li><li id="wirtschaftsfoerderung" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/wirtschaftsfoerderung/">Wirtschaft</a></li><li id="netzwerke" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/netzwerke/">Netzwerke</a></li><li id="sicherheit" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/sicherheit/">Sicherheit</a></li><li id="themenstatistik" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/themenstatistik/">Statistik</a></li><li id="steuern" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/steuern/">Steuern</a></li><li id="umwelt" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/umwelt/">Umwelt</a></li><li id="landforst" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/landforst/">Land- und Forstwirtschaft</a></li><li id="strasseninfrastruktur" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/strasseninfrastruktur/">Strassen &amp; Infrastruktur</a></li><li id="energie" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/themen/energie/">Energie</a></li></ul></li><li id="aktuelles" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/">Aktuelles</a><ul class="popup-navigation-nav1 aktuelles"><li id="aktuellesinformationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/">News</a><ul class="popup-navigation-nav2 aktuellesinformationen"><li id="mmregierungsrat" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmregierungsrat/">Medienmitteilungen Regierungsrat</a></li><li id="politikinformationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmlandrat/">Medienmitteilungen Landrat</a></li><li id="mmdirektionen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/mmdirektionen/">Medienmitteilungen Direktionen</a></li><li id="polizeimeldungen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/polizeimeldungen/">Polizeimeldungen</a></li><li id="newsarchiv" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/aktuellesinformationen/newsarchiv/">Newsarchiv</a></li></ul></li><li id="exekutivgeschaefte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/vernehmlassungen/">Vernehmlassungen</a></li><li id="staatskalender" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/staatskalender/">Staatskalender</a></li><li id="amtsblatt" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/amtsblatt/">Amtsblatt</a></li><li id="rechtsbuchonline" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://ur.lexspider.com/uri/page/search?execution=e1s1" target="_blank">Rechtsbuch online</a></li><li id="abstimmungsresultate" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/">Wahlen &amp; Abstimmungen</a><ul class="popup-navigation-nav2 abstimmungsresultate"><li id="polvorlagen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/polvorlagen/">Archiv / Suche</a></li><li id="newsurnengaenge" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/abstimmungsresultate/newsurnengaenge/">News zu Urneng&auml;nge</a></li></ul></li><li id="stellen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/stellen/">Offene Stellen</a></li><li id="anlaesseaktuelles" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/anlaesseaktuelles/">Veranstaltungskalender</a></li><li id="newsletterlink" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://mw.weaver.ch/f/s.aspx?164412EEF52653F3FDA646546315731FB3" target="_blank">Newsletter</a></li><li id="shop" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/aktuelles/shop/">Shop</a></li></ul></li><li id="portrait" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/">Portrait</a><ul class="popup-navigation-nav1 portrait"><li id="uebersichtportrait" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/uebersichtportrait/">Der Kanton Uri</a></li><li id="ortsplan" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/ortsplan/">Landkarte</a></li><li id="fotoalbum" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/fotoalbum/">Fotoalbum</a></li><li id="geschichte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/geschichte/">Geschichte</a></li><li id="tourismusfs" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/tourismusfs/">Tourismus</a></li><li id="steuernpor" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/steuernpor/">Steuern</a></li><li id="telldenkmal" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/">Telldenkmal</a><ul class="popup-navigation-nav2 telldenkmal"><li id="tellgeschichte" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellgeschichte/">Geschichte</a></li><li id="wilhelmtell" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/wilhelmtell/">Wilhelm Tell</a></li><li id="tellpresse" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellinfos/">Informationen</a></li><li id="schulreisen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/schulreisen/">Schulreisen</a></li><li id="tellpublikationen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellpublikationen/">Downloads</a></li><li id="tellpersonen" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellpersonen/">Kontaktadressen</a></li><li id="tellfotos" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/tellfotos/">Fotogalerie</a></li><li id="telldienste" onmouseover="pnMouseOver(this);" onfocus="pnMouseOver(this);" onblur="pnMouseOut(this);" onmouseout="pnMouseOut(this);"><a href="http://www.ur.ch/de/portrait/telldenkmal/telldienste/">Tellorte / Telldenkm&auml;ler</a></li></ul></li></ul></li></ul><br style="clear:both;"></div>
+        <div class="direktnav" id="accordion2">
+          <div class="direktnav-title"><a data-toggle="collapse" class="toggle collapsed" data-parent="#accordion2" href="#seccollapse1">Direktnavigation<img src="/public/img/ico-arrow.png" alt="Direktnavigation" width="20" height="18"></a></div>
+          <div id="seccollapse1" class="panel-collapse collapse">
+            <ul>
+              <li><a href="http://www.ur.ch/de/portrait/uebersichtportrait/">Video: Uri - wo das Leben Freude macht!</a></li><li><a href="https://secure.i-web.ch/dweb/uri/de/verwaltung/online-schalter/">Online-Schalter</a></li><li><a href="http://www.ur.ch/de/aktuelles/stellen/">Offene Stellen</a></li><li><a href="http://www.ur.ch/de/verwaltung/uebersichtverwaltung/">&Uuml;bersicht Verwaltung</a></li><li><a href="http://www.ur.ch/de/verwaltung/personenregister/">Person suchen</a></li><li><a href="http://www.standort-uri.ch" target="_blank">Wirtschafts- und Wohnstandort Uri</a></li><li><a href="http://www.ur.ch/de/toolbar/suchen/welcome.php?searchstyle=advanced&amp;help=1&amp;all_words=Suchbegriff+eingeben&amp;get=1&amp;icms_doc=&amp;icms_page=icms_page&amp;newsarchiv=" target="_blank">Erweiterte Suche</a></li><li><a href="http://ur.lexspider.com/uri/page/search?execution=e1s1" target="_blank">Rechtsbuch des Kantons Uri</a></li>            		</ul>
+          </div>
         </div>
       </div>
-</div>
-<!--/nav1-->
-<div id="page">
-  <div id="columns" class="clearfix">
-    <div class="nav-bar">
-      <div class="headline">MyServices</div>
-      <div class="nav-path">
-        <ul>
-          <li><a href="http://www.ur.ch/de/">Home</a></li>  
-          <li> >> </li>
-          <li><a href="http://www.ur.ch/de/toolbar/">Toolbar</a></li>
-          <li> >> </li>
-          <li><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
-        </ul>
-      </div>
-      <!--/nav-path -->
-      <div id="icons">
-        <!-- ul>
-           <li></li><li> 
-             </li>
-        </ul -->
-      </div>
-      <!--/icons --> 
     </div>
-    <!--/nav-bar -->
-    <div id="leftcol">
-      <div class="nav2">
-        <ul>
-         
-      <li id="nav22137" class="active"><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
-      <li id="nav22066" class="normal"><a href="http://www.ur.ch/de/toolbar/links/">Links</a></li>
-      <li id="nav22136" class="normal"><a href="http://www.ur.ch/de/toolbar/sitemap/">Sitemap</a></li>
-      <li id="nav22070" class="normal"><a href="http://www.ur.ch/de/toolbar/index/">Index</a></li>
-      <li id="nav22068" class="normal"><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/suchen/">Suchen</a></li>
-        </ul>
+    <!--/nav1-->
+    <div id="page">
+      <div id="columns" class="clearfix">
+        <div class="nav-bar">
+          <div class="headline">MyServices</div>
+          <div class="nav-path">
+            <ul>
+              <li><a href="http://www.ur.ch/de/">Home</a></li>
+              <li> >> </li>
+              <li><a href="http://www.ur.ch/de/toolbar/">Toolbar</a></li>
+              <li> >> </li>
+              <li><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
+            </ul>
+          </div>
+          <!--/nav-path -->
+          <div id="icons">
+            <!-- ul>
+              <li></li><li>
+              </li>
+              </ul -->
+          </div>
+          <!--/icons -->
+        </div>
+        <!--/nav-bar -->
+        <div id="leftcol">
+          <div class="nav2">
+            <ul>
+
+              <li id="nav22137" class="active"><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/myservice/">MyServices</a></li>
+              <li id="nav22066" class="normal"><a href="http://www.ur.ch/de/toolbar/links/">Links</a></li>
+              <li id="nav22136" class="normal"><a href="http://www.ur.ch/de/toolbar/sitemap/">Sitemap</a></li>
+              <li id="nav22070" class="normal"><a href="http://www.ur.ch/de/toolbar/index/">Index</a></li>
+              <li id="nav22068" class="normal"><a href="https://secure.i-web.ch/dweb/uri/de/toolbar/suchen/">Suchen</a></li>
+            </ul>
+          </div>
+          <!--/nav2 -->
+        </div>
+        <!--/leftcol -->
+        <div id="centercol">
+          <table id="contenttab"><tbody><tr><td><div id="contentboxsub">
+                    <!-- start contents -->
+                    {{{body}}}
+                    <!-- end of contents -->
+                  </div></td></tr></tbody></table>
+        </div>
+        <!--/centercol -->
       </div>
-      <!--/nav2 --> 
+      <!--/columns -->
     </div>
-    <!--/leftcol -->
-    <div id="centercol">
-      <table id="contenttab"><tbody><tr><td><div id="contentboxsub">
-      <!-- start contents -->
-        {{{body}}}
-      <!-- end of contents -->
-      </div></td></tr></tbody></table>
-		 </div>
-    <!--/centercol --> 
-  </div>
-  <!--/columns --> 
-</div>
-<!--/page -->
-<div id="page-bot">
-  <div id="footer" class="clearfix">
-    <div class="col3">
-      <h4>Kontakt</h4>
-      <div class="contact-info">
-        <dl>
-          <dt>Adresse:</dt>
-          <dd>Kantonale Verwaltung Uri, 6460 Altdorf</dd>
-          <dt>Telefonzentrale:</dt>
-          <dd>041 875 22 44</dd>
-          <dt>Email:</dt>
-          <dd>
-            <div class="mailto:info@ur.ch">info@ur.ch</div>
-          </dd>
-        </dl>
+    <!--/page -->
+    <div id="page-bot">
+      <div id="footer" class="clearfix">
+        <div class="col3">
+          <h4>Kontakt</h4>
+          <div class="contact-info">
+            <dl>
+              <dt>Adresse:</dt>
+              <dd>Kantonale Verwaltung Uri, 6460 Altdorf</dd>
+              <dt>Telefonzentrale:</dt>
+              <dd>041 875 22 44</dd>
+              <dt>Email:</dt>
+              <dd>
+              <div class="mailto:info@ur.ch">info@ur.ch</div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="col4">
+          <h4>Video: Uri - wo das Leben Freude macht!</h4>
+          <div class="pic-video"><a href="_URLVIDEO_" title="Uri - wo das Leben Freude macht! Video"><img src="/public/img/video-pic.png" alt="Uri - wo das Leben Freude macht! Video" width="166" height="121"></a></div>
+        </div>
+        <br class="clear">
+        <div class="col3">
+          <h4>Mobile App</h4>
+          <div class="ads-mobiles"><a href="https://itunes.apple.com/de/app/uri/id582319843" target="_blank"><img src="/public/img/add-ios.png" alt="iOS App Download" width="70" height="24"></a><a href="https://play.google.com/store/apps/details?id=ch.innovativeweb.icmsapp.uri" target="_blank"><img src="/public/img/add-android.png" alt="Android App Download" width="69" height="24"></a></div>
+        </div>
+        <div class="col4">
+          <h4>Social Media</h4>
+          <div class="soclinks">
+            <ul>
+              <li><a href="http://www.twitter.com/infokantonuri" title="Uri auf Twitter"><img src="/public/img/soclinks1.png" alt="Uri auf Twitter" width="24" height="24"></a></li>
+              <li><a href="http://www.facebook.com/kanton.uri" title="Uri auf Facebook"><img src="/public/img/soclinks2.png" alt="Uri auf Facebook" width="24" height="24"></a></li>
+              <li><a href="http://www.ur.ch/de/news.rss" title="Uri RSS Feed"><img src="/public/img/soclinks3.png" alt="Uri RSS Feed" width="24" height="24"></a></li>
+              <li><a href="http://www.youtube.com/channel/UCwRJDL3BENh2iRo_CiFXD0Q" title="Uri auf Youtube"><img src="/public/img/soclinks4.png" alt="Uri auf Youtube" width="24" height="24"></a></li>
+              <li><a href="https://plus.google.com/111521258318687931901/posts" title="Uri auf Google+"><img src="/public/img/soclinks5.png" alt="Uri auf Google+" width="24" height="24"></a></li>
+            </ul>
+          </div>
+          <div class="nav3">
+            <ul>
+              <li><a href="http://www.ur.ch/de/toolbar2/datenschutz/">Datenschutz</a></li><li><a href="http://www.ur.ch/de/toolbar2/impressum/">Impressum</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
+      <!--/footer -->
     </div>
-    <div class="col4">
-      <h4>Video: Uri - wo das Leben Freude macht!</h4>
-      <div class="pic-video"><a href="_URLVIDEO_" title="Uri - wo das Leben Freude macht! Video"><img src="/public/img/video-pic.png" alt="Uri - wo das Leben Freude macht! Video" width="166" height="121"></a></div>
-    </div>
-    <br class="clear">
-    <div class="col3">
-      <h4>Mobile App</h4>
-       <div class="ads-mobiles"><a href="https://itunes.apple.com/de/app/uri/id582319843" target="_blank"><img src="/public/img/add-ios.png" alt="iOS App Download" width="70" height="24"></a><a href="https://play.google.com/store/apps/details?id=ch.innovativeweb.icmsapp.uri" target="_blank"><img src="/public/img/add-android.png" alt="Android App Download" width="69" height="24"></a></div>
-    </div>
-    <div class="col4">
-      <h4>Social Media</h4>
-      <div class="soclinks">
-        <ul>
-            <li><a href="http://www.twitter.com/infokantonuri" title="Uri auf Twitter"><img src="/public/img/soclinks1.png" alt="Uri auf Twitter" width="24" height="24"></a></li>
-            <li><a href="http://www.facebook.com/kanton.uri" title="Uri auf Facebook"><img src="/public/img/soclinks2.png" alt="Uri auf Facebook" width="24" height="24"></a></li>
-            <li><a href="http://www.ur.ch/de/news.rss" title="Uri RSS Feed"><img src="/public/img/soclinks3.png" alt="Uri RSS Feed" width="24" height="24"></a></li>
-            <li><a href="http://www.youtube.com/channel/UCwRJDL3BENh2iRo_CiFXD0Q" title="Uri auf Youtube"><img src="/public/img/soclinks4.png" alt="Uri auf Youtube" width="24" height="24"></a></li>
-            <li><a href="https://plus.google.com/111521258318687931901/posts" title="Uri auf Google+"><img src="/public/img/soclinks5.png" alt="Uri auf Google+" width="24" height="24"></a></li>
-        </ul>
-      </div>
-      <div class="nav3">
-        <ul>
-           <li><a href="http://www.ur.ch/de/toolbar2/datenschutz/">Datenschutz</a></li><li><a href="http://www.ur.ch/de/toolbar2/impressum/">Impressum</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!--/footer --> 
-</div>
-<!--/page-bot -->
-<!-- statistics start -->
-                
-<!-- TODO
-<script type="text/javascript">
+    <!--/page-bot -->
+    <!-- statistics start -->
+
+    <!-- TODO
+      <script type="text/javascript">
 var pkBaseURL = "http://www.ur.ch/";
 document.write(unescape("%3Cscript src='" + pkBaseURL + "includes/statistic.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
+      </script><script type="text/javascript">
 try {
-	  var statsTracker = Piwik.getTracker(pkBaseURL + "includes/statistic.php", 598);
-	  statsTracker.setDocumentTitle('toolbar');
-	  statsTracker.trackPageView();
-	  statsTracker.enableLinkTracking();
+  var statsTracker = Piwik.getTracker(pkBaseURL + "includes/statistic.php", 598);
+  statsTracker.setDocumentTitle('toolbar');
+  statsTracker.trackPageView();
+  statsTracker.enableLinkTracking();
 } catch( err ) {}
-</script><noscript><p><img src="statistic.php" style="border:0" alt=""></p></noscript>
--->
-</body>
+      </script><noscript><p><img src="statistic.php" style="border:0" alt=""></p></noscript>
+      -->
+  </body>
 </html>
