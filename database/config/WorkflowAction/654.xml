@@ -4,6 +4,7 @@
   <data>
     <action_id type="int">654</action_id>
     <workflow_item_id type="int">62</workflow_item_id>
+    <multi_value type="int">0</multi_value>
   </data>
 </row>
 
