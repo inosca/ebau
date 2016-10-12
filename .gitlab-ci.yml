@@ -1,6 +1,7 @@
 before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
+    - pip install --upgrade pip
     - pip install -r db_admin/requirements.txt
 
 services:
