@@ -18,12 +18,12 @@ run-test:
         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
         - make _ci-init
-        - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
-        - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-        - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
+        - bash .wait-for-ssh.sh oracle-eatmydata 22
+        - python .wait-for-oracle-db.py oracle-eatmydata 1521
+        - ssh-keyscan -H oracle-eatmydata -11g >> ~/.ssh/known_hosts
         - echo "Initialising DB"
         - date
-        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+        - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
         - echo "Importing config"
         - date
         - make ci-config-import
