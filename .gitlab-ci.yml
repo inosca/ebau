@@ -5,7 +5,7 @@ before_script:
 
 services:
     - memcached
-    - wnameless/oracle-xe-11g
+    - oracle-eatmydata
 
 stages:
     - test
