@@ -20,7 +20,7 @@ run-test:
         - make _ci-init
         - bash .wait-for-ssh.sh oracle-eatmydata 22
         - python .wait-for-oracle-db.py oracle-eatmydata 1521
-        - ssh-keyscan -H oracle-eatmydata -11g >> ~/.ssh/known_hosts
+        - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
         - echo "Initialising DB"
         - date
         - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
