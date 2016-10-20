@@ -28,8 +28,8 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 _ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@rm -f camac/configuration/configs/application.ini
-	@ln -s application-ci.ini camac/configuration/configs/application.ini
+	@ENV='ci' make -C camac/configuration/configs/
+	@ENV='test' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
@@ -38,8 +38,8 @@ _ci-init: _submodule-update
 _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@rm -f camac/configuration/configs/application.ini
-	@ln -s application-dev.ini camac/configuration/configs/application.ini
+	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='ci' make -C camac/public
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
@@ -106,13 +106,14 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@git checkout test
 	@git commit --allow-empty -m "Test-Server deployment"
-	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log
-	@ssh sy-jump "rm /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/application.ini"
-	@ssh sy-jump "cd /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/; ln -s application-testserver.ini application.ini"
+	@ENV='test' make -C camac/configuration/configs/
+	@ENV='test' make htaccess
+	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-htaccess sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/public/.htaccess
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
+	@ENV='dev' make -C camac/configuration/configs/
 
 deploy-portal-test-server:
 	@rsync -avz iweb_mock/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/iweb/ --exclude=node_modules/*
@@ -177,3 +178,6 @@ ci-pretend:
 	@make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
 	@make ci-config-import
 	@make ci-run-acceptance-tests
+
+htaccess:
+	python .make_htaccess.py ${ENV}
