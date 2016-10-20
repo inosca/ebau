@@ -10,6 +10,9 @@ if len(sys.argv) > 1:
     if ENV == 'dev':
         env = 'development'
 
+    if ENV == 'ci':
+        env = 'ci'
+
     elif ENV == 'prod':
         env = 'production'
 

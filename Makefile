@@ -29,7 +29,7 @@ _ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@ENV='ci' make -C camac/configuration/configs/
-	@ENV='test' make htaccess
+	@ENV='ci' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
