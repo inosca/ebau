@@ -2,7 +2,6 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
-    - apt-get install -y eatmydata
 
 services:
     - memcached
