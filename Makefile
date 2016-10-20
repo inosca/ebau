@@ -28,8 +28,8 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 _ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@rm -f camac/configuration/configs/application.ini
-	@ln -s application-ci.ini camac/configuration/configs/application.ini
+	@ENV='ci' make -C camac/configuration/configs/
+	@ENV='ci' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
@@ -38,8 +38,8 @@ _ci-init: _submodule-update
 _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@rm -f camac/configuration/configs/application.ini
-	@ln -s application-dev.ini camac/configuration/configs/application.ini
+	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='dev' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
@@ -53,10 +53,10 @@ _submodule-update:
 run: _init ## Runs the docker containers
 	@docker-compose -f docker/docker-compose.yml up
 
-db-reset: ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
+db-reset: _sync_db_tools ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
 	@echo "Resetting the database"
-	@docker exec -it $(DB_CONTAINER) chmod +x /var/local/tools/database/drop_user.sh
-	@docker exec -it $(DB_CONTAINER) /var/local/tools/database/drop_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no  chmod +x /var/local/tools/database/drop_user.sh
+	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/drop_user.sh
 	@make db-init
 
 _sync_db_tools:
@@ -106,13 +106,14 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@git checkout test
 	@git commit --allow-empty -m "Test-Server deployment"
-	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log
-	@ssh sy-jump "rm /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/application.ini"
-	@ssh sy-jump "cd /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/configuration/configs/; ln -s application-testserver.ini application.ini"
+	@ENV='test' make -C camac/configuration/configs/
+	@ENV='test' make htaccess
+	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-htaccess sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/public/.htaccess
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
+	@ENV='dev' make -C camac/configuration/configs/
 
 deploy-portal-test-server:
 	@rsync -avz iweb_mock/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/iweb/ --exclude=node_modules/*
@@ -171,9 +172,12 @@ ci-pretend:
 	@source /opt/xvfb.sh
 	@pip install -r db_admin/requirements.txt
 	@source /etc/apache2/envvars
-	@python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-	@ssh-keyscan -H wnameless__oracle-xe-11g > ~/.ssh/known_hosts
+	@python .wait-for-oracle-db.py oracle-eatmydata 1521
+	@ssh-keyscan -H oracle-eatmydata > ~/.ssh/known_hosts
 	@make _ci-init
-	@make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+	@make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
 	@make ci-config-import
 	@make ci-run-acceptance-tests
+
+htaccess:
+	python .make_htaccess.py ${ENV}
