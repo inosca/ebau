@@ -170,6 +170,7 @@ ci-config-import:
 ci-pretend:
 	@source /etc/profile
 	@source /opt/xvfb.sh
+	@apt-get install -y eatmydata
 	@pip install -r db_admin/requirements.txt
 	@source /etc/apache2/envvars
 	@python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
