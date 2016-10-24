@@ -2,6 +2,11 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
+    - echo "" > logs/application.log
+
+after_script:
+    - cat logs/application.log
+    - cat /var/log/apache/error.log
 
 services:
     - memcached
