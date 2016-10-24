@@ -2,7 +2,6 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
-    - echo "" > camac/logs/application.log
 
 after_script:
     - cat camac/logs/application.log
@@ -32,6 +31,7 @@ run-test:
         - echo "Importing config"
         - date
         - make ci-config-import
+        - echo "" > camac/logs/application.log
         - echo "Running Tests"
         - date
         - make ci-run-acceptance-tests
