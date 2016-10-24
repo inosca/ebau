@@ -5,7 +5,7 @@ before_script:
 
 after_script:
     - cat camac/logs/application.log
-    - cat /var/log/apache/error.log
+    - cat /var/log/apache2/error.log
 
 services:
     - memcached
