@@ -2,11 +2,10 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
-    - ls -lh
-    - echo "" > logs/application.log
+    - echo "" > camac/logs/application.log
 
 after_script:
-    - cat logs/application.log
+    - cat camac/logs/application.log
     - cat /var/log/apache/error.log
 
 services:
