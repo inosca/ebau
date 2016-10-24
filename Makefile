@@ -34,6 +34,7 @@ _ci-init: _submodule-update
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
+	@make _classloader
 
 _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
@@ -44,7 +45,7 @@ _init: _submodule-update # Initialise the code, create the necessary symlinks
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
-
+	@make _classloader
 
 _submodule-update:
 	@git submodule update --init --recursive || true
@@ -80,7 +81,7 @@ structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable
 
 
 _classloader: # Build the classmaps. These are important for performance
-	@docker exec -it docker_camac_web_1 bash /var/local/tools/camac/classmap_generator.sh
+	@bash tools/camac/classmap_generator.sh
 
 css: ## Create the css files from the sass files
 	@cd camac/configuration/public/css/; make css
