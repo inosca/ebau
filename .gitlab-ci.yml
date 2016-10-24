@@ -2,6 +2,7 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
+    - ls -lh
     - echo "" > logs/application.log
 
 after_script:
