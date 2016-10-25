@@ -3,9 +3,13 @@ before_script:
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
 
+after_script:
+    - cat camac/logs/application.log
+    - cat /var/log/apache2/error.log
+
 services:
     - memcached
-    - wnameless/oracle-xe-11g
+    - oracle-eatmydata
 
 stages:
     - test
@@ -13,14 +17,23 @@ stages:
 run-test:
     stage: test
     script:
+        - echo "Starting the build"
+        - date
         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
         - make _ci-init
-        - bash .wait-for-ssh.sh wnameless__oracle-xe-11g 22
-        - python .wait-for-oracle-db.py wnameless__oracle-xe-11g 1521
-        - ssh-keyscan -H wnameless__oracle-xe-11g >> ~/.ssh/known_hosts
-        - make db-init DB_CONTAINER_HOSTNAME=wnameless__oracle-xe-11g DB_CONTAINER_PORT=22
+        - bash .wait-for-ssh.sh oracle-eatmydata 22
+        - python .wait-for-oracle-db.py oracle-eatmydata 1521
+        - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
+        - echo "Initialising DB"
+        - date
+        - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
+        - echo "Importing config"
+        - date
         - make ci-config-import
+        - echo "" > camac/logs/application.log
+        - echo "Running Tests"
+        - date
         - make ci-run-acceptance-tests
 
 variables:
