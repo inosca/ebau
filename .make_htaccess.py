@@ -19,11 +19,12 @@ if len(sys.argv) > 1:
     elif ENV == 'stage':
         env = 'staging'
 
+    elif ENV == 'test':
+        env = 'testing'
+
         with open("tools/deploy/test-server-htaccess") as test_htaccess:
             tmpl += "\n\n"
             tmpl += test_htaccess.read()
-    elif ENV == 'test':
-        env = 'testing'
 
 else:
     env = 'development'
