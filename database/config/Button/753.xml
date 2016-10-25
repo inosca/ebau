@@ -2,13 +2,13 @@
   <table_name>button</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">744</button_id>
+    <button_id type="int">753</button_id>
     <instance_resource_id type="int">674</instance_resource_id>
-    <name type="str">Einschicken</name>
-    <description type="str">Gibt das Dossier für die Gemeinde Frei</description>
+    <name type="str">Dossier komplett</name>
+    <description type="str">Dossier in NFD ist nun komplett und wird wieder für die Gemeinde freigegeben.</description>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">1</sort>
+    <sort type="int">2</sort>
   </data>
 </row>
 
