@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">841</user_id>
     <username type="str">SWR1</username>
-    <password type="str">733e8bf069d02a9b72e5bb32ac04552c</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Furrer</name>
     <surname type="str">Stephan</surname>
-    <email type="str">stephan.furrer@swr.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

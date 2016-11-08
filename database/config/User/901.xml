@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">901</user_id>
     <username type="str">TRA2</username>
-    <password type="str">1c0eaba4a9edbe6982d35552bd0b2bfe</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Gemperli</name>
     <surname type="str">Hans Paul</surname>
-    <email type="str">HansPaul.Gemperli@ebp.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">en</language>

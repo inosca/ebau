@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">302</user_id>
     <username type="str">BAV1</username>
-    <password type="str">910303b1c5ea392a7772b24683f01ad8</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Mayer</name>
     <surname type="str">Peter</surname>
-    <email type="str">peter.mayer@bav.admin.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

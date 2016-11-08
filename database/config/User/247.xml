@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">247</user_id>
     <username type="str">LABT1</username>
-    <password type="str">55e7f0f448627f4c8436987118f963c4</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Vonwartburg</name>
     <surname type="str">Ursula</surname>
-    <email type="str">ursula.vonwartburg@laburk.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

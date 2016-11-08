@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">41</user_id>
     <username type="str">Altdorf3</username>
-    <password type="str">df7d8030c3cf2bdb1d83398161378b46</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Gasser</name>
     <surname type="str">Rene</surname>
-    <email type="str">rene.gasser@altdorf.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

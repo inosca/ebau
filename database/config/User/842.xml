@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">842</user_id>
     <username type="str">SWR2</username>
-    <password type="str">733d7bb2aada749e5f538709d0ce57b3</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Lenggenhager</name>
     <surname type="str">Jakob</surname>
-    <email type="str">jakob.lenggenhager@swr.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">en</language>

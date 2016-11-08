@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">258</user_id>
     <username type="str">Buerglen1</username>
-    <password type="str">9bc32c0cffeef22b629d7a595d0c7938</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Gisler</name>
     <surname type="str">Peter</surname>
-    <email type="str">peter.gisler@buerglen.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

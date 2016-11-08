@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">892</user_id>
     <username type="str">Lisag2</username>
-    <password type="str">d7220551c50e2c8bd59d8727ccfbb9f6</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Wyrsch</name>
     <surname type="str">Paul</surname>
-    <email type="str">p.wyrsch@lisag.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>
