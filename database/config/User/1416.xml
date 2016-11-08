@@ -1,0 +1,19 @@
+<row>
+  <table_name>user</table_name>
+  <model_name>configuration.User</model_name>
+  <data>
+    <user_id type="int">1416</user_id>
+    <username type="str">aeschha</username>
+    <password type="str">8f915032ebcbe48cb089a75251f73b7f</password>
+    <name type="str">Aeschlimann</name>
+    <surname type="str">Hanspeter</surname>
+    <email type="str">hanspeter.aeschlimann@ur.ch</email>
+    <phone type="str"></phone>
+    <disabled type="bool">False</disabled>
+    <language type="str">de</language>
+    <address type="str"></address>
+    <city type="str"></city>
+    <zip type="str"></zip>
+  </data>
+</row>
+

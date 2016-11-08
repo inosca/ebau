@@ -1,0 +1,19 @@
+<row>
+  <table_name>user</table_name>
+  <model_name>configuration.User</model_name>
+  <data>
+    <user_id type="int">1426</user_id>
+    <username type="str">AfdG1</username>
+    <password type="str">7dcc4e781c77653fa5b7adb7da39737a</password>
+    <name type="str">Danioth</name>
+    <surname type="str">Georges</surname>
+    <email type="str">georges.danioth@ur.ch</email>
+    <phone type="str"></phone>
+    <disabled type="bool">False</disabled>
+    <language type="str">de</language>
+    <address type="str"></address>
+    <city type="str"></city>
+    <zip type="str"></zip>
+  </data>
+</row>
+

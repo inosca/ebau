@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">270</user_id>
     <username type="str">Seelisberg1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">76aeeb61c7554303cb0ef678eea3791a</password>
     <name type="str">Truttmann</name>
     <surname type="str">Kathrin</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">kathrin.truttmann@seelisberg.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

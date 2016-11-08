@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">275</user_id>
     <username type="str">Sisikon1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">a79d411d70fdc9363480c735b25edafa</password>
     <name type="str">Habegger</name>
     <surname type="str">Ursula</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">gemeindeverwaltung@sisikon.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

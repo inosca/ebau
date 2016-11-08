@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">185</user_id>
     <username type="str">Andermatt1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">efe6b6c27164ed87f1d1b28e7e3b5eb1</password>
     <name type="str">Esprit</name>
     <surname type="str">Simone</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">simone.esprit@andermatt.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

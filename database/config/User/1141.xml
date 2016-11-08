@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">1141</user_id>
     <username type="str">Gurtnellen3</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">1af15c6c6ee1262b7c6dfc092c5788af</password>
     <name type="str">Walker</name>
     <surname type="str">Jessica</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">Jessica.Walker@gurtnellen.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

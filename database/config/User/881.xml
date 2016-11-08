@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">881</user_id>
     <username type="str">NHSK1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">21114f5c34b630669a467adf8fcbd0fa</password>
     <name type="str">Präsidentin Wipfli-Steinegger</name>
     <surname type="str">Ruth</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>
