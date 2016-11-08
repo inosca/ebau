@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">1161</user_id>
     <username type="str">Isenthal3</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">3ba143d31d4a0e3fa2a1274bbc120ca9</password>
     <name type="str">Odermatt</name>
     <surname type="str">Nicole</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">gemeinde@isenthal.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

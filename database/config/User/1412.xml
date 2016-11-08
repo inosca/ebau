@@ -1,0 +1,19 @@
+<row>
+  <table_name>user</table_name>
+  <model_name>configuration.User</model_name>
+  <data>
+    <user_id type="int">1412</user_id>
+    <username type="str">BD28</username>
+    <password type="str">25adeb2a84cdaaf6a0b75e704b049040</password>
+    <name type="str">Purrazzello</name>
+    <surname type="str">Karin</surname>
+    <email type="str"></email>
+    <phone type="str"></phone>
+    <disabled type="bool">False</disabled>
+    <language type="str">de</language>
+    <address type="str"></address>
+    <city type="str"></city>
+    <zip type="str"></zip>
+  </data>
+</row>
+

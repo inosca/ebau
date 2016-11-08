@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">891</user_id>
     <username type="str">Lisag1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">0afae5dc95c96bf461d68e43fd67a040</password>
     <name type="str">Aschwanden</name>
     <surname type="str">Bruno</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">b.aschwanden@lisag.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

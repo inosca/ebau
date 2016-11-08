@@ -4,12 +4,12 @@
   <data>
     <user_id type="int">274</user_id>
     <username type="str">Silenen4</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">953eb639270c22f27dd9be171f5d49cd</password>
     <name type="str">Loretz</name>
     <surname type="str">Anja</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
-    <disabled type="bool">False</disabled>
+    <disabled type="bool">True</disabled>
     <language type="str">de</language>
     <address type="str"></address>
     <city type="str"></city>

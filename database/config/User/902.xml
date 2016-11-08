@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">902</user_id>
     <username type="str">Promologin</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">97e073f6a23014afc738fd434240d0f7</password>
     <name type="str">Präsentationslogin</name>
     <surname type="str">ARE Schwyz</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">en</language>

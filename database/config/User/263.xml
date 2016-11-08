@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">263</user_id>
     <username type="str">Isenthal1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">c487a1161d6e0c50edd92261fdc0dd59</password>
     <name type="str">Walker</name>
     <surname type="str">Bernhard</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">gemeindekasse@isenthal.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

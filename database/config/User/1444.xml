@@ -1,0 +1,19 @@
+<row>
+  <table_name>user</table_name>
+  <model_name>configuration.User</model_name>
+  <data>
+    <user_id type="int">1444</user_id>
+    <username type="str">ABM3</username>
+    <password type="str">b5bc0290133c30affc939cf8a53e7ea1</password>
+    <name type="str">Zopp</name>
+    <surname type="str">Ignaz</surname>
+    <email type="str">ignaz.zopp@ur.ch</email>
+    <phone type="str"></phone>
+    <disabled type="bool">False</disabled>
+    <language type="str">en</language>
+    <address type="str"></address>
+    <city type="str"></city>
+    <zip type="str"></zip>
+  </data>
+</row>
+

@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">256</user_id>
     <username type="str">Bauen1</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">ae03d80d4f196b95f04cec007d956964</password>
     <name type="str">Dubacher</name>
     <surname type="str">Roland</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">rdubacher@bluewin.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

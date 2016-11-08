@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">843</user_id>
     <username type="str">SWR3</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
+    <password type="str">7e8b9a188f98d4a0e318a7fef72fc2c6</password>
     <name type="str">Rieder</name>
     <surname type="str">Urs</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str">urs.rieder@swr.ch</email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">en</language>
