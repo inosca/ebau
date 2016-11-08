@@ -1,0 +1,12 @@
+<row>
+  <table_name>r_list_column</table_name>
+  <model_name>configuration.RListColumn</model_name>
+  <data>
+    <r_list_column_id type="int">450</r_list_column_id>
+    <resource_id type="int">41</resource_id>
+    <column_name type="str">DEADLINE</column_name>
+    <alias type="str">Frist</alias>
+    <sort type="int">3</sort>
+  </data>
+</row>
+
