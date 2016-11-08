@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">268</user_id>
     <username type="str">Schattdorf3</username>
-    <password type="str">a5d20c0f1ffe39e519ecb3ca62b01977</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Küttel</name>
     <surname type="str">Jasmin</surname>
-    <email type="str">jasmin.kuettel@schattdorf.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">21</user_id>
     <username type="str">pwa</username>
-    <password type="str">a5dc16eabdc749a0b7a9bb69f48ad63b</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Walker</name>
     <surname type="str">Paul</surname>
-    <email type="str">paul.walker@ur.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

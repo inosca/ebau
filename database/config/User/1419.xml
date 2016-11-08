@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">1419</user_id>
     <username type="str">BD20</username>
-    <password type="str">f5dd9c736d4f044a3858ed413d1d14a1</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Arnold</name>
     <surname type="str">Marion</surname>
-    <email type="str">betrieb.kantonsstrassen@ur.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

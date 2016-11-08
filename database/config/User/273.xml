@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">273</user_id>
     <username type="str">Silenen3</username>
-    <password type="str">baaddf74dae0868cce10ea0f313cba8b</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Walker</name>
     <surname type="str">Lisa</surname>
-    <email type="str">lisa.walker@silenen.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

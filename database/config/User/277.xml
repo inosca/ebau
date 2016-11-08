@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">277</user_id>
     <username type="str">Spiringen2</username>
-    <password type="str">695c628612cff0ff2073ff3103af137c</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Baumann</name>
     <surname type="str">Rolf</surname>
-    <email type="str">verwaltung@spiringen.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">259</user_id>
     <username type="str">Erstfeld1</username>
-    <password type="str">87088641ced150e00fd19a864a34d1df</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Marti</name>
     <surname type="str">Hansruedi</surname>
-    <email type="str">hansruedi.marti@erstfeld.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>

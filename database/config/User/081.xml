@@ -4,10 +4,10 @@
   <data>
     <user_id type="int">81</user_id>
     <username type="str">psc</username>
-    <password type="str">62b1e08d7eacb0c5dc9460a2f478c37b</password>
+    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Scheuber</name>
     <surname type="str">Pirmin</surname>
-    <email type="str">pirmin.scheuber@ur.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
     <disabled type="bool">False</disabled>
     <language type="str">de</language>
