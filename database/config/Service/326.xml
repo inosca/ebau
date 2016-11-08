@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Gemeinde Flüelen</name>
     <description type="str">Gemeinde Flüelen als Vernehmlassungsstelle</description>
-    <sort type="int">15</sort>
+    <sort type="int">67</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
