@@ -5,8 +5,8 @@
     <answer_list_id type="int">178</answer_list_id>
     <question_id type="int">141</question_id>
     <value type="str">internemitteilung</value>
-    <name type="str">Interne Mitteilung</name>
-    <sort type="int">6</sort>
+    <name type="str">Interner Kurzbericht via CAMAC</name>
+    <sort type="int">3</sort>
   </data>
 </row>
 

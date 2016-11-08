@@ -3,7 +3,7 @@
   <model_name>configuration.AttachmentSection</model_name>
   <data>
     <attachment_section_id type="int">61</attachment_section_id>
-    <name type="str">Gebühren</name>
+    <name type="str">Interne Dokumente ARE SU (nur für Fachstelle ARE SU sichtbar)</name>
     <sort type="int">0</sort>
   </data>
 </row>
