@@ -4,8 +4,8 @@
   <data>
     <group_id type="int">442</group_id>
     <role_id type="int">1021</role_id>
-    <service_id type="int">304</service_id>
-    <name type="str">Baudirektion Uri Abteilung Strassen</name>
+    <service_id type="int">41</service_id>
+    <name type="str">Baudirektion Amt für Tiefbau Abteilung Strassen - KOOR ARE BG Pendenzen</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

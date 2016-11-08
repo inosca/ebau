@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Gemeinde Seedorf</name>
     <description type="str">Gemeinde Seedorf als Vernehmlassungsstelle</description>
-    <sort type="int">22</sort>
+    <sort type="int">74</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

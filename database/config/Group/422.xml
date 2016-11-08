@@ -3,9 +3,9 @@
   <model_name>configuration.Group</model_name>
   <data>
     <group_id type="int">422</group_id>
-    <role_id type="int">1021</role_id>
+    <role_id type="int">4</role_id>
     <service_id type="int">303</service_id>
-    <name type="str">Baudirektion Uri Abteilung Wasserbau</name>
+    <name type="str">Baudirektion Amt für Tiefbau Abteilung Wasserbau - KOOR BD Pendenzen</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
