@@ -5,8 +5,8 @@
     <answer_list_id type="int">180</answer_list_id>
     <question_id type="int">141</question_id>
     <value type="str">rechnung</value>
-    <name type="str">Rechnung</name>
-    <sort type="int">8</sort>
+    <name type="str">Rechnung / Gebühr</name>
+    <sort type="int">4</sort>
   </data>
 </row>
 
