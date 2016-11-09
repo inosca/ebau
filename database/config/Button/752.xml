@@ -6,7 +6,7 @@
     <instance_resource_id type="int">672</instance_resource_id>
     <name type="str">Nachforderung</name>
     <description type="str">Nachforderung bei Bürger-Dossier</description>
-    <class type="str"></class>
+    <class type="str">nfd-msg</class>
     <hidden type="bool">False</hidden>
     <sort type="int">3</sort>
   </data>
