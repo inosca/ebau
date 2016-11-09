@@ -111,6 +111,8 @@ OR
 ([ROLE_ID] IN (7, 6) AND "GROUP_LOCATION"."LOCATION_ID" = "INSTANCE_LOCATION"."LOCATION_ID")
 OR
 ([ROLE_ID] NOT IN (3, 1061, 6, 7, 1101)))</query>
+    <pdf_class type="str"></pdf_class>
+    <preserve_result type="bool">True</preserve_result>
   </data>
 </row>
 
