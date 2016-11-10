@@ -49,6 +49,7 @@ _init: _submodule-update # Initialise the code, create the necessary symlinks
 
 _submodule-update:
 	@git submodule update --init --recursive || true
+	@chmod 777 -R camac/logs || true
 
 
 run: _init ## Runs the docker containers
