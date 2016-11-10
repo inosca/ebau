@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ABM ZS</name>
     <description type="str">Amt für Bevölkerungsschutz und Militär Abteilung Zivilschutz</description>
-    <sort type="int">46</sort>
+    <sort type="int">4</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

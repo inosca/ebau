@@ -10,7 +10,7 @@
     <description type="str"></description>
     <javascript type="str"></javascript>
     <regex type="str"></regex>
-    <default_answer type="str">Mehrfachauswahl ist mit der Control-Taste möglich</default_answer>
+    <default_answer type="str">Bitte die Art der Bearbeitung (z.B. Verfügung Rechnung) auswählen (die Mehrfachauswahl ist mit der Control-Taste möglich)</default_answer>
   </data>
 </row>
 

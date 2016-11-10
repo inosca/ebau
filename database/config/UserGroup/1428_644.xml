@@ -1,0 +1,10 @@
+<row>
+  <table_name>user_group</table_name>
+  <model_name>configuration.UserGroup</model_name>
+  <data>
+    <user_id type="int">1428</user_id>
+    <group_id type="int">644</group_id>
+    <default_group type="bool">True</default_group>
+  </data>
+</row>
+

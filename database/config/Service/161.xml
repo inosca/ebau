@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ZAKU</name>
     <description type="str">Zentralverband Abfallbewirtschaftung Kanton Uri</description>
-    <sort type="int">41</sort>
+    <sort type="int">6</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
