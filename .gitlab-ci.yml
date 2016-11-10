@@ -2,7 +2,6 @@ before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
     - pip install -r db_admin/requirements.txt
-    - chmod -R 777 camac/logs
 
 after_script:
     - cat camac/logs/application.log
