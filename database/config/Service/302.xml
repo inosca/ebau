@@ -6,8 +6,8 @@
     <service_group_id type="int">1</service_group_id>
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">KOOR BD</name>
-    <description type="str">KOOR BD</description>
-    <sort type="int">40</sort>
+    <description type="str">Koordinationsstelle für Bewilligungsverfahren der Baudirektion</description>
+    <sort type="int">91</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

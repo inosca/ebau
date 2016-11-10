@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">SBB</name>
     <description type="str">SBB Hochspannungsleitung</description>
-    <sort type="int">70</sort>
+    <sort type="int">16</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

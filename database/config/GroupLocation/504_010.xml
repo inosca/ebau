@@ -1,0 +1,9 @@
+<row>
+  <table_name>group_location</table_name>
+  <model_name>configuration.GroupLocation</model_name>
+  <data>
+    <group_id type="int">504</group_id>
+    <location_id type="int">10</location_id>
+  </data>
+</row>
+

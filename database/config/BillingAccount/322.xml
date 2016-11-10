@@ -5,7 +5,7 @@
     <billing_account_id type="int">322</billing_account_id>
     <name type="str">Gebühren für Mitberichte und Stellungnahmen für Plangenehmigungsverfahren (PGV) des Bundes</name>
     <account_number type="str">direct</account_number>
-    <department type="str">TODO</department>
+    <department type="str">GEM</department>
     <service_group_id type="int">41</service_group_id>
     <predefined type="bool">True</predefined>
   </data>
