@@ -8,15 +8,15 @@
     <answer_query_id type="int">41</answer_query_id>
     <name type="str">Leitbehörde</name>
     <description type="str"></description>
-    <javascript type="str">var authority_section = $('#authority, #[QUESTION]i1')
-var options = authority_section.find('option')
+    <javascript type="str">var authority_element = $('#authority.[QUESTION], #[QUESTION]i1')
+var options = authority_element.find('option')
 options.removeAttr('selected')
 
 if (options.length == 2) { 
-  $(authority_section).prop("disabled", true);
+  $(authority_element).prop("disabled", true);
   $(options[1]).attr('selected', 'selected')
   
-  var hid = $('&lt;input type="hidden" name="c3q5i1" &gt;')
+  var hid = $('&lt;input type="hidden" name="#[QUESTION]i1" &gt;')
   hid.val($(options[1]).val());
   hid.appendTo($('#[PAGE]'));
 }</javascript>
