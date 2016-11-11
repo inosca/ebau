@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ReDi</name>
     <description type="str">Justizdirektion Rechtsdienst</description>
-    <sort type="int">69</sort>
+    <sort type="int">13</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

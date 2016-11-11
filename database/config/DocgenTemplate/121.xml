@@ -3,8 +3,8 @@
   <model_name>configuration.DocgenTemplate</model_name>
   <data>
     <docgen_template_id type="int">121</docgen_template_id>
-    <name type="str">Rechnung BG</name>
-    <path type="str">billKOORBG.docx</path>
+    <name type="str">Rechnung</name>
+    <path type="str">billKOORBG_ps.docx</path>
     <type type="int">1</type>
   </data>
 </row>

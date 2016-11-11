@@ -5,7 +5,7 @@
     <answer_list_id type="int">128</answer_list_id>
     <question_id type="int">99</question_id>
     <value type="str">B</value>
-    <name type="str">Buro</name>
+    <name type="str">Büro</name>
     <sort type="int">2</sort>
   </data>
 </row>

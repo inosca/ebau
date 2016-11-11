@@ -5,7 +5,7 @@
     <group_id type="int">21</group_id>
     <role_id type="int">1061</role_id>
     <service_id type="int">87</service_id>
-    <name type="str">KOOR NP - ARE - Koordination Nutzungsplanung</name>
+    <name type="str">KOOR - ARE - NP Koordination Nutzungsplanung</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
