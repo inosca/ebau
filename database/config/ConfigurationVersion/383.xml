@@ -2,9 +2,9 @@
   <table_name>configuration_version</table_name>
   <model_name>configuration.ConfigurationVersion</model_name>
   <data>
-    <id type="int">360</id>
-    <hash type="str">c8e90f90-9366-43e9-b640-3768d290f243</hash>
-    <export_date type="datetime">2016-10-31 15:34:20</export_date>
+    <id type="int">383</id>
+    <hash type="str">69e8b15d-15b0-4c02-add9-60b5b048acbf</hash>
+    <export_date type="datetime">2016-11-11 15:42:35</export_date>
     <author type="str">adrian.wittwer@adfinis-sygroup.ch
 </author>
   </data>
