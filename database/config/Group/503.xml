@@ -10,7 +10,7 @@
     <zip type="str"></zip>
     <city type="str"></city>
     <address type="str"></address>
-    <email type="str"></email>
+    <email type="str">cornelia.gamma@altdorf.ch</email>
     <website type="str"></website>
   </data>
 </row>

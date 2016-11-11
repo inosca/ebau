@@ -3,9 +3,9 @@
   <model_name>configuration.Group</model_name>
   <data>
     <group_id type="int">402</group_id>
-    <role_id type="int">4</role_id>
+    <role_id type="int">1102</role_id>
     <service_id type="int">281</service_id>
-    <name type="str">Gemeinde Andermatt</name>
+    <name type="str">Gemeinde Andermatt als Vernehmlassungsstelle</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

@@ -4,7 +4,7 @@
   <data>
     <group_id type="int">150</group_id>
     <role_id type="int">6</role_id>
-    <service_id type="NoneType">None</service_id>
+    <service_id type="int">357</service_id>
     <name type="str">Sekretariat Gemeindebaubehörde Schattdorf</name>
     <phone type="str"></phone>
     <zip type="str">6467</zip>
