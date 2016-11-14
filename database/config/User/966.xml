@@ -3,7 +3,7 @@
   <model_name>configuration.User</model_name>
   <data>
     <user_id type="int">966</user_id>
-    <username type="str">SWR9</username>
+    <username type="str">AGO9</username>
     <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Jauch</name>
     <surname type="str">Janick</surname>

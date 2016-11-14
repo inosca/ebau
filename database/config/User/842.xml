@@ -9,7 +9,7 @@
     <surname type="str">Jakob</surname>
     <email type="str"></email>
     <phone type="str"></phone>
-    <disabled type="bool">False</disabled>
+    <disabled type="bool">True</disabled>
     <language type="str">en</language>
     <address type="str"></address>
     <city type="str"></city>
