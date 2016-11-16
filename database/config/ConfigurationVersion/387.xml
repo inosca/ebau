@@ -3,8 +3,8 @@
   <model_name>configuration.ConfigurationVersion</model_name>
   <data>
     <id type="int">387</id>
-    <hash type="str">2b4bf155-18d3-4845-ae3d-70984cd507ca</hash>
-    <export_date type="datetime">2016-11-28 13:26:38</export_date>
+    <hash type="str">09626466-ddad-4863-b025-ecbf3b509eec</hash>
+    <export_date type="datetime">2016-11-16 08:32:47</export_date>
     <author type="str">adrian.wittwer@adfinis-sygroup.ch
 </author>
   </data>
