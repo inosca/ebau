@@ -1,0 +1,9 @@
+<row>
+  <table_name>ir_page</table_name>
+  <model_name>configuration.IrPage</model_name>
+  <data>
+    <instance_resource_id type="int">681</instance_resource_id>
+    <pdf_class type="str"></pdf_class>
+  </data>
+</row>
+
