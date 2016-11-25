@@ -7,8 +7,8 @@
     <button_id type="int">743</button_id>
     <name type="str">Speichern</name>
     <description type="str"></description>
-    <success_message type="str">Dossier erfolgreich erstellt.</success_message>
-    <error_message type="str">Dossier konnte nicht erstellt werden!</error_message>
+    <success_message type="str"></success_message>
+    <error_message type="str"></error_message>
     <execute_always type="bool">False</execute_always>
     <sort type="int">0</sort>
   </data>
