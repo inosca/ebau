@@ -56,25 +56,37 @@ _submodule-update:
 run: _init ## Runs the docker containers
 	@docker-compose -f docker/docker-compose.yml up
 
-db-reset: _sync_db_tools ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
+db-create-user: _sync_db_tools ## Create the user camac in the database
+	echo "Create the camac user"
+	@bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/local/tools/database/create_camac_user.sh
+
+
+db-drop: _sync_db_tools ## Drops the whole database
 	@echo "Resetting the database"
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no  chmod +x /var/local/tools/database/drop_user.sh
-	@sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/drop_user.sh
+	@bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/local/tools/database/drop_user.sh
+
+
+db-reset: _sync_db_tools db-drop ## Drops the database and re-initialises it. Use the DB_CONTAINER variable to override the destination docker container
 	@make db-init
+
 
 _sync_db_tools:
 	echo "Syncing tools to docker container"
 	sshpass -p "admin" scp -o StrictHostKeyChecking=no -r -P $(DB_CONTAINER_PORT) tools root@$(DB_CONTAINER_HOSTNAME):/var/local/
 	sshpass -p "admin" scp -o StrictHostKeyChecking=no -r -P $(DB_CONTAINER_PORT) database root@$(DB_CONTAINER_HOSTNAME):/var/local/
 
+
 db-init: _sync_db_tools ## Initialises the default database structure (without any data). Use the DB_CONTAINER variable to override the destination docker container
 	echo "Initialise the database"
-	echo "Create the camac user"
-	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no  chmod +x /var/local/tools/database/create_camac_user.sh
-	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/create_camac_user.sh
+	@make db-create-user
 	echo "Insert the base structure"
-	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no chmod +x /var/local/tools/database/insert_base_structure.sh
-	sshpass -p "admin" ssh root@$(DB_CONTAINER_HOSTNAME) -p $(DB_CONTAINER_PORT) -o StrictHostKeyChecking=no bash /var/local/tools/database/insert_base_structure.sh
+	bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/local/tools/database/insert_base_structure.sh
+
+
+db-load-uri-dump: _sync_db_tools db-drop ## Installs a full dump from the uri folder into the database for deployment purposes
+	echo "Insert Uri Dump into the database"
+	@make db-create-user
+	bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/loal/tools/database/insert_deploy_dump.sh
 
 
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
