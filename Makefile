@@ -110,6 +110,18 @@ deploy-configure: _classloader ## Generate the htacces for the stage server
 	ENV='stage' make htaccess
 
 
+.PHONY: deploy-pack
+deploy-pack: ## make a zip containing all the necessary files
+	zip camac.zip -r camac/application
+	zip camac.zip -r camac/configuration
+	zip camac.zip -r camac/library
+	zip camac.zip -r camac/public
+	zip camac.zip -r camac/resources
+	# truncate the log file. We wanna provide it too to avoid
+	# errors, but there's no need to have the logs included
+	echo "" > camac/logs/application.log
+	zip camac.zip -r camac/logs
+
 .PHONY: structure-export
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
 	@chmod +x tools/camac/export-structure.sh
