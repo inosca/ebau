@@ -201,6 +201,8 @@ config-export: ## export the current database configuration
 config-import: ## import the current database configuration. This will override your existing stuff!
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
+	@make clear-cache
+	@echo "Cache cleared"
 
 
 .PHONY: data-truncate
@@ -269,3 +271,8 @@ ci-pretend:
 .PHONY: htaccess
 htaccess:
 	python .make_htaccess.py ${ENV}
+
+
+.PHONY: clear-cache ## Clear the memcache
+clear-cache:
+	bash .clear_cache.sh
