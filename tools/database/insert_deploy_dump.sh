@@ -7,7 +7,7 @@ CREATE OR REPLACE DIRECTORY strucdir AS '/var/local/database/uri_dumps/';
 GRANT read,write ON DIRECTORY strucdir TO camac;
 EOF
 
-impdp camac/camac DIRECTORY=strucdir DUMPFILE=deployed-but-not-adjusted-2016-05-11-07-35.dmp SCHEMAS=camac 
+impdp camac/camac DIRECTORY=strucdir DUMPFILE=latest.dmp SCHEMAS=camac
 
 exit 0
 
