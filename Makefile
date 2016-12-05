@@ -122,6 +122,13 @@ deploy-pack: ## make a zip containing all the necessary files
 	echo "" > camac/logs/application.log
 	zip camac.zip -r camac/logs
 
+
+.PHONY: deploy-dump
+deploy-dump: _sync_db_tools ## Make full dump of the database
+	echo "Dumping the full database"
+	bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/local/tools/database/export_deploy_dump.sh
+
+
 .PHONY: structure-export
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
 	@chmod +x tools/camac/export-structure.sh
