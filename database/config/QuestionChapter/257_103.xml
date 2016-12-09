@@ -3,10 +3,10 @@
   <model_name>configuration.QuestionChapter</model_name>
   <data>
     <question_id type="int">257</question_id>
-    <chapter_id type="int">3</chapter_id>
+    <chapter_id type="int">103</chapter_id>
     <required type="bool">False</required>
     <item type="int">1</item>
-    <sort type="int">2</sort>
+    <sort type="int">0</sort>
   </data>
 </row>
 
