@@ -93,7 +93,9 @@ JOIN
     "ACTIVATION"."CIRCULATION_ID" = "CIRCULATION"."CIRCULATION_ID"
     AND
     "ACTIVATION"."SERVICE_ID" = [SERVICE_ID]
-  )</query>
+  )
+  ORDER BY DOSSIER_NR
+  </query>
   </data>
 </row>
 
