@@ -242,6 +242,7 @@ run-acceptance-tests-fast: ## run the acceptance tests fast - meaning, don't run
 
 .PHONY: ci-run-acceptance-tests
 ci-run-acceptance-tests: ## Run a subset of the acceptance tests
+	@mkdir -p camac/logs/mails
 	@make -C db_admin/ run-acceptance-tests-ci
 
 
