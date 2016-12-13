@@ -171,7 +171,7 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@git checkout test
 	@git commit --allow-empty -m "Test-Server deployment"
-	@ENV='test' make -C camac/configuration/configs/
+	@ENV='test' make -C resources/configuration-templates/
 	@ENV='test' make htaccess
 	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
