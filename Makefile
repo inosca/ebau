@@ -28,7 +28,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 _ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='ci' make -C camac/configuration/configs/
+	@ENV='ci' make -C resources/configuration-templates/
 	@ENV='ci' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
@@ -40,7 +40,7 @@ _ci-init: _submodule-update
 _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='dev' make -C resources/configuration-templates/
 	@ENV='dev' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
@@ -106,7 +106,7 @@ deploy-import: ## import the config for deployment
 
 .PHONY: deploy-configure
 deploy-configure: _classloader ## Generate the htacces for the stage server
-	ENV='stage' make -C camac/configuration/configs/
+	ENV='stage' make -C resources/configuration-templates/
 	ENV='stage' make htaccess
 
 
@@ -177,7 +177,7 @@ deploy-test-server: _deployment_confirmation css _classloader ## Move the code o
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
-	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='dev' make -C resources/configuration-templates/
 
 
 .PHONY: deploy-portal-test-server
