@@ -10,12 +10,10 @@
     <text type="str">Sehr geehrte Dame
 Sehr geehrter Herr
 
-Wir danken Ihnen für die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Prüfung der Unterlagen haben wir festgestellt, dass diverse Unterlagen / Angaben fehlen. Damit wir das Prüfverfahren eröffnen können, bitten wir Sie, die fehlenden Angaben gemäss Angaben im Portal. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zusätzlichen Angaben nochmals gesendet werden muss (Button "Dossier Senden betätigen):
+Wir danken Ihnen für die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Prüfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Prüfverfahren eröffnen können, bitten wir Sie, die fehlenden Angaben gemäss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zusätzlichen Angaben nochmals gesendet werden muss (Button "Dossier Senden betätigen):
 
 Mit freundliche Grüssen
-Bausekretariat Gemeinde [INSTANCE_LOCATION]
-
-Bei Fragen rund um die elektronische Eingabe von Baugesuchen und Baugesuch Vorabklärungen gibt Ihnen das Bausekretariat der Gemeinde [INSTANCE_LOCATION] gerne Auskunft.</text>
+Bausekretariat Gemeinde [INSTANCE_LOCATION]</text>
   </data>
 </row>
 
