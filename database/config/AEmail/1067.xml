@@ -7,7 +7,17 @@
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
     <title type="str">Dossier an Koord</title>
-    <text type="str">Das Dossier ging zur Koordinationsstelle</text>
+    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+
+Status-Meldung (3) zum Stand des Bewilligungsverfahrens
+
+Sehr geehrte Dame
+Sehr geehrter Herr
+
+Die Gemeindebaubehörde[INSTANCE_LOCATION] hat das Dossier Nr. [@2001.1002] geprüft. Es sind kantonale Bewilligungen / Prüfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle für Baueingaben des Kantons Uri weitergeleitet. Sie erhalten eine neue Nachricht, sobald die Prüfung durch die kantonalen Fachstellen abgeschlossen ist und das Dossier an die Gemeindebaubehörde zurückgeschickt wird.
+
+Mit freundlichen Grüssen
+Gemeindebaubehörde [INSTANCE_LOCATION]</text>
   </data>
 </row>
 

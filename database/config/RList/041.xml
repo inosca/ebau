@@ -107,7 +107,6 @@ WHERE
   )
     AND
     "INSTANCE"."INSTANCE_STATE_ID" = GET_INST_STATE_ID_BY_NAME('circ')</query>
-ORDER BY DOSSIER_NR ASC
   </data>
 </row>
 
