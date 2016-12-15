@@ -7,32 +7,19 @@
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
     <title type="str">Dossier von Koordinationsstelle für Baueingaben an die Gemeinde zurückgeschickt</title>
-    <text type="str">Das ist eine automatich generiete E-Mail vom elektronischen
-Bauverwaltungssytem CAMAC des Kantons Uri. Bitte antworten Sie nicht
-darauf.
+    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+
+Status-Meldung (4) zum Stand des Bewilligungsverfahrens
 
 Sehr geehrte Dame
 Sehr geehrter Herr
 
-Das kantonale Prüfverfahren zum Dossier mit der ID Nr. [INSTANCE_ID] ist
-abgeschlossen. Die Unterlagen werden per aktuellem Datum an die
-zuständige Gemeindebaubehörde zurückgeschickt.
+Die Prüfung durch die kantonalen Fachstellen ist abgeschlossen. Das Dossier Nr. [@2001.1002] wurde zur Weiterbearbeitung an die Gemeindebaubehörde [INSTANCE_LOCATION] zurückgeschickt. Die Stellungnahmen und Verfügungen der kantonalen Fachstellen werden Ihnen zusammen mit dem Baubewilligungsentscheid durch die Gemeindebaubehörde eröffnet.
 
-Die Dauer des kommunalen Verfahrens (Sichtung der kantonalen Rückmeldungen 
-und Ausarbeitung Bauentscheid) beträgt durchschnittlich 3 Wochen.
-Unter Berücksichtigung der Sitzungstermine der Gemeindebaubehörde
-[INSTANCE_LOCATION] und unter dem Vorbehalt, dass keine zusätzlichen
-Unterlagen nachgefordert werden müssen, oder eine Begehung vor Ort
-notwendig wird, oder andere unerwartete Gründe zu einer Verzögerung
-führen, können Sie den Bauentscheid in der Kalender woche
-[NOW_PLUS_THREE] erwarten.
-Der Bauentscheid wird schriftlich ausgestellt und per A-Post zugestellt.
+Mit freundlichen Grüssen
 
-Mit freundliche Grüssen
-Bausekretariat Gemeinde Altdorf
-
-Bei Fragen rund um die elektronische Eingabe von Baugesuchen und Voreinfragen gibt Ihnen das 
-Bausekretariat der Gemeinde [INSTANCE_LOCATION] gerne Auskunft.</text>
+Amt für Raumentwicklung
+Koordinationsstelle für Baueingaben</text>
   </data>
 </row>
 
