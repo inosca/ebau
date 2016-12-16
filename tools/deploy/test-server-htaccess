@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Camac"
-AuthUserFile "/var/www/uri/passwd"
-Require valid-user
