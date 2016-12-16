@@ -10,7 +10,7 @@
     <success_message type="str">Workflow Datum gesetzt</success_message>
     <error_message type="str">Workflow Datum konnte nicht gesetzt werden</error_message>
     <execute_always type="bool">True</execute_always>
-    <sort type="int">4</sort>
+    <sort type="int">5</sort>
   </data>
 </row>
 
