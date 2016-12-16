@@ -117,9 +117,16 @@ deploy-pack: ## make a zip containing all the necessary files
 	zip camac.zip -r camac/library
 	zip camac.zip -r camac/public
 	zip camac.zip -r camac/resources
+	mkdir -p /tmp/camac_deploy/cache/files
+	mkdir -p /tmp/camac_deploy/cache/metadata
+	mkdir -p /tmp/camac_deploy/upload
+	zip camac.zip -r /tmp/camac_deploy/cache
+	zip camac.zip -r /tmp/camac_deploy/upload
+	rm /tmp/camac_deploy
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
 	echo "" > camac/logs/application.log
+	rm camac/logs/mails/* || true
 	zip camac.zip -r camac/logs
 
 
