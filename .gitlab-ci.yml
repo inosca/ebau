@@ -33,6 +33,7 @@ run-test:
         - make ci-config-import
         - echo "" > camac/logs/application.log
         - mkdir -p /tmp/data/records
+        - chmod 777 -R /tmp/data
         - echo "Running Tests"
         - date
         - make ci-run-acceptance-tests
