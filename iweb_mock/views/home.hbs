@@ -38,7 +38,9 @@
 
   <input type="submit" id="toCamac" value="Dossier erstellen">
 </form>
-<form action="{{base}}logout" method="POST">
+<form action="{{camacUrl}}/portal/user/logout/resource-id/248" method="POST">
+  <input type="hidden" name="X-Camac-Session" value={{hash}}>
+  <input type="hidden" name="X-Redirect-To" value="{{base}}logout">
   <input type="submit" id="logout" value="Logout">
 </form>
 {{else}}
