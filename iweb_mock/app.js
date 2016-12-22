@@ -26,25 +26,25 @@ app.use('/public', proxy(camacApi, {
 	}
 }))
 
-app.use((req, res, next) => {
+app.get('/', (req, res) => {
 	if (req.cookies.camacSession) {
 		getOverview(req.cookies.camacSession).then(overview => {
-			req.overview = overview
-			next()
+			res.render('home', {
+				hash: req.cookies.camacSession,
+				id: req.cookies.portalId,
+				overview: overview
+			})
 		}).catch(() => {
-			next()
+			// nothing todo here
 		})
-	} else {
-		next()
 	}
-})
-
-app.get('/', (req, res) => {
-	res.render('home', {
-		hash: req.cookies.camacSession,
-		id: req.cookies.portalId,
-		overview: req.overview
-	})
+	else {
+		res.render('home', {
+			hash: req.cookies.camacSession,
+			id: req.cookies.portalId,
+			overview: null
+		})
+	}
 })
 
 function authenticate (conf) {
