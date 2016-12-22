@@ -4,7 +4,7 @@
   <data>
     <button_id type="int">748</button_id>
     <instance_resource_id type="int">671</instance_resource_id>
-    <name type="str">Weiter</name>
+    <name type="str">Speichern und weiter</name>
     <description type="str">Portal
 Button um vom Dossier editieren zu den Dokumenten zu gelangen</description>
     <class type="str"></class>

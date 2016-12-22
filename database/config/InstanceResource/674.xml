@@ -5,12 +5,12 @@
     <instance_resource_id type="int">674</instance_resource_id>
     <available_instance_resource_id type="str">page</available_instance_resource_id>
     <resource_id type="int">251</resource_id>
-    <name type="str">Einsenden</name>
-    <description type="str">Diese Seite zeigt einen Info-Text zum einsenden an</description>
-    <template type="str">/portal/send_confirmation.phtml</template>
+    <name type="str">Eingesandt</name>
+    <description type="str"></description>
+    <template type="str">/portal/send-confirmation.phtml</template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">3</sort>
+    <sort type="int">6</sort>
     <form_group_id type="int">247</form_group_id>
   </data>
 </row>

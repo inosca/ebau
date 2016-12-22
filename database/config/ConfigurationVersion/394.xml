@@ -1,0 +1,12 @@
+<row>
+  <table_name>configuration_version</table_name>
+  <model_name>configuration.ConfigurationVersion</model_name>
+  <data>
+    <id type="int">394</id>
+    <hash type="str">bdba5109-08de-4586-9468-ed494260bb34</hash>
+    <export_date type="datetime">2016-11-25 09:11:56</export_date>
+    <author type="str">stefan.heinemann@adfinis-sygroup.ch
+</author>
+  </data>
+</row>
+
