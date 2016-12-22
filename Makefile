@@ -127,6 +127,7 @@ deploy-pack: deploy-configure ## make a zip containing all the necessary files
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
 	echo "" > camac/logs/application.log
+	rm -r camac/logs/mails/* || true
 	find camac/logs | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	rm -r camac/cache
 	rm -r camac/uploads
