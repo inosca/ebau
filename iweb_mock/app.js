@@ -112,7 +112,6 @@ app.get('/logout', (req, res) => {
 	res.clearCookie('camacSession')
 	res.clearCookie('portalId')
 	res.clearCookie('camacData')
-	console.log('logout done')
 	res.redirect(base)
 })
 
