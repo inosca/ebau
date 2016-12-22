@@ -28,7 +28,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 _ci-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='ci' make -C camac/configuration/configs/
+	@ENV='ci' make -C resources/configuration-templates/
 	@ENV='ci' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
@@ -40,7 +40,7 @@ _ci-init: _submodule-update
 _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='dev' make -C resources/configuration-templates/
 	@ENV='dev' make htaccess
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
@@ -106,7 +106,7 @@ deploy-import: ## import the config for deployment
 
 .PHONY: deploy-configure
 deploy-configure: _classloader ## Generate the htacces for the stage server
-	ENV='stage' make -C camac/configuration/configs/
+	ENV='stage' make -C resources/configuration-templates/
 	ENV='stage' make htaccess
 
 
@@ -117,10 +117,25 @@ deploy-pack: ## make a zip containing all the necessary files
 	zip camac.zip -r camac/library
 	zip camac.zip -r camac/public
 	zip camac.zip -r camac/resources
+	mkdir -p /tmp/camac_deploy/cache/files
+	mkdir -p /tmp/camac_deploy/cache/metadata
+	mkdir -p /tmp/camac_deploy/uploads
+	zip camac.zip -r /tmp/camac_deploy/cache
+	zip camac.zip -r /tmp/camac_deploy/uploads
+	zip camac.zip -r /tmp/camac_deploy/uploads
+	rm /tmp/camac_deploy
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
 	echo "" > camac/logs/application.log
+	rm camac/logs/mails/* || true
 	zip camac.zip -r camac/logs
+
+
+.PHONY: deploy-dump
+deploy-dump: _sync_db_tools ## Make full dump of the database
+	echo "Dumping the full database"
+	bash ./.chmod_and_call_in_docker.sh $(DB_CONTAINER_HOSTNAME) $(DB_CONTAINER_PORT) /var/local/tools/database/export_deploy_dump.sh
+
 
 .PHONY: structure-export
 structure-export: ## Dumps the database structure. Use the DB_CONTAINER variable to override the destination docker container
@@ -164,13 +179,13 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@git checkout test
 	@git commit --allow-empty -m "Test-Server deployment"
-	@ENV='test' make -C camac/configuration/configs/
+	@ENV='test' make -C resources/configuration-templates/
 	@ENV='test' make htaccess
 	@rsync -Lavz camac/* sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
 	@ssh sy-jump "chown -R www-data /mnt/sshfs/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp tools/deploy/test-server-passwd sy-jump:/mnt/sshfs/root@camac.sycloud.ch/var/www/uri/passwd
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
-	@ENV='dev' make -C camac/configuration/configs/
+	@ENV='dev' make -C resources/configuration-templates/
 
 
 .PHONY: deploy-portal-test-server
@@ -194,6 +209,8 @@ config-export: ## export the current database configuration
 config-import: ## import the current database configuration. This will override your existing stuff!
 	@make -C db_admin/ importconfig
 	@echo "Config successfully imported"
+	@make clear-cache
+	@echo "Cache cleared"
 
 
 .PHONY: data-truncate
@@ -262,3 +279,8 @@ ci-pretend:
 .PHONY: htaccess
 htaccess:
 	python .make_htaccess.py ${ENV}
+
+
+.PHONY: clear-cache ## Clear the memcache
+clear-cache:
+	bash .clear_cache.sh
