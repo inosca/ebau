@@ -26,25 +26,25 @@ app.use('/public', proxy(camacApi, {
 	}
 }))
 
-app.use((req, res, next) => {
+app.get('/', (req, res) => {
 	if (req.cookies.camacSession) {
 		getOverview(req.cookies.camacSession).then(overview => {
-			req.overview = overview
-			next()
+			res.render('home', {
+				hash: req.cookies.camacSession,
+				id: req.cookies.portalId,
+				overview: overview
+			})
 		}).catch(() => {
-			next()
+			// nothing todo here
 		})
-	} else {
-		next()
 	}
-})
-
-app.get('/', (req, res) => {
-	res.render('home', {
-		hash: req.cookies.camacSession,
-		id: req.cookies.portalId,
-		overview: req.overview
-	})
+	else {
+		res.render('home', {
+			hash: req.cookies.camacSession,
+			id: req.cookies.portalId,
+			overview: null
+		})
+	}
 })
 
 function authenticate (conf) {
@@ -108,31 +108,11 @@ function getOverview (session) {
 	})
 }
 
-app.post('/logout', (req, res) => {
-	request.post({
-		url: camacApi + '/portal/user/logout/resource-id/248',
-		headers: {
-			'X-Camac-Session': req.cookies.camacSession,
-			'User-Agent': 'foo'
-		}
-	}, (err, response, body) => {
-		if (err || response.statusCode >= 300) {
-			console.log('error', err, response.statusCode, body)
-			res.clearCookie('camacSession')
-			res.clearCookie('portalId')
-			res.clearCookie('camacData')
-		} else {
-			try {
-				console.log('logged out', response.statusCode, body)
-				res.clearCookie('camacSession')
-				res.clearCookie('portalId')
-				res.clearCookie('camacData')
-			} catch (e) {
-				// do nothing
-			}
-		}
-		res.redirect(base)
-	})
+app.get('/logout', (req, res) => {
+	res.clearCookie('camacSession')
+	res.clearCookie('portalId')
+	res.clearCookie('camacData')
+	res.redirect(base)
 })
 
 app.listen(PORT, () => {

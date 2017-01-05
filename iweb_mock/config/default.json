@@ -1,5 +1,5 @@
 {
 	"camacApi": "http://camac_web",
 	"camacUrl": "http://localhost:4300",
-	"base": "/"
+	"base": "http://localhost:4400/"
 }
