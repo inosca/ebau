@@ -26,25 +26,10 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 
 	@tmux -2 attach-session -d
 
-.PHONY: _ci-init
-_ci-init: _submodule-update
+.PHONY: _base-init
+_base-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='ci' make -C resources/configuration-templates/
-	@ENV='ci' make htaccess
-	ln -sf "../../kt_uri/configuration/public" "camac/public/"
-	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
-	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
-	@chmod o+w camac/logs
-	@chmod o+w camac/configuration/upload
-	@make _classloader
-
-.PHONY: _init
-_init: _submodule-update # Initialise the code, create the necessary symlinks
-	@rm -f camac/configuration
-	@ln -fs ../kt_uri/configuration camac/configuration
-	@ENV='dev' make -C resources/configuration-templates/
-	@ENV='dev' make htaccess
 	ln -sf "../../kt_uri/configuration/public" "camac/public/"
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
@@ -52,6 +37,16 @@ _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
 	@make _classloader
+
+.PHONY: _ci-init
+_ci-init: _base-init
+	@ENV='ci' make -C resources/configuration-templates/
+	@ENV='ci' make htaccess
+
+.PHONY: _init
+_init: _base-init# Initialise the code, create the necessary symlinks
+	@ENV='dev' make -C resources/configuration-templates/
+	@ENV='dev' make htaccess
 
 .PHONY: _submodule-update
 _submodule-update:
