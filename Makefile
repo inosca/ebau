@@ -279,7 +279,7 @@ ci-pretend:
 
 .PHONY: htaccess
 htaccess:
-	python .make_htaccess.py ${ENV}
+	python resources/htaccess/make_htaccess.py ${ENV}
 
 
 .PHONY: clear-cache ## Clear the memcache
