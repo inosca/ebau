@@ -44,8 +44,10 @@ _init: _submodule-update # Initialise the code, create the necessary symlinks
 	@ln -fs ../kt_uri/configuration camac/configuration
 	@ENV='dev' make -C resources/configuration-templates/
 	@ENV='dev' make htaccess
+	ln -sf "../../kt_uri/configuration/public" "camac/public/"
 	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
 	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
+	@mkdir -p camac/logs/mails
 	@chmod o+w camac/logs
 	@chmod o+w camac/configuration/upload
 	@make _classloader
