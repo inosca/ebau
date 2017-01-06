@@ -8,6 +8,8 @@ DB_CONTAINER?=docker_camac_db_1
 DB_CONTAINER_HOSTNAME?=localhost
 DB_CONTAINER_PORT?=49160
 
+ZIP_IGNORE_PATTERN="\.(gitignore|empty)"
+
 
 .PHONY: _log-follow
 _log-follow: # Tail the log of the application
@@ -111,24 +113,26 @@ deploy-configure: _classloader ## Generate the htacces for the stage server
 
 
 .PHONY: deploy-pack
-deploy-pack: ## make a zip containing all the necessary files
-	zip camac.zip -r camac/application
-	zip camac.zip -r camac/configuration
-	zip camac.zip -r camac/library
-	zip camac.zip -r camac/public
-	zip camac.zip -r camac/resources
-	mkdir -p /tmp/camac_deploy/cache/files
-	mkdir -p /tmp/camac_deploy/cache/metadata
-	mkdir -p /tmp/camac_deploy/uploads
-	zip camac.zip -r /tmp/camac_deploy/cache
-	zip camac.zip -r /tmp/camac_deploy/uploads
-	zip camac.zip -r /tmp/camac_deploy/uploads
-	rm /tmp/camac_deploy
+deploy-pack: deploy-configure ## make a zip containing all the necessary files
+	find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	find camac/public | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	find camac/resources | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	mkdir -p camac/cache/files
+	mkdir -p camac/cache/metadata
+	mkdir -p camac/uploads
+	find camac/cache | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	find camac/uploads | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
 	echo "" > camac/logs/application.log
-	rm camac/logs/mails/* || true
-	zip camac.zip -r camac/logs
+	rm -r camac/logs/mails/* || true
+	find camac/logs | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	rm -r camac/cache
+	rm -r camac/uploads
+	# revert back to normal config
+	make _init
 
 
 .PHONY: deploy-dump
