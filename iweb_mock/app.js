@@ -72,7 +72,6 @@ app.post('/hash', (req, res) => {
 		} else {
 			try {
 				const json = JSON.parse(body)
-				console.log('got session hash', json.hash)
 				res.cookie('camacSession', json.hash)
 				res.cookie('portalId', req.body.id)
 				res.clearCookie('camacData')
