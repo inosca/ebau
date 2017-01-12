@@ -16,7 +16,7 @@ if (options.length == 2) {
   $(authority_element).prop("disabled", true);
   $(options[1]).attr('selected', 'selected')
   
-  var hid = $('&lt;input type="hidden" name="#[QUESTION]i1" &gt;')
+  var hid = $('&lt;input type="hidden" name="[QUESTION]i1" &gt;')
   hid.val($(options[1]).val());
   hid.appendTo($('#[PAGE]'));
 }</javascript>
