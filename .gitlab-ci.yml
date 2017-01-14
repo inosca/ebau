@@ -1,8 +1,6 @@
 before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
-    - pip install -r db_admin/requirements.txt
-    - apt-get install -y gtk+3.0
 
 after_script:
     - cat camac/logs/application.log
