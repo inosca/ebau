@@ -16,3 +16,4 @@ class_map.php
 .venv/
 doc/
 *.orig
+.python-version
