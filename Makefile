@@ -112,6 +112,10 @@ deploy-configure: _classloader ## Generate the htacces for the stage server
 
 .PHONY: deploy-pack
 deploy-pack: deploy-configure ## make a zip containing all the necessary files
+	rm camac/configuration
+	rm camac/public/public
+	cp -r kt_uri/configuration camac/
+	cp -r kt_uri/configuration/public camac/public/public
 	find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
@@ -129,6 +133,8 @@ deploy-pack: deploy-configure ## make a zip containing all the necessary files
 	find camac/logs | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	rm -r camac/cache
 	rm -r camac/uploads
+	rm -r camac/configuration
+	rm -r camac/public/public
 	# revert back to normal config
 	make _init
 
