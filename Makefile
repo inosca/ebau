@@ -104,39 +104,53 @@ deploy-import: ## import the config for deployment
 	@echo "Config successfully imported"
 
 
-.PHONY: deploy-configure
-deploy-configure: _classloader ## Generate the htacces for the stage server
+.PHONY: _deploy-configure-prod
+_deploy-configure-prod: _classloader # Generate htaccess and configuration for the stage server
+	ENV='prod' make -C resources/configuration-templates/
+	ENV='prod' make htaccess
+
+.PHONY: _deploy-configure-stage
+_deploy-configure-stage: _classloader # Generate the htacces and configuration for the prod server
 	ENV='stage' make -C resources/configuration-templates/
 	ENV='stage' make htaccess
 
-
-.PHONY: deploy-pack
-deploy-pack: deploy-configure ## make a zip containing all the necessary files
-	rm camac/configuration
-	rm camac/public/public
-	cp -r kt_uri/configuration camac/
-	cp -r kt_uri/configuration/public camac/public/public
-	find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	find camac/public | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	find camac/resources | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	mkdir -p camac/cache/files
-	mkdir -p camac/cache/metadata
-	mkdir -p camac/uploads
-	find camac/cache | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	find camac/uploads | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+.PHONY: _deploy-pack
+_deploy-pack: ## make a zip containing all the necessary files
+	@rm -r camac/configuration
+	@rm -r camac/public/public
+	@cp -r kt_uri/configuration camac/
+	@cp -r kt_uri/configuration/public camac/public/public
+	@find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@find camac/public | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@find camac/resources | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@mkdir -p camac/cache/files
+	@mkdir -p camac/cache/metadata
+	@mkdir -p camac/uploads
+	@find camac/cache | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@find camac/uploads | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
-	echo "" > camac/logs/application.log
-	rm -r camac/logs/mails/* || true
-	find camac/logs | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
-	rm -r camac/cache
-	rm -r camac/uploads
-	rm -r camac/configuration
-	rm -r camac/public/public
+	@echo "" > camac/logs/application.log
+	@rm -r camac/logs/mails/* || true
+	@find camac/logs | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@rm -r camac/cache
+	@rm -r camac/uploads
+	@rm -r camac/configuration
+	@rm -r camac/public/public
 	# revert back to normal config
-	make _init
+	@make _init
+
+
+.PHONY: deploy-pack-production
+deploy-pack-production: _deploy-configure-prod _deploy-pack ## Make a zip containing all the necessary files with prod configuration
+	@echo "Created zip for prod deployment"
+
+
+.PHONY: deploy-pack-staging
+deploy-pack-staging: _deploy-configure-stage _deploy-pack ## Make a zip containing all the necessary files with stage configuration
+	@echo "Created zip for prod deployment"
 
 
 .PHONY: deploy-dump
