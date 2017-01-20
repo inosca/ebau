@@ -3,9 +3,9 @@
   <model_name>configuration.ConfigurationVersion</model_name>
   <data>
     <id type="int">443</id>
-    <hash type="str">e7c407b2-699f-46ad-84d0-81460236ae0b</hash>
-    <export_date type="datetime">2017-01-20 09:30:04</export_date>
-    <author type="str">adrian.wittwer@adfinis-sygroup.ch
+    <hash type="str">8364b104-6122-4a08-9a28-78820caad2bb</hash>
+    <export_date type="datetime">2017-01-20 14:17:41</export_date>
+    <author type="str">stefan.heinemann@adfinis-sygroup.ch
 </author>
   </data>
 </row>

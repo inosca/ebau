@@ -6,7 +6,7 @@
     <sender_name type="str">Uri Baugesuchsverwaltung</sender_name>
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">Nachforderung zusätzlicher Unterlagen</title>
+    <title type="str">CAMAC Uri Mitteilung - Nachforderung zusätzliche Unterlagen</title>
     <text type="str">Sehr geehrte Dame
 Sehr geehrter Herr
 
