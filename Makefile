@@ -116,10 +116,17 @@ _deploy-configure-stage: _classloader # Generate the htacces and configuration f
 
 .PHONY: _deploy-pack
 _deploy-pack: ## make a zip containing all the necessary files
+	# apparently zip cannot resolve the symlinks
+	# therefore we have to copy the stuff there and remove it afterwards...
+	# I would use tar, but I'm pretty sure the guys at Uri can't handle tar
 	@rm -r camac/configuration
 	@rm -r camac/public/public
+	@rm -rf camac/library/fpdf
+	@rm -rf camac/library/fpdi
 	@cp -r kt_uri/configuration camac/
 	@cp -r kt_uri/configuration/public camac/public/public
+	@cp -r kt_uri/library/fpdi camac/library/
+	@cp -r kt_uri/library/fpdf camac/library/
 	@find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	@find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	@find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
@@ -128,8 +135,10 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@mkdir -p camac/cache/files
 	@mkdir -p camac/cache/metadata
 	@mkdir -p camac/uploads
+	@mkdir -p camac/tmp
 	@find camac/cache | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	@find camac/uploads | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
+	@zip camac.zip camac/tmp
 	# truncate the log file. We wanna provide it too to avoid
 	# errors, but there's no need to have the logs included
 	@echo "" > camac/logs/application.log
@@ -139,6 +148,9 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@rm -r camac/uploads
 	@rm -r camac/configuration
 	@rm -r camac/public/public
+	@rm -r camac/library/fpdi
+	@rm -r camac/library/fpdf
+	@rmdir camac/tmp
 	# revert back to normal config
 	@make _init
 
