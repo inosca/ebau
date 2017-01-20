@@ -6,7 +6,7 @@
     <sender_name type="str">Camac Kanton Uri</sender_name>
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">Dossier von Koordinationsstelle für Baueingaben an die Gemeinde zurückgeschickt</title>
+    <title type="str">CAMAC Uri Mitteilung - Das Dossier wurde an die Gemeinde zurückgeschickt</title>
     <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
 Status-Meldung (4) zum Stand des Bewilligungsverfahrens
