@@ -1,0 +1,12 @@
+<row>
+  <table_name>configuration_version</table_name>
+  <model_name>configuration.ConfigurationVersion</model_name>
+  <data>
+    <id type="int">443</id>
+    <hash type="str">e7c407b2-699f-46ad-84d0-81460236ae0b</hash>
+    <export_date type="datetime">2017-01-20 09:30:04</export_date>
+    <author type="str">adrian.wittwer@adfinis-sygroup.ch
+</author>
+  </data>
+</row>
+
