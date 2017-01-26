@@ -6,7 +6,7 @@
     <instance_resource_id type="int">672</instance_resource_id>
     <name type="str">Abweisen</name>
     <description type="str">Button zum Abweisen eines Dossiers</description>
-    <class type="str"></class>
+    <class type="str">reject-msg</class>
     <hidden type="bool">False</hidden>
     <sort type="int">2</sort>
   </data>

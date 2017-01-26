@@ -20,12 +20,18 @@ LEFT JOIN "USER_GROUP" ON (
 LEFT JOIN "GROUP" ON (
   "GROUP"."GROUP_ID" = "USER_GROUP"."GROUP_ID"
 )
+LEFT JOIN "PROJECT_SUBMITTER_VIEW" ON (
+  "PROJECT_SUBMITTER_VIEW"."INSTANCE_ID" = [INSTANCE_ID]
+)
+
 
 WHERE "ROLE_ID" = 3
 AND
 "USER"."EMAIL" IS NOT NULL
-and
-"USER"."DISABLED" = 0</query>
+AND
+"USER"."DISABLED" = 0
+AND
+"PROJECT_SUBMITTER_VIEW"."ANSWER" IS NULL</query>
     <title type="str">Dossier [ID] von Gemeinde frei geschalten</title>
     <text type="str">CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)
 

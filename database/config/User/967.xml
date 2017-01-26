@@ -3,13 +3,13 @@
   <model_name>configuration.User</model_name>
   <data>
     <user_id type="int">967</user_id>
-    <username type="str">SWR10</username>
+    <username type="str">AGO10</username>
     <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
     <name type="str">Fetscher</name>
     <surname type="str">Simon</surname>
-    <email type="str">stefan.heinemann@adfinis-sygroup.ch</email>
+    <email type="str"></email>
     <phone type="str"></phone>
-    <disabled type="bool">False</disabled>
+    <disabled type="bool">True</disabled>
     <language type="str">de</language>
     <address type="str"></address>
     <city type="str"></city>

@@ -4,7 +4,7 @@
   <data>
     <user_id type="int">200</user_id>
     <group_id type="int">172</group_id>
-    <default_group type="bool">True</default_group>
+    <default_group type="bool">False</default_group>
   </data>
 </row>
 

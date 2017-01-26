@@ -4,7 +4,7 @@
   <data>
     <group_id type="int">186</group_id>
     <role_id type="int">7</role_id>
-    <service_id type="NoneType">None</service_id>
+    <service_id type="int">368</service_id>
     <name type="str">Baukommission Bürglen</name>
     <phone type="str"></phone>
     <zip type="str">6463</zip>

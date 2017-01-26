@@ -17,3 +17,4 @@ class_map.php
 doc/
 *.orig
 db_admin/uri_database/*.png
+.python-version

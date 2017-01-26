@@ -7,7 +7,7 @@
     <question_id type="NoneType">None</question_id>
     <field_name type="str">status</field_name>
     <label type="str">Status</label>
-    <query type="str">"INSTANCE"."INSTANCE_STATE_ID" = get_state_id_by_name(?)</query>
+    <query type="str">"INSTANCE"."INSTANCE_STATE_ID" = get_inst_state_id_by_name(?)</query>
     <wildcard type="int">0</wildcard>
   </data>
 </row>

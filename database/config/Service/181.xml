@@ -5,9 +5,9 @@
     <service_id type="int">181</service_id>
     <service_group_id type="int">21</service_group_id>
     <service_parent_id type="NoneType">None</service_parent_id>
-    <name type="str">SWR</name>
+    <name type="str">AGO</name>
     <description type="str">Geometer Vermessung</description>
-    <sort type="int">53</sort>
+    <sort type="int">9</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

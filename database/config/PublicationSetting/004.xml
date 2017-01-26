@@ -4,7 +4,44 @@
   <data>
     <publication_setting_id type="int">4</publication_setting_id>
     <key type="str">text</key>
-    <value type="str">Gemeindebaubehörde [@authority] Standeskanzlei Uri Redaktion Amtsblatt Rathaus 6460 Altdorf [@zip] [@location], [@date] Meldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik "Bau und Planungsrecht" Sehr geehrte Damen und Herren Wir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate] zu publizieren: [@community] Bauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1] Bauvorhaben: [@intent] Bauplatz: [@c21q93i1] Parzelle: [@c21q91i1] Bemerkungen: [@note] Wir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung Freundliche Grüsse Gemeindebaubehörde [@authority] [@zip] [@location], [@date] </value>
+    <value type="str">Gemeindebaubehörde [@authority]&#13;
+&#13;
+Standeskanzlei Uri&#13;
+Redaktion Amtsblatt&#13;
+Rathaus&#13;
+6460 Altdorf&#13;
+&#13;
+[@zip] [@location], [@date]&#13;
+&#13;
+&#13;
+Meldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik&#13;
+"Bau und Planungsrecht"&#13;
+&#13;
+Sehr geehrte Damen und Herren&#13;
+&#13;
+Wir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]&#13;
+zu publizieren:&#13;
+&#13;
+[@community]&#13;
+&#13;
+Bauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]&#13;
+Bauvorhaben: [@intent]&#13;
+Bauplatz: [@c21q93i1]&#13;
+Parzelle: [@c21q91i1]&#13;
+Bemerkungen: [@note]&#13;
+&#13;
+&#13;
+&#13;
+&#13;
+Wir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung&#13;
+&#13;
+Freundliche Grüsse&#13;
+&#13;
+Gemeindebaubehörde [@authority]&#13;
+&#13;
+&#13;
+[@zip] [@location], [@date]&#13;
+</value>
   </data>
 </row>
 

@@ -3,8 +3,8 @@
   <model_name>configuration.Group</model_name>
   <data>
     <group_id type="int">322</group_id>
-    <role_id type="int">1021</role_id>
-    <service_id type="int">21</service_id>
+    <role_id type="int">1081</role_id>
+    <service_id type="int">366</service_id>
     <name type="str">Qualinova</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
