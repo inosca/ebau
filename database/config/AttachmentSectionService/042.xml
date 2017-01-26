@@ -1,0 +1,11 @@
+<row>
+  <table_name>attachment_section_service</table_name>
+  <model_name>configuration.AttachmentSectionService</model_name>
+  <data>
+    <id type="int">42</id>
+    <attachment_section_id type="int">61</attachment_section_id>
+    <service_id type="int">99</service_id>
+    <mode type="str">write</mode>
+  </data>
+</row>
+

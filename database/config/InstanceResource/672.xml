@@ -7,11 +7,11 @@
     <resource_id type="int">250</resource_id>
     <name type="str">Dossier bearbeiten</name>
     <description type="str"></description>
-    <template type="str">/form/bg-form.phtml</template>
+    <template type="str">/form/portal-form.phtml</template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">0</sort>
-    <form_group_id type="int">247</form_group_id>
+    <sort type="int">1</sort>
+    <form_group_id type="int">248</form_group_id>
   </data>
 </row>
 

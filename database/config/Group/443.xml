@@ -5,7 +5,7 @@
     <group_id type="int">443</group_id>
     <role_id type="int">4</role_id>
     <service_id type="int">305</service_id>
-    <name type="str">Baudirektion Uri Betrieb Kantonsstrassen</name>
+    <name type="str">Baudirektion Betrieb Kantonsstrassen - KOOR BD Pendenzen</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
