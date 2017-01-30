@@ -7,6 +7,8 @@
     <name type="str">Entscheid Obergericht</name>
     <automatical type="bool">False</automatical>
     <different_color type="bool">False</different_color>
+    <is_workflow type="bool">True</is_workflow>
+    <is_building_authority type="bool">False</is_building_authority>
   </data>
 </row>
 
