@@ -3,7 +3,7 @@
   <model_name>configuration.RList</model_name>
   <data>
     <resource_id type="int">41</resource_id>
-    <query type="str">SELECT
+    <query type="str">SELECT DISTINCT
   "INSTANCE"."INSTANCE_ID",
   "ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",
   "FORM"."NAME"              AS "FORM",
@@ -39,7 +39,7 @@ JOIN
     "INSTANCE"."FORM_ID" = "FORM"."FORM_ID"
 )
 
-JOIN "ANSWER" "ANSWER_DOK_NR" ON (
+JOIN "ANSWER_DOK_NR" ON (
     "INSTANCE"."INSTANCE_ID" = "ANSWER_DOK_NR"."INSTANCE_ID"
 )
 
