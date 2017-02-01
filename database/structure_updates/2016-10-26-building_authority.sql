@@ -321,3 +321,7 @@ BEGIN
   END COLUMN_SEQUENCES;
 END;
 /
+
+/* Add needed module entries */
+Insert into AVAILABLE_INSTANCE_RESOURCE (AVAILABLE_INSTANCE_RESOURCE_ID,MODULE_NAME,CONTROLLER_NAME,DESCRIPTION) values ('buildingauthority','buildingauthority','edit','Edit the building authority entries');
+Insert into AIR_ACTION (AVAILABLE_INSTANCE_RESOURCE_ID,ACTION_NAME,HIDDEN) values ('buildingauthority','edit',0)
