@@ -6,7 +6,7 @@
     <resource_id type="int">42</resource_id>
     <column_name type="str">STATE</column_name>
     <alias type="str">Status</alias>
-    <sort type="int">8</sort>
+    <sort type="int">9</sort>
   </data>
 </row>
 

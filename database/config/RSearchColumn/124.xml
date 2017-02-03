@@ -1,0 +1,12 @@
+<row>
+  <table_name>r_search_column</table_name>
+  <model_name>configuration.RSearchColumn</model_name>
+  <data>
+    <r_search_column_id type="int">124</r_search_column_id>
+    <resource_id type="int">42</resource_id>
+    <column_name type="str">SANCTION</column_name>
+    <alias type="str">Verfügende Behörde</alias>
+    <sort type="int">7</sort>
+  </data>
+</row>
+

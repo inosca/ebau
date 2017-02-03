@@ -1,0 +1,14 @@
+<row>
+  <table_name>r_search_filter</table_name>
+  <model_name>configuration.RSearchFilter</model_name>
+  <data>
+    <r_search_filter_id type="int">83</r_search_filter_id>
+    <resource_id type="int">42</resource_id>
+    <question_id type="NoneType">None</question_id>
+    <field_name type="str">sanction</field_name>
+    <label type="str">Verfügende Behörde</label>
+    <query type="str">"SANCTION"."IS_FINISHED" = 0 AND "SANCTION"."SERVICE_ID" = ?</query>
+    <wildcard type="int">0</wildcard>
+  </data>
+</row>
+
