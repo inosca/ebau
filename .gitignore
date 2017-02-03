@@ -17,3 +17,4 @@ class_map.php
 doc/
 *.orig
 .python-version
+export.log
