@@ -1,0 +1,17 @@
+<row>
+  <table_name>instance_resource</table_name>
+  <model_name>configuration.InstanceResource</model_name>
+  <data>
+    <instance_resource_id type="int">685</instance_resource_id>
+    <available_instance_resource_id type="str">sanction</available_instance_resource_id>
+    <resource_id type="int">23</resource_id>
+    <name type="str">Auflagen-Controlling</name>
+    <description type="str">Auflagen-Controlling für alle Dossiers</description>
+    <template type="str"></template>
+    <class type="str"></class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">10</sort>
+    <form_group_id type="int">161</form_group_id>
+  </data>
+</row>
+
