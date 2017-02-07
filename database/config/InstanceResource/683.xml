@@ -6,7 +6,7 @@
     <available_instance_resource_id type="str">sanction</available_instance_resource_id>
     <resource_id type="int">24</resource_id>
     <name type="str">Auflagen-Controlling</name>
-    <description type="str">Auflagen-Controlling für alle Dossiers</description>
+    <description type="str">Auflagen-Controlling für KOOR BG</description>
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>

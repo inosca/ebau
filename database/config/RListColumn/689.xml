@@ -1,0 +1,12 @@
+<row>
+  <table_name>r_list_column</table_name>
+  <model_name>configuration.RListColumn</model_name>
+  <data>
+    <r_list_column_id type="int">689</r_list_column_id>
+    <resource_id type="int">252</resource_id>
+    <column_name type="str">FORM</column_name>
+    <alias type="str">Verfahren</alias>
+    <sort type="int">2</sort>
+  </data>
+</row>
+
