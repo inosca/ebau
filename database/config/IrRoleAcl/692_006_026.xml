@@ -2,7 +2,7 @@
   <table_name>ir_role_acl</table_name>
   <model_name>configuration.IrRoleAcl</model_name>
   <data>
-    <instance_resource_id type="int">683</instance_resource_id>
+    <instance_resource_id type="int">692</instance_resource_id>
     <role_id type="int">6</role_id>
     <instance_state_id type="int">26</instance_state_id>
   </data>
