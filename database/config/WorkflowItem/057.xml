@@ -4,9 +4,11 @@
   <data>
     <workflow_item_id type="int">57</workflow_item_id>
     <position type="int">27</position>
-    <name type="str">Abnahme Kanalisation</name>
+    <name type="str">Bau beendet Info an Abwasser Uri</name>
     <automatical type="bool">False</automatical>
     <different_color type="bool">False</different_color>
+    <is_workflow type="bool">True</is_workflow>
+    <is_building_authority type="bool">False</is_building_authority>
   </data>
 </row>
 
