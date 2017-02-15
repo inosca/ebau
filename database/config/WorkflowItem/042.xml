@@ -4,9 +4,11 @@
   <data>
     <workflow_item_id type="int">42</workflow_item_id>
     <position type="int">10</position>
-    <name type="str">Akten Nachforderung Fachstelle</name>
+    <name type="str">Nachforderung Fachstelle</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
+    <is_workflow type="bool">True</is_workflow>
+    <is_building_authority type="bool">False</is_building_authority>
   </data>
 </row>
 
