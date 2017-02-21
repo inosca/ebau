@@ -85,13 +85,13 @@ app.post('/hash', (req, res) => {
 
 function getOverview (session) {
 	return new Promise((resolve, reject) => {
-		request.post({
+		request.post(authenticate({
 			url: camacApi + '/portal/user/overview/resource-id/248',
 			headers: {
 				'X-Camac-Session': session,
 				'User-Agent': 'foo'
 			}
-		}, (err, response, body) => {
+		}), (err, response, body) => {
 			if (err || response.statusCode >= 300) {
 				console.log('error', err, response.statusCode, body)
 				reject()
