@@ -5,7 +5,7 @@
     <r_search_column_id type="int">124</r_search_column_id>
     <resource_id type="int">42</resource_id>
     <column_name type="str">SANCTION</column_name>
-    <alias type="str">Verfügende Behörde</alias>
+    <alias type="str">Pendenzen AC</alias>
     <sort type="int">7</sort>
   </data>
 </row>

@@ -6,7 +6,7 @@
     <resource_id type="int">42</resource_id>
     <question_id type="NoneType">None</question_id>
     <field_name type="str">sanction</field_name>
-    <label type="str">Verfügende Behörde</label>
+    <label type="str">Pendenzen AC</label>
     <query type="str">"SANCTION"."IS_FINISHED" = 0 AND "SANCTION"."SERVICE_ID" = ?</query>
     <wildcard type="int">0</wildcard>
   </data>
