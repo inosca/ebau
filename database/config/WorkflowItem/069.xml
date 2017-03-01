@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">69</workflow_item_id>
-    <position type="int">37</position>
+    <position type="int">38</position>
     <name type="str">Bau beendet Info an Liegenschaftsschätzung</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
