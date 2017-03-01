@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">52</workflow_item_id>
-    <position type="int">20</position>
+    <position type="int">22</position>
     <name type="str">Rechtsmittel Obergericht</name>
     <automatical type="bool">False</automatical>
     <different_color type="bool">False</different_color>

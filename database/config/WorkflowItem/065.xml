@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">65</workflow_item_id>
-    <position type="int">33</position>
+    <position type="int">16</position>
     <name type="str">Einsprachefrist</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
