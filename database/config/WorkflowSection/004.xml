@@ -1,0 +1,10 @@
+<row>
+  <table_name>workflow_section</table_name>
+  <model_name>configuration.WorkflowSection</model_name>
+  <data>
+    <workflow_section_id type="int">4</workflow_section_id>
+    <name type="str">Auflagen-Controlling</name>
+    <sort type="int">3</sort>
+  </data>
+</row>
+
