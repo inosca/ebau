@@ -5,7 +5,7 @@
     <action_id type="int">1007</action_id>
     <available_action_id type="str">formtransition</available_action_id>
     <button_id type="int">721</button_id>
-    <name type="str">Transition Arch - Redac</name>
+    <name type="str">Transition Arch - COMM</name>
     <description type="str"></description>
     <success_message type="str"></success_message>
     <error_message type="str"></error_message>
