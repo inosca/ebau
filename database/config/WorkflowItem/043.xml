@@ -5,10 +5,11 @@
     <workflow_item_id type="int">43</workflow_item_id>
     <position type="int">11</position>
     <name type="str">Dossier vollständig</name>
-    <automatical type="bool">True</automatical>
+    <automatical type="bool">False</automatical>
     <different_color type="bool">False</different_color>
     <is_workflow type="bool">True</is_workflow>
     <is_building_authority type="bool">False</is_building_authority>
+    <workflow_section_id type="int">1</workflow_section_id>
   </data>
 </row>
 
