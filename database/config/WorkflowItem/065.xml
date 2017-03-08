@@ -9,6 +9,7 @@
     <different_color type="bool">False</different_color>
     <is_workflow type="bool">False</is_workflow>
     <is_building_authority type="bool">True</is_building_authority>
+    <workflow_section_id type="int">1</workflow_section_id>
   </data>
 </row>
 

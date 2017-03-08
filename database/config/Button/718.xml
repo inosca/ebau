@@ -4,11 +4,11 @@
   <data>
     <button_id type="int">718</button_id>
     <instance_resource_id type="int">107</instance_resource_id>
-    <name type="str">Wiedereröffnen</name>
+    <name type="str">Wiedereröffnen (EXT)</name>
     <description type="str">Von Arch zurück zu Redac</description>
     <class type="str">button_reopen</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">3</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 
