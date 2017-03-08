@@ -205,7 +205,7 @@ run-live-db: ## This is merely a command to help run another docker instance of 
 .PHONY: _deployment_confirmation
 _deployment_confirmation:
 	@echo "Configuration will be overridden on the server"
-	@echo "Press ctrl-c to abort"
+	@echo "Press ENTER to continue or ctrl-c to abort"
 	@read ohyeah
 
 
