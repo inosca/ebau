@@ -1,0 +1,22 @@
+<row>
+  <table_name>building_authority_email</table_name>
+  <model_name>configuration.BuildingAuthorityEmail</model_name>
+  <data>
+    <building_authority_email_id type="int">43</building_authority_email_id>
+    <building_authority_button_id type="int">6</building_authority_button_id>
+    <email_subject type="str">Meldung Fertigstellung Bauvorhaben</email_subject>
+    <email_text type="str">CAMAC Info&#13;
+&#13;
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)&#13;
+&#13;
+Meldung Fertigstellung Bauvorhaben&#13;
+&#13;
+Das Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt und zur Endabnahme bereit.&#13;
+&#13;
+[INSTANCE_LOCATION], [DATE]</email_text>
+    <from_email type="str">camac@ur.ch</from_email>
+    <from_name type="str">Camac Info</from_name>
+    <receiver_query type="str">adrian.wittwer@adfinis-sygroup.ch</receiver_query>
+  </data>
+</row>
+
