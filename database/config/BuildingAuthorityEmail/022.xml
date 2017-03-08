@@ -1,0 +1,30 @@
+<row>
+  <table_name>building_authority_email</table_name>
+  <model_name>configuration.BuildingAuthorityEmail</model_name>
+  <data>
+    <building_authority_email_id type="int">22</building_authority_email_id>
+    <building_authority_button_id type="int">4</building_authority_button_id>
+    <email_subject type="str">Meldung Bau beendet</email_subject>
+    <email_text type="str">CAMAC Info&#13;
+&#13;
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)&#13;
+&#13;
+Meldung Bau beendet&#13;
+&#13;
+Das Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt. Wir bitten Sie, das Bauobjekt zu vermessen und die Vermarkung zu überprüfen. Allfällige Kosten gehen zu Lasten der Bauherrschaft. Die Bauherrschaft wurde im Rahmen der Baubewilligung über die Vermessungspflicht und daraus allfällig entstehenden Kosten in Kenntnis gesetzt.&#13;
+&#13;
+EGID Nr.   …………...&#13;
+&#13;
+EWID Nr.  ……………&#13;
+&#13;
+Die EGID Nr. bzw. die EWID Nummern gemäss GWR werden mitgeteilt sobald das Objekt im GWR erfasst wurde und die entsprechenden Nummern bekannt sind. &#13;
+&#13;
+(bitte nichtzutreffendes löschen, entweder Angabe der Nummern oder Hinweis).&#13;
+&#13;
+[INSTANCE_LOCATION], [DATE]</email_text>
+    <from_email type="str">camac@ur.ch</from_email>
+    <from_name type="str">Camac Info</from_name>
+    <receiver_query type="str">adrian.wittwer@adfinis-sygroup.ch</receiver_query>
+  </data>
+</row>
+
