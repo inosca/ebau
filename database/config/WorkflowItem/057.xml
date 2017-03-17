@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">57</workflow_item_id>
-    <position type="int">29</position>
+    <position type="int">35</position>
     <name type="str">Bau beendet Info an Abwasser Uri</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
