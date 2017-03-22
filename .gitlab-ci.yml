@@ -42,4 +42,5 @@ variables:
     LC_ALL: C.UTF-8
     ORACLE_HOME: /usr/local/lib/instantclient_11_2
     LD_LIBRARY_PATH: /usr/local/lib/instantclient_11_2
-
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_STRATEGY: clone
