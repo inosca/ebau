@@ -1,3 +1,3 @@
 [submodule "camac"]
 	path = camac
-	url = git@git.adfinis-sygroup.ch:kantonur/camac-core.git
+	url = ../../kantonur/camac-core.git
