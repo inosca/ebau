@@ -1,0 +1,12 @@
+<row>
+  <table_name>configuration_version</table_name>
+  <model_name>configuration.ConfigurationVersion</model_name>
+  <data>
+    <id type="int">501</id>
+    <hash type="str">71d84012-6220-4e28-b100-00399fd787f9</hash>
+    <export_date type="datetime">2017-03-27 09:13:43</export_date>
+    <author type="str">christian.zosel@adfinis-sygroup.ch
+</author>
+  </data>
+</row>
+
