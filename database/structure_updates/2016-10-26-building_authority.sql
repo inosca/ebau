@@ -8,12 +8,7 @@ add (IS_WORKFLOW number(1, 0) DEFAULT 0 NOT NULL,
 alter table
     WORKFLOW_ENTRY
 add
-    "GROUP" number NOT NULL
-add constraint instance_groups unique (
-        INSTANCE_ID,
-        WORKFLOW_ITEM_ID,
-        "GROUP"
-    );
+    "GROUP" number DEFAULT 0 NOT NULL;
 
 /* Create new table BUILDING_AUTHORITY_SECTION */
 CREATE TABLE BUILDING_AUTHORITY_SECTION (
