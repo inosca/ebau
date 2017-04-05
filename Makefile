@@ -123,10 +123,12 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@rm -r camac/public/public
 	@rm -rf camac/library/fpdf
 	@rm -rf camac/library/fpdi
+	@rm -rf camac/library/tbs
 	@cp -r kt_uri/configuration camac/
 	@cp -r kt_uri/configuration/public camac/public/public
 	@cp -r kt_uri/library/fpdi camac/library/
 	@cp -r kt_uri/library/fpdf camac/library/
+	@cp -r kt_uri/library/tbs camac/library/
 	@find camac/application | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	@find camac/configuration | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
 	@find camac/library | grep -Pv $(ZIP_IGNORE_PATTERN) | zip -@ camac.zip
@@ -150,6 +152,7 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@rm -r camac/public/public
 	@rm -r camac/library/fpdi
 	@rm -r camac/library/fpdf
+	@rm -r camac/library/tbs
 	@rmdir camac/tmp
 	# revert back to normal config
 	@make _init

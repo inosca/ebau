@@ -1,0 +1,22 @@
+<row>
+  <table_name>building_authority_email</table_name>
+  <model_name>configuration.BuildingAuthorityEmail</model_name>
+  <data>
+    <building_authority_email_id type="int">45</building_authority_email_id>
+    <building_authority_button_id type="int">11</building_authority_button_id>
+    <email_subject type="str">Meldung Baubewilligung erteilt</email_subject>
+    <email_text type="str">CAMAC Info&#13;
+&#13;
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)&#13;
+&#13;
+Meldung Baubewilligung erteilt&#13;
+&#13;
+Die zuständige Gemeindebaubehörde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der CAMAC Dossier Nr. [@c2q6i1] die Baubewilligung erteilt. Die Baubewilligung wurde unter „Dokumente“ im CAMAC hochgeladen.&#13;
+&#13;
+[INSTANCE_LOCATION], [DATE]</email_text>
+    <from_email type="str">camac@ur.ch</from_email>
+    <from_name type="str">Camac Info</from_name>
+    <receiver_query type="str">adrian.wittwer@adfinis-sygroup.ch</receiver_query>
+  </data>
+</row>
+
