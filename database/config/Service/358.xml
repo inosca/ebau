@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">GBB Seedorf</name>
     <description type="str">GBB Seedorf</description>
-    <sort type="int">31</sort>
+    <sort type="int">81</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">BeDi</name>
     <description type="str">Justizdirektion Beschwerdedienst</description>
-    <sort type="int">14</sort>
+    <sort type="int">31</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

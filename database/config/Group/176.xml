@@ -5,7 +5,7 @@
     <group_id type="int">176</group_id>
     <role_id type="int">4</role_id>
     <service_id type="int">309</service_id>
-    <name type="str">ASTRA Bundesamt für Strassen</name>
+    <name type="str">ASTRA - Bundesamt für Strassen</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

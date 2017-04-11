@@ -3,7 +3,7 @@
   <model_name>configuration.AttachmentSection</model_name>
   <data>
     <attachment_section_id type="int">23</attachment_section_id>
-    <name type="str">Fachstellen</name>
+    <name type="str">Fachstellen (Rückmeldungen Vernehmlassungsstellen)</name>
     <sort type="int">2</sort>
   </data>
 </row>

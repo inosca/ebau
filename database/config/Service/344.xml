@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Mitglieder BK Andermatt</name>
     <description type="str">Mitglieder BK Andermatt</description>
-    <sort type="int">1</sort>
+    <sort type="int">18</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

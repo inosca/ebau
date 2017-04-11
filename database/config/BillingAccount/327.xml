@@ -5,7 +5,7 @@
     <billing_account_id type="int">327</billing_account_id>
     <name type="str">Gebühren Baubegleitung</name>
     <account_number type="str">2420.4210.01.02</account_number>
-    <department type="str">GSID / AFU / GS</department>
+    <department type="str">GSUD / AFU / GS</department>
     <service_group_id type="int">62</service_group_id>
     <predefined type="bool">True</predefined>
   </data>

@@ -6,8 +6,11 @@
     <sender_name type="str">Uri Baugesuchsverwaltung</sender_name>
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">CAMAC Uri Mitteilung - Nachforderung zusätzliche Unterlagen</title>
-    <text type="str">Sehr geehrte Dame
+    <title type="str">Nachforderung zusätzlicher Unterlagen</title>
+    <text type="str">Statusmeldung zum Stand des Bewilligungsverfahrens
+NACHFORDERUNG
+
+Sehr geehrte Dame
 Sehr geehrter Herr
 
 Wir danken Ihnen für die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Prüfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Prüfverfahren eröffnen können, bitten wir Sie, die fehlenden Angaben gemäss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zusätzlichen Angaben nochmals gesendet werden muss (Button "Dossier Senden betätigen):
