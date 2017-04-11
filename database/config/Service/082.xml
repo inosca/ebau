@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Procap</name>
     <description type="str">Procap Behindertengerechtes Bauen</description>
-    <sort type="int">10</sort>
+    <sort type="int">58</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

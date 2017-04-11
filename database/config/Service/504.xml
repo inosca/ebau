@@ -1,0 +1,19 @@
+<row>
+  <table_name>service</table_name>
+  <model_name>configuration.Service</model_name>
+  <data>
+    <service_id type="int">504</service_id>
+    <service_group_id type="int">62</service_group_id>
+    <service_parent_id type="NoneType">None</service_parent_id>
+    <name type="str">Amt für Soziales</name>
+    <description type="str">Amt für Soziales</description>
+    <sort type="int">93</sort>
+    <phone type="str"></phone>
+    <zip type="str"></zip>
+    <city type="str"></city>
+    <address type="str"></address>
+    <email type="str"></email>
+    <website type="str"></website>
+  </data>
+</row>
+

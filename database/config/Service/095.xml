@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">AfWoeV</name>
     <description type="str">Amt für Wirtschaft und öffentlichen Verkehr</description>
-    <sort type="int">83</sort>
+    <sort type="int">114</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

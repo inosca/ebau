@@ -35,8 +35,7 @@ AND
     <title type="str">Dossier [ID] von Gemeinde frei geschalten</title>
     <text type="str">CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)
 
-Meldung an die Koordinationsstelle für Baueingaben
-
+NEUES DOSSIER
 Die zuständige Gemeindebaubehörde hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.</text>
   </data>
 </row>

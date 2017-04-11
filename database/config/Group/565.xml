@@ -5,7 +5,7 @@
     <group_id type="int">565</group_id>
     <role_id type="int">1021</role_id>
     <service_id type="int">41</service_id>
-    <name type="str">ASTRA Bundesamt für Strassen - Dossierzuweisung an Baudirektion Uri</name>
+    <name type="str">ASTRA - Bundesamt für Strassen - Dossierzuweisung an Baudirektion Uri</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

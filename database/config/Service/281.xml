@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Gemeinde Andermatt</name>
     <description type="str">Gemeinde Andermatt als Vernehmlassungsstelle</description>
-    <sort type="int">57</sort>
+    <sort type="int">94</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

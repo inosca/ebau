@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">AFJ</name>
     <description type="str">Amt für Forst und Jagd und Abteilung Naturgefahren</description>
-    <sort type="int">0</sort>
+    <sort type="int">1</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
