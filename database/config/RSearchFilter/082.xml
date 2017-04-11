@@ -7,7 +7,7 @@
     <question_id type="NoneType">None</question_id>
     <field_name type="str">workflowoptions</field_name>
     <label type="str">Workflow</label>
-    <query type="str">
+    <query type="str">"INSTANCE"."CREATION_DATE" &gt;= (TO_DATE('01-01-2017', 'DD-MM-YY')) AND (
   ? = 'nachforderung' AND (
     13 IN (SELECT "WORKFLOW_ITEM_ID" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = "INSTANCE"."INSTANCE_ID") AND
     14 NOT IN (SELECT "WORKFLOW_ITEM_ID" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = "INSTANCE"."INSTANCE_ID")
@@ -64,9 +64,7 @@
     )
     AND
     54 NOT IN (SELECT "WORKFLOW_ITEM_ID" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = "INSTANCE"."INSTANCE_ID")
-  )
-
-</query>
+  ))</query>
     <wildcard type="int">0</wildcard>
   </data>
 </row>
