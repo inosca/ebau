@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ARE BaB Kreis 1</name>
     <description type="str">Amt für Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 1</description>
-    <sort type="int">1</sort>
+    <sort type="int">10</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

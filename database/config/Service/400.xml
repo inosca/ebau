@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">FGS</name>
     <description type="str">Fachstelle für Gebäudeschätzung</description>
-    <sort type="int">0</sort>
+    <sort type="int">12</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

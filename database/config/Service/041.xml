@@ -6,8 +6,8 @@
     <service_group_id type="int">2</service_group_id>
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">BD DS</name>
-    <description type="str">Baudirektion Uri Tiefbau Hochbau Verkehr Energie</description>
-    <sort type="int">0</sort>
+    <description type="str">Baudirektion Uri Direktionssekretariat</description>
+    <sort type="int">5</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
