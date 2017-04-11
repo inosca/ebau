@@ -3,7 +3,7 @@
   <model_name>configuration.AuthorityAuthorityType</model_name>
   <data>
     <authority_id type="int">48</authority_id>
-    <authority_type_id type="int">2</authority_type_id>
+    <authority_type_id type="int">3</authority_type_id>
   </data>
 </row>
 

@@ -30,11 +30,10 @@ AND
 "USER"."EMAIL" IS NOT NULL
 AND
 "USER"."DISABLED" = 0</query>
-    <title type="str">CAMAC Uri Mitteilung - Das Dossier wurde an die Koordinationsstelle des Kantons Uri weitergeleitet</title>
+    <title type="str">Dossier [INSTANCE_ID] von Gemeinde frei geschalten</title>
     <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
-Meldung an die Koordinationsstelle für Baueingaben
-
+NEUES ONLINE DOSSIER
 Das Dossier Nr. [@2001.1002] wurde vom Gesuchsteller bzw. vom Projektverfasser am [WORKFLOW_12] im CAMAC erfasst. 
 Die zuständige Gemeindebaubehörde hat das Dossier [WORKFLOW_10] am erhalten (Dossier Eingang) und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.</text>
   </data>

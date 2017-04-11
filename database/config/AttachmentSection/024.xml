@@ -3,7 +3,7 @@
   <model_name>configuration.AttachmentSection</model_name>
   <data>
     <attachment_section_id type="int">24</attachment_section_id>
-    <name type="str">Gemeinde (Protokolle, Baubewilligungen usw.)</name>
+    <name type="str">Dokumente Leitbehörden (Baubewilligungen, Verfügungen usw.)</name>
     <sort type="int">3</sort>
   </data>
 </row>
