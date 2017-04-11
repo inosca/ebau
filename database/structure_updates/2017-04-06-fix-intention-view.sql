@@ -1,0 +1,24 @@
+CREATE OR REPLACE FORCE VIEW "CAMAC"."OTHER_INTENTIONS" ("ANSWER", "INSTANCE_ID") AS
+SELECT
+	"ANSWER",
+	"INSTANCE_ID"
+	FROM
+		"ANSWER"
+	WHERE
+		(
+			"QUESTION_ID" = 98
+			AND
+			(
+				"CHAPTER_ID" = 21
+				OR
+				"CHAPTER_ID" = 101
+			)
+			AND
+			"ITEM" = 1
+		)
+		OR
+		(
+			"QUESTION_ID" = 244
+			AND
+			"CHAPTER_ID" = 102
+		);
