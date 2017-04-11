@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Mitglieder BK Urner Oberland</name>
     <description type="str">Mitglieder BK Urner Oberland</description>
-    <sort type="int">7</sort>
+    <sort type="int">48</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">GBB Urner Oberland</name>
     <description type="str">GBB Urner Oberland</description>
-    <sort type="int">26</sort>
+    <sort type="int">76</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

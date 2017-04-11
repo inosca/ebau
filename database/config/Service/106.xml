@@ -5,9 +5,9 @@
     <service_id type="int">106</service_id>
     <service_group_id type="int">61</service_group_id>
     <service_parent_id type="NoneType">None</service_parent_id>
-    <name type="str">JDDS</name>
+    <name type="str">JD DS</name>
     <description type="str">Justizdirektion Direktionssekretariat</description>
-    <sort type="int">12</sort>
+    <sort type="int">2</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

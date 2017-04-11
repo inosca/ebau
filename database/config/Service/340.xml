@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ENHK</name>
     <description type="str">Eidgenössische Natur und Heimatschutzkommission</description>
-    <sort type="int">3</sort>
+    <sort type="int">34</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

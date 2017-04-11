@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">ARE KOOR NP</name>
     <description type="str">Koordinationsstelle Nutzungplanung</description>
-    <sort type="int">85</sort>
+    <sort type="int">115</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Gemeinde Sisikon</name>
     <description type="str">Gemeinde Sisikon als Vernehmlassungsstelle</description>
-    <sort type="int">77</sort>
+    <sort type="int">109</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

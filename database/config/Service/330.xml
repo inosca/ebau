@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">Gemeinde Isenthal</name>
     <description type="str">Gemeinde Isenthal als Vernehmlassungsstelle</description>
-    <sort type="int">71</sort>
+    <sort type="int">103</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
