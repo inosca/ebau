@@ -28,21 +28,10 @@
   </tbody>
 </table>
 {{/if}}
-<form action="{{camacUrl}}/portal/user/entry/resource-id/248" method="POST">
-  <input type="hidden" name="X-Camac-Session" value={{hash}}>
-  <input type="hidden" name="firstName" value="Hans">
-  <input type="hidden" name="lastName" value="Peter">
-  <input type="hidden" name="street" value="foobar 8">
-  <input type="hidden" name="zip" value="3076">
-  <input type="hidden" name="city" value="Worb">
+<a href="{{camacUrl}}/portal/user/entry/resource-id/248?X-Camac-Session={{hash}}&firstName=Hans&lastName=Peter&street=foobar8&zip=3076&city=Worb">Dossier erstellen</a>
 
-  <input type="submit" id="toCamac" value="Dossier erstellen">
-</form>
-<form action="{{camacUrl}}/portal/user/logout/resource-id/248" method="POST">
-  <input type="hidden" name="X-Camac-Session" value={{hash}}>
-  <input type="hidden" name="X-Redirect-To" value="{{base}}logout">
-  <input type="submit" id="logout" value="Logout">
-</form>
+<a href="{{camacUrl}}/portal/user/logout/resource-id/248?X-Camac-Session={{hash}}&X-Redirect-To={{base}}logout">Logout</a>
+
 {{else}}
 <form action="{{base}}hash" method="POST">
   <input type="text" name="id" required placeholder="Nutzername">
