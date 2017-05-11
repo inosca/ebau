@@ -4,7 +4,7 @@
   <data>
     <attachment_section_id type="int">1</attachment_section_id>
     <name type="str">Interne Dokumente BaB (nur für BaB Fachstellen sichtbar)</name>
-    <sort type="int">0</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 
