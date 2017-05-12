@@ -9,7 +9,7 @@
     <template type="str">/list/dept-list.phtml</template>
     <class type="str">show_list_count</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">2</sort>
+    <sort type="int">3</sort>
   </data>
 </row>
 
