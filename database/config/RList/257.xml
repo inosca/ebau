@@ -1,0 +1,14 @@
+<row>
+  <table_name>r_list</table_name>
+  <model_name>configuration.RList</model_name>
+  <data>
+    <resource_id type="int">257</resource_id>
+    <query type="str">SELECT
+  "INSTANCE"."INSTANCE_ID"
+FROM
+  "INSTANCE"
+WHERE
+  1 = 0</query>
+  </data>
+</row>
+
