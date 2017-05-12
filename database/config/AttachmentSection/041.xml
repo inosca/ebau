@@ -4,7 +4,7 @@
   <data>
     <attachment_section_id type="int">41</attachment_section_id>
     <name type="str">Rechtsmitteldokumente (nur eingeschränkt sichtbar)</name>
-    <sort type="int">4</sort>
+    <sort type="int">10</sort>
   </data>
 </row>
 
