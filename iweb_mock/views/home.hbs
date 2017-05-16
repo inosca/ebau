@@ -28,9 +28,9 @@
   </tbody>
 </table>
 {{/if}}
-<a href="{{camacUrl}}/portal/user/entry/resource-id/248?X-Camac-Session={{hash}}&firstName=Hans&lastName=Peter&street=foobar8&zip=3076&city=Worb">Dossier erstellen</a>
+<a id="toCamac" href="{{camacUrl}}/portal/user/entry/resource-id/248?X-Camac-Session={{hash}}&firstName=Hans&lastName=Peter&street=foobar+8&zip=3076&city=Worb">Dossier erstellen</a>
 
-<a href="{{camacUrl}}/portal/user/logout/resource-id/248?X-Camac-Session={{hash}}&X-Redirect-To={{base}}logout">Logout</a>
+<a id="logout" href="{{camacUrl}}/portal/user/logout/resource-id/248?X-Camac-Session={{hash}}&X-Redirect-To={{base}}logout">Logout</a>
 
 {{else}}
 <form action="{{base}}hash" method="POST">
