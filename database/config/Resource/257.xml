@@ -4,8 +4,8 @@
   <data>
     <resource_id type="int">257</resource_id>
     <available_resource_id type="str">list</available_resource_id>
-    <name type="str">Pendenzenliste</name>
-    <description type="str">Pendenzenliste für Kraftwerke</description>
+    <name type="str">Dossiers in Bearbeitung</name>
+    <description type="str">Dossiers in Bearbeitung für Kraftwerke</description>
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
