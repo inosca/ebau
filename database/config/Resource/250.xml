@@ -9,7 +9,7 @@
     <template type="str">/list/portal-list.phtml</template>
     <class type="str">show_list_count</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">3</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 
