@@ -1,0 +1,12 @@
+<row>
+  <table_name>configuration_version</table_name>
+  <model_name>configuration.ConfigurationVersion</model_name>
+  <data>
+    <id type="int">530</id>
+    <hash type="str">209d287e-31eb-483b-80d4-cc8c923cfc51</hash>
+    <export_date type="datetime">2017-05-19 11:16:16</export_date>
+    <author type="str">jonas.cosandey@adfinis-sygroup.ch
+</author>
+  </data>
+</row>
+
