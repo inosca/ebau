@@ -31,17 +31,10 @@ app.use(
 
 app.get('/', (req, res) => {
   if (req.cookies.camacSession) {
-    getOverview(req.cookies.camacSession)
-      .then(overview => {
-        res.render('home', {
-          hash: req.cookies.camacSession,
-          id: req.cookies.portalId,
-          overview
-        })
-      })
-      .catch(() => {
-        // nothing todo here
-      })
+    res.render('home', {
+      hash: req.cookies.camacSession,
+      id: req.cookies.portalId
+    })
   } else {
     res.render('home', {
       hash: req.cookies.camacSession,
