@@ -6,15 +6,18 @@
     <sender_name type="str">Camac Kanton Uri</sender_name>
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">Dossier an Koord</title>
+    <title type="str">Dossier weitergeleitet an Koordinationsstelle</title>
     <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
-Status-Meldung (3) zum Stand des Bewilligungsverfahrens
+Status-Meldung zum Stand des Bewilligungsverfahrens
+DOSSIER WEITERGELEITET AN KOORDINATIONSSTELLE
 
 Sehr geehrte Dame
 Sehr geehrter Herr
 
-Die Gemeindebaubehörde[INSTANCE_LOCATION] hat das Dossier Nr. [@2001.1002] geprüft. Es sind kantonale Bewilligungen / Prüfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle für Baueingaben des Kantons Uri weitergeleitet. Sie erhalten eine neue Nachricht, sobald die Prüfung durch die kantonalen Fachstellen abgeschlossen ist und das Dossier an die Gemeindebaubehörde zurückgeschickt wird.
+Die Gemeindebaubehörde [INSTANCE_LOCATION] hat das Dossier Nr. [@c2q6i1] geprüft. Es sind kantonale Bewilligungen / Prüfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle für Baueingaben des Kantons Uri weitergeleitet.
+
+Unter dem Vorbehalt, dass das Dossier vollständig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, beträgt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubehörde voraussichtlich 6 bis 7 Wochen.
 
 Mit freundlichen Grüssen
 Gemeindebaubehörde [INSTANCE_LOCATION]</text>
