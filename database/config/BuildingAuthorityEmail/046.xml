@@ -1,0 +1,32 @@
+<row>
+  <table_name>building_authority_email</table_name>
+  <model_name>configuration.BuildingAuthorityEmail</model_name>
+  <data>
+    <building_authority_email_id type="int">46</building_authority_email_id>
+    <building_authority_button_id type="int">12</building_authority_button_id>
+    <email_subject type="str">Bau- und Einsprache-Entscheid</email_subject>
+    <email_text type="str">CAMAC Info&#13;
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)&#13;
+&#13;
+BAU- UND EINSPRACHE-ENTSCHEID&#13;
+&#13;
+Sehr geehrte Dame&#13;
+Sehr geehrter Herr&#13;
+&#13;
+Betreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der CAMAC Nr. [@c2q6i1] wurde der Bau- und Einsprache-Entscheid von der zuständigen Gemeindebaubehörde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.&#13;
+&#13;
+Bitte kontaktieren Sie die zuständige Gemeindebaubehörde falls diese den Bauentscheid im CAMAC noch nicht hochgeladen hat.&#13;
+&#13;
+Amt für Raumentwicklung &#13;
+Koordinationsstelle für Baueingaben&#13;
+Rathausplatz 5&#13;
+6460 Altdorf&#13;
+&#13;
+Tel. 041 875 24 29&#13;
+E-Mail: raumplanung@ur.ch</email_text>
+    <from_email type="str">camac@ur.ch</from_email>
+    <from_name type="str">Camac Info</from_name>
+    <receiver_query type="str">[fachstellen]</receiver_query>
+  </data>
+</row>
+
