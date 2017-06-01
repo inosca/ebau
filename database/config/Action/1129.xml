@@ -2,15 +2,15 @@
   <table_name>action</table_name>
   <model_name>configuration.Action</model_name>
   <data>
-    <action_id type="int">1066</action_id>
+    <action_id type="int">1129</action_id>
     <available_action_id type="str">email</available_action_id>
-    <button_id type="int">752</button_id>
-    <name type="str">E-Mail mit Nachforderungstext verschicken</name>
+    <button_id type="int">747</button_id>
+    <name type="str">E-Mail an Gesuchsteller schicken</name>
     <description type="str"></description>
     <success_message type="str">E-Mail wurde an den Gesuchsteller versandt!</success_message>
     <error_message type="str">E-Mail an den Gesuchsteller konnte nicht versandt werden.</error_message>
     <execute_always type="bool">False</execute_always>
-    <sort type="int">4</sort>
+    <sort type="int">1</sort>
   </data>
 </row>
 
