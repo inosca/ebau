@@ -4,7 +4,7 @@
   <data>
     <building_authority_email_id type="int">66</building_authority_email_id>
     <building_authority_button_id type="int">12</building_authority_button_id>
-    <email_subject type="str">Bau- und Einsprache-Entscheid</email_subject>
+    <email_subject type="str">CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid</email_subject>
     <email_text type="str">CAMAC Info&#13;
 (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)&#13;
 &#13;
