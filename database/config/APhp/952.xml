@@ -3,7 +3,7 @@
   <model_name>configuration.APhp</model_name>
   <data>
     <action_id type="int">952</action_id>
-    <php_class type="str">SetBDDossierNr</php_class>
+    <php_class type="str">DossierNR</php_class>
   </data>
 </row>
 
