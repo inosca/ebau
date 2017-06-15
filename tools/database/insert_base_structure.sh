@@ -9,7 +9,7 @@ CREATE OR REPLACE DIRECTORY strucdir AS '/var/local/database/structure_dumps/';
 GRANT read,write ON DIRECTORY strucdir TO camac;
 EOF
 
-impdp camac/camac DIRECTORY=strucdir DUMPFILE=latest SCHEMAS=camac commit=N \
+impdp camac/camac DIRECTORY=strucdir DUMPFILE=latest SCHEMAS=camac \
     NOLOGFILE=Y
 
 exit 0
