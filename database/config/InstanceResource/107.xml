@@ -4,7 +4,7 @@
   <data>
     <instance_resource_id type="int">107</instance_resource_id>
     <available_instance_resource_id type="str">editformpage</available_instance_resource_id>
-    <resource_id type="int">24</resource_id>
+    <resource_id type="int">267</resource_id>
     <name type="str">Dossier bearbeiten</name>
     <description type="str">Dossiers von der Koordinationsstelle</description>
     <template type="str">/form/bg-form.phtml</template>

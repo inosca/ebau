@@ -4,7 +4,7 @@
   <data>
     <instance_resource_id type="int">305</instance_resource_id>
     <available_instance_resource_id type="str">editcirculation</available_instance_resource_id>
-    <resource_id type="int">24</resource_id>
+    <resource_id type="int">267</resource_id>
     <name type="str">Zirkulation</name>
     <description type="str">Zirkulation der Dossiers von der Gemeinde</description>
     <template type="str"></template>

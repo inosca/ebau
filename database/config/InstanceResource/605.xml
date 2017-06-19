@@ -4,7 +4,7 @@
   <data>
     <instance_resource_id type="int">605</instance_resource_id>
     <available_instance_resource_id type="str">editformpage</available_instance_resource_id>
-    <resource_id type="int">242</resource_id>
+    <resource_id type="int">264</resource_id>
     <name type="str">Dossier bearbeiten</name>
     <description type="str">Dossier bearbeiten für alle Dossiers KOOR BD</description>
     <template type="str">/form/bd-form.phtml</template>
