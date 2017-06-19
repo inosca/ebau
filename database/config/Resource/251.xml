@@ -9,7 +9,7 @@
     <template type="str">/portal/create.phtml</template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">26</sort>
+    <sort type="int">25</sort>
   </data>
 </row>
 
