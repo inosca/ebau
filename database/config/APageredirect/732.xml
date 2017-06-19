@@ -3,7 +3,7 @@
   <model_name>configuration.APageredirect</model_name>
   <data>
     <action_id type="int">732</action_id>
-    <resource_id type="int">162</resource_id>
+    <resource_id type="int">288</resource_id>
     <instance_resource_id type="int">467</instance_resource_id>
     <air_action_name type="str">edit</air_action_name>
   </data>

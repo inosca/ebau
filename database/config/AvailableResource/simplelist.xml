@@ -1,0 +1,11 @@
+<row>
+  <table_name>available_resource</table_name>
+  <model_name>configuration.AvailableResource</model_name>
+  <data>
+    <available_resource_id type="str">simplelist</available_resource_id>
+    <module_name type="str">core</module_name>
+    <controller_name type="str">simplelist</controller_name>
+    <description type="str">Page with a list of instances (new)</description>
+  </data>
+</row>
+
