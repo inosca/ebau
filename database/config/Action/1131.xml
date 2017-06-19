@@ -8,9 +8,8 @@
     <name type="str">Statusänderung in DONE</name>
     <description type="str">ARCH (Gemeinde) zu DONE</description>
     <success_message type="str">Die Archivierung des Dossiers wurde aufgehoben.</success_message>
-    <error_message type="str">Die Archivierung des Dossiers konnte nicht aufgehiben werden.</error_message>
+    <error_message type="str">Die Archivierung des Dossiers konnte nicht aufgehoben werden.</error_message>
     <execute_always type="bool">False</execute_always>
     <sort type="int">0</sort>
   </data>
 </row>
-
