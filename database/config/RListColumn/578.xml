@@ -6,7 +6,7 @@
     <resource_id type="int">41</resource_id>
     <column_name type="str">DEADLINE</column_name>
     <alias type="str">Frist</alias>
-    <sort type="int">3</sort>
+    <sort type="int">5</sort>
   </data>
 </row>
 
