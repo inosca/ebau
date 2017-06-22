@@ -6,7 +6,7 @@
     <resource_id type="int">41</resource_id>
     <column_name type="str">FORM</column_name>
     <alias type="str">Verfahren</alias>
-    <sort type="int">2</sort>
+    <sort type="int">4</sort>
   </data>
 </row>
 
