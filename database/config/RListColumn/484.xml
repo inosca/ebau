@@ -6,7 +6,7 @@
     <resource_id type="int">41</resource_id>
     <column_name type="str">CIRC_STATE</column_name>
     <alias type="str">Status</alias>
-    <sort type="int">9</sort>
+    <sort type="int">11</sort>
   </data>
 </row>
 
