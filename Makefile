@@ -268,12 +268,7 @@ help: ## Show the help messages
 
 .PHONY: run-acceptance-tests
 run-acceptance-tests: ## run the acceptance tests
-	@make -C db_admin/ run-acceptance-tests ${ARGS}
-
-
-.PHONY: run-acceptance-tests-fast
-run-acceptance-tests-fast: ## run the acceptance tests fast - meaning, don't runn quite every test
-	@make -C db_admin/ run-acceptance-tests-fast ${ARGS}
+	@make -C db_admin/ run-acceptance-tests ARGS="${ARGS}"
 
 
 .PHONY: ci-run-acceptance-tests
