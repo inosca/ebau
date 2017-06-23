@@ -7,7 +7,7 @@
     <name type="str">Speichern und weiter</name>
     <description type="str">Portal
 Button um vom Dossier editieren zu den Dokumenten zu gelangen</description>
-    <class type="str"></class>
+    <class type="str">portal_save_and_continue</class>
     <hidden type="bool">False</hidden>
     <sort type="int">1</sort>
   </data>
