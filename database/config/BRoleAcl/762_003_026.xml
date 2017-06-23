@@ -3,7 +3,7 @@
   <model_name>configuration.BRoleAcl</model_name>
   <data>
     <button_id type="int">762</button_id>
-    <role_id type="int">6</role_id>
+    <role_id type="int">3</role_id>
     <instance_state_id type="int">26</instance_state_id>
   </data>
 </row>
