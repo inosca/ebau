@@ -1,0 +1,10 @@
+<row>
+  <table_name>docgen_pdf_action</table_name>
+  <model_name>configuration.DocgenPdfAction</model_name>
+  <data>
+    <docgen_template_id type="int">81</docgen_template_id>
+    <docgen_template_class_id type="int">82</docgen_template_class_id>
+    <action_id type="int">1183</action_id>
+  </data>
+</row>
+

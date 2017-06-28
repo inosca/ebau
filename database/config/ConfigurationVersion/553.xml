@@ -1,0 +1,12 @@
+<row>
+  <table_name>configuration_version</table_name>
+  <model_name>configuration.ConfigurationVersion</model_name>
+  <data>
+    <id type="int">553</id>
+    <hash type="str">cdc15bbd-5268-4d41-beb6-9ef9275055c9</hash>
+    <export_date type="datetime">2017-06-26 08:47:16</export_date>
+    <author type="str">lucas.bickel@adfinis-sygroup.ch
+</author>
+  </data>
+</row>
+

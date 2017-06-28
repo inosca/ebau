@@ -1,0 +1,10 @@
+<row>
+  <table_name>ir_editformpage</table_name>
+  <model_name>configuration.IrEditformpage</model_name>
+  <data>
+    <instance_resource_id type="int">699</instance_resource_id>
+    <page_id type="int">1</page_id>
+    <pdf_class type="str"></pdf_class>
+  </data>
+</row>
+
