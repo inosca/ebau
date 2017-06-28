@@ -5,7 +5,7 @@
     <form_id type="int">108</form_id>
     <form_state_id type="int">1</form_state_id>
     <name type="str">Genehmigung Quartierplan QP</name>
-    <description type="str">GEM, KOOR NP</description>
+    <description type="str">KOOR - ARE - NP Koordination Nutzungsplanung</description>
   </data>
 </row>
 
