@@ -3,9 +3,9 @@
   <model_name>configuration.AttachmentSectionRole</model_name>
   <data>
     <id type="int">126</id>
-    <attachment_section_id type="int">21</attachment_section_id>
-    <role_id type="int">2</role_id>
-    <mode type="str">read</mode>
+    <attachment_section_id type="int">63</attachment_section_id>
+    <role_id type="int">1106</role_id>
+    <mode type="str">admin</mode>
   </data>
 </row>
 
