@@ -4,12 +4,12 @@
   <data>
     <resource_id type="int">289</resource_id>
     <available_resource_id type="str">simplelist</available_resource_id>
-    <name type="str">Bauplanauflagen</name>
-    <description type="str">Diese Liste ist ohne Login zugänglich.</description>
+    <name type="str">Pendenzenliste Start</name>
+    <description type="str">Pendenzenliste Start für Koord Umweltschutz AfU</description>
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">10</sort>
+    <sort type="int">9</sort>
   </data>
 </row>
 
