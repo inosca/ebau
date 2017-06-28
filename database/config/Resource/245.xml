@@ -9,7 +9,7 @@
     <template type="str"></template>
     <class type="str">show_list_count</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">15</sort>
+    <sort type="int">14</sort>
   </data>
 </row>
 
