@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">TEST KOORNP</name>
     <description type="str">Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)</description>
-    <sort type="int">121</sort>
+    <sort type="int">122</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
