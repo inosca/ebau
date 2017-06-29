@@ -3,7 +3,7 @@
   <model_name>configuration.RSimpleList</model_name>
   <data>
     <resource_id type="int">293</resource_id>
-    <instance_states type="str">25</instance_states>
+    <instance_states type="str">21,25</instance_states>
   </data>
 </row>
 
