@@ -3,7 +3,7 @@
   <model_name>configuration.AttachmentSection</model_name>
   <data>
     <attachment_section_id type="int">21</attachment_section_id>
-    <name type="str">Dokumente Gesuchsteller gemäss Publikation</name>
+    <name type="str">Publikationsordner</name>
     <sort type="int">6</sort>
   </data>
 </row>
