@@ -2,8 +2,8 @@
   <table_name>r_role_acl</table_name>
   <model_name>configuration.RRoleAcl</model_name>
   <data>
-    <resource_id type="int">245</resource_id>
-    <role_id type="int">3</role_id>
+    <resource_id type="int">294</resource_id>
+    <role_id type="int">1106</role_id>
   </data>
 </row>
 
