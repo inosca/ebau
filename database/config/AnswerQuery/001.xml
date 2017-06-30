@@ -19,7 +19,7 @@ WHERE
       GROUP_ID = [GROUP_ID]
     )
     OR
-    [ROLE_ID] NOT IN (7, 6)
+    [ROLE_ID] NOT IN (6, 7, 1105)
 ORDER BY NAME</query>
   </data>
 </row>
