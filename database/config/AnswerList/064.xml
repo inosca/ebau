@@ -5,7 +5,7 @@
     <answer_list_id type="int">64</answer_list_id>
     <question_id type="int">94</question_id>
     <value type="str">Arch</value>
-    <name type="str">Archäologische Fundstelle und Funderwartungsgebiet</name>
+    <name type="str">Archäologisches Funderwartungsgebiet</name>
     <sort type="int">3</sort>
   </data>
 </row>
