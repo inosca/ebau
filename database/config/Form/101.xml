@@ -5,7 +5,7 @@
     <form_id type="int">101</form_id>
     <form_state_id type="int">1</form_state_id>
     <name type="str">Genehmigung Teilrevision Nutzungsplanung</name>
-    <description type="str">KOOR - ARE - NP Koordination Nutzungsplanung</description>
+    <description type="str">KOOR-ARE-NP;Koordinationsstelle für Nutzungsplanung Amt für Raumentwicklung</description>
   </data>
 </row>
 

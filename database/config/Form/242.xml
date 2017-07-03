@@ -5,7 +5,7 @@
     <form_id type="int">242</form_id>
     <form_state_id type="int">1</form_state_id>
     <name type="str">Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</name>
-    <description type="str">KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren</description>
+    <description type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</description>
   </data>
 </row>
 
