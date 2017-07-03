@@ -2,8 +2,8 @@
   <table_name>button</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">762</button_id>
-    <instance_resource_id type="int">4</instance_resource_id>
+    <button_id type="int">785</button_id>
+    <instance_resource_id type="int">107</instance_resource_id>
     <name type="str">Statusänderung in DONE</name>
     <description type="str">Status eines Dossiers von ARCH nach DONE ändern.</description>
     <class type="str"></class>
