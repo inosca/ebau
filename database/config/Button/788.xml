@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">788</button_id>
+    <instance_resource_id type="int">713</instance_resource_id>
+    <name type="str">Nachforderung</name>
+    <description type="str">Button, der die Zirkulation in Nachforderung setzt für diese Vernehmlassungsstelle</description>
+    <class type="str">circ_nfd_button</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">2</sort>
+  </data>
+</row>
+

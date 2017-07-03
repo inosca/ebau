@@ -1,0 +1,10 @@
+<row>
+  <table_name>b_role_acl</table_name>
+  <model_name>configuration.BRoleAcl</model_name>
+  <data>
+    <button_id type="int">787</button_id>
+    <role_id type="int">1102</role_id>
+    <instance_state_id type="int">23</instance_state_id>
+  </data>
+</row>
+

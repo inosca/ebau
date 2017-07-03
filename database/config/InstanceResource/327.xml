@@ -10,7 +10,7 @@
     <template type="str">/global/involved-department.phtml</template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">11</sort>
+    <sort type="int">13</sort>
     <form_group_id type="int">161</form_group_id>
   </data>
 </row>
