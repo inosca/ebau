@@ -5,7 +5,7 @@
     <form_id type="int">246</form_id>
     <form_state_id type="int">1</form_state_id>
     <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</name>
-    <description type="str">KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren</description>
+    <description type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</description>
   </data>
 </row>
 

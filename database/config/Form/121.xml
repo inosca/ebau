@@ -5,7 +5,7 @@
     <form_id type="int">121</form_id>
     <form_state_id type="int">1</form_state_id>
     <name type="str">Reklame-Gesuch (eingereicht via Gemeinde)</name>
-    <description type="str">KOOR - ARE - BG Koordinationsstelle für Baueingaben</description>
+    <description type="str">KOOR-ARE-BG;Koordinationsstelle für Baueingaben Amt für Raumentwicklung</description>
   </data>
 </row>
 
