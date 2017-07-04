@@ -9,7 +9,6 @@
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">21</sort>
+    <sort type="int">20</sort>
   </data>
 </row>
-
