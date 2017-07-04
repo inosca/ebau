@@ -1,0 +1,17 @@
+<row>
+  <table_name>ir_circulation</table_name>
+  <model_name>configuration.IrCirculation</model_name>
+  <data>
+    <instance_resource_id type="int">727</instance_resource_id>
+    <circulation_type_id type="int">41</circulation_type_id>
+    <service_id type="int">545</service_id>
+    <draft_circulation_answer_id type="NoneType">None</draft_circulation_answer_id>
+    <show_notice type="int">2</show_notice>
+    <show_history type="bool">False</show_history>
+    <show_all_children type="bool">True</show_all_children>
+    <read_notice_template type="str"></read_notice_template>
+    <pdf_class type="str"></pdf_class>
+    <service_to_be_interpreted type="str"></service_to_be_interpreted>
+  </data>
+</row>
+

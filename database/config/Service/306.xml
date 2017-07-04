@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">AfE</name>
     <description type="str">Baudirektion Amt für Energie</description>
-    <sort type="int">125</sort>
+    <sort type="int">126</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
