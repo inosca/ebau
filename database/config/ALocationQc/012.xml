@@ -1,0 +1,11 @@
+<row>
+  <table_name>a_location_qc</table_name>
+  <model_name>configuration.ALocationQc</model_name>
+  <data>
+    <a_location_qc_id type="int">12</a_location_qc_id>
+    <action_id type="int">1294</action_id>
+    <question_id type="int">2</question_id>
+    <chapter_id type="int">3</chapter_id>
+  </data>
+</row>
+
