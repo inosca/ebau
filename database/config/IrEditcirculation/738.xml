@@ -1,0 +1,19 @@
+<row>
+  <table_name>ir_editcirculation</table_name>
+  <model_name>configuration.IrEditcirculation</model_name>
+  <data>
+    <instance_resource_id type="int">738</instance_resource_id>
+    <circulation_type_id type="int">41</circulation_type_id>
+    <draft_circulation_answer_id type="NoneType">None</draft_circulation_answer_id>
+    <show_notice type="bool">True</show_notice>
+    <add_template type="str"></add_template>
+    <add_activation_template type="str"></add_activation_template>
+    <read_notice_template type="str"></read_notice_template>
+    <pdf_class type="str"></pdf_class>
+    <default_circulation_name type="str">Erste Zirkulation</default_circulation_name>
+    <single_circulation type="bool">True</single_circulation>
+    <inherit_notices type="bool">False</inherit_notices>
+    <display_first_circulation type="bool">True</display_first_circulation>
+  </data>
+</row>
+

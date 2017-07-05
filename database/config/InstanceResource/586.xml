@@ -10,7 +10,7 @@
     <template type="str">/dept/commissioners.phtml</template>
     <class type="str">commissioners</class>
     <hidden type="bool">False</hidden>
-    <sort type="int">16</sort>
+    <sort type="int">18</sort>
     <form_group_id type="int">161</form_group_id>
   </data>
 </row>
