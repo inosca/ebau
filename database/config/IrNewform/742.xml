@@ -1,0 +1,10 @@
+<row>
+  <table_name>ir_newform</table_name>
+  <model_name>configuration.IrNewform</model_name>
+  <data>
+    <instance_resource_id type="int">742</instance_resource_id>
+    <instance_state_id type="int">22</instance_state_id>
+    <page_form_group_id type="int">1</page_form_group_id>
+  </data>
+</row>
+

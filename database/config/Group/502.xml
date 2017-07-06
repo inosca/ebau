@@ -5,7 +5,7 @@
     <group_id type="int">502</group_id>
     <role_id type="int">1101</role_id>
     <service_id type="int">302</service_id>
-    <name type="str">KOOR BD - DS - Koordinationsstelle für Bewilligungsverfahren</name>
+    <name type="str">KOOR - BD - Koordinationsstelle Baudirektion</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
