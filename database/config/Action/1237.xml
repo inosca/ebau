@@ -5,7 +5,7 @@
     <action_id type="int">1237</action_id>
     <available_action_id type="str">php</available_action_id>
     <button_id type="int">808</button_id>
-    <name type="str">IDLE aud RUN setzen</name>
+    <name type="str">IDLE auf RUN setzen</name>
     <description type="str"></description>
     <success_message type="str"></success_message>
     <error_message type="str"></error_message>

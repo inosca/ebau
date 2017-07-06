@@ -10,7 +10,7 @@
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">True</hidden>
-    <sort type="int">13</sort>
+    <sort type="int">15</sort>
     <form_group_id type="int">32</form_group_id>
   </data>
 </row>

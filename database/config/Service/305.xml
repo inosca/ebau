@@ -7,7 +7,7 @@
     <service_parent_id type="NoneType">None</service_parent_id>
     <name type="str">BK</name>
     <description type="str">Baudirektion Betrieb Kantonsstrassen</description>
-    <sort type="int">123</sort>
+    <sort type="int">124</sort>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>
