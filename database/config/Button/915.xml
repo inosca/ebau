@@ -2,11 +2,11 @@
   <table_name>button</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">488</button_id>
-    <instance_resource_id type="int">2</instance_resource_id>
-    <name type="str">Wiedereröffnen</name>
+    <button_id type="int">915</button_id>
+    <instance_resource_id type="int">699</instance_resource_id>
+    <name type="str">ÖREB Meldung</name>
     <description type="str"></description>
-    <class type="str"></class>
+    <class type="str">oereb</class>
     <hidden type="bool">False</hidden>
     <sort type="int">4</sort>
   </data>

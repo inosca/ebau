@@ -8,7 +8,7 @@
     <description type="str">Von Arch zurück zu Redac</description>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">4</sort>
+    <sort type="int">3</sort>
   </data>
 </row>
 

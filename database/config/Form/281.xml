@@ -1,0 +1,11 @@
+<row>
+  <table_name>form</table_name>
+  <model_name>configuration.Form</model_name>
+  <data>
+    <form_id type="int">281</form_id>
+    <form_state_id type="int">1</form_state_id>
+    <name type="str">Meldung ÖREB Anpassung AFJ</name>
+    <description type="str">KOOR-AFJ;Koordinationsstelle Amt für Forst und Jagd</description>
+  </data>
+</row>
+

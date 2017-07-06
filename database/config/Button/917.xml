@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">917</button_id>
+    <instance_resource_id type="int">605</instance_resource_id>
+    <name type="str">ÖREB Meldung</name>
+    <description type="str"></description>
+    <class type="str">oereb</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">5</sort>
+  </data>
+</row>
+
