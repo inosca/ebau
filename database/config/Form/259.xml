@@ -1,0 +1,11 @@
+<row>
+  <table_name>form</table_name>
+  <model_name>configuration.Form</model_name>
+  <data>
+    <form_id type="int">259</form_id>
+    <form_state_id type="int">1</form_state_id>
+    <name type="str">Konzessionsverfahren Baudirektion für Wärmeentnahmen (Artikel 40 GNG)</name>
+    <description type="str">KOOR-AFE;Koordinationsstelle Amt für Energie</description>
+  </data>
+</row>
+

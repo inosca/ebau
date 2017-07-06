@@ -1,0 +1,14 @@
+<row>
+  <table_name>button</table_name>
+  <model_name>configuration.Button</model_name>
+  <data>
+    <button_id type="int">816</button_id>
+    <instance_resource_id type="int">731</instance_resource_id>
+    <name type="str">Dossier vollständig</name>
+    <description type="str">Button, wenn die Nachforderung erledigt ist</description>
+    <class type="str">circ_complete_button</class>
+    <hidden type="bool">False</hidden>
+    <sort type="int">3</sort>
+  </data>
+</row>
+
