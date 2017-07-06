@@ -1,0 +1,12 @@
+<row>
+  <table_name>page_form</table_name>
+  <model_name>configuration.PageForm</model_name>
+  <data>
+    <page_id type="int">41</page_id>
+    <form_id type="int">284</form_id>
+    <page_form_mode_id type="int">4</page_form_mode_id>
+    <page_form_group_id type="int">1</page_form_group_id>
+    <sort type="int">1</sort>
+  </data>
+</row>
+
