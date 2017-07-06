@@ -1,0 +1,10 @@
+<row>
+  <table_name>form_group</table_name>
+  <model_name>configuration.FormGroup</model_name>
+  <data>
+    <form_group_id type="int">251</form_group_id>
+    <name type="str">Alle Dossiers von der Koordinationsstelle Energie AfE</name>
+    <description type="str"></description>
+  </data>
+</row>
+

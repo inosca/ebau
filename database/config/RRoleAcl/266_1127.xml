@@ -1,0 +1,9 @@
+<row>
+  <table_name>r_role_acl</table_name>
+  <model_name>configuration.RRoleAcl</model_name>
+  <data>
+    <resource_id type="int">266</resource_id>
+    <role_id type="int">1127</role_id>
+  </data>
+</row>
+
