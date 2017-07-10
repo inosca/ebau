@@ -2,7 +2,7 @@
   <table_name>docgen_docx_action</table_name>
   <model_name>configuration.DocgenDocxAction</model_name>
   <data>
-    <docgen_template_id type="int">121</docgen_template_id>
+    <docgen_template_id type="int">213</docgen_template_id>
     <docgen_template_class_id type="int">225</docgen_template_class_id>
     <action_id type="int">1242</action_id>
   </data>

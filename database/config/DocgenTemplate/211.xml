@@ -1,0 +1,11 @@
+<row>
+  <table_name>docgen_template</table_name>
+  <model_name>configuration.DocgenTemplate</model_name>
+  <data>
+    <docgen_template_id type="int">211</docgen_template_id>
+    <name type="str">Rechnung AFJ</name>
+    <path type="str">billKOORAFJ.docx</path>
+    <type type="int">1</type>
+  </data>
+</row>
+
