@@ -3,30 +3,31 @@
   <model_name>configuration.AEmail</model_name>
   <data>
     <action_id type="int">1318</action_id>
-    <sender_name type="str">Camac Info</sender_name>
+    <sender_name type="str">CAMAC - Kanton Uri</sender_name>
     <sender_email type="str">camac@ur.ch</sender_email>
     <query type="str">SELECT "EMAIL", "NAME"
 FROM "CAMAC"."GROUP"
 WHERE "NAME" = 'Lisag'</query>
     <title type="str">ÖREB Meldung</title>
-    <text type="str">CAMAC Info
-(automatisch generierte Nachricht von CAMAC, bitte nicht darauf antworten)
+    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
 ÖREB MELDUNG
-(zugewiesen von der KOOR ARE NP)
+Zugewiesen von der Koordinationsstelle Nutzungsplanung
 
 Sehr geehrte Dame 
 Sehr geehrter Herr
 
-Betreffend das CAMAC Dossier Nr. [@c2q6i1] die zuständige Stelle ÖREB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erwähnten CAMAC Dossier einzusehen und die entsprechenden Einträge im ÖREB vorzunehmen.
+Betreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zuständige Stelle ÖREB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erwähnten CAMAC Dossier einzusehen und die entsprechenden Einträge im ÖREB vorzunehmen.
 
 Bei Fragen stehen wir Ihnen gerne zur Verfügung.
 
 Amt für Raumentwicklung
-
-Koordinationsstelle für Nutzungsplanung
+Koordinationsstelle für Baueingaben
 Rathausplatz 5
-6460 Altdorf</text>
+6460 Altdorf
+
+Tel. 041 875 24 36
+E-Mail: pirmin.scheuber@ur.ch</text>
   </data>
 </row>
 
