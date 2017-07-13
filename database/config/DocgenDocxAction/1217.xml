@@ -2,8 +2,8 @@
   <table_name>docgen_docx_action</table_name>
   <model_name>configuration.DocgenDocxAction</model_name>
   <data>
-    <docgen_template_id type="int">121</docgen_template_id>
-    <docgen_template_class_id type="int">208</docgen_template_class_id>
+    <docgen_template_id type="int">212</docgen_template_id>
+    <docgen_template_class_id type="int">122</docgen_template_class_id>
     <action_id type="int">1217</action_id>
   </data>
 </row>
