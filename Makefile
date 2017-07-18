@@ -58,6 +58,14 @@ _submodule-update:
 install:
 	npm install --prefix ./kt_uri/configuration/public
 
+.PHONY: js
+js:
+	npm run build --prefix ./kt_uri/configuration/public
+
+.PHONY: js-watch
+js-watch:
+	npm run watch --prefix ./kt_uri/configuration/public
+
 .PHONY: run
 run: _init ## Runs the docker containers
 	@docker-compose -f docker/docker-compose.yml up
