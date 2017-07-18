@@ -54,6 +54,9 @@ _submodule-update:
 	touch camac/logs/application.log
 	chmod 777 -R camac/logs || true
 
+.PHONY: install
+install:
+	npm install --prefix ./kt_uri/configuration/public
 
 .PHONY: run
 run: _init ## Runs the docker containers
