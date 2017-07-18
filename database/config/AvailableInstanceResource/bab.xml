@@ -1,0 +1,11 @@
+<row>
+  <table_name>available_instance_resource</table_name>
+  <model_name>configuration.AvailableInstanceResource</model_name>
+  <data>
+    <available_instance_resource_id type="str">bab</available_instance_resource_id>
+    <module_name type="str">bab</module_name>
+    <controller_name type="str">edit</controller_name>
+    <description type="str">BaB Datenerfassung</description>
+  </data>
+</row>
+
