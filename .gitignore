@@ -19,3 +19,4 @@ doc/
 db_admin/uri_database/*.png
 .python-version
 export.log
+node_modules
