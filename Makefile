@@ -27,7 +27,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 	@tmux -2 attach-session -d
 
 .PHONY: _base-init
-_base-init: _submodule-update
+_base-init: _submodule-update _install
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	ln -sf "../../kt_uri/configuration/public" "camac/public/"
@@ -54,8 +54,8 @@ _submodule-update:
 	touch camac/logs/application.log
 	chmod 777 -R camac/logs || true
 
-.PHONY: install
-install:
+.PHONY: _install
+_install:
 	npm install --prefix ./kt_uri/configuration/public
 
 .PHONY: js
