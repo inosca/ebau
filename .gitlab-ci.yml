@@ -20,9 +20,8 @@ run-test:
         - date
         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
-        - make install
-        - make js
         - make _ci-init
+        - make js
         - bash .wait-for-ssh.sh oracle-eatmydata 22
         - python .wait-for-oracle-db.py oracle-eatmydata 1521
         - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
