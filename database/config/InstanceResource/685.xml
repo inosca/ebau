@@ -4,7 +4,7 @@
   <data>
     <instance_resource_id type="int">685</instance_resource_id>
     <available_instance_resource_id type="str">sanction</available_instance_resource_id>
-    <resource_id type="int">23</resource_id>
+    <resource_id type="int">301</resource_id>
     <name type="str">Auflagen-Controlling</name>
     <description type="str">Auflagen-Controlling Gemeindebaubehörde</description>
     <template type="str"></template>
