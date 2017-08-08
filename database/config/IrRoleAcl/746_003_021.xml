@@ -3,8 +3,8 @@
   <model_name>configuration.IrRoleAcl</model_name>
   <data>
     <instance_resource_id type="int">746</instance_resource_id>
-    <role_id type="int">1101</role_id>
-    <instance_state_id type="int">24</instance_state_id>
+    <role_id type="int">3</role_id>
+    <instance_state_id type="int">21</instance_state_id>
   </data>
 </row>
 
