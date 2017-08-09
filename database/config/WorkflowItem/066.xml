@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">66</workflow_item_id>
-    <position type="int">39</position>
+    <position type="int">40</position>
     <name type="str">Meldung Baubewilligung an Geometer</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
