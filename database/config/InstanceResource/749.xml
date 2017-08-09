@@ -2,15 +2,15 @@
   <table_name>instance_resource</table_name>
   <model_name>configuration.InstanceResource</model_name>
   <data>
-    <instance_resource_id type="int">729</instance_resource_id>
-    <available_instance_resource_id type="str">sanction</available_instance_resource_id>
+    <instance_resource_id type="int">749</instance_resource_id>
+    <available_instance_resource_id type="str">billing</available_instance_resource_id>
     <resource_id type="int">297</resource_id>
-    <name type="str">Auflagen-Controlling</name>
-    <description type="str">Auflagen-Controlling für KOOR AfE</description>
+    <name type="str">Gebühr Koord</name>
+    <description type="str"></description>
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
-    <sort type="int">7</sort>
+    <sort type="int">4</sort>
     <form_group_id type="int">251</form_group_id>
   </data>
 </row>
