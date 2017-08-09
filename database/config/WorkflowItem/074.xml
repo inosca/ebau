@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowItem</model_name>
   <data>
     <workflow_item_id type="int">74</workflow_item_id>
-    <position type="int">42</position>
+    <position type="int">43</position>
     <name type="str">AC gestartet</name>
     <automatical type="bool">True</automatical>
     <different_color type="bool">False</different_color>
