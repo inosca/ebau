@@ -10,7 +10,7 @@
     <zip type="str"></zip>
     <city type="str"></city>
     <address type="str"></address>
-    <email type="str">mail@lisag.example.com</email>
+    <email type="str"></email>
     <website type="str"></website>
   </data>
 </row>

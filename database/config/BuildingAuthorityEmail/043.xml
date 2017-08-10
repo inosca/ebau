@@ -16,7 +16,7 @@ Das Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] i
 [INSTANCE_LOCATION], [DATE]</email_text>
     <from_email type="str">camac@ur.ch</from_email>
     <from_name type="str">Camac Info</from_name>
-    <receiver_query type="str">adrian.wittwer@adfinis-sygroup.ch</receiver_query>
+    <receiver_query type="str">info@abwasser-uri.ch</receiver_query>
   </data>
 </row>
 
