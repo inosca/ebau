@@ -3,9 +3,9 @@
   <model_name>configuration.Group</model_name>
   <data>
     <group_id type="int">809</group_id>
-    <role_id type="int">1104</role_id>
+    <role_id type="int">4</role_id>
     <service_id type="NoneType">None</service_id>
-    <name type="str">Greenpeace</name>
+    <name type="str">Laboratorium der Urkantone Badewasserinspektorat</name>
     <phone type="str"></phone>
     <zip type="str"></zip>
     <city type="str"></city>

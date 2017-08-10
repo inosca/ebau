@@ -3,7 +3,7 @@
   <model_name>configuration.Group</model_name>
   <data>
     <group_id type="int">203</group_id>
-    <role_id type="int">1021</role_id>
+    <role_id type="int">1081</role_id>
     <service_id type="int">86</service_id>
     <name type="str">Laboratorium der Urkantone Veterinäramt</name>
     <phone type="str"></phone>
