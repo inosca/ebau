@@ -20,7 +20,7 @@ Wir bitten Sie, das Erfordernis der Zwischenschätzung zu prüfen und gegebenenf
 [INSTANCE_LOCATION], [DATE]</email_text>
     <from_email type="str">camac@ur.ch</from_email>
     <from_name type="str">Camac Info</from_name>
-    <receiver_query type="str">adrian.wittwer@adfinis-sygroup.ch</receiver_query>
+    <receiver_query type="str">grundstueckschaetzung@ur.ch</receiver_query>
   </data>
 </row>
 
