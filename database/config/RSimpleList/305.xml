@@ -1,0 +1,9 @@
+<row>
+  <table_name>r_simple_list</table_name>
+  <model_name>configuration.RSimpleList</model_name>
+  <data>
+    <resource_id type="int">305</resource_id>
+    <instance_states type="str">23</instance_states>
+  </data>
+</row>
+
