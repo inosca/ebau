@@ -4,7 +4,7 @@
   <data>
     <attachment_section_id type="int">61</attachment_section_id>
     <name type="str">Interne Dokumente ARE SU (nur für Fachstelle ARE SU sichtbar)</name>
-    <sort type="int">2</sort>
+    <sort type="int">1</sort>
   </data>
 </row>
 
