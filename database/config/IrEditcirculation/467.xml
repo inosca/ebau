@@ -3,7 +3,7 @@
   <model_name>configuration.IrEditcirculation</model_name>
   <data>
     <instance_resource_id type="int">467</instance_resource_id>
-    <circulation_type_id type="int">61</circulation_type_id>
+    <circulation_type_id type="int">41</circulation_type_id>
     <draft_circulation_answer_id type="NoneType">None</draft_circulation_answer_id>
     <show_notice type="bool">True</show_notice>
     <add_template type="str"></add_template>
