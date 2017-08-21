@@ -27,7 +27,7 @@ run-fancy: ## Create a tmux session that runs several useful commands at once: m
 	@tmux -2 attach-session -d
 
 .PHONY: _base-init
-_base-init: _submodule-update _install
+_base-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	ln -sf "../../kt_uri/configuration/public" "camac/public/"
@@ -39,7 +39,7 @@ _base-init: _submodule-update _install
 	@make _classloader
 
 .PHONY: _ci-init
-_ci-init: _base-init
+_ci-init: _base-init _install
 	@ENV='ci' make -C resources/configuration-templates/
 	@ENV='ci' make htaccess
 
@@ -225,14 +225,14 @@ _deployment_confirmation:
 
 .PHONY: deploy-test-server
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
-	@git checkout test
 	@ENV='test' make -C resources/configuration-templates/
 	@ENV='test' make htaccess
 	@rsync -Lavz camac/* sy-jump:/mnt/ssh/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
 	@ssh sy-jump "chown -R www-data /mnt/ssh/root@camac.sycloud.ch/var/www/uri/logs"
 	@scp resources/htaccess/test-server-passwd sy-jump:/mnt/ssh/root@camac.sycloud.ch/var/www/uri/passwd
-	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
 	@ENV='dev' make -C resources/configuration-templates/
+	@ENV='dev' make htaccess
+	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
 
 
 .PHONY: deploy-portal-test-server
