@@ -4,8 +4,8 @@
   <data>
     <resource_id type="int">307</resource_id>
     <available_resource_id type="str">simplelist</available_resource_id>
-    <name type="str">Dossiers in Bearbeitung</name>
-    <description type="str">Dossiers in Bearbeitung für Organisation mit Leserechten</description>
+    <name type="str">Baubewilligungsverfahren und Vorabklärungen</name>
+    <description type="str">Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige für Organisation mit Leserechten</description>
     <template type="str"></template>
     <class type="str"></class>
     <hidden type="bool">False</hidden>
