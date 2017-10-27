@@ -227,9 +227,9 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@ENV='test' make -C resources/configuration-templates/
 	@ENV='test' make htaccess
-	@rsync -Lavz camac/* sy-jump:/mnt/ssh/root@camac.sycloud.ch/var/www/uri/ --exclude=*.log --exclude=db-config*.ini
-	@ssh sy-jump "chown -R www-data /mnt/ssh/root@camac.sycloud.ch/var/www/uri/logs"
-	@scp resources/htaccess/test-server-passwd sy-jump:/mnt/ssh/root@camac.sycloud.ch/var/www/uri/passwd
+	@rsync -Lavz camac/* sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/ --exclude=*.log --exclude=db-config*.ini --exclude=node_modules/
+	@ssh sy-jump "chown -R www-data /mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/logs"
+	@scp resources/htaccess/test-server-passwd sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/passwd
 	@ENV='dev' make -C resources/configuration-templates/
 	@ENV='dev' make htaccess
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
