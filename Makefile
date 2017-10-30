@@ -237,7 +237,7 @@ deploy-test-server: _deployment_confirmation css _classloader ## Move the code o
 
 .PHONY: deploy-portal-test-server
 deploy-portal-test-server:
-	@rsync -avz iweb_mock/* sy-jump:/mnt/ssh/root@camac.sycloud.ch/var/www/iweb/ --exclude=node_modules/*
+	@rsync -avz iweb_mock/* sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/iweb_mock/ --exclude=node_modules/
 	# TODO: npm install, forever restart. How to call a command on the server?
 
 
