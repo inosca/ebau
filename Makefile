@@ -68,7 +68,7 @@ js-watch:
 
 .PHONY: run
 run: _init ## Runs the docker containers
-	@docker-compose -f docker/docker-compose.yml up
+	@docker-compose -f docker/docker-compose.yml up -d
 
 .PHONY: db-create-user
 db-create-user: _sync_db_tools ## Create the user camac in the database
