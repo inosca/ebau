@@ -1,15 +1,15 @@
 <row>
-  <table_name>workflow_item</table_name>
+  <table_name>WORKFLOW_ITEM</table_name>
   <model_name>configuration.WorkflowItem</model_name>
   <data>
-    <workflow_item_id type="int">74</workflow_item_id>
-    <position type="int">43</position>
-    <name type="str">AC gestartet</name>
-    <automatical type="bool">True</automatical>
-    <different_color type="bool">False</different_color>
-    <is_workflow type="bool">True</is_workflow>
-    <is_building_authority type="bool">False</is_building_authority>
-    <workflow_section_id type="int">4</workflow_section_id>
+    <WORKFLOW_ITEM_ID type="int">74</WORKFLOW_ITEM_ID>
+    <POSITION type="int">43</POSITION>
+    <NAME type="str">AC gestartet</NAME>
+    <AUTOMATICAL type="int">1</AUTOMATICAL>
+    <DIFFERENT_COLOR type="int">0</DIFFERENT_COLOR>
+    <IS_WORKFLOW type="int">1</IS_WORKFLOW>
+    <IS_BUILDING_AUTHORITY type="int">0</IS_BUILDING_AUTHORITY>
+    <WORKFLOW_SECTION_ID type="int">4</WORKFLOW_SECTION_ID>
   </data>
 </row>
 

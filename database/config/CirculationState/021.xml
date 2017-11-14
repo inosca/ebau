@@ -1,10 +1,10 @@
 <row>
-  <table_name>circulation_state</table_name>
+  <table_name>CIRCULATION_STATE</table_name>
   <model_name>configuration.CirculationState</model_name>
   <data>
-    <circulation_state_id type="int">21</circulation_state_id>
-    <name type="str">IDLE</name>
-    <sort type="int">2</sort>
+    <CIRCULATION_STATE_ID type="int">21</CIRCULATION_STATE_ID>
+    <NAME type="str">IDLE</NAME>
+    <SORT type="int">2</SORT>
   </data>
 </row>
 

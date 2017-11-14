@@ -1,10 +1,10 @@
 <row>
-  <table_name>billing_config</table_name>
+  <table_name>BILLING_CONFIG</table_name>
   <model_name>configuration.BillingConfig</model_name>
   <data>
-    <billing_config_id type="int">1</billing_config_id>
-    <name type="str">hourly_rate</name>
-    <value type="str">100</value>
+    <BILLING_CONFIG_ID type="int">1</BILLING_CONFIG_ID>
+    <NAME type="str">hourly_rate</NAME>
+    <VALUE type="str">100</VALUE>
   </data>
 </row>
 

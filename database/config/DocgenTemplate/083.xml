@@ -1,11 +1,11 @@
 <row>
-  <table_name>docgen_template</table_name>
+  <table_name>DOCGEN_TEMPLATE</table_name>
   <model_name>configuration.DocgenTemplate</model_name>
   <data>
-    <docgen_template_id type="int">83</docgen_template_id>
-    <name type="str">Rückmeldung</name>
-    <path type="str">rueckmeldung.zip</path>
-    <type type="int">2</type>
+    <DOCGEN_TEMPLATE_ID type="int">83</DOCGEN_TEMPLATE_ID>
+    <NAME type="str">Rückmeldung</NAME>
+    <PATH type="str">rueckmeldung.zip</PATH>
+    <TYPE type="int">2</TYPE>
   </data>
 </row>
 

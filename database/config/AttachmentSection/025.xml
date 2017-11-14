@@ -1,10 +1,10 @@
 <row>
-  <table_name>attachment_section</table_name>
+  <table_name>ATTACHMENT_SECTION</table_name>
   <model_name>configuration.AttachmentSection</model_name>
   <data>
-    <attachment_section_id type="int">25</attachment_section_id>
-    <name type="str">Lisag (Nutzungsplandokumente, ITF Dateien)</name>
-    <sort type="int">11</sort>
+    <ATTACHMENT_SECTION_ID type="int">25</ATTACHMENT_SECTION_ID>
+    <NAME type="str">Lisag (Nutzungsplandokumente, ITF Dateien)</NAME>
+    <SORT type="int">11</SORT>
   </data>
 </row>
 

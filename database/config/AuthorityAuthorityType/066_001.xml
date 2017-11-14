@@ -1,9 +1,0 @@
-<row>
-  <table_name>authority_authority_type</table_name>
-  <model_name>configuration.AuthorityAuthorityType</model_name>
-  <data>
-    <authority_id type="int">66</authority_id>
-    <authority_type_id type="int">1</authority_type_id>
-  </data>
-</row>
-

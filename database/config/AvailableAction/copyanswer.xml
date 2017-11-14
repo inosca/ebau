@@ -1,10 +1,10 @@
 <row>
-  <table_name>available_action</table_name>
+  <table_name>AVAILABLE_ACTION</table_name>
   <model_name>configuration.AvailableAction</model_name>
   <data>
-    <available_action_id type="str">copyanswer</available_action_id>
-    <module_name type="str">default</module_name>
-    <description type="str">Copy data from question to question</description>
+    <AVAILABLE_ACTION_ID type="str">copyanswer</AVAILABLE_ACTION_ID>
+    <MODULE_NAME type="str">default</MODULE_NAME>
+    <DESCRIPTION type="str">Copy data from question to question</DESCRIPTION>
   </data>
 </row>
 

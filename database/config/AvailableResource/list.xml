@@ -1,11 +1,11 @@
 <row>
-  <table_name>available_resource</table_name>
+  <table_name>AVAILABLE_RESOURCE</table_name>
   <model_name>configuration.AvailableResource</model_name>
   <data>
-    <available_resource_id type="str">list</available_resource_id>
-    <module_name type="str">default</module_name>
-    <controller_name type="str">list</controller_name>
-    <description type="str">Page with a list of instances</description>
+    <AVAILABLE_RESOURCE_ID type="str">list</AVAILABLE_RESOURCE_ID>
+    <MODULE_NAME type="str">default</MODULE_NAME>
+    <CONTROLLER_NAME type="str">list</CONTROLLER_NAME>
+    <DESCRIPTION type="str">Page with a list of instances</DESCRIPTION>
   </data>
 </row>
 

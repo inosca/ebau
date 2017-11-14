@@ -1,0 +1,10 @@
+<row>
+  <table_name>PORTAL_SESSION</table_name>
+  <model_name>configuration.PortalSession</model_name>
+  <data>
+    <PORTAL_SESSION_ID type="str">af567a278f61f116f0b748776c07d4780f4e8658282e267a7a4b45a0eefcfa8a</PORTAL_SESSION_ID>
+    <PORTAL_IDENTIFIER type="str">test</PORTAL_IDENTIFIER>
+    <LAST_ACTIVE type="date">2017-10-30</LAST_ACTIVE>
+  </data>
+</row>
+

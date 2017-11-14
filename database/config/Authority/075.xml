@@ -1,9 +1,9 @@
 <row>
-  <table_name>authority</table_name>
+  <table_name>AUTHORITY</table_name>
   <model_name>configuration.Authority</model_name>
   <data>
-    <authority_id type="int">75</authority_id>
-    <name type="str">Bundesamt für Verkehr (BAV)</name>
+    <AUTHORITY_ID type="int">75</AUTHORITY_ID>
+    <NAME type="str">Bundesamt für Verkehr (BAV)</NAME>
   </data>
 </row>
 

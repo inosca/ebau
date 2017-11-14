@@ -1,0 +1,10 @@
+<row>
+  <table_name>ATTACHMENT_EXTENSION_ROLE</table_name>
+  <model_name>configuration.AttachmentExtensionRole</model_name>
+  <data>
+    <ATTACHMENT_EXTENSION_ID type="int">44</ATTACHMENT_EXTENSION_ID>
+    <ROLE_ID type="int">6</ROLE_ID>
+    <MODE type="str"></MODE>
+  </data>
+</row>
+

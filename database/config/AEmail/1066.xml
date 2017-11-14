@@ -1,13 +1,13 @@
 <row>
-  <table_name>a_email</table_name>
+  <table_name>A_EMAIL</table_name>
   <model_name>configuration.AEmail</model_name>
   <data>
-    <action_id type="int">1066</action_id>
-    <sender_name type="str">Uri Baugesuchsverwaltung</sender_name>
-    <sender_email type="str">camac@ur.ch</sender_email>
-    <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">Nachforderung zusätzlicher Unterlagen</title>
-    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+    <ACTION_ID type="int">1066</ACTION_ID>
+    <SENDER_NAME type="str">Uri Baugesuchsverwaltung</SENDER_NAME>
+    <SENDER_EMAIL type="str">camac@ur.ch</SENDER_EMAIL>
+    <QUERY type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</QUERY>
+    <TITLE type="str">Nachforderung zusätzlicher Unterlagen</TITLE>
+    <TEXT type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
 Statusmeldung zum Stand des Bewilligungsverfahrens
 NACHFORDERUNG
@@ -18,7 +18,7 @@ Sehr geehrter Herr
 Wir danken Ihnen für die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Prüfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Prüfverfahren eröffnen können, bitten wir Sie, die fehlenden Angaben gemäss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zusätzlichen Angaben nochmals gesendet werden muss (Button "Dossier Senden" betätigen):
 
 Mit freundlichen Grüssen
-Gemeindebaubehörde [INSTANCE_LOCATION]</text>
+Gemeindebaubehörde [INSTANCE_LOCATION]</TEXT>
   </data>
 </row>
 

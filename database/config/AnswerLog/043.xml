@@ -1,0 +1,20 @@
+<row>
+  <table_name>ANSWER_LOG</table_name>
+  <model_name>configuration.AnswerLog</model_name>
+  <data>
+    <ANSWER_LOG_ID type="int">43</ANSWER_LOG_ID>
+    <MODIFICATION_DATE type="date">2017-10-06</MODIFICATION_DATE>
+    <USER_ID type="int">286</USER_ID>
+    <ACTION type="str">i</ACTION>
+    <DATA type="str">{"INSTANCE_ID":"22","QUESTION_ID":"5","CHAPTER_ID":"3","ITEM":1,"ANSWER":"18"}</DATA>
+    <ID1 type="int">22</ID1>
+    <FIELD1 type="str">INSTANCE_ID</FIELD1>
+    <ID2 type="int">5</ID2>
+    <FIELD2 type="str">QUESTION_ID</FIELD2>
+    <ID3 type="int">3</ID3>
+    <FIELD3 type="str">CHAPTER_ID</FIELD3>
+    <ID4 type="int">1</ID4>
+    <FIELD4 type="str">ITEM</FIELD4>
+  </data>
+</row>
+

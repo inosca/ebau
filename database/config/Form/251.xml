@@ -1,11 +1,11 @@
 <row>
-  <table_name>form</table_name>
+  <table_name>FORM</table_name>
   <model_name>configuration.Form</model_name>
   <data>
-    <form_id type="int">251</form_id>
-    <form_state_id type="int">1</form_state_id>
-    <name type="str">Internes Mitberichtsverfahren AfU</name>
-    <description type="str">KOOR-AfU;Koordinationsstelle Amt für Umweltschutz</description>
+    <FORM_ID type="int">251</FORM_ID>
+    <FORM_STATE_ID type="int">1</FORM_STATE_ID>
+    <NAME type="str">Internes Mitberichtsverfahren AfU</NAME>
+    <DESCRIPTION type="str">KOOR-AfU;Koordinationsstelle Amt für Umweltschutz</DESCRIPTION>
   </data>
 </row>
 

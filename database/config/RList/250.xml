@@ -1,9 +1,9 @@
 <row>
-  <table_name>r_list</table_name>
+  <table_name>R_LIST</table_name>
   <model_name>configuration.RList</model_name>
   <data>
-    <resource_id type="int">250</resource_id>
-    <query type="str">SELECT
+    <RESOURCE_ID type="int">250</RESOURCE_ID>
+    <QUERY type="str">SELECT
   "INSTANCE"."INSTANCE_ID"     AS "INSTANCE_ID",
   "FORM"."NAME"                AS "FORM",
   "LOCATION"."NAME"            AS "COMMUNITY",
@@ -57,7 +57,7 @@ WHERE
   )
   AND
   "GROUP_LOCATION"."LOCATION_ID" = "INSTANCE_LOCATION"."LOCATION_ID"
-</query>
+</QUERY>
   </data>
 </row>
 

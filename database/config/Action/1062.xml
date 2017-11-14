@@ -1,16 +1,16 @@
 <row>
-  <table_name>action</table_name>
+  <table_name>ACTION</table_name>
   <model_name>configuration.Action</model_name>
   <data>
-    <action_id type="int">1062</action_id>
-    <available_action_id type="str">formtransition</available_action_id>
-    <button_id type="int">753</button_id>
-    <name type="str">NFD zu SUBM</name>
-    <description type="str">Bürger-Dossier von NFD zu SUBM freigeben</description>
-    <success_message type="str">Dossier erfolgreich für die Gemeinde freigegeben</success_message>
-    <error_message type="str">Dossier konnte nicht freigegeben werden</error_message>
-    <execute_always type="bool">False</execute_always>
-    <sort type="int">0</sort>
+    <ACTION_ID type="int">1062</ACTION_ID>
+    <AVAILABLE_ACTION_ID type="str">formtransition</AVAILABLE_ACTION_ID>
+    <BUTTON_ID type="int">753</BUTTON_ID>
+    <NAME type="str">NFD zu SUBM</NAME>
+    <DESCRIPTION type="str">Bürger-Dossier von NFD zu SUBM freigeben</DESCRIPTION>
+    <SUCCESS_MESSAGE type="str">Dossier erfolgreich für die Gemeinde freigegeben</SUCCESS_MESSAGE>
+    <ERROR_MESSAGE type="str">Dossier konnte nicht freigegeben werden</ERROR_MESSAGE>
+    <EXECUTE_ALWAYS type="int">0</EXECUTE_ALWAYS>
+    <SORT type="int">0</SORT>
   </data>
 </row>
 

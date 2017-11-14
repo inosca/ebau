@@ -1,10 +1,10 @@
 <row>
-  <table_name>a_circulationtransition</table_name>
+  <table_name>A_CIRCULATIONTRANSITION</table_name>
   <model_name>configuration.ACirculationtransition</model_name>
   <data>
-    <action_id type="int">510</action_id>
-    <current_circulation_state_id type="NoneType">None</current_circulation_state_id>
-    <next_circulation_state_id type="int">2</next_circulation_state_id>
+    <ACTION_ID type="int">510</ACTION_ID>
+    <CURRENT_CIRCULATION_STATE_ID type="NoneType">None</CURRENT_CIRCULATION_STATE_ID>
+    <NEXT_CIRCULATION_STATE_ID type="int">2</NEXT_CIRCULATION_STATE_ID>
   </data>
 </row>
 

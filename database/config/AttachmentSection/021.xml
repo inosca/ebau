@@ -1,10 +1,10 @@
 <row>
-  <table_name>attachment_section</table_name>
+  <table_name>ATTACHMENT_SECTION</table_name>
   <model_name>configuration.AttachmentSection</model_name>
   <data>
-    <attachment_section_id type="int">21</attachment_section_id>
-    <name type="str">Publikationsordner</name>
-    <sort type="int">5</sort>
+    <ATTACHMENT_SECTION_ID type="int">21</ATTACHMENT_SECTION_ID>
+    <NAME type="str">Publikationsordner</NAME>
+    <SORT type="int">5</SORT>
   </data>
 </row>
 

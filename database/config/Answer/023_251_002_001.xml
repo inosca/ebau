@@ -1,0 +1,12 @@
+<row>
+  <table_name>ANSWER</table_name>
+  <model_name>configuration.Answer</model_name>
+  <data>
+    <INSTANCE_ID type="int">23</INSTANCE_ID>
+    <QUESTION_ID type="int">251</QUESTION_ID>
+    <CHAPTER_ID type="int">2</CHAPTER_ID>
+    <ITEM type="int">1</ITEM>
+    <ANSWER type="str">0</ANSWER>
+  </data>
+</row>
+

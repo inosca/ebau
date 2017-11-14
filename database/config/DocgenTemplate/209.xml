@@ -1,11 +1,11 @@
 <row>
-  <table_name>docgen_template</table_name>
+  <table_name>DOCGEN_TEMPLATE</table_name>
   <model_name>configuration.DocgenTemplate</model_name>
   <data>
-    <docgen_template_id type="int">209</docgen_template_id>
-    <name type="str">Brief Gemeindebaubehörde an Gesuchsteller</name>
-    <path type="str">letterGemeindebaubehoerdeGesuchsteller.docx</path>
-    <type type="int">1</type>
+    <DOCGEN_TEMPLATE_ID type="int">209</DOCGEN_TEMPLATE_ID>
+    <NAME type="str">Brief Gemeindebaubehörde an Gesuchsteller</NAME>
+    <PATH type="str">letterGemeindebaubehoerdeGesuchsteller.docx</PATH>
+    <TYPE type="int">1</TYPE>
   </data>
 </row>
 

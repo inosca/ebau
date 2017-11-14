@@ -1,9 +1,10 @@
 <row>
-  <table_name>question_type</table_name>
+  <table_name>QUESTION_TYPE</table_name>
   <model_name>configuration.QuestionType</model_name>
   <data>
-    <question_type_id type="int">3</question_type_id>
-    <name type="str">Select</name>
+    <QUESTION_TYPE_ID type="int">3</QUESTION_TYPE_ID>
+    <NAME type="str">Select</NAME>
+    <SORT type="NoneType">None</SORT>
   </data>
 </row>
 

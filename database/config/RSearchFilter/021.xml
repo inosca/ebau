@@ -1,14 +1,15 @@
 <row>
-  <table_name>r_search_filter</table_name>
+  <table_name>R_SEARCH_FILTER</table_name>
   <model_name>configuration.RSearchFilter</model_name>
   <data>
-    <r_search_filter_id type="int">21</r_search_filter_id>
-    <resource_id type="int">42</resource_id>
-    <question_id type="NoneType">None</question_id>
-    <field_name type="str">form</field_name>
-    <label type="str">Verfahren</label>
-    <query type="str">"INSTANCE"."FORM_ID" IN ( ?)</query>
-    <wildcard type="int">0</wildcard>
+    <R_SEARCH_FILTER_ID type="int">21</R_SEARCH_FILTER_ID>
+    <RESOURCE_ID type="int">42</RESOURCE_ID>
+    <QUESTION_ID type="NoneType">None</QUESTION_ID>
+    <FIELD_NAME type="str">form</FIELD_NAME>
+    <LABEL type="str">Verfahren</LABEL>
+    <QUERY type="str">"INSTANCE"."FORM_ID" IN ( ?)</QUERY>
+    <WILDCARD type="int">0</WILDCARD>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

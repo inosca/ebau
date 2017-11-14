@@ -1,17 +1,17 @@
 <row>
-  <table_name>instance_resource</table_name>
+  <table_name>INSTANCE_RESOURCE</table_name>
   <model_name>configuration.InstanceResource</model_name>
   <data>
-    <instance_resource_id type="int">690</instance_resource_id>
-    <available_instance_resource_id type="str">sanction</available_instance_resource_id>
-    <resource_id type="int">264</resource_id>
-    <name type="str">Auflagen-Controlling</name>
-    <description type="str">Auflagen-Controlling für KOOR BD</description>
-    <template type="str"></template>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">9</sort>
-    <form_group_id type="int">161</form_group_id>
+    <INSTANCE_RESOURCE_ID type="int">690</INSTANCE_RESOURCE_ID>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">sanction</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <RESOURCE_ID type="int">264</RESOURCE_ID>
+    <NAME type="str">Auflagen-Controlling</NAME>
+    <DESCRIPTION type="str">Auflagen-Controlling für KOOR BD</DESCRIPTION>
+    <TEMPLATE type="str"></TEMPLATE>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">9</SORT>
+    <FORM_GROUP_ID type="int">161</FORM_GROUP_ID>
   </data>
 </row>
 

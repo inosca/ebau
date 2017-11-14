@@ -1,9 +1,9 @@
 <row>
-  <table_name>service_group</table_name>
+  <table_name>SERVICE_GROUP</table_name>
   <model_name>configuration.ServiceGroup</model_name>
   <data>
-    <service_group_id type="int">2</service_group_id>
-    <name type="str">Fachstellen Baudirektion</name>
+    <SERVICE_GROUP_ID type="int">2</SERVICE_GROUP_ID>
+    <NAME type="str">Fachstellen Baudirektion</NAME>
   </data>
 </row>
 

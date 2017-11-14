@@ -1,13 +1,13 @@
 <row>
-  <table_name>r_search_filter</table_name>
+  <table_name>R_SEARCH_FILTER</table_name>
   <model_name>configuration.RSearchFilter</model_name>
   <data>
-    <r_search_filter_id type="int">45</r_search_filter_id>
-    <resource_id type="int">102</resource_id>
-    <question_id type="NoneType">None</question_id>
-    <field_name type="str">fulltext</field_name>
-    <label type="str">Volltext</label>
-    <query type="str">"INSTANCE"."INSTANCE_ID" IN (
+    <R_SEARCH_FILTER_ID type="int">45</R_SEARCH_FILTER_ID>
+    <RESOURCE_ID type="int">102</RESOURCE_ID>
+    <QUESTION_ID type="NoneType">None</QUESTION_ID>
+    <FIELD_NAME type="str">fulltext</FIELD_NAME>
+    <LABEL type="str">Volltext</LABEL>
+    <QUERY type="str">"INSTANCE"."INSTANCE_ID" IN (
 
    SELECT
 
@@ -21,8 +21,9 @@
 
       lower(ANSWER) LIKE lower(?)
 
- )</query>
-    <wildcard type="int">3</wildcard>
+ )</QUERY>
+    <WILDCARD type="int">3</WILDCARD>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

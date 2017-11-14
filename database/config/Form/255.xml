@@ -1,11 +1,11 @@
 <row>
-  <table_name>form</table_name>
+  <table_name>FORM</table_name>
   <model_name>configuration.Form</model_name>
   <data>
-    <form_id type="int">255</form_id>
-    <form_state_id type="int">1</form_state_id>
-    <name type="str">Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</name>
-    <description type="str">KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft</description>
+    <FORM_ID type="int">255</FORM_ID>
+    <FORM_STATE_ID type="int">1</FORM_STATE_ID>
+    <NAME type="str">Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)</NAME>
+    <DESCRIPTION type="str">KOOR-ALA;Koordinationsstelle Amt für Landwirtschaft</DESCRIPTION>
   </data>
 </row>
 

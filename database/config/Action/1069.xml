@@ -1,16 +1,16 @@
 <row>
-  <table_name>action</table_name>
+  <table_name>ACTION</table_name>
   <model_name>configuration.Action</model_name>
   <data>
-    <action_id type="int">1069</action_id>
-    <available_action_id type="str">email</available_action_id>
-    <button_id type="int">4</button_id>
-    <name type="str">E-Mail an Koord wenn Dossier von Portal</name>
-    <description type="str"></description>
-    <success_message type="str">E-Mail wurde an die Koordinationsstelle versandt!</success_message>
-    <error_message type="str">Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.</error_message>
-    <execute_always type="bool">False</execute_always>
-    <sort type="int">3</sort>
+    <ACTION_ID type="int">1069</ACTION_ID>
+    <AVAILABLE_ACTION_ID type="str">email</AVAILABLE_ACTION_ID>
+    <BUTTON_ID type="int">4</BUTTON_ID>
+    <NAME type="str">E-Mail an Koord wenn Dossier von Portal</NAME>
+    <DESCRIPTION type="str"></DESCRIPTION>
+    <SUCCESS_MESSAGE type="str">E-Mail wurde an die Koordinationsstelle versandt!</SUCCESS_MESSAGE>
+    <ERROR_MESSAGE type="str">Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.</ERROR_MESSAGE>
+    <EXECUTE_ALWAYS type="int">0</EXECUTE_ALWAYS>
+    <SORT type="int">3</SORT>
   </data>
 </row>
 

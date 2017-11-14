@@ -1,14 +1,15 @@
 <row>
-  <table_name>r_search_filter</table_name>
+  <table_name>R_SEARCH_FILTER</table_name>
   <model_name>configuration.RSearchFilter</model_name>
   <data>
-    <r_search_filter_id type="int">2</r_search_filter_id>
-    <resource_id type="int">42</resource_id>
-    <question_id type="int">2</question_id>
-    <field_name type="str">community</field_name>
-    <label type="str">Gemeinde</label>
-    <query type="str">instance.instance_id in (select instance_location.instance_id from instance_location where instance_location.location_id = ?)</query>
-    <wildcard type="int">0</wildcard>
+    <R_SEARCH_FILTER_ID type="int">2</R_SEARCH_FILTER_ID>
+    <RESOURCE_ID type="int">42</RESOURCE_ID>
+    <QUESTION_ID type="int">2</QUESTION_ID>
+    <FIELD_NAME type="str">community</FIELD_NAME>
+    <LABEL type="str">Gemeinde</LABEL>
+    <QUERY type="str">instance.instance_id in (select instance_location.instance_id from instance_location where instance_location.location_id = ?)</QUERY>
+    <WILDCARD type="int">0</WILDCARD>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

@@ -1,17 +1,17 @@
 <row>
-  <table_name>instance_resource</table_name>
+  <table_name>INSTANCE_RESOURCE</table_name>
   <model_name>configuration.InstanceResource</model_name>
   <data>
-    <instance_resource_id type="int">692</instance_resource_id>
-    <available_instance_resource_id type="str">buildingauthority</available_instance_resource_id>
-    <resource_id type="int">301</resource_id>
-    <name type="str">Bauverwaltung</name>
-    <description type="str"></description>
-    <template type="str"></template>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">13</sort>
-    <form_group_id type="int">161</form_group_id>
+    <INSTANCE_RESOURCE_ID type="int">692</INSTANCE_RESOURCE_ID>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">buildingauthority</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <RESOURCE_ID type="int">301</RESOURCE_ID>
+    <NAME type="str">Bauverwaltung</NAME>
+    <DESCRIPTION type="str"></DESCRIPTION>
+    <TEMPLATE type="str"></TEMPLATE>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">13</SORT>
+    <FORM_GROUP_ID type="int">161</FORM_GROUP_ID>
   </data>
 </row>
 

@@ -1,0 +1,16 @@
+<row>
+  <table_name>INSTANCE_LOCATION_LOG</table_name>
+  <model_name>configuration.InstanceLocationLog</model_name>
+  <data>
+    <INSTANCE_LOCATION_LOG_ID type="int">42</INSTANCE_LOCATION_LOG_ID>
+    <MODIFICATION_DATE type="date">2017-10-27</MODIFICATION_DATE>
+    <USER_ID type="int">1209</USER_ID>
+    <ACTION type="str">i</ACTION>
+    <DATA type="str">{"INSTANCE_ID":"42","LOCATION_ID":"1"}</DATA>
+    <ID1 type="int">42</ID1>
+    <FIELD1 type="str">INSTANCE_ID</FIELD1>
+    <ID2 type="int">1</ID2>
+    <FIELD2 type="str">LOCATION_ID</FIELD2>
+  </data>
+</row>
+

@@ -1,10 +1,10 @@
 <row>
-  <table_name>ir_role_acl</table_name>
+  <table_name>IR_ROLE_ACL</table_name>
   <model_name>configuration.IrRoleAcl</model_name>
   <data>
-    <instance_resource_id type="int">586</instance_resource_id>
-    <role_id type="int">4</role_id>
-    <instance_state_id type="int">26</instance_state_id>
+    <INSTANCE_RESOURCE_ID type="int">586</INSTANCE_RESOURCE_ID>
+    <ROLE_ID type="int">4</ROLE_ID>
+    <INSTANCE_STATE_ID type="int">26</INSTANCE_STATE_ID>
   </data>
 </row>
 

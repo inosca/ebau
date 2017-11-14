@@ -1,10 +1,10 @@
 <row>
-  <table_name>r_search</table_name>
+  <table_name>R_SEARCH</table_name>
   <model_name>configuration.RSearch</model_name>
   <data>
-    <resource_id type="int">102</resource_id>
-    <result_template type="str"></result_template>
-    <query type="str">select  distinct
+    <RESOURCE_ID type="int">102</RESOURCE_ID>
+    <RESULT_TEMPLATE type="str"></RESULT_TEMPLATE>
+    <QUERY type="str">select  distinct
   "INSTANCE"."INSTANCE_ID",
   "DOSSIERNR"."ANSWER" as "DOSSIER_NR",
   "FORM"."NAME"        as "FORM",
@@ -127,9 +127,9 @@ WHERE
     "GROUP_LOCATION"."LOCATION_ID" = "INSTANCE_LOCATION"."LOCATION_ID"
   )
   OR
-  ([ROLE_ID] NOT IN (3, 1061, 7, 6)))</query>
-    <pdf_class type="str"></pdf_class>
-    <preserve_result type="bool">False</preserve_result>
+  ([ROLE_ID] NOT IN (3, 1061, 7, 6)))</QUERY>
+    <PDF_CLASS type="str"></PDF_CLASS>
+    <PRESERVE_RESULT type="int">0</PRESERVE_RESULT>
   </data>
 </row>
 
