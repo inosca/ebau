@@ -7,6 +7,7 @@
     <USER_ID type="int">286</USER_ID>
     <ACTION type="str">u</ACTION>
     <DATA type="str">{"INSTANCE_STATE_ID":"23","PREVIOUS_INSTANCE_STATE_ID":"22","MODIFICATION_DATE":"11.10.17 08:37:36"}</DATA>
+    <ID type="int">23</ID>
   </data>
 </row>
 
