@@ -1,22 +1,22 @@
 <row>
-  <table_name>building_authority_email</table_name>
+  <table_name>BUILDING_AUTHORITY_EMAIL</table_name>
   <model_name>configuration.BuildingAuthorityEmail</model_name>
   <data>
-    <building_authority_email_id type="int">43</building_authority_email_id>
-    <building_authority_button_id type="int">6</building_authority_button_id>
-    <email_subject type="str">CAMAC Dossier Nr. [@c2q6i1]: Meldung Fertigstellung Bauvorhaben</email_subject>
-    <email_text type="str">CAMAC Info&#13;
-&#13;
-(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)&#13;
-&#13;
-Meldung Fertigstellung Bauvorhaben&#13;
-&#13;
-Das Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt und zur Endabnahme bereit.&#13;
-&#13;
-[INSTANCE_LOCATION], [DATE]</email_text>
-    <from_email type="str">camac@ur.ch</from_email>
-    <from_name type="str">Camac Info</from_name>
-    <receiver_query type="str">info@abwasser-uri.ch</receiver_query>
+    <BUILDING_AUTHORITY_EMAIL_ID type="int">43</BUILDING_AUTHORITY_EMAIL_ID>
+    <BUILDING_AUTHORITY_BUTTON_ID type="int">6</BUILDING_AUTHORITY_BUTTON_ID>
+    <EMAIL_TEXT type="str">CAMAC Info
+
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+
+Meldung Fertigstellung Bauvorhaben
+
+Das Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt und zur Endabnahme bereit.
+
+[INSTANCE_LOCATION], [DATE]</EMAIL_TEXT>
+    <RECEIVER_QUERY type="str">info@abwasser-uri.ch</RECEIVER_QUERY>
+    <EMAIL_SUBJECT type="str">CAMAC Dossier Nr. [@c2q6i1]: Meldung Fertigstellung Bauvorhaben</EMAIL_SUBJECT>
+    <FROM_EMAIL type="str">camac@ur.ch</FROM_EMAIL>
+    <FROM_NAME type="str">Camac Info</FROM_NAME>
   </data>
 </row>
 

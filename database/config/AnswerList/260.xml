@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">260</answer_list_id>
-    <question_id type="int">94</question_id>
-    <value type="str">VB</value>
-    <name type="str">Gebiet mit verdichteter Bauweise</name>
-    <sort type="int">29</sort>
+    <ANSWER_LIST_ID type="int">260</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">94</QUESTION_ID>
+    <VALUE type="str">VB</VALUE>
+    <NAME type="str">Gebiet mit verdichteter Bauweise</NAME>
+    <SORT type="int">29</SORT>
   </data>
 </row>
 

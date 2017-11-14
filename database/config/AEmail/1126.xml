@@ -1,13 +1,13 @@
 <row>
-  <table_name>a_email</table_name>
+  <table_name>A_EMAIL</table_name>
   <model_name>configuration.AEmail</model_name>
   <data>
-    <action_id type="int">1126</action_id>
-    <sender_name type="str">Camac Kanton Uri</sender_name>
-    <sender_email type="str">camac@ur.ch</sender_email>
-    <query type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</query>
-    <title type="str">Dossier angenommen</title>
-    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+    <ACTION_ID type="int">1126</ACTION_ID>
+    <SENDER_NAME type="str">Camac Kanton Uri</SENDER_NAME>
+    <SENDER_EMAIL type="str">camac@ur.ch</SENDER_EMAIL>
+    <QUERY type="str">select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]</QUERY>
+    <TITLE type="str">Dossier angenommen</TITLE>
+    <TEXT type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
 Statusmeldung zum Stand des Bewilligungsverfahrens
 DOSSIER ANGENOMMEN
@@ -21,7 +21,7 @@ Unter dem Vorbehalt, dass das Dossier vollständig ist und Seitens der kantonale
 
 
 Mit freundlichen Grüssen
-Gemeindebaubehörde [INSTANCE_LOCATION]</text>
+Gemeindebaubehörde [INSTANCE_LOCATION]</TEXT>
   </data>
 </row>
 

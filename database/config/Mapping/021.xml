@@ -1,10 +1,10 @@
 <row>
-  <table_name>mapping</table_name>
+  <table_name>MAPPING</table_name>
   <model_name>configuration.Mapping</model_name>
   <data>
-    <mapping_id type="int">21</mapping_id>
-    <table_name type="str">INSTANCE_LOCATION</table_name>
-    <column_name type="str">LOCATION_ID</column_name>
+    <MAPPING_ID type="int">21</MAPPING_ID>
+    <TABLE_NAME type="str">INSTANCE_LOCATION</TABLE_NAME>
+    <COLUMN_NAME type="str">LOCATION_ID</COLUMN_NAME>
   </data>
 </row>
 

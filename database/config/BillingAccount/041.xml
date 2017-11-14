@@ -1,13 +1,13 @@
 <row>
-  <table_name>billing_account</table_name>
+  <table_name>BILLING_ACCOUNT</table_name>
   <model_name>configuration.BillingAccount</model_name>
   <data>
-    <billing_account_id type="int">41</billing_account_id>
-    <name type="str">Gebühr für die Behandlung von Baugesuchen und Voreinfragen durch die Koordinationsstelle für Baueingaben.</name>
-    <account_number type="str">2530.4210.01</account_number>
-    <department type="str">JD / ARE / KOOR</department>
-    <service_group_id type="int">61</service_group_id>
-    <predefined type="bool">True</predefined>
+    <BILLING_ACCOUNT_ID type="int">41</BILLING_ACCOUNT_ID>
+    <NAME type="str">Gebühr für die Behandlung von Baugesuchen und Voreinfragen durch die Koordinationsstelle für Baueingaben.</NAME>
+    <ACCOUNT_NUMBER type="str">2530.4210.01</ACCOUNT_NUMBER>
+    <DEPARTMENT type="str">JD / ARE / KOOR</DEPARTMENT>
+    <PREDEFINED type="int">1</PREDEFINED>
+    <SERVICE_GROUP_ID type="int">61</SERVICE_GROUP_ID>
   </data>
 </row>
 

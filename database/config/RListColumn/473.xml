@@ -1,0 +1,12 @@
+<row>
+  <table_name>R_LIST_COLUMN</table_name>
+  <model_name>configuration.RListColumn</model_name>
+  <data>
+    <R_LIST_COLUMN_ID type="int">473</R_LIST_COLUMN_ID>
+    <RESOURCE_ID type="int">202</RESOURCE_ID>
+    <COLUMN_NAME type="str">STATE</COLUMN_NAME>
+    <ALIAS type="str">Status</ALIAS>
+    <SORT type="int">7</SORT>
+  </data>
+</row>
+

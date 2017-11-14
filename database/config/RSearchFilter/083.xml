@@ -1,14 +1,15 @@
 <row>
-  <table_name>r_search_filter</table_name>
+  <table_name>R_SEARCH_FILTER</table_name>
   <model_name>configuration.RSearchFilter</model_name>
   <data>
-    <r_search_filter_id type="int">83</r_search_filter_id>
-    <resource_id type="int">42</resource_id>
-    <question_id type="NoneType">None</question_id>
-    <field_name type="str">sanction</field_name>
-    <label type="str">Pendenzen AC</label>
-    <query type="str">(? = 0 OR "SANCTION"."SERVICE_ID" = ?) AND "SANCTION"."IS_FINISHED" = 0</query>
-    <wildcard type="int">0</wildcard>
+    <R_SEARCH_FILTER_ID type="int">83</R_SEARCH_FILTER_ID>
+    <RESOURCE_ID type="int">42</RESOURCE_ID>
+    <QUESTION_ID type="NoneType">None</QUESTION_ID>
+    <FIELD_NAME type="str">sanction</FIELD_NAME>
+    <LABEL type="str">Pendenzen AC</LABEL>
+    <QUERY type="str">(? = 0 OR "SANCTION"."SERVICE_ID" = ?) AND "SANCTION"."IS_FINISHED" = 0</QUERY>
+    <WILDCARD type="int">0</WILDCARD>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

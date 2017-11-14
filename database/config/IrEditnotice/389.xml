@@ -1,14 +1,14 @@
 <row>
-  <table_name>ir_editnotice</table_name>
+  <table_name>IR_EDITNOTICE</table_name>
   <model_name>configuration.IrEditnotice</model_name>
   <data>
-    <instance_resource_id type="int">389</instance_resource_id>
-    <circulation_type_id type="int">41</circulation_type_id>
-    <editable_after_deadline type="bool">False</editable_after_deadline>
-    <pdf_class type="str"></pdf_class>
-    <edit_notice_template type="str"></edit_notice_template>
-    <hide_answered_notices type="bool">True</hide_answered_notices>
-    <is_always_editable type="bool">False</is_always_editable>
+    <INSTANCE_RESOURCE_ID type="int">389</INSTANCE_RESOURCE_ID>
+    <CIRCULATION_TYPE_ID type="int">41</CIRCULATION_TYPE_ID>
+    <EDITABLE_AFTER_DEADLINE type="int">0</EDITABLE_AFTER_DEADLINE>
+    <PDF_CLASS type="str"></PDF_CLASS>
+    <EDIT_NOTICE_TEMPLATE type="str"></EDIT_NOTICE_TEMPLATE>
+    <HIDE_ANSWERED_NOTICES type="int">1</HIDE_ANSWERED_NOTICES>
+    <IS_ALWAYS_EDITABLE type="int">0</IS_ALWAYS_EDITABLE>
   </data>
 </row>
 

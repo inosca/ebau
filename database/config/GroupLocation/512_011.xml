@@ -1,9 +1,9 @@
 <row>
-  <table_name>group_location</table_name>
+  <table_name>GROUP_LOCATION</table_name>
   <model_name>configuration.GroupLocation</model_name>
   <data>
-    <group_id type="int">512</group_id>
-    <location_id type="int">11</location_id>
+    <GROUP_ID type="int">512</GROUP_ID>
+    <LOCATION_ID type="int">11</LOCATION_ID>
   </data>
 </row>
 

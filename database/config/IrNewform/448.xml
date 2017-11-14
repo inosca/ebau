@@ -1,10 +1,10 @@
 <row>
-  <table_name>ir_newform</table_name>
+  <table_name>IR_NEWFORM</table_name>
   <model_name>configuration.IrNewform</model_name>
   <data>
-    <instance_resource_id type="int">448</instance_resource_id>
-    <instance_state_id type="int">22</instance_state_id>
-    <page_form_group_id type="NoneType">None</page_form_group_id>
+    <INSTANCE_RESOURCE_ID type="int">448</INSTANCE_RESOURCE_ID>
+    <INSTANCE_STATE_ID type="int">22</INSTANCE_STATE_ID>
+    <PAGE_FORM_GROUP_ID type="NoneType">None</PAGE_FORM_GROUP_ID>
   </data>
 </row>
 

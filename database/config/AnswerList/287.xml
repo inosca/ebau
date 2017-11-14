@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">287</answer_list_id>
-    <question_id type="int">262</question_id>
-    <value type="str">gewerbemitap</value>
-    <name type="str">Gewerbebaute mit Arbeitplätzen</name>
-    <sort type="int">2</sort>
+    <ANSWER_LIST_ID type="int">287</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">262</QUESTION_ID>
+    <VALUE type="str">gewerbemitap</VALUE>
+    <NAME type="str">Gewerbebaute mit Arbeitplätzen</NAME>
+    <SORT type="int">2</SORT>
   </data>
 </row>
 

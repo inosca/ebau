@@ -1,11 +1,11 @@
 <row>
-  <table_name>available_resource</table_name>
+  <table_name>AVAILABLE_RESOURCE</table_name>
   <model_name>configuration.AvailableResource</model_name>
   <data>
-    <available_resource_id type="str">glossary</available_resource_id>
-    <module_name type="str">glossary</module_name>
-    <controller_name type="str">index</controller_name>
-    <description type="str">Glossary</description>
+    <AVAILABLE_RESOURCE_ID type="str">glossary</AVAILABLE_RESOURCE_ID>
+    <MODULE_NAME type="str">glossary</MODULE_NAME>
+    <CONTROLLER_NAME type="str">index</CONTROLLER_NAME>
+    <DESCRIPTION type="str">Glossary</DESCRIPTION>
   </data>
 </row>
 

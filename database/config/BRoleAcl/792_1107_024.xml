@@ -1,10 +1,10 @@
 <row>
-  <table_name>b_role_acl</table_name>
+  <table_name>B_ROLE_ACL</table_name>
   <model_name>configuration.BRoleAcl</model_name>
   <data>
-    <button_id type="int">792</button_id>
-    <role_id type="int">1107</role_id>
-    <instance_state_id type="int">24</instance_state_id>
+    <BUTTON_ID type="int">792</BUTTON_ID>
+    <ROLE_ID type="int">1107</ROLE_ID>
+    <INSTANCE_STATE_ID type="int">24</INSTANCE_STATE_ID>
   </data>
 </row>
 

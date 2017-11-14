@@ -1,10 +1,10 @@
 <row>
-  <table_name>attachment_section</table_name>
+  <table_name>ATTACHMENT_SECTION</table_name>
   <model_name>configuration.AttachmentSection</model_name>
   <data>
-    <attachment_section_id type="int">42</attachment_section_id>
-    <name type="str">Interne Dokumente ARE NHS D (nur für ARE NHS D sichtbar)</name>
-    <sort type="int">4</sort>
+    <ATTACHMENT_SECTION_ID type="int">42</ATTACHMENT_SECTION_ID>
+    <NAME type="str">Interne Dokumente ARE NHS D (nur für ARE NHS D sichtbar)</NAME>
+    <SORT type="int">4</SORT>
   </data>
 </row>
 

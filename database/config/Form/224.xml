@@ -1,11 +1,11 @@
 <row>
-  <table_name>form</table_name>
+  <table_name>FORM</table_name>
   <model_name>configuration.Form</model_name>
   <data>
-    <form_id type="int">224</form_id>
-    <form_state_id type="int">1</form_state_id>
-    <name type="str">PGV private Gewässer (Artikel 19 WBG)</name>
-    <description type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</description>
+    <FORM_ID type="int">224</FORM_ID>
+    <FORM_STATE_ID type="int">1</FORM_STATE_ID>
+    <NAME type="str">PGV private Gewässer (Artikel 19 WBG)</NAME>
+    <DESCRIPTION type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</DESCRIPTION>
   </data>
 </row>
 

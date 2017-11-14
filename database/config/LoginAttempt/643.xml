@@ -1,0 +1,11 @@
+<row>
+  <table_name>LOGIN_ATTEMPT</table_name>
+  <model_name>configuration.LoginAttempt</model_name>
+  <data>
+    <LOGIN_ATTEMPT_ID type="int">643</LOGIN_ATTEMPT_ID>
+    <IP type="str">172.25.0.1</IP>
+    <ATTEMPT_DATE type="date">2017-11-03</ATTEMPT_DATE>
+    <USERNAME type="str">stefanheinemann</USERNAME>
+  </data>
+</row>
+

@@ -1,10 +1,10 @@
 <row>
-  <table_name>air_action</table_name>
+  <table_name>AIR_ACTION</table_name>
   <model_name>configuration.AirAction</model_name>
   <data>
-    <available_instance_resource_id type="str">documents_portal_submit</available_instance_resource_id>
-    <action_name type="str">index</action_name>
-    <hidden type="bool">False</hidden>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">documents_portal_submit</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <ACTION_NAME type="str">index</ACTION_NAME>
+    <HIDDEN type="int">0</HIDDEN>
   </data>
 </row>
 

@@ -1,10 +1,10 @@
 <row>
-  <table_name>answer_query</table_name>
+  <table_name>ANSWER_QUERY</table_name>
   <model_name>configuration.AnswerQuery</model_name>
   <data>
-    <answer_query_id type="int">41</answer_query_id>
-    <name type="str">Leitbehörde</name>
-    <query type="str">SELECT DISTINCT
+    <ANSWER_QUERY_ID type="int">41</ANSWER_QUERY_ID>
+    <NAME type="str">Leitbehörde</NAME>
+    <QUERY type="str">SELECT DISTINCT
   "AUTHORITY"."AUTHORITY_ID",
   "AUTHORITY"."NAME"
 FROM
@@ -43,7 +43,7 @@ WHERE (
     )
   )
 )
-ORDER BY "AUTHORITY"."NAME"</query>
+ORDER BY "AUTHORITY"."NAME"</QUERY>
   </data>
 </row>
 

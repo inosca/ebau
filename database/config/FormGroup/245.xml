@@ -1,10 +1,10 @@
 <row>
-  <table_name>form_group</table_name>
+  <table_name>FORM_GROUP</table_name>
   <model_name>configuration.FormGroup</model_name>
   <data>
-    <form_group_id type="int">245</form_group_id>
-    <name type="str">Alle Dossiers von der Koordinationsstelle BG und BD, auch die von der Gemeinde, ohne das Verfahren mit kantonalem Gebiet</name>
-    <description type="str"></description>
+    <FORM_GROUP_ID type="int">245</FORM_GROUP_ID>
+    <NAME type="str">Alle Dossiers von der Koordinationsstelle BG und BD, auch die von der Gemeinde, ohne das Verfahren mit kantonalem Gebiet</NAME>
+    <DESCRIPTION type="str"></DESCRIPTION>
   </data>
 </row>
 

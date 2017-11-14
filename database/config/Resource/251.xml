@@ -1,15 +1,15 @@
 <row>
-  <table_name>resource</table_name>
+  <table_name>RESOURCE</table_name>
   <model_name>configuration.Resource</model_name>
   <data>
-    <resource_id type="int">251</resource_id>
-    <available_resource_id type="str">page</available_resource_id>
-    <name type="str">Portal Resource</name>
-    <description type="str">Base Resource zum wählen, welches Dossier kreiert werden soll</description>
-    <template type="str">/portal/create.phtml</template>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">29</sort>
+    <RESOURCE_ID type="int">251</RESOURCE_ID>
+    <AVAILABLE_RESOURCE_ID type="str">page</AVAILABLE_RESOURCE_ID>
+    <NAME type="str">Portal Resource</NAME>
+    <DESCRIPTION type="str">Base Resource zum wählen, welches Dossier kreiert werden soll</DESCRIPTION>
+    <TEMPLATE type="str">/portal/create.phtml</TEMPLATE>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">29</SORT>
   </data>
 </row>
 

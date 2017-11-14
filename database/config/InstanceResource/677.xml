@@ -1,17 +1,17 @@
 <row>
-  <table_name>instance_resource</table_name>
+  <table_name>INSTANCE_RESOURCE</table_name>
   <model_name>configuration.InstanceResource</model_name>
   <data>
-    <instance_resource_id type="int">677</instance_resource_id>
-    <available_instance_resource_id type="str">formpage</available_instance_resource_id>
-    <resource_id type="int">251</resource_id>
-    <name type="str">Dossier ansehen</name>
-    <description type="str">Read-Only-Moduls für die Dossiers für das Portal</description>
-    <template type="str">/portal/read.phtml</template>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">0</sort>
-    <form_group_id type="int">248</form_group_id>
+    <INSTANCE_RESOURCE_ID type="int">677</INSTANCE_RESOURCE_ID>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">formpage</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <RESOURCE_ID type="int">251</RESOURCE_ID>
+    <NAME type="str">Dossier ansehen</NAME>
+    <DESCRIPTION type="str">Read-Only-Moduls für die Dossiers für das Portal</DESCRIPTION>
+    <TEMPLATE type="str">/portal/read.phtml</TEMPLATE>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">0</SORT>
+    <FORM_GROUP_ID type="int">248</FORM_GROUP_ID>
   </data>
 </row>
 

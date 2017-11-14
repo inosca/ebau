@@ -1,9 +1,9 @@
 <row>
-  <table_name>instance_resource_action</table_name>
+  <table_name>INSTANCE_RESOURCE_ACTION</table_name>
   <model_name>configuration.InstanceResourceAction</model_name>
   <data>
-    <available_instance_resource_id type="str">editcirculation</available_instance_resource_id>
-    <available_action_id type="str">savepdf</available_action_id>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">editcirculation</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <AVAILABLE_ACTION_ID type="str">savepdf</AVAILABLE_ACTION_ID>
   </data>
 </row>
 

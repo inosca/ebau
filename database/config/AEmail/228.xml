@@ -1,11 +1,11 @@
 <row>
-  <table_name>a_email</table_name>
+  <table_name>A_EMAIL</table_name>
   <model_name>configuration.AEmail</model_name>
   <data>
-    <action_id type="int">228</action_id>
-    <sender_name type="str">Camac Info</sender_name>
-    <sender_email type="str">camac-info@ur.ch</sender_email>
-    <query type="str">SELECT
+    <ACTION_ID type="int">228</ACTION_ID>
+    <SENDER_NAME type="str">Camac Info</SENDER_NAME>
+    <SENDER_EMAIL type="str">camac-info@ur.ch</SENDER_EMAIL>
+    <QUERY type="str">SELECT
   "USER"."EMAIL",
   "USER"."NAME" || ' ' || "SURNAME" "NAME"
 
@@ -25,9 +25,9 @@ WHERE "GROUP_LOCATION"."LOCATION_ID" = [INSTANCE_LOCATION_ID]
 AND
 "USER"."EMAIL" IS NOT NULL
 and
-"USER"."DISABLED" = 0</query>
-    <title type="str">Dossier an Gemeinde zurück geschickt</title>
-    <text type="str">CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)
+"USER"."DISABLED" = 0</QUERY>
+    <TITLE type="str">Dossier an Gemeinde zurück geschickt</TITLE>
+    <TEXT type="str">CAMAC Info (das ist eine automatisch generierte E-Mail von Camac, bitte nicht darauf antworten)
 
 Rückmeldung an Gemeinde, Dossier abgeschlossen
 
@@ -47,7 +47,7 @@ Rathausplatz 5
 
 Tel. 041 875 24 24
 Fax: 041 875 24 25
-E-Mail: paul.walker@ur.ch</text>
+E-Mail: paul.walker@ur.ch</TEXT>
   </data>
 </row>
 

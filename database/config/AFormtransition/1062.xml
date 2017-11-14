@@ -1,10 +1,10 @@
 <row>
-  <table_name>a_formtransition</table_name>
+  <table_name>A_FORMTRANSITION</table_name>
   <model_name>configuration.AFormtransition</model_name>
   <data>
-    <action_id type="int">1062</action_id>
-    <current_instance_state_id type="int">29</current_instance_state_id>
-    <next_instance_state_id type="int">30</next_instance_state_id>
+    <ACTION_ID type="int">1062</ACTION_ID>
+    <CURRENT_INSTANCE_STATE_ID type="int">29</CURRENT_INSTANCE_STATE_ID>
+    <NEXT_INSTANCE_STATE_ID type="int">30</NEXT_INSTANCE_STATE_ID>
   </data>
 </row>
 

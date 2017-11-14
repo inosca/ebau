@@ -1,11 +1,11 @@
 <row>
-  <table_name>a_pageredirect</table_name>
+  <table_name>A_PAGEREDIRECT</table_name>
   <model_name>configuration.APageredirect</model_name>
   <data>
-    <action_id type="int">1284</action_id>
-    <resource_id type="int">298</resource_id>
-    <instance_resource_id type="NoneType">None</instance_resource_id>
-    <air_action_name type="str"></air_action_name>
+    <ACTION_ID type="int">1284</ACTION_ID>
+    <RESOURCE_ID type="int">298</RESOURCE_ID>
+    <INSTANCE_RESOURCE_ID type="NoneType">None</INSTANCE_RESOURCE_ID>
+    <AIR_ACTION_NAME type="str"></AIR_ACTION_NAME>
   </data>
 </row>
 

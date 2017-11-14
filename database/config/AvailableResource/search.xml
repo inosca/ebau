@@ -1,11 +1,11 @@
 <row>
-  <table_name>available_resource</table_name>
+  <table_name>AVAILABLE_RESOURCE</table_name>
   <model_name>configuration.AvailableResource</model_name>
   <data>
-    <available_resource_id type="str">search</available_resource_id>
-    <module_name type="str">default</module_name>
-    <controller_name type="str">search</controller_name>
-    <description type="str">Page with search function</description>
+    <AVAILABLE_RESOURCE_ID type="str">search</AVAILABLE_RESOURCE_ID>
+    <MODULE_NAME type="str">default</MODULE_NAME>
+    <CONTROLLER_NAME type="str">search</CONTROLLER_NAME>
+    <DESCRIPTION type="str">Page with search function</DESCRIPTION>
   </data>
 </row>
 

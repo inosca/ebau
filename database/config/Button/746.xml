@@ -1,14 +1,14 @@
 <row>
-  <table_name>button</table_name>
+  <table_name>BUTTON</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">746</button_id>
-    <instance_resource_id type="int">672</instance_resource_id>
-    <name type="str">Dossier annehmen</name>
-    <description type="str">Akzeptieren vom Dossier, d.h., in den echten Workflow übernehmen</description>
-    <class type="str">button_accept</class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">1</sort>
+    <BUTTON_ID type="int">746</BUTTON_ID>
+    <INSTANCE_RESOURCE_ID type="int">672</INSTANCE_RESOURCE_ID>
+    <NAME type="str">Dossier annehmen</NAME>
+    <DESCRIPTION type="str">Akzeptieren vom Dossier, d.h., in den echten Workflow übernehmen</DESCRIPTION>
+    <CLASS type="str">button_accept</CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">1</SORT>
   </data>
 </row>
 
