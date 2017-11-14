@@ -3,6 +3,7 @@
   <model_name>configuration.ActivationLog</model_name>
   <data>
     <ACTIVATION_LOG_ID type="int">2</ACTIVATION_LOG_ID>
+    <ID type="int">2</ID>
     <USER_ID type="int">286</USER_ID>
     <ACTION type="str">i</ACTION>
     <DATA type="str">{"CIRCULATION_ID":2,"SERVICE_ID":"201","SERVICE_PARENT_ID":"302","ACTIVATION_PARENT_ID":null,"CIRCULATION_STATE_ID":"21","USER_ID":null,"CIRCULATION_ANSWER_ID":null,"START_DATE":"11.10.17 08:37:24","DEADLINE_DATE":"01.11.17 23:59:00","SUSPENSION_DATE":null,"END_DATE":null,"VERSION":1,"REASON":"","EMAIL_SENT":0}</DATA>

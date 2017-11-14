@@ -1,0 +1,10 @@
+<row>
+  <table_name>DOCGEN_DOCX_ACTION</table_name>
+  <model_name>configuration.DocgenDocxAction</model_name>
+  <data>
+    <DOCGEN_TEMPLATE_ID type="int">202</DOCGEN_TEMPLATE_ID>
+    <DOCGEN_TEMPLATE_CLASS_ID type="int">208</DOCGEN_TEMPLATE_CLASS_ID>
+    <ACTION_ID type="int">790</ACTION_ID>
+  </data>
+</row>
+

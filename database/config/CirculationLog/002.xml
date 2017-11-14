@@ -3,6 +3,7 @@
   <model_name>configuration.CirculationLog</model_name>
   <data>
     <CIRCULATION_LOG_ID type="int">2</CIRCULATION_LOG_ID>
+    <ID type="int">2</ID>
     <USER_ID type="int">286</USER_ID>
     <ACTION type="str">i</ACTION>
     <DATA type="str">{"INSTANCE_RESOURCE_ID":625,"INSTANCE_ID":23,"NAME":"-"}</DATA>

@@ -1,0 +1,9 @@
+<row>
+  <table_name>INSTANCE_STATE_DESCRIPTION</table_name>
+  <model_name>configuration.InstanceStateDescription</model_name>
+  <data>
+    <INSTANCE_STATE_ID type="int">27</INSTANCE_STATE_ID>
+    <DESCRIPTION type="str">Gelöscht</DESCRIPTION>
+  </data>
+</row>
+
