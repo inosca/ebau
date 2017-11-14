@@ -2,6 +2,7 @@
   <table_name>ATTACHMENT_SECTION_SERVICE</table_name>
   <model_name>configuration.AttachmentSectionService</model_name>
   <data>
+    <ID type="int">42</ID>
     <ATTACHMENT_SECTION_ID type="int">25</ATTACHMENT_SECTION_ID>
     <SERVICE_ID type="int">201</SERVICE_ID>
     <MODE type="str">write</MODE>
