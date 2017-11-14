@@ -2,6 +2,7 @@
   <table_name>ATTACHMENT_SECTION_ROLE</table_name>
   <model_name>configuration.AttachmentSectionRole</model_name>
   <data>
+    <ID type="int">47</ID>
     <ATTACHMENT_SECTION_ID type="int">24</ATTACHMENT_SECTION_ID>
     <ROLE_ID type="int">6</ROLE_ID>
     <MODE type="str">write</MODE>
