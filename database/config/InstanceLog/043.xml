@@ -3,7 +3,7 @@
   <model_name>configuration.InstanceLog</model_name>
   <data>
     <INSTANCE_LOG_ID type="int">43</INSTANCE_LOG_ID>
-    <MODIFICATION_DATE type="date">2017-10-27</MODIFICATION_DATE>
+    <MODIFICATION_DATE type="datetime">2017-10-27 14:00:20</MODIFICATION_DATE>
     <USER_ID type="int">1209</USER_ID>
     <ACTION type="str">u</ACTION>
     <DATA type="str">{"INSTANCE_STATE_ID":30,"PREVIOUS_INSTANCE_STATE_ID":"28","MODIFICATION_DATE":"27.10.17 14:00:20"}</DATA>

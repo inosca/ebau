@@ -4,7 +4,7 @@
   <data>
     <PORTAL_SESSION_ID type="str">b0e59765f13356ae3a377021884ef72a15c258c47621d61c9f9f8c62df0bf9d0</PORTAL_SESSION_ID>
     <PORTAL_IDENTIFIER type="str">test</PORTAL_IDENTIFIER>
-    <LAST_ACTIVE type="date">2017-10-30</LAST_ACTIVE>
+    <LAST_ACTIVE type="datetime">2017-10-30 12:19:37</LAST_ACTIVE>
   </data>
 </row>
 

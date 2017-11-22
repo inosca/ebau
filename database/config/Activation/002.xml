@@ -9,8 +9,8 @@
     <CIRCULATION_STATE_ID type="int">1</CIRCULATION_STATE_ID>
     <USER_ID type="NoneType">None</USER_ID>
     <CIRCULATION_ANSWER_ID type="NoneType">None</CIRCULATION_ANSWER_ID>
-    <START_DATE type="date">2017-10-11</START_DATE>
-    <DEADLINE_DATE type="date">2017-11-01</DEADLINE_DATE>
+    <START_DATE type="datetime">2017-10-11 08:37:24</START_DATE>
+    <DEADLINE_DATE type="datetime">2017-11-01 23:59:00</DEADLINE_DATE>
     <SUSPENSION_DATE type="NoneType">None</SUSPENSION_DATE>
     <END_DATE type="NoneType">None</END_DATE>
     <VERSION type="int">1</VERSION>
