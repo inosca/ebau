@@ -7,8 +7,8 @@
     <FORM_ID type="int">44</FORM_ID>
     <USER_ID type="int">286</USER_ID>
     <GROUP_ID type="int">22</GROUP_ID>
-    <CREATION_DATE type="date">2017-10-06</CREATION_DATE>
-    <MODIFICATION_DATE type="date">2017-10-06</MODIFICATION_DATE>
+    <CREATION_DATE type="datetime">2017-10-06 14:13:29</CREATION_DATE>
+    <MODIFICATION_DATE type="datetime">2017-10-06 14:13:29</MODIFICATION_DATE>
     <PREVIOUS_INSTANCE_STATE_ID type="int">1</PREVIOUS_INSTANCE_STATE_ID>
   </data>
 </row>

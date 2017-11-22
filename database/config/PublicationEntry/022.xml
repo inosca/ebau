@@ -5,7 +5,7 @@
     <PUBLICATION_ENTRY_ID type="int">22</PUBLICATION_ENTRY_ID>
     <INSTANCE_ID type="int">22</INSTANCE_ID>
     <NOTE type="int">1</NOTE>
-    <PUBLICATION_DATE type="date">2017-10-06</PUBLICATION_DATE>
+    <PUBLICATION_DATE type="datetime">2017-10-06 14:14:04</PUBLICATION_DATE>
     <IS_PUBLISHED type="int">1</IS_PUBLISHED>
     <TEXT type="str">Gemeindebaubehörde Baukommission Altdorf&#13;
 &#13;

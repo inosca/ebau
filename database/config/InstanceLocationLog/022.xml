@@ -3,7 +3,7 @@
   <model_name>configuration.InstanceLocationLog</model_name>
   <data>
     <INSTANCE_LOCATION_LOG_ID type="int">22</INSTANCE_LOCATION_LOG_ID>
-    <MODIFICATION_DATE type="date">2017-10-06</MODIFICATION_DATE>
+    <MODIFICATION_DATE type="datetime">2017-10-06 14:13:38</MODIFICATION_DATE>
     <USER_ID type="int">286</USER_ID>
     <ACTION type="str">i</ACTION>
     <DATA type="str">{"INSTANCE_ID":"22","LOCATION_ID":"1"}</DATA>

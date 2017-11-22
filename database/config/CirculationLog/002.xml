@@ -7,7 +7,7 @@
     <USER_ID type="int">286</USER_ID>
     <ACTION type="str">i</ACTION>
     <DATA type="str">{"INSTANCE_RESOURCE_ID":625,"INSTANCE_ID":23,"NAME":"-"}</DATA>
-    <MODIFICATION_DATE type="date">2017-10-11</MODIFICATION_DATE>
+    <MODIFICATION_DATE type="datetime">2017-10-11 08:37:11</MODIFICATION_DATE>
   </data>
 </row>
 

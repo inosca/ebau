@@ -4,7 +4,7 @@
   <data>
     <LOGIN_ATTEMPT_ID type="int">641</LOGIN_ATTEMPT_ID>
     <IP type="str">172.25.0.1</IP>
-    <ATTEMPT_DATE type="date">2017-11-03</ATTEMPT_DATE>
+    <ATTEMPT_DATE type="datetime">2017-11-03 13:56:45</ATTEMPT_DATE>
     <USERNAME type="str">pwa</USERNAME>
   </data>
 </row>

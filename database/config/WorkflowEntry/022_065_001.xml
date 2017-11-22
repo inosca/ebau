@@ -3,7 +3,7 @@
   <model_name>configuration.WorkflowEntry</model_name>
   <data>
     <WORKFLOW_ENTRY_ID type="int">24</WORKFLOW_ENTRY_ID>
-    <WORKFLOW_DATE type="date">2017-10-08</WORKFLOW_DATE>
+    <WORKFLOW_DATE type="datetime">2017-10-08 18:14:04</WORKFLOW_DATE>
     <INSTANCE_ID type="int">22</INSTANCE_ID>
     <WORKFLOW_ITEM_ID type="int">65</WORKFLOW_ITEM_ID>
     <GROUP type="int">1</GROUP>

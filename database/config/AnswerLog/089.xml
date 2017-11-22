@@ -3,7 +3,7 @@
   <model_name>configuration.AnswerLog</model_name>
   <data>
     <ANSWER_LOG_ID type="int">89</ANSWER_LOG_ID>
-    <MODIFICATION_DATE type="date">2017-10-27</MODIFICATION_DATE>
+    <MODIFICATION_DATE type="datetime">2017-10-27 13:59:41</MODIFICATION_DATE>
     <USER_ID type="int">1209</USER_ID>
     <ACTION type="str">i</ACTION>
     <DATA type="str">{"INSTANCE_ID":"42","QUESTION_ID":"252","CHAPTER_ID":"21","ITEM":1,"ANSWER":"0"}</DATA>
