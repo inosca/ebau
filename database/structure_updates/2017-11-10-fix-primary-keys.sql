@@ -37,11 +37,14 @@ INST, INSTANCE_VIEW
 
 * Check filter_method in Camac meta class
 
+* sequence reset (sqlsequencereset)
+
+./manage.py sqlsequencereset --database=pg configuration > sequencereset.sql
+./manage.py dbshell --datapase=pg < sequencereset.sql
 
 
 Other TODO
 ==========
 
 * remove data app
-* sequence reset (sqlsequencereset)
 * split configuration/data tables
