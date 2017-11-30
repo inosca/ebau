@@ -1,9 +1,0 @@
-{
-	"camacUrl": "http://vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch",
-	"camacApi": "http://vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch",
-	"base": "/portal-test/",
-	"httpAuth": {
-		"user": "paulwalker",
-		"pass": "kantonuri"
-	}
-}
