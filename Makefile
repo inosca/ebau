@@ -39,7 +39,7 @@ _base-init: _submodule-update
 	@make _classloader
 
 .PHONY: _ci-init
-_ci-init: _base-init _install
+_ci-init: _base-init install
 	@ENV='ci' make -C resources/configuration-templates/
 	@ENV='ci' make htaccess
 
@@ -54,8 +54,8 @@ _submodule-update:
 	touch camac/logs/application.log
 	chmod 777 -R camac/logs || true
 
-.PHONY: _install
-_install:
+.PHONY: install
+install: ## Install required files (jQuey, etc via NPM)
 	npm install --prefix ./kt_uri/configuration/public
 
 .PHONY: js
