@@ -1,9 +1,0 @@
-<row>
-  <table_name>attachment_type</table_name>
-  <model_name>configuration.AttachmentType</model_name>
-  <data>
-    <attachment_type_id type="int">9</attachment_type_id>
-    <name type="str">Fassadenplan</name>
-  </data>
-</row>
-
