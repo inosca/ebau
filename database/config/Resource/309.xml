@@ -3,7 +3,7 @@
   <model_name>configuration.Resource</model_name>
   <data>
     <RESOURCE_ID type="int">309</RESOURCE_ID>
-    <AVAILABLE_RESOURCE_ID type="str">list</AVAILABLE_RESOURCE_ID>
+    <AVAILABLE_RESOURCE_ID type="str">simplelist</AVAILABLE_RESOURCE_ID>
     <NAME type="str">Pendenzenliste</NAME>
     <DESCRIPTION type="str">Pendenzenliste für die Kommissionsmitglieder</DESCRIPTION>
     <TEMPLATE type="str"></TEMPLATE>
