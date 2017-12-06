@@ -11,7 +11,7 @@
     <PHONE type="str"></PHONE>
     <DISABLED type="int">0</DISABLED>
     <LANGUAGE type="str">de</LANGUAGE>
-    <LAST_REQUEST_DATE type="datetime">2017-11-21 10:06:51</LAST_REQUEST_DATE>
+    <LAST_REQUEST_DATE type="datetime">2017-12-06 14:14:57</LAST_REQUEST_DATE>
     <ADDRESS type="str"></ADDRESS>
     <CITY type="str"></CITY>
     <ZIP type="str"></ZIP>
