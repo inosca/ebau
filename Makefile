@@ -16,16 +16,6 @@ _log-follow: # Tail the log of the application
 	@tail -f camac/logs/application.log
 
 
-.PHONY: run-fancy
-run-fancy: ## Create a tmux session that runs several useful commands at once: make up, make log-follow and make watch
-	@tmux new-session -n 'camac runner' -d 'make run'
-	@tmux split-window -v 'make _log-follow' # split vertically
-	@tmux select-pane -U # go one pane upwards
-	@tmux select-pane -U # go one pane upwards
-	@tmux split-window -h 'make watch' # split horizontally on the most upper pane
-
-	@tmux -2 attach-session -d
-
 .PHONY: _base-init
 _base-init: _submodule-update
 	@rm -f camac/configuration
@@ -37,16 +27,6 @@ _base-init: _submodule-update
 	@chmod -R o+w camac/logs
 	@chmod o+w camac/configuration/upload
 	@make _classloader
-
-.PHONY: _ci-init
-_ci-init: _base-init install
-	@ENV='ci' make -C resources/configuration-templates/
-	@ENV='ci' make htaccess
-
-.PHONY: _init
-_init: _base-init# Initialise the code, create the necessary symlinks
-	@ENV='dev' make -C resources/configuration-templates/
-	@ENV='dev' make htaccess
 
 .PHONY: _submodule-update
 _submodule-update:
@@ -67,8 +47,8 @@ js-watch:
 	npm run watch --prefix ./kt_uri/configuration/public
 
 .PHONY: run
-run: _init ## Runs the docker containers
-	@docker-compose -f docker/docker-compose.yml up -d
+run-ur: _base-init ## Runs the docker containers
+	@docker-compose -f docker/docker-compose-ur.yml up -d
 
 .PHONY: db-create-user
 db-create-user: _sync_db_tools ## Create the user camac in the database
@@ -114,16 +94,6 @@ deploy-import: ## import the config for deployment
 	@make -C db_admin/ importconfig-deployment
 	@echo "Config successfully imported"
 
-
-.PHONY: _deploy-configure-prod
-_deploy-configure-prod: _classloader # Generate htaccess and configuration for the stage server
-	ENV='prod' make -C resources/configuration-templates/
-	ENV='prod' make htaccess
-
-.PHONY: _deploy-configure-stage
-_deploy-configure-stage: _classloader # Generate the htacces and configuration for the prod server
-	ENV='stage' make -C resources/configuration-templates/
-	ENV='stage' make htaccess
 
 .PHONY: _deploy-pack
 _deploy-pack: ## make a zip containing all the necessary files
@@ -225,13 +195,8 @@ _deployment_confirmation:
 
 .PHONY: deploy-test-server
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
-	@ENV='test' make -C resources/configuration-templates/
-	@ENV='test' make htaccess
 	@rsync -Lavz camac/ sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/ --exclude=*.log --exclude=db-config*.ini --exclude=node_modules/ --modify-window=1
 	@ssh sy-jump "chown -R www-data /mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/logs"
-	@scp resources/htaccess/test-server-passwd sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/passwd
-	@ENV='dev' make -C resources/configuration-templates/
-	@ENV='dev' make htaccess
 	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
 
 
@@ -244,21 +209,6 @@ deploy-portal-test-server:
 .PHONY: run-deploy-db
 run-deploy-db: ## This is merely a command to help run another docker instance for deploying
 	docker-compose -f docker/docker-deploy-db.yml up
-
-
-.PHONY: config-export
-config-export: ## export the current database configuration
-	@make -C db_admin/ exportconfig
-	@echo "Config successfully written"
-
-
-.PHONY: config-import
-config-import: ## import the current database configuration. This will override your existing stuff!
-	@make -C db_admin/ importconfig
-	@echo "Config successfully imported"
-	@make clear-cache
-	@echo "Cache cleared"
-
 
 .PHONY: data-truncate
 data-truncate: ## Truncate the data in the database
@@ -313,15 +263,10 @@ ci-pretend:
 	@source /etc/apache2/envvars
 	@python .wait-for-oracle-db.py oracle-eatmydata 1521
 	@ssh-keyscan -H oracle-eatmydata > ~/.ssh/known_hosts
-	@make _ci-init
+	@make _base-init _install
 	@make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
 	@make ci-config-import
 	@make ci-run-acceptance-tests
-
-
-.PHONY: htaccess
-htaccess:
-	python resources/htaccess/make_htaccess.py ${ENV}
 
 
 .PHONY: clear-cache ## Clear the memcache
