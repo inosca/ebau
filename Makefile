@@ -187,7 +187,7 @@ _deployment_confirmation:
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
 	@rsync -Lavz camac/ sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/ --exclude=*.log --exclude=db-config*.ini --exclude=node_modules/ --modify-window=1
 	@ssh sy-jump "chown -R www-data /mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/logs"
-	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
+	@cd db_admin/uri_database/ && python manage.py importconfig --database=test_server
 
 
 .PHONY: deploy-portal-test-server
@@ -207,11 +207,6 @@ data-truncate: ## Truncate the data in the database
 	@echo "Data sucessfully truncated"
 
 
-.PHONY: config-shell
-config-shell: ## start a database shell from the configuration management application
-	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
-
-
 .PHONY: help
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -220,12 +215,6 @@ help: ## Show the help messages
 .PHONY: run-acceptance-tests
 run-acceptance-tests: ## run the acceptance tests
 	@make -C db_admin/ run-acceptance-tests ARGS="${ARGS}"
-
-
-.PHONY: ci-run-acceptance-tests
-ci-run-acceptance-tests: ## Run a subset of the acceptance tests
-	@mkdir -p camac/logs/mails
-	@make -C db_admin/ run-acceptance-tests-ci
 
 
 .PHONY: install-api-doc
@@ -237,12 +226,6 @@ install-api-doc: ## installs the api doc generator tool
 generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
-
-
-.PHONY: ci-config-import
-ci-config-import:
-	@make -C db_admin/  importconfig-ci
-	@echo "config successfully imported"
 
 
 .PHONY: ci-pretend
