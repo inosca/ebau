@@ -139,16 +139,6 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@make _init
 
 
-.PHONY: deploy-pack-production
-deploy-pack-production: _deploy-configure-prod _deploy-pack ## Make a zip containing all the necessary files with prod configuration
-	@echo "Created zip for prod deployment"
-
-
-.PHONY: deploy-pack-staging
-deploy-pack-staging: _deploy-configure-stage _deploy-pack ## Make a zip containing all the necessary files with stage configuration
-	@echo "Created zip for prod deployment"
-
-
 .PHONY: deploy-dump
 deploy-dump: _sync_db_tools ## Make full dump of the database
 	echo "Dumping the full database"
