@@ -2,6 +2,7 @@
   <table_name>USER_GROUP</table_name>
   <model_name>configuration.UserGroup</model_name>
   <data>
+    <ID type="int">345</ID>
     <USER_ID type="int">282</USER_ID>
     <GROUP_ID type="int">322</GROUP_ID>
     <DEFAULT_GROUP type="int">0</DEFAULT_GROUP>
