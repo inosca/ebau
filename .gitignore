@@ -1,0 +1,6 @@
+nbproject
+*.vpp~*
+camac.vpp.*
+public/modules/*
+!public/modules/admin
+vendor
