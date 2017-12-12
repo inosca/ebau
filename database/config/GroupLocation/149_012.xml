@@ -2,6 +2,7 @@
   <table_name>GROUP_LOCATION</table_name>
   <model_name>configuration.GroupLocation</model_name>
   <data>
+    <ID type="int">112</ID>
     <GROUP_ID type="int">149</GROUP_ID>
     <LOCATION_ID type="int">12</LOCATION_ID>
   </data>

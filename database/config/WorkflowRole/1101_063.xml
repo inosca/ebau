@@ -2,6 +2,7 @@
   <table_name>WORKFLOW_ROLE</table_name>
   <model_name>configuration.WorkflowRole</model_name>
   <data>
+    <ID type="int">185</ID>
     <WORKFLOW_ITEM_ID type="int">63</WORKFLOW_ITEM_ID>
     <ROLE_ID type="int">1101</ROLE_ID>
   </data>

@@ -2,6 +2,7 @@
   <table_name>AUTHORITY_LOCATION</table_name>
   <model_name>configuration.AuthorityLocation</model_name>
   <data>
+    <ID type="int">53</ID>
     <AUTHORITY_ID type="int">38</AUTHORITY_ID>
     <LOCATION_ID type="int">11</LOCATION_ID>
   </data>

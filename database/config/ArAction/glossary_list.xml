@@ -2,6 +2,7 @@
   <table_name>AR_ACTION</table_name>
   <model_name>configuration.ArAction</model_name>
   <data>
+    <ID type="int">25</ID>
     <AVAILABLE_RESOURCE_ID type="str">glossary</AVAILABLE_RESOURCE_ID>
     <ACTION_NAME type="str">list</ACTION_NAME>
     <HIDDEN type="int">1</HIDDEN>

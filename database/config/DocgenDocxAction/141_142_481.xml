@@ -2,6 +2,7 @@
   <table_name>DOCGEN_DOCX_ACTION</table_name>
   <model_name>configuration.DocgenDocxAction</model_name>
   <data>
+    <ID type="int">1314</ID>
     <DOCGEN_TEMPLATE_ID type="int">141</DOCGEN_TEMPLATE_ID>
     <DOCGEN_TEMPLATE_CLASS_ID type="int">142</DOCGEN_TEMPLATE_CLASS_ID>
     <ACTION_ID type="int">481</ACTION_ID>

@@ -2,6 +2,7 @@
   <table_name>INSTANCE_RESOURCE_ACTION</table_name>
   <model_name>configuration.InstanceResourceAction</model_name>
   <data>
+    <ID type="int">235</ID>
     <AVAILABLE_INSTANCE_RESOURCE_ID type="str">editformpage</AVAILABLE_INSTANCE_RESOURCE_ID>
     <AVAILABLE_ACTION_ID type="str">pageredirect</AVAILABLE_ACTION_ID>
   </data>
