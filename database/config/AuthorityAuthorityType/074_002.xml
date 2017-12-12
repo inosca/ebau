@@ -2,6 +2,7 @@
   <table_name>AUTHORITY_AUTHORITY_TYPE</table_name>
   <model_name>configuration.AuthorityAuthorityType</model_name>
   <data>
+    <ID type="int">82</ID>
     <AUTHORITY_ID type="int">74</AUTHORITY_ID>
     <AUTHORITY_TYPE_ID type="int">2</AUTHORITY_TYPE_ID>
   </data>

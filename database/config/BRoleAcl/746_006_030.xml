@@ -2,6 +2,7 @@
   <table_name>B_ROLE_ACL</table_name>
   <model_name>configuration.BRoleAcl</model_name>
   <data>
+    <ID type="int">494</ID>
     <BUTTON_ID type="int">746</BUTTON_ID>
     <ROLE_ID type="int">6</ROLE_ID>
     <INSTANCE_STATE_ID type="int">30</INSTANCE_STATE_ID>

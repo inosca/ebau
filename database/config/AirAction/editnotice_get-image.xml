@@ -2,6 +2,7 @@
   <table_name>AIR_ACTION</table_name>
   <model_name>configuration.AirAction</model_name>
   <data>
+    <ID type="int">98</ID>
     <AVAILABLE_INSTANCE_RESOURCE_ID type="str">editnotice</AVAILABLE_INSTANCE_RESOURCE_ID>
     <ACTION_NAME type="str">get-image</ACTION_NAME>
     <HIDDEN type="int">1</HIDDEN>

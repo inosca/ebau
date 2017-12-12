@@ -2,6 +2,7 @@
   <table_name>IR_ROLE_ACL</table_name>
   <model_name>configuration.IrRoleAcl</model_name>
   <data>
+    <ID type="int">1300</ID>
     <INSTANCE_RESOURCE_ID type="int">717</INSTANCE_RESOURCE_ID>
     <ROLE_ID type="int">1107</ROLE_ID>
     <INSTANCE_STATE_ID type="int">22</INSTANCE_STATE_ID>
