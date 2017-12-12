@@ -35,8 +35,9 @@ _submodule-update:
 	chmod 777 -R camac/logs || true
 
 .PHONY: install
-install: ## Install required files (jQuey, etc via NPM)
+install: ## Install required files (jQuey, etc via NPM, php composer files)
 	npm install --prefix ./kt_uri/configuration/public
+	cd camac && composer install
 
 .PHONY: js
 js:
