@@ -52,6 +52,7 @@ variables:
     GIT_STRATEGY: clone
     APPLICATION_ENV: ci
     DJANGO_SETTINGS_MODULE: uri_database.settings_ci
+    COMPOSER_HOME: /root
 
 cache:
   paths:
