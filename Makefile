@@ -37,6 +37,7 @@ _submodule-update:
 .PHONY: install
 install: ## Install required files (jQuey, etc via NPM, php composer files)
 	npm install --prefix ./kt_uri/configuration/public
+	npm install --prefix ./iweb_mock/
 	cd camac && composer install
 
 .PHONY: js
