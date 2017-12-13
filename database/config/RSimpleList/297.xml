@@ -1,9 +1,9 @@
 <row>
-  <table_name>r_simple_list</table_name>
+  <table_name>R_SIMPLE_LIST</table_name>
   <model_name>configuration.RSimpleList</model_name>
   <data>
-    <resource_id type="int">297</resource_id>
-    <instance_states type="str">22</instance_states>
+    <RESOURCE_ID type="int">297</RESOURCE_ID>
+    <INSTANCE_STATES type="str">22</INSTANCE_STATES>
   </data>
 </row>
 

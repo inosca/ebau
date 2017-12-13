@@ -1,16 +1,16 @@
 <row>
-  <table_name>action</table_name>
+  <table_name>ACTION</table_name>
   <model_name>configuration.Action</model_name>
   <data>
-    <action_id type="int">510</action_id>
-    <available_action_id type="str">circulationtransition</available_action_id>
-    <button_id type="int">326</button_id>
-    <name type="str">Zirkulation auf OK setzen</name>
-    <description type="str"></description>
-    <success_message type="str">Antwort wurde zurück gesandt</success_message>
-    <error_message type="str">Antwort konnte nicht zurück gesandt werden</error_message>
-    <execute_always type="bool">False</execute_always>
-    <sort type="int">1</sort>
+    <ACTION_ID type="int">510</ACTION_ID>
+    <AVAILABLE_ACTION_ID type="str">circulationtransition</AVAILABLE_ACTION_ID>
+    <BUTTON_ID type="int">326</BUTTON_ID>
+    <NAME type="str">Zirkulation auf OK setzen</NAME>
+    <DESCRIPTION type="str"></DESCRIPTION>
+    <SUCCESS_MESSAGE type="str">Antwort wurde zurück gesandt</SUCCESS_MESSAGE>
+    <ERROR_MESSAGE type="str">Antwort konnte nicht zurück gesandt werden</ERROR_MESSAGE>
+    <EXECUTE_ALWAYS type="int">0</EXECUTE_ALWAYS>
+    <SORT type="int">1</SORT>
   </data>
 </row>
 

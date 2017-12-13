@@ -1,13 +1,13 @@
 <row>
-  <table_name>billing_account</table_name>
+  <table_name>BILLING_ACCOUNT</table_name>
   <model_name>configuration.BillingAccount</model_name>
   <data>
-    <billing_account_id type="int">50</billing_account_id>
-    <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen betreffend Brandschutz durch das Amt für Bevölkerungsschutz und Militär.</name>
-    <account_number type="str">2630.4210.02</account_number>
-    <department type="str">SID / ABMBS</department>
-    <service_group_id type="int">63</service_group_id>
-    <predefined type="bool">True</predefined>
+    <BILLING_ACCOUNT_ID type="int">50</BILLING_ACCOUNT_ID>
+    <NAME type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen betreffend Brandschutz durch das Amt für Bevölkerungsschutz und Militär.</NAME>
+    <ACCOUNT_NUMBER type="str">2630.4210.02</ACCOUNT_NUMBER>
+    <DEPARTMENT type="str">SID / ABMBS</DEPARTMENT>
+    <PREDEFINED type="int">1</PREDEFINED>
+    <SERVICE_GROUP_ID type="int">63</SERVICE_GROUP_ID>
   </data>
 </row>
 

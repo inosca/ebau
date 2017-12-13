@@ -1,9 +1,9 @@
 <row>
-  <table_name>r_page</table_name>
+  <table_name>R_PAGE</table_name>
   <model_name>configuration.RPage</model_name>
   <data>
-    <resource_id type="int">22</resource_id>
-    <pdf_class type="str"></pdf_class>
+    <RESOURCE_ID type="int">22</RESOURCE_ID>
+    <PDF_CLASS type="str"></PDF_CLASS>
   </data>
 </row>
 

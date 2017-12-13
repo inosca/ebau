@@ -1,9 +1,9 @@
 <row>
-  <table_name>building_authority_section</table_name>
+  <table_name>BUILDING_AUTHORITY_SECTION</table_name>
   <model_name>configuration.BuildingAuthoritySection</model_name>
   <data>
-    <building_authority_section_id type="int">4</building_authority_section_id>
-    <name type="str">Meldungen / Dokumente</name>
+    <BUILDING_AUTHORITY_SECTION_ID type="int">4</BUILDING_AUTHORITY_SECTION_ID>
+    <NAME type="str">Meldungen / Dokumente</NAME>
   </data>
 </row>
 

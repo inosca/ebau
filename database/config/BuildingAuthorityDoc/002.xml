@@ -1,11 +1,11 @@
 <row>
-  <table_name>building_authority_doc</table_name>
+  <table_name>BUILDING_AUTHORITY_DOC</table_name>
   <model_name>configuration.BuildingAuthorityDoc</model_name>
   <data>
-    <building_authority_doc_id type="int">2</building_authority_doc_id>
-    <building_authority_button_id type="int">2</building_authority_button_id>
-    <template_class_id type="int">102</template_class_id>
-    <template_id type="int">101</template_id>
+    <BUILDING_AUTHORITY_DOC_ID type="int">2</BUILDING_AUTHORITY_DOC_ID>
+    <BUILDING_AUTHORITY_BUTTON_ID type="int">2</BUILDING_AUTHORITY_BUTTON_ID>
+    <TEMPLATE_CLASS_ID type="int">102</TEMPLATE_CLASS_ID>
+    <TEMPLATE_ID type="int">101</TEMPLATE_ID>
   </data>
 </row>
 

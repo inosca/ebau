@@ -1,17 +1,17 @@
 <row>
-  <table_name>instance_resource</table_name>
+  <table_name>INSTANCE_RESOURCE</table_name>
   <model_name>configuration.InstanceResource</model_name>
   <data>
-    <instance_resource_id type="int">697</instance_resource_id>
-    <available_instance_resource_id type="str">newform</available_instance_resource_id>
-    <resource_id type="int">22</resource_id>
-    <name type="str">Dossier erstellen</name>
-    <description type="str">Erstellung durch die Koordinationsstelle AfU</description>
-    <template type="str"></template>
-    <class type="str"></class>
-    <hidden type="bool">True</hidden>
-    <sort type="int">5</sort>
-    <form_group_id type="int">249</form_group_id>
+    <INSTANCE_RESOURCE_ID type="int">697</INSTANCE_RESOURCE_ID>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">newform</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <RESOURCE_ID type="int">22</RESOURCE_ID>
+    <NAME type="str">Dossier erstellen</NAME>
+    <DESCRIPTION type="str">Erstellung durch die Koordinationsstelle AfU</DESCRIPTION>
+    <TEMPLATE type="str"></TEMPLATE>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">1</HIDDEN>
+    <SORT type="int">5</SORT>
+    <FORM_GROUP_ID type="int">249</FORM_GROUP_ID>
   </data>
 </row>
 

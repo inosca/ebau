@@ -1,17 +1,17 @@
 <row>
-  <table_name>location</table_name>
+  <table_name>LOCATION</table_name>
   <model_name>configuration.Location</model_name>
   <data>
-    <location_id type="int">18</location_id>
-    <communal_cantonal_number type="int">18</communal_cantonal_number>
-    <communal_federal_number type="str">1218</communal_federal_number>
-    <district_number type="NoneType">None</district_number>
-    <section_number type="NoneType">None</section_number>
-    <name type="str">Spiringen</name>
-    <commune_name type="str">Spiringen</commune_name>
-    <district_name type="str"></district_name>
-    <section_name type="str"></section_name>
-    <zip type="str">6464</zip>
+    <LOCATION_ID type="int">18</LOCATION_ID>
+    <COMMUNAL_CANTONAL_NUMBER type="int">18</COMMUNAL_CANTONAL_NUMBER>
+    <COMMUNAL_FEDERAL_NUMBER type="str">1218</COMMUNAL_FEDERAL_NUMBER>
+    <DISTRICT_NUMBER type="NoneType">None</DISTRICT_NUMBER>
+    <SECTION_NUMBER type="NoneType">None</SECTION_NUMBER>
+    <NAME type="str">Spiringen</NAME>
+    <COMMUNE_NAME type="str">Spiringen</COMMUNE_NAME>
+    <DISTRICT_NAME type="str"></DISTRICT_NAME>
+    <SECTION_NAME type="str"></SECTION_NAME>
+    <ZIP type="str">6464</ZIP>
   </data>
 </row>
 

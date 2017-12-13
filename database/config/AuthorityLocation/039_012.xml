@@ -1,9 +1,10 @@
 <row>
-  <table_name>authority_location</table_name>
+  <table_name>AUTHORITY_LOCATION</table_name>
   <model_name>configuration.AuthorityLocation</model_name>
   <data>
-    <authority_id type="int">39</authority_id>
-    <location_id type="int">12</location_id>
+    <ID type="int">58</ID>
+    <AUTHORITY_ID type="int">39</AUTHORITY_ID>
+    <LOCATION_ID type="int">12</LOCATION_ID>
   </data>
 </row>
 

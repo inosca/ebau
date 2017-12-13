@@ -1,17 +1,17 @@
 <row>
-  <table_name>group</table_name>
+  <table_name>GROUP</table_name>
   <model_name>configuration.Group</model_name>
   <data>
-    <group_id type="int">153</group_id>
-    <role_id type="int">6</role_id>
-    <service_id type="int">360</service_id>
-    <name type="str">Sekretariat Gemeindebaubehörde Silenen</name>
-    <phone type="str"></phone>
-    <zip type="str">6473</zip>
-    <city type="str">Silenen</city>
-    <address type="str">Gotthardstrasse 217</address>
-    <email type="str"></email>
-    <website type="str"></website>
+    <GROUP_ID type="int">153</GROUP_ID>
+    <ROLE_ID type="int">6</ROLE_ID>
+    <SERVICE_ID type="int">360</SERVICE_ID>
+    <NAME type="str">Sekretariat Gemeindebaubehörde Silenen</NAME>
+    <PHONE type="str"></PHONE>
+    <ZIP type="str">6473</ZIP>
+    <CITY type="str">Silenen</CITY>
+    <ADDRESS type="str">Gotthardstrasse 217</ADDRESS>
+    <EMAIL type="str"></EMAIL>
+    <WEBSITE type="str"></WEBSITE>
   </data>
 </row>
 

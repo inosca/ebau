@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">276</answer_list_id>
-    <question_id type="int">22</question_id>
-    <value type="str">WG5</value>
-    <name type="str">Wohn- und Gewerbezone 5+</name>
-    <sort type="int">24</sort>
+    <ANSWER_LIST_ID type="int">276</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">22</QUESTION_ID>
+    <VALUE type="str">WG5</VALUE>
+    <NAME type="str">Wohn- und Gewerbezone 5+</NAME>
+    <SORT type="int">24</SORT>
   </data>
 </row>
 

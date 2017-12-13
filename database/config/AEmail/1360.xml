@@ -1,15 +1,15 @@
 <row>
-  <table_name>a_email</table_name>
+  <table_name>A_EMAIL</table_name>
   <model_name>configuration.AEmail</model_name>
   <data>
-    <action_id type="int">1360</action_id>
-    <sender_name type="str">CAMAC - Kanton Uri</sender_name>
-    <sender_email type="str">camac@ur.ch</sender_email>
-    <query type="str">SELECT "EMAIL", "NAME"
+    <ACTION_ID type="int">1360</ACTION_ID>
+    <SENDER_NAME type="str">CAMAC - Kanton Uri</SENDER_NAME>
+    <SENDER_EMAIL type="str">camac@ur.ch</SENDER_EMAIL>
+    <QUERY type="str">SELECT "EMAIL", "NAME"
 FROM "CAMAC"."GROUP"
-WHERE "NAME" = 'Lisag'</query>
-    <title type="str">ÖREB Meldung</title>
-    <text type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+WHERE "NAME" = 'Lisag'</QUERY>
+    <TITLE type="str">ÖREB Meldung</TITLE>
+    <TEXT type="str">CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
 
 ÖREB MELDUNG
 Zugewiesen von der Koordinationsstelle Baudirektion
@@ -26,7 +26,7 @@ Klausenstrasse 2
 6460 Altdorf
 
 Tel. 041 875 26 81
-E-Mail: viktor.arnold@ur.ch</text>
+E-Mail: viktor.arnold@ur.ch</TEXT>
   </data>
 </row>
 

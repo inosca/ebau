@@ -1,11 +1,11 @@
 <row>
-  <table_name>docgen_template</table_name>
+  <table_name>DOCGEN_TEMPLATE</table_name>
   <model_name>configuration.DocgenTemplate</model_name>
   <data>
-    <docgen_template_id type="int">214</docgen_template_id>
-    <name type="str">Rechnung AfU</name>
-    <path type="str">billKOORAfU.docx</path>
-    <type type="int">1</type>
+    <DOCGEN_TEMPLATE_ID type="int">214</DOCGEN_TEMPLATE_ID>
+    <NAME type="str">Rechnung AfU</NAME>
+    <PATH type="str">billKOORAfU.docx</PATH>
+    <TYPE type="int">1</TYPE>
   </data>
 </row>
 

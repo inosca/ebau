@@ -1,17 +1,17 @@
 <row>
-  <table_name>group</table_name>
+  <table_name>GROUP</table_name>
   <model_name>configuration.Group</model_name>
   <data>
-    <group_id type="int">149</group_id>
-    <role_id type="int">6</role_id>
-    <service_id type="int">356</service_id>
-    <name type="str">Sekretariat Gemeindebaubehörde Realp</name>
-    <phone type="str"></phone>
-    <zip type="str">6491</zip>
-    <city type="str">Realp</city>
-    <address type="str">Gemeindehaus</address>
-    <email type="str"></email>
-    <website type="str"></website>
+    <GROUP_ID type="int">149</GROUP_ID>
+    <ROLE_ID type="int">6</ROLE_ID>
+    <SERVICE_ID type="int">356</SERVICE_ID>
+    <NAME type="str">Sekretariat Gemeindebaubehörde Realp</NAME>
+    <PHONE type="str"></PHONE>
+    <ZIP type="str">6491</ZIP>
+    <CITY type="str">Realp</CITY>
+    <ADDRESS type="str">Gemeindehaus</ADDRESS>
+    <EMAIL type="str"></EMAIL>
+    <WEBSITE type="str"></WEBSITE>
   </data>
 </row>
 

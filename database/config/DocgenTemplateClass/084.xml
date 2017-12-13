@@ -1,11 +1,11 @@
 <row>
-  <table_name>docgen_template_class</table_name>
+  <table_name>DOCGEN_TEMPLATE_CLASS</table_name>
   <model_name>configuration.DocgenTemplateClass</model_name>
   <data>
-    <docgen_template_class_id type="int">84</docgen_template_class_id>
-    <name type="str">Rückmeldung</name>
-    <path type="str">Rueckmeldung.php</path>
-    <type type="int">2</type>
+    <DOCGEN_TEMPLATE_CLASS_ID type="int">84</DOCGEN_TEMPLATE_CLASS_ID>
+    <NAME type="str">Rückmeldung</NAME>
+    <PATH type="str">Rueckmeldung.php</PATH>
+    <TYPE type="int">2</TYPE>
   </data>
 </row>
 

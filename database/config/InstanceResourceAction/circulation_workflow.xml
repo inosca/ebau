@@ -1,9 +1,10 @@
 <row>
-  <table_name>instance_resource_action</table_name>
+  <table_name>INSTANCE_RESOURCE_ACTION</table_name>
   <model_name>configuration.InstanceResourceAction</model_name>
   <data>
-    <available_instance_resource_id type="str">circulation</available_instance_resource_id>
-    <available_action_id type="str">workflow</available_action_id>
+    <ID type="int">414</ID>
+    <AVAILABLE_INSTANCE_RESOURCE_ID type="str">circulation</AVAILABLE_INSTANCE_RESOURCE_ID>
+    <AVAILABLE_ACTION_ID type="str">workflow</AVAILABLE_ACTION_ID>
   </data>
 </row>
 

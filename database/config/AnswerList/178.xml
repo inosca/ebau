@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">178</answer_list_id>
-    <question_id type="int">141</question_id>
-    <value type="str">internemitteilung</value>
-    <name type="str">Interner Kurzbericht via CAMAC</name>
-    <sort type="int">3</sort>
+    <ANSWER_LIST_ID type="int">178</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">141</QUESTION_ID>
+    <VALUE type="str">internemitteilung</VALUE>
+    <NAME type="str">Interner Kurzbericht via CAMAC</NAME>
+    <SORT type="int">3</SORT>
   </data>
 </row>
 

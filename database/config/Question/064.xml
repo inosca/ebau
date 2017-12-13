@@ -1,16 +1,17 @@
 <row>
-  <table_name>question</table_name>
+  <table_name>QUESTION</table_name>
   <model_name>configuration.Question</model_name>
   <data>
-    <question_id type="int">64</question_id>
-    <question_type_id type="int">1</question_type_id>
-    <mapping_id type="int">1</mapping_id>
-    <answer_query_id type="NoneType">None</answer_query_id>
-    <name type="str">Telefon Privat</name>
-    <description type="str">Telefon Festnetz Gesuchsteller</description>
-    <javascript type="str"></javascript>
-    <regex type="str">/^\+?[\d ]+$/</regex>
-    <default_answer type="str"></default_answer>
+    <QUESTION_ID type="int">64</QUESTION_ID>
+    <QUESTION_TYPE_ID type="int">1</QUESTION_TYPE_ID>
+    <MAPPING_ID type="int">1</MAPPING_ID>
+    <ANSWER_QUERY_ID type="NoneType">None</ANSWER_QUERY_ID>
+    <NAME type="str">Telefon Privat</NAME>
+    <DESCRIPTION type="str">Telefon Festnetz Gesuchsteller</DESCRIPTION>
+    <JAVASCRIPT type="str"></JAVASCRIPT>
+    <REGEX type="str">/^\+?[\d ]+$/</REGEX>
+    <DEFAULT_ANSWER type="str"></DEFAULT_ANSWER>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

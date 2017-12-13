@@ -1,12 +1,13 @@
 <row>
-  <table_name>page_form</table_name>
+  <table_name>PAGE_FORM</table_name>
   <model_name>configuration.PageForm</model_name>
   <data>
-    <page_id type="int">1</page_id>
-    <form_id type="int">241</form_id>
-    <page_form_mode_id type="int">3</page_form_mode_id>
-    <page_form_group_id type="int">1</page_form_group_id>
-    <sort type="int">0</sort>
+    <ID type="int">324</ID>
+    <PAGE_ID type="int">1</PAGE_ID>
+    <FORM_ID type="int">241</FORM_ID>
+    <PAGE_FORM_MODE_ID type="int">3</PAGE_FORM_MODE_ID>
+    <PAGE_FORM_GROUP_ID type="int">1</PAGE_FORM_GROUP_ID>
+    <SORT type="int">0</SORT>
   </data>
 </row>
 

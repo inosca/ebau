@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">210</answer_list_id>
-    <question_id type="int">22</question_id>
-    <value type="str">RZu</value>
-    <name type="str">Reservezone, unproduktiv</name>
-    <sort type="int">53</sort>
+    <ANSWER_LIST_ID type="int">210</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">22</QUESTION_ID>
+    <VALUE type="str">RZu</VALUE>
+    <NAME type="str">Reservezone, unproduktiv</NAME>
+    <SORT type="int">53</SORT>
   </data>
 </row>
 

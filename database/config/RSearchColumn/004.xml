@@ -1,12 +1,12 @@
 <row>
-  <table_name>r_search_column</table_name>
+  <table_name>R_SEARCH_COLUMN</table_name>
   <model_name>configuration.RSearchColumn</model_name>
   <data>
-    <r_search_column_id type="int">4</r_search_column_id>
-    <resource_id type="int">42</resource_id>
-    <column_name type="str">COMMUNITY</column_name>
-    <alias type="str">Gemeinde</alias>
-    <sort type="int">3</sort>
+    <R_SEARCH_COLUMN_ID type="int">4</R_SEARCH_COLUMN_ID>
+    <RESOURCE_ID type="int">42</RESOURCE_ID>
+    <COLUMN_NAME type="str">COMMUNITY</COLUMN_NAME>
+    <ALIAS type="str">Gemeinde</ALIAS>
+    <SORT type="int">3</SORT>
   </data>
 </row>
 

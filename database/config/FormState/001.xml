@@ -1,9 +1,9 @@
 <row>
-  <table_name>form_state</table_name>
+  <table_name>FORM_STATE</table_name>
   <model_name>configuration.FormState</model_name>
   <data>
-    <form_state_id type="int">1</form_state_id>
-    <name type="str">Published</name>
+    <FORM_STATE_ID type="int">1</FORM_STATE_ID>
+    <NAME type="str">Published</NAME>
   </data>
 </row>
 

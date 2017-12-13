@@ -1,10 +1,11 @@
 <row>
-  <table_name>chapter_page</table_name>
+  <table_name>CHAPTER_PAGE</table_name>
   <model_name>configuration.ChapterPage</model_name>
   <data>
-    <chapter_id type="int">3</chapter_id>
-    <page_id type="int">81</page_id>
-    <sort type="int">0</sort>
+    <ID type="int">71</ID>
+    <CHAPTER_ID type="int">3</CHAPTER_ID>
+    <PAGE_ID type="int">81</PAGE_ID>
+    <SORT type="int">0</SORT>
   </data>
 </row>
 

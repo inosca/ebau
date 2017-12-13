@@ -19,3 +19,6 @@ doc/
 db_admin/uri_database/*.png
 .python-version
 export.log
+postgres-data
+.cache
+geckodriver.log

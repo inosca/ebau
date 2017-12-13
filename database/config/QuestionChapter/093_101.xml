@@ -1,12 +1,13 @@
 <row>
-  <table_name>question_chapter</table_name>
+  <table_name>QUESTION_CHAPTER</table_name>
   <model_name>configuration.QuestionChapter</model_name>
   <data>
-    <question_id type="int">93</question_id>
-    <chapter_id type="int">101</chapter_id>
-    <required type="bool">False</required>
-    <item type="int">1</item>
-    <sort type="int">2</sort>
+    <ID type="int">172</ID>
+    <QUESTION_ID type="int">93</QUESTION_ID>
+    <CHAPTER_ID type="int">101</CHAPTER_ID>
+    <REQUIRED type="int">0</REQUIRED>
+    <ITEM type="int">1</ITEM>
+    <SORT type="int">2</SORT>
   </data>
 </row>
 

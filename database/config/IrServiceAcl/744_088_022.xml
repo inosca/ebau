@@ -1,10 +1,11 @@
 <row>
-  <table_name>ir_service_acl</table_name>
+  <table_name>IR_SERVICE_ACL</table_name>
   <model_name>configuration.IrServiceAcl</model_name>
   <data>
-    <instance_resource_id type="int">744</instance_resource_id>
-    <service_id type="int">88</service_id>
-    <instance_state_id type="int">22</instance_state_id>
+    <ID type="int">36</ID>
+    <INSTANCE_RESOURCE_ID type="int">744</INSTANCE_RESOURCE_ID>
+    <SERVICE_ID type="int">88</SERVICE_ID>
+    <INSTANCE_STATE_ID type="int">22</INSTANCE_STATE_ID>
   </data>
 </row>
 

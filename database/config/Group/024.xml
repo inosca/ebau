@@ -1,17 +1,17 @@
 <row>
-  <table_name>group</table_name>
+  <table_name>GROUP</table_name>
   <model_name>configuration.Group</model_name>
   <data>
-    <group_id type="int">24</group_id>
-    <role_id type="int">6</role_id>
-    <service_id type="int">353</service_id>
-    <name type="str">Sekretariat Baukommission Urner Oberland</name>
-    <phone type="str"></phone>
-    <zip type="str">6487</zip>
-    <city type="str">Göschenen</city>
-    <address type="str">Göscheneralpstrasse 6487 Göschenen</address>
-    <email type="str"></email>
-    <website type="str"></website>
+    <GROUP_ID type="int">24</GROUP_ID>
+    <ROLE_ID type="int">6</ROLE_ID>
+    <SERVICE_ID type="int">353</SERVICE_ID>
+    <NAME type="str">Sekretariat Baukommission Urner Oberland</NAME>
+    <PHONE type="str"></PHONE>
+    <ZIP type="str">6487</ZIP>
+    <CITY type="str">Göschenen</CITY>
+    <ADDRESS type="str">Göscheneralpstrasse 6487 Göschenen</ADDRESS>
+    <EMAIL type="str"></EMAIL>
+    <WEBSITE type="str"></WEBSITE>
   </data>
 </row>
 

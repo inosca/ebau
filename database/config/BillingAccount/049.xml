@@ -1,13 +1,13 @@
 <row>
-  <table_name>billing_account</table_name>
+  <table_name>BILLING_ACCOUNT</table_name>
   <model_name>configuration.BillingAccount</model_name>
   <data>
-    <billing_account_id type="int">49</billing_account_id>
-    <name type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch das Amt für Landwirtschaft.</name>
-    <account_number type="str">2740.4210.01</account_number>
-    <department type="str">VD / ALA</department>
-    <service_group_id type="int">64</service_group_id>
-    <predefined type="bool">True</predefined>
+    <BILLING_ACCOUNT_ID type="int">49</BILLING_ACCOUNT_ID>
+    <NAME type="str">Gebühr für die Prüfung von Baugesuchen und Voreinfragen durch das Amt für Landwirtschaft.</NAME>
+    <ACCOUNT_NUMBER type="str">2740.4210.01</ACCOUNT_NUMBER>
+    <DEPARTMENT type="str">VD / ALA</DEPARTMENT>
+    <PREDEFINED type="int">1</PREDEFINED>
+    <SERVICE_GROUP_ID type="int">64</SERVICE_GROUP_ID>
   </data>
 </row>
 

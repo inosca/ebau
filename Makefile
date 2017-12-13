@@ -16,16 +16,6 @@ _log-follow: # Tail the log of the application
 	@tail -f camac/logs/application.log
 
 
-.PHONY: run-fancy
-run-fancy: ## Create a tmux session that runs several useful commands at once: make up, make log-follow and make watch
-	@tmux new-session -n 'camac runner' -d 'make run'
-	@tmux split-window -v 'make _log-follow' # split vertically
-	@tmux select-pane -U # go one pane upwards
-	@tmux select-pane -U # go one pane upwards
-	@tmux split-window -h 'make watch' # split horizontally on the most upper pane
-
-	@tmux -2 attach-session -d
-
 .PHONY: _base-init
 _base-init: _submodule-update
 	@rm -f camac/configuration
@@ -38,16 +28,6 @@ _base-init: _submodule-update
 	@chmod o+w camac/configuration/upload
 	@make _classloader
 
-.PHONY: _ci-init
-_ci-init: _base-init install
-	@ENV='ci' make -C resources/configuration-templates/
-	@ENV='ci' make htaccess
-
-.PHONY: _init
-_init: _base-init# Initialise the code, create the necessary symlinks
-	@ENV='dev' make -C resources/configuration-templates/
-	@ENV='dev' make htaccess
-
 .PHONY: _submodule-update
 _submodule-update:
 	git submodule update --init --recursive || true
@@ -55,8 +35,10 @@ _submodule-update:
 	chmod 777 -R camac/logs || true
 
 .PHONY: install
-install: ## Install required files (jQuey, etc via NPM)
+install: ## Install required files (jQuey, etc via NPM, php composer files)
 	npm install --prefix ./kt_uri/configuration/public
+	npm install --prefix ./iweb_mock/
+	cd camac && composer install
 
 .PHONY: js
 js:
@@ -67,8 +49,8 @@ js-watch:
 	npm run watch --prefix ./kt_uri/configuration/public
 
 .PHONY: run
-run: _init ## Runs the docker containers
-	@docker-compose -f docker/docker-compose.yml up
+run-ur: _base-init ## Runs the docker containers
+	@docker-compose -f docker/docker-compose-ur.yml up -d
 
 .PHONY: db-create-user
 db-create-user: _sync_db_tools ## Create the user camac in the database
@@ -115,16 +97,6 @@ deploy-import: ## import the config for deployment
 	@echo "Config successfully imported"
 
 
-.PHONY: _deploy-configure-prod
-_deploy-configure-prod: _classloader # Generate htaccess and configuration for the stage server
-	ENV='prod' make -C resources/configuration-templates/
-	ENV='prod' make htaccess
-
-.PHONY: _deploy-configure-stage
-_deploy-configure-stage: _classloader # Generate the htacces and configuration for the prod server
-	ENV='stage' make -C resources/configuration-templates/
-	ENV='stage' make htaccess
-
 .PHONY: _deploy-pack
 _deploy-pack: ## make a zip containing all the necessary files
 	# apparently zip cannot resolve the symlinks
@@ -167,16 +139,6 @@ _deploy-pack: ## make a zip containing all the necessary files
 	@rmdir camac/tmp
 	# revert back to normal config
 	@make _init
-
-
-.PHONY: deploy-pack-production
-deploy-pack-production: _deploy-configure-prod _deploy-pack ## Make a zip containing all the necessary files with prod configuration
-	@echo "Created zip for prod deployment"
-
-
-.PHONY: deploy-pack-staging
-deploy-pack-staging: _deploy-configure-stage _deploy-pack ## Make a zip containing all the necessary files with stage configuration
-	@echo "Created zip for prod deployment"
 
 
 .PHONY: deploy-dump
@@ -225,14 +187,9 @@ _deployment_confirmation:
 
 .PHONY: deploy-test-server
 deploy-test-server: _deployment_confirmation css _classloader ## Move the code onto the test server
-	@ENV='test' make -C resources/configuration-templates/
-	@ENV='test' make htaccess
 	@rsync -Lavz camac/ sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/ --exclude=*.log --exclude=db-config*.ini --exclude=node_modules/ --modify-window=1
 	@ssh sy-jump "chown -R www-data /mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/logs"
-	@scp resources/htaccess/test-server-passwd sy-jump:/mnt/ssh/root@vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch/var/www/camac5.src/camac/passwd
-	@ENV='dev' make -C resources/configuration-templates/
-	@ENV='dev' make htaccess
-	@cd db_admin/uri_database/ && USE_DB='test_server' python manage.py importconfig
+	@cd db_admin/uri_database/ && python manage.py importconfig --database=test_server
 
 
 .PHONY: deploy-portal-test-server
@@ -245,31 +202,11 @@ deploy-portal-test-server:
 run-deploy-db: ## This is merely a command to help run another docker instance for deploying
 	docker-compose -f docker/docker-deploy-db.yml up
 
-
-.PHONY: config-export
-config-export: ## export the current database configuration
-	@make -C db_admin/ exportconfig
-	@echo "Config successfully written"
-
-
-.PHONY: config-import
-config-import: ## import the current database configuration. This will override your existing stuff!
-	@make -C db_admin/ importconfig
-	@echo "Config successfully imported"
-	@make clear-cache
-	@echo "Cache cleared"
-
-
 .PHONY: data-truncate
 data-truncate: ## Truncate the data in the database
 	@make -C db_admin/ truncatedata
 	# @make -C db_admin/ reset_sequences # TODO
 	@echo "Data sucessfully truncated"
-
-
-.PHONY: config-shell
-config-shell: ## start a database shell from the configuration management application
-	@cd db_admin/uri_database/ && USE_DB='docker_dev' python manage.py shell
 
 
 .PHONY: help
@@ -280,12 +217,6 @@ help: ## Show the help messages
 .PHONY: run-acceptance-tests
 run-acceptance-tests: ## run the acceptance tests
 	@make -C db_admin/ run-acceptance-tests ARGS="${ARGS}"
-
-
-.PHONY: ci-run-acceptance-tests
-ci-run-acceptance-tests: ## Run a subset of the acceptance tests
-	@mkdir -p camac/logs/mails
-	@make -C db_admin/ run-acceptance-tests-ci
 
 
 .PHONY: install-api-doc
@@ -299,12 +230,6 @@ generate-api-doc: ## generates documentation for the i-web portal API
 	@echo "Documentation was saved in /doc folder."
 
 
-.PHONY: ci-config-import
-ci-config-import:
-	@make -C db_admin/  importconfig-ci
-	@echo "config successfully imported"
-
-
 .PHONY: ci-pretend
 ci-pretend:
 	@source /etc/profile
@@ -313,15 +238,10 @@ ci-pretend:
 	@source /etc/apache2/envvars
 	@python .wait-for-oracle-db.py oracle-eatmydata 1521
 	@ssh-keyscan -H oracle-eatmydata > ~/.ssh/known_hosts
-	@make _ci-init
+	@make _base-init _install
 	@make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
 	@make ci-config-import
 	@make ci-run-acceptance-tests
-
-
-.PHONY: htaccess
-htaccess:
-	python resources/htaccess/make_htaccess.py ${ENV}
 
 
 .PHONY: clear-cache ## Clear the memcache

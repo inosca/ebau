@@ -1,9 +1,9 @@
 <row>
-  <table_name>page_form_mode</table_name>
+  <table_name>PAGE_FORM_MODE</table_name>
   <model_name>configuration.PageFormMode</model_name>
   <data>
-    <page_form_mode_id type="int">3</page_form_mode_id>
-    <name type="str">Required</name>
+    <PAGE_FORM_MODE_ID type="int">3</PAGE_FORM_MODE_ID>
+    <NAME type="str">Required</NAME>
   </data>
 </row>
 

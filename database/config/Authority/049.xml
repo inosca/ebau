@@ -1,9 +1,9 @@
 <row>
-  <table_name>authority</table_name>
+  <table_name>AUTHORITY</table_name>
   <model_name>configuration.Authority</model_name>
   <data>
-    <authority_id type="int">49</authority_id>
-    <name type="str">Gemeinderat Spiringen</name>
+    <AUTHORITY_ID type="int">49</AUTHORITY_ID>
+    <NAME type="str">Gemeinderat Spiringen</NAME>
   </data>
 </row>
 

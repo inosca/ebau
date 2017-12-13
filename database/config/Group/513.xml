@@ -1,17 +1,17 @@
 <row>
-  <table_name>group</table_name>
+  <table_name>GROUP</table_name>
   <model_name>configuration.Group</model_name>
   <data>
-    <group_id type="int">513</group_id>
-    <role_id type="int">1102</role_id>
-    <service_id type="int">331</service_id>
-    <name type="str">Gemeinde Realp als Vernehmlassungsstelle</name>
-    <phone type="str"></phone>
-    <zip type="str"></zip>
-    <city type="str"></city>
-    <address type="str"></address>
-    <email type="str">gemeinde@realp.ch</email>
-    <website type="str"></website>
+    <GROUP_ID type="int">513</GROUP_ID>
+    <ROLE_ID type="int">1102</ROLE_ID>
+    <SERVICE_ID type="int">331</SERVICE_ID>
+    <NAME type="str">Gemeinde Realp als Vernehmlassungsstelle</NAME>
+    <PHONE type="str"></PHONE>
+    <ZIP type="str"></ZIP>
+    <CITY type="str"></CITY>
+    <ADDRESS type="str"></ADDRESS>
+    <EMAIL type="str">gemeinde@realp.ch</EMAIL>
+    <WEBSITE type="str"></WEBSITE>
   </data>
 </row>
 
