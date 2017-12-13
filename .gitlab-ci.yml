@@ -40,7 +40,8 @@ run-test:
         - echo "Running Tests"
         - date
         - mkdir -p camac/logs/mails
-        - TEST_HOST='localhost' TEST_STANDALONE='True' NODE_ENV=ci TEST_PORT='80' python db_admin/uri_database/pytest_run.py --flake8 --instafail
+        - TEST_HOST='localhost' TEST_STANDALONE='True' NODE_ENV=ci TEST_PORT='80' python db_admin/uri_database/pytest_run.py --instafail
+        - cd db_admin && flake8
 
 variables:
     LANG: C.UTF-8

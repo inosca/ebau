@@ -21,3 +21,4 @@ db_admin/uri_database/*.png
 export.log
 postgres-data
 .cache
+geckodriver.log
