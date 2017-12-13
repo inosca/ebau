@@ -1,14 +1,14 @@
 <row>
-  <table_name>button</table_name>
+  <table_name>BUTTON</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">430</button_id>
-    <instance_resource_id type="int">445</instance_resource_id>
-    <name type="str">Archivieren</name>
-    <description type="str"></description>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">2</sort>
+    <BUTTON_ID type="int">430</BUTTON_ID>
+    <INSTANCE_RESOURCE_ID type="int">445</INSTANCE_RESOURCE_ID>
+    <NAME type="str">Archivieren</NAME>
+    <DESCRIPTION type="str"></DESCRIPTION>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">2</SORT>
   </data>
 </row>
 

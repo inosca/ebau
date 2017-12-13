@@ -1,10 +1,10 @@
 <row>
-  <table_name>publication_setting</table_name>
+  <table_name>PUBLICATION_SETTING</table_name>
   <model_name>configuration.PublicationSetting</model_name>
   <data>
-    <publication_setting_id type="int">2</publication_setting_id>
-    <key type="str">duration</key>
-    <value type="str">20 Tage</value>
+    <PUBLICATION_SETTING_ID type="int">2</PUBLICATION_SETTING_ID>
+    <KEY type="str">duration</KEY>
+    <VALUE type="str">20 Tage</VALUE>
   </data>
 </row>
 

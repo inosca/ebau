@@ -1,6 +1,7 @@
 before_script:
     - source /etc/profile
     - source /opt/xvfb.sh
+    - export PIP_CACHE_DIR='pip-cache'
 
 after_script:
     - cat camac/logs/application.log
@@ -20,8 +21,10 @@ run-test:
         - date
         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
-        - make _ci-init
+        - make _base-init
+        - make install
         - make js
+        - pip install --upgrade -r db_admin/requirements.txt
         - bash .wait-for-ssh.sh oracle-eatmydata 22
         - python .wait-for-oracle-db.py oracle-eatmydata 1521
         - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
@@ -30,13 +33,15 @@ run-test:
         - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
         - echo "Importing config"
         - date
-        - make ci-config-import
+        - python db_admin/uri_database/manage.py importconfig --no-spin
         - echo "" > camac/logs/application.log
         - mkdir -p /tmp/data/records
         - chmod 777 -R /tmp/data
         - echo "Running Tests"
         - date
-        - make ci-run-acceptance-tests
+        - mkdir -p camac/logs/mails
+        - TEST_HOST='localhost' TEST_STANDALONE='True' NODE_ENV=ci TEST_PORT='80' python db_admin/uri_database/pytest_run.py --instafail
+        - cd db_admin && flake8
 
 variables:
     LANG: C.UTF-8
@@ -45,3 +50,10 @@ variables:
     LD_LIBRARY_PATH: /usr/local/lib/instantclient_11_2
     GIT_SUBMODULE_STRATEGY: recursive
     GIT_STRATEGY: clone
+    APPLICATION_ENV: ci
+    DJANGO_SETTINGS_MODULE: uri_database.settings_ci
+    COMPOSER_HOME: /root
+
+cache:
+  paths:
+    - pip-cache

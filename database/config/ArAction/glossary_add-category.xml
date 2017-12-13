@@ -1,10 +1,11 @@
 <row>
-  <table_name>ar_action</table_name>
+  <table_name>AR_ACTION</table_name>
   <model_name>configuration.ArAction</model_name>
   <data>
-    <available_resource_id type="str">glossary</available_resource_id>
-    <action_name type="str">add-category</action_name>
-    <hidden type="bool">True</hidden>
+    <ID type="int">32</ID>
+    <AVAILABLE_RESOURCE_ID type="str">glossary</AVAILABLE_RESOURCE_ID>
+    <ACTION_NAME type="str">add-category</ACTION_NAME>
+    <HIDDEN type="int">1</HIDDEN>
   </data>
 </row>
 

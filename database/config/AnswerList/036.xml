@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">36</answer_list_id>
-    <question_id type="int">22</question_id>
-    <value type="str">TZ</value>
-    <name type="str">Tourismuszone</name>
-    <sort type="int">32</sort>
+    <ANSWER_LIST_ID type="int">36</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">22</QUESTION_ID>
+    <VALUE type="str">TZ</VALUE>
+    <NAME type="str">Tourismuszone</NAME>
+    <SORT type="int">32</SORT>
   </data>
 </row>
 

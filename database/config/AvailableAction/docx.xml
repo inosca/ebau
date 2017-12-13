@@ -1,10 +1,10 @@
 <row>
-  <table_name>available_action</table_name>
+  <table_name>AVAILABLE_ACTION</table_name>
   <model_name>configuration.AvailableAction</model_name>
   <data>
-    <available_action_id type="str">docx</available_action_id>
-    <module_name type="str">docgen</module_name>
-    <description type="str">Generate DOCX document</description>
+    <AVAILABLE_ACTION_ID type="str">docx</AVAILABLE_ACTION_ID>
+    <MODULE_NAME type="str">docgen</MODULE_NAME>
+    <DESCRIPTION type="str">Generate DOCX document</DESCRIPTION>
   </data>
 </row>
 

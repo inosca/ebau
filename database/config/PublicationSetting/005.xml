@@ -1,10 +1,10 @@
 <row>
-  <table_name>publication_setting</table_name>
+  <table_name>PUBLICATION_SETTING</table_name>
   <model_name>configuration.PublicationSetting</model_name>
   <data>
-    <publication_setting_id type="int">5</publication_setting_id>
-    <key type="str">toEmail</key>
-    <value type="str">amtsblatt@ur.ch</value>
+    <PUBLICATION_SETTING_ID type="int">5</PUBLICATION_SETTING_ID>
+    <KEY type="str">toEmail</KEY>
+    <VALUE type="str">amtsblatt@ur.ch</VALUE>
   </data>
 </row>
 

@@ -1,26 +1,26 @@
 <row>
-  <table_name>building_authority_email</table_name>
+  <table_name>BUILDING_AUTHORITY_EMAIL</table_name>
   <model_name>configuration.BuildingAuthorityEmail</model_name>
   <data>
-    <building_authority_email_id type="int">66</building_authority_email_id>
-    <building_authority_button_id type="int">12</building_authority_button_id>
-    <email_subject type="str">CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid</email_subject>
-    <email_text type="str">CAMAC Info&#13;
-(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)&#13;
-&#13;
-Statusmeldung zum Stand des Bewilligungsverfahrens&#13;
-BAU- UND EINSPRACHEENTSCHEID&#13;
-&#13;
-Sehr geehrte Dame&#13;
-Sehr geehrter Herr&#13;
-&#13;
-Der Bau- und Einspracheentscheid der Gemeindebaubehörde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.&#13;
-&#13;
-Mit freundlichen Grüssen&#13;
-Gemeindebaubehörde [INSTANCE_LOCATION]</email_text>
-    <from_email type="str">camac@ur.ch</from_email>
-    <from_name type="str">Camac Info</from_name>
-    <receiver_query type="str">[gesuchsteller]</receiver_query>
+    <BUILDING_AUTHORITY_EMAIL_ID type="int">66</BUILDING_AUTHORITY_EMAIL_ID>
+    <BUILDING_AUTHORITY_BUTTON_ID type="int">12</BUILDING_AUTHORITY_BUTTON_ID>
+    <EMAIL_TEXT type="str">CAMAC Info
+(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)
+
+Statusmeldung zum Stand des Bewilligungsverfahrens
+BAU- UND EINSPRACHEENTSCHEID
+
+Sehr geehrte Dame
+Sehr geehrter Herr
+
+Der Bau- und Einspracheentscheid der Gemeindebaubehörde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.
+
+Mit freundlichen Grüssen
+Gemeindebaubehörde [INSTANCE_LOCATION]</EMAIL_TEXT>
+    <RECEIVER_QUERY type="str">[gesuchsteller]</RECEIVER_QUERY>
+    <EMAIL_SUBJECT type="str">CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid</EMAIL_SUBJECT>
+    <FROM_EMAIL type="str">camac@ur.ch</FROM_EMAIL>
+    <FROM_NAME type="str">Camac Info</FROM_NAME>
   </data>
 </row>
 

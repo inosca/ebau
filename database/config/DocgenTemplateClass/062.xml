@@ -1,11 +1,11 @@
 <row>
-  <table_name>docgen_template_class</table_name>
+  <table_name>DOCGEN_TEMPLATE_CLASS</table_name>
   <model_name>configuration.DocgenTemplateClass</model_name>
   <data>
-    <docgen_template_class_id type="int">62</docgen_template_class_id>
-    <name type="str">Brief an Gesuchsteller</name>
-    <path type="str">letterClass.php</path>
-    <type type="int">1</type>
+    <DOCGEN_TEMPLATE_CLASS_ID type="int">62</DOCGEN_TEMPLATE_CLASS_ID>
+    <NAME type="str">Brief an Gesuchsteller</NAME>
+    <PATH type="str">letterClass.php</PATH>
+    <TYPE type="int">1</TYPE>
   </data>
 </row>
 

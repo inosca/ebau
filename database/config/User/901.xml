@@ -1,19 +1,20 @@
 <row>
-  <table_name>user</table_name>
+  <table_name>USER</table_name>
   <model_name>configuration.User</model_name>
   <data>
-    <user_id type="int">901</user_id>
-    <username type="str">TRA2</username>
-    <password type="str">0f10da7320c3fad6c1bd4e597992fb83</password>
-    <name type="str">Gemperli</name>
-    <surname type="str">Hans Paul</surname>
-    <email type="str"></email>
-    <phone type="str"></phone>
-    <disabled type="bool">False</disabled>
-    <language type="str">en</language>
-    <address type="str"></address>
-    <city type="str"></city>
-    <zip type="str"></zip>
+    <USER_ID type="int">901</USER_ID>
+    <USERNAME type="str">TRA2</USERNAME>
+    <PASSWORD type="str">0f10da7320c3fad6c1bd4e597992fb83</PASSWORD>
+    <NAME type="str">Gemperli</NAME>
+    <SURNAME type="str">Hans Paul</SURNAME>
+    <EMAIL type="str"></EMAIL>
+    <PHONE type="str"></PHONE>
+    <DISABLED type="int">0</DISABLED>
+    <LANGUAGE type="str">en</LANGUAGE>
+    <LAST_REQUEST_DATE type="NoneType">None</LAST_REQUEST_DATE>
+    <ADDRESS type="str"></ADDRESS>
+    <CITY type="str"></CITY>
+    <ZIP type="str"></ZIP>
   </data>
 </row>
 

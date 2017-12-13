@@ -1,10 +1,10 @@
 <row>
-  <table_name>attachment_section</table_name>
+  <table_name>ATTACHMENT_SECTION</table_name>
   <model_name>configuration.AttachmentSection</model_name>
   <data>
-    <attachment_section_id type="int">1</attachment_section_id>
-    <name type="str">Interne Dokumente BaB (nur für BaB Fachstellen sichtbar)</name>
-    <sort type="int">3</sort>
+    <ATTACHMENT_SECTION_ID type="int">1</ATTACHMENT_SECTION_ID>
+    <NAME type="str">Interne Dokumente BaB (nur für BaB Fachstellen sichtbar)</NAME>
+    <SORT type="int">3</SORT>
   </data>
 </row>
 

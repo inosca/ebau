@@ -1,10 +1,10 @@
 <row>
-  <table_name>instance_state</table_name>
+  <table_name>INSTANCE_STATE</table_name>
   <model_name>configuration.InstanceState</model_name>
   <data>
-    <instance_state_id type="int">22</instance_state_id>
-    <name type="str">ext</name>
-    <sort type="int">2</sort>
+    <INSTANCE_STATE_ID type="int">22</INSTANCE_STATE_ID>
+    <NAME type="str">ext</NAME>
+    <SORT type="int">2</SORT>
   </data>
 </row>
 

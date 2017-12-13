@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">108</answer_list_id>
-    <question_id type="int">95</question_id>
-    <value type="str">FFF</value>
-    <name type="str">Fruchtfolgefläche</name>
-    <sort type="int">15</sort>
+    <ANSWER_LIST_ID type="int">108</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">95</QUESTION_ID>
+    <VALUE type="str">FFF</VALUE>
+    <NAME type="str">Fruchtfolgefläche</NAME>
+    <SORT type="int">15</SORT>
   </data>
 </row>
 

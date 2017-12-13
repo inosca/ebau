@@ -1,9 +1,9 @@
 <row>
-  <table_name>a_php</table_name>
+  <table_name>A_PHP</table_name>
   <model_name>configuration.APhp</model_name>
   <data>
-    <action_id type="int">7</action_id>
-    <php_class type="str">DossierNR</php_class>
+    <ACTION_ID type="int">7</ACTION_ID>
+    <PHP_CLASS type="str">DossierNR</PHP_CLASS>
   </data>
 </row>
 

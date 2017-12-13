@@ -1,12 +1,12 @@
 <row>
-  <table_name>answer_list</table_name>
+  <table_name>ANSWER_LIST</table_name>
   <model_name>configuration.AnswerList</model_name>
   <data>
-    <answer_list_id type="int">79</answer_list_id>
-    <question_id type="int">94</question_id>
-    <value type="str">QPr</value>
-    <name type="str">Bereich rechtsgültiger Quartierplan</name>
-    <sort type="int">21</sort>
+    <ANSWER_LIST_ID type="int">79</ANSWER_LIST_ID>
+    <QUESTION_ID type="int">94</QUESTION_ID>
+    <VALUE type="str">QPr</VALUE>
+    <NAME type="str">Bereich rechtsgültiger Quartierplan</NAME>
+    <SORT type="int">21</SORT>
   </data>
 </row>
 

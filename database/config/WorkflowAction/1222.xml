@@ -1,10 +1,10 @@
 <row>
-  <table_name>workflow_action</table_name>
+  <table_name>WORKFLOW_ACTION</table_name>
   <model_name>configuration.WorkflowAction</model_name>
   <data>
-    <action_id type="int">1222</action_id>
-    <workflow_item_id type="int">12</workflow_item_id>
-    <multi_value type="int">0</multi_value>
+    <ACTION_ID type="int">1222</ACTION_ID>
+    <WORKFLOW_ITEM_ID type="int">12</WORKFLOW_ITEM_ID>
+    <MULTI_VALUE type="int">0</MULTI_VALUE>
   </data>
 </row>
 

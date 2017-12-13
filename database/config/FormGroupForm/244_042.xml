@@ -1,9 +1,9 @@
 <row>
-  <table_name>form_group_form</table_name>
+  <table_name>FORM_GROUP_FORM</table_name>
   <model_name>configuration.FormGroupForm</model_name>
   <data>
-    <form_group_id type="int">244</form_group_id>
-    <form_id type="int">42</form_id>
+    <FORM_GROUP_ID type="int">244</FORM_GROUP_ID>
+    <FORM_ID type="int">42</FORM_ID>
   </data>
 </row>
 

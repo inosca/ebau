@@ -1,9 +1,9 @@
 <row>
-  <table_name>building_authority_button</table_name>
+  <table_name>BUILDING_AUTHORITY_BUTTON</table_name>
   <model_name>configuration.BuildingAuthorityButton</model_name>
   <data>
-    <building_authority_button_id type="int">8</building_authority_button_id>
-    <label type="str">Abnahme Schnurgerüst, Info an ABM</label>
+    <BUILDING_AUTHORITY_BUTTON_ID type="int">8</BUILDING_AUTHORITY_BUTTON_ID>
+    <LABEL type="str">Abnahme Schnurgerüst, Info an ABM</LABEL>
   </data>
 </row>
 

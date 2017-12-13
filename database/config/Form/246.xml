@@ -1,11 +1,11 @@
 <row>
-  <table_name>form</table_name>
+  <table_name>FORM</table_name>
   <model_name>configuration.Form</model_name>
   <data>
-    <form_id type="int">246</form_id>
-    <form_state_id type="int">1</form_state_id>
-    <name type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</name>
-    <description type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</description>
+    <FORM_ID type="int">246</FORM_ID>
+    <FORM_STATE_ID type="int">1</FORM_STATE_ID>
+    <NAME type="str">Konzessionsverfahren Baudirektion Beanspruchung Kantonsgewässer bis 500 m2 (Artikel 3 ORR)</NAME>
+    <DESCRIPTION type="str">KOOR-BD;Koordinationsstelle für Bewilligungsverfahren Baudirektion</DESCRIPTION>
   </data>
 </row>
 

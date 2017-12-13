@@ -1,14 +1,15 @@
 <row>
-  <table_name>r_search_filter</table_name>
+  <table_name>R_SEARCH_FILTER</table_name>
   <model_name>configuration.RSearchFilter</model_name>
   <data>
-    <r_search_filter_id type="int">42</r_search_filter_id>
-    <resource_id type="int">102</resource_id>
-    <question_id type="NoneType">None</question_id>
-    <field_name type="str">creationtil</field_name>
-    <label type="str">Erstellung bis</label>
-    <query type="str">"INSTANCE"."CREATION_DATE" &lt;= (TO_DATE(?, 'dd-mm-yy'))</query>
-    <wildcard type="int">0</wildcard>
+    <R_SEARCH_FILTER_ID type="int">42</R_SEARCH_FILTER_ID>
+    <RESOURCE_ID type="int">102</RESOURCE_ID>
+    <QUESTION_ID type="NoneType">None</QUESTION_ID>
+    <FIELD_NAME type="str">creationtil</FIELD_NAME>
+    <LABEL type="str">Erstellung bis</LABEL>
+    <QUERY type="str">"INSTANCE"."CREATION_DATE" &lt;= (TO_DATE(?, 'dd-mm-yy'))</QUERY>
+    <WILDCARD type="int">0</WILDCARD>
+    <CLASS type="str"></CLASS>
   </data>
 </row>
 

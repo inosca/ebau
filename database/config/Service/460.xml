@@ -1,19 +1,19 @@
 <row>
-  <table_name>service</table_name>
+  <table_name>SERVICE</table_name>
   <model_name>configuration.Service</model_name>
   <data>
-    <service_id type="int">460</service_id>
-    <service_group_id type="int">61</service_group_id>
-    <service_parent_id type="NoneType">None</service_parent_id>
-    <name type="str">ARE</name>
-    <description type="str">Amt für Raumentwicklung</description>
-    <sort type="int">8</sort>
-    <phone type="str"></phone>
-    <zip type="str"></zip>
-    <city type="str"></city>
-    <address type="str"></address>
-    <email type="str">georges.eich@ur.ch</email>
-    <website type="str"></website>
+    <SERVICE_ID type="int">460</SERVICE_ID>
+    <SERVICE_GROUP_ID type="int">61</SERVICE_GROUP_ID>
+    <SERVICE_PARENT_ID type="NoneType">None</SERVICE_PARENT_ID>
+    <NAME type="str">ARE</NAME>
+    <DESCRIPTION type="str">Amt für Raumentwicklung</DESCRIPTION>
+    <SORT type="int">8</SORT>
+    <PHONE type="str"></PHONE>
+    <ZIP type="str"></ZIP>
+    <CITY type="str"></CITY>
+    <ADDRESS type="str"></ADDRESS>
+    <EMAIL type="str">georges.eich@ur.ch</EMAIL>
+    <WEBSITE type="str"></WEBSITE>
   </data>
 </row>
 

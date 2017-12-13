@@ -1,9 +1,9 @@
 <row>
-  <table_name>r_list</table_name>
+  <table_name>R_LIST</table_name>
   <model_name>configuration.RList</model_name>
   <data>
-    <resource_id type="int">254</resource_id>
-    <query type="str">SELECT
+    <RESOURCE_ID type="int">254</RESOURCE_ID>
+    <QUERY type="str">SELECT
   "INSTANCE"."INSTANCE_ID"   AS "INSTANCE_ID",
   "ANSWER_DOK_NR"."ANSWER"   AS "DOSSIER_NR",
   "FORM"."NAME"              AS "FORM",
@@ -44,7 +44,7 @@ LEFT JOIN "ANSWER_STREET_BG" ON (
   )
 WHERE
   "INSTANCE"."INSTANCE_STATE_ID" = GET_INST_STATE_ID_BY_NAME('circ')
-ORDER BY DOSSIER_NR</query>
+ORDER BY DOSSIER_NR</QUERY>
   </data>
 </row>
 

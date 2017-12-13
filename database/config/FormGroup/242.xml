@@ -1,10 +1,10 @@
 <row>
-  <table_name>form_group</table_name>
+  <table_name>FORM_GROUP</table_name>
   <model_name>configuration.FormGroup</model_name>
   <data>
-    <form_group_id type="int">242</form_group_id>
-    <name type="str">Alle Dossiers Koordinationsstelle Baudirektion BD ohne Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet</name>
-    <description type="str">Um die "Bearbeiten" Seite anzeigen zu können, die bei genanntem Verfahren anders ist</description>
+    <FORM_GROUP_ID type="int">242</FORM_GROUP_ID>
+    <NAME type="str">Alle Dossiers Koordinationsstelle Baudirektion BD ohne Bewilligungsverfahren für die Beanspruchung von Kantonsgebiet</NAME>
+    <DESCRIPTION type="str">Um die "Bearbeiten" Seite anzeigen zu können, die bei genanntem Verfahren anders ist</DESCRIPTION>
   </data>
 </row>
 

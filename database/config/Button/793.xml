@@ -1,14 +1,14 @@
 <row>
-  <table_name>button</table_name>
+  <table_name>BUTTON</table_name>
   <model_name>configuration.Button</model_name>
   <data>
-    <button_id type="int">793</button_id>
-    <instance_resource_id type="int">714</instance_resource_id>
-    <name type="str">Wiedereröffnen (EXT)</name>
-    <description type="str">Von Arch zurück zu Redac</description>
-    <class type="str"></class>
-    <hidden type="bool">False</hidden>
-    <sort type="int">3</sort>
+    <BUTTON_ID type="int">793</BUTTON_ID>
+    <INSTANCE_RESOURCE_ID type="int">714</INSTANCE_RESOURCE_ID>
+    <NAME type="str">Wiedereröffnen (EXT)</NAME>
+    <DESCRIPTION type="str">Von Arch zurück zu Redac</DESCRIPTION>
+    <CLASS type="str"></CLASS>
+    <HIDDEN type="int">0</HIDDEN>
+    <SORT type="int">3</SORT>
   </data>
 </row>
 

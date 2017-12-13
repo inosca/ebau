@@ -1,10 +1,10 @@
 <row>
-  <table_name>answer_query</table_name>
+  <table_name>ANSWER_QUERY</table_name>
   <model_name>configuration.AnswerQuery</model_name>
   <data>
-    <answer_query_id type="int">1</answer_query_id>
-    <name type="str">Gemeinde</name>
-    <query type="str">SELECT
+    <ANSWER_QUERY_ID type="int">1</ANSWER_QUERY_ID>
+    <NAME type="str">Gemeinde</NAME>
+    <QUERY type="str">SELECT
   LOCATION_ID, NAME
 FROM
   LOCATION
@@ -20,7 +20,7 @@ WHERE
     )
     OR
     [ROLE_ID] NOT IN (6, 7, 1105)
-ORDER BY NAME</query>
+ORDER BY NAME</QUERY>
   </data>
 </row>
 
