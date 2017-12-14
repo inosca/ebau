@@ -1,0 +1,26 @@
+[flake8]
+ignore =
+    # whitespace before ':'
+    E203,
+    # multiple spaces before operator
+    E221,
+    # multiple spaces after operator
+    E222,
+    # multiple spaces after ','
+    E241,
+    # unexpected spaces around keyword / parameter equals
+    E251,
+    # multiple spaces after keyword
+    E272,
+    # missing docstring in public method
+    D102,
+    # format string does contain unindexed parameter
+    P101,
+    # docstring does contain unindexed parameters
+    P102,
+    # other string does contain unindexed parameters
+    P103
+
+jobs=auto
+exclude = migrations
+max-complexity = 10
