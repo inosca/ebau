@@ -11,28 +11,17 @@ DB_CONTAINER_PORT?=49160
 ZIP_IGNORE_PATTERN="\.(gitignore|empty)"
 
 
-.PHONY: _log-follow
-_log-follow: # Tail the log of the application
-	@tail -f camac/logs/application.log
-
-
-.PHONY: _base-init
-_base-init: _submodule-update
+.PHONY: init-ur
+init-ur:
+	touch camac/logs/application.log
+	chmod 777 -R camac/logs || true
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	ln -sf "../../kt_uri/configuration/public" "camac/public/"
-	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
-	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@mkdir -p camac/logs/mails
 	@chmod -R o+w camac/logs
 	@chmod o+w camac/configuration/upload
 	@make _classloader
-
-.PHONY: _submodule-update
-_submodule-update:
-	git submodule update --init --recursive || true
-	touch camac/logs/application.log
-	chmod 777 -R camac/logs || true
 
 .PHONY: install
 install: ## Install required files (jQuey, etc via NPM, php composer files)
@@ -49,8 +38,8 @@ js-watch:
 	npm run watch --prefix ./kt_uri/configuration/public
 
 .PHONY: run
-run-ur: _base-init ## Runs the docker containers
-	@docker-compose -f docker/docker-compose-ur.yml up -d
+run-ur: init-ur  ## Runs the docker containers
+	@docker-compose -f docker-compose-ur.yml up -d
 
 .PHONY: db-create-user
 db-create-user: _sync_db_tools ## Create the user camac in the database
@@ -228,20 +217,6 @@ install-api-doc: ## installs the api doc generator tool
 generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
-
-
-.PHONY: ci-pretend
-ci-pretend:
-	@source /etc/profile
-	@source /opt/xvfb.sh
-	@pip install -r db_admin/requirements.txt
-	@source /etc/apache2/envvars
-	@python .wait-for-oracle-db.py oracle-eatmydata 1521
-	@ssh-keyscan -H oracle-eatmydata > ~/.ssh/known_hosts
-	@make _base-init _install
-	@make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
-	@make ci-config-import
-	@make ci-run-acceptance-tests
 
 
 .PHONY: clear-cache ## Clear the memcache

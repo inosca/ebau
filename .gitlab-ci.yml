@@ -21,7 +21,7 @@ run-test:
         - date
         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
         - source /etc/apache2/envvars
-        - make _base-init
+        - make init-ur
         - make install
         - make js
         - pip install --upgrade -r db_admin/requirements.txt
