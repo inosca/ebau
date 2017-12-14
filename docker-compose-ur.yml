@@ -1,0 +1,43 @@
+version: "2"
+services:
+    camac_cache:
+        image: memcached
+        ports:
+            - "11211:11211"
+
+    camac_web:
+        build: docker/web/
+        ports:
+            - "4300:80"
+        volumes:
+            - ./camac:/var/www/html
+            - ./kt_uri:/var/www/kt_uri/
+            - ./tools:/var/local/tools
+        links:
+            - camac_db
+            - camac_cache
+        environment:
+            - APPLICATION_ENV=development
+
+    camac_db:
+        image: wnameless/oracle-xe-11g
+        ports:
+            - "49160:22"
+            - "49161:1521"
+            - "49162:8080"
+        volumes:
+            - ./database:/var/local/database
+            - ./tools:/var/local/tools
+            - ./database:/var/local/database/
+
+    camac_portal:
+        image: node:6
+        ports:
+            - 4400:4400
+        volumes:
+            - ./iweb_mock:/usr/src/app
+        command: bash /usr/src/app/run_mock
+        environment:
+            - NODE_ENV=development
+        links:
+            - camac_web
