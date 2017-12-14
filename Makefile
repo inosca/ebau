@@ -21,8 +21,6 @@ _base-init: _submodule-update
 	@rm -f camac/configuration
 	@ln -fs ../kt_uri/configuration camac/configuration
 	ln -sf "../../kt_uri/configuration/public" "camac/public/"
-	for i in `ls kt_uri/library/`; do rm -f "camac/library/$$i"; done
-	for i in `ls kt_uri/library/`; do ln -sf "../../kt_uri/library/$$i" "camac/library/$$i"; done
 	@mkdir -p camac/logs/mails
 	@chmod -R o+w camac/logs
 	@chmod o+w camac/configuration/upload
@@ -50,7 +48,7 @@ js-watch:
 
 .PHONY: run
 run-ur: _base-init ## Runs the docker containers
-	@docker-compose -f docker/docker-compose-ur.yml up -d
+	@docker-compose -f docker-compose-ur.yml up -d
 
 .PHONY: db-create-user
 db-create-user: _sync_db_tools ## Create the user camac in the database

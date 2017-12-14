@@ -22,3 +22,5 @@ export.log
 postgres-data
 .cache
 geckodriver.log
+camac/public/public
+camac/configuration
