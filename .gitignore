@@ -24,3 +24,4 @@ postgres-data
 geckodriver.log
 camac/public/public
 camac/configuration
+camac/logs/mails/
