@@ -1,0 +1,10 @@
+<row>
+  <table_name>GROUP_LOCATION</table_name>
+  <model_name>configuration.GroupLocation</model_name>
+  <data>
+    <ID type="int">201</ID>
+    <GROUP_ID type="int">837</GROUP_ID>
+    <LOCATION_ID type="int">8</LOCATION_ID>
+  </data>
+</row>
+
