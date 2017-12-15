@@ -23,12 +23,13 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'camac.core.apps.DefaultConfig',
+    'camac.user.apps.DefaultConfig',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'camac.user.middleware.JWTAuthenticationMiddleware',
 ]
 
 ROOT_URLCONF = 'camac.urls'
@@ -90,7 +91,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-AUTH_USER_MODEL = 'core.User'
+AUTH_PASSWORT_SALT = 'ds5fsdFd763znsPO'
+AUTH_USER_MODEL = 'user.User'
 
 REST_FRAMEWORK = {
     'EXCEPTION_HANDLER':
