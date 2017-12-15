@@ -1,58 +1,70 @@
 before_script:
     - source /etc/profile
-    - source /opt/xvfb.sh
-    - export PIP_CACHE_DIR='pip-cache'
+#    - source /opt/xvfb.sh
 
-after_script:
-    - cat camac/logs/application.log
-    - cat /var/log/apache2/error.log
+# after_script:
+#     - cat camac/logs/application.log
+#     - cat /var/log/apache2/error.log
 
 services:
-    - memcached
-    - oracle-eatmydata
+#    - memcached
+#    - oracle-eatmydata
+    - postgres
 
 stages:
     - test
 
-run-test:
+test-django:
     stage: test
     script:
-        - echo "Starting the build"
-        - date
-        - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
-        - source /etc/apache2/envvars
-        - make init-ur
-        - make install
-        - make js
-        - pip install --upgrade -r db_admin/requirements.txt
-        - bash .wait-for-ssh.sh oracle-eatmydata 22
-        - python .wait-for-oracle-db.py oracle-eatmydata 1521
-        - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
-        - echo "Initialising DB"
-        - date
-        - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
-        - echo "Importing config"
-        - date
-        - python db_admin/uri_database/manage.py importconfig --no-spin
-        - echo "" > camac/logs/application.log
-        - mkdir -p /tmp/data/records
-        - chmod 777 -R /tmp/data
-        - echo "Running Tests"
-        - date
-        - mkdir -p camac/logs/mails
-        - TEST_HOST='localhost' TEST_STANDALONE='True' NODE_ENV=ci TEST_PORT='80' python db_admin/uri_database/pytest_run.py --instafail
-        - cd db_admin && flake8
+        - pyenv shell 3.5.1
+        - cd django && make install-dev && make test
+
+# run-test:
+#     stage: test
+#     script:
+#         - echo "Starting the build"
+#         - date
+#         - bash -c "[ -d /builds/kantonur/camac5.src ] || ln -s $(dirname $CI_PROJECT_DIR) /builds/kantonur"
+#         - source /etc/apache2/envvars
+#         - make init-ur
+#         - make install
+#         - make js
+#         - pip install --upgrade -r db_admin/requirements.txt
+#         - bash .wait-for-ssh.sh oracle-eatmydata 22
+#         - python .wait-for-oracle-db.py oracle-eatmydata 1521
+#         - ssh-keyscan -H oracle-eatmydata >> ~/.ssh/known_hosts
+#         - echo "Initialising DB"
+#         - date
+#         - make db-init DB_CONTAINER_HOSTNAME=oracle-eatmydata DB_CONTAINER_PORT=22
+#         - echo "Importing config"
+#         - date
+#         - python db_admin/uri_database/manage.py importconfig --no-spin
+#         - echo "" > camac/logs/application.log
+#         - mkdir -p /tmp/data/records
+#         - chmod 777 -R /tmp/data
+#         - echo "Running Tests"
+#         - date
+#         - mkdir -p camac/logs/mails
+#         - TEST_HOST='localhost' TEST_STANDALONE='True' NODE_ENV=ci TEST_PORT='80' python db_admin/uri_database/pytest_run.py --instafail
+#         - cd db_admin && flake8
 
 variables:
     LANG: C.UTF-8
     LC_ALL: C.UTF-8
-    ORACLE_HOME: /usr/local/lib/instantclient_11_2
-    LD_LIBRARY_PATH: /usr/local/lib/instantclient_11_2
-    GIT_SUBMODULE_STRATEGY: recursive
-    GIT_STRATEGY: clone
+#     ORACLE_HOME: /usr/local/lib/instantclient_11_2
+#     LD_LIBRARY_PATH: /usr/local/lib/instantclient_11_2
+#     GIT_SUBMODULE_STRATEGY: recursive
+#     GIT_STRATEGY: clone
     APPLICATION_ENV: ci
-    DJANGO_SETTINGS_MODULE: uri_database.settings_ci
+#    DJANGO_SETTINGS_MODULE: uri_database.settings_ci
+    DJANGO_SETTINGS_MODULE: camac.settings_ci
     COMPOSER_HOME: /root
+    PIP_CACHE_DIR: pip-cache
+    POSTGRES_DB: camac
+    POSTGRES_USER: camac
+    POSTGRES_PASSWORD: camac
+
 
 cache:
   paths:
