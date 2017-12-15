@@ -1,0 +1,14 @@
+factory-boy
+flake8
+flake8-blind-except
+flake8-debugger
+flake8-deprecated
+flake8-string-format
+flake8-mock
+flake8-tuple
+flake8-isort
+ipdb
+isort
+pytest
+pytest-cov
+pytest-django
