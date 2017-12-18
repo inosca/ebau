@@ -167,10 +167,10 @@ class ALocationQc(models.Model):
     action = models.ForeignKey(
         ALocation, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
     question = models.ForeignKey(
-        'QuestionChapter', models.DO_NOTHING, db_column='QUESTION_ID',
+        'Question', models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        'QuestionChapter', models.DO_NOTHING, db_column='CHAPTER_ID',
+        'Chapter', models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
 
     class Meta:
@@ -1343,9 +1343,10 @@ class FormGroup(models.Model):
 
 
 class FormGroupForm(models.Model):
-    form_group = models.OneToOneField(
+    id = models.AutoField(db_column='ID', primary_key=True)
+    form_group = models.ForeignKey(
         FormGroup, models.DO_NOTHING, db_column='FORM_GROUP_ID',
-        related_name='forms', primary_key=True)
+        related_name='forms')
     form = models.ForeignKey(Form, models.DO_NOTHING,
                              db_column='FORM_ID', related_name='form_group')
 
@@ -2127,10 +2128,10 @@ class PageAnswerActivation(models.Model):
     form = models.ForeignKey(
         'PageForm', models.DO_NOTHING, db_column='FORM_ID', related_name='+')
     chapter = models.ForeignKey(
-        'QuestionChapter', models.DO_NOTHING, db_column='CHAPTER_ID',
+        'Chapter', models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     question = models.ForeignKey(
-        'QuestionChapter', models.DO_NOTHING, db_column='QUESTION_ID',
+        'Question', models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     page = models.ForeignKey(
         'PageForm', models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
@@ -2364,10 +2365,10 @@ class QuestionChapter(models.Model):
 class QuestionChapterGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     group = models.ForeignKey('user.Group', models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
@@ -2384,10 +2385,10 @@ class QuestionChapterGroupAcl(models.Model):
 class QuestionChapterRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
@@ -2404,10 +2405,10 @@ class QuestionChapterRoleAcl(models.Model):
 class QuestionChapterServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
@@ -2425,10 +2426,10 @@ class QuestionChapterServiceAcl(models.Model):
 class QuestionChapterUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
@@ -2715,10 +2716,10 @@ class ServiceAnswerActivation(models.Model):
     form = models.ForeignKey(Form, models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
     chapter = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     question = models.ForeignKey(
-        QuestionChapter, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     service = models.ForeignKey(
         Service, models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
