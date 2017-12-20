@@ -12,14 +12,22 @@ ignore =
     E251,
     # multiple spaces after keyword
     E272,
-    # missing docstring in public method
+    # Missing docstring in public module
+    D100,
+    # Missing docstring in public class
+    D101,
+    # Missing docstring in public method
     D102,
-    # format string does contain unindexed parameter
-    P101,
-    # docstring does contain unindexed parameters
-    P102,
-    # other string does contain unindexed parameters
-    P103
+    # Missing docstring in public function
+    D103,
+    # Missing docstring in public package
+    D104,
+    # Missing docstring in magic method
+    D105,
+    # Missing docstring in public package
+    D106,
+    # Missing docstring in __init__
+    D107
 
 jobs=auto
 exclude = migrations
