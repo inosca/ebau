@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'camac.core.apps.DefaultConfig',
     'camac.user.apps.DefaultConfig',
+    'camac.instance.apps.DefaultConfig',
 ]
 
 MIDDLEWARE = [
