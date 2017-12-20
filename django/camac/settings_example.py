@@ -1,6 +1,5 @@
-"""
-This is an example settings file for production use
-"""
+"""This is an example settings file for production use."""
+
 from .settings import *  # noqa: F401,F403
 
 DEBUG = False
