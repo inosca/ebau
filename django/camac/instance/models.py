@@ -1,0 +1,69 @@
+from django.db import models
+
+
+class FormState(models.Model):
+    form_state_id = models.AutoField(
+        db_column='FORM_STATE_ID', primary_key=True)
+    name = models.CharField(db_column='NAME', max_length=50)
+
+    class Meta:
+        managed = True
+        db_table = 'FORM_STATE'
+
+
+class Form(models.Model):
+    form_id = models.AutoField(db_column='FORM_ID', primary_key=True)
+    form_state = models.ForeignKey(
+        FormState, models.DO_NOTHING, db_column='FORM_STATE_ID',
+        related_name='+')
+    name = models.CharField(db_column='NAME', max_length=500)
+    description = models.CharField(
+        db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'FORM'
+
+
+class InstanceState(models.Model):
+    instance_state_id = models.AutoField(
+        db_column='INSTANCE_STATE_ID', primary_key=True)
+    name = models.CharField(db_column='NAME', max_length=100)
+    sort = models.IntegerField(db_column='SORT')
+
+    class Meta:
+        managed = True
+        db_table = 'INSTANCE_STATE'
+
+
+class InstanceStateDescription(models.Model):
+    instance_state = models.OneToOneField(
+        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
+        primary_key=True, related_name='+')
+    description = models.CharField(db_column='DESCRIPTION', max_length=255)
+
+    class Meta:
+        managed = True
+        db_table = 'INSTANCE_STATE_DESCRIPTION'
+
+
+class Instance(models.Model):
+    instance_id = models.AutoField(db_column='INSTANCE_ID', primary_key=True)
+    instance_state = models.ForeignKey(
+        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
+        related_name='+')
+    form = models.ForeignKey(Form, models.DO_NOTHING,
+                             db_column='FORM_ID', related_name='+')
+    user = models.ForeignKey('user.User', models.DO_NOTHING,
+                             db_column='USER_ID', related_name='+')
+    group = models.ForeignKey('user.Group', models.DO_NOTHING,
+                              db_column='GROUP_ID', related_name='+')
+    creation_date = models.DateTimeField(db_column='CREATION_DATE')
+    modification_date = models.DateTimeField(db_column='MODIFICATION_DATE')
+    previous_instance_state = models.ForeignKey(
+        InstanceState, models.DO_NOTHING,
+        db_column='PREVIOUS_INSTANCE_STATE_ID', related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'INSTANCE'
