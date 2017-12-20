@@ -139,11 +139,12 @@ class AFormtransition(models.Model):
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     current_instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.DO_NOTHING,
         db_column='CURRENT_INSTANCE_STATE_ID', related_name='+', blank=True,
         null=True)
     next_instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='NEXT_INSTANCE_STATE_ID',
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='NEXT_INSTANCE_STATE_ID',
         related_name='+', blank=True, null=True)
 
     class Meta:
@@ -258,7 +259,7 @@ class ASavepdf(models.Model):
     action = models.OneToOneField('Action', models.DO_NOTHING,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
-    form = models.ForeignKey('Form', models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
     page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
                                         db_column='PAGE_FORM_GROUP_ID',
@@ -421,7 +422,7 @@ class AirAction(models.Model):
 class Answer(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     question = models.ForeignKey(
         'Question', models.DO_NOTHING, db_column='QUESTION_ID',
@@ -503,7 +504,7 @@ class Attachment(models.Model):
         db_column='ATTACHMENT_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=255)
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     path = models.CharField(db_column='PATH', max_length=1024)
     size = models.FloatField(db_column='SIZE')
@@ -710,8 +711,8 @@ class BGroupAcl(models.Model):
         'user.Group', models.DO_NOTHING, db_column='GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -726,8 +727,8 @@ class BRoleAcl(models.Model):
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -742,8 +743,8 @@ class BServiceAcl(models.Model):
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -758,8 +759,8 @@ class BUserAcl(models.Model):
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -769,7 +770,7 @@ class BUserAcl(models.Model):
 
 class BabUsage(models.Model):
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     usage_type = models.IntegerField(db_column='USAGE_TYPE')
     usage = models.FloatField(db_column='USAGE')
@@ -806,8 +807,8 @@ class BillingAccountState(models.Model):
         BillingAccount, models.DO_NOTHING, db_column='BILLING_ACCOUNT_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -833,7 +834,7 @@ class BillingEntry(models.Model):
         BillingAccount, models.DO_NOTHING, db_column='BILLING_ACCOUNT_ID',
         related_name='+', blank=True, null=True)
     user_id = models.FloatField(db_column='USER_ID', blank=True, null=True)
-    instance = models.ForeignKey('Instance', models.DO_NOTHING,
+    instance = models.ForeignKey('instance.Instance', models.DO_NOTHING,
                                  db_column='INSTANCE_ID', related_name='+',
                                  blank=True, null=True)
     service = models.ForeignKey('Service', models.DO_NOTHING,
@@ -868,7 +869,7 @@ class BuildingAuthorityButtonstate(models.Model):
         BuildingAuthorityButton, models.DO_NOTHING,
         db_column='BUILDING_AUTHORITY_BUTTON_ID', related_name='+')
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED')
     is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED')
@@ -888,7 +889,7 @@ class BuildingAuthorityComment(models.Model):
         db_column='TEXT', max_length=4000, blank=True, null=True)
     group = models.FloatField(db_column='GROUP')
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
 
     class Meta:
         managed = True
@@ -944,7 +945,7 @@ class BuildingAuthorityItemDis(models.Model):
         'WorkflowItem', models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     group = models.FloatField(db_column='GROUP')
 
@@ -967,7 +968,7 @@ class BuildingAuthoritySectionDis(models.Model):
     ba_section_dis_id = models.AutoField(
         db_column='BA_SECTION_DIS_ID', primary_key=True)
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     ba_section = models.ForeignKey(
         BuildingAuthoritySection, models.DO_NOTHING, db_column='BA_SECTION_ID',
@@ -1035,8 +1036,8 @@ class ChapterPageGroupAcl(models.Model):
         'user.Group', models.DO_NOTHING, db_column='GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1054,8 +1055,8 @@ class ChapterPageRoleAcl(models.Model):
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1073,8 +1074,8 @@ class ChapterPageServiceAcl(models.Model):
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1092,8 +1093,8 @@ class ChapterPageUserAcl(models.Model):
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1108,7 +1109,7 @@ class Circulation(models.Model):
         'IrEditcirculation', models.DO_NOTHING,
         db_column='INSTANCE_RESOURCE_ID', related_name='+')
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='circulations')
     name = models.CharField(db_column='NAME', max_length=50)
 
@@ -1205,7 +1206,7 @@ class CommissionAssignment(models.Model):
         'user.Group', models.DO_NOTHING, db_column='GROUP_ID',
         related_name='+')
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     adder_id = models.FloatField(db_column='ADDER_ID')
     date = models.DateTimeField(db_column='DATE')
@@ -1230,7 +1231,7 @@ class DocgenActivationDocket(models.Model):
     docgen_activation_docket_id = models.AutoField(
         db_column='DOCGEN_ACTIVATION_DOCKET_ID', primary_key=True)
     instance = models.ForeignKey(
-        'Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     activation = models.ForeignKey(
         Activation, models.DO_NOTHING, db_column='ACTIVATION_ID',
@@ -1316,20 +1317,6 @@ class DocgenTemplateClass(models.Model):
         db_table = 'DOCGEN_TEMPLATE_CLASS'
 
 
-class Form(models.Model):
-    form_id = models.AutoField(db_column='FORM_ID', primary_key=True)
-    form_state = models.ForeignKey(
-        'FormState', models.DO_NOTHING, db_column='FORM_STATE_ID',
-        related_name='+')
-    name = models.CharField(db_column='NAME', max_length=500)
-    description = models.CharField(
-        db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'FORM'
-
-
 class FormGroup(models.Model):
     form_group_id = models.AutoField(
         db_column='FORM_GROUP_ID', primary_key=True)
@@ -1347,23 +1334,13 @@ class FormGroupForm(models.Model):
     form_group = models.ForeignKey(
         FormGroup, models.DO_NOTHING, db_column='FORM_GROUP_ID',
         related_name='forms')
-    form = models.ForeignKey(Form, models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
                              db_column='FORM_ID', related_name='form_group')
 
     class Meta:
         managed = True
         db_table = 'FORM_GROUP_FORM'
         unique_together = (('form_group', 'form'),)
-
-
-class FormState(models.Model):
-    form_state_id = models.AutoField(
-        db_column='FORM_STATE_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=50)
-
-    class Meta:
-        managed = True
-        db_table = 'FORM_STATE'
 
 
 class GlossaryCategory(models.Model):
@@ -1396,31 +1373,9 @@ class GlossarySentence(models.Model):
         db_table = 'GLOSSARY_SENTENCE'
 
 
-class Instance(models.Model):
-    instance_id = models.AutoField(db_column='INSTANCE_ID', primary_key=True)
-    instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
-    form = models.ForeignKey(Form, models.DO_NOTHING,
-                             db_column='FORM_ID', related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
-                             db_column='USER_ID', related_name='+')
-    group = models.ForeignKey('user.Group', models.DO_NOTHING,
-                              db_column='GROUP_ID', related_name='+')
-    creation_date = models.DateTimeField(db_column='CREATION_DATE')
-    modification_date = models.DateTimeField(db_column='MODIFICATION_DATE')
-    previous_instance_state = models.ForeignKey(
-        'InstanceState', models.DO_NOTHING,
-        db_column='PREVIOUS_INSTANCE_STATE_ID', related_name='+')
-
-    class Meta:
-        managed = True
-        db_table = 'INSTANCE'
-
-
 class InstanceDemo(models.Model):
     instance_demo = models.OneToOneField(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_DEMO_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_DEMO_ID',
         primary_key=True, related_name='+')
     value = models.CharField(
         db_column='VALUE', max_length=1000, blank=True, null=True)
@@ -1452,7 +1407,8 @@ class InstanceFormPdf(models.Model):
     instance_form_pdf_id = models.AutoField(
         db_column='INSTANCE_FORM_PDF_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        related_name='+')
     action = models.ForeignKey(
         Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
     user = models.ForeignKey('user.User', models.DO_NOTHING,
@@ -1468,8 +1424,8 @@ class InstanceFormPdf(models.Model):
 
 class InstanceGuest(models.Model):
     instance = models.OneToOneField(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', primary_key=True,
-        related_name='+')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        primary_key=True, related_name='+')
     session_id = models.CharField(db_column='SESSION_ID', max_length=128)
     modification_date = models.DateTimeField(db_column='MODIFICATION_DATE')
 
@@ -1484,7 +1440,7 @@ class InstanceLocation(models.Model):
         'Location', models.DO_NOTHING, db_column='LOCATION_ID',
         related_name='+')
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
 
     class Meta:
         managed = True
@@ -1573,28 +1529,6 @@ class InstanceResourceAction(models.Model):
         db_table = 'INSTANCE_RESOURCE_ACTION'
         unique_together = (
             ('available_instance_resource', 'available_action'),)
-
-
-class InstanceState(models.Model):
-    instance_state_id = models.AutoField(
-        db_column='INSTANCE_STATE_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100)
-    sort = models.IntegerField(db_column='SORT')
-
-    class Meta:
-        managed = True
-        db_table = 'INSTANCE_STATE'
-
-
-class InstanceStateDescription(models.Model):
-    instance_state = models.OneToOneField(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        primary_key=True, related_name='+')
-    description = models.CharField(db_column='DESCRIPTION', max_length=255)
-
-    class Meta:
-        managed = True
-        db_table = 'INSTANCE_STATE_DESCRIPTION'
 
 
 class IrAllformpages(models.Model):
@@ -1830,8 +1764,8 @@ class IrFormwizard(models.Model):
         'PageFormGroup', models.DO_NOTHING, db_column='PAGE_FORM_GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
     show_captcha = models.PositiveSmallIntegerField(db_column='SHOW_CAPTCHA')
     summary = models.CharField(
         db_column='SUMMARY', max_length=4000, blank=True, null=True)
@@ -1849,8 +1783,8 @@ class IrGroupAcl(models.Model):
     group = models.ForeignKey('user.Group', models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1875,8 +1809,8 @@ class IrNewform(models.Model):
         InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
     page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
@@ -1907,8 +1841,8 @@ class IrRoleAcl(models.Model):
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1924,8 +1858,8 @@ class IrServiceAcl(models.Model):
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1941,8 +1875,8 @@ class IrUserAcl(models.Model):
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1952,7 +1886,8 @@ class IrUserAcl(models.Model):
 
 class Letter(models.Model):
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        related_name='+')
     instance_resource = models.ForeignKey(
         IrEditletter, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
@@ -1977,7 +1912,8 @@ class LetterImage(models.Model):
     letter_image_id = models.AutoField(
         db_column='LETTER_IMAGE_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING,
+        db_column='INSTANCE_ID', related_name='+')
     instance_resource = models.ForeignKey(
         InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
@@ -2061,10 +1997,11 @@ class NoticeImage(models.Model):
     notice_image_id = models.AutoField(
         db_column='NOTICE_IMAGE_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
-    instance_resource = models.ForeignKey(
-        IrEditnotice, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
+    instance_resource = models.ForeignKey(
+        IrEditnotice, models.DO_NOTHING,
+        db_column='INSTANCE_RESOURCE_ID', related_name='+')
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     activation = models.ForeignKey(
@@ -2146,7 +2083,7 @@ class PageForm(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     page = models.ForeignKey(Page, models.DO_NOTHING,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey(Form, models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
     page_form_mode = models.ForeignKey(
         'PageFormMode', models.DO_NOTHING, db_column='PAGE_FORM_MODE_ID',
@@ -2183,8 +2120,8 @@ class PageFormGroupAcl(models.Model):
     group = models.ForeignKey('user.Group', models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2211,8 +2148,8 @@ class PageFormRoleAcl(models.Model):
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2229,8 +2166,8 @@ class PageFormServiceAcl(models.Model):
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2247,8 +2184,8 @@ class PageFormUserAcl(models.Model):
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2272,7 +2209,8 @@ class ProposalActivation(models.Model):
     proposal_activation_id = models.AutoField(
         db_column='PROPOSAL_ACTIVATION_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING,
+        db_column='INSTANCE_ID', related_name='+')
     circulation_type = models.ForeignKey(
         CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
@@ -2294,7 +2232,8 @@ class PublicationEntry(models.Model):
     publication_entry_id = models.AutoField(
         db_column='PUBLICATION_ENTRY_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING,
+        db_column='INSTANCE_ID', related_name='+')
     note = models.FloatField(db_column='NOTE')
     publication_date = models.DateTimeField(db_column='PUBLICATION_DATE')
     is_published = models.PositiveSmallIntegerField(db_column='IS_PUBLISHED')
@@ -2373,8 +2312,8 @@ class QuestionChapterGroupAcl(models.Model):
     group = models.ForeignKey('user.Group', models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2393,8 +2332,8 @@ class QuestionChapterRoleAcl(models.Model):
     role = models.ForeignKey('Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2413,8 +2352,8 @@ class QuestionChapterServiceAcl(models.Model):
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2434,8 +2373,8 @@ class QuestionChapterUserAcl(models.Model):
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        related_name='+')
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -2458,7 +2397,7 @@ class RFormlist(models.Model):
     resource = models.OneToOneField('Resource', models.DO_NOTHING,
                                     db_column='RESOURCE_ID', primary_key=True,
                                     related_name='+')
-    form = models.ForeignKey(Form, models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
 
     class Meta:
@@ -2657,7 +2596,8 @@ class Role(models.Model):
 class Sanction(models.Model):
     sanction_id = models.AutoField(db_column='SANCTION_ID', primary_key=True)
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID', related_name='+')
+        'instance.Instance', models.DO_NOTHING,
+        db_column='INSTANCE_ID', related_name='+')
     service = models.ForeignKey(
         'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
     user = models.ForeignKey('user.User', models.DO_NOTHING,
@@ -2713,7 +2653,7 @@ class Service(models.Model):
 class ServiceAnswerActivation(models.Model):
     service_answer_activation_id = models.AutoField(
         db_column='SERVICE_ANSWER_ACTIVATION_ID', primary_key=True)
-    form = models.ForeignKey(Form, models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
     chapter = models.ForeignKey(
         Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
@@ -2759,7 +2699,7 @@ class WorkflowEntry(models.Model):
         db_column='WORKFLOW_ENTRY_ID', primary_key=True)
     workflow_date = models.DateTimeField(db_column='WORKFLOW_DATE')
     instance = models.ForeignKey(
-        Instance, models.DO_NOTHING, db_column='INSTANCE_ID')
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
     workflow_item = models.ForeignKey(
         'WorkflowItem', models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
