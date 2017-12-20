@@ -18,10 +18,6 @@ class JSONAPIClient(APIClient):
         return json.dumps(data) if data else data
 
     def get(self, path, data=None, **kwargs):
-        """Patched GET method to enforce JSONAPI format.
-        :param str  path: The URL to call
-        :param dict data: The data of the request
-        """
         return super().get(
             path=path,
             data=data,
@@ -30,10 +26,6 @@ class JSONAPIClient(APIClient):
         )
 
     def post(self, path, data=None, **kwargs):  # pragma: todo cover
-        """Patched POST method to enforce JSONAPI format.
-        :param str  path: The URL to call
-        :param dict data: The data of the request
-        """
         return super().post(
             path=path,
             data=self._parse_data(data),
@@ -42,10 +34,6 @@ class JSONAPIClient(APIClient):
         )
 
     def delete(self, path, data=None, **kwargs):  # pragma: todo cover
-        """Patched DELETE method to enforce JSONAPI format.
-        :param str  path: The URL to call
-        :param dict data: The data of the request
-        """
         return super().delete(
             path=path,
             data=self._parse_data(data),
@@ -54,10 +42,6 @@ class JSONAPIClient(APIClient):
         )
 
     def patch(self, path, data=None, **kwargs):  # pragma: todo cover
-        """Patched PATCH method to enforce JSONAPI format.
-        :param str  path: The URL to call
-        :param dict data: The data of the request
-        """
         return super().patch(
             path=path,
             data=self._parse_data(data),
@@ -66,11 +50,6 @@ class JSONAPIClient(APIClient):
         )
 
     def login(self, username, password):
-        """Authenticate a user.
-        :param str username: Username of the user
-        :param str password: Password of the user
-        :raises:             exceptions.AuthenticationFailed
-        """
         data = {
             'data': {
                 'attributes': {
