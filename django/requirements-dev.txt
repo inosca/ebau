@@ -1,4 +1,4 @@
-factory-boy
+factory-boy==2.8.1
 flake8
 flake8-blind-except
 flake8-debugger
@@ -13,3 +13,4 @@ isort
 pytest
 pytest-cov
 pytest-django
+pytest-factoryboy
