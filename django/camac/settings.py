@@ -62,7 +62,8 @@ DATABASES = {
         'NAME':     'camac',
         'USER':     'camac',
         'PASSWORD': 'camac',
-        'HOST':     'localhost'
+        'HOST':     'localhost',
+        'ATOMIC_REQUESTS': True,
     }
 }
 
@@ -89,7 +90,8 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+# TODO check if PHP stores datetime timezone aware or not
+USE_TZ = False
 
 
 AUTH_PASSWORT_SALT = 'ds5fsdFd763znsPO'

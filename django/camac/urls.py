@@ -5,4 +5,5 @@ urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token, name='login'),
     url(r'^api-token-refresh/', refresh_jwt_token, name='refresh'),
     url(r'^api/v1/', include('camac.user.urls')),
+    url(r'^api/v1/', include('camac.instance.urls')),
 ]

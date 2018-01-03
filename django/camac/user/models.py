@@ -109,7 +109,7 @@ class GroupLocation(models.Model):
 class UserGroup(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     user = models.ForeignKey(User, models.DO_NOTHING,
-                             db_column='USER_ID', related_name='user_group')
+                             db_column='USER_ID', related_name='user_groups')
     group = models.ForeignKey(Group, models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
     default_group = models.PositiveSmallIntegerField(db_column='DEFAULT_GROUP')
