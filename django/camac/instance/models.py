@@ -1,3 +1,4 @@
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 
@@ -12,6 +13,8 @@ class FormState(models.Model):
 
 
 class Form(models.Model):
+    """Represents type of a form."""
+
     form_id = models.AutoField(db_column='FORM_ID', primary_key=True)
     form_state = models.ForeignKey(
         FormState, models.DO_NOTHING, db_column='FORM_STATE_ID',
@@ -37,9 +40,11 @@ class InstanceState(models.Model):
 
 
 class InstanceStateDescription(models.Model):
+    # TODO move instance state description to instance state
+    # migrate data
     instance_state = models.OneToOneField(
         InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        primary_key=True, related_name='+')
+        primary_key=True, related_name='description')
     description = models.CharField(db_column='DESCRIPTION', max_length=255)
 
     class Meta:
@@ -48,6 +53,12 @@ class InstanceStateDescription(models.Model):
 
 
 class Instance(models.Model):
+    """
+    Instance is the case entity of any request.
+
+    Instance is always based on a type of form.
+    """
+
     instance_id = models.AutoField(db_column='INSTANCE_ID', primary_key=True)
     instance_state = models.ForeignKey(
         InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
@@ -67,3 +78,19 @@ class Instance(models.Model):
     class Meta:
         managed = True
         db_table = 'INSTANCE'
+
+
+class FormField(models.Model):
+    """
+    Represents fields of an instance form.
+
+    What form type field references is assigned on instance itself.
+    """
+
+    instance = models.ForeignKey(Instance, models.CASCADE,
+                                 related_name='fields')
+    name = models.CharField(max_length=500)
+    value = ArrayField(models.TextField())
+
+    class Meta:
+        unique_together = (('instance', 'name'),)
