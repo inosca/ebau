@@ -34,12 +34,28 @@ def client(db):
 
 
 @pytest.fixture
+def admin_client(db, user_group_factory):
+    """Return instance of a JSONAPIClient that is logged in as test user."""
+    user = get_user_model().objects.create_superuser(
+        username='user',
+        password='123qweasd'
+    )
+
+    user_group_factory(default_group=1, user=user)
+
+    client = JSONAPIClient()
+    client.user = user
+    client.login('user', '123qweasd')
+
+    return client
+
+
+@pytest.fixture
 def auth_client(db, user_group_factory):
     """Return instance of a JSONAPIClient that is logged in as test user."""
     user = get_user_model().objects.create_user(
         username='user',
-        password='123qweasd',
-        disabled=False,
+        password='123qweasd'
     )
 
     user_group_factory(default_group=1, user=user)
