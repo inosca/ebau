@@ -17,5 +17,6 @@ start: ## Start the development server
 	@python manage.py runserver
 
 test: ## Test the project
+	@touch .env
 	@flake8
 	@pytest --cov --create-db
