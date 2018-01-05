@@ -1,18 +1,28 @@
 import datetime
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+import environ
+
+env = environ.Env()
+django_root = environ.Path(__file__) - 2
+
+ENV_FILE = env.str('DJANGO_ENV_FILE', default=django_root('.env'))
+if os.path.exists(ENV_FILE):
+    environ.Env.read_env(ENV_FILE)
+
+# per default production is enabled for security reasons
+# for development create .env file with ENV=development
+ENV = env.str('ENV', 'production')
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
+    """Environment aware default."""
+    return default_prod if ENV == 'production' else default_dev
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u@g3)ijd+$wh%-u0lc5z7r1%ze0d0%!esfwd8-xd39ttsdx4m5'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = env.str('DJANGO_SECRET_KEY', default=default('uuuuuuuuuu'))
+DEBUG = env.bool('DJANGO_DEBUG', default=default(True, False))
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=default(['*']))
 
 ALLOWED_HOSTS = []
 
@@ -58,12 +68,17 @@ WSGI_APPLICATION = 'camac.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':   'django.db.backends.postgresql_psycopg2',
-        'NAME':     'camac',
-        'USER':     'camac',
-        'PASSWORD': 'camac',
-        'HOST':     'localhost',
-        'ATOMIC_REQUESTS': True,
+        'ENGINE': env.str(
+            'DJANGO_DATABASE_ENGINE',
+            default='django.db.backends.postgresql_psycopg2'
+        ),
+        'NAME': env.str('DJANGO_DATABASE_NAME', default='camac'),
+        'USER': env.str('DJANGO_DATABASE_USER', default='camac'),
+        'PASSWORD': env.str(
+            'DJANGO_DATABASE_PASSWORD', default=default('camac')
+        ),
+        'HOST': env.str('DJANGO_DATABASE_HOST', default='localhost'),
+        'PORT': env.str('DJANGO_DATABASE_PORT', default='')
     }
 }
 
