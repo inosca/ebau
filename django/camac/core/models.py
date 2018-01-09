@@ -2470,6 +2470,7 @@ class Role(models.Model):
     role_parent = models.ForeignKey(
         'self', models.DO_NOTHING, db_column='ROLE_PARENT_ID',
         related_name='+', blank=True, null=True)
+    # TODO: make unique and move to user app
     name = models.CharField(db_column='NAME', max_length=100)
 
     class Meta:
@@ -2639,3 +2640,46 @@ class WorkflowSection(models.Model):
     class Meta:
         managed = True
         db_table = 'WORKFLOW_SECTION'
+
+
+class AttachmentExtension(models.Model):
+    attachment_extension_id = models.AutoField(
+        db_column='ATTACHMENT_EXTENSION_ID', primary_key=True)
+    name = models.CharField(db_column='NAME', max_length=10)
+
+    class Meta:
+        managed = True
+        db_table = 'ATTACHMENT_EXTENSION'
+
+
+class AttachmentExtensionRole(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)
+    attachment_extension = models.ForeignKey(
+        AttachmentExtension, models.DO_NOTHING,
+        db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
+    role = models.ForeignKey('core.Role', models.DO_NOTHING,
+                             db_column='ROLE_ID', related_name='+')
+    mode = models.CharField(
+        db_column='MODE', max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'ATTACHMENT_EXTENSION_ROLE'
+        unique_together = (('attachment_extension', 'role'),)
+
+
+class AttachmentExtensionService(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)
+    attachment_extension = models.ForeignKey(
+        AttachmentExtension, models.DO_NOTHING,
+        db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
+    service = models.ForeignKey(
+        'core.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
+    mode = models.CharField(
+        db_column='MODE', max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'ATTACHMENT_EXTENSION_SERVICE'
+        unique_together = (('attachment_extension', 'service'),)

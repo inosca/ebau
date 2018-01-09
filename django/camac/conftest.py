@@ -4,6 +4,8 @@ import pytest
 from django.contrib.auth import get_user_model
 from pytest_factoryboy import register
 
+from camac.document.factories import (AttachmentFactory,
+                                      AttachmentSectionFactory)
 from camac.instance.factories import (FormFactory, FormFieldFactory,
                                       FormStateFactory, InstanceFactory,
                                       InstanceStateFactory)
@@ -12,6 +14,8 @@ from camac.user.factories import (GroupFactory, RoleFactory, UserFactory,
                                   UserGroupFactory)
 
 # TODO: automatically register all factory classes of all factory modules
+register(AttachmentFactory)
+register(AttachmentSectionFactory)
 register(FormStateFactory)
 register(FormFactory)
 register(FormFieldFactory)

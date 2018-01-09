@@ -4,6 +4,9 @@ from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
+# TODO: think about cascading
+# TODO: move role and service to this place
+
 
 class UserManager(BaseUserManager):
     use_in_migrations = True

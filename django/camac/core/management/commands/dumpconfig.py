@@ -1,6 +1,9 @@
 from django.core.management.commands import dumpdata
 
-config_models = {
+# TODO: once deployed on production this list
+# needs to be reduced to tables which are not
+# managed by customer
+config_models = (
     'core.ACheckquery',
     'core.ACirculationEmail',
     'core.ACirculationtransition',
@@ -25,6 +28,9 @@ config_models = {
     'core.AnswerList',
     'core.AnswerQuery',
     'core.ArAction',
+    'core.AttachmentExtension',
+    'core.AttachmentExtensionRole',
+    'core.AttachmentExtensionService',
     'core.Authority',
     'core.AuthorityAuthorityType',
     'core.AuthorityLocation',
@@ -126,13 +132,10 @@ config_models = {
     'core.WorkflowItem',
     'core.WorkflowRole',
     'core.WorkflowSection',
-    'document.AttachmentExtension',
-    'document.AttachmentExtensionRole',
-    'document.AttachmentExtensionService',
     'document.AttachmentSection',
-    'document.AttachmentSectionRole',
-    'document.AttachmentSectionService',
-}
+    'document.AttachmentSectionRoleAcl',
+    'document.AttachmentSectionServiceAcl',
+)
 
 
 class Command(dumpdata.Command):
