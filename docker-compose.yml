@@ -7,3 +7,17 @@ services:
         environment:
             - POSTGRES_PASSWORD=camac
             - POSTGRES_USER=camac
+            - POSTGRES_DB=camac
+    camac_django:
+        build: django
+        ports:
+          - '8000:80'
+        volumes:
+          - ./django:/app
+          - ./tools:/tools
+        depends_on:
+          - camac_db
+        environment:
+          - ENV=docker
+          - DJANGO_DATABASE_HOST=camac_db
+        command: /tools/wait-for-it.sh camac_db:5432 --timeout=60 -- uwsgi
