@@ -25,12 +25,6 @@ config_models = {
     'core.AnswerList',
     'core.AnswerQuery',
     'core.ArAction',
-    'core.AttachmentExtension',
-    'core.AttachmentExtensionRole',
-    'core.AttachmentExtensionService',
-    'core.AttachmentSection',
-    'core.AttachmentSectionRole',
-    'core.AttachmentSectionService',
     'core.Authority',
     'core.AuthorityAuthorityType',
     'core.AuthorityLocation',
@@ -132,6 +126,12 @@ config_models = {
     'core.WorkflowItem',
     'core.WorkflowRole',
     'core.WorkflowSection',
+    'document.AttachmentExtension',
+    'document.AttachmentExtensionRole',
+    'document.AttachmentExtensionService',
+    'document.AttachmentSection',
+    'document.AttachmentSectionRole',
+    'document.AttachmentSectionService',
 }
 
 

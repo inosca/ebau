@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'camac.core.apps.DefaultConfig',
     'camac.user.apps.DefaultConfig',
     'camac.instance.apps.DefaultConfig',
+    'camac.document.apps.DefaultConfig',
 ]
 
 MIDDLEWARE = [
