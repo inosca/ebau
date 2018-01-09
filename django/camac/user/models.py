@@ -8,12 +8,15 @@ from django.db import models
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def create_user(self, username, email=None, password=None, **extra_fields):
+    def create_user(self, username, password=None, email=None, **extra_fields):
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
+
+    def create_superuser(self, username, password, **extra_fields):
+        return self.create_user(username, password, **extra_fields)
 
 
 class User(AbstractBaseUser):
@@ -35,7 +38,8 @@ class User(AbstractBaseUser):
         db_column='EMAIL', max_length=100, blank=True, null=True)
     phone = models.CharField(
         db_column='PHONE', max_length=100, blank=True, null=True)
-    disabled = models.PositiveSmallIntegerField(db_column='DISABLED')
+    disabled = models.PositiveSmallIntegerField(db_column='DISABLED',
+                                                default=0)
     language = models.CharField(db_column='LANGUAGE', max_length=2)
     last_login = models.DateTimeField(
         db_column='LAST_REQUEST_DATE', blank=True, null=True)
