@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Attachment(models.Model):
@@ -6,21 +7,20 @@ class Attachment(models.Model):
         db_column='ATTACHMENT_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=255)
     instance = models.ForeignKey(
-        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='attachments')
-    path = models.CharField(db_column='PATH', max_length=1024)
+    path = models.FileField(db_column='PATH', max_length=1024,
+                            upload_to='attachments/files/')
+    # TODO: add thumb file
     size = models.IntegerField(db_column='SIZE')
-    date = models.DateTimeField(db_column='DATE')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+    date = models.DateTimeField(db_column='DATE', default=timezone.now)
+    user = models.ForeignKey('user.User', models.PROTECT,
                              db_column='USER_ID', related_name='attachments')
     identifier = models.CharField(db_column='IDENTIFIER', max_length=255)
     mime_type = models.CharField(db_column='MIME_TYPE', max_length=255)
     attachment_section = models.ForeignKey(
-        'AttachmentSection', models.DO_NOTHING,
+        'AttachmentSection', models.PROTECT,
         db_column='ATTACHMENT_SECTION_ID', related_name='attachments')
-    service = models.ForeignKey('core.Service', models.DO_NOTHING,
-                                db_column='SERVICE_ID', related_name='+',
-                                blank=True, null=True)
     is_parcel_picture = models.PositiveIntegerField(
         db_column='IS_PARCEL_PICTURE', default=0)
     digital_signature = models.PositiveSmallIntegerField(
@@ -28,58 +28,31 @@ class Attachment(models.Model):
     is_confidential = models.PositiveSmallIntegerField(
         db_column='IS_CONFIDENTIAL', default=0)
 
+    group = models.ForeignKey('user.Group', models.SET_NULL,
+                              related_name='attachments', null=True)
+    """
+    Group attachment has been uploaded with. Needs to be nullable
+    (but not blank!) for db backwards compatibility with old plain camac
+    document module.
+    """
+
+    service = models.ForeignKey('core.Service', models.SET_NULL,
+                                db_column='SERVICE_ID', related_name='+',
+                                blank=True, null=True)
+    """
+    We use group instead of service in api - this field is only still present
+    for backwards compatibility with old plain camac document module.
+    """
+
     class Meta:
         managed = True
         db_table = 'ATTACHMENT'
 
 
-class AttachmentExtension(models.Model):
-    attachment_extension_id = models.AutoField(
-        db_column='ATTACHMENT_EXTENSION_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=10)
-
-    class Meta:
-        managed = True
-        db_table = 'ATTACHMENT_EXTENSION'
-
-
-class AttachmentExtensionRole(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
-    attachment_extension = models.ForeignKey(
-        AttachmentExtension, models.DO_NOTHING,
-        db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
-    role = models.ForeignKey('core.Role', models.DO_NOTHING,
-                             db_column='ROLE_ID', related_name='+')
-    mode = models.CharField(
-        db_column='MODE', max_length=10, blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'ATTACHMENT_EXTENSION_ROLE'
-        unique_together = (('attachment_extension', 'role'),)
-
-
-class AttachmentExtensionService(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
-    attachment_extension = models.ForeignKey(
-        AttachmentExtension, models.DO_NOTHING,
-        db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
-    service = models.ForeignKey(
-        'core.Service', models.DO_NOTHING, db_column='SERVICE_ID',
-        related_name='+')
-    mode = models.CharField(
-        db_column='MODE', max_length=10, blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'ATTACHMENT_EXTENSION_SERVICE'
-        unique_together = (('attachment_extension', 'service'),)
-
-
 class AttachmentSection(models.Model):
     attachment_section_id = models.AutoField(
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100)
+    name = models.CharField(db_column='NAME', max_length=100, unique=True)
     sort = models.IntegerField(db_column='SORT')
 
     class Meta:
@@ -87,15 +60,19 @@ class AttachmentSection(models.Model):
         db_table = 'ATTACHMENT_SECTION'
 
 
-class AttachmentSectionRole(models.Model):
+# TODO: add group acl table
+
+
+class AttachmentSectionRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     attachment_section = models.ForeignKey(
-        AttachmentSection, models.DO_NOTHING,
+        AttachmentSection, models.CASCADE,
         db_column='ATTACHMENT_SECTION_ID', related_name='+')
-    role = models.ForeignKey('core.Role', models.DO_NOTHING,
+    role = models.ForeignKey('core.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     mode = models.CharField(
         db_column='MODE', max_length=10, blank=True, null=True)
+    # TODO: should be a choice field
 
     class Meta:
         managed = True
@@ -103,15 +80,24 @@ class AttachmentSectionRole(models.Model):
         unique_together = (('attachment_section', 'role'),)
 
 
-class AttachmentSectionService(models.Model):
+class AttachmentSectionServiceAcl(models.Model):
+    """
+    Defines what service may see what attachment section acl.
+
+    Only here for backwards compatability as used by
+    old plain Camac document module.
+    AttachmentSectionGroupAcl should be used instead.
+    """
+
     id = models.AutoField(db_column='ID', primary_key=True)
     attachment_section = models.ForeignKey(
-        AttachmentSection, models.DO_NOTHING,
+        AttachmentSection, models.CASCADE,
         db_column='ATTACHMENT_SECTION_ID', related_name='+')
     service = models.ForeignKey(
-        'core.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'core.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     mode = models.CharField(db_column='MODE', max_length=20)
+    # TODO: should be a choice field
 
     class Meta:
         managed = True

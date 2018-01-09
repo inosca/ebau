@@ -63,6 +63,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'camac.wsgi.application'
 
+# Media
+
+MEDIA_ROOT = env.str(
+    'DJANGO_MEDIA_ROOT', default=default(django_root('media'))
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
