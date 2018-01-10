@@ -1,5 +1,7 @@
 from rest_framework_json_api import serializers
 
+from camac.relations import FormDataResourceReleatedField
+
 from . import models
 
 
@@ -13,26 +15,38 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
 
 
 class AttachmentSerializer(serializers.ModelSerializer):
+    serializer_related_field = FormDataResourceReleatedField
+
+    user = FormDataResourceReleatedField(
+        read_only=True, default=serializers.CurrentUserDefault()
+    )
 
     def validate(self, data):
+        path = data['path']
+        data['size'] = path.size
+        data['mime_type'] = path.content_type
+        data['name'] = path.name
         return data
 
     class Meta:
         model = models.Attachment
         fields = (
-            'name',
+            'attachment_section',
+            'date',
+            'digital_signature',
             'instance',
+            'is_confidential',
+            'is_parcel_picture',
+            'mime_type',
+            'name',
+            'path',
             'size',
             'user',
-            'mime_type',
-            'path',
-            'is_parcel_picture',
-            'digital_signature',
-            'is_confidential',
         )
         read_only_fields = (
-            'size',
-            'user',
+            'date',
             'mime_type',
             'name',
+            'size',
+            'user',
         )

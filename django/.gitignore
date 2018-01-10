@@ -67,3 +67,6 @@ target/
 
 # Editor swap files
 *.swp
+
+# Media files
+media
