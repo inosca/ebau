@@ -63,10 +63,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'camac.wsgi.application'
 
-# Media
+# Managing files
 
 MEDIA_ROOT = env.str(
     'DJANGO_MEDIA_ROOT', default=default(django_root('media'))
+)
+
+DEFAULT_FILE_STORAGE = env.str(
+    'DJANGO_DEFAULT_FILE_STORAGE',
+    default='django.core.files.storage.FileSystemStorage'
 )
 
 

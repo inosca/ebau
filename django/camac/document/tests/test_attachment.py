@@ -13,16 +13,27 @@ def test_attachment_list(admin_client, attachment):
     assert json['data'][0]['id'] == str(attachment.pk)
 
 
-def test_attachment_create(admin_client, attachment):
+def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
     url = reverse('attachment-list')
 
-    data = []
-    response = admin_client.post(url, data=data)
-    assert response.status_code == status.HTTP_200_OK
+    filename = 'test.txt'
+    path = tmpdir.join(filename)
+    content = 'test'
+    path.write(content)
+
+    data = {
+        'instance': instance.pk,
+        'attachment_section': attachment_section.pk,
+        'path': path.open(),
+    }
+    response = admin_client.post(url, data=data, format='multipart')
+    assert response.status_code == status.HTTP_201_CREATED
 
     json = response.json()
-    assert len(json['data']) == 1
-    assert json['data'][0]['id'] == str(attachment.pk)
+    attributes = json['data']['attributes']
+    assert attributes['size'] == len(content)
+    assert attributes['name'] == filename
+    assert attributes['mime-type'] == 'text/plain'
 
 
 def test_attachment_update(admin_client, attachment):
