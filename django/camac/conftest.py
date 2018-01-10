@@ -1,15 +1,14 @@
 import logging
 
 import pytest
-from django.contrib.auth import get_user_model
 from pytest_factoryboy import register
+from rest_framework_jwt.test import APIJWTClient
 
 from camac.document.factories import (AttachmentFactory,
                                       AttachmentSectionFactory)
 from camac.instance.factories import (FormFactory, FormFieldFactory,
                                       FormStateFactory, InstanceFactory,
                                       InstanceStateFactory)
-from camac.tests.client import JSONAPIClient
 from camac.user.factories import (GroupFactory, RoleFactory, UserFactory,
                                   UserGroupFactory)
 
@@ -34,38 +33,12 @@ def caplog(caplog):
 
 @pytest.fixture
 def client(db):
-    return JSONAPIClient()
+    return APIJWTClient()
 
 
 @pytest.fixture
-def admin_client(db, user_group_factory):
+def admin_client(db, client, admin_user, user_group_factory):
     """Return instance of a JSONAPIClient that is logged in as test user."""
-    user = get_user_model().objects.create_superuser(
-        username='user',
-        password='123qweasd'
-    )
-
-    user_group_factory(default_group=1, user=user)
-
-    client = JSONAPIClient()
-    client.user = user
-    client.login('user', '123qweasd')
-
-    return client
-
-
-@pytest.fixture
-def auth_client(db, user_group_factory):
-    """Return instance of a JSONAPIClient that is logged in as test user."""
-    user = get_user_model().objects.create_user(
-        username='user',
-        password='123qweasd'
-    )
-
-    user_group_factory(default_group=1, user=user)
-
-    client = JSONAPIClient()
-    client.user = user
-    client.login('user', '123qweasd')
-
+    user_group_factory(default_group=1, user=admin_user)
+    client.login(username=admin_user.username, password='password')
     return client
