@@ -11,15 +11,15 @@ from django.db import models
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def create_user(self, username, password=None, email=None, **extra_fields):
+    def create_user(self, username, email=None, password=None, **extra_fields):
         email = self.normalize_email(email)
         user = self.model(username=username, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password, **extra_fields):
-        return self.create_user(username, password, **extra_fields)
+    def create_superuser(self, username, email, password, **extra_fields):
+        return self.create_user(username, email, password, **extra_fields)
 
 
 class User(AbstractBaseUser):
@@ -27,7 +27,7 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = [
-        'name', 'surname', 'language'
+        'email', 'name', 'surname', 'language'
     ]
 
     id = models.AutoField(db_column='USER_ID', primary_key=True)

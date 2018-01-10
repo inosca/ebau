@@ -9,10 +9,9 @@ def test_user_anonymous(client):
     assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
 
-def test_user_detail(auth_client):
-    user = auth_client.user
-    url = reverse('user-detail', args=[user.id])
+def test_user_detail(admin_user, admin_client):
+    url = reverse('user-detail', args=[admin_user.id])
 
-    response = auth_client.get(url)
+    response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK

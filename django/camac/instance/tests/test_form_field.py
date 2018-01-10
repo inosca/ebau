@@ -3,10 +3,10 @@ from django.core.urlresolvers import reverse
 from rest_framework import status
 
 
-def test_form_field_list(auth_client, form_field):
+def test_form_field_list(admin_client, form_field):
     url = reverse('form-field-list')
 
-    response = auth_client.get(url)
+    response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
@@ -15,16 +15,16 @@ def test_form_field_list(auth_client, form_field):
 
 
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
-def test_form_field_detail(auth_client, form_field, form_field__value):
+def test_form_field_detail(admin_client, form_field, form_field__value):
     url = reverse('form-field-detail', args=[form_field.pk])
 
-    response = auth_client.get(url)
+    response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
     assert response.json()['data']['attributes']['value'] == form_field__value
 
 
-def test_form_field_create(auth_client, instance):
+def test_form_field_create(admin_client, instance):
     url = reverse('form-field-list')
 
     data = {
@@ -46,5 +46,5 @@ def test_form_field_create(auth_client, instance):
         }
     }
 
-    response = auth_client.post(url, data=data)
+    response = admin_client.post(url, data=data)
     assert response.status_code == status.HTTP_201_CREATED
