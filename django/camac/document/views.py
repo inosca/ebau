@@ -1,3 +1,4 @@
+from django_downloadview import ObjectDownloadView
 from rest_framework import exceptions, parsers, viewsets
 from rest_framework_json_api import views
 
@@ -18,6 +19,15 @@ class AttachmentView(views.ModelViewSet):
     def get_queryset(self):
         # TODO: filter by permission of user
         return models.Attachment.objects.all()
+
+
+class AttachmentPathView(ObjectDownloadView):
+    model = models.Attachment
+    file_field = 'path'
+    mime_type_field = 'mime_type'
+    slug_field = 'path'
+    slug_url_kwarg = 'path'
+    basename_field = 'name'
 
 
 class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
