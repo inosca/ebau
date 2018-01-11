@@ -3,6 +3,9 @@ django-environ==0.4.4
 django-filter==1.0.4
 djangorestframework>=3.6,<3.7
 # move back to main release once following PR is released:
+# https://github.com/benoitbryon/django-downloadview/pull/142
+git+https://github.com/adfinis-forks/django-downloadview.git@django_middleware
+# move back to main release once following PR is released:
 # https://github.com/django-json-api/django-rest-framework-json-api/pull/396
 git+https://github.com/django-json-api/django-rest-framework-json-api.git@9d200f2
 djangorestframework-jwt==1.10.0

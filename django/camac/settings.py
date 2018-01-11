@@ -42,6 +42,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'camac.user.middleware.JWTAuthenticationMiddleware',
+    'django_downloadview.SmartDownloadMiddleware',
 ]
 
 ROOT_URLCONF = 'camac.urls'
@@ -64,6 +65,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'camac.wsgi.application'
 
 # Managing files
+
+DOWNLOADVIEW_BACKEND = env.str(
+    'DJANGO_DOWNLOADVIEW_BACKEND',
+    default=default(
+        'django_downloadview.middlewares.DownloadDispatcherMiddleware'
+    )
+)
+DOWNLOADVIEW_RULES = env.list('DJANGO_DOWNLOADVIEW_RULES', default=default([]))
 
 MEDIA_ROOT = env.str(
     'DJANGO_MEDIA_ROOT', default=default(django_root('media'))

@@ -2,6 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 
+def attachment_path_directory_path(attachment, filename):
+    return 'attachments/files/{0}/{1}'.format(attachment.instance.pk, filename)
+
+
 class Attachment(models.Model):
     attachment_id = models.AutoField(
         db_column='ATTACHMENT_ID', primary_key=True)
@@ -10,7 +14,7 @@ class Attachment(models.Model):
         'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='attachments')
     path = models.FileField(db_column='PATH', max_length=1024,
-                            upload_to='attachments/files/')
+                            upload_to=attachment_path_directory_path)
     # TODO: add thumb file
     size = models.IntegerField(db_column='SIZE')
     date = models.DateTimeField(db_column='DATE', default=timezone.now)

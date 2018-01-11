@@ -1,4 +1,5 @@
 from django.urls import reverse
+from django.utils.encoding import force_bytes
 from rest_framework import status
 
 
@@ -19,6 +20,7 @@ def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
     filename = 'test.txt'
     path = tmpdir.join(filename)
     content = 'test'
+    mime_type = 'text/plain'
     path.write(content)
 
     data = {
@@ -33,7 +35,16 @@ def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
     attributes = json['data']['attributes']
     assert attributes['size'] == len(content)
     assert attributes['name'] == filename
-    assert attributes['mime-type'] == 'text/plain'
+    assert attributes['mime-type'] == mime_type
+
+    # download uploaded attachment
+    response = admin_client.get(attributes['path'])
+    assert response.status_code == status.HTTP_200_OK
+    assert response['Content-Disposition'] == 'attachment; filename="test.txt"'
+    assert response['Content-Type'].startswith(mime_type)
+
+    parts = [force_bytes(s) for s in response.streaming_content]
+    assert b''.join(parts) == force_bytes(content)
 
 
 def test_attachment_update(admin_client, attachment):
