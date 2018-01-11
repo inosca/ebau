@@ -37,9 +37,9 @@ def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
 
 
 def test_attachment_update(admin_client, attachment):
-    url = reverse('attachment-list')
+    url = reverse('attachment-detail', args=[attachment.pk])
 
-    response = admin_client.patch(url)
+    response = admin_client.put(url, format='multipart')
     assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
 
 

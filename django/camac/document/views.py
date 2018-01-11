@@ -13,7 +13,7 @@ class AttachmentView(views.ModelViewSet):
     )
 
     def update(self, request, *args, **kwargs):
-        raise exceptions.MethodNotAllowed()
+        raise exceptions.MethodNotAllowed('update')
 
     def get_queryset(self):
         # TODO: filter by permission of user
