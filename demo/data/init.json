@@ -1,0 +1,102 @@
+[
+{
+  "model": "user.user",
+  "pk": 1,
+  "fields": {
+    "username": "admin",
+    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "name": "super",
+    "surname": "admin",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": "2018-11-01T10:41:35",
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "username": "guest",
+    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "name": "guest",
+    "surname": "person",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": "2018-11-01T10:50:27",
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "core.role",
+  "pk": 1,
+  "fields": {
+    "role_parent": null,
+    "name": "Admin"
+  }
+},
+{
+  "model": "core.role",
+  "pk": 2,
+  "fields": {
+    "role_parent": null,
+    "name": "Guest"
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1,
+  "fields": {
+    "role": 1,
+    "service": null,
+    "name": "Admin",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 2,
+  "fields": {
+    "role": 2,
+    "service": null,
+    "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "group": 1,
+    "default_group": 1
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "group": 2,
+    "default_group": 1
+  }
+}
+]
