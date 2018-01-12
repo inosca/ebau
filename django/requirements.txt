@@ -10,3 +10,6 @@ git+https://github.com/adfinis-forks/django-downloadview.git@django_middleware
 git+https://github.com/django-json-api/django-rest-framework-json-api.git@9d200f2
 djangorestframework-jwt==1.10.0
 psycopg2>=2.7,<2.8
+Pillow==5.0.0
+sorl-thumbnail==12.4.1
+sorl-thumbnail-serializer-field==0.2.1
