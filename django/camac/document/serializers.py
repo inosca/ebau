@@ -1,5 +1,4 @@
 from rest_framework_json_api import serializers
-from sorl_thumbnail_serializer.fields import HyperlinkedSorlImageField
 
 from camac.relations import FormDataResourceReleatedField
 
@@ -21,11 +20,6 @@ class AttachmentSerializer(serializers.ModelSerializer):
     user = FormDataResourceReleatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
-    thumbnail = HyperlinkedSorlImageField(
-        source='path',
-        geometry_string='x300',
-        read_only=True,
-    )
 
     def validate(self, data):
         path = data['path']
@@ -46,7 +40,6 @@ class AttachmentSerializer(serializers.ModelSerializer):
             'mime_type',
             'name',
             'path',
-            'thumbnail',
             'size',
             'user',
         )
