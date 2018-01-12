@@ -10,7 +10,7 @@
     <TEMPLATE type="str"></TEMPLATE>
     <CLASS type="str"></CLASS>
     <HIDDEN type="int">0</HIDDEN>
-    <SORT type="int">1</SORT>
+    <SORT type="int">3</SORT>
     <FORM_GROUP_ID type="int">161</FORM_GROUP_ID>
   </data>
 </row>
