@@ -1,5 +1,5 @@
 from factory import Faker, SubFactory
-from factory.django import DjangoModelFactory
+from factory.django import DjangoModelFactory, ImageField
 
 from camac.instance.factories import InstanceFactory
 from camac.user.factories import UserFactory
@@ -18,7 +18,7 @@ class AttachmentSectionFactory(DjangoModelFactory):
 class AttachmentFactory(DjangoModelFactory):
     name = Faker('file_name')
     instance = SubFactory(InstanceFactory)
-    path = Faker('file_path')
+    path = ImageField(width=1024, height=768)
     size = Faker('pyint')
     user = SubFactory(UserFactory)
     attachment_section = SubFactory(AttachmentSectionFactory)
