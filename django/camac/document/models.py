@@ -15,12 +15,10 @@ class Attachment(models.Model):
         related_name='attachments')
     path = models.FileField(db_column='PATH', max_length=1024,
                             upload_to=attachment_path_directory_path)
-    # TODO: add thumb file
     size = models.IntegerField(db_column='SIZE')
     date = models.DateTimeField(db_column='DATE', default=timezone.now)
     user = models.ForeignKey('user.User', models.PROTECT,
                              db_column='USER_ID', related_name='attachments')
-    identifier = models.CharField(db_column='IDENTIFIER', max_length=255)
     mime_type = models.CharField(db_column='MIME_TYPE', max_length=255)
     attachment_section = models.ForeignKey(
         'AttachmentSection', models.PROTECT,
@@ -31,6 +29,14 @@ class Attachment(models.Model):
         db_column='DIGITAL_SIGNATURE', default=0)
     is_confidential = models.PositiveSmallIntegerField(
         db_column='IS_CONFIDENTIAL', default=0)
+
+    identifier = models.CharField(db_column='IDENTIFIER', max_length=255,
+                                  blank=True, null=True)
+    """
+    In old Camac Document module this identifier is used for identification
+    and to build thumbnail path.
+    Is only present for backwards compatability.
+    """
 
     group = models.ForeignKey('user.Group', models.SET_NULL,
                               related_name='attachments', null=True)
