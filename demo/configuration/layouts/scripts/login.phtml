@@ -1,0 +1,67 @@
+<?php echo $this->doctype() ?>
+<html>
+    <head>
+		<?php echo $this->headMeta() ?>
+		<meta name="theme-color" content="#ffffff">
+		<title>CAMAC - Demo</title>
+
+		<link rel="stylesheet" href="<?php echo $this->baseUrl('public/css/login.css') ?>">
+
+		<script src="<?php echo $this->baseUrl('node_modules/jquery/dist/jquery.min.js') ?>"></script>
+		<!--[if lt IE 7]>
+			<link rel="stylesheet" href="<?php echo $this->baseUrl('public/css/ie7.css') ?>">
+		<![endif]-->
+		<!--[if lt IE 9]>
+			<script src="<?php echo $this->baseUrl('public/lib/html5.js') ?>"></script>
+		<![endif]-->
+    </head>
+    <body>
+		<div class="container">
+			<div class="login_content">
+				<header>
+					<a id="logo" href="#">
+						<img src="<?php echo $this->baseUrl('public/images/logo.png') ?>" alt="logo" />
+					</a>
+					<div id="title"></div>
+				</header>
+				<div class="main big">
+					<?php echo $this->form->getCsrf() ?>
+					<?php echo $this->message() ?>
+					<div id="login_sidebar">
+						&nbsp;
+					</div>
+					<div id="login_text">
+						<h1>CAMAC Demo App</h1>
+
+						<h2>Herzlich willkommen auf der CAMAC Demo App</h2>
+
+						<p>
+							Enjoy!
+						</p>
+
+						<div id="login_box" class="clearfix">
+							<?php echo $this->layout()->content ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="browser-error ie7">
+			<p class="alert error">
+				<span class="icon-warning"></span>
+				<?php echo $this->translate('You need to update your browser to use this application') ?>
+			</p>
+		</div>
+		<noscript>
+		<div class="browser-error">
+			<p class="alert error">
+				<span class="icon-warning"></span>
+				<?php echo $this->translate('You need to activate JavaScript in your browser to use this application') ?>
+			</p>
+		</div>
+		</noscript>
+		<div class="watermark watermark_bottom"><?php echo $this->showEnviron() ?></div>
+		<div class="watermark watermark_top"><?php echo $this->showEnviron() ?></div>
+		<div id="last_element" style="display: none;"></div>
+    </body>
+</html>

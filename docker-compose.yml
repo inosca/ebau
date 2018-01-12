@@ -1,5 +1,10 @@
 version: "2"
 services:
+    camac_cache:
+        image: memcached
+        ports:
+            - "11211:11211"
+
     camac_db:
         image: postgres
         ports:
@@ -8,6 +13,7 @@ services:
             - POSTGRES_PASSWORD=camac
             - POSTGRES_USER=camac
             - POSTGRES_DB=camac
+
     camac_django:
         build: django
         ports:
