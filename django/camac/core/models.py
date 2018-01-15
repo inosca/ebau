@@ -318,9 +318,10 @@ class Activation(models.Model):
     circulation = models.ForeignKey(
         'Circulation', models.DO_NOTHING, db_column='CIRCULATION_ID')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     service_parent = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_PARENT_ID',
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_PARENT_ID',
         related_name='+')
     circulation_state = models.ForeignKey(
         'CirculationState', models.DO_NOTHING,
@@ -526,7 +527,7 @@ class AuthorityLocation(models.Model):
         Authority, models.DO_NOTHING, db_column='AUTHORITY_ID',
         related_name='+')
     location = models.ForeignKey(
-        'Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
         related_name='+')
 
     class Meta:
@@ -608,7 +609,7 @@ class BRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     button = models.ForeignKey(
         'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
@@ -625,7 +626,8 @@ class BServiceAcl(models.Model):
     button = models.ForeignKey(
         'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
         db_column='INSTANCE_STATE_ID', related_name='+')
@@ -675,7 +677,7 @@ class BillingAccount(models.Model):
         db_column='DEPARTMENT', max_length=255, blank=True, null=True)
     predefined = models.FloatField(
         db_column='PREDEFINED', blank=True, null=True)
-    service_group = models.ForeignKey('ServiceGroup', models.DO_NOTHING,
+    service_group = models.ForeignKey('user.ServiceGroup', models.DO_NOTHING,
                                       db_column='SERVICE_GROUP_ID',
                                       related_name='+', blank=True, null=True)
 
@@ -721,7 +723,7 @@ class BillingEntry(models.Model):
     instance = models.ForeignKey('instance.Instance', models.DO_NOTHING,
                                  db_column='INSTANCE_ID', related_name='+',
                                  blank=True, null=True)
-    service = models.ForeignKey('Service', models.DO_NOTHING,
+    service = models.ForeignKey('user.Service', models.DO_NOTHING,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
     created = models.DateTimeField(db_column='CREATED', blank=True, null=True)
@@ -936,7 +938,7 @@ class ChapterPageRoleAcl(models.Model):
         related_name='+')
     page = models.ForeignKey(
         ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
@@ -956,7 +958,8 @@ class ChapterPageServiceAcl(models.Model):
     page = models.ForeignKey(
         ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
         db_column='INSTANCE_STATE_ID', related_name='+')
@@ -1321,7 +1324,7 @@ class InstanceGuest(models.Model):
 class InstanceLocation(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     location = models.ForeignKey(
-        'Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
         related_name='+')
     instance = models.ForeignKey(
         'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
@@ -1440,7 +1443,7 @@ class IrCirculation(models.Model):
     circulation_type = models.ForeignKey(
         CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
-    service = models.ForeignKey('Service', models.DO_NOTHING,
+    service = models.ForeignKey('user.Service', models.DO_NOTHING,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
     draft_circulation_answer = models.ForeignKey(
@@ -1509,7 +1512,7 @@ class IrEditcirculationSg(models.Model):
         IrEditcirculation, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
     service_group = models.ForeignKey(
-        'ServiceGroup', models.DO_NOTHING, db_column='SERVICE_GROUP_ID',
+        'user.ServiceGroup', models.DO_NOTHING, db_column='SERVICE_GROUP_ID',
         related_name='+')
     localized = models.PositiveSmallIntegerField(db_column='LOCALIZED')
 
@@ -1722,7 +1725,7 @@ class IrRoleAcl(models.Model):
     instance_resource = models.ForeignKey(
         InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
@@ -1740,7 +1743,8 @@ class IrServiceAcl(models.Model):
         InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
         db_column='INSTANCE_STATE_ID', related_name='+')
@@ -1810,33 +1814,6 @@ class LetterImage(models.Model):
     class Meta:
         managed = True
         db_table = 'LETTER_IMAGE'
-
-
-class Location(models.Model):
-    location_id = models.AutoField(db_column='LOCATION_ID', primary_key=True)
-    communal_cantonal_number = models.IntegerField(
-        db_column='COMMUNAL_CANTONAL_NUMBER', blank=True, null=True)
-    communal_federal_number = models.CharField(
-        db_column='COMMUNAL_FEDERAL_NUMBER', max_length=255, blank=True,
-        null=True)
-    district_number = models.IntegerField(
-        db_column='DISTRICT_NUMBER', blank=True, null=True)
-    section_number = models.IntegerField(
-        db_column='SECTION_NUMBER', blank=True, null=True)
-    name = models.CharField(
-        db_column='NAME', max_length=100, blank=True, null=True)
-    commune_name = models.CharField(
-        db_column='COMMUNE_NAME', max_length=100, blank=True, null=True)
-    district_name = models.CharField(
-        db_column='DISTRICT_NAME', max_length=100, blank=True, null=True)
-    section_name = models.CharField(
-        db_column='SECTION_NAME', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'LOCATION'
 
 
 class LoginAttempt(models.Model):
@@ -2029,7 +2006,7 @@ class PageFormRoleAcl(models.Model):
                              db_column='PAGE_ID', related_name='+')
     form = models.ForeignKey(PageForm, models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
@@ -2048,7 +2025,8 @@ class PageFormServiceAcl(models.Model):
     form = models.ForeignKey(PageForm, models.DO_NOTHING,
                              db_column='FORM_ID', related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
         db_column='INSTANCE_STATE_ID', related_name='+')
@@ -2099,7 +2077,8 @@ class ProposalActivation(models.Model):
         CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     circulation_state = models.ForeignKey(
         CirculationState, models.DO_NOTHING, db_column='CIRCULATION_STATE_ID',
         related_name='+')
@@ -2213,7 +2192,7 @@ class QuestionChapterRoleAcl(models.Model):
     chapter = models.ForeignKey(
         Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
@@ -2234,7 +2213,8 @@ class QuestionChapterServiceAcl(models.Model):
         Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
         related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     instance_state = models.ForeignKey(
         'instance.InstanceState', models.DO_NOTHING,
         db_column='INSTANCE_STATE_ID', related_name='+')
@@ -2345,7 +2325,7 @@ class RRoleAcl(models.Model):
     resource = models.ForeignKey(
         'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
         related_name='+')
-    role = models.ForeignKey('Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
 
     class Meta:
@@ -2412,7 +2392,8 @@ class RServiceAcl(models.Model):
         'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
         related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
 
     class Meta:
         managed = True
@@ -2465,26 +2446,14 @@ class Resource(models.Model):
         db_table = 'RESOURCE'
 
 
-class Role(models.Model):
-    role_id = models.AutoField(db_column='ROLE_ID', primary_key=True)
-    role_parent = models.ForeignKey(
-        'self', models.DO_NOTHING, db_column='ROLE_PARENT_ID',
-        related_name='+', blank=True, null=True)
-    # TODO: make unique and move to user app
-    name = models.CharField(db_column='NAME', max_length=100)
-
-    class Meta:
-        managed = True
-        db_table = 'ROLE'
-
-
 class Sanction(models.Model):
     sanction_id = models.AutoField(db_column='SANCTION_ID', primary_key=True)
     instance = models.ForeignKey(
         'instance.Instance', models.DO_NOTHING,
         db_column='INSTANCE_ID', related_name='+')
     service = models.ForeignKey(
-        'Service', models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     user = models.ForeignKey('user.User', models.DO_NOTHING,
                              db_column='USER_ID', related_name='+')
     text = models.CharField(db_column='TEXT', max_length=4000)
@@ -2505,36 +2474,6 @@ class Sanction(models.Model):
         db_table = 'SANCTION'
 
 
-class Service(models.Model):
-    service_id = models.AutoField(db_column='SERVICE_ID', primary_key=True)
-    service_group = models.ForeignKey(
-        'ServiceGroup', models.DO_NOTHING, db_column='SERVICE_GROUP_ID',
-        related_name='+')
-    service_parent = models.ForeignKey(
-        'self', models.DO_NOTHING, db_column='SERVICE_PARENT_ID',
-        related_name='+', blank=True, null=True)
-    name = models.CharField(db_column='NAME', max_length=100)
-    description = models.CharField(
-        db_column='DESCRIPTION', max_length=255, blank=True, null=True)
-    sort = models.IntegerField(db_column='SORT')
-    phone = models.CharField(
-        db_column='PHONE', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
-    city = models.CharField(
-        db_column='CITY', max_length=100, blank=True, null=True)
-    address = models.CharField(
-        db_column='ADDRESS', max_length=100, blank=True, null=True)
-    email = models.CharField(
-        db_column='EMAIL', max_length=100, blank=True, null=True)
-    website = models.CharField(
-        db_column='WEBSITE', max_length=1000, blank=True, null=True)
-
-    class Meta:
-        managed = True
-        db_table = 'SERVICE'
-
-
 class ServiceAnswerActivation(models.Model):
     service_answer_activation_id = models.AutoField(
         db_column='SERVICE_ANSWER_ACTIVATION_ID', primary_key=True)
@@ -2547,22 +2486,13 @@ class ServiceAnswerActivation(models.Model):
         Question, models.DO_NOTHING, db_column='QUESTION_ID',
         related_name='+')
     service = models.ForeignKey(
-        Service, models.DO_NOTHING, db_column='SERVICE_ID', related_name='+')
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        related_name='+')
     answer = models.CharField(db_column='ANSWER', max_length=4000)
 
     class Meta:
         managed = True
         db_table = 'SERVICE_ANSWER_ACTIVATION'
-
-
-class ServiceGroup(models.Model):
-    service_group_id = models.AutoField(
-        db_column='SERVICE_GROUP_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100)
-
-    class Meta:
-        managed = True
-        db_table = 'SERVICE_GROUP'
 
 
 class WorkflowAction(models.Model):
@@ -2622,7 +2552,7 @@ class WorkflowRole(models.Model):
     workflow_item = models.ForeignKey(
         WorkflowItem, models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
-    role = models.ForeignKey(Role, models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
 
     class Meta:
@@ -2657,7 +2587,7 @@ class AttachmentExtensionRole(models.Model):
     attachment_extension = models.ForeignKey(
         AttachmentExtension, models.DO_NOTHING,
         db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
-    role = models.ForeignKey('core.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.DO_NOTHING,
                              db_column='ROLE_ID', related_name='+')
     mode = models.CharField(
         db_column='MODE', max_length=10, blank=True, null=True)
@@ -2674,7 +2604,7 @@ class AttachmentExtensionService(models.Model):
         AttachmentExtension, models.DO_NOTHING,
         db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
     service = models.ForeignKey(
-        'core.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
         related_name='+')
     mode = models.CharField(
         db_column='MODE', max_length=10, blank=True, null=True)
