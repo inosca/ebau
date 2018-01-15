@@ -86,6 +86,15 @@ DEFAULT_FILE_STORAGE = env.str(
 
 THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.convert_engine.Engine'
 
+ALLOWED_DOCUMENT_MIMETYPES = env.list(
+    'DJANGO_ALLOWED_DOCUMENT_MIMETYPES',
+    default=[
+        'image/png',
+        'image/jpeg',
+        'application/pdf',
+    ]
+)
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
