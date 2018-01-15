@@ -1,3 +1,6 @@
+from django.conf import settings
+from django.utils.translation import gettext as _
+from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.relations import FormDataResourceReleatedField
@@ -20,6 +23,16 @@ class AttachmentSerializer(serializers.ModelSerializer):
     user = FormDataResourceReleatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
+
+    def validate_path(self, path):
+        if path.content_type not in settings.ALLOWED_DOCUMENT_MIMETYPES:
+            raise exceptions.ParseError(
+                _('%(mime_type)s is not a valid mime type for attachment.') % {
+                    'mime_type': path.content_type
+                }
+            )
+
+        return path
 
     def validate(self, data):
         path = data['path']
