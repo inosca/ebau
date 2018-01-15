@@ -28,4 +28,4 @@ services:
           - ENV=docker
           - DJANGO_DATABASE_HOST=camac_db
           - DJANGO_CACHE_LOCATION=camac_cache:11211
-        command: /tools/wait-for-it.sh camac_db:5432 --timeout=60 -- uwsgi
+        command: /tools/wait-for-it.sh camac_db:5432 --timeout=90 -- uwsgi
