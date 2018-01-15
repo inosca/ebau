@@ -4,9 +4,6 @@ from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
-# TODO: think about cascading
-# TODO: move role and service to this place
-
 
 class UserManager(BaseUserManager):
     use_in_migrations = True
@@ -52,6 +49,7 @@ class User(AbstractBaseUser):
         db_column='CITY', max_length=100, blank=True, null=True)
     zip = models.CharField(
         db_column='ZIP', max_length=10, blank=True, null=True)
+    groups = models.ManyToManyField('Group', through='UserGroup')
 
     def _make_password(self, raw_password):
         salted = settings.AUTH_PASSWORT_SALT + raw_password
@@ -75,9 +73,9 @@ class User(AbstractBaseUser):
 
 class Group(models.Model):
     group_id = models.AutoField(db_column='GROUP_ID', primary_key=True)
-    role = models.ForeignKey('core.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.PROTECT,
                              db_column='ROLE_ID', related_name='+')
-    service = models.ForeignKey('core.Service', models.DO_NOTHING,
+    service = models.ForeignKey('user.Service', models.SET_NULL,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
     name = models.CharField(db_column='NAME', max_length=100)
@@ -99,12 +97,39 @@ class Group(models.Model):
         db_table = 'GROUP'
 
 
+class Location(models.Model):
+    location_id = models.AutoField(db_column='LOCATION_ID', primary_key=True)
+    communal_cantonal_number = models.IntegerField(
+        db_column='COMMUNAL_CANTONAL_NUMBER', blank=True, null=True)
+    communal_federal_number = models.CharField(
+        db_column='COMMUNAL_FEDERAL_NUMBER', max_length=255, blank=True,
+        null=True)
+    district_number = models.IntegerField(
+        db_column='DISTRICT_NUMBER', blank=True, null=True)
+    section_number = models.IntegerField(
+        db_column='SECTION_NUMBER', blank=True, null=True)
+    name = models.CharField(
+        db_column='NAME', max_length=100, blank=True, null=True)
+    commune_name = models.CharField(
+        db_column='COMMUNE_NAME', max_length=100, blank=True, null=True)
+    district_name = models.CharField(
+        db_column='DISTRICT_NAME', max_length=100, blank=True, null=True)
+    section_name = models.CharField(
+        db_column='SECTION_NAME', max_length=100, blank=True, null=True)
+    zip = models.CharField(
+        db_column='ZIP', max_length=10, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'LOCATION'
+
+
 class GroupLocation(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    group = models.ForeignKey(Group, models.DO_NOTHING,
+    group = models.ForeignKey(Group, models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
     location = models.ForeignKey(
-        'core.Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        Location, models.CASCADE, db_column='LOCATION_ID',
         related_name='+')
 
     class Meta:
@@ -115,9 +140,9 @@ class GroupLocation(models.Model):
 
 class UserGroup(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    user = models.ForeignKey(User, models.DO_NOTHING,
+    user = models.ForeignKey(User, models.CASCADE,
                              db_column='USER_ID', related_name='user_groups')
-    group = models.ForeignKey(Group, models.DO_NOTHING,
+    group = models.ForeignKey(Group, models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
     default_group = models.PositiveSmallIntegerField(db_column='DEFAULT_GROUP')
 
@@ -125,3 +150,55 @@ class UserGroup(models.Model):
         managed = True
         db_table = 'USER_GROUP'
         unique_together = (('user', 'group'),)
+
+
+class Role(models.Model):
+    role_id = models.AutoField(db_column='ROLE_ID', primary_key=True)
+    role_parent = models.ForeignKey(
+        'self', models.SET_NULL, db_column='ROLE_PARENT_ID',
+        related_name='+', blank=True, null=True)
+    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+
+    class Meta:
+        managed = True
+        db_table = 'ROLE'
+
+
+class ServiceGroup(models.Model):
+    service_group_id = models.AutoField(
+        db_column='SERVICE_GROUP_ID', primary_key=True)
+    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+
+    class Meta:
+        managed = True
+        db_table = 'SERVICE_GROUP'
+
+
+class Service(models.Model):
+    service_id = models.AutoField(db_column='SERVICE_ID', primary_key=True)
+    service_group = models.ForeignKey(
+        ServiceGroup, models.PROTECT, db_column='SERVICE_GROUP_ID',
+        related_name='+')
+    service_parent = models.ForeignKey(
+        'self', models.SET_NULL, db_column='SERVICE_PARENT_ID',
+        related_name='+', blank=True, null=True)
+    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+    description = models.CharField(
+        db_column='DESCRIPTION', max_length=255, blank=True, null=True)
+    sort = models.IntegerField(db_column='SORT')
+    phone = models.CharField(
+        db_column='PHONE', max_length=100, blank=True, null=True)
+    zip = models.CharField(
+        db_column='ZIP', max_length=10, blank=True, null=True)
+    city = models.CharField(
+        db_column='CITY', max_length=100, blank=True, null=True)
+    address = models.CharField(
+        db_column='ADDRESS', max_length=100, blank=True, null=True)
+    email = models.CharField(
+        db_column='EMAIL', max_length=100, blank=True, null=True)
+    website = models.CharField(
+        db_column='WEBSITE', max_length=1000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'SERVICE'

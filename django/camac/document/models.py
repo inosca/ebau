@@ -46,7 +46,7 @@ class Attachment(models.Model):
     document module.
     """
 
-    service = models.ForeignKey('core.Service', models.SET_NULL,
+    service = models.ForeignKey('user.Service', models.SET_NULL,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
     """
@@ -70,24 +70,41 @@ class AttachmentSection(models.Model):
         db_table = 'ATTACHMENT_SECTION'
 
 
-# TODO: add group acl table
+WRITE_PERMISSION = 'write'
+READ_PERMISSION = 'read'
+ADMIN_PERMISSION = 'admin'
+
+ATTACHMENT_MODE = (
+    (READ_PERMISSION, 'Read permissions'),
+    (WRITE_PERMISSION, 'Read and write permissions'),
+    (ADMIN_PERMISSION, 'Read, write and delete permissions')
+)
 
 
 class AttachmentSectionRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     attachment_section = models.ForeignKey(
         AttachmentSection, models.CASCADE,
-        db_column='ATTACHMENT_SECTION_ID', related_name='+')
-    role = models.ForeignKey('core.Role', models.CASCADE,
+        db_column='ATTACHMENT_SECTION_ID', related_name='role_acls')
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
-    mode = models.CharField(
-        db_column='MODE', max_length=10, blank=True, null=True)
-    # TODO: should be a choice field
+    mode = models.CharField(db_column='MODE', max_length=10,
+                            choices=ATTACHMENT_MODE)
 
     class Meta:
         managed = True
         db_table = 'ATTACHMENT_SECTION_ROLE'
         unique_together = (('attachment_section', 'role'),)
+
+
+class AttachmentSectionGroupAcl(models.Model):
+    attachment_section = models.ForeignKey(
+        AttachmentSection, models.CASCADE, related_name='group_acls')
+    group = models.ForeignKey('user.Group', models.CASCADE, related_name='+')
+    mode = models.CharField(max_length=10, choices=ATTACHMENT_MODE)
+
+    class Meta:
+        unique_together = (('attachment_section', 'group'),)
 
 
 class AttachmentSectionServiceAcl(models.Model):
@@ -104,10 +121,9 @@ class AttachmentSectionServiceAcl(models.Model):
         AttachmentSection, models.CASCADE,
         db_column='ATTACHMENT_SECTION_ID', related_name='+')
     service = models.ForeignKey(
-        'core.Service', models.CASCADE, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     mode = models.CharField(db_column='MODE', max_length=20)
-    # TODO: should be a choice field
 
     class Meta:
         managed = True
