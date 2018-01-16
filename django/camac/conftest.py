@@ -12,6 +12,12 @@ from camac.instance.factories import (FormFactory, FormFieldFactory,
 from camac.user.factories import (GroupFactory, RoleFactory, UserFactory,
                                   UserGroupFactory)
 
+factory_logger = logging.getLogger('factory')
+factory_logger.setLevel(logging.INFO)
+
+sorl_thumbnail_logger = logging.getLogger('sorl.thumbnail')
+sorl_thumbnail_logger.setLevel(logging.INFO)
+
 # TODO: automatically register all factory classes of all factory modules
 register(AttachmentFactory)
 register(AttachmentSectionFactory)
@@ -24,11 +30,6 @@ register(GroupFactory)
 register(InstanceFactory)
 register(InstanceStateFactory)
 register(RoleFactory)
-
-
-@pytest.fixture(autouse=True)
-def caplog(caplog):
-    caplog.set_level(logging.INFO)
 
 
 @pytest.fixture

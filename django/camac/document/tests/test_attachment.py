@@ -1,6 +1,12 @@
+import io
+
+import pytest
 from django.urls import reverse
 from django.utils.encoding import force_bytes
+from PIL import Image
 from rest_framework import status
+
+from .data import django_file
 
 
 def test_attachment_list(admin_client, attachment):
@@ -19,32 +25,52 @@ def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
 
     filename = 'test.txt'
     path = tmpdir.join(filename)
-    content = 'test'
     mime_type = 'text/plain'
-    path.write(content)
+    path.write('test')
 
     data = {
         'instance': instance.pk,
         'attachment_section': attachment_section.pk,
-        'path': path.open(),
+        'path': path.open('rb'),
     }
     response = admin_client.post(url, data=data, format='multipart')
     assert response.status_code == status.HTTP_201_CREATED
 
     json = response.json()
     attributes = json['data']['attributes']
-    assert attributes['size'] == len(content)
+    assert attributes['size'] == path.size()
     assert attributes['name'] == filename
     assert attributes['mime-type'] == mime_type
 
     # download uploaded attachment
     response = admin_client.get(attributes['path'])
     assert response.status_code == status.HTTP_200_OK
-    assert response['Content-Disposition'] == 'attachment; filename="test.txt"'
+    assert response['Content-Disposition'] == (
+        'attachment; filename="{0}"'.format(filename)
+    )
     assert response['Content-Type'].startswith(mime_type)
 
     parts = [force_bytes(s) for s in response.streaming_content]
-    assert b''.join(parts) == force_bytes(content)
+    assert b''.join(parts) == path.read('rb')
+
+
+@pytest.mark.parametrize("filename,status_code", [
+    ('multiple-pages.pdf', status.HTTP_200_OK),
+    ('test-thumbnail.jpg', status.HTTP_200_OK),
+    ('no-thumbnail.txt', status.HTTP_404_NOT_FOUND),
+])
+def test_attachment_thumbnail_pdf(admin_client, attachment_factory, filename,
+                                  status_code):
+    attachment = attachment_factory(
+        path=django_file(filename)
+    )
+    url = reverse('attachment-thumbnail', args=[attachment.pk])
+    response = admin_client.get(url)
+    assert response.status_code == status_code
+    if status_code == status.HTTP_200_OK:
+        assert response['Content-Type'] == 'image/jpeg'
+        image = Image.open(io.BytesIO(response.content))
+        assert image.height == 300
 
 
 def test_attachment_update(admin_client, attachment):
