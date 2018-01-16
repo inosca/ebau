@@ -3,7 +3,7 @@ from django_downloadview import ObjectDownloadView
 from rest_framework import exceptions, parsers, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework_json_api import views
-from sorl.thumbnail import get_thumbnail
+from sorl.thumbnail import delete, get_thumbnail
 
 from . import models, serializers
 
@@ -22,6 +22,11 @@ class AttachmentView(views.ModelViewSet):
     def get_queryset(self):
         # TODO: filter by permission of user
         return models.Attachment.objects.all()
+
+    def perform_destroy(self, instance):
+        """Delete image cache before deleting attachment."""
+        delete(instance.path)
+        super().perform_destroy(instance)
 
     @detail_route(methods=['get'])
     def thumbnail(self, request, pk=None):

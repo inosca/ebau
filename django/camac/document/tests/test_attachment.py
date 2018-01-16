@@ -89,3 +89,17 @@ def test_instance_detail(admin_client, attachment):
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.parametrize("filename", [
+    ('multiple-pages.pdf'),
+    ('test-thumbnail.jpg'),
+    ('no-thumbnail.txt'),
+])
+def test_attachment_delete(admin_client, attachment_factory, filename):
+    attachment = attachment_factory(
+        path=django_file(filename)
+    )
+    url = reverse('attachment-detail', args=[attachment.pk])
+    response = admin_client.delete(url)
+    assert response.status_code == status.HTTP_204_NO_CONTENT
