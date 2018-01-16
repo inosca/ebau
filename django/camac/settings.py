@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'camac.user.apps.DefaultConfig',
     'camac.instance.apps.DefaultConfig',
     'camac.document.apps.DefaultConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -83,6 +84,8 @@ DEFAULT_FILE_STORAGE = env.str(
     default='django.core.files.storage.FileSystemStorage'
 )
 
+THUMBNAIL_ENGINE = 'sorl.thumbnail.engines.convert_engine.Engine'
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -103,6 +106,18 @@ DATABASES = {
     }
 }
 
+# Cache
+# https://docs.djangoproject.com/en/1.11/ref/settings/#caches
+
+CACHES = {
+    'default': {
+        'BACKEND': env.str(
+            'DJANGO_CACHE_BACKEND',
+            default='django.core.cache.backends.memcached.MemcachedCache',
+        ),
+        'LOCATION': env.str('DJANGO_CACHE_LOCATION', default='127.0.0.1:11211')
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
