@@ -20,38 +20,42 @@ def test_attachment_list(admin_client, attachment):
     assert json['data'][0]['id'] == str(attachment.pk)
 
 
-def test_attachment_create(admin_client, tmpdir, instance, attachment_section):
+@pytest.mark.parametrize("filename,mime_type,status_code", [
+    ('multiple-pages.pdf', 'application/pdf', status.HTTP_201_CREATED),
+    ('test-thumbnail.jpg', 'image/jpeg', status.HTTP_201_CREATED),
+    ('invalid-attachment.gif', 'image/gif', status.HTTP_400_BAD_REQUEST),
+])
+def test_attachment_create(admin_client, instance, attachment_section,
+                           mime_type, filename, status_code):
     url = reverse('attachment-list')
 
-    filename = 'test.txt'
-    path = tmpdir.join(filename)
-    mime_type = 'text/plain'
-    path.write('test')
-
+    path = django_file(filename)
     data = {
         'instance': instance.pk,
         'attachment_section': attachment_section.pk,
-        'path': path.open('rb'),
+        'path': path.file,
     }
     response = admin_client.post(url, data=data, format='multipart')
-    assert response.status_code == status.HTTP_201_CREATED
+    assert response.status_code == status_code
 
-    json = response.json()
-    attributes = json['data']['attributes']
-    assert attributes['size'] == path.size()
-    assert attributes['name'] == filename
-    assert attributes['mime-type'] == mime_type
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+        attributes = json['data']['attributes']
+        assert attributes['size'] == path.size
+        assert attributes['name'] == filename
+        assert attributes['mime-type'] == mime_type
 
-    # download uploaded attachment
-    response = admin_client.get(attributes['path'])
-    assert response.status_code == status.HTTP_200_OK
-    assert response['Content-Disposition'] == (
-        'attachment; filename="{0}"'.format(filename)
-    )
-    assert response['Content-Type'].startswith(mime_type)
+        # download uploaded attachment
+        response = admin_client.get(attributes['path'])
+        assert response.status_code == status.HTTP_200_OK
+        assert response['Content-Disposition'] == (
+            'attachment; filename="{0}"'.format(filename)
+        )
+        assert response['Content-Type'].startswith(mime_type)
 
-    parts = [force_bytes(s) for s in response.streaming_content]
-    assert b''.join(parts) == path.read('rb')
+        parts = [force_bytes(s) for s in response.streaming_content]
+        path.seek(0)
+        assert b''.join(parts) == path.read()
 
 
 @pytest.mark.parametrize("filename,status_code", [
