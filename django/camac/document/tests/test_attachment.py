@@ -7,6 +7,8 @@ from PIL import Image
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.document import models
+
 from .data import django_file
 
 
@@ -123,3 +125,13 @@ def test_attachment_delete(admin_client, attachment):
     url = reverse('attachment-detail', args=[attachment.pk])
     response = admin_client.delete(url)
     assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+def test_attachment_delete_noacl(admin_client, attachment):
+    attachment.attachment_section.group_acls.update(
+        mode=models.WRITE_PERMISSION
+    )
+
+    url = reverse('attachment-detail', args=[attachment.pk])
+    response = admin_client.delete(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN
