@@ -43,6 +43,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'camac.user.middleware.JWTAuthenticationMiddleware',
+    'camac.user.middleware.GroupMiddleware',
     'django_downloadview.SmartDownloadMiddleware',
 ]
 
@@ -171,6 +172,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+        'camac.user.permissions.IsGroupMember',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',

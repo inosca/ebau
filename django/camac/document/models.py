@@ -6,7 +6,15 @@ def attachment_path_directory_path(attachment, filename):
     return 'attachments/files/{0}/{1}'.format(attachment.instance.pk, filename)
 
 
+class AttachmentManager(models.Manager):
+    def for_group(self, group):
+        attachment_sections = AttachmentSection.objects.for_group(group)
+        return self.filter(attachment_section__in=attachment_sections)
+
+
 class Attachment(models.Model):
+    objects = AttachmentManager()
+
     attachment_id = models.AutoField(
         db_column='ATTACHMENT_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=255)
@@ -59,11 +67,28 @@ class Attachment(models.Model):
         db_table = 'ATTACHMENT'
 
 
+class AttachmentSectionManager(models.Manager):
+    def for_group(self, group):
+
+        role_sections = AttachmentSectionRoleAcl.objects.filter(
+            role=group.role
+        ).values('attachment_section')
+
+        group_sections = AttachmentSectionGroupAcl.objects.filter(
+            group=group
+        ).values('attachment_section')
+
+        return self.filter(
+            models.Q(pk__in=role_sections) | models.Q(pk__in=group_sections)
+        )
+
+
 class AttachmentSection(models.Model):
+    objects = AttachmentSectionManager()
     attachment_section_id = models.AutoField(
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)
-    sort = models.IntegerField(db_column='SORT')
+    sort = models.IntegerField(db_column='SORT', db_index=True)
 
     class Meta:
         managed = True
