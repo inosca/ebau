@@ -60,7 +60,17 @@ class User(AbstractBaseUser):
         self._password = raw_password
 
     def check_password(self, raw_password):
-        return self.password == self._make_password(raw_password)
+        """
+        Check password whether it matches.
+
+        Empty passwords are not allowed.
+        """
+        password_empty = raw_password in ['', None]
+
+        return (
+            not password_empty and
+            self.password == self._make_password(raw_password)
+        )
 
     @property
     def is_active(self):

@@ -2,10 +2,9 @@ import logging
 
 import pytest
 from pytest_factoryboy import register
+from rest_framework.test import APIRequestFactory
 from rest_framework_jwt.test import APIJWTClient
 
-from camac.document.factories import (AttachmentFactory,
-                                      AttachmentSectionFactory)
 from camac.instance.factories import (FormFactory, FormFieldFactory,
                                       FormStateFactory, InstanceFactory,
                                       InstanceStateFactory)
@@ -15,12 +14,6 @@ from camac.user.factories import (GroupFactory, RoleFactory, UserFactory,
 factory_logger = logging.getLogger('factory')
 factory_logger.setLevel(logging.INFO)
 
-sorl_thumbnail_logger = logging.getLogger('sorl.thumbnail')
-sorl_thumbnail_logger.setLevel(logging.INFO)
-
-# TODO: automatically register all factory classes of all factory modules
-register(AttachmentFactory)
-register(AttachmentSectionFactory)
 register(FormStateFactory)
 register(FormFactory)
 register(FormFieldFactory)
@@ -33,8 +26,30 @@ register(RoleFactory)
 
 
 @pytest.fixture
+def rf(db):
+    return APIRequestFactory()
+
+
+@pytest.fixture
+def admin_rf(rf, admin_client):
+    rf.defaults = admin_client._credentials
+    return rf
+
+
+@pytest.fixture
 def client(db):
     return APIJWTClient()
+
+
+@pytest.fixture
+def admin_group(group):
+    return group
+
+
+@pytest.fixture
+def admin_user(admin_user, admin_group, user_group_factory):
+    user_group_factory(group=admin_group, user=admin_user, default_group=1)
+    return admin_user
 
 
 @pytest.fixture
