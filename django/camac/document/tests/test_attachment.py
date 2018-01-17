@@ -70,6 +70,23 @@ def test_attachment_create(admin_client, instance, attachment_section,
         assert b''.join(parts) == path.read()
 
 
+def test_attachment_noacl(admin_client, instance, attachment_section):
+    attachment_section.group_acls.update(
+        mode=models.READ_PERMISSION
+    )
+
+    url = reverse('attachment-list')
+
+    path = django_file('test-thumbnail.jpg')
+    data = {
+        'instance': instance.pk,
+        'attachment_section': attachment_section.pk,
+        'path': path.file,
+    }
+    response = admin_client.post(url, data=data, format='multipart')
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
 @pytest.mark.parametrize("attachment__attachment_section", [
     LazyFixture("attachment_section_noacl")
 ])
