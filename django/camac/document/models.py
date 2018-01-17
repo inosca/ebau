@@ -71,7 +71,7 @@ class AttachmentSectionManager(models.Manager):
     def for_group(self, group):
 
         role_sections = AttachmentSectionRoleAcl.objects.filter(
-            role=group.role
+            role=group.role_id
         ).values('attachment_section')
 
         group_sections = AttachmentSectionGroupAcl.objects.filter(
@@ -89,6 +89,21 @@ class AttachmentSection(models.Model):
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)
     sort = models.IntegerField(db_column='SORT', db_index=True)
+
+    def get_mode(self, group):
+        # TODO: quick implementation
+        # amount of queries could be improved with subqueries and annotating
+        # mode to model - not trivial though
+        role_modes = AttachmentSectionRoleAcl.objects.filter(
+            attachment_section=self,
+            role=group.role_id
+        ).values('mode')
+        group_modes = AttachmentSectionGroupAcl.objects.filter(
+            attachment_section=self,
+            group=group
+        ).values('mode')
+
+        return role_modes.union(group_modes)[0]['mode']
 
     class Meta:
         managed = True

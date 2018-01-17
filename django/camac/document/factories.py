@@ -31,7 +31,7 @@ class AttachmentFactory(DjangoModelFactory):
 class AttachmentSectionRoleAclFactory(DjangoModelFactory):
     attachment_section = SubFactory(AttachmentSectionFactory)
     role = SubFactory(RoleFactory)
-    mode = 'read'
+    mode = models.ADMIN_PERMISSION
 
     class Meta:
         model = models.AttachmentSectionRoleAcl
@@ -40,7 +40,7 @@ class AttachmentSectionRoleAclFactory(DjangoModelFactory):
 class AttachmentSectionGroupAclFactory(DjangoModelFactory):
     attachment_section = SubFactory(AttachmentSectionFactory)
     group = SubFactory(GroupFactory)
-    mode = 'read'
+    mode = models.ADMIN_PERMISSION
 
     class Meta:
         model = models.AttachmentSectionGroupAcl
