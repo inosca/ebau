@@ -9,8 +9,17 @@ from . import models
 
 
 class AttachmentSectionSerializer(serializers.ModelSerializer):
+    mode = serializers.SerializerMethodField()
+
+    def get_mode(self, instance):
+        request = self.context['request']
+        return instance.get_mode(request.group)
+
     class Meta:
         model = models.AttachmentSection
+        meta_fields = (
+            'mode',
+        )
         fields = (
             'name',
             'sort',
