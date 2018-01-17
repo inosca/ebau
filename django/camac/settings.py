@@ -143,15 +143,10 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Europe/Zurich'
 USE_I18N = True
-
 USE_L10N = True
-
-# TODO check if PHP stores datetime timezone aware or not
-USE_TZ = False
+USE_TZ = True
 
 
 AUTH_PASSWORT_SALT = 'ds5fsdFd763znsPO'
