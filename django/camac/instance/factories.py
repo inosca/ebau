@@ -1,3 +1,4 @@
+import pytz
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
@@ -36,8 +37,8 @@ class InstanceFactory(DjangoModelFactory):
     form = SubFactory(FormFactory)
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
-    creation_date = Faker('past_datetime')
-    modification_date = Faker('past_datetime')
+    creation_date = Faker('past_datetime', tzinfo=pytz.UTC)
+    modification_date = Faker('past_datetime', tzinfo=pytz.UTC)
 
     class Meta:
         model = models.Instance
