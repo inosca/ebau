@@ -94,16 +94,16 @@ class AttachmentSection(models.Model):
         # TODO: quick implementation
         # amount of queries could be improved with subqueries and annotating
         # mode to model - not trivial though
-        role_modes = AttachmentSectionRoleAcl.objects.filter(
-            attachment_section=self,
-            role=group.role_id
-        ).values('mode')
         group_modes = AttachmentSectionGroupAcl.objects.filter(
             attachment_section=self,
             group=group
         ).values('mode')
+        role_modes = AttachmentSectionRoleAcl.objects.filter(
+            attachment_section=self,
+            role=group.role_id
+        ).values('mode')
 
-        return role_modes.union(group_modes)[0]['mode']
+        return group_modes.union(role_modes)[0]['mode']
 
     class Meta:
         managed = True
