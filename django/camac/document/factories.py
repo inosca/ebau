@@ -2,7 +2,7 @@ from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory, ImageField
 
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import UserFactory
+from camac.user.factories import GroupFactory, RoleFactory, UserFactory
 
 from . import models
 
@@ -26,3 +26,21 @@ class AttachmentFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Attachment
+
+
+class AttachmentSectionRoleAclFactory(DjangoModelFactory):
+    attachment_section = SubFactory(AttachmentSectionFactory)
+    role = SubFactory(RoleFactory)
+    mode = 'read'
+
+    class Meta:
+        model = models.AttachmentSectionRoleAcl
+
+
+class AttachmentSectionGroupAclFactory(DjangoModelFactory):
+    attachment_section = SubFactory(AttachmentSectionFactory)
+    group = SubFactory(GroupFactory)
+    mode = 'read'
+
+    class Meta:
+        model = models.AttachmentSectionGroupAcl
