@@ -4,6 +4,7 @@ import pytest
 from django.urls import reverse
 from django.utils.encoding import force_bytes
 from PIL import Image
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from .data import django_file
@@ -18,6 +19,15 @@ def test_attachment_list(admin_client, attachment):
     json = response.json()
     assert len(json['data']) == 1
     assert json['data'][0]['id'] == str(attachment.pk)
+
+
+def test_attachment_list_nogroup(admin_client, admin_user):
+    admin_user.groups.clear()
+
+    url = reverse('attachment-list')
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.parametrize("filename,mime_type,status_code", [
@@ -58,16 +68,29 @@ def test_attachment_create(admin_client, instance, attachment_section,
         assert b''.join(parts) == path.read()
 
 
-@pytest.mark.parametrize("filename,status_code", [
-    ('multiple-pages.pdf', status.HTTP_200_OK),
-    ('test-thumbnail.jpg', status.HTTP_200_OK),
-    ('no-thumbnail.txt', status.HTTP_404_NOT_FOUND),
+@pytest.mark.parametrize("attachment__attachment_section", [
+    LazyFixture("attachment_section_noacl")
 ])
-def test_attachment_thumbnail_pdf(admin_client, attachment_factory, filename,
-                                  status_code):
-    attachment = attachment_factory(
-        path=django_file(filename)
-    )
+def test_attachment_download_noacl(admin_client, attachment):
+    url = reverse('attachment-download', args=[attachment.path])
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+def test_attachment_download_nogroup(admin_client, admin_user, attachment):
+    admin_user.groups.clear()
+
+    url = reverse('attachment-download', args=[attachment.path])
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("attachment__path,status_code", [
+    (django_file('multiple-pages.pdf'), status.HTTP_200_OK),
+    (django_file('test-thumbnail.jpg'), status.HTTP_200_OK),
+    (django_file('no-thumbnail.txt'), status.HTTP_404_NOT_FOUND),
+])
+def test_attachment_thumbnail_pdf(admin_client, attachment, status_code):
     url = reverse('attachment-thumbnail', args=[attachment.pk])
     response = admin_client.get(url)
     assert response.status_code == status_code
@@ -91,15 +114,12 @@ def test_instance_detail(admin_client, attachment):
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("filename", [
-    ('multiple-pages.pdf'),
-    ('test-thumbnail.jpg'),
-    ('no-thumbnail.txt'),
+@pytest.mark.parametrize("attachment__path", [
+    django_file('multiple-pages.pdf'),
+    django_file('test-thumbnail.jpg'),
+    django_file('no-thumbnail.txt'),
 ])
-def test_attachment_delete(admin_client, attachment_factory, filename):
-    attachment = attachment_factory(
-        path=django_file(filename)
-    )
+def test_attachment_delete(admin_client, attachment):
     url = reverse('attachment-detail', args=[attachment.pk])
     response = admin_client.delete(url)
     assert response.status_code == status.HTTP_204_NO_CONTENT

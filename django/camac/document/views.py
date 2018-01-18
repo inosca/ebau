@@ -1,7 +1,8 @@
 from django.http import HttpResponse
-from django_downloadview import ObjectDownloadView
+from django_downloadview.api import ObjectDownloadView
 from rest_framework import exceptions, parsers, viewsets
 from rest_framework.decorators import detail_route
+from rest_framework.views import APIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
@@ -20,8 +21,7 @@ class AttachmentView(views.ModelViewSet):
         raise exceptions.MethodNotAllowed('update')
 
     def get_queryset(self):
-        # TODO: filter by permission of user
-        return models.Attachment.objects.all()
+        return models.Attachment.objects.for_group(self.request.group)
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
@@ -41,18 +41,20 @@ class AttachmentView(views.ModelViewSet):
         return HttpResponse(thumbnail.read(), 'image/jpeg')
 
 
-class AttachmentPathView(ObjectDownloadView):
-    model = models.Attachment
+class AttachmentPathView(ObjectDownloadView, APIView):
     file_field = 'path'
     mime_type_field = 'mime_type'
     slug_field = 'path'
     slug_url_kwarg = 'path'
     basename_field = 'name'
 
+    def get_queryset(self):
+        return models.Attachment.objects.for_group(self.request.group)
+
 
 class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
+    ordering = ('sort', 'name')
     serializer_class = serializers.AttachmentSectionSerializer
 
     def get_queryset(self):
-        # TODO: filter by permission of user
-        return models.AttachmentSection.objects.all()
+        return models.AttachmentSection.objects.for_group(self.request.group)
