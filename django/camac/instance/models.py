@@ -74,6 +74,8 @@ class Instance(models.Model):
     previous_instance_state = models.ForeignKey(
         InstanceState, models.DO_NOTHING,
         db_column='PREVIOUS_INSTANCE_STATE_ID', related_name='+')
+    locations = models.ManyToManyField('user.Location', null=True, blank=True,
+                                       db_table='INSTANCE_LOCATION')
 
     class Meta:
         managed = True

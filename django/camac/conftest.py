@@ -1,28 +1,29 @@
+import inspect
 import logging
 
 import pytest
+from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
 from rest_framework.test import APIRequestFactory
 from rest_framework_jwt.test import APIJWTClient
 
-from camac.instance.factories import (FormFactory, FormFieldFactory,
-                                      FormStateFactory, InstanceFactory,
-                                      InstanceStateFactory)
-from camac.user.factories import (GroupFactory, RoleFactory, UserFactory,
-                                  UserGroupFactory)
+from camac.core import factories as core_factories
+from camac.instance import factories as instance_factories
+from camac.user import factories as user_factories
+
+
+def register_module(module):
+    for name, obj in inspect.getmembers(module):
+        if isinstance(obj, FactoryMetaClass) and not obj._meta.abstract:
+            register(obj)
+
 
 factory_logger = logging.getLogger('factory')
 factory_logger.setLevel(logging.INFO)
 
-register(FormStateFactory)
-register(FormFactory)
-register(FormFieldFactory)
-register(UserFactory)
-register(UserGroupFactory)
-register(GroupFactory)
-register(InstanceFactory)
-register(InstanceStateFactory)
-register(RoleFactory)
+register_module(user_factories)
+register_module(instance_factories)
+register_module(core_factories)
 
 
 @pytest.fixture
@@ -42,13 +43,8 @@ def client(db):
 
 
 @pytest.fixture
-def admin_group(group):
-    return group
-
-
-@pytest.fixture
-def admin_user(admin_user, admin_group, user_group_factory):
-    user_group_factory(group=admin_group, user=admin_user, default_group=1)
+def admin_user(admin_user, group, group_locations, user_group_factory):
+    user_group_factory(group=group, user=admin_user, default_group=1)
     return admin_user
 
 

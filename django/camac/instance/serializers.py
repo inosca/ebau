@@ -42,6 +42,7 @@ class InstanceSerializer(serializers.ModelSerializer):
         model = models.Instance
         fields = (
             'instance_state',
+            'locations',
             'form',
             'user',
             'group',
