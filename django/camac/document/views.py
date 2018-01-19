@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
-from . import models, serializers
+from . import models, permissions, serializers
 
 
 class AttachmentView(views.ModelViewSet):
@@ -17,11 +17,15 @@ class AttachmentView(views.ModelViewSet):
         parsers.FormParser,
     )
 
-    def update(self, request, *args, **kwargs):
-        raise exceptions.MethodNotAllowed('update')
+    def get_permissions(self):
+        perms = super().get_permissions()
+        return perms + [permissions.AttachmentPermissions()]
 
     def get_queryset(self):
         return models.Attachment.objects.for_group(self.request.group)
+
+    def update(self, request, *args, **kwargs):
+        raise exceptions.MethodNotAllowed('update')
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
