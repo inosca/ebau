@@ -10,9 +10,14 @@ ENV_FILE = env.str('DJANGO_ENV_FILE', default=django_root('.env'))
 if os.path.exists(ENV_FILE):
     environ.Env.read_env(ENV_FILE)
 
-# per default production is enabled for security reasons
-# for development create .env file with ENV=development
-ENV = env.str('ENV', 'production')
+APPLICATION_ENV = env.str('APPLICATION_ENV')
+ENV, APPLICATION_NAME = APPLICATION_ENV.split('-')
+"""
+Application enviromment
+
+As in Camac core naming is `[env]-[app]` whereas
+`env` and `app` may not have dashes.
+"""
 
 
 def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
@@ -65,6 +70,27 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'camac.wsgi.application'
+
+# Application specific settings
+# an application is defined by the customer e.g. uri, schwyz, etc.
+
+# TODO: write test to validate this setting
+
+APPLICATIONS = {
+    # settings for test app, can also used as example
+    'test': {
+        # mapping between Camac role and instance permission
+        "ROLE_PERMISSIONS": {
+            'Applicant': 'applicant',
+            'Municipality': 'municipality',
+            'Service': 'service',
+            'Canton': 'canton',
+        }
+    }
+    # add other application configuration here...
+}
+
+APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 # Managing files
 

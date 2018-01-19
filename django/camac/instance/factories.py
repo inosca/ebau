@@ -2,7 +2,7 @@ import pytz
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
-from camac.user.factories import GroupFactory, UserFactory
+from camac.user.factories import GroupFactory, LocationFactory, UserFactory
 
 from . import models
 
@@ -42,6 +42,14 @@ class InstanceFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Instance
+
+
+class InstanceLocationFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    location = SubFactory(LocationFactory)
+
+    class Meta:
+        model = models.Instance.locations.through
 
 
 class FormFieldFactory(DjangoModelFactory):
