@@ -9,8 +9,17 @@ from . import models
 
 
 class AttachmentSectionSerializer(serializers.ModelSerializer):
+    mode = serializers.SerializerMethodField()
+
+    def get_mode(self, instance):
+        request = self.context['request']
+        return instance.get_mode(request.group)
+
     class Meta:
         model = models.AttachmentSection
+        meta_fields = (
+            'mode',
+        )
         fields = (
             'name',
             'sort',
@@ -23,6 +32,18 @@ class AttachmentSerializer(serializers.ModelSerializer):
     user = FormDataResourceReleatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
+
+    def validate_attachment_section(self, attachment_section):
+        mode = attachment_section.get_mode(self.context['request'].group)
+        if mode not in [models.WRITE_PERMISSION, models.ADMIN_PERMISSION]:
+            raise exceptions.ValidationError(
+                _('Not sufficent permissions to add file to '
+                  'section %(section)s.') % {
+                    'section': attachment_section.name
+                }
+            )
+
+        return attachment_section
 
     def validate_path(self, path):
         if path.content_type not in settings.ALLOWED_DOCUMENT_MIMETYPES:
