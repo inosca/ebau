@@ -74,8 +74,6 @@ WSGI_APPLICATION = 'camac.wsgi.application'
 # Application specific settings
 # an application is defined by the customer e.g. uri, schwyz, etc.
 
-# TODO: write test to validate this setting
-
 APPLICATIONS = {
     # settings for test app, can also used as example
     'test': {
