@@ -34,10 +34,42 @@ def test_instance_detail(admin_client, instance):
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("role__name", [
-    'Applicant',
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
+    ('Canton', LazyFixture('user')),
+    ('Municipality', LazyFixture('user')),
+    ('Service', LazyFixture('user')),
+    ('Unknown', LazyFixture('user')),
 ])
-def test_instance_create(admin_client, admin_user, form, instance_state):
+def test_instance_update(admin_client, instance):
+    url = reverse('instance-detail', args=[instance.pk])
+
+    response = admin_client.patch(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
+    ('Canton', LazyFixture('user')),
+    ('Municipality', LazyFixture('user')),
+    ('Service', LazyFixture('user')),
+    ('Unknown', LazyFixture('user')),
+])
+def test_instance_destroy(admin_client, instance):
+    url = reverse('instance-detail', args=[instance.pk])
+
+    response = admin_client.delete(url)
+    assert response.status_code == status.HTTP_403_FORBIDDEN
+
+
+@pytest.mark.parametrize("role__name,status_code", [
+    ('Applicant', status.HTTP_201_CREATED),
+    ('Canton', status.HTTP_403_FORBIDDEN),
+    ('Municipality', status.HTTP_403_FORBIDDEN),
+    ('Service', status.HTTP_403_FORBIDDEN),
+])
+def test_instance_create(admin_client, admin_user, form, instance_state,
+                         status_code):
     url = reverse('instance-list')
 
     data = {
@@ -56,14 +88,15 @@ def test_instance_create(admin_client, admin_user, form, instance_state):
     }
 
     response = admin_client.post(url, data=data)
-    assert response.status_code == status.HTTP_201_CREATED
+    assert response.status_code == status_code
 
-    json = response.json()
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
 
-    url = reverse('instance-detail', args=[json['data']['id']])
-    response = admin_client.patch(url, data=json)
-    assert response.status_code == status.HTTP_200_OK
+        url = reverse('instance-list')
+        response = admin_client.post(url, data=json)
+        assert response.status_code == status.HTTP_201_CREATED
 
-    assert json['data']['attributes']['modification-date'] < (
-        response.json()['data']['attributes']['modification-date']
-    )
+        assert json['data']['attributes']['modification-date'] < (
+            response.json()['data']['attributes']['modification-date']
+        )

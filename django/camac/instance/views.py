@@ -47,6 +47,28 @@ class InstanceView(views.ModelViewSet):
     def get_queryset_for_canton(self):
         return models.Instance.objects.all()
 
+    def has_update_permission(self):
+        """Disallow updating of instance.
+
+        Updates happen through custom actions.'
+        """
+        return False
+
+    def has_destroy_permission(self):
+        """Disallow destroy of instances."""
+        return False
+
+    @permission_aware
+    def has_create_permission(self):
+        """Disallow creating of instances.
+
+        Create is only allowed on certain roles.
+        """
+        return False
+
+    def has_create_permission_for_applicant(self):
+        return True
+
 
 class FormFieldView(views.ModelViewSet):
     serializer_class = serializers.FormFieldSerializer

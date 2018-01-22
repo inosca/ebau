@@ -18,6 +18,9 @@ def permission_aware(func):
     to be `applicant` decorator will first try to call
     `get_queryset_for_applicant` and only if not existent will call
     `get_queryset` as fallback.
+
+    Decorator inspired by
+    https://github.com/computer-lab/django-rest-framework-roles
     """
     @wraps(func)
     def wrapper(self, *args, **kwargs):
@@ -40,3 +43,44 @@ class IsGroupMember(permissions.BasePermission):
 
     def has_object_permission(self, request, view, obj):
         return self.has_permission(request, view)
+
+
+class ViewPermissions(permissions.BasePermission):
+    """
+    Check permissions based on methods defined on view.
+
+    Lookup method name is `has_<action>_permission(self)` resp.
+    `has_<action>_object_permission(self, obj)`.
+
+    When no method can be found `True` will be returned.
+
+    For simplicity action partial_update is mapped to update.
+
+    Permission class inspired by
+    https://github.com/dbkaplan/dry-rest-permissions
+    """
+
+    def has_permission(self, request, view):
+        action = self._get_action(view)
+        if action:
+            method = "has_{action}_permission".format(action=action)
+            if hasattr(view, method):
+                return getattr(view, method)()
+
+        return True
+
+    def has_object_permission(self, request, view, obj):  # pragma: todo cover
+        action = self._get_action(view)
+        if action:
+            method = "has_object_{action}_permission".format(action=action)
+            if hasattr(view, method):
+                return getattr(view, method)(obj)
+
+        return True
+
+    def _get_action(self, view):
+        action = getattr(view, 'action', None)
+        if action == 'partial_update':
+            action = 'update'
+
+        return action
