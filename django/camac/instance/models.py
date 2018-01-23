@@ -1,4 +1,4 @@
-from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
@@ -92,7 +92,7 @@ class FormField(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE,
                                  related_name='fields')
     name = models.CharField(max_length=500)
-    value = ArrayField(models.TextField())
+    value = JSONField()
 
     class Meta:
         unique_together = (('instance', 'name'),)

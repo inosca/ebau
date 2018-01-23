@@ -14,38 +14,72 @@ class FormView(viewsets.ReadOnlyModelViewSet):
         return models.Form.objects.all()
 
 
-class InstanceView(views.ModelViewSet):
-    serializer_class = serializers.InstanceSerializer
+class InstanceQuerysetMixin(views.ModelViewSet):
+    instance_field = 'instance'
 
-    @permission_aware
-    def get_queryset(self):
-        return models.Instance.objects.none()
+    def _get_instance_filter_expr(self, field, expr=None):
+        """Get filter expression of field on given model."""
+        result = field
+
+        if self.instance_field:
+            result = self.instance_field + '__' + result
+
+        if expr:
+            result = result + '__' + expr
+
+        return result
 
     def get_queryset_for_applicant(self):
-        return models.Instance.objects.filter(
-            user=self.request.user
+        queryset = super().get_queryset()
+        user_field = self._get_instance_filter_expr('user')
+
+        return queryset.filter(
+            **{user_field: self.request.user}
         )
 
     def get_queryset_for_municipality(self):
+        queryset = super().get_queryset()
+        instance_field = self._get_instance_filter_expr('pk', 'in')
+
         instances = models.Instance.locations.through.objects.filter(
             location=self.request.group.locations.all()
         ).values('instance')
+
         # use subquery to avoid duplicates
-        return models.Instance.objects.filter(
-            pk__in=instances
+        return queryset.filter(
+            **{instance_field: instances}
         )
 
     def get_queryset_for_service(self):
+        queryset = super().get_queryset()
+        instance_field = self._get_instance_filter_expr('pk', 'in')
+
         instances = Circulation.objects.filter(
             activations__service=self.request.group.service
         ).values('instance')
         # use subquery to avoid duplicates
-        return models.Instance.objects.filter(
-            pk__in=instances
+        return queryset.filter(
+            **{instance_field: instances}
         )
 
     def get_queryset_for_canton(self):
-        return models.Instance.objects.all()
+        queryset = super().get_queryset()
+        return queryset
+
+
+class InstanceView(InstanceQuerysetMixin, views.ModelViewSet):
+    instance_field = None
+    """
+    Instance field is actually model itself.
+    """
+
+    serializer_class = serializers.InstanceSerializer
+    queryset = models.Instance.objects.all()
+
+    @permission_aware
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.none()
 
     def has_update_permission(self):
         """Disallow updating of instance.
@@ -70,9 +104,38 @@ class InstanceView(views.ModelViewSet):
         return True
 
 
-class FormFieldView(views.ModelViewSet):
-    serializer_class = serializers.FormFieldSerializer
+class FormFieldView(InstanceQuerysetMixin, views.ModelViewSet):
+    """
+    Access form field of an instance.
 
+    Rule is that only applicant may update it but whoever
+    is allowed to read instance may read form data as well.
+    """
+
+    serializer_class = serializers.FormFieldSerializer
+    queryset = models.FormField.objects.all()
+
+    @permission_aware
     def get_queryset(self):
-        # TODO: filter by permission of user
-        return models.FormField.objects.all()
+        return models.FormField.objects.none()
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_applicant(self):
+        return True
+
+    @permission_aware
+    def has_destroy_permission(self):
+        return False
+
+    def has_destroy_permission_for_applicant(self):
+        return True
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_applicant(self):
+        return True
