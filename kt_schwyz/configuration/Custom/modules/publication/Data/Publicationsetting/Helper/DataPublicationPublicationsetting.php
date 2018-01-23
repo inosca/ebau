@@ -25,7 +25,7 @@ class Publication_Data_Publicationsetting_Helper_DataPublicationPublicationsetti
 	/**
 	 * @SuppressWarnings(short)
 	 */
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$publicationSetting        = $this->mapper->getEntry($id);
 		$publicationSetting->key   = $form->getValue('key');
 		$publicationSetting->value = $form->getValue('value');
@@ -55,7 +55,7 @@ class Publication_Data_Publicationsetting_Helper_DataPublicationPublicationsetti
 	/**
 	 * @SuppressWarnings(short)
 	 */
-	public function getData($id) {
+	public function getData($id, $language = NULL) {
 		return $this->mapper->getEntry($id);
 	}
 

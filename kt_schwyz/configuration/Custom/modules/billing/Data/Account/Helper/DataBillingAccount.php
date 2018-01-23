@@ -39,7 +39,7 @@ class Billing_Data_Account_Helper_DataBillingAccount extends Zend_Controller_Act
 	 * @SuppressWarnings(unused)
 	 * @SuppressWarnings(short)
 	 */
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$account = new Billing_Model_Data_Account(
 			$id,
 			$form->getValue('department'),
@@ -84,7 +84,7 @@ class Billing_Data_Account_Helper_DataBillingAccount extends Zend_Controller_Act
 	/**
 	 * @SuppressWarnings(short)
 	 */
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getAccount($id);
 	}
 

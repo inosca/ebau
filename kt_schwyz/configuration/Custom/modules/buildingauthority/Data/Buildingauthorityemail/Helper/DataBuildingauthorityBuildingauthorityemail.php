@@ -21,7 +21,7 @@ class Buildingauthority_Data_Buildingauthorityemail_Helper_DataBuildingauthority
 		return $this->mapper->save($email);
 	}
 
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$email = new Buildingauthority_Model_Data_BuildingAuthorityEmail(
 			$id,
 			$form->getValue('buttonId'),
@@ -44,7 +44,7 @@ class Buildingauthority_Data_Buildingauthorityemail_Helper_DataBuildingauthority
 		return $this->mapper->getAll();
 	}
 
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getEntry($id);
 	}
 

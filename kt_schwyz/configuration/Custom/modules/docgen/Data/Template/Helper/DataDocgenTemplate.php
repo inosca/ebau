@@ -48,7 +48,7 @@ class Docgen_Data_Template_Helper_DataDocgenTemplate extends Zend_Controller_Act
 	 * @SuppressWarnings(short)
 	 * @SuppressWarnings(unused)
 	 */
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$upload = new Zend_File_Transfer_Adapter_Http();
 		$uploadPath = $this->config->templateUploadPath;
 
@@ -101,7 +101,7 @@ class Docgen_Data_Template_Helper_DataDocgenTemplate extends Zend_Controller_Act
 	 * @SuppressWarnings(short)
 	 * @SuppressWarnings(unused)
 	 */
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getTemplate($id);
 	}
 

@@ -17,7 +17,7 @@ class Documents_Data_Attachmentextensionservice_Helper_DataDocumentsAttachmentex
 		$this->mapper->save($attachmentExtensionService);
 	}
 
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$attachmentExtensionService                        = $this->mapper->getEntry($id);
 		$attachmentExtensionService->serviceID             = $form->getValue('serviceID');
 		$attachmentExtensionService->attachmentExtensionID = $form->getValue('attachmentExtensionID');
@@ -36,7 +36,7 @@ class Documents_Data_Attachmentextensionservice_Helper_DataDocumentsAttachmentex
 		return $this->mapper->getEntries();
 	}
 
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getEntry($id);
 	}
 
