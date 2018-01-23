@@ -18,7 +18,7 @@ class Buildingauthority_Data_Buildingauthoritydoc_Helper_DataBuildingauthorityBu
 		return $this->mapper->save($doc);
 	}
 
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$doc = new Buildingauthority_Model_Data_BuildingAuthorityDoc(
 			$id,
 			$form->getValue('buttonId'),
@@ -38,7 +38,7 @@ class Buildingauthority_Data_Buildingauthoritydoc_Helper_DataBuildingauthorityBu
 		return $this->mapper->getAll();
 	}
 
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getEntry($id);
 	}
 

@@ -16,7 +16,7 @@ class Buildingauthority_Data_Buildingauthoritybutton_Helper_DataBuildingauthorit
 		return $this->mapper->save($button);
 	}
 
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$button = new Buildingauthority_Model_Data_BuildingAuthorityButton(
 			$id,
 			$form->getValue('label')
@@ -34,7 +34,7 @@ class Buildingauthority_Data_Buildingauthoritybutton_Helper_DataBuildingauthorit
 		return $this->mapper->getButtons();
 	}
 
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getButton($id);
 	}
 

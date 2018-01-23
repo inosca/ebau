@@ -11,17 +11,17 @@
 					<?php echo $this->translate("Config") ?>
 				</a>
 			</li>
+			<li class="help">
+				<a href="javascript:void(0)">
+					<span class="icon icon-question"  aria-hidden="true"></span>
+				</a>
+				<div class="tooltip">
+					<p>
+						<?php echo $this->translate('The actions are availables through a context menu. Right click to trigger the context menu.') ?><br/>
+					</p>
+				</div>
+			</li>
 		</ul>
-		<div class="help">
-			<a href="javascript:void(0)">
-				<span class="icon icon-question"  aria-hidden="true"></span>
-			</a>
-			<div class="tooltip">
-				<p>
-					<?php echo $this->translate('The actions are availables through a context menu. Right click to trigger the context menu.') ?><br/>
-				</p>
-			</div>
-		</div>
 	</div>
 
 
@@ -49,14 +49,11 @@
 					<?php endforeach ?>
 				<?php else: ?>
 						<tr class="alert information">
-							<td class="empty" colspan="2">
+							<td class="empty">
 								<span aria-hidden="true" class="icon-info"></span>
 								<?php echo $this->translate('No config found.') ?>
 							</td>
-							<td class="empty">
-							</td>
-							<td class="empty">
-							</td>
+							<td class="empty"></td>
 						</tr>
 				<?php endif ?>
 		</tbody>

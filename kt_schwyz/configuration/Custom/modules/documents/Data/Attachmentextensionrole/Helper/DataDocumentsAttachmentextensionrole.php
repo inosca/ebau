@@ -17,7 +17,7 @@ class Documents_Data_Attachmentextensionrole_Helper_DataDocumentsAttachmentexten
 		$this->mapper->save($attachmentExtensionRole);
 	}
 
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$attachmentExtensionRole                        = $this->mapper->getEntry($id);
 		$attachmentExtensionRole->roleID                = $form->getValue('roleID');
 		$attachmentExtensionRole->attachmentExtensionID = $form->getValue('attachmentExtensionID');
@@ -36,7 +36,7 @@ class Documents_Data_Attachmentextensionrole_Helper_DataDocumentsAttachmentexten
 		return $this->mapper->getEntries();
 	}
 
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getEntry($id);
 	}
 

@@ -26,7 +26,7 @@ class Billing_Data_Config_Helper_DataBillingConfig extends Zend_Controller_Actio
 	 * @SuppressWarnings(unused)
 	 * @SuppressWarnings(short)
 	 */
-	public function update($id, $form) {
+	public function update($id, $form, $previousLanguage = null) {
 		$config = new Billing_Model_Data_Config(
 			$id,
 			$form->getValue('name'),
@@ -56,7 +56,7 @@ class Billing_Data_Config_Helper_DataBillingConfig extends Zend_Controller_Actio
 	/**
 	 * @SuppressWarnings(short)
 	 */
-	public function getData($id) {
+	public function getData($id, $language = null) {
 		return $this->mapper->getConfig($id);
 	}
 

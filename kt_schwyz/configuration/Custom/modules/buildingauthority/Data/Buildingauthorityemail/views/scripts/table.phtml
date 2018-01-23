@@ -10,17 +10,17 @@
 					<?php echo $this->translate("Building authority emails") ?>
 				</a>
 			</li>
+			<li class="help">
+				<a href="javascript:void(0)">
+					<span class="icon icon-question"  aria-hidden="true"></span>
+				</a>
+				<div class="tooltip">
+					<p>
+						<?php echo $this->translate('The actions are available through a context menu. Right click to trigger the context menu.') ?><br/>
+					</p>
+				</div>
+			</li>
 		</ul>
-		<div class="help">
-			<a href="javascript:void(0)">
-				<span class="icon icon-question"  aria-hidden="true"></span>
-			</a>
-			<div class="tooltip">
-				<p>
-					<?php echo $this->translate('The actions are available through a context menu. Right click to trigger the context menu.') ?><br/>
-				</p>
-			</div>
-		</div>
 	</div>
 	<table class="datatables context-menu buildingauthorityemail" data-menu="buildingauthorityemail" data-display-length="25" data-disable-sorting="1">
 		<thead>
@@ -60,10 +60,11 @@
 					<?php endforeach ?>
 					<?php else : ?>
 						<tr class="alert information">
-							<td class="empty" colspan="3">
+							<td class="empty">
 								<span aria-hidden="true" class="icon-info"></span>
 								<?php echo $this->translate('No building authority emails found.') ?>
 							</td>
+							<td class="empty"></td>
 							<td class="empty"></td>
 							<td class="empty"></td>
 						</tr>
