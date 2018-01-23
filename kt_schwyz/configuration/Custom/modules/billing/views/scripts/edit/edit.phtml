@@ -1,0 +1,245 @@
+<script>
+
+$(function() {
+	$('.account_selector').change(function() {
+		var value = $(this).val();
+
+		if (value < 1) {
+			$('.other_account').show();
+		}
+		else {
+			$('.other_account').hide();
+		}
+	});
+
+	var hours = $('div.amounts input[name="hours"]')
+	var amount = $('div.amounts input[name="amount"]')
+	var basic = $('div.amounts select[name="basic"]')
+
+	disableField(hours, amount);
+	disableField(amount, hours);
+
+	basic.change(function() {
+		hours.prop('disabled', !!basic.val());
+		amount.prop('disabled', !!basic.val());
+		hours.val('');
+		amount.val('');
+	});
+});
+
+function disableField(field, otherField) {
+	field.blur(function() {
+		otherField.prop('disabled', !!field.val());
+	});
+}
+
+</script>
+
+<?php
+
+// whether to show the delete button for a service for it's own entry
+// this is different from the delete button for the coordination roles
+$showServiceDelete = $this->getActivationState(Zend_Controller_Front::getInstance()->getRequest()->getParam('instance-id')) == 1;
+
+?>
+
+<div>
+	<h3>Einträge</h3>
+	<table id="billing_table">
+		<thead>
+			<tr>
+				<th>Typ</th>
+				<th>Leistung</th>
+				<th>Fachstelle</th>
+				<th>Konto</th>
+				<th>Betrag</th>
+				<th>Erfasst am</th>
+				<?php if ($this->isKoord) : ?>
+					<th>Benutzer</th>
+					<th>&nbsp;</th>
+				<?php else: ?>
+					<?php if ($showServiceDelete): ?>
+						<th>&nbsp;</th>
+					<?php endif ?>
+				<?php endif ?>
+			</tr>
+		</thead>
+
+		<tbody>
+		<?php if (count($this->entries)) : ?>
+		<?php foreach ($this->entries as $entry) : ?>
+			<tr<?php if($entry->invoiced == 1) echo ' class="green"'; ?>>
+				<td><?php echo $entry->type == $this->TYPE_BAUBEGLEITUNG ? 'BGL' : 'BEW'; ?>
+				<td>
+					<?php
+						$account = $entry->getAccount();
+						echo $account->department . ' / ' . $account->name;
+						if($entry->reason) {
+							echo "<br />";
+							echo $entry->reason;
+						}
+					?>
+				</td>
+				<td><?php echo $entry->getService() ? $entry->getService()->getName() : '' ?></td>
+				<td><?php echo $account->accountNumber ?></td>
+				<td><?=$entry->actualAmount ?></td>
+				<td><?=$this->date($entry->created) ?></td>
+				<?php if ($this->isKoord) : ?>
+					<td><?php echo $entry->getUserName() ?></td>
+					<td><a href="<?php echo $this->url(array( 'action' => 'delete', 'entryid' => $entry->billingEntryID
+					)) ?>">löschen</a></td>
+				<?php else: ?>
+					<?php if ($showServiceDelete == 1) : ?>
+						<td>
+						<?php if($this->isKoord || $entry->serviceID == $this->serviceID) : ?>
+							<a href="<?php echo $this->url(array(
+								'action' => 'delete',
+								'entryid' => $entry->billingEntryID
+							)) ?>">löschen</a>
+						<?php endif ?>
+						</td>
+					<?php endif ?>
+				<?php endif ?>
+			</tr>
+		<?php endforeach ?>
+		<?php else: ?>
+			<tr>
+				<td colspan="6">Noch keine Einträge erfasst</td>
+			</tr>
+		<?php endif ?>
+
+		</tbody>
+	</table>
+</div>
+
+<?php if ($this->isKoord && $this->hasUninvoiced) : ?>
+<br>
+<div>
+	<form method="post" action="<?php echo $this->url(array('action'=>'complete')) ?>">
+		<input id="complete" type="submit" class="button" value="Aktuelle Rechnung abschliessen">
+	</form>
+</div>
+<?php endif ?>
+<div class="form">
+<form method="post" id="billing_form" action="<?php echo $this->url(array('action'=>'edit')) ?>">
+<?php echo $this->form->getCsrf(); ?>
+<fieldset class="section">
+	<h3>Eintrag erfassen</h3>
+	<div class="element">
+		<div class="column-1">
+			<label class="name">
+			<?php if (!$this->isBaubegleitung) : ?>
+			Gebühren laufendes Verfahren
+			<?php else: ?>
+			Nachträgliche Gebühren (Inkasso über die jeweils zuständige Koordinationsstelle)
+			<?php endif ?>
+			</label>
+		</div>
+		<div class="column-2">
+
+			<select name="account" class="account_selector">
+			<?php foreach ($this->accountGroups as $key => $group) : ?>
+				<option disabled><?php echo $key; ?></option>
+				<?php foreach ($group as $account) : ?>
+					<option value="<?php echo $account->billingAccountID ?>">
+						&nbsp;&nbsp;<?php echo $account->department ?> / <?php echo $account->name ?>
+					</option>
+				<?php endforeach ?>
+			<?php endforeach ?>
+			<option value="-1">
+				Andere Leistung (unten eintragen)
+			</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="other_account element" style="display: none">
+		<div>
+			<div class="column-1">
+				<label class="name">Andere Leistung: Amt</label>
+			</div>
+			<div class="column-2">
+				<input name="other_dept" /><br>
+			</div>
+		</div>
+
+		<div>
+			<div class="column-1">
+				<label class="name">Andere Leistung: Leistung</label>
+			</div>
+			<div class="column-2">
+				<input name="other_name" /><br>
+			</div>
+		</div>
+
+		<div>
+			<div class="column-1">
+				<label class="name">Andere Leistung: Konto</label>
+			</div>
+			<div class="column-2">
+				<input name="other_account" />
+			</div>
+		</div>
+	</div>
+	<?php if($this->isBaubegleitung) : ?>
+	<div class="element">
+		<div class="column-1">
+			<label class="name">Grund der Gebühr</label>
+		</div>
+		<div class="column-2">
+			<textarea name="reason" placeholder="z.B. Sitzung vom 23.05.2016"></textarea>
+		</div>
+	</div>
+	<?php endif ?>
+	<div class="amounts">
+		<?php if($this->isKoord) : ?>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Grundgebühr</label>
+			</div>
+			<div class="column-2">
+				<select name="basic">
+					<option value="">keine</option>
+					<option value="1">halbe Grundgebühr (CHF <?= number_format($this->hourlyRate/2, 2) ?>)</option>
+					<option value="2">ganze Grundgebühr (CHF <?= number_format($this->hourlyRate, 2) ?>)</option>
+					<option value="4">doppelte Grundgebühr (CHF <?= number_format($this->hourlyRate*2, 2) ?>)</option>
+				</select>
+			</div>
+		</div>
+		<?php endif ?>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Bearbeitungsgebühr pauschal (CHF)</label>
+			</div>
+			<div class="column-2">
+				<input name="amount" />
+				(inkl. MwSt.)
+			</div>
+		</div>
+
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Bearbeitungsgebühr nach Aufwand (Std.)</label>
+			</div>
+			<div class="column-2">
+				<input name="hours" />
+				(Ansatz CHF <?=$this->hourlyRate ?>.- / Std. inkl. MwSt.)
+			</div>
+		</div>
+	</div>
+</fieldset>
+
+<div class="actions">
+	<input type="submit" class="button" value="Erfassen">
+</div>
+
+<p>Grundsätzlich gilt die gesetzlich festgelegte Verrechnung der Gebühren
+nach Aufwand (Artikel 4 der Gebührenverordnung RB 3.2512;
+Gesamtkostendeckungsprinzip). Die Verrechnung einer Pauschalgebühr
+(Grundgebühr) soll vor allem bei kleineren Vorhaben angewendet werden.
+Die Gesamtgebühren stehen bei kleineren Vorhaben oftmals in keinem
+vertretbaren Verhältnis zu den Investitionskosten. Wenn die Gebühren
+der kantonalen Verwaltung im Verhältnis  zu den Investitionskosten zu
+hoch ausfallen, können diese entsprechend angepasst werden.</p>
+</form>
+</div>

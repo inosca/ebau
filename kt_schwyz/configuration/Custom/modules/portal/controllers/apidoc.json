@@ -1,0 +1,10 @@
+{
+  "name": "CAMAC portal API",
+  "version": "0.0.0",
+  "description": "CAMAC portal API",
+  "url" : "https://camac.ur.ch/portal/user",
+	"header": {
+		"title": "General",
+		"filename": "header.md"
+	}
+}

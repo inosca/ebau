@@ -1,0 +1,28 @@
+<h2>Dossierübersicht</h2>
+
+<table id="overview">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Gemeinde</th>
+      <th>Letzte Änderung</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php foreach($this->overview as $row): ?>
+    <tr>
+      <td><?=$row['id'] ?></td>
+      <td><?=$row['name'] ?></td>
+      <td><?=$row['community'] ?></td>
+      <td><?=$row['last_modified'] ?></td>
+      <td><?=$row['status'] ?></td>
+      <td><a href="/index/redirect-to-instance-resource/instance-id/<?= $row['id'] ?>">öffnen</a></td>
+    </tr>
+  <?php endforeach; ?>
+  </tbody>
+</table>
+
+<p><a href="/default/index/index/resource-id/251">Neues Dossier erfassen</a></p>
