@@ -1,0 +1,5 @@
+<?php
+
+
+class Documents_InstanceResource_Documents_Helper_InstanceResourceDocumentsPortal extends Documents_InstanceResource_Documents_Helper_InstanceResourceDocuments {
+}

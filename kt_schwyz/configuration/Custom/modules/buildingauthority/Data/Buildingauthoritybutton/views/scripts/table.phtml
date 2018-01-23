@@ -1,0 +1,98 @@
+<div class="table-container column column-100">
+	<div class="title">
+		<ul>
+			<li class="type">
+				<span class="icon icon-info"  aria-hidden="true"></span>
+			</li>
+			<li class="active">
+				<a href="javascript:void(0)">
+					<span class="icon icon-puzzle"  aria-hidden="true"></span>
+					<?php echo $this->translate("Building authority button") ?>
+				</a>
+			</li>
+		</ul>
+		<div class="help">
+			<a href="javascript:void(0)">
+				<span class="icon icon-question"  aria-hidden="true"></span>
+			</a>
+			<div class="tooltip">
+				<p>
+					<?php echo $this->translate('The actions are available through a context menu. Right click to trigger the context menu.') ?><br/>
+				</p>
+			</div>
+		</div>
+	</div>
+	<table class="datatables context-menu buildingauthoritybutton" data-menu="buildingauthoritybutton" data-display-length="25" data-disable-sorting="1">
+		<thead>
+			<tr>
+				<th class="no-sort">
+					<?php echo $this->translate('Label') ?>
+				</th>
+				<th class="no-sort"></th>
+			</tr>
+		</thead>
+		<tbody>
+				<?php if (count($this->rows)) :?>
+					<?php foreach ($this->rows as $row) : ?>
+						<tr data-id="<?php echo $row->baButtonId ?>">
+							<td>
+								<span class="icon icon-puzzle" area-hidden="true"></span>
+								<?php echo $this->escape($row->label); ?>
+							</td>
+							<td></td>
+						</tr>
+					<?php endforeach ?>
+					<?php else : ?>
+						<tr class="alert information">
+							<td class="empty" colspan="2">
+								<span aria-hidden="true" class="icon-info"></span>
+								<?php echo $this->translate('No building authority buttons found.') ?>
+							</td>
+							<td class="empty"></td>
+						</tr>
+				<?php endif ?>
+		</tbody>
+</table>
+</div>
+
+<ul class="buildingauthoritybutton-menu context-menu">
+	<li>
+		<span><?php echo $this->translate('Building authority button')?></span>
+	</li>
+	<li class="edit-only">
+		<a href="<?php echo $this->url(array(
+				'controller' => 'module_data-loader',
+				'action'     => 'edit',
+				'module-id'  => 'buildingauthority',
+				'data-id'    => 'buildingauthoritybutton',
+				'id'         => '%id'
+			));?>">
+			<span class="icon-pencil"></span>
+			<?php echo $this->translate('Edit') ?>
+		</a>
+	</li>
+	<li class="edit-only" data-confirm-dialog="true" 
+		data-title="<?php echo $this->translate('buildingAuthority') ?>" 
+		data-confirm-message="<?php echo $this->translate('Are you sure you want to delete this building authority button?') ?>">
+		<a href="<?php echo $this->url(array(
+				"controller" => 'module_data-loader',
+				"action"     => "delete",
+				"module-id"  => "buildingauthority",
+				"data-id"    => "buildingauthoritybutton",
+				"id"         => '%id'
+			))?>">
+			<span class="icon-remove"></span>
+			<?php echo $this->translate('Delete') ?>
+		</a>
+	</li>
+	<li>
+		<a href="<?php echo $this->url(array(
+				'controller' => 'module_data-loader',
+				'action'     => 'add',
+				'module-id'  => 'buildingauthority',
+				'data-id'    => 'buildingauthoritybutton')) ?>">
+			<span class="icon-plus"></span>
+			<?php echo $this->translate('Add') ?>
+		</a>
+	</li>
+</ul>

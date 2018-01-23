@@ -1,0 +1,10 @@
+<form action="<?php echo $this->url(array('action'=>'edit')) ?>" method="post">
+	<?php echo $this->form->getCsrf(); ?>
+	<?php include('section1.phtml'); ?>
+	<?php include('section2.phtml'); ?>
+	<?php include('section3.phtml'); ?>
+	<?php include('section4.phtml'); ?>
+	<div><input class="button" type="submit" value="<?php echo $this->translate('Speichern'); ?>"></div>
+</form>
+<script src="<?php echo $this->baseUrl('public/js/form-safety.js')?>"></script>
+<script src="/public/js/buildingAuthority.js" type="text/javascript"></script>

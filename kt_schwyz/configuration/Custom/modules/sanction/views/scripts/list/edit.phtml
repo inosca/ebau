@@ -1,0 +1,62 @@
+<form method="post" id="sanction_form" action="<?= $this->url() ?>">
+	<?php echo $this->form->getCsrf(); ?>
+	<fieldset class="section">
+		<h3>Auflage erfassen</h3>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Art der Auflage *</label>
+			</div>
+			<div class="column-2">
+			<textarea name="text" rows="3"><?=$this->sanction->text ?></textarea>
+			</div>
+		</div>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Verfügung / Stellungnahme vom *</label>
+			</div>
+			<div class="column-2">
+			<input type="text" name="startDate" class="date" readonly
+				value="<?=$this->date($this->sanction->startDate) ?>">
+			</div>
+		</div>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Frist</label>
+			</div>
+			<div class="column-2">
+				<input type="text" name="deadlineDate" class="date" readonly
+					value="<?=$this->date($this->sanction->deadlineDate) ?>">
+			</div>
+		</div>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Abnahme</label>
+			</div>
+			<div class="column-2">
+				<input type="text" name="endDate" class="date" readonly
+					value="<?=$this->date($this->sanction->endDate) ?>">
+			</div>
+		</div>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Bemerkung</label>
+			</div>
+			<div class="column-2">
+				<textarea name="notice" rows="2"><?=$this->sanction->notice ?></textarea>
+			</div>
+		</div>
+		<div class="element">
+			<div class="column-1">
+				<label class="name">Erledigt</label>
+			</div>
+			<div class="column-2">
+			<input type="hidden" value="0" name="isFinished">
+			<input type="checkbox" name="isFinished" value="1"
+				<?php echo $this->sanction->isFinished ? ' checked' : ''?>>
+			</div>
+		</div>
+	</fieldset>
+	<div class="actions">
+		<input type="submit" class="button" value="Speichern">
+	</div>
+</form>

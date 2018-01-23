@@ -1,0 +1,301 @@
+<h3 class="headingWithDisable">4 <?php echo $this->sections[3]->name; ?></h3>
+<div class="disableBox">
+	<label for="section4disabled"><?php echo $this->translate('Meldungen / Dokumente ausblenden'); ?></label>
+	<input
+		id="section4disabled"
+		name="disabledSections[<?php echo $this->sections[3]->baSectionId;  ?>]"
+		type="checkbox"
+		data-disable-query="table.section4"
+		<?php if ($this->sections[3]->isDisabled($this->instanceId)) { echo 'checked="checked"';} ?>
+	>
+</div>
+<div style="clear: right"></div>
+<?php $buttonClass = $this->buttonClass; ?>
+<table
+	class="buildingAuthority section4"
+	<?php if ($this->sections[3]->isDisabled($this->instanceId)) { echo 'style="display: none"';} ?>
+>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN ?>]"
+				class="button"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Erstellt einen Bewilligungsentwurf in Wordformat (bearbeitbar, Versand manuell)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERSTELLEN]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT ?>]"
+				class="button confirm-click duoDis"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT]->label
+				));
+			?></button>
+		</td>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_GEOMETER ?>]"
+				class="button confirm-click duoDis"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_GEOMETER]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_GEOMETER]->label
+				));
+			?></button>
+		</td>
+		<td class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Geometer (Versand automatisch)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT]->isClicked($this->instanceId)
+				|| !$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_GEOMETER]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query=".duoDis"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE ?>]"
+				class="button confirm-click"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE]->label
+				)); ?>
+			</button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Gebäudeschätzung (Versand automatisch)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAUBEWILLIGUNG_ERTEILT_GEBAEUDE]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT ?>]"
+				class="button confirm-click"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT]->label
+				)); ?>
+			</button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Liegenschaftsschätzung (Versand automatisch)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_LIEGENSCHAFT]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER ?>]"
+				class="button confirm-click"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Abwasser Uri (Versand automatisch)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_BAU_BEENDET_ABWASSER]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG ?>]"
+				class="button"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Grundbuchamt (Versand manuell)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_GRUNDBUCHANMELDUNG]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST ?>]"
+				class="button confirm-click"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Meldung an Amt für Bevölkerungsschutz und Militär (Versand automatisch)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_ABNAHME_SCHNURGERUEST]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER ?>]"
+				class="button"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Erstellt einen Brief im Wordformat (Versand manuell)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_GESUCHSTELLER]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button
+				name="button[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN ?>]"
+				class="button"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN]->hasPropDisabled($this->instanceId)) { echo "disabled"; } ?>
+				formaction="<?php echo $this->url(array('action' => 'notify')); ?>"
+			><?php
+				echo $this->btnLineBreak($this->translate(
+					$this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN]->label
+				));
+			?></button>
+		</td>
+		<td colspan="2" class="text-right">
+			<?php echo $this->translate(
+				'Erstellt einen Brief im Wordformat (Versand manuell)'
+			); ?>
+		</td>
+		<td>
+			<?php if (!$this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN]->isClicked($this->instanceId)): ?>
+			<input
+				name="disabledButtons[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN ?>]"
+				type="checkbox"
+				class="disableButton"
+				data-disable-query="button[name='button[<?php echo $buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN ?>]']"
+				<?php if($this->buttons[$buttonClass::BUTTON_ID_INFOBRIEF_ALLGEMEIN]->isDisabled($this->instanceId)) { echo "checked"; } ?>
+			>
+			<?php endif; ?>
+		</td>
+	</tr>
+</table>
