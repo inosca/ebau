@@ -1,0 +1,21 @@
+<div class="table-container column column-100">
+	<div class="title">
+		<ul>
+			<li class="type">
+				<span class="icon-sort icon" aria-hidden="true"></span>
+			</li>
+			<li class="active">
+				<a href="javascript:void(0)">
+					<?php echo $this->translate('Workflow sections') ?>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="box bottom context-menu">
+		<div class="content">
+			<div class="tree-container tree-move move-answer">
+				<?php echo $this->moveWorkflowSectionList(); ?>
+			</div>
+		</div>
+	</div>
+</div>

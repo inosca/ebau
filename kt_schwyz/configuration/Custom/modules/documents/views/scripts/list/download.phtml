@@ -1,0 +1,17 @@
+<?php
+
+$path = $this->path;
+
+if (!file_exists($path)) {
+	throw new Exception("File could not be found: " . $path);
+}
+
+
+header("Content-Type: " . $this->mimeType);
+header('Content-Disposition: inline; filename="' . $this->fileName . '"');
+
+
+$file = fopen($path, 'r');
+fpassthru($file);
+fclose($file);
+

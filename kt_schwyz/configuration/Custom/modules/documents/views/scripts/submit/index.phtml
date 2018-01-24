@@ -1,0 +1,75 @@
+<div class="portal_submit">
+	<div>
+		Das Dossier ist zu unterzeichnen. Sie können:
+	</div>
+
+	<div class="clearfix">
+		<div>
+			<div class="pdf_img">
+				<a class="download_sign_page" href="<?php echo $this->partial('/submit/download_link.phtml') ?>"
+						target="_blank">
+					<img src="<?php echo $this->baseUrl('/public/images/uri/pdf.svg') ?>">
+				</a>
+			</div>
+			<div class="submit_text_right">
+				<ul>
+					<li>
+						Das Unterschriftendokument (erste Seite vom Formular A)
+						<a href="<?php echo $this->partial('/submit/download_link.phtml') ?>">downloaden</a>,
+						dieses am PC oder handschriftlich ausfüllen,
+						ausdrucken und <strong>ein handschriftlich unterzeichnetes Exemplar (inkl.
+						Unterschrift des Grundeigentümers) an die zuständige
+						Gemeindebaubehörde schicken.</strong>
+					</li>
+					<li>
+						Wir bitten Sie, das handschriftlich unterzeichnete Unterschriftendokument
+						beim Abschnitt "Dokumente" zusätzlich hochzuladen.
+					</li>
+					<li>oder das Unterschriftendokument
+						<a href="<?php echo $this->partial('/submit/download_link.phtml') ?>"
+							target="_blank">
+						downloaden</a>, am PC ausfüllen, digital signieren und als
+						pdf Dokument hochladen
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div>
+		Die Unterschriften gelten als verbindliche, zustimmende Kenntnisnahme
+		zu dem in den Abschnitten 4 bis 11 beschriebenen Inhalten des Baugesuches sowie
+		für alle eingereichten oder online hochgeladenen Dokumente. Bitte beachten Sie,
+		dass, wenn öffentlicher Grund und Boden betroffen ist (zum Bespiel
+		Grundeigentum der Korporation Uri, der Korporation Ursern oder das Kantons Uri)
+		die Zustimmung ebenfalls in Form einer Unterschrift oder eines entsprechenden
+		Protokolls / Verfügung des betreffenden Grundeigentümers zwingend notwendig
+		ist.
+	</div>
+
+	<div style="margin-top: 25px">
+		<h4>Hochladen Unterschriftenblatt</h4>
+		<p>Der Upload des Unterschriftenblattes ist nur notwendig, wenn das im Abschnitt "Dokumente" hochgeladene Formular A <em>nicht digital signiert</em> ist.</p>
+
+		<?php if($this->isUploaded) : ?>
+			<div class="alert success">
+				<p>
+					Das Unterschriftenblatt wurde erfolgreich hochgeladen!
+				</p>
+			</div>
+		<?php else: ?>
+			<?php echo $this->form ?>
+		<?php endif ?>
+	</div>
+
+	<div style="margin-top: 25px;">
+		<strong>Wichtiger Hinweis!</strong><br >
+		Dossiers, bei denen die Unterschrift des Grundeigentümers fehlt,
+		werden zurück gewiesen.
+	</div>
+
+	<div>
+		<a href="<?php echo $this->baseUrl('/documents/submit/back/instance-resource-id/680/instance-id/' . $this->instanceId) ?>" class="button button_back">Zurück</a>
+		<a href="<?php echo $this->baseUrl('/documents/submit/submit/instance-resource-id/680/instance-id/' . $this->instanceId) ?>" class="button button_submit">Einreichen</a>
+	</div>
+</div>

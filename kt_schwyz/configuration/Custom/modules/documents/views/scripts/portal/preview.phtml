@@ -1,0 +1,19 @@
+<?php
+
+header("Content-Type: image/png");
+header('Content-Disposition: inline; filename="' . $this->fileName . '"');
+if ($this->mimeType == 'image/png') {
+	// the file directly
+	$path = $this->path;
+}
+else {
+	// get the thumbnail
+	$path = sprintf("%s/%s.png", 
+		$this->thumbPath,
+		$this->identifier
+	);
+}
+
+$file = fopen($path, 'r');
+fpassthru($file);
+fclose($file);
