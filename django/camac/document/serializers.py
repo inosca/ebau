@@ -23,7 +23,6 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
         )
         fields = (
             'name',
-            'sort',
         )
 
 
@@ -103,6 +102,12 @@ class AttachmentSerializer(serializers.ModelSerializer):
         data['mime_type'] = path.content_type
         data['name'] = path.name
         return data
+
+    included_serializers = {
+        'user': 'camac.user.serializers.UserSerializer',
+        'instance': 'camac.instance.serializers.InstanceSerializer',
+        'attachment_section': AttachmentSectionSerializer,
+    }
 
     class Meta:
         model = models.Attachment

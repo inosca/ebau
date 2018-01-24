@@ -69,6 +69,9 @@ class Instance(models.Model):
                              db_column='USER_ID', related_name='+')
     group = models.ForeignKey('user.Group', models.DO_NOTHING,
                               db_column='GROUP_ID', related_name='+')
+    """
+    TODO: might be removed? Not sure what use case this is needed for.
+    """
     creation_date = models.DateTimeField(db_column='CREATION_DATE')
     modification_date = models.DateTimeField(db_column='MODIFICATION_DATE')
     previous_instance_state = models.ForeignKey(
