@@ -1,0 +1,73 @@
+<script src="<?php echo $this->baseUrl('public/js/form-safety.js')?>"></script>
+<script>
+$(function() {
+    registerFormSafety()
+})
+</script>
+<form action="<?php echo $this->url(array('action'=>'list')) ?>" method="post">
+	<?php echo $this->form->getCsrf(); ?>
+	<table class="workflow-table">
+		<thead>
+			<th><?php echo $this->translate('status')?></th>
+			<th><?php echo $this->translate('date') ?> </th>
+			<th></th>
+		</thead>
+		<tbody>
+		<?php foreach ($this->workflowSections as $section) : ?>
+			<tr class="workflow-table-row">
+				<td colspan="3"><strong><?=$section->name ?></strong></td>
+			</tr>
+			<?php foreach ($section->getItems() as $workflowItem) :
+				$workflowEntries = $workflowItem->getEntries($this->instanceID);
+
+				if ($workflowItem->automatical) {
+					$isEditable = false;
+				} else {
+					$isEditable = in_array(
+						$this->userRole,
+						array_map(
+							function($wf) {return $wf->roleID;},
+							$workflowItem->getAllowedRoles()
+						)
+					);
+				}
+			?>
+			<tr class="workflow-table-row<?php if ($workflowItem->differentColor) { echo " workflow-different-color"; } ?>">
+				<td class="workflow-name"><?php echo $workflowItem->name ?></td>
+				<td class="workflow-date">
+					<?php if ($workflowEntries &&!$isEditable) :
+						foreach ($workflowEntries as $workflowEntry){
+							echo $this->date($workflowEntry->workflowDate) . '<br \>';
+						}
+					elseif (!$isEditable) : ?>
+						<p>-</p>
+					<?php else : ?>
+						<input
+							name="workflowEntries[<?php echo $workflowItem->workflowItemID ?>]<?php
+							if ($workflowEntries) {
+								echo '[' . $workflowEntries[0]->workflowEntryID . ']';
+							} ?>"
+							type="text"
+							class="date"
+							value="<?php if ($workflowEntries) {
+								echo $this->date($workflowEntries[0]->workflowDate);
+							}?>">
+					<?php endif ?>
+				</td>
+				<td class="workflow-delete">
+					<?php if ($workflowEntries &&$isEditable) : ?>
+						<a href="<?php echo $this->url(array(
+							'action'          => 'delete',
+							'workflowentryid' => $workflowEntries[0]->workflowEntryID
+						)) ?>">
+						löschen</a>
+					<?php endif ?>
+			</tr>
+			<?php endforeach ?>
+		<?php endforeach ?>
+		</tbody>
+	</table>
+	<div class="actions">
+	<input type="submit" class="button" value="<?php echo $this->translate('Save')?>">
+	</div>
+</form>

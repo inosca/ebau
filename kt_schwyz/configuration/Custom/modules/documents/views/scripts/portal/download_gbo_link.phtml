@@ -1,0 +1,32 @@
+<?php
+	$instanceId    = Camac_Nest_Pigeon::getInstance()->instanceId;
+	$instLocMapper = new Application_Model_Mapper_InstanceLocation();
+
+	// we always only save one location on an instance
+	$locations = $instLocMapper->getInstanceLocations($instanceId);
+	$location = array_pop($locations);
+
+	$mappings = array(
+		1 => '/public/pdf/gbo/Altdorf.pdf',
+		2 => '/public/pdf/gbo/Andermatt.pdf',
+		3 => '/public/pdf/gbo/Attinghausen.pdf',
+		4 => '/public/pdf/gbo/Bauen.pdf',
+		5 => '/public/pdf/gbo/Burglen.pdf',
+		6 => '/public/pdf/gbo/Erstfeld.pdf',
+		7 => '/public/pdf/gbo/Fluelen.pdf',
+		8 => '/public/pdf/gbo/Goschenen.pdf',
+		9 => '/public/pdf/gbo/Gurtnellen.pdf',
+		10 => '/public/pdf/gbo/Hospental.pdf',
+		11 => '/public/pdf/gbo/Isenthal.pdf',
+		12 => '/public/pdf/gbo/Realp.pdf',
+		13 => '/public/pdf/gbo/Schattdorf.pdf',
+		14 => '/public/pdf/gbo/Seedorf.pdf',
+		15 => '/public/pdf/gbo/Seelisberg.pdf',
+		16 => '/public/pdf/gbo/Silenen.pdf',
+		17 => '/public/pdf/gbo/Sisikon.pdf',
+		18 => '/public/pdf/gbo/Spiringen.pdf',
+		19 => '/public/pdf/gbo/Unterschachen.pdf',
+		20 => '/public/pdf/gbo/Wassen.pdf'
+	);
+
+	echo $this->baseUrl($mappings[$location->getLocationId()]);
