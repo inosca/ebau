@@ -13,6 +13,8 @@ ipdb
 isort
 pytest
 pytest-cov
-pytest-django
+# once newer version than 3.1.2 has been released
+# pytest-django can be imported through pypi again
+git+https://github.com/pytest-dev/pytest-django@927d6c1
 pytest-env
 pytest-factoryboy
