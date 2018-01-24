@@ -12,33 +12,61 @@ from camac.document import models
 from .data import django_file
 
 
-def test_attachment_list(admin_client, attachment):
+@pytest.mark.parametrize("role__name,instance__user,size", [
+    ('Applicant', LazyFixture('admin_user'), 1),
+    ('Canton', LazyFixture('user'), 1),
+    ('Municipality', LazyFixture('user'), 1),
+    ('Service', LazyFixture('user'), 1),
+    ('Unknown', LazyFixture('user'), 0),
+])
+def test_attachment_list(admin_client, attachment,
+                         attachment_section_group_acl, instance_locations,
+                         activation, size):
     url = reverse('attachment-list')
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json['data']) == 1
-    assert json['data'][0]['id'] == str(attachment.pk)
+    assert len(json['data']) == size
+    if size > 0:
+        assert json['data'][0]['id'] == str(attachment.pk)
 
 
-def test_attachment_list_nogroup(admin_client, admin_user):
-    admin_user.groups.clear()
-
-    url = reverse('attachment-list')
-
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
-
-
-@pytest.mark.parametrize("filename,mime_type,status_code", [
-    ('multiple-pages.pdf', 'application/pdf', status.HTTP_201_CREATED),
-    ('test-thumbnail.jpg', 'image/jpeg', status.HTTP_201_CREATED),
-    ('invalid-attachment.gif', 'image/gif', status.HTTP_400_BAD_REQUEST),
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
 ])
+@pytest.mark.parametrize(
+    "filename,mime_type,attachment_section_group_acl__mode,status_code", [
+        (
+            'multiple-pages.pdf',
+            'application/pdf',
+            models.ADMIN_PERMISSION,
+            status.HTTP_201_CREATED
+        ),
+        (
+            'test-thumbnail.jpg',
+            'image/jpeg',
+            models.ADMIN_PERMISSION,
+            status.HTTP_201_CREATED
+        ),
+        (
+            'invalid-attachment.gif',
+            'image/gif',
+            models.ADMIN_PERMISSION,
+            status.HTTP_400_BAD_REQUEST
+        ),
+        (
+            'test-thumbnail.jpg',
+            'image/jpeg',
+            models.READ_PERMISSION,
+            status.HTTP_400_BAD_REQUEST
+        ),
+    ]
+)
 def test_attachment_create(admin_client, instance, attachment_section,
-                           mime_type, filename, status_code):
+                           attachment_section_group_acl, mime_type, filename,
+                           status_code):
     url = reverse('attachment-list')
 
     path = django_file(filename)
@@ -70,46 +98,22 @@ def test_attachment_create(admin_client, instance, attachment_section,
         assert b''.join(parts) == path.read()
 
 
-def test_attachment_noacl(admin_client, instance, attachment_section):
-    attachment_section.group_acls.update(
-        mode=models.READ_PERMISSION
-    )
-
-    url = reverse('attachment-list')
-
-    path = django_file('test-thumbnail.jpg')
-    data = {
-        'instance': instance.pk,
-        'attachment_section': attachment_section.pk,
-        'path': path.file,
-    }
-    response = admin_client.post(url, data=data, format='multipart')
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
-
-
-@pytest.mark.parametrize("attachment__attachment_section", [
-    LazyFixture("attachment_section_noacl")
-])
-def test_attachment_download_noacl(admin_client, attachment):
+def test_attachment_download(admin_client, attachment):
     url = reverse('attachment-download', args=[attachment.path])
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_404_NOT_FOUND
 
 
-def test_attachment_download_nogroup(admin_client, admin_user, attachment):
-    admin_user.groups.clear()
-
-    url = reverse('attachment-download', args=[attachment.path])
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
-
-
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
+])
 @pytest.mark.parametrize("attachment__path,status_code", [
     (django_file('multiple-pages.pdf'), status.HTTP_200_OK),
     (django_file('test-thumbnail.jpg'), status.HTTP_200_OK),
     (django_file('no-thumbnail.txt'), status.HTTP_404_NOT_FOUND),
 ])
-def test_attachment_thumbnail_pdf(admin_client, attachment, status_code):
+def test_attachment_thumbnail(admin_client, attachment,
+                              attachment_section_group_acl, status_code):
     url = reverse('attachment-thumbnail', args=[attachment.pk])
     response = admin_client.get(url)
     assert response.status_code == status_code
@@ -126,29 +130,47 @@ def test_attachment_update(admin_client, attachment):
     assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
 
 
-def test_instance_detail(admin_client, attachment):
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
+])
+def test_instance_detail(admin_client, attachment,
+                         attachment_section_group_acl):
     url = reverse('attachment-detail', args=[attachment.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("attachment__path", [
-    django_file('multiple-pages.pdf'),
-    django_file('test-thumbnail.jpg'),
-    django_file('no-thumbnail.txt'),
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
 ])
-def test_attachment_delete(admin_client, attachment):
+@pytest.mark.parametrize(
+    "attachment__path,attachment_section_group_acl__mode,status_code",
+    [
+        (
+            django_file('multiple-pages.pdf'),
+            models.ADMIN_PERMISSION,
+            status.HTTP_204_NO_CONTENT
+        ),
+        (
+            django_file('test-thumbnail.jpg'),
+            models.ADMIN_PERMISSION,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            django_file('no-thumbnail.txt'),
+            models.ADMIN_PERMISSION,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            django_file('test-thumbnail.jpg'),
+            models.WRITE_PERMISSION,
+            status.HTTP_403_FORBIDDEN,
+        ),
+    ]
+)
+def test_attachment_delete(admin_client, attachment,
+                           attachment_section_group_acl, status_code):
     url = reverse('attachment-detail', args=[attachment.pk])
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_204_NO_CONTENT
-
-
-def test_attachment_delete_noacl(admin_client, attachment):
-    attachment.attachment_section.group_acls.update(
-        mode=models.WRITE_PERMISSION
-    )
-
-    url = reverse('attachment-detail', args=[attachment.pk])
-    response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status_code
