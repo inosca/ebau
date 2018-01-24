@@ -24,7 +24,13 @@ def permission_aware(func):
     """
     @wraps(func)
     def wrapper(self, *args, **kwargs):
-        role = self.request.group.role
+        # on view request is directly on instance
+        request = getattr(self, 'request', None)
+        if request is None:
+            # on serializer request is in context dict
+            request = getattr(self, 'context')['request']
+
+        role = request.group.role
         perms = settings.APPLICATION.get('ROLE_PERMISSIONS', {})
         perm = perms.get(role.name)
         if perm:
