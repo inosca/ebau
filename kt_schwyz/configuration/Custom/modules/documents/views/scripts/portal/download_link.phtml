@@ -1,0 +1,69 @@
+<?php
+	$instanceId    = Camac_Nest_Pigeon::getInstance()->instanceId;
+	$instLocMapper = new Application_Model_Mapper_InstanceLocation();
+
+	// we always only save one location on an instance
+	$locations = $instLocMapper->getInstanceLocations($instanceId);
+	$location = array_pop($locations);
+?>
+
+<?php switch ($location->getLocationId()):
+	// funny thing here: "Any output (including whitespace) between a switch
+	// statement and the first case will result in a syntax error."
+	case 1: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Altdorf_2014.pdf') ?>
+
+	<?php break; case 2: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Andermatt_2014.pdf') ?>
+
+	<?php break; case 3: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Attinghausen_2014.pdf') ?>
+
+	<?php break; case 4: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Bauen_2014.pdf') ?>
+
+	<?php break; case 5: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Burglen_2014.pdf') ?>
+
+	<?php break; case 6: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Erstfeld_2014.pdf') ?>
+
+	<?php break; case 7: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Fluelen_2014.pdf') ?>
+
+	<?php break; case 10: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Hospental_2014.pdf') ?>
+
+	<?php break; case 11: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Isenthal_2014.pdf') ?>
+
+	<?php break; case 12: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Realp_2014.pdf') ?>
+
+	<?php break; case 13: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Schattdorf_2014.pdf') ?>
+
+	<?php break; case 14: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Seedorf_2014.pdf') ?>
+
+	<?php break; case 15: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Seelisberg_2014.pdf') ?>
+
+	<?php break; case 16: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Silenen_2014.pdf') ?>
+
+	<?php break; case 17: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Sisikon_2014.pdf') ?>
+
+	<?php break; case 18: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Spiringen_2014.pdf') ?>
+
+	<?php break; case 19: ?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_Unterschachen_2014.pdf') ?>
+
+	<?php break; case 9: // gurtnellen ?>
+	<?php case 8: // göschenen?>
+	<?php case 20: // wassen?>
+		<?php echo $this->baseUrl('/public/pdf/form_a/Baugesuchsformular_BKUO_2014.pdf') ?>
+
+<?php endswitch ?>

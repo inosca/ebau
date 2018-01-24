@@ -1,0 +1,80 @@
+<script type="text/javascript">
+	$(function() {
+		$('.delete').click(function() {
+			return confirm("Möchten Sie die Auflage wirklich löschen?");
+		});
+	})
+</script>
+
+<?php if (count($this->groupedEntries)) : ?>
+<?php foreach ($this->groupedEntries as $entries) : ?>
+	<?php if ($this->showAll) : ?>
+		<h3>Auflagen von <?php echo $entries[0]->getService(); ?></h3>
+	<?php endif ?>
+	<table class="sanctions">
+		<thead>
+			<tr>
+				<th style="min-width: 20em;">Art der Auflage</th>
+				<th>Informationen</th>
+				<th style="min-width: 15em;">Bemerkungen / Kontrollbericht</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ($entries as $entry) : ?>
+			<tr<?php if ($entry->isFinished == 1) echo ' class="green"'; ?>>
+				<td><?=$entry->text ?></td>
+				<td>
+					<table class="unstyled">
+						<tr>
+							<td>Erfasser:</td>
+							<td><?=$entry->username ?></td>
+						</tr>
+						<tr>
+							<td>Verfügung / Stellungnahme vom:</td>
+							<td><?=$this->date($entry->startDate) ?></td>
+						</tr>
+						<tr>
+							<td>Frist:</td>
+							<td><?=$this->date($entry->deadlineDate) ?></td>
+						</tr>
+						<tr>
+							<td style="min-width: 9em;">Abnahme Datum:</td>
+							<td><?=$this->date($entry->endDate) ?></td>
+						</tr>
+						<?php if ($entry->finishedByUsername) : ?>
+						<tr>
+							<td>Abnahme durch:</td>
+							<td><?=$entry->finishedByUsername ?></td>
+						</tr>
+						<?php endif ?>
+					</table>
+				</td>
+				<td>
+					<?php if($entry->notice) echo $entry->notice."<br>"; ?>
+					<?php if ($this->canEdit) : ?>
+						<a href="<?=$this->url(array(
+							'action' => 'edit',
+							'sanctionID' => $entry->sanctionID
+						))?>">Pendenz bearbeiten</a><br>
+						<a class="delete" href="<?=$this->url(array(
+							'action' => 'delete',
+							'sanctionID' => $entry->sanctionID
+						))?>">Pendenz löschen</a><br>
+					<?php endif ?>
+				</td>
+			</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+<?php endforeach ?>
+<?php else: ?>
+	<p>Es wurden noch keine Einträge erfasst.</p>
+<?php endif ?>
+
+<?php if ($this->canAdd) : ?>
+<div class="actions">
+	<a class="button add_sanction_button" href="<?=$this->url(array(
+		'action' => 'edit'
+	))?>">Auflage hinzufügen</a>
+</div>
+<?php endif ?>

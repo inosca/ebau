@@ -1,0 +1,66 @@
+[
+{
+  "model": "core.role",
+  "pk": 1,
+  "fields": {
+    "role_parent": null,
+    "name": "Admin"
+  }
+},
+{
+  "model": "core.role",
+  "pk": 2,
+  "fields": {
+    "role_parent": null,
+    "name": "Guest"
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1,
+  "fields": {
+    "role": 1,
+    "service": null,
+    "name": "Admin",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 2,
+  "fields": {
+    "role": 2,
+    "service": null,
+    "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "group": 1,
+    "default_group": 1
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "group": 2,
+    "default_group": 1
+  }
+}
+]
