@@ -19,3 +19,12 @@ test:
         # - docker-compose exec camac-ember yarn test
         - docker exec -i $(docker-compose ps -q camac-django) make install-dev test
         - docker exec -i $(docker-compose ps -q camac-ember) yarn test
+
+pyup:
+    stage: test
+    image: python:3.6
+    script:
+        - pip install pyupio
+        - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
+    only:
+        - master
