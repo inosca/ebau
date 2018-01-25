@@ -8,6 +8,7 @@ from rest_framework.test import APIRequestFactory
 from rest_framework_jwt.test import APIJWTClient
 
 from camac.core import factories as core_factories
+from camac.document import factories as document_factories
 from camac.instance import factories as instance_factories
 from camac.user import factories as user_factories
 
@@ -21,9 +22,13 @@ def register_module(module):
 factory_logger = logging.getLogger('factory')
 factory_logger.setLevel(logging.INFO)
 
+sorl_thumbnail_logger = logging.getLogger('sorl.thumbnail')
+sorl_thumbnail_logger.setLevel(logging.INFO)
+
 register_module(user_factories)
 register_module(instance_factories)
 register_module(core_factories)
+register_module(document_factories)
 
 
 @pytest.fixture

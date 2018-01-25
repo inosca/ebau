@@ -39,7 +39,8 @@ def test_attachment_section_list(admin_user, admin_client,
     assert json['data'][1]['meta']['mode']  == models.WRITE_PERMISSION
 
 
-def test_attachment_section_detail(admin_client, attachment_section):
+def test_attachment_section_detail(admin_client, attachment_section,
+                                   attachment_section_group_acl):
     url = reverse('attachment-section-detail', args=[attachment_section.pk])
 
     response = admin_client.get(url)
