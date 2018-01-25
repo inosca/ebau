@@ -4,6 +4,6 @@ from . import views
 
 r = SimpleRouter(trailing_slash=False)
 
-r.register(r'users', views.UserView,  'user')
+r.register(r'locations', views.LocationView)
 
 urlpatterns = r.urls

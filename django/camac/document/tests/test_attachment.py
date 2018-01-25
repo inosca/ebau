@@ -7,24 +7,28 @@ from PIL import Image
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.document import models
+from camac.document import models, serializers
 
 from .data import django_file
 
 
-@pytest.mark.parametrize("role__name,instance__user,size", [
-    ('Applicant', LazyFixture('admin_user'), 1),
-    ('Canton', LazyFixture('user'), 1),
-    ('Municipality', LazyFixture('user'), 1),
-    ('Service', LazyFixture('user'), 1),
-    ('Unknown', LazyFixture('user'), 0),
+@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
+    ('Applicant', LazyFixture('admin_user'), 8, 1),
+    ('Canton', LazyFixture('user'), 8, 1),
+    ('Municipality', LazyFixture('user'), 8, 1),
+    ('Service', LazyFixture('user'), 8, 1),
+    ('Unknown', LazyFixture('user'), 2, 0),
 ])
-def test_attachment_list(admin_client, attachment,
+def test_attachment_list(admin_client, attachment, num_queries,
                          attachment_section_group_acl, instance_locations,
-                         activation, size):
+                         activation, size, django_assert_num_queries):
     url = reverse('attachment-list')
 
-    response = admin_client.get(url)
+    included = serializers.AttachmentSerializer.included_serializers
+    with django_assert_num_queries(num_queries):
+        response = admin_client.get(url, data={
+            'include': ','.join(included.keys())
+        })
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
