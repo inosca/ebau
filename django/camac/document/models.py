@@ -6,14 +6,14 @@ def attachment_path_directory_path(attachment, filename):
     return 'attachments/files/{0}/{1}'.format(attachment.instance.pk, filename)
 
 
-class AttachmentManager(models.Manager):
-    def for_group(self, group):
-        attachment_sections = AttachmentSection.objects.for_group(group)
+class AttachmentQuerySet(models.QuerySet):
+    def filter_group(self, group):
+        attachment_sections = AttachmentSection.objects.filter_group(group)
         return self.filter(attachment_section__in=attachment_sections)
 
 
 class Attachment(models.Model):
-    objects = AttachmentManager()
+    objects = AttachmentQuerySet.as_manager()
 
     attachment_id = models.AutoField(
         db_column='ATTACHMENT_ID', primary_key=True)
@@ -67,8 +67,8 @@ class Attachment(models.Model):
         db_table = 'ATTACHMENT'
 
 
-class AttachmentSectionManager(models.Manager):
-    def for_group(self, group):
+class AttachmentSectionQuerySet(models.QuerySet):
+    def filter_group(self, group):
 
         role_sections = AttachmentSectionRoleAcl.objects.filter(
             role=group.role_id
@@ -84,7 +84,7 @@ class AttachmentSectionManager(models.Manager):
 
 
 class AttachmentSection(models.Model):
-    objects = AttachmentSectionManager()
+    objects = AttachmentSectionQuerySet.as_manager()
     attachment_section_id = models.AutoField(
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)

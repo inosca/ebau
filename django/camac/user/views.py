@@ -1,11 +1,8 @@
-from rest_framework_json_api import views
+from rest_framework import viewsets
 
 from . import models, serializers
 
 
-class UserView(views.ModelViewSet):
-    serializer_class = serializers.UserSerializer
-
-    def get_queryset(self):
-        user = self.request.user
-        return models.User.objects.filter(id=user.id)
+class LocationView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = serializers.LocationSerializer
+    queryset = models.Location.objects.all()

@@ -58,6 +58,9 @@ def get_group(request):
     else:
         group_qs = models.UserGroup.objects.filter(
             user=request.user, default_group=1)
+        # group is always and group__role in most cases used
+        group_qs = group_qs.select_related('group', 'group__role',
+                                           'group__service')
         user_group = group_qs.first()
         group = user_group and user_group.group
 
