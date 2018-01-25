@@ -2,15 +2,15 @@ module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   launch_in_ci: [
-    'Chromium'
+    'Chrome'
   ],
   launch_in_dev: [],
   browser_args: {
-    Chromium: {
+    Chrome: {
       mode: 'ci',
       args: [
         // --no-sandbox is needed when running Chrome inside a container
-        process.env.TRAVIS ? '--no-sandbox' : null,
+        process.env.ENV === 'docker' ? '--no-sandbox' : null,
 
         '--disable-gpu',
         '--headless',
@@ -19,4 +19,4 @@ module.exports = {
       ].filter(Boolean)
     }
   }
-};
+}

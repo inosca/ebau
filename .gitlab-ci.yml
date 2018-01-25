@@ -9,11 +9,13 @@ variables:
 stages:
     - test
 
-test-django:
+test:
     stage: test
     script:
         - docker-compose up -d --force-recreate
         # docker exec workaround till following error is fixed:
         # https://github.com/docker/compose/issues/3352
-        # - docker-compose exec camac_django make install-dev test
-        - docker exec -i $(docker-compose ps -q camac_django) make install-dev test
+        # - docker-compose exec camac-django make install-dev test
+        # - docker-compose exec camac-ember yarn test
+        - docker exec -i $(docker-compose ps -q camac-django) make install-dev test
+        - docker exec -i $(docker-compose ps -q camac-ember) yarn test
