@@ -316,7 +316,8 @@ class Activation(models.Model):
     activation_id = models.AutoField(
         db_column='ACTIVATION_ID', primary_key=True)
     circulation = models.ForeignKey(
-        'Circulation', models.DO_NOTHING, db_column='CIRCULATION_ID')
+        'Circulation', models.DO_NOTHING, db_column='CIRCULATION_ID',
+        related_name='activations')
     service = models.ForeignKey(
         'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
         related_name='+')
@@ -1321,20 +1322,6 @@ class InstanceGuest(models.Model):
         db_table = 'INSTANCE_GUEST'
 
 
-class InstanceLocation(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
-    location = models.ForeignKey(
-        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
-        related_name='+')
-    instance = models.ForeignKey(
-        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID')
-
-    class Meta:
-        managed = True
-        db_table = 'INSTANCE_LOCATION'
-        unique_together = (('location', 'instance'),)
-
-
 class InstanceLocationLog(models.Model):
     instance_location_log_id = models.AutoField(
         db_column='INSTANCE_LOCATION_LOG_ID', primary_key=True)
@@ -1395,7 +1382,8 @@ class InstanceResource(models.Model):
         db_column='CLASS', max_length=25, blank=True, null=True)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
     sort = models.IntegerField(db_column='SORT')
-    form_group_id = models.FloatField(db_column='FORM_GROUP_ID')
+    form_group = models.ForeignKey(FormGroup, db_column='FORM_GROUP_ID',
+                                   related_name='+')
 
     class Meta:
         managed = True
