@@ -1,4 +1,6 @@
 from django.utils import timezone
+from django.utils.translation import gettext as _
+from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.user.serializers import CurrentGroupDefault
@@ -42,6 +44,7 @@ class InstanceSerializer(serializers.ModelSerializer):
         model = models.Instance
         fields = (
             'instance_state',
+            'locations',
             'form',
             'user',
             'group',
@@ -64,7 +67,13 @@ class FormSerializer(serializers.ModelSerializer):
 class FormFieldSerializer(serializers.ModelSerializer):
 
     def validate_instance(self, value):
-        # TODO: validate what user may actually update/set what instance
+        request = self.context['request']
+
+        if request.user != value.user:
+            raise exceptions.ValidationError(
+                _('Instance does not belong to requesting user.')
+            )
+
         return value
 
     class Meta:
