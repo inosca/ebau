@@ -14,6 +14,23 @@ class NewInstanceStateDefault(object):
         return models.InstanceState.objects.first()
 
 
+class InstanceStateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.InstanceState
+        fields = (
+            'name',
+        )
+
+
+class FormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Form
+        fields = (
+            'name',
+            'description',
+        )
+
+
 class InstanceSerializer(serializers.ModelSerializer):
     group = serializers.ResourceRelatedField(
         read_only=True, default=CurrentGroupDefault()
@@ -37,6 +54,15 @@ class InstanceSerializer(serializers.ModelSerializer):
         read_only=True, default=NewInstanceStateDefault()
     )
 
+    included_serializers = {
+        'locations': 'camac.user.serializers.LocationSerializer',
+        'user': 'camac.user.serializers.UserSerializer',
+        'group': 'camac.user.serializers.GroupSerializer',
+        'form': FormSerializer,
+        'instance_state': InstanceStateSerializer,
+        'previous_instance_state': InstanceStateSerializer,
+    }
+
     def validate_modification_date(self, value):
         return timezone.now()
 
@@ -54,16 +80,6 @@ class InstanceSerializer(serializers.ModelSerializer):
         )
 
 
-class FormSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Form
-        fields = (
-            'name',
-            'description',
-            'form_state'
-        )
-
-
 class FormFieldSerializer(serializers.ModelSerializer):
 
     def validate_instance(self, value):
@@ -75,6 +91,10 @@ class FormFieldSerializer(serializers.ModelSerializer):
             )
 
         return value
+
+    included_serializers = {
+        'instance': InstanceSerializer,
+    }
 
     class Meta:
         model = models.FormField

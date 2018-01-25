@@ -13,7 +13,7 @@ from . import models, serializers
 
 
 class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
-    queryset = models.Attachment.objects.all()
+    queryset = models.Attachment.objects
     serializer_class = serializers.AttachmentSerializer
     # TODO: filter for instance, attachment_section, user
     parser_classes = (
@@ -22,7 +22,8 @@ class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
     )
 
     def get_base_queryset(self):
-        return models.Attachment.objects.for_group(self.request.group)
+        queryset = super().get_base_queryset()
+        return queryset.filter_group(self.request.group)
 
     @permission_aware
     def get_queryset(self):
@@ -56,6 +57,7 @@ class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
 class AttachmentPathView(InstanceQuerysetMixin, ObjectDownloadView, APIView):
     """Attachment view to download attachment."""
 
+    queryset = models.Attachment.objects
     file_field = 'path'
     mime_type_field = 'mime_type'
     slug_field = 'path'
@@ -63,7 +65,8 @@ class AttachmentPathView(InstanceQuerysetMixin, ObjectDownloadView, APIView):
     basename_field = 'name'
 
     def get_base_queryset(self):
-        return models.Attachment.objects.for_group(self.request.group)
+        queryset = super().get_base_queryset()
+        return queryset.filter_group(self.request.group)
 
     @permission_aware
     def get_queryset(self):
@@ -71,8 +74,10 @@ class AttachmentPathView(InstanceQuerysetMixin, ObjectDownloadView, APIView):
 
 
 class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
+    queryset = models.AttachmentSection.objects
     ordering = ('sort', 'name')
     serializer_class = serializers.AttachmentSectionSerializer
 
     def get_queryset(self):
-        return models.AttachmentSection.objects.for_group(self.request.group)
+        queryset = super().get_queryset()
+        return queryset.filter_group(self.request.group)

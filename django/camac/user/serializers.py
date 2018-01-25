@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework_json_api import serializers
 
+from . import models
+
 
 class CurrentGroupDefault(serializers.CurrentUserDefault):
     """Current group of user is first found default group."""
@@ -13,7 +15,22 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = (
-            get_user_model().REQUIRED_FIELDS + [
-                get_user_model().USERNAME_FIELD
-            ]
+            'name',
+            'surname',
+        )
+
+
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Group
+        fields = (
+            'name',
+        )
+
+
+class LocationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Location
+        fields = (
+            'name',
         )
