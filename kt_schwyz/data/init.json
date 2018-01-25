@@ -1,6 +1,42 @@
 [
 {
-  "model": "core.role",
+  "model": "user.user",
+  "pk": 1,
+  "fields": {
+    "username": "admin",
+    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "name": "super",
+    "surname": "admin",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": "2018-11-01T10:41:35",
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "username": "guest",
+    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "name": "guest",
+    "surname": "person",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": "2018-11-01T10:50:27",
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.role",
   "pk": 1,
   "fields": {
     "role_parent": null,
@@ -8,7 +44,7 @@
   }
 },
 {
-  "model": "core.role",
+  "model": "user.role",
   "pk": 2,
   "fields": {
     "role_parent": null,

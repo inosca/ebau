@@ -36,7 +36,7 @@
   }
 },
 {
-  "model": "core.role",
+  "model": "user.role",
   "pk": 1,
   "fields": {
     "role_parent": null,
@@ -44,7 +44,7 @@
   }
 },
 {
-  "model": "core.role",
+  "model": "user.role",
   "pk": 2,
   "fields": {
     "role_parent": null,
