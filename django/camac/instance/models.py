@@ -1,4 +1,4 @@
-from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 
@@ -74,6 +74,8 @@ class Instance(models.Model):
     previous_instance_state = models.ForeignKey(
         InstanceState, models.DO_NOTHING,
         db_column='PREVIOUS_INSTANCE_STATE_ID', related_name='+')
+    locations = models.ManyToManyField('user.Location', blank=True,
+                                       db_table='INSTANCE_LOCATION')
 
     class Meta:
         managed = True
@@ -90,7 +92,7 @@ class FormField(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE,
                                  related_name='fields')
     name = models.CharField(max_length=500)
-    value = ArrayField(models.TextField())
+    value = JSONField()
 
     class Meta:
         unique_together = (('instance', 'name'),)

@@ -7,12 +7,12 @@ def test_get_user_jwt(admin_rf, admin_user):
     assert user == admin_user
 
 
-def test_get_group_default(admin_rf, admin_user, admin_group):
+def test_get_group_default(admin_rf, admin_user, group):
     request = admin_rf.request()
     request.user = admin_user
 
-    group = middleware.get_group(request)
-    assert group == admin_group
+    request_group = middleware.get_group(request)
+    assert request_group == group
 
 
 def test_get_group_param(admin_rf, admin_user, user_group_factory):
