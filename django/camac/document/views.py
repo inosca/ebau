@@ -1,12 +1,14 @@
 from django.http import HttpResponse
 from django_downloadview.api import ObjectDownloadView
-from rest_framework import exceptions, parsers, viewsets
+from mailmerge import MailMerge
+from rest_framework import exceptions, generics, parsers, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 
 from . import models, serializers
@@ -81,3 +83,39 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter_group(self.request.group)
+
+
+class TemplateView(viewsets.ReadOnlyModelViewSet):
+    queryset = models.Template.objects
+    serializer_class = serializers.TemplateSerializer
+
+    def get_queryset(self):
+        # TODO: applicant may not see any template
+        return models.Template.objects.all()
+
+    @detail_route(
+        methods=['get'],
+        serializer_class=serializers.InstanceMailMergeSerializer,
+    )
+    def merge(self, request, pk=None):
+        # TODO: option to create PDF
+        # TODO: add instance nr to filename
+
+        template = self.get_object()
+        instance = generics.get_object_or_404(
+            Instance.objects, **{
+                'pk': self.request.query_params.get('instance')
+            }
+        )
+
+        response = HttpResponse()
+        response['Content-Disposition'] = (
+            'attachment; filename="{0}.docx"'.format(template.name)
+        )
+
+        serializer = self.get_serializer(instance)
+        with MailMerge(template.path) as docx:
+            docx.merge(**serializer.data)
+            docx.write(response)
+
+        return response

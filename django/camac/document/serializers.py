@@ -1,8 +1,9 @@
 from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework_json_api import serializers
+from rest_framework_json_api import serializers, utils
 
+from camac.instance.models import Instance
 from camac.relations import FormDataResourceReleatedField
 from camac.user.permissions import permission_aware
 
@@ -130,4 +131,38 @@ class AttachmentSerializer(serializers.ModelSerializer):
             'name',
             'size',
             'user',
+        )
+
+
+class TemplateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Template
+        fields = (
+            'name',
+        )
+
+
+class InstanceMailMergeSerializer(serializers.ModelSerializer):
+    """Converts instance into a dict so it can be used with `MailMerge`."""
+
+    location = serializers.SerializerMethodField()
+
+    def get_location(self, instance):
+        location = instance.locations.first()
+        return location and location.name or ''
+
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        # need same naming as in json api
+        ret = utils.format_keys(ret)
+
+        for field in instance.fields.all():
+            ret['field-%s' % field.name] = field.value
+
+        return ret
+
+    class Meta:
+        model = Instance
+        fields = (
+            'location',
         )

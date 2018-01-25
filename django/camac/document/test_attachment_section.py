@@ -26,7 +26,7 @@ def test_attachment_section_list(admin_user, admin_client,
     # 1st invalid case: attachment section without acl
     attachment_section_factory()
 
-    url = reverse('attachment-section-list')
+    url = reverse('attachmentsection-list')
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -41,7 +41,7 @@ def test_attachment_section_list(admin_user, admin_client,
 
 def test_attachment_section_detail(admin_client, attachment_section,
                                    attachment_section_group_acl):
-    url = reverse('attachment-section-detail', args=[attachment_section.pk])
+    url = reverse('attachmentsection-detail', args=[attachment_section.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
