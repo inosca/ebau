@@ -24,9 +24,6 @@ SECRET_KEY = env.str('DJANGO_SECRET_KEY', default=default('uuuuuuuuuu'))
 DEBUG = env.bool('DJANGO_DEBUG', default=default(True, False))
 ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=default(['*']))
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
