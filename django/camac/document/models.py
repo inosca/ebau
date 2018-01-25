@@ -169,3 +169,8 @@ class AttachmentSectionServiceAcl(models.Model):
         managed = True
         db_table = 'ATTACHMENT_SECTION_SERVICE'
         unique_together = (('attachment_section', 'service'),)
+
+
+class Template(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    path = models.FileField(max_length=1024, upload_to='templates')
