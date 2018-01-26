@@ -119,6 +119,11 @@ ALLOWED_DOCUMENT_MIMETYPES = env.list(
     ]
 )
 
+# Unoconv webservice
+# https://github.com/zrrrzzt/tfk-api-unoconv
+
+UNOCONV_URL = env.str('DJANGO_UNOCONV_URL', default='http://localhost:3000')
+
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
