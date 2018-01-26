@@ -6,3 +6,5 @@ requirements:
         - django/requirements-dev.txt:
                 update: all
                 pin: True
+assignees:
+    - olivers
