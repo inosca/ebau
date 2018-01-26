@@ -3,6 +3,8 @@ from functools import wraps
 from django.conf import settings
 from rest_framework import permissions
 
+from camac.request import get_request
+
 
 def permission_aware(func):
     """
@@ -25,11 +27,7 @@ def permission_aware(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         # on view request is directly on instance
-        request = getattr(self, 'request', None)
-        if request is None:
-            # on serializer request is in context dict
-            request = getattr(self, 'context')['request']
-
+        request = get_request(self)
         role = request.group.role
         perms = settings.APPLICATION.get('ROLE_PERMISSIONS', {})
         perm = perms.get(role.name)

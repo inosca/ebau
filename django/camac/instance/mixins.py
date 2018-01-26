@@ -1,4 +1,9 @@
+from django.utils.translation import gettext as _
+from rest_framework import exceptions
+
 from camac.core.models import Circulation
+from camac.request import get_request
+from camac.user.permissions import permission_aware
 
 from . import models
 
@@ -66,3 +71,46 @@ class InstanceQuerysetMixin(object):
 
     def get_queryset_for_canton(self):
         return self.get_base_queryset()
+
+
+class InstanceValidationMixin(object):
+    """Mixin to validate whether instance may be accessed by group role."""
+
+    @permission_aware
+    def validate_instance(self, instance):
+        raise exceptions.ValidationError(
+            _('Not allowed to add attachments to this instance')
+        )
+
+    def validate_instance_for_applicant(self, instance):
+        user = get_request(self).user
+        if instance.user != user:
+            raise exceptions.ValidationError(
+                _('Not allowed to add attachments to this instance')
+            )
+
+        return instance
+
+    def validate_instance_for_municipality(self, instance):
+        group = get_request(self).group
+
+        locations = instance.locations.all()
+        if not locations.filter(pk__in=group.locations.all()).exists():
+            raise exceptions.ValidationError(
+                _('Not allowed to add attachments to this instance')
+            )
+
+        return instance
+
+    def validate_instance_for_service(self, instance):
+        service = get_request(self).group.service
+        circulations = instance.circulations.all()
+        if not circulations.filter(activations__service=service).exists():
+            raise exceptions.ValidationError(
+                _('Not allowed to add attachments to this instance')
+            )
+
+        return instance
+
+    def validate_instance_for_canton(self, instance):
+        return instance
