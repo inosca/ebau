@@ -3,7 +3,7 @@ django-environ==0.4.4
 django-filter==1.1.0
 djangorestframework==3.7.7
 djangorestframework-jsonapi==2.4.0
-djangorestframework-jwt==1.10.0
+djangorestframework-jwt==1.11.0
 psycopg2==2.7.3.2
 python-memcached==1.59
 Pillow==5.0.0
