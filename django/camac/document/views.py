@@ -1,3 +1,5 @@
+import io
+
 from django.http import HttpResponse
 from django_downloadview.api import ObjectDownloadView
 from mailmerge import MailMerge
@@ -10,6 +12,7 @@ from sorl.thumbnail import delete, get_thumbnail
 from camac.instance.mixins import (InstanceQuerysetMixin,
                                    InstanceValidationMixin)
 from camac.instance.models import Instance
+from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
 from . import models, serializers
@@ -108,7 +111,13 @@ class TemplateView(InstanceValidationMixin, viewsets.ReadOnlyModelViewSet):
         serializer_class=serializers.InstanceMailMergeSerializer,
     )
     def merge(self, request, pk=None):
-        # TODO: option to create PDF
+        """
+        Merge template with given instance.
+
+        Following query params are available:
+        `instance`: instance id to merge (required)
+        `type`: type to convert merged template too (e.g. pdf)
+        """
         # TODO: add instance nr to filename
 
         template = self.get_object()
@@ -118,15 +127,25 @@ class TemplateView(InstanceValidationMixin, viewsets.ReadOnlyModelViewSet):
             }
         )
         instance = self.validate_instance(instance)
+        to_type = self.request.query_params.get('type', 'docx')
 
         response = HttpResponse()
         response['Content-Disposition'] = (
-            'attachment; filename="{0}.docx"'.format(template.name)
+            'attachment; filename="{0}.{1}"'.format(template.name, to_type)
         )
 
+        buf = io.BytesIO()
         serializer = self.get_serializer(instance)
         with MailMerge(template.path) as docx:
             docx.merge(**serializer.data)
-            docx.write(response)
+            docx.write(buf)
 
+        buf.seek(0)
+        if to_type != 'docx':
+            content = convert(buf, to_type)
+            if content is None:
+                raise exceptions.ParseError()
+            buf = io.BytesIO(content)
+
+        response.write(buf.read())
         return response
