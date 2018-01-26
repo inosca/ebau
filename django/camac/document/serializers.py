@@ -3,9 +3,9 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers, utils
 
+from camac.instance.mixins import InstanceValidationMixin
 from camac.instance.models import Instance
 from camac.relations import FormDataResourceReleatedField
-from camac.user.permissions import permission_aware
 
 from . import models
 
@@ -27,7 +27,8 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
         )
 
 
-class AttachmentSerializer(serializers.ModelSerializer):
+class AttachmentSerializer(InstanceValidationMixin,
+                           serializers.ModelSerializer):
     serializer_related_field = FormDataResourceReleatedField
 
     user = FormDataResourceReleatedField(
@@ -55,47 +56,6 @@ class AttachmentSerializer(serializers.ModelSerializer):
             )
 
         return path
-
-    @permission_aware
-    def validate_instance(self, instance):
-        raise exceptions.ValidationError(
-            _('Not allowed to add attachments to this instance')
-        )
-
-    # TODO: might move validate_instance methods to its own mixin
-
-    def validate_instance_for_applicant(self, instance):
-        user = self.context['request'].user
-        if instance.user != user:
-            raise exceptions.ValidationError(
-                _('Not allowed to add attachments to this instance')
-            )
-
-        return instance
-
-    def validate_instance_for_municipality(self, instance):
-        group = self.context['request'].group
-
-        locations = instance.locations.all()
-        if not locations.filter(pk__in=group.locations.all()).exists():
-            raise exceptions.ValidationError(
-                _('Not allowed to add attachments to this instance')
-            )
-
-        return instance
-
-    def validate_instance_for_service(self, instance):
-        service = self.context['request'].group.service
-        circulations = instance.circulations.all()
-        if not circulations.filter(activations__service=service).exists():
-            raise exceptions.ValidationError(
-                _('Not allowed to add attachments to this instance')
-            )
-
-        return instance
-
-    def validate_instance_for_canton(self, instance):
-        return instance
 
     def validate(self, data):
         path = data['path']
