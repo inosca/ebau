@@ -1,0 +1,8 @@
+search: False
+requirements:
+        - django/requirements.txt:
+                update: all
+                pin: True
+        - django/requirements-dev.txt:
+                update: all
+                pin: True
