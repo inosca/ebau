@@ -7,7 +7,8 @@ from rest_framework.views import APIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
-from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.mixins import (InstanceQuerysetMixin,
+                                   InstanceValidationMixin)
 from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 
@@ -85,12 +86,21 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
         return queryset.filter_group(self.request.group)
 
 
-class TemplateView(viewsets.ReadOnlyModelViewSet):
+class TemplateView(InstanceValidationMixin, viewsets.ReadOnlyModelViewSet):
     queryset = models.Template.objects
     serializer_class = serializers.TemplateSerializer
 
+    @permission_aware
     def get_queryset(self):
-        # TODO: applicant may not see any template
+        return models.Template.objects.none()
+
+    def get_queryset_for_canton(self):
+        return models.Template.objects.all()
+
+    def get_queryset_for_service(self):
+        return models.Template.objects.all()
+
+    def get_queryset_for_municipality(self):
         return models.Template.objects.all()
 
     @detail_route(
@@ -107,6 +117,7 @@ class TemplateView(viewsets.ReadOnlyModelViewSet):
                 'pk': self.request.query_params.get('instance')
             }
         )
+        instance = self.validate_instance(instance)
 
         response = HttpResponse()
         response['Content-Disposition'] = (
