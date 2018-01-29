@@ -1,7 +1,15 @@
-version: "2"
+version: "3.4"
 services:
     camac-django:
-        build: django
+        image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
+        build:
+            context: django
+            cache_from:
+                - acr.run/camac-ng/camac-ng/django:master
 
     camac-ember:
-        build: ember
+        image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
+        build:
+            context: ember
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember:master

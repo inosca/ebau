@@ -9,17 +9,31 @@ variables:
 
 stages:
     - test
+    - build
 
 test:
     stage: test
     script:
-        - eval $COMPOSE build --pull
+        # pull docker images for cache
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel camac-ember camac-django
+        - eval $COMPOSE build --pull camac-ember camac-django
         # start only services which are needed for testing
         - eval $COMPOSE up -d camac-db
         # run django tests
         - eval $COMPOSE run --rm --no-deps camac-django make install-dev test
         # run ember tests
         - eval $COMPOSE run --rm --no-deps camac-ember yarn test
+
+build:
+    stage: build
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - eval $COMPOSE pull --parallel camac-ember camac-django
+        - eval $COMPOSE build --pull
+        - eval $COMPOSE push
+    only:
+        - master
 
 pyup:
     stage: test
