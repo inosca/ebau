@@ -1,4 +1,4 @@
-version: "2"
+version: "3.4"
 services:
     camac-cache:
         ports:
@@ -9,16 +9,22 @@ services:
             - "5432:5432"
 
     camac-django:
-        build: django
+        build:
+          context: django
+          cache_from:
+              - acr.run/camac-ng/camac-ng/django:master
         ports:
-          - '8000:80'
+            - '8000:80'
         volumes:
-          - ./django:/app
-          - ./tools:/tools
+            - ./django:/app
+            - ./tools:/tools
         command: /bin/sh -c "/tools/wait-for-it.sh camac-db:5432 --timeout=90 -- make install && uwsgi"
 
     camac-ember:
-        build: ember
+        build:
+          context: ember
+          cache_from:
+              - acr.run/camac-ng/camac-ng/ember:master
         ports:
             - '4200:80'
         volumes:
