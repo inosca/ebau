@@ -1,0 +1,468 @@
+[
+{
+  "model": "user.location",
+  "pk": 1,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1311",
+    "district_number": null,
+    "section_number": null,
+    "name": "Gersau",
+    "commune_name": "Gersau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 2,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1321",
+    "district_number": null,
+    "section_number": null,
+    "name": "Feusisberg",
+    "commune_name": "Feusisberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 3,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1322",
+    "district_number": null,
+    "section_number": null,
+    "name": "Freienbach",
+    "commune_name": "Freienbach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 4,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1323",
+    "district_number": null,
+    "section_number": null,
+    "name": "Wollerau",
+    "commune_name": "Wollerau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 5,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1331",
+    "district_number": null,
+    "section_number": null,
+    "name": "K\u00fcssnacht",
+    "commune_name": "K\u00fcssnacht",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 6,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1341",
+    "district_number": null,
+    "section_number": null,
+    "name": "Altendorf",
+    "commune_name": "Altendorf",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 7,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1342",
+    "district_number": null,
+    "section_number": null,
+    "name": "Galgenen",
+    "commune_name": "Galgenen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 8,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1343",
+    "district_number": null,
+    "section_number": null,
+    "name": "Innerthal",
+    "commune_name": "Innerthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 9,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1344",
+    "district_number": null,
+    "section_number": null,
+    "name": "Lachen",
+    "commune_name": "Lachen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 10,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1345",
+    "district_number": null,
+    "section_number": null,
+    "name": "Reichenburg",
+    "commune_name": "Reichenburg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 11,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1346",
+    "district_number": null,
+    "section_number": null,
+    "name": "Sch\u00fcbelbach",
+    "commune_name": "Sch\u00fcbelbach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 12,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1347",
+    "district_number": null,
+    "section_number": null,
+    "name": "Tuggen",
+    "commune_name": "Tuggen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 13,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1348",
+    "district_number": null,
+    "section_number": null,
+    "name": "Vorderthal",
+    "commune_name": "Vorderthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 14,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1349",
+    "district_number": null,
+    "section_number": null,
+    "name": "Wangen",
+    "commune_name": "Wangen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 15,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1361",
+    "district_number": null,
+    "section_number": null,
+    "name": "Alpthal",
+    "commune_name": "Alpthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 16,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1362",
+    "district_number": null,
+    "section_number": null,
+    "name": "Arth",
+    "commune_name": "Arth",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 17,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1363",
+    "district_number": null,
+    "section_number": null,
+    "name": "Illgau",
+    "commune_name": "Illgau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 18,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1364",
+    "district_number": null,
+    "section_number": null,
+    "name": "Ingenbohl",
+    "commune_name": "Ingenbohl",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 19,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1365",
+    "district_number": null,
+    "section_number": null,
+    "name": "Lauerz",
+    "commune_name": "Lauerz",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 20,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1366",
+    "district_number": null,
+    "section_number": null,
+    "name": "Morschach",
+    "commune_name": "Morschach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 21,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1367",
+    "district_number": null,
+    "section_number": null,
+    "name": "Muotathal",
+    "commune_name": "Muotathal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 22,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1368",
+    "district_number": null,
+    "section_number": null,
+    "name": "Oberiberg",
+    "commune_name": "Oberiberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 23,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1369",
+    "district_number": null,
+    "section_number": null,
+    "name": "Riemenstalden",
+    "commune_name": "Riemenstalden",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 24,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1370",
+    "district_number": null,
+    "section_number": null,
+    "name": "Rothenthurm",
+    "commune_name": "Rothenthurm",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 25,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1371",
+    "district_number": null,
+    "section_number": null,
+    "name": "Sattel",
+    "commune_name": "Sattel",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 26,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1372",
+    "district_number": null,
+    "section_number": null,
+    "name": "Schwyz",
+    "commune_name": "Schwyz",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 27,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1373",
+    "district_number": null,
+    "section_number": null,
+    "name": "Steinen",
+    "commune_name": "Steinen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 28,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1374",
+    "district_number": null,
+    "section_number": null,
+    "name": "Steinerberg",
+    "commune_name": "Steinerberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 29,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1375",
+    "district_number": null,
+    "section_number": null,
+    "name": "Unteriberg",
+    "commune_name": "Unteriberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 30,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1301",
+    "district_number": null,
+    "section_number": null,
+    "name": "Einsiedeln",
+    "commune_name": "Einsiedeln",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.role",
+  "pk": 1,
+  "fields": {
+    "role_parent": null,
+    "name": "Admin"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 2,
+  "fields": {
+    "role_parent": null,
+    "name": "Guest"
+  }
+}
+]
