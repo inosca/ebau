@@ -11,7 +11,8 @@ ENV UWSGI_INI /app/uwsgi.ini
 COPY . /app
 WORKDIR /app
 
-RUN make install
+RUN make install \
+&& find . -name "*.pyc" -delete
 
 EXPOSE 80
 CMD ["uwsgi"]

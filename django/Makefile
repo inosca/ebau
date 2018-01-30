@@ -6,11 +6,11 @@ help:
 
 install: ## Install production environment
 	@pip install --upgrade pip
-	@pip install --upgrade -r requirements.txt .
+	@pip install --upgrade -r requirements.txt
 
 install-dev: ## Install development environment
 	@pip install --upgrade pip
-	@pip install --upgrade -r requirements.txt -r requirements-dev.txt .
+	@pip install --upgrade -r requirements.txt -r requirements-dev.txt
 
 start: ## Start the development server
 	@docker-compose -f ../docker-compose.yml start camac-db
