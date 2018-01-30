@@ -1,5 +1,0 @@
-<?php
-header('Content-Type: application/zip');
-header('Content-disposition: attachment; filename='.$this->name);
-header('Content-Length: ' . filesize($this->path));
-readfile($this->path);
