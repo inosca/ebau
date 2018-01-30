@@ -17,8 +17,6 @@ services:
             - '8000:80'
         volumes:
             - ./django:/app
-            - ./tools:/tools
-        command: /bin/sh -c "/tools/wait-for-it.sh camac-db:5432 --timeout=90 -- make install && uwsgi"
 
     camac-ember:
         build:
