@@ -1,5 +1,0 @@
-<?php
-
-
-class Documents_InstanceResource_Documents_Helper_InstanceResourceDocumentsPortalSubmit extends Documents_InstanceResource_Documents_Helper_InstanceResourceDocumentsPortal {
-}
