@@ -1,3 +1,12 @@
-# from django_filters import Filter
+from django_filters.rest_framework import FilterSet
 
-# Add your filters here
+from . import models
+
+
+class LocationFilterSet(FilterSet):
+    class Meta:
+        model = models.Location
+        fields = (
+            'name',
+            'communal_federal_number',
+        )
