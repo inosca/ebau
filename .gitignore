@@ -1,7 +1,7 @@
 .vagrant
 cache/
-camac/cache
-camac/data
+php/cache
+php/data
 nbproject
 *.vpp~*
 camac.vpp.*
@@ -22,7 +22,5 @@ export.log
 postgres-data
 .cache
 geckodriver.log
-camac/public/public
-camac/public/node_modules
-camac/configuration
-camac/logs/mails/
+php/public/node_modules
+php/logs/mails/
