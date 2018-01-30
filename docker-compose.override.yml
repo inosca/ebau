@@ -1,0 +1,36 @@
+version: "3.4"
+services:
+    camac-cache:
+        ports:
+            - "11211:11211"
+
+    camac-db:
+        ports:
+            - "5432:5432"
+
+    camac-django:
+        build:
+          context: django
+          cache_from:
+              - acr.run/camac-ng/camac-ng/django:master
+        ports:
+            - '8000:80'
+        volumes:
+            - ./django:/app
+            - ./tools:/tools
+        command: /bin/sh -c "/tools/wait-for-it.sh camac-db:5432 --timeout=90 -- make install && uwsgi"
+
+    camac-ember:
+        build:
+          context: ember
+          cache_from:
+              - acr.run/camac-ng/camac-ng/ember:master
+        ports:
+            - '4200:80'
+        volumes:
+            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default
+            - ./ember:/app
+            - /app/node_modules/
+            - /app/tmp/
+            - /app/dist/
+        command: /bin/sh -c "yarn && yarn build -prod && nginx -g 'daemon off;'"
