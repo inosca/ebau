@@ -33,4 +33,5 @@ class LocationSerializer(serializers.ModelSerializer):
         model = models.Location
         fields = (
             'name',
+            'communal_federal_number',
         )
