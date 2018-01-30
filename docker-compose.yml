@@ -1,47 +1,26 @@
-version: "2"
+version: "3.4"
 services:
     camac-cache:
-        image: memcached
-        ports:
-            - "11211:11211"
+        image: memcached:1.5-alpine
 
     camac-db:
-        image: postgres
-        ports:
-            - "5432:5432"
+        image: postgres:9.5-alpine
         environment:
             - POSTGRES_PASSWORD=camac
             - POSTGRES_USER=camac
             - POSTGRES_DB=camac
 
     camac-django:
-        build: django
-        ports:
-          - '8000:80'
-        volumes:
-          - ./django:/app
-          - ./tools:/tools
         depends_on:
-          - camac-db
-          - camac-cache
+            - camac-db
+            - camac-cache
         environment:
-          - ENV=docker
-          - DJANGO_DATABASE_HOST=camac-db
-          - DJANGO_CACHE_LOCATION=camac-cache:11211
-        command: /tools/wait-for-it.sh camac-db:5432 --timeout=90 -- uwsgi
+            - ENV=docker
+            - DJANGO_DATABASE_HOST=camac-db
+            - DJANGO_CACHE_LOCATION=camac-cache:11211
 
     camac-ember:
-        build: ember
-        ports:
-            - '4200:80'
         depends_on:
             - camac-django
-        volumes:
-            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default
-            - ./ember:/app
-            - /app/node_modules/
-            - /app/tmp/
-            - /app/dist/
         environment:
-          - ENV=docker
-        command: /bin/sh -c "yarn && yarn build -prod && nginx -g 'daemon off;'"
+            - ENV=docker
