@@ -1,26 +1,32 @@
 version: "3.4"
 services:
-    camac-cache:
+    cache:
         image: memcached:1.5-alpine
 
-    camac-db:
+    db:
         image: postgres:9.5-alpine
         environment:
             - POSTGRES_PASSWORD=camac
             - POSTGRES_USER=camac
             - POSTGRES_DB=camac
 
-    camac-django:
+    django:
         depends_on:
-            - camac-db
-            - camac-cache
+            - db
+            - cache
         environment:
             - ENV=docker
-            - DJANGO_DATABASE_HOST=camac-db
-            - DJANGO_CACHE_LOCATION=camac-cache:11211
+            - DJANGO_DATABASE_HOST=db
+            - DJANGO_CACHE_LOCATION=cache:11211
 
-    camac-ember:
+    ember:
         depends_on:
-            - camac-django
+            - django
         environment:
             - ENV=docker
+
+    php:
+        depends_on:
+            - db
+            - django
+            - cache
