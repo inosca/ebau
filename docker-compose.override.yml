@@ -4,17 +4,23 @@ services:
         ports:
             - "11211:11211"
 
-    db:
-        ports:
-            - "5432:5432"
-        environment:
-            - POSTGRES_PASSWORD=camac
-
     proxy:
         volumes:
             - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
         ports:
             - "80:80"
+
+    db:
+        build:
+          context: db
+          cache_from:
+              - acr.run/camac-ng/camac-ng/db:master
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=camac
+        volumes:
+            - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
 
     django:
         build:

@@ -3,21 +3,19 @@ services:
     cache:
         image: memcached:1.5-alpine
 
-    db:
-        image: postgres:9.5-alpine
-        environment:
-            - POSTGRES_USER=camac
-            - POSTGRES_DATABASE=${APPLICATION}
-        volumes:
-            - camacpgdata:/var/lib/postgresql/data
-            - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
-
     proxy:
         image: nginx:1.13-alpine
         depends_on:
             - ember
             - php
             - django
+
+    db:
+        environment:
+            - POSTGRES_USER=camac
+            - POSTGRES_DATABASE=${APPLICATION}
+        volumes:
+            - camacpgdata:/var/lib/postgresql/data
 
     django:
         depends_on:
@@ -46,6 +44,4 @@ services:
 
 volumes:
     camacpgdata:
-        external: true
     camacdjangomedia:
-        external: true

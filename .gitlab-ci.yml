@@ -6,6 +6,7 @@ variables:
     LANG: C.UTF-8
     LC_ALL: C.UTF-8
     COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.ci.yml
+    APPLICATION: demo
 
 stages:
     - test
@@ -16,8 +17,8 @@ test:
     script:
         # pull docker images for cache
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel ember django
-        - eval $COMPOSE build --pull ember django
+        - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel db ember django
+        - eval $COMPOSE build --pull ember django db
         # start only services which are needed for testing
         - eval $COMPOSE up -d db
         # run django tests
@@ -29,7 +30,7 @@ build:
     stage: build
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --parallel ember django php
+        - eval $COMPOSE pull --parallel ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
