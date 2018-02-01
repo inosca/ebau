@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.core.management.commands import dumpdata
 
 # TODO: once deployed on production this list
@@ -145,4 +146,7 @@ class Command(dumpdata.Command):
 
     def handle(self, *app_labels, **options):
         options['indent'] = 2
+        options['output'] = (
+            options.get('output') or settings.APPLICATION_DIR('config.json')
+        )
         super().handle(*config_models, **options)
