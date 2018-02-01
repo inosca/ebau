@@ -1,6 +1,11 @@
 version: "3.4"
 services:
     db:
+        image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}
+        build:
+            context: db
+            cache_from:
+                - acr.run/camac-ng/camac-ng/db:master
         environment:
             - POSTGRES_PASSWORD=camac
 
