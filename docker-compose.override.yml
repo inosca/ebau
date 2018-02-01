@@ -7,6 +7,14 @@ services:
     db:
         ports:
             - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=camac
+
+    proxy:
+        volumes:
+            - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        ports:
+            - "80:80"
 
     django:
         build:
@@ -28,7 +36,7 @@ services:
         ports:
             - '4200:80'
         volumes:
-            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default
+            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default:ro
             - ./ember:/app
             - /app/node_modules/
             - /app/tmp/
@@ -41,8 +49,8 @@ services:
           cache_from:
               - acr.run/camac-ng/camac-ng/php:master
         volumes:
-            - ./php/php.ini-development:/usr/local/etc/php/php.ini
-            - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+            - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
+            - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
             - ./php:/var/www/camac
             - /var/www/camac/vendor
             - /var/www/camac/public/node_modules
