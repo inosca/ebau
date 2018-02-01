@@ -1,5 +1,9 @@
 version: "3.4"
 services:
+    db:
+        environment:
+            - POSTGRES_PASSWORD=camac
+
     django:
         image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
         build:

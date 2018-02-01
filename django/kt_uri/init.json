@@ -4,14 +4,13 @@
   "pk": 1,
   "fields": {
     "username": "admin",
-    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
     "name": "super",
     "surname": "admin",
     "email": "",
     "phone": null,
     "disabled": 0,
     "language": "de",
-    "last_login": "2018-11-01T10:41:35",
     "address": null,
     "city": null,
     "zip": null
@@ -22,14 +21,13 @@
   "pk": 2,
   "fields": {
     "username": "guest",
-    "password": "2fde3770a7b0e7d7e07552cb86243682",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
     "name": "guest",
     "surname": "person",
     "email": "",
     "phone": null,
     "disabled": 0,
     "language": "de",
-    "last_login": "2018-11-01T10:50:27",
     "address": null,
     "city": null,
     "zip": null
