@@ -4,8 +4,6 @@ dj-inmemorystorage==1.4.1
 # https://github.com/pytest-dev/pytest-factoryboy/issues/47
 factory-boy==2.8.1  # pyup: >=2.8,<2.9
 
-# Fixed as LTS version
-django==1.11.9 # pyup: >=1.11,<1.12
 flake8==3.5.0
 flake8-blind-except==0.1.1
 flake8-debugger==3.0.0
@@ -16,8 +14,8 @@ flake8-mock==0.3
 flake8-tuple==0.2.13
 flake8-isort==2.3
 ipdb==0.10.3
-isort==4.2.15
-pytest==3.3.2
+isort==4.3.0
+pytest==3.4.0
 pytest-cov==2.5.1
 
 # once newer version than 3.1.2 has been released
