@@ -236,8 +236,8 @@ def test_attachment_update(admin_client, attachment):
 @pytest.mark.parametrize("role__name,instance__user", [
     ('Applicant', LazyFixture('admin_user')),
 ])
-def test_instance_detail(admin_client, attachment,
-                         attachment_section_group_acl):
+def test_attachment_detail(admin_client, attachment,
+                           attachment_section_group_acl):
     url = reverse('attachment-detail', args=[attachment.pk])
 
     response = admin_client.get(url)
