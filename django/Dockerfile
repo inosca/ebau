@@ -20,4 +20,4 @@ COPY . /app
 
 EXPOSE 80
 
-CMD /bin/sh -c "./wait-for-it.sh $DJANGO_DATABASE_HOST:$DJANGO_DATABASE_PORT --timeout=60 -- make install && ./manage.py migrate && ./manage.py loadconfig && uwsgi"
+CMD /bin/sh -c "./wait-for-it.sh $DJANGO_DATABASE_HOST:$DJANGO_DATABASE_PORT -- make install && ./manage.py migrate && ./manage.py loadconfig && uwsgi"

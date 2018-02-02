@@ -19,9 +19,10 @@ test:
         # pull docker images for cache
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel db ember django
-        - eval $COMPOSE build --pull ember django db
         # start only services which are needed for testing
-        - eval $COMPOSE up -d db
+        - eval $COMPOSE up -d --build db
+        # build images needed for testing
+        - eval $COMPOSE build --pull ember django
         # run django tests
         - eval $COMPOSE run --rm --no-deps django make install-dev test
         # run ember tests
