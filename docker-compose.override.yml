@@ -13,8 +13,10 @@ services:
     db:
         build:
           context: db
-          cache_from:
-              - acr.run/camac-ng/camac-ng/db:master
+          # TODO: enable again when following issue is fixed
+          # https://github.com/docker/compose/issues/5458
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/db:master
         ports:
             - "5432:5432"
         environment:
@@ -25,8 +27,8 @@ services:
     django:
         build:
           context: django
-          cache_from:
-              - acr.run/camac-ng/camac-ng/django:master
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/django:master
         ports:
             - '8000:80'
         volumes:
@@ -37,8 +39,8 @@ services:
     ember:
         build:
           context: ember
-          cache_from:
-              - acr.run/camac-ng/camac-ng/ember:master
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/ember:master
         ports:
             - '4200:80'
         volumes:
@@ -52,8 +54,8 @@ services:
     php:
         build:
           context: php
-          cache_from:
-              - acr.run/camac-ng/camac-ng/php:master
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/php:master
         volumes:
             - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
             - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
