@@ -1,26 +1,47 @@
 version: "3.4"
 services:
-    camac-cache:
+    cache:
         image: memcached:1.5-alpine
 
-    camac-db:
-        image: postgres:9.5-alpine
+    proxy:
+        image: nginx:1.13-alpine
+        depends_on:
+            - ember
+            - php
+            - django
+
+    db:
         environment:
-            - POSTGRES_PASSWORD=camac
             - POSTGRES_USER=camac
-            - POSTGRES_DB=camac
+            - POSTGRES_DATABASE=${APPLICATION}
+        volumes:
+            - camacpgdata:/var/lib/postgresql/data
 
-    camac-django:
+    django:
         depends_on:
-            - camac-db
-            - camac-cache
+            - db
+            - cache
+        environment:
+            - DJANGO_DATABASE_HOST=db
+            - DJANGO_DATABASE_NAME=${APPLICATION}
+            - DJANGO_CACHE_LOCATION=cache:11211
+            # TODO: nginx should serve media files
+            - DJANGO_MEDIA_ROOT=/var/lib/camac/media
+        volumes:
+            - camacdjangomedia:/var/lib/camac/media
+
+    ember:
+        depends_on:
+            - django
         environment:
             - ENV=docker
-            - DJANGO_DATABASE_HOST=camac-db
-            - DJANGO_CACHE_LOCATION=camac-cache:11211
 
-    camac-ember:
+    php:
         depends_on:
-            - camac-django
-        environment:
-            - ENV=docker
+            - db
+            - django
+            - cache
+
+volumes:
+    camacpgdata:
+    camacdjangomedia:

@@ -19,6 +19,8 @@ As in Camac core naming is `[env]-[app]` whereas
 `env` and `app` may not have dashes.
 """
 
+APPLICATION_DIR = django_root.path(APPLICATION_NAME)
+
 
 def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
     """Environment aware default."""
@@ -72,8 +74,8 @@ WSGI_APPLICATION = 'camac.wsgi.application'
 # an application is defined by the customer e.g. uri, schwyz, etc.
 
 APPLICATIONS = {
-    # settings for test app, can also used as example
-    'test': {
+    # settings for demp app, can also used as example
+    'demo': {
         # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
             'Applicant': 'applicant',
@@ -127,7 +129,7 @@ DATABASES = {
             'DJANGO_DATABASE_ENGINE',
             default='django.db.backends.postgresql_psycopg2'
         ),
-        'NAME': env.str('DJANGO_DATABASE_NAME', default='camac'),
+        'NAME': env.str('DJANGO_DATABASE_NAME', default=APPLICATION_NAME),
         'USER': env.str('DJANGO_DATABASE_USER', default='camac'),
         'PASSWORD': env.str(
             'DJANGO_DATABASE_PASSWORD', default=default('camac')
