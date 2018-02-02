@@ -7,7 +7,8 @@ RUN \
  rm -rf /var/lib/apt/lists/* && \
  rm /var/www/html/index.nginx-debian.html && \
  ln -sf /dev/stdout /var/log/nginx/access.log && \
- ln -sf /dev/stderr /var/log/nginx/error.log
+ ln -sf /dev/stderr /var/log/nginx/error.log && \
+ mkdir /app
 
 # Install chrome for testing
 # TODO: run tests in a chromium container
@@ -19,15 +20,16 @@ RUN \
   apt-get install -y --no-install-recommends google-chrome-stable && \
   rm -rf /var/lib/apt/lists/*
 
-COPY . /app
-COPY ./nginx.conf /etc/nginx/sites-enabled/default
+COPY package.json yarn.lock /app/
 
 WORKDIR /app
 
-# Install deps and build app with mock API
-RUN \
- yarn && \
- yarn build -prod
+RUN yarn
+
+COPY . /app
+COPY ./nginx.conf /etc/nginx/sites-enabled/default
+
+RUN yarn build -prod
 
 EXPOSE 80
 
