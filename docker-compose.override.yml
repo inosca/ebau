@@ -1,34 +1,69 @@
 version: "3.4"
 services:
-    camac-cache:
+    cache:
         ports:
             - "11211:11211"
 
-    camac-db:
+    proxy:
+        volumes:
+            - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        ports:
+            - "80:80"
+
+    db:
+        build:
+          context: db
+          # TODO: enable again when following issue is fixed
+          # https://github.com/docker/compose/issues/5458
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/db:master
         ports:
             - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=camac
+        volumes:
+            - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
 
-    camac-django:
+    django:
         build:
           context: django
-          cache_from:
-              - acr.run/camac-ng/camac-ng/django:master
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/django:master
         ports:
             - '8000:80'
         volumes:
             - ./django:/app
+        environment:
+            - APPLICATION_ENV=development-${APPLICATION}
 
-    camac-ember:
+    ember:
         build:
           context: ember
-          cache_from:
-              - acr.run/camac-ng/camac-ng/ember:master
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/ember:master
         ports:
             - '4200:80'
         volumes:
-            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default
+            - ./ember/nginx.conf:/etc/nginx/sites-enabled/default:ro
             - ./ember:/app
             - /app/node_modules/
             - /app/tmp/
             - /app/dist/
         command: /bin/sh -c "yarn && yarn build -prod && nginx -g 'daemon off;'"
+
+    php:
+        build:
+          context: php
+          # cache_from:
+          #     - acr.run/camac-ng/camac-ng/php:master
+        volumes:
+            - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
+            - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
+            - ./php:/var/www/camac
+            - /var/www/camac/vendor
+            - /var/www/camac/public/node_modules
+        environment:
+            - APPLICATION_ENV=development-${APPLICATION}
+            - APPLICATION=${APPLICATION}
+        ports:
+            - '4300:80'
