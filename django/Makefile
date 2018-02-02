@@ -13,7 +13,7 @@ install-dev: ## Install development environment
 	@pip install --upgrade -r requirements.txt -r requirements-dev.txt
 
 start: ## Start the development server
-	@docker-compose -f ../docker-compose.yml start camac-db
+	@docker-compose -f ../docker-compose.yml start db
 	@python manage.py runserver
 
 test: ## Test the project

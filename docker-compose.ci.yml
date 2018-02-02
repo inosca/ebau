@@ -1,15 +1,31 @@
 version: "3.4"
 services:
-    camac-django:
+    db:
+        image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}
+        build:
+            context: db
+            cache_from:
+                - acr.run/camac-ng/camac-ng/db:master
+        environment:
+            - POSTGRES_PASSWORD=camac
+
+    django:
         image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
         build:
             context: django
             cache_from:
                 - acr.run/camac-ng/camac-ng/django:master
 
-    camac-ember:
+    ember:
         image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
         build:
             context: ember
             cache_from:
                 - acr.run/camac-ng/camac-ng/ember:master
+
+    php:
+        image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
+        build:
+            context: php
+            cache_from:
+                - acr.run/camac-ng/camac-ng/php:master
