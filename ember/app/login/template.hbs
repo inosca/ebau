@@ -1,0 +1,25 @@
+{{#uk-flex horizontal='center' class='uk-height-viewport uk-padding-large login'}}
+  <div class="uk-text-center">
+    <img class="uk-height-small" src="/assets/images/kanton_schwyz.svg" alt="Kanton Schwyz">
+    <h1>Bürgerportal</h1>
+    {{#uk-card class=(concat 'uk-text-left' (if login.last.isError ' uk-animation-shake')) width='1-1 large@m' as |card|}}
+      {{#card.body}}
+        <form {{action (perform login) identification password on='submit'}}>
+          <div class="uk-inline uk-width-1-1 uk-margin">
+            {{uk-icon 'user' class='uk-form-icon'}}
+            {{input type='text' class=(concat 'uk-input' (if login.last.isError ' uk-form-danger')) placeholder='Benutzername' value=identification}}
+          </div>
+          <div class="uk-inline uk-width-1-1 uk-margin-bottom">
+            {{uk-icon 'lock' class='uk-form-icon'}}
+            {{input type='password' class=(concat 'uk-input' (if login.last.isError ' uk-form-danger')) placeholder='Passwort' value=password}}
+          </div>
+          <div class="uk-text-right">
+            {{#uk-button type='submit' color='primary'}}
+              Einloggen {{uk-icon 'arrow-right'}}
+            {{/uk-button}}
+          </div>
+        </form>
+      {{/card.body}}
+    {{/uk-card}}
+  </div>
+{{/uk-flex}}

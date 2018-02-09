@@ -1,0 +1,22 @@
+$ember-power-select-default-border-radius: 0px !default;
+$ember-power-select-trigger-border: $form-border-width solid $form-border !default;
+$ember-power-select-active-trigger-border: $form-border-width solid $form-focus-border !default;
+
+$ember-power-select-dropdown-border: none !default;
+$ember-power-select-highlighted-color: white !default;
+$ember-power-select-highlighted-background: $global-primary-background !default;
+$ember-power-select-line-height: $form-line-height !default;
+$ember-power-select-focus-outline: none !default;
+$ember-power-select-dropdown-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12) !default;
+$ember-power-select-search-field-border: none !default;
+$ember-power-select-search-field-focus-border: none !default;
+
+@import 'ember-power-select';
+
+.ember-basic-dropdown-content {
+  z-index: 1001; // leaflet map controls have a z-index of 1000
+}
+
+.ember-power-select-search-input {
+  font-family: $global-font-family;
+}
