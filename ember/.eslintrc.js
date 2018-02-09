@@ -1,13 +1,14 @@
 module.exports = {
+  globals: {
+    server: true,
+  },
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  plugins: [
-    'ember',
-    'prettier'
-  ],
+  plugins: ['ember', 'prettier'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -22,11 +23,7 @@ module.exports = {
   overrides: [
     // node files
     {
-      files: [
-        'testem.js',
-        'ember-cli-build.js',
-        'config/**/*.js'
-      ],
+      files: ['testem.js', 'ember-cli-build.js', 'config/**/*.js'],
       parserOptions: {
         sourceType: 'script',
         ecmaVersion: 2015
@@ -46,4 +43,4 @@ module.exports = {
       }
     }
   ]
-};
+}
