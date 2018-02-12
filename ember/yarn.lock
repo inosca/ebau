@@ -1200,7 +1200,7 @@ breakable@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/breakable/-/breakable-1.0.0.tgz#784a797915a38ead27bad456b5572cb4bbaa78c1"
 
-broccoli-asset-rev@^2.4.5:
+broccoli-asset-rev@^2.4.5, broccoli-asset-rev@^2.5.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/broccoli-asset-rev/-/broccoli-asset-rev-2.6.0.tgz#0633fc3a0b2ba0c2c1d56fa9feb7b331fc83be6d"
   dependencies:
@@ -1215,6 +1215,21 @@ broccoli-asset-rewrite@^1.1.0:
   resolved "https://registry.yarnpkg.com/broccoli-asset-rewrite/-/broccoli-asset-rewrite-1.1.0.tgz#77a5da56157aa318c59113245e8bafb4617f8830"
   dependencies:
     broccoli-filter "^1.2.3"
+
+broccoli-babel-transpiler@^5.5.0:
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/broccoli-babel-transpiler/-/broccoli-babel-transpiler-5.7.4.tgz#2b0611ce9e5d98b8d8d2b49ae1219af2f52767e3"
+  dependencies:
+    babel-core "^5.0.0"
+    broccoli-funnel "^1.0.0"
+    broccoli-merge-trees "^1.0.0"
+    broccoli-persistent-filter "^1.4.2"
+    clone "^0.2.0"
+    hash-for-dep "^1.0.2"
+    heimdalljs-logger "^0.1.7"
+    json-stable-stringify "^1.0.0"
+    rsvp "^3.5.0"
+    workerpool "^2.3.0"
 
 broccoli-babel-transpiler@^5.6.2:
   version "5.7.2"
@@ -1379,7 +1394,7 @@ broccoli-funnel-reducer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel-reducer/-/broccoli-funnel-reducer-1.0.0.tgz#11365b2a785aec9b17972a36df87eef24c5cc0ea"
 
-broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.0.2, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
+broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.0.2, broccoli-funnel@^1.0.3, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-1.2.0.tgz#cddc3afc5ff1685a8023488fff74ce6fb5a51296"
   dependencies:
@@ -1442,7 +1457,19 @@ broccoli-lint-eslint@^4.2.1:
     lodash.defaultsdeep "^4.6.0"
     md5-hex "^2.0.0"
 
-broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0, broccoli-merge-trees@^1.1.1, broccoli-merge-trees@^1.2.4:
+broccoli-merge-trees@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-1.1.1.tgz#1e283d18c686da922bb91a80d7aac0d161388e21"
+  dependencies:
+    broccoli-plugin "^1.0.0"
+    can-symlink "^1.0.0"
+    debug "^2.2.0"
+    fast-ordered-set "^1.0.2"
+    fs-tree-diff "^0.4.3"
+    rimraf "^2.4.3"
+    symlink-or-copy "^1.0.0"
+
+broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0, broccoli-merge-trees@^1.1.1, broccoli-merge-trees@^1.2.1, broccoli-merge-trees@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-1.2.4.tgz#a001519bb5067f06589d91afa2942445a2d0fdb5"
   dependencies:
@@ -1504,6 +1531,13 @@ broccoli-plugin@^1.0.0, broccoli-plugin@^1.1.0, broccoli-plugin@^1.2.0, broccoli
     quick-temp "^0.1.3"
     rimraf "^2.3.4"
     symlink-or-copy "^1.1.8"
+
+broccoli-rollup@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/broccoli-rollup/-/broccoli-rollup-0.0.4.tgz#d23b2ef8fbd80e85dbb47d350fdab72902cd17c4"
+  dependencies:
+    broccoli-caching-writer "^2.2.0"
+    rollup "^0.26.2"
 
 broccoli-rollup@^1.2.0:
   version "1.3.0"
@@ -1595,6 +1629,20 @@ broccoli-templater@^1.0.0:
     broccoli-filter "^0.1.11"
     broccoli-stew "^1.2.0"
     lodash.template "^3.3.2"
+
+broccoli-uglify-sourcemap@^1.5.1:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/broccoli-uglify-sourcemap/-/broccoli-uglify-sourcemap-1.5.2.tgz#04f84ab0db539031fa868ccfa563c9932d50cedb"
+  dependencies:
+    broccoli-plugin "^1.2.1"
+    debug "^2.2.0"
+    lodash.merge "^4.5.1"
+    matcher-collection "^1.0.0"
+    mkdirp "^0.5.0"
+    source-map-url "^0.3.0"
+    symlink-or-copy "^1.0.1"
+    uglify-js "^2.7.0"
+    walk-sync "^0.1.3"
 
 broccoli-uglify-sourcemap@^2.0.0:
   version "2.0.2"
@@ -1886,6 +1934,10 @@ cliui@^3.2.0:
 clone@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/clone/-/clone-0.2.0.tgz#c6126a90ad4f72dbf5acdb243cc37724fe93fc1f"
+
+clone@^1.0.2:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.3.tgz#298d7e2231660f40c003c2ed3140decf3f53085f"
 
 clone@^2.0.0:
   version "2.1.1"
@@ -2882,7 +2934,7 @@ ember-lodash@^4.17.3:
     ember-cli-babel "^6.10.0"
     lodash-es "^4.17.4"
 
-ember-maybe-import-regenerator@^0.1.5:
+ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ember-maybe-import-regenerator/-/ember-maybe-import-regenerator-0.1.6.tgz#35d41828afa6d6a59bc0da3ce47f34c573d776ca"
   dependencies:
@@ -2953,6 +3005,48 @@ ember-runtime-enumerable-includes-polyfill@^2.0.0:
   dependencies:
     ember-cli-babel "^6.9.0"
     ember-cli-version-checker "^2.1.0"
+
+ember-service-worker-asset-cache@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/ember-service-worker-asset-cache/-/ember-service-worker-asset-cache-0.6.2.tgz#6b0f790ce9588aed310686dd689c11302f2f76db"
+  dependencies:
+    broccoli-filter "^1.2.3"
+    broccoli-merge-trees "1.1.1"
+    broccoli-plugin "^1.3.0"
+    ember-cli-babel "^5.1.6"
+    glob "^7.1.1"
+
+ember-service-worker-index@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/ember-service-worker-index/-/ember-service-worker-index-0.6.3.tgz#c01ea350b13e54ea8555b33403f94549954fbc1b"
+  dependencies:
+    broccoli-merge-trees "^1.2.1"
+    broccoli-plugin "^1.3.0"
+
+ember-service-worker-update-notify@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ember-service-worker-update-notify/-/ember-service-worker-update-notify-1.0.2.tgz#b62a91c9df519cfd1e0fb3a3f98533699e44f80d"
+  dependencies:
+    ember-cli-babel "^6.3.0"
+    ember-cli-htmlbars "^2.0.1"
+
+ember-service-worker@^0.6.9:
+  version "0.6.9"
+  resolved "https://registry.yarnpkg.com/ember-service-worker/-/ember-service-worker-0.6.9.tgz#e8a03994ec183334a593633f44a234c5890a457d"
+  dependencies:
+    broccoli-babel-transpiler "^5.5.0"
+    broccoli-caching-writer "^3.0.3"
+    broccoli-file-creator "^1.1.1"
+    broccoli-funnel "^1.0.3"
+    broccoli-merge-trees "1.1.1"
+    broccoli-rollup "0.0.4"
+    broccoli-uglify-sourcemap "^1.5.1"
+    clone "^1.0.2"
+    ember-cli-babel "^5.1.6"
+    exists-sync "0.0.3"
+    glob "^7.1.1"
+    hash-for-dep "^1.0.2"
+    rollup-plugin-replace "^1.1.1"
 
 ember-simple-auth-token@^3.0.0:
   version "3.0.0"
@@ -3044,6 +3138,18 @@ ember-uikit@^0.4.1:
     ember-cli-htmlbars "^2.0.3"
     ember-cli-htmlbars-inline-precompile "^1.0.2"
     uikit "^3.0.0-beta.38"
+
+ember-web-app@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/ember-web-app/-/ember-web-app-2.3.0.tgz#201e9c01aae12945582602a4cb91329605280f48"
+  dependencies:
+    broccoli-asset-rev "^2.5.0"
+    broccoli-caching-writer "^3.0.3"
+    broccoli-merge-trees "^2.0.0"
+    ember-cli-babel "^6.0.0"
+    object-assign "^4.1.1"
+    web-app-manifest-validator "^1.0.0"
+    xmlbuilder "^9.0.4"
 
 ember-wormhole@0.5.1:
   version "0.5.1"
@@ -3297,6 +3403,10 @@ esrecurse@^4.1.0:
 estraverse@^4.0.0, estraverse@^4.1.0, estraverse@^4.1.1:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
+
+estree-walker@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.3.1.tgz#e6b1a51cf7292524e7237c312e5fe6660c1ce1aa"
 
 esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
@@ -3770,6 +3880,13 @@ fs-readdir-recursive@^0.1.0:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/fs-readdir-recursive/-/fs-readdir-recursive-0.1.2.tgz#315b4fb8c1ca5b8c47defef319d073dad3568059"
 
+fs-tree-diff@^0.4.3:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/fs-tree-diff/-/fs-tree-diff-0.4.4.tgz#f6b75d70db22c1f3b05d592270f4ed6c9c2f82dd"
+  dependencies:
+    debug "^2.2.0"
+    fast-ordered-set "^1.0.2"
+
 fs-tree-diff@^0.5.2, fs-tree-diff@^0.5.3, fs-tree-diff@^0.5.4, fs-tree-diff@^0.5.6:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/fs-tree-diff/-/fs-tree-diff-0.5.7.tgz#315e2b098d5fe7f622880ac965b1b051868ac871"
@@ -3920,7 +4037,7 @@ glob@^6.0.4:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.4, glob@^7.0.5, glob@^7.1.2, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.0.4, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@~7.1.1:
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.2.tgz#c19c9df9a028702d678612384a6552404c636d15"
   dependencies:
@@ -4363,6 +4480,10 @@ is-accessor-descriptor@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-accessor-descriptor/-/is-accessor-descriptor-1.0.0.tgz#169c2f6d3df1f992618072365c9b0ea1f6878656"
   dependencies:
     kind-of "^6.0.0"
+
+is-array@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/is-array/-/is-array-1.0.1.tgz#e9850cc2cc860c3bc0977e84ccf0dd464584279a"
 
 is-arrayish@^0.2.1:
   version "0.2.1"
@@ -5102,6 +5223,10 @@ lodash.merge@^4.3.0, lodash.merge@^4.4.0, lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
 
+lodash.merge@^4.5.1:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
+
 lodash.mergewith@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz#150cf0a16791f5903b8891eab154609274bdea55"
@@ -5237,6 +5362,12 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+magic-string@^0.22.4:
+  version "0.22.4"
+  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.22.4.tgz#31039b4e40366395618c1d6cf8193c53917475ff"
+  dependencies:
+    vlq "^0.2.1"
+
 make-dir@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-1.1.0.tgz#19b4369fe48c116f53c2af95ad102c0e39e85d51"
@@ -5369,7 +5500,7 @@ mgrs@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/mgrs/-/mgrs-1.0.0.tgz#fb91588e78c90025672395cb40b25f7cd6ad1829"
 
-micromatch@^2.1.5, micromatch@^2.3.7:
+micromatch@^2.1.5, micromatch@^2.3.11, micromatch@^2.3.7:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
   dependencies:
@@ -5702,7 +5833,7 @@ object-assign@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.0.tgz#7a3b3d0e98063d43f4c03f2e8ae6cd51a86883a0"
 
-object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0:
+object-assign@4.1.1, object-assign@^4.0.1, object-assign@^4.1.0, object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
@@ -6525,6 +6656,29 @@ rimraf@2, rimraf@^2.2.8, rimraf@^2.3.2, rimraf@^2.3.4, rimraf@^2.4.3, rimraf@^2.
 rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
+
+rollup-plugin-replace@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-replace/-/rollup-plugin-replace-1.2.1.tgz#6307ee15f223aa1fd3207cd3c08052468f180daf"
+  dependencies:
+    magic-string "^0.22.4"
+    minimatch "^3.0.2"
+    rollup-pluginutils "^2.0.1"
+
+rollup-pluginutils@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.0.1.tgz#7ec95b3573f6543a46a6461bd9a7c544525d0fc0"
+  dependencies:
+    estree-walker "^0.3.0"
+    micromatch "^2.3.11"
+
+rollup@^0.26.2:
+  version "0.26.7"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-0.26.7.tgz#12875bc83a0ee8ddcf4b3bcf30f2b77d60652dd7"
+  dependencies:
+    chalk "^1.1.1"
+    minimist "^1.2.0"
+    source-map-support "^0.4.0"
 
 rollup@^0.41.4:
   version "0.41.6"
@@ -7357,7 +7511,7 @@ uglify-es@^3.1.3:
     commander "~2.13.0"
     source-map "~0.6.1"
 
-uglify-js@^2.6:
+uglify-js@^2.6, uglify-js@^2.7.0:
   version "2.8.29"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
   dependencies:
@@ -7500,6 +7654,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+vlq@^0.2.1:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
+
 walk-sync@0.3.2, walk-sync@^0.3.0, walk-sync@^0.3.1, walk-sync@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/walk-sync/-/walk-sync-0.3.2.tgz#4827280afc42d0e035367c4a4e31eeac0d136f75"
@@ -7534,6 +7692,12 @@ watch@~0.18.0:
   dependencies:
     exec-sh "^0.2.0"
     minimist "^1.2.0"
+
+web-app-manifest-validator@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/web-app-manifest-validator/-/web-app-manifest-validator-1.0.0.tgz#b4265b83d527bbd2f89a217c2d49ce26b24ac204"
+  dependencies:
+    is-array "^1.0.1"
 
 websocket-driver@>=0.5.1:
   version "0.7.0"
@@ -7590,7 +7754,7 @@ wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
 
-workerpool@^2.2.1:
+workerpool@^2.2.1, workerpool@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-2.3.0.tgz#86c5cbe946b55e7dc9d12b1936c8801a6e2d744d"
   dependencies:
@@ -7635,6 +7799,10 @@ wtf-8@1.0.0:
 xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
+
+xmlbuilder@^9.0.4:
+  version "9.0.7"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.7.tgz#132ee63d2ec5565c557e20f4c22df9aca686b10d"
 
 xmldom@^0.1.19:
   version "0.1.27"
