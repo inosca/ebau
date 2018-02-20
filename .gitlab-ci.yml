@@ -20,7 +20,7 @@ test:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel db ember django
         # start only services which are needed for testing
-        - eval $COMPOSE up -d --build db
+        - eval $COMPOSE up -d --build db unoconv
         # build images needed for testing
         - eval $COMPOSE build --pull ember django
         # run django tests
