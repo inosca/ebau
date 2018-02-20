@@ -44,7 +44,7 @@ services:
             - cache
 
     unoconv:
-        image: zrrrzzt/docker-unoconv-webservice
+        image: zrrrzzt/docker-unoconv-webservice:8.9.4
         ports:
             - '3000:3000'
 
