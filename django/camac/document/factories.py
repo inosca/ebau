@@ -44,3 +44,11 @@ class AttachmentSectionGroupAclFactory(DjangoModelFactory):
 
     class Meta:
         model = models.AttachmentSectionGroupAcl
+
+
+class TemplateFactory(DjangoModelFactory):
+    name = Faker('name')
+    path = ImageField(width=1024, height=768)
+
+    class Meta:
+        model = models.Template

@@ -5,9 +5,9 @@ from . import views
 
 r = SimpleRouter(trailing_slash=False)
 
-r.register(r'attachments', views.AttachmentView, 'attachment')
-r.register(r'attachment-sections', views.AttachmentSectionView,
-           'attachment-section')
+r.register(r'attachments', views.AttachmentView)
+r.register(r'attachment-sections', views.AttachmentSectionView)
+r.register(r'templates', views.TemplateView)
 
 
 urlpatterns = [
