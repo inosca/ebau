@@ -49,7 +49,6 @@ services:
             - /app/node_modules/
             - /app/tmp/
             - /app/dist/
-        command: /bin/sh -c "yarn && yarn build -prod && nginx -g 'daemon off;'"
 
     php:
         build:
