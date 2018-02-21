@@ -55,7 +55,7 @@ class InstanceLocationFactory(DjangoModelFactory):
 class FormFieldFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     name = Faker('name')
-    value = []
+    value = Faker('name')
 
     class Meta:
         model = models.FormField
