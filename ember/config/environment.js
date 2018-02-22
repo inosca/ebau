@@ -23,6 +23,7 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth-token': {
+      refreshTokenPropertyName: 'token',
       serverTokenEndpoint: '/api-token-auth/',
       serverTokenRefreshEndpoint: '/api-token-refresh/'
     }
