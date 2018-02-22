@@ -1,4 +1,4 @@
-*.swp
+**/*.swp
 Dockerfile
 tmp
 node_modules

@@ -1,24 +1,32 @@
 image: tmaier/docker-compose:latest
-services:
-    - docker:dind
 
 variables:
     LANG: C.UTF-8
     LC_ALL: C.UTF-8
     COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.ci.yml
     APPLICATION: demo
-    DOCKER_DRIVER: btrfs
+
+before_script:
+    - mkdir /root/.docker
+    - echo "$RUNNER_DOCKER_CAPEM" > /root/.docker/ca.pem
+    - echo "$RUNNER_DOCKER_CERTPEM" > /root/.docker/cert.pem
+    - echo "$RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
 
 stages:
     - test
     - build
+    - deploy
 
 test:
     stage: test
+    services:
+        - docker:dind
     script:
         # pull docker images for cache
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - CI_COMMIT_REF_SLUG=master eval $COMPOSE pull --parallel db ember django
+        # need to run pulling of images in subshell as otherwise CI_COMMIT_REF_SLUG
+        # is set for following commands as well
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --parallel ember django db"
         # start only services which are needed for testing
         - eval $COMPOSE up -d --build db unoconv
         # build images needed for testing
@@ -30,13 +38,38 @@ test:
 
 build:
     stage: build
+    services:
+        - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --parallel ember django php db
+        # need to run pulling of images in subshell as otherwise CI_COMMIT_REF_SLUG
+        # is set for following commands as well
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --parallel ember django php db"
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
         - master
+
+
+deploy-kt_schwyz-stage:
+    environment:
+        name: stage-kt_schwyz
+        url: http://camac-schwyz.sycloud.ch/
+    variables:
+        APPLICATION: kt_schwyz
+        # because of https://github.com/docker/compose/issues/2668 tls certs
+        # need to be assigned as parameters - once fixed such params can be removed.
+        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+        DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
+        DOCKER_TLS_VERIFY: 1
+    stage: deploy
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - eval $COMPOSE ps
+        - eval $COMPOSE pull --parallel
+        - eval $COMPOSE up -d
+    only:
+        - stage
 
 pyup:
     stage: test
