@@ -27,8 +27,7 @@ export default function() {
       200,
       {},
       {
-        token: `${btoa('a')}.${btoa(JSON.stringify(payload))}.${btoa('c')}`,
-        refresh_token: new Date().getTime() + 1000 * 60 * 60 * 24 * 1 // 1 day
+        token: `${btoa('a')}.${btoa(JSON.stringify(payload))}.${btoa('c')}`
       }
     )
   })
