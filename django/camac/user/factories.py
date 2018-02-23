@@ -67,4 +67,4 @@ class GroupLocationFactory(DjangoModelFactory):
     location = SubFactory(LocationFactory)
 
     class Meta:
-        model = models.Group.locations.through
+        model = models.GroupLocation
