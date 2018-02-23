@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'camac.instance.apps.DefaultConfig',
     'camac.document.apps.DefaultConfig',
     'sorl.thumbnail',
+    'django_clamd',
 ]
 
 MIDDLEWARE = [
@@ -225,3 +226,10 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=30),
     'JWT_ALLOW_REFRESH': True,
 }
+
+
+# Clamav service
+
+CLAMD_USE_TCP = True
+CLAMD_TCP_ADDR = env.str('DJANGO_CLAMD_TCP_ADDR', default='localhost')
+CLAMD_ENABLED = env.bool('DJANGO_CLAMD_ENABLED', default=True)

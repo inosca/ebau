@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.utils.translation import gettext as _
+from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework_json_api import serializers, utils
 
@@ -54,6 +55,8 @@ class AttachmentSerializer(InstanceValidationMixin,
                     'mime_type': path.content_type
                 }
             )
+
+        validate_file_infection(path)
 
         return path
 

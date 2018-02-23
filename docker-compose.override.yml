@@ -10,6 +10,10 @@ services:
         ports:
             - "80:80"
 
+    clamav:
+        ports:
+            - "3310:3310"
+
     db:
         # build:
           # TODO: enable again when following issue is fixed

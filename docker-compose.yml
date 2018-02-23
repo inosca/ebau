@@ -25,6 +25,7 @@ services:
         depends_on:
             - db
             - cache
+            - clamav
         environment:
             - DJANGO_DATABASE_HOST=db
             - DJANGO_DATABASE_NAME=${APPLICATION}
@@ -32,6 +33,7 @@ services:
             # TODO: nginx should serve media files
             - DJANGO_MEDIA_ROOT=/var/lib/camac/media
             - DJANGO_UNOCONV_URL=http://unoconv:3000
+            - DJANGO_CLAMD_TCP_ADDR=clamav
         volumes:
             - djangomedia:/var/lib/camac/media
 
@@ -53,6 +55,9 @@ services:
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4
+
+    clamav:
+        image: dinkel/clamavd
 
 volumes:
     pgdata:
