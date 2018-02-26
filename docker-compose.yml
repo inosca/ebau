@@ -11,13 +11,17 @@ services:
             - django
 
     db:
+        build:
+            context: db
         environment:
             - POSTGRES_USER=camac
             - POSTGRES_DATABASE=${APPLICATION}
         volumes:
-            - camacpgdata:/var/lib/postgresql/data
+            - pgdata:/var/lib/postgresql/data
 
     django:
+        build:
+            context: django
         depends_on:
             - db
             - cache
@@ -29,15 +33,19 @@ services:
             - DJANGO_MEDIA_ROOT=/var/lib/camac/media
             - DJANGO_UNOCONV_URL=http://unoconv:3000
         volumes:
-            - camacdjangomedia:/var/lib/camac/media
+            - djangomedia:/var/lib/camac/media
 
     ember:
+        build:
+            context: ember
         depends_on:
             - django
         environment:
             - ENV=docker
 
     php:
+        build:
+            context: php
         depends_on:
             - db
             - django
@@ -45,9 +53,7 @@ services:
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4
-        ports:
-            - '3000:3000'
 
 volumes:
-    camacpgdata:
-    camacdjangomedia:
+    pgdata:
+    djangomedia:
