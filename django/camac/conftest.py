@@ -48,7 +48,7 @@ def client(db):
 
 
 @pytest.fixture
-def admin_user(admin_user, group, group_locations, user_group_factory):
+def admin_user(admin_user, group, group_location, user_group_factory):
     user_group_factory(group=group, user=admin_user, default_group=1)
     return admin_user
 
