@@ -15,13 +15,13 @@ from camac.instance.models import Instance
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
-from . import models, serializers
+from . import filters, models, serializers
 
 
 class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
     queryset = models.Attachment.objects
     serializer_class = serializers.AttachmentSerializer
-    # TODO: filter for instance, attachment_section, user
+    filter_class = filters.AttachmentFilterSet
     parser_classes = (
         parsers.MultiPartParser,
         parsers.FormParser,
