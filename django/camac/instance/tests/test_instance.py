@@ -13,8 +13,8 @@ from camac.instance import serializers
     ('Service', LazyFixture('user'), 9, 1),
     ('Unknown', LazyFixture('user'), 2, 0),
 ])
-def test_instance_list(admin_client, instance, instance_locations, activation,
-                       size, num_queries, django_assert_num_queries):
+def test_instance_list(admin_client, instance, activation, size, num_queries,
+                       django_assert_num_queries):
     url = reverse('instance-list')
 
     included = serializers.InstanceSerializer.included_serializers
@@ -76,8 +76,8 @@ def test_instance_destroy(admin_client, instance):
     ('Municipality', status.HTTP_403_FORBIDDEN),
     ('Service', status.HTTP_403_FORBIDDEN),
 ])
-def test_instance_create(admin_client, admin_user, form, instance_state,
-                         status_code):
+def test_instance_create(admin_client, admin_user, form, location,
+                         instance_state, status_code):
     url = reverse('instance-list')
 
     data = {
@@ -85,6 +85,12 @@ def test_instance_create(admin_client, admin_user, form, instance_state,
             'type': 'instances',
             'id': None,
             'relationships': {
+                'location': {
+                    'data': {
+                        'type': 'locations',
+                        'id': location.pk,
+                    }
+                },
                 'form': {
                     'data': {
                         'type': 'forms',

@@ -11,7 +11,7 @@ class InstanceFilterSet(FilterSet):
             'instance_state',
             'form',
             'user',
-            'locations',
+            'location',
         )
 
 
