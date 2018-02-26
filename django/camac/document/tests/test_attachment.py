@@ -13,15 +13,15 @@ from .data import django_file
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 8, 1),
-    ('Canton', LazyFixture('user'), 8, 1),
-    ('Municipality', LazyFixture('user'), 8, 1),
-    ('Service', LazyFixture('user'), 8, 1),
+    ('Applicant', LazyFixture('admin_user'), 7, 1),
+    ('Canton', LazyFixture('user'), 7, 1),
+    ('Municipality', LazyFixture('user'), 7, 1),
+    ('Service', LazyFixture('user'), 7, 1),
     ('Unknown', LazyFixture('user'), 2, 0),
 ])
 def test_attachment_list(admin_client, attachment, num_queries,
-                         attachment_section_group_acl, instance_locations,
-                         activation, size, django_assert_num_queries):
+                         attachment_section_group_acl, activation, size,
+                         django_assert_num_queries):
     url = reverse('attachment-list')
 
     included = serializers.AttachmentSerializer.included_serializers
@@ -38,7 +38,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
 
 
 @pytest.mark.parametrize(
-    "filename,mime_type,role__name,instance__user,instance_locations__location,activation__service,attachment_section_group_acl__mode,status_code", [  # noqa: E501
+    "filename,mime_type,role__name,instance__user,instance__location,activation__service,attachment_section_group_acl__mode,status_code", [  # noqa: E501
         # applicant creates valid pdf attachment on a instance of its own in a
         # attachment section with admin permissions
         (
@@ -46,7 +46,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             'application/pdf',  # mime_type
             'Applicant',  # role__name
             LazyFixture('admin_user'),  # instance__user
-            LazyFixture('location'),  # instance_locations__location
+            LazyFixture('location'),  # instance__location
             LazyFixture('service'),  # activation__service
             models.ADMIN_PERMISSION,  # attachment_section_group_acl__mode
             status.HTTP_201_CREATED,  # status_code
@@ -167,9 +167,8 @@ def test_attachment_list(admin_client, attachment, num_queries,
     ]
 )
 def test_attachment_create(admin_client, instance, attachment_section,
-                           activation, instance_locations,
-                           attachment_section_group_acl, mime_type, filename,
-                           status_code):
+                           activation, attachment_section_group_acl, mime_type,
+                           filename, status_code):
     url = reverse('attachment-list')
 
     path = django_file(filename)
