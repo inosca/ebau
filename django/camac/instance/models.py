@@ -19,7 +19,7 @@ class Form(models.Model):
     form_state = models.ForeignKey(
         FormState, models.DO_NOTHING, db_column='FORM_STATE_ID',
         related_name='+')
-    name = models.CharField(db_column='NAME', max_length=500)
+    name = models.CharField(db_column='NAME', max_length=500, unique=True)
     description = models.CharField(
         db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
 
@@ -31,7 +31,7 @@ class Form(models.Model):
 class InstanceState(models.Model):
     instance_state_id = models.AutoField(
         db_column='INSTANCE_STATE_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100)
+    name = models.CharField(db_column='NAME', max_length=100, unique=True)
     sort = models.IntegerField(db_column='SORT')
 
     class Meta:
@@ -77,8 +77,10 @@ class Instance(models.Model):
     previous_instance_state = models.ForeignKey(
         InstanceState, models.DO_NOTHING,
         db_column='PREVIOUS_INSTANCE_STATE_ID', related_name='+')
-    locations = models.ManyToManyField('user.Location', blank=True,
-                                       db_table='INSTANCE_LOCATION')
+    identifier = models.CharField(db_column='IDENTIFIER', max_length=50,
+                                  blank=True, null=True)
+    location = models.ForeignKey('user.Location', models.PROTECT, null=True,
+                                 blank=True, db_column='LOCATION_ID')
 
     class Meta:
         managed = True

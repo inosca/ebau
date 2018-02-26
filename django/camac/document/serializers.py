@@ -105,11 +105,7 @@ class TemplateSerializer(serializers.ModelSerializer):
 class InstanceMailMergeSerializer(serializers.ModelSerializer):
     """Converts instance into a dict so it can be used with `MailMerge`."""
 
-    location = serializers.SerializerMethodField()
-
-    def get_location(self, instance):
-        location = instance.locations.first()
-        return location and location.name or ''
+    location = serializers.ResourceRelatedField(read_only=True)
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)

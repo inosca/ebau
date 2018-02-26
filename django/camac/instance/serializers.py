@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.user.models import Location
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
@@ -40,6 +41,10 @@ class InstanceSerializer(serializers.ModelSerializer):
         read_only=True, default=serializers.CurrentUserDefault()
     )
 
+    location = serializers.ResourceRelatedField(
+        queryset=Location.objects.all(), required=True
+    )
+
     creation_date = serializers.DateTimeField(
         read_only=True, default=timezone.now
     )
@@ -55,7 +60,7 @@ class InstanceSerializer(serializers.ModelSerializer):
     )
 
     included_serializers = {
-        'locations': 'camac.user.serializers.LocationSerializer',
+        'location': 'camac.user.serializers.LocationSerializer',
         'user': 'camac.user.serializers.UserSerializer',
         'group': 'camac.user.serializers.GroupSerializer',
         'form': FormSerializer,
@@ -70,13 +75,17 @@ class InstanceSerializer(serializers.ModelSerializer):
         model = models.Instance
         fields = (
             'instance_state',
-            'locations',
+            'identifier',
+            'location',
             'form',
             'user',
             'group',
             'creation_date',
             'modification_date',
             'previous_instance_state'
+        )
+        read_only_fields = (
+            'identifier',
         )
 
 
