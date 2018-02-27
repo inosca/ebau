@@ -3,7 +3,6 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
-from camac.user.models import Location
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
@@ -11,8 +10,7 @@ from . import models
 
 class NewInstanceStateDefault(object):
     def __call__(self):
-        # TODO: change to new instance state
-        return models.InstanceState.objects.first()
+        return models.InstanceState.objects.get(name='new')
 
 
 class InstanceStateSerializer(serializers.ModelSerializer):
@@ -41,10 +39,6 @@ class InstanceSerializer(serializers.ModelSerializer):
         read_only=True, default=serializers.CurrentUserDefault()
     )
 
-    location = serializers.ResourceRelatedField(
-        queryset=Location.objects.all(), required=True
-    )
-
     creation_date = serializers.DateTimeField(
         read_only=True, default=timezone.now
     )
@@ -70,6 +64,24 @@ class InstanceSerializer(serializers.ModelSerializer):
 
     def validate_modification_date(self, value):
         return timezone.now()
+
+    def validate_location(self, location):
+        if self.instance and self.instance.identifier:
+            if self.instance.location != location:
+                raise exceptions.ValidationError(
+                    _('Location may not be changed.')
+                )
+
+        return location
+
+    def validate_form(self, form):
+        if self.instance and self.instance.identifier:
+            if self.instance.form != form:
+                raise exceptions.ValidationError(
+                    _('Form may not be changed.')
+                )
+
+        return form
 
     class Meta:
         model = models.Instance
