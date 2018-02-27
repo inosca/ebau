@@ -160,6 +160,7 @@ def test_instance_submit(admin_client, admin_user, form,
     if status_code == status.HTTP_204_NO_CONTENT:
         instance.refresh_from_db()
         assert instance.identifier == '11-17-001'
+        assert instance.instance_state.name == 'comm'
 
 
 @pytest.mark.freeze_time('2017-7-27')
