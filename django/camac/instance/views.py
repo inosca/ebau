@@ -1,8 +1,11 @@
+from django.conf import settings
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
+from django_downloadview.api import PathDownloadView
 from rest_framework import exceptions, response, status, viewsets
 from rest_framework.decorators import detail_route
+from rest_framework.views import APIView
 from rest_framework_json_api import views
 
 from camac.user.permissions import permission_aware
@@ -15,6 +18,11 @@ class FormView(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         return models.Form.objects.all()
+
+
+class FormConfigDownloadView(PathDownloadView, APIView):
+    attachment = False
+    path = settings.APPLICATION_DIR('form.json')
 
 
 class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
