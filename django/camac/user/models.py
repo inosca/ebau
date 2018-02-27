@@ -101,7 +101,7 @@ class Group(models.Model):
         db_column='EMAIL', max_length=100, blank=True, null=True)
     website = models.CharField(
         db_column='WEBSITE', max_length=1000, blank=True, null=True)
-    locations = models.ManyToManyField('Location', db_table='GROUP_LOCATION')
+    locations = models.ManyToManyField('Location', through='GroupLocation')
 
     class Meta:
         managed = True
@@ -133,6 +133,19 @@ class Location(models.Model):
     class Meta:
         managed = True
         db_table = 'LOCATION'
+
+
+class GroupLocation(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)
+    group = models.ForeignKey(Group, models.CASCADE,
+                              db_column='GROUP_ID', related_name='+')
+    location = models.ForeignKey(Location, models.CASCADE,
+                                 db_column='LOCATION_ID', related_name='+')
+
+    class Meta:
+            managed = True
+            db_table = 'GROUP_LOCATION'
+            unique_together = (('group', 'location'),)
 
 
 class UserGroup(models.Model):

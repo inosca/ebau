@@ -10,10 +10,14 @@ services:
         ports:
             - "80:80"
 
+    clamav:
+        ports:
+            - "3310:3310"
+
     db:
-        build:
-          context: db
+        # build:
           # TODO: enable again when following issue is fixed
+          # needs to be enabled in all build services
           # https://github.com/docker/compose/issues/5458
           # cache_from:
           #     - acr.run/camac-ng/camac-ng/db:master
@@ -25,10 +29,6 @@ services:
             - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
 
     django:
-        build:
-          context: django
-          # cache_from:
-          #     - acr.run/camac-ng/camac-ng/django:master
         ports:
             - '8000:80'
         volumes:
@@ -37,10 +37,6 @@ services:
             - APPLICATION_ENV=development-${APPLICATION}
 
     ember:
-        build:
-          context: ember
-          # cache_from:
-          #     - acr.run/camac-ng/camac-ng/ember:master
         ports:
             - '4200:80'
         volumes:
@@ -51,10 +47,6 @@ services:
             - /app/dist/
 
     php:
-        build:
-          context: php
-          # cache_from:
-          #     - acr.run/camac-ng/camac-ng/php:master
         volumes:
             - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
             - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
@@ -66,3 +58,7 @@ services:
             - APPLICATION=${APPLICATION}
         ports:
             - '4300:80'
+
+    unoconv:
+        ports:
+            - '3000:3000'
