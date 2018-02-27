@@ -7,7 +7,7 @@ djangorestframework-jsonapi==2.4.0
 djangorestframework-jwt==1.11.0
 docx-mailmerge==0.4.0
 Pillow==5.0.0
-psycopg2==2.7.4
+psycopg2-binary==2.7.4
 python-memcached==1.59
 sorl-thumbnail==12.4.1
 

@@ -1,5 +1,95 @@
 [
 {
+  "model": "instance.form",
+  "pk": 1,
+  "fields": {
+    "form_state": 1,
+    "name": "baugesuch-reklamegesuch",
+    "description": "Baugesuch, Reklamegesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 2,
+  "fields": {
+    "form_state": 1,
+    "name": "projektanderung",
+    "description": "Projekt\u00e4nderung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 3,
+  "fields": {
+    "form_state": 1,
+    "name": "vorentscheid-gemass-ss84-pbg",
+    "description": "Vorentscheid gem\u00e4ss \u00a784 PBG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 4,
+  "fields": {
+    "form_state": 1,
+    "name": "vorabklarung",
+    "description": "Vorabkl\u00e4rung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 5,
+  "fields": {
+    "form_state": 1,
+    "name": "baumeldung-fur-geringfugiges-vorhaben",
+    "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 6,
+  "fields": {
+    "form_state": 1,
+    "name": "technische-bewilligung",
+    "description": "Technische Bewilligung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 7,
+  "fields": {
+    "form_state": 1,
+    "name": "konzession-fur-wasserentnahme",
+    "description": "Konzession f\u00fcr Wasserentnahme"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 8,
+  "fields": {
+    "form_state": 1,
+    "name": "plangenehmigungsgesuch",
+    "description": "Plangenehmigungsgesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 9,
+  "fields": {
+    "form_state": 1,
+    "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
+    "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a715 StraG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 10,
+  "fields": {
+    "form_state": 1,
+    "name": "anlassbewilligungen-verkehrsbewilligungen",
+    "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+  }
+},
+{
   "model": "instance.formstate",
   "pk": 1,
   "fields": {
