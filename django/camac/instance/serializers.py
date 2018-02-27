@@ -10,8 +10,7 @@ from . import models
 
 class NewInstanceStateDefault(object):
     def __call__(self):
-        # TODO: change to new instance state
-        return models.InstanceState.objects.first()
+        return models.InstanceState.objects.get(name='new')
 
 
 class InstanceStateSerializer(serializers.ModelSerializer):
@@ -55,7 +54,7 @@ class InstanceSerializer(serializers.ModelSerializer):
     )
 
     included_serializers = {
-        'locations': 'camac.user.serializers.LocationSerializer',
+        'location': 'camac.user.serializers.LocationSerializer',
         'user': 'camac.user.serializers.UserSerializer',
         'group': 'camac.user.serializers.GroupSerializer',
         'form': FormSerializer,
@@ -66,17 +65,39 @@ class InstanceSerializer(serializers.ModelSerializer):
     def validate_modification_date(self, value):
         return timezone.now()
 
+    def validate_location(self, location):
+        if self.instance and self.instance.identifier:
+            if self.instance.location != location:
+                raise exceptions.ValidationError(
+                    _('Location may not be changed.')
+                )
+
+        return location
+
+    def validate_form(self, form):
+        if self.instance and self.instance.identifier:
+            if self.instance.form != form:
+                raise exceptions.ValidationError(
+                    _('Form may not be changed.')
+                )
+
+        return form
+
     class Meta:
         model = models.Instance
         fields = (
             'instance_state',
-            'locations',
+            'identifier',
+            'location',
             'form',
             'user',
             'group',
             'creation_date',
             'modification_date',
             'previous_instance_state'
+        )
+        read_only_fields = (
+            'identifier',
         )
 
 

@@ -32,24 +32,18 @@ class InstanceStateFactory(DjangoModelFactory):
 
 
 class InstanceFactory(DjangoModelFactory):
+    identifier = None
     instance_state = SubFactory(InstanceStateFactory)
     previous_instance_state = SubFactory(InstanceStateFactory)
     form = SubFactory(FormFactory)
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
+    location = SubFactory(LocationFactory)
     creation_date = Faker('past_datetime', tzinfo=pytz.UTC)
     modification_date = Faker('past_datetime', tzinfo=pytz.UTC)
 
     class Meta:
         model = models.Instance
-
-
-class InstanceLocationFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
-    location = SubFactory(LocationFactory)
-
-    class Meta:
-        model = models.Instance.locations.through
 
 
 class FormFieldFactory(DjangoModelFactory):

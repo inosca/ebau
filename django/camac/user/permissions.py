@@ -73,7 +73,7 @@ class ViewPermissions(permissions.BasePermission):
 
         return True
 
-    def has_object_permission(self, request, view, obj):  # pragma: todo cover
+    def has_object_permission(self, request, view, obj):
         action = self._get_action(view)
         if action:
             method = "has_object_{action}_permission".format(action=action)
