@@ -1,5 +1,58 @@
 [
 {
+  "model": "instance.formstate",
+  "pk": 1,
+  "fields": {
+    "name": "Published"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 1,
+  "fields": {
+    "name": "new",
+    "sort": 0
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 2,
+  "fields": {
+    "name": "comm",
+    "sort": 1
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1,
+  "fields": {
+    "role": 1,
+    "service": null,
+    "name": "Admin",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 2,
+  "fields": {
+    "role": 2,
+    "service": null,
+    "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {

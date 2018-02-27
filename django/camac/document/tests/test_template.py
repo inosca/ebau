@@ -74,7 +74,7 @@ def test_template_detail(admin_client, template):
     'testname',
 ])
 def test_template_merge(admin_client, template, instance, to_type,
-                        instance_locations, form_field, status_code):
+                        form_field, status_code):
 
     url = reverse('template-merge', args=[template.pk])
     response = admin_client.get(url, data={
