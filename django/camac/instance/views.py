@@ -3,7 +3,7 @@ from rest_framework_json_api import views
 
 from camac.user.permissions import permission_aware
 
-from . import mixins, models, serializers
+from . import filters, mixins, models, serializers
 
 
 class FormView(viewsets.ReadOnlyModelViewSet):
@@ -20,6 +20,7 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """
 
     serializer_class = serializers.InstanceSerializer
+    filter_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
 
     @permission_aware
@@ -59,6 +60,7 @@ class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """
 
     serializer_class = serializers.FormFieldSerializer
+    filter_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
 
     @permission_aware
