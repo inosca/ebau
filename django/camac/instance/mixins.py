@@ -48,11 +48,9 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr('pk', 'in')
 
-        instances = models.Instance.locations.through.objects.filter(
+        instances = models.Instance.objects.filter(
             location=self.request.group.locations.all()
-        ).values('instance')
-
-        # use subquery to avoid duplicates
+        )
         return queryset.filter(
             **{instance_field: instances}
         )
@@ -94,8 +92,7 @@ class InstanceValidationMixin(object):
     def validate_instance_for_municipality(self, instance):
         group = get_request(self).group
 
-        locations = instance.locations.all()
-        if not locations.filter(pk__in=group.locations.all()).exists():
+        if not group.locations.filter(pk=instance.location_id).exists():
             raise exceptions.ValidationError(
                 _('Not allowed to add attachments to this instance')
             )

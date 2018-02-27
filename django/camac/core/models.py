@@ -1322,6 +1322,21 @@ class InstanceGuest(models.Model):
         db_table = 'INSTANCE_GUEST'
 
 
+class InstanceLocation(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)
+    location = models.ForeignKey(
+        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        related_name='+')
+    instance = models.ForeignKey(
+        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'INSTANCE_LOCATION'
+        unique_together = (('location', 'instance'),)
+
+
 class InstanceLocationLog(models.Model):
     instance_location_log_id = models.AutoField(
         db_column='INSTANCE_LOCATION_LOG_ID', primary_key=True)
