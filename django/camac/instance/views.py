@@ -105,7 +105,7 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
         self.generate_identifier(instance)
         instance.previous_instance_state = instance.instance_state
-        instance.instante_state = models.InstanceState.objects.get(name='comm')
+        instance.instance_state = models.InstanceState.objects.get(name='comm')
         instance.save()
 
         return response.Response(status=status.HTTP_204_NO_CONTENT)
