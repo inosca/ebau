@@ -24,3 +24,4 @@ git+https://github.com/pytest-dev/pytest-django@927d6c1
 
 pytest-env==0.6.2
 pytest-factoryboy==1.3.2
+pytest-freezegun==0.2.0
