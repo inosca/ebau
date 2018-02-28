@@ -1,7 +1,6 @@
 {{#uk-flex horizontal='center' class='uk-height-viewport uk-padding-large login'}}
   <div class="uk-text-center">
-    <img class="uk-height-small" src="/assets/images/kanton_schwyz.svg" alt="Kanton Schwyz">
-    <h1>Bürgerportal</h1>
+    <img class="uk-width-1-1 uk-width-large@m uk-padding" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
     {{#uk-card class=(concat 'uk-text-left' (if login.last.isError ' uk-animation-shake')) width='1-1 large@m' as |card|}}
       {{#card.body}}
         <form {{action (perform login) identification password on='submit'}}>

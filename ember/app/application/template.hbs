@@ -1,9 +1,11 @@
-{{#service-worker-update-notify}}
-  <div class="uk-alert uk-alert-primary uk-text-center uk-animation-slide-top-medium">
-    <a class="service-worker-update-notify" href="">
-      Es existiert eine neue Version der Applikation, klicken Sie hier um sie zu laden.
-    </a>
-  </div>
-{{/service-worker-update-notify}}
+{{#a11y-landmark tagName='main'}}
+  {{#service-worker-update-notify}}
+    <div class="uk-text-center uk-padding-small uk-background-secondary uk-light">
+      <a class="service-worker-update-notify" href="">
+        Es existiert eine neue Version der Applikation, klicken Sie hier um sie zu laden.
+      </a>
+    </div>
+  {{/service-worker-update-notify}}
 
-{{outlet}}
+  {{focusing-outlet}}
+{{/a11y-landmark}}
