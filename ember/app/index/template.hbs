@@ -5,8 +5,8 @@
   Was wollen Sie als Nächstes machen?
 </h4>
 
-<div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@m">
-  {{#uk-flex horizontal='right'}}
+<div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@s">
+  {{#uk-flex horizontal='center' class='uk-flex-right@s'}}
     {{#link-to 'instances.new' class='uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column'}}
       {{uk-icon 'plus' ratio=3}}
       <br>
@@ -14,7 +14,7 @@
     {{/link-to}}
   {{/uk-flex}}
 
-  {{#uk-flex horizontal='left'}}
+  {{#uk-flex horizontal='center' class='uk-flex-left@s'}}
     {{#link-to 'instances.index' class='uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column'}}
       {{uk-icon 'pencil' ratio=3}}
       <br>
