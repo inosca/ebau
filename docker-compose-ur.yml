@@ -17,7 +17,7 @@ services:
             - camac_db
             - camac_cache
         environment:
-            - APPLICATION_ENV=development
+            - APPLICATION_ENV=development-kt_uri
 
     camac_db:
         image: wnameless/oracle-xe-11g
