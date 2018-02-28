@@ -1,5 +1,14 @@
 [
 {
+  "model": "core.availableresource",
+  "pk": "apilist",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
   "model": "instance.form",
   "pk": 1,
   "fields": {
