@@ -10,6 +10,14 @@ module.exports = function(defaults) {
     'ember-service-worker': {
       versionStrategy: 'every-build',
       registrationStrategy: 'inline'
+    },
+    'asset-cache': {
+      manual: [
+        'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'
+      ]
+    },
+    'esw-cache-fallback': {
+      patterns: ['https://fonts.gstatic.com/(.+)']
     }
   })
 
