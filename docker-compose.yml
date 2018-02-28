@@ -59,6 +59,21 @@ services:
     clamav:
         image: dinkel/clamavd
 
+    keycloak:
+        ports:
+            - '8080:8080'
+        depends_on:
+            - db
+        image: jboss/keycloak:3.4.3.Final
+        environment:
+            - POSTGRES_PORT_5432_TCP_ADDR=db
+            - POSTGRES_USER=camac
+            - POSTGRES_PASSWORD=camac
+            - POSTGRES_DATABASE=${APPLICATION}
+            - KEYCLOAK_USER=camac
+            - KEYCLOAK_PASSWORD=camac
+            - KEYCLOAK_LOGLEVEL=DEBUG
+
 volumes:
     pgdata:
     djangomedia:
