@@ -1,9 +1,3 @@
 import Route from '@ember/routing/route'
 
-const breadCrumb = {
-  title: 'Grundinformationen'
-}
-
-export default Route.extend({
-  breadCrumb
-})
+export default Route.extend({})
