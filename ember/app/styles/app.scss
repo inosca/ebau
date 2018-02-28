@@ -1,8 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:300,500,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 
-$global-font-family: 'Lato', sans-serif;
+$global-primary-background: rgb(225, 10, 22);
+
+$global-link-color: darken($global-primary-background, 10%);
+$global-link-hover-color: darken($global-link-color, 10%);
+
+$global-font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+  'Helvetica Neue', Arial, sans-serif;
+$global-font-size: 17px;
+
 $base-body-font-weight: 300;
 $base-heading-font-weight: 300;
+
+$form-focus-border: rgb(87, 87, 87);
 
 @import 'ember-uikit';
 @import 'ember-power-select-custom';
@@ -10,3 +20,7 @@ $base-heading-font-weight: 300;
 @import 'login';
 
 @import 'pod-styles';
+
+.pointer {
+  cursor: pointer;
+}

@@ -1,0 +1,14 @@
+{{#a11y-landmark tagName='nav' class='uk-padding-small uk-background-muted uk-flex uk-flex-between uk-flex-middle uk-margin'}}
+  <div>
+    {{#bread-crumbs tagName='ul' class='uk-breadcrumb uk-margin-remove' linkable=true as |component route|}}
+      {{#bread-crumb route=route}}
+        {{#if route.linkable}}{{#link-to route.path}}{{~route.title~}}{{/link-to}}{{else}}<span>{{~route.title~}}</span>{{/if}}
+      {{/bread-crumb}}
+    {{/bread-crumbs}}
+  </div>
+  <div>
+    <button uk-icon="sign-out" class="uk-icon-button" title="Ausloggen" {{action 'logout' on='click'}}></button>
+  </div>
+{{/a11y-landmark}}
+
+{{focusing-outlet}}

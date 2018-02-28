@@ -1,0 +1,45 @@
+<h1>Ihre Dossiers</h1>
+
+<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+  <thead>
+    <tr>
+      <th>Gesuchsnummer</th>
+      <th>Status</th>
+      <th>Gesuchsart</th>
+      <th>Gemeinde</th>
+      <th>Erstelldatum</th>
+      <th>Zuletzt bearbeitet</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each (reject-by 'isNew' true model) as |instance|}}
+      <tr role="link" title="Klicken Sie um das Dossier zu bearbeiten" class="pointer" {{action (transition-to 'instances.edit' instance.id) on='click'}}>
+        <td>
+          {{instance.identifier}}
+        </td>
+        <td>
+          {{instance.instanceState.description}}
+        </td>
+        <td>
+          {{instance.form.name}}
+        </td>
+        <td>
+          {{#if instance.location}}
+            {{instance.location.federalNumber}} - {{instance.location.name}}
+          {{/if}}
+        </td>
+        <td>
+          {{format-date instance.creationDate format='datetime'}}
+        </td>
+        <td>
+          {{format-date instance.modificationDate format='datetime'}}
+        </td>
+      </tr>
+    {{/each}}
+    <tr role="link" title="Klicken Sie um ein neues Dossier zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
+      <td class="uk-text-center" colspan=6>
+        {{uk-icon 'plus' scale=2}}
+      </td>
+    </tr>
+  </tbody>
+</table>
