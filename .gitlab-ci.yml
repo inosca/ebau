@@ -49,6 +49,7 @@ build:
         - eval $COMPOSE push
     only:
         - master
+        - stage
 
 
 deploy-kt_schwyz-stage:
