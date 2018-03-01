@@ -13,11 +13,12 @@ ZIP_IGNORE_PATTERN="\.(gitignore|empty)"
 
 .PHONY: init-ur
 init-ur:
+	@ln -fs php/ camac
 	touch camac/logs/application.log
 	chmod 777 -R camac/logs || true
 	@rm -f camac/configuration
-	@ln -fs ../kt_uri/configuration camac/configuration
-	ln -sf "../../kt_uri/configuration/public" "camac/public/"
+	@ln -fs ./kt_uri camac/configuration
+	ln -sf "../kt_uri/public" "camac/public/"
 	@mkdir -p camac/logs/mails
 	@chmod -R o+w camac/logs
 	@chmod o+w camac/configuration/upload

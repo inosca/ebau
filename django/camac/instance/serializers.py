@@ -43,7 +43,9 @@ class InstanceSerializer(serializers.ModelSerializer):
         read_only=True, default=timezone.now
     )
 
-    modification_date = serializers.DateTimeField(default=timezone.now)
+    modification_date = serializers.DateTimeField(
+        read_only=True, default=timezone.now
+    )
 
     instance_state = serializers.ResourceRelatedField(
         read_only=True, default=NewInstanceStateDefault()
