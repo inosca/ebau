@@ -8,15 +8,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+    {{content-for 'head'}}
+    {{content-for 'concat-css'}}
 
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="prefetch" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400">
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/citizen-portal.css">
-
-    {{content-for "head-footer"}}
+    {{content-for 'head-footer'}}
   </head>
   <body>
     <noscript>
@@ -26,11 +24,8 @@
       </div>
     </noscript>
 
-    {{content-for "body"}}
-
-    <script src="{{rootURL}}assets/vendor.js" defer></script>
-    <script src="{{rootURL}}assets/citizen-portal.js" defer></script>
-
-    {{content-for "body-footer"}}
+    {{content-for 'body'}}
+    {{content-for 'concat-js'}}
+    {{content-for 'body-footer'}}
   </body>
 </html>

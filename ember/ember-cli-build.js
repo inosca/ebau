@@ -7,6 +7,15 @@ module.exports = function(defaults) {
     babel: {
       plugins: ['transform-object-rest-spread']
     },
+    emberCliConcat: {
+      js: {
+        concat: true,
+        useAsync: true
+      },
+      css: {
+        concat: true
+      }
+    },
     'ember-service-worker': {
       versionStrategy: 'every-build',
       registrationStrategy: 'inline'
