@@ -107,6 +107,7 @@ config_models = (
     'core.QuestionChapterServiceAcl',
     'core.QuestionType',
     'core.Resource',
+    'core.RApiList',
     'core.RFormlist',
     'core.RGroupAcl',
     'core.RList',
