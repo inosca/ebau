@@ -2260,6 +2260,16 @@ class QuestionType(models.Model):
         db_table = 'QUESTION_TYPE'
 
 
+class RApiList(models.Model):
+    resource_id = models.AutoField(db_column='RESOURCE_ID', primary_key=True)
+    instance_states = models.CharField(
+        db_column='INSTANCE_STATES', max_length=100)
+
+    class Meta:
+        managed = True
+        db_table = 'R_API_LIST'
+
+
 class RFormlist(models.Model):
     resource = models.OneToOneField('Resource', models.DO_NOTHING,
                                     db_column='RESOURCE_ID', primary_key=True,
