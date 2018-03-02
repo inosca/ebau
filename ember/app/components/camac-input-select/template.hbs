@@ -1,4 +1,7 @@
-<option></option>
-{{#each config.options as |option|}}
-  <option value={{option}}>{{option}}</option>
-{{/each}}
+{{#power-select
+  selected = value
+  options  = config.options
+  onchange = (action _change)
+as |option|}}
+  {{option}}
+{{/power-select}}

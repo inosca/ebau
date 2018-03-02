@@ -1,11 +1,8 @@
 import Component from '@ember/component'
+import { serialize, deserialize } from './serializer'
+import CamacInputComponentMixin from 'citizen-portal/mixins/camac-input-component'
 
-export default Component.extend({
-  tagName: 'select',
-  classNames: ['uk-select'],
-  change(e) {
-    e.preventDefault()
-
-    this.getWithDefault('attrs.on-change', () => {})(e.target.value || null)
-  }
+export default Component.extend(CamacInputComponentMixin, {
+  _serialize: serialize,
+  _deserialize: deserialize
 })
