@@ -3123,6 +3123,13 @@ ember-native-dom-helpers@^0.6.2:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
 
+ember-offline-notify@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ember-offline-notify/-/ember-offline-notify-0.1.0.tgz#8776468e4ba3d82f169e76a2266cd86afb9ea6ed"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+
 ember-power-select@^2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-2.0.0-beta.3.tgz#af24c064b72c6550a73d534ede9545fb35d86961"
