@@ -1,4 +1,11 @@
 {{#a11y-landmark tagName='main'}}
+  {{#offline-notify}}
+    <div class="uk-text-center uk-padding-small uk-background-primary uk-light">
+      Sie sind nicht mit dem Internet verbunden. Bitte verbinden Sie sich
+      wieder, damit die Anwendung funktioniert!
+    </div>
+  {{/offline-notify}}
+
   {{#service-worker-update-notify}}
     <div class="uk-text-center uk-padding-small uk-background-secondary uk-light">
       <a class="service-worker-update-notify" href="">
