@@ -29,16 +29,12 @@ services:
             - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
 
     django:
-        ports:
-            - '8000:80'
         volumes:
             - ./django:/app
         environment:
             - APPLICATION_ENV=development-${APPLICATION}
 
     ember:
-        ports:
-            - '4200:80'
         volumes:
             - ./ember/nginx.conf:/etc/nginx/sites-enabled/default:ro
             - ./ember:/app
