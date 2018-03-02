@@ -17,7 +17,6 @@ from .data import django_file
     ('Canton', LazyFixture('user'), 7, 1),
     ('Municipality', LazyFixture('user'), 7, 1),
     ('Service', LazyFixture('user'), 7, 1),
-    ('Unknown', LazyFixture('user'), 2, 0),
 ])
 def test_attachment_list(admin_client, attachment, num_queries,
                          attachment_section_group_acl, activation, size,
@@ -151,18 +150,6 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
-        ),
-        # user with role Unknown tries to create valid jpg attachment
-        # on its own instance with an attachment section with admin permissions
-        (
-            'test-thumbnail.jpg',
-            'image/jpeg',
-            'Unknown',
-            LazyFixture('admin_user'),
-            LazyFixture('location'),
-            LazyFixture('service'),
-            models.ADMIN_PERMISSION,
-            status.HTTP_400_BAD_REQUEST
         ),
     ]
 )

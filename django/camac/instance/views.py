@@ -8,8 +8,6 @@ from rest_framework.decorators import detail_route
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 
-from camac.user.permissions import permission_aware
-
 from . import filters, mixins, models, serializers
 
 
@@ -40,47 +38,24 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         'instance_state__name'
     ]
 
-    @permission_aware
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.none()
-
-    @permission_aware
     def has_object_update_permission(self, instance):
-        return False
-
-    def has_object_update_permission_for_applicant(self, instance):
-        return instance.instance_state.name == 'new'
+        return (
+            instance.instance_state.name == 'new' and
+            instance.user == self.request.user
+        )
 
     def has_destroy_permission(self):
         """Disallow destroy of instances."""
         return False
 
-    @permission_aware
-    def has_create_permission(self):
-        """Disallow creating of instances.
-
-        Create is only allowed on certain roles.
-        """
-        return False
-
-    def has_create_permission_for_applicant(self):
-        return True
-
-    @permission_aware
-    def has_submit_permission(self):
-        return False
-
-    def has_submit_permission_for_applicant(self):
-        return True
+    def has_object_submit_permission(self, instance):
+        return instance.user == self.request.user
 
     def validate_submit(self, instance):
-        # TODO: validate form data and protect it when not new
+        # TODO: validate form data
 
         if instance.location is None:
-            raise exceptions.ValidationError(
-                _('No location assigned.')
-            )
+            raise exceptions.ValidationError(_('No location assigned.'))
 
     def generate_identifier(self, instance):
         """
@@ -99,16 +74,14 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
             max_identifier = models.Instance.objects.filter(
                 identifier__startswith='{0}-{1}-'.format(location_nr, year)
-            ).aggregate(
-                max_identifier=Max('identifier')
-            )['max_identifier'] or '00-00-000'
+            ).aggregate(max_identifier=Max(
+                'identifier'))['max_identifier'] or '00-00-000'
             sequence = int(max_identifier[-3:])
 
             instance.identifier = '{0}-{1}-{2}'.format(
                 location_nr,
                 timezone.now().strftime('%y'),
-                str(sequence + 1).zfill(3)
-            )
+                str(sequence + 1).zfill(3))
 
     @detail_route(methods=['post'])
     def submit(self, request, pk=None):
@@ -136,27 +109,12 @@ class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     filter_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
 
-    @permission_aware
-    def get_queryset(self):
-        return models.FormField.objects.none()
+    def has_object_update_permission(self, form_field):
+        instance = form_field.instance
+        return (
+            instance.instance_state.name == 'new' and
+            instance.user == self.request.user
+        )
 
-    @permission_aware
-    def has_update_permission(self):
-        return False
-
-    def has_update_permission_for_applicant(self):
-        return True
-
-    @permission_aware
-    def has_destroy_permission(self):
-        return False
-
-    def has_destroy_permission_for_applicant(self):
-        return True
-
-    @permission_aware
-    def has_create_permission(self):
-        return False
-
-    def has_create_permission_for_applicant(self):
-        return True
+    def has_object_destroy_permission(self, form_field):
+        return self.has_object_update_permission(form_field)
