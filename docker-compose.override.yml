@@ -52,8 +52,6 @@ services:
         environment:
             - APPLICATION_ENV=development-${APPLICATION}
             - APPLICATION=${APPLICATION}
-        ports:
-            - '4300:80'
 
     unoconv:
         ports:
