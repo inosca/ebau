@@ -31,12 +31,12 @@ class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
         queryset = super().get_base_queryset()
         return queryset.filter_group(self.request.group)
 
-    @permission_aware
-    def get_queryset(self):
-        return models.Attachment.objects.none()
-
     def update(self, request, *args, **kwargs):
         raise exceptions.MethodNotAllowed('update')
+
+    # TODO: applicant may not upload any files
+    # when instance is not in state new
+    # camac user may still do so though
 
     def has_object_destroy_permission(self, obj):
         mode = obj.attachment_section.get_mode(self.request.group)
@@ -73,10 +73,6 @@ class AttachmentPathView(InstanceQuerysetMixin, ObjectDownloadView, APIView):
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
         return queryset.filter_group(self.request.group)
-
-    @permission_aware
-    def get_queryset(self):
-        return models.Attachment.objects.none()
 
 
 class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):

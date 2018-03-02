@@ -17,8 +17,8 @@ def permission_aware(func):
 
 
     Example, `get_queryset` method is called and the permission is determined
-    to be `applicant` decorator will first try to call
-    `get_queryset_for_applicant` and only if not existent will call
+    to be `canton` decorator will first try to call
+    `get_queryset_for_canton` and only if not existent will call
     `get_queryset` as fallback.
 
     Decorator inspired by
