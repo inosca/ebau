@@ -25,9 +25,9 @@
   </div>
 
   <div class="uk-width-1-1 uk-width-2-3@m">
-    <h1 class="uk-heading-divider uk-margin-medium uk-flex uk-flex-between">
+    <h1 class="uk-heading-divider uk-margin-medium uk-flex uk-flex-between uk-flex-wrap">
       {{#if model.identifier}}{{model.identifier}} - {{/if}}
-      {{model.form.name}}
+      {{model.form.description}}
       <span>
         {{uk-label label=model.instanceState.description}}
       </span>
