@@ -11,7 +11,6 @@ from camac.instance import serializers, views
     ('Canton', LazyFixture('user'), 9, 1),
     ('Municipality', LazyFixture('user'), 9, 1),
     ('Service', LazyFixture('user'), 9, 1),
-    ('Unknown', LazyFixture('user'), 2, 0),
 ])
 def test_instance_list(admin_client, instance, activation, size, num_queries,
                        django_assert_num_queries):
@@ -98,14 +97,8 @@ def test_instance_destroy(admin_client, instance):
 @pytest.mark.parametrize("instance_state__name", [
     'new',
 ])
-@pytest.mark.parametrize("role__name,status_code", [
-    ('Applicant', status.HTTP_201_CREATED),
-    ('Canton', status.HTTP_403_FORBIDDEN),
-    ('Municipality', status.HTTP_403_FORBIDDEN),
-    ('Service', status.HTTP_403_FORBIDDEN),
-])
 def test_instance_create(admin_client, admin_user, form,
-                         instance_state, status_code):
+                         instance_state):
     url = reverse('instance-list')
 
     data = {
@@ -124,18 +117,17 @@ def test_instance_create(admin_client, admin_user, form,
     }
 
     response = admin_client.post(url, data=data)
-    assert response.status_code == status_code
+    assert response.status_code == status.HTTP_201_CREATED
 
-    if status_code == status.HTTP_201_CREATED:
-        json = response.json()
+    json = response.json()
 
-        url = reverse('instance-list')
-        response = admin_client.post(url, data=json)
-        assert response.status_code == status.HTTP_201_CREATED
+    url = reverse('instance-list')
+    response = admin_client.post(url, data=json)
+    assert response.status_code == status.HTTP_201_CREATED
 
-        assert json['data']['attributes']['modification-date'] < (
-            response.json()['data']['attributes']['modification-date']
-        )
+    assert json['data']['attributes']['modification-date'] < (
+        response.json()['data']['attributes']['modification-date']
+    )
 
 
 @pytest.mark.freeze_time('2017-7-27')
@@ -146,9 +138,6 @@ def test_instance_create(admin_client, admin_user, form,
 @pytest.mark.parametrize("role__name,instance__location,status_code", [
     ('Applicant', LazyFixture('location'), status.HTTP_204_NO_CONTENT),
     ('Applicant', None, status.HTTP_400_BAD_REQUEST),
-    ('Canton', None, status.HTTP_403_FORBIDDEN),
-    ('Municipality', None, status.HTTP_403_FORBIDDEN),
-    ('Service', None, status.HTTP_403_FORBIDDEN),
 ])
 def test_instance_submit(admin_client, admin_user, form,
                          instance, instance_state, status_code):
