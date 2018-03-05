@@ -1,9 +1,18 @@
-{{#service-worker-update-notify}}
-  <div class="uk-alert uk-alert-primary uk-text-center uk-animation-slide-top-medium">
-    <a class="service-worker-update-notify" href="">
-      Es existiert eine neue Version der Applikation, klicken Sie hier um sie zu laden.
-    </a>
-  </div>
-{{/service-worker-update-notify}}
+{{#a11y-landmark tagName='main'}}
+  {{#offline-notify}}
+    <div class="uk-text-center uk-padding-small uk-background-primary uk-light">
+      Sie sind nicht mit dem Internet verbunden. Bitte verbinden Sie sich
+      wieder, damit die Anwendung funktioniert!
+    </div>
+  {{/offline-notify}}
 
-{{outlet}}
+  {{#service-worker-update-notify}}
+    <div class="uk-text-center uk-padding-small uk-background-secondary uk-light">
+      <a class="service-worker-update-notify" href="">
+        Es existiert eine neue Version der Anwendung, klicken Sie hier um sie zu laden.
+      </a>
+    </div>
+  {{/service-worker-update-notify}}
+
+  {{focusing-outlet}}
+{{/a11y-landmark}}
