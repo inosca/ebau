@@ -40,7 +40,18 @@ export default function() {
   this.get('/api/v1/instances/:id')
   this.patch('/api/v1/instances/:id')
 
-  this.get('/api/v1/form-fields')
+  this.get('/api/v1/form-fields', function(
+    { formFields },
+    { queryParams: { instance, name } }
+  ) {
+    return formFields.where(field => {
+      return (
+        (name ? field.name === name : true) &&
+        (instance ? field.instanceId === instance : true)
+      )
+    })
+  })
+
   this.post('/api/v1/form-fields')
   this.get('/api/v1/form-fields/:id')
   this.patch('/api/v1/form-fields/:id')

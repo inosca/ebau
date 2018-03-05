@@ -2,7 +2,8 @@ import Service from '@ember/service'
 import { inject as service } from '@ember/service'
 import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
-import validations from 'citizen-portal/data/validations'
+import validations from 'citizen-portal/questions/validations'
+import conditions from 'citizen-portal/questions/conditions'
 import fetch from 'fetch'
 
 export default Service.extend({
@@ -36,15 +37,35 @@ export default Service.extend({
       })
     )
 
-    return EmberObject.create({
-      identifier,
-      model,
-      ...getWithDefault(questions, identifier, {}),
+    let question = getWithDefault(questions, identifier, {})
+
+    let Question = EmberObject.extend({
+      display: computed('instance.formFields.@each.value', function() {
+        let fn = getWithDefault(conditions, identifier, () => true)
+
+        let findQuestion = name => getWithDefault(questions, name, {})
+
+        let findValue = name => {
+          let ff = this.get('instance.formFields').findBy('name', name)
+
+          return (ff && ff.get('value') && ff.get('value')) || null
+        }
+
+        return fn(findQuestion, findValue)
+      }),
       validate(value) {
         let fn = getWithDefault(validations, identifier, () => true)
 
         return fn(this, value)
       }
+    })
+
+    return Question.create({
+      validations,
+      identifier,
+      instance,
+      model,
+      ...question
     })
   }
 })

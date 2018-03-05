@@ -1,7 +1,7 @@
 {{#power-select
-  selected = value
+  selected = model.value
   options  = config.options
-  onchange = (action _change)
+  onchange = (action (optional on-change))
 as |option|}}
   {{option}}
 {{/power-select}}
