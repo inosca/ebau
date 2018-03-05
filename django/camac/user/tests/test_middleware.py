@@ -1,15 +1,10 @@
 from camac.user import middleware
 
 
-def test_get_user_jwt(admin_rf, admin_user):
-    request = admin_rf.request()
-    user = middleware.get_user_jwt(request)
-    assert user == admin_user
-
-
 def test_get_group_default(admin_rf, admin_user, group):
     request = admin_rf.request()
     request.user = admin_user
+    request.auth = {'aud': 'unknown'}
 
     request_group = middleware.get_group(request)
     assert request_group == group

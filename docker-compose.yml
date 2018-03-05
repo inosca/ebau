@@ -70,7 +70,7 @@ services:
             - POSTGRES_USER=camac
             - POSTGRES_PASSWORD=camac
             - POSTGRES_DATABASE=${APPLICATION}
-            - KEYCLOAK_USER=camac
+            - KEYCLOAK_USER=admin
             - KEYCLOAK_PASSWORD=camac
             - KEYCLOAK_LOGLEVEL=DEBUG
 

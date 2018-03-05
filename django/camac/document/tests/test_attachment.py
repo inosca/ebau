@@ -13,10 +13,10 @@ from .data import django_file
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 7, 1),
-    ('Canton', LazyFixture('user'), 7, 1),
-    ('Municipality', LazyFixture('user'), 7, 1),
-    ('Service', LazyFixture('user'), 7, 1),
+    ('Applicant', LazyFixture('admin_user'), 11, 1),
+    ('Canton', LazyFixture('user'), 11, 1),
+    ('Municipality', LazyFixture('user'), 11, 1),
+    ('Service', LazyFixture('user'), 11, 1),
 ])
 def test_attachment_list(admin_client, attachment, num_queries,
                          attachment_section_group_acl, activation, size,
