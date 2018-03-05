@@ -34,6 +34,11 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     serializer_class = serializers.InstanceSerializer
     filter_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
+    ordering_fields = [
+        'instance_id',
+        'identifier',
+        'instance_state__name'
+    ]
 
     @permission_aware
     def get_queryset(self):
