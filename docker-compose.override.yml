@@ -33,6 +33,7 @@ services:
             - ./django:/app
         environment:
             - APPLICATION_ENV=development-${APPLICATION}
+            - DJANGO_KEYCLOAK_URL=http://keycloak:8080/auth/
 
     ember:
         volumes:
@@ -56,3 +57,10 @@ services:
     unoconv:
         ports:
             - '3000:3000'
+
+    keycloak:
+        volumes:
+            - ./keycloak:/etc/keycloak:ro
+        environment:
+            - POSTGRES_PASSWORD=camac
+            - KEYCLOAK_PASSWORD=camac

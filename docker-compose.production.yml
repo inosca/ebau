@@ -49,6 +49,11 @@ services:
     clamav:
         restart: always
 
+    keycloak:
+        # disable keycloak
+        # workaround for https://github.com/docker/compose/issues/1896
+        command: /bin/true
+
 volumes:
     pgdata:
         external:
