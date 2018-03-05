@@ -2,13 +2,6 @@ import Component from '@ember/component'
 import { inject as service } from '@ember/service'
 import { computed } from '@ember/object'
 import { task, timeout } from 'ember-concurrency'
-import textSerializer from 'citizen-portal/components/camac-input-text/serializer'
-import selectSerializer from 'citizen-portal/components/camac-input-select/serializer'
-
-const serializerMap = {
-  text: textSerializer,
-  select: selectSerializer
-}
 
 const CamacInputComponent = Component.extend({
   classNames: ['uk-margin'],
@@ -41,7 +34,7 @@ const CamacInputComponent = Component.extend({
 
     let q = yield this.get('question')
 
-    let valid = q.validate(serializerMap[q.get('type')].deserialize(value))
+    let valid = q.validate(value)
 
     if (valid === true) {
       let model = q.get('model')

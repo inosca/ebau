@@ -4,7 +4,7 @@
   {{#each forms as |form|}}
     <div class="uk-width-1-1 uk-width-1-2@s">
       {{#uk-button color=(if (eq form.id model.form.id) 'secondary' 'default') width='1-1' class='uk-flex uk-flex-center uk-flex-middle uk-text-center' on-click=(action (mut model.form) form)}}
-        {{form.name}}
+        {{form.description}}
       {{/uk-button}}
     </div>
   {{/each}}
