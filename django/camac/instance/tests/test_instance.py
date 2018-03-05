@@ -7,10 +7,10 @@ from camac.instance import serializers, views
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 9, 1),
-    ('Canton', LazyFixture('user'), 9, 1),
-    ('Municipality', LazyFixture('user'), 9, 1),
-    ('Service', LazyFixture('user'), 9, 1),
+    ('Applicant', LazyFixture('admin_user'), 13, 1),
+    ('Canton', LazyFixture('user'), 13, 1),
+    ('Municipality', LazyFixture('user'), 13, 1),
+    ('Service', LazyFixture('user'), 13, 1),
 ])
 def test_instance_list(admin_client, instance, activation, size, num_queries,
                        django_assert_num_queries):
