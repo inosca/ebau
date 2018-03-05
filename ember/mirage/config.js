@@ -1,4 +1,5 @@
 import { Response } from 'ember-cli-mirage'
+import FormConfig from './form-config'
 
 export default function() {
   this.urlPrefix = '' // make this `http://localhost:8080`, for example, if your API is on a different server
@@ -30,5 +31,21 @@ export default function() {
         token: `${btoa('a')}.${btoa(JSON.stringify(payload))}.${btoa('c')}`
       }
     )
+  })
+
+  this.get('/api/v1/forms')
+
+  this.get('/api/v1/instances')
+  this.post('/api/v1/instances')
+  this.get('/api/v1/instances/:id')
+  this.patch('/api/v1/instances/:id')
+
+  this.get('/api/v1/form-fields')
+  this.post('/api/v1/form-fields')
+  this.get('/api/v1/form-fields/:id')
+  this.patch('/api/v1/form-fields/:id')
+
+  this.get('/api/v1/form-config', function() {
+    return FormConfig
   })
 }

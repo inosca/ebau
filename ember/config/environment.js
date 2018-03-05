@@ -22,10 +22,15 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    'ember-simple-auth': {
+      authorizer: 'authorizer:token'
+    },
+
     'ember-simple-auth-token': {
       refreshTokenPropertyName: 'token',
       serverTokenEndpoint: '/api-token-auth/',
-      serverTokenRefreshEndpoint: '/api-token-refresh/'
+      serverTokenRefreshEndpoint: '/api-token-refresh/',
+      authorizationPrefix: 'JWT '
     }
   }
 

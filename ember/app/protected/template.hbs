@@ -1,1 +1,11 @@
-{{outlet}}
+<div class="uk-container">
+  {{#uk-flex horizontal='center' class='uk-height-small uk-padding uk-margin-top uk-margin-bottom'}}
+    {{#link-to 'index' class='uk-height-1-1'}}
+      <img class="uk-height-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
+    {{/link-to}}
+  {{/uk-flex}}
+
+  <div class="uk-padding uk-padding-remove-horizontal">
+    {{focusing-outlet}}
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{{#with (await question) as |question|}}
+  {{#if question.type}}
+    <div class="uk-animation-fade">
+      <label class="uk-form-label {{if (and save.last error) 'uk-text-danger'}}">
+        {{question.label}}{{#if question.required}}<span> *</span>{{/if}}
+      </label>
+      <div uk-grid class="uk-form-controls">
+        <div class="uk-width-expand">
+          {{component (concat 'camac-input-' question.type)
+            config    = question.config
+            model     = question.model
+            class     = (if (and save.last error) 'uk-form-danger')
+            on-change = (perform save)
+          }}
+        </div>
+        <div class="icon uk-flex uk-flex-center uk-flex-middle">
+          {{#if save.last}}
+            {{#if save.isRunning}}
+              {{uk-spinner}}
+            {{else}}
+              {{#if error}}
+                {{uk-icon 'close' ratio=1.25 class='uk-text-danger'}}
+              {{else}}
+                {{uk-icon 'check' ratio=1.25 class='uk-text-success'}}
+              {{/if}}
+            {{/if}}
+          {{/if}}
+        </div>
+      </div>
+      {{#if error}}
+        <small class="uk-text-danger">
+          {{error}}
+        </small>
+      {{/if}}
+    </div>
+  {{/if}}
+{{/with}}
+
+{{#if (is-pending question)}}
+  {{#uk-flex horizontal='center' class='uk-animation-fade'}}
+    {{uk-spinner class='uk-margin-top uk-margin-bottom'}}
+  {{/uk-flex}}
+{{/if}}
