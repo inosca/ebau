@@ -1,0 +1,37 @@
+<div uk-grid>
+  <div class="uk-width-1-1 uk-width-1-3@m">
+    <ul class="uk-tab uk-tab-left">
+      {{#active-link activeClass='uk-active'}}
+        {{#link-to 'instances.edit.index' class='uk-text-bold'}}Start{{/link-to}}
+      {{/active-link}}
+      {{#active-link activeClass='uk-active'}}
+        {{#link-to 'instances.edit.b' class='uk-text-bold'}}Grundinformationen{{/link-to}}
+        <ul class="uk-tab uk-tab-left uk-margin-left">
+          {{#active-link activeClass='uk-active'}}
+            {{#link-to 'instances.edit.b.1'}}Lokalisierung{{/link-to}}
+          {{/active-link}}
+          {{#active-link activeClass='uk-active'}}
+            {{#link-to 'instances.edit.b.2'}}Kategorisierung{{/link-to}}
+          {{/active-link}}
+          {{#active-link activeClass='uk-active'}}
+            {{#link-to 'instances.edit.b.3'}}Allgemeine Informationen zum Vorhaben{{/link-to}}
+          {{/active-link}}
+          {{#active-link activeClass='uk-active'}}
+            {{#link-to 'instances.edit.b.4'}}Ausnahmebewilligungen{{/link-to}}
+          {{/active-link}}
+        </ul>
+      {{/active-link}}
+    </ul>
+  </div>
+
+  <div class="uk-width-1-1 uk-width-2-3@m">
+    <h1 class="uk-heading-divider uk-margin-medium uk-flex uk-flex-between uk-flex-wrap">
+      {{#if model.identifier}}{{model.identifier}} - {{/if}}
+      {{model.form.description}}
+      <span>
+        {{uk-label label=model.instanceState.description}}
+      </span>
+    </h1>
+    {{focusing-outlet}}
+  </div>
+</div>

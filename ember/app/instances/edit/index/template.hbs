@@ -1,0 +1,65 @@
+<h4>Allgemeine Informationen zum Ausfüllen des Gesuchsformulars</h4>
+
+{{#uk-list bullet=true as |list|}}
+  {{#list.item}}
+    <strong>Funktionsweise:</strong>
+    {{#uk-list bullet=true as |sublist|}}
+      {{#sublist.item}}
+        Das Gesuchsformular ist mit einer logischen Nutzerführung hinterlegt.
+      {{/sublist.item}}
+      {{#sublist.item}}
+        Begriffserläuterungen und Hilfestellungstexte können Sie sich durch
+        Doppelklicken auf die jeweilige Textstelle anzeigen lassen. Was mit
+        einer Erläuterung/Erklärung hinterlegt ist, erkennen Sie an der
+        <span class="uk-text-primary">roten</span> Schriftfarbe.
+      {{/sublist.item}}
+      {{#sublist.item}}
+        Links zu Merkblättern erkennen Sie an der
+        <span class="uk-text-success">grünen</span> Schriftfarbe.
+      {{/sublist.item}}
+      {{#sublist.item}}
+        In den Dropdown-Listen ist manchmal nur eine Auswahl möglich und
+        teils sind mehrere wählbar.
+      {{/sublist.item}}
+      {{#sublist.item}}
+        Es gibt Pflichtfelder die zwingend auszufüllen sind.
+      {{/sublist.item}}
+      {{#sublist.item}}
+        Durch das Ausfüllen des Gesuchsformulars wird automatisch ein
+        Verzeichnis mit den nötigen Unterlagen generiert. Diese Unterlagen
+        sind zwingend einzureichen. Ansonsten wird das Gesuch als
+        unvollständig zurückgewiesen.
+      {{/sublist.item}}
+    {{/uk-list}}
+  {{/list.item}}
+  {{#list.item}}
+    <strong>Abspeichern:</strong> Ihre Eingaben werden automatisch
+    gespeichert, sobald Sie das Feld verlassen. So haben Sie die Möglichkeit,
+    jederzeit abzubrechen und zu einem beliebigen Zeitpunkt fortzufahren.
+  {{/list.item}}
+  {{#list.item}}
+    <strong>Ausdrucken:</strong> Über die Funktion des Ausdruckens wird ein
+    PDF-Dokument erstellt, welches ausgedruckt werden kann. Ein PDF-Dokument
+    kann auch vor Versenden des Gesuchsformulars erstellt werden. Solange das
+    Gesuch nicht abgeschickt wurde, erscheint auf dem PDF das „Wasserzeichen“
+    Entwurf.
+  {{/list.item}}
+  {{#list.item}}
+    <strong>Eingabe:</strong> Erst, wenn alle Pflichtangaben gemacht wurden,
+    kann das Gesuch abgeschickt werden. Wenn das Gesuch eingegeben ist,
+    können Sie keine Anpassungen mehr vornehmen. Im Falle nachträglich
+    festgestellter Fehler müssen Sie sich an die Bauverwaltung der
+    entsprechenden Gemeinde wenden.
+  {{/list.item}}
+  {{#list.item}}
+    <strong>Probleme:</strong> Im Falle von Problemen oder Fragen, welche
+    durch die hinterlegten Hilfestellungen nicht geklärt werden, können Sie
+    sich an die Bauverwaltung der entsprechenden Gemeinde wenden.
+  {{/list.item}}
+{{/uk-list}}
+
+{{#uk-flex horizontal='right' class='uk-margin-top'}}
+  {{#link-to 'instances.edit.b' class='uk-button uk-button-primary'}}
+    Weiter
+  {{/link-to}}
+{{/uk-flex}}

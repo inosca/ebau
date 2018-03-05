@@ -6,13 +6,13 @@ module.exports = function(/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: 'Bürgerportal',
+    name: 'Kanton Schwyz - Bürgerportal',
     short_name: 'Bürgerportal',
-    description: 'Bürgerportal des Kanton Schwyz',
+    description: 'Bürgerportal für eBau-Gesuche des Kanton Schwyz',
     start_url: '/',
     display: 'standalone',
     background_color: '#FFFFFF',
-    theme_color: '#E7423F',
+    theme_color: '#E10A16',
     icons: [
       {
         src: '/assets/images/android-chrome-192x192.png',
@@ -44,7 +44,7 @@ module.exports = function(/* environment, appConfig */) {
       },
       {
         src: '/assets/images/safari-pinned-tab.svg',
-        safariPinnedTabColor: '#E7423F',
+        safariPinnedTabColor: '#E10A16',
         targets: ['safari-pinned-tab']
       }
     ],
