@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bürgerportal</title>
+    <title>Kanton Schwyz - Bürgerportal</title>
+
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{content-for "head"}}
+    {{content-for 'head'}}
+    {{content-for 'concat-css'}}
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/citizen-portal.css">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="prefetch" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400">
 
-    {{content-for "head-footer"}}
+    {{content-for 'head-footer'}}
   </head>
   <body>
-    {{content-for "body"}}
+    <noscript>
+      <div class="uk-width-1-1 uk-height-viewport uk-flex uk-flex-center uk-flex-middle uk-text-center uk-flex-column">
+        <h1 class="uk-heading-hero">Diese Anwendung benötigt JavaScript</h1>
+        <h2 class="uk-text-muted">Bitte aktivieren Sie JavaScript und laden die Seite neu...</h2>
+      </div>
+    </noscript>
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/citizen-portal.js"></script>
-
-    {{content-for "body-footer"}}
+    {{content-for 'body'}}
+    {{content-for 'concat-js'}}
+    {{content-for 'body-footer'}}
   </body>
 </html>
