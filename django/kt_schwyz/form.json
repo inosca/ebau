@@ -1,18 +1,18 @@
 {
-  "test-input": {
+  "art-des-vorhabens": {
+    "label": "Test Select",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Option 1", "Option 2", "Option 3", "Option 4"]
+    }
+  },
+  "vorgesehene-nutzung": {
     "label": "Test Input",
     "type": "text",
     "required": true,
     "config": {
       "maxlength": 20
-    }
-  },
-  "test-select": {
-    "label": "'Test Select",
-    "type": "select",
-    "required": true,
-    "config": {
-      "options": ["Option 1", "Option 2", "Option 3", "Option 4"]
     }
   }
 }
