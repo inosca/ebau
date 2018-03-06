@@ -1,4 +1,4 @@
-from django_filters.rest_framework import (BaseInFilter, FilterSet)
+from django_filters.rest_framework import BaseInFilter, FilterSet
 
 from . import models
 
