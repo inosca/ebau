@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('instance_state', models.ForeignKey(db_column='INSTANCE_STATE_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='instance.InstanceState')),
-                ('resource_id', models.ForeignKey(db_column='RESOURCE_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='core.Resource')),
+                ('resource', models.ForeignKey(db_column='RESOURCE_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='core.Resource')),
             ],
             options={
                 'db_table': 'R_API_LIST',
@@ -28,6 +28,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterUniqueTogether(
             name='rapilist',
-            unique_together=set([('resource_id', 'instance_state')]),
+            unique_together=set([('resource', 'instance_state')]),
         ),
     ]
