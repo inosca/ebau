@@ -3286,12 +3286,6 @@ ember-service-worker@^0.6.9:
     hash-for-dep "^1.0.2"
     rollup-plugin-replace "^1.1.1"
 
-ember-simple-auth-token@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-token/-/ember-simple-auth-token-3.0.0.tgz#5641c543a9ac5dfa42ce6100296e144aa40742a9"
-  dependencies:
-    ember-cli-babel "^6.6.0"
-
 ember-simple-auth@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ember-simple-auth/-/ember-simple-auth-1.5.1.tgz#aa28fda5af5148b4a0ee823302e600598ccff4d8"
@@ -3355,6 +3349,12 @@ ember-uikit@^0.5.0:
     ember-cli-htmlbars "^2.0.3"
     ember-cli-htmlbars-inline-precompile "^1.0.2"
     uikit "^3.0.0-beta.38"
+
+ember-uuid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-uuid/-/ember-uuid-1.0.0.tgz#0932f2b56d64417cab892d96e3cc69f895356df7"
+  dependencies:
+    ember-cli-babel "^5.1.5"
 
 ember-web-app@^2.3.0:
   version "2.3.0"

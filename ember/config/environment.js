@@ -22,15 +22,10 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-simple-auth': {
-      authorizer: 'authorizer:token'
-    },
-
-    'ember-simple-auth-token': {
-      refreshTokenPropertyName: 'token',
-      serverTokenEndpoint: '/api-token-auth/',
-      serverTokenRefreshEndpoint: '/api-token-refresh/',
-      authorizationPrefix: 'JWT '
+    'ember-simple-auth-keycloak': {
+      host: 'http://localhost:8080',
+      realm: 'ebau',
+      clientId: 'portal'
     }
   }
 
