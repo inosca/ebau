@@ -1,9 +1,9 @@
 export default function(server) {
-  let forms = server.createList('form', 10)
+  let forms = server.createList('form', 5)
 
-  server.create('instance', { form: forms[0] })
-  server.create('instance', { form: forms[1] })
-  server.create('instance', { form: forms[2] })
-  server.create('instance', { form: forms[3] })
-  server.create('instance', { form: forms[4] })
+  server.create('instance', { formId: forms[0].id })
+  server.create('instance', { formId: forms[1].id })
+  server.create('instance', { formId: forms[2].id })
+  server.create('instance', { formId: forms[3].id })
+  server.create('instance', { formId: forms[4].id })
 }
