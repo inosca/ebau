@@ -1,5 +1,52 @@
 [
 {
+  "model": "core.araction",
+  "pk": 1,
+  "fields": {
+    "available_resource": "apilist",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilist",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 1,
+  "fields": {
+    "available_resource": "apilist",
+    "name": "Neue Dossiers",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.rapilist",
+  "pk": 1,
+  "fields": {
+    "resource": "1",
+    "instance_state": "2"
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 1,
+  "fields": {
+    "resource": 1,
+    "role": 3
+  }
+},
+{
   "model": "instance.form",
   "pk": 1,
   "fields": {
@@ -134,6 +181,21 @@
     "role": 2,
     "service": null,
     "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 3,
+  "fields": {
+    "role": 3,
+    "service": null,
+    "name": "Bauverwaltung Gemeinde Schwyz",
     "phone": null,
     "zip": null,
     "city": null,
@@ -606,6 +668,14 @@
   "fields": {
     "role_parent": null,
     "name": "Guest"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 3,
+  "fields": {
+    "role_parent": null,
+    "name": "Gemeinde"
   }
 }
 ]
