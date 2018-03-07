@@ -1,9 +1,12 @@
-from django_filters.rest_framework import FilterSet
+from django_filters.rest_framework import BaseInFilter, FilterSet
 
 from . import models
 
 
 class InstanceFilterSet(FilterSet):
+
+    instance_state = BaseInFilter()
+
     class Meta:
         model = models.Instance
         fields = (
