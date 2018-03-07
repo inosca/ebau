@@ -5,7 +5,9 @@ import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
 import config from 'ember-get-config'
 
-const { host, clientId, realm } = config['ember-simple-auth-keycloak']
+const { tokenEndpoint, logoutEndpoint, clientId } = config[
+  'ember-simple-auth-oidc'
+]
 
 const REFRESH_OFFSET = 1000 * 30 // refresh the token 30 seconds before it expires
 
@@ -14,12 +16,10 @@ export default BaseAuthenticator.extend({
   router: service(),
 
   redirectUri: computed(function() {
-    let { protocol: redirectProtocol, host: redirectHost } = location
-    let redirectPath = this.get('router').urlFor(
-      Configuration.authenticationRoute
-    )
+    let { protocol, host } = location
+    let path = this.get('router').urlFor(Configuration.authenticationRoute)
 
-    return `${redirectProtocol}//${redirectHost}${redirectPath}`
+    return `${protocol}//${host}${path}`
   }),
 
   /**
@@ -32,20 +32,17 @@ export default BaseAuthenticator.extend({
    * @returns {Object} The parsed response data
    */
   async authenticate({ code }) {
-    let data = await this.get('ajax').request(
-      `${host}/auth/realms/${realm}/protocol/openid-connect/token`,
-      {
-        method: 'POST',
-        responseType: 'application/json',
-        contentType: 'application/x-www-form-urlencoded',
-        data: {
-          code,
-          client_id: clientId,
-          grant_type: 'authorization_code',
-          redirect_uri: this.get('redirectUri')
-        }
+    let data = await this.get('ajax').request(tokenEndpoint, {
+      method: 'POST',
+      responseType: 'application/json',
+      contentType: 'application/x-www-form-urlencoded',
+      data: {
+        code,
+        client_id: clientId,
+        grant_type: 'authorization_code',
+        redirect_uri: this.get('redirectUri')
       }
-    )
+    })
 
     return this._handleAuthResponse(data)
   },
@@ -58,18 +55,15 @@ export default BaseAuthenticator.extend({
    * @return {Promise} The logout request
    */
   async invalidate({ refresh_token }) {
-    return await this.get('ajax').request(
-      `${host}/auth/realms/${realm}/protocol/openid-connect/logout`,
-      {
-        method: 'POST',
-        responseType: 'application/json',
-        contentType: 'application/x-www-form-urlencoded',
-        data: {
-          refresh_token,
-          client_id: clientId
-        }
+    return await this.get('ajax').request(logoutEndpoint, {
+      method: 'POST',
+      responseType: 'application/json',
+      contentType: 'application/x-www-form-urlencoded',
+      data: {
+        refresh_token,
+        client_id: clientId
       }
-    )
+    })
   },
 
   /**
@@ -98,20 +92,17 @@ export default BaseAuthenticator.extend({
    * @returns {Object} The parsed response data
    */
   async _refresh(refresh_token) {
-    let data = await this.get('ajax').request(
-      `${host}/auth/realms/${realm}/protocol/openid-connect/token`,
-      {
-        method: 'POST',
-        responseType: 'application/json',
-        contentType: 'application/x-www-form-urlencoded',
-        data: {
-          refresh_token,
-          client_id: clientId,
-          grant_type: 'refresh_token',
-          redirect_uri: this.get('redirectUri')
-        }
+    let data = await this.get('ajax').request(tokenEndpoint, {
+      method: 'POST',
+      responseType: 'application/json',
+      contentType: 'application/x-www-form-urlencoded',
+      data: {
+        refresh_token,
+        client_id: clientId,
+        grant_type: 'refresh_token',
+        redirect_uri: this.get('redirectUri')
       }
-    )
+    })
 
     return this._handleAuthResponse(data)
   },

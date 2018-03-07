@@ -1,4 +1,4 @@
 import Route from '@ember/routing/route'
-import KeycloakRedirectRouteMixin from 'citizen-portal/mixins/keycloak-redirect-route'
+import OIDCRedirectRouteMixin from 'citizen-portal/mixins/oidc-redirect-route'
 
-export default Route.extend(KeycloakRedirectRouteMixin, {})
+export default Route.extend(OIDCRedirectRouteMixin, {})

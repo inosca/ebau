@@ -6,18 +6,16 @@ import Configuration from 'ember-simple-auth/configuration'
 import config from 'ember-get-config'
 import { v4 } from 'ember-uuid'
 
-const { host, clientId, realm } = config['ember-simple-auth-keycloak']
+const { authEndpoint, clientId } = config['ember-simple-auth-oidc']
 
 export default Mixin.create(UnauthenticatedRouteMixin, {
   session: service(),
 
   redirectUri: computed('router', function() {
-    let { protocol: redirectProtocol, host: redirectHost } = location
-    let redirectPath = this.get('router').generate(
-      Configuration.authenticationRoute
-    )
+    let { protocol, host } = location
+    let path = this.get('router').generate(Configuration.authenticationRoute)
 
-    return `${redirectProtocol}//${redirectHost}${redirectPath}`
+    return `${protocol}//${host}${path}`
   }),
 
   _redirectToUrl(url) {
@@ -74,7 +72,7 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
     this.get('session').set('data.state', undefined)
 
     this.get('session')
-      .authenticate('authenticator:keycloak', {
+      .authenticate('authenticator:oidc', {
         code
       })
       .then(() => {
@@ -111,11 +109,11 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
     }
 
     this._redirectToUrl(
-      `${host}/auth/realms/${realm}/protocol/openid-connect/auth` +
-        `?client_id=${clientId}` +
-        `&redirect_uri=${this.get('redirectUri')}` +
-        `&response_type=code` +
-        `&state=${state}`
+      `${authEndpoint}?` +
+        `client_id=${clientId}&` +
+        `redirect_uri=${this.get('redirectUri')}&` +
+        `response_type=code&` +
+        `state=${state}`
     )
   }
 })
