@@ -9,7 +9,7 @@ r.register(r'locations', views.LocationView)
 
 urlpatterns = [
     url(
-        r'me',
+        r'^me',
         views.MeView.as_view(),
         name='me'
     ),
