@@ -1,28 +1,24 @@
 import EmberObject from '@ember/object'
-import KeycloakRedirectRouteMixin from 'citizen-portal/mixins/keycloak-redirect-route'
+import OIDCRedirectRouteMixin from 'citizen-portal/mixins/oidc-redirect-route'
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import config from 'ember-get-config'
 
-const { host, realm, clientId } = config['ember-simple-auth-keycloak']
+const { authEndpoint, clientId } = config['ember-simple-auth-oidc']
 
-module('Unit | Mixin | keycloak-redirect-route', function(hooks) {
+module('Unit | Mixin | oidc-redirect-route', function(hooks) {
   setupTest(hooks)
 
   test('it can handle an unauthenticated request', function(assert) {
     assert.expect(3)
 
-    let Route = EmberObject.extend(KeycloakRedirectRouteMixin)
+    let Route = EmberObject.extend(OIDCRedirectRouteMixin)
 
     let subject = Route.create({
       redirectUri: 'test',
       session: EmberObject.create({ data: { authenticated: {} } }),
       _redirectToUrl(url) {
-        assert.ok(
-          new RegExp(
-            `${host}/auth/realms/${realm}/protocol/openid-connect/auth`
-          ).test(url)
-        )
+        assert.ok(new RegExp(authEndpoint).test(url))
 
         assert.ok(new RegExp(`client_id=${clientId}`).test(url))
         assert.ok(new RegExp('redirect_uri=test').test(url))
@@ -35,7 +31,7 @@ module('Unit | Mixin | keycloak-redirect-route', function(hooks) {
   test('it can handle a request with an authentication code', function(assert) {
     assert.expect(1)
 
-    let Route = EmberObject.extend(KeycloakRedirectRouteMixin)
+    let Route = EmberObject.extend(OIDCRedirectRouteMixin)
 
     let subject = Route.create({
       redirectUri: 'test',
@@ -55,7 +51,7 @@ module('Unit | Mixin | keycloak-redirect-route', function(hooks) {
   test('it can handle a failing authentication', function(assert) {
     assert.expect(2)
 
-    let Route = EmberObject.extend(KeycloakRedirectRouteMixin)
+    let Route = EmberObject.extend(OIDCRedirectRouteMixin)
 
     let subject = Route.create({
       redirectUri: 'test',
