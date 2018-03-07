@@ -2261,7 +2261,7 @@ class QuestionType(models.Model):
 
 
 class RApiList(models.Model):
-    resource_id = models.ForeignKey(
+    resource = models.ForeignKey(
         'Resource', models.DO_NOTHING,
         db_column='RESOURCE_ID', related_name='+')
     instance_state = models.ForeignKey(
@@ -2271,7 +2271,7 @@ class RApiList(models.Model):
     class Meta:
         managed = True
         db_table = 'R_API_LIST'
-        unique_together = (('resource_id', 'instance_state'),)
+        unique_together = (('resource', 'instance_state'),)
 
 
 class RFormlist(models.Model):
