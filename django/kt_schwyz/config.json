@@ -34,7 +34,8 @@
   "model": "core.rapilist",
   "pk": 1,
   "fields": {
-    "instance_states": "2"
+    "resource": "1",
+    "instance_state": "2"
   }
 },
 {
