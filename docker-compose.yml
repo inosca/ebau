@@ -9,6 +9,7 @@ services:
             - ember
             - php
             - django
+            - keycloak
 
     db:
         build:
@@ -43,7 +44,6 @@ services:
             context: ember
         depends_on:
             - django
-            - keycloak
         environment:
             - ENV=docker
 
