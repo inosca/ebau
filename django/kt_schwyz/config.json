@@ -306,6 +306,42 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 35,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 36,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 37,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "download",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 38,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -315,12 +351,37 @@
   }
 },
 {
+  "model": "core.attachmentextension",
+  "pk": 1,
+  "fields": {
+    "name": "pdf"
+  }
+},
+{
+  "model": "core.attachmentextensionrole",
+  "pk": 1,
+  "fields": {
+    "attachment_extension": 1,
+    "role": 3,
+    "mode": null
+  }
+},
+{
   "model": "core.availableinstanceresource",
   "pk": "allformpages",
   "fields": {
     "module_name": "default",
     "controller_name": "form",
     "description": "Read all pages of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "apidocuments",
+  "fields": {
+    "module_name": "apidocuments",
+    "controller_name": "list",
+    "description": "List of instance documents (API source)"
   }
 },
 {
@@ -450,6 +511,118 @@
   }
 },
 {
+  "model": "core.formgroup",
+  "pk": 1,
+  "fields": {
+    "name": "Alle Dossiers",
+    "description": null
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 1,
+  "fields": {
+    "form_group": 1,
+    "form": 10
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 2,
+  "fields": {
+    "form_group": 1,
+    "form": 1
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 3,
+  "fields": {
+    "form_group": 1,
+    "form": 5
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 4,
+  "fields": {
+    "form_group": 1,
+    "form": 7
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 5,
+  "fields": {
+    "form_group": 1,
+    "form": 8
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 6,
+  "fields": {
+    "form_group": 1,
+    "form": 2
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 7,
+  "fields": {
+    "form_group": 1,
+    "form": 9
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 8,
+  "fields": {
+    "form_group": 1,
+    "form": 6
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 9,
+  "fields": {
+    "form_group": 1,
+    "form": 4
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 10,
+  "fields": {
+    "form_group": 1,
+    "form": 3
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 1,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "resource": 1,
+    "name": "Dokumente",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
   "model": "core.resource",
   "pk": 1,
   "fields": {
@@ -466,8 +639,8 @@
   "model": "core.rapilist",
   "pk": 1,
   "fields": {
-    "resource": "1",
-    "instance_state": "2"
+    "resource": 1,
+    "instance_state": 2
   }
 },
 {
@@ -476,6 +649,40 @@
   "fields": {
     "resource": 1,
     "role": 3
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 1,
+  "fields": {
+    "name": "Dokumente Gesuchsteller",
+    "sort": 0
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 2,
+  "fields": {
+    "name": "Dokumente Fachstellen",
+    "sort": 0
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 1,
+  "fields": {
+    "attachment_section": 1,
+    "role": 3,
+    "mode": "admin"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 2,
+  "fields": {
+    "attachment_section": 2,
+    "role": 3,
+    "mode": "read"
   }
 },
 {
