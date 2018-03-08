@@ -8,6 +8,7 @@ def test_check_password(admin_user):
 
 
 def test_me(admin_client, admin_user):
+    admin_user.groups.all().delete()
     url = reverse('me')
 
     response = admin_client.get(url)
