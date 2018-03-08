@@ -15,6 +15,8 @@ class MeView(generics.RetrieveAPIView):
 
     model = get_user_model()
     serializer_class = serializers.UserSerializer
+    group_required = False
+    """No group needed to read user details."""
 
     def get_object(self, *args, **kwargs):
         return self.request.user
