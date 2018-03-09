@@ -36,7 +36,8 @@ class InstanceQuerysetMixin(object):
         """
         return super().get_queryset()
 
-    def get_queryset_for_applicant(self):
+    @permission_aware
+    def get_queryset(self):
         queryset = self.get_base_queryset()
         user_field = self._get_instance_filter_expr('user')
 
@@ -76,11 +77,6 @@ class InstanceValidationMixin(object):
 
     @permission_aware
     def validate_instance(self, instance):
-        raise exceptions.ValidationError(
-            _('Not allowed to add attachments to this instance')
-        )
-
-    def validate_instance_for_applicant(self, instance):
         user = get_request(self).user
         if instance.user != user:
             raise exceptions.ValidationError(

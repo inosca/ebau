@@ -28,7 +28,7 @@ test:
         # is set for following commands as well
         - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --parallel ember django db"
         # start only services which are needed for testing
-        - eval $COMPOSE up -d --build db unoconv clamav
+        - eval $COMPOSE up -d --build db keycloak clamav unoconv
         # build images needed for testing
         - eval $COMPOSE build --pull ember django
         # run django tests
