@@ -17,8 +17,8 @@ def permission_aware(func):
 
 
     Example, `get_queryset` method is called and the permission is determined
-    to be `applicant` decorator will first try to call
-    `get_queryset_for_applicant` and only if not existent will call
+    to be `canton` decorator will first try to call
+    `get_queryset_for_canton` and only if not existent will call
     `get_queryset` as fallback.
 
     Decorator inspired by
@@ -42,8 +42,14 @@ def permission_aware(func):
 
 
 class IsGroupMember(permissions.BasePermission):
+    """Verify that user is in a valid group.
+
+    This can be disabled on a view with setting `group_required` to `False`.
+    """
+
     def has_permission(self, request, view):
-        return bool(request.group)
+        group_required = getattr(view, 'group_required', True)
+        return not group_required or bool(request.group)
 
     def has_object_permission(self, request, view, obj):
         return self.has_permission(request, view)

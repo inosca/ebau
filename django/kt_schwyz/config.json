@@ -205,6 +205,21 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 4,
+  "fields": {
+    "role": 4,
+    "service": null,
+    "name": "Portal",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -676,6 +691,14 @@
   "fields": {
     "role_parent": null,
     "name": "Gemeinde"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 4,
+  "fields": {
+    "role_parent": null,
+    "name": "Portal"
   }
 }
 ]

@@ -23,5 +23,8 @@ class Command(BaseCommand):
         # default application config
         fixtures.append(settings.APPLICATION_DIR('config.json'))
 
+        # TODO: add user adsy to groups so it is ready for testing
+        # on fresh database
+
         self.stdout.write('Loading config {0}'.format(', '.join(fixtures)))
         call_command('loaddata', *fixtures, **options)
