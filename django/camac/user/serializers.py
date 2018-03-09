@@ -14,9 +14,12 @@ class CurrentGroupDefault(serializers.CurrentUserDefault):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
+        # TODO: add permission field
         fields = (
             'name',
             'surname',
+            'username',
+            'language',
         )
 
 
