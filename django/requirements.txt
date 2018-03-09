@@ -11,6 +11,10 @@ python-keycloak==0.12.0
 python-memcached==1.59
 sorl-thumbnail==12.4.1
 
-# move back to main release once following PR is released:
+# use upstream again release once following PR is released:
+# https://github.com/ringly/django-postgres-dbdefaults/pull/4
+git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create
+
+# use upstream again release once following PR is released:
 # https://github.com/benoitbryon/django-downloadview/pull/142
 git+https://github.com/adfinis-forks/django-downloadview.git@django_middleware
