@@ -1,5 +1,5 @@
 <div class="uk-container">
-  {{#uk-flex horizontal='center' class='uk-padding uk-margin-top uk-margin-bottom'}}
+  {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
     {{#link-to 'index' class='uk-height-small uk-padding'}}
       <div class="uk-inline uk-height-1-1">
         <img class="uk-height-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
@@ -13,6 +13,7 @@
         {{/uk-flex}}
       </div>
     {{/link-to}}
+    <button title="Ausloggen" class="uk-icon-button" uk-icon="sign-out" {{action 'logout'}}></button>
   {{/uk-flex}}
 
   <div class="uk-padding uk-padding-remove-horizontal">

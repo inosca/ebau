@@ -2718,9 +2718,9 @@ ember-cli-qunit@^4.3.2:
     ember-cli-babel "^6.11.0"
     ember-qunit "^3.3.2"
 
-ember-cli-sass@^7.1.7:
-  version "7.1.7"
-  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-7.1.7.tgz#66899134788ec8d2406a45f5346d4db47a2aa012"
+ember-cli-sass@^7.2.0:
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-sass/-/ember-cli-sass-7.2.0.tgz#293d1a94c43c1fdbb3835378e43d255e8ad5c961"
   dependencies:
     broccoli-funnel "^1.0.0"
     broccoli-merge-trees "^1.1.0"
@@ -3204,9 +3204,9 @@ ember-qunit@^3.3.2:
     ember-cli-test-loader "^2.2.0"
     qunit "^2.5.0"
 
-ember-resolver@^4.5.0:
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-4.5.0.tgz#9248bf534dfc197fafe3118fff538d436078bf99"
+ember-resolver@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/ember-resolver/-/ember-resolver-4.5.2.tgz#9f6d1cae036ebd2cf573e0e20a41849e12df7a4c"
   dependencies:
     "@glimmer/resolver" "^0.4.1"
     babel-plugin-debug-macros "^0.1.10"
@@ -3286,12 +3286,6 @@ ember-service-worker@^0.6.9:
     hash-for-dep "^1.0.2"
     rollup-plugin-replace "^1.1.1"
 
-ember-simple-auth-token@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-token/-/ember-simple-auth-token-3.0.0.tgz#5641c543a9ac5dfa42ce6100296e144aa40742a9"
-  dependencies:
-    ember-cli-babel "^6.6.0"
-
 ember-simple-auth@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ember-simple-auth/-/ember-simple-auth-1.5.1.tgz#aa28fda5af5148b4a0ee823302e600598ccff4d8"
@@ -3355,6 +3349,12 @@ ember-uikit@^0.5.0:
     ember-cli-htmlbars "^2.0.3"
     ember-cli-htmlbars-inline-precompile "^1.0.2"
     uikit "^3.0.0-beta.38"
+
+ember-uuid@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-uuid/-/ember-uuid-1.0.0.tgz#0932f2b56d64417cab892d96e3cc69f895356df7"
+  dependencies:
+    ember-cli-babel "^5.1.5"
 
 ember-web-app@^2.3.0:
   version "2.3.0"
