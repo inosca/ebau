@@ -130,7 +130,7 @@ DATABASES = {
     'default': {
         'ENGINE': env.str(
             'DJANGO_DATABASE_ENGINE',
-            default='django.db.backends.postgresql_psycopg2'
+            default='postgresql_dbdefaults'
         ),
         'NAME': env.str('DJANGO_DATABASE_NAME', default=APPLICATION_NAME),
         'USER': env.str('DJANGO_DATABASE_USER', default='camac'),
