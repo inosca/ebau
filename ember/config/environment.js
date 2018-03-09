@@ -22,15 +22,14 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-simple-auth': {
-      authorizer: 'authorizer:token'
-    },
-
-    'ember-simple-auth-token': {
-      refreshTokenPropertyName: 'token',
-      serverTokenEndpoint: '/api-token-auth/',
-      serverTokenRefreshEndpoint: '/api-token-refresh/',
-      authorizationPrefix: 'JWT '
+    'ember-simple-auth-oidc': {
+      authEndpoint:
+        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/auth',
+      tokenEndpoint:
+        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/token',
+      logoutEndpoint:
+        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/logout',
+      clientId: 'portal'
     }
   }
 
@@ -52,6 +51,12 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing'
     ENV.APP.autoboot = false
+
+    ENV['ember-simple-auth-oidc'] = {
+      authEndpoint: '/auth/realms/ebau/protocol/openid-connect/auth',
+      tokenEndpoint: '/auth/realms/ebau/protocol/openid-connect/token',
+      logoutEndpoint: '/auth/realms/ebau/protocol/openid-connect/logout'
+    }
   }
 
   if (environment === 'production') {

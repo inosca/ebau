@@ -9,7 +9,7 @@ export default {
   },
   'vorgesehene-nutzung': {
     label: 'Welchem Zweck dient das Vorhaben?',
-    type: 'text',
+    type: 'select',
     required: true,
     config: {
       options: [
