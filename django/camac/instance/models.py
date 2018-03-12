@@ -33,6 +33,8 @@ class InstanceState(models.Model):
         db_column='INSTANCE_STATE_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)
     sort = models.IntegerField(db_column='SORT', db_index=True, default=0)
+    description = models.CharField(
+        db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
 
     class Meta:
         managed = True
@@ -40,11 +42,16 @@ class InstanceState(models.Model):
 
 
 class InstanceStateDescription(models.Model):
-    # TODO move instance state description to instance state
-    # migrate data
+    """
+    Instance state description.
+
+    Obsolete as integrated into core now. Still added for backwards
+    compatability with Kanton URI project.
+    """
+
     instance_state = models.OneToOneField(
         InstanceState, models.DO_NOTHING, db_column='INSTANCE_STATE_ID',
-        primary_key=True, related_name='description')
+        primary_key=True, related_name='+')
     description = models.CharField(db_column='DESCRIPTION', max_length=255)
 
     class Meta:
