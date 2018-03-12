@@ -9,8 +9,7 @@ export default function() {
   this.timing = 400 // delay for each request, automatically set to 0 during testing
 
   this.passthrough('https://map.geo.sz.ch/**')
-  // TODO: Proxy to backend
-  this.passthrough('https://cors-anywhere.herokuapp.com/**')
+  this.passthrough('https://camac-ng-ember.local/maps/**')
 
   this.post(tokenEndpoint, () => {
     let tokenBody = btoa(
