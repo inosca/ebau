@@ -1,4 +1,4 @@
-django==1.11.10 # pyup: >=1.11,<1.12
+django==1.11.11 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
 django-environ==0.4.4
 django-filter==1.1.0
