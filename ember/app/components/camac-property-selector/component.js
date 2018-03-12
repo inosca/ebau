@@ -100,7 +100,7 @@ export default Component.extend({
     try {
       let { features } = yield this.get('ajax').request(
         // TODO: Proxy to backend
-        'https://cors-anywhere.herokuapp.com/https://map.geo.sz.ch/main/wsgi/fulltextsearch',
+        'https://camac-ng-ember.local/maps/main/wsgi/fulltextsearch',
         {
           method: 'GET',
           data: {
