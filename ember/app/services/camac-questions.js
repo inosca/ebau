@@ -3,22 +3,13 @@ import { inject as service } from '@ember/service'
 import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
 import validations from 'citizen-portal/data/validations'
-import fetch from 'fetch'
 
 export default Service.extend({
-  session: service(),
+  ajax: service(),
   store: service(),
 
-  token: reads('session.data.authenticated.token'),
-
   questions: computed(async function() {
-    return await fetch(`/api/v1/form-config`, {
-      headers: {
-        Authorization: `JWT ${this.get('token')}`
-      }
-    }).then(response => {
-      return response.json()
-    })
+    return await this.get('ajax').request('/api/v1/form-config')
   }),
 
   async getQuestion(identifier, instance) {
