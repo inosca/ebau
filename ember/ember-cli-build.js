@@ -10,10 +10,12 @@ module.exports = function(defaults) {
     emberCliConcat: {
       js: {
         concat: true,
-        useAsync: true
+        useAsync: true,
+        preserveOriginal: false
       },
       css: {
-        concat: true
+        concat: true,
+        preserveOriginal: false
       }
     },
     'ember-service-worker': {
