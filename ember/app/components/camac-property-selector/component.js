@@ -99,8 +99,7 @@ export default Component.extend({
 
     try {
       let { features } = yield this.get('ajax').request(
-        // TODO: Proxy to backend
-        'https://camac-ng-ember.local/maps/main/wsgi/fulltextsearch',
+        '/maps/main/wsgi/fulltextsearch',
         {
           method: 'GET',
           data: {
