@@ -27,6 +27,18 @@ module.exports = function(defaults) {
     },
     'esw-cache-fallback': {
       patterns: ['https://fonts.gstatic.com/(.+)']
+    },
+    'ember-app-shell': {
+      chromeFlags: ['--no-sandbox'],
+      criticalCSSOptions: {
+        inline: true,
+        ignore: [/font-face/, /font-family/]
+      }
+    },
+    minifyHTML: {
+      minifierOptions: {
+        ignoreCustomComments: [/^\s*EMBER_APP_SHELL_PLACEHOLDER/]
+      }
     }
   })
 

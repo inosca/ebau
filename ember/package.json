@@ -26,6 +26,7 @@
     "ember-a11y": "^0.1.15",
     "ember-a11y-landmarks": "^1.0.1",
     "ember-ajax": "^3.0.0",
+    "ember-app-shell": "^0.5.4",
     "ember-cli": "~3.0.0",
     "ember-cli-active-link-wrapper": "^0.3.2",
     "ember-cli-app-version": "^3.1.3",
