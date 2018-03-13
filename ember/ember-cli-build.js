@@ -7,6 +7,9 @@ module.exports = function(defaults) {
     babel: {
       plugins: ['transform-object-rest-spread']
     },
+    fingerprint: {
+      extensions: ['ico', 'js', 'css', 'png', 'jpg', 'svg']
+    },
     emberCliConcat: {
       js: {
         concat: true,
@@ -39,6 +42,8 @@ module.exports = function(defaults) {
     },
     minifyHTML: {
       minifierOptions: {
+        minifyJS: false,
+        minifyCSS: false,
         ignoreCustomComments: [/^\s*EMBER_APP_SHELL_PLACEHOLDER/]
       }
     }
