@@ -4,6 +4,9 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app')
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    jquery: {
+      slim: true
+    },
     babel: {
       plugins: ['transform-object-rest-spread']
     },
@@ -29,6 +32,9 @@ module.exports = function(defaults) {
       manual: [
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'
       ]
+    },
+    'esw-index': {
+      excludeScope: [/manifest.webmanifest$/, /robots.txt$/, /sw.js$/]
     },
     'esw-cache-fallback': {
       patterns: ['https://fonts.gstatic.com/(.+)']
