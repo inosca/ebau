@@ -6,7 +6,24 @@ import { task, timeout } from 'ember-concurrency'
 import { Promise } from 'rsvp'
 
 const LAYERS = [
-  'ch.sz.a055a.kantonsgrenze',
+  'ch.sz.afk.afk_kigbo',
+  'ch.sz.afk.afk_isos',
+  'ch.sz.bfs.grp.bfs_gwr',
+  'ly_afu_nis_hochsp_ltg',
+  'ly_afu_nis_trafostation',
+  'ly_afu_nis_unterwerk',
+  'ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer',
+  'ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer_projektiert',
+  'ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser',
+  'ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer.hilfslinie',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer_projektiert.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer_projektiert.hilfslinie',
   'ch.sz.a018.amtliche_vermessung.liegenschaften.grundstueck',
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft',
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon',
@@ -15,7 +32,43 @@ const LAYERS = [
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert',
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert.polygon',
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.position',
-  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie'
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie',
+  'ly_afu_nis_mobil',
+  'ly_afu_nis_rundfunksender',
+  'ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch',
+  'ch.sz.chbafu.bundesinventare.amphibien.ortsfest.query_layer',
+  'ch.sz.chbafu.bundesinventare.amphibien.wanderobjekte.query_layer',
+  'ch.sz.a051a.oereb.nutzungsplanung_kantonal.naturschutzgebiete.grundnutzung',
+  'ch.sz.anjf.anjf_kant_pflanzenschutzreservate',
+  'ly_anjf_kommschutzzonen',
+  'ch.sz.anjf.anjf_kant_biotope',
+  'ch.sz.a005.nutzungsplanung.grundnutzung',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.ortsbild',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.schutzzonen',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.gefahrenzone',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.nutzungszone',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.sondernutzungszone',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.sondernutzungsplanpflicht',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.spaetere_erschliessungsetappe',
+  'ch.sz.a005.nutzungsplanung.ueberlagernde_festlegung.weitere',
+  'ch.sz.a005.nutzungsplanung.linienbezogene_festlegung',
+  'ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone',
+  'ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal',
+  'ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.ao',
+  'ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au',
+  'ch.sz.a020a.kataster_belasteter_standorte',
+  'ch.sz.a020a.kataster_belasteter_standorte_pnt',
+  'ch.bav.kataster-belasteter-standorte-oev',
+  'ch.bazl.kataster-belasteter-standorte-zivilflugplaetze',
+  'ch.sz.a020a.oereb.belastete_standorte_poly',
+  'ch.sz.a006.swisstlm3d.oev.eisenbahn',
+  'ly_awn_wanderwege',
+  'ch.sz.chbafu.wildtierkorridor',
+  'ch.sz.chbafu.wildtierkorridor.verbindung',
+  'ly_anjf_fischgewaesser',
+  'ly_anjf_fischregionen',
+  'ch.sz.anjf_reptiliengebiete.reptiliengebiet',
+  'ch.sz.a006.swisstlm3d.bodenbedeckung.wald'
 ]
 
 const CENTER = [47.020714, 8.652988]
@@ -27,7 +80,6 @@ const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y))
 const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(L.point(x, y))
 
 export default Component.extend({
-  classNames: ['uk-width-1-1', 'uk-width-xxlarge@m', 'uk-card-default'],
   lat: CENTER[0],
   lng: CENTER[1],
   zoom: 11,
@@ -47,8 +99,7 @@ export default Component.extend({
 
     try {
       let { features } = yield this.get('ajax').request(
-        // TODO: Proxy to backend
-        'https://cors-anywhere.herokuapp.com/https://map.geo.sz.ch/main/wsgi/fulltextsearch',
+        '/maps/main/wsgi/fulltextsearch',
         {
           method: 'GET',
           data: {

@@ -28,7 +28,7 @@ test:
         # is set for following commands as well
         - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --parallel ember django db"
         # start only services which are needed for testing
-        - eval $COMPOSE up -d --build db unoconv clamav
+        - eval $COMPOSE up -d --build db keycloak clamav unoconv
         # build images needed for testing
         - eval $COMPOSE build --pull ember django
         # run django tests
@@ -75,8 +75,17 @@ deploy-kt_schwyz-stage:
 pyup:
     stage: test
     image: python:3.6
+    variables:
+        PIP_CACHE_DIR: "pip-cache"
+    cache:
+        paths:
+            - "pip-cache"
     script:
-        - pip install pyupio
+        # Pin to python-gitlab 1.2.0 as 1.3.0 is failing
+        # has something to do with url encoding but not clear whether issue is
+        # our configuration (Apache...) or in gitlab itself
+        # TODO test again when we use GitLab with nginx
+        - pip install -U python-gitlab==1.2.0 pyupio
         - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
     only:
         - master
