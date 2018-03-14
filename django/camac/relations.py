@@ -2,7 +2,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from rest_framework_json_api.relations import ResourceRelatedField
 
 
-class FormDataResourceReleatedField(ResourceRelatedField):
+class FormDataResourceRelatedField(ResourceRelatedField):
     """Resource related field with support to be posted as form data."""
 
     # TODO: might be better fixed in django-json-api itself?
