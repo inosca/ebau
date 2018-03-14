@@ -4,17 +4,32 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app')
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    jquery: {
+      slim: true
+    },
     babel: {
       plugins: ['transform-object-rest-spread']
+    },
+    fingerprint: {
+      extensions: ['ico', 'js', 'css', 'png', 'jpg', 'svg']
     },
     emberCliConcat: {
       js: {
         concat: true,
-        useAsync: true
+        useAsync: true,
+        preserveOriginal: process.env.EmberENV !== 'test'
       },
       css: {
-        concat: true
+        concat: true,
+        preserveOriginal: process.env.EmberENV !== 'test'
       }
+    },
+    imagemin: {
+      plugins: [
+        require('imagemin-jpegtran')({ progressive: true }),
+        require('imagemin-optipng')(),
+        require('imagemin-svgo')()
+      ]
     },
     'ember-service-worker': {
       versionStrategy: 'every-build',
@@ -25,8 +40,25 @@ module.exports = function(defaults) {
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'
       ]
     },
+    'esw-index': {
+      excludeScope: [/manifest.webmanifest$/, /robots.txt$/, /sw.js$/]
+    },
     'esw-cache-fallback': {
       patterns: ['https://fonts.gstatic.com/(.+)']
+    },
+    'ember-app-shell': {
+      chromeFlags: ['--no-sandbox'],
+      criticalCSSOptions: {
+        inline: true,
+        ignore: [/font-face/, /font-family/]
+      }
+    },
+    minifyHTML: {
+      minifierOptions: {
+        minifyJS: false,
+        minifyCSS: false,
+        ignoreCustomComments: [/^\s*EMBER_APP_SHELL_PLACEHOLDER/]
+      }
     }
   })
 

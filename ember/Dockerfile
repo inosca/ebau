@@ -29,7 +29,7 @@ RUN yarn
 COPY . /app
 COPY ./nginx.conf /etc/nginx/sites-enabled/default
 
-RUN yarn build -prod
+RUN yarn deploy production
 
 EXPOSE 80
 
