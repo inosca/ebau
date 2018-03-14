@@ -1,6 +1,5 @@
 $ember-power-select-default-border-radius: 0px !default;
-$ember-power-select-trigger-border: $form-border-width solid $form-border
-  !default;
+$ember-power-select-trigger-border: $form-border-width solid $form-border !default;
 $ember-power-select-active-trigger-border: $form-border-width solid
   $form-focus-border !default;
 
@@ -14,10 +13,21 @@ $ember-power-select-dropdown-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
 $ember-power-select-search-field-border: none !default;
 $ember-power-select-search-field-focus-border: none !default;
 
+$ember-power-select-multiple-selection-background-color: rgb(
+  220,
+  220,
+  220
+) !default;
+$ember-power-select-multiple-option-border-color: $form-focus-border !default;
+
 @import 'ember-power-select';
 
 .ember-basic-dropdown-content {
   z-index: 1001; // leaflet map controls have a z-index of 1000
+}
+
+.ember-power-select-multiple-option {
+  margin: 7px 0 0 5px;
 }
 
 .ember-power-select-search-input {
