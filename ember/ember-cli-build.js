@@ -17,12 +17,19 @@ module.exports = function(defaults) {
       js: {
         concat: true,
         useAsync: true,
-        preserveOriginal: false
+        preserveOriginal: process.env.EmberENV !== 'test'
       },
       css: {
         concat: true,
-        preserveOriginal: false
+        preserveOriginal: process.env.EmberENV !== 'test'
       }
+    },
+    imagemin: {
+      plugins: [
+        require('imagemin-jpegtran')({ progressive: true }),
+        require('imagemin-optipng')(),
+        require('imagemin-svgo')()
+      ]
     },
     'ember-service-worker': {
       versionStrategy: 'every-build',
