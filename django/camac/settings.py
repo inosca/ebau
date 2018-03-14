@@ -1,4 +1,3 @@
-import datetime
 import os
 
 import environ
@@ -47,7 +46,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'camac.user.middleware.JWTAuthenticationMiddleware',
     'camac.user.middleware.GroupMiddleware',
     'django_downloadview.SmartDownloadMiddleware',
 ]
@@ -79,7 +77,6 @@ APPLICATIONS = {
     'demo': {
         # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
-            'Applicant': 'applicant',
             'Municipality': 'municipality',
             'Service': 'service',
             'Canton': 'canton',
@@ -133,7 +130,7 @@ DATABASES = {
     'default': {
         'ENGINE': env.str(
             'DJANGO_DATABASE_ENGINE',
-            default='django.db.backends.postgresql_psycopg2'
+            default='postgresql_dbdefaults'
         ),
         'NAME': env.str('DJANGO_DATABASE_NAME', default=APPLICATION_NAME),
         'USER': env.str('DJANGO_DATABASE_USER', default='camac'),
@@ -172,7 +169,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-ch'
 TIME_ZONE = 'Europe/Zurich'
 USE_I18N = True
 USE_L10N = True
@@ -201,7 +198,7 @@ REST_FRAMEWORK = {
         'camac.user.permissions.ViewPermissions',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'camac.user.authentication.JSONWebTokenKeycloakAuthentication',
     ),
     'DEFAULT_METADATA_CLASS':
         'rest_framework_json_api.metadata.JSONAPIMetadata',
@@ -223,14 +220,16 @@ JSON_API_FORMAT_KEYS = 'dasherize'
 JSON_API_FORMAT_TYPES = 'dasherize'
 JSON_API_PLURALIZE_TYPES = True
 
-JWT_AUTH = {
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(minutes=30),
-    'JWT_ALLOW_REFRESH': True,
-}
-
-
 # Clamav service
 
 CLAMD_USE_TCP = True
 CLAMD_TCP_ADDR = env.str('DJANGO_CLAMD_TCP_ADDR', default='localhost')
 CLAMD_ENABLED = env.bool('DJANGO_CLAMD_ENABLED', default=True)
+
+
+# Keycloak service
+
+KEYCLOAK_URL = env.str('DJANGO_KEYCLOAK_URL',
+                       default='http://localhost:8080/auth/')
+KEYCLOAK_REALM = env.str('DJANGO_KEYCLOAK_REALM', default='ebau')
+KEYCLOAK_CLIENT = env.str('DJANGO_KEYCLOAK_CLIENT', default='camac')
