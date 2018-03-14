@@ -1,13 +1,15 @@
 <div class="uk-container">
   {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
-    {{#link-to 'index' class='uk-height-small uk-padding'}}
+    {{#link-to 'index' class='uk-height-small uk-padding uk-link-reset'}}
       <div class="uk-inline uk-height-1-1">
         <img class="uk-height-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
         {{#uk-flex vertical='middle' horizontal='between'}}
-          {{#unless (eq environment 'production')}}
-            {{uk-label label=environment}}
-          {{/unless}}
-          <div class="uk-text-muted uk-text-small">
+          <div>
+            {{#unless (eq environment 'production')}}
+              {{uk-label label=environment}}
+            {{/unless}}
+          </div>
+          <div>
             v{{app-version hideSha=true}}
           </div>
         {{/uk-flex}}

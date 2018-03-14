@@ -26,6 +26,9 @@ class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
         parsers.MultiPartParser,
         parsers.FormParser,
     )
+    ordering_fields = (
+        'name', 'date', 'size'
+    )
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
