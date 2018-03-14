@@ -13,6 +13,8 @@ services:
         build:
             cache_from:
                 - acr.run/camac-ng/camac-ng/django:master
+        environment:
+            - DJANGO_KEYCLOAK_URL=http://keycloak:8080/auth/
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
@@ -25,3 +27,10 @@ services:
         build:
             cache_from:
                 - acr.run/camac-ng/camac-ng/php:master
+
+    keycloak:
+        volumes:
+            - ./keycloak:/etc/keycloak:ro
+        environment:
+            - POSTGRES_PASSWORD=camac
+            - KEYCLOAK_PASSWORD=camac

@@ -33,13 +33,10 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
     assert response.json()['data']['attributes']['value'] == form_field__value
 
 
-@pytest.mark.parametrize("role__name,instance__user,status_code", [
-    ('Applicant', LazyFixture('admin_user'), status.HTTP_200_OK),
-    ('Applicant', LazyFixture('user'), status.HTTP_404_NOT_FOUND),
-    ('Canton', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Municipality', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Service', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Unknown', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
+@pytest.mark.parametrize("role__name,instance_state__name,instance__user,status_code", [  # noqa: E501
+    ('Applicant', 'new', LazyFixture('admin_user'), status.HTTP_200_OK),
+    ('Applicant', 'new', LazyFixture('user'), status.HTTP_404_NOT_FOUND),
+    ('Applicant', 'comm', LazyFixture('admin_user'), status.HTTP_403_FORBIDDEN)
 ])
 def test_form_field_update(admin_client, form_field, status_code):
     url = reverse('form-field-detail', args=[form_field.pk])
@@ -51,7 +48,6 @@ def test_form_field_update(admin_client, form_field, status_code):
 @pytest.mark.parametrize("role__name,instance__user,status_code", [
     ('Applicant', LazyFixture('admin_user'), status.HTTP_201_CREATED),
     ('Applicant', LazyFixture('user'), status.HTTP_400_BAD_REQUEST),
-    ('Service', LazyFixture('admin_user'), status.HTTP_403_FORBIDDEN),
 ])
 def test_form_field_create(admin_client, instance, status_code):
     url = reverse('form-field-list')
@@ -79,12 +75,12 @@ def test_form_field_create(admin_client, instance, status_code):
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("instance_state__name", [
+    'new'
+])
 @pytest.mark.parametrize("role__name,instance__user,status_code", [
     ('Applicant', LazyFixture('admin_user'), status.HTTP_204_NO_CONTENT),
     ('Canton', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Municipality', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Service', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
-    ('Unknown', LazyFixture('user'), status.HTTP_403_FORBIDDEN),
 ])
 def test_form_field_destroy(admin_client, form_field, status_code):
     url = reverse('form-field-detail', args=[form_field.pk])
