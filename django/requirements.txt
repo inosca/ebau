@@ -3,7 +3,11 @@ django-clamd==0.4.0
 django-environ==0.4.4
 django-filter==1.1.0
 djangorestframework==3.7.7
-djangorestframework-jsonapi==2.4.0
+
+# use upstream again release once following PR is released:
+# https://github.com/django-json-api/django-rest-framework-json-api/pull/415
+git+https://github.com/adfinis-forks/django-rest-framework-json-api@related_field_get_queryset
+
 docx-mailmerge==0.4.0
 Pillow==5.0.0
 psycopg2-binary==2.7.4
