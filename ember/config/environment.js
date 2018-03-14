@@ -22,6 +22,8 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    exportApplicationGlobal: true,
+
     'ember-simple-auth-oidc': {
       authEndpoint:
         'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/auth',
