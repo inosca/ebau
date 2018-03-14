@@ -1,5 +1,7 @@
-import { Response } from 'ember-cli-mirage'
-import FormConfig from './form-config'
+import form from './form-config'
+import config from 'ember-get-config'
+
+const { tokenEndpoint, logoutEndpoint } = config['ember-simple-auth-oidc']
 
 export default function() {
   this.urlPrefix = '' // make this `http://localhost:8080`, for example, if your API is on a different server
@@ -7,31 +9,21 @@ export default function() {
   this.timing = 400 // delay for each request, automatically set to 0 during testing
 
   this.passthrough('https://map.geo.sz.ch/**')
-  // TODO: Proxy to backend
-  this.passthrough('https://cors-anywhere.herokuapp.com/**')
 
-  this.post('/api-token-auth/', function(_, { requestBody }) {
-    let { username = null, password = null } = JSON.parse(requestBody)
-
-    if (!username || !password) {
-      return new Response(400)
-    }
-
-    let exp = new Date().getTime() + 1000 * 60 * 60 * 24 * 7 // 7 days
-
-    let payload = {
-      username,
-      exp
-    }
-
-    return new Response(
-      200,
-      {},
-      {
-        token: `${btoa('a')}.${btoa(JSON.stringify(payload))}.${btoa('c')}`
-      }
+  this.post(tokenEndpoint, () => {
+    let tokenBody = btoa(
+      JSON.stringify({
+        exp: Math.round(new Date().getTime() + 30 * 60 * 1000 / 1000)
+      })
     )
+
+    return {
+      access_token: `access.${tokenBody}.token`,
+      refresh_token: `refresh.${tokenBody}.token`
+    }
   })
+
+  this.post(logoutEndpoint, () => {})
 
   this.get('/api/v1/forms')
 
@@ -45,7 +37,5 @@ export default function() {
   this.get('/api/v1/form-fields/:id')
   this.patch('/api/v1/form-fields/:id')
 
-  this.get('/api/v1/form-config', function() {
-    return FormConfig
-  })
+  this.get('/api/v1/form-config', () => form)
 }

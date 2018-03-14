@@ -3,16 +3,24 @@ services:
     cache:
         ports:
             - "11211:11211"
+        networks:
+            - camac-ng.local
 
     proxy:
         volumes:
             - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
         ports:
             - "80:80"
+        networks:
+            camac-ng.local:
+                aliases:
+                    - camac-ng.local
 
     clamav:
         ports:
             - "3310:3310"
+        networks:
+            - camac-ng.local
 
     db:
         # build:
@@ -27,12 +35,17 @@ services:
             - POSTGRES_PASSWORD=camac
         volumes:
             - ./db/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+        networks:
+            - camac-ng.local
 
     django:
         volumes:
             - ./django:/app
         environment:
             - APPLICATION_ENV=development-${APPLICATION}
+            - DJANGO_KEYCLOAK_URL=http://keycloak:8080/auth/
+        networks:
+            - camac-ng.local
 
     ember:
         volumes:
@@ -41,6 +54,9 @@ services:
             - /app/node_modules/
             - /app/tmp/
             - /app/dist/
+            - /app/build/
+        networks:
+            - camac-ng.local
 
     php:
         volumes:
@@ -52,7 +68,25 @@ services:
         environment:
             - APPLICATION_ENV=development-${APPLICATION}
             - APPLICATION=${APPLICATION}
+        networks:
+            - camac-ng.local
 
     unoconv:
         ports:
             - '3000:3000'
+        networks:
+            - camac-ng.local
+
+    keycloak:
+        ports:
+            - '8080:8080'
+        volumes:
+            - ./keycloak:/etc/keycloak:ro
+        environment:
+            - POSTGRES_PASSWORD=camac
+            - KEYCLOAK_PASSWORD=camac
+        networks:
+            - camac-ng.local
+
+networks:
+    camac-ng.local:

@@ -1,4 +1,5 @@
 import hashlib
+import uuid
 
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
@@ -30,6 +31,7 @@ class User(AbstractBaseUser):
     id = models.AutoField(db_column='USER_ID', primary_key=True)
     username = models.CharField(
         db_column='USERNAME', unique=True, max_length=250)
+    identifier = models.UUIDField(default=uuid.uuid4, unique=True)
     password = models.CharField(
         db_column='PASSWORD', max_length=50, blank=True, null=True)
     name = models.CharField(db_column='NAME', max_length=100)

@@ -7,9 +7,8 @@ const Router = EmberRouter.extend({
 })
 
 Router.map(function() {
-  this.route('app-shell')
-
   this.route('login')
+  this.route('app-shell')
 
   this.route('protected', { path: '/' }, function() {
     this.route('index', { path: '/', resetNamespace: true })
