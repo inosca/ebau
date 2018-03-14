@@ -2,6 +2,7 @@ import AjaxService from 'ember-ajax/services/ajax'
 import { inject as service } from '@ember/service'
 import { computed } from '@ember/object'
 import { reads } from '@ember/object/computed'
+import { UnauthorizedError } from 'ember-ajax/errors'
 
 export default AjaxService.extend({
   session: service(),
@@ -14,7 +15,16 @@ export default AjaxService.extend({
     return token ? { Authorization: `Bearer ${token}` } : {}
   }),
 
-  isUnauthorizedError() {
-    this.get('session').invalidate()
+  handleResponse() {
+    let res = this._super(...arguments)
+
+    if (
+      res instanceof UnauthorizedError &&
+      this.get('session.isAuthenticated')
+    ) {
+      this.get('session').invalidate()
+    }
+
+    return res
   }
 })

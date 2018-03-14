@@ -1,7 +1,6 @@
 import Service from '@ember/service'
 import { inject as service } from '@ember/service'
 import EmberObject, { computed, getWithDefault } from '@ember/object'
-import { reads } from '@ember/object/computed'
 import validations from 'citizen-portal/data/validations'
 
 export default Service.extend({
