@@ -54,9 +54,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         # always overwrite values of users
         user, created = get_user_model().objects.update_or_create(
-            identifier=jwt_decoded['sub'],
+            username=jwt_decoded['sub'],
             defaults={
-                'username': jwt_decoded['preferred_username'],
                 'language': language[:2],
                 'email': jwt_decoded['email'],
                 'name': jwt_decoded['family_name'],
