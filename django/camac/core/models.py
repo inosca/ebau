@@ -2260,6 +2260,20 @@ class QuestionType(models.Model):
         db_table = 'QUESTION_TYPE'
 
 
+class RApiList(models.Model):
+    resource = models.ForeignKey(
+        'Resource', models.DO_NOTHING,
+        db_column='RESOURCE_ID', related_name='+')
+    instance_state = models.ForeignKey(
+        'instance.InstanceState', models.DO_NOTHING,
+        db_column='INSTANCE_STATE_ID', related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'R_API_LIST'
+        unique_together = (('resource', 'instance_state'),)
+
+
 class RFormlist(models.Model):
     resource = models.OneToOneField('Resource', models.DO_NOTHING,
                                     db_column='RESOURCE_ID', primary_key=True,

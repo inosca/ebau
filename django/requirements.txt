@@ -1,16 +1,20 @@
-django==1.11.10 # pyup: >=1.11,<1.12
+django==1.11.11 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
 django-environ==0.4.4
 django-filter==1.1.0
 djangorestframework==3.7.7
 djangorestframework-jsonapi==2.4.0
-djangorestframework-jwt==1.11.0
 docx-mailmerge==0.4.0
 Pillow==5.0.0
 psycopg2-binary==2.7.4
+python-keycloak==0.12.0
 python-memcached==1.59
 sorl-thumbnail==12.4.1
 
-# move back to main release once following PR is released:
+# use upstream again release once following PR is released:
+# https://github.com/ringly/django-postgres-dbdefaults/pull/4
+git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create
+
+# use upstream again release once following PR is released:
 # https://github.com/benoitbryon/django-downloadview/pull/142
 git+https://github.com/adfinis-forks/django-downloadview.git@django_middleware

@@ -1,8 +1,19 @@
 <div class="uk-container">
-  {{#uk-flex horizontal='center' class='uk-height-small uk-padding uk-margin-top uk-margin-bottom'}}
-    {{#link-to 'index' class='uk-height-1-1'}}
-      <img class="uk-height-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
+  {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
+    {{#link-to 'index' class='uk-height-small uk-padding'}}
+      <div class="uk-inline uk-height-1-1">
+        <img class="uk-height-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
+        {{#uk-flex vertical='middle' horizontal='between'}}
+          {{#unless (eq environment 'production')}}
+            {{uk-label label=environment}}
+          {{/unless}}
+          <div class="uk-text-muted uk-text-small">
+            v{{app-version hideSha=true}}
+          </div>
+        {{/uk-flex}}
+      </div>
     {{/link-to}}
+    <button title="Ausloggen" class="uk-icon-button" uk-icon="sign-out" {{action 'logout'}}></button>
   {{/uk-flex}}
 
   <div class="uk-padding uk-padding-remove-horizontal">

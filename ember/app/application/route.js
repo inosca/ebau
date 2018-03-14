@@ -6,6 +6,8 @@ export default Route.extend(ApplicationRouteMixin, {
   intl: service(),
 
   beforeModel() {
+    this._super(...arguments)
+
     return this.get('intl').setLocale('de-ch')
   }
 })
