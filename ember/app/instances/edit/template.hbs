@@ -5,9 +5,9 @@
         {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
       {{/active-link}}
       {{#each navigation as |m|}}
-        {{#active-link activeClass='uk-active'}}
+        {{#active-link activeClass='uk-active' as |isActive|}}
           {{link-to m.title m.link class='uk-text-bold'}}
-          {{#if m.submodules.length}}
+          {{#if (and isActive m.submodules.length)}}
             <ul class="uk-tab uk-tab-left uk-margin-left">
               {{#each m.submodules as |s|}}
               {{#active-link activeClass='uk-active'}}
