@@ -2,21 +2,17 @@
  * This file describes the conditions on which certain questions will be
  * displayed.
  *
- * The name of the function is always the name of the question. It receives two
- * functions as arguments:
- *
- * 1. findQuestions: Function to find a question object (generated in the
- *                   camac-questions service) by name
- *
- * 2. findValue: Function to find the value of a question (limited to the same
- *               instance)
+ * The name of the function is always the name of the question. It receives a
+ * `find` function as argument, which helps you to find other questions and
+ * their values for the same instance.
  */
 
+const otherValueIs = async (find, otherName, expectedValue) => {
+  let otherQuestion = await find(otherName)
+
+  return (await otherQuestion.get('value')) === expectedValue
+}
+
 export default {
-  'vorgesehene-nutzung'(findQuestion, findValue) {
-    return (
-      findValue('art-des-vorhabens') ===
-      findQuestion('art-des-vorhabens').config.options[0]
-    )
-  }
+  'vorgesehene-nutzung': f => otherValueIs(f, 'art-des-vorhabens', 'Baute(n)')
 }
