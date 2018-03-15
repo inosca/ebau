@@ -54,6 +54,7 @@ services:
             - /app/node_modules/
             - /app/tmp/
             - /app/dist/
+            - /app/build/
         networks:
             - camac-ng.local
 

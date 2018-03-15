@@ -8,6 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() {
   this.route('login')
+  this.route('app-shell')
   this.route('notfound', { path: '/*path' })
 
   this.route('protected', { path: '/' }, function() {
