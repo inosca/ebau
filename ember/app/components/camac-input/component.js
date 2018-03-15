@@ -10,12 +10,12 @@ const CamacInputComponent = Component.extend({
 
   instance: null,
 
-  questions: service('camac-questions'),
+  questionStore: service('question-store'),
 
-  question: computed('identifier', 'questions.questions.[]', async function() {
-    return await this.get('questions').getQuestion(
+  question: computed('identifier', function() {
+    return this.get('questionStore').find(
       this.get('identifier'),
-      this.get('instance')
+      this.get('instance.id')
     )
   }),
 

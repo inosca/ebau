@@ -21,10 +21,10 @@ const notBlank = (_, value) => {
 }
 
 export default {
-  'art-des-vorhabens'(q, v) {
-    return inOptions(q, v) && notBlank(q, v)
+  'art-des-vorhabens'() {
+    return inOptions(...arguments) && notBlank(...arguments)
   },
-  'vorgesehene-nutzung'(q, v) {
-    return notBlank(q, v)
+  'vorgesehene-nutzung'() {
+    return notBlank(...arguments)
   }
 }
