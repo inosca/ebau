@@ -14,29 +14,42 @@ const ObjectPromiseProxy = ObjectProxy.extend(PromiseProxyMixin)
 const Question = EmberObject.extend({
   _questions: service('question-store'),
 
+  name: null,
+  field: null,
+  model: null,
+
   value: reads('model.value'),
 
-  _validations,
-  _conditions,
-
   validate(value) {
-    return getWithDefault(
+    let validationFn = getWithDefault(
       this.get('_questions._validations'),
       this.get('name'),
       () => true
-    )(this.get('field'), value)
+    )
+
+    return validationFn(this.get('field'), value)
   },
 
   hidden: computed('_questions._store.@each.value', async function() {
-    return !await getWithDefault(
+    let conditionFn = getWithDefault(
       this.get('_questions._conditions'),
       this.get('name'),
       () => true
-    )(name => this.get('_questions').find(name, this.get('model.instance.id')))
+    )
+
+    let findFn = name => {
+      // Use the question stores find function to find another question of the same instance
+      return this.get('_questions').find(name, this.get('model.instance.id'))
+    }
+
+    return !await conditionFn(findFn)
   })
 })
 
 export default Service.extend({
+  _validations,
+  _conditions,
+
   ajax: service(),
   store: service(),
 
@@ -51,13 +64,12 @@ export default Service.extend({
   }),
 
   async _buildQuestion(name, instance) {
-    let config = await this.get('_formConfig')
-
     let query = await this.get('store').query('form-field', {
       instance,
       name
     })
 
+    // Get the already saved record or create a new record
     let model = query.getWithDefault(
       'firstObject',
       this.get('store').createRecord('form-field', {
@@ -67,11 +79,14 @@ export default Service.extend({
     )
 
     return Question.create({
+      // We need to pass the container of the current service to the question
+      // object, to allow it to inject other services, since you can not inject
+      // services without container context
       container: getOwner(this).__container__,
 
       name,
-      field: getWithDefault(config, name, {}),
-      model
+      model,
+      field: getWithDefault(await this.get('_formConfig'), name, {})
     })
   },
 
