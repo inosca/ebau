@@ -12,20 +12,24 @@ export default Controller.extend({
   navigation: computed('model.form.name', function() {
     let moduleConfig = getWithDefault(forms, this.get('model.form.name'), [])
 
-    return moduleConfig.map(({ module: modKey, submodules: submodKeys }) => {
-      let mod = modules[modKey]
+    return moduleConfig.map(
+      ({ module: modKey, submodules: submodKeys, questions }) => {
+        let mod = modules[modKey]
 
-      return {
-        link: `instances.edit.${modKey}`,
-        title: mod.title,
-        submodules: submodKeys.map(submodKey => {
-          return {
-            link: `instances.edit.${modKey}.${submodKey}`,
-            title: mod.submodules[submodKey].title
-          }
-        })
+        return {
+          link: `instances.edit.${modKey}`,
+          title: mod.title,
+          questions,
+          submodules: submodKeys.map(submodKey => {
+            return {
+              link: `instances.edit.${modKey}.${submodKey}`,
+              title: mod.submodules[submodKey].title,
+              questions: mod.submodules[submodKey].questions
+            }
+          })
+        }
       }
-    })
+    )
   }),
 
   links: computed('navigation.[]', function() {

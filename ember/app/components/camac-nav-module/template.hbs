@@ -1,0 +1,16 @@
+{{#link-to module.link}}
+  <div class="uk-flex uk-flex-between uk-flex-middle">
+    <div class={{if module.submodules 'uk-text-bold'}}>{{module.title}}</div>
+    {{#with state.lastSuccessful.value as |state|}}
+      <span class="camac-nav-module-icon camac-nav-module-icon-{{state}} uk-animation-fade"></span>
+    {{/with}}
+  </div>
+{{/link-to}}
+
+{{#if module.submodules}}
+  <ul class="uk-tab uk-tab-left uk-margin-left uk-margin-remove-vertical">
+    {{#each module.submodules as |submodule|}}
+      {{camac-nav-module module=submodule instance=instance}}
+    {{/each}}
+  </ul>
+{{/if}}
