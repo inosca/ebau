@@ -5,14 +5,14 @@ from . import models
 
 
 class ServiceGroupFactory(DjangoModelFactory):
-    name = Faker('uuid4')
+    name = Faker('name')
 
     class Meta:
         model = models.ServiceGroup
 
 
 class ServiceFactory(DjangoModelFactory):
-    name = Faker('uuid4')
+    name = Faker('name')
     sort = 0
     service_group = SubFactory(ServiceGroupFactory)
 
@@ -22,7 +22,7 @@ class ServiceFactory(DjangoModelFactory):
 
 class UserFactory(DjangoModelFactory):
     name = Faker('name')
-    username = Faker('uuid4')
+    username = Faker('name')
     disabled = 0
     language = 'de'
 

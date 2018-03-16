@@ -54,7 +54,7 @@ class InstanceResourceFactory(DjangoModelFactory):
 
 
 class CirculationStateFactory(DjangoModelFactory):
-    name = Faker('uuid4')
+    name = Faker('name')
     sort = 0
 
     class Meta:
