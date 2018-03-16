@@ -5,18 +5,7 @@
         {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
       {{/active-link}}
       {{#each navigation as |m|}}
-        {{#active-link activeClass='uk-active' as |isActive|}}
-          {{link-to m.title m.link class='uk-text-bold'}}
-          {{#if (and isActive m.submodules.length)}}
-            <ul class="uk-tab uk-tab-left uk-margin-left">
-              {{#each m.submodules as |s|}}
-              {{#active-link activeClass='uk-active'}}
-                  {{link-to s.title s.link}}
-                {{/active-link}}
-              {{/each}}
-            </ul>
-          {{/if}}
-        {{/active-link}}
+        {{camac-nav-module module=m instance=model.id}}
       {{/each}}
     </ul>
   </div>

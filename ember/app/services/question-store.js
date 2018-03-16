@@ -1,15 +1,12 @@
 import Service, { inject as service } from '@ember/service'
 import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
-import ObjectProxy from '@ember/object/proxy'
-import PromiseProxyMixin from '@ember/object/promise-proxy-mixin'
 import _conditions from 'citizen-portal/questions/conditions'
 import _validations from 'citizen-portal/questions/validations'
 import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
-import { Promise, resolve } from 'rsvp'
-
-const ObjectPromiseProxy = ObjectProxy.extend(PromiseProxyMixin)
+import { all } from 'rsvp'
+import { task, taskGroup } from 'ember-concurrency'
 
 const Question = EmberObject.extend({
   _questions: service('question-store'),
@@ -19,27 +16,31 @@ const Question = EmberObject.extend({
   model: null,
 
   value: reads('model.value'),
+  isNew: reads('model.isNew'),
 
-  validate(value) {
+  validate() {
     let validationFn = getWithDefault(
       this.get('_questions._validations'),
       this.get('name'),
       () => true
     )
 
-    return validationFn(this.get('field'), value)
+    return validationFn(this.get('field'), this.get('value'))
   },
 
   hidden: computed('_questions._store.@each.value', async function() {
     let conditionFn = getWithDefault(
       this.get('_questions._conditions'),
       this.get('name'),
-      () => true
+      async () => true
     )
 
     let findFn = name => {
       // Use the question stores find function to find another question of the same instance
-      return this.get('_questions').find(name, this.get('model.instance.id'))
+      return this.get('_questions.find').perform(
+        name,
+        this.get('model.instance.id')
+      )
     }
 
     return !await conditionFn(findFn)
@@ -53,6 +54,8 @@ export default Service.extend({
   ajax: service(),
   store: service(),
 
+  build: taskGroup().enqueue(),
+
   init() {
     this._super(...arguments)
 
@@ -63,18 +66,20 @@ export default Service.extend({
     return this.get('ajax').request('/api/v1/form-config')
   }),
 
-  async _buildQuestion(name, instance) {
-    let query = await this.get('store').query('form-field', {
-      instance,
-      name
-    })
+  async _buildQuestion(name, instance, query = null) {
+    if (!query) {
+      query = await this.get('store').query('form-field', {
+        instance,
+        name
+      })
+    }
 
     // Get the already saved record or create a new record
     let model = query.getWithDefault(
       'firstObject',
       this.get('store').createRecord('form-field', {
         name,
-        instance
+        instance: this.get('store').peekRecord('instance', instance)
       })
     )
 
@@ -90,32 +95,55 @@ export default Service.extend({
     })
   },
 
-  /**
-   * Find a question by a given name and instance id.
-   *
-   * This checks if the question is already in the internal store and return it
-   * instantly if so. If not, it will resolve as soon as the question object is
-   * created.
-   *
-   * @param {String} name The name of the question
-   * @param {Number} instance The ID of the instance for the question
-   * @return {Object} The asked question
-   */
-  find(name, instance) {
-    let stored = this.get('_store').find(
+  find: task(function*(name, instance) {
+    let cached = this.peek(name, instance)
+
+    if (cached) {
+      return cached
+    }
+
+    let q = yield this._buildQuestion(name, instance)
+    this.get('_store').pushObject(q)
+
+    return q
+  }).group('build'),
+
+  peek(name, instance) {
+    return this.get('_store').find(
       q => q.get('name') === name && q.get('model.instance.id') === instance
     )
+  },
 
-    return ObjectPromiseProxy.create({
-      promise: stored
-        ? resolve(stored)
-        : new Promise(resolve => {
-            this._buildQuestion(name, instance).then(q => {
-              this.get('_store').pushObject(q)
+  peekSet(names, instance) {
+    return this.get('_store').filter(
+      q =>
+        names.includes(q.get('name')) && q.get('model.instance.id') === instance
+    )
+  },
 
-              resolve(q)
-            })
-          })
-    })
-  }
+  findSet: task(function*(names, instance) {
+    let cached = this.peekSet(names, instance)
+
+    let cachedNames = cached.map(({ name }) => name)
+    let fetchedNames = names.filter(n => !cachedNames.includes(n))
+
+    let query = fetchedNames.length
+      ? yield this.get('store').query('form-field', {
+          instance,
+          name: names.join(',')
+        })
+      : null
+
+    let fetched = yield all(
+      fetchedNames.map(async name => {
+        let q = await this._buildQuestion(name, instance, query)
+
+        this.get('_store').pushObject(q)
+
+        return q
+      })
+    )
+
+    return [...fetched, ...cached]
+  }).group('build')
 })

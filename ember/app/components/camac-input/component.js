@@ -13,20 +13,10 @@ const CamacInputComponent = Component.extend({
   questionStore: service('question-store'),
 
   question: computed('identifier', function() {
-    return this.get('questionStore').find(
+    return this.get('questionStore.find').perform(
       this.get('identifier'),
       this.get('instance.id')
     )
-  }),
-
-  error: computed('save.last.value', function() {
-    let saveVal = this.get('save.last.value')
-
-    if (saveVal === undefined) {
-      return null
-    }
-
-    return saveVal === true ? false : saveVal
   }),
 
   save: task(function*(value) {
@@ -34,17 +24,19 @@ const CamacInputComponent = Component.extend({
 
     let q = yield this.get('question')
 
-    let valid = q.validate(value)
+    let model = q.get('model')
+
+    model.set('value', value)
+
+    let valid = q.validate()
 
     if (valid === true) {
-      let model = q.get('model')
-
-      model.set('value', value)
+      this.set('error', null)
 
       yield model.save()
+    } else {
+      this.set('error', valid)
     }
-
-    return valid
   }).restartable()
 })
 
