@@ -10,6 +10,7 @@
           {{component (concat 'camac-input-' question.field.type)
             config      = question.field.config
             model       = question.model
+            readonly    = readonly
             class       = (if (and save.last error) 'uk-form-danger')
             on-change   = (perform save)
           }}
