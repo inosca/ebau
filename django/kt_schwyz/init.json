@@ -3,8 +3,7 @@
   "model": "user.user",
   "pk": 1,
   "fields": {
-    "username": "admin",
-    "identifier": "462afaba-aeb7-494a-8596-3497b81ed701",
+    "username": "462afaba-aeb7-494a-8596-3497b81ed701",
     "password": "0f10da7320c3fad6c1bd4e597992fb83",
     "name": "super",
     "surname": "admin",
@@ -21,8 +20,7 @@
   "model": "user.user",
   "pk": 2,
   "fields": {
-    "username": "guest",
-    "identifier": "062afaba-aeb7-494a-8596-3497b81ed701",
+    "username": "062afaba-aeb7-494a-8596-3497b81ed701",
     "password": "0f10da7320c3fad6c1bd4e597992fb83",
     "name": "guest",
     "surname": "person",
@@ -39,8 +37,7 @@
   "model": "user.user",
   "pk": 3,
   "fields": {
-    "username": "adsy",
-    "identifier": "9535c2ff-9649-4254-96cb-3c899353aa11",
+    "username": "9535c2ff-9649-4254-96cb-3c899353aa11",
     "password": "0f10da7320c3fad6c1bd4e597992fb83",
     "name": "Testuser",
     "surname": "Adfinis",

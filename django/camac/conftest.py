@@ -64,7 +64,7 @@ def client(db):
 @pytest.fixture
 def admin_user(admin_user, group, group_location, user_group_factory):
     user_group_factory(group=group, user=admin_user, default_group=1)
-    admin_user.identifier = '462afaba-aeb7-494a-8596-3497b81ed701'
+    admin_user.username = '462afaba-aeb7-494a-8596-3497b81ed701'
     admin_user.save()
     return admin_user
 
@@ -73,5 +73,5 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 def admin_client(db, client, admin_user, user_group_factory):
     """Return instance of a JSONAPIClient that is logged in as test user."""
     user_group_factory(default_group=1, user=admin_user)
-    client.login(username=admin_user.username, password='camac')
+    client.login(username='admin', password='camac')
     return client

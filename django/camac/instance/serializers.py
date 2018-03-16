@@ -18,6 +18,7 @@ class InstanceStateSerializer(serializers.ModelSerializer):
         model = models.InstanceState
         fields = (
             'name',
+            'description',
         )
 
 
