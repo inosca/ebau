@@ -23,6 +23,14 @@ class FormConfigDownloadView(PathDownloadView, APIView):
     path = settings.APPLICATION_DIR('form.json')
 
 
+class InstanceStateView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = serializers.InstanceStateSerializer
+    ordering = ('sort', 'name')
+
+    def get_queryset(self):
+        return models.InstanceState.objects.all()
+
+
 class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     instance_field = None
     """
