@@ -1,6 +1,6 @@
 .camac-nav-module-icon {
-  --color: transparent;
   --border-color: transparent;
+  --color: transparent;
   --size: 0.75rem;
 
   position: relative;
@@ -8,6 +8,8 @@
   width: var(--size);
   color: var(--color);
   border: 1px solid var(--border-color);
+
+  transition: color 500ms ease, border 500ms ease;
 }
 
 .camac-nav-module-icon::before {

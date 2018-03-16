@@ -62,11 +62,15 @@ export default Component.extend(ActiveLinkMixin, {
       return 'untouched'
     }
 
-    if (visibleQuestions.some(q => q.get('isNew'))) {
+    let relevantQuestions = visibleQuestions.filter(q =>
+      q.get('field.required')
+    )
+
+    if (relevantQuestions.some(q => q.get('isNew'))) {
       return 'unfinished'
     }
 
-    return visibleQuestions.every(q => q.validate() === true)
+    return relevantQuestions.every(q => q.validate() === true)
       ? 'valid'
       : 'invalid'
   })

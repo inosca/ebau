@@ -8,6 +8,7 @@ export default Component.extend({
   attributeBindings: [
     'type',
     'model.value:value',
+    'readonly:disabled',
     'config.maxlength:maxlength',
     'config.minlength:minlength'
   ],

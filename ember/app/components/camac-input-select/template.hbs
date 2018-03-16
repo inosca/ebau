@@ -1,7 +1,9 @@
 {{#power-select
-  selected = model.value
-  options  = config.options
-  onchange = (action (optional on-change))
+  selected      = model.value
+  options       = config.options
+  searchEnabled = (not (not config.searchable))
+  disabled      = readonly
+  onchange      = (action (optional on-change))
 as |option|}}
   {{option}}
 {{/power-select}}
