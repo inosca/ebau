@@ -6,7 +6,9 @@ from rest_framework_json_api import serializers, utils
 
 from camac.instance.mixins import InstanceValidationMixin
 from camac.instance.models import Instance
-from camac.relations import FormDataResourceReleatedField
+from camac.relations import FormDataResourceRelatedField
+from camac.user.relations import GroupFormDataResourceRelatedField
+from camac.user.serializers import CurrentGroupDefault
 
 from . import models
 
@@ -30,11 +32,12 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
 
 class AttachmentSerializer(InstanceValidationMixin,
                            serializers.ModelSerializer):
-    serializer_related_field = FormDataResourceReleatedField
+    serializer_related_field = FormDataResourceRelatedField
 
-    user = FormDataResourceReleatedField(
+    user = FormDataResourceRelatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
+    group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
 
     def validate_attachment_section(self, attachment_section):
         mode = attachment_section.get_mode(self.context['request'].group)
@@ -87,6 +90,7 @@ class AttachmentSerializer(InstanceValidationMixin,
             'path',
             'size',
             'user',
+            'group',
         )
         read_only_fields = (
             'date',
