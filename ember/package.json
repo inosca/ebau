@@ -35,6 +35,7 @@
     "ember-cli-deploy": "^1.0.2",
     "ember-cli-deploy-build": "^1.1.1",
     "ember-cli-deploy-compress": "^0.2.0",
+    "ember-cli-dotenv": "^2.1.0",
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-html-minifier": "^0.2.1",
     "ember-cli-htmlbars": "^2.0.3",

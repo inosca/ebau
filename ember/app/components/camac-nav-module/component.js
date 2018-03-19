@@ -10,6 +10,8 @@ export default Component.extend(ActiveLinkMixin, {
 
   activeClass: 'uk-active',
 
+  tagName: 'li',
+
   questions: computed(
     'module.questions',
     'submodules.@each.questions',
