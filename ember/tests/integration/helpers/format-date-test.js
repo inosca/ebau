@@ -21,4 +21,12 @@ module('Integration | Helper | format-date', function(hooks) {
 
     assert.dom(this.element).hasText('01.01.2018 01:01')
   })
+
+  test('it ignores incorrect values', async function(assert) {
+    this.set('date', null)
+
+    await render(hbs`{{format-date date}}`)
+
+    assert.dom(this.element).hasText('')
+  })
 })
