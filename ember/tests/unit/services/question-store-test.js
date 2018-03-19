@@ -1,8 +1,6 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
-import EmberObject from '@ember/object'
-import { getOwner } from '@ember/application'
 
 module('Unit | Service | question-store', function(hooks) {
   setupTest(hooks)
@@ -28,35 +26,27 @@ module('Unit | Service | question-store', function(hooks) {
     assert.verifySteps(['backend-call'])
   })
 
-  test('can find an uncached question', async function(assert) {
+  test('can find a question', async function(assert) {
     assert.expect(1)
 
     let service = this.owner.lookup('service:question-store')
 
-    let question = await service.find('test', 1)
+    let question = await service.get('find').perform('test', 1)
 
     assert.equal(question.get('name'), 'test')
   })
 
-  test('can find a cached question', async function(assert) {
-    assert.expect(1)
+  test('can find a set of questions', async function(assert) {
+    assert.expect(2)
 
     let service = this.owner.lookup('service:question-store')
 
-    let cached = EmberObject.create({
-      container: getOwner(service).__container__,
-      name: 'test',
-      model: {
-        instance: { id: 1 }
-      },
-      someotherproperty: true
-    })
+    let [test1, test2] = await service
+      .get('findSet')
+      .perform(['test1', 'test2'], 1)
 
-    service.get('_store').pushObject(cached)
-
-    let question = await service.find('test', 1)
-
-    assert.deepEqual(question, cached)
+    assert.equal(test1.get('name'), 'test1')
+    assert.equal(test2.get('name'), 'test2')
   })
 
   test('can validate question', async function(assert) {
@@ -75,11 +65,14 @@ module('Unit | Service | question-store', function(hooks) {
 
     service.set('_validations', validations)
 
-    let test1 = await service.find('test1', 1)
-    let test2 = await service.find('test2', 1)
+    let test1 = await service.get('find').perform('test1', 1)
+    let test2 = await service.get('find').perform('test2', 1)
 
-    assert.equal(test1.validate('somevalue'), 'somevalue is an invalid value!')
-    assert.equal(test2.validate('somevalue'), true)
+    test1.set('model.value', 'somevalue')
+    test2.set('model.value', 'somevalue')
+
+    assert.equal(test1.validate(), 'somevalue is an invalid value!')
+    assert.equal(test2.validate(), true)
   })
 
   test('can compute if question is hidden', async function(assert) {
@@ -106,8 +99,8 @@ module('Unit | Service | question-store', function(hooks) {
 
     service.set('_conditions', conditions)
 
-    let test1 = await service.find('test1', 1)
-    let test2 = await service.find('test2', 1)
+    let test1 = await service.get('find').perform('test1', 1)
+    let test2 = await service.get('find').perform('test2', 1)
 
     test1.set('model.value', 'yeah!')
     test2.set('model.value', 'nooo!')
