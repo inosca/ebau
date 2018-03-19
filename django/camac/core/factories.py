@@ -16,6 +16,7 @@ class FormGroupFactory(DjangoModelFactory):
 
 
 class AvailableResourceFactory(DjangoModelFactory):
+    available_resource_id = Faker('name')
     module_name = Faker('name')
     controller_name = Faker('name')
 
@@ -34,6 +35,7 @@ class ResourceFactory(DjangoModelFactory):
 
 
 class AvailableInstanceResourceFactory(DjangoModelFactory):
+    available_instance_resource_id = Faker('name')
     module_name = Faker('name')
     controller_name = Faker('name')
 

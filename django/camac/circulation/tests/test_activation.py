@@ -1,3 +1,4 @@
+import pyexcel
 import pytest
 from django.core.urlresolvers import reverse
 from pytest_factoryboy import LazyFixture
@@ -12,15 +13,14 @@ from camac.circulation import serializers
     ('Municipality', LazyFixture('user'), 8, 1),
     ('Service', LazyFixture('user'), 8, 1),
 ])
-def test_activation_list(admin_client, activation, size,
-                         num_queries, django_assert_num_queries, snapshot):
+def test_activation_list(admin_client, activation, size, num_queries,
+                         django_assert_num_queries):
     url = reverse('activation-list')
 
     included = serializers.ActivationSerializer.included_serializers
     with django_assert_num_queries(num_queries):
-        response = admin_client.get(url, data={
-            'include': ','.join(included.keys())
-        })
+        response = admin_client.get(
+            url, data={'include': ','.join(included.keys())})
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
@@ -38,3 +38,21 @@ def test_activation_detail(admin_client, activation):
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
+
+
+@pytest.mark.parametrize("role__name", ['Canton'])
+def test_instance_export(admin_client, user, activation_factory,
+                         django_assert_num_queries):
+    url = reverse('activation-export')
+    activations = activation_factory.create_batch(2)
+
+    with django_assert_num_queries(7):
+        response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    book = pyexcel.get_book(
+        file_content=response.content,
+        file_type='xlsx'
+    )
+    # bookdict is a dict of tuples(name, content)
+    sheet = book.bookdict.popitem()[1]
+    assert len(sheet) == len(activations)

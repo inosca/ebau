@@ -13,7 +13,7 @@ from camac.circulation import serializers
     ('Service', LazyFixture('user'), 8, 1),
 ])
 def test_circulation_list(admin_client, circulation, activation, size,
-                          num_queries, django_assert_num_queries, snapshot):
+                          num_queries, django_assert_num_queries):
     url = reverse('circulation-list')
 
     included = serializers.CirculationSerializer.included_serializers
