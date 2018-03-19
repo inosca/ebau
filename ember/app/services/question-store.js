@@ -62,8 +62,8 @@ export default Service.extend({
     this.set('_store', A())
   },
 
-  _formConfig: computed(function() {
-    return this.get('ajax').request('/api/v1/form-config')
+  _formConfig: computed(async function() {
+    return await this.get('ajax').request('/api/v1/form-config')
   }),
 
   async _buildQuestion(name, instance, query = null) {
@@ -95,6 +95,12 @@ export default Service.extend({
     })
   },
 
+  peek(name, instance) {
+    return this.get('_store').find(
+      q => q.get('name') === name && q.get('model.instance.id') === instance
+    )
+  },
+
   find: task(function*(name, instance) {
     let cached = this.peek(name, instance)
 
@@ -103,16 +109,11 @@ export default Service.extend({
     }
 
     let q = yield this._buildQuestion(name, instance)
+
     this.get('_store').pushObject(q)
 
     return q
   }).group('build'),
-
-  peek(name, instance) {
-    return this.get('_store').find(
-      q => q.get('name') === name && q.get('model.instance.id') === instance
-    )
-  },
 
   peekSet(names, instance) {
     return this.get('_store').filter(
