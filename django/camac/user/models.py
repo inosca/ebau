@@ -72,6 +72,9 @@ class User(AbstractBaseUser):
             self.password == self._make_password(raw_password)
         )
 
+    def get_full_name(self):
+        return "{0} {1}".format(self.name, self.surname).strip()
+
     @property
     def is_active(self):
         return not self.disabled

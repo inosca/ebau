@@ -1,3 +1,4 @@
+import pyexcel
 import pytest
 from django.core.urlresolvers import reverse
 from pytest_factoryboy import LazyFixture
@@ -150,6 +151,24 @@ def test_instance_submit(admin_client, admin_user, form,
         instance.refresh_from_db()
         assert instance.identifier == '11-17-001'
         assert instance.instance_state.name == 'comm'
+
+
+@pytest.mark.parametrize("role__name", ['Canton'])
+def test_instance_export(admin_client, user, instance_factory,
+                         django_assert_num_queries):
+    url = reverse('instance-export')
+    instances = instance_factory.create_batch(2, user=user)
+
+    with django_assert_num_queries(7):
+        response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+
+    book = pyexcel.get_book(
+        file_content=response.content, file_type='xlsx'
+    )
+    # bookdict is a dict of tuples(name, content)
+    sheet = book.bookdict.popitem()[1]
+    assert len(sheet) == len(instances)
 
 
 @pytest.mark.freeze_time('2017-7-27')
