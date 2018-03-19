@@ -1,10 +1,11 @@
+import django_excel
 from django.conf import settings
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from django_downloadview.api import PathDownloadView
 from rest_framework import exceptions, response, status, viewsets
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import detail_route, list_route
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 
@@ -90,6 +91,33 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
                 location_nr,
                 timezone.now().strftime('%y'),
                 str(sequence + 1).zfill(3))
+
+    @list_route(methods=['get'])
+    def export(self, request):
+        """Export filtered instances to given file format."""
+        queryset = self.get_queryset().select_related(
+            'location', 'user', 'form', 'instance_state'
+        )
+        queryset = self.filter_queryset(queryset)
+
+        # TODO: verify columns once form data is clear
+        content = [
+            [
+                instance.pk,
+                instance.identifier,
+                instance.form.description,
+                instance.location and instance.location.name,
+                instance.user.get_full_name(),
+                instance.instance_state.name,
+                instance.instance_state.description,
+            ]
+            for instance in queryset
+        ]
+
+        sheet = django_excel.pe.Sheet(content)
+        return django_excel.make_response(
+            sheet, file_type='xlsx', file_name='list.xlsx'
+        )
 
     @detail_route(methods=['post'])
     def submit(self, request, pk=None):
