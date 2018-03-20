@@ -88,4 +88,4 @@ pyup:
         - pip install -U python-gitlab==1.2.0 pyupio
         - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
     only:
-        - master
+        - disabled
