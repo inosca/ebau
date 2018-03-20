@@ -35,10 +35,9 @@ services:
         image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
         restart: always
         environment:
-            - APPLICATION_ENV=production-${APPLICATION}
-            - APPLICATION=${APPLICATION}
+            - APPLICATION_ENV=production
         volumes:
-            - /etc/camac/application.ini:/var/www/camac/application/configs/application.local.ini
+            - /etc/camac/application.ini:/var/www/camac/configuration/configs/application.local.ini:ro
 
     cache:
         restart: always

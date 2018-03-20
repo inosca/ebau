@@ -36,6 +36,7 @@ services:
             - DJANGO_MEDIA_ROOT=/var/lib/camac/media
             - DJANGO_UNOCONV_URL=http://unoconv:3000
             - DJANGO_CLAMD_TCP_ADDR=clamav
+            - APPLICATION=${APPLICATION}
         volumes:
             - djangomedia:/var/lib/camac/media
 
@@ -55,6 +56,9 @@ services:
             - django
             - cache
             - keycloak
+        environment:
+            - APPLICATION=${APPLICATION}
+        command: /bin/bash -c "rm -f configuration/* && cd configuration && ln -sf ../${APPLICATION}/* . && apache2-foreground"
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4

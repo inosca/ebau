@@ -9,15 +9,8 @@ ENV_FILE = env.str('DJANGO_ENV_FILE', default=django_root('.env'))
 if os.path.exists(ENV_FILE):
     environ.Env.read_env(ENV_FILE)
 
-APPLICATION_ENV = env.str('APPLICATION_ENV')
-ENV, APPLICATION_NAME = APPLICATION_ENV.split('-')
-"""
-Application enviromment
-
-As in Camac core naming is `[env]-[app]` whereas
-`env` and `app` may not have dashes.
-"""
-
+ENV = env.str('APPLICATION_ENV')
+APPLICATION_NAME = env.str('APPLICATION')
 APPLICATION_DIR = django_root.path(APPLICATION_NAME)
 
 
