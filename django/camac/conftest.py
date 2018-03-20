@@ -36,7 +36,7 @@ class APIKeycloakClient(APIClient):
     def login(self, **credentials):
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
-            client_id='portal',
+            client_id=settings.KEYCLOAK_CLIENT,
             realm_name=settings.KEYCLOAK_REALM,
         )
 
