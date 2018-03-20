@@ -27,8 +27,16 @@ Router.map(function() {
 
         this.route('c', { path: '/personalien' }, function() {
           this.route('1', { path: '/grundeigentuemerschaft' })
+          this.route('2', { path: 'bauherrschaft' })
+          this.route('3', { path: 'projektverfasser-planer' })
         })
       })
+    })
+  })
+
+  this.route('instances', function() {
+    this.route('edit', function() {
+      this.route('c', function() {})
     })
   })
 })

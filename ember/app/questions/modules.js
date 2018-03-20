@@ -13,15 +13,53 @@ export default {
       },
       2: {
         title: 'Kategorisierung',
-        questions: ['art-des-vorhabens', 'vorgesehene-nutzung']
+        questions: [
+          'kategorie-des-vorhabens',
+          'art-der-nutzung',
+          'vorhaben-mit-anlage',
+          'art-der-anlage',
+          'art-der-befestigten-flache',
+          'zweck-der-leitungen',
+          'art-der-warmepumpe',
+          'tangiert-vorhaben-strasse',
+          'pfahlfundation-vorgesehen',
+          'baugrubenumschliessung-vorgesehen',
+          'temporare-grundwasserabsenkung-notig',
+          'anlagen-mit-erheblichen-schadstoffemissionen',
+          'anlagen-mit-erheblichen-schadstoffemissionen-welche',
+          'anlagen-mit-erheblichen-strahlungsemissionen',
+          'anlagen-mit-erheblichen-strahlungsemissionen-welche',
+          'anlagen-mit-erheblichen-larmemissionen',
+          'larmbelastetes-gebiet',
+          'aussenbeleuchtung',
+          'wassergefahrdende-stoffe',
+          'brandschutztechnisch-gefahrliche-stoffe',
+          'bodenbelastungen',
+          'boden-5000m2',
+          'ordendliche-mindestabstande',
+          'auswirkungen-auf-arbeitnehmer',
+          '200m3-bauabfalle',
+          'alarmierungseinrichtung-tangiert',
+          'lebensmittel-umgehen',
+          'trinkwasser-abgeben',
+          'offentlich-duschanlage-oder-bad',
+          'gewerbliche-nutzflachen',
+          'hohe-der-anlage'
+        ]
       },
       3: {
         title: 'Allgemeine Informationen zum Vorhaben',
-        questions: []
+        questions: [
+          'geometer',
+          'baugespann-errichtet',
+          'kein-baugespann-begrundung',
+          'baukosten',
+          'gebaudevolumen'
+        ]
       },
       4: {
         title: 'Ausnahmebewilligungen',
-        questions: []
+        questions: ['ausnahmen', 'ausnahmen-begrundung']
       }
     }
   },
@@ -31,7 +69,36 @@ export default {
     submodules: {
       1: {
         title: 'Grundeigentümerschaft',
-        questions: []
+        questions: [
+          'grundeigentumerschaft-firma',
+          'grundeigentumerschaft-name',
+          'grundeigentumerschaft-strasse',
+          'grundeigentumerschaft-ort',
+          'grundeigentumerschaft-email',
+          'grundeigentumerschaft-tel'
+        ]
+      },
+      2: {
+        title: 'Bauherrschaft',
+        questions: [
+          'bauherrschaft-firma',
+          'bauherrschaft-name',
+          'bauherrschaft-strasse',
+          'bauherrschaft-ort',
+          'bauherrschaft-email',
+          'bauherrschaft-tel'
+        ]
+      },
+      3: {
+        title: 'Projektverfasser / Planer',
+        questions: [
+          'projektverfasser-planer-firma',
+          'projektverfasser-planer-name',
+          'projektverfasser-planer-strasse',
+          'projektverfasser-planer-ort',
+          'projektverfasser-planer-email',
+          'projektverfasser-planer-tel'
+        ]
       }
     }
   }
