@@ -33,12 +33,6 @@ Router.map(function() {
       })
     })
   })
-
-  this.route('instances', function() {
-    this.route('edit', function() {
-      this.route('c', function() {})
-    })
-  })
 })
 
 export default Router
