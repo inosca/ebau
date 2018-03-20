@@ -42,7 +42,7 @@ services:
         volumes:
             - ./django:/app
         environment:
-            - APPLICATION_ENV=development-${APPLICATION}
+            - APPLICATION_ENV=development
             - DJANGO_KEYCLOAK_URL=http://keycloak:8080/auth/
         networks:
             - camac-ng.local
@@ -64,10 +64,10 @@ services:
             - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
             - ./php:/var/www/camac
             - /var/www/camac/vendor
+            - /var/www/camac/configuration
             - /var/www/camac/public/node_modules
         environment:
-            - APPLICATION_ENV=development-${APPLICATION}
-            - APPLICATION=${APPLICATION}
+            - APPLICATION_ENV=development
         networks:
             - camac-ng.local
 
