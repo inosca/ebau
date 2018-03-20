@@ -9,22 +9,27 @@
 
 import { isBlank } from '@ember/utils'
 
-const inOptions = ({ config: { options } }, value) => {
+export const inOptions = ({ config: { allowOthers, options } }, value) => {
   return (
+    allowOthers ||
     options.includes(value) ||
     'Die Antwort muss in den vorgegebenen Optionen vorhanden sein'
   )
 }
 
-const notBlank = (_, value) => {
+export const multipleInOptions = (
+  { config: { allowOthers, options } },
+  value
+) => {
+  return (
+    value.every(
+      v => inOptions({ config: { allowOthers, options } }, v) === true
+    ) || 'Die Antworten müssen in den vorgegebenen Optionen vorhanden sein'
+  )
+}
+
+export const required = (_, value) => {
   return !isBlank(value) || 'Diese Frage darf nicht leer gelassen werden'
 }
 
-export default {
-  'art-des-vorhabens'() {
-    return inOptions(...arguments) && notBlank(...arguments)
-  },
-  'vorgesehene-nutzung'() {
-    return notBlank(...arguments)
-  }
-}
+export default {}

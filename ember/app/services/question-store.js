@@ -1,12 +1,16 @@
 import Service, { inject as service } from '@ember/service'
 import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
-import _conditions from 'citizen-portal/questions/conditions'
-import _validations from 'citizen-portal/questions/validations'
 import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
 import { all } from 'rsvp'
 import { task, taskGroup } from 'ember-concurrency'
+import _conditions from 'citizen-portal/questions/conditions'
+import _validations, {
+  required,
+  inOptions,
+  multipleInOptions
+} from 'citizen-portal/questions/validations'
 
 const Question = EmberObject.extend({
   _questions: service('question-store'),
@@ -19,13 +23,26 @@ const Question = EmberObject.extend({
   isNew: reads('model.isNew'),
 
   validate() {
+    let builtInValidations = [
+      this.get('field.required') ? required : () => true,
+      this.get('field.type') === 'select' ? inOptions : () => true,
+      this.get('field.type') === 'multiselect' ? multipleInOptions : () => true
+    ]
+
     let validationFn = getWithDefault(
       this.get('_questions._validations'),
       this.get('name'),
       () => true
     )
 
-    return validationFn(this.get('field'), this.get('value'))
+    let isValid = [...builtInValidations, validationFn].map(fn =>
+      fn(this.get('field'), this.get('value'))
+    )
+
+    return (
+      isValid.every(v => v === true) ||
+      isValid.filter(v => typeof v === 'string')
+    )
   },
 
   hidden: computed('_questions._store.@each.value', async function() {
@@ -137,7 +154,13 @@ export default Service.extend({
 
     let fetched = yield all(
       fetchedNames.map(async name => {
-        let q = await this._buildQuestion(name, instance, query)
+        let q = await this._buildQuestion(
+          name,
+          instance,
+          query.filter(
+            q => q.get('name') === name && q.get('instance.id') === instance
+          )
+        )
 
         this.get('_store').pushObject(q)
 

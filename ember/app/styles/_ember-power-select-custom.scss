@@ -14,11 +14,11 @@ $ember-power-select-search-field-border: none !default;
 $ember-power-select-search-field-focus-border: none !default;
 
 $ember-power-select-multiple-selection-background-color: rgb(
-  220,
-  220,
-  220
+  240,
+  240,
+  240
 ) !default;
-$ember-power-select-multiple-option-border-color: $form-focus-border !default;
+$ember-power-select-multiple-option-border-color: $global-border !default;
 
 @import 'ember-power-select';
 
@@ -27,7 +27,7 @@ $ember-power-select-multiple-option-border-color: $form-focus-border !default;
 }
 
 .ember-power-select-multiple-option {
-  margin: 7px 0 0 5px;
+  margin: 5px 0 0 5px;
 }
 
 .ember-power-select-search-input {

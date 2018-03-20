@@ -19,6 +19,9 @@ class InstanceFilterSet(FilterSet):
 
 
 class FormFieldFilterSet(FilterSet):
+
+    name = BaseInFilter()
+
     class Meta:
         model = models.FormField
         fields = (
