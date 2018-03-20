@@ -1,0 +1,56 @@
+.camac-nav-module-icon {
+  --border-color: transparent;
+  --color: transparent;
+  --size: 0.75rem;
+
+  position: relative;
+  height: var(--size);
+  width: var(--size);
+  color: var(--color);
+  border: 1px solid var(--border-color);
+
+  transition: color 500ms ease, border 500ms ease;
+}
+
+.camac-nav-module-icon::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camac-nav-module-icon-untouched {
+  --color: transparent;
+  --border-color: $global-border;
+}
+
+.camac-nav-module-icon-unfinished {
+  --color: darken($global-warning-background, 20%);
+  --border-color: lighten($global-warning-background, 10%);
+}
+
+.camac-nav-module-icon-valid {
+  --color: darken($global-success-background, 20%);
+  --border-color: lighten($global-success-background, 10%);
+}
+
+.camac-nav-module-icon-invalid {
+  --color: darken($global-danger-background, 20%);
+  --border-color: lighten($global-danger-background, 10%);
+}
+
+.camac-nav-module-icon-unfinished::before {
+  content: '?';
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.camac-nav-module-icon-valid::before {
+  content: '✓';
+}
+
+.camac-nav-module-icon-invalid::before {
+  content: '×';
+}

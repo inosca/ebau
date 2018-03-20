@@ -2,13 +2,6 @@ import Component from '@ember/component'
 import { inject as service } from '@ember/service'
 import { computed } from '@ember/object'
 import { task, timeout } from 'ember-concurrency'
-import textSerializer from 'citizen-portal/components/camac-input-text/serializer'
-import selectSerializer from 'citizen-portal/components/camac-input-select/serializer'
-
-const serializerMap = {
-  text: textSerializer,
-  select: selectSerializer
-}
 
 const CamacInputComponent = Component.extend({
   classNames: ['uk-margin'],
@@ -17,23 +10,15 @@ const CamacInputComponent = Component.extend({
 
   instance: null,
 
-  questions: service('camac-questions'),
+  error: null,
 
-  question: computed('identifier', 'questions.questions.[]', async function() {
-    return await this.get('questions').getQuestion(
+  questionStore: service('question-store'),
+
+  question: computed('identifier', function() {
+    return this.get('questionStore.find').perform(
       this.get('identifier'),
-      this.get('instance')
+      this.get('instance.id')
     )
-  }),
-
-  error: computed('save.last.value', function() {
-    let saveVal = this.get('save.last.value')
-
-    if (saveVal === undefined) {
-      return null
-    }
-
-    return saveVal === true ? false : saveVal
   }),
 
   save: task(function*(value) {
@@ -41,17 +26,19 @@ const CamacInputComponent = Component.extend({
 
     let q = yield this.get('question')
 
-    let valid = q.validate(serializerMap[q.get('type')].deserialize(value))
+    let model = q.get('model')
+
+    model.set('value', value)
+
+    let valid = q.validate()
 
     if (valid === true) {
-      let model = q.get('model')
-
-      model.set('value', value)
+      this.set('error', null)
 
       yield model.save()
+    } else {
+      this.set('error', valid)
     }
-
-    return valid
   }).restartable()
 })
 

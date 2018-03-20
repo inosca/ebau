@@ -1,6 +1,8 @@
 'use strict'
 
 module.exports = function(environment) {
+  let oidcHost = process.env.KEYCLOAK_HOST || ''
+
   let ENV = {
     modulePrefix: 'citizen-portal',
     environment,
@@ -25,12 +27,9 @@ module.exports = function(environment) {
     exportApplicationGlobal: true,
 
     'ember-simple-auth-oidc': {
-      authEndpoint:
-        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/auth',
-      tokenEndpoint:
-        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/token',
-      logoutEndpoint:
-        'http://camac-ng-ember.local/auth/realms/ebau/protocol/openid-connect/logout',
+      authEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/auth`,
+      tokenEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/token`,
+      logoutEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/logout`,
       clientId: 'portal'
     }
   }

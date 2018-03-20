@@ -6,7 +6,6 @@ export default Model.extend({
   name: attr('string'),
   identifier: attr('string'),
   creationDate: attr('date'),
-  modificationDate: attr('date'),
   location: belongsTo('location'),
   form: belongsTo('form'),
   formFields: hasMany('form-field'),

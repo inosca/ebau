@@ -4,6 +4,6 @@ import { belongsTo } from 'ember-data/relationships'
 
 export default Model.extend({
   name: attr('string'),
-  value: attr(),
+  value: attr('value'),
   instance: belongsTo('instance')
 })
