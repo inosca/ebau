@@ -5,7 +5,7 @@ from rest_framework_json_api import serializers
 from . import models
 
 
-class CurrentGroupDefault(serializers.CurrentUserDefault):
+class CurrentGroupDefault(object):
     """Current group of user is first found default group."""
 
     def set_context(self, serializer_field):
