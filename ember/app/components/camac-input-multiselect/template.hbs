@@ -1,4 +1,4 @@
-{{#power-select
+{{#power-select-multiple
   selected      = model.value
   options       = config.options
   searchEnabled = (not (not config.searchable))
@@ -6,4 +6,4 @@
   onchange      = (action (optional on-change))
 as |option|}}
   {{option}}
-{{/power-select}}
+{{/power-select-multiple}}

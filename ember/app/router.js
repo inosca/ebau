@@ -24,6 +24,10 @@ Router.map(function() {
           this.route('3', { path: 'allgemeine-informationen-zum-vorhaben' })
           this.route('4', { path: 'ausnahmebewilligungen' })
         })
+
+        this.route('c', { path: '/personalien' }, function() {
+          this.route('1', { path: '/grundeigentuemerschaft' })
+        })
       })
     })
   })

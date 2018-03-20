@@ -1,43 +1,39 @@
 {{#with (await question) as |question|}}
-  {{#if question.type}}
+  {{#if (and question.field.type (not (await question.hidden)))}}
     <div class="uk-animation-fade">
+      {{yield}}
       <label class="uk-form-label {{if (and save.last error) 'uk-text-danger'}}">
-        {{question.label}}{{#if question.required}}<span> *</span>{{/if}}
+        {{question.field.label}}{{#if question.field.required}}<span> *</span>{{/if}}
       </label>
       <div uk-grid class="uk-form-controls">
         <div class="uk-width-expand">
-          {{component (concat 'camac-input-' question.type)
-            config    = question.config
-            model     = question.model
-            class     = (if (and save.last error) 'uk-form-danger')
-            on-change = (perform save)
+          {{component (concat 'camac-input-' question.field.type)
+            config      = question.field.config
+            model       = question.model
+            readonly    = readonly
+            class       = (if (and save.last error) 'uk-form-danger')
+            on-change   = (perform save)
           }}
         </div>
         <div class="icon uk-flex uk-flex-center uk-flex-middle">
           {{#if save.last}}
             {{#if save.isRunning}}
-              {{uk-spinner}}
+              {{uk-spinner class='uk-animation-fade'}}
             {{else}}
               {{#if error}}
-                {{uk-icon 'close' ratio=1.25 class='uk-text-danger'}}
+                {{uk-icon 'close' ratio=1.25 class='uk-text-danger uk-animation-slide-bottom-small'}}
               {{else}}
-                {{uk-icon 'check' ratio=1.25 class='uk-text-success'}}
+                {{uk-icon 'check' ratio=1.25 class='uk-text-success uk-animation-slide-top-small'}}
               {{/if}}
             {{/if}}
           {{/if}}
         </div>
       </div>
       {{#if error}}
-        <small class="uk-text-danger">
+        <small class="uk-text-danger uk-animation-slide-bottom-small">
           {{error}}
         </small>
       {{/if}}
     </div>
   {{/if}}
 {{/with}}
-
-{{#if (is-pending question)}}
-  {{#uk-flex horizontal='center' class='uk-animation-fade'}}
-    {{uk-spinner class='uk-margin-top uk-margin-bottom'}}
-  {{/uk-flex}}
-{{/if}}
