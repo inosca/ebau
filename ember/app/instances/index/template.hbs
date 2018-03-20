@@ -8,7 +8,6 @@
       <th>Gesuchsart</th>
       <th>Gemeinde</th>
       <th>Erstelldatum</th>
-      <th>Zuletzt bearbeitet</th>
     </tr>
   </thead>
   <tbody>
@@ -29,10 +28,7 @@
           {{/if}}
         </td>
         <td>
-          {{format-date instance.creationDate format='datetime'}}
-        </td>
-        <td>
-          {{format-date instance.modificationDate format='datetime'}}
+          {{format-date instance.creationDate}}
         </td>
       </tr>
     {{/each}}
