@@ -37,7 +37,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
 
 
 @pytest.mark.parametrize(
-    "filename,mime_type,role__name,instance__user,instance__location,activation__service,attachment_section_group_acl__mode,status_code", [  # noqa: E501
+    "filename,mime_type,role__name,instance__user,instance__location,activation__service,instance__group,attachment_section_group_acl__mode,status_code", [  # noqa: E501
         # applicant creates valid pdf attachment on a instance of its own in a
         # attachment section with admin permissions
         (
@@ -47,6 +47,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('admin_user'),  # instance__user
             LazyFixture('location'),  # instance__location
             LazyFixture('service'),  # activation__service
+            LazyFixture('group'),  # instance__group
             models.ADMIN_PERMISSION,  # attachment_section_group_acl__mode
             status.HTTP_201_CREATED,  # status_code
         ),
@@ -60,6 +61,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('user'),
             LazyFixture('location'),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_201_CREATED
         ),
@@ -73,6 +75,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('user'),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_201_CREATED
         ),
@@ -85,6 +88,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('user'),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_201_CREATED,
         ),
@@ -97,6 +101,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('admin_user'),
             LazyFixture('location'),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST
         ),
@@ -110,6 +115,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('user'),
             LazyFixture('location'),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
         ),
@@ -122,6 +128,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('admin_user'),
             LazyFixture('location'),
             LazyFixture('service'),
+            LazyFixture('group'),
             models.READ_PERMISSION,
             status.HTTP_400_BAD_REQUEST
         ),
@@ -135,6 +142,21 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('user'),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture('service'),
+            LazyFixture('group'),
+            models.ADMIN_PERMISSION,
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        # user with role Municipality creates valid jpg attachment on an
+        # instance of its location in a attachment section with admin
+        # permissions but in a group user doesn't belong to
+        (
+            'test-thumbnail.jpg',
+            'image/jpeg',
+            'Municipality',
+            LazyFixture('user'),
+            LazyFixture('location'),
+            LazyFixture('service'),
+            LazyFixture(lambda group_factory: group_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
         ),
@@ -148,6 +170,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
             LazyFixture('admin_user'),
             LazyFixture('location'),
             LazyFixture(lambda service_factory: service_factory()),
+            LazyFixture('group'),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
         ),
@@ -163,6 +186,7 @@ def test_attachment_create(admin_client, instance, attachment_section,
         'instance': instance.pk,
         'attachment_section': attachment_section.pk,
         'path': path.file,
+        'group': instance.group.pk,
     }
     response = admin_client.post(url, data=data, format='multipart')
     assert response.status_code == status_code

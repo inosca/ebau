@@ -3,6 +3,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.user.relations import GroupResourceRelatedField
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
@@ -32,13 +33,10 @@ class FormSerializer(serializers.ModelSerializer):
 
 
 class InstanceSerializer(serializers.ModelSerializer):
-    group = serializers.ResourceRelatedField(
-        read_only=True, default=CurrentGroupDefault()
-    )
-
     user = serializers.ResourceRelatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
+    group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
     creation_date = serializers.DateTimeField(
         read_only=True, default=timezone.now
@@ -97,7 +95,8 @@ class InstanceSerializer(serializers.ModelSerializer):
             'group',
             'creation_date',
             'modification_date',
-            'previous_instance_state'
+            'previous_instance_state',
+            'group',
         )
         read_only_fields = (
             'identifier',
