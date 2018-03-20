@@ -10,6 +10,8 @@ const CamacInputComponent = Component.extend({
 
   instance: null,
 
+  error: null,
+
   questionStore: service('question-store'),
 
   question: computed('identifier', function() {
