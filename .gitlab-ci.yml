@@ -42,20 +42,34 @@ build:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        # need to run pulling of images in subshell as otherwise CI_COMMIT_REF_SLUG
-        # is set for following commands as well
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --parallel ember django php db"
+        - eval $COMPOSE pull --parallel ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
         - master
+
+
+build-kt_schwyz-stage:
+    stage: build
+    services:
+        - docker:dind
+    variables:
+        KEYCLOAK_URL: https://login.ebau.sz.testyard.ch/auth/
+        APPLICATION: kt_schwyz
+        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - eval $COMPOSE pull --parallel ember django php db"
+        - eval $COMPOSE build --pull
+        - eval $COMPOSE push
+    only:
         - stage
 
 
 deploy-kt_schwyz-stage:
     environment:
         name: stage-kt_schwyz
-        url: http://camac-schwyz.sycloud.ch/
+        url: https://camac-schwyz.sycloud.ch/
     variables:
         APPLICATION: kt_schwyz
         # because of https://github.com/docker/compose/issues/2668 tls certs
@@ -66,7 +80,6 @@ deploy-kt_schwyz-stage:
     stage: deploy
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE ps
         - eval $COMPOSE pull --parallel
         - eval $COMPOSE up -d
     only:

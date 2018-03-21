@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(environment) {
-  let oidcHost = process.env.KEYCLOAK_HOST || ''
+  let oidcHost = process.env.KEYCLOAK_URL || ''
 
   let ENV = {
     modulePrefix: 'citizen-portal',
@@ -27,9 +27,9 @@ module.exports = function(environment) {
     exportApplicationGlobal: true,
 
     'ember-simple-auth-oidc': {
-      authEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/auth`,
-      tokenEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/token`,
-      logoutEndpoint: `${oidcHost}/auth/realms/ebau/protocol/openid-connect/logout`,
+      authEndpoint: `${oidcHost}realms/ebau/protocol/openid-connect/auth`,
+      tokenEndpoint: `${oidcHost}realms/ebau/protocol/openid-connect/token`,
+      logoutEndpoint: `${oidcHost}realms/ebau/protocol/openid-connect/logout`,
       clientId: 'portal'
     }
   }
@@ -40,6 +40,14 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-simple-auth-oidc'] = {
+      authEndpoint:
+        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/auth',
+      tokenEndpoint:
+        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token',
+      logoutEndpoint:
+        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/logout',
+    }
   }
 
   if (environment === 'test') {
