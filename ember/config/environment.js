@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = function(environment) {
-  let oidcHost = process.env.KEYCLOAK_URL || ''
+  let oidcHost = process.env.KEYCLOAK_URL || 'http://camac-ng-keycloak.local/auth/'
 
   let ENV = {
     modulePrefix: 'citizen-portal',
@@ -40,14 +40,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV['ember-simple-auth-oidc'] = {
-      authEndpoint:
-        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/auth',
-      tokenEndpoint:
-        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token',
-      logoutEndpoint:
-        'http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/logout',
-    }
   }
 
   if (environment === 'test') {
