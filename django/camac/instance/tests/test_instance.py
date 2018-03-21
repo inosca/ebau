@@ -134,7 +134,7 @@ def test_instance_create(admin_client, admin_user, form,
 @pytest.mark.freeze_time('2017-7-27')
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
-    [(LazyFixture('admin_user'), '1311', 'comm')]
+    [(LazyFixture('admin_user'), '1311', 'subm')]
 )
 @pytest.mark.parametrize("role__name,instance__location,status_code", [
     ('Applicant', LazyFixture('location'), status.HTTP_204_NO_CONTENT),
@@ -150,7 +150,7 @@ def test_instance_submit(admin_client, admin_user, form,
     if status_code == status.HTTP_204_NO_CONTENT:
         instance.refresh_from_db()
         assert instance.identifier == '11-17-001'
-        assert instance.instance_state.name == 'comm'
+        assert instance.instance_state.name == 'subm'
 
 
 @pytest.mark.parametrize("role__name", ['Canton'])
