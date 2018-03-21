@@ -1,705 +1,1343 @@
 [
-  {
-    "model": "core.araction",
-    "pk": 1,
-    "fields": {
-      "available_resource": "apilist",
-      "action_name": "index",
-      "hidden": 0
-    }
-  },
-  {
-    "model": "core.availableresource",
-    "pk": "apilist",
-    "fields": {
-      "module_name": "apilist",
-      "controller_name": "apilist",
-      "description":
-        "Page with a list of instances received from an API backend"
-    }
-  },
-  {
-    "model": "core.resource",
-    "pk": 1,
-    "fields": {
-      "available_resource": "apilist",
-      "name": "Neue Dossiers",
-      "description": null,
-      "template": null,
-      "class_field": null,
-      "hidden": 0,
-      "sort": 0
-    }
-  },
-  {
-    "model": "core.rapilist",
-    "pk": 1,
-    "fields": {
-      "resource": "1",
-      "instance_state": "2"
-    }
-  },
-  {
-    "model": "core.rroleacl",
-    "pk": 1,
-    "fields": {
-      "resource": 1,
-      "role": 3
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 1,
-    "fields": {
-      "form_state": 1,
-      "name": "baugesuch-reklamegesuch",
-      "description": "Baugesuch, Reklamegesuch"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 2,
-    "fields": {
-      "form_state": 1,
-      "name": "projektanderung",
-      "description": "Projekt\u00e4nderung"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 3,
-    "fields": {
-      "form_state": 1,
-      "name": "vorentscheid-gemass-ss84-pbg",
-      "description": "Vorentscheid gem\u00e4ss \u00a784 PBG"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 4,
-    "fields": {
-      "form_state": 1,
-      "name": "vorabklarung",
-      "description": "Vorabkl\u00e4rung"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 5,
-    "fields": {
-      "form_state": 1,
-      "name": "baumeldung-fur-geringfugiges-vorhaben",
-      "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 6,
-    "fields": {
-      "form_state": 1,
-      "name": "technische-bewilligung",
-      "description": "Technische Bewilligung"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 7,
-    "fields": {
-      "form_state": 1,
-      "name": "konzession-fur-wasserentnahme",
-      "description": "Konzession f\u00fcr Wasserentnahme"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 8,
-    "fields": {
-      "form_state": 1,
-      "name": "plangenehmigungsgesuch",
-      "description": "Plangenehmigungsgesuch"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 9,
-    "fields": {
-      "form_state": 1,
-      "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
-      "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a715 StraG"
-    }
-  },
-  {
-    "model": "instance.form",
-    "pk": 10,
-    "fields": {
-      "form_state": 1,
-      "name": "anlassbewilligungen-verkehrsbewilligungen",
-      "description": "Anlassbewilligungen / Verkehrsbewilligungen"
-    }
-  },
-  {
-    "model": "instance.formstate",
-    "pk": 1,
-    "fields": {
-      "name": "Published"
-    }
-  },
-  {
-    "model": "instance.instancestate",
-    "pk": 1,
-    "fields": {
-      "name": "new",
-      "sort": 0
-    }
-  },
-  {
-    "model": "instance.instancestate",
-    "pk": 2,
-    "fields": {
-      "name": "comm",
-      "sort": 1
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 1,
-    "fields": {
-      "role": 1,
-      "service": null,
-      "name": "Admin",
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 2,
-    "fields": {
-      "role": 2,
-      "service": null,
-      "name": "Guest",
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 3,
-    "fields": {
-      "role": 3,
-      "service": null,
-      "name": "Bauverwaltung Gemeinde Schwyz",
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.group",
-    "pk": 4,
-    "fields": {
-      "role": 4,
-      "service": null,
-      "name": "Portal",
-      "phone": null,
-      "zip": null,
-      "city": null,
-      "address": null,
-      "email": null,
-      "website": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 1,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1311",
-      "district_number": null,
-      "section_number": null,
-      "name": "Gersau",
-      "commune_name": "Gersau",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 2,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1321",
-      "district_number": null,
-      "section_number": null,
-      "name": "Feusisberg",
-      "commune_name": "Feusisberg",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 3,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1322",
-      "district_number": null,
-      "section_number": null,
-      "name": "Freienbach",
-      "commune_name": "Freienbach",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 4,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1323",
-      "district_number": null,
-      "section_number": null,
-      "name": "Wollerau",
-      "commune_name": "Wollerau",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 5,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1331",
-      "district_number": null,
-      "section_number": null,
-      "name": "K\u00fcssnacht",
-      "commune_name": "K\u00fcssnacht",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 6,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1341",
-      "district_number": null,
-      "section_number": null,
-      "name": "Altendorf",
-      "commune_name": "Altendorf",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 7,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1342",
-      "district_number": null,
-      "section_number": null,
-      "name": "Galgenen",
-      "commune_name": "Galgenen",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 8,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1343",
-      "district_number": null,
-      "section_number": null,
-      "name": "Innerthal",
-      "commune_name": "Innerthal",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 9,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1344",
-      "district_number": null,
-      "section_number": null,
-      "name": "Lachen",
-      "commune_name": "Lachen",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 10,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1345",
-      "district_number": null,
-      "section_number": null,
-      "name": "Reichenburg",
-      "commune_name": "Reichenburg",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 11,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1346",
-      "district_number": null,
-      "section_number": null,
-      "name": "Sch\u00fcbelbach",
-      "commune_name": "Sch\u00fcbelbach",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 12,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1347",
-      "district_number": null,
-      "section_number": null,
-      "name": "Tuggen",
-      "commune_name": "Tuggen",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 13,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1348",
-      "district_number": null,
-      "section_number": null,
-      "name": "Vorderthal",
-      "commune_name": "Vorderthal",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 14,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1349",
-      "district_number": null,
-      "section_number": null,
-      "name": "Wangen",
-      "commune_name": "Wangen",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 15,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1361",
-      "district_number": null,
-      "section_number": null,
-      "name": "Alpthal",
-      "commune_name": "Alpthal",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 16,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1362",
-      "district_number": null,
-      "section_number": null,
-      "name": "Arth",
-      "commune_name": "Arth",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 17,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1363",
-      "district_number": null,
-      "section_number": null,
-      "name": "Illgau",
-      "commune_name": "Illgau",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 18,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1364",
-      "district_number": null,
-      "section_number": null,
-      "name": "Ingenbohl",
-      "commune_name": "Ingenbohl",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 19,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1365",
-      "district_number": null,
-      "section_number": null,
-      "name": "Lauerz",
-      "commune_name": "Lauerz",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 20,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1366",
-      "district_number": null,
-      "section_number": null,
-      "name": "Morschach",
-      "commune_name": "Morschach",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 21,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1367",
-      "district_number": null,
-      "section_number": null,
-      "name": "Muotathal",
-      "commune_name": "Muotathal",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 22,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1368",
-      "district_number": null,
-      "section_number": null,
-      "name": "Oberiberg",
-      "commune_name": "Oberiberg",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 23,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1369",
-      "district_number": null,
-      "section_number": null,
-      "name": "Riemenstalden",
-      "commune_name": "Riemenstalden",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 24,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1370",
-      "district_number": null,
-      "section_number": null,
-      "name": "Rothenthurm",
-      "commune_name": "Rothenthurm",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 25,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1371",
-      "district_number": null,
-      "section_number": null,
-      "name": "Sattel",
-      "commune_name": "Sattel",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 26,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1372",
-      "district_number": null,
-      "section_number": null,
-      "name": "Schwyz",
-      "commune_name": "Schwyz",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 27,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1373",
-      "district_number": null,
-      "section_number": null,
-      "name": "Steinen",
-      "commune_name": "Steinen",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 28,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1374",
-      "district_number": null,
-      "section_number": null,
-      "name": "Steinerberg",
-      "commune_name": "Steinerberg",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 29,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1375",
-      "district_number": null,
-      "section_number": null,
-      "name": "Unteriberg",
-      "commune_name": "Unteriberg",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.location",
-    "pk": 30,
-    "fields": {
-      "communal_cantonal_number": null,
-      "communal_federal_number": "1301",
-      "district_number": null,
-      "section_number": null,
-      "name": "Einsiedeln",
-      "commune_name": "Einsiedeln",
-      "district_name": null,
-      "section_name": null,
-      "zip": null
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 1,
-    "fields": {
-      "role_parent": null,
-      "name": "Admin"
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 2,
-    "fields": {
-      "role_parent": null,
-      "name": "Guest"
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 3,
-    "fields": {
-      "role_parent": null,
-      "name": "Gemeinde"
-    }
-  },
-  {
-    "model": "user.role",
-    "pk": 4,
-    "fields": {
-      "role_parent": null,
-      "name": "Portal"
-    }
+{
+  "model": "core.airaction",
+  "pk": 1,
+  "fields": {
+    "available_instance_resource": "newform",
+    "action_name": "new",
+    "hidden": 0
   }
+},
+{
+  "model": "core.airaction",
+  "pk": 2,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "action_name": "edit-page",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 3,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 4,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "action_name": "edit-pages",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 5,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 6,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "action_name": "read-page",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 7,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 8,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "action_name": "read-pages",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 9,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 10,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 11,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 12,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 13,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "add",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 14,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "add-activation",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 15,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 16,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 17,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 18,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "list-notice",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 19,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "edit-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 20,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 21,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "list",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 22,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 23,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "read-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 24,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "read-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 25,
+  "fields": {
+    "available_instance_resource": "letter",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 26,
+  "fields": {
+    "available_instance_resource": "letter",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 27,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 28,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 29,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "list",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 30,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 31,
+  "fields": {
+    "available_instance_resource": "page",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 32,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "action_name": "wizard",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 33,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 34,
+  "fields": {
+    "available_instance_resource": "formerror",
+    "action_name": "form-error",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 35,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 36,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 37,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "download",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 38,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 1,
+  "fields": {
+    "available_resource": "apilist",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.attachmentextension",
+  "pk": 1,
+  "fields": {
+    "name": "pdf"
+  }
+},
+{
+  "model": "core.attachmentextensionrole",
+  "pk": 1,
+  "fields": {
+    "attachment_extension": 1,
+    "role": 3,
+    "mode": null
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "allformpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read all pages of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "apidocuments",
+  "fields": {
+    "module_name": "apidocuments",
+    "controller_name": "list",
+    "description": "List of instance documents (API source)"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "circulation",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Read the circulation"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editcirculation",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Edit the circulation"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editformpage",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Edit one page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editformpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Edit multiple page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editletter",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "letter",
+    "description": "Edit letter"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editnotice",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Edit the notice"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formerror",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Page with error list of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formpage",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read one page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read multiple page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formwizard",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Wizard for the creation of a form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "letter",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "letter",
+    "description": "Read letter"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "newform",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Create the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "page",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "page",
+    "description": "Page from template"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilist",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.formgroup",
+  "pk": 1,
+  "fields": {
+    "name": "Alle Dossiers",
+    "description": null
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 1,
+  "fields": {
+    "form_group": 1,
+    "form": 10
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 2,
+  "fields": {
+    "form_group": 1,
+    "form": 1
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 3,
+  "fields": {
+    "form_group": 1,
+    "form": 5
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 4,
+  "fields": {
+    "form_group": 1,
+    "form": 7
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 5,
+  "fields": {
+    "form_group": 1,
+    "form": 8
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 6,
+  "fields": {
+    "form_group": 1,
+    "form": 2
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 7,
+  "fields": {
+    "form_group": 1,
+    "form": 9
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 8,
+  "fields": {
+    "form_group": 1,
+    "form": 6
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 9,
+  "fields": {
+    "form_group": 1,
+    "form": 4
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 10,
+  "fields": {
+    "form_group": 1,
+    "form": 3
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 1,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "resource": 1,
+    "name": "Dokumente",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 1,
+  "fields": {
+    "available_resource": "apilist",
+    "name": "Neue Dossiers",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.rapilist",
+  "pk": 1,
+  "fields": {
+    "resource": 1,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 1,
+  "fields": {
+    "resource": 1,
+    "role": 3
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 1,
+  "fields": {
+    "name": "Dokumente Gesuchsteller",
+    "sort": 0
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 2,
+  "fields": {
+    "name": "Dokumente Fachstellen",
+    "sort": 0
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 1,
+  "fields": {
+    "attachment_section": 1,
+    "role": 3,
+    "mode": "admin"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 2,
+  "fields": {
+    "attachment_section": 2,
+    "role": 3,
+    "mode": "read"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 1,
+  "fields": {
+    "form_state": 1,
+    "name": "baugesuch-reklamegesuch",
+    "description": "Baugesuch, Reklamegesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 2,
+  "fields": {
+    "form_state": 1,
+    "name": "projektanderung",
+    "description": "Projekt\u00e4nderung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 3,
+  "fields": {
+    "form_state": 1,
+    "name": "vorentscheid-gemass-ss84-pbg",
+    "description": "Vorentscheid gem\u00e4ss \u00a784 PBG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 4,
+  "fields": {
+    "form_state": 1,
+    "name": "vorabklarung",
+    "description": "Vorabkl\u00e4rung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 5,
+  "fields": {
+    "form_state": 1,
+    "name": "baumeldung-fur-geringfugiges-vorhaben",
+    "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 6,
+  "fields": {
+    "form_state": 1,
+    "name": "technische-bewilligung",
+    "description": "Technische Bewilligung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 7,
+  "fields": {
+    "form_state": 1,
+    "name": "konzession-fur-wasserentnahme",
+    "description": "Konzession f\u00fcr Wasserentnahme"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 8,
+  "fields": {
+    "form_state": 1,
+    "name": "plangenehmigungsgesuch",
+    "description": "Plangenehmigungsgesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 9,
+  "fields": {
+    "form_state": 1,
+    "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
+    "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a715 StraG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 10,
+  "fields": {
+    "form_state": 1,
+    "name": "anlassbewilligungen-verkehrsbewilligungen",
+    "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+  }
+},
+{
+  "model": "instance.formstate",
+  "pk": 1,
+  "fields": {
+    "name": "Published"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 1,
+  "fields": {
+    "name": "new",
+    "sort": 0
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 2,
+  "fields": {
+    "name": "comm",
+    "sort": 1
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1,
+  "fields": {
+    "role": 1,
+    "service": null,
+    "name": "Admin",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 2,
+  "fields": {
+    "role": 2,
+    "service": null,
+    "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 3,
+  "fields": {
+    "role": 3,
+    "service": null,
+    "name": "Bauverwaltung Gemeinde Schwyz",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 4,
+  "fields": {
+    "role": 4,
+    "service": null,
+    "name": "Portal",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 1,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1311",
+    "district_number": null,
+    "section_number": null,
+    "name": "Gersau",
+    "commune_name": "Gersau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 2,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1321",
+    "district_number": null,
+    "section_number": null,
+    "name": "Feusisberg",
+    "commune_name": "Feusisberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 3,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1322",
+    "district_number": null,
+    "section_number": null,
+    "name": "Freienbach",
+    "commune_name": "Freienbach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 4,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1323",
+    "district_number": null,
+    "section_number": null,
+    "name": "Wollerau",
+    "commune_name": "Wollerau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 5,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1331",
+    "district_number": null,
+    "section_number": null,
+    "name": "K\u00fcssnacht",
+    "commune_name": "K\u00fcssnacht",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 6,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1341",
+    "district_number": null,
+    "section_number": null,
+    "name": "Altendorf",
+    "commune_name": "Altendorf",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 7,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1342",
+    "district_number": null,
+    "section_number": null,
+    "name": "Galgenen",
+    "commune_name": "Galgenen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 8,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1343",
+    "district_number": null,
+    "section_number": null,
+    "name": "Innerthal",
+    "commune_name": "Innerthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 9,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1344",
+    "district_number": null,
+    "section_number": null,
+    "name": "Lachen",
+    "commune_name": "Lachen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 10,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1345",
+    "district_number": null,
+    "section_number": null,
+    "name": "Reichenburg",
+    "commune_name": "Reichenburg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 11,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1346",
+    "district_number": null,
+    "section_number": null,
+    "name": "Sch\u00fcbelbach",
+    "commune_name": "Sch\u00fcbelbach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 12,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1347",
+    "district_number": null,
+    "section_number": null,
+    "name": "Tuggen",
+    "commune_name": "Tuggen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 13,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1348",
+    "district_number": null,
+    "section_number": null,
+    "name": "Vorderthal",
+    "commune_name": "Vorderthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 14,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1349",
+    "district_number": null,
+    "section_number": null,
+    "name": "Wangen",
+    "commune_name": "Wangen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 15,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1361",
+    "district_number": null,
+    "section_number": null,
+    "name": "Alpthal",
+    "commune_name": "Alpthal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 16,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1362",
+    "district_number": null,
+    "section_number": null,
+    "name": "Arth",
+    "commune_name": "Arth",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 17,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1363",
+    "district_number": null,
+    "section_number": null,
+    "name": "Illgau",
+    "commune_name": "Illgau",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 18,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1364",
+    "district_number": null,
+    "section_number": null,
+    "name": "Ingenbohl",
+    "commune_name": "Ingenbohl",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 19,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1365",
+    "district_number": null,
+    "section_number": null,
+    "name": "Lauerz",
+    "commune_name": "Lauerz",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 20,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1366",
+    "district_number": null,
+    "section_number": null,
+    "name": "Morschach",
+    "commune_name": "Morschach",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 21,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1367",
+    "district_number": null,
+    "section_number": null,
+    "name": "Muotathal",
+    "commune_name": "Muotathal",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 22,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1368",
+    "district_number": null,
+    "section_number": null,
+    "name": "Oberiberg",
+    "commune_name": "Oberiberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 23,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1369",
+    "district_number": null,
+    "section_number": null,
+    "name": "Riemenstalden",
+    "commune_name": "Riemenstalden",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 24,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1370",
+    "district_number": null,
+    "section_number": null,
+    "name": "Rothenthurm",
+    "commune_name": "Rothenthurm",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 25,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1371",
+    "district_number": null,
+    "section_number": null,
+    "name": "Sattel",
+    "commune_name": "Sattel",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 26,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1372",
+    "district_number": null,
+    "section_number": null,
+    "name": "Schwyz",
+    "commune_name": "Schwyz",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 27,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1373",
+    "district_number": null,
+    "section_number": null,
+    "name": "Steinen",
+    "commune_name": "Steinen",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 28,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1374",
+    "district_number": null,
+    "section_number": null,
+    "name": "Steinerberg",
+    "commune_name": "Steinerberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 29,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1375",
+    "district_number": null,
+    "section_number": null,
+    "name": "Unteriberg",
+    "commune_name": "Unteriberg",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 30,
+  "fields": {
+    "communal_cantonal_number": null,
+    "communal_federal_number": "1301",
+    "district_number": null,
+    "section_number": null,
+    "name": "Einsiedeln",
+    "commune_name": "Einsiedeln",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.role",
+  "pk": 1,
+  "fields": {
+    "role_parent": null,
+    "name": "Admin"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 2,
+  "fields": {
+    "role_parent": null,
+    "name": "Guest"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 3,
+  "fields": {
+    "role_parent": null,
+    "name": "Gemeinde"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 4,
+  "fields": {
+    "role_parent": null,
+    "name": "Portal"
+  }
+}
 ]
