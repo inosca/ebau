@@ -1,18 +1,473 @@
 {
-  "art-des-vorhabens": {
-    "label": "Test Select",
+  "kategorie-des-vorhabens": {
+    "label":
+      "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+    "required": true,
+    "type": "multiselect",
+    "config": {
+      "options": ["Baute(n)", "Anlage(n)"]
+    }
+  },
+  "art-der-nutzung": {
+    "label": "Welchem Zweck dient das Vorhaben",
+    "type": "multiselect",
+    "required": true,
+    "config": {
+      "options": [
+        "Wohnen",
+        "Gewerbe / Dienstleistung",
+        "Industrie",
+        "Landwirtschaft",
+        "Öffentliche Nutzung",
+        "Forstwirtschaft",
+        "Tourismus"
+      ]
+    }
+  },
+  "vorhaben-mit-anlage": {
+    "label": "Welche Tätigkeiten sind geplant?",
+    "type": "multiselect",
+    "required": true,
+    "config": {
+      "options": [
+        "Abbruch / Rückbau",
+        "Neubau",
+        "Anbau / Erweiterung",
+        "Umbau / Erneuerung / Sanierung",
+        "Nutzungsänderung"
+      ]
+    }
+  },
+  "art-der-anlage": {
+    "label": "Welche Anlagearten sind geplant?",
+    "type": "multiselect",
+    "required": true,
+    "config": {
+      "options": [
+        "Befestigte Fläche",
+        "Ver- / Ensorgungsleitung",
+        "Reklame",
+        "Terrainveränderung",
+        "Wärmepumpe",
+        "Sondierbohrung",
+        "Solaranlage",
+        "Abfallanlage, Deponie",
+        "Antennen"
+      ],
+      "allowOther": true
+    }
+  },
+  "art-der-befestigten-flache": {
+    "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
+    "type": "multiselect",
+    "required": true,
+    "config": {
+      "options": [
+        "Verkehrsfläche",
+        "Lagerplatz",
+        "Vorplatz",
+        "Terasse, Sitzplatz"
+      ],
+      "allowOther": true
+    }
+  },
+  "zweck-der-leitungen": {
+    "label": "Welchem Zweck dienen die Leitungen?",
     "type": "select",
     "required": true,
     "config": {
-      "options": ["Option 1", "Option 2", "Option 3", "Option 4"]
+      "options": [
+        "Abwasserentsorgung",
+        "Wasserversorgung",
+        "Energieversorgung",
+        "Datenversorgung"
+      ],
+      "allowOther": true
     }
   },
-  "vorgesehene-nutzung": {
-    "label": "Test Input",
-    "type": "text",
+  "art-der-warmepumpe": {
+    "label": "Welche Art Wärmepumpe ist vorgesehen?",
+    "type": "select",
     "required": true,
     "config": {
-      "maxlength": 20
+      "options": [
+        "Erd-wärmepumpe",
+        "Luft/wasser-wärmepumpe",
+        "Wasser/wasser-wärmepumpe",
+        "Sole/wasser-wärmepumpe"
+      ]
     }
+  },
+  "tangiert-vorhaben-strasse": {
+    "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja, direkt", "Ja, indirekt", "Nein"]
+    }
+  },
+  "pfahlfundation-vorgesehen": {
+    "label": "Ist eine Pfahlfundation vorgesehen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "baugrubenumschliessung-vorgesehen": {
+    "label": "Ist eine Baugrubenumschliessung vorgesehen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "temporare-grundwasserabsenkung-notig": {
+    "label":
+      "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "anlagen-mit-erheblichen-schadstoffemissionen": {
+    "label":
+      "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
+    "label": "Welche?",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "anlagen-mit-erheblichen-strahlungsemissionen": {
+    "label":
+      "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
+    "label": "Welche?",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "anlagen-mit-erheblichen-larmemissionen": {
+    "label":
+      "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "larmbelastetes-gebiet": {
+    "label":
+      "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "aussenbeleuchtung": {
+    "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "wassergefahrdende-stoffe": {
+    "label":
+      "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "brandschutztechnisch-gefahrliche-stoffe": {
+    "label": "Werden brandschutztechnisch gefährliche Stoffe gelagert?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "bodenbelastungen": {
+    "label":
+      "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "boden-5000m2": {
+    "label": "Sind mit dem Vorhaben 5‘000 m 2 Boden (oder mehr) betroffen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "ordendliche-mindestabstande": {
+    "label":
+      "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "auswirkungen-auf-arbeitnehmer": {
+    "label":
+      "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "200m3-bauabfalle": {
+    "label":
+      "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "alarmierungseinrichtung-tangiert": {
+    "label":
+      "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "lebensmittel-umgehen": {
+    "label":
+      "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "trinkwasser-abgeben": {
+    "label":
+      "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "offentlich-duschanlage-oder-bad": {
+    "label":
+      "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "gewerbliche-nutzflachen": {
+    "label":
+      "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": ["Ja", "Nein"]
+    }
+  },
+  "hohe-der-anlage": {
+    "label": "Wie hoch ist die Anlage?",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "geometer": {
+    "label":
+      "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
+    "type": "select",
+    "required": true,
+    "config": {
+      "options": [
+        "Trigonet AG (Stans)",
+        "Geoterra AG (Richterswil, Siebnen, Pfäffikon, Einsiedeln)",
+        "Lukas Domeisen AG (Uznach)",
+        "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",
+        "geometrie plus ag (Freienback, Einsiedeln)",
+        "Wild Ingenieure AG (Küssnacht)"
+      ]
+    }
+  },
+  "baugespann-errichtet": {
+    "label": "Das Baugespann wurde / wird errichtet am:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "kein-baugespann-begrundung": {
+    "label": "Falls kein Baugespann erstellt wird, ist dies zu begründen:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "baukosten": {
+    "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4:",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "gebaudevolumen": {
+    "label": "Gebäudevolumen nach SIA 116 / SIA 416:",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "ausnahmen": {
+    "label": "Folgende Ausnahmen werden beansprucht:",
+    "type": "multiselect",
+    "required": false,
+    "config": {
+      "options": [
+        "Unterschreitung Grenzabstand",
+        "Unterschreitung Gebäudeabstand",
+        "Unterschreitung Gewässerabstand",
+        "Unterschreitung Gewässerraum",
+        "Unterschreitung Waldabstand",
+        "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie"
+      ],
+      "allowOther": true
+    }
+  },
+  "ausnahmen-begrundung": {
+    "label":
+      "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
+    "type": "text",
+    "required": true,
+    "config": {}
+  },
+  "grundeigentumerschaft-firma": {
+    "label": "Firma:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "grundeigentumerschaft-name": {
+    "label": "Name, Vorname:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "grundeigentumerschaft-strasse": {
+    "label": "Strasse, Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "grundeigentumerschaft-ort": {
+    "label": "PLZ, Ort:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "grundeigentumerschaft-email": {
+    "label": "E-Mail:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "grundeigentumerschaft-tel": {
+    "label": "Tel. Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-firma": {
+    "label": "Firma:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-name": {
+    "label": "Name, Vorname:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-strasse": {
+    "label": "Strasse, Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-ort": {
+    "label": "PLZ, Ort:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-email": {
+    "label": "E-Mail:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "bauherrschaft-tel": {
+    "label": "Tel. Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-firma": {
+    "label": "Firma:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-name": {
+    "label": "Name, Vorname:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-strasse": {
+    "label": "Strasse, Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-ort": {
+    "label": "PLZ, Ort:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-email": {
+    "label": "E-Mail:",
+    "type": "text",
+    "required": false,
+    "config": {}
+  },
+  "projektverfasser-planer-tel": {
+    "label": "Tel. Nr.:",
+    "type": "text",
+    "required": false,
+    "config": {}
   }
 }
