@@ -79,7 +79,6 @@ APPLICATIONS = {
     'kt_schwyz': {
         # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
-            'Applicant': 'applicant',
             'Gemeinde': 'municipality',
             'Service': 'service',
             'Canton': 'canton',
