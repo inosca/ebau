@@ -12,7 +12,7 @@ services:
             - /etc/ssl/dhparam.pem:/etc/ssl/dhparam.pem:ro
 
     db:
-        image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}
+        image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
@@ -20,7 +20,7 @@ services:
             - /etc/camac/postgres_password.conf:/run/secrets/postgres-passwd:ro
 
     django:
-        image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
+        image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - DJANGO_ENV_FILE=/run/secrets/django.env
@@ -28,11 +28,14 @@ services:
             - /etc/camac/django.env:/run/secrets/django.env:ro
 
     ember:
-        image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
+        image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
+        build:
+            args:
+                KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
 
     php:
-        image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}
+        image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - APPLICATION_ENV=production

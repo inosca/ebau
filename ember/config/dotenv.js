@@ -2,6 +2,6 @@
 
 module.exports = function(/* environment */) {
   return {
-    clientAllowedKeys: ['KEYCLOAK_HOST']
+    clientAllowedKeys: ['KEYCLOAK_URL']
   }
 }
