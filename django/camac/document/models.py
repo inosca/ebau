@@ -88,7 +88,7 @@ class AttachmentSection(models.Model):
     attachment_section_id = models.AutoField(
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)
-    sort = models.IntegerField(db_column='SORT', db_index=True)
+    sort = models.IntegerField(db_column='SORT', db_index=True, default=0)
 
     def get_mode(self, group):
         # TODO: quick implementation
