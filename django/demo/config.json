@@ -1,5 +1,528 @@
 [
 {
+  "model": "core.airaction",
+  "pk": 1,
+  "fields": {
+    "available_instance_resource": "newform",
+    "action_name": "new",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 2,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "action_name": "edit-page",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 3,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 4,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "action_name": "edit-pages",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 5,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 6,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "action_name": "read-page",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 7,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 8,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "action_name": "read-pages",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 9,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 10,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 11,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 12,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 13,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "add",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 14,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "add-activation",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 15,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 16,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 17,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 18,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "list-notice",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 19,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "edit-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 20,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 21,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "list",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 22,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 23,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "action_name": "read-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 24,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "action_name": "read-notice",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 25,
+  "fields": {
+    "available_instance_resource": "letter",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 26,
+  "fields": {
+    "available_instance_resource": "letter",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 27,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 28,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "get-image",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 29,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "list",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 30,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 31,
+  "fields": {
+    "available_instance_resource": "page",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 32,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "action_name": "wizard",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 33,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "action_name": "get-file",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 34,
+  "fields": {
+    "available_instance_resource": "formerror",
+    "action_name": "form-error",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 35,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 36,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "upload",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 37,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "download",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 38,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 1,
+  "fields": {
+    "available_resource": "apilist",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "allformpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read all pages of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "apidocuments",
+  "fields": {
+    "module_name": "apidocuments",
+    "controller_name": "list",
+    "description": "List of instance documents (API source)"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "circulation",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Read the circulation"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editcirculation",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Edit the circulation"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editformpage",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Edit one page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editformpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Edit multiple page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editletter",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "letter",
+    "description": "Edit letter"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "editnotice",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "circulation",
+    "description": "Edit the notice"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formerror",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Page with error list of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formpage",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read one page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formpages",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Read multiple page of the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "formwizard",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Wizard for the creation of a form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "letter",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "letter",
+    "description": "Read letter"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "newform",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "form",
+    "description": "Create the form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "page",
+  "fields": {
+    "module_name": "default",
+    "controller_name": "page",
+    "description": "Page from template"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilist",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 1,
+  "fields": {
+    "name": "Additional"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 2,
+  "fields": {
+    "name": "Activable"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 3,
+  "fields": {
+    "name": "Required"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 4,
+  "fields": {
+    "name": "Instance resource"
+  }
+},
+{
   "model": "user.user",
   "pk": 1,
   "fields": {
