@@ -787,6 +787,7 @@
   "pk": 1,
   "fields": {
     "name": "new",
+    "description": "Neu erstelltes Dossier des Gesuchstellers",
     "sort": 0
   }
 },
@@ -794,8 +795,18 @@
   "model": "instance.instancestate",
   "pk": 2,
   "fields": {
-    "name": "comm",
+    "name": "subm",
+    "description": "Eingereichtes Dossier des Gesuchstellers",
     "sort": 1
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 3,
+  "fields": {
+    "name": "comm",
+    "description": "Von der Gemeinde angenommenes Dossier",
+    "sort": 2
   }
 },
 {
