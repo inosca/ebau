@@ -11,7 +11,7 @@ export default {
     },
     {
       module: 'c',
-      submodules: [1]
+      submodules: [1, 2, 3]
     }
   ],
   projektanderung: [

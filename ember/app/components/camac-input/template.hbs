@@ -31,7 +31,15 @@
       </div>
       {{#if error}}
         <small class="uk-text-danger uk-animation-slide-bottom-small">
-          {{error}}
+          {{#if (gt error.length 1)}}
+            <ul class="uk-margin-bottom-remove uk-margin-small-top">
+              {{#each error as |e|}}
+                <li>{{e}}</li>
+              {{/each}}
+            </ul>
+          {{else}}
+            {{error.firstObject}}
+          {{/if}}
         </small>
       {{/if}}
     </div>
