@@ -787,7 +787,7 @@
   "pk": 1,
   "fields": {
     "name": "new",
-    "description": "Neu erstelltes Dossier des Gesuchstellers",
+    "description": "Neu",
     "sort": 0
   }
 },
@@ -796,7 +796,7 @@
   "pk": 2,
   "fields": {
     "name": "subm",
-    "description": "Eingereichtes Dossier des Gesuchstellers",
+    "description": "Eingereicht",
     "sort": 1
   }
 },
@@ -805,7 +805,7 @@
   "pk": 3,
   "fields": {
     "name": "comm",
-    "description": "Von der Gemeinde angenommenes Dossier",
+    "description": "Von Gemeinde angenommenen",
     "sort": 2
   }
 },
