@@ -15,6 +15,8 @@ services:
             camac-ng.local:
                 aliases:
                     - camac-ng.local
+                    - camac-ng-portal.local
+                    - camac-ng-keycloak.local
 
     clamav:
         ports:
@@ -23,12 +25,11 @@ services:
             - camac-ng.local
 
     db:
-        # build:
-          # TODO: enable again when following issue is fixed
-          # needs to be enabled in all build services
-          # https://github.com/docker/compose/issues/5458
-          # cache_from:
-          #     - acr.run/camac-ng/camac-ng/db:master
+        # Workaround, same name of image as cache_from
+        # better be named differently once following is fixed:
+        # https://github.com/docker/compose/issues/5458
+        # see also other services below
+        image: acr.run/camac-ng/camac-ng/db:master
         ports:
             - "5432:5432"
         environment:
@@ -39,15 +40,17 @@ services:
             - camac-ng.local
 
     django:
+        image: acr.run/camac-ng/camac-ng/django:master
         volumes:
             - ./django:/app
         environment:
             - APPLICATION_ENV=development
-            - DJANGO_KEYCLOAK_URL=http://keycloak:8080/auth/
+            - KEYCLOAK_URL=http://keycloak:8080/auth/
         networks:
             - camac-ng.local
 
     ember:
+        image: acr.run/camac-ng/camac-ng/ember:master
         volumes:
             - ./ember/nginx.conf:/etc/nginx/sites-enabled/default:ro
             - ./ember:/app
@@ -57,8 +60,12 @@ services:
             - /app/build/
         networks:
             - camac-ng.local
+        build:
+            args:
+                KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
 
     php:
+        image: acr.run/camac-ng/camac-ng/php:master
         volumes:
             - ./php/php.ini-development:/usr/local/etc/php/php.ini:ro
             - ./php/000-default.conf:/etc/apache2/sites-enabled/000-default.conf:ro
