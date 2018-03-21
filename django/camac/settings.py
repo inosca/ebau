@@ -223,6 +223,7 @@ CLAMD_ENABLED = env.bool('DJANGO_CLAMD_ENABLED', default=True)
 
 # Keycloak service
 
-KEYCLOAK_URL = env.str('KEYCLOAK_URL', default='http://localhost:8080/auth/')
+KEYCLOAK_URL = env.str('KEYCLOAK_URL',
+                       default='http://camac-ng-keycloak.local/auth/')
 KEYCLOAK_REALM = env.str('KEYCLOAK_REALM', default='ebau')
 KEYCLOAK_CLIENT = env.str('KEYCLOAK_CLIENT', default='camac')
