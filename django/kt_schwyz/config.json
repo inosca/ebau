@@ -623,6 +623,34 @@
   }
 },
 {
+  "model": "core.pageformmode",
+  "pk": 1,
+  "fields": {
+    "name": "Additional"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 2,
+  "fields": {
+    "name": "Activable"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 3,
+  "fields": {
+    "name": "Required"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 4,
+  "fields": {
+    "name": "Instance resource"
+  }
+},
+{
   "model": "core.resource",
   "pk": 1,
   "fields": {
