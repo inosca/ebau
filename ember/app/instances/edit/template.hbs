@@ -1,6 +1,6 @@
 <div uk-grid>
   <div class="uk-width-1-1 uk-width-1-3@m">
-    <ul class="uk-tab uk-tab-left">
+    <ul class="uk-tab uk-tab-left" uk-sticky="offset: 40; media: 960;">
       {{#active-link activeClass='uk-active'}}
         {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
       {{/active-link}}
