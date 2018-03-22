@@ -14,6 +14,8 @@ services:
     db:
         build:
             context: db
+            cache_from:
+                - acr.run/camac-ng/camac-ng/db:master
         environment:
             - POSTGRES_USER=camac
             - POSTGRES_DATABASE=${APPLICATION}
@@ -23,6 +25,8 @@ services:
     django:
         build:
             context: django
+            cache_from:
+                - acr.run/camac-ng/camac-ng/django:master
         depends_on:
             - db
             - cache
@@ -43,6 +47,8 @@ services:
     ember:
         build:
             context: ember
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember:master
         depends_on:
             - django
         environment:
@@ -51,6 +57,8 @@ services:
     php:
         build:
             context: php
+            cache_from:
+                - acr.run/camac-ng/camac-ng/php:master
         depends_on:
             - db
             - django
