@@ -3,7 +3,10 @@
     <div class="uk-animation-fade">
       {{yield}}
       <label class="uk-form-label {{if (and save.last error) 'uk-text-danger'}}">
-        {{question.field.label}}{{#if question.field.required}}<span> *</span>{{/if}}
+        {{question.field.label}}
+        {{#if question.field.required}}
+          <span class="uk-text-primary"> *</span>
+        {{/if}}
       </label>
       <div uk-grid class="uk-form-controls">
         <div class="uk-width-expand">
