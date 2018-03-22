@@ -1,0 +1,43 @@
+{{#with (await question) as |question|}}
+  {{#with question.field.config.fields as |fields|}}
+    <label class="uk-form-label">
+      {{question.field.label}}
+      {{#if question.field.required}}
+        <span class="uk-text-primary">*</span>
+      {{/if}}
+    </label>
+    <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-justify uk-table-responsive">
+      <thead>
+        <tr>
+          {{#each-in fields as |name field|}}
+            <th>{{field.label}}</th>
+          {{/each-in}}
+        </tr>
+      </thead>
+      <tbody>
+        {{#each question.value as |row|}}
+          <tr>
+            {{#each-in fields as |name|}}
+              <td>{{get row name}}</td>
+            {{/each-in}}
+          </tr>
+        {{^}}
+          <tr>
+            <td colspan={{count-keys fields}} class="uk-text-center uk-text-small ">
+              Noch keine Einträge erfasst
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan={{count-keys fields}} class="uk-text-center">
+            {{#uk-button size='small' on-click=(action (mut showModal) true)}}{{uk-icon 'plus'}}{{/uk-button}}
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+
+    {{camac-table-modal visible=showModal}}
+  {{/with}}
+{{/with}}
