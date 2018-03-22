@@ -3,3 +3,4 @@ Dockerfile
 tmp
 node_modules
 dist
+.env
