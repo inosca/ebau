@@ -59,7 +59,7 @@ build-kt_schwyz-stage:
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --parallel ember django php db"
+        - eval $COMPOSE pull --parallel ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
