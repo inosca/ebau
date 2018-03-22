@@ -13,6 +13,10 @@ services:
 
     db:
         image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: db
+            cache_from:
+                - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
@@ -21,6 +25,10 @@ services:
 
     django:
         image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: django
+            cache_from:
+                - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - DJANGO_ENV_FILE=/run/secrets/django.env
@@ -29,6 +37,10 @@ services:
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: ember
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         build:
             args:
@@ -36,11 +48,15 @@ services:
 
     php:
         image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: php
+            cache_from:
+                - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
             - APPLICATION_ENV=production
         volumes:
-            - /etc/camac/application.ini:/var/www/camac/configuration/configs/application.local.ini:ro
+            - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
 
     cache:
         restart: always
