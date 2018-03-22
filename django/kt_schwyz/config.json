@@ -1,5 +1,27 @@
 [
 {
+  "model": "core.action",
+  "pk": 1,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 1,
+    "name": "subm zu comm",
+    "description": "subm zu comm Statuswechsel wenn die Gemeinde ein Dossier akzeptiert",
+    "success_message": "Das Dossier wurde erfolgreich angenommen",
+    "error_message": "Das Dossier konnte nicht angenommen werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 1,
+  "fields": {
+    "current_instance_state": 2,
+    "next_instance_state": 3
+  }
+},
+{
   "model": "core.airaction",
   "pk": 1,
   "fields": {
@@ -639,6 +661,27 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 1,
+  "fields": {
+    "button": 1,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 2,
+    "name": "Dossier annehmen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
   "model": "core.formgroup",
   "pk": 1,
   "fields": {
@@ -733,6 +776,21 @@
     "available_instance_resource": "apidocuments",
     "resource": 1,
     "name": "Dokumente",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 2,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "resource": 1,
+    "name": "Dossier",
     "description": null,
     "template": null,
     "class_field": null,
@@ -1974,12 +2032,67 @@
   }
 },
 {
+  "model": "core.irformpage",
+  "pk": 2,
+  "fields": {
+    "page": 1,
+    "pdf_class": null
+  }
+},
+{
   "model": "core.irroleacl",
   "pk": 1,
   "fields": {
     "instance_resource": 1,
     "role": 3,
     "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 2,
+  "fields": {
+    "instance_resource": 2,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.page",
+  "pk": 1,
+  "fields": {
+    "name": "default",
+    "description": null,
+    "javascript": null
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 5,
+  "fields": {
+    "page": 1,
+    "form": 1,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 6,
+  "fields": {
+    "page": 1,
+    "form": 2,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageformgroup",
+  "pk": 1,
+  "fields": {
+    "name": "default"
   }
 },
 {
@@ -2175,8 +2288,8 @@
   "pk": 1,
   "fields": {
     "name": "new",
-    "description": "Neu",
-    "sort": 0
+    "sort": 0,
+    "description": "Neu"
   }
 },
 {
@@ -2184,8 +2297,8 @@
   "pk": 2,
   "fields": {
     "name": "subm",
-    "description": "Eingereicht",
-    "sort": 1
+    "sort": 1,
+    "description": "Eingereicht"
   }
 },
 {
@@ -2193,8 +2306,8 @@
   "pk": 3,
   "fields": {
     "name": "comm",
-    "description": "Von Gemeinde angenommenen",
-    "sort": 2
+    "sort": 2,
+    "description": "Von Gemeinde angenommenen"
   }
 },
 {
