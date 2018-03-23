@@ -15,7 +15,7 @@
     "deploy": "ember deploy",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "SW_DISABLED=true ember serve",
-    "start-proxy": "SW_DISABLED=true ember serve --proxy=http://camac-ng-ember.local",
+    "start-proxy": "SW_DISABLED=true ember serve --proxy=http://camac-ng-portal.local",
     "test": "ember test"
   },
   "devDependencies": {
