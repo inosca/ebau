@@ -780,7 +780,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 0,
+    "sort": 2,
     "form_group": 1
   }
 },
@@ -792,10 +792,10 @@
     "resource": 1,
     "name": "Dossier",
     "description": null,
-    "template": null,
+    "template": "/ember/instance.phtml",
     "class_field": null,
     "hidden": 0,
-    "sort": 0,
+    "sort": 1,
     "form_group": 1
   }
 },
