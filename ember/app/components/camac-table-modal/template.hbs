@@ -1,10 +1,19 @@
 <div class="uk-modal-dialog uk-modal-body">
-  <button class="uk-modal-close-default" uk-close {{action (toggle 'visible' this)}}></button>
+  <form {{action 'save' on='submit'}}>
+    <button type="button" class="uk-modal-close-default" uk-close {{action (toggle 'visible' this)}}></button>
 
-  <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
+    <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
 
-  <p class="uk-text-right">
-    <button class="uk-button uk-button-default" {{action (toggle 'visible' this)}}>Abbrechen</button>
-    <button class="uk-button uk-button-primary" type="button">Save</button>
-  </p>
+    {{#each fields as |field|}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold">{{field.label}}</label>
+        {{component (concat 'camac-input-' field.type) renderInPlace=true config=field.config on-change=(action 'change' field.name) model=(hash value=(get _value field.name))}}
+      </div>
+    {{/each}}
+
+    <div class="uk-text-right">
+      {{#uk-button on-click=(action (mut visible) false)}}Abbrechen{{/uk-button}}
+      {{#uk-button color='primary' type='submit'}}Speichern{{/uk-button}}
+    </div>
+  </form>
 </div>
