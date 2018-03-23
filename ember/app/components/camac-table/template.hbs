@@ -1,43 +1,61 @@
 {{#with (await question) as |question|}}
   {{#with question.field.config.fields as |fields|}}
-    <label class="uk-form-label">
-      {{question.field.label}}
-      {{#if question.field.required}}
-        <span class="uk-text-primary">*</span>
-      {{/if}}
-    </label>
-    <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-justify uk-table-responsive">
-      <thead>
-        <tr>
-          {{#each-in fields as |name field|}}
-            <th>{{field.label}}</th>
-          {{/each-in}}
-        </tr>
-      </thead>
-      <tbody>
-        {{#each question.value as |row|}}
+    <div class="uk-animation-fade">
+      {{yield}}
+      <label class="uk-form-label uk-text-bold {{if error.length 'uk-text-danger'}}">
+        {{question.field.label}}
+        {{#if question.field.required}}
+          <span class="uk-text-primary">*</span>
+        {{/if}}
+      </label>
+      <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
+        <thead>
           <tr>
-            {{#each-in fields as |name|}}
-              <td>{{get row name}}</td>
-            {{/each-in}}
+            {{#each fields as |field|}}
+              <th>{{field.label}}</th>
+            {{/each}}
+            {{#unless readonly}}
+              <th></th>
+            {{/unless}}
           </tr>
-        {{^}}
-          <tr>
-            <td colspan={{count-keys fields}} class="uk-text-center uk-text-small ">
-              Noch keine Einträge erfasst
-            </td>
-          </tr>
-        {{/each}}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan={{count-keys fields}} class="uk-text-center">
-            {{#uk-button size='small' on-click=(action (mut showModal) true)}}{{uk-icon 'plus'}}{{/uk-button}}
-          </td>
-        </tr>
-      </tfoot>
-    </table>
+        </thead>
+        <tbody>
+          {{#each question.value as |row|}}
+            <tr>
+              {{#each fields as |field|}}
+                <td>{{get row field.name}}</td>
+              {{/each}}
+              {{#unless readonly}}
+                <td class="uk-text-right">
+                  <button class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
+                  <button class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+                </td>
+              {{/unless}}
+            </tr>
+          {{^}}
+            <tr>
+              <td colspan={{add (count-keys fields) 1}} class="uk-text-center uk-text-small ">
+                Noch keine Einträge erfasst
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+        {{#unless readonly}}
+          <tfoot>
+            <tr>
+              <td colspan={{add (count-keys fields) 1}} class="uk-text-center">
+                {{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}
+              </td>
+            </tr>
+          </tfoot>
+        {{/unless}}
+      </table>
 
-    {{camac-table-modal visible=showModal}}
+      {{camac-input-error error}}
+
+      {{#unless readonly}}
+        {{camac-table-modal fields=fields visible=showModal value=editedRow on-save=(perform saveRow)}}
+      {{/unless}}
+    </div>
   {{/with}}
 {{/with}}

@@ -3,6 +3,8 @@ import { inject as service } from '@ember/service'
 import { computed } from '@ember/object'
 import { task, timeout } from 'ember-concurrency'
 
+export const SAVE_DEBOUNCE_DELAY = 750
+
 const CamacInputComponent = Component.extend({
   classNames: ['uk-margin'],
 
@@ -22,8 +24,6 @@ const CamacInputComponent = Component.extend({
   }),
 
   save: task(function*(value) {
-    yield timeout(500)
-
     let q = yield this.get('question')
 
     let model = q.get('model')
@@ -34,6 +34,8 @@ const CamacInputComponent = Component.extend({
 
     if (valid === true) {
       this.set('error', null)
+
+      yield timeout(SAVE_DEBOUNCE_DELAY)
 
       yield model.save()
     } else {
