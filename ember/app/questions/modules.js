@@ -69,36 +69,15 @@ export default {
     submodules: {
       1: {
         title: 'Grundeigentümerschaft',
-        questions: [
-          'grundeigentumerschaft-firma',
-          'grundeigentumerschaft-name',
-          'grundeigentumerschaft-strasse',
-          'grundeigentumerschaft-ort',
-          'grundeigentumerschaft-email',
-          'grundeigentumerschaft-tel'
-        ]
+        questions: ['grundeigentumerschaft']
       },
       2: {
         title: 'Bauherrschaft',
-        questions: [
-          'bauherrschaft-firma',
-          'bauherrschaft-name',
-          'bauherrschaft-strasse',
-          'bauherrschaft-ort',
-          'bauherrschaft-email',
-          'bauherrschaft-tel'
-        ]
+        questions: ['bauherrschaft']
       },
       3: {
         title: 'Projektverfasser / Planer',
-        questions: [
-          'projektverfasser-planer-firma',
-          'projektverfasser-planer-name',
-          'projektverfasser-planer-strasse',
-          'projektverfasser-planer-ort',
-          'projektverfasser-planer-email',
-          'projektverfasser-planer-tel'
-        ]
+        questions: ['projektverfasser-planer']
       }
     }
   }

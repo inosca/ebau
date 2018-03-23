@@ -3,14 +3,14 @@
     "label":
       "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
     "required": true,
-    "type": "multiselect",
+    "type": "checkbox",
     "config": {
       "options": ["Baute(n)", "Anlage(n)"]
     }
   },
   "art-der-nutzung": {
-    "label": "Welchem Zweck dient das Vorhaben",
-    "type": "multiselect",
+    "label": "Welchem Zweck dient das Vorhaben?",
+    "type": "checkbox",
     "required": true,
     "config": {
       "options": [
@@ -26,7 +26,7 @@
   },
   "vorhaben-mit-anlage": {
     "label": "Welche Tätigkeiten sind geplant?",
-    "type": "multiselect",
+    "type": "checkbox",
     "required": true,
     "config": {
       "options": [
@@ -54,7 +54,7 @@
         "Abfallanlage, Deponie",
         "Antennen"
       ],
-      "allowOther": true
+      "allowCustom": true
     }
   },
   "art-der-befestigten-flache": {
@@ -68,12 +68,12 @@
         "Vorplatz",
         "Terasse, Sitzplatz"
       ],
-      "allowOther": true
+      "allowCustom": true
     }
   },
   "zweck-der-leitungen": {
     "label": "Welchem Zweck dienen die Leitungen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": [
@@ -82,25 +82,25 @@
         "Energieversorgung",
         "Datenversorgung"
       ],
-      "allowOther": true
+      "allowCustom": true
     }
   },
   "art-der-warmepumpe": {
     "label": "Welche Art Wärmepumpe ist vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": [
-        "Erd-wärmepumpe",
-        "Luft/wasser-wärmepumpe",
-        "Wasser/wasser-wärmepumpe",
-        "Sole/wasser-wärmepumpe"
+        "Erd-Wärmepumpe",
+        "Luft / Wasser-Wärmepumpe",
+        "Wasser / Wasser-Wärmepumpe",
+        "Sole / Wasser-Wärmepumpe"
       ]
     }
   },
   "tangiert-vorhaben-strasse": {
     "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja, direkt", "Ja, indirekt", "Nein"]
@@ -108,7 +108,7 @@
   },
   "pfahlfundation-vorgesehen": {
     "label": "Ist eine Pfahlfundation vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -116,7 +116,7 @@
   },
   "baugrubenumschliessung-vorgesehen": {
     "label": "Ist eine Baugrubenumschliessung vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -125,7 +125,7 @@
   "temporare-grundwasserabsenkung-notig": {
     "label":
       "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -134,7 +134,7 @@
   "anlagen-mit-erheblichen-schadstoffemissionen": {
     "label":
       "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -149,7 +149,7 @@
   "anlagen-mit-erheblichen-strahlungsemissionen": {
     "label":
       "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -164,7 +164,7 @@
   "anlagen-mit-erheblichen-larmemissionen": {
     "label":
       "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -173,7 +173,7 @@
   "larmbelastetes-gebiet": {
     "label":
       "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -181,7 +181,7 @@
   },
   "aussenbeleuchtung": {
     "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -190,7 +190,7 @@
   "wassergefahrdende-stoffe": {
     "label":
       "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -198,7 +198,7 @@
   },
   "brandschutztechnisch-gefahrliche-stoffe": {
     "label": "Werden brandschutztechnisch gefährliche Stoffe gelagert?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -207,15 +207,15 @@
   "bodenbelastungen": {
     "label":
       "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
     }
   },
   "boden-5000m2": {
-    "label": "Sind mit dem Vorhaben 5‘000 m 2 Boden (oder mehr) betroffen?",
-    "type": "select",
+    "label": "Sind mit dem Vorhaben 5‘000m² Boden (oder mehr) betroffen?",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -224,7 +224,7 @@
   "ordendliche-mindestabstande": {
     "label":
       "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -233,7 +233,7 @@
   "auswirkungen-auf-arbeitnehmer": {
     "label":
       "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -242,7 +242,7 @@
   "200m3-bauabfalle": {
     "label":
       "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -251,7 +251,7 @@
   "alarmierungseinrichtung-tangiert": {
     "label":
       "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -260,7 +260,7 @@
   "lebensmittel-umgehen": {
     "label":
       "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -269,7 +269,7 @@
   "trinkwasser-abgeben": {
     "label":
       "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -278,7 +278,7 @@
   "offentlich-duschanlage-oder-bad": {
     "label":
       "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
@@ -287,22 +287,25 @@
   "gewerbliche-nutzflachen": {
     "label":
       "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": ["Ja", "Nein"]
     }
   },
   "hohe-der-anlage": {
-    "label": "Wie hoch ist die Anlage?",
-    "type": "text",
+    "label": "Wie hoch ist die Anlage in m?",
+    "type": "number",
     "required": true,
-    "config": {}
+    "config": {
+      "step": 1,
+      "min": 0
+    }
   },
   "geometer": {
     "label":
       "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
-    "type": "select",
+    "type": "radio",
     "required": true,
     "config": {
       "options": [
@@ -328,16 +331,22 @@
     "config": {}
   },
   "baukosten": {
-    "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4:",
-    "type": "text",
+    "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4):",
+    "type": "number",
     "required": true,
-    "config": {}
+    "config": {
+      "min": 0,
+      "step": 1
+    }
   },
   "gebaudevolumen": {
-    "label": "Gebäudevolumen nach SIA 116 / SIA 416:",
-    "type": "text",
+    "label": "Gebäudevolumen in m³ nach SIA 116 / SIA 416:",
+    "type": "number",
     "required": true,
-    "config": {}
+    "config": {
+      "min": 0,
+      "step": 0.5
+    }
   },
   "ausnahmen": {
     "label": "Folgende Ausnahmen werden beansprucht:",
@@ -352,7 +361,7 @@
         "Unterschreitung Waldabstand",
         "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie"
       ],
-      "allowOther": true
+      "allowCustom": true
     }
   },
   "ausnahmen-begrundung": {
@@ -367,110 +376,116 @@
     "type": "table",
     "required": true,
     "config": {
-      "fields": {
-        "firma": {
+      "fields": [
+        {
+          "name": "firma",
           "label": "Firma",
-          "type": "text",
-          "required": true
+          "type": "text"
         },
-        "name": {
+        {
+          "name": "name",
           "label": "Name, Vorname",
-          "type": "text",
-          "required": true
+          "type": "text"
         },
-        "strasse": {
+        {
+          "name": "strasse",
           "label": "Strasse, Nr.",
-          "type": "text",
-          "required": true
+          "type": "text"
         },
-        "ort": {
+        {
+          "name": "ort",
           "label": "PLZ, Ort",
-          "type": "text",
-          "required": true
+          "type": "text"
         },
-        "email": {
+        {
+          "name": "email",
           "label": "E-Mail",
-          "type": "text",
-          "required": true
+          "type": "text"
         },
-        "tel": {
+        {
+          "name": "tel",
           "label": "Tel. Nr.",
-          "type": "text",
-          "required": true
+          "type": "text"
         }
-      }
+      ]
     }
   },
-  "bauherrschaft-firma": {
-    "label": "Firma:",
-    "type": "text",
-    "required": false,
-    "config": {}
+  "bauherrschaft": {
+    "label": "Bauherrschaft:",
+    "type": "table",
+    "required": true,
+    "config": {
+      "fields": [
+        {
+          "name": "firma",
+          "label": "Firma",
+          "type": "text"
+        },
+        {
+          "name": "name",
+          "label": "Name, Vorname",
+          "type": "text"
+        },
+        {
+          "name": "strasse",
+          "label": "Strasse, Nr.",
+          "type": "text"
+        },
+        {
+          "name": "ort",
+          "label": "PLZ, Ort",
+          "type": "text"
+        },
+        {
+          "name": "email",
+          "label": "E-Mail",
+          "type": "text"
+        },
+        {
+          "name": "tel",
+          "label": "Tel. Nr.",
+          "type": "text"
+        }
+      ]
+    }
   },
-  "bauherrschaft-name": {
-    "label": "Name, Vorname:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "bauherrschaft-strasse": {
-    "label": "Strasse, Nr.:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "bauherrschaft-ort": {
-    "label": "PLZ, Ort:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "bauherrschaft-email": {
-    "label": "E-Mail:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "bauherrschaft-tel": {
-    "label": "Tel. Nr.:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-firma": {
-    "label": "Firma:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-name": {
-    "label": "Name, Vorname:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-strasse": {
-    "label": "Strasse, Nr.:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-ort": {
-    "label": "PLZ, Ort:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-email": {
-    "label": "E-Mail:",
-    "type": "text",
-    "required": false,
-    "config": {}
-  },
-  "projektverfasser-planer-tel": {
-    "label": "Tel. Nr.:",
-    "type": "text",
-    "required": false,
-    "config": {}
+  "projektverfasser-planer": {
+    "label": "Projektverfasser / Planer:",
+    "type": "table",
+    "required": true,
+    "config": {
+      "fields": [
+        {
+          "name": "firma",
+          "label": "Firma",
+          "type": "text"
+        },
+        {
+          "name": "name",
+          "label": "Name, Vorname",
+          "type": "text"
+        },
+        {
+          "name": "strasse",
+          "label": "Strasse, Nr.",
+          "type": "text"
+        },
+        {
+          "name": "ort",
+          "label": "PLZ, Ort",
+          "type": "text"
+        },
+        {
+          "name": "email",
+          "label": "E-Mail",
+          "type": "text"
+        },
+        {
+          "name": "tel",
+          "label": "Tel. Nr.",
+          "type": "text"
+        }
+      ]
+    }
   }
 }
