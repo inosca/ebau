@@ -378,6 +378,42 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 39,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 40,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "preview",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 41,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "publish",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 42,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "save",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -671,6 +707,15 @@
     "module_name": "default",
     "controller_name": "page",
     "description": "Page from template"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "publication",
+  "fields": {
+    "module_name": "publication",
+    "controller_name": "publish",
+    "description": "Publish a document"
   }
 },
 {
