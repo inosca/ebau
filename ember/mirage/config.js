@@ -1,4 +1,3 @@
-import form from './form-config'
 import config from 'ember-get-config'
 
 const { tokenEndpoint, logoutEndpoint } = config['ember-simple-auth-oidc']
@@ -48,6 +47,4 @@ export default function() {
   this.post('/api/v1/form-fields')
   this.get('/api/v1/form-fields/:id')
   this.patch('/api/v1/form-fields/:id')
-
-  this.get('/api/v1/form-config', () => form)
 }

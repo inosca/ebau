@@ -5,6 +5,8 @@ import { v4 } from 'ember-uuid'
 export default CamacInputComponent.extend({
   showModal: false,
 
+  modalContainer: document.body,
+
   addRow: task(function*() {
     let question = yield this.get('question')
 
