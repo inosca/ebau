@@ -1,21 +1,29 @@
 {{#-in-element container}}
   <div id="modal-{{elementId}}">
     <div class="uk-modal-dialog uk-modal-body">
-      <form {{action 'save' on='submit'}}>
+      <form {{action (perform save) on='submit'}}>
         <button type="button" class="uk-modal-close-default" uk-close {{action (toggle 'visible' this)}}></button>
 
         <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
 
         {{#each fields as |field|}}
           <div class="uk-margin">
-            <label class="uk-form-label uk-text-bold">{{field.label}}</label>
+            <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' field.name)) 'uk-text-danger'}}">
+              {{field.label}}
+              {{#if field.required}}
+                <span class="uk-text-danger">*</span>
+              {{/if}}
+            </label>
             {{component (concat 'camac-input-' field.type) renderInPlace=true config=field.config on-change=(action 'change' field.name) model=(hash value=(get _value field.name))}}
+            {{#with (get this (concat '_value.error.' field.name)) as |error|}}
+              {{camac-input-error error.validation}}
+            {{/with}}
           </div>
         {{/each}}
 
         <div class="uk-text-right">
           {{#uk-button on-click=(action (mut visible) false)}}Abbrechen{{/uk-button}}
-          {{#uk-button color='primary' type='submit'}}Speichern{{/uk-button}}
+          {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' type='submit'}}Speichern{{/uk-button}}
         </div>
       </form>
     </div>

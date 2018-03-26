@@ -25,8 +25,12 @@ const Question = EmberObject.extend({
   validate() {
     let builtInValidations = [
       this.get('field.required') ? required : () => true,
-      this.get('field.type') === 'select' ? inOptions : () => true,
-      this.get('field.type') === 'multiselect' ? multipleInOptions : () => true
+      ['select', 'radio'].includes(this.get('field.type'))
+        ? inOptions
+        : () => true,
+      ['multiselect', 'checkbox'].includes(this.get('field.type'))
+        ? multipleInOptions
+        : () => true
     ]
 
     let validationFn = getWithDefault(
