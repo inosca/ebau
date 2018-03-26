@@ -57,4 +57,28 @@ module('Integration | Component | camac-table-modal', function(hooks) {
 
     assert.dom('.uk-modal input[type=text]').hasValue('test')
   })
+
+  test('it validates changes', async function(assert) {
+    this.set('fields', [
+      { name: 'f1', type: 'text', required: true, config: {} }
+    ])
+    this.set('value', { f1: 'test' })
+    this.set('visible', true)
+
+    await render(
+      hbs`{{camac-table-modal name='testy' visible=visible fields=fields value=value container=this.element on-save=(action (mut foo))}}`
+    )
+
+    await fillIn('.uk-modal input[type=text]', '')
+
+    await click('button[type=submit]')
+
+    assert.dom('.uk-modal ul li:first-child').includesText('darf nicht leer')
+
+    await fillIn('.uk-modal input[type=text]', 'test')
+
+    await click('button[type=submit]')
+
+    assert.dom('.uk-modal ul li:first-child').doesNotExist()
+  })
 })
