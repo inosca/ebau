@@ -27,8 +27,8 @@
               {{/each}}
               {{#unless readonly}}
                 <td class="uk-text-right">
-                  <button class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
-                  <button class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+                  <button data-test-edit-row class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
+                  <button data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
                 </td>
               {{/unless}}
             </tr>
@@ -54,7 +54,13 @@
       {{camac-input-error error}}
 
       {{#unless readonly}}
-        {{camac-table-modal fields=fields visible=showModal value=editedRow on-save=(perform saveRow)}}
+        {{camac-table-modal
+          fields    = fields
+          visible   = showModal
+          value     = editedRow
+          container = modalContainer
+          on-save   = (perform saveRow)
+        }}
       {{/unless}}
     </div>
   {{/with}}
