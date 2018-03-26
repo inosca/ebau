@@ -14,6 +14,20 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 2,
+  "fields": {
+    "available_action": "workflow",
+    "button": 1,
+    "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -681,7 +695,7 @@
   "model": "core.button",
   "pk": 1,
   "fields": {
-    "instance_resource": 2,
+    "instance_resource": 3,
     "name": "Dossier annehmen",
     "description": null,
     "class_field": null,
@@ -794,16 +808,16 @@
 },
 {
   "model": "core.instanceresource",
-  "pk": 2,
+  "pk": 3,
   "fields": {
-    "available_instance_resource": "formpage",
+    "available_instance_resource": "editformpage",
     "resource": 1,
     "name": "Dossier",
     "description": null,
     "template": "/ember/instance.phtml",
     "class_field": null,
     "hidden": 0,
-    "sort": 1,
+    "sort": 0,
     "form_group": 1
   }
 },
@@ -2112,8 +2126,8 @@
   }
 },
 {
-  "model": "core.irformpage",
-  "pk": 2,
+  "model": "core.ireditformpage",
+  "pk": 3,
   "fields": {
     "page": 1,
     "pdf_class": null
@@ -2130,9 +2144,9 @@
 },
 {
   "model": "core.irroleacl",
-  "pk": 2,
+  "pk": 3,
   "fields": {
-    "instance_resource": 2,
+    "instance_resource": 3,
     "role": 3,
     "instance_state": 2
   }
@@ -2230,6 +2244,109 @@
   "fields": {
     "resource": 1,
     "role": 3
+  }
+},
+{
+  "model": "core.workflowaction",
+  "pk": 2,
+  "fields": {
+    "workflow_item": 3,
+    "multi_value": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 1,
+  "fields": {
+    "position": 1.0,
+    "name": "Dossiereingang",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 2,
+  "fields": {
+    "position": 2.0,
+    "name": "Nachforderung Gemeinde",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 3,
+  "fields": {
+    "position": 3.0,
+    "name": "Dossier vollst\u00e4ndig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 1,
+  "fields": {
+    "workflow_item": 1,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 2,
+  "fields": {
+    "workflow_item": 2,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 3,
+  "fields": {
+    "workflow_item": 3,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 4,
+  "fields": {
+    "name": "Auflagen-Controlling",
+    "sort": null
   }
 },
 {
