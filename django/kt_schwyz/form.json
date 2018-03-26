@@ -73,7 +73,7 @@
   },
   "zweck-der-leitungen": {
     "label": "Welchem Zweck dienen die Leitungen?",
-    "type": "radio",
+    "type": "multiselect",
     "required": true,
     "config": {
       "options": [
@@ -380,32 +380,44 @@
         {
           "name": "firma",
           "label": "Firma",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "name",
           "label": "Name, Vorname",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "strasse",
           "label": "Strasse, Nr.",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "ort",
           "label": "PLZ, Ort",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "email",
           "label": "E-Mail",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "tel",
           "label": "Tel. Nr.",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         }
       ]
     }
@@ -419,32 +431,44 @@
         {
           "name": "firma",
           "label": "Firma",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "name",
           "label": "Name, Vorname",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "strasse",
           "label": "Strasse, Nr.",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "ort",
           "label": "PLZ, Ort",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "email",
           "label": "E-Mail",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "tel",
           "label": "Tel. Nr.",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         }
       ]
     }
@@ -458,32 +482,44 @@
         {
           "name": "firma",
           "label": "Firma",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "name",
           "label": "Name, Vorname",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "strasse",
           "label": "Strasse, Nr.",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "ort",
           "label": "PLZ, Ort",
-          "type": "text"
+          "type": "text",
+          "required": true,
+          "config": {}
         },
         {
           "name": "email",
           "label": "E-Mail",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         },
         {
           "name": "tel",
           "label": "Tel. Nr.",
-          "type": "text"
+          "type": "text",
+          "required": false,
+          "config": {}
         }
       ]
     }
