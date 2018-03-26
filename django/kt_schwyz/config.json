@@ -517,6 +517,14 @@
   }
 },
 {
+  "model": "core.availableaction",
+  "pk": "workflow",
+  "fields": {
+    "module_name": "workflow",
+    "description": "Set workflow date"
+  }
+},
+{
   "model": "core.availableinstanceresource",
   "pk": "allformpages",
   "fields": {
@@ -2029,6 +2037,78 @@
   "fields": {
     "available_instance_resource": "formwizard",
     "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 221,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 222,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 223,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 224,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 225,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 226,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 227,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 228,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 229,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "workflow"
   }
 },
 {
