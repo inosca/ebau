@@ -71,6 +71,7 @@
     "ember-service-worker-update-notify": "^1.0.2",
     "ember-simple-auth": "^1.5.1",
     "ember-source": "~3.0.0",
+    "ember-test-selectors": "^0.3.8",
     "ember-transition-helper": "^1.0.0",
     "ember-truth-helpers": "^2.0.0",
     "ember-uikit": "^0.5.0",

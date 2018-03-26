@@ -7,6 +7,8 @@ import Changeset from 'ember-changeset'
 export default Component.extend({
   modal: null,
 
+  container: document.body,
+
   _value: computed('value', function() {
     return new Changeset(this.get('value') || {})
   }),
@@ -22,12 +24,12 @@ export default Component.extend({
   },
 
   didInsertElement() {
-    let id = `#${this.get('elementId')}`
+    let id = `#modal-${this.get('elementId')}`
 
-    this.set('modal', UIkit.modal(id))
+    this.set('modal', UIkit.modal(id, { container: false }))
 
-    UIkit.util.on(id, 'shown', () => this._show())
-    UIkit.util.on(id, 'hidden', () => this._hide())
+    UIkit.util.on(id, 'show', () => this._show())
+    UIkit.util.on(id, 'hide', () => this._hide())
   },
 
   didReceiveAttrs() {
@@ -38,6 +40,10 @@ export default Component.extend({
         this.get('modal').hide()
       }
     })
+  },
+
+  willDestroyElement() {
+    this.get('modal').hide()
   },
 
   actions: {
