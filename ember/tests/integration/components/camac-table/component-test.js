@@ -1,6 +1,6 @@
 import { module, test } from 'qunit'
 import { setupRenderingTest } from 'ember-qunit'
-import { render, pauseTest } from '@ember/test-helpers'
+import { render, click, fillIn } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
 
@@ -8,14 +8,31 @@ module('Integration | Component | camac-table', function(hooks) {
   setupRenderingTest(hooks)
   setupMirage(hooks)
 
-  test('it renders', async function(assert) {
-    assert.expect(5)
+  hooks.beforeEach(function() {
+    let instance = this.server.create('instance')
+
+    this.set('instance', instance)
+
+    this.server.create('form-field', {
+      name: 'test',
+      instance,
+      value: [
+        {
+          f1: 'test',
+          f2: 'test',
+          f3: '1',
+          f4: ['1', '2'],
+          f5: '1',
+          f6: ['1', '2']
+        }
+      ]
+    })
 
     this.server.get('/api/v1/form-config', () => {
       return {
         test: {
           label: 'only for testing',
-          required: 'true',
+          required: true,
           type: 'table',
           config: {
             fields: [
@@ -51,29 +68,62 @@ module('Integration | Component | camac-table', function(hooks) {
       }
     })
 
-    this.server.get('/api/v1/form-fields', (_, { queryParams: { name } }) => {
-      return {
-        data: {
-          name,
-          value: {
-            value: [
-              {
-                f1: 'test',
-                f2: 'test',
-                f3: '1',
-                f4: ['1', '2'],
-                f5: '1',
-                f6: ['1', '2']
-              }
-            ]
-          }
-        }
-      }
+    this.server.get('/api/v1/form-fields', function({ formFields }) {
+      return this.serialize(formFields.all())
     })
+  })
 
-    await render(hbs`{{camac-table 'test'}}`)
+  test('it renders', async function(assert) {
+    assert.expect(2)
+
+    await render(hbs`{{camac-table 'test' instance=instance}}`)
 
     assert.dom('table').exists()
-    assert.dom('tr').exists({ count: 1 })
+    assert.dom('tbody > tr > td:first-child').hasText('test')
+  })
+
+  test('it can delete a row', async function(assert) {
+    assert.expect(2)
+
+    await render(hbs`{{camac-table 'test' instance=instance}}`)
+
+    assert.dom('tbody > tr > td:first-child').hasText('test')
+
+    await click('button[data-test-delete-row]')
+
+    assert
+      .dom('tbody > tr > td:first-child')
+      .hasText('Noch keine Einträge erfasst')
+  })
+
+  test('it can edit a row', async function(assert) {
+    assert.expect(2)
+
+    await render(
+      hbs`{{camac-table 'test' instance=instance modalContainer=this.element}}`
+    )
+
+    assert.dom('tbody > tr > td:first-child').hasText('test')
+
+    await click('button[data-test-edit-row]')
+    await fillIn('input', 'shimmyshimmyya')
+    await click('button[type=submit]')
+
+    assert.dom('tbody > tr > td:first-child').hasText('shimmyshimmyya')
+  })
+
+  test('it can add a row', async function(assert) {
+    assert.expect(2)
+
+    await render(
+      hbs`{{camac-table 'test' instance=instance modalContainer=this.element}}`
+    )
+
+    assert.dom('tbody > tr').exists({ count: 1 })
+
+    await click('tfoot > tr > td:first-child > button')
+    await click('button[type=submit]')
+
+    assert.dom('tbody > tr').exists({ count: 2 })
   })
 })
