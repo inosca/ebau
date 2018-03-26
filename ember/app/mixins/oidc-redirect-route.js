@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
 import config from 'ember-get-config'
 import { v4 } from 'ember-uuid'
+import { assert } from '@ember/debug'
 
 const { authEndpoint, clientId } = config['ember-simple-auth-oidc']
 
@@ -40,9 +41,9 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
    * @param {String} transition.queryParams.code The authentication code given by keycloak
    * @param {String} transition.queryParams.state The state given by keycloak
    */
-  afterModel(_, { queryParams: { code, state } }) {
+  async afterModel(_, { queryParams: { code, state } }) {
     if (code) {
-      return this._handleCallbackRequest(code, state)
+      return await this._handleCallbackRequest(code, state)
     }
 
     return this._handleRedirectRequest()
@@ -64,27 +65,25 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
    * @param {String} code The authentication code passed by keycloak
    * @param {String} state The state (uuid4) passed by keycloak
    */
-  _handleCallbackRequest(code, state) {
+  async _handleCallbackRequest(code, state) {
     if (state !== this.get('session.data.state')) {
-      return this._redirectToUrl(this.get('redirectUri'))
+      assert('State did not match')
     }
 
     this.get('session').set('data.state', undefined)
 
-    this.get('session')
-      .authenticate('authenticator:oidc', {
+    try {
+      await this.get('session').authenticate('authenticator:oidc', {
         code
       })
-      .then(() => {
-        let next = this.get('session.data.next')
+      let next = this.get('session.data.next')
 
-        if (next) {
-          this.replaceWith(next)
-        }
-      })
-      .catch(() => {
-        return this._redirectToUrl(this.get('redirectUri'))
-      })
+      if (next) {
+        this.replaceWith(next)
+      }
+    } catch (e) {
+      assert('Authentication failed')
+    }
   },
 
   /**
