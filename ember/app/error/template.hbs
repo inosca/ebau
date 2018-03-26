@@ -1,0 +1,10 @@
+{{#unless (eq environment 'production')}}
+  <h1>{{model.name}}: {{model.message}}</h1>
+  <pre>{{model.stack}}</pre>
+{{else}}
+  <div class="uk-text-center">
+    {{uk-icon 'bolt' ratio=10 class='uk-text-muted'}}
+    <h1>Hoppla! Etwas ist schief gelaufen.</h1>
+    <p>Bitte versuchen Sie es nochmals oder melden Sie sich beim Support.</p>
+  </div>
+{{/unless}}

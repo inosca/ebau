@@ -4,6 +4,7 @@ import { later } from '@ember/runloop'
 import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
 import config from 'ember-get-config'
+import { assert } from '@ember/debug'
 
 const { tokenEndpoint, logoutEndpoint, clientId } = config[
   'ember-simple-auth-oidc'
@@ -79,7 +80,7 @@ export default BaseAuthenticator.extend({
    */
   async restore({ access_token, refresh_token }) {
     if (!access_token) {
-      throw new Error('Token missing')
+      assert('Token is missing')
     }
 
     return await this._refresh(refresh_token)
