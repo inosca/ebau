@@ -472,6 +472,33 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 43,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 44,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 45,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "save",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -774,6 +801,15 @@
     "module_name": "publication",
     "controller_name": "publish",
     "description": "Publish a document"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "workflow",
+  "fields": {
+    "module_name": "workflow",
+    "controller_name": "list",
+    "description": "Show the workflow entries"
   }
 },
 {
