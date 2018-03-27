@@ -173,17 +173,17 @@
     "personalien.grundeigentumerschaft": {
       "title": "Grundeigentümerschaft",
       "parent": "personalien",
-      "questions": []
+      "questions": ["grundeigentumerschaft"]
     },
     "personalien.bauherrschaft": {
       "title": "Bauherrschaft",
       "parent": "personalien",
-      "questions": []
+      "questions": ["bauherrschaft"]
     },
     "personalien.projektverfasser-planer": {
       "title": "Projektverfasser / Planer",
       "parent": "personalien",
-      "questions": []
+      "questions": ["projektverfasser-planer"]
     },
     "personalien.gesuchsteller": {
       "title": "Gesuchsteller",
