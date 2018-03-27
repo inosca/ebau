@@ -1,2 +1,4 @@
-{{camac-input 'ausnahmen' instance=model}}
-{{camac-input 'ausnahmen-begrundung' instance=model}}
+{{#camac-form instance=model as |form|}}
+  {{form.input 'ausnahmen'}}
+  {{form.input 'ausnahmen-begrundung'}}
+{{/camac-form}}
