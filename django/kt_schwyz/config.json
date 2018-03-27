@@ -499,6 +499,24 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 46,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 47,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "action_name": "notify",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -679,6 +697,15 @@
 },
 {
   "model": "core.availableinstanceresource",
+  "pk": "buildingauthority",
+  "fields": {
+    "module_name": "buildingauthority",
+    "controller_name": "edit",
+    "description": "Edit the building authority entries"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
   "pk": "circulation",
   "fields": {
     "module_name": "default",
@@ -846,6 +873,34 @@
     "button": 3,
     "role": 3,
     "instance_state": 2
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 4,
+  "fields": {
+    "name": "Meldungen / Dokumente"
   }
 },
 {
@@ -1165,7 +1220,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 5,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -1181,6 +1236,21 @@
     "class_field": null,
     "hidden": 0,
     "sort": 3,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 8,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "resource": 1,
+    "name": "Bauverwaltung",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5,
     "form_group": 1
   }
 },
@@ -2851,6 +2921,69 @@
   "pk": 47,
   "fields": {
     "instance_resource": 7,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 48,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 49,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 50,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 51,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 52,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 53,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 54,
+  "fields": {
+    "instance_resource": 8,
     "role": 3,
     "instance_state": 10
   }
