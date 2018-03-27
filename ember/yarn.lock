@@ -1809,7 +1809,7 @@ broccoli-sri-hash@^2.1.0:
     sri-toolbox "^0.2.0"
     symlink-or-copy "^1.0.1"
 
-broccoli-stew@^1.2.0, broccoli-stew@^1.3.3, broccoli-stew@^1.4.2, broccoli-stew@^1.5.0:
+broccoli-stew@^1.2.0, broccoli-stew@^1.3.3, broccoli-stew@^1.4.0, broccoli-stew@^1.4.2, broccoli-stew@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/broccoli-stew/-/broccoli-stew-1.5.0.tgz#d7af8c18511dce510e49d308a62e5977f461883c"
   dependencies:
@@ -3210,6 +3210,13 @@ ember-basic-dropdown@^1.0.0-beta.3:
     ember-maybe-in-element "^0.1.0"
     ember-native-dom-helpers "^0.5.10"
 
+ember-changeset@^1.5.0-beta.0:
+  version "1.5.0-beta.0"
+  resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-1.5.0-beta.0.tgz#7a77ee727927b51fb64a6aa1fccf287c13fd56b5"
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    ember-deep-set "^0.1.3"
+
 ember-cli-active-link-wrapper@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/ember-cli-active-link-wrapper/-/ember-cli-active-link-wrapper-0.3.2.tgz#43582f6b1c157ab9f0a5a5f66348e5a3b65de1dc"
@@ -3721,6 +3728,12 @@ ember-data@~3.0.2:
     semver "^5.1.0"
     silent-error "^1.0.0"
 
+ember-deep-set@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/ember-deep-set/-/ember-deep-set-0.1.3.tgz#852dbcf189419d33e57af724ff2d6d8f404d7b73"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+
 ember-export-application-global@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ember-export-application-global/-/ember-export-application-global-2.0.0.tgz#8d6d7619ac8a1a3f8c43003549eb21ebed685bd2"
@@ -3823,6 +3836,14 @@ ember-lodash@^4.17.3:
     broccoli-string-replace "^0.1.1"
     ember-cli-babel "^6.10.0"
     lodash-es "^4.17.4"
+
+ember-math-helpers@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/ember-math-helpers/-/ember-math-helpers-2.4.0.tgz#a8d4b5615862401fbf81ce9f11d75261291e1ad1"
+  dependencies:
+    broccoli-funnel "^2.0.0"
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
 
 ember-maybe-import-regenerator@^0.1.5, ember-maybe-import-regenerator@^0.1.6:
   version "0.1.6"
@@ -4003,6 +4024,14 @@ ember-source@~3.0.0:
     inflection "^1.12.0"
     jquery "^3.2.1"
     resolve "^1.3.3"
+
+ember-test-selectors@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-0.3.8.tgz#1e8ae3e78c64bacc4bbfe87f9973c85805699db2"
+  dependencies:
+    broccoli-stew "^1.4.0"
+    ember-cli-babel "^6.8.2"
+    ember-cli-version-checker "^2.0.0"
 
 ember-text-measurer@^0.4.0:
   version "0.4.0"

@@ -13,17 +13,14 @@ $ember-power-select-dropdown-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
 $ember-power-select-search-field-border: none !default;
 $ember-power-select-search-field-focus-border: none !default;
 
-$ember-power-select-multiple-selection-background-color: rgb(
-  240,
-  240,
-  240
-) !default;
-$ember-power-select-multiple-option-border-color: $global-border !default;
+$ember-power-select-multiple-selection-color: white !default;
+$ember-power-select-multiple-selection-background-color: $global-primary-background !default;
+$ember-power-select-multiple-option-border-color: white !default;
 
 @import 'ember-power-select';
 
 .ember-basic-dropdown-content {
-  z-index: 1001; // leaflet map controls have a z-index of 1000
+  z-index: 1011; // leaflet map controls have a z-index of 1000 and modals have 1010
 }
 
 .ember-power-select-multiple-option {
