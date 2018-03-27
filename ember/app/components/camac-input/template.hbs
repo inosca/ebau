@@ -2,10 +2,13 @@
   {{#if (and question.field.type (not (await question.hidden)))}}
     <div class="uk-animation-fade">
       {{yield}}
-      <label class="uk-form-label {{if (and save.last error) 'uk-text-danger'}}">
-        {{question.field.label}}{{#if question.field.required}}<span> *</span>{{/if}}
+      <label class="uk-form-label uk-text-bold {{if (and save.last error) 'uk-text-danger'}}">
+        {{question.field.label}}
+        {{#if question.field.required}}
+          <span class="uk-text-primary"> *</span>
+        {{/if}}
       </label>
-      <div uk-grid class="uk-form-controls">
+      <div uk-grid class="uk-margin-small-top">
         <div class="uk-width-expand">
           {{component (concat 'camac-input-' question.field.type)
             config      = question.field.config
@@ -26,22 +29,12 @@
                 {{uk-icon 'check' ratio=1.25 class='uk-text-success uk-animation-slide-top-small'}}
               {{/if}}
             {{/if}}
+          {{else if (not question.model.isNew)}}
+            {{uk-icon 'check' ratio=1.25 class='uk-text-success uk-animation-slide-top-small'}}
           {{/if}}
         </div>
       </div>
-      {{#if error}}
-        <small class="uk-text-danger uk-animation-slide-bottom-small">
-          {{#if (gt error.length 1)}}
-            <ul class="uk-margin-bottom-remove uk-margin-small-top">
-              {{#each error as |e|}}
-                <li>{{e}}</li>
-              {{/each}}
-            </ul>
-          {{else}}
-            {{error.firstObject}}
-          {{/if}}
-        </small>
-      {{/if}}
+      {{camac-input-error error}}
     </div>
   {{/if}}
 {{/with}}
