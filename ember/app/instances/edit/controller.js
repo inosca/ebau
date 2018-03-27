@@ -1,66 +1,86 @@
 import Controller from '@ember/controller'
-import { computed, getWithDefault, get } from '@ember/object'
-import { gte } from '@ember/object/computed'
+import { computed, get } from '@ember/object'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
-import forms from 'citizen-portal/questions/forms'
-import modules from 'citizen-portal/questions/modules'
 
 export default Controller.extend({
   router: service(),
+  ajax: service(),
 
-  navigation: computed('model.form.name', function() {
-    let moduleConfig = getWithDefault(forms, this.get('model.form.name'), [])
+  config: computed(async function() {
+    return await this.get('ajax').request('/api/v1/form-config')
+  }),
 
-    return moduleConfig.map(
-      ({ module: modKey, submodules: submodKeys, questions }) => {
-        let mod = modules[modKey]
+  navigation: computed('model.form.name', async function() {
+    let { forms, modules } = await this.get('config')
 
-        return {
-          link: `instances.edit.${modKey}`,
-          title: mod.title,
-          questions,
-          submodules: submodKeys.map(submodKey => {
-            return {
-              link: `instances.edit.${modKey}.${submodKey}`,
-              title: mod.submodules[submodKey].title,
-              questions: mod.submodules[submodKey].questions
-            }
-          })
-        }
+    let usedModules = (forms[this.get('model.form.name')] || [])
+      .map(name => ({ name, ...modules[name] } || null))
+      .filter(Boolean)
+
+    let n = usedModules.reduce((nav, { name, title, parent, questions }) => {
+      let navItem = {
+        link: `instances.edit.${name}`,
+        name,
+        title,
+        questions,
+        parent,
+        submodules: []
       }
+
+      try {
+        this.get('router').urlFor(navItem.link)
+
+        if (parent) {
+          nav.find(({ name }) => name === parent).submodules.push(navItem)
+        } else {
+          nav.push(navItem)
+        }
+      } catch (e) {
+        // URL does not exist, skip this module
+      }
+
+      return nav
+    }, [])
+    return n
+  }),
+
+  links: computed('navigation.[]', async function() {
+    return [
+      'instances.edit',
+      ...(await this.get('navigation')).reduce((flat, { link, submodules }) => {
+        return [...flat, link, ...submodules.map(({ link }) => link)]
+      }, []),
+      'instances.edit.submit'
+    ]
+  }),
+
+  currentIndex: computed(
+    'links.[]',
+    'router.currentRouteName',
+    async function() {
+      let links = await this.get('links')
+
+      return links.indexOf(
+        this.get('router.currentRouteName').replace(/\.index$/, '')
+      )
+    }
+  ),
+
+  hasPrev: computed('currentIndex', async function() {
+    return (await this.get('currentIndex')) > 0
+  }),
+
+  hasNext: computed('links.length', 'currentIndex', async function() {
+    return (
+      (await this.get('currentIndex')) <
+      (await this.get('links')).get('length') - 1
     )
   }),
 
-  links: computed('navigation.[]', function() {
-    return this.get('navigation').reduce((flat, { link, submodules }) => {
-      return [
-        ...flat,
-        ...(submodules.length ? [] : [link]),
-        ...submodules.map(({ link }) => link)
-      ]
-    }, [])
-  }),
-
-  currentIndex: computed('links.[]', 'router.currentRouteName', function() {
-    return this.get('links').indexOf(this.get('router.currentRouteName'))
-  }),
-
-  hasPrev: gte('currentIndex', 0),
-
-  hasNext: computed('links.length', 'currentIndex', function() {
-    return this.get('currentIndex') < this.get('links.length') - 1
-  }),
-
   prev: task(function*() {
-    let links = this.get('links')
-    let i = this.get('currentIndex')
-
-    if (i === 0) {
-      yield this.transitionToRoute('instances.edit.index')
-
-      return
-    }
+    let links = yield this.get('links')
+    let i = yield this.get('currentIndex')
 
     yield this.transitionToRoute(
       get(links, (i + links.length - 1) % links.length)
@@ -68,13 +88,9 @@ export default Controller.extend({
   }),
 
   next: task(function*() {
-    let links = this.get('links')
-    let i = this.get('currentIndex')
+    let links = yield this.get('links')
+    let i = yield this.get('currentIndex')
 
-    let next = get(links, (i + 1) % links.length)
-
-    // TODO: validate whether all fields are valid
-
-    yield this.transitionToRoute(next)
+    yield this.transitionToRoute(get(links, (i + 1) % links.length))
   })
 })

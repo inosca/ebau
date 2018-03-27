@@ -1,6 +1,6 @@
 {{#link-to module.link}}
   <div class="uk-flex uk-flex-between uk-flex-middle">
-    <div class={{if module.submodules 'uk-text-bold'}}>{{module.title}}</div>
+    <div class={{unless module.parent 'uk-text-bold'}}>{{module.title}}</div>
     {{#with state.lastSuccessful.value as |s|}}
       {{#if (eq s 'untouched')}}
         <span
