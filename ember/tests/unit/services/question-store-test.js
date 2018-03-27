@@ -7,7 +7,9 @@ module('Unit | Service | question-store', function(hooks) {
   setupMirage(hooks)
 
   hooks.beforeEach(function() {
-    this.server.get('/api/v1/form-config', () => {})
+    this.server.get('/api/v1/form-config', () => ({
+      questions: {}
+    }))
   })
 
   test('can build a question', async function(assert) {

@@ -28,14 +28,14 @@ module('Integration | Component | camac-table', function(hooks) {
       ]
     })
 
-    this.server.get('/api/v1/form-config', () => {
-      return {
+    this.server.get('/api/v1/form-config', () => ({
+      questions: {
         test: {
           label: 'only for testing',
           required: true,
           type: 'table',
           config: {
-            fields: [
+            columns: [
               { name: 'f1', label: 'field 1', type: 'text', config: {} },
               { name: 'f2', label: 'field 2', type: 'number', config: {} },
               {
@@ -66,7 +66,7 @@ module('Integration | Component | camac-table', function(hooks) {
           }
         }
       }
-    })
+    }))
 
     this.server.get('/api/v1/form-fields', function({ formFields }) {
       return this.serialize(formFields.all())

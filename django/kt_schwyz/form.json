@@ -626,7 +626,7 @@
       "type": "table",
       "required": true,
       "config": {
-        "fields": [
+        "columns": [
           {
             "name": "firma",
             "label": "Firma",
@@ -677,7 +677,7 @@
       "type": "table",
       "required": true,
       "config": {
-        "fields": [
+        "columns": [
           {
             "name": "firma",
             "label": "Firma",
@@ -728,7 +728,7 @@
       "type": "table",
       "required": true,
       "config": {
-        "fields": [
+        "columns": [
           {
             "name": "firma",
             "label": "Firma",
