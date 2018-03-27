@@ -79,7 +79,7 @@ export default Service.extend({
     this.set('_store', A())
   },
 
-  _formConfig: computed(async function() {
+  config: computed(async function() {
     return await this.get('ajax').request('/api/v1/form-config')
   }),
 
@@ -108,7 +108,7 @@ export default Service.extend({
 
       name,
       model,
-      field: getWithDefault(await this.get('_formConfig'), name, {})
+      field: getWithDefault(await this.get('config'), `questions.${name}`, {})
     })
   },
 
