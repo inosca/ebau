@@ -6,6 +6,10 @@ module('Unit | Service | question-store', function(hooks) {
   setupTest(hooks)
   setupMirage(hooks)
 
+  hooks.beforeEach(function() {
+    this.server.get('/api/v1/form-config', () => {})
+  })
+
   test('can build a question', async function(assert) {
     assert.expect(5)
 
