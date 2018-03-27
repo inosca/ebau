@@ -1,1 +1,29 @@
-{{outlet}}
+<div uk-grid class="uk-margin">
+  {{#each model.model.value as |building|}}
+    <div role="button" class="pointer" {{action (mut editedBuilding) building}}>
+      {{#uk-card width='small' hover=true as |card|}}
+        {{#card.header class='uk-flex uk-flex-center'}}
+          {{uk-icon 'home' ratio=3}}
+        {{/card.header}}
+        <div class="uk-text-bold uk-text-center uk-padding-small">
+          {{building.adresse}}
+        </div>
+      {{/uk-card}}
+    </div>
+  {{/each}}
+  <div role="button" class="pointer">
+    {{#uk-card width='small' class='uk-height-1-1 uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
+      {{#card.body}}
+        {{uk-icon 'plus' ratio=2}}
+      {{/card.body}}
+    {{/uk-card}}
+  </div>
+</div>
+
+{{#if editedBuilding}}
+  {{#uk-card as |card|}}
+    {{#card.header}}
+      <h4>Gebäude "{{editedBuilding.adresse}}" bearbeiten</h4>
+    {{/card.header}}
+  {{/uk-card}}
+{{/if}}
