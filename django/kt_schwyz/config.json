@@ -517,6 +517,42 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 48,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "complete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 49,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 50,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 51,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "insert",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -697,6 +733,15 @@
 },
 {
   "model": "core.availableinstanceresource",
+  "pk": "billing",
+  "fields": {
+    "module_name": "billing",
+    "controller_name": "edit",
+    "description": "Edit the billing"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
   "pk": "buildingauthority",
   "fields": {
     "module_name": "buildingauthority",
@@ -846,6 +891,100 @@
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 3,
+  "fields": {
+    "name": "Kosten gem\u00e4ss Rechnung",
+    "account_number": "-",
+    "department": "GEM",
+    "predefined": 1.0,
+    "service_group": 1
+  }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 4,
+  "fields": {
+    "name": "All",
+    "account_number": "-",
+    "department": "Gemeinde",
+    "predefined": 0.0,
+    "service_group": null
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 1,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 2,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 3,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 4,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 5,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 6,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 7,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 8,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.billingconfig",
+  "pk": 1,
+  "fields": {
+    "name": "hourly_rate",
+    "value": "100"
   }
 },
 {
@@ -1220,7 +1359,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 4,
+    "sort": 5,
     "form_group": 1
   }
 },
@@ -1250,7 +1389,22 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 5,
+    "sort": 6,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 9,
+  "fields": {
+    "available_instance_resource": "billing",
+    "resource": 1,
+    "name": "Geb\u00fchren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -2989,6 +3143,78 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 55,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 56,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 57,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 58,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 59,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 60,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 61,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 62,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
   "model": "core.noticetype",
   "pk": 1,
   "fields": {
@@ -4566,6 +4792,30 @@
   "fields": {
     "role_parent": null,
     "name": "Portal"
+  }
+},
+{
+  "model": "user.service",
+  "pk": 3,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Tests",
+    "description": "Amt f\u00fcr Tests",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 1,
+  "fields": {
+    "name": "Kantonale Fachstellen"
   }
 }
 ]
