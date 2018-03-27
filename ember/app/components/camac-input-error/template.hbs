@@ -1,0 +1,9 @@
+{{#if error}}
+  <ul class="uk-list uk-animation-slide-bottom uk-margin-remove-bottom uk-margin-small-top uk-text-danger">
+    {{#each error as |e|}}
+      <li class="uk-flex uk-flex-middle">
+        {{uk-icon 'close' ratio=0.7}}<small>&nbsp;{{e}}</small>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

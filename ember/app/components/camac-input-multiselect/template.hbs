@@ -1,9 +1,11 @@
 {{#power-select-multiple
   selected      = model.value
   options       = config.options
-  searchEnabled = (not (not config.searchable))
+  searchEnabled = searchable
   disabled      = readonly
+  renderInPlace = renderInPlace
   onchange      = (action (optional on-change))
+  onkeydown     = (action 'handleKeydown')
 as |option|}}
   {{option}}
 {{/power-select-multiple}}

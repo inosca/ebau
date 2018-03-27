@@ -1,0 +1,15 @@
+{{#each config.options as |option index|}}
+  <label class="uk-form-label uk-margin-right">
+    <input
+      type="checkbox"
+      class="uk-checkbox uk-margin-small-right"
+      name={{elementId}}
+      value={{option}}
+      disabled={{if readonly 'disabled'}}
+      checked={{contains option model.value}}
+      onchange={{action 'change' option}}
+    >
+    {{option}}
+  </label>
+{{/each}}
+
