@@ -1,7 +1,8 @@
 'use strict'
 
 module.exports = function(environment) {
-  let oidcHost = process.env.KEYCLOAK_URL || 'http://camac-ng-keycloak.local/auth/'
+  let oidcHost =
+    process.env.KEYCLOAK_URL || 'http://camac-ng-keycloak.local/auth/'
 
   let ENV = {
     modulePrefix: 'citizen-portal',
