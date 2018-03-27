@@ -1,5 +1,5 @@
 {{#with (await question) as |question|}}
-  {{#with question.field.config.fields as |fields|}}
+  {{#with question.field.config.columns as |columns|}}
     <div class="uk-animation-fade">
       {{yield}}
       <label class="uk-form-label uk-text-bold {{if error.length 'uk-text-danger'}}">
@@ -11,8 +11,8 @@
       <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
         <thead>
           <tr>
-            {{#each fields as |field|}}
-              <th>{{field.label}}</th>
+            {{#each columns as |column|}}
+              <th>{{column.label}}</th>
             {{/each}}
             {{#unless readonly}}
               <th></th>
@@ -22,8 +22,8 @@
         <tbody>
           {{#each question.value as |row|}}
             <tr>
-              {{#each fields as |field|}}
-                <td>{{get row field.name}}</td>
+              {{#each columns as |column|}}
+                <td>{{get row column.name}}</td>
               {{/each}}
               {{#unless readonly}}
                 <td class="uk-text-right">
@@ -34,7 +34,7 @@
             </tr>
           {{^}}
             <tr>
-              <td colspan={{add (count-keys fields) 1}} class="uk-text-center uk-text-small ">
+              <td colspan={{add (count-keys columns) 1}} class="uk-text-center uk-text-small ">
                 Noch keine Einträge erfasst
               </td>
             </tr>
@@ -43,7 +43,7 @@
         {{#unless readonly}}
           <tfoot>
             <tr>
-              <td colspan={{add (count-keys fields) 1}} class="uk-text-center">
+              <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
                 {{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}
               </td>
             </tr>
@@ -56,7 +56,7 @@
       {{#unless readonly}}
         {{camac-table-modal
           name      = question.name
-          fields    = fields
+          columns   = columns
           visible   = showModal
           value     = editedRow
           container = modalContainer

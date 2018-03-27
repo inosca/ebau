@@ -7,12 +7,12 @@ module('Integration | Component | camac-table-modal', function(hooks) {
   setupRenderingTest(hooks)
 
   test('it renders', async function(assert) {
-    this.set('fields', [{ name: 'f1', type: 'text', config: {} }])
+    this.set('columns', [{ name: 'f1', type: 'text', config: {} }])
     this.set('value', { f1: 'test' })
     this.set('visible', false)
 
     await render(
-      hbs`{{camac-table-modal visible=visible fields=fields value=value container=this.element}}`
+      hbs`{{camac-table-modal visible=visible columns=columns value=value container=this.element}}`
     )
 
     assert.dom('.uk-modal.uk-open').doesNotExist()
@@ -28,11 +28,11 @@ module('Integration | Component | camac-table-modal', function(hooks) {
   })
 
   test('it can handle changes', async function(assert) {
-    this.set('fields', [{ name: 'f1', type: 'text', config: {} }])
+    this.set('columns', [{ name: 'f1', type: 'text', config: {} }])
     this.set('value', { f1: 'test' })
 
     await render(
-      hbs`{{camac-table-modal visible=true fields=fields value=value container=this.element on-save=(action (mut value))}}`
+      hbs`{{camac-table-modal visible=true columns=columns value=value container=this.element on-save=(action (mut value))}}`
     )
 
     await fillIn('.uk-modal input[type=text]', 'foobar')
@@ -42,12 +42,12 @@ module('Integration | Component | camac-table-modal', function(hooks) {
   })
 
   test('it rollbacks changes on close', async function(assert) {
-    this.set('fields', [{ name: 'f1', type: 'text', config: {} }])
+    this.set('columns', [{ name: 'f1', type: 'text', config: {} }])
     this.set('value', { f1: 'test' })
     this.set('visible', true)
 
     await render(
-      hbs`{{camac-table-modal visible=visible fields=fields value=value container=this.element}}`
+      hbs`{{camac-table-modal visible=visible columns=columns value=value container=this.element}}`
     )
 
     await fillIn('.uk-modal input[type=text]', 'foobar')
@@ -59,14 +59,14 @@ module('Integration | Component | camac-table-modal', function(hooks) {
   })
 
   test('it validates changes', async function(assert) {
-    this.set('fields', [
+    this.set('columns', [
       { name: 'f1', type: 'text', required: true, config: {} }
     ])
     this.set('value', { f1: 'test' })
     this.set('visible', true)
 
     await render(
-      hbs`{{camac-table-modal name='testy' visible=visible fields=fields value=value container=this.element on-save=(action (mut foo))}}`
+      hbs`{{camac-table-modal name='testy' visible=visible columns=columns value=value container=this.element on-save=(action (mut foo))}}`
     )
 
     await fillIn('.uk-modal input[type=text]', '')

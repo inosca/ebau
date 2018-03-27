@@ -9,30 +9,32 @@ module('Integration | Component | camac-form', function(hooks) {
   setupMirage(hooks)
 
   hooks.beforeEach(function() {
-    this.server.get('/api/v1/form-config', {
-      'test-input': {
-        label: 'Test input',
-        required: true,
-        type: 'text',
-        config: {}
-      },
-      'test-table': {
-        label: 'Test table',
-        required: true,
-        type: 'table',
-        config: {
-          fields: [
-            {
-              name: 'test-input-in-table',
-              title: 'Test input in a table',
-              type: 'number',
-              required: true,
-              config: {}
-            }
-          ]
+    this.server.get('/api/v1/form-config', () => ({
+      questions: {
+        'test-input': {
+          label: 'Test input',
+          required: true,
+          type: 'text',
+          config: {}
+        },
+        'test-table': {
+          label: 'Test table',
+          required: true,
+          type: 'table',
+          config: {
+            columns: [
+              {
+                name: 'test-input-in-table',
+                title: 'Test input in a table',
+                type: 'number',
+                required: true,
+                config: {}
+              }
+            ]
+          }
         }
       }
-    })
+    }))
   })
 
   test('it renders', async function(assert) {
