@@ -9,6 +9,8 @@ export default Controller.extend({
 
   environment,
 
+  isEmbedded: window !== window.top,
+
   actions: {
     logout() {
       this.get('session').invalidate()
