@@ -6,14 +6,16 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 })
 
+const resetNamespace = true
+
 Router.map(function() {
   this.route('login')
   this.route('app-shell')
   this.route('notfound', { path: '/*path' })
 
   this.route('protected', { path: '/' }, function() {
-    this.route('index', { path: '/', resetNamespace: true })
-    this.route('instances', { resetNamespace: true }, function() {
+    this.route('index', { path: '/', resetNamespace })
+    this.route('instances', { path: '/dossiers', resetNamespace }, function() {
       this.route('new')
       this.route('edit', { path: '/:instance_id' }, function() {
         this.route('grundinformationen', function() {
