@@ -109,7 +109,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": []
+      "questions": ["thisneedstobereplacedbyarealquestion"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -117,7 +117,7 @@
       "questions": [
         "kategorie-des-vorhabens",
         "art-der-nutzung",
-        "vorhaben-mit-anlage",
+        "vorhaben-mit-baute",
         "art-der-anlage",
         "art-der-befestigten-flache",
         "zweck-der-leitungen",
@@ -145,6 +145,7 @@
         "trinkwasser-abgeben",
         "offentlich-duschanlage-oder-bad",
         "gewerbliche-nutzflachen",
+        "gewerbliche-nutzflachen-grosse",
         "hohe-der-anlage"
       ]
     },
@@ -252,8 +253,9 @@
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
-      "required": true,
       "type": "checkbox",
+      "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Baute(n)", "Anlage(n)"]
       }
@@ -262,6 +264,7 @@
       "label": "Welchem Zweck dient das Vorhaben?",
       "type": "checkbox",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": [
           "Wohnen",
@@ -274,10 +277,16 @@
         ]
       }
     },
-    "vorhaben-mit-anlage": {
-      "label": "Welche Tätigkeiten sind geplant?",
+    "vorhaben-mit-baute": {
+      "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
       "type": "checkbox",
       "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": { "in": ["Baute(n)"] }
+        }
+      ],
       "config": {
         "options": [
           "Abbruch / Rückbau",
@@ -292,10 +301,16 @@
       "label": "Welche Anlagearten sind geplant?",
       "type": "multiselect",
       "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": { "in": ["Anlage(n)"] }
+        }
+      ],
       "config": {
         "options": [
           "Befestigte Fläche",
-          "Ver- / Ensorgungsleitung",
+          "Ver- / Entsorgungsleitung",
           "Reklame",
           "Terrainveränderung",
           "Wärmepumpe",
@@ -311,6 +326,12 @@
       "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
       "type": "multiselect",
       "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": { "in": ["Befestigte Fläche"] }
+        }
+      ],
       "config": {
         "options": [
           "Verkehrsfläche",
@@ -325,6 +346,12 @@
       "label": "Welchem Zweck dienen die Leitungen?",
       "type": "multiselect",
       "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": { "in": ["Ver- / Entsorgungsleitung"] }
+        }
+      ],
       "config": {
         "options": [
           "Abwasserentsorgung",
@@ -339,6 +366,12 @@
       "label": "Welche Art Wärmepumpe ist vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": { "in": ["Wärmepumpe"] }
+        }
+      ],
       "config": {
         "options": [
           "Erd-Wärmepumpe",
@@ -352,6 +385,7 @@
       "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja, direkt", "Ja, indirekt", "Nein"]
       }
@@ -360,6 +394,7 @@
       "label": "Ist eine Pfahlfundation vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -368,6 +403,7 @@
       "label": "Ist eine Baugrubenumschliessung vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -377,6 +413,7 @@
         "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -386,6 +423,7 @@
         "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -394,6 +432,12 @@
       "label": "Welche?",
       "type": "text",
       "required": true,
+      "active-condition": [
+        {
+          "question": "anlagen-mit-erheblichen-schadstoffemissionen",
+          "value": { "in": ["Ja"] }
+        }
+      ],
       "config": {}
     },
     "anlagen-mit-erheblichen-strahlungsemissionen": {
@@ -401,6 +445,7 @@
         "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -409,6 +454,12 @@
       "label": "Welche?",
       "type": "text",
       "required": true,
+      "active-condition": [
+        {
+          "question": "anlagen-mit-erheblichen-strahlungsemissionen",
+          "value": { "in": ["Ja"] }
+        }
+      ],
       "config": {}
     },
     "anlagen-mit-erheblichen-larmemissionen": {
@@ -416,6 +467,7 @@
         "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -425,6 +477,7 @@
         "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -433,6 +486,7 @@
       "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -442,6 +496,7 @@
         "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -450,6 +505,7 @@
       "label": "Werden brandschutztechnisch gefährliche Stoffe gelagert?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -459,6 +515,7 @@
         "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -467,6 +524,7 @@
       "label": "Sind mit dem Vorhaben 5‘000m² Boden (oder mehr) betroffen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -476,6 +534,7 @@
         "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -485,6 +544,7 @@
         "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -494,6 +554,7 @@
         "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -503,6 +564,7 @@
         "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -512,6 +574,7 @@
         "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -521,6 +584,7 @@
         "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -530,6 +594,7 @@
         "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -539,6 +604,21 @@
         "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
       "type": "radio",
       "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "gewerbliche-nutzflachen-grosse": {
+      "label": "Wie gross ist / sind diese in m²?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "gewerbliche-nutzflachen",
+          "value": { "in": ["Ja"] }
+        }
+      ],
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -547,6 +627,12 @@
       "label": "Wie hoch ist die Anlage in m?",
       "type": "number",
       "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": { "in": ["Antennen"] }
+        }
+      ],
       "config": {
         "step": 1,
         "min": 0
@@ -557,6 +643,7 @@
         "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
       "type": "radio",
       "required": true,
+      "active-condition": [],
       "config": {
         "options": [
           "Trigonet AG (Stans)",
@@ -572,18 +659,21 @@
       "label": "Das Baugespann wurde / wird errichtet am:",
       "type": "text",
       "required": false,
+      "active-condition": [],
       "config": {}
     },
     "kein-baugespann-begrundung": {
       "label": "Falls kein Baugespann erstellt wird, ist dies zu begründen:",
       "type": "text",
       "required": false,
+      "active-condition": [],
       "config": {}
     },
     "baukosten": {
       "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4):",
       "type": "number",
       "required": true,
+      "active-condition": [],
       "config": {
         "min": 0,
         "step": 1
@@ -593,6 +683,7 @@
       "label": "Gebäudevolumen in m³ nach SIA 116 / SIA 416:",
       "type": "number",
       "required": true,
+      "active-condition": [],
       "config": {
         "min": 0,
         "step": 0.5
@@ -601,7 +692,13 @@
     "ausnahmen": {
       "label": "Folgende Ausnahmen werden beansprucht:",
       "type": "multiselect",
-      "required": false,
+      "required": true,
+      "active-condition": [
+        {
+          "question": "ordendliche-mindestabstande",
+          "value": { "in": ["Ja"] }
+        }
+      ],
       "config": {
         "options": [
           "Unterschreitung Grenzabstand",
@@ -619,12 +716,19 @@
         "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
       "type": "text",
       "required": true,
+      "active-condition": [
+        {
+          "question": "ordendliche-mindestabstande",
+          "value": { "in": ["Ja"] }
+        }
+      ],
       "config": {}
     },
     "grundeigentumerschaft": {
       "label": "Grundeigentümerschaft:",
       "type": "table",
       "required": true,
+      "active-condition": [],
       "config": {
         "columns": [
           {
@@ -676,6 +780,7 @@
       "label": "Bauherrschaft:",
       "type": "table",
       "required": true,
+      "active-condition": [],
       "config": {
         "columns": [
           {
@@ -727,6 +832,7 @@
       "label": "Projektverfasser / Planer:",
       "type": "table",
       "required": true,
+      "active-condition": [],
       "config": {
         "columns": [
           {
