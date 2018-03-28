@@ -562,22 +562,6 @@
   }
 },
 {
-  "model": "core.attachmentextension",
-  "pk": 1,
-  "fields": {
-    "name": "pdf"
-  }
-},
-{
-  "model": "core.attachmentextensionrole",
-  "pk": 1,
-  "fields": {
-    "attachment_extension": 1,
-    "role": 3,
-    "mode": null
-  }
-},
-{
   "model": "core.availableaction",
   "pk": "checkquery",
   "fields": {
