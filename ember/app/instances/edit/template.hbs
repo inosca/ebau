@@ -5,7 +5,9 @@
         {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
       {{/active-link}}
       {{#each (await navigation) as |m|}}
-        {{camac-nav-module module=m instance=model.id}}
+        {{#if (await m.state)}}
+          {{camac-nav-module module=m}}
+        {{/if}}
       {{/each}}
       {{#active-link activeClass='uk-active'}}
         {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bold'}}
