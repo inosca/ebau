@@ -1,5 +1,99 @@
 [
 {
+  "model": "core.action",
+  "pk": 1,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 1,
+    "name": "subm zu comm",
+    "description": "subm zu comm Statuswechsel wenn die Gemeinde ein Dossier akzeptiert",
+    "success_message": "Das Dossier wurde erfolgreich angenommen",
+    "error_message": "Das Dossier konnte nicht angenommen werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 2,
+  "fields": {
+    "available_action": "workflow",
+    "button": 1,
+    "name": "Workflow Datum Dossier vollst\u00e4ndig setzen",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 3,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 2,
+    "name": "subm zu rej",
+    "description": "Eingereicht zu Abgelehnt",
+    "success_message": "Das Dossier wurde abgelehnt",
+    "error_message": "Das Dossier konnte nicht abgelehnt werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 4,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 3,
+    "name": "subm zu new",
+    "description": "Nachforderungen vorhanden, Dossier zur\u00fcck an den Gesuchsteller",
+    "success_message": "Das Dossier wurde erfolgreich an den Gesuchsteller zur\u00fcckgegeben",
+    "error_message": "Das Dossier konnte nicht an den Gesuchsteller zur\u00fcckgegeben werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 5,
+  "fields": {
+    "available_action": "workflow",
+    "button": 3,
+    "name": "Workflow Datum Nachforderung der Gemeinde",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 1,
+  "fields": {
+    "current_instance_state": 2,
+    "next_instance_state": 3
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 3,
+  "fields": {
+    "current_instance_state": 2,
+    "next_instance_state": 9
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 4,
+  "fields": {
+    "current_instance_state": 2,
+    "next_instance_state": 1
+  }
+},
+{
   "model": "core.airaction",
   "pk": 1,
   "fields": {
@@ -342,6 +436,123 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 39,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 40,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "preview",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 41,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "publish",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 42,
+  "fields": {
+    "available_instance_resource": "publication",
+    "action_name": "save",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 43,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 44,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "list",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 45,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "action_name": "save",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 46,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 47,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "action_name": "notify",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 48,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "complete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 49,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "delete",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 50,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "edit",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 51,
+  "fields": {
+    "available_instance_resource": "billing",
+    "action_name": "insert",
+    "hidden": 1
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -351,19 +562,139 @@
   }
 },
 {
-  "model": "core.attachmentextension",
-  "pk": 1,
+  "model": "core.availableaction",
+  "pk": "checkquery",
   "fields": {
-    "name": "pdf"
+    "module_name": "default",
+    "description": "Check with a SQL query"
   }
 },
 {
-  "model": "core.attachmentextensionrole",
-  "pk": 1,
+  "model": "core.availableaction",
+  "pk": "circulationemail",
   "fields": {
-    "attachment_extension": 1,
-    "role": 3,
-    "mode": null
+    "module_name": "default",
+    "description": "Send email to activated services"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "circulationtransition",
+  "fields": {
+    "module_name": "default",
+    "description": "Change state of the circulation"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "copyanswer",
+  "fields": {
+    "module_name": "default",
+    "description": "Copy data from question to question"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "copydata",
+  "fields": {
+    "module_name": "default",
+    "description": "Copy data from question to table"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "deletecirculation",
+  "fields": {
+    "module_name": "default",
+    "description": "Delete the circulation"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "email",
+  "fields": {
+    "module_name": "default",
+    "description": "Send e-mail"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "formtransition",
+  "fields": {
+    "module_name": "default",
+    "description": "Make a transition"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "location",
+  "fields": {
+    "module_name": "default",
+    "description": "Set location of instance"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "notice",
+  "fields": {
+    "module_name": "default",
+    "description": "Retrieve notice"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "pageredirect",
+  "fields": {
+    "module_name": "default",
+    "description": "Make a redirect to a specific page"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "php",
+  "fields": {
+    "module_name": "default",
+    "description": "Call PHP"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "proposal",
+  "fields": {
+    "module_name": "default",
+    "description": "Generate proposal activation"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "save",
+  "fields": {
+    "module_name": "default",
+    "description": "Save"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "savepdf",
+  "fields": {
+    "module_name": "default",
+    "description": "Save PDF from a form"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "validate",
+  "fields": {
+    "module_name": "default",
+    "description": "Validate the form"
+  }
+},
+{
+  "model": "core.availableaction",
+  "pk": "workflow",
+  "fields": {
+    "module_name": "workflow",
+    "description": "Set workflow date"
   }
 },
 {
@@ -382,6 +713,24 @@
     "module_name": "apidocuments",
     "controller_name": "list",
     "description": "List of instance documents (API source)"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "billing",
+  "fields": {
+    "module_name": "billing",
+    "controller_name": "edit",
+    "description": "Edit the billing"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "buildingauthority",
+  "fields": {
+    "module_name": "buildingauthority",
+    "controller_name": "edit",
+    "description": "Edit the building authority entries"
   }
 },
 {
@@ -502,12 +851,352 @@
   }
 },
 {
+  "model": "core.availableinstanceresource",
+  "pk": "publication",
+  "fields": {
+    "module_name": "publication",
+    "controller_name": "publish",
+    "description": "Publish a document"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "workflow",
+  "fields": {
+    "module_name": "workflow",
+    "controller_name": "list",
+    "description": "Show the workflow entries"
+  }
+},
+{
   "model": "core.availableresource",
   "pk": "apilist",
   "fields": {
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 3,
+  "fields": {
+    "name": "Kosten gem\u00e4ss Rechnung",
+    "account_number": "-",
+    "department": "GEM",
+    "predefined": 1.0,
+    "service_group": 1
+  }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 4,
+  "fields": {
+    "name": "All",
+    "account_number": "-",
+    "department": "Gemeinde",
+    "predefined": 0.0,
+    "service_group": null
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 1,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 2,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 3,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 4,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 5,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 6,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 7,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 8,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.billingconfig",
+  "pk": 1,
+  "fields": {
+    "name": "hourly_rate",
+    "value": "100"
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 1,
+  "fields": {
+    "button": 1,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 2,
+  "fields": {
+    "button": 2,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 3,
+  "fields": {
+    "button": 3,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 4,
+  "fields": {
+    "name": "Meldungen / Dokumente"
+  }
+},
+{
+  "model": "core.button",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Dossier annehmen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 2,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Dossier abweisen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 3,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Nachforderung",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 1,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Nein",
+    "sort": 0
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 2,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Ja",
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 3,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Ja mit Auflagen",
+    "sort": 6
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 4,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Fachstelle nicht betroffen",
+    "sort": 7
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 5,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Nein",
+    "sort": 1
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 6,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Ja",
+    "sort": 2
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 7,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Ja mit Auflagen",
+    "sort": 3
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 8,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Fachstelle nicht betroffen",
+    "sort": 4
+  }
+},
+{
+  "model": "core.circulationanswertype",
+  "pk": 1,
+  "fields": {
+    "name": "Response"
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 1,
+  "fields": {
+    "name": "RUN",
+    "sort": 0
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 2,
+  "fields": {
+    "name": "OK",
+    "sort": 1
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 3,
+  "fields": {
+    "name": "IDLE",
+    "sort": 2
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 4,
+  "fields": {
+    "name": "NFD",
+    "sort": 3
+  }
+},
+{
+  "model": "core.circulationtype",
+  "pk": 1,
+  "fields": {
+    "name": "Zirkulation der Gemeinde",
+    "page": null,
+    "parent_specific_activations": 0
+  }
+},
+{
+  "model": "core.circulationtype",
+  "pk": 2,
+  "fields": {
+    "name": "Zirkulation des Kantons",
+    "page": null,
+    "parent_specific_activations": 0
   }
 },
 {
@@ -609,8 +1298,1457 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
+    "sort": 2,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 3,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "resource": 1,
+    "name": "Dossier",
+    "description": null,
+    "template": "/ember/instance.phtml",
+    "class_field": null,
+    "hidden": 0,
     "sort": 0,
     "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 4,
+  "fields": {
+    "available_instance_resource": "publication",
+    "resource": 1,
+    "name": "Publikation",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 5,
+  "fields": {
+    "available_instance_resource": "workflow",
+    "resource": 1,
+    "name": "Workflow",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 6,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 7,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "resource": 1,
+    "name": "Zirkulation",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 8,
+  "fields": {
+    "available_instance_resource": "buildingauthority",
+    "resource": 1,
+    "name": "Bauverwaltung",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 7,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 9,
+  "fields": {
+    "available_instance_resource": "billing",
+    "resource": 1,
+    "name": "Geb\u00fchren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 4,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 10,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "resource": 1,
+    "name": "Dossier abschliessen",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 1,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 2,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 3,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 4,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 5,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 6,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 7,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 8,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 9,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 10,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 11,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 12,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 13,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 14,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 15,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 16,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 17,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 18,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 19,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 20,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 21,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 22,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 23,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 24,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 25,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 26,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 27,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 28,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 29,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 30,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 31,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 32,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 33,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 34,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 35,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 36,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 37,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 38,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 39,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 40,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 41,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 42,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 43,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 44,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 45,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 46,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 47,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 100,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 101,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 102,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 103,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 104,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 105,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 106,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 107,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 109,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 110,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "circulationtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 111,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 112,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 113,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "notice"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 114,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 115,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 116,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 117,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 118,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 120,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 121,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 122,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 123,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 124,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 125,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 126,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 127,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 128,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 130,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 131,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 132,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 133,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 134,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 135,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 136,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 137,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 138,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 139,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 141,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 142,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 143,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 144,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 145,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 146,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 147,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 148,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 150,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 151,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 158,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 159,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 160,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 161,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 162,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 163,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 165,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 166,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "copydata"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 167,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 168,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "location"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 169,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 170,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 171,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "save"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 172,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 174,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "copyanswer"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 175,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "checkquery"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 176,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "email"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 177,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "formtransition"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 178,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "php"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 179,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "proposal"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 180,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "savepdf"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 181,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "validate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 183,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 184,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 185,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 186,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 187,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 188,
+  "fields": {
+    "available_instance_resource": "formerror",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 189,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 190,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 191,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 192,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 193,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 194,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 195,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "deletecirculation"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 196,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 197,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 198,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 199,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 200,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 201,
+  "fields": {
+    "available_instance_resource": "formerror",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 202,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 203,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 204,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 205,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 206,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 207,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 208,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "circulationemail"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 209,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 210,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 211,
+  "fields": {
+    "available_instance_resource": "formpage",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 212,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 213,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 214,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 215,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 216,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 217,
+  "fields": {
+    "available_instance_resource": "letter",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 218,
+  "fields": {
+    "available_instance_resource": "editletter",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 219,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 220,
+  "fields": {
+    "available_instance_resource": "formwizard",
+    "available_action": "pageredirect"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 221,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 222,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 223,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 224,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 225,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 226,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 227,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 228,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 229,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "workflow"
+  }
+},
+{
+  "model": "core.ircirculation",
+  "pk": 10,
+  "fields": {
+    "circulation_type": 1,
+    "service": null,
+    "draft_circulation_answer": null,
+    "show_notice": 2,
+    "show_history": 0,
+    "show_all_children": 1,
+    "read_notice_template": null,
+    "pdf_class": null,
+    "service_to_be_interpreted": null
+  }
+},
+{
+  "model": "core.ireditcirculation",
+  "pk": 7,
+  "fields": {
+    "circulation_type": 1,
+    "draft_circulation_answer": null,
+    "show_notice": 1,
+    "add_template": null,
+    "add_activation_template": null,
+    "read_notice_template": null,
+    "pdf_class": null,
+    "default_circulation_name": null,
+    "single_circulation": 1,
+    "inherit_notices": 0,
+    "display_first_circulation": 1
+  }
+},
+{
+  "model": "core.ireditformpage",
+  "pk": 3,
+  "fields": {
+    "page": 1,
+    "pdf_class": null
   }
 },
 {
@@ -620,6 +2758,628 @@
     "instance_resource": 1,
     "role": 3,
     "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 3,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 4,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 5,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 6,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 7,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 8,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 9,
+  "fields": {
+    "instance_resource": 4,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 10,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 11,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 12,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 13,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 14,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 15,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 16,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 17,
+  "fields": {
+    "instance_resource": 3,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 18,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 19,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 20,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 21,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 22,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 23,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 24,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 25,
+  "fields": {
+    "instance_resource": 1,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 34,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 35,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 36,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 37,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 38,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 39,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 40,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 41,
+  "fields": {
+    "instance_resource": 5,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 42,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 43,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 44,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 45,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 46,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 47,
+  "fields": {
+    "instance_resource": 7,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 48,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 49,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 50,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 51,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 52,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 53,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 54,
+  "fields": {
+    "instance_resource": 8,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 55,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 56,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 57,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 58,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 59,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 60,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 61,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 62,
+  "fields": {
+    "instance_resource": 9,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 63,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 64,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 65,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 66,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 67,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 68,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 69,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 70,
+  "fields": {
+    "instance_resource": 10,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 1,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Mitteilung an die Fachstelle"
+  }
+},
+{
+  "model": "core.page",
+  "pk": 1,
+  "fields": {
+    "name": "default",
+    "description": null,
+    "javascript": null
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 5,
+  "fields": {
+    "page": 1,
+    "form": 1,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 6,
+  "fields": {
+    "page": 1,
+    "form": 2,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageformgroup",
+  "pk": 1,
+  "fields": {
+    "name": "default"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 1,
+  "fields": {
+    "name": "Additional"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 2,
+  "fields": {
+    "name": "Activable"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 3,
+  "fields": {
+    "name": "Required"
+  }
+},
+{
+  "model": "core.pageformmode",
+  "pk": 4,
+  "fields": {
+    "name": "Instance resource"
+  }
+},
+{
+  "model": "core.publicationsetting",
+  "pk": 1,
+  "fields": {
+    "key": "duration",
+    "value": "20 Tage"
   }
 },
 {
@@ -636,6 +3396,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 2,
+  "fields": {
+    "available_resource": "apilist",
+    "name": "Pendenzenliste Start",
+    "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.rapilist",
   "pk": 1,
   "fields": {
@@ -644,11 +3417,695 @@
   }
 },
 {
+  "model": "core.rapilist",
+  "pk": 2,
+  "fields": {
+    "resource": 2,
+    "instance_state": 3
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
     "resource": 1,
     "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 2,
+  "fields": {
+    "resource": 2,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowaction",
+  "pk": 2,
+  "fields": {
+    "workflow_item": 14,
+    "multi_value": 3
+  }
+},
+{
+  "model": "core.workflowaction",
+  "pk": 5,
+  "fields": {
+    "workflow_item": 13,
+    "multi_value": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 1,
+  "fields": {
+    "position": 5.0,
+    "name": "Pr\u00fcfung durch Gemeinde",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 10,
+  "fields": {
+    "position": 1.0,
+    "name": "Dossiereingang",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 12,
+  "fields": {
+    "position": 2.0,
+    "name": "Dossier erfasst",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 13,
+  "fields": {
+    "position": 3.0,
+    "name": "Nachforderung Gemeindebaubeh\u00f6rde",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 14,
+  "fields": {
+    "position": 4.0,
+    "name": "Dossier vollstandig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 15,
+  "fields": {
+    "position": 6.0,
+    "name": "Publikation",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 16,
+  "fields": {
+    "position": 8.0,
+    "name": "Weiterleitung an Koord",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 21,
+  "fields": {
+    "position": 7.0,
+    "name": "Eingang Einsprachen",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 41,
+  "fields": {
+    "position": 9.0,
+    "name": "Akten Nachforderung KOORD",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 42,
+  "fields": {
+    "position": 10.0,
+    "name": "Nachforderung Fachstelle",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 43,
+  "fields": {
+    "position": 11.0,
+    "name": "Dossier vollst\u00e4ndig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 44,
+  "fields": {
+    "position": 12.0,
+    "name": "Start Zirkulation",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 45,
+  "fields": {
+    "position": 13.0,
+    "name": "Zirkulation beendet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 46,
+  "fields": {
+    "position": 14.0,
+    "name": "R\u00fcckgabe an Gemeinde",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 47,
+  "fields": {
+    "position": 15.0,
+    "name": "Bau- und Einspracheentscheid",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 48,
+  "fields": {
+    "position": 18.0,
+    "name": "Rechtsmittel Gemeinderat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 49,
+  "fields": {
+    "position": 20.0,
+    "name": "Entscheid Regierungsrat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 50,
+  "fields": {
+    "position": 21.0,
+    "name": "Rechtsmittel Regierungsrat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 51,
+  "fields": {
+    "position": 19.0,
+    "name": "Entscheid Gemeinderat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 52,
+  "fields": {
+    "position": 22.0,
+    "name": "Rechtsmittel Obergericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 53,
+  "fields": {
+    "position": 23.0,
+    "name": "Entscheid Obergericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 54,
+  "fields": {
+    "position": 26.0,
+    "name": "Entsch. rechtskr\u00e4ftig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 55,
+  "fields": {
+    "position": 27.0,
+    "name": "Baubeginn erfolgt",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 56,
+  "fields": {
+    "position": 28.0,
+    "name": "Abnahme Schnurger\u00fcst",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 57,
+  "fields": {
+    "position": 35.0,
+    "name": "Bau beendet Info an Abwasser Uri",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 58,
+  "fields": {
+    "position": 29.0,
+    "name": "Abnahme Rohbau",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 59,
+  "fields": {
+    "position": 31.0,
+    "name": "Endabnahme erfolgt",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 60,
+  "fields": {
+    "position": 34.0,
+    "name": "Meldung Grundbuchvermessung",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 61,
+  "fields": {
+    "position": 38.0,
+    "name": "Verfahren abgeschlossen",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 62,
+  "fields": {
+    "position": 39.0,
+    "name": "Dossier archiviert",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 63,
+  "fields": {
+    "position": 24.0,
+    "name": "Rechtsmittel Bundesgericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 64,
+  "fields": {
+    "position": 25.0,
+    "name": "Entscheid Bundesgericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 65,
+  "fields": {
+    "position": 16.0,
+    "name": "Einsprachefrist",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 66,
+  "fields": {
+    "position": 40.0,
+    "name": "Meldung Baubewilligung an Geometer",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 67,
+  "fields": {
+    "position": 30.0,
+    "name": "Bau beendet",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 68,
+  "fields": {
+    "position": 32.0,
+    "name": "Bau beendet Info an Geometer",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 69,
+  "fields": {
+    "position": 33.0,
+    "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 70,
+  "fields": {
+    "position": 36.0,
+    "name": "Grundbuchanmeldung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 71,
+  "fields": {
+    "position": 41.0,
+    "name": "Baubewilligung g\u00fcltig bis",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 72,
+  "fields": {
+    "position": 17.0,
+    "name": "Versand Baubewilligung",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 73,
+  "fields": {
+    "position": 42.0,
+    "name": "Verl\u00e4ngerung Baubewilligung bis",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 74,
+  "fields": {
+    "position": 43.0,
+    "name": "AC gestartet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 4
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 79,
+  "fields": {
+    "position": 44.0,
+    "name": "AC beendet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 4
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 80,
+  "fields": {
+    "position": 37.0,
+    "name": "\u00d6REB Meldung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 5,
+  "fields": {
+    "workflow_item": 10,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 6,
+  "fields": {
+    "workflow_item": 12,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 7,
+  "fields": {
+    "workflow_item": 13,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 8,
+  "fields": {
+    "workflow_item": 14,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 9,
+  "fields": {
+    "workflow_item": 1,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowrole",
+  "pk": 10,
+  "fields": {
+    "workflow_item": 15,
+    "role": 3
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase",
+    "sort": null
+  }
+},
+{
+  "model": "core.workflowsection",
+  "pk": 4,
+  "fields": {
+    "name": "Auflagen-Controlling",
+    "sort": null
   }
 },
 {
@@ -787,8 +4244,8 @@
   "pk": 1,
   "fields": {
     "name": "new",
-    "description": "Neu",
-    "sort": 0
+    "sort": 0,
+    "description": "Neu"
   }
 },
 {
@@ -796,8 +4253,8 @@
   "pk": 2,
   "fields": {
     "name": "subm",
-    "description": "Eingereicht",
-    "sort": 1
+    "sort": 1,
+    "description": "Eingereicht"
   }
 },
 {
@@ -805,8 +4262,80 @@
   "pk": 3,
   "fields": {
     "name": "comm",
-    "description": "Von Gemeinde angenommenen",
-    "sort": 2
+    "sort": 2,
+    "description": "Von Gemeinde angenommenen"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 4,
+  "fields": {
+    "name": "ext",
+    "sort": 3,
+    "description": null
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 5,
+  "fields": {
+    "name": "circ",
+    "sort": 4,
+    "description": "In Zirkulation"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 6,
+  "fields": {
+    "name": "redac",
+    "sort": 5,
+    "description": null
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 7,
+  "fields": {
+    "name": "nfd",
+    "sort": 6,
+    "description": "Nachforderung"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 8,
+  "fields": {
+    "name": "done",
+    "sort": 7,
+    "description": "Bewilligt"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 9,
+  "fields": {
+    "name": "rej",
+    "sort": 8,
+    "description": "Abgelehnt"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 10,
+  "fields": {
+    "name": "arch",
+    "sort": 9,
+    "description": "Archiviert"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 11,
+  "fields": {
+    "name": "del",
+    "sort": 10,
+    "description": "Gel\u00f6scht"
   }
 },
 {
@@ -1349,6 +4878,30 @@
   "fields": {
     "role_parent": null,
     "name": "Portal"
+  }
+},
+{
+  "model": "user.service",
+  "pk": 3,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Tests",
+    "description": "Amt f\u00fcr Tests",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 1,
+  "fields": {
+    "name": "Kantonale Fachstellen"
   }
 }
 ]
