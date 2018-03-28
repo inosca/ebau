@@ -1,7 +1,60 @@
 import Controller from '@ember/controller'
-import { computed, get } from '@ember/object'
+import EmberObject, { computed, get, getWithDefault } from '@ember/object'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
+import { all } from 'rsvp'
+import { getOwner } from '@ember/application'
+
+const Module = EmberObject.extend({
+  questionStore: service(),
+
+  allQuestions: computed('questions', 'submodules.@each.questions', function() {
+    return [
+      ...this.getWithDefault('questions', []),
+      ...this.getWithDefault('submodules', []).reduce((qs, submodule) => {
+        return [...qs, ...getWithDefault(submodule, 'questions', [])]
+      }, [])
+    ]
+  }),
+
+  state: computed(
+    'questionStore._store.@each.{value,hidden,isNew}',
+    async function() {
+      let names = this.get('allQuestions', [])
+
+      let questions = await this.get('questionStore.findSet').perform(
+        names,
+        this.get('instance')
+      )
+
+      let visibles = await all(
+        questions.map(async q => ((await q.get('hidden')) ? null : q))
+      )
+
+      let visibleQuestions = visibles.filter(Boolean)
+
+      if (!visibleQuestions.length) {
+        return null
+      }
+
+      if (visibleQuestions.every(q => q.get('isNew'))) {
+        return 'untouched'
+      }
+
+      let relevantQuestions = visibleQuestions.filter(q =>
+        q.get('field.required')
+      )
+
+      if (relevantQuestions.some(q => q.get('isNew'))) {
+        return 'unfinished'
+      }
+
+      return relevantQuestions.every(q => q.validate() === true)
+        ? 'valid'
+        : 'invalid'
+    }
+  )
+})
 
 export default Controller.extend({
   router: service(),
@@ -19,17 +72,20 @@ export default Controller.extend({
       .filter(Boolean)
 
     let n = usedModules.reduce((nav, { name, title, parent, questions }) => {
-      let navItem = {
+      let navItem = Module.create({
+        container: getOwner(this).__container__,
+
         link: `instances.edit.${name}`,
+        instance: this.get('model.id'),
         name,
         title,
         questions,
         parent,
         submodules: []
-      }
+      })
 
       try {
-        this.get('router').urlFor(navItem.link)
+        this.get('router').urlFor(navItem.get('link'))
 
         if (parent) {
           nav.find(({ name }) => name === parent).submodules.push(navItem)

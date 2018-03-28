@@ -5,12 +5,12 @@ import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
 import { all } from 'rsvp'
 import { task, taskGroup } from 'ember-concurrency'
-import _conditions from 'citizen-portal/questions/conditions'
 import _validations, {
   required,
   inOptions,
   multipleInOptions
 } from 'citizen-portal/questions/validations'
+import { isArray } from '@ember/array'
 
 const Question = EmberObject.extend({
   _questions: service('question-store'),
@@ -50,27 +50,27 @@ const Question = EmberObject.extend({
   },
 
   hidden: computed('_questions._store.@each.value', async function() {
-    let conditionFn = getWithDefault(
-      this.get('_questions._conditions'),
-      this.get('name'),
-      async () => true
+    let conditions = this.getWithDefault('field.active-condition', [])
+
+    let conditionResults = await all(
+      conditions.map(async ({ question, value: { in: possibleValues } }) => {
+        let value = (await this.get('_questions.find').perform(
+          question,
+          this.get('model.instance.id')
+        )).get('value')
+
+        return possibleValues.some(v =>
+          (isArray(value) ? value : [value]).includes(v)
+        )
+      })
     )
 
-    let findFn = name => {
-      // Use the question stores find function to find another question of the same instance
-      return this.get('_questions.find').perform(
-        name,
-        this.get('model.instance.id')
-      )
-    }
-
-    return !await conditionFn(findFn)
+    return !conditionResults.every(Boolean)
   })
 })
 
 export default Service.extend({
   _validations,
-  _conditions,
 
   ajax: service(),
   store: service(),

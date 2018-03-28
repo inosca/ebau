@@ -1,26 +1,26 @@
 {{#link-to module.link}}
   <div class="uk-flex uk-flex-between uk-flex-middle">
     <div class={{unless module.parent 'uk-text-bold'}}>{{module.title}}</div>
-    {{#with state.lastSuccessful.value as |s|}}
+    {{#with (await module.state) as |s|}}
       {{#if (eq s 'untouched')}}
         <span
           title="Der Abschnitt wurde noch nicht angefangen"
-          class="camac-nav-module-icon camac-nav-module-icon-{{s}} uk-animation-scale-up">
+          class="camac-nav-module-icon camac-nav-module-icon-{{s}}">
         </span>
       {{else if (eq s 'unfinished')}}
         <span
           title="Der Abschnitt enthält noch unbeantwortete Fragen"
-          class="camac-nav-module-icon camac-nav-module-icon-{{s}} uk-animation-scale-up">
+          class="camac-nav-module-icon camac-nav-module-icon-{{s}}">
         </span>
       {{else if (eq s 'invalid')}}
         <span
           title="Dieser Abschnitt enthält noch inkorrekte Antworten"
-          class="camac-nav-module-icon camac-nav-module-icon-{{s}} uk-animation-scale-up">
+          class="camac-nav-module-icon camac-nav-module-icon-{{s}}">
         </span>
       {{else if (eq s 'valid')}}
         <span
           title="Alle Fragen des Abschnitts sind korrekt beantwortet"
-          class="camac-nav-module-icon camac-nav-module-icon-{{s}} uk-animation-scale-up">
+          class="camac-nav-module-icon camac-nav-module-icon-{{s}}">
         </span>
       {{/if}}
     {{/with}}
@@ -30,7 +30,9 @@
 {{#if module.submodules}}
   <ul class="uk-tab uk-tab-left uk-margin-left uk-margin-remove-vertical">
     {{#each module.submodules as |submodule|}}
-      {{camac-nav-module module=submodule instance=instance}}
+      {{#if (await submodule.state)}}
+        {{camac-nav-module module=submodule}}
+      {{/if}}
     {{/each}}
   </ul>
 {{/if}}
