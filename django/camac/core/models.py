@@ -1502,6 +1502,9 @@ class IrEditcirculation(models.Model):
         db_column='INHERIT_NOTICES')
     display_first_circulation = models.PositiveSmallIntegerField(
         db_column='DISPLAY_FIRST_CIRCULATION')
+    circulation_email_action_id = models.ForeignKey(
+        Action, models.DO_NOTHING, db_column='CIRCULATION_EMAIL_ACTION_ID',
+        related_name='+', blank=True, null=True)
 
     class Meta:
         managed = True
