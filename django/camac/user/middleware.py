@@ -13,7 +13,7 @@ def get_group(request):
     if any is set.
     """
     group_id = request.GET.get('group')
-    if group_id is not None:
+    if group_id:
         group = request.user.groups.filter(pk=group_id).select_related(
             'role', 'service').first()
     else:
