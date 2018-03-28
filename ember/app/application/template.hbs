@@ -15,26 +15,28 @@
   {{/service-worker-update-notify}}
 
   <div class="uk-container">
-    {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
-      {{#link-to 'index' class='uk-padding uk-link-reset uk-width-1-1 uk-width-large@m'}}
-        <div class="uk-width-1-1">
-          <img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
-          {{#uk-flex vertical='middle' horizontal='between'}}
-            <div>
-              {{#unless (eq environment 'production')}}
-                {{uk-label label=environment}}
-              {{/unless}}
-            </div>
-            <div>
-              v{{app-version hideSha=true}}
-            </div>
-          {{/uk-flex}}
-        </div>
-      {{/link-to}}
-      {{#if session.isAuthenticated}}
-        <button title="Ausloggen" class="uk-icon-button" uk-icon="sign-out" {{action 'logout'}}></button>
-      {{/if}}
-    {{/uk-flex}}
+    {{#unless isEmbedded}}
+      {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
+        {{#link-to 'index' class='uk-padding uk-link-reset uk-width-1-1 uk-width-large@m'}}
+          <div class="uk-width-1-1">
+            <img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
+            {{#uk-flex vertical='middle' horizontal='between'}}
+              <div>
+                {{#unless (eq environment 'production')}}
+                  {{uk-label label=environment}}
+                {{/unless}}
+              </div>
+              <div>
+                v{{app-version hideSha=true}}
+              </div>
+            {{/uk-flex}}
+          </div>
+        {{/link-to}}
+        {{#if session.isAuthenticated}}
+          <button title="Ausloggen" class="uk-icon-button" uk-icon="sign-out" {{action 'logout'}}></button>
+        {{/if}}
+      {{/uk-flex}}
+    {{/unless}}
 
     <div class="uk-padding uk-padding-remove-horizontal">
       {{focusing-outlet}}
