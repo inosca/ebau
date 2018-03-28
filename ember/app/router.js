@@ -14,22 +14,35 @@ Router.map(function() {
   this.route('protected', { path: '/' }, function() {
     this.route('index', { path: '/', resetNamespace: true })
     this.route('instances', { resetNamespace: true }, function() {
-      this.route('new', function() {
-        this.route('type')
-      })
+      this.route('new')
       this.route('edit', { path: '/:instance_id' }, function() {
-        this.route('b', { path: 'grundinformationen' }, function() {
-          this.route('1', { path: 'lokalisierung' })
-          this.route('2', { path: 'kategorisierung' })
-          this.route('3', { path: 'allgemeine-informationen-zum-vorhaben' })
-          this.route('4', { path: 'ausnahmebewilligungen' })
+        this.route('grundinformationen', function() {
+          this.route('lokalisierung')
+          this.route('kategorisierung')
+          this.route('gwr')
+          this.route('allgemeine-informationen-zum-vorhaben')
+          this.route('ausnahmebewilligungen')
         })
-
-        this.route('c', { path: '/personalien' }, function() {
-          this.route('1', { path: '/grundeigentuemerschaft' })
-          this.route('2', { path: 'bauherrschaft' })
-          this.route('3', { path: 'projektverfasser-planer' })
+        this.route('personalien', function() {
+          this.route('grundeigentumerschaft')
+          this.route('bauherrschaft')
+          this.route('projektverfasser-planer')
+          this.route('gesuchsteller')
+          this.route('konzessionsnehmer')
+          this.route('bewilligungsnehmer')
         })
+        this.route('fachthemen')
+        this.route('gesuchsunterlagen')
+        this.route('anlassbewilligungen-verkehrsbewilligungen')
+        this.route('baumeldung-fur-geringfugige-vorhaben')
+        this.route('konzession-fur-wasserentnahme')
+        this.route('projektanderung')
+        this.route('projektgenehmigungsgesuch')
+        this.route('plangenehmigungsverfahren')
+        this.route('technische-bewilligung')
+        this.route('vorabklarung')
+        this.route('vorentscheid')
+        this.route('submit')
       })
     })
   })

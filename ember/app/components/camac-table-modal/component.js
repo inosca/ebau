@@ -18,11 +18,11 @@ export default Component.extend({
 
   _validations,
 
-  _value: computed('value', 'fields.[]', function() {
+  _value: computed('value', 'columns.[]', function() {
     return new Changeset(
       this.get('value') || {},
       (...args) => this._validate(...args),
-      this.get('fields').reduce((map, f) => {
+      this.get('columns').reduce((map, f) => {
         return { ...map, [f.name]: () => this._validate }
       }, {})
     )
@@ -30,7 +30,7 @@ export default Component.extend({
 
   _validate({ key, newValue }) {
     try {
-      let { type, required: isRequired } = this.get('fields').find(
+      let { type, required: isRequired } = this.get('columns').find(
         f => f.name === key
       )
 
