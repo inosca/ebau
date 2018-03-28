@@ -4,7 +4,5 @@ import config from 'ember-get-config'
 const { environment } = config
 
 export default Controller.extend({
-  environment,
-
-  isEmbedded: window !== window.top
+  environment
 })
