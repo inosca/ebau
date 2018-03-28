@@ -75,6 +75,14 @@ APPLICATIONS = {
             'Service': 'service',
             'Canton': 'canton',
         }
+    },
+    'kt_schwyz': {
+        # mapping between Camac role and instance permission
+        "ROLE_PERMISSIONS": {
+            'Gemeinde': 'municipality',
+            'Service': 'service',
+            'Canton': 'canton',
+        }
     }
     # add other application configuration here...
 }
