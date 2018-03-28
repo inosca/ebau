@@ -86,36 +86,83 @@ module('Unit | Service | question-store', function(hooks) {
 
     let service = this.owner.lookup('service:question-store')
 
-    let conditions = {
-      async test1(find) {
-        let t2 = await find('test2')
-
-        assert.step('check-condition-test-1')
-
-        return (await t2.get('value')) === 'yeah!'
-      },
-      async test2(find) {
-        let t1 = await find('test1')
-
-        assert.step('check-condition-test-2')
-
-        return (await t1.get('value')) === 'yeah!'
+    this.server.get('/api/v1/form-config', () => ({
+      questions: {
+        test1: {
+          'active-condition': [
+            {
+              question: 'test2',
+              value: {
+                in: ['yeah!']
+              }
+            }
+          ]
+        },
+        test2: {
+          'active-condition': [
+            {
+              question: 'test1',
+              value: {
+                in: ['yeah!']
+              }
+            }
+          ]
+        },
+        test3: {
+          'active-condition': []
+        },
+        test4: {
+          'active-condition': [
+            {
+              question: 'test1',
+              value: {
+                in: ['yeah!']
+              }
+            },
+            {
+              question: 'test2',
+              value: {
+                in: ['yeah!']
+              }
+            }
+          ]
+        }
       }
-    }
-
-    service.set('_conditions', conditions)
+    }))
 
     let test1 = await service.get('find').perform('test1', 1)
     let test2 = await service.get('find').perform('test2', 1)
+    let test3 = await service.get('find').perform('test3', 1)
+    let test4 = await service.get('find').perform('test4', 1)
 
     test1.set('model.value', 'yeah!')
     test2.set('model.value', 'nooo!')
 
-    // The value of test2 is 'nooo!' which doesn't meet the condition
-    assert.equal(await test1.get('hidden'), true)
-    // The value of test1 is 'yeah!' which meets the condition
-    assert.equal(await test2.get('hidden'), false)
-
-    assert.verifySteps(['check-condition-test-1', 'check-condition-test-2'])
+    assert.equal(
+      await test1.get('hidden'),
+      true,
+      'The value of test2 is nooo! which does not meet the condition'
+    )
+    assert.equal(
+      await test2.get('hidden'),
+      false,
+      'The value of test1 is yeah! which meets the condition'
+    )
+    assert.equal(
+      await test3.get('hidden'),
+      false,
+      'If no condition is set, it is never hidden'
+    )
+    assert.equal(
+      await test4.get('hidden'),
+      true,
+      'The values of test1 AND test2 do not meet the condition'
+    )
+    test2.set('model.value', 'yeah!')
+    assert.equal(
+      await test4.get('hidden'),
+      false,
+      'The values of test1 AND test2 meet the condition'
+    )
   })
 })
