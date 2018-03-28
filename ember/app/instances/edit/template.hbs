@@ -4,9 +4,12 @@
       {{#active-link activeClass='uk-active'}}
         {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
       {{/active-link}}
-      {{#each navigation as |m|}}
+      {{#each (await navigation) as |m|}}
         {{camac-nav-module module=m instance=model.id}}
       {{/each}}
+      {{#active-link activeClass='uk-active'}}
+        {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bold'}}
+      {{/active-link}}
     </ul>
   </div>
 
@@ -18,18 +21,19 @@
         {{uk-label label=model.instanceState.description}}
       </span>
     </h1>
+
     {{focusing-outlet}}
 
     <hr class="uk-margin uk-margin-medium-top">
 
     <div uk-grid class="uk-child-width-1-2">
       <div>
-        {{#if hasPrev}}
+        {{#if (await hasPrev)}}
           {{uk-button label='Zurück' on-click=(perform prev)}}
         {{/if}}
       </div>
       <div class="uk-text-right">
-        {{#if hasNext}}
+        {{#if (await hasNext)}}
           {{uk-button label='Weiter' color='primary' on-click=(perform next)}}
         {{/if}}
       </div>

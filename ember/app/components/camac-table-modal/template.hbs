@@ -6,16 +6,16 @@
 
         <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
 
-        {{#each fields as |field|}}
+        {{#each columns as |column|}}
           <div class="uk-margin">
-            <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' field.name)) 'uk-text-danger'}}">
-              {{field.label}}
-              {{#if field.required}}
+            <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+              {{column.label}}
+              {{#if column.required}}
                 <span class="uk-text-danger">*</span>
               {{/if}}
             </label>
-            {{component (concat 'camac-input-' field.type) renderInPlace=true config=field.config on-change=(action 'change' field.name) model=(hash value=(get _value field.name))}}
-            {{#with (get this (concat '_value.error.' field.name)) as |error|}}
+            {{component (concat 'camac-input-' column.type) renderInPlace=true config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name))}}
+            {{#with (get this (concat '_value.error.' column.name)) as |error|}}
               {{camac-input-error error.validation}}
             {{/with}}
           </div>

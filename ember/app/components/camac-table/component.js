@@ -13,7 +13,7 @@ export default CamacInputComponent.extend({
     let row = {
       uuid: v4(),
       ...question
-        .get('field.config.fields')
+        .get('field.config.columns')
         .reduce((obj, { name }) => ({ ...obj, [name]: '' }), {})
     }
 
