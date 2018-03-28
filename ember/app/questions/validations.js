@@ -9,21 +9,21 @@
 
 import { isBlank } from '@ember/utils'
 
-export const inOptions = ({ config: { allowOthers, options } }, value) => {
+export const inOptions = ({ config: { allowCustom, options } }, value) => {
   return (
-    allowOthers ||
+    allowCustom ||
     options.includes(value) ||
     'Die Antwort muss in den vorgegebenen Optionen vorhanden sein'
   )
 }
 
 export const multipleInOptions = (
-  { config: { allowOthers, options } },
+  { config: { allowCustom, options } },
   value
 ) => {
   return (
     value.every(
-      v => inOptions({ config: { allowOthers, options } }, v) === true
+      v => inOptions({ config: { allowCustom, options } }, v) === true
     ) || 'Die Antworten müssen in den vorgegebenen Optionen vorhanden sein'
   )
 }

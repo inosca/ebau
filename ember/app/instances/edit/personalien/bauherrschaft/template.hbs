@@ -1,6 +1,3 @@
-{{camac-input 'bauherrschaft-firma' instance=model}}
-{{camac-input 'bauherrschaft-name' instance=model}}
-{{camac-input 'bauherrschaft-strasse' instance=model}}
-{{camac-input 'bauherrschaft-ort' instance=model}}
-{{camac-input 'bauherrschaft-email' instance=model}}
-{{camac-input 'bauherrschaft-tel' instance=model}}
+{{#camac-form instance=model as |form|}}
+  {{form.table 'bauherrschaft'}}
+{{/camac-form}}
