@@ -63,24 +63,29 @@ module('Unit | Mixin | oidc-redirect-route', function(hooks) {
         async authenticate() {
           return true
         }
-      }),
-      _redirectToUrl(url) {
-        assert.equal(url, 'test')
-      }
+      })
     })
 
     // fails because the state is not correct (CSRF)
-    subject.afterModel(null, {
-      queryParams: { code: 'sometestcode', state: 'state1' }
-    })
+    subject
+      .afterModel(null, {
+        queryParams: { code: 'sometestcode', state: 'state1' }
+      })
+      .catch(e => {
+        assert.ok(/State did not match/.test(e.message))
+      })
 
     subject.session.authenticate = async () => {
       throw new Error()
     }
 
     // fails because of the error in authenticate
-    subject.afterModel(null, {
-      queryParams: { code: 'sometestcode', state: 'state2' }
-    })
+    subject
+      .afterModel(null, {
+        queryParams: { code: 'sometestcode', state: 'state2' }
+      })
+      .catch(e => {
+        assert.ok(/Authentication failed/.test(e.message))
+      })
   })
 })
