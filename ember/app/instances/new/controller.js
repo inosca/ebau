@@ -1,11 +1,10 @@
 import Controller from '@ember/controller'
 import { task } from 'ember-concurrency'
-import { computed } from '@ember/object'
 
 export default Controller.extend({
-  forms: computed(function() {
-    return this.store.peekAll('form')
-  }),
+  forms: task(function*() {
+    return yield this.store.findAll('form')
+  }).restartable(),
 
   save: task(function*() {
     let model = this.get('model')
@@ -13,5 +12,5 @@ export default Controller.extend({
     yield model.save()
 
     yield this.transitionToRoute('instances.edit', model.id)
-  })
+  }).drop()
 })
