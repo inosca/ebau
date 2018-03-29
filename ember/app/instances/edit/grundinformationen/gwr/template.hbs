@@ -1,6 +1,6 @@
 <div uk-grid class="uk-margin">
-  {{#each model.model.value as |building|}}
-    <div role="button" class="pointer" {{action (mut editedBuilding) building}}>
+  {{#each (sort-by 'adresse' value) as |building|}}
+    <div role="button" class="pointer" {{action (perform editBuilding) building}}>
       {{#uk-card width='small' hover=true as |card|}}
         {{#card.header class='uk-flex uk-flex-center'}}
           {{uk-icon 'home' ratio=3}}
@@ -11,7 +11,7 @@
       {{/uk-card}}
     </div>
   {{/each}}
-  <div role="button" class="pointer">
+  <div role="button" class="pointer" {{action (perform addBuilding)}}>
     {{#uk-card width='small' class='uk-height-1-1 uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
       {{#card.body}}
         {{uk-icon 'plus' ratio=2}}
@@ -21,9 +21,25 @@
 </div>
 
 {{#if editedBuilding}}
-  {{#uk-card as |card|}}
+  {{#uk-card hover=true class='uk-animation-slide-bottom-small' as |card|}}
     {{#card.header}}
-      <h4>Gebäude "{{editedBuilding.adresse}}" bearbeiten</h4>
+      {{#uk-flex vertical='middle' horizontal='between'}}
+        {{#card.title class='uk-margin-remove'}}
+          {{#if (contains editedBuilding value)}}
+            Gebäude "{{editedBuilding.adresse}}" bearbeiten
+          {{else}}
+            Gebäude hinzufügen
+          {{/if}}
+        {{/card.title}}
+        <button type="button" uk-close {{action (mut editedBuilding) null}}></button>
+      {{/uk-flex}}
     {{/card.header}}
+    {{#card.body}}
+      {{input value=editedBuilding.adresse}}
+    {{/card.body}}
+    {{#card.footer class='uk-text-right'}}
+      {{#uk-button on-click=(perform deleteBuilding editedBuilding)}}Löschen{{/uk-button}}
+      {{#uk-button color='primary' on-click=(perform saveBuilding editedBuilding)}}Speichern{{/uk-button}}
+    {{/card.footer}}
   {{/uk-card}}
 {{/if}}
