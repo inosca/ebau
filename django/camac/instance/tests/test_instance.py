@@ -4,7 +4,7 @@ from django.core.urlresolvers import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.instance import serializers, views
+from camac.instance import serializers
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
@@ -137,7 +137,7 @@ def test_instance_create(admin_client, admin_user, form,
     [(LazyFixture('admin_user'), '1311', 'subm')]
 )
 @pytest.mark.parametrize("role__name,instance__location,status_code", [
-    ('Applicant', LazyFixture('location'), status.HTTP_204_NO_CONTENT),
+    ('Applicant', LazyFixture('location'), status.HTTP_200_OK),
     ('Applicant', None, status.HTTP_400_BAD_REQUEST),
 ])
 def test_instance_submit(admin_client, admin_user, form,
@@ -147,7 +147,7 @@ def test_instance_submit(admin_client, admin_user, form,
     response = admin_client.post(url)
     assert response.status_code == status_code
 
-    if status_code == status.HTTP_204_NO_CONTENT:
+    if status_code == status.HTTP_200_OK:
         instance.refresh_from_db()
         assert instance.identifier == '11-17-001'
         assert instance.instance_state.name == 'subm'
@@ -177,7 +177,7 @@ def test_instance_export(admin_client, user, instance_factory,
 ])
 def test_instance_generate_identifier(db, instance, instance_factory):
     instance_factory(identifier='11-17-010')
-    view = views.InstanceView()
-    view.generate_identifier(instance)
+    serializer = serializers.InstanceSubmitSerializer(instance)
+    identifier = serializer.generate_identifier()
 
-    assert instance.identifier == '11-17-011'
+    assert identifier == '11-17-011'
