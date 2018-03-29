@@ -152,7 +152,7 @@
     "grundinformationen.gwr": {
       "title": "Gebäude- und Wohnungsregister",
       "parent": "grundinformationen",
-      "questions": []
+      "questions": ["gwr"]
     },
     "grundinformationen.allgemeine-informationen-zum-vorhaben": {
       "title": "Allgemeine Informationen zum Vorhaben",
