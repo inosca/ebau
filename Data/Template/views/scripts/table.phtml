@@ -1,0 +1,125 @@
+<div class="table-container column column-100">
+	<div class="title">
+		<ul class="tabs-navigation">
+			<li class="type">
+				<span class="icon icon-info"  aria-hidden="true"></span>
+			</li>
+			<li class="active">
+				<a href="javascript:void(0)">
+					<span class="icon icon-puzzle"  aria-hidden="true"></span>
+					<?php echo $this->translate('Vorlagen') ?>
+				</a>
+			</li>
+			<li class="help">
+				<a href="javascript:void(0)">
+					<span class="icon icon-question"  aria-hidden="true"></span>
+				</a>
+				<div class="tooltip">
+					<p>
+						<?php echo $this->translate('The actions are availables through a context menu. Right click to trigger the context menu.') ?><br/>
+					</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="tab-container table-container">
+		<div class="tab active">
+			<table class="datatables context-menu content" data-menu="content" data-display-length="25" data-disable-sorting="true">
+				<thead>
+					<tr>
+						<th class="no-sort">
+							<?php echo $this->translate('Nutzung (Zweck)') ?>
+						</th>
+						<th class="no-sort">
+							<?php echo $this->translate('Betreff') ?>
+						</th>
+						<th class="no-sort grid-110">
+							<?php echo $this->translate('Übersetzungen') ?>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($this->rows as $row) : ?>
+						<tr data-id="<?php echo $row['TEMPLATE_ID'] ?>">
+							<td>
+								<span class="icon icon-paper-plane" aria-hidden="true"></span>
+								<?php echo $this->escape($row['PURPOSE']) ?>
+							</td>
+							<td>
+								<?php echo $this->escape($row['SUBJECT']) ?>
+							</td>
+							<td>
+								<?php
+									// availableLanguages() expects an array of
+									// lang => status, where status is one of the following constants:
+									// MISSING_TRANSLATION (1), COMPLETE_TRANSLATION(3), or
+									// INCOMPLETE_TRANSLATION(2);
+									$translatedLanguages = json_decode($row['languages']);
+									$allLanguages = Zend_Registry::get('config')->frontend->languages->toArray();
+									$available = [];
+									foreach($allLanguages as $lang) {
+										$available[$lang] = (in_array($lang, $translatedLanguages))
+											? COMPLETE_TRANSLATION
+											: MISSING_TRANSLATION;
+									}
+									echo $this->availableLanguages($available); ?>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<ul class="content-menu context-menu">
+	<li>
+		<span><?php echo $this->translate('Template') ?></span>
+	</li>
+	<li class="edit-only">
+		<a href="<?php echo $this->url(array('controller' => 'module_data-loader', 'action' => 'edit', 'module-id' => 'notification', 'data-id' => 'template', 'id' => '%id')) ?>">
+			<span class="icon-pencil"></span>
+			<?php echo $this->translate('Edit') ?>
+		</a>
+	</li>
+	<li class="edit-only">
+		-
+	</li>
+	<li>
+		<a href="<?php echo $this->url(array('controller' => 'module_data-loader', 'action' => 'add', 'module-id' => 'notification', 'data-id' => 'template')) ?>">
+			<span class="icon-arrow-up"></span>
+			<?php echo $this->translate('Add') ?>
+		</a>
+	</li>
+	<li class="edit-only">
+		-
+	</li>
+	<li class="edit-only"data-confirm-dialog="true" data-title="<?php echo $this->translate('Template') ?>" data-confirm-message="<?php echo $this->translate('Wollen Sie diese Vorlage wirklich löschen?') ?>">
+		<a href="<?php echo $this->url(array('controller' => 'module_data-loader', 'action' => 'delete', 'module-id' => 'notification', 'data-id' => 'template', 'id' => '%id')) ?>">
+			<span class="icon-remove"></span>
+			<?php echo $this->translate('Delete') ?>
+		</a>
+	</li>
+	<?php if (count($this->rows)) : ?>
+		<?php echo $this->translationsContextMenu(array('controller' => 'module_data-loader', 'action' => 'edit', 'module-id' => 'notification', 'data-id' => 'template', 'id' => '%id')); ?>
+	<?php endif; ?>
+</ul>
+<ul class="disabled-content-menu context-menu">
+	<li>
+		<span><?php echo $this->translate('Template') ?></span>
+	</li>
+	<li class="edit-only">
+		<a href="<?php echo $this->url(array('controller' => 'module_data-loader', 'action' => 'edit', 'module-id' => 'notification', 'data-id' => 'template', 'id' => '%id')) ?>">
+			<span class="icon-pencil"></span>
+			<?php echo $this->translate('Edit') ?>
+		</a>
+	</li>
+	<li class="edit-only">
+		-
+	</li>
+	<li class="edit-only"data-confirm-dialog="true" data-title="<?php echo $this->translate('Template') ?>" data-confirm-message="<?php echo $this->translate('Wollen Sie diese Vorlage wirklich löschen?') ?>">
+		<a href="<?php echo $this->url(array('controller' => 'module_data-loader', 'action' => 'delete', 'module-id' => 'notification', 'data-id' => 'template', 'id' => '%id')) ?>">
+			<span class="icon-remove"></span>
+			<?php echo $this->translate('Delete') ?>
+		</a>
+	</li>
+</ul>
