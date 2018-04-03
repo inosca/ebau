@@ -1,7 +1,6 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
-import { all } from 'rsvp'
 
 module('Unit | Controller | instances/edit', function(hooks) {
   setupTest(hooks)
