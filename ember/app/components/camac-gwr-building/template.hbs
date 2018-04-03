@@ -1,0 +1,103 @@
+{{#uk-card hover=true class='uk-animation-slide-bottom-small' as |card|}}
+  {{#validated-form
+    model        = (changeset building)
+    on-submit    = (action (optional on-save) building)
+    as |f|}}
+    {{#card.header}}
+      {{#uk-flex vertical='middle' horizontal='between'}}
+        {{#card.title class='uk-margin-remove'}}
+          {{#if (contains building value)}}
+            Gebäude "{{building.adresse}}" bearbeiten
+          {{else}}
+            Gebäude hinzufügen
+          {{/if}}
+        {{/card.title}}
+        <button type="button" uk-close {{action (optional on-close)}}></button>
+      {{/uk-flex}}
+    {{/card.header}}
+    {{#card.body}}
+      {{f.input label='Gebäudeadresse' name='adresse'}}
+      {{f.input label='Gebäudevers. Nr.' name='vers-nr'}}
+      {{f.input label='Kataster Nr.' name='kataster-nr'}}
+
+      {{#f.input label='Gebäudekategorie' name='kategorie' as |i|}}
+        {{camac-input-radio
+          model     = (hash value=i.value)
+          on-change = i.update
+          config    = (hash
+            options = (array
+              'Einfamilienhaus freistehend'
+              'Einfamilienhaus angebaut'
+              'Mehrfamilienhaus ohne Zusatznutzung'
+              'Wohngebäude mit Zusatznutzung (z.B. Büro, Verkauf, Gastgewerbe, Landwirtschaft)'
+              'Nichtwohngebäude mit Wohnung(en) resp. Beherbergungsangebot (z.B. Geschäftshaus, Schulhaus, Hotel)'
+            )
+          )
+        }}
+      {{/f.input}}
+
+      {{#f.input label='Heizungsart' name='heizungsart' as |i|}}
+        {{camac-input-radio
+          model     = (hash value=i.value)
+          on-change = i.update
+          config    = (hash
+            options = (array
+              'Einzelofenheizung'
+              'Etagenheizung'
+              'Zentralheizung für das Gebäude'
+              'Zentralheizung für mehrere Gebäude'
+              'Öffentliche Fernwärmeversorgung'
+              'Keine Heizung'
+            )
+          )
+        }}
+      {{/f.input}}
+
+      {{#f.input label='Wichtigster Energieträger für Heizung' name='energietrager-heizung' as |i|}}
+        {{camac-input-radio
+          model     = (hash value=i.value)
+          on-change = i.update
+          config    = (hash
+            options = (array
+              'Heizöl'
+              'Holz'
+              'Altholz'
+              'Wärmepumpe'
+              'Elektrizität'
+              'Gas'
+              'Fernwärme (Heisswasser oder Dampf)'
+              'Kohle'
+              'Sonnenkollektor'
+            )
+          )
+        }}
+      {{/f.input}}
+
+      {{#f.input label='Wichtigster Energieträger für Warmwasser' name='energietrager-warmwasser' as |i|}}
+        {{camac-input-radio
+          model     = (hash value=i.value)
+          on-change = i.update
+          config    = (hash
+            options = (array
+              'Heizöl'
+              'Holz'
+              'Altholz'
+              'Wärmepumpe'
+              'Elektrizität'
+              'Gas'
+              'Fernwärme (Heisswasser oder Dampf)'
+              'Kohle'
+              'Sonnenkollektor'
+            )
+          )
+        }}
+      {{/f.input}}
+
+      {{f.input type='number' label='Leistung in kW' name='leistung'}}
+    {{/card.body}}
+    {{#card.footer class='uk-text-right'}}
+      {{#uk-button on-click=(action (optional on-delete) building)}}Löschen{{/uk-button}}
+      {{f.submit label='Speichern'}}
+    {{/card.footer}}
+  {{/validated-form}}
+{{/uk-card}}

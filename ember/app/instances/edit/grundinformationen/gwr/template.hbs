@@ -12,7 +12,7 @@
     </div>
   {{/each}}
   <div role="button" class="pointer" {{action (perform addBuilding)}}>
-    {{#uk-card width='small' class='uk-height-1-1 uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
+    {{#uk-card width='small' class='uk-height-small uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
       {{#card.body}}
         {{uk-icon 'plus' ratio=2}}
       {{/card.body}}
@@ -21,25 +21,9 @@
 </div>
 
 {{#if editedBuilding}}
-  {{#uk-card hover=true class='uk-animation-slide-bottom-small' as |card|}}
-    {{#card.header}}
-      {{#uk-flex vertical='middle' horizontal='between'}}
-        {{#card.title class='uk-margin-remove'}}
-          {{#if (contains editedBuilding value)}}
-            Gebäude "{{editedBuilding.adresse}}" bearbeiten
-          {{else}}
-            Gebäude hinzufügen
-          {{/if}}
-        {{/card.title}}
-        <button type="button" uk-close {{action (mut editedBuilding) null}}></button>
-      {{/uk-flex}}
-    {{/card.header}}
-    {{#card.body}}
-      {{input value=editedBuilding.adresse}}
-    {{/card.body}}
-    {{#card.footer class='uk-text-right'}}
-      {{#uk-button on-click=(perform deleteBuilding editedBuilding)}}Löschen{{/uk-button}}
-      {{#uk-button color='primary' on-click=(perform saveBuilding editedBuilding)}}Speichern{{/uk-button}}
-    {{/card.footer}}
-  {{/uk-card}}
+  {{camac-gwr-building editedBuilding
+    on-close  = (action (mut editedBuilding) null)
+    on-save   = (perform saveBuilding)
+    on-delete = (perform deleteBuilding)
+  }}
 {{/if}}
