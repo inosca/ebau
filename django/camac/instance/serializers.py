@@ -8,7 +8,7 @@ from camac.user.relations import (FormDataResourceRelatedField,
                                   GroupResourceRelatedField)
 from camac.user.serializers import CurrentGroupDefault
 
-from . import models
+from . import models, validators
 
 
 class NewInstanceStateDefault(object):
@@ -147,6 +147,9 @@ class InstanceSubmitSerializer(InstanceSerializer):
             raise exceptions.ValidationError(_('No location assigned.'))
 
         data['identifier'] = self.generate_identifier()
+        form_validator = validators.FormDataValidator(self.instance)
+        form_validator.validate()
+
         return data
 
 
