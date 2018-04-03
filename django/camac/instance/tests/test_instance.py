@@ -1,3 +1,5 @@
+import functools
+
 import pyexcel
 import pytest
 from django.core.urlresolvers import reverse
@@ -136,13 +138,24 @@ def test_instance_create(admin_client, admin_user, form,
     "instance__user,location__communal_federal_number,instance_state__name",
     [(LazyFixture('admin_user'), '1311', 'subm')]
 )
-@pytest.mark.parametrize("role__name,instance__location,status_code", [
-    ('Applicant', LazyFixture('location'), status.HTTP_200_OK),
-    ('Applicant', None, status.HTTP_400_BAD_REQUEST),
+@pytest.mark.parametrize("role__name,instance__location,form__name,status_code", [  # noqa: E501
+    ('Applicant', LazyFixture('location'), 'baugesuch', status.HTTP_200_OK),
+    ('Applicant', LazyFixture('location'), '', status.HTTP_400_BAD_REQUEST),
+    ('Applicant', None, 'baugesuch', status.HTTP_400_BAD_REQUEST),
 ])
-def test_instance_submit(admin_client, admin_user, form,
+def test_instance_submit(admin_client, admin_user, form, form_field_factory,
                          instance, instance_state, status_code):
     url = reverse('instance-submit', args=[instance.pk])
+    add_field = functools.partial(form_field_factory, instance=instance)
+
+    add_field(name='kategorie-des-vorhabens', value=['Anlage(n)'])
+    add_field(name='hohe-der-anlage', value=12.5, instance=instance)
+    add_field(name='anlagen-mit-erheblichen-schadstoffemissionen',
+              value='Nein')
+    add_field(name='anlagen-mit-erheblichen-schadstoffemissionen-welche',
+              value='Test')
+    add_field(name='grundeigentumerschaft', value=[{'name': 'Name'}])
+    add_field(name='art-der-anlage', value=['Solaranlage'])
 
     response = admin_client.post(url)
     assert response.status_code == status_code
