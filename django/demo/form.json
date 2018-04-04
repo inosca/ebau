@@ -20,7 +20,8 @@
         "anlagen-mit-erheblichen-schadstoffemissionen",
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
         "hohe-der-anlage",
-        "grundeigentumerschaft"
+        "grundeigentumerschaft",
+        "art-der-befestigten-flache"
       ]
     }
   },
@@ -81,6 +82,20 @@
         }
       ],
       "config": {}
+    },
+    "art-der-befestigten-flache": {
+      "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
+      "type": "select",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Verkehrsfläche",
+          "Lagerplatz",
+          "Vorplatz",
+          "Terasse, Sitzplatz"
+        ]
+      }
     },
     "hohe-der-anlage": {
       "label": "Wie hoch ist die Anlage in m?",
