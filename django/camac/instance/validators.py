@@ -20,6 +20,9 @@ class FormDataValidator(object):
             for field in models.FormField.objects.filter(instance=instance)
         }
 
+    def _validate_question_select(self, question, question_def, value):
+        self._validate_question_radio(question, question_def, value)
+
     def _validate_question_radio(self, question, question_def, value):
         if value not in question_def['config']['options']:
             raise exceptions.ValidationError(
