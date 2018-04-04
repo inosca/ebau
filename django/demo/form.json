@@ -1,18 +1,135 @@
 {
-  "test-input": {
-    "label": "Test Input",
-    "type": "text",
-    "required": true,
-    "config": {
-      "maxlength": 20
+  "forms": {
+    "baugesuch": [
+      "grundinformationen",
+      "grundinformationen.kategorisierung"
+    ]
+  },
+  "modules": {
+    "grundinformationen": {
+      "title": "Grundinformationen",
+      "parent": null,
+      "questions": []
+    },
+    "grundinformationen.kategorisierung": {
+      "title": "Kategorisierung",
+      "parent": "grundinformationen",
+      "questions": [
+        "kategorie-des-vorhabens",
+        "art-der-anlage",
+        "anlagen-mit-erheblichen-schadstoffemissionen",
+        "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "hohe-der-anlage",
+        "grundeigentumerschaft",
+        "art-der-befestigten-flache"
+      ]
     }
   },
-  "test-select": {
-    "label": "'Test Select",
-    "type": "select",
-    "required": true,
-    "config": {
-      "options": ["Option 1", "Option 2", "Option 3", "Option 4"]
+  "questions": {
+    "kategorie-des-vorhabens": {
+      "label":
+      "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Baute(n)", "Anlage(n)"]
+      }
+    },
+    "art-der-anlage": {
+      "label": "Welche Anlagearten sind geplant?",
+      "type": "multiselect",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": { "contains-any": ["Anlage(n)"] }
+        }
+      ],
+      "config": {
+        "options": [
+          "Befestigte Fläche",
+          "Ver- / Entsorgungsleitung",
+          "Reklame",
+          "Terrainveränderung",
+          "Wärmepumpe",
+          "Sondierbohrung",
+          "Solaranlage",
+          "Abfallanlage, Deponie",
+          "Antennen"
+        ],
+        "allow-custom": false
+      }
+    },
+    "anlagen-mit-erheblichen-schadstoffemissionen": {
+      "label":
+      "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
+      "label": "Welche?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "anlagen-mit-erheblichen-schadstoffemissionen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "art-der-befestigten-flache": {
+      "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
+      "type": "select",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Verkehrsfläche",
+          "Lagerplatz",
+          "Vorplatz",
+          "Terasse, Sitzplatz"
+        ]
+      }
+    },
+    "hohe-der-anlage": {
+      "label": "Wie hoch ist die Anlage in m?",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "step": 1,
+        "min": 0
+      }
+    },
+    "grundeigentumerschaft": {
+      "label": "Grundeigentümerschaft:",
+      "type": "table",
+      "required": false,
+      "active-condition": [],
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
     }
   }
 }
