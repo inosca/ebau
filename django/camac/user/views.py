@@ -20,3 +20,12 @@ class MeView(generics.RetrieveAPIView):
 
     def get_object(self, *args, **kwargs):
         return self.request.user
+
+
+class RoleView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = serializers.RoleSerializer
+    queryset = models.Role.objects.all()
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(pk__in=self.request.user.groups.values('role'))
