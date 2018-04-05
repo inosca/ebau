@@ -109,6 +109,7 @@ config_models = (
     'core.Resource',
     'core.RApiListInstanceState',
     'core.RApiListCirculationState',
+    'core.RApiListCirculationType',
     'core.RFormlist',
     'core.RGroupAcl',
     'core.RList',
