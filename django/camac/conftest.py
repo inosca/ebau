@@ -70,8 +70,7 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
-def admin_client(db, client, admin_user, user_group_factory):
+def admin_client(db, client, admin_user):
     """Return instance of a JSONAPIClient that is logged in as test user."""
-    user_group_factory(default_group=1, user=admin_user)
     client.login(username='admin', password='camac')
     return client

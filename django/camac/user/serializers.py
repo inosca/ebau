@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from rest_framework.compat import unicode_to_repr
 from rest_framework_json_api import serializers
@@ -35,6 +36,21 @@ class GroupSerializer(serializers.ModelSerializer):
         model = models.Group
         fields = (
             'name',
+        )
+
+
+class RoleSerializer(serializers.ModelSerializer):
+    permission = serializers.SerializerMethodField()
+
+    def get_permission(self, role):
+        perms = settings.APPLICATION.get('ROLE_PERMISSIONS', {})
+        return perms.get(role.name)
+
+    class Meta:
+        model = models.Role
+        fields = (
+            'name',
+            'permission'
         )
 
 
