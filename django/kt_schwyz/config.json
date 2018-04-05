@@ -3427,6 +3427,14 @@
   }
 },
 {
+  "model": "core.rapilistcirculationtype",
+  "pk": 1,
+  "fields": {
+    "resource": 2,
+    "circulation_type": 1
+  }
+},
+{
   "model": "core.rapilistinstancestate",
   "pk": 1,
   "fields": {
