@@ -2291,6 +2291,20 @@ class RApiListCirculationState(models.Model):
         unique_together = (('resource', 'circulation_state'),)
 
 
+class RApiListCirculationType(models.Model):
+    resource = models.ForeignKey(
+        'Resource', models.DO_NOTHING,
+        db_column='RESOURCE_ID', related_name='+')
+    circulation_type = models.ForeignKey(
+        'CirculationType', models.DO_NOTHING,
+        db_column='CIRCULATION_TYPE_ID', related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'R_API_LIST_CIRCULATION_TYPE'
+        unique_together = (('resource', 'circulation_type'),)
+
+
 class RFormlist(models.Model):
     resource = models.OneToOneField('Resource', models.DO_NOTHING,
                                     db_column='RESOURCE_ID', primary_key=True,
