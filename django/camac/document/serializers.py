@@ -4,7 +4,7 @@ from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework_json_api import serializers, utils
 
-from camac.instance.mixins import InstanceValidationMixin
+from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.relations import FormDataResourceRelatedField
 from camac.user.relations import GroupFormDataResourceRelatedField
@@ -30,7 +30,7 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
         )
 
 
-class AttachmentSerializer(InstanceValidationMixin,
+class AttachmentSerializer(InstanceEditableMixin,
                            serializers.ModelSerializer):
     serializer_related_field = FormDataResourceRelatedField
 

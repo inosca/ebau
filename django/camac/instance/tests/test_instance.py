@@ -9,14 +9,17 @@ from rest_framework import status
 from camac.instance import serializers
 
 
-@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 13, 1),
-    ('Canton', LazyFixture('user'), 13, 1),
-    ('Municipality', LazyFixture('user'), 13, 1),
-    ('Service', LazyFixture('user'), 13, 1),
+@pytest.mark.parametrize("instance_state__name", [
+    'new',
 ])
-def test_instance_list(admin_client, instance, activation, size, num_queries,
-                       django_assert_num_queries):
+@pytest.mark.parametrize("role__name,instance__user,num_queries,editable", [
+    ('Applicant', LazyFixture('admin_user'), 12, {'form', 'document'}),
+    ('Canton', LazyFixture('user'), 12, {'document'}),
+    ('Municipality', LazyFixture('user'), 12, {'document'}),
+    ('Service', LazyFixture('user'), 12, {'document'}),
+])
+def test_instance_list(admin_client, instance, activation, num_queries,
+                       django_assert_num_queries, editable):
     url = reverse('instance-list')
 
     included = serializers.InstanceSerializer.included_serializers
@@ -27,11 +30,11 @@ def test_instance_list(admin_client, instance, activation, size, num_queries,
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json['data']) == size
-    if size > 0:
-        assert json['data'][0]['id'] == str(instance.pk)
-        # included previous_instance_state and instance_state are the same
-        assert len(json['included']) == len(included) - 1
+    assert len(json['data']) == 1
+    assert json['data'][0]['id'] == str(instance.pk)
+    assert set(json['data'][0]['meta']['editable']) == set(editable)
+    # included previous_instance_state and instance_state are the same
+    assert len(json['included']) == len(included) - 1
 
 
 @pytest.mark.parametrize("role__name,instance__user", [
@@ -136,7 +139,7 @@ def test_instance_create(admin_client, admin_user, form,
 @pytest.mark.freeze_time('2017-7-27')
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
-    [(LazyFixture('admin_user'), '1311', 'subm')]
+    [(LazyFixture('admin_user'), '1311', 'new')]
 )
 @pytest.mark.parametrize("role__name,instance__location,form__name,status_code", [  # noqa: E501
     ('Applicant', LazyFixture('location'), 'baugesuch', status.HTTP_200_OK),
@@ -144,7 +147,9 @@ def test_instance_create(admin_client, admin_user, form,
     ('Applicant', None, 'baugesuch', status.HTTP_400_BAD_REQUEST),
 ])
 def test_instance_submit(admin_client, admin_user, form, form_field_factory,
-                         instance, instance_state, status_code):
+                         instance, instance_state, instance_state_factory,
+                         status_code):
+    instance_state_factory(name='subm')
     url = reverse('instance-submit', args=[instance.pk])
     add_field = functools.partial(form_field_factory, instance=instance)
 
@@ -162,8 +167,11 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     assert response.status_code == status_code
 
     if status_code == status.HTTP_200_OK:
+        json = response.json()
+        assert json['data']['attributes']['identifier'] == '11-17-001'
+        assert set(json['data']['meta']['editable']) == set()
+
         instance.refresh_from_db()
-        assert instance.identifier == '11-17-001'
         assert instance.instance_state.name == 'subm'
 
 

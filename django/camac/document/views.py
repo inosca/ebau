@@ -9,8 +9,7 @@ from rest_framework.views import APIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
-from camac.instance.mixins import (InstanceQuerysetMixin,
-                                   InstanceValidationMixin)
+from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
@@ -18,10 +17,13 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
+class AttachmentView(InstanceEditableMixin,
+                     InstanceQuerysetMixin,
+                     views.ModelViewSet):
     queryset = models.Attachment.objects
     serializer_class = serializers.AttachmentSerializer
     filter_class = filters.AttachmentFilterSet
+    instance_editable_permission = 'document'
     parser_classes = (
         parsers.MultiPartParser,
         parsers.FormParser,
@@ -37,13 +39,13 @@ class AttachmentView(InstanceQuerysetMixin, views.ModelViewSet):
     def update(self, request, *args, **kwargs):
         raise exceptions.MethodNotAllowed('update')
 
-    # TODO: applicant may not upload any files
-    # when instance is not in state new
-    # camac user may still do so though
-
     def has_object_destroy_permission(self, obj):
-        mode = obj.attachment_section.get_mode(self.request.group)
-        return mode == models.ADMIN_PERMISSION
+        return (
+            super().has_object_destroy_permission(obj) and
+            obj.attachment_section.get_mode(self.request.group) == (
+                models.ADMIN_PERMISSION
+            )
+        )
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
@@ -88,9 +90,10 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
         return queryset.filter_group(self.request.group)
 
 
-class TemplateView(InstanceValidationMixin, viewsets.ReadOnlyModelViewSet):
+class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
     queryset = models.Template.objects
     serializer_class = serializers.TemplateSerializer
+    instance_editable_permission = 'document'
 
     @permission_aware
     def get_queryset(self):
