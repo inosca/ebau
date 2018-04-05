@@ -20,7 +20,7 @@ class CirculationView(views.AutoPrefetchMixin,
 class ActivationView(views.AutoPrefetchMixin,
                      views.PrefetchForIncludesHelperMixin,
                      InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
-    instance_field = 'circulation__instance'
+    instance_field = 'circulation.instance'
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.all()
     filter_class = filters.ActivationFilterSet
