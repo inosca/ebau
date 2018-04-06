@@ -29,11 +29,14 @@ class InstanceStateView(viewsets.ReadOnlyModelViewSet):
         return models.InstanceState.objects.all()
 
 
-class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class InstanceView(mixins.InstanceQuerysetMixin,
+                   mixins.InstanceEditableMixin,
+                   views.ModelViewSet):
     instance_field = None
     """
     Instance field is actually model itself.
     """
+    instance_editable_permission = 'form'
 
     serializer_class = serializers.InstanceSerializer
     filter_class = filters.InstanceFilterSet
@@ -44,18 +47,15 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         'instance_state__name'
     ]
 
-    def has_object_update_permission(self, instance):
-        return (
-            instance.instance_state.name == 'new' and
-            instance.user == self.request.user
-        )
-
     def has_destroy_permission(self):
-        """Disallow destroy of instances."""
+        """Disallow destroying of instances."""
         return False
 
     def has_object_submit_permission(self, instance):
-        return instance.user == self.request.user
+        return (
+            instance.user == self.request.user and
+            instance.instance_state.name == 'new'
+        )
 
     @list_route(methods=['get'])
     def export(self, request):
@@ -103,7 +103,9 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         return response.Response(data=serializer.data)
 
 
-class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class FormFieldView(mixins.InstanceQuerysetMixin,
+                    mixins.InstanceEditableMixin,
+                    views.ModelViewSet):
     """
     Access form field of an instance.
 
@@ -114,13 +116,4 @@ class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     serializer_class = serializers.FormFieldSerializer
     filter_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
-
-    def has_object_update_permission(self, form_field):
-        instance = form_field.instance
-        return (
-            instance.instance_state.name == 'new' and
-            instance.user == self.request.user
-        )
-
-    def has_object_destroy_permission(self, form_field):
-        return self.has_object_update_permission(form_field)
+    instance_editable_permission = 'form'
