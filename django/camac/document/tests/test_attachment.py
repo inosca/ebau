@@ -13,10 +13,10 @@ from .data import django_file
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 11, 1),
-    ('Canton', LazyFixture('user'), 11, 1),
-    ('Municipality', LazyFixture('user'), 11, 1),
-    ('Service', LazyFixture('user'), 11, 1),
+    ('Applicant', LazyFixture('admin_user'), 10, 1),
+    ('Canton', LazyFixture('user'), 10, 1),
+    ('Municipality', LazyFixture('user'), 10, 1),
+    ('Service', LazyFixture('user'), 10, 1),
 ])
 def test_attachment_list(admin_client, attachment, num_queries,
                          attachment_section_group_acl, activation, size,
@@ -36,6 +36,9 @@ def test_attachment_list(admin_client, attachment, num_queries,
         assert json['data'][0]['id'] == str(attachment.pk)
 
 
+@pytest.mark.parametrize("instance_state__name", [
+    'nfd',
+])
 @pytest.mark.parametrize(
     "filename,mime_type,role__name,instance__user,instance__location,activation__service,instance__group,attachment_section_group_acl__mode,status_code", [  # noqa: E501
         # applicant creates valid pdf attachment on a instance of its own in a
@@ -254,6 +257,9 @@ def test_attachment_detail(admin_client, attachment,
     assert response.status_code == status.HTTP_200_OK
 
 
+@pytest.mark.parametrize("instance_state__name", [
+    'new',
+])
 @pytest.mark.parametrize("role__name,instance__user", [
     ('Applicant', LazyFixture('admin_user')),
 ])
