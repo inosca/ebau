@@ -1,0 +1,37 @@
+{{#with (await question) as |question|}}
+  <div uk-grid class="uk-margin">
+    {{#each (sort-by 'adresse' question.model.value) as |row|}}
+      <div data-test-gwr-building={{row.uuid}} role="button" class="pointer" {{action (perform editRow) row}}>
+        {{#uk-card width='small' hover=true as |card|}}
+          {{#card.header class='uk-flex uk-flex-center'}}
+            {{uk-icon 'home' ratio=3}}
+          {{/card.header}}
+          <div class="uk-text-bold uk-text-center uk-padding-small">
+            {{row.adresse}}
+          </div>
+        {{/uk-card}}
+      </div>
+    {{/each}}
+    <div data-test-gwr-building-add role="button" class="pointer" {{action (perform addRow)}}>
+      {{#uk-card width='small' class='uk-height-small uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
+        {{#card.body}}
+          {{uk-icon 'plus' ratio=2}}
+        {{/card.body}}
+      {{/uk-card}}
+    </div>
+  </div>
+
+  {{#if editedRow}}
+    {{camac-gwr-building
+      isNew      = (not (contains editedRow question.model.value))
+      parentName = question.name
+      columns    = question.field.config.columns
+      value      = editedRow
+      on-save    = (perform saveRow)
+      on-close   = (action (mut editedRow) null)
+      on-delete  = (perform deleteRow)
+    }}
+  {{/if}}
+
+  {{camac-input-error error}}
+{{/with}}
