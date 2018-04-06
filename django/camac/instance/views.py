@@ -46,11 +46,15 @@ class InstanceView(mixins.InstanceQuerysetMixin,
             'circulations__activations',
         ]
     }
-    ordering_fields = [
+    ordering_fields = (
         'instance_id',
         'identifier',
-        'instance_state__name'
-    ]
+        'instance_state__name',
+    )
+    search_fields = (
+        '=identifier',
+        'fields__value',
+    )
 
     def has_destroy_permission(self):
         """Disallow destroying of instances."""

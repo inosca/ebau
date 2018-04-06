@@ -47,6 +47,25 @@ def test_instance_detail(admin_client, instance):
     assert response.status_code == status.HTTP_200_OK
 
 
+@pytest.mark.parametrize("instance__identifier", ['00-00-000'])
+@pytest.mark.parametrize("role__name,instance__user", [
+    ('Applicant', LazyFixture('admin_user')),
+])
+@pytest.mark.parametrize("form_field__value,search", [
+    ('simpletext', 'simple'),
+    (['list', 'value'], 'list'),
+    ({'key': ['l-list-d', ['b-list-d']]}, 'list'),
+])
+def test_instance_search(admin_client, instance, form_field, search):
+    url = reverse('instance-list')
+
+    response = admin_client.get(url, {'search': search})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json['data']) == 1
+    assert json['data'][0]['id'] == str(instance.pk)
+
+
 @pytest.mark.parametrize("instance_state__name,instance__identifier", [
     ('new', '00-00-000'),
 ])
