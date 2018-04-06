@@ -28,6 +28,11 @@ class AttachmentView(InstanceEditableMixin,
         parsers.MultiPartParser,
         parsers.FormParser,
     )
+    prefetch_for_includes = {
+        'instance': [
+            'instance__circulations',
+        ]
+    }
     ordering_fields = (
         'name', 'date', 'size'
     )
