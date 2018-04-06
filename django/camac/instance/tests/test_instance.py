@@ -12,11 +12,11 @@ from camac.instance import serializers
 @pytest.mark.parametrize("instance_state__name", [
     'new',
 ])
-@pytest.mark.parametrize("role__name,instance__user,num_queries,editable", [
-    ('Applicant', LazyFixture('admin_user'), 12, {'form', 'document'}),
-    ('Canton', LazyFixture('user'), 12, {'document'}),
-    ('Municipality', LazyFixture('user'), 12, {'document'}),
-    ('Service', LazyFixture('user'), 12, {'document'}),
+@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
+    ('Applicant', LazyFixture('admin_user'), 15, 1),
+    ('Canton', LazyFixture('user'), 15, 1),
+    ('Municipality', LazyFixture('user'), 15, 1),
+    ('Service', LazyFixture('user'), 15, 1),
 ])
 def test_instance_list(admin_client, instance, activation, num_queries,
                        django_assert_num_queries, editable):
