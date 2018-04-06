@@ -8,7 +8,7 @@ from camac.user.relations import (FormDataResourceRelatedField,
                                   GroupResourceRelatedField)
 from camac.user.serializers import CurrentGroupDefault
 
-from . import models, validators
+from . import mixins, models, validators
 
 
 class NewInstanceStateDefault(object):
@@ -34,7 +34,9 @@ class FormSerializer(serializers.ModelSerializer):
         )
 
 
-class InstanceSerializer(serializers.ModelSerializer):
+class InstanceSerializer(mixins.InstanceEditableMixin,
+                         serializers.ModelSerializer):
+    editable = serializers.SerializerMethodField()
     user = serializers.ResourceRelatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
@@ -88,6 +90,9 @@ class InstanceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Instance
+        meta_fields = (
+            'editable',
+        )
         fields = (
             'instance_state',
             'identifier',
@@ -153,17 +158,8 @@ class InstanceSubmitSerializer(InstanceSerializer):
         return data
 
 
-class FormFieldSerializer(serializers.ModelSerializer):
-
-    def validate_instance(self, value):
-        request = self.context['request']
-
-        if request.user != value.user:
-            raise exceptions.ValidationError(
-                _('Instance does not belong to requesting user.')
-            )
-
-        return value
+class FormFieldSerializer(mixins.InstanceEditableMixin,
+                          serializers.ModelSerializer):
 
     included_serializers = {
         'instance': InstanceSerializer,
