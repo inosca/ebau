@@ -3,13 +3,10 @@ import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
 import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
+import { capitalize } from '@ember/string'
 import { all } from 'rsvp'
 import { task, taskGroup } from 'ember-concurrency'
-import _validations, {
-  required,
-  inOptions,
-  multipleInOptions
-} from 'citizen-portal/questions/validations'
+import _validations from 'citizen-portal/questions/validations'
 import { isArray } from '@ember/array'
 
 const Question = EmberObject.extend({
@@ -23,25 +20,24 @@ const Question = EmberObject.extend({
   isNew: reads('model.isNew'),
 
   validate() {
-    let builtInValidations = [
-      this.get('field.required') ? required : () => true,
-      ['select', 'radio'].includes(this.get('field.type'))
-        ? inOptions
+    let name = this.get('name')
+    let { type, required: isRequired, config } = this.get('field')
+
+    let validations = [
+      isRequired
+        ? this.getWithDefault(
+            '_questions._validations.validateRequired',
+            () => true
+          )
         : () => true,
-      ['multiselect', 'checkbox'].includes(this.get('field.type'))
-        ? multipleInOptions
-        : () => true
+      this.getWithDefault(
+        `_questions._validations.validate${capitalize(type)}`,
+        () => true
+      ),
+      this.getWithDefault(`_questions._validations.${name}`, () => true)
     ]
 
-    let validationFn = getWithDefault(
-      this.get('_questions._validations'),
-      this.get('name'),
-      () => true
-    )
-
-    let isValid = [...builtInValidations, validationFn].map(fn =>
-      fn(this.get('field'), this.get('value'))
-    )
+    let isValid = validations.map(fn => fn(config, this.get('value')))
 
     return (
       isValid.every(v => v === true) ||

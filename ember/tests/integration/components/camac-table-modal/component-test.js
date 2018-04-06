@@ -12,7 +12,7 @@ module('Integration | Component | camac-table-modal', function(hooks) {
     this.set('visible', false)
 
     await render(
-      hbs`{{camac-table-modal visible=visible columns=columns value=value container=this.element}}`
+      hbs`{{camac-table-modal visible=visible columns=columns value=value}}`
     )
 
     assert.dom('.uk-modal.uk-open').doesNotExist()
@@ -32,7 +32,7 @@ module('Integration | Component | camac-table-modal', function(hooks) {
     this.set('value', { f1: 'test' })
 
     await render(
-      hbs`{{camac-table-modal visible=true columns=columns value=value container=this.element on-save=(action (mut value))}}`
+      hbs`{{camac-table-modal visible=true columns=columns value=value on-save=(action (mut value))}}`
     )
 
     await fillIn('.uk-modal input[type=text]', 'foobar')
@@ -47,7 +47,7 @@ module('Integration | Component | camac-table-modal', function(hooks) {
     this.set('visible', true)
 
     await render(
-      hbs`{{camac-table-modal visible=visible columns=columns value=value container=this.element}}`
+      hbs`{{camac-table-modal visible=visible columns=columns value=value}}`
     )
 
     await fillIn('.uk-modal input[type=text]', 'foobar')
@@ -66,7 +66,7 @@ module('Integration | Component | camac-table-modal', function(hooks) {
     this.set('visible', true)
 
     await render(
-      hbs`{{camac-table-modal name='testy' visible=visible columns=columns value=value container=this.element on-save=(action (mut foo))}}`
+      hbs`{{camac-table-modal name='testy' visible=visible columns=columns value=value on-save=(action (mut foo))}}`
     )
 
     await fillIn('.uk-modal input[type=text]', '')

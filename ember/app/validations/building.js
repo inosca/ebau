@@ -8,7 +8,7 @@ export default {
   heizungsart: validatePresence(true),
   'energietrager-heizung': validatePresence(true),
   'energietrager-warmwasser': validatePresence(true),
-  leistung: validatePresence(true),
+  leistung: validatePresence(false),
   geschosse: validatePresence(true),
   wohnraume: validatePresence(true),
   wohnungen: validatePresence(true)

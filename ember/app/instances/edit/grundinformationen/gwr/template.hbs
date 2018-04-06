@@ -1,29 +1,3 @@
-<div uk-grid class="uk-margin">
-  {{#each (sort-by 'adresse' value) as |building|}}
-    <div role="button" class="pointer" {{action (perform editBuilding) building}}>
-      {{#uk-card width='small' hover=true as |card|}}
-        {{#card.header class='uk-flex uk-flex-center'}}
-          {{uk-icon 'home' ratio=3}}
-        {{/card.header}}
-        <div class="uk-text-bold uk-text-center uk-padding-small">
-          {{building.adresse}}
-        </div>
-      {{/uk-card}}
-    </div>
-  {{/each}}
-  <div role="button" class="pointer" {{action (perform addBuilding)}}>
-    {{#uk-card width='small' class='uk-height-small uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
-      {{#card.body}}
-        {{uk-icon 'plus' ratio=2}}
-      {{/card.body}}
-    {{/uk-card}}
-  </div>
-</div>
-
-{{#if editedBuilding}}
-  {{camac-gwr-building editedBuilding
-    on-close  = (action (mut editedBuilding) null)
-    on-save   = (perform saveBuilding)
-    on-delete = (perform deleteBuilding)
-  }}
-{{/if}}
+{{#camac-form instance=model readonly=readonly as |form|}}
+  {{form.gwr 'gwr'}}
+{{/camac-form}}

@@ -99,14 +99,13 @@ module('Integration | Component | camac-table', function(hooks) {
   test('it can edit a row', async function(assert) {
     assert.expect(2)
 
-    await render(
-      hbs`{{camac-table 'test' instance=instance modalContainer=this.element}}`
-    )
+    await render(hbs`{{camac-table 'test' instance=instance}}`)
 
     assert.dom('tbody > tr > td:first-child').hasText('test')
 
     await click('button[data-test-edit-row]')
-    await fillIn('input', 'shimmyshimmyya')
+    await fillIn('input[type=text]', 'shimmyshimmyya')
+    await fillIn('input[type=number]', '123')
     await click('button[type=submit]')
 
     assert.dom('tbody > tr > td:first-child').hasText('shimmyshimmyya')
@@ -115,9 +114,7 @@ module('Integration | Component | camac-table', function(hooks) {
   test('it can add a row', async function(assert) {
     assert.expect(2)
 
-    await render(
-      hbs`{{camac-table 'test' instance=instance modalContainer=this.element}}`
-    )
+    await render(hbs`{{camac-table 'test' instance=instance}}`)
 
     assert.dom('tbody > tr').exists({ count: 1 })
 
