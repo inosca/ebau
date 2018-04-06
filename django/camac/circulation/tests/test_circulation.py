@@ -7,10 +7,10 @@ from camac.circulation import serializers
 
 
 @pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 7, 1),
-    ('Canton', LazyFixture('user'), 7, 1),
-    ('Municipality', LazyFixture('user'), 7, 1),
-    ('Service', LazyFixture('user'), 7, 1),
+    ('Applicant', LazyFixture('admin_user'), 10, 1),
+    ('Canton', LazyFixture('user'), 10, 1),
+    ('Municipality', LazyFixture('user'), 10, 1),
+    ('Service', LazyFixture('user'), 10, 1),
 ])
 def test_circulation_list(admin_client, circulation, activation, size,
                           num_queries, django_assert_num_queries):
