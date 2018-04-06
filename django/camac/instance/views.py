@@ -3,6 +3,7 @@ from django.conf import settings
 from django_downloadview.api import PathDownloadView
 from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.settings import api_settings
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 
@@ -55,6 +56,9 @@ class InstanceView(mixins.InstanceQuerysetMixin,
         '=identifier',
         'fields__value',
     )
+    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
+        filters.InstanceFormFieldFilterBackend
+    ]
 
     def has_destroy_permission(self):
         """Disallow destroying of instances."""
