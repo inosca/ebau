@@ -60,9 +60,7 @@ def test_instance_detail(admin_client, instance):
 def test_instance_search(admin_client, instance, form_field, search):
     url = reverse('instance-list')
 
-    response = admin_client.get(url, {
-        'search': search, 'fields[name]': form_field.value
-    })
+    response = admin_client.get(url, {'search': search})
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json['data']) == 1
