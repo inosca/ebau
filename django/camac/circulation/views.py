@@ -31,6 +31,11 @@ class ActivationView(views.AutoPrefetchMixin,
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related('circulation')
     filter_class = filters.ActivationFilterSet
+    prefetch_for_includes = {
+        'circulation': [
+            'circulation__activations',
+        ]
+    }
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
