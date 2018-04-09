@@ -77,7 +77,8 @@ class InstanceView(mixins.InstanceQuerysetMixin,
                 instance.identifier,
                 instance.form.description,
                 instance.location and instance.location.name,
-                instance.user.get_full_name(),
+                instance.user.get_full_name(),  # TODO: adjust to applicant
+                '',  # TODO: add street
                 instance.instance_state.name,
                 instance.instance_state.description,
             ]
