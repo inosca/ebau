@@ -2,7 +2,7 @@ import functools
 
 import pyexcel
 import pytest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 

@@ -1397,8 +1397,8 @@ class InstanceResource(models.Model):
         db_column='CLASS', max_length=25, blank=True, null=True)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
     sort = models.IntegerField(db_column='SORT')
-    form_group = models.ForeignKey(FormGroup, db_column='FORM_GROUP_ID',
-                                   related_name='+')
+    form_group = models.ForeignKey(FormGroup, models.DO_NOTHING,
+                                   db_column='FORM_GROUP_ID', related_name='+')
 
     class Meta:
         managed = True
