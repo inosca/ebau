@@ -41,6 +41,11 @@ class InstanceView(mixins.InstanceQuerysetMixin,
     serializer_class = serializers.InstanceSerializer
     filter_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
+    prefetch_for_includes = {
+        'circulations': [
+            'circulations__activations',
+        ]
+    }
     ordering_fields = [
         'instance_id',
         'identifier',

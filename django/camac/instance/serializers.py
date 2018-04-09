@@ -65,6 +65,7 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
         'form': FormSerializer,
         'instance_state': InstanceStateSerializer,
         'previous_instance_state': InstanceStateSerializer,
+        'circulations': 'camac.circulation.serializers.CirculationSerializer',
     }
 
     def validate_modification_date(self, value):
@@ -103,10 +104,11 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
             'creation_date',
             'modification_date',
             'previous_instance_state',
-            'group',
+            'circulations',
         )
         read_only_fields = (
             'identifier',
+            'circulations',
         )
 
 

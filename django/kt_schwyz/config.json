@@ -556,8 +556,17 @@
   "model": "core.araction",
   "pk": 1,
   "fields": {
-    "available_resource": "apilist",
-    "action_name": "index",
+    "available_resource": "apilistinstance",
+    "action_name": "indexInstance",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 2,
+  "fields": {
+    "available_resource": "apilistactivation",
+    "action_name": "indexActivation",
     "hidden": 0
   }
 },
@@ -870,11 +879,20 @@
 },
 {
   "model": "core.availableresource",
-  "pk": "apilist",
+  "pk": "apilistinstance",
   "fields": {
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilistactivation",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of activations received from an API backend"
   }
 },
 {
@@ -3386,7 +3404,7 @@
   "model": "core.resource",
   "pk": 1,
   "fields": {
-    "available_resource": "apilist",
+    "available_resource": "apilistinstance",
     "name": "Neue Dossiers",
     "description": null,
     "template": null,
@@ -3399,7 +3417,7 @@
   "model": "core.resource",
   "pk": 2,
   "fields": {
-    "available_resource": "apilist",
+    "available_resource": "apilistinstance",
     "name": "Pendenzenliste Start",
     "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
     "template": null,
@@ -3409,7 +3427,15 @@
   }
 },
 {
-  "model": "core.rapilist",
+  "model": "core.rapilistcirculationtype",
+  "pk": 1,
+  "fields": {
+    "resource": 2,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
   "pk": 1,
   "fields": {
     "resource": 1,
@@ -3417,7 +3443,7 @@
   }
 },
 {
-  "model": "core.rapilist",
+  "model": "core.rapilistinstancestate",
   "pk": 2,
   "fields": {
     "resource": 2,

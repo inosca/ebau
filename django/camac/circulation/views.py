@@ -12,9 +12,16 @@ from . import filters, serializers
 class CirculationView(views.AutoPrefetchMixin,
                       views.PrefetchForIncludesHelperMixin,
                       InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
-    queryset = Circulation.objects.all()
+    queryset = Circulation.objects.select_related('instance')
     serializer_class = serializers.CirculationSerializer
     filter_class = filters.CirculationFilterSet
+    prefetch_for_includes = {
+        'activations': [
+            'activations__circulation',
+            'activations__circulation_state',
+            'instance__circulations',
+        ]
+    }
 
 
 class ActivationView(views.AutoPrefetchMixin,
@@ -22,8 +29,13 @@ class ActivationView(views.AutoPrefetchMixin,
                      InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
     instance_field = 'circulation.instance'
     serializer_class = serializers.ActivationSerializer
-    queryset = Activation.objects.all()
+    queryset = Activation.objects.select_related('circulation')
     filter_class = filters.ActivationFilterSet
+    prefetch_for_includes = {
+        'circulation': [
+            'circulation__activations',
+        ]
+    }
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
