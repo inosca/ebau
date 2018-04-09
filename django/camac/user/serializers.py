@@ -22,7 +22,6 @@ class CurrentGroupDefault(object):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        # TODO: add permission field
         fields = (
             'name',
             'surname',
@@ -60,4 +59,12 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = (
             'name',
             'communal_federal_number',
+        )
+
+
+class ServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Service
+        fields = (
+            'name',
         )

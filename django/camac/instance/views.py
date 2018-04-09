@@ -3,6 +3,7 @@ from django.conf import settings
 from django_downloadview.api import PathDownloadView
 from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.settings import api_settings
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 
@@ -46,10 +47,17 @@ class InstanceView(mixins.InstanceQuerysetMixin,
             'circulations__activations',
         ]
     }
-    ordering_fields = [
+    ordering_fields = (
         'instance_id',
         'identifier',
-        'instance_state__name'
+        'instance_state__name',
+    )
+    search_fields = (
+        '=identifier',
+        'fields__value',
+    )
+    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
+        filters.InstanceFormFieldFilterBackend
     ]
 
     def has_destroy_permission(self):
