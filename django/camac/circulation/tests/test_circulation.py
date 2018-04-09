@@ -6,13 +6,13 @@ from rest_framework import status
 from camac.circulation import serializers
 
 
-@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 7, 1),
-    ('Canton', LazyFixture('user'), 7, 1),
-    ('Municipality', LazyFixture('user'), 7, 1),
-    ('Service', LazyFixture('user'), 7, 1),
+@pytest.mark.parametrize("role__name,instance__user,num_queries", [
+    ('Applicant', LazyFixture('admin_user'), 10),
+    ('Canton', LazyFixture('user'), 10),
+    ('Municipality', LazyFixture('user'), 10),
+    ('Service', LazyFixture('user'), 10),
 ])
-def test_circulation_list(admin_client, circulation, activation, size,
+def test_circulation_list(admin_client, circulation, activation,
                           num_queries, django_assert_num_queries):
     url = reverse('circulation-list')
 
@@ -24,10 +24,9 @@ def test_circulation_list(admin_client, circulation, activation, size,
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json['data']) == size
-    if size > 0:
-        assert json['data'][0]['id'] == str(circulation.pk)
-        assert len(json['included']) == len(included)
+    assert len(json['data']) == 1
+    assert json['data'][0]['id'] == str(circulation.pk)
+    assert len(json['included']) == len(included)
 
 
 @pytest.mark.parametrize("role__name,instance__user", [
