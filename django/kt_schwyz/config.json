@@ -879,20 +879,20 @@
 },
 {
   "model": "core.availableresource",
-  "pk": "apilistinstance",
-  "fields": {
-    "module_name": "apilist",
-    "controller_name": "apilist",
-    "description": "Page with a list of instances received from an API backend"
-  }
-},
-{
-  "model": "core.availableresource",
   "pk": "apilistactivation",
   "fields": {
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of activations received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilistinstance",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of instances received from an API backend"
   }
 },
 {
@@ -2758,7 +2758,8 @@
     "default_circulation_name": null,
     "single_circulation": 1,
     "inherit_notices": 0,
-    "display_first_circulation": 1
+    "display_first_circulation": 1,
+    "circulation_email_action_id": null
   }
 },
 {
@@ -3427,11 +3428,29 @@
   }
 },
 {
-  "model": "core.rapilistcirculationtype",
-  "pk": 1,
+  "model": "core.resource",
+  "pk": 4,
   "fields": {
-    "resource": 2,
-    "circulation_type": 1
+    "available_resource": "apilistinstance",
+    "name": "In Zirkulation",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 5,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "Pendenzenliste Ende",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
   }
 },
 {
@@ -3451,6 +3470,54 @@
   }
 },
 {
+  "model": "core.rapilistinstancestate",
+  "pk": 3,
+  "fields": {
+    "resource": 4,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 4,
+  "fields": {
+    "resource": 4,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 5,
+  "fields": {
+    "resource": 5,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 1,
+  "fields": {
+    "resource": 2,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 2,
+  "fields": {
+    "resource": 4,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 3,
+  "fields": {
+    "resource": 5,
+    "circulation_type": 1
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
@@ -3463,6 +3530,22 @@
   "pk": 2,
   "fields": {
     "resource": 2,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 4,
+  "fields": {
+    "resource": 4,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 5,
+  "fields": {
+    "resource": 5,
     "role": 3
   }
 },
