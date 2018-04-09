@@ -172,5 +172,10 @@ class AttachmentSectionServiceAcl(models.Model):
 
 
 class Template(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-    path = models.FileField(max_length=1024, upload_to='templates')
+    id = models.AutoField(db_column='ID', primary_key=True)
+    name = models.CharField(max_length=255, unique=True, db_column='NAME')
+    path = models.FileField(max_length=1024, upload_to='templates',
+                            db_column='PATH')
+
+    class Meta:
+        db_table = 'TEMPLATE'
