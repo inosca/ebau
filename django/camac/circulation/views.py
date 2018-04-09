@@ -54,7 +54,6 @@ class ActivationView(views.AutoPrefetchMixin,
             'circulation__instance__instance_state')
         queryset = self.filter_queryset(queryset)
 
-        # TODO: verify columns once form data is clear
         content = [
             [
                 activation.circulation.instance.pk,
@@ -64,11 +63,14 @@ class ActivationView(views.AutoPrefetchMixin,
                     activation.circulation.instance.location and
                     activation.circulation.instance.location.name
                 ),
+                # TODO: adjust to applicant
+                activation.circulation.instance.user.get_full_name(),
+                '',  # TODO: add street
+                activation.reason,
                 activation.circulation.instance.instance_state.name,
                 activation.circulation.instance.instance_state.description,
+                activation.deadline_date.strftime('%d.%m.%Y'),
                 activation.circulation_state.name,
-                activation.reason,
-                activation.deadline_date,
             ]
             for activation in queryset
         ]
