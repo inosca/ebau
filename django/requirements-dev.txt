@@ -1,6 +1,6 @@
 dj-inmemorystorage==1.4.1
 
-# oncer newer version than 2.10.0 has been released
+# once newer version than 2.10.0 has been released
 # factory_boy can be imported through pypi again
 git+https://github.com/FactoryBoy/factory_boy.git@988d5801
 
