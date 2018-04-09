@@ -1,3 +1,4 @@
+from django.db.models.constants import LOOKUP_SEP
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
@@ -24,11 +25,11 @@ class InstanceQuerysetMixin(object):
         result = field
 
         if self.instance_field:
-            instance_field = self.instance_field.replace('.', '__')
-            result = instance_field + '__' + result
+            instance_field = self.instance_field.replace('.', LOOKUP_SEP)
+            result = instance_field + LOOKUP_SEP + result
 
         if expr:
-            result = result + '__' + expr
+            result = result + LOOKUP_SEP + expr
 
         return result
 
