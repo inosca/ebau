@@ -27,6 +27,7 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=default(['*']))
 
 INSTALLED_APPS = [
     'django.contrib.auth',
+    'django.contrib.postgres',
     'django.contrib.contenttypes',
     'camac.core.apps.DefaultConfig',
     'camac.user.apps.DefaultConfig',
