@@ -6,6 +6,7 @@ from camac.core.models import Activation, Circulation
 class CirculationSerializer(serializers.ModelSerializer):
     included_serializers = {
         'instance': 'camac.instance.serializers.InstanceSerializer',
+        'activations': 'camac.circulation.serializers.ActivationSerializer',
     }
 
     class Meta:
@@ -13,6 +14,7 @@ class CirculationSerializer(serializers.ModelSerializer):
         fields = (
             'name',
             'instance',
+            'activations'
         )
 
 

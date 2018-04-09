@@ -2263,7 +2263,7 @@ class QuestionType(models.Model):
         db_table = 'QUESTION_TYPE'
 
 
-class RApiList(models.Model):
+class RApiListInstanceState(models.Model):
     resource = models.ForeignKey(
         'Resource', models.DO_NOTHING,
         db_column='RESOURCE_ID', related_name='+')
@@ -2273,8 +2273,36 @@ class RApiList(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'R_API_LIST'
+        db_table = 'R_API_LIST_INSTANCE_STATE'
         unique_together = (('resource', 'instance_state'),)
+
+
+class RApiListCirculationState(models.Model):
+    resource = models.ForeignKey(
+        'Resource', models.DO_NOTHING,
+        db_column='RESOURCE_ID', related_name='+')
+    circulation_state = models.ForeignKey(
+        'CirculationState', models.DO_NOTHING,
+        db_column='CIRCULATION_STATE_ID', related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'R_API_LIST_CIRCULATION_STATE'
+        unique_together = (('resource', 'circulation_state'),)
+
+
+class RApiListCirculationType(models.Model):
+    resource = models.ForeignKey(
+        'Resource', models.DO_NOTHING,
+        db_column='RESOURCE_ID', related_name='+')
+    circulation_type = models.ForeignKey(
+        'CirculationType', models.DO_NOTHING,
+        db_column='CIRCULATION_TYPE_ID', related_name='+')
+
+    class Meta:
+        managed = True
+        db_table = 'R_API_LIST_CIRCULATION_TYPE'
+        unique_together = (('resource', 'circulation_type'),)
 
 
 class RFormlist(models.Model):
