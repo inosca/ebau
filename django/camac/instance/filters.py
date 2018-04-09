@@ -43,14 +43,11 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
         for param in query_params.keys():
             fields_match = re.match('^fields\[(.*?)\]$', param)
             valuelist = query_params.getlist(param)
-
-            if not fields_match or not valuelist:
-                continue
-
-            name = fields_match.group(1)
-            queryset = queryset.filter(
-                fields__name=name, fields__value__in=valuelist
-            )
+            if fields_match and valuelist:
+                name = fields_match.group(1)
+                queryset = queryset.filter(
+                    fields__name=name, fields__value__in=valuelist
+                )
 
         return queryset
 
