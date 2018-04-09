@@ -12,14 +12,14 @@ from camac.document import models, serializers
 from .data import django_file
 
 
-@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 12, 1),
-    ('Canton', LazyFixture('user'), 12, 1),
-    ('Municipality', LazyFixture('user'), 12, 1),
-    ('Service', LazyFixture('user'), 12, 1),
+@pytest.mark.parametrize("role__name,instance__user,num_queries", [
+    ('Applicant', LazyFixture('admin_user'), 11),
+    ('Canton', LazyFixture('user'), 11),
+    ('Municipality', LazyFixture('user'), 11),
+    ('Service', LazyFixture('user'), 11),
 ])
 def test_attachment_list(admin_client, attachment, num_queries,
-                         attachment_section_group_acl, activation, size,
+                         attachment_section_group_acl, activation,
                          django_assert_num_queries):
     url = reverse('attachment-list')
 
@@ -31,9 +31,8 @@ def test_attachment_list(admin_client, attachment, num_queries,
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json['data']) == size
-    if size > 0:
-        assert json['data'][0]['id'] == str(attachment.pk)
+    assert len(json['data']) == 1
+    assert json['data'][0]['id'] == str(attachment.pk)
 
 
 @pytest.mark.parametrize("instance_state__name", [
