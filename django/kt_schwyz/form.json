@@ -299,6 +299,22 @@
             }
           },
           {
+            "name": "beherbungsbetrieb",
+            "label": "Handelt es sich um einen Beherbungsbetrieb A oder B?",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
+          },
+          {
+            "name": "bettenzahl",
+            "label": "Wie hoch ist die vorgesehene Bettenzahl?",
+            "type": "number",
+            "required": false,
+            "config": { "min": 0 }
+          },
+          {
             "name": "heizungsart",
             "label": "Heizungsart",
             "type": "radio",
