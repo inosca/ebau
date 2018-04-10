@@ -100,7 +100,7 @@ export default Service.extend({
       'firstObject',
       this.get('store').createRecord('form-field', {
         name,
-        instance: this.get('store').peekRecord('instance', instance)
+        instance: await this.get('store').findRecord('instance', instance)
       })
     )
 

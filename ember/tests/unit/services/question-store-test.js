@@ -7,6 +7,10 @@ module('Unit | Service | question-store', function(hooks) {
   setupMirage(hooks)
 
   hooks.beforeEach(function() {
+    let { id } = this.server.create('instance')
+
+    this.instanceId = id
+
     this.server.get('/api/v1/form-config', () => ({
       questions: {}
     }))
@@ -23,7 +27,7 @@ module('Unit | Service | question-store', function(hooks) {
       return { data: [] }
     })
 
-    let question = await service._buildQuestion('test', 1)
+    let question = await service._buildQuestion('test', this.instanceId)
 
     assert.ok(question.get('name'))
     assert.ok(question.get('field'))
@@ -37,7 +41,7 @@ module('Unit | Service | question-store', function(hooks) {
 
     let service = this.owner.lookup('service:question-store')
 
-    let question = await service.get('find').perform('test', 1)
+    let question = await service.get('find').perform('test', this.instanceId)
 
     assert.equal(question.get('name'), 'test')
   })
@@ -49,7 +53,7 @@ module('Unit | Service | question-store', function(hooks) {
 
     let [test1, test2] = await service
       .get('findSet')
-      .perform(['test1', 'test2'], 1)
+      .perform(['test1', 'test2'], this.instanceId)
 
     assert.equal(test1.get('name'), 'test1')
     assert.equal(test2.get('name'), 'test2')
@@ -71,8 +75,8 @@ module('Unit | Service | question-store', function(hooks) {
 
     service.set('_validations', validations)
 
-    let test1 = await service.get('find').perform('test1', 1)
-    let test2 = await service.get('find').perform('test2', 1)
+    let test1 = await service.get('find').perform('test1', this.instanceId)
+    let test2 = await service.get('find').perform('test2', this.instanceId)
 
     test1.set('model.value', 'somevalue')
     test2.set('model.value', 'somevalue')
@@ -130,10 +134,10 @@ module('Unit | Service | question-store', function(hooks) {
       }
     }))
 
-    let test1 = await service.get('find').perform('test1', 1)
-    let test2 = await service.get('find').perform('test2', 1)
-    let test3 = await service.get('find').perform('test3', 1)
-    let test4 = await service.get('find').perform('test4', 1)
+    let test1 = await service.get('find').perform('test1', this.instanceId)
+    let test2 = await service.get('find').perform('test2', this.instanceId)
+    let test3 = await service.get('find').perform('test3', this.instanceId)
+    let test4 = await service.get('find').perform('test4', this.instanceId)
 
     test1.set('model.value', 'yeah!')
     test2.set('model.value', 'nooo!')
