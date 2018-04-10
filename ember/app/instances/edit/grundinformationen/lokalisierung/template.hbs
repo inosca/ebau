@@ -1,1 +1,5 @@
-{{camac-property-selector}}
+{{camac-property-selector
+  readonly  = model.instance.identifier
+  selected  = (await selected)
+  on-submit = (perform saveLocation)
+}}

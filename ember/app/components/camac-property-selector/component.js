@@ -3,7 +3,8 @@ import Component from '@ember/component'
 import { inject as service } from '@ember/service'
 import { scheduleOnce } from '@ember/runloop'
 import { task, timeout } from 'ember-concurrency'
-import { Promise } from 'rsvp'
+import { Promise, resolve } from 'rsvp'
+import { computed } from '@ember/object'
 
 const LAYERS = [
   'ch.sz.afk.afk_kigbo',
@@ -94,6 +95,37 @@ export default Component.extend({
   feature: null,
   property: null,
 
+  didReceiveAttrs() {
+    this.get('handleInitialSelection').perform()
+  },
+
+  showButtons: computed(
+    'property.{number,municipality}',
+    'selected.{number,municipality}',
+    function() {
+      return !(
+        this.get('selected.number') === this.get('property.number') &&
+        this.get('selected.municipality') === this.get('property.municipality')
+      )
+    }
+  ),
+
+  handleInitialSelection: task(function*() {
+    if (this.get('selected') && !this.get('property')) {
+      try {
+        let { municipality, number } = this.get('selected')
+
+        let result = yield this.get('handleSearch').perform(
+          `${number} ${municipality}`
+        )
+
+        yield this.get('handleSearchSelection').perform(
+          result.find(({ geometry: { type } }) => type === 'Polygon')
+        )
+      } catch (e) {} // eslint-disable-line no-empty
+    }
+  }).restartable(),
+
   handleSearch: task(function*(query) {
     yield timeout(500)
 
@@ -152,9 +184,13 @@ export default Component.extend({
     }
 
     yield this.get('clear').perform()
-  }),
+  }).restartable(),
 
   handleClick: task(function*(e) {
+    if (this.get('readonly')) {
+      return
+    }
+
     let { x: width, y: height } = e.target.getSize()
     let { x, y } = e.containerPoint
 
@@ -227,28 +263,33 @@ export default Component.extend({
     e.target._map.fitBounds(e.target.getBounds())
 
     yield timeout(500) // wait for the pan animation to finish
-  }).enqueue(),
+  }).drop(),
 
   centerLayerToPoint: task(function*(e) {
     e.target._map.panTo(e.target.getLatLng())
 
     yield timeout(500) // wait for the pan animation to finish
-  }).enqueue(),
+  }).drop(),
 
   clear: task(function*() {
     yield this.setProperties({ point: null, property: null, feature: null })
-  }).restartable(),
+  }).drop(),
+
+  reset: task(function*() {
+    yield this.get('clear').perform()
+    yield this.get('handleInitialSelection').perform()
+  }).drop(),
 
   submit: task(function*() {
     yield timeout()
 
     let image = yield this.get('createImage.last')
 
-    this.get('on-submit')(image)
+    yield resolve(this.get('on-submit')(this.get('property'), image))
   }).drop(),
 
   createImage: task(function*(e) {
-    yield this.get('centerLayerToPolygon').perform(e)
+    yield this.get('centerLayerToPolygon.last')
 
     return yield new Promise(resolve => {
       leafletImage(e.target._map, (_, canvas) => resolve(canvas.toDataURL()))

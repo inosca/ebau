@@ -17,6 +17,33 @@ const Module = EmberObject.extend({
     ]
   }),
 
+  editable: computed('editableTypes.[]', async function() {
+    let questions = await this.get('questionStore.findSet').perform(
+      this.getWithDefault('allQuestions', []),
+      this.get('instance')
+    )
+    let editable = this.getWithDefault('editableTypes', [])
+
+    return questions.some(({ field: { type } }) => {
+      let editableFieldTypes = [
+        ...(editable.includes('form')
+          ? [
+              'text',
+              'number',
+              'radio',
+              'checkbox',
+              'select',
+              'multiselect',
+              'table'
+            ]
+          : []),
+        ...(editable.includes('document') ? ['document'] : [])
+      ]
+
+      return editableFieldTypes.includes(type)
+    })
+  }),
+
   state: computed(
     'questionStore._store.@each.{value,hidden,isNew}',
     async function() {
@@ -64,10 +91,14 @@ export default Controller.extend({
     return await this.get('ajax').request('/api/v1/form-config')
   }),
 
-  modules: computed('model.form.name', async function() {
+  modules: computed('model.instance.form.name', async function() {
     let { forms, modules } = await this.get('config')
 
-    let usedModules = (forms[this.get('model.form.name')] || [])
+    let usedModules = getWithDefault(
+      forms,
+      this.get('model.instance.form.name'),
+      []
+    )
       .map(name => ({ name, ...modules[name] } || null))
       .filter(Boolean)
 
@@ -77,7 +108,8 @@ export default Controller.extend({
           container: getOwner(this).__container__,
 
           link: `instances.edit.${name}`,
-          instance: this.get('model.id'),
+          instance: this.get('model.instance.id'),
+          editableTypes: this.get('model.meta.editable'),
           name,
           title,
           questions,
@@ -116,13 +148,15 @@ export default Controller.extend({
     let modules = await this.get('modules')
 
     return [
-      'instances.edit',
+      'instances.edit.index',
       ...(await all(
         modules.map(async m => {
           return (await m.get('state')) ? m.get('link') : null
         })
       )).filter(Boolean),
-      'instances.edit.submit'
+      ...(this.get('model.meta.editable').includes('form')
+        ? ['instances.edit.submit']
+        : [])
     ]
   }),
 
