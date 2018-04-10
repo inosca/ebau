@@ -1,19 +1,19 @@
 import pyexcel
 import pytest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.circulation import serializers
 
 
-@pytest.mark.parametrize("role__name,instance__user,num_queries,size", [
-    ('Applicant', LazyFixture('admin_user'), 8, 1),
-    ('Canton', LazyFixture('user'), 8, 1),
-    ('Municipality', LazyFixture('user'), 8, 1),
-    ('Service', LazyFixture('user'), 8, 1),
+@pytest.mark.parametrize("role__name,instance__user,num_queries", [
+    ('Applicant', LazyFixture('admin_user'), 8),
+    ('Canton', LazyFixture('user'), 8),
+    ('Municipality', LazyFixture('user'), 8),
+    ('Service', LazyFixture('user'), 8),
 ])
-def test_activation_list(admin_client, activation, size, num_queries,
+def test_activation_list(admin_client, activation, num_queries,
                          django_assert_num_queries):
     url = reverse('activation-list')
 
@@ -24,10 +24,9 @@ def test_activation_list(admin_client, activation, size, num_queries,
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json['data']) == size
-    if size > 0:
-        assert json['data'][0]['id'] == str(activation.pk)
-        assert len(json['included']) == len(included)
+    assert len(json['data']) == 1
+    assert json['data'][0]['id'] == str(activation.pk)
+    assert len(json['included']) == len(included)
 
 
 @pytest.mark.parametrize("role__name,instance__user", [

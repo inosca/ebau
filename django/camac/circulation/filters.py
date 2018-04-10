@@ -22,18 +22,20 @@ class CirculationFilterSet(FilterSet):
 
 class ActivationFilterSet(FilterSet):
 
+    circulation_state = BaseInFilter()
+    form = BaseInFilter(field_name='circulation__instance__form')
     instance_state = BaseInFilter(
         field_name='circulation__instance__instance_state')
+    location = BaseInFilter(field_name='circulation__instance__location')
     previous_instance_state = BaseInFilter(
         field_name='circulation__instance__previous_instance_state')
-    form = BaseInFilter(field_name='circulation__instance__form')
-    location = BaseInFilter(field_name='circulation__instance__location')
 
     class Meta:
         model = Activation
         fields = (
-            'previous_instance_state',
-            'instance_state',
+            'circulation_state',
             'form',
+            'instance_state',
             'location',
+            'previous_instance_state',
         )

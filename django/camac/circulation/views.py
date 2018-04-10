@@ -12,18 +12,30 @@ from . import filters, serializers
 class CirculationView(views.AutoPrefetchMixin,
                       views.PrefetchForIncludesHelperMixin,
                       InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
-    queryset = Circulation.objects.all()
+    queryset = Circulation.objects.select_related('instance')
     serializer_class = serializers.CirculationSerializer
     filter_class = filters.CirculationFilterSet
+    prefetch_for_includes = {
+        'activations': [
+            'activations__circulation',
+            'activations__circulation_state',
+            'instance__circulations',
+        ]
+    }
 
 
 class ActivationView(views.AutoPrefetchMixin,
                      views.PrefetchForIncludesHelperMixin,
                      InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
-    instance_field = 'circulation__instance'
+    instance_field = 'circulation.instance'
     serializer_class = serializers.ActivationSerializer
-    queryset = Activation.objects.all()
+    queryset = Activation.objects.select_related('circulation')
     filter_class = filters.ActivationFilterSet
+    prefetch_for_includes = {
+        'circulation': [
+            'circulation__activations',
+        ]
+    }
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
@@ -42,7 +54,6 @@ class ActivationView(views.AutoPrefetchMixin,
             'circulation__instance__instance_state')
         queryset = self.filter_queryset(queryset)
 
-        # TODO: verify columns once form data is clear
         content = [
             [
                 activation.circulation.instance.pk,
@@ -52,11 +63,14 @@ class ActivationView(views.AutoPrefetchMixin,
                     activation.circulation.instance.location and
                     activation.circulation.instance.location.name
                 ),
+                # TODO: adjust to applicant
+                activation.circulation.instance.user.get_full_name(),
+                '',  # TODO: add street
+                activation.reason,
                 activation.circulation.instance.instance_state.name,
                 activation.circulation.instance.instance_state.description,
+                activation.deadline_date.strftime('%d.%m.%Y'),
                 activation.circulation_state.name,
-                activation.reason,
-                activation.deadline_date,
             ]
             for activation in queryset
         ]

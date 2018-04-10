@@ -1,5 +1,5 @@
 import pytest
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -45,6 +45,9 @@ def test_form_field_update(admin_client, form_field, status_code):
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("instance_state__name", [
+    'new',
+])
 @pytest.mark.parametrize("role__name,instance__user,status_code", [
     ('Applicant', LazyFixture('admin_user'), status.HTTP_201_CREATED),
     ('Applicant', LazyFixture('user'), status.HTTP_400_BAD_REQUEST),

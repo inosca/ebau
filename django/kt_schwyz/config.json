@@ -556,8 +556,17 @@
   "model": "core.araction",
   "pk": 1,
   "fields": {
-    "available_resource": "apilist",
-    "action_name": "index",
+    "available_resource": "apilistinstance",
+    "action_name": "indexInstance",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 2,
+  "fields": {
+    "available_resource": "apilistactivation",
+    "action_name": "indexActivation",
     "hidden": 0
   }
 },
@@ -870,7 +879,16 @@
 },
 {
   "model": "core.availableresource",
-  "pk": "apilist",
+  "pk": "apilistactivation",
+  "fields": {
+    "module_name": "apilist",
+    "controller_name": "apilist",
+    "description": "Page with a list of activations received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "apilistinstance",
   "fields": {
     "module_name": "apilist",
     "controller_name": "apilist",
@@ -2740,7 +2758,8 @@
     "default_circulation_name": null,
     "single_circulation": 1,
     "inherit_notices": 0,
-    "display_first_circulation": 1
+    "display_first_circulation": 1,
+    "circulation_email_action_id": null
   }
 },
 {
@@ -3386,7 +3405,7 @@
   "model": "core.resource",
   "pk": 1,
   "fields": {
-    "available_resource": "apilist",
+    "available_resource": "apilistinstance",
     "name": "Neue Dossiers",
     "description": null,
     "template": null,
@@ -3399,7 +3418,7 @@
   "model": "core.resource",
   "pk": 2,
   "fields": {
-    "available_resource": "apilist",
+    "available_resource": "apilistinstance",
     "name": "Pendenzenliste Start",
     "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
     "template": null,
@@ -3409,7 +3428,33 @@
   }
 },
 {
-  "model": "core.rapilist",
+  "model": "core.resource",
+  "pk": 4,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "In Zirkulation",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 5,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "Pendenzenliste Ende",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
   "pk": 1,
   "fields": {
     "resource": 1,
@@ -3417,11 +3462,59 @@
   }
 },
 {
-  "model": "core.rapilist",
+  "model": "core.rapilistinstancestate",
   "pk": 2,
   "fields": {
     "resource": 2,
     "instance_state": 3
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 3,
+  "fields": {
+    "resource": 4,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 4,
+  "fields": {
+    "resource": 4,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 5,
+  "fields": {
+    "resource": 5,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 1,
+  "fields": {
+    "resource": 2,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 2,
+  "fields": {
+    "resource": 4,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 3,
+  "fields": {
+    "resource": 5,
+    "circulation_type": 1
   }
 },
 {
@@ -3437,6 +3530,22 @@
   "pk": 2,
   "fields": {
     "resource": 2,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 4,
+  "fields": {
+    "resource": 4,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 5,
+  "fields": {
+    "resource": 5,
     "role": 3
   }
 },
@@ -4106,6 +4215,94 @@
   "fields": {
     "name": "Auflagen-Controlling",
     "sort": null
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 1,
+  "fields": {
+    "name": "Text",
+    "sort": 0
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 2,
+  "fields": {
+    "name": "Textarea",
+    "sort": 1
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 3,
+  "fields": {
+    "name": "Select",
+    "sort": 4
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 4,
+  "fields": {
+    "name": "Multi select",
+    "sort": 5
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 5,
+  "fields": {
+    "name": "Radiobox",
+    "sort": 6
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 6,
+  "fields": {
+    "name": "Checkbox",
+    "sort": 7
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 7,
+  "fields": {
+    "name": "Multi checkbox",
+    "sort": 8
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 8,
+  "fields": {
+    "name": "File",
+    "sort": 9
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 9,
+  "fields": {
+    "name": "Note",
+    "sort": 10
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 10,
+  "fields": {
+    "name": "Date",
+    "sort": 2
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 11,
+  "fields": {
+    "name": "Amount",
+    "sort": 3
   }
 },
 {
