@@ -4218,6 +4218,94 @@
   }
 },
 {
+  "model": "core.questiontype",
+  "pk": 1,
+  "fields": {
+    "name": "Text",
+    "sort": 0
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 2,
+  "fields": {
+    "name": "Textarea",
+    "sort": 1
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 3,
+  "fields": {
+    "name": "Select",
+    "sort": 4
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 4,
+  "fields": {
+    "name": "Multi select",
+    "sort": 5
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 5,
+  "fields": {
+    "name": "Radiobox",
+    "sort": 6
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 6,
+  "fields": {
+    "name": "Checkbox",
+    "sort": 7
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 7,
+  "fields": {
+    "name": "Multi checkbox",
+    "sort": 8
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 8,
+  "fields": {
+    "name": "File",
+    "sort": 9
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 9,
+  "fields": {
+    "name": "Note",
+    "sort": 10
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 10,
+  "fields": {
+    "name": "Date",
+    "sort": 2
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 11,
+  "fields": {
+    "name": "Amount",
+    "sort": 3
+  }
+},
+{
   "model": "document.attachmentsection",
   "pk": 1,
   "fields": {
