@@ -4596,6 +4596,14 @@
   }
 },
 {
+  "model": "user.grouplocation",
+  "pk": 1,
+  "fields": {
+    "group": 3,
+    "location": 26
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
