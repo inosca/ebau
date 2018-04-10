@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('document', '0004_auto_20180410_0902'),
-        ('core', '0006_auto_20180409_1336'),
+        ('core', '0006_auto_20180410_1354'),
     ]
 
     operations = [
