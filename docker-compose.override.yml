@@ -48,7 +48,7 @@ services:
             - KEYCLOAK_URL=http://keycloak:8080/auth/
         networks:
             - camac-ng.local
-        command: ./manage.py runserver 0.0.0.0:80
+        command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loadconfig && ./manage.py runserver 0.0.0.0:80"
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:master
