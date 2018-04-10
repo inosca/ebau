@@ -109,7 +109,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["thisneedstobereplacedbyarealquestion"]
+      "questions": ["parzelle"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -250,6 +250,13 @@
     "vorentscheid": { "title": "Vorentscheid", "parent": null, "questions": [] }
   },
   "questions": {
+    "parzelle": {
+      "label": "Parzellennr.",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
