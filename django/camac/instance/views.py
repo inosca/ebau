@@ -1,11 +1,9 @@
 import django_excel
 from django.conf import settings
-from django.db.models import Max
-from django.utils import timezone
-from django.utils.translation import gettext as _
 from django_downloadview.api import PathDownloadView
-from rest_framework import exceptions, response, status, viewsets
+from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.settings import api_settings
 from rest_framework.views import APIView
 from rest_framework_json_api import views
 
@@ -32,65 +30,45 @@ class InstanceStateView(viewsets.ReadOnlyModelViewSet):
         return models.InstanceState.objects.all()
 
 
-class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class InstanceView(mixins.InstanceQuerysetMixin,
+                   mixins.InstanceEditableMixin,
+                   views.ModelViewSet):
     instance_field = None
     """
     Instance field is actually model itself.
     """
+    instance_editable_permission = 'form'
 
     serializer_class = serializers.InstanceSerializer
     filter_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
-    ordering_fields = [
+    prefetch_for_includes = {
+        'circulations': [
+            'circulations__activations',
+        ]
+    }
+    ordering_fields = (
         'instance_id',
         'identifier',
-        'instance_state__name'
+        'instance_state__name',
+    )
+    search_fields = (
+        '=identifier',
+        'fields__value',
+    )
+    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
+        filters.InstanceFormFieldFilterBackend
     ]
 
-    def has_object_update_permission(self, instance):
-        return (
-            instance.instance_state.name == 'new' and
-            instance.user == self.request.user
-        )
-
     def has_destroy_permission(self):
-        """Disallow destroy of instances."""
+        """Disallow destroying of instances."""
         return False
 
     def has_object_submit_permission(self, instance):
-        return instance.user == self.request.user
-
-    def validate_submit(self, instance):
-        # TODO: validate form data
-
-        if instance.location is None:
-            raise exceptions.ValidationError(_('No location assigned.'))
-
-    def generate_identifier(self, instance):
-        """
-        Build identifier for instance.
-
-        Format:
-        two last digits of communal location number
-        year in two digits
-        unique sequence
-
-        Example: 11-18-001
-        """
-        if not instance.identifier:
-            location_nr = instance.location.communal_federal_number[-2:]
-            year = timezone.now().strftime('%y')
-
-            max_identifier = models.Instance.objects.filter(
-                identifier__startswith='{0}-{1}-'.format(location_nr, year)
-            ).aggregate(max_identifier=Max(
-                'identifier'))['max_identifier'] or '00-00-000'
-            sequence = int(max_identifier[-3:])
-
-            instance.identifier = '{0}-{1}-{2}'.format(
-                location_nr,
-                timezone.now().strftime('%y'),
-                str(sequence + 1).zfill(3))
+        return (
+            instance.user == self.request.user and
+            instance.instance_state.name == 'new'
+        )
 
     @list_route(methods=['get'])
     def export(self, request):
@@ -107,7 +85,8 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
                 instance.identifier,
                 instance.form.description,
                 instance.location and instance.location.name,
-                instance.user.get_full_name(),
+                instance.user.get_full_name(),  # TODO: adjust to applicant
+                '',  # TODO: add street
                 instance.instance_state.name,
                 instance.instance_state.description,
             ]
@@ -119,21 +98,28 @@ class InstanceView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
             sheet, file_type='xlsx', file_name='list.xlsx'
         )
 
-    @detail_route(methods=['post'])
+    @detail_route(
+        methods=['post'],
+        serializer_class=serializers.InstanceSubmitSerializer
+    )
     def submit(self, request, pk=None):
         instance = self.get_object()
 
-        self.validate_submit(instance)
+        data = {
+            'previous_instance_state': instance.instance_state.pk,
+            'instance_state': models.InstanceState.objects.get(name='subm').pk
+        }
 
-        self.generate_identifier(instance)
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(name='subm')
-        instance.save()
+        serializer = self.get_serializer(instance, data=data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
-        return response.Response(status=status.HTTP_204_NO_CONTENT)
+        return response.Response(data=serializer.data)
 
 
-class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class FormFieldView(mixins.InstanceQuerysetMixin,
+                    mixins.InstanceEditableMixin,
+                    views.ModelViewSet):
     """
     Access form field of an instance.
 
@@ -144,13 +130,4 @@ class FormFieldView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     serializer_class = serializers.FormFieldSerializer
     filter_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
-
-    def has_object_update_permission(self, form_field):
-        instance = form_field.instance
-        return (
-            instance.instance_state.name == 'new' and
-            instance.user == self.request.user
-        )
-
-    def has_object_destroy_permission(self, form_field):
-        return self.has_object_update_permission(form_field)
+    instance_editable_permission = 'form'

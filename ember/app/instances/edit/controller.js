@@ -20,7 +20,7 @@ const Module = EmberObject.extend({
   state: computed(
     'questionStore._store.@each.{value,hidden,isNew}',
     async function() {
-      let names = this.get('allQuestions', [])
+      let names = this.getWithDefault('allQuestions', [])
 
       let questions = await this.get('questionStore.findSet').perform(
         names,
@@ -64,49 +64,64 @@ export default Controller.extend({
     return await this.get('ajax').request('/api/v1/form-config')
   }),
 
-  navigation: computed('model.form.name', async function() {
+  modules: computed('model.form.name', async function() {
     let { forms, modules } = await this.get('config')
 
     let usedModules = (forms[this.get('model.form.name')] || [])
       .map(name => ({ name, ...modules[name] } || null))
       .filter(Boolean)
 
-    let n = usedModules.reduce((nav, { name, title, parent, questions }) => {
-      let navItem = Module.create({
-        container: getOwner(this).__container__,
+    return usedModules
+      .map(({ name, title, parent, questions }) => {
+        return Module.create({
+          container: getOwner(this).__container__,
 
-        link: `instances.edit.${name}`,
-        instance: this.get('model.id'),
-        name,
-        title,
-        questions,
-        parent,
-        submodules: []
+          link: `instances.edit.${name}`,
+          instance: this.get('model.id'),
+          name,
+          title,
+          questions,
+          parent,
+          submodules: []
+        })
       })
-
-      try {
-        this.get('router').urlFor(navItem.get('link'))
-
-        if (parent) {
-          nav.find(({ name }) => name === parent).submodules.push(navItem)
-        } else {
-          nav.push(navItem)
+      .filter(mod => {
+        try {
+          this.get('router').urlFor(mod.get('link'))
+          return true
+        } catch (e) {
+          // URL does not exist, skip this module
+          return false
         }
-      } catch (e) {
-        // URL does not exist, skip this module
+      })
+  }),
+
+  navigation: computed('modules.[]', async function() {
+    let modules = await this.get('modules')
+
+    return modules.reduce((nav, mod) => {
+      if (mod.get('parent')) {
+        let parent = nav.find(n => n.get('name') === mod.get('parent'))
+
+        parent.set('submodules', [...parent.get('submodules'), mod])
+      } else {
+        nav.push(mod)
       }
 
       return nav
     }, [])
-    return n
   }),
 
-  links: computed('navigation.[]', async function() {
+  links: computed('modules.[]', async function() {
+    let modules = await this.get('modules')
+
     return [
       'instances.edit',
-      ...(await this.get('navigation')).reduce((flat, { link, submodules }) => {
-        return [...flat, link, ...submodules.map(({ link }) => link)]
-      }, []),
+      ...(await all(
+        modules.map(async m => {
+          return (await m.get('state')) ? m.get('link') : null
+        })
+      )).filter(Boolean),
       'instances.edit.submit'
     ]
   }),
