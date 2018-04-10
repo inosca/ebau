@@ -707,6 +707,14 @@
   }
 },
 {
+  "model": "core.availableaction",
+  "pk": "generate",
+  "fields": {
+    "module_name": "docgen",
+    "description": "Generate document with configured template"
+  }
+},
+{
   "model": "core.availableinstanceresource",
   "pk": "allformpages",
   "fields": {
@@ -2727,6 +2735,78 @@
   "fields": {
     "available_instance_resource": "page",
     "available_action": "workflow"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 221,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 222,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 223,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 224,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 225,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 226,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 227,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 228,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 229,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "generate"
   }
 },
 {
