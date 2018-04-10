@@ -2148,6 +2148,8 @@ class Question(models.Model):
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
         db_column='CLASS', max_length=25, blank=True, null=True)
+    validation = models.CharField(
+        db_column='VALIDATION', max_length=50, blank=True, null=True)
 
     class Meta:
         managed = True
