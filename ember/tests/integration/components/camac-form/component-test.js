@@ -41,7 +41,7 @@ module('Integration | Component | camac-form', function(hooks) {
     assert.expect(4)
 
     await render(hbs`
-      {{#camac-form instance=(hash id=1) readonly=false as |form|}}
+      {{#camac-form instance=(hash id=1) meta=(hash editable=(array 'form' 'document')) as |form|}}
         {{form.input 'test-input'}}
         {{form.table 'test-table'}}
       {{/camac-form}}
@@ -57,7 +57,7 @@ module('Integration | Component | camac-form', function(hooks) {
     assert.expect(4)
 
     await render(hbs`
-      {{#camac-form instance=(hash id=1) readonly=true as |form|}}
+      {{#camac-form instance=(hash id=1) meta=(hash editable=(array)) as |form|}}
         {{form.input 'test-input'}}
         {{form.table 'test-table'}}
       {{/camac-form}}

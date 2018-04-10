@@ -47,6 +47,11 @@
   font-size: 0.8rem;
 }
 
+.camac-nav-module-icon-readonly {
+  --color: rgb(200, 200, 200);
+  --border-color: rgb(220, 220, 220);
+}
+
 .camac-nav-module-icon-valid::before {
   content: '✓';
 }

@@ -27,6 +27,11 @@ $ember-power-select-multiple-option-border-color: white !default;
   margin: 5px 0 0 5px;
 }
 
+.ember-power-select-trigger[aria-disabled='true']
+  .ember-power-select-multiple-option {
+  background-color: rgb(100, 100, 100);
+}
+
 .ember-power-select-search-input {
   font-family: $global-font-family;
 }

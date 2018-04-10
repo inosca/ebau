@@ -9,7 +9,11 @@ module('Unit | Controller | instances/edit', function(hooks) {
   hooks.beforeEach(function() {
     let form = server.create('form', { name: 'test' })
 
-    this.model = server.create('instance', { formId: form.id })
+    this.model = {
+      instance: server.create('instance', { formId: form.id }),
+      meta: { editable: ['form', 'document'] }
+    }
+
     this.router = { urlFor: () => true }
 
     this.server.get('/api/v1/form-config', () => ({
@@ -90,7 +94,7 @@ module('Unit | Controller | instances/edit', function(hooks) {
     let links = await controller.get('links')
 
     assert.deepEqual(links, [
-      'instances.edit', // landing page
+      'instances.edit.index', // landing page
       'instances.edit.module1.test2',
       'instances.edit.module2',
       'instances.edit.module2.test1',
@@ -125,5 +129,57 @@ module('Unit | Controller | instances/edit', function(hooks) {
       'module2.test2'
     ])
     assert.deepEqual(navigation[2].submodules.map(({ name }) => name), [])
+  })
+
+  test('it computes if a module is editable', async function(assert) {
+    assert.expect(3)
+
+    this.server.get('/api/v1/form-config', () => ({
+      forms: {
+        test: ['module1', 'module2']
+      },
+      modules: {
+        module1: {
+          title: 'Module 1',
+          parent: null,
+          questions: ['form-question']
+        },
+        module2: {
+          title: 'Module 2',
+          parent: null,
+          questions: ['document-question']
+        }
+      },
+      questions: {
+        'form-question': {
+          type: 'text',
+          required: true,
+          'active-condition': []
+        },
+        'document-question': {
+          type: 'document',
+          required: true,
+          'active-condition': []
+        }
+      }
+    }))
+
+    let controller = this.owner.lookup('controller:instances/edit')
+
+    controller.set('model', { ...this.model, meta: { editable: ['document'] } })
+    controller.set('router', this.router)
+
+    let modules = await controller.get('modules')
+
+    assert.equal(modules[0].get('editableTypes.length'), 1)
+
+    assert.equal(
+      await modules.find(({ name }) => name === 'module1').get('editable'),
+      false
+    )
+    assert.equal(
+      await modules.find(({ name }) => name === 'module2').get('editable'),
+      true
+    )
   })
 })
