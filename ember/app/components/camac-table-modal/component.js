@@ -10,7 +10,10 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   init() {
     this._super(...arguments)
 
-    this.set('container', document.querySelector(config.APP.rootElement))
+    this.set(
+      'container',
+      document.querySelector(config.APP.rootElement || 'body')
+    )
   },
 
   _show() {
@@ -33,6 +36,10 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   didReceiveAttrs() {
+    if (!this.get('modal')) {
+      return
+    }
+
     scheduleOnce('afterRender', () => {
       if (this.get('visible')) {
         this.get('modal').show()
