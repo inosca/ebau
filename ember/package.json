@@ -15,7 +15,8 @@
     "deploy": "ember deploy",
     "lint:js": "eslint ./*.js app config lib server tests",
     "start": "SW_DISABLED=true ember serve",
-    "start-proxy": "SW_DISABLED=true ember serve --proxy=http://camac-ng-portal.local",
+    "start-proxy":
+      "SW_DISABLED=true ember serve --proxy=http://camac-ng-portal.local",
     "test": "ember test"
   },
   "devDependencies": {
@@ -58,7 +59,6 @@
     "ember-leaflet": "^3.0.13",
     "ember-load-initializers": "^1.0.0",
     "ember-math-helpers": "^2.4.0",
-    "ember-maybe-import-regenerator": "^0.1.6",
     "ember-native-dom-helpers": "^0.6.2",
     "ember-offline-notify": "^0.1.0",
     "ember-power-select": "^2.0.0-beta.3",
