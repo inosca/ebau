@@ -55,12 +55,12 @@ export default Controller.extend({
       yield parcelQuestion.get('model').save()
 
       UIkit.notification('Die Parzelle wurde erfolgreich ausgewält', {
-        style: 'success'
+        status: 'success'
       })
     } catch (e) {
       UIkit.notification(
         'Hoppla, etwas ist schief gelaufen. Bitte versuchen Sie es erneut.',
-        { style: 'success' }
+        { status: 'danger' }
       )
     }
   })
