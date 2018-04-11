@@ -24,22 +24,22 @@ const Module = EmberObject.extend({
     )
     let editable = this.getWithDefault('editableTypes', [])
 
-    return questions.some(({ field: { type } }) => {
-      let editableFieldTypes = [
-        ...(editable.includes('form')
-          ? [
-              'text',
-              'number',
-              'radio',
-              'checkbox',
-              'select',
-              'multiselect',
-              'table'
-            ]
-          : []),
-        ...(editable.includes('document') ? ['document'] : [])
-      ]
+    let editableFieldTypes = [
+      ...(editable.includes('form')
+        ? [
+            'text',
+            'number',
+            'radio',
+            'checkbox',
+            'select',
+            'multiselect',
+            'table'
+          ]
+        : []),
+      ...(editable.includes('document') ? ['document'] : [])
+    ]
 
+    return questions.some(({ field: { type } }) => {
       return editableFieldTypes.includes(type)
     })
   }),
@@ -84,15 +84,12 @@ const Module = EmberObject.extend({
 })
 
 export default Controller.extend({
+  questionStore: service(),
   router: service(),
   ajax: service(),
 
-  config: computed(async function() {
-    return await this.get('ajax').request('/api/v1/form-config')
-  }),
-
   modules: computed('model.instance.form.name', async function() {
-    let { forms, modules } = await this.get('config')
+    let { forms, modules } = await this.get('questionStore.config')
 
     let usedModules = getWithDefault(
       forms,
