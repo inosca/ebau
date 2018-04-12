@@ -1,4 +1,5 @@
 import io
+import mimetypes
 
 import pytest
 from django.urls import reverse
@@ -82,6 +83,9 @@ def test_template_merge(admin_client, template, instance, to_type,
         'type': to_type,
     })
     assert response.status_code == status_code
-    if status_code == status.HTTP_200_OK and to_type == 'docx':
-        docx = MailMerge(io.BytesIO(response.content))
-        assert len(docx.get_merge_fields()) == 0
+    if status_code == status.HTTP_200_OK:
+        assert response['Content-Type'] == mimetypes.guess_type(
+            'filename.' + to_type)[0]
+        if to_type == 'docx':
+            docx = MailMerge(io.BytesIO(response.content))
+            assert len(docx.get_merge_fields()) == 0
