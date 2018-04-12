@@ -94,6 +94,8 @@ class AttachmentSection(models.Model):
         # TODO: quick implementation
         # amount of queries could be improved with subqueries and annotating
         # mode to model - not trivial though
+        # AttachmentSectionDefault and validate_attachment_section resp.
+        # resource field could directly filter for the mode
         group_modes = AttachmentSectionGroupAcl.objects.filter(
             attachment_section=self,
             group=group
