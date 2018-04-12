@@ -12,6 +12,7 @@ from sorl.thumbnail import delete, get_thumbnail
 
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.instance.serializers import InstanceMergeSerializer
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
@@ -116,7 +117,7 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
 
     @detail_route(
         methods=['get'],
-        serializer_class=serializers.InstanceMailMergeSerializer,
+        serializer_class=InstanceMergeSerializer,
     )
     def merge(self, request, pk=None):
         """
