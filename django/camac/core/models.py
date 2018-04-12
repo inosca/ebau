@@ -1163,6 +1163,22 @@ class DocgenDocxAction(models.Model):
             ('docgen_template', 'docgen_template_class', 'action'),)
 
 
+class TemplateGenerateAction(models.Model):
+    id = models.AutoField(db_column='ID', primary_key=True)
+    template = models.ForeignKey(
+        'document.Template', models.DO_NOTHING, db_column='TEMPLATE_ID',
+        related_name='+')
+    action = models.ForeignKey(
+        Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+    as_pdf = models.PositiveSmallIntegerField(db_column='AS_PDF', default=0)
+
+    class Meta:
+        managed = True
+        db_table = 'TEMPLATE_GENERATE_ACTION'
+        unique_together = (
+            ('as_pdf', 'template', 'action'),)
+
+
 class DocgenPdfAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     docgen_template = models.ForeignKey(
