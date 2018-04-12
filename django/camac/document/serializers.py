@@ -3,10 +3,9 @@ from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework.compat import unicode_to_repr
-from rest_framework_json_api import serializers, utils
+from rest_framework_json_api import serializers
 
 from camac.instance.mixins import InstanceEditableMixin
-from camac.instance.models import Instance
 from camac.relations import FormDataResourceRelatedField
 from camac.user.relations import GroupFormDataResourceRelatedField
 from camac.user.serializers import CurrentGroupDefault
@@ -125,26 +124,4 @@ class TemplateSerializer(serializers.ModelSerializer):
         model = models.Template
         fields = (
             'name',
-        )
-
-
-class InstanceMailMergeSerializer(serializers.ModelSerializer):
-    """Converts instance into a dict so it can be used with `MailMerge`."""
-
-    location = serializers.ResourceRelatedField(read_only=True)
-
-    def to_representation(self, instance):
-        ret = super().to_representation(instance)
-        # need same naming as in json api
-        ret = utils.format_keys(ret)
-
-        for field in instance.fields.all():
-            ret['field-%s' % field.name] = field.value
-
-        return ret
-
-    class Meta:
-        model = Instance
-        fields = (
-            'location',
         )
