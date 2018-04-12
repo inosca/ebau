@@ -152,7 +152,7 @@
     "grundinformationen.gwr": {
       "title": "Gebäude- und Wohnungsregister",
       "parent": "grundinformationen",
-      "questions": []
+      "questions": ["gwr"]
     },
     "grundinformationen.allgemeine-informationen-zum-vorhaben": {
       "title": "Allgemeine Informationen zum Vorhaben",
@@ -250,6 +250,208 @@
     "vorentscheid": { "title": "Vorentscheid", "parent": null, "questions": [] }
   },
   "questions": {
+    "gwr": {
+      "label": "Gebäude- und Wohnungsregister",
+      "type": "gwr",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": { "in": ["Baute(n)"] }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "adresse",
+            "label": "Gebäudeadresse",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "vers-nr",
+            "label": "Gebäudevers. Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "kataster-nr",
+            "label": "Kataster Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "kategorie",
+            "label": "Gebäudekategorie",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Einfamilienhaus freistehend",
+                "Einfamilienhaus angebaut",
+                "Mehrfamilienhaus ohne Zusatznutzung",
+                "Wohngebäude mit Zusatznutzung (z.B. Büro, Verkauf, Gastgewerbe, Landwirtschaft)",
+                "Nichtwohngebäude mit Wohnung(en) resp. Beherbergungsangebot (z.B. Geschäftshaus, Schulhaus, Hotel)"
+              ]
+            }
+          },
+          {
+            "name": "beherbungsbetrieb",
+            "label": "Handelt es sich um einen Beherbungsbetrieb A oder B?",
+            "type": "radio",
+            "required": false,
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
+          },
+          {
+            "name": "bettenzahl",
+            "label": "Wie hoch ist die vorgesehene Bettenzahl?",
+            "type": "number",
+            "required": false,
+            "config": { "min": 0 }
+          },
+          {
+            "name": "heizungsart",
+            "label": "Heizungsart",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Einzelofenheizung",
+                "Etagenheizung",
+                "Zentralheizung für das Gebäude",
+                "Zentralheizung für mehrere Gebäude",
+                "Öffentliche Fernwärmeversorgung",
+                "Keine Heizung"
+              ]
+            }
+          },
+          {
+            "name": "energietrager-heizung",
+            "label": "Wichtigster Energieträger für Heizung",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Heizöl",
+                "Holz",
+                "Altholz",
+                "Wärmepumpe",
+                "Elektrizität",
+                "Gas",
+                "Fernwärme (Heisswasser oder Dampf)",
+                "Kohle",
+                "Sonnenkollektor"
+              ]
+            }
+          },
+          {
+            "name": "energietrager-warmwasser",
+            "label": "Wichtigster Energieträger für Warmwasser",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Heizöl",
+                "Holz",
+                "Altholz",
+                "Wärmepumpe",
+                "Elektrizität",
+                "Gas",
+                "Fernwärme (Heisswasser oder Dampf)",
+                "Kohle",
+                "Sonnenkollektor"
+              ]
+            }
+          },
+          {
+            "name": "leistung",
+            "label": "Leistung in kW",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 0,
+              "step": 1
+            }
+          },
+          {
+            "name": "wohnungen",
+            "label": "Wohnungsliste",
+            "type": "table",
+            "required": true,
+            "config": {
+              "columns": [
+                {
+                  "name": "stockwerk",
+                  "label": "Stockwerk",
+                  "type": "text",
+                  "required": true,
+                  "config": {}
+                },
+                {
+                  "name": "maisonette",
+                  "label": "Maisonette",
+                  "type": "radio",
+                  "required": true,
+                  "config": {
+                    "options": ["Ja", "Nein"]
+                  }
+                },
+                {
+                  "name": "eingangs-nr",
+                  "label": "Eingangs Nr",
+                  "type": "text",
+                  "required": true,
+                  "config": {}
+                },
+                {
+                  "name": "lage",
+                  "label": "Lage",
+                  "type": "text",
+                  "required": true,
+                  "config": {}
+                },
+                {
+                  "name": "zimmer",
+                  "label": "Zimmer",
+                  "type": "number",
+                  "required": true,
+                  "config": {
+                    "min": 0
+                  }
+                },
+                {
+                  "name": "flache",
+                  "label": "Fläche",
+                  "type": "number",
+                  "required": true,
+                  "config": {
+                    "min": 0
+                  }
+                },
+                {
+                  "name": "kuchenart",
+                  "label": "Küchenart",
+                  "type": "radio",
+                  "required": true,
+                  "config": {
+                    "options": [
+                      "Küche (min. 4m²)",
+                      "Kochnische (unter 4m²)",
+                      "Weder Küche noch Kochnische"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
