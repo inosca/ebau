@@ -55,12 +55,11 @@
 
       {{#unless readonly}}
         {{camac-table-modal
-          name      = question.name
-          columns   = columns
-          visible   = showModal
-          value     = editedRow
-          container = modalContainer
-          on-save   = (perform saveRow)
+          name    = question.name
+          columns = columns
+          visible = showEdit
+          value   = editedRow
+          on-save = (perform saveRow)
         }}
       {{/unless}}
     </div>

@@ -1,64 +1,19 @@
 import Component from '@ember/component'
 import UIkit from 'uikit'
 import { scheduleOnce } from '@ember/runloop'
-import { computed, getWithDefault } from '@ember/object'
-import { task } from 'ember-concurrency'
-import Changeset from 'ember-changeset'
-import { resolve } from 'rsvp'
-import _validations, {
-  required,
-  inOptions,
-  multipleInOptions
-} from 'citizen-portal/questions/validations'
+import CamacMultipleQuestionRowMixin from 'citizen-portal/mixins/camac-multiple-question-row'
+import config from 'ember-get-config'
 
-export default Component.extend({
+export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
 
-  container: document.body,
+  init() {
+    this._super(...arguments)
 
-  _validations,
-
-  _value: computed('value', 'columns.[]', function() {
-    return new Changeset(
-      this.get('value') || {},
-      (...args) => this._validate(...args),
-      this.get('columns').reduce((map, f) => {
-        return { ...map, [f.name]: () => this._validate }
-      }, {})
+    this.set(
+      'container',
+      document.querySelector(config.APP.rootElement || 'body')
     )
-  }),
-
-  _validate({ key, newValue }) {
-    try {
-      let { type, required: isRequired } = this.get('columns').find(
-        f => f.name === key
-      )
-
-      let builtInValidations = [
-        isRequired ? required : () => true,
-        ['select', 'radio'].includes(type) ? inOptions : () => true,
-        ['multiselect', 'checkbox'].includes(type)
-          ? multipleInOptions
-          : () => true
-      ]
-
-      let validationFn = getWithDefault(
-        this.get('_validations'),
-        `${this.get('name')}-${key}`,
-        () => true
-      )
-
-      let isValid = [...builtInValidations, validationFn].map(fn =>
-        fn(this.get('field'), newValue)
-      )
-
-      return (
-        isValid.every(v => v === true) ||
-        isValid.filter(v => typeof v === 'string')
-      )
-    } catch (e) {
-      return true
-    }
   },
 
   _show() {
@@ -92,25 +47,5 @@ export default Component.extend({
 
   willDestroyElement() {
     this.get('modal').hide()
-  },
-
-  save: task(function*() {
-    let changeset = this.get('_value')
-
-    yield changeset.validate()
-
-    if (changeset.get('isValid')) {
-      changeset.execute()
-
-      yield resolve(
-        this.getWithDefault('attrs.on-save', () => {})(this.get('value'))
-      )
-    }
-  }),
-
-  actions: {
-    change(name, value) {
-      this.set(`_value.${name}`, value)
-    }
   }
 })
