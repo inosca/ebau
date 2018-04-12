@@ -777,7 +777,7 @@
 },
 {
   "model": "core.araction",
-  "pk": 3,
+  "pk": 5,
   "fields": {
     "available_resource": "apilistinstance",
     "action_name": "index",
@@ -786,7 +786,7 @@
 },
 {
   "model": "core.araction",
-  "pk": 4,
+  "pk": 6,
   "fields": {
     "available_resource": "apilistactivation",
     "action_name": "index",
@@ -5368,14 +5368,6 @@
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 1,
-  "fields": {
-    "group": 3,
-    "location": 26
-  }
-},
-{
   "model": "user.group",
   "pk": 5,
   "fields": {
@@ -5388,6 +5380,14 @@
     "address": null,
     "email": null,
     "website": null
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 1,
+  "fields": {
+    "group": 3,
+    "location": 26
   }
 },
 {
