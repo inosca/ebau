@@ -26,6 +26,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
     included = serializers.AttachmentSerializer.included_serializers
     with django_assert_num_queries(num_queries):
         response = admin_client.get(url, data={
+            'name': attachment.name.split('.')[0],
             'include': ','.join(included.keys())
         })
     assert response.status_code == status.HTTP_200_OK
