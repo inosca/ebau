@@ -1,5 +1,29 @@
 [
 {
+  "model": "core.acirculationtransition",
+  "pk": 8,
+  "fields": {
+    "current_circulation_state": null,
+    "next_circulation_state": 2
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 11,
+  "fields": {
+    "current_circulation_state": 1,
+    "next_circulation_state": 4
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 14,
+  "fields": {
+    "current_circulation_state": 4,
+    "next_circulation_state": 1
+  }
+},
+{
   "model": "core.action",
   "pk": 1,
   "fields": {
@@ -67,6 +91,146 @@
     "error_message": null,
     "execute_always": 0,
     "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 6,
+  "fields": {
+    "available_action": "save",
+    "button": 4,
+    "name": "Stellungnahme speichern",
+    "description": null,
+    "success_message": "Stellungnahme erfolgreich gespeichert",
+    "error_message": "Stellungnahme konnte nicht gespeichert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 7,
+  "fields": {
+    "available_action": "save",
+    "button": 5,
+    "name": "Stellungnahme speichern",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 8,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 5,
+    "name": "circ state to OK",
+    "description": null,
+    "success_message": "Stellungnahme erfolgreich abgeschlossen",
+    "error_message": "Stellungnahme konnte nicht abgeschlossen werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 9,
+  "fields": {
+    "available_action": "pageredirect",
+    "button": 5,
+    "name": "Weiterleitung zu Liste",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 10,
+  "fields": {
+    "available_action": "save",
+    "button": 6,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": "wtf..",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 11,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 6,
+    "name": "circ to NFD",
+    "description": null,
+    "success_message": "Nachforderung erfolgreich eingereicht",
+    "error_message": "Nachforderung konnte nicht eingereicht werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 12,
+  "fields": {
+    "available_action": "php",
+    "button": 6,
+    "name": "set circ date NFD",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 13,
+  "fields": {
+    "available_action": "save",
+    "button": 7,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 14,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 7,
+    "name": "circ state to RUN",
+    "description": null,
+    "success_message": "Dossier erfolgreich als vollst\u00e4ndig markiert",
+    "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 15,
+  "fields": {
+    "available_action": "php",
+    "button": 7,
+    "name": "set instance complete circ date",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
   }
 },
 {
@@ -553,6 +717,29 @@
   }
 },
 {
+  "model": "core.apageredirect",
+  "pk": 9,
+  "fields": {
+    "resource": 6,
+    "instance_resource": null,
+    "air_action_name": null
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 12,
+  "fields": {
+    "php_class": "SetNFD"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 15,
+  "fields": {
+    "php_class": "SetNFDComplete"
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -585,6 +772,24 @@
   "fields": {
     "available_resource": "apilistinstance",
     "action_name": "exportactivation",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 3,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "action_name": "index",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 4,
+  "fields": {
+    "available_resource": "apilistactivation",
+    "action_name": "index",
     "hidden": 1
   }
 },
@@ -1043,6 +1248,78 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 4,
+  "fields": {
+    "button": 4,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 5,
+  "fields": {
+    "button": 4,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 6,
+  "fields": {
+    "button": 5,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 7,
+  "fields": {
+    "button": 5,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 8,
+  "fields": {
+    "button": 6,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 9,
+  "fields": {
+    "button": 6,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 10,
+  "fields": {
+    "button": 7,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 11,
+  "fields": {
+    "button": 7,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -1104,6 +1381,72 @@
     "class_field": null,
     "hidden": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 4,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Speichern",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 5,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Stellungnahme abschliessen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 6,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Nachforderung",
+    "description": null,
+    "class_field": "nfd",
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 7,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Dossier vollst\u00e4ndig",
+    "description": null,
+    "class_field": "nfd-complete",
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.chapter",
+  "pk": 1,
+  "fields": {
+    "name": "Stellungnahme",
+    "description": null,
+    "javascript": null
+  }
+},
+{
+  "model": "core.chapterpage",
+  "pk": 1,
+  "fields": {
+    "chapter": 1,
+    "page": 2,
+    "sort": 0
   }
 },
 {
@@ -1230,7 +1573,7 @@
   "pk": 1,
   "fields": {
     "name": "Zirkulation der Gemeinde",
-    "page": null,
+    "page": 2,
     "parent_specific_activations": 0
   }
 },
@@ -1448,6 +1791,66 @@
     "class_field": null,
     "hidden": 0,
     "sort": 5,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 11,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "resource": 6,
+    "name": "Dossier",
+    "description": null,
+    "template": "/ember/instance.phtml",
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 12,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "resource": 6,
+    "name": "Dokumente",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 13,
+  "fields": {
+    "available_instance_resource": "billing",
+    "resource": 6,
+    "name": "Geb\u00fchren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 14,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "resource": 6,
+    "name": "Stellungnahme",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3,
     "form_group": 1
   }
 },
@@ -2853,11 +3256,20 @@
     "add_activation_template": null,
     "read_notice_template": null,
     "pdf_class": null,
-    "default_circulation_name": null,
+    "default_circulation_name": "Zirkulation der Gemeinde",
     "single_circulation": 1,
     "inherit_notices": 0,
     "display_first_circulation": 1,
     "circulation_email_action_id": null
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 7,
+    "service_group": 2,
+    "localized": 0
   }
 },
 {
@@ -2866,6 +3278,26 @@
   "fields": {
     "page": 1,
     "pdf_class": null
+  }
+},
+{
+  "model": "core.ireditformpage",
+  "pk": 11,
+  "fields": {
+    "page": 1,
+    "pdf_class": null
+  }
+},
+{
+  "model": "core.ireditnotice",
+  "pk": 14,
+  "fields": {
+    "circulation_type": 1,
+    "editable_after_deadline": 1,
+    "pdf_class": null,
+    "edit_notice_template": null,
+    "hide_answered_notices": 0,
+    "is_always_editable": 1
   }
 },
 {
@@ -3418,11 +3850,91 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 75,
+  "fields": {
+    "instance_resource": 11,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 76,
+  "fields": {
+    "instance_resource": 11,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 77,
+  "fields": {
+    "instance_resource": 12,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 78,
+  "fields": {
+    "instance_resource": 12,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 81,
+  "fields": {
+    "instance_resource": 13,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 82,
+  "fields": {
+    "instance_resource": 13,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 83,
+  "fields": {
+    "instance_resource": 14,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 84,
+  "fields": {
+    "instance_resource": 14,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.mapping",
+  "pk": 1,
+  "fields": {
+    "table_name": "ANSWER",
+    "column_name": "ANSWER"
+  }
+},
+{
   "model": "core.noticetype",
   "pk": 1,
   "fields": {
     "circulation_type": 1,
-    "name": "Mitteilung an die Fachstelle"
+    "name": "Mitteilung an die Gemeinde"
   }
 },
 {
@@ -3430,6 +3942,15 @@
   "pk": 1,
   "fields": {
     "name": "default",
+    "description": null,
+    "javascript": null
+  }
+},
+{
+  "model": "core.page",
+  "pk": 2,
+  "fields": {
+    "name": "Zirkulation",
     "description": null,
     "javascript": null
   }
@@ -3454,6 +3975,28 @@
     "page_form_mode": 1,
     "page_form_group": 1,
     "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 7,
+  "fields": {
+    "page": 2,
+    "form": 1,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 8,
+  "fields": {
+    "page": 2,
+    "form": 2,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 1
   }
 },
 {
@@ -3497,6 +4040,172 @@
   "fields": {
     "key": "duration",
     "value": "20 Tage"
+  }
+},
+{
+  "model": "core.question",
+  "pk": 2,
+  "fields": {
+    "question_type": 10,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Nachforderung",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null
+  }
+},
+{
+  "model": "core.question",
+  "pk": 3,
+  "fields": {
+    "question_type": 10,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Dossier vollst\u00e4ndig",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null
+  }
+},
+{
+  "model": "core.question",
+  "pk": 4,
+  "fields": {
+    "question_type": 2,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Hinweis bei Nachforderung",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null
+  }
+},
+{
+  "model": "core.questionchapter",
+  "pk": 1,
+  "fields": {
+    "question": 2,
+    "chapter": 1,
+    "required": 0,
+    "item": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.questionchapter",
+  "pk": 2,
+  "fields": {
+    "question": 3,
+    "chapter": 1,
+    "required": 0,
+    "item": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.questionchapter",
+  "pk": 3,
+  "fields": {
+    "question": 4,
+    "chapter": 1,
+    "required": 0,
+    "item": 1,
+    "sort": 2
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 1,
+  "fields": {
+    "name": "Text",
+    "sort": 0
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 2,
+  "fields": {
+    "name": "Textarea",
+    "sort": 1
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 3,
+  "fields": {
+    "name": "Select",
+    "sort": 4
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 4,
+  "fields": {
+    "name": "Multi select",
+    "sort": 5
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 5,
+  "fields": {
+    "name": "Radiobox",
+    "sort": 6
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 6,
+  "fields": {
+    "name": "Checkbox",
+    "sort": 7
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 7,
+  "fields": {
+    "name": "Multi checkbox",
+    "sort": 8
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 8,
+  "fields": {
+    "name": "File",
+    "sort": 9
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 9,
+  "fields": {
+    "name": "Note",
+    "sort": 10
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 10,
+  "fields": {
+    "name": "Date",
+    "sort": 2
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 11,
+  "fields": {
+    "name": "Amount",
+    "sort": 3
   }
 },
 {
@@ -3552,6 +4261,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 6,
+  "fields": {
+    "available_resource": "apilistactivation",
+    "name": "In Zirkulation",
+    "description": "Zirkulation aus Sicht der Fachstellen",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
   "model": "core.rapilistinstancestate",
   "pk": 1,
   "fields": {
@@ -3592,6 +4314,38 @@
   }
 },
 {
+  "model": "core.rapilistcirculationstate",
+  "pk": 9,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationstate",
+  "pk": 10,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 2
+  }
+},
+{
+  "model": "core.rapilistcirculationstate",
+  "pk": 11,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 3
+  }
+},
+{
+  "model": "core.rapilistcirculationstate",
+  "pk": 12,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 4
+  }
+},
+{
   "model": "core.rapilistcirculationtype",
   "pk": 1,
   "fields": {
@@ -3645,6 +4399,14 @@
   "fields": {
     "resource": 5,
     "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 6,
+  "fields": {
+    "resource": 6,
+    "role": 5
   }
 },
 {
@@ -4316,94 +5078,6 @@
   }
 },
 {
-  "model": "core.questiontype",
-  "pk": 1,
-  "fields": {
-    "name": "Text",
-    "sort": 0
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 2,
-  "fields": {
-    "name": "Textarea",
-    "sort": 1
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 3,
-  "fields": {
-    "name": "Select",
-    "sort": 4
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 4,
-  "fields": {
-    "name": "Multi select",
-    "sort": 5
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 5,
-  "fields": {
-    "name": "Radiobox",
-    "sort": 6
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 6,
-  "fields": {
-    "name": "Checkbox",
-    "sort": 7
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 7,
-  "fields": {
-    "name": "Multi checkbox",
-    "sort": 8
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 8,
-  "fields": {
-    "name": "File",
-    "sort": 9
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 9,
-  "fields": {
-    "name": "Note",
-    "sort": 10
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 10,
-  "fields": {
-    "name": "Date",
-    "sort": 2
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 11,
-  "fields": {
-    "name": "Amount",
-    "sort": 3
-  }
-},
-{
   "model": "document.attachmentsection",
   "pk": 1,
   "fields": {
@@ -4699,6 +5373,21 @@
   "fields": {
     "group": 3,
     "location": 26
+  }
+},
+{
+  "model": "user.group",
+  "pk": 5,
+  "fields": {
+    "role": 5,
+    "service": 4,
+    "name": "Geometer XY",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -5184,6 +5873,14 @@
   }
 },
 {
+  "model": "user.role",
+  "pk": 5,
+  "fields": {
+    "role_parent": null,
+    "name": "Fachstelle"
+  }
+},
+{
   "model": "user.service",
   "pk": 3,
   "fields": {
@@ -5201,10 +5898,51 @@
   }
 },
 {
+  "model": "user.service",
+  "pk": 4,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Geometer 1",
+    "description": "Der erste Geometer im Kanton",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 5,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Geometer 2",
+    "description": "Test",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.servicegroup",
   "pk": 1,
   "fields": {
     "name": "Kantonale Fachstellen"
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 2,
+  "fields": {
+    "name": "Geometer"
   }
 }
 ]
