@@ -2,6 +2,7 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
+from rest_framework.compat import unicode_to_repr
 from rest_framework_json_api import serializers, utils
 
 from camac.instance.mixins import InstanceEditableMixin
@@ -30,6 +31,20 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
         )
 
 
+class AttachmentSectionDefault(object):
+    """First availbale attachment section of current group."""
+
+    def set_context(self, serializer_field):
+        self.group = serializer_field.context['request'].group
+
+    def __call__(self):
+        return models.AttachmentSection.objects.filter_group(
+            self.group).first()
+
+    def __repr__(self):
+        return unicode_to_repr('%s()' % self.__class__.__name__)
+
+
 class AttachmentSerializer(InstanceEditableMixin,
                            serializers.ModelSerializer):
     serializer_related_field = FormDataResourceRelatedField
@@ -38,6 +53,10 @@ class AttachmentSerializer(InstanceEditableMixin,
         read_only=True, default=serializers.CurrentUserDefault()
     )
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    attachment_section = FormDataResourceRelatedField(
+        queryset=models.AttachmentSection.objects.all(),
+        default=AttachmentSectionDefault()
+    )
 
     def validate_attachment_section(self, attachment_section):
         mode = attachment_section.get_mode(self.context['request'].group)
