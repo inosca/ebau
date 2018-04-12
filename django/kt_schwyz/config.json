@@ -571,6 +571,24 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 3,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "action_name": "exportinstance",
+    "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 4,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "action_name": "exportactivation",
+    "hidden": 1
+  }
+},
+{
   "model": "core.availableaction",
   "pk": "checkquery",
   "fields": {
