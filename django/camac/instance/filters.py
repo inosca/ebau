@@ -1,8 +1,10 @@
 import re
 
-from django_filters.rest_framework import (BaseInFilter, DateFromToRangeFilter,
-                                           FilterSet, NumberFilter)
+from django_filters.rest_framework import (DateFromToRangeFilter, FilterSet,
+                                           NumberFilter)
 from rest_framework.filters import BaseFilterBackend
+
+from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 
 from . import models
 
@@ -11,7 +13,7 @@ class InstanceFilterSet(FilterSet):
 
     service = NumberFilter(field_name='circulations__activations__service')
     creation_date = DateFromToRangeFilter()
-    instance_state = BaseInFilter()
+    instance_state = NumberMultiValueFilter()
 
     class Meta:
         model = models.Instance
@@ -54,7 +56,7 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
 
 class FormFieldFilterSet(FilterSet):
 
-    name = BaseInFilter()
+    name = CharMultiValueFilter()
 
     class Meta:
         model = models.FormField
