@@ -58,6 +58,19 @@ module('Unit | Service | question-store', function(hooks) {
   test('can validate question', async function(assert) {
     assert.expect(2)
 
+    this.server.get('/api/v1/form-config', () => ({
+      questions: {
+        test1: {
+          type: 'text',
+          required: true
+        },
+        test2: {
+          type: 'text',
+          required: true
+        }
+      }
+    }))
+
     let service = this.owner.lookup('service:question-store')
 
     let validations = {

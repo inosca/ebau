@@ -32,6 +32,18 @@ module.exports = function(environment) {
       tokenEndpoint: `${oidcHost}realms/ebau/protocol/openid-connect/token`,
       logoutEndpoint: `${oidcHost}realms/ebau/protocol/openid-connect/logout`,
       clientId: 'portal'
+    },
+
+    'ember-validated-form': {
+      css: {
+        group: 'uk-margin',
+        control: 'uk-input',
+        label: 'uk-form-label uk-text-bold',
+        checkbox: 'uk-checkbox',
+        radio: 'uk-radio',
+        button: 'uk-button uk-button-default',
+        submit: 'uk-button uk-button-primary'
+      }
     }
   }
 
