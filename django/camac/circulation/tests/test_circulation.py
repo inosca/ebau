@@ -12,13 +12,14 @@ from camac.circulation import serializers
     ('Municipality', LazyFixture('user'), 10),
     ('Service', LazyFixture('user'), 10),
 ])
-def test_circulation_list(admin_client, circulation, activation,
-                          num_queries, django_assert_num_queries):
+def test_circulation_list(admin_client, instance_state, circulation,
+                          activation, num_queries, django_assert_num_queries):
     url = reverse('circulation-list')
 
     included = serializers.CirculationSerializer.included_serializers
     with django_assert_num_queries(num_queries):
         response = admin_client.get(url, data={
+            'instance_state': instance_state.pk,
             'include': ','.join(included.keys())
         })
     assert response.status_code == status.HTTP_200_OK
