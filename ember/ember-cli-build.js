@@ -1,6 +1,7 @@
 'use strict'
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app')
+const env = EmberApp.env()
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -20,11 +21,11 @@ module.exports = function(defaults) {
       js: {
         concat: true,
         useAsync: true,
-        preserveOriginal: process.env.EmberENV !== 'test'
+        preserveOriginal: env === 'test'
       },
       css: {
         concat: true,
-        preserveOriginal: process.env.EmberENV !== 'test'
+        preserveOriginal: env === 'test'
       }
     },
     imagemin: {
@@ -38,21 +39,12 @@ module.exports = function(defaults) {
       versionStrategy: 'every-build',
       registrationStrategy: 'inline'
     },
-    'asset-cache': {
-      manual: [
-        'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'
-      ]
-    },
     'esw-index': {
       excludeScope: [/manifest.webmanifest$/, /robots.txt$/, /sw.js$/]
-    },
-    'esw-cache-fallback': {
-      patterns: ['https://fonts.gstatic.com/(.+)']
     },
     'ember-app-shell': {
       chromeFlags: ['--no-sandbox'],
       criticalCSSOptions: {
-        inline: true,
         ignore: [/font-face/, /font-family/]
       }
     },
