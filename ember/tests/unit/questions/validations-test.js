@@ -120,7 +120,7 @@ module('Unit | Validations | questions', function(hooks) {
       'Die Werte müssen in den vorgegebenen Optionen vorhanden sein'
     )
     assert.equal(
-      validateMultiselect({ options, allowCustom: true }, ['test 1']),
+      validateMultiselect({ options, 'allow-custom': true }, ['test 1']),
       true
     )
   })

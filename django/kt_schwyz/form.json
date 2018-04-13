@@ -264,7 +264,7 @@
       "active-condition": [
         {
           "question": "kategorie-des-vorhabens",
-          "value": { "in": ["Baute(n)"] }
+          "value": { "contains-any": ["Baute(n)"] }
         }
       ],
       "config": {
@@ -493,7 +493,7 @@
       "active-condition": [
         {
           "question": "kategorie-des-vorhabens",
-          "value": { "in": ["Baute(n)"] }
+          "value": { "contains-any": ["Baute(n)"] }
         }
       ],
       "config": {
@@ -513,7 +513,7 @@
       "active-condition": [
         {
           "question": "kategorie-des-vorhabens",
-          "value": { "in": ["Anlage(n)"] }
+          "value": { "contains-any": ["Anlage(n)"] }
         }
       ],
       "config": {
@@ -528,7 +528,7 @@
           "Abfallanlage, Deponie",
           "Antennen"
         ],
-        "allowCustom": true
+        "allow-custom": true
       }
     },
     "art-der-befestigten-flache": {
@@ -538,7 +538,7 @@
       "active-condition": [
         {
           "question": "art-der-anlage",
-          "value": { "in": ["Befestigte Fläche"] }
+          "value": { "contains-any": ["Befestigte Fläche"] }
         }
       ],
       "config": {
@@ -548,7 +548,7 @@
           "Vorplatz",
           "Terasse, Sitzplatz"
         ],
-        "allowCustom": true
+        "allow-custom": true
       }
     },
     "zweck-der-leitungen": {
@@ -558,7 +558,7 @@
       "active-condition": [
         {
           "question": "art-der-anlage",
-          "value": { "in": ["Ver- / Entsorgungsleitung"] }
+          "value": { "contains-any": ["Ver- / Entsorgungsleitung"] }
         }
       ],
       "config": {
@@ -568,7 +568,7 @@
           "Energieversorgung",
           "Datenversorgung"
         ],
-        "allowCustom": true
+        "allow-custom": true
       }
     },
     "art-der-warmepumpe": {
@@ -578,7 +578,7 @@
       "active-condition": [
         {
           "question": "art-der-anlage",
-          "value": { "in": ["Wärmepumpe"] }
+          "value": { "contains-any": ["Wärmepumpe"] }
         }
       ],
       "config": {
@@ -644,7 +644,7 @@
       "active-condition": [
         {
           "question": "anlagen-mit-erheblichen-schadstoffemissionen",
-          "value": { "in": ["Ja"] }
+          "value": { "contains-any": ["Ja"] }
         }
       ],
       "config": {}
@@ -666,7 +666,7 @@
       "active-condition": [
         {
           "question": "anlagen-mit-erheblichen-strahlungsemissionen",
-          "value": { "in": ["Ja"] }
+          "value": { "contains-any": ["Ja"] }
         }
       ],
       "config": {}
@@ -825,7 +825,7 @@
       "active-condition": [
         {
           "question": "gewerbliche-nutzflachen",
-          "value": { "in": ["Ja"] }
+          "value": { "contains-any": ["Ja"] }
         }
       ],
       "config": {
@@ -839,7 +839,7 @@
       "active-condition": [
         {
           "question": "art-der-anlage",
-          "value": { "in": ["Antennen"] }
+          "value": { "contains-any": ["Antennen"] }
         }
       ],
       "config": {
@@ -905,7 +905,7 @@
       "active-condition": [
         {
           "question": "ordendliche-mindestabstande",
-          "value": { "in": ["Ja"] }
+          "value": { "contains-any": ["Ja"] }
         }
       ],
       "config": {
@@ -917,7 +917,7 @@
           "Unterschreitung Waldabstand",
           "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie"
         ],
-        "allowCustom": true
+        "allow-custom": true
       }
     },
     "ausnahmen-begrundung": {
@@ -928,7 +928,7 @@
       "active-condition": [
         {
           "question": "ordendliche-mindestabstande",
-          "value": { "in": ["Ja"] }
+          "value": { "contains-any": ["Ja"] }
         }
       ],
       "config": {}

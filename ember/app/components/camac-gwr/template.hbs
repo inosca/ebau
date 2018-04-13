@@ -12,17 +12,20 @@
         {{/uk-card}}
       </div>
     {{/each}}
-    <div data-test-gwr-building-add role="button" class="pointer" {{action (perform addRow)}}>
-      {{#uk-card width='small' class='uk-height-small uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
-        {{#card.body}}
-          {{uk-icon 'plus' ratio=2}}
-        {{/card.body}}
-      {{/uk-card}}
-    </div>
+    {{#unless readonly}}
+      <div data-test-gwr-building-add role="button" class="pointer" {{action (perform addRow)}}>
+        {{#uk-card width='small' class='uk-height-small uk-flex uk-flex-center uk-flex-middle' hover=true as |card|}}
+          {{#card.body}}
+            {{uk-icon 'plus' ratio=2}}
+          {{/card.body}}
+        {{/uk-card}}
+      </div>
+    {{/unless}}
   </div>
 
   {{#if editedRow}}
     {{camac-gwr-building
+      readonly   = readonly
       isNew      = (not (contains editedRow question.model.value))
       parentName = question.name
       columns    = question.field.config.columns
