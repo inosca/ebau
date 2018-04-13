@@ -21,7 +21,7 @@ const Question = EmberObject.extend({
 
   validate() {
     let name = this.get('name')
-    let { type, required: isRequired, config } = this.get('field')
+    let { type, required: isRequired = false, config = {} } = this.get('field')
 
     let validations = [
       isRequired
