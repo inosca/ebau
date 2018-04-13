@@ -234,6 +234,104 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 16,
+  "fields": {
+    "available_action": "save",
+    "button": 8,
+    "name": "save",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich aktualisiert",
+    "error_message": "Zirkulation konnte nicht aktualisiert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 17,
+  "fields": {
+    "available_action": "save",
+    "button": 9,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 18,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 9,
+    "name": "Dossierstatus setzen circ",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich gestartet",
+    "error_message": "Zirkulation konnte nicht gestartet werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 19,
+  "fields": {
+    "available_action": "workflow",
+    "button": 9,
+    "name": "Datum Zirkulation start",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 20,
+  "fields": {
+    "available_action": "php",
+    "button": 9,
+    "name": "activation idle to run",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.action",
+  "pk": 21,
+  "fields": {
+    "available_action": "save",
+    "button": 10,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 22,
+  "fields": {
+    "available_action": "php",
+    "button": 10,
+    "name": "activation idle to run",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -255,6 +353,14 @@
   "fields": {
     "current_instance_state": 2,
     "next_instance_state": 1
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 18,
+  "fields": {
+    "current_instance_state": 3,
+    "next_instance_state": 5
   }
 },
 {
@@ -740,6 +846,20 @@
   }
 },
 {
+  "model": "core.aphp",
+  "pk": 20,
+  "fields": {
+    "php_class": "CircStart"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 22,
+  "fields": {
+    "php_class": "CircStart"
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -859,6 +979,14 @@
 },
 {
   "model": "core.availableaction",
+  "pk": "generate",
+  "fields": {
+    "module_name": "docgen",
+    "description": "Generate document with configured template"
+  }
+},
+{
+  "model": "core.availableaction",
   "pk": "location",
   "fields": {
     "module_name": "default",
@@ -927,14 +1055,6 @@
   "fields": {
     "module_name": "workflow",
     "description": "Set workflow date"
-  }
-},
-{
-  "model": "core.availableaction",
-  "pk": "generate",
-  "fields": {
-    "module_name": "docgen",
-    "description": "Generate document with configured template"
   }
 },
 {
@@ -1320,6 +1440,60 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 12,
+  "fields": {
+    "button": 8,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 13,
+  "fields": {
+    "button": 8,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 14,
+  "fields": {
+    "button": 8,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 15,
+  "fields": {
+    "button": 9,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 16,
+  "fields": {
+    "button": 10,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 17,
+  "fields": {
+    "button": 10,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -1429,6 +1603,42 @@
     "class_field": "nfd-complete",
     "hidden": 0,
     "sort": 3
+  }
+},
+{
+  "model": "core.button",
+  "pk": 8,
+  "fields": {
+    "instance_resource": 7,
+    "name": "Speichern",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 9,
+  "fields": {
+    "instance_resource": 7,
+    "name": "Zirkulation starten",
+    "description": null,
+    "class_field": "circ_start",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 10,
+  "fields": {
+    "instance_resource": 7,
+    "name": "Zu Zirkulation hinzuf\u00fcgen",
+    "description": null,
+    "class_field": "add_to_circ",
+    "hidden": 0,
+    "sort": 2
   }
 },
 {
@@ -4054,7 +4264,8 @@
     "javascript": null,
     "regex": null,
     "default_answer": null,
-    "class_field": null
+    "class_field": null,
+    "validation": null
   }
 },
 {
@@ -4069,7 +4280,8 @@
     "javascript": null,
     "regex": null,
     "default_answer": null,
-    "class_field": null
+    "class_field": null,
+    "validation": null
   }
 },
 {
@@ -4084,7 +4296,8 @@
     "javascript": null,
     "regex": null,
     "default_answer": null,
-    "class_field": null
+    "class_field": null,
+    "validation": null
   }
 },
 {
@@ -4423,6 +4636,14 @@
   "fields": {
     "workflow_item": 13,
     "multi_value": 1
+  }
+},
+{
+  "model": "core.workflowaction",
+  "pk": 19,
+  "fields": {
+    "workflow_item": 44,
+    "multi_value": 3
   }
 },
 {
@@ -5342,7 +5563,7 @@
   "pk": 3,
   "fields": {
     "role": 3,
-    "service": null,
+    "service": 6,
     "name": "Bauverwaltung Gemeinde Schwyz",
     "phone": null,
     "zip": null,
@@ -5387,6 +5608,38 @@
   "pk": 1,
   "fields": {
     "group": 3,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2,
+  "fields": {
+    "group": 5,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3,
+  "fields": {
+    "group": 5,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 4,
+  "fields": {
+    "group": 5,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 5,
+  "fields": {
+    "group": 5,
     "location": 26
   }
 },
@@ -5932,6 +6185,23 @@
   }
 },
 {
+  "model": "user.service",
+  "pk": 6,
+  "fields": {
+    "service_group": 3,
+    "service_parent": null,
+    "name": "Gemeinde Schwyz",
+    "description": "Gemeinde Schwyz",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.servicegroup",
   "pk": 1,
   "fields": {
@@ -5943,6 +6213,13 @@
   "pk": 2,
   "fields": {
     "name": "Geometer"
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 3,
+  "fields": {
+    "name": "Gemeinde"
   }
 }
 ]
