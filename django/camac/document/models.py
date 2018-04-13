@@ -94,6 +94,8 @@ class AttachmentSection(models.Model):
         # TODO: quick implementation
         # amount of queries could be improved with subqueries and annotating
         # mode to model - not trivial though
+        # AttachmentSectionDefault and validate_attachment_section resp.
+        # resource field could directly filter for the mode
         group_modes = AttachmentSectionGroupAcl.objects.filter(
             attachment_section=self,
             group=group
@@ -172,5 +174,10 @@ class AttachmentSectionServiceAcl(models.Model):
 
 
 class Template(models.Model):
-    name = models.CharField(max_length=255, unique=True)
-    path = models.FileField(max_length=1024, upload_to='templates')
+    template_id = models.AutoField(db_column='TEMPLATE_ID', primary_key=True)
+    name = models.CharField(max_length=255, unique=True, db_column='NAME')
+    path = models.FileField(max_length=1024, upload_to='templates',
+                            db_column='PATH')
+
+    class Meta:
+        db_table = 'TEMPLATE'

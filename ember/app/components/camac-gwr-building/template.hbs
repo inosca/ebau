@@ -1,0 +1,40 @@
+{{#uk-card hover=true class='uk-animation-slide-bottom-small' as |card|}}
+  {{#card.header}}
+    {{#uk-flex vertical='middle' horizontal='between'}}
+      {{#card.title class='uk-margin-remove'}}
+        {{#if isNew}}
+          Gebäude hinzufügen
+        {{else}}
+          Gebäude "{{_value.adresse}}" bearbeiten
+        {{/if}}
+      {{/card.title}}
+      <button type="button" uk-close {{action (optional on-close)}}></button>
+    {{/uk-flex}}
+  {{/card.header}}
+  {{#card.body}}
+    {{#each columns as |column|}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+          {{column.label}}
+          {{#if column.required}}
+            <span class="uk-text-danger">*</span>
+          {{/if}}
+        </label>
+        {{#if (eq column.type 'table')}}
+          {{camac-gwr-building-table parentName=(concat parentName '/' column.name) on-change=(action 'change' column.name) config=column.config value=(get _value column.name)}}
+        {{else}}
+          {{component (concat 'camac-input-' column.type) config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name))}}
+        {{/if}}
+        {{#with (get this (concat '_value.error.' column.name)) as |error|}}
+          {{camac-input-error error.validation}}
+        {{/with}}
+      </div>
+    {{/each}}
+  {{/card.body}}
+  {{#card.footer class='uk-text-right'}}
+    {{#unless isNew}}
+      {{#uk-button on-click=(action (optional on-delete) value)}}Löschen{{/uk-button}}
+    {{/unless}}
+    {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' on-click=(perform save)}}Speichern{{/uk-button}}
+  {{/card.footer}}
+{{/uk-card}}

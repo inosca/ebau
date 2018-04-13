@@ -1,13 +1,9 @@
 .camac-nav-module-icon {
-  --border-color: transparent;
-  --color: transparent;
-  --size: 0.75rem;
-
   position: relative;
-  height: var(--size);
-  width: var(--size);
-  color: var(--color);
-  border: 1px solid var(--border-color);
+  height: 0.75rem;
+  width: 0.75rem;
+  color: transparent;
+  border: 1px solid transparent;
 
   transition: color 500ms ease, border 500ms ease;
 }
@@ -22,23 +18,23 @@
 }
 
 .camac-nav-module-icon-untouched {
-  --color: transparent;
-  --border-color: $global-border;
+  color: transparent;
+  border-color: $global-border;
 }
 
 .camac-nav-module-icon-unfinished {
-  --color: darken($global-warning-background, 20%);
-  --border-color: lighten($global-warning-background, 10%);
+  color: darken($global-warning-background, 20%);
+  border-color: lighten($global-warning-background, 10%);
 }
 
 .camac-nav-module-icon-valid {
-  --color: darken($global-success-background, 20%);
-  --border-color: lighten($global-success-background, 10%);
+  color: darken($global-success-background, 20%);
+  border-color: lighten($global-success-background, 10%);
 }
 
 .camac-nav-module-icon-invalid {
-  --color: darken($global-danger-background, 20%);
-  --border-color: lighten($global-danger-background, 10%);
+  color: darken($global-danger-background, 20%);
+  border-color: lighten($global-danger-background, 10%);
 }
 
 .camac-nav-module-icon-unfinished::before {
