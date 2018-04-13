@@ -50,7 +50,7 @@ export default Controller.extend({
         instance.id
       )
 
-      parcelQuestion.set('model.value', number)
+      parcelQuestion.set('model.value', parseInt(number))
 
       yield parcelQuestion.get('model').save()
 
