@@ -1,12 +1,20 @@
-<div class="uk-margin">
-  {{#power-select
-    placeholder = 'Adresse oder Grundstück suchen...'
-    search      = (perform handleSearch)
-    onchange    = (perform handleSearchSelection)
-  as |result|}}
-    {{result.properties.label}}
-  {{/power-select}}
-</div>
+{{#unless readonly}}
+  <div class="uk-alert uk-alert-danger">
+    <p>
+      <strong>Achtung:</strong> Nach dem Einreichen des Dossiers kann diese Auswahl <u>nicht mehr verändert</u> werden!
+    </p>
+  </div>
+
+  <div class="uk-margin">
+    {{#power-select
+      placeholder = 'Adresse oder Grundstück suchen...'
+      search      = (perform handleSearch)
+      onchange    = (perform handleSearchSelection)
+    as |result|}}
+      {{result.properties.label}}
+    {{/power-select}}
+  </div>
+{{/unless}}
 
 {{#leaflet-map
   lat       = lat
@@ -24,6 +32,13 @@ as |map|}}
     layers      = layers
     url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
   }}
+  {{#if (or handleClick.isRunning handleInitialSelection.isRunning submit.isRunning reset.isRunning)}}
+    <div class="uk-overlay-primary uk-position-cover">
+      <div class="uk-position-center">
+        {{uk-spinner ratio=2}}
+      </div>
+    </div>
+  {{/if}}
   {{#if point}}
     {{#map.marker lat=point.coordinates.lat lng=point.coordinates.lng onAdd=(perform centerLayerToPoint) as |marker|}}
       {{#unless centerLayerToPoint.last.isRunning}}
@@ -74,13 +89,15 @@ as |map|}}
   {{/if}}
 {{/camac-render-map}}
 
-<div class="uk-text-right">
-  {{#uk-button disabled=(not (or point property feature)) on-click=(perform clear)}}Auswahl zurücksetzen{{/uk-button}}
-  {{#uk-button color='primary' disabled=(not property) on-click=(perform submit)}}
-    {{#if property}}
-      Nr. {{property.number}} (Gemeinde {{property.municipality}}) bestätigen
-    {{else}}
-      Grundstück bestätigen
-    {{/if}}
-  {{/uk-button}}
-</div>
+{{#if (and showButtons (not readonly))}}
+  <div class="uk-text-right">
+    {{#uk-button disabled=(not (or point property feature)) on-click=(perform reset)}}Auswahl zurücksetzen{{/uk-button}}
+    {{#uk-button color='primary' disabled=(not property) on-click=(perform submit)}}
+      {{#if property}}
+        Nr. {{property.number}} (Gemeinde {{property.municipality}}) bestätigen
+      {{else}}
+        Grundstück bestätigen
+      {{/if}}
+    {{/uk-button}}
+  </div>
+{{/if}}

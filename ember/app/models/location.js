@@ -3,5 +3,5 @@ import attr from 'ember-data/attr'
 
 export default Model.extend({
   name: attr('string'),
-  federalNumber: attr('number')
+  communalFederalNumber: attr('number')
 })
