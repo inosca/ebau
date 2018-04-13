@@ -33,7 +33,8 @@ const Module = EmberObject.extend({
             'checkbox',
             'select',
             'multiselect',
-            'table'
+            'table',
+            'gwr'
           ]
         : []),
       ...(editable.includes('document') ? ['document'] : [])
