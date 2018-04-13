@@ -94,16 +94,14 @@ export default Service.extend({
     }
 
     // Get the already saved record or create a new record
-    let model = query.get('firstObject')
-
-    if (!model) {
-      model = this.get('store').createRecord('form-field', {
+    let model =
+      query.get('firstObject') ||
+      this.get('store').createRecord('form-field', {
         name,
         instance:
           this.get('store').peekRecord('instance', instance) ||
           (await this.get('store').findRecord('instance', instance))
       })
-    }
 
     return Question.create({
       // We need to pass the container of the current service to the question
