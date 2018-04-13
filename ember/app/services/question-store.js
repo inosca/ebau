@@ -49,16 +49,18 @@ const Question = EmberObject.extend({
     let conditions = this.getWithDefault('field.active-condition', [])
 
     let conditionResults = await all(
-      conditions.map(async ({ question, value: { in: possibleValues } }) => {
-        let value = (await this.get('_questions.find').perform(
-          question,
-          this.get('model.instance.id')
-        )).get('value')
+      conditions.map(
+        async ({ question, value: { 'contains-any': possibleValues } }) => {
+          let value = (await this.get('_questions.find').perform(
+            question,
+            this.get('model.instance.id')
+          )).get('value')
 
-        return possibleValues.some(v =>
-          (isArray(value) ? value : [value]).includes(v)
-        )
-      })
+          return possibleValues.some(v =>
+            (isArray(value) ? value : [value]).includes(v)
+          )
+        }
+      )
     )
 
     return !conditionResults.every(Boolean)

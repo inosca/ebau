@@ -4,13 +4,13 @@ import { computed } from '@ember/object'
 export default Component.extend({
   renderInPlace: false,
 
-  searchable: computed('config.{allowCustom,searchable}', function() {
-    return this.get('config.allowCustom') || this.get('config.searchable')
+  searchable: computed('config.{allow-custom,searchable}', function() {
+    return this.get('config.allow-custom') || this.get('config.searchable')
   }),
 
   actions: {
     handleKeydown(_, e) {
-      if (e.keyCode !== 13 || !this.get('config.allowCustom')) {
+      if (e.keyCode !== 13 || !this.get('config.allow-custom')) {
         return
       }
 

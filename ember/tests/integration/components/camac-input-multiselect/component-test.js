@@ -62,7 +62,7 @@ module('Integration | Component | camac-input-multiselect', function(hooks) {
 
     this.set('config', {
       options: ['option 1', 'option 2', 'option 3'],
-      allowCustom: true
+      'allow-custom': true
     })
 
     await render(
