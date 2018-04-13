@@ -5,7 +5,7 @@
         {{#if isNew}}
           Gebäude hinzufügen
         {{else}}
-          Gebäude "{{_value.adresse}}" bearbeiten
+          Gebäude "{{_value.adresse}}" {{if readonly 'ansehen' 'bearbeiten'}}
         {{/if}}
       {{/card.title}}
       <button type="button" uk-close {{action (optional on-close)}}></button>
@@ -21,9 +21,9 @@
           {{/if}}
         </label>
         {{#if (eq column.type 'table')}}
-          {{camac-gwr-building-table parentName=(concat parentName '/' column.name) on-change=(action 'change' column.name) config=column.config value=(get _value column.name)}}
+          {{camac-gwr-building-table parentName=(concat parentName '/' column.name) on-change=(action 'change' column.name) config=column.config value=(get _value column.name) readonly=readonly}}
         {{else}}
-          {{component (concat 'camac-input-' column.type) config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name))}}
+          {{component (concat 'camac-input-' column.type) config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name)) readonly=readonly}}
         {{/if}}
         {{#with (get this (concat '_value.error.' column.name)) as |error|}}
           {{camac-input-error error.validation}}
@@ -31,10 +31,12 @@
       </div>
     {{/each}}
   {{/card.body}}
-  {{#card.footer class='uk-text-right'}}
-    {{#unless isNew}}
-      {{#uk-button on-click=(action (optional on-delete) value)}}Löschen{{/uk-button}}
-    {{/unless}}
-    {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' on-click=(perform save)}}Speichern{{/uk-button}}
-  {{/card.footer}}
+  {{#unless readonly}}
+    {{#card.footer class='uk-text-right'}}
+      {{#unless isNew}}
+        {{#uk-button on-click=(action (optional on-delete) value)}}Löschen{{/uk-button}}
+      {{/unless}}
+      {{#uk-button loading=save.isRunning disabled=(not _value.isValid) color='primary' on-click=(perform save)}}Speichern{{/uk-button}}
+    {{/card.footer}}
+  {{/unless}}
 {{/uk-card}}

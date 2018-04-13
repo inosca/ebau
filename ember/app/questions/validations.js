@@ -80,7 +80,10 @@ const validateRadio = ({ options }, value) => {
   return true
 }
 
-const validateMultiselect = ({ options, allowCustom }, value) => {
+const validateMultiselect = (
+  { options, 'allow-custom': allowCustom },
+  value
+) => {
   if (isBlank(value)) {
     return true
   }
