@@ -11,6 +11,7 @@ from rest_framework.test import APIClient, APIRequestFactory
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.instance import factories as instance_factories
+from camac.notification import factories as notification_factories
 from camac.user import factories as user_factories
 
 
@@ -30,6 +31,7 @@ register_module(user_factories)
 register_module(instance_factories)
 register_module(core_factories)
 register_module(document_factories)
+register_module(notification_factories)
 
 
 class APIKeycloakClient(APIClient):
