@@ -110,7 +110,7 @@ module('Unit | Service | question-store', function(hooks) {
             {
               question: 'test2',
               value: {
-                in: ['yeah!']
+                'contains-any': ['yeah!']
               }
             }
           ]
@@ -120,7 +120,7 @@ module('Unit | Service | question-store', function(hooks) {
             {
               question: 'test1',
               value: {
-                in: ['yeah!']
+                'contains-any': ['yeah!']
               }
             }
           ]
@@ -133,13 +133,13 @@ module('Unit | Service | question-store', function(hooks) {
             {
               question: 'test1',
               value: {
-                in: ['yeah!']
+                'contains-any': ['yeah!']
               }
             },
             {
               question: 'test2',
               value: {
-                in: ['yeah!']
+                'contains-any': ['yeah!']
               }
             }
           ]
