@@ -2,7 +2,7 @@ from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework_json_api import serializers
+from rest_framework_json_api import serializers, utils
 
 from camac.user.relations import (FormDataResourceRelatedField,
                                   GroupResourceRelatedField)
@@ -109,6 +109,29 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
         read_only_fields = (
             'identifier',
             'circulations',
+        )
+
+
+class InstanceMergeSerializer(serializers.ModelSerializer):
+    """Converts instance into a dict to be used with template merging."""
+
+    location = serializers.ResourceRelatedField(read_only=True)
+
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+        # need same naming as in json api
+        ret = utils.format_keys(ret)
+
+        for field in instance.fields.all():
+            ret['field-%s' % field.name] = field.value
+
+        return ret
+
+    class Meta:
+        model = models.Instance
+        fields = (
+            'location',
+            'identifier',
         )
 
 
