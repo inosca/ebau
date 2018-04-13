@@ -1,15 +1,13 @@
-from rest_framework import generics, response, viewsets
+from rest_framework import response
 from rest_framework.decorators import detail_route
+from rest_framework_json_api import views
 
-from camac.instance.mixins import InstanceEditableMixin
-from camac.instance.models import Instance
 from camac.user.permissions import permission_aware
 
 from . import models, serializers
 
 
-class NotificationTemplateView(InstanceEditableMixin,
-                               viewsets.ReadOnlyModelViewSet):
+class NotificationTemplateView(views.ModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
     instance_editable_permission = 'document'
@@ -27,12 +25,27 @@ class NotificationTemplateView(InstanceEditableMixin,
     def get_queryset_for_municipality(self):
         return models.NotificationTemplate.objects.all()
 
+    def has_create_permission(self, obj):
+        return False
+
+    def has_object_update_permission(self, obj):
+        return False
+
+    def has_object_destroy_permission(self, obj):
+        return False
     @detail_route(
         methods=['get'],
         serializer_class=serializers.NotificationTemplateMergeSerializer
     )
     def merge(self, request, pk=None):
         """Merge notification template with given instance."""
+        data = {'instance': {'type': 'instances', 'id':
+                             self.request.query_params.get('instance')}}
+        serializer = self.get_serializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return response.Response(data=serializer.data)
+
         notification_template = self.get_object()
 
         instance = generics.get_object_or_404(
