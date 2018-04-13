@@ -26,6 +26,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
     included = serializers.AttachmentSerializer.included_serializers
     with django_assert_num_queries(num_queries):
         response = admin_client.get(url, data={
+            'name': attachment.name.split('.')[0],
             'include': ','.join(included.keys())
         })
     assert response.status_code == status.HTTP_200_OK
@@ -186,7 +187,6 @@ def test_attachment_create(admin_client, instance, attachment_section,
     path = django_file(filename)
     data = {
         'instance': instance.pk,
-        'attachment_section': attachment_section.pk,
         'path': path.file,
         'group': instance.group.pk,
     }
@@ -199,6 +199,11 @@ def test_attachment_create(admin_client, instance, attachment_section,
         assert attributes['size'] == path.size
         assert attributes['name'] == filename
         assert attributes['mime-type'] == mime_type
+        relationships = json['data']['relationships']
+        assert relationships['attachment-section']['data']['id'] == str(
+            attachment_section.pk
+        )
+        assert relationships['group']['data']['id'] == str(instance.group.pk)
 
         # download uploaded attachment
         response = admin_client.get(attributes['path'])

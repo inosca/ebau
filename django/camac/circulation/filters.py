@@ -1,14 +1,16 @@
-from django_filters.rest_framework import BaseInFilter, FilterSet
+from django_filters.rest_framework import FilterSet
 
 from camac.core.models import Activation, Circulation
+from camac.filters import NumberMultiValueFilter
 
 
 class CirculationFilterSet(FilterSet):
-    instance_state = BaseInFilter(field_name='instance__instance_state')
-    previous_instance_state = BaseInFilter(
+    instance_state = NumberMultiValueFilter(
+        field_name='instance__instance_state')
+    previous_instance_state = NumberMultiValueFilter(
         field_name='instance__previous_instance_state')
-    form = BaseInFilter(field_name='instance__form')
-    location = BaseInFilter(field_name='instance__location')
+    form = NumberMultiValueFilter(field_name='instance__form')
+    location = NumberMultiValueFilter(field_name='instance__location')
 
     class Meta:
         model = Circulation
@@ -22,12 +24,13 @@ class CirculationFilterSet(FilterSet):
 
 class ActivationFilterSet(FilterSet):
 
-    circulation_state = BaseInFilter()
-    form = BaseInFilter(field_name='circulation__instance__form')
-    instance_state = BaseInFilter(
+    circulation_state = NumberMultiValueFilter()
+    form = NumberMultiValueFilter(field_name='circulation__instance__form')
+    instance_state = NumberMultiValueFilter(
         field_name='circulation__instance__instance_state')
-    location = BaseInFilter(field_name='circulation__instance__location')
-    previous_instance_state = BaseInFilter(
+    location = NumberMultiValueFilter(
+        field_name='circulation__instance__location')
+    previous_instance_state = NumberMultiValueFilter(
         field_name='circulation__instance__previous_instance_state')
 
     class Meta:
