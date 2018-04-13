@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'camac.instance.apps.DefaultConfig',
     'camac.document.apps.DefaultConfig',
     'camac.circulation.apps.DefaultConfig',
+    'camac.notification.apps.DefaultConfig',
     'sorl.thumbnail',
     'django_clamd',
 ]
