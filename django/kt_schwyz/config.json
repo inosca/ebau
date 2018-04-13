@@ -3160,7 +3160,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 221,
+  "pk": 230,
   "fields": {
     "available_instance_resource": "allformpages",
     "available_action": "generate"
@@ -3168,7 +3168,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 222,
+  "pk": 231,
   "fields": {
     "available_instance_resource": "circulation",
     "available_action": "generate"
@@ -3176,7 +3176,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 223,
+  "pk": 232,
   "fields": {
     "available_instance_resource": "editcirculation",
     "available_action": "generate"
@@ -3184,7 +3184,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 224,
+  "pk": 233,
   "fields": {
     "available_instance_resource": "editformpage",
     "available_action": "generate"
@@ -3192,7 +3192,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 225,
+  "pk": 234,
   "fields": {
     "available_instance_resource": "editformpages",
     "available_action": "generate"
@@ -3200,7 +3200,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 226,
+  "pk": 235,
   "fields": {
     "available_instance_resource": "editnotice",
     "available_action": "generate"
@@ -3208,7 +3208,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 227,
+  "pk": 236,
   "fields": {
     "available_instance_resource": "formpages",
     "available_action": "generate"
@@ -3216,7 +3216,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 228,
+  "pk": 237,
   "fields": {
     "available_instance_resource": "newform",
     "available_action": "generate"
@@ -3224,7 +3224,7 @@
 },
 {
   "model": "core.instanceresourceaction",
-  "pk": 229,
+  "pk": 238,
   "fields": {
     "available_instance_resource": "page",
     "available_action": "generate"
