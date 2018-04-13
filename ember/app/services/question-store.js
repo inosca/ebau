@@ -21,7 +21,7 @@ const Question = EmberObject.extend({
 
   validate() {
     let name = this.get('name')
-    let { type, required: isRequired, config } = this.get('field')
+    let { type, required: isRequired = false, config = {} } = this.get('field')
 
     let validations = [
       isRequired
@@ -96,7 +96,9 @@ export default Service.extend({
       'firstObject',
       this.get('store').createRecord('form-field', {
         name,
-        instance: this.get('store').peekRecord('instance', instance)
+        instance:
+          this.get('store').peekRecord('instance', instance) ||
+          (await this.get('store').findRecord('instance', instance))
       })
     )
 
