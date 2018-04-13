@@ -66,9 +66,6 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing'
     ENV.APP.autoboot = false
 
-    // ENV.emberCliConcat.js.preserveOriginal = true
-    // ENV.emberCliConcat.css.preserveOriginal = true
-
     ENV['ember-simple-auth-oidc'] = {
       authEndpoint: '/auth/realms/ebau/protocol/openid-connect/auth',
       tokenEndpoint: '/auth/realms/ebau/protocol/openid-connect/token',
