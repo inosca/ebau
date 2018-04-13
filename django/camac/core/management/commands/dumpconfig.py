@@ -134,6 +134,7 @@ config_models = (
     'instance.InstanceState',
     'instance.InstanceStateDescription',
     'user.Group',
+    'user.GroupLocation',
     'user.Location',
     'user.Role',
     'user.Service',

@@ -1,4 +1,5 @@
 import io
+import mimetypes
 
 from django.http import HttpResponse
 from django_downloadview.api import ObjectDownloadView
@@ -125,8 +126,6 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
         `instance`: instance id to merge (required)
         `type`: type to convert merged template too (e.g. pdf)
         """
-        # TODO: add instance nr to filename
-
         template = self.get_object()
         instance = generics.get_object_or_404(
             Instance.objects, **{
@@ -137,9 +136,12 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
         to_type = self.request.query_params.get('type', 'docx')
 
         response = HttpResponse()
+        filename = "{0}_{1}.{2}".format(
+            instance.identifier, template.name, to_type)
         response['Content-Disposition'] = (
-            'attachment; filename="{0}.{1}"'.format(template.name, to_type)
+            'attachment; filename="{0}"'.format(filename)
         )
+        response['Content-Type'] = mimetypes.guess_type(filename)[0]
 
         buf = io.BytesIO()
         serializer = self.get_serializer(instance)
