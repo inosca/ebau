@@ -5,7 +5,7 @@
         {{#active-link activeClass='uk-active'}}
           {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
         {{/active-link}}
-        {{#each (await navigation) as |m|}}
+        {{#each navigation as |m|}}
           {{#if (await m.state)}}
             {{camac-nav-module module=m}}
           {{/if}}
@@ -33,12 +33,12 @@
 
       <div uk-grid class="uk-child-width-1-2">
         <div>
-          {{#if (await hasPrev)}}
+          {{#if hasPrev}}
             {{uk-button label='Zurück' on-click=(perform prev)}}
           {{/if}}
         </div>
         <div class="uk-text-right">
-          {{#if (await hasNext)}}
+          {{#if hasNext}}
             {{uk-button label='Weiter' color='primary' on-click=(perform next)}}
           {{/if}}
         </div>

@@ -17,7 +17,7 @@ export default Controller.extend({
         'parzelle',
         instance.id
       )
-      let location = instance.get('location')
+      let location = await instance.get('location')
 
       if (!location || !parcelQuestion.get('value')) {
         return null
