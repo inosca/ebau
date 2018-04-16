@@ -78,7 +78,7 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    let modules = await controller.get('modules')
+    let modules = await controller.get('modules').perform()
 
     assert.equal(modules.length, 7)
   })
@@ -91,7 +91,9 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    let links = await controller.get('links')
+    await controller.get('modules').perform()
+
+    let links = await controller.get('links').perform()
 
     assert.deepEqual(links, [
       'instances.edit.index', // landing page
@@ -111,7 +113,9 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    let navigation = await controller.get('navigation')
+    await controller.get('modules').perform()
+
+    let navigation = controller.get('navigation')
 
     assert.equal(navigation.length, 3)
     assert.deepEqual(navigation.map(({ name }) => name), [
@@ -169,7 +173,7 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', { ...this.model, meta: { editable: ['document'] } })
     controller.set('router', this.router)
 
-    let modules = await controller.get('modules')
+    let modules = await controller.get('modules').perform()
 
     assert.equal(modules[0].get('editableTypes.length'), 1)
 

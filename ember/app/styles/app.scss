@@ -18,6 +18,10 @@ $form-focus-border: rgb(87, 87, 87);
 
 @import 'pod-styles';
 
+* {
+  font-display: swap;
+}
+
 .pointer {
   cursor: pointer;
 }

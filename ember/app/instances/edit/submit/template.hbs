@@ -1,9 +1,9 @@
 <div class="uk-text-center">
   <p>Wenn Sie alle Fragen korrekt ausgefüllt haben, können Sie hier das Dossier zur Kontrolle einreichen.</p>
 
-  {{#uk-button size='large' color='primary' disabled=(not (await canSubmit)) on-click=(perform submit)}}Einreichen{{/uk-button}}
+  {{#uk-button size='large' color='primary' disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
 
-  {{#unless (await canSubmit)}}
+  {{#unless canSubmit.lastSuccessful.value}}
     <div class="uk-alert uk-alert-danger">
       Das Dossier ist noch nicht vollständig ausgefüllt, oder enthält noch
       fehlerhafte Daten. Bitte überprüfen Sie Ihre Angaben und versuchen Sie

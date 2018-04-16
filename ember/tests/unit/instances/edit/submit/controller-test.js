@@ -60,7 +60,10 @@ module('Unit | Controller | instances/edit/submit', function(hooks) {
     let q2 = await store.get('find').perform('question-2', this.instance.id)
     let q3 = await store.get('find').perform('question-3', this.instance.id)
 
-    assert.equal(await controller.get('canSubmit'), false)
+    await editController.get('modules').perform()
+
+    await controller.get('canSubmit').perform()
+    assert.equal(controller.get('canSubmit.lastSuccessful.value'), false)
 
     q1.set('model.value', 'test')
     q2.set('model.value', 'test')
@@ -70,8 +73,7 @@ module('Unit | Controller | instances/edit/submit', function(hooks) {
     await q2.get('model').save()
     await q3.get('model').save()
 
-    controller.notifyPropertyChange('canSubmit')
-
-    assert.equal(await controller.get('canSubmit'), true)
+    await controller.get('canSubmit').perform()
+    assert.equal(controller.get('canSubmit.lastSuccessful.value'), true)
   })
 })
