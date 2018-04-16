@@ -102,10 +102,16 @@ export default Component.extend({
   showButtons: computed(
     'property.{number,municipality}',
     'selected.{number,municipality}',
+    'point',
     function() {
-      return !(
-        this.get('selected.number') === this.get('property.number') &&
-        this.get('selected.municipality') === this.get('property.municipality')
+      return (
+        this.get('point') ||
+        (this.get('property') &&
+          !(
+            this.get('selected.number') === this.get('property.number') &&
+            this.get('selected.municipality') ===
+              this.get('property.municipality')
+          ))
       )
     }
   ),

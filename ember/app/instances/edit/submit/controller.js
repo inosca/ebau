@@ -12,17 +12,26 @@ export default Controller.extend({
   editController: controller('instances.edit'),
 
   canSubmit: computed(
+    'editController.modules.lastSuccessful.value.[]',
     'questionStore._store.@each.{value,hidden,isNew}',
-    async function() {
-      let states = await all(
-        (await this.get('editController.modules')).map(
-          async mod => await mod.get('state')
-        )
-      )
-
-      return states.filter(Boolean).every(state => state === 'valid')
+    function() {
+      let task = this.get('_canSubmit')
+      task.perform()
+      return task
     }
   ),
+  _canSubmit: task(function*() {
+    let states = yield all(
+      this.getWithDefault(
+        'editController.modules.lastSuccessful.value',
+        []
+      ).map(async mod => await mod.get('state'))
+    )
+
+    return (
+      states.length && states.filter(Boolean).every(state => state === 'valid')
+    )
+  }),
 
   submit: task(function*() {
     try {

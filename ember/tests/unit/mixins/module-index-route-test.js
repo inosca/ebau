@@ -3,6 +3,7 @@ import ModuleIndexRouteMixin from 'citizen-portal/mixins/module-index-route'
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import { later } from '@ember/runloop'
+import { task } from 'ember-concurrency'
 
 module('Unit | Mixin | module-index-route', function(hooks) {
   setupTest(hooks)
@@ -13,9 +14,12 @@ module('Unit | Mixin | module-index-route', function(hooks) {
     const ModuleIndexRouteObject = EmberObject.extend(ModuleIndexRouteMixin)
 
     const CONTROLLER = EmberObject.extend({
-      links: computed(async function() {
-        return ['test1', 'test2', 'test2.testy', 'test3', 'test3.testy']
-      }),
+      links: task(function*() {
+        return yield ['test1', 'test2', 'test2.testy', 'test3', 'test3.testy']
+      })
+    })
+
+    const SERVICE = EmberObject.extend({
       config: computed(async function() {
         return {
           modules: {
@@ -30,6 +34,7 @@ module('Unit | Mixin | module-index-route', function(hooks) {
     })
 
     let subject = ModuleIndexRouteObject.create({
+      questionStore: SERVICE.create({}),
       router: EmberObject.create({}),
       controllerFor() {
         return CONTROLLER.create()
