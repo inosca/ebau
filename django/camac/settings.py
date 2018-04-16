@@ -82,8 +82,8 @@ APPLICATIONS = {
         # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
             'Gemeinde': 'municipality',
-            'Service': 'service',
-            'Canton': 'canton',
+            'Fachstelle': 'service',
+            'Kanton': 'canton',
         }
     }
     # add other application configuration here...
