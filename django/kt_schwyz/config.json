@@ -24,6 +24,30 @@
   }
 },
 {
+  "model": "core.acirculationtransition",
+  "pk": 30,
+  "fields": {
+    "current_circulation_state": null,
+    "next_circulation_state": 2
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 33,
+  "fields": {
+    "current_circulation_state": 1,
+    "next_circulation_state": 4
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 36,
+  "fields": {
+    "current_circulation_state": 4,
+    "next_circulation_state": 1
+  }
+},
+{
   "model": "core.action",
   "pk": 1,
   "fields": {
@@ -158,7 +182,7 @@
     "name": "save",
     "description": null,
     "success_message": null,
-    "error_message": "wtf..",
+    "error_message": null,
     "execute_always": 0,
     "sort": 0
   }
@@ -329,6 +353,188 @@
     "error_message": null,
     "execute_always": 0,
     "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 23,
+  "fields": {
+    "available_action": "save",
+    "button": 11,
+    "name": "save",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich aktualisiert",
+    "error_message": "Zirkulation konnte nicht aktualisiert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 24,
+  "fields": {
+    "available_action": "save",
+    "button": 12,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 25,
+  "fields": {
+    "available_action": "php",
+    "button": 12,
+    "name": "activation idle to run",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich gestartet",
+    "error_message": "Zirkulation konnte nicht gestartet werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 28,
+  "fields": {
+    "available_action": "save",
+    "button": 14,
+    "name": "save",
+    "description": null,
+    "success_message": "Stellungnahme erfolgreich gespeichert",
+    "error_message": "Stellungnahme konnte nicht gespeichert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 29,
+  "fields": {
+    "available_action": "save",
+    "button": 15,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 30,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 15,
+    "name": "circ state to OK",
+    "description": null,
+    "success_message": "Stellungnahme erfolgreich abgeschlossen",
+    "error_message": "Stellungnahme konnte nicht abgeschlossen werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 31,
+  "fields": {
+    "available_action": "pageredirect",
+    "button": 15,
+    "name": "Weiterleitung zu Liste",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 32,
+  "fields": {
+    "available_action": "save",
+    "button": 16,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 33,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 16,
+    "name": "circ state to NFD",
+    "description": null,
+    "success_message": "Nachforderung erfolgreich eingereicht",
+    "error_message": "Nachforderung konnte nicht eingereicht werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 34,
+  "fields": {
+    "available_action": "php",
+    "button": 16,
+    "name": "set circ date NFD",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 35,
+  "fields": {
+    "available_action": "save",
+    "button": 17,
+    "name": "save",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 36,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 17,
+    "name": "circ state to RUN",
+    "description": null,
+    "success_message": "Dossier erfolgreich als vollst\u00e4ndig markiert",
+    "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 37,
+  "fields": {
+    "available_action": "php",
+    "button": 17,
+    "name": "set instance complete circ date",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
   }
 },
 {
@@ -832,6 +1038,15 @@
   }
 },
 {
+  "model": "core.apageredirect",
+  "pk": 31,
+  "fields": {
+    "resource": 6,
+    "instance_resource": null,
+    "air_action_name": null
+  }
+},
+{
   "model": "core.aphp",
   "pk": 12,
   "fields": {
@@ -857,6 +1072,27 @@
   "pk": 22,
   "fields": {
     "php_class": "CircStart"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 25,
+  "fields": {
+    "php_class": "CircStart"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 34,
+  "fields": {
+    "php_class": "SetNFD"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 37,
+  "fields": {
+    "php_class": "SetNFDComplete"
   }
 },
 {
@@ -1247,6 +1483,42 @@
   }
 },
 {
+  "model": "core.bgroupacl",
+  "pk": 1,
+  "fields": {
+    "button": 11,
+    "group": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.bgroupacl",
+  "pk": 2,
+  "fields": {
+    "button": 11,
+    "group": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.bgroupacl",
+  "pk": 3,
+  "fields": {
+    "button": 12,
+    "group": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.bgroupacl",
+  "pk": 4,
+  "fields": {
+    "button": 12,
+    "group": 7,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.billingaccount",
   "pk": 3,
   "fields": {
@@ -1494,6 +1766,78 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 18,
+  "fields": {
+    "button": 14,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 19,
+  "fields": {
+    "button": 14,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 20,
+  "fields": {
+    "button": 15,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 21,
+  "fields": {
+    "button": 15,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 22,
+  "fields": {
+    "button": 16,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 23,
+  "fields": {
+    "button": 16,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 24,
+  "fields": {
+    "button": 17,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 25,
+  "fields": {
+    "button": 17,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -1634,11 +1978,83 @@
   "pk": 10,
   "fields": {
     "instance_resource": 7,
-    "name": "Zu Zirkulation hinzuf\u00fcgen",
+    "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
     "description": null,
     "class_field": "add_to_circ",
     "hidden": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 11,
+  "fields": {
+    "instance_resource": 18,
+    "name": "Speichern",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 12,
+  "fields": {
+    "instance_resource": 18,
+    "name": "Zirkulation starten",
+    "description": null,
+    "class_field": "circ_start",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 14,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Speichern",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 15,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Stellungnahme abschliessen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 16,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Nachforderung",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 17,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Dossier vollst\u00e4ndig",
+    "description": null,
+    "class_field": "nfd-complete",
+    "hidden": 0,
+    "sort": 3
   }
 },
 {
@@ -1743,7 +2159,7 @@
   "model": "core.circulationanswertype",
   "pk": 1,
   "fields": {
-    "name": "Response"
+    "name": "Kurzantwort"
   }
 },
 {
@@ -1792,7 +2208,7 @@
   "pk": 2,
   "fields": {
     "name": "Zirkulation des Kantons",
-    "page": null,
+    "page": 2,
     "parent_specific_activations": 0
   }
 },
@@ -1895,7 +2311,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 2,
+    "sort": 1,
     "form_group": 1
   }
 },
@@ -1925,7 +2341,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 1,
+    "sort": 2,
     "form_group": 1
   }
 },
@@ -1940,7 +2356,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 6,
+    "sort": 7,
     "form_group": 1
   }
 },
@@ -1955,7 +2371,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -1970,7 +2386,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 7,
+    "sort": 8,
     "form_group": 1
   }
 },
@@ -1985,7 +2401,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 4,
+    "sort": 5,
     "form_group": 1
   }
 },
@@ -2000,7 +2416,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 5,
+    "sort": 6,
     "form_group": 1
   }
 },
@@ -2061,6 +2477,81 @@
     "class_field": null,
     "hidden": 0,
     "sort": 3,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 15,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "resource": 7,
+    "name": "Dossier",
+    "description": null,
+    "template": "/ember/instance.phtml",
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 16,
+  "fields": {
+    "available_instance_resource": "apidocuments",
+    "resource": 7,
+    "name": "Dokumente",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 17,
+  "fields": {
+    "available_instance_resource": "billing",
+    "resource": 7,
+    "name": "Geb\u00fchren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 18,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "resource": 6,
+    "name": "Zirkulation",
+    "description": "Zirkulation des Kantons (BGZ)",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 19,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "resource": 6,
+    "name": "Stellungnahme (kantonal)",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -3474,11 +3965,65 @@
   }
 },
 {
+  "model": "core.ireditcirculation",
+  "pk": 18,
+  "fields": {
+    "circulation_type": 2,
+    "draft_circulation_answer": null,
+    "show_notice": 1,
+    "add_template": null,
+    "add_activation_template": null,
+    "read_notice_template": null,
+    "pdf_class": null,
+    "default_circulation_name": "Zirkulation des Kantons",
+    "single_circulation": 1,
+    "inherit_notices": 0,
+    "display_first_circulation": 1,
+    "circulation_email_action_id": null
+  }
+},
+{
   "model": "core.ireditcirculationsg",
   "pk": 1,
   "fields": {
     "instance_resource": 7,
     "service_group": 2,
+    "localized": 0
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 2,
+  "fields": {
+    "instance_resource": 7,
+    "service_group": 1,
+    "localized": 0
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 3,
+  "fields": {
+    "instance_resource": 18,
+    "service_group": 2,
+    "localized": 0
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 4,
+  "fields": {
+    "instance_resource": 18,
+    "service_group": 1,
+    "localized": 0
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 5,
+  "fields": {
+    "instance_resource": 7,
+    "service_group": 4,
     "localized": 0
   }
 },
@@ -3499,6 +4044,14 @@
   }
 },
 {
+  "model": "core.ireditformpage",
+  "pk": 15,
+  "fields": {
+    "page": 1,
+    "pdf_class": null
+  }
+},
+{
   "model": "core.ireditnotice",
   "pk": 14,
   "fields": {
@@ -3508,6 +4061,36 @@
     "edit_notice_template": null,
     "hide_answered_notices": 0,
     "is_always_editable": 1
+  }
+},
+{
+  "model": "core.ireditnotice",
+  "pk": 19,
+  "fields": {
+    "circulation_type": 2,
+    "editable_after_deadline": 1,
+    "pdf_class": null,
+    "edit_notice_template": null,
+    "hide_answered_notices": 0,
+    "is_always_editable": 1
+  }
+},
+{
+  "model": "core.irgroupacl",
+  "pk": 1,
+  "fields": {
+    "instance_resource": 18,
+    "group": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irgroupacl",
+  "pk": 2,
+  "fields": {
+    "instance_resource": 18,
+    "group": 7,
+    "instance_state": 7
   }
 },
 {
@@ -4132,6 +4715,159 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 85,
+  "fields": {
+    "instance_resource": 15,
+    "role": 6,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 86,
+  "fields": {
+    "instance_resource": 15,
+    "role": 6,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 87,
+  "fields": {
+    "instance_resource": 15,
+    "role": 6,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 88,
+  "fields": {
+    "instance_resource": 15,
+    "role": 6,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 89,
+  "fields": {
+    "instance_resource": 15,
+    "role": 6,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 90,
+  "fields": {
+    "instance_resource": 16,
+    "role": 6,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 91,
+  "fields": {
+    "instance_resource": 16,
+    "role": 6,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 92,
+  "fields": {
+    "instance_resource": 16,
+    "role": 6,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 93,
+  "fields": {
+    "instance_resource": 16,
+    "role": 6,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 94,
+  "fields": {
+    "instance_resource": 16,
+    "role": 6,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 95,
+  "fields": {
+    "instance_resource": 17,
+    "role": 6,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 96,
+  "fields": {
+    "instance_resource": 17,
+    "role": 6,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 97,
+  "fields": {
+    "instance_resource": 17,
+    "role": 6,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 98,
+  "fields": {
+    "instance_resource": 17,
+    "role": 6,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 99,
+  "fields": {
+    "instance_resource": 17,
+    "role": 6,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 100,
+  "fields": {
+    "instance_resource": 19,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 101,
+  "fields": {
+    "instance_resource": 19,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.mapping",
   "pk": 1,
   "fields": {
@@ -4145,6 +4881,14 @@
   "fields": {
     "circulation_type": 1,
     "name": "Mitteilung an die Gemeinde"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 2,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Mitteilung an den Kanton"
   }
 },
 {
@@ -4646,7 +5390,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -4660,6 +5404,19 @@
     "class_field": null,
     "hidden": 0,
     "sort": 3
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 7,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "\u00dcbersicht aktiver Dossiers",
+    "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5
   }
 },
 {
@@ -4703,8 +5460,48 @@
   }
 },
 {
+  "model": "core.rapilistinstancestate",
+  "pk": 10,
+  "fields": {
+    "resource": 7,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 11,
+  "fields": {
+    "resource": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 12,
+  "fields": {
+    "resource": 7,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 13,
+  "fields": {
+    "resource": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 14,
+  "fields": {
+    "resource": 7,
+    "instance_state": 8
+  }
+},
+{
   "model": "core.rapilistcirculationstate",
-  "pk": 9,
+  "pk": 19,
   "fields": {
     "resource": 6,
     "circulation_state": 1
@@ -4712,7 +5509,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 10,
+  "pk": 20,
   "fields": {
     "resource": 6,
     "circulation_state": 2
@@ -4720,15 +5517,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 11,
-  "fields": {
-    "resource": 6,
-    "circulation_state": 3
-  }
-},
-{
-  "model": "core.rapilistcirculationstate",
-  "pk": 12,
+  "pk": 21,
   "fields": {
     "resource": 6,
     "circulation_state": 4
@@ -4755,6 +5544,14 @@
   "pk": 5,
   "fields": {
     "resource": 5,
+    "circulation_type": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
+  "pk": 6,
+  "fields": {
+    "resource": 7,
     "circulation_type": 1
   }
 },
@@ -4796,6 +5593,14 @@
   "fields": {
     "resource": 6,
     "role": 5
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 8,
+  "fields": {
+    "resource": 7,
+    "role": 6
   }
 },
 {
@@ -5780,6 +6585,51 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 6,
+  "fields": {
+    "role": 6,
+    "service": null,
+    "name": "Baugesuchszentrale",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 7,
+  "fields": {
+    "role": 5,
+    "service": 7,
+    "name": "Baugesuchszentrale (Fachstelle)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 8,
+  "fields": {
+    "role": 5,
+    "service": 3,
+    "name": "Amt f\u00fcr Tests",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.grouplocation",
   "pk": 1,
   "fields": {
@@ -5817,6 +6667,558 @@
   "fields": {
     "group": 5,
     "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 6,
+  "fields": {
+    "group": 6,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 7,
+  "fields": {
+    "group": 6,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 8,
+  "fields": {
+    "group": 6,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 9,
+  "fields": {
+    "group": 6,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 10,
+  "fields": {
+    "group": 6,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 11,
+  "fields": {
+    "group": 6,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 12,
+  "fields": {
+    "group": 6,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 13,
+  "fields": {
+    "group": 6,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 14,
+  "fields": {
+    "group": 6,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 15,
+  "fields": {
+    "group": 6,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 16,
+  "fields": {
+    "group": 6,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 17,
+  "fields": {
+    "group": 6,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 18,
+  "fields": {
+    "group": 6,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 19,
+  "fields": {
+    "group": 6,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 20,
+  "fields": {
+    "group": 6,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 21,
+  "fields": {
+    "group": 6,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 22,
+  "fields": {
+    "group": 6,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 23,
+  "fields": {
+    "group": 6,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 24,
+  "fields": {
+    "group": 6,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 25,
+  "fields": {
+    "group": 6,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 26,
+  "fields": {
+    "group": 6,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 27,
+  "fields": {
+    "group": 6,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 28,
+  "fields": {
+    "group": 6,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 29,
+  "fields": {
+    "group": 6,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 30,
+  "fields": {
+    "group": 6,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 31,
+  "fields": {
+    "group": 6,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 32,
+  "fields": {
+    "group": 6,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 33,
+  "fields": {
+    "group": 6,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 34,
+  "fields": {
+    "group": 6,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 35,
+  "fields": {
+    "group": 6,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 36,
+  "fields": {
+    "group": 7,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 37,
+  "fields": {
+    "group": 7,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 38,
+  "fields": {
+    "group": 7,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 39,
+  "fields": {
+    "group": 7,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 40,
+  "fields": {
+    "group": 7,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 41,
+  "fields": {
+    "group": 7,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 42,
+  "fields": {
+    "group": 7,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 43,
+  "fields": {
+    "group": 7,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 44,
+  "fields": {
+    "group": 7,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 45,
+  "fields": {
+    "group": 7,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 46,
+  "fields": {
+    "group": 7,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 47,
+  "fields": {
+    "group": 7,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 48,
+  "fields": {
+    "group": 7,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 49,
+  "fields": {
+    "group": 7,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 50,
+  "fields": {
+    "group": 7,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 51,
+  "fields": {
+    "group": 7,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 52,
+  "fields": {
+    "group": 7,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 53,
+  "fields": {
+    "group": 7,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 54,
+  "fields": {
+    "group": 7,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 55,
+  "fields": {
+    "group": 7,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 56,
+  "fields": {
+    "group": 7,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 57,
+  "fields": {
+    "group": 7,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 58,
+  "fields": {
+    "group": 7,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 59,
+  "fields": {
+    "group": 7,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 60,
+  "fields": {
+    "group": 7,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 61,
+  "fields": {
+    "group": 7,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 62,
+  "fields": {
+    "group": 7,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 63,
+  "fields": {
+    "group": 7,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 64,
+  "fields": {
+    "group": 7,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 65,
+  "fields": {
+    "group": 7,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 66,
+  "fields": {
+    "group": 8,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 67,
+  "fields": {
+    "group": 8,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 68,
+  "fields": {
+    "group": 8,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 69,
+  "fields": {
+    "group": 8,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 70,
+  "fields": {
+    "group": 8,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 71,
+  "fields": {
+    "group": 8,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 72,
+  "fields": {
+    "group": 8,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 73,
+  "fields": {
+    "group": 8,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 74,
+  "fields": {
+    "group": 8,
+    "location": 4
   }
 },
 {
@@ -6310,6 +7712,14 @@
   }
 },
 {
+  "model": "user.role",
+  "pk": 6,
+  "fields": {
+    "role_parent": null,
+    "name": "Kanton"
+  }
+},
+{
   "model": "user.service",
   "pk": 3,
   "fields": {
@@ -6317,7 +7727,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Tests",
     "description": "Amt f\u00fcr Tests",
-    "sort": 0,
+    "sort": 2,
     "phone": null,
     "zip": null,
     "city": null,
@@ -6334,7 +7744,7 @@
     "service_parent": null,
     "name": "Geometer 1",
     "description": "Der erste Geometer im Kanton",
-    "sort": 0,
+    "sort": 1,
     "phone": null,
     "zip": null,
     "city": null,
@@ -6351,7 +7761,7 @@
     "service_parent": null,
     "name": "Geometer 2",
     "description": "Test",
-    "sort": 1,
+    "sort": 4,
     "phone": null,
     "zip": null,
     "city": null,
@@ -6368,6 +7778,23 @@
     "service_parent": null,
     "name": "Gemeinde Schwyz",
     "description": "Gemeinde Schwyz",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 7,
+  "fields": {
+    "service_group": 4,
+    "service_parent": null,
+    "name": "Baugesuchszentrale",
+    "description": "BGZ Kanton Schwyz",
     "sort": 0,
     "phone": null,
     "zip": null,
@@ -6396,6 +7823,13 @@
   "pk": 3,
   "fields": {
     "name": "Gemeinde"
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 4,
+  "fields": {
+    "name": "Baugesuchszentrale"
   }
 }
 ]
