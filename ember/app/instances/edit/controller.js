@@ -1,9 +1,18 @@
 import Controller from '@ember/controller'
 import EmberObject, { computed, get, getWithDefault } from '@ember/object'
+import { gt } from '@ember/object/computed'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
 import { all } from 'rsvp'
 import { getOwner } from '@ember/application'
+
+const computedTask = (taskName, ...keys) => {
+  return computed(...keys, function() {
+    let task = this.get(taskName)
+    task.perform()
+    return task
+  })
+}
 
 const Module = EmberObject.extend({
   questionStore: service(),
@@ -89,8 +98,9 @@ export default Controller.extend({
   router: service(),
   ajax: service(),
 
-  modules: computed('model.instance.form.name', async function() {
-    let { forms, modules } = await this.get('questionStore.config')
+  modules: computedTask('_modules', 'model.instance.form.name'),
+  _modules: task(function*() {
+    let { forms, modules } = yield this.get('questionStore.config')
 
     let usedModules = getWithDefault(
       forms,
@@ -126,29 +136,38 @@ export default Controller.extend({
       })
   }),
 
-  navigation: computed('modules.[]', async function() {
-    let modules = await this.get('modules')
+  navigation: computed('modules.lastSuccessful.value.[]', function() {
+    return this.getWithDefault('modules.lastSuccessful.value', []).reduce(
+      (nav, mod) => {
+        if (mod.get('parent')) {
+          let parent = nav.find(n => n.get('name') === mod.get('parent'))
 
-    return modules.reduce((nav, mod) => {
-      if (mod.get('parent')) {
-        let parent = nav.find(n => n.get('name') === mod.get('parent'))
+          parent.set('submodules', [
+            ...parent
+              .get('submodules')
+              .filter(sub => sub.get('name') !== mod.get('name')),
+            mod
+          ])
+        } else {
+          nav.push(mod)
+        }
 
-        parent.set('submodules', [...parent.get('submodules'), mod])
-      } else {
-        nav.push(mod)
-      }
-
-      return nav
-    }, [])
+        return nav
+      },
+      []
+    )
   }),
 
-  links: computed('modules.[]', async function() {
-    let modules = await this.get('modules')
-
+  links: computedTask(
+    '_links',
+    'modules.lastSuccessful.value.[]',
+    'questionStore._store.@each.{value,isNew,hidden}'
+  ),
+  _links: task(function*() {
     return [
       'instances.edit.index',
-      ...(await all(
-        modules.map(async m => {
+      ...(yield all(
+        this.getWithDefault('modules.lastSuccessful.value', []).map(async m => {
           return (await m.get('state')) ? m.get('link') : null
         })
       )).filter(Boolean),
@@ -159,31 +178,30 @@ export default Controller.extend({
   }),
 
   currentIndex: computed(
-    'links.[]',
+    'links.lastSuccessful.value.[]',
     'router.currentRouteName',
-    async function() {
-      let links = await this.get('links')
-
-      return links.indexOf(
-        this.get('router.currentRouteName').replace(/\.index$/, '')
+    function() {
+      return this.getWithDefault('links.lastSuccessful.value', []).indexOf(
+        this.get('router.currentRouteName')
       )
     }
   ),
 
-  hasPrev: computed('currentIndex', async function() {
-    return (await this.get('currentIndex')) > 0
-  }),
-
-  hasNext: computed('links.length', 'currentIndex', async function() {
-    return (
-      (await this.get('currentIndex')) <
-      (await this.get('links')).get('length') - 1
-    )
-  }),
+  hasPrev: gt('currentIndex', 0),
+  hasNext: computed(
+    'links.lastSuccessful.value.length',
+    'currentIndex.lastSuccessful.value',
+    function() {
+      return (
+        this.get('currentIndex') <
+        this.getWithDefault('links.lastSuccessful.value.length', 0) - 1
+      )
+    }
+  ),
 
   prev: task(function*() {
-    let links = yield this.get('links')
-    let i = yield this.get('currentIndex')
+    let links = this.get('links.lastSuccessful.value')
+    let i = this.get('currentIndex')
 
     yield this.transitionToRoute(
       get(links, (i + links.length - 1) % links.length)
@@ -191,8 +209,8 @@ export default Controller.extend({
   }),
 
   next: task(function*() {
-    let links = yield this.get('links')
-    let i = yield this.get('currentIndex')
+    let links = this.get('links.lastSuccessful.value')
+    let i = this.get('currentIndex')
 
     yield this.transitionToRoute(get(links, (i + 1) % links.length))
   })

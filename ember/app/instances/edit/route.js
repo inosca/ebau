@@ -7,7 +7,7 @@ export default Route.extend({
   async model({ instance_id: id }) {
     let response = await this.get('ajax').request(`/api/v1/instances/${id}`, {
       data: {
-        include: 'form,instance_state'
+        include: 'form,instance_state,location'
       },
       headers: {
         Accept: 'application/vnd.api+json'
