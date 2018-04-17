@@ -17,15 +17,12 @@ ipdb==0.11
 isort==4.3.4
 pytest==3.5.0
 pytest-cov==2.5.1
-
-# once newer version than 3.1.2 has been released
-# pytest-django can be imported through pypi again
-git+https://github.com/pytest-dev/pytest-django@927d6c1
+pytest-django==3.2.1
 
 pytest-env==0.6.2
 # once following PR is released move back pypi package
 # https://github.com/pytest-dev/pytest-factoryboy/pull/62
 git+https://github.com/adfinis-forks/pytest-factoryboy.git@fix_deprecation_warnings
 pytest-freezegun==0.2.0
-pytest-mock==1.7.1
+pytest-mock==1.9.0
 pytest-randomly==1.2.3
