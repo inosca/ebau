@@ -27,8 +27,8 @@
               {{/each}}
               {{#unless readonly}}
                 <td class="uk-text-right">
-                  <button data-test-edit-row class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
-                  <button data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+                  <button type="button" data-test-edit-row class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
+                  <button type="button" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
                 </td>
               {{/unless}}
             </tr>
