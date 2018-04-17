@@ -200,6 +200,10 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen-welche',
               value='Test')
     add_field(name='grundeigentumerschaft', value=[{'name': 'Name'}])
+    add_field(
+        name='gwr',
+        value=[{'name': 'Name', 'wohnungen': [{'stockwerk': '1OG'}]}]
+    )
     add_field(name='art-der-anlage', value=['Solaranlage', 'Antennen'])
     add_field(name='art-der-befestigten-flache', value='Lagerplatz')
 
