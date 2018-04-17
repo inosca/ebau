@@ -11,7 +11,7 @@ git+https://github.com/adfinis-forks/django-rest-framework-json-api@json_api_fie
 
 docx-mailmerge==0.4.0
 Jinja2==2.10
-Pillow==5.0.0
+Pillow==5.1.0
 pyexcel-webio==0.1.4
 pyexcel-io==0.5.6
 django-excel==0.0.10
