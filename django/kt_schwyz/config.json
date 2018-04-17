@@ -538,6 +538,62 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 38,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 18,
+    "name": "instance state to redac",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich abgeschlossen",
+    "error_message": "Zirkulation konnte nicht abgeschlossen werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 39,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 19,
+    "name": "instance state to done",
+    "description": null,
+    "success_message": "Baubewilligung wurde erolgreich erteilt",
+    "error_message": "Baubewilligung konnte nicht erteilt werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 40,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 20,
+    "name": "instance state to rej",
+    "description": null,
+    "success_message": "Dossier erfolgreich abgelehnt",
+    "error_message": "Dossier konnte nicht abgelehnt werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 41,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 21,
+    "name": "instance state to arch",
+    "description": null,
+    "success_message": "Dossier erfolgreich archiviert",
+    "error_message": "Dossier konnte nicht archiviert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -567,6 +623,38 @@
   "fields": {
     "current_instance_state": 3,
     "next_instance_state": 5
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 38,
+  "fields": {
+    "current_instance_state": 5,
+    "next_instance_state": 6
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 39,
+  "fields": {
+    "current_instance_state": 6,
+    "next_instance_state": 8
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 40,
+  "fields": {
+    "current_instance_state": null,
+    "next_instance_state": 9
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 41,
+  "fields": {
+    "current_instance_state": null,
+    "next_instance_state": 10
   }
 },
 {
@@ -1838,6 +1926,87 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 26,
+  "fields": {
+    "button": 18,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 28,
+  "fields": {
+    "button": 19,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 29,
+  "fields": {
+    "button": 20,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 30,
+  "fields": {
+    "button": 20,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 31,
+  "fields": {
+    "button": 20,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 32,
+  "fields": {
+    "button": 20,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 33,
+  "fields": {
+    "button": 20,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 34,
+  "fields": {
+    "button": 21,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 35,
+  "fields": {
+    "button": 21,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -2055,6 +2224,54 @@
     "class_field": "nfd-complete",
     "hidden": 0,
     "sort": 3
+  }
+},
+{
+  "model": "core.button",
+  "pk": 18,
+  "fields": {
+    "instance_resource": 7,
+    "name": "Zirkulation abschliessen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.button",
+  "pk": 19,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Baubewilligung erteilen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.button",
+  "pk": 20,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Dossier ablehnen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 4
+  }
+},
+{
+  "model": "core.button",
+  "pk": 21,
+  "fields": {
+    "instance_resource": 3,
+    "name": "Archivieren",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5
   }
 },
 {
@@ -5501,7 +5718,15 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 9,
+  "pk": 17,
+  "fields": {
+    "resource": 5,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 18,
   "fields": {
     "resource": 5,
     "instance_state": 8
@@ -5509,7 +5734,15 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 10,
+  "pk": 19,
+  "fields": {
+    "resource": 5,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 20,
   "fields": {
     "resource": 7,
     "instance_state": 3
@@ -5517,7 +5750,7 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 11,
+  "pk": 21,
   "fields": {
     "resource": 7,
     "instance_state": 5
@@ -5525,7 +5758,7 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 12,
+  "pk": 22,
   "fields": {
     "resource": 7,
     "instance_state": 6
@@ -5533,7 +5766,7 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 13,
+  "pk": 23,
   "fields": {
     "resource": 7,
     "instance_state": 7
@@ -5541,10 +5774,18 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 14,
+  "pk": 24,
   "fields": {
     "resource": 7,
     "instance_state": 8
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 25,
+  "fields": {
+    "resource": 7,
+    "instance_state": 9
   }
 },
 {
@@ -5589,7 +5830,7 @@
 },
 {
   "model": "core.rapilistcirculationtype",
-  "pk": 5,
+  "pk": 8,
   "fields": {
     "resource": 5,
     "circulation_type": 1
@@ -5597,7 +5838,7 @@
 },
 {
   "model": "core.rapilistcirculationtype",
-  "pk": 6,
+  "pk": 9,
   "fields": {
     "resource": 7,
     "circulation_type": 1
@@ -6509,7 +6750,7 @@
   "fields": {
     "name": "redac",
     "sort": 5,
-    "description": null
+    "description": "Bauentscheid ausstehend"
   }
 },
 {
