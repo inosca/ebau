@@ -21,6 +21,7 @@
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
         "hohe-der-anlage",
         "grundeigentumerschaft",
+        "gwr",
         "art-der-befestigten-flache"
       ]
     }
@@ -127,6 +128,47 @@
             "type": "text",
             "required": true,
             "config": {}
+          }
+        ]
+      }
+    },
+    "gwr": {
+      "label": "Gwr:",
+      "type": "gwr",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "wohnungen",
+            "label": "Wohnungsliste",
+            "type": "table",
+            "required": true,
+            "config": {
+              "columns": [
+                {
+                  "name": "stockwerk",
+                  "label": "Stockwerk",
+                  "type": "text",
+                  "required": true,
+                  "config": {}
+                }
+              ]
+            }
           }
         ]
       }
