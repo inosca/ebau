@@ -77,20 +77,6 @@
 },
 {
   "model": "core.action",
-  "pk": 3,
-  "fields": {
-    "available_action": "formtransition",
-    "button": 2,
-    "name": "subm zu rej",
-    "description": "Eingereicht zu Abgelehnt",
-    "success_message": "Das Dossier wurde abgelehnt",
-    "error_message": "Das Dossier konnte nicht abgelehnt werden",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
   "pk": 4,
   "fields": {
     "available_action": "formtransition",
@@ -627,14 +613,6 @@
   "fields": {
     "current_instance_state": 2,
     "next_instance_state": 3
-  }
-},
-{
-  "model": "core.aformtransition",
-  "pk": 3,
-  "fields": {
-    "current_instance_state": 2,
-    "next_instance_state": 9
   }
 },
 {
@@ -1771,15 +1749,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 2,
-  "fields": {
-    "button": 2,
-    "role": 3,
-    "instance_state": 2
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 3,
   "fields": {
     "button": 3,
@@ -2104,18 +2073,6 @@
     "class_field": null,
     "hidden": 0,
     "sort": 0
-  }
-},
-{
-  "model": "core.button",
-  "pk": 2,
-  "fields": {
-    "instance_resource": 3,
-    "name": "Dossier abweisen",
-    "description": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 1
   }
 },
 {
