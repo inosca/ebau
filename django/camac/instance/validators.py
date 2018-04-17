@@ -88,6 +88,10 @@ class FormDataValidator(object):
                 }
             )
 
+    def _validate_question_gwr(self, question, question_def, value):
+        # TODO: might be better generic table with a gwr config option
+        self._validate_question_table(question, question_def, value)
+
     def _validate_question_table(self, question, question_def, value):
         columns = question_def['config']['columns']
         for row in list(value or [{}]):

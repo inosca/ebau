@@ -3,6 +3,8 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from .. import models
+
 
 @pytest.mark.parametrize("role__name,instance__user,size", [
     ('Applicant', LazyFixture('admin_user'), 1),
@@ -61,7 +63,7 @@ def test_form_field_create(admin_client, instance, status_code):
             'id': None,
             'attributes': {
                 'name': 'Test',
-                'value': ['Test1', 'Test2']
+                'value': {'test-name': 'test-value'},
             },
             'relationships': {
                 'instance': {
@@ -76,6 +78,13 @@ def test_form_field_create(admin_client, instance, status_code):
 
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+
+        field = models.FormField.objects.get(pk=json['data']['id'])
+        assert field.value == json['data']['attributes']['value'], (
+            'json value on database is not equal to what is stored in database'
+        )
 
 
 @pytest.mark.parametrize("instance_state__name", [
