@@ -2401,7 +2401,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 5,
+    "sort": 3,
     "form_group": 1
   }
 },
@@ -2411,7 +2411,7 @@
   "fields": {
     "available_instance_resource": "circulation",
     "resource": 1,
-    "name": "Dossier abschliessen",
+    "name": "Stellungnahmen",
     "description": null,
     "template": null,
     "class_field": null,
@@ -2552,6 +2552,21 @@
     "class_field": null,
     "hidden": 0,
     "sort": 4,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 20,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "resource": 6,
+    "name": "Stellungnahmen",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 6,
     "form_group": 1
   }
 },
@@ -3943,6 +3958,21 @@
     "show_all_children": 1,
     "read_notice_template": null,
     "pdf_class": null,
+    "service_to_be_interpreted": "[SERVICE_ID]"
+  }
+},
+{
+  "model": "core.ircirculation",
+  "pk": 20,
+  "fields": {
+    "circulation_type": 2,
+    "service": 7,
+    "draft_circulation_answer": null,
+    "show_notice": 2,
+    "show_history": 0,
+    "show_all_children": 0,
+    "read_notice_template": null,
+    "pdf_class": null,
     "service_to_be_interpreted": null
   }
 },
@@ -4089,6 +4119,24 @@
   "pk": 2,
   "fields": {
     "instance_resource": 18,
+    "group": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irgroupacl",
+  "pk": 3,
+  "fields": {
+    "instance_resource": 20,
+    "group": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irgroupacl",
+  "pk": 4,
+  "fields": {
+    "instance_resource": 20,
     "group": 7,
     "instance_state": 7
   }
