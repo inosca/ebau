@@ -15,46 +15,6 @@ class FormGroupFactory(DjangoModelFactory):
         model = models.FormGroup
 
 
-class AvailableResourceFactory(DjangoModelFactory):
-    available_resource_id = Faker('name')
-    module_name = Faker('name')
-    controller_name = Faker('name')
-
-    class Meta:
-        model = models.AvailableResource
-
-
-class ResourceFactory(DjangoModelFactory):
-    available_resource = SubFactory(AvailableResourceFactory)
-    name = Faker('name')
-    hidden = 0
-    sort = 0
-
-    class Meta:
-        model = models.Resource
-
-
-class AvailableInstanceResourceFactory(DjangoModelFactory):
-    available_instance_resource_id = Faker('name')
-    module_name = Faker('name')
-    controller_name = Faker('name')
-
-    class Meta:
-        model = models.AvailableInstanceResource
-
-
-class InstanceResourceFactory(DjangoModelFactory):
-    available_instance_resource = SubFactory(AvailableInstanceResourceFactory)
-    resource = SubFactory(ResourceFactory)
-    name = Faker('name')
-    hidden = 0
-    sort = 0
-    form_group = SubFactory(FormGroupFactory)
-
-    class Meta:
-        model = models.InstanceResource
-
-
 class CirculationStateFactory(DjangoModelFactory):
     name = Faker('name')
     sort = 0
@@ -63,29 +23,9 @@ class CirculationStateFactory(DjangoModelFactory):
         model = models.CirculationState
 
 
-class CirculationTypeFactory(DjangoModelFactory):
-    name = Faker('name')
-    parent_specific_activations = 1
-
-    class Meta:
-        model = models.CirculationType
-
-
-class IrEditcirculationFactory(DjangoModelFactory):
-    instance_resource = SubFactory(InstanceResourceFactory)
-    circulation_type = SubFactory(CirculationTypeFactory)
-    show_notice = 0
-    single_circulation = 1
-    inherit_notices = 0
-    display_first_circulation = 0
-
-    class Meta:
-        model = models.IrEditcirculation
-
-
 class CirculationFactory(DjangoModelFactory):
     name = Faker('name')
-    instance_resource = SubFactory(IrEditcirculationFactory)
+    instance_resource_id = 0
     instance = SubFactory(InstanceFactory)
 
     class Meta:
