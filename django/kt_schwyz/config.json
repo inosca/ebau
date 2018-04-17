@@ -548,7 +548,7 @@
     "success_message": "Zirkulation erfolgreich abgeschlossen",
     "error_message": "Zirkulation konnte nicht abgeschlossen werden",
     "execute_always": 0,
-    "sort": 0
+    "sort": 1
   }
 },
 {
@@ -589,6 +589,34 @@
     "description": null,
     "success_message": "Dossier erfolgreich archiviert",
     "error_message": "Dossier konnte nicht archiviert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 42,
+  "fields": {
+    "available_action": "php",
+    "button": 18,
+    "name": "circ state to DONE",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 43,
+  "fields": {
+    "available_action": "php",
+    "button": 22,
+    "name": "circ state to DONE",
+    "description": null,
+    "success_message": "Zirkulation erfolgreich abgeschlossen",
+    "error_message": "Zirkulation konnte nicht abgeschlossen werden",
     "execute_always": 0,
     "sort": 0
   }
@@ -1184,6 +1212,20 @@
   }
 },
 {
+  "model": "core.aphp",
+  "pk": 42,
+  "fields": {
+    "php_class": "CircEnd"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 43,
+  "fields": {
+    "php_class": "CircEnd"
+  }
+},
+{
   "model": "core.araction",
   "pk": 1,
   "fields": {
@@ -1602,6 +1644,24 @@
   "pk": 4,
   "fields": {
     "button": 12,
+    "group": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.bgroupacl",
+  "pk": 5,
+  "fields": {
+    "button": 22,
+    "group": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.bgroupacl",
+  "pk": 6,
+  "fields": {
+    "button": 22,
     "group": 7,
     "instance_state": 7
   }
@@ -2275,6 +2335,18 @@
   }
 },
 {
+  "model": "core.button",
+  "pk": 22,
+  "fields": {
+    "instance_resource": 18,
+    "name": "Zirkulation abschliessen",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
   "model": "core.chapter",
   "pk": 1,
   "fields": {
@@ -2409,6 +2481,14 @@
   "fields": {
     "name": "NFD",
     "sort": 3
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 5,
+  "fields": {
+    "name": "DONE",
+    "sort": 4
   }
 },
 {
@@ -2779,7 +2859,7 @@
     "available_instance_resource": "circulation",
     "resource": 6,
     "name": "Stellungnahmen",
-    "description": null,
+    "description": "Stellungnahmen einer BGZ Zirkulation",
     "template": null,
     "class_field": null,
     "hidden": 0,
