@@ -3,15 +3,15 @@ import os
 import environ
 
 env = environ.Env()
-django_root = environ.Path(__file__) - 2
+ROOT_DIR = environ.Path(__file__) - 2
 
-ENV_FILE = env.str('DJANGO_ENV_FILE', default=django_root('.env'))
+ENV_FILE = env.str('DJANGO_ENV_FILE', default=ROOT_DIR('.env'))
 if os.path.exists(ENV_FILE):
     environ.Env.read_env(ENV_FILE)
 
 ENV = env.str('APPLICATION_ENV')
 APPLICATION_NAME = env.str('APPLICATION')
-APPLICATION_DIR = django_root.path(APPLICATION_NAME)
+APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
 
 
 def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
@@ -102,7 +102,7 @@ DOWNLOADVIEW_BACKEND = env.str(
 DOWNLOADVIEW_RULES = env.list('DJANGO_DOWNLOADVIEW_RULES', default=default([]))
 
 MEDIA_ROOT = env.str(
-    'DJANGO_MEDIA_ROOT', default=default(django_root('media'))
+    'DJANGO_MEDIA_ROOT', default=default(ROOT_DIR('media'))
 )
 
 DEFAULT_FILE_STORAGE = env.str(
