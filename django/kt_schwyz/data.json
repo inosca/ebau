@@ -1,0 +1,652 @@
+[
+{
+  "model": "core.activation",
+  "pk": 1,
+  "fields": {
+    "circulation": 1,
+    "service": 7,
+    "service_parent": 6,
+    "circulation_state": 2,
+    "user": 1,
+    "circulation_answer": 2,
+    "start_date": "2018-04-17T15:21:17Z",
+    "deadline_date": "2018-05-08T21:59:00Z",
+    "suspension_date": null,
+    "end_date": "2018-04-17T15:24:57Z",
+    "version": 1,
+    "reason": "",
+    "activation_parent": null,
+    "email_sent": 0
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 1,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "i",
+    "data": "{\"CIRCULATION_ID\":1,\"SERVICE_ID\":7,\"SERVICE_PARENT_ID\":6,\"ACTIVATION_PARENT_ID\":null,\"CIRCULATION_STATE_ID\":\"3\",\"USER_ID\":null,\"CIRCULATION_ANSWER_ID\":null,\"START_DATE\":\"2018-04-17 17:21:17+02:00\",\"DEADLINE_DATE\":\"2018-05-08 23:59:00+02:00\",\"SUSPENSION_DATE\":null,\"END_DATE\":null,\"VERSION\":1,\"REASON\":\"\",\"EMAIL_SENT\":0}",
+    "modification_date": "2018-04-17T15:21:17Z"
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 2,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 23:59:00+02:00\"}",
+    "modification_date": "2018-04-17T15:21:25Z"
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 3,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"CIRCULATION_STATE_ID\":1,\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 21:59:00+00:00\"}",
+    "modification_date": "2018-04-17T15:21:25Z"
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 4,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"USER_ID\":\"1\",\"CIRCULATION_ANSWER_ID\":\"2\",\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 21:59:00+00:00\"}",
+    "modification_date": "2018-04-17T15:24:55Z"
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 5,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 21:59:00+00:00\"}",
+    "modification_date": "2018-04-17T15:24:57Z"
+  }
+},
+{
+  "model": "core.activationlog",
+  "pk": 6,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"CIRCULATION_STATE_ID\":2,\"END_DATE\":\"2018-04-17 17:24:57+02:00\"}",
+    "modification_date": "2018-04-17T15:24:57Z"
+  }
+},
+{
+  "model": "core.circulation",
+  "pk": 1,
+  "fields": {
+    "instance_resource_id": 7,
+    "instance": 3,
+    "name": "Zirkulation der Gemeinde"
+  }
+},
+{
+  "model": "core.circulation",
+  "pk": 2,
+  "fields": {
+    "instance_resource_id": 18,
+    "instance": 3,
+    "name": "Zirkulation des Kantons"
+  }
+},
+{
+  "model": "core.circulationlog",
+  "pk": 1,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "i",
+    "data": "{\"INSTANCE_RESOURCE_ID\":7,\"INSTANCE_ID\":3,\"NAME\":\"Zirkulation der Gemeinde\"}",
+    "modification_date": "2018-04-17T15:21:02Z"
+  }
+},
+{
+  "model": "core.circulationlog",
+  "pk": 2,
+  "fields": {
+    "id": 2,
+    "user_id": 1,
+    "action": "i",
+    "data": "{\"INSTANCE_RESOURCE_ID\":18,\"INSTANCE_ID\":3,\"NAME\":\"Zirkulation des Kantons\"}",
+    "modification_date": "2018-04-17T15:24:21Z"
+  }
+},
+{
+  "model": "core.instancelog",
+  "pk": 1,
+  "fields": {
+    "modification_date": "2018-04-17T15:20:46Z",
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"INSTANCE_STATE_ID\":3,\"PREVIOUS_INSTANCE_STATE_ID\":2,\"MODIFICATION_DATE\":\"2018-04-17 17:20:46+02:00\"}",
+    "id": 3
+  }
+},
+{
+  "model": "core.instancelog",
+  "pk": 2,
+  "fields": {
+    "modification_date": "2018-04-17T15:21:25Z",
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"INSTANCE_STATE_ID\":5,\"PREVIOUS_INSTANCE_STATE_ID\":3,\"MODIFICATION_DATE\":\"2018-04-17 17:21:25+02:00\"}",
+    "id": 3
+  }
+},
+{
+  "model": "core.notice",
+  "pk": 1,
+  "fields": {
+    "notice_type": 1,
+    "activation": 1,
+    "content": "Alles bestens"
+  }
+},
+{
+  "model": "core.noticelog",
+  "pk": 1,
+  "fields": {
+    "modification_date": "2018-04-17T15:24:55Z",
+    "user_id": 1,
+    "action": "i",
+    "data": "{\"NOTICE_TYPE_ID\":1,\"ACTIVATION_ID\":1,\"CONTENT\":\"Alles bestens\"}",
+    "id1": 1,
+    "field1": "NOTICE_TYPE_ID",
+    "id2": 1,
+    "field2": "ACTIVATION_ID"
+  }
+},
+{
+  "model": "core.workflowentry",
+  "pk": 1,
+  "fields": {
+    "workflow_date": "2018-04-17T15:20:46Z",
+    "instance": 3,
+    "workflow_item": 14,
+    "group": 1.0
+  }
+},
+{
+  "model": "core.workflowentry",
+  "pk": 2,
+  "fields": {
+    "workflow_date": "2018-04-17T15:21:25Z",
+    "instance": 3,
+    "workflow_item": 44,
+    "group": 1.0
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 1,
+  "fields": {
+    "instance_state": 1,
+    "form": 1,
+    "user": 1,
+    "group": 4,
+    "creation_date": "2018-04-17T07:31:56.609Z",
+    "modification_date": "2018-04-17T07:31:56.609Z",
+    "previous_instance_state": 1,
+    "identifier": null,
+    "location": null
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 2,
+  "fields": {
+    "instance_state": 1,
+    "form": 1,
+    "user": 1,
+    "group": 4,
+    "creation_date": "2018-04-17T08:41:53.641Z",
+    "modification_date": "2018-04-17T08:41:53.641Z",
+    "previous_instance_state": 1,
+    "identifier": null,
+    "location": null
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 3,
+  "fields": {
+    "instance_state": 5,
+    "form": 1,
+    "user": 3,
+    "group": 4,
+    "creation_date": "2018-04-17T08:51:51.022Z",
+    "modification_date": "2018-04-17T15:21:25Z",
+    "previous_instance_state": 3,
+    "identifier": "72-18-001",
+    "location": 26
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 1,
+  "fields": {
+    "instance": 1,
+    "name": "grundeigentumerschaft",
+    "value": [
+      {
+        "ort": "3360",
+        "name": "Test",
+        "uuid": "15c22007-a3de-4507-8506-829d6ab0b65f",
+        "strasse": "Test"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 2,
+  "fields": {
+    "instance": 1,
+    "name": "bauherrschaft",
+    "value": [
+      {
+        "ort": "fasd",
+        "name": "fsd",
+        "uuid": "c0b4efb6-ac41-4a96-9f2b-13ebb32a7a84",
+        "strasse": "fasd"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 3,
+  "fields": {
+    "instance": 1,
+    "name": "projektverfasser-planer",
+    "value": [
+      {
+        "ort": "fsd",
+        "name": "fds",
+        "uuid": "40360f19-7427-4f7d-bb34-0d0a4090fe19",
+        "strasse": "fsd"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 4,
+  "fields": {
+    "instance": 3,
+    "name": "parzelle",
+    "value": 1512
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 5,
+  "fields": {
+    "instance": 3,
+    "name": "kategorie-des-vorhabens",
+    "value": [
+      "Baute(n)"
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 6,
+  "fields": {
+    "instance": 3,
+    "name": "art-der-nutzung",
+    "value": [
+      "Wohnen"
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 7,
+  "fields": {
+    "instance": 3,
+    "name": "vorhaben-mit-baute",
+    "value": [
+      "Neubau"
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 8,
+  "fields": {
+    "instance": 3,
+    "name": "tangiert-vorhaben-strasse",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 9,
+  "fields": {
+    "instance": 3,
+    "name": "pfahlfundation-vorgesehen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 10,
+  "fields": {
+    "instance": 3,
+    "name": "baugrubenumschliessung-vorgesehen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 11,
+  "fields": {
+    "instance": 3,
+    "name": "temporare-grundwasserabsenkung-notig",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 12,
+  "fields": {
+    "instance": 3,
+    "name": "anlagen-mit-erheblichen-schadstoffemissionen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 13,
+  "fields": {
+    "instance": 3,
+    "name": "anlagen-mit-erheblichen-strahlungsemissionen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 14,
+  "fields": {
+    "instance": 3,
+    "name": "anlagen-mit-erheblichen-larmemissionen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 15,
+  "fields": {
+    "instance": 3,
+    "name": "larmbelastetes-gebiet",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 16,
+  "fields": {
+    "instance": 3,
+    "name": "aussenbeleuchtung",
+    "value": "Ja"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 17,
+  "fields": {
+    "instance": 3,
+    "name": "wassergefahrdende-stoffe",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 18,
+  "fields": {
+    "instance": 3,
+    "name": "brandschutztechnisch-gefahrliche-stoffe",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 19,
+  "fields": {
+    "instance": 3,
+    "name": "bodenbelastungen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 20,
+  "fields": {
+    "instance": 3,
+    "name": "boden-5000m2",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 21,
+  "fields": {
+    "instance": 3,
+    "name": "ordendliche-mindestabstande",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 22,
+  "fields": {
+    "instance": 3,
+    "name": "auswirkungen-auf-arbeitnehmer",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 23,
+  "fields": {
+    "instance": 3,
+    "name": "200m3-bauabfalle",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 24,
+  "fields": {
+    "instance": 3,
+    "name": "alarmierungseinrichtung-tangiert",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 25,
+  "fields": {
+    "instance": 3,
+    "name": "lebensmittel-umgehen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 26,
+  "fields": {
+    "instance": 3,
+    "name": "trinkwasser-abgeben",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 27,
+  "fields": {
+    "instance": 3,
+    "name": "offentlich-duschanlage-oder-bad",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 28,
+  "fields": {
+    "instance": 3,
+    "name": "gewerbliche-nutzflachen",
+    "value": "Nein"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 29,
+  "fields": {
+    "instance": 3,
+    "name": "gwr",
+    "value": [
+      {
+        "uuid": "d0de1837-bfcc-4c9c-af87-90ec47382859",
+        "adresse": "Geb\u00e4ude Strasse",
+        "vers-nr": "3",
+        "leistung": 2000,
+        "kategorie": "Einfamilienhaus freistehend",
+        "wohnungen": [
+          {
+            "lage": "Osten",
+            "uuid": "c33a3b1f-025f-4aa2-bcb2-2a8757bf0ab2",
+            "flache": 200,
+            "zimmer": 7,
+            "kuchenart": "K\u00fcche (min. 4m\u00b2)",
+            "stockwerk": "5",
+            "maisonette": "Ja",
+            "eingangs-nr": "5"
+          }
+        ],
+        "heizungsart": "Zentralheizung f\u00fcr das Geb\u00e4ude",
+        "kataster-nr": "3",
+        "energietrager-heizung": "W\u00e4rmepumpe",
+        "energietrager-warmwasser": "W\u00e4rmepumpe"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 30,
+  "fields": {
+    "instance": 3,
+    "name": "geometer",
+    "value": "Trigonet AG (Stans)"
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 31,
+  "fields": {
+    "instance": 3,
+    "name": "baukosten",
+    "value": 500000
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 32,
+  "fields": {
+    "instance": 3,
+    "name": "grundeigentumerschaft",
+    "value": [
+      {
+        "ort": "0000 Eigent\u00fcmer Ort",
+        "name": "Eigent\u00fcmer Nachname, Vorname",
+        "uuid": "f09cd9c8-4020-4489-a398-dd4f96507823",
+        "strasse": "Eigent\u00fcmer Strasse"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 33,
+  "fields": {
+    "instance": 3,
+    "name": "bauherrschaft",
+    "value": [
+      {
+        "ort": "0000 Bauherschaft Ort",
+        "name": "Bauherschaft, Bauherschaft Vorname",
+        "uuid": "15e54e5b-57ff-4006-a3ca-91ee386070e8",
+        "strasse": "Bauherrschaft Strasse 5"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 34,
+  "fields": {
+    "instance": 3,
+    "name": "projektverfasser-planer",
+    "value": [
+      {
+        "ort": "0000 Planer Ort",
+        "name": "Planer Name, Planer Vorname",
+        "uuid": "23356b1f-27fe-4e2b-80aa-3b293f6e98ad",
+        "strasse": "Planer Strasse 3"
+      }
+    ]
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 35,
+  "fields": {
+    "instance": 3,
+    "name": "gebaudevolumen",
+    "value": 200
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1000,
+  "fields": {
+    "user": 1,
+    "group": 3,
+    "default_group": 0
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1001,
+  "fields": {
+    "user": 1,
+    "group": 8,
+    "default_group": 0
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1002,
+  "fields": {
+    "user": 1,
+    "group": 7,
+    "default_group": 0
+  }
+}
+]
