@@ -4,9 +4,10 @@ django-environ==0.4.4
 django-filter==1.1.0
 djangorestframework==3.7.7
 
-# use upstream again release once following PR is released:
+# use upstream again release once following PRs are released:
 # https://github.com/django-json-api/django-rest-framework-json-api/pull/415
-git+https://github.com/adfinis-forks/django-rest-framework-json-api@related_field_get_queryset
+# https://github.com/django-json-api/django-rest-framework-json-api/pull/420
+git+https://github.com/adfinis-forks/django-rest-framework-json-api@json_api_field_names
 
 docx-mailmerge==0.4.0
 Jinja2==2.10
