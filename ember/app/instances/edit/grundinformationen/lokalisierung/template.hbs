@@ -1,5 +1,9 @@
+{{#camac-form instance=model.instance meta=model.meta as |form|}}
+  {{form.input 'bezeichnung'}}
+{{/camac-form}}
+
 {{camac-property-selector
   readonly  = model.instance.identifier
-  selected  = (await selected)
+  selected  = selected.lastSuccessful.value
   on-submit = (perform saveLocation)
 }}

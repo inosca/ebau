@@ -1,5 +1,6 @@
 {{yield (hash
-  input = (component 'camac-input' instance=instance readonly=(not (contains 'form' meta.editable)))
-  table = (component 'camac-table' instance=instance readonly=(not (contains 'form' meta.editable)))
-  gwr   = (component 'camac-gwr' instance=instance readonly=(not (contains 'form' meta.editable)))
+  input    = (component 'camac-input' instance=instance readonly=(not (contains 'form' meta.editable)))
+  table    = (component 'camac-table' instance=instance readonly=(not (contains 'form' meta.editable)))
+  gwr      = (component 'camac-gwr' instance=instance readonly=(not (contains 'form' meta.editable)))
+  document = (component 'camac-document' instance=instance readonly=(not (contains 'document' meta.editable)))
 )}}

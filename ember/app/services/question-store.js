@@ -16,7 +16,12 @@ const Question = EmberObject.extend({
   field: null,
   model: null,
 
-  value: reads('model.value'),
+  value: computed('model.{value,path}', 'field.type', function() {
+    return this.get('field.type') === 'document'
+      ? this.get('model.path')
+      : this.get('model.value')
+  }),
+
   isNew: reads('model.isNew'),
 
   validate() {
@@ -86,22 +91,37 @@ export default Service.extend({
   }),
 
   async _buildQuestion(name, instance, query = null) {
+    let field = getWithDefault(
+      await this.get('config'),
+      `questions.${name}`,
+      {}
+    )
+
     if (!query) {
-      query = await this.get('store').query('form-field', {
-        instance,
-        name
-      })
+      query = (await this.get('store').query(
+        field.type === 'document' ? 'attachment' : 'form-field',
+        {
+          instance,
+          name
+        }
+      )).toArray()
     }
 
     // Get the already saved record or create a new record
     let model =
-      query.get('firstObject') ||
-      this.get('store').createRecord('form-field', {
-        name,
-        instance:
-          this.get('store').peekRecord('instance', instance) ||
-          (await this.get('store').findRecord('instance', instance))
-      })
+      query
+        .sortBy('date')
+        .reverse()
+        .get('firstObject') ||
+      this.get('store').createRecord(
+        field.type === 'document' ? 'attachment' : 'form-field',
+        {
+          name,
+          instance:
+            this.get('store').peekRecord('instance', instance) ||
+            (await this.get('store').findRecord('instance', instance))
+        }
+      )
 
     return Question.create({
       // We need to pass the container of the current service to the question
@@ -111,7 +131,7 @@ export default Service.extend({
 
       name,
       model,
-      field: getWithDefault(await this.get('config'), `questions.${name}`, {})
+      field
     })
   },
 
@@ -147,13 +167,35 @@ export default Service.extend({
 
     let cachedNames = cached.map(({ name }) => name)
     let fetchedNames = names.filter(n => !cachedNames.includes(n))
+    let query = null
 
-    let query = fetchedNames.length
-      ? yield this.get('store').query('form-field', {
-          instance,
-          name: names.join(',')
-        })
-      : null
+    if (fetchedNames.length) {
+      let config = getWithDefault(yield this.get('config'), `questions`, {})
+
+      let map = Object.keys(config).reduce((arr, key) => {
+        return fetchedNames.includes(key)
+          ? [...arr, { name: key, type: config[key].type }]
+          : arr
+      }, [])
+
+      let docs = map.filter(({ type }) => type === 'document')
+      let fields = map.filter(i => !docs.includes(i))
+
+      query = A([
+        ...(docs.length
+          ? (yield this.get('store').query('attachment', {
+              instance,
+              name: docs.mapBy('name').join(',')
+            })).toArray()
+          : []),
+        ...(fields.length
+          ? (yield this.get('store').query('form-field', {
+              instance,
+              name: fields.mapBy('name').join(',')
+            })).toArray()
+          : [])
+      ])
+    }
 
     let fetched = yield all(
       fetchedNames.map(async name => {
@@ -161,7 +203,9 @@ export default Service.extend({
           name,
           instance,
           query.filter(
-            q => q.get('name') === name && q.get('instance.id') === instance
+            q =>
+              new RegExp(name).test(q.get('name')) &&
+              q.get('instance.id') === instance
           )
         )
 

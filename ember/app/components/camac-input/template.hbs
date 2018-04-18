@@ -7,6 +7,9 @@
         {{#if question.field.required}}
           <span class="uk-text-primary"> *</span>
         {{/if}}
+        {{#if question.field.hint}}
+          <span class="pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>
+        {{/if}}
       </label>
       <div uk-grid class="uk-margin-small-top">
         <div class="uk-width-expand">

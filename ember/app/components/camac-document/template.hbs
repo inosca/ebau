@@ -1,0 +1,50 @@
+{{#with (await question) as |question|}}
+  <div class="uk-card uk-card-default uk-card-hover uk-margin-bottom">
+    <div class="uk-height-small uk-cover-container">
+      {{#with question.model.thumbnail.lastSuccessful.value as |thumbnail|}}
+        <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
+      {{/with}}
+      <div class="uk-overlay uk-overlay-primary uk-position-cover uk-flex uk-flex-center uk-flex-middle">
+        {{#if upload.isRunning}}
+          {{uk-spinner ratio=0.5 class='uk-animation-fade uk-icon-button'}}
+        {{else}}
+          <button
+            data-test-upload-document
+            type="button"
+            uk-icon="cloud-upload"
+            class="uk-icon-button uk-animation-fade"
+            title="Neues Dokument hochladen"
+            {{action 'triggerUpload'}}
+          ></button>
+        {{/if}}
+        {{#if question.model.path}}
+          {{#if download.isRunning}}
+            {{uk-spinner ratio=0.5 class='uk-animation-fade uk-icon-button uk-margin-small-left'}}
+          {{else}}
+            <button
+              data-test-download-document
+              type="button"
+              uk-icon="cloud-download"
+              class="uk-icon-button uk-margin-small-left uk-animation-fade"
+              title="Dokument herunterladen"
+              {{action (perform download)}}
+            ></button>
+          {{/if}}
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="uk-padding-small uk-text-bold uk-text-center uk-position-relative">
+      {{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}
+      {{#if question.field.hint}}<span class="uk-position-top-right pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>{{/if}}
+    </div>
+  </div>
+
+  <input
+    type="file"
+    accept={{mimeTypes}}
+    name={{question.name}}
+    onchange={{action (perform upload) value='target.files'}}
+    hidden
+  >
+{{/with}}

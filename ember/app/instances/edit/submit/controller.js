@@ -1,6 +1,6 @@
 import Controller, { inject as controller } from '@ember/controller'
 import { inject as service } from '@ember/service'
-import { computed } from '@ember/object'
+import computedTask from 'citizen-portal/lib/computed-task'
 import { task } from 'ember-concurrency'
 import { all } from 'rsvp'
 import UIkit from 'uikit'
@@ -11,14 +11,10 @@ export default Controller.extend({
 
   editController: controller('instances.edit'),
 
-  canSubmit: computed(
+  canSubmit: computedTask(
+    '_canSubmit',
     'editController.modules.lastSuccessful.value.[]',
-    'questionStore._store.@each.{value,hidden,isNew}',
-    function() {
-      let task = this.get('_canSubmit')
-      task.perform()
-      return task
-    }
+    'questionStore._store.@each.{value,hidden,isNew}'
   ),
   _canSubmit: task(function*() {
     let states = yield all(
