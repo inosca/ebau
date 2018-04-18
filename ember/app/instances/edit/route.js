@@ -4,9 +4,14 @@ import { inject as service } from '@ember/service'
 export default Route.extend({
   ajax: service(),
 
-  async model({ instance_id: id }) {
+  queryParams: {
+    group: { refreshModel: true }
+  },
+
+  async model({ instance_id: id, group }) {
     let response = await this.get('ajax').request(`/api/v1/instances/${id}`, {
       data: {
+        group,
         include: 'form,instance_state,location'
       },
       headers: {
