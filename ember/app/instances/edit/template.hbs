@@ -34,12 +34,12 @@
       <div uk-grid class="uk-child-width-1-2">
         <div>
           {{#if hasPrev}}
-            {{uk-button label='Zurück' on-click=(perform prev)}}
+            {{uk-button label='Zurück' loading=prev.isRunning on-click=(perform prev)}}
           {{/if}}
         </div>
         <div class="uk-text-right">
           {{#if hasNext}}
-            {{uk-button label='Weiter' color='primary' on-click=(perform next)}}
+            {{uk-button label='Weiter' color='primary' loading=next.isRunning on-click=(perform next)}}
           {{/if}}
         </div>
       </div>
