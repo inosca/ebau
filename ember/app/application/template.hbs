@@ -33,7 +33,7 @@
           </div>
         {{/link-to}}
         {{#if session.isAuthenticated}}
-          <button title="Ausloggen" class="uk-icon-button uk-animation-fade" uk-icon="sign-out" {{action 'logout'}}></button>
+          <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade" uk-icon="sign-out" {{action 'logout'}}></button>
         {{/if}}
       {{/uk-flex}}
     {{/unless}}
