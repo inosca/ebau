@@ -1,0 +1,13 @@
+[
+{
+  "model": "core.activationlog",
+  "pk": 2,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 23:59:00+02:00\"}",
+    "modification_date": "2018-04-17T15:21:25Z"
+  }
+}
+]

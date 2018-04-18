@@ -4,7 +4,11 @@ from django.core.management.commands import dumpdata
 # TODO: once deployed on production this list
 # needs to be reduced to tables which are not
 # managed by customer
-config_models = (
+
+# Configuration models that do not have any foreign key relationships
+# to non-config models (direct or indirect).
+# These models can be safely deleted and re-imported anytime.
+pure_config_models = (
     'core.ACheckquery',
     'core.ACirculationEmail',
     'core.ACirculationtransition',
@@ -21,7 +25,6 @@ config_models = (
     'core.ALocationQc',
     'core.ANotice',
     'core.AnswerList',
-    'core.AnswerQuery',
     'core.APageredirect',
     'core.APhp',
     'core.AProposal',
@@ -50,16 +53,11 @@ config_models = (
     'core.BuildingAuthorityEmail',
     'core.BuildingAuthoritySection',
     'core.Button',
-    'core.Chapter',
     'core.ChapterPage',
     'core.ChapterPageGroupAcl',
     'core.ChapterPageRoleAcl',
     'core.ChapterPageServiceAcl',
-    'core.CirculationAnswer',
-    'core.CirculationAnswerType',
     'core.CirculationReason',
-    'core.CirculationState',
-    'core.CirculationType',
     'core.DocgenActivationAction',
     'core.DocgenActivationactionAction',
     'core.DocgenDocxAction',
@@ -89,8 +87,6 @@ config_models = (
     'core.IrPage',
     'core.IrRoleAcl',
     'core.IrServiceAcl',
-    'core.Mapping',
-    'core.NoticeType',
     'core.Page',
     'core.PageAnswerActivation',
     'core.PageForm',
@@ -100,16 +96,14 @@ config_models = (
     'core.PageFormRoleAcl',
     'core.PageFormServiceAcl',
     'core.PublicationSetting',
-    'core.Question',
     'core.QuestionChapter',
     'core.QuestionChapterGroupAcl',
     'core.QuestionChapterRoleAcl',
     'core.QuestionChapterServiceAcl',
-    'core.QuestionType',
-    'core.Resource',
-    'core.RApiListInstanceState',
     'core.RApiListCirculationState',
     'core.RApiListCirculationType',
+    'core.RApiListInstanceState',
+    'core.Resource',
     'core.RFormlist',
     'core.RGroupAcl',
     'core.RList',
@@ -123,18 +117,37 @@ config_models = (
     'core.RSimpleList',
     'core.ServiceAnswerActivation',
     'core.WorkflowAction',
-    'core.WorkflowItem',
     'core.WorkflowRole',
     'core.WorkflowSection',
-    'document.AttachmentSection',
     'document.AttachmentSectionRoleAcl',
     'document.AttachmentSectionServiceAcl',
+    'notification.NotificationTemplate',
+    'notification.NotificationTemplateT',
+    'user.GroupLocation',
+)
+
+# List of models that have foreign keys referencing non-config tables
+# (directly or indirectly). All models which are not in this list can
+# be safely flushed and re-imported.
+models_referencing_data = (
+    'core.AnswerQuery',
+    'core.Chapter',
+    'core.CirculationAnswer',
+    'core.CirculationAnswerType',
+    'core.CirculationState',
+    'core.CirculationType',
+    'core.Mapping',
+    'core.NoticeType',
+    'core.Question',
+    'core.QuestionType',
+    'core.WorkflowItem',
+    'core.WorkflowSection',
+    'document.AttachmentSection',
     'instance.Form',
     'instance.FormState',
     'instance.InstanceState',
     'instance.InstanceStateDescription',
     'user.Group',
-    'user.GroupLocation',
     'user.Location',
     'user.Role',
     'user.Service',
@@ -153,4 +166,7 @@ class Command(dumpdata.Command):
         options['output'] = (
             options.get('output') or settings.APPLICATION_DIR('config.json')
         )
-        super().handle(*config_models, **options)
+        super().handle(
+            *(pure_config_models + models_referencing_data),
+            **options
+        )

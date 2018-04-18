@@ -2,7 +2,7 @@ from django.db import models
 
 
 class ACheckquery(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     query = models.CharField(db_column='QUERY', max_length=4000)
@@ -13,7 +13,7 @@ class ACheckquery(models.Model):
 
 
 class ACirculationEmail(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     sender_name = models.CharField(db_column='SENDER_NAME', max_length=50)
@@ -27,15 +27,15 @@ class ACirculationEmail(models.Model):
 
 
 class ACirculationtransition(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     current_circulation_state = models.ForeignKey(
-        'CirculationState', models.DO_NOTHING,
+        'CirculationState', models.CASCADE,
         db_column='CURRENT_CIRCULATION_STATE_ID', related_name='+', blank=True,
         null=True)
     next_circulation_state = models.ForeignKey(
-        'CirculationState', models.DO_NOTHING,
+        'CirculationState', models.CASCADE,
         db_column='NEXT_CIRCULATION_STATE_ID', related_name='+')
 
     class Meta:
@@ -44,7 +44,7 @@ class ACirculationtransition(models.Model):
 
 
 class ACopyanswer(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
 
@@ -57,19 +57,19 @@ class ACopyanswerMapping(models.Model):
     a_copyanswer_mapping_id = models.AutoField(
         db_column='A_COPYANSWER_MAPPING_ID', primary_key=True)
     action = models.ForeignKey(
-        ACopyanswer, models.DO_NOTHING, db_column='ACTION_ID',
+        ACopyanswer, models.CASCADE, db_column='ACTION_ID',
         related_name='+')
     source_chapter = models.ForeignKey(
-        'Chapter', models.DO_NOTHING, db_column='SOURCE_CHAPTER_ID',
+        'Chapter', models.CASCADE, db_column='SOURCE_CHAPTER_ID',
         related_name='+', blank=True, null=True)
     source_question = models.ForeignKey(
-        'Question', models.DO_NOTHING, db_column='SOURCE_QUESTION_ID',
+        'Question', models.CASCADE, db_column='SOURCE_QUESTION_ID',
         related_name='+', blank=True, null=True)
     destination_chapter = models.ForeignKey(
-        'Chapter', models.DO_NOTHING, db_column='DESTINATION_CHAPTER_ID',
+        'Chapter', models.CASCADE, db_column='DESTINATION_CHAPTER_ID',
         related_name='+')
     destination_question = models.ForeignKey(
-        'Question', models.DO_NOTHING, db_column='DESTINATION_QUESTION_ID',
+        'Question', models.CASCADE, db_column='DESTINATION_QUESTION_ID',
         related_name='+')
     get_name = models.PositiveSmallIntegerField(db_column='GET_NAME')
 
@@ -79,7 +79,7 @@ class ACopyanswerMapping(models.Model):
 
 
 class ACopydata(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
 
@@ -92,11 +92,11 @@ class ACopydataMapping(models.Model):
     a_copydata_mapping_id = models.AutoField(
         db_column='A_COPYDATA_MAPPING_ID', primary_key=True)
     action = models.ForeignKey(
-        ACopydata, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
-    question = models.ForeignKey('Question', models.DO_NOTHING,
+        ACopydata, models.CASCADE, db_column='ACTION_ID', related_name='+')
+    question = models.ForeignKey('Question', models.CASCADE,
                                  db_column='QUESTION_ID', related_name='+',
                                  blank=True, null=True)
-    chapter = models.ForeignKey('Chapter', models.DO_NOTHING,
+    chapter = models.ForeignKey('Chapter', models.CASCADE,
                                 db_column='CHAPTER_ID', related_name='+',
                                 blank=True, null=True)
     table_name = models.CharField(db_column='TABLE_NAME', max_length=30)
@@ -109,7 +109,7 @@ class ACopydataMapping(models.Model):
 
 
 class ADeleteCirculation(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     delete_level = models.IntegerField(db_column='DELETE_LEVEL')
@@ -120,7 +120,7 @@ class ADeleteCirculation(models.Model):
 
 
 class AEmail(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     sender_name = models.CharField(db_column='SENDER_NAME', max_length=50)
@@ -135,15 +135,15 @@ class AEmail(models.Model):
 
 
 class AFormtransition(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     current_instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='CURRENT_INSTANCE_STATE_ID', related_name='+', blank=True,
         null=True)
     next_instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='NEXT_INSTANCE_STATE_ID',
         related_name='+', blank=True, null=True)
 
@@ -153,11 +153,11 @@ class AFormtransition(models.Model):
 
 
 class ANotification(models.Model):
-    action = models.OneToOneField('core.Action', models.DO_NOTHING,
+    action = models.OneToOneField('core.Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     template = models.ForeignKey('notification.NotificationTemplate',
-                                 models.DO_NOTHING, db_column='TEMPLATE_ID',
+                                 models.CASCADE, db_column='TEMPLATE_ID',
                                  related_name='+')
     recipient_type = models.CharField(
         db_column='RECIPIENT_TYPE', max_length=160
@@ -170,7 +170,7 @@ class ANotification(models.Model):
 
 
 class ALocation(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
 
@@ -183,12 +183,12 @@ class ALocationQc(models.Model):
     a_location_qc_id = models.AutoField(
         db_column='A_LOCATION_QC_ID', primary_key=True)
     action = models.ForeignKey(
-        ALocation, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+        ALocation, models.CASCADE, db_column='ACTION_ID', related_name='+')
     question = models.ForeignKey(
-        'Question', models.DO_NOTHING, db_column='QUESTION_ID',
+        'Question', models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        'Chapter', models.DO_NOTHING, db_column='CHAPTER_ID',
+        'Chapter', models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
 
     class Meta:
@@ -197,11 +197,11 @@ class ALocationQc(models.Model):
 
 
 class ANotice(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     notice_type = models.ForeignKey(
-        'NoticeType', models.DO_NOTHING, db_column='NOTICE_TYPE_ID',
+        'NoticeType', models.CASCADE, db_column='NOTICE_TYPE_ID',
         related_name='+')
     query = models.CharField(db_column='QUERY', max_length=4000)
 
@@ -211,14 +211,14 @@ class ANotice(models.Model):
 
 
 class APageredirect(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
     instance_resource = models.ForeignKey('InstanceResource',
-                                          models.DO_NOTHING,
+                                          models.CASCADE,
                                           db_column='INSTANCE_RESOURCE_ID',
                                           related_name='+', blank=True,
                                           null=True)
@@ -231,7 +231,7 @@ class APageredirect(models.Model):
 
 
 class APhp(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     php_class = models.CharField(db_column='PHP_CLASS', max_length=500)
@@ -242,14 +242,14 @@ class APhp(models.Model):
 
 
 class AProposal(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
     circulation_type = models.ForeignKey(
-        'CirculationType', models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        'CirculationType', models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     circulation_state = models.ForeignKey(
-        'CirculationState', models.DO_NOTHING,
+        'CirculationState', models.CASCADE,
         db_column='CIRCULATION_STATE_ID', related_name='+')
     deadline_days = models.IntegerField(db_column='DEADLINE_DAYS')
     reason = models.CharField(
@@ -273,12 +273,12 @@ class AProposalHoliday(models.Model):
 
 
 class ASavepdf(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
-    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.CASCADE,
                              db_column='FORM_ID', related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -293,10 +293,10 @@ class ASavepdf(models.Model):
 
 
 class AValidate(models.Model):
-    action = models.OneToOneField('Action', models.DO_NOTHING,
+    action = models.OneToOneField('Action', models.CASCADE,
                                   db_column='ACTION_ID', primary_key=True,
                                   related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -309,10 +309,10 @@ class AValidate(models.Model):
 class Action(models.Model):
     action_id = models.AutoField(db_column='ACTION_ID', primary_key=True)
     available_action = models.ForeignKey(
-        'AvailableAction', models.DO_NOTHING, db_column='AVAILABLE_ACTION_ID',
+        'AvailableAction', models.CASCADE, db_column='AVAILABLE_ACTION_ID',
         related_name='+')
     button = models.ForeignKey(
-        'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
+        'Button', models.CASCADE, db_column='BUTTON_ID', related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     description = models.CharField(
         db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
@@ -427,7 +427,7 @@ class ActivationLog(models.Model):
 class AirAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     available_instance_resource = models.ForeignKey(
-        'AvailableInstanceResource', models.DO_NOTHING,
+        'AvailableInstanceResource', models.CASCADE,
         db_column='AVAILABLE_INSTANCE_RESOURCE_ID', related_name='+')
     action_name = models.CharField(db_column='ACTION_NAME', max_length=50)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
@@ -461,7 +461,7 @@ class AnswerList(models.Model):
     answer_list_id = models.AutoField(
         db_column='ANSWER_LIST_ID', primary_key=True)
     question = models.ForeignKey(
-        'Question', models.DO_NOTHING, db_column='QUESTION_ID',
+        'Question', models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     value = models.CharField(db_column='VALUE', max_length=20)
     name = models.CharField(db_column='NAME', max_length=300)
@@ -507,7 +507,7 @@ class AnswerQuery(models.Model):
 class ArAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     available_resource = models.ForeignKey(
-        'AvailableResource', models.DO_NOTHING,
+        'AvailableResource', models.CASCADE,
         db_column='AVAILABLE_RESOURCE_ID', related_name='+')
     action_name = models.CharField(db_column='ACTION_NAME', max_length=50)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
@@ -542,10 +542,10 @@ class AuthorityAuthorityType(models.Model):
 class AuthorityLocation(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     authority = models.ForeignKey(
-        Authority, models.DO_NOTHING, db_column='AUTHORITY_ID',
+        Authority, models.CASCADE, db_column='AUTHORITY_ID',
         related_name='+')
     location = models.ForeignKey(
-        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        'user.Location', models.CASCADE, db_column='LOCATION_ID',
         related_name='+')
 
     class Meta:
@@ -609,12 +609,12 @@ class AvailableResource(models.Model):
 class BGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     button = models.ForeignKey(
-        'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
+        'Button', models.CASCADE, db_column='BUTTON_ID', related_name='+')
     group = models.ForeignKey(
-        'user.Group', models.DO_NOTHING, db_column='GROUP_ID',
+        'user.Group', models.CASCADE, db_column='GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -626,11 +626,11 @@ class BGroupAcl(models.Model):
 class BRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     button = models.ForeignKey(
-        'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+        'Button', models.CASCADE, db_column='BUTTON_ID', related_name='+')
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -642,12 +642,12 @@ class BRoleAcl(models.Model):
 class BServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     button = models.ForeignKey(
-        'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
+        'Button', models.CASCADE, db_column='BUTTON_ID', related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -659,11 +659,11 @@ class BServiceAcl(models.Model):
 class BUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     button = models.ForeignKey(
-        'Button', models.DO_NOTHING, db_column='BUTTON_ID', related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+        'Button', models.CASCADE, db_column='BUTTON_ID', related_name='+')
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -695,7 +695,7 @@ class BillingAccount(models.Model):
         db_column='DEPARTMENT', max_length=255, blank=True, null=True)
     predefined = models.FloatField(
         db_column='PREDEFINED', blank=True, null=True)
-    service_group = models.ForeignKey('user.ServiceGroup', models.DO_NOTHING,
+    service_group = models.ForeignKey('user.ServiceGroup', models.CASCADE,
                                       db_column='SERVICE_GROUP_ID',
                                       related_name='+', blank=True, null=True)
 
@@ -708,10 +708,10 @@ class BillingAccountState(models.Model):
     billing_account_state_id = models.AutoField(
         db_column='BILLING_ACCOUNT_STATE_ID', primary_key=True)
     billing_account = models.ForeignKey(
-        BillingAccount, models.DO_NOTHING, db_column='BILLING_ACCOUNT_ID',
+        BillingAccount, models.CASCADE, db_column='BILLING_ACCOUNT_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -770,10 +770,10 @@ class BuildingAuthorityButtonstate(models.Model):
     ba_button_state_id = models.AutoField(
         db_column='BA_BUTTON_STATE_ID', primary_key=True)
     building_authority_button = models.ForeignKey(
-        BuildingAuthorityButton, models.DO_NOTHING,
+        BuildingAuthorityButton, models.CASCADE,
         db_column='BUILDING_AUTHORITY_BUTTON_ID', related_name='+')
     instance = models.ForeignKey(
-        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='+')
     is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED')
     is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED')
@@ -806,13 +806,13 @@ class BuildingAuthorityDoc(models.Model):
     building_authority_doc_id = models.AutoField(
         db_column='BUILDING_AUTHORITY_DOC_ID', primary_key=True)
     building_authority_button = models.ForeignKey(
-        BuildingAuthorityButton, models.DO_NOTHING,
+        BuildingAuthorityButton, models.CASCADE,
         db_column='BUILDING_AUTHORITY_BUTTON_ID', related_name='+')
     template_class = models.ForeignKey(
-        'DocgenTemplateClass', models.DO_NOTHING,
+        'DocgenTemplateClass', models.CASCADE,
         db_column='TEMPLATE_CLASS_ID', related_name='+')
     template = models.ForeignKey(
-        'DocgenTemplate', models.DO_NOTHING, db_column='TEMPLATE_ID',
+        'DocgenTemplate', models.CASCADE, db_column='TEMPLATE_ID',
         related_name='+')
 
     class Meta:
@@ -824,7 +824,7 @@ class BuildingAuthorityEmail(models.Model):
     building_authority_email_id = models.AutoField(
         db_column='BUILDING_AUTHORITY_EMAIL_ID', primary_key=True)
     building_authority_button = models.ForeignKey(
-        BuildingAuthorityButton, models.DO_NOTHING,
+        BuildingAuthorityButton, models.CASCADE,
         db_column='BUILDING_AUTHORITY_BUTTON_ID', related_name='+')
     email_text = models.CharField(
         db_column='EMAIL_TEXT', max_length=4000, blank=True, null=True)
@@ -886,7 +886,7 @@ class BuildingAuthoritySectionDis(models.Model):
 class Button(models.Model):
     button_id = models.AutoField(db_column='BUTTON_ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        'InstanceResource', models.DO_NOTHING,
+        'InstanceResource', models.CASCADE,
         db_column='INSTANCE_RESOURCE_ID', related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     description = models.CharField(
@@ -918,8 +918,8 @@ class Chapter(models.Model):
 class ChapterPage(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID', related_name='+')
-    page = models.ForeignKey('Page', models.DO_NOTHING,
+        Chapter, models.CASCADE, db_column='CHAPTER_ID', related_name='+')
+    page = models.ForeignKey('Page', models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
     sort = models.IntegerField(db_column='SORT')
 
@@ -932,15 +932,15 @@ class ChapterPage(models.Model):
 class ChapterPageGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     chapter = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='CHAPTER_ID',
+        ChapterPage, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     page = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
+        ChapterPage, models.CASCADE, db_column='PAGE_ID', related_name='+')
     group = models.ForeignKey(
-        'user.Group', models.DO_NOTHING, db_column='GROUP_ID',
+        'user.Group', models.CASCADE, db_column='GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -952,14 +952,14 @@ class ChapterPageGroupAcl(models.Model):
 class ChapterPageRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     chapter = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='CHAPTER_ID',
+        ChapterPage, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     page = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+        ChapterPage, models.CASCADE, db_column='PAGE_ID', related_name='+')
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -971,15 +971,15 @@ class ChapterPageRoleAcl(models.Model):
 class ChapterPageServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     chapter = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='CHAPTER_ID',
+        ChapterPage, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     page = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
+        ChapterPage, models.CASCADE, db_column='PAGE_ID', related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -991,14 +991,14 @@ class ChapterPageServiceAcl(models.Model):
 class ChapterPageUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     chapter = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='CHAPTER_ID',
+        ChapterPage, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     page = models.ForeignKey(
-        ChapterPage, models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+        ChapterPage, models.CASCADE, db_column='PAGE_ID', related_name='+')
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -1010,9 +1010,11 @@ class ChapterPageUserAcl(models.Model):
 class Circulation(models.Model):
     circulation_id = models.AutoField(
         db_column='CIRCULATION_ID', primary_key=True)
-    instance_resource = models.ForeignKey(
-        'IrEditcirculation', models.DO_NOTHING,
-        db_column='INSTANCE_RESOURCE_ID', related_name='+')
+    # While this "should" be a foreign key, we decouple to be able
+    # to separate config from data models
+    # references IrEditcirculation
+    instance_resource_id = models.IntegerField(
+        db_column='INSTANCE_RESOURCE_ID', db_index=True)
     instance = models.ForeignKey(
         'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='circulations')
@@ -1027,10 +1029,10 @@ class CirculationAnswer(models.Model):
     circulation_answer_id = models.AutoField(
         db_column='CIRCULATION_ANSWER_ID', primary_key=True)
     circulation_type = models.ForeignKey(
-        'CirculationType', models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        'CirculationType', models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     circulation_answer_type = models.ForeignKey(
-        'CirculationAnswerType', models.DO_NOTHING,
+        'CirculationAnswerType', models.CASCADE,
         db_column='CIRCULATION_ANSWER_TYPE_ID', related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     sort = models.IntegerField(db_column='SORT')
@@ -1068,7 +1070,7 @@ class CirculationReason(models.Model):
     circulation_reason_id = models.AutoField(
         db_column='CIRCULATION_REASON_ID', primary_key=True)
     circulation_type = models.ForeignKey(
-        'CirculationType', models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        'CirculationType', models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     sort = models.IntegerField(db_column='SORT')
@@ -1093,7 +1095,7 @@ class CirculationType(models.Model):
     circulation_type_id = models.AutoField(
         db_column='CIRCULATION_TYPE_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=50)
-    page = models.ForeignKey('Page', models.DO_NOTHING,
+    page = models.ForeignKey('Page', models.CASCADE,
                              db_column='PAGE_ID', related_name='+', blank=True,
                              null=True)
     parent_specific_activations = models.PositiveSmallIntegerField(
@@ -1136,10 +1138,10 @@ class DocgenActivationDocket(models.Model):
     docgen_activation_docket_id = models.AutoField(
         db_column='DOCGEN_ACTIVATION_DOCKET_ID', primary_key=True)
     instance = models.ForeignKey(
-        'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
+        'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='+')
     activation = models.ForeignKey(
-        Activation, models.DO_NOTHING, db_column='ACTIVATION_ID',
+        Activation, models.CASCADE, db_column='ACTIVATION_ID',
         related_name='+', blank=True, null=True)
     text = models.TextField(db_column='TEXT')
 
@@ -1151,10 +1153,10 @@ class DocgenActivationDocket(models.Model):
 class DocgenActivationactionAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     docgen_activation_action = models.ForeignKey(
-        DocgenActivationAction, models.DO_NOTHING,
+        DocgenActivationAction, models.CASCADE,
         db_column='DOCGEN_ACTIVATION_ACTION_ID', related_name='+')
     action = models.ForeignKey(
-        Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+        Action, models.CASCADE, db_column='ACTION_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1165,13 +1167,13 @@ class DocgenActivationactionAction(models.Model):
 class DocgenDocxAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     docgen_template = models.ForeignKey(
-        'DocgenTemplate', models.DO_NOTHING, db_column='DOCGEN_TEMPLATE_ID',
+        'DocgenTemplate', models.CASCADE, db_column='DOCGEN_TEMPLATE_ID',
         related_name='+')
     docgen_template_class = models.ForeignKey(
-        'DocgenTemplateClass', models.DO_NOTHING,
+        'DocgenTemplateClass', models.CASCADE,
         db_column='DOCGEN_TEMPLATE_CLASS_ID', related_name='+')
     action = models.ForeignKey(
-        Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+        Action, models.CASCADE, db_column='ACTION_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1183,10 +1185,10 @@ class DocgenDocxAction(models.Model):
 class TemplateGenerateAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     template = models.ForeignKey(
-        'document.Template', models.DO_NOTHING, db_column='TEMPLATE_ID',
+        'document.Template', models.CASCADE, db_column='TEMPLATE_ID',
         related_name='+')
     action = models.ForeignKey(
-        Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+        Action, models.CASCADE, db_column='ACTION_ID', related_name='+')
     as_pdf = models.PositiveSmallIntegerField(db_column='AS_PDF', default=0)
 
     class Meta:
@@ -1199,13 +1201,13 @@ class TemplateGenerateAction(models.Model):
 class DocgenPdfAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     docgen_template = models.ForeignKey(
-        'DocgenTemplate', models.DO_NOTHING, db_column='DOCGEN_TEMPLATE_ID',
+        'DocgenTemplate', models.CASCADE, db_column='DOCGEN_TEMPLATE_ID',
         related_name='+')
     docgen_template_class = models.ForeignKey(
-        'DocgenTemplateClass', models.DO_NOTHING,
+        'DocgenTemplateClass', models.CASCADE,
         db_column='DOCGEN_TEMPLATE_CLASS_ID', related_name='+')
     action = models.ForeignKey(
-        Action, models.DO_NOTHING, db_column='ACTION_ID', related_name='+')
+        Action, models.CASCADE, db_column='ACTION_ID', related_name='+')
 
     class Meta:
         managed = True
@@ -1253,9 +1255,9 @@ class FormGroup(models.Model):
 class FormGroupForm(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     form_group = models.ForeignKey(
-        FormGroup, models.DO_NOTHING, db_column='FORM_GROUP_ID',
+        FormGroup, models.CASCADE, db_column='FORM_GROUP_ID',
         related_name='forms')
-    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.CASCADE,
                              db_column='FORM_ID', related_name='form_group')
 
     class Meta:
@@ -1415,10 +1417,10 @@ class InstanceResource(models.Model):
     instance_resource_id = models.AutoField(
         db_column='INSTANCE_RESOURCE_ID', primary_key=True)
     available_instance_resource = models.ForeignKey(
-        AvailableInstanceResource, models.DO_NOTHING,
+        AvailableInstanceResource, models.CASCADE,
         db_column='AVAILABLE_INSTANCE_RESOURCE_ID', related_name='+')
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     description = models.CharField(
@@ -1430,7 +1432,7 @@ class InstanceResource(models.Model):
         db_column='CLASS', max_length=25, blank=True, null=True)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
     sort = models.IntegerField(db_column='SORT')
-    form_group = models.ForeignKey(FormGroup, models.DO_NOTHING,
+    form_group = models.ForeignKey(FormGroup, models.CASCADE,
                                    db_column='FORM_GROUP_ID', related_name='+')
 
     class Meta:
@@ -1441,10 +1443,10 @@ class InstanceResource(models.Model):
 class InstanceResourceAction(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     available_instance_resource = models.ForeignKey(
-        AvailableInstanceResource, models.DO_NOTHING,
+        AvailableInstanceResource, models.CASCADE,
         db_column='AVAILABLE_INSTANCE_RESOURCE_ID', related_name='+')
     available_action = models.ForeignKey(
-        AvailableAction, models.DO_NOTHING, db_column='AVAILABLE_ACTION_ID',
+        AvailableAction, models.CASCADE, db_column='AVAILABLE_ACTION_ID',
         related_name='+')
 
     class Meta:
@@ -1456,9 +1458,9 @@ class InstanceResourceAction(models.Model):
 
 class IrAllformpages(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -1474,16 +1476,16 @@ class IrAllformpages(models.Model):
 
 class IrCirculation(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     circulation_type = models.ForeignKey(
-        CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        CirculationType, models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
-    service = models.ForeignKey('user.Service', models.DO_NOTHING,
+    service = models.ForeignKey('user.Service', models.CASCADE,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
     draft_circulation_answer = models.ForeignKey(
-        CirculationAnswer, models.DO_NOTHING,
+        CirculationAnswer, models.CASCADE,
         db_column='DRAFT_CIRCULATION_ANSWER_ID', related_name='+', blank=True,
         null=True)
     show_notice = models.PositiveSmallIntegerField(db_column='SHOW_NOTICE')
@@ -1506,13 +1508,13 @@ class IrCirculation(models.Model):
 
 class IrEditcirculation(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     circulation_type = models.ForeignKey(
-        CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        CirculationType, models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     draft_circulation_answer = models.ForeignKey(
-        CirculationAnswer, models.DO_NOTHING,
+        CirculationAnswer, models.CASCADE,
         db_column='DRAFT_CIRCULATION_ANSWER_ID', related_name='+', blank=True,
         null=True)
     show_notice = models.PositiveSmallIntegerField(db_column='SHOW_NOTICE')
@@ -1536,7 +1538,7 @@ class IrEditcirculation(models.Model):
     display_first_circulation = models.PositiveSmallIntegerField(
         db_column='DISPLAY_FIRST_CIRCULATION')
     circulation_email_action_id = models.ForeignKey(
-        Action, models.DO_NOTHING, db_column='CIRCULATION_EMAIL_ACTION_ID',
+        Action, models.CASCADE, db_column='CIRCULATION_EMAIL_ACTION_ID',
         related_name='+', blank=True, null=True)
 
     class Meta:
@@ -1548,10 +1550,10 @@ class IrEditcirculationSg(models.Model):
     ir_editcirculation_sg_id = models.AutoField(
         db_column='IR_EDITCIRCULATION_SG_ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        IrEditcirculation, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        IrEditcirculation, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
     service_group = models.ForeignKey(
-        'user.ServiceGroup', models.DO_NOTHING, db_column='SERVICE_GROUP_ID',
+        'user.ServiceGroup', models.CASCADE, db_column='SERVICE_GROUP_ID',
         related_name='+')
     localized = models.PositiveSmallIntegerField(db_column='LOCALIZED')
 
@@ -1562,9 +1564,9 @@ class IrEditcirculationSg(models.Model):
 
 class IrEditformpage(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
-    page = models.ForeignKey('Page', models.DO_NOTHING,
+    page = models.ForeignKey('Page', models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
@@ -1576,9 +1578,9 @@ class IrEditformpage(models.Model):
 
 class IrEditformpages(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -1592,7 +1594,7 @@ class IrEditformpages(models.Model):
 
 class IrEditletter(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
@@ -1606,7 +1608,7 @@ class IrEditletterAnswer(models.Model):
     ir_editletter_answer_id = models.AutoField(
         db_column='IR_EDITLETTER_ANSWER_ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        IrEditletter, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        IrEditletter, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
 
@@ -1617,10 +1619,10 @@ class IrEditletterAnswer(models.Model):
 
 class IrEditnotice(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     circulation_type = models.ForeignKey(
-        CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        CirculationType, models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     editable_after_deadline = models.PositiveSmallIntegerField(
         db_column='EDITABLE_AFTER_DEADLINE')
@@ -1641,10 +1643,10 @@ class IrEditnotice(models.Model):
 
 class IrFormerror(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     ir_editformpages = models.ForeignKey(
-        IrEditformpages, models.DO_NOTHING, db_column='IR_EDITFORMPAGES_ID',
+        IrEditformpages, models.CASCADE, db_column='IR_EDITFORMPAGES_ID',
         related_name='+')
 
     class Meta:
@@ -1654,9 +1656,9 @@ class IrFormerror(models.Model):
 
 class IrFormpage(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
-    page = models.ForeignKey('Page', models.DO_NOTHING,
+    page = models.ForeignKey('Page', models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
@@ -1668,9 +1670,9 @@ class IrFormpage(models.Model):
 
 class IrFormpages(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -1684,13 +1686,13 @@ class IrFormpages(models.Model):
 
 class IrFormwizard(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     page_form_group = models.ForeignKey(
-        'PageFormGroup', models.DO_NOTHING, db_column='PAGE_FORM_GROUP_ID',
+        'PageFormGroup', models.CASCADE, db_column='PAGE_FORM_GROUP_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
     show_captcha = models.PositiveSmallIntegerField(db_column='SHOW_CAPTCHA')
     summary = models.CharField(
@@ -1704,12 +1706,12 @@ class IrFormwizard(models.Model):
 class IrGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
-    group = models.ForeignKey('user.Group', models.DO_NOTHING,
+    group = models.ForeignKey('user.Group', models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -1720,7 +1722,7 @@ class IrGroupAcl(models.Model):
 
 class IrLetter(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     ir_editletter_id = models.IntegerField(
         db_column='IR_EDITLETTER_ID', blank=True, null=True)
@@ -1732,12 +1734,12 @@ class IrLetter(models.Model):
 
 class IrNewform(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -1749,7 +1751,7 @@ class IrNewform(models.Model):
 
 class IrPage(models.Model):
     instance_resource = models.OneToOneField(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         primary_key=True, related_name='+')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
@@ -1762,12 +1764,12 @@ class IrPage(models.Model):
 class IrRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -1779,13 +1781,13 @@ class IrRoleAcl(models.Model):
 class IrServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -1797,12 +1799,12 @@ class IrServiceAcl(models.Model):
 class IrUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     instance_resource = models.ForeignKey(
-        InstanceResource, models.DO_NOTHING, db_column='INSTANCE_RESOURCE_ID',
+        InstanceResource, models.CASCADE, db_column='INSTANCE_RESOURCE_ID',
         related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -1937,7 +1939,7 @@ class NoticeType(models.Model):
     notice_type_id = models.AutoField(
         db_column='NOTICE_TYPE_ID', primary_key=True)
     circulation_type = models.ForeignKey(
-        CirculationType, models.DO_NOTHING, db_column='CIRCULATION_TYPE_ID',
+        CirculationType, models.CASCADE, db_column='CIRCULATION_TYPE_ID',
         related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
 
@@ -1963,15 +1965,15 @@ class PageAnswerActivation(models.Model):
     page_answer_activation_id = models.AutoField(
         db_column='PAGE_ANSWER_ACTIVATION_ID', primary_key=True)
     form = models.ForeignKey(
-        'PageForm', models.DO_NOTHING, db_column='FORM_ID', related_name='+')
+        'PageForm', models.CASCADE, db_column='FORM_ID', related_name='+')
     chapter = models.ForeignKey(
-        'Chapter', models.DO_NOTHING, db_column='CHAPTER_ID',
+        'Chapter', models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     question = models.ForeignKey(
-        'Question', models.DO_NOTHING, db_column='QUESTION_ID',
+        'Question', models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     page = models.ForeignKey(
-        'PageForm', models.DO_NOTHING, db_column='PAGE_ID', related_name='+')
+        'PageForm', models.CASCADE, db_column='PAGE_ID', related_name='+')
     answer = models.CharField(db_column='ANSWER', max_length=4000)
 
     class Meta:
@@ -1981,14 +1983,14 @@ class PageAnswerActivation(models.Model):
 
 class PageForm(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    page = models.ForeignKey(Page, models.DO_NOTHING,
+    page = models.ForeignKey(Page, models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.CASCADE,
                              db_column='FORM_ID', related_name='+')
     page_form_mode = models.ForeignKey(
-        'PageFormMode', models.DO_NOTHING, db_column='PAGE_FORM_MODE_ID',
+        'PageFormMode', models.CASCADE, db_column='PAGE_FORM_MODE_ID',
         related_name='+')
-    page_form_group = models.ForeignKey('PageFormGroup', models.DO_NOTHING,
+    page_form_group = models.ForeignKey('PageFormGroup', models.CASCADE,
                                         db_column='PAGE_FORM_GROUP_ID',
                                         related_name='+', blank=True,
                                         null=True)
@@ -2013,14 +2015,14 @@ class PageFormGroup(models.Model):
 
 class PageFormGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    page = models.ForeignKey(PageForm, models.DO_NOTHING,
+    page = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey(PageForm, models.DO_NOTHING,
+    form = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='FORM_ID', related_name='+')
-    group = models.ForeignKey('user.Group', models.DO_NOTHING,
+    group = models.ForeignKey('user.Group', models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2041,14 +2043,14 @@ class PageFormMode(models.Model):
 
 class PageFormRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    page = models.ForeignKey(PageForm, models.DO_NOTHING,
+    page = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey(PageForm, models.DO_NOTHING,
+    form = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='FORM_ID', related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2059,15 +2061,15 @@ class PageFormRoleAcl(models.Model):
 
 class PageFormServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    page = models.ForeignKey(PageForm, models.DO_NOTHING,
+    page = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey(PageForm, models.DO_NOTHING,
+    form = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='FORM_ID', related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2078,14 +2080,14 @@ class PageFormServiceAcl(models.Model):
 
 class PageFormUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    page = models.ForeignKey(PageForm, models.DO_NOTHING,
+    page = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='PAGE_ID', related_name='+')
-    form = models.ForeignKey(PageForm, models.DO_NOTHING,
+    form = models.ForeignKey(PageForm, models.CASCADE,
                              db_column='FORM_ID', related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2161,13 +2163,13 @@ class PublicationSetting(models.Model):
 class Question(models.Model):
     question_id = models.AutoField(db_column='QUESTION_ID', primary_key=True)
     question_type = models.ForeignKey(
-        'QuestionType', models.DO_NOTHING, db_column='QUESTION_TYPE_ID',
+        'QuestionType', models.CASCADE, db_column='QUESTION_TYPE_ID',
         related_name='+')
     mapping = models.ForeignKey(
-        Mapping, models.DO_NOTHING, db_column='MAPPING_ID', related_name='+',
+        Mapping, models.CASCADE, db_column='MAPPING_ID', related_name='+',
         blank=True, null=True)
     answer_query = models.ForeignKey(
-        AnswerQuery, models.DO_NOTHING, db_column='ANSWER_QUERY_ID',
+        AnswerQuery, models.CASCADE, db_column='ANSWER_QUERY_ID',
         related_name='+', blank=True, null=True)
     name = models.CharField(db_column='NAME', max_length=500)
     description = models.CharField(
@@ -2192,9 +2194,9 @@ class Question(models.Model):
 class QuestionChapter(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID', related_name='+')
+        Question, models.CASCADE, db_column='QUESTION_ID', related_name='+')
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID', related_name='+')
+        Chapter, models.CASCADE, db_column='CHAPTER_ID', related_name='+')
     required = models.PositiveSmallIntegerField(db_column='REQUIRED')
     item = models.IntegerField(db_column='ITEM')
     sort = models.IntegerField(db_column='SORT')
@@ -2208,15 +2210,15 @@ class QuestionChapter(models.Model):
 class QuestionChapterGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
-    group = models.ForeignKey('user.Group', models.DO_NOTHING,
+    group = models.ForeignKey('user.Group', models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2228,15 +2230,15 @@ class QuestionChapterGroupAcl(models.Model):
 class QuestionChapterRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2248,16 +2250,16 @@ class QuestionChapterRoleAcl(models.Model):
 class QuestionChapterServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2270,15 +2272,15 @@ class QuestionChapterServiceAcl(models.Model):
 class QuestionChapterUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID',
+        Question, models.CASCADE, db_column='QUESTION_ID',
         related_name='+')
     chapter = models.ForeignKey(
-        Chapter, models.DO_NOTHING, db_column='CHAPTER_ID',
+        Chapter, models.CASCADE, db_column='CHAPTER_ID',
         related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2300,10 +2302,10 @@ class QuestionType(models.Model):
 
 class RApiListInstanceState(models.Model):
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING,
+        'Resource', models.CASCADE,
         db_column='RESOURCE_ID', related_name='+')
     instance_state = models.ForeignKey(
-        'instance.InstanceState', models.DO_NOTHING,
+        'instance.InstanceState', models.CASCADE,
         db_column='INSTANCE_STATE_ID', related_name='+')
 
     class Meta:
@@ -2314,10 +2316,10 @@ class RApiListInstanceState(models.Model):
 
 class RApiListCirculationState(models.Model):
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING,
+        'Resource', models.CASCADE,
         db_column='RESOURCE_ID', related_name='+')
     circulation_state = models.ForeignKey(
-        'CirculationState', models.DO_NOTHING,
+        'CirculationState', models.CASCADE,
         db_column='CIRCULATION_STATE_ID', related_name='+')
 
     class Meta:
@@ -2328,10 +2330,10 @@ class RApiListCirculationState(models.Model):
 
 class RApiListCirculationType(models.Model):
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING,
+        'Resource', models.CASCADE,
         db_column='RESOURCE_ID', related_name='+')
     circulation_type = models.ForeignKey(
-        'CirculationType', models.DO_NOTHING,
+        'CirculationType', models.CASCADE,
         db_column='CIRCULATION_TYPE_ID', related_name='+')
 
     class Meta:
@@ -2341,10 +2343,10 @@ class RApiListCirculationType(models.Model):
 
 
 class RFormlist(models.Model):
-    resource = models.OneToOneField('Resource', models.DO_NOTHING,
+    resource = models.OneToOneField('Resource', models.CASCADE,
                                     db_column='RESOURCE_ID', primary_key=True,
                                     related_name='+')
-    form = models.ForeignKey('instance.Form', models.DO_NOTHING,
+    form = models.ForeignKey('instance.Form', models.CASCADE,
                              db_column='FORM_ID', related_name='+')
 
     class Meta:
@@ -2355,9 +2357,9 @@ class RFormlist(models.Model):
 class RGroupAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
-    group = models.ForeignKey('user.Group', models.DO_NOTHING,
+    group = models.ForeignKey('user.Group', models.CASCADE,
                               db_column='GROUP_ID', related_name='+')
 
     class Meta:
@@ -2367,7 +2369,7 @@ class RGroupAcl(models.Model):
 
 
 class RList(models.Model):
-    resource = models.OneToOneField('Resource', models.DO_NOTHING,
+    resource = models.OneToOneField('Resource', models.CASCADE,
                                     db_column='RESOURCE_ID', primary_key=True,
                                     related_name='+')
     query = models.CharField(db_column='QUERY', max_length=4000)
@@ -2381,7 +2383,7 @@ class RListColumn(models.Model):
     r_list_column_id = models.AutoField(
         db_column='R_LIST_COLUMN_ID', primary_key=True)
     resource = models.ForeignKey(
-        RList, models.DO_NOTHING, db_column='RESOURCE_ID', related_name='+')
+        RList, models.CASCADE, db_column='RESOURCE_ID', related_name='+')
     column_name = models.CharField(db_column='COLUMN_NAME', max_length=30)
     alias = models.CharField(db_column='ALIAS', max_length=30)
     sort = models.IntegerField(db_column='SORT')
@@ -2392,7 +2394,7 @@ class RListColumn(models.Model):
 
 
 class RPage(models.Model):
-    resource = models.OneToOneField('Resource', models.DO_NOTHING,
+    resource = models.OneToOneField('Resource', models.CASCADE,
                                     db_column='RESOURCE_ID', primary_key=True,
                                     related_name='+')
     pdf_class = models.CharField(
@@ -2406,9 +2408,9 @@ class RPage(models.Model):
 class RRoleAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
 
     class Meta:
@@ -2418,7 +2420,7 @@ class RRoleAcl(models.Model):
 
 
 class RSearch(models.Model):
-    resource = models.OneToOneField('Resource', models.DO_NOTHING,
+    resource = models.OneToOneField('Resource', models.CASCADE,
                                     db_column='RESOURCE_ID', primary_key=True,
                                     related_name='+')
     result_template = models.CharField(
@@ -2438,7 +2440,7 @@ class RSearchColumn(models.Model):
     r_search_column_id = models.AutoField(
         db_column='R_SEARCH_COLUMN_ID', primary_key=True)
     resource = models.ForeignKey(
-        RSearch, models.DO_NOTHING, db_column='RESOURCE_ID', related_name='+')
+        RSearch, models.CASCADE, db_column='RESOURCE_ID', related_name='+')
     column_name = models.CharField(db_column='COLUMN_NAME', max_length=30)
     alias = models.CharField(db_column='ALIAS', max_length=30)
     sort = models.IntegerField(db_column='SORT')
@@ -2452,9 +2454,9 @@ class RSearchFilter(models.Model):
     r_search_filter_id = models.AutoField(
         db_column='R_SEARCH_FILTER_ID', primary_key=True)
     resource = models.ForeignKey(
-        RSearch, models.DO_NOTHING, db_column='RESOURCE_ID', related_name='+')
+        RSearch, models.CASCADE, db_column='RESOURCE_ID', related_name='+')
     question = models.ForeignKey(
-        Question, models.DO_NOTHING, db_column='QUESTION_ID', related_name='+',
+        Question, models.CASCADE, db_column='QUESTION_ID', related_name='+',
         blank=True, null=True)
     field_name = models.CharField(db_column='FIELD_NAME', max_length=50)
     label = models.CharField(db_column='LABEL', max_length=1000)
@@ -2472,10 +2474,10 @@ class RSearchFilter(models.Model):
 class RServiceAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
 
     class Meta:
@@ -2497,9 +2499,9 @@ class RSimpleList(models.Model):
 class RUserAcl(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     resource = models.ForeignKey(
-        'Resource', models.DO_NOTHING, db_column='RESOURCE_ID',
+        'Resource', models.CASCADE, db_column='RESOURCE_ID',
         related_name='+')
-    user = models.ForeignKey('user.User', models.DO_NOTHING,
+    user = models.ForeignKey('user.User', models.CASCADE,
                              db_column='USER_ID', related_name='+')
 
     class Meta:
@@ -2511,7 +2513,7 @@ class RUserAcl(models.Model):
 class Resource(models.Model):
     resource_id = models.AutoField(db_column='RESOURCE_ID', primary_key=True)
     available_resource = models.ForeignKey(
-        AvailableResource, models.DO_NOTHING,
+        AvailableResource, models.CASCADE,
         db_column='AVAILABLE_RESOURCE_ID', related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
     description = models.CharField(
@@ -2580,10 +2582,10 @@ class ServiceAnswerActivation(models.Model):
 
 class WorkflowAction(models.Model):
     action = models.OneToOneField(
-        Action, models.DO_NOTHING, db_column='ACTION_ID', primary_key=True,
+        Action, models.CASCADE, db_column='ACTION_ID', primary_key=True,
         related_name='+')
     workflow_item = models.ForeignKey(
-        'WorkflowItem', models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
+        'WorkflowItem', models.CASCADE, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
     multi_value = models.PositiveSmallIntegerField(db_column='MULTI_VALUE')
 
@@ -2601,7 +2603,7 @@ class WorkflowEntry(models.Model):
     workflow_item = models.ForeignKey(
         'WorkflowItem', models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
-    group = models.FloatField(db_column='GROUP')
+    group = models.IntegerField(db_column='GROUP')
 
     class Meta:
         managed = True
@@ -2612,7 +2614,7 @@ class WorkflowEntry(models.Model):
 class WorkflowItem(models.Model):
     workflow_item_id = models.AutoField(
         db_column='WORKFLOW_ITEM_ID', primary_key=True)
-    position = models.FloatField(db_column='POSITION')
+    position = models.IntegerField(db_column='POSITION')
     name = models.CharField(db_column='NAME', max_length=255)
     automatical = models.PositiveSmallIntegerField(db_column='AUTOMATICAL')
     different_color = models.PositiveSmallIntegerField(
@@ -2620,7 +2622,7 @@ class WorkflowItem(models.Model):
     is_workflow = models.PositiveSmallIntegerField(db_column='IS_WORKFLOW')
     is_building_authority = models.PositiveSmallIntegerField(
         db_column='IS_BUILDING_AUTHORITY')
-    workflow_section = models.ForeignKey('WorkflowSection', models.DO_NOTHING,
+    workflow_section = models.ForeignKey('WorkflowSection', models.CASCADE,
                                          db_column='WORKFLOW_SECTION_ID',
                                          related_name='+', blank=True,
                                          null=True)
@@ -2633,9 +2635,9 @@ class WorkflowItem(models.Model):
 class WorkflowRole(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     workflow_item = models.ForeignKey(
-        WorkflowItem, models.DO_NOTHING, db_column='WORKFLOW_ITEM_ID',
+        WorkflowItem, models.CASCADE, db_column='WORKFLOW_ITEM_ID',
         related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
 
     class Meta:
@@ -2648,7 +2650,7 @@ class WorkflowSection(models.Model):
     workflow_section_id = models.AutoField(
         db_column='WORKFLOW_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=60)
-    sort = models.FloatField(db_column='SORT', blank=True, null=True)
+    sort = models.IntegerField(db_column='SORT', blank=True, null=True)
 
     class Meta:
         managed = True
@@ -2668,9 +2670,9 @@ class AttachmentExtension(models.Model):
 class AttachmentExtensionRole(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     attachment_extension = models.ForeignKey(
-        AttachmentExtension, models.DO_NOTHING,
+        AttachmentExtension, models.CASCADE,
         db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
-    role = models.ForeignKey('user.Role', models.DO_NOTHING,
+    role = models.ForeignKey('user.Role', models.CASCADE,
                              db_column='ROLE_ID', related_name='+')
     mode = models.CharField(
         db_column='MODE', max_length=10, blank=True, null=True)
@@ -2684,10 +2686,10 @@ class AttachmentExtensionRole(models.Model):
 class AttachmentExtensionService(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     attachment_extension = models.ForeignKey(
-        AttachmentExtension, models.DO_NOTHING,
+        AttachmentExtension, models.CASCADE,
         db_column='ATTACHMENT_EXTENSION_ID', related_name='+')
     service = models.ForeignKey(
-        'user.Service', models.DO_NOTHING, db_column='SERVICE_ID',
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
         related_name='+')
     mode = models.CharField(
         db_column='MODE', max_length=10, blank=True, null=True)
