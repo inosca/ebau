@@ -49,4 +49,22 @@ export default function() {
   this.post('/api/v1/form-fields')
   this.get('/api/v1/form-fields/:id')
   this.patch('/api/v1/form-fields/:id')
+
+  this.get('/api/v1/attachments', function(
+    { attachments },
+    { queryParams: { instance, name } }
+  ) {
+    return attachments.where(field => {
+      return (
+        (name
+          ? name.split(',').some(n => new RegExp(n).test(field.name))
+          : true) && (instance ? field.instanceId === instance : true)
+      )
+    })
+  })
+
+  this.post('/api/v1/attachments')
+  this.get('/api/v1/attachments/:id')
+  this.get('/api/v1/attachments/:id/thumbnail', () => new Blob())
+  this.patch('/api/v1/attachments/:id')
 }

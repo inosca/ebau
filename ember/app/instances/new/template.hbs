@@ -1,7 +1,6 @@
 {{#if forms.isRunning}}
-  {{#uk-flex horizontal='center'}}
-    {{! TODO: Set a bigger ratio as soon as supported by ember-uikit }}
-    {{uk-spinner}}
+  {{#uk-flex horizontal='center' class='uk-padding uk-animation-fade'}}
+    {{uk-spinner ratio=3}}
   {{/uk-flex}}
 {{else}}
   <h4 class="uk-text-center">Um welche Art von Gesuch handelt es sich?</h4>
