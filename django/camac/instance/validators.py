@@ -20,10 +20,6 @@ class FormDataValidator(object):
             for field in models.FormField.objects.filter(instance=instance)
         }
 
-    def _validate_question_document(self, question, question_def, value):
-        # TODO: Add real validation here
-        pass
-
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
 
