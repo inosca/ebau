@@ -109,7 +109,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["bezeichung", "parzelle"]
+      "questions": ["bezeichnung", "parzelle"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -351,10 +351,16 @@
       "config": {}
     },
     "dokument-durchflussnachweis": {
-      "label": "",
+      "label": "Durchflussnachweis",
+      "hint": "Hydrogeologischer Nachweis",
       "type": "document",
       "required": true,
-      "active-condition": [],
+      "active-condition": [
+        {
+          "question": "pfahlfundation-vorgesehen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
       "config": {}
     },
     "parzelle": {

@@ -76,11 +76,6 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
       await this.get('session').authenticate('authenticator:oidc', {
         code
       })
-      let next = this.get('session.data.next')
-
-      if (next) {
-        this.replaceWith(next)
-      }
     } catch (e) {
       assert('Authentication failed')
     }

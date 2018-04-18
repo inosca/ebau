@@ -22,6 +22,10 @@ const CamacInputComponent = Component.extend({
   }),
 
   save: task(function*(value) {
+    if (this.get('readonly')) {
+      return
+    }
+
     let question = yield this.get('question')
 
     question.set('model.value', value)
