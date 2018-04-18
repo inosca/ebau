@@ -523,40 +523,6 @@
   }
 },
 {
-  "model": "user.user",
-  "pk": 1,
-  "fields": {
-    "username": "admin",
-    "password": "0f10da7320c3fad6c1bd4e597992fb83",
-    "name": "super",
-    "surname": "admin",
-    "email": "",
-    "phone": null,
-    "disabled": 0,
-    "language": "de",
-    "address": null,
-    "city": null,
-    "zip": null
-  }
-},
-{
-  "model": "user.user",
-  "pk": 2,
-  "fields": {
-    "username": "guest",
-    "password": "0f10da7320c3fad6c1bd4e597992fb83",
-    "name": "guest",
-    "surname": "person",
-    "email": "",
-    "phone": null,
-    "disabled": 0,
-    "language": "de",
-    "address": null,
-    "city": null,
-    "zip": null
-  }
-},
-{
   "model": "user.role",
   "pk": 1,
   "fields": {
@@ -600,24 +566,6 @@
     "address": null,
     "email": null,
     "website": null
-  }
-},
-{
-  "model": "user.usergroup",
-  "pk": 1,
-  "fields": {
-    "user": 1,
-    "group": 1,
-    "default_group": 1
-  }
-},
-{
-  "model": "user.usergroup",
-  "pk": 2,
-  "fields": {
-    "user": 2,
-    "group": 2,
-    "default_group": 1
   }
 }
 ]
