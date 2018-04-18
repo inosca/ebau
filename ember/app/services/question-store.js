@@ -90,6 +90,20 @@ export default Service.extend({
     return await this.get('ajax').request('/api/v1/form-config')
   }),
 
+  saveQuestion: task(function*(question) {
+    yield question
+
+    let validity = question.validate()
+
+    if (validity === true) {
+      yield question.get('model').save()
+
+      return null
+    }
+
+    return validity
+  }),
+
   async _buildQuestion(name, instance, query = null) {
     let field = getWithDefault(
       await this.get('config'),
