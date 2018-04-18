@@ -1,1 +1,16 @@
-{{outlet}}
+{{#camac-form instance=model.instance meta=model.meta as |form|}}
+  <div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@s uk-child-width-1-4@m">
+    {{form.document 'dokument-parzelle'}}
+    {{form.document 'dokument-katasterplan'}}
+    {{form.document 'dokument-grundrisse'}}
+    {{form.document 'dokument-schnitt-fassadenplane'}}
+    {{form.document 'dokument-umbegungsplan'}}
+    {{form.document 'dokument-baubeschrieb'}}
+    {{form.document 'dokument-zustimmung-naherbaurecht'}}
+    {{form.document 'dokument-planverzeichnis'}}
+    {{form.document 'dokument-nachweis-abstellflachen'}}
+    {{form.document 'dokument-energienachweis'}}
+    {{form.document 'dokument-pfahlfundationsplan'}}
+    {{form.document 'dokument-durchflussnachweis'}}
+  </div>
+{{/camac-form}}

@@ -109,7 +109,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["parzelle"]
+      "questions": ["bezeichung", "parzelle"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -205,7 +205,20 @@
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
       "parent": null,
-      "questions": []
+      "questions": [
+        "dokument-parzelle",
+        "dokument-katasterplan",
+        "dokument-grundrisse",
+        "dokument-schnitt-fassadenplane",
+        "dokument-umbegungsplan",
+        "dokument-baubeschrieb",
+        "dokument-zustimmung-naherbaurecht",
+        "dokument-planverzeichnis",
+        "dokument-nachweis-abstellflachen",
+        "dokument-energienachweis",
+        "dokument-pfahlfundationsplan",
+        "dokument-durchflussnachweis"
+      ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
       "title": "Anlass- / Verkehrsbewilligungen",
@@ -250,6 +263,100 @@
     "vorentscheid": { "title": "Vorentscheid", "parent": null, "questions": [] }
   },
   "questions": {
+    "dokument-parzelle": {
+      "label": "Parzelle",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-katasterplan": {
+      "label": "Katasterplan",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-grundrisse": {
+      "label": "Grundrisse",
+      "hint": "Massstab 1:100",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-schnitt-fassadenplane": {
+      "label": "Schnitt- und Fassadenpläne",
+      "hint":
+        "Massstab 1:100 mit Darstellung des Terrains bis Grundstückgrenze (gewachsenes + projektiertes Terrain)",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-umbegungsplan": {
+      "label": "Umgebungsplan",
+      "hint": "Mit Abstandslinien (vermasst)",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-baubeschrieb": {
+      "label": "Baubeschrieb",
+      "hint": "Inkl. Material- und Farbkonzept bei Bauten",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-zustimmung-naherbaurecht": {
+      "label": "Zustimmung Näherbaurecht",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-planverzeichnis": {
+      "label": "Planverzeichnis",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-nachweis-abstellflachen": {
+      "label": "Nachweis der Abstellflächen / Parkierung",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-energienachweis": {
+      "label": "Energienachweis",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-pfahlfundationsplan": {
+      "label": "Pfahlfundationsplan",
+      "type": "document",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "pfahlfundation-vorgesehen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-durchflussnachweis": {
+      "label": "",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
     "parzelle": {
       "label": "Parzellennr.",
       "type": "number",
@@ -459,6 +566,13 @@
         ]
       }
     },
+    "bezeichnung": {
+      "label": "Bezeichung Ihres Vorhabens:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
@@ -488,6 +602,8 @@
     },
     "vorhaben-mit-baute": {
       "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
+      "hint":
+        "Ordnen Sie bitte Ihrem Vorhaben jene Tätigkeit zu, welche am meisten / ehesten zutrifft",
       "type": "checkbox",
       "required": true,
       "active-condition": [

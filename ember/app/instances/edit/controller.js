@@ -5,14 +5,7 @@ import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
 import { all } from 'rsvp'
 import { getOwner } from '@ember/application'
-
-const computedTask = (taskName, ...keys) => {
-  return computed(...keys, function() {
-    let task = this.get(taskName)
-    task.perform()
-    return task
-  })
-}
+import computedTask from 'citizen-portal/lib/computed-task'
 
 const Module = EmberObject.extend({
   questionStore: service(),

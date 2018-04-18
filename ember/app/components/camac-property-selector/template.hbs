@@ -25,6 +25,7 @@
   onClick   = (perform handleClick)
   class     = 'uk-width-1-1 uk-height-large uk-margin'
 as |map|}}
+  {{map.tile url='https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg'}}
   {{map.wms-tile
     transparent = true
     format      = 'image/png'
@@ -52,7 +53,7 @@ as |map|}}
     {{map.polygon locations=feature color='blue' onAdd=(perform centerLayerToPolygon)}}
   {{/if}}
   {{#if property.polygon}}
-    {{#map.polygon locations=property.polygon color='red' onAdd=(perform centerLayerToPolygon) as |polygon|}}
+    {{#map.polygon locations=property.polygon color='red' onAdd=(action (queue (perform centerLayerToPolygon) (perform createImage))) as |polygon|}}
       {{#unless centerLayerToPolygon.last.isRunning}}
         {{#polygon.popup popupOpen=true closeButton=false}}
           <table>
@@ -71,33 +72,13 @@ as |map|}}
   {{/if}}
 {{/leaflet-map}}
 
-{{#camac-render-map
-  lat    = lat
-  lng    = lng
-  zoom   = zoom
-as |map|}}
-  {{map.wms-tile
-    transparent = true
-    format      = 'image/png'
-    version     = '1.3.0'
-    layers      = layers
-    opacity     = 0.5
-    url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
-  }}
-  {{#if property}}
-    {{map.polygon locations=property.polygon color='red' onAdd=(perform createImage)}}
-  {{/if}}
-{{/camac-render-map}}
-
-{{#if (and showButtons (not readonly))}}
+{{#if showButtons}}
   <div class="uk-text-right">
-    {{#uk-button disabled=(not (or point property feature)) on-click=(perform reset)}}Auswahl zurücksetzen{{/uk-button}}
-    {{#uk-button color='primary' disabled=(not property) on-click=(perform submit)}}
-      {{#if property}}
+    {{#uk-button on-click=(perform reset)}}Auswahl zurücksetzen{{/uk-button}}
+    {{#if property}}
+      {{#uk-button color='primary' disabled=submit.isRunning on-click=(perform submit)}}
         Nr. {{property.number}} (Gemeinde {{property.municipality}}) bestätigen
-      {{else}}
-        Grundstück bestätigen
-      {{/if}}
-    {{/uk-button}}
+      {{/uk-button}}
+    {{/if}}
   </div>
 {{/if}}
