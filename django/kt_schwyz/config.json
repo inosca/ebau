@@ -6640,6 +6640,15 @@
   }
 },
 {
+  "model": "document.attachmentsectionroleacl",
+  "pk": 3,
+  "fields": {
+    "attachment_section": 1,
+    "role": 4,
+    "mode": "write"
+  }
+},
+{
   "model": "instance.form",
   "pk": 1,
   "fields": {
