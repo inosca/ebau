@@ -32,9 +32,12 @@
             {{/uk-flex}}
           </div>
         {{/link-to}}
-        {{#if session.isAuthenticated}}
-          <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade" uk-icon="sign-out" {{action 'logout'}}></button>
-        {{/if}}
+        <div>
+          <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to 'index')}}></a>
+          {{#if session.isAuthenticated}}
+            <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action 'logout'}}></button>
+          {{/if}}
+        </div>
       {{/uk-flex}}
     {{/unless}}
 
