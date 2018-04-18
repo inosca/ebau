@@ -1,12 +1,32 @@
-/* global L, leafletImage */
+/* global L */
 import Component from '@ember/component'
 import { inject as service } from '@ember/service'
 import { scheduleOnce } from '@ember/runloop'
-import { task, timeout } from 'ember-concurrency'
+import { task, timeout, waitForQueue } from 'ember-concurrency'
 import { Promise, resolve } from 'rsvp'
 import { computed } from '@ember/object'
+import html2canvas from 'html2canvas'
 
 const LAYERS = [
+  'ch.sz.a055a.kantonsgrenze',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer.hilfslinie',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer_projektiert.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrechtnummer_projektiert.hilfslinie',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.grundstueck',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftsnummer.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftsnummer.hilfslinie',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert.polygon',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.position',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie'
+  /*
   'ch.sz.afk.afk_kigbo',
   'ch.sz.afk.afk_isos',
   'ch.sz.bfs.grp.bfs_gwr',
@@ -70,6 +90,7 @@ const LAYERS = [
   'ly_anjf_fischregionen',
   'ch.sz.anjf_reptiliengebiete.reptiliengebiet',
   'ch.sz.a006.swisstlm3d.bodenbedeckung.wald'
+  */
 ]
 
 const CENTER = [47.020714, 8.652988]
@@ -100,18 +121,20 @@ export default Component.extend({
   },
 
   showButtons: computed(
-    'property.{number,municipality}',
+    'readonly',
     'selected.{number,municipality}',
-    'point',
+    'property.{number,municipality}',
     function() {
       return (
-        this.get('point') ||
-        (this.get('property') &&
-          !(
-            this.get('selected.number') === this.get('property.number') &&
-            this.get('selected.municipality') ===
-              this.get('property.municipality')
-          ))
+        !this.get('readonly') &&
+        (this.getWithDefault('property.municipality', '')
+          .trim()
+          .toLowerCase() !==
+          this.getWithDefault('selected.municipality', '')
+            .trim()
+            .toLowerCase() ||
+          parseInt(this.get('property.number')) !==
+            parseInt(this.get('selected.number')))
       )
     }
   ),
@@ -167,6 +190,7 @@ export default Component.extend({
         municipality
       }
 
+      yield this.get('clear').perform()
       scheduleOnce('afterRender', () => {
         this.set('property', property)
       })
@@ -176,6 +200,7 @@ export default Component.extend({
         coordinates: EPSG2056toLatLng(...result.geometry.coordinates)
       }
 
+      yield this.get('clear').perform()
       scheduleOnce('afterRender', () => {
         this.set('point', point)
       })
@@ -184,12 +209,11 @@ export default Component.extend({
         EPSG2056toLatLng(...xy)
       )
 
+      yield this.get('clear').perform()
       scheduleOnce('afterRender', () => {
         this.set('feature', feature)
       })
     }
-
-    yield this.get('clear').perform()
   }).restartable(),
 
   handleClick: task(function*(e) {
@@ -255,7 +279,6 @@ export default Component.extend({
         }
 
         yield this.get('clear').perform()
-
         scheduleOnce('afterRender', () => {
           this.set('property', property)
         })
@@ -264,27 +287,25 @@ export default Component.extend({
   }).restartable(),
 
   centerLayerToPolygon: task(function*(e) {
-    this.set('point', null) // remove marked point since we selected a property
-
     e.target._map.fitBounds(e.target.getBounds())
 
     yield timeout(500) // wait for the pan animation to finish
-  }).drop(),
+  }).enqueue(),
 
   centerLayerToPoint: task(function*(e) {
     e.target._map.panTo(e.target.getLatLng())
 
     yield timeout(500) // wait for the pan animation to finish
-  }).drop(),
+  }).enqueue(),
 
   clear: task(function*() {
     yield this.setProperties({ point: null, property: null, feature: null })
-  }).drop(),
+  }).restartable(),
 
   reset: task(function*() {
     yield this.get('clear').perform()
     yield this.get('handleInitialSelection').perform()
-  }).drop(),
+  }).restartable(),
 
   submit: task(function*() {
     yield timeout()
@@ -295,10 +316,15 @@ export default Component.extend({
   }).drop(),
 
   createImage: task(function*(e) {
+    yield waitForQueue('afterRender')
+
     yield this.get('centerLayerToPolygon.last')
 
-    return yield new Promise(resolve => {
-      leafletImage(e.target._map, (_, canvas) => resolve(canvas.toDataURL()))
+    let canvas = yield html2canvas(e.target._map._container, {
+      logging: false,
+      useCORS: true
     })
+
+    return new Promise(resolve => canvas.toBlob(resolve))
   }).restartable()
 })

@@ -1,0 +1,11 @@
+.uk-cover {
+  transition: transform 300ms ease;
+}
+
+.uk-cover-container:hover .uk-cover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+[uk-icon] {
+  padding: 3px;
+}
