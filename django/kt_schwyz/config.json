@@ -6649,6 +6649,51 @@
   }
 },
 {
+  "model": "document.attachmentsectionroleacl",
+  "pk": 3,
+  "fields": {
+    "attachment_section": 1,
+    "role": 4,
+    "mode": "write"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 4,
+  "fields": {
+    "attachment_section": 1,
+    "role": 5,
+    "mode": "read"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 5,
+  "fields": {
+    "attachment_section": 2,
+    "role": 5,
+    "mode": "admin"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 6,
+  "fields": {
+    "attachment_section": 1,
+    "role": 6,
+    "mode": "read"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 7,
+  "fields": {
+    "attachment_section": 2,
+    "role": 6,
+    "mode": "read"
+  }
+},
+{
   "model": "instance.form",
   "pk": 1,
   "fields": {
