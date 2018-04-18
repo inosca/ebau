@@ -608,6 +608,20 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 44,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 23,
+    "name": "instance state to nfd",
+    "description": null,
+    "success_message": "Nachforderung erflogreich abgesendet",
+    "error_message": "Nachforderung konnte nicht versandt werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -661,6 +675,14 @@
   "fields": {
     "current_instance_state": null,
     "next_instance_state": 10
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 44,
+  "fields": {
+    "current_instance_state": 5,
+    "next_instance_state": 7
   }
 },
 {
@@ -2036,6 +2058,15 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 36,
+  "fields": {
+    "button": 23,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -2226,7 +2257,7 @@
     "instance_resource": 19,
     "name": "Nachforderung",
     "description": null,
-    "class_field": null,
+    "class_field": "nfd",
     "hidden": 0,
     "sort": 2
   }
@@ -2252,7 +2283,7 @@
     "description": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -2301,6 +2332,18 @@
     "class_field": null,
     "hidden": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 23,
+  "fields": {
+    "instance_resource": 7,
+    "name": "Nachforderung an Gesuchsteller",
+    "description": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
   }
 },
 {
@@ -6637,15 +6680,6 @@
     "attachment_section": 2,
     "role": 3,
     "mode": "read"
-  }
-},
-{
-  "model": "document.attachmentsectionroleacl",
-  "pk": 3,
-  "fields": {
-    "attachment_section": 1,
-    "role": 4,
-    "mode": "write"
   }
 },
 {
