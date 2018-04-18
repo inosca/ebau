@@ -67,9 +67,13 @@ export default CamacInputComponent.extend({
   }),
 
   upload: task(function*(files) {
-    let file = files.item(0)
+    if (this.get('readonly')) {
+      return
+    }
 
     try {
+      let file = files.item(0)
+
       if (!allowedMimeTypes.includes(file.type)) {
         UIkit.notification(
           'Es können nur PDF, JPEG oder PNG Dateien hochgeladen werden.',

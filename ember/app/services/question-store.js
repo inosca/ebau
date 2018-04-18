@@ -77,6 +77,10 @@ export default Service.extend({
 
   ajax: service(),
   store: service(),
+  router: service(),
+  group: reads(
+    'router._router.currentState.routerJsState.fullQueryParams.group'
+  ),
 
   build: taskGroup().enqueue(),
 
@@ -105,6 +109,7 @@ export default Service.extend({
   }),
 
   async _buildQuestion(name, instance, query = null) {
+    let group = this.get('group')
     let field = getWithDefault(
       await this.get('config'),
       `questions.${name}`,
@@ -115,6 +120,7 @@ export default Service.extend({
       query = (await this.get('store').query(
         field.type === 'document' ? 'attachment' : 'form-field',
         {
+          group,
           instance,
           name
         }
@@ -177,6 +183,7 @@ export default Service.extend({
   },
 
   findSet: task(function*(names, instance) {
+    let group = this.get('group')
     let cached = this.peekSet(names, instance)
 
     let cachedNames = cached.map(({ name }) => name)
@@ -198,12 +205,14 @@ export default Service.extend({
       query = A([
         ...(docs.length
           ? (yield this.get('store').query('attachment', {
+              group,
               instance,
               name: docs.mapBy('name').join(',')
             })).toArray()
           : []),
         ...(fields.length
           ? (yield this.get('store').query('form-field', {
+              group,
               instance,
               name: fields.mapBy('name').join(',')
             })).toArray()

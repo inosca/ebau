@@ -10,6 +10,9 @@ import computedTask from 'citizen-portal/lib/computed-task'
 const Module = EmberObject.extend({
   questionStore: service(),
 
+  queryParams: ['group'],
+  group: null,
+
   allQuestions: computed('questions', 'submodules.@each.questions', function() {
     return [
       ...this.getWithDefault('questions', []),

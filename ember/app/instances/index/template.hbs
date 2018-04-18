@@ -17,7 +17,7 @@
       </thead>
       <tbody>
         {{#each filtered as |instance|}}
-          <tr role="link" title="Klicken Sie um das Dossier zu bearbeiten" class="pointer" {{action (transition-to 'instances.edit' instance.id) on='click'}}>
+          <tr role="link" title="Klicken Sie um das Dossier zu bearbeiten" class="pointer" {{action 'navigate' instance on='click'}}>
             <td>
               {{instance.identifier}}
             </td>
