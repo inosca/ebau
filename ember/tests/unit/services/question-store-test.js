@@ -182,4 +182,36 @@ module('Unit | Service | question-store', function(hooks) {
       'The values of test1 AND test2 meet the condition'
     )
   })
+
+  test('can save a question', async function(assert) {
+    assert.expect(6)
+
+    this.server.get('/api/v1/form-config', {
+      questions: {
+        test: {
+          type: 'number',
+          required: true
+        }
+      }
+    })
+
+    let service = this.owner.lookup('service:question-store')
+
+    let question = await service.get('find').perform('test', 1)
+
+    assert.deepEqual(await service.get('saveQuestion').perform(question), [
+      'Diese Frage darf nicht leer gelassen werden'
+    ])
+    assert.equal(question.get('model.isNew'), true)
+
+    question.set('model.value', 'test')
+    assert.deepEqual(await service.get('saveQuestion').perform(question), [
+      'Der Wert muss eine Zahl sein'
+    ])
+    assert.equal(question.get('model.isNew'), true)
+
+    question.set('model.value', 5)
+    assert.deepEqual(await service.get('saveQuestion').perform(question), null)
+    assert.equal(question.get('model.isNew'), false)
+  })
 })

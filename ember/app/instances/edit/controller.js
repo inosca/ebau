@@ -200,6 +200,8 @@ export default Controller.extend({
   ),
 
   prev: task(function*() {
+    yield this.get('questionStore.saveQuestion.last')
+
     let links = this.get('links.lastSuccessful.value')
     let i = this.get('currentIndex')
 
@@ -209,6 +211,8 @@ export default Controller.extend({
   }),
 
   next: task(function*() {
+    yield this.get('questionStore.saveQuestion.last')
+
     let links = this.get('links.lastSuccessful.value')
     let i = this.get('currentIndex')
 
