@@ -163,6 +163,7 @@ class AttachmentSectionGroupAcl(models.Model):
 
     class Meta:
         unique_together = (('attachment_section', 'group'),)
+        db_table = 'ATTACHMENT_SECTION_GROUP'
 
 
 class AttachmentSectionServiceAcl(models.Model):
