@@ -222,4 +222,4 @@ generate-api-doc: ## generates documentation for the i-web portal API
 
 .PHONY: clear-cache ## Clear the memcache
 clear-cache:
-	bash .clear_cache.sh
+	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
