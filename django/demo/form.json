@@ -1,9 +1,6 @@
 {
   "forms": {
-    "baugesuch": [
-      "grundinformationen",
-      "grundinformationen.kategorisierung"
-    ]
+    "baugesuch": ["grundinformationen", "grundinformationen.kategorisierung"]
   },
   "modules": {
     "grundinformationen": {
@@ -29,7 +26,7 @@
   "questions": {
     "kategorie-des-vorhabens": {
       "label":
-      "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+        "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
       "type": "checkbox",
       "required": true,
       "active-condition": [],
@@ -64,10 +61,15 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
       "label":
-      "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+        "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "type": "radio",
       "required": true,
-      "active-condition": [],
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": { "contains-not-any": ["Anlage(n)"] }
+        }
+      ],
       "config": {
         "options": ["Ja", "Nein"]
       }
