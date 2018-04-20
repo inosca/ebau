@@ -185,10 +185,24 @@ def test_instance_create(admin_client, admin_user, form,
     ('Applicant', LazyFixture('location'), 'baugesuch', status.HTTP_200_OK),
     ('Applicant', LazyFixture('location'), '', status.HTTP_400_BAD_REQUEST),
     ('Applicant', None, 'baugesuch', status.HTTP_400_BAD_REQUEST),
+    (
+        'Applicant',
+        LazyFixture(lambda location_factory: location_factory()),
+        'baugesuch',
+        status.HTTP_400_BAD_REQUEST
+    ),
 ])
 def test_instance_submit(admin_client, admin_user, form, form_field_factory,
                          instance, instance_state, instance_state_factory,
-                         status_code):
+                         status_code, role_factory, group_factory,
+                         group_location_factory):
+
+    # only create group in a successful run
+    if status_code == status.HTTP_200_OK:
+        role = role_factory(name='Municipality')
+        group = group_factory(role=role)
+        group_location_factory(group=group, location=instance.location)
+
     instance_state_factory(name='subm')
     url = reverse('instance-submit', args=[instance.pk])
     add_field = functools.partial(form_field_factory, instance=instance)
