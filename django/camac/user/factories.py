@@ -14,6 +14,7 @@ class ServiceGroupFactory(DjangoModelFactory):
 class ServiceFactory(DjangoModelFactory):
     name = Faker('name')
     sort = 0
+    email = Faker('email')
     service_group = SubFactory(ServiceGroupFactory)
 
     class Meta:
@@ -22,6 +23,7 @@ class ServiceFactory(DjangoModelFactory):
 
 class UserFactory(DjangoModelFactory):
     name = Faker('name')
+    email = Faker('email')
     username = Faker('name')
     disabled = 0
     language = 'de'
@@ -41,6 +43,7 @@ class GroupFactory(DjangoModelFactory):
     name = Faker('name')
     role = SubFactory(RoleFactory)
     service = SubFactory(ServiceFactory)
+    email = Faker('email')
 
     class Meta:
         model = models.Group
