@@ -582,6 +582,8 @@
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+      "hint":
+        "Bei Nutzungsänderungen kann Baute und / oder Anlage betroffen sein",
       "type": "checkbox",
       "required": true,
       "active-condition": [],
@@ -989,15 +991,29 @@
     "baugespann-errichtet": {
       "label": "Das Baugespann wurde / wird errichtet am:",
       "type": "text",
-      "required": false,
-      "active-condition": [],
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": {
+            "contains-not-any": ["Baute(n)"]
+          }
+        }
+      ],
       "config": {}
     },
     "kein-baugespann-begrundung": {
       "label": "Falls kein Baugespann erstellt wird, ist dies zu begründen:",
       "type": "text",
-      "required": false,
-      "active-condition": [],
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kategorie-des-vorhabens",
+          "value": {
+            "contains-not-any": ["Baute(n)"]
+          }
+        }
+      ],
       "config": {}
     },
     "baukosten": {

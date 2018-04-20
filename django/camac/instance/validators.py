@@ -2,6 +2,7 @@ import itertools
 import json
 import sys
 
+import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
@@ -112,10 +113,27 @@ class FormDataValidator(object):
             if not isinstance(value, list):
                 # avoid single values
                 value = [value]
-            if not set(value) & set(cond['value']['contains-any']):
-                return False
+
+            for condition_type, condition_values in cond['value'].items():
+                condition_check_method = getattr(
+                    self,
+                    '_check_active_condition_{0}'.format(
+                        inflection.underscore(condition_type)
+                    )
+                )
+
+                if not condition_check_method(value, condition_values):
+                    return False
 
         return True
+
+    def _check_active_condition_contains_any(self, value, condition_values):
+        return not set(value) & set(condition_values)
+
+    def _check_active_condition_contains_not_any(
+        self, value, condition_values
+    ):
+        return set(value) & set(condition_values)
 
     def _validate_question(self, question, question_def, value):
         required = self._check_question_required(question, question_def)
@@ -125,7 +143,10 @@ class FormDataValidator(object):
             return
 
         validate_method = getattr(
-            self, '_validate_question_{0}'.format(question_def['type'])
+            self,
+            '_validate_question_{0}'.format(
+                inflection.underscore(question_def['type'])
+            )
         )
         validate_method(question, question_def, value)
 
