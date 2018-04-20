@@ -46,9 +46,13 @@ services:
         environment:
             - APPLICATION_ENV=development
             - KEYCLOAK_URL=http://keycloak:8080/auth/
+            - DJANGO_EMAIL_HOST=mailcatcher
+            - DJANGO_EMAIL_PORT=1025
         networks:
             - camac-ng.local
         command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loadconfig && ./manage.py runserver 0.0.0.0:80"
+        depends_on:
+            - mailcatcher
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:master
@@ -93,6 +97,13 @@ services:
         environment:
             - POSTGRES_PASSWORD=camac
             - KEYCLOAK_PASSWORD=camac
+        networks:
+            - camac-ng.local
+
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports:
+            - '1080:1080'
         networks:
             - camac-ng.local
 
