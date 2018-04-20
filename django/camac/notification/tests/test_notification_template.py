@@ -53,3 +53,55 @@ def test_notification_merge(admin_client, instance, notification_template,
             notification_template.pk, instance.pk
         )
         assert json['data']['type'] == 'notification-template-merges'
+
+
+@pytest.mark.parametrize("user__email,group__email,service__email", [
+    ('user@example.com', 'group@example.com', 'service@example.com'),
+])
+@pytest.mark.parametrize(
+    "notification_template__subject,instance__identifier", [
+        ('{{identifier}}', 'identifer'),
+    ]
+)
+@pytest.mark.parametrize("role__name,status_code", [
+    ('Canton', status.HTTP_204_NO_CONTENT),
+    ('Municipality', status.HTTP_204_NO_CONTENT),
+    ('Service', status.HTTP_204_NO_CONTENT),
+    ('Applicant', status.HTTP_400_BAD_REQUEST),
+])
+def test_notification_sendmail(admin_client, instance, notification_template,
+                               status_code, mailoutbox, activation):
+
+    url = reverse(
+        'notificationtemplate-sendmail', args=[notification_template.pk]
+    )
+
+    data = {
+        'data': {
+            'type': 'notification-template-sendmails',
+            'id': None,
+            'attributes': {
+                'body': 'Test body',
+                'recipient-types': ['applicant', 'municipality', 'service']
+            },
+            'relationships': {
+                'instance': {
+                    'data': {
+                        'type': 'instances',
+                        'id': instance.pk
+                    }
+                },
+            }
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    if status_code == status.HTTP_204_NO_CONTENT:
+        assert len(mailoutbox) == 1
+        mail = mailoutbox[0]
+        assert set(mail.bcc) == {
+            'user@example.com', 'group@example.com', 'service@example.com'
+        }
+        assert mail.subject == instance.identifier
+        assert mail.body == 'Test body'
