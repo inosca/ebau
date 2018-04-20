@@ -93,6 +93,14 @@ const validateMultiselect = (
 
 const validateSelect = validateRadio
 
+const checkActiveConditionContainsAny = (value, conditionValues) => {
+  return value.some(v => conditionValues.includes(v))
+}
+
+const checkActiveConditionContainsNotAny = (value, conditionValues) => {
+  return value.every(v => !conditionValues.includes(v))
+}
+
 export default {
   validateRequired,
   validateText,
@@ -100,5 +108,8 @@ export default {
   validateCheckbox,
   validateRadio,
   validateMultiselect,
-  validateSelect
+  validateSelect,
+
+  checkActiveConditionContainsAny,
+  checkActiveConditionContainsNotAny
 }
