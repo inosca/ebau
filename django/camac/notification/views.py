@@ -1,13 +1,12 @@
-from rest_framework import response
+from rest_framework import response, status, viewsets
 from rest_framework.decorators import detail_route
-from rest_framework_json_api import views
 
 from camac.user.permissions import permission_aware
 
 from . import models, serializers
 
 
-class NotificationTemplateView(views.ModelViewSet):
+class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
     instance_editable_permission = 'document'
@@ -25,14 +24,6 @@ class NotificationTemplateView(views.ModelViewSet):
     def get_queryset_for_municipality(self):
         return models.NotificationTemplate.objects.all()
 
-    def has_create_permission(self, obj):
-        return False
-
-    def has_object_update_permission(self, obj):
-        return False
-
-    def has_object_destroy_permission(self, obj):
-        return False
     @detail_route(
         methods=['get'],
         serializer_class=serializers.NotificationTemplateMergeSerializer
@@ -46,17 +37,13 @@ class NotificationTemplateView(views.ModelViewSet):
         serializer.save()
         return response.Response(data=serializer.data)
 
-        notification_template = self.get_object()
+    @detail_route(
+        methods=['post'],
+        serializer_class=serializers.NotificationTemplateSendmailSerializer
+    )
+    def sendmail(self, request, pk=None):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
-        instance = generics.get_object_or_404(
-            Instance.objects, **{
-                'pk': self.request.query_params.get('instance')
-            }
-        )
-        notification_template.instance = self.validate_instance(instance)
-        notification_template.pk = '{0}-{1}'.format(
-            notification_template.pk, instance.pk
-        )
-        serializer = self.get_serializer(notification_template, partial=True)
-
-        return response.Response(data=serializer.data)
+        return response.Response(status=status.HTTP_204_NO_CONTENT)

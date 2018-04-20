@@ -1,12 +1,15 @@
+import itertools
 from collections import namedtuple
 
 import jinja2
+from django.core.mail import EmailMessage
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.instance.serializers import InstanceMergeSerializer
+from camac.user.models import Service
 
 from . import models
 
@@ -66,3 +69,45 @@ class NotificationTemplateMergeSerializer(InstanceEditableMixin,
 
     class Meta:
         resource_name = 'notification-template-merges'
+
+
+class NotificationTemplateSendmailSerializer(
+    NotificationTemplateMergeSerializer
+):
+    recipient_types = serializers.MultipleChoiceField(
+        choices=('applicant', 'municipality', 'service')
+    )
+
+    def _get_recipients_applicant(self, instance):
+        return [instance.user.email]
+
+    def _get_recipients_municipality(self, instance):
+        return [instance.group.email]
+
+    def _get_recipients_service(self, instance):
+        services = Service.objects.filter(
+            pk__in=instance.circulations.values('activations__service')
+        )
+
+        return [
+            service.email
+            for service in services
+        ]
+
+    def create(self, validated_data):
+        instance = validated_data['instance']
+        recipients = itertools.chain(*[
+            getattr(self, '_get_recipients_%s' % recipient_type)(instance)
+            for recipient_type in validated_data['recipient_types']
+        ])
+
+        email = EmailMessage(
+            subject=validated_data['subject'],
+            body=validated_data['body'],
+            bcc=set(recipients)
+        )
+
+        return email.send()
+
+    class Meta:
+        resource_name = 'notification-template-sendmails'
