@@ -1,4 +1,5 @@
 import os
+import re
 
 import environ
 
@@ -237,3 +238,43 @@ KEYCLOAK_URL = env.str('KEYCLOAK_URL',
                        default='http://camac-ng-keycloak.local/auth/')
 KEYCLOAK_REALM = env.str('KEYCLOAK_REALM', default='ebau')
 KEYCLOAK_CLIENT = env.str('KEYCLOAK_CLIENT', default='camac')
+
+# Email definition
+
+DEFAULT_FROM_EMAIL = env.str(
+    'DJANGO_DEFAULT_FROM_EMAIL',
+    default('webmaster@localhost')
+)
+
+SERVER_EMAIL = env.str(
+    'DJANGO_SERVER_EMAIL',
+    default('root@localhost')
+)
+
+EMAIL_HOST = env.str('DJANGO_EMAIL_HOST', default('localhost'))
+EMAIL_PORT = env.str('DJANGO_EMAIL_PORT', 25)
+
+EMAIL_HOST_USER = env.str('DJANGO_EMAIL_HOST_USER', '')
+EMAIL_PASSWORD = env.str('DJANGO_EMAIL_HOST_PASSWORD', '')
+EMAIL_USE_TLS = env.str('DJANGO_EMAIL_USE_TLS', False)
+
+
+def parse_admins(admins):
+    """
+    Parse env admins to django admins.
+
+    Example of DJANGO_ADMINS environment variable:
+    Test Example <test@example.com>,Test2 <test2@example.com>
+    """
+    result = []
+    for admin in admins:
+        match = re.search('(.+) \<(.+@.+)\>', admin)
+        if not match:
+            raise environ.ImproperlyConfigured(
+                'In DJANGO_ADMINS admin "{0}" is not in correct '
+                '"Firstname Lastname <email@example.com>"'.format(admin))
+        result.append((match.group(1), match.group(2)))
+    return result
+
+
+ADMINS = parse_admins(env.list('DJANGO_ADMINS', default=[]))
