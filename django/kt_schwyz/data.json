@@ -609,6 +609,12 @@
         "name": "Planer Name, Planer Vorname",
         "uuid": "23356b1f-27fe-4e2b-80aa-3b293f6e98ad",
         "strasse": "Planer Strasse 3"
+      },
+      {
+        "ort": "0001 Verfasser Ort",
+        "name": "Verfasser Name, Verfasser Vorname",
+        "uuid": "e5c2698b-b06f-4cd6-90bf-3367cb287a43",
+        "strasse": "Verfasser Strasse 3"
       }
     ]
   }
@@ -620,6 +626,15 @@
     "instance": 3,
     "name": "gebaudevolumen",
     "value": 200
+  }
+},
+{
+  "model": "instance.formfield",
+  "pk": 36,
+  "fields": {
+    "instance": 3,
+    "name": "bezeichnung",
+    "value": "Testgebäude"
   }
 },
 {
