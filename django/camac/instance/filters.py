@@ -56,6 +56,7 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
 
 class FormFieldFilterSet(FilterSet):
 
+    instance = NumberMultiValueFilter()
     name = CharMultiValueFilter()
 
     class Meta:
