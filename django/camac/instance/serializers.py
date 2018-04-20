@@ -1,9 +1,11 @@
+from django.conf import settings
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers, utils
 
+from camac.user.models import Group
 from camac.user.relations import (FormDataResourceRelatedField,
                                   GroupResourceRelatedField)
 from camac.user.serializers import CurrentGroupDefault
@@ -40,7 +42,9 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
     user = serializers.ResourceRelatedField(
         read_only=True, default=serializers.CurrentUserDefault()
     )
-    group = GroupResourceRelatedField(default=CurrentGroupDefault())
+    group = GroupResourceRelatedField(
+        read_only=True, default=CurrentGroupDefault()
+    )
 
     creation_date = serializers.DateTimeField(
         read_only=True, default=timezone.now
@@ -173,12 +177,34 @@ class InstanceSubmitSerializer(InstanceSerializer):
         return identifier
 
     def validate(self, data):
-        if self.instance.location is None:
+        location = self.instance.location
+        if location is None:
             raise exceptions.ValidationError(_('No location assigned.'))
 
         data['identifier'] = self.generate_identifier()
         form_validator = validators.FormDataValidator(self.instance)
         form_validator.validate()
+
+        # find municipality assigned to location of instance
+        role_permissions = settings.APPLICATION.get('ROLE_PERMISSIONS', {})
+        municipality_roles = [
+            role
+            for role, permission in role_permissions.items()
+            if permission == 'municipality'
+        ]
+
+        location_group = Group.objects.filter(
+            locations=location, role__name__in=municipality_roles
+        ).first()
+
+        if location_group is None:
+            raise exceptions.ValidationError(
+                _('No group found for location %(name)s.') % {
+                    'name': location.name
+                }
+            )
+
+        data['group'] = location_group
 
         return data
 
