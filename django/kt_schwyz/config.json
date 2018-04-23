@@ -2496,7 +2496,7 @@
   "pk": 1,
   "fields": {
     "name": "Zirkulation der Gemeinde",
-    "page": 2,
+    "page_id": 2,
     "parent_specific_activations": 0
   }
 },
@@ -2505,7 +2505,7 @@
   "pk": 2,
   "fields": {
     "name": "Zirkulation des Kantons",
-    "page": 2,
+    "page_id": 2,
     "parent_specific_activations": 0
   }
 },
