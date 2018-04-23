@@ -3,7 +3,7 @@ import mimetypes
 
 from django.http import HttpResponse
 from django_downloadview.api import ObjectDownloadView
-from mailmerge import MailMerge
+from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, parsers, viewsets
 from rest_framework.decorators import detail_route
 from rest_framework.views import APIView
@@ -145,10 +145,10 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
         response['Content-Type'] = mimetypes.guess_type(filename)[0]
 
         buf = io.BytesIO()
-        serializer = self.get_serializer(instance)
-        with MailMerge(template.path) as docx:
-            docx.merge(**serializer.data)
-            docx.write(buf)
+        serializer = self.get_serializer(instance, escape=True)
+        doc = DocxTemplate(template.path)
+        doc.render(serializer.data)
+        doc.save(buf)
 
         buf.seek(0)
         if to_type != 'docx':
