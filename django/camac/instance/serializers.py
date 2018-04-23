@@ -1,3 +1,6 @@
+from html import escape
+
+import inflection
 from django.conf import settings
 from django.db.models import Max
 from django.utils import timezone
@@ -119,7 +122,25 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
 class InstanceMergeSerializer(serializers.ModelSerializer):
     """Converts instance into a dict to be used with template merging."""
 
-    location = serializers.ResourceRelatedField(read_only=True)
+    location = serializers.SerializerMethodField()
+
+    def __init__(self, *args, escape=False, **kwargs):
+        self.escape = escape
+        super().__init__(*args, **kwargs)
+
+    def get_location(self, instance):
+        return instance.location and instance.location.name or ''
+
+    def _escape(self, data):
+        result = data
+        if isinstance(data, str):
+            result = escape(data)
+        elif isinstance(data, list):
+            result = [self._escape(value) for value in data]
+        elif isinstance(data, dict):
+            result = {key: self._escape(value) for key, value in data.items()}
+
+        return result
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
@@ -127,7 +148,9 @@ class InstanceMergeSerializer(serializers.ModelSerializer):
         ret = utils.format_keys(ret)
 
         for field in instance.fields.all():
-            ret['field-%s' % field.name] = field.value
+            name = inflection.underscore('field-' + field.name)
+            ret[name] = self.escape and self._escape(
+                field.value) or field.value
 
         return ret
 
