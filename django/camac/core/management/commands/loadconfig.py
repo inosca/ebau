@@ -31,6 +31,7 @@ class Command(BaseCommand):
 
         print("Flushing 'pure' config models")
         for model_name in pure_config_models:
+            self.stdout.write('Deleting config table {0}'.format(model_name))
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
             model.objects.all().delete()

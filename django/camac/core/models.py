@@ -1095,9 +1095,11 @@ class CirculationType(models.Model):
     circulation_type_id = models.AutoField(
         db_column='CIRCULATION_TYPE_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=50)
-    page = models.ForeignKey('Page', models.CASCADE,
-                             db_column='PAGE_ID', related_name='+', blank=True,
-                             null=True)
+    # While this "should" be a foreign key, we decouple to be able
+    # to separate config from data models
+    # references Page
+    page_id = models.IntegerField(
+        db_column='PAGE_ID', db_index=True, null=True)
     parent_specific_activations = models.PositiveSmallIntegerField(
         db_column='PARENT_SPECIFIC_ACTIVATIONS')
 
