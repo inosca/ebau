@@ -89,7 +89,7 @@ class Notification_Manager_API {
 		else {
 			$log = Zend_Registry::get('log');
 			$log->log(
-				Camac_Utility::formatError("Placeholder source calss not found, using default: $sourceClass"),
+				sprintf("Placeholder source calss not found, using default: %s", $sourceClass),
 				Zend_Log::CRIT
 			);
 		}
