@@ -7,6 +7,13 @@ def test_check_password(admin_user):
     assert not admin_user.check_password('invalid')
 
 
+def test_get_full_name(admin_user):
+    admin_user.name = 'Muster'
+    admin_user.surname = 'Hans'
+
+    assert admin_user.get_full_name() == 'Muster Hans'
+
+
 def test_me(admin_client, admin_user):
     admin_user.groups.all().delete()
     url = reverse('me')
