@@ -56,7 +56,7 @@ class InstanceQuerysetMixin(object):
         instance_field = self._get_instance_filter_expr('pk', 'in')
 
         instances = models.Instance.objects.filter(
-            location=self.request.group.locations.all()
+            location__in=self.request.group.locations.all()
         )
         return queryset.filter(
             **{instance_field: instances}

@@ -18,9 +18,13 @@ from camac.instance import serializers
     ('Municipality', LazyFixture('user'), 14, {'document'}),
     ('Service', LazyFixture('user'), 14, {'document'}),
 ])
-def test_instance_list(admin_client, instance, activation, num_queries,
-                       django_assert_num_queries, editable):
+def test_instance_list(admin_client, instance, activation, num_queries, group,
+                       django_assert_num_queries, editable,
+                       group_location_factory):
     url = reverse('instance-list')
+
+    # verify that two locations may be assigned to group
+    group_location_factory(group=group)
 
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
