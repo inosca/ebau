@@ -1,9 +1,8 @@
-import io
+import functools
 import mimetypes
 
 import pytest
 from django.urls import reverse
-from mailmerge import MailMerge
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -71,11 +70,22 @@ def test_template_detail(admin_client, template):
         ),
     ]
 )
-@pytest.mark.parametrize("form_field__name", [
-    'testname',
+@pytest.mark.parametrize("form_field__name,instance__identifier,location__name", [  # noqa: 501
+    ('testname', '11-18-011', 'Schwyz'),
 ])
 def test_template_merge(admin_client, template, instance, to_type,
-                        form_field, status_code):
+                        form_field, status_code, form_field_factory):
+
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(name='art-der-befestigten-flache', value='Lagerplatz')
+    add_field(name='kategorie-des-vorhabens', value=['Anlage(n)', 'Baute(n)'])
+    add_field(
+        name='grundeigentumerschaft',
+        value=[
+            {'name': 'Hans Muster', 'firma': 'Firma Muster'},
+            {'name': 'Hans Beispiel', 'firma': 'Firma Beispiel'}
+        ]
+    )
 
     url = reverse('template-merge', args=[template.pk])
     response = admin_client.get(url, data={
@@ -87,5 +97,7 @@ def test_template_merge(admin_client, template, instance, to_type,
         assert response['Content-Type'] == mimetypes.guess_type(
             'filename.' + to_type)[0]
         if to_type == 'docx':
-            docx = MailMerge(io.BytesIO(response.content))
-            assert len(docx.get_merge_fields()) == 0
+            expected = django_file('template_result.docx')
+            assert len(response.content) == len(expected.file.read()), (
+                'Docx template result not equal'
+            )
