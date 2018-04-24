@@ -235,9 +235,16 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
 
 @pytest.mark.parametrize("role__name", ['Canton'])
 def test_instance_export(admin_client, user, instance_factory,
-                         django_assert_num_queries):
+                         django_assert_num_queries, form_field_factory):
     url = reverse('instance-export')
     instances = instance_factory.create_batch(2, user=user)
+    instance = instances[0]
+
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(name='projektverfasser-planer', value=[
+        {'name': 'Muster Hans'}, {'name': 'Beispiel Jean'},
+    ])
+    add_field(name='bezeichnung', value='Bezeichnung')
 
     with django_assert_num_queries(7):
         response = admin_client.get(url)
@@ -249,6 +256,9 @@ def test_instance_export(admin_client, user, instance_factory,
     # bookdict is a dict of tuples(name, content)
     sheet = book.bookdict.popitem()[1]
     assert len(sheet) == len(instances)
+    row = sheet[0]
+    assert row[4] == 'Muster Hans, Beispiel Jean'
+    assert row[5] == 'Bezeichnung'
 
 
 @pytest.mark.freeze_time('2017-7-27')
