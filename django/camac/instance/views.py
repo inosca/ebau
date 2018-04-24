@@ -1,5 +1,6 @@
 import django_excel
 from django.conf import settings
+from django.db.models import OuterRef, Subquery
 from django_downloadview.api import PathDownloadView
 from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
@@ -73,20 +74,35 @@ class InstanceView(mixins.InstanceQuerysetMixin,
     @list_route(methods=['get'])
     def export(self, request):
         """Export filtered instances to given file format."""
+        fields_queryset = models.FormField.objects.filter(
+            instance=OuterRef('pk')
+        )
         queryset = self.get_queryset().select_related(
             'location', 'user', 'form', 'instance_state'
+        ).annotate(
+            applicants=Subquery(
+                fields_queryset.filter(
+                    name='projektverfasser-planer'
+                ).values('value')[:1])
+        ).annotate(
+            description=Subquery(
+                fields_queryset.filter(
+                    name='bezeichnung'
+                ).values('value')[:1])
         )
         queryset = self.filter_queryset(queryset)
 
-        # TODO: verify columns once form data is clear
         content = [
             [
                 instance.pk,
                 instance.identifier,
                 instance.form.description,
                 instance.location and instance.location.name,
-                instance.user.get_full_name(),  # TODO: adjust to applicant
-                '',  # TODO: add street
+                ', '.join([
+                    applicant['name']
+                    for applicant in (instance.applicants or [])
+                ]),
+                instance.description,
                 instance.instance_state.name,
                 instance.instance_state.description,
             ]
