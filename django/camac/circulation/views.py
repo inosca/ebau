@@ -1,10 +1,12 @@
 import django_excel
+from django.db.models import OuterRef, Subquery
 from rest_framework import viewsets
 from rest_framework.decorators import list_route
 from rest_framework_json_api import views
 
 from camac.core.models import Activation, Circulation
 from camac.instance.mixins import InstanceQuerysetMixin
+from camac.instance.models import FormField
 
 from . import filters, serializers
 
@@ -48,10 +50,24 @@ class ActivationView(views.AutoPrefetchMixin,
     @list_route(methods=['get'])
     def export(self, request):
         """Export filtered activations to given file format."""
+        fields_queryset = FormField.objects.filter(
+            instance=OuterRef('circulation__instance')
+        )
         queryset = self.get_queryset().select_related(
             'circulation__instance__location', 'circulation__instance__user',
             'circulation__instance__form',
-            'circulation__instance__instance_state')
+            'circulation__instance__instance_state'
+        ).annotate(
+            applicants=Subquery(
+                fields_queryset.filter(
+                    name='projektverfasser-planer'
+                ).values('value')[:1])
+        ).annotate(
+            description=Subquery(
+                fields_queryset.filter(
+                    name='bezeichnung'
+                ).values('value')[:1])
+        )
         queryset = self.filter_queryset(queryset)
 
         content = [
@@ -63,9 +79,11 @@ class ActivationView(views.AutoPrefetchMixin,
                     activation.circulation.instance.location and
                     activation.circulation.instance.location.name
                 ),
-                # TODO: adjust to applicant
-                activation.circulation.instance.user.get_full_name(),
-                '',  # TODO: add street
+                ', '.join([
+                    applicant['name']
+                    for applicant in (activation.applicants or [])
+                ]),
+                activation.description,
                 activation.reason,
                 activation.circulation.instance.instance_state.name,
                 activation.circulation.instance.instance_state.description,

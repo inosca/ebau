@@ -1,3 +1,5 @@
+import functools
+
 import pyexcel
 import pytest
 from django.urls import reverse
@@ -40,10 +42,17 @@ def test_activation_detail(admin_client, activation):
 
 
 @pytest.mark.parametrize("role__name", ['Canton'])
-def test_instance_export(admin_client, user, activation_factory,
-                         django_assert_num_queries):
+def test_activation_export(admin_client, user, activation_factory,
+                           django_assert_num_queries, form_field_factory):
     url = reverse('activation-export')
     activations = activation_factory.create_batch(2)
+    instance = activations[0].circulation.instance
+
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(name='projektverfasser-planer', value=[
+        {'name': 'Muster Hans'}, {'name': 'Beispiel Jean'},
+    ])
+    add_field(name='bezeichnung', value='Bezeichnung')
 
     with django_assert_num_queries(7):
         response = admin_client.get(url)
@@ -55,3 +64,6 @@ def test_instance_export(admin_client, user, activation_factory,
     # bookdict is a dict of tuples(name, content)
     sheet = book.bookdict.popitem()[1]
     assert len(sheet) == len(activations)
+    row = sheet[0]
+    assert row[4] == 'Muster Hans, Beispiel Jean'
+    assert row[5] == 'Bezeichnung'
