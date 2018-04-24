@@ -118,7 +118,6 @@ pure_config_models = (
     'core.ServiceAnswerActivation',
     'core.WorkflowAction',
     'core.WorkflowRole',
-    'core.WorkflowSection',
     'document.AttachmentSectionRoleAcl',
     'document.AttachmentSectionServiceAcl',
     'notification.NotificationTemplate',
