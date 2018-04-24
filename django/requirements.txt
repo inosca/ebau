@@ -9,7 +9,7 @@ djangorestframework==3.7.7
 # https://github.com/django-json-api/django-rest-framework-json-api/pull/420
 git+https://github.com/adfinis-forks/django-rest-framework-json-api@json_api_field_names
 
-docx-mailmerge==0.4.0
+docxtpl==0.4.8
 Jinja2==2.10
 Pillow==5.1.0
 pyexcel-webio==0.1.4
