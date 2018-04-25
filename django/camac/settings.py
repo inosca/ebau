@@ -45,6 +45,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'camac.user.middleware.GroupMiddleware',
     'django_downloadview.SmartDownloadMiddleware',
+    'camac.middleware.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'camac.urls'
@@ -117,11 +118,6 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'django.server',
         },
-        'django.server': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'django.server',
-        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -132,14 +128,18 @@ LOGGING = {
         'django': {
             'handlers': ['console', 'mail_admins'],
             'level': 'INFO',
-        },
-        'django.server': {
-            'handlers': ['django.server'],
-            'level': 'INFO',
-            'propagate': False,
-        },
+        }
     }
 }
+
+REQUEST_LOGGING_METHODS = env.list(
+    'DJANGO_REQUEST_LOGGING_METHODS',
+    default=default(['POST', 'PUT', 'PATCH', 'DELETE'], [])
+)
+REQUEST_LOGGING_CONTENT_TYPES = env.list(
+    'DJANGO_REQUEST_LOGGING_CONTENT_TYPES',
+    default=['application/vnd.api+json']
+)
 
 # Managing files
 
