@@ -1369,6 +1369,14 @@
 },
 {
   "model": "core.availableaction",
+  "pk": "notification",
+  "fields": {
+    "module_name": "notification",
+    "description": "Send a notification"
+  }
+},
+{
+  "model": "core.availableaction",
   "pk": "pageredirect",
   "fields": {
     "module_name": "default",
@@ -4241,6 +4249,78 @@
   "fields": {
     "available_instance_resource": "page",
     "available_action": "generate"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 239,
+  "fields": {
+    "available_instance_resource": "allformpages",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 240,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 241,
+  "fields": {
+    "available_instance_resource": "editcirculation",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 242,
+  "fields": {
+    "available_instance_resource": "editformpage",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 243,
+  "fields": {
+    "available_instance_resource": "editformpages",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 244,
+  "fields": {
+    "available_instance_resource": "editnotice",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 245,
+  "fields": {
+    "available_instance_resource": "formpages",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 246,
+  "fields": {
+    "available_instance_resource": "newform",
+    "available_action": "notification"
+  }
+},
+{
+  "model": "core.instanceresourceaction",
+  "pk": 247,
+  "fields": {
+    "available_instance_resource": "page",
+    "available_action": "notification"
   }
 },
 {
