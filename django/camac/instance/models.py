@@ -1,3 +1,4 @@
+import reversion
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
@@ -59,6 +60,7 @@ class InstanceStateDescription(models.Model):
         db_table = 'INSTANCE_STATE_DESCRIPTION'
 
 
+@reversion.register()
 class Instance(models.Model):
     """
     Instance is the case entity of any request.
@@ -91,6 +93,7 @@ class Instance(models.Model):
         db_table = 'INSTANCE'
 
 
+@reversion.register()
 class FormField(models.Model):
     """
     Represents fields of an instance form.

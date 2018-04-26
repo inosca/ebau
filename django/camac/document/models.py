@@ -1,3 +1,4 @@
+import reversion
 from django.db import models
 from django.utils import timezone
 
@@ -12,6 +13,7 @@ class AttachmentQuerySet(models.QuerySet):
         return self.filter(attachment_section__in=attachment_sections)
 
 
+@reversion.register()
 class Attachment(models.Model):
     objects = AttachmentQuerySet.as_manager()
 
