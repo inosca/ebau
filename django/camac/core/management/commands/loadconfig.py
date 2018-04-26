@@ -29,7 +29,7 @@ class Command(BaseCommand):
         # default application config
         fixtures.append(settings.APPLICATION_DIR('config.json'))
 
-        print("Flushing 'pure' config models")
+        self.stdout.write("Flushing 'pure' config models")
         for model_name in pure_config_models:
             self.stdout.write('Deleting config table {0}'.format(model_name))
             (app_label, model_name) = model_name.split(".")
