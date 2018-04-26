@@ -1,25 +1,5 @@
 [
 {
-  "model": "core.activation",
-  "pk": 1,
-  "fields": {
-    "circulation": 1,
-    "service": 7,
-    "service_parent": 6,
-    "circulation_state": 2,
-    "user": 1,
-    "circulation_answer": 2,
-    "start_date": "2018-04-17T15:21:17Z",
-    "deadline_date": "2018-05-08T21:59:00Z",
-    "suspension_date": null,
-    "end_date": "2018-04-17T15:24:57Z",
-    "version": 1,
-    "reason": "",
-    "activation_parent": null,
-    "email_sent": 0
-  }
-},
-{
   "model": "core.activationlog",
   "pk": 1,
   "fields": {
@@ -177,7 +157,7 @@
     "workflow_date": "2018-04-17T15:20:46Z",
     "instance": 3,
     "workflow_item": 14,
-    "group": 1.0
+    "group": 1
   }
 },
 {
@@ -187,52 +167,7 @@
     "workflow_date": "2018-04-17T15:21:25Z",
     "instance": 3,
     "workflow_item": 44,
-    "group": 1.0
-  }
-},
-{
-  "model": "instance.instance",
-  "pk": 1,
-  "fields": {
-    "instance_state": 1,
-    "form": 1,
-    "user": 1,
-    "group": 4,
-    "creation_date": "2018-04-17T07:31:56.609Z",
-    "modification_date": "2018-04-17T07:31:56.609Z",
-    "previous_instance_state": 1,
-    "identifier": null,
-    "location": null
-  }
-},
-{
-  "model": "instance.instance",
-  "pk": 2,
-  "fields": {
-    "instance_state": 1,
-    "form": 1,
-    "user": 1,
-    "group": 4,
-    "creation_date": "2018-04-17T08:41:53.641Z",
-    "modification_date": "2018-04-17T08:41:53.641Z",
-    "previous_instance_state": 1,
-    "identifier": null,
-    "location": null
-  }
-},
-{
-  "model": "instance.instance",
-  "pk": 3,
-  "fields": {
-    "instance_state": 5,
-    "form": 1,
-    "user": 3,
-    "group": 4,
-    "creation_date": "2018-04-17T08:51:51.022Z",
-    "modification_date": "2018-04-17T15:21:25Z",
-    "previous_instance_state": 3,
-    "identifier": "72-18-001",
-    "location": 26
+    "group": 1
   }
 },
 {
@@ -634,7 +569,79 @@
   "fields": {
     "instance": 3,
     "name": "bezeichnung",
-    "value": "Testgebäude"
+    "value": "Testgeb\u00e4ude"
+  }
+},
+{
+  "model": "user.user",
+  "pk": 1,
+  "fields": {
+    "username": "462afaba-aeb7-494a-8596-3497b81ed701",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "super",
+    "surname": "admin",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": null,
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "username": "062afaba-aeb7-494a-8596-3497b81ed701",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "guest",
+    "surname": "person",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": null,
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.user",
+  "pk": 3,
+  "fields": {
+    "username": "9535c2ff-9649-4254-96cb-3c899353aa11",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "Testuser",
+    "surname": "Adfinis",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": null,
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "group": 1,
+    "default_group": 1
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "group": 2,
+    "default_group": 1
   }
 },
 {
@@ -662,6 +669,71 @@
     "user": 1,
     "group": 7,
     "default_group": 0
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 1,
+  "fields": {
+    "instance_state": 1,
+    "form": 1,
+    "user": 1,
+    "group": 4,
+    "creation_date": "2018-04-17T07:31:56.609Z",
+    "modification_date": "2018-04-17T07:31:56.609Z",
+    "previous_instance_state": 1,
+    "identifier": null,
+    "location": null
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 2,
+  "fields": {
+    "instance_state": 1,
+    "form": 1,
+    "user": 1,
+    "group": 4,
+    "creation_date": "2018-04-17T08:41:53.641Z",
+    "modification_date": "2018-04-17T08:41:53.641Z",
+    "previous_instance_state": 1,
+    "identifier": null,
+    "location": null
+  }
+},
+{
+  "model": "instance.instance",
+  "pk": 3,
+  "fields": {
+    "instance_state": 5,
+    "form": 1,
+    "user": 3,
+    "group": 4,
+    "creation_date": "2018-04-17T08:51:51.022Z",
+    "modification_date": "2018-04-17T15:21:25Z",
+    "previous_instance_state": 3,
+    "identifier": "72-18-001",
+    "location": 26
+  }
+},
+{
+  "model": "core.activation",
+  "pk": 1,
+  "fields": {
+    "circulation": 1,
+    "service": 7,
+    "service_parent": 6,
+    "circulation_state": 2,
+    "user": 1,
+    "circulation_answer": 2,
+    "start_date": "2018-04-17T15:21:17Z",
+    "deadline_date": "2018-05-08T21:59:00Z",
+    "suspension_date": null,
+    "end_date": "2018-04-17T15:24:57Z",
+    "version": 1,
+    "reason": "",
+    "activation_parent": null,
+    "email_sent": 0
   }
 }
 ]
