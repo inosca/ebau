@@ -9,5 +9,59 @@
     "data": "{\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 23:59:00+02:00\"}",
     "modification_date": "2018-04-17T15:21:25Z"
   }
+},
+{
+  "model": "user.user",
+  "pk": 1,
+  "fields": {
+    "username": "admin",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "super",
+    "surname": "admin",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": null,
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "username": "guest",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "guest",
+    "surname": "person",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "last_login": null,
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "group": 1,
+    "default_group": 1
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 2,
+  "fields": {
+    "user": 2,
+    "group": 2,
+    "default_group": 1
+  }
 }
 ]
