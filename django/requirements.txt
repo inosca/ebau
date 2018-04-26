@@ -21,6 +21,7 @@ python-keycloak==0.12.0
 python-memcached==1.59
 sorl-thumbnail==12.4.1
 uwsgi==2.0.17
+django-reversion==2.0.13
 
 # use upstream again release once following PR is released:
 # https://github.com/ringly/django-postgres-dbdefaults/pull/4
