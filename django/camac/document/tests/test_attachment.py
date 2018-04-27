@@ -2,7 +2,6 @@ import io
 
 import pytest
 from django.urls import reverse
-from django.utils.encoding import force_bytes
 from PIL import Image
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -212,10 +211,9 @@ def test_attachment_create(admin_client, instance, attachment_section,
             'attachment; filename="{0}"'.format(filename)
         )
         assert response['Content-Type'].startswith(mime_type)
-
-        parts = [force_bytes(s) for s in response.streaming_content]
-        path.seek(0)
-        assert b''.join(parts) == path.read()
+        assert response['X-Accel-Redirect'] == "/attachments/files/%s/%s" % (
+            instance.pk, filename
+        )
 
 
 def test_attachment_download(admin_client, attachment):
