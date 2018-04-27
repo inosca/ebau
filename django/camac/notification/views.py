@@ -9,7 +9,7 @@ from . import models, serializers
 class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
-    instance_editable_permission = 'document'
+    instance_editable_permission = "document"
 
     @permission_aware
     def get_queryset(self):
@@ -25,24 +25,35 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
         return models.NotificationTemplate.objects.all()
 
     @detail_route(
-        methods=['get'],
-        serializer_class=serializers.NotificationTemplateMergeSerializer
+        methods=["get"],
+        serializer_class=serializers.NotificationTemplateMergeSerializer,
     )
     def merge(self, request, pk=None):
         """Merge notification template with given instance."""
-        data = {'instance': {'type': 'instances', 'id':
-                             self.request.query_params.get('instance')}}
+        data = {
+            "instance": {
+                "type": "instances",
+                "id": self.request.query_params.get("instance"),
+            },
+            "notification_template": {
+                "type": "notification-templates", "id": pk
+            }
+        }
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return response.Response(data=serializer.data)
 
     @detail_route(
-        methods=['post'],
-        serializer_class=serializers.NotificationTemplateSendmailSerializer
+        methods=["post"],
+        serializer_class=serializers.NotificationTemplateSendmailSerializer,
     )
     def sendmail(self, request, pk=None):
-        serializer = self.get_serializer(data=request.data)
+        data = request.data
+        data["notification_template"] = {
+            "type": "notification-templates", "id": pk
+        }
+        serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
