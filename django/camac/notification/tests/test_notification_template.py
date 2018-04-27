@@ -23,7 +23,7 @@ def test_notification_template_list(admin_client, notification_template,
 
 
 @pytest.mark.parametrize("role__name", ['Canton'])
-def test_notification_detail(admin_client, notification_template):
+def test_notification_template_detail(admin_client, notification_template):
     url = reverse(
         'notificationtemplate-detail', args=[notification_template.pk]
     )
@@ -38,8 +38,9 @@ def test_notification_detail(admin_client, notification_template):
         ('Canton', 'identifier', '{{$invalid}}', status.HTTP_400_BAD_REQUEST),
     ]
 )
-def test_notification_merge(admin_client, instance, notification_template,
-                            status_code):
+def test_notification_template_merge(admin_client, instance,
+                                     notification_template,
+                                     status_code, activation, billing_entry):
     url = reverse(
         'notificationtemplate-merge', args=[notification_template.pk]
     )
@@ -69,8 +70,9 @@ def test_notification_merge(admin_client, instance, notification_template,
     ('Service', status.HTTP_204_NO_CONTENT),
     ('Applicant', status.HTTP_400_BAD_REQUEST),
 ])
-def test_notification_sendmail(admin_client, instance, notification_template,
-                               status_code, mailoutbox, activation):
+def test_notification_template_sendmail(admin_client, instance,
+                                        notification_template,
+                                        status_code, mailoutbox, activation):
 
     url = reverse(
         'notificationtemplate-sendmail', args=[notification_template.pk]
