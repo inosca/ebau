@@ -185,6 +185,7 @@ def test_instance_create(admin_client, admin_user, form,
     "instance__user,location__communal_federal_number,instance_state__name",
     [(LazyFixture('admin_user'), '1311', 'new')]
 )
+@pytest.mark.parametrize("attachment__name", ['dokument-parzelle.pdf'])
 @pytest.mark.parametrize("role__name,instance__location,form__name,status_code", [  # noqa: E501
     ('Applicant', LazyFixture('location'), 'baugesuch', status.HTTP_200_OK),
     ('Applicant', LazyFixture('location'), '', status.HTTP_400_BAD_REQUEST),
@@ -199,7 +200,7 @@ def test_instance_create(admin_client, admin_user, form,
 def test_instance_submit(admin_client, admin_user, form, form_field_factory,
                          instance, instance_state, instance_state_factory,
                          status_code, role_factory, group_factory,
-                         group_location_factory):
+                         group_location_factory, attachment):
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -214,7 +215,7 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     add_field(name='kategorie-des-vorhabens', value=['Anlage(n)'])
     add_field(name='hohe-der-anlage', value=12.5, instance=instance)
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen',
-              value='Nein')
+              value='Ja')
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen-welche',
               value='Test')
     add_field(name='grundeigentumerschaft', value=[{'name': 'Name'}])

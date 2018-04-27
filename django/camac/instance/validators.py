@@ -1,11 +1,14 @@
 import itertools
 import json
+import os
 import sys
 
 import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
+
+from camac.document.models import Attachment
 
 from . import models
 
@@ -17,8 +20,15 @@ class FormDataValidator(object):
         )
         self.instance = instance
         self.fields = {
-            field.name: field.value
-            for field in models.FormField.objects.filter(instance=instance)
+            **{
+                field.name: field.value
+                for field in models.FormField.objects.filter(instance=instance)
+            },
+            # handle attachments like fields
+            **{
+                os.path.splitext(attachment.name)[0]: attachment.path
+                for attachment in Attachment.objects.filter(instance=instance)
+            }
         }
 
     def _validate_question_select(self, question, question_def, value):
@@ -89,6 +99,14 @@ class FormDataValidator(object):
                 }
             )
 
+    def _validate_question_document(self, question, question_def, value):
+        if not value:
+            raise exceptions.ValidationError(
+                _('Document missing for question `%(field)s') % {
+                    'field': question
+                }
+            )
+
     def _validate_question_gwr(self, question, question_def, value):
         # TODO: might be better generic table with a gwr config option
         self._validate_question_table(question, question_def, value)
@@ -128,12 +146,12 @@ class FormDataValidator(object):
         return True
 
     def _check_active_condition_contains_any(self, value, condition_values):
-        return not set(value) & set(condition_values)
+        return set(value) & set(condition_values)
 
     def _check_active_condition_contains_not_any(
         self, value, condition_values
     ):
-        return set(value) & set(condition_values)
+        return not set(value) & set(condition_values)
 
     def _validate_question(self, question, question_def, value):
         required = self._check_question_required(question, question_def)
