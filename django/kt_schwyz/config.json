@@ -6733,7 +6733,9 @@
   "pk": 1,
   "fields": {
     "name": "Dokumente Gesuchsteller",
-    "sort": 0
+    "sort": 0,
+    "recipient_types": null,
+    "notification_template": null
   }
 },
 {
@@ -6741,7 +6743,9 @@
   "pk": 2,
   "fields": {
     "name": "Dokumente Fachstellen",
-    "sort": 0
+    "sort": 0,
+    "recipient_types": null,
+    "notification_template": null
   }
 },
 {
