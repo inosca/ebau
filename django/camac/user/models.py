@@ -106,6 +106,9 @@ class Group(models.Model):
         db_column='WEBSITE', max_length=1000, blank=True, null=True)
     locations = models.ManyToManyField('Location', through='GroupLocation')
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = 'GROUP'
@@ -132,6 +135,9 @@ class Location(models.Model):
         db_column='SECTION_NAME', max_length=100, blank=True, null=True)
     zip = models.CharField(
         db_column='ZIP', max_length=10, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         managed = True
@@ -211,6 +217,9 @@ class Service(models.Model):
         db_column='EMAIL', max_length=100, blank=True, null=True)
     website = models.CharField(
         db_column='WEBSITE', max_length=1000, blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         managed = True

@@ -693,8 +693,8 @@ class BillingAccount(models.Model):
         db_column='ACCOUNT_NUMBER', max_length=50, blank=True, null=True)
     department = models.CharField(
         db_column='DEPARTMENT', max_length=255, blank=True, null=True)
-    predefined = models.FloatField(
-        db_column='PREDEFINED', blank=True, null=True)
+    predefined = models.PositiveSmallIntegerField(db_column='PREDEFINED',
+                                                  default=0)
     service_group = models.ForeignKey('user.ServiceGroup', models.CASCADE,
                                       db_column='SERVICE_GROUP_ID',
                                       related_name='+', blank=True, null=True)
@@ -736,15 +736,17 @@ class BillingEntry(models.Model):
     amount = models.FloatField(db_column='AMOUNT')
     billing_account = models.ForeignKey(
         BillingAccount, models.DO_NOTHING, db_column='BILLING_ACCOUNT_ID',
-        related_name='+', blank=True, null=True)
-    user_id = models.FloatField(db_column='USER_ID', blank=True, null=True)
+        related_name='+')
+    user = models.ForeignKey('user.User', models.CASCADE,
+                             db_column='USER_ID',
+                             related_name='+', default=1)
     instance = models.ForeignKey('instance.Instance', models.DO_NOTHING,
-                                 db_column='INSTANCE_ID', related_name='+',
-                                 blank=True, null=True)
+                                 db_column='INSTANCE_ID',
+                                 related_name='billing_entries')
     service = models.ForeignKey('user.Service', models.DO_NOTHING,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
-    created = models.DateTimeField(db_column='CREATED', blank=True, null=True)
+    created = models.DateTimeField(db_column='CREATED')
     amount_type = models.PositiveSmallIntegerField(db_column='AMOUNT_TYPE')
     type = models.PositiveSmallIntegerField(db_column='TYPE')
     reason = models.CharField(
@@ -1037,6 +1039,9 @@ class CirculationAnswer(models.Model):
     name = models.CharField(db_column='NAME', max_length=50)
     sort = models.IntegerField(db_column='SORT')
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = 'CIRCULATION_ANSWER'
@@ -1085,6 +1090,9 @@ class CirculationState(models.Model):
         db_column='CIRCULATION_STATE_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100)
     sort = models.IntegerField(db_column='SORT')
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         managed = True
@@ -1888,7 +1896,7 @@ class Notice(models.Model):
         related_name='+')
     activation = models.ForeignKey(
         Activation, models.DO_NOTHING, db_column='ACTIVATION_ID',
-        related_name='+')
+        related_name='notices')
     content = models.TextField(db_column='CONTENT', blank=True, null=True)
 
     class Meta:
