@@ -180,7 +180,7 @@ def test_attachment_list(admin_client, attachment, num_queries,
 )
 def test_attachment_create(admin_client, instance, attachment_section,
                            activation, attachment_section_group_acl, mime_type,
-                           filename, status_code):
+                           filename, status_code, mailoutbox):
     url = reverse('attachment-list')
 
     path = django_file(filename)
@@ -214,6 +214,8 @@ def test_attachment_create(admin_client, instance, attachment_section,
         assert response['X-Accel-Redirect'] == "/attachments/files/%s/%s" % (
             instance.pk, filename
         )
+
+        assert len(mailoutbox) == 1
 
 
 def test_attachment_download(admin_client, attachment):
