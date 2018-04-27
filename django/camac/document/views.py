@@ -2,11 +2,11 @@ import io
 import mimetypes
 
 from django.http import HttpResponse
-from django_downloadview.api import ObjectDownloadView
+from django.utils.encoding import smart_str
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, parsers, viewsets
 from rest_framework.decorators import detail_route
-from rest_framework.views import APIView
+from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
@@ -72,19 +72,26 @@ class AttachmentView(InstanceEditableMixin,
         return HttpResponse(thumbnail.read(), 'image/jpeg')
 
 
-class AttachmentPathView(InstanceQuerysetMixin, ObjectDownloadView, APIView):
+class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
     """Attachment view to download attachment."""
 
     queryset = models.Attachment.objects
-    file_field = 'path'
-    mime_type_field = 'mime_type'
-    slug_field = 'path'
-    slug_url_kwarg = 'path'
-    basename_field = 'name'
+    lookup_field = 'path'
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
         return queryset.filter_group(self.request.group)
+
+    def retrieve(self, request, **kwargs):
+        attachment = self.get_object()
+        download_path = kwargs.get(self.lookup_field)
+
+        response = HttpResponse(content_type=attachment.mime_type)
+        response['Content-Disposition'] =  (
+            'attachment; filename="%s"' % smart_str(attachment.name)
+        )
+        response['X-Accel-Redirect'] = '/' + smart_str(download_path)
+        return response
 
 
 class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
