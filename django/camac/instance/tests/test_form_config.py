@@ -10,6 +10,4 @@ def test_form_config_get(admin_client):
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-
-    parts = [force_str(s) for s in response.streaming_content]
-    assert ''.join(parts) == config.read()
+    assert force_str(response.content) == config.read()

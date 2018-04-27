@@ -10,6 +10,8 @@ services:
             - php
             - django
             - keycloak
+        volumes:
+            - djangomedia:/var/lib/camac/media:ro
 
     db:
         build:
@@ -36,7 +38,6 @@ services:
             - DJANGO_DATABASE_HOST=db
             - DJANGO_DATABASE_NAME=${APPLICATION}
             - DJANGO_CACHE_LOCATION=cache:11211
-            # TODO: nginx should serve media files
             - DJANGO_MEDIA_ROOT=/var/lib/camac/media
             - DJANGO_UNOCONV_URL=http://unoconv:3000
             - DJANGO_CLAMD_TCP_ADDR=clamav

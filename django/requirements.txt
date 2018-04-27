@@ -1,4 +1,4 @@
-django==1.11.11 # pyup: >=1.11,<1.12
+django==1.11.12 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
 django-environ==0.4.4
 django-filter==1.1.0
@@ -24,7 +24,3 @@ sorl-thumbnail==12.4.1
 # use upstream again release once following PR is released:
 # https://github.com/ringly/django-postgres-dbdefaults/pull/4
 git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create
-
-# use upstream again release once following PR is released:
-# https://github.com/benoitbryon/django-downloadview/pull/142
-git+https://github.com/adfinis-forks/django-downloadview.git@django_middleware
