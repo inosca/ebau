@@ -11,7 +11,8 @@ from camac.instance import validators
     ('art-der-anlage', 'invalid'),
     ('anlagen-mit-erheblichen-schadstoffemissionen-welche', 0),
     ('hohe-der-anlage', -1),
-    ('art-der-befestigten-flache', 'invalid')
+    ('art-der-befestigten-flache', 'invalid'),
+    ('dokument-parzelle', None),
 ])
 def test_form_data_validator_validate_question_type(instance, question, value):
     validator = validators.FormDataValidator(instance)
