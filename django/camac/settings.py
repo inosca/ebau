@@ -44,7 +44,6 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'camac.user.middleware.GroupMiddleware',
-    'django_downloadview.SmartDownloadMiddleware',
     'camac.middleware.LoggingMiddleware',
 ]
 

@@ -1,11 +1,11 @@
 import django_excel
 from django.conf import settings
 from django.db.models import OuterRef, Subquery
-from django_downloadview.api import PathDownloadView
+from django.http import HttpResponse
 from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
-from rest_framework.views import APIView
 from rest_framework_json_api import views
 
 from . import filters, mixins, models, serializers
@@ -18,9 +18,13 @@ class FormView(viewsets.ReadOnlyModelViewSet):
         return models.Form.objects.all()
 
 
-class FormConfigDownloadView(PathDownloadView, APIView):
-    attachment = False
+class FormConfigDownloadView(RetrieveAPIView):
     path = settings.APPLICATION_DIR('form.json')
+
+    def retrieve(self, request, **kwargs):
+        with open(self.path) as json_file:
+            response = HttpResponse(json_file, content_type='application/json')
+            return response
 
 
 class InstanceStateView(viewsets.ReadOnlyModelViewSet):
