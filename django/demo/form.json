@@ -19,6 +19,13 @@
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
         "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht",
         "hohe-der-anlage",
+        "hohe-der-anlage-gte",
+        "kosten-der-anlage",
+        "kosten-der-anlage-gt",
+        "tiefe-der-bohrung",
+        "tiefe-der-bohrung-lte",
+        "durchmesser-der-bohrung",
+        "durchmesser-der-bohrung-lt",
         "grundeigentumerschaft",
         "gwr",
         "art-der-befestigten-flache"
@@ -130,6 +137,93 @@
         "step": 1,
         "min": 0
       }
+    },
+    "hohe-der-anlage-gte": {
+      "label": "Wieso ist die Anlage nicht höher als oder gleich 10m?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "hohe-der-anlage",
+          "value": {
+            "greater-than-equals": 10
+          }
+        }
+      ],
+      "config": {}
+    },
+    "kosten-der-anlage": {
+      "label": "Wie viel kostet die Anlage in CHF?",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "step": 1,
+        "min": 0
+      }
+    },
+    "kosten-der-anlage-gt": {
+      "label": "Wieso kostet die Anlage nicht mehr als 10'000 CHF?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kosten-der-anlage",
+          "value": {
+            "greater-than": 10000
+          }
+        }
+      ],
+      "config": {}
+    },
+    "tiefe-der-bohrung": {
+      "label": "Wie tief wird gebohrt in m?",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "step": 1,
+        "min": 0
+      }
+    },
+    "tiefe-der-bohrung-lte": {
+      "label": "Wieso wird nicht weniger tief oder gleich 10m gebohrt?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tiefe-der-bohrung",
+          "value": {
+            "lower-than-equals": 10
+          }
+        }
+      ],
+      "config": {}
+    },
+    "durchmesser-der-bohrung": {
+      "label": "Mit welchem Durchmesser in m wird gebohrt?",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "step": 1,
+        "min": 0
+      }
+    },
+    "durchmesser-der-bohrung-lt": {
+      "label":
+        "Wieso wird nicht mit einem kleineren Durchmesser als 10m gebohrt?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "durchmesser-der-bohrung",
+          "value": {
+            "lower-than": 10
+          }
+        }
+      ],
+      "config": {}
     },
     "grundeigentumerschaft": {
       "label": "Grundeigentümerschaft:",
