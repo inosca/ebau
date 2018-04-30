@@ -484,7 +484,7 @@
     "fachthemen.reklamen": {
       "title": "Reklamen",
       "parent": "fachthemen",
-      "questions": ["reklamen"]
+      "questions": ["reklamen", "reklamen-info"]
     },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
@@ -4585,6 +4585,21 @@
           }
         ]
       }
+    },
+    "reklamen-info": {
+      "label":
+        "Das Reklamevorhaben ist gut zu dokumentieren:<ul><li>Situationsplan mit:<ul><li>Vollständiger Darstellung der Liegenschaft</li><li>Vermassung des Reklamestandorts gegenüber Verkehrsflächen (Trottoir resp. Fahrbahn)</li><li>Darstellung der Ausrichtung der Reklame.</li></ul><li>Fassadenplan (soweit vorhanden) oder Fotos (ev. Fotomontage)</li><li>Massstäbliche Darstellung der Reklame(n) inkl. Farbangaben]</li></ul>",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Reklame"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
     },
     "dokument-parzelle": {
       "type": "document",
