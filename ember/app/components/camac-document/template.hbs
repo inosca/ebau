@@ -37,7 +37,7 @@
     </div>
 
     <div class="uk-padding-small uk-text-bold uk-text-center uk-position-relative">
-      {{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}
+      <small>{{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}</small>
       {{#if question.field.hint}}<span class="uk-position-top-right pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>{{/if}}
     </div>
   </div>

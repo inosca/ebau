@@ -17,16 +17,20 @@ export default Controller.extend({
     'questionStore._store.@each.{value,hidden,isNew}'
   ),
   _canSubmit: task(function*() {
-    let states = yield all(
-      this.getWithDefault(
-        'editController.modules.lastSuccessful.value',
-        []
-      ).map(async mod => await mod.get('state'))
-    )
+    let modules = this.get('editController.modules.lastSuccessful.value')
 
-    return (
-      states.length && states.filter(Boolean).every(state => state === 'valid')
-    )
+    if (!modules) {
+      return false
+    }
+
+    let questions = (yield all(
+      (yield this.get('questionStore.findSet').perform(
+        modules.reduce((flat, m) => [...flat, ...m.get('allQuestions')], []),
+        this.get('model.instance.id')
+      )).map(async q => ((await q.get('hidden')) ? null : q))
+    )).filter(Boolean)
+
+    return questions.every(q => q.validate() === true)
   }),
 
   submit: task(function*() {

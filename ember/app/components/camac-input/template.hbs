@@ -3,7 +3,7 @@
     <div class="uk-animation-fade">
       {{yield}}
       <label class="uk-form-label uk-text-bold {{if (and save.last error) 'uk-text-danger'}}">
-        {{question.field.label}}
+        {{{question.field.label}}}
         {{#if question.field.required}}
           <span class="uk-text-primary"> *</span>
         {{/if}}

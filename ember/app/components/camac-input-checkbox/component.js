@@ -7,6 +7,8 @@ export default Component.extend({
     change(option, { target: { checked } }) {
       let v = this.getWithDefault('model.value', [])
 
+      // TODO: Reject values which are not in the given options
+
       this.getWithDefault('attrs.on-change', () => {})([
         ...new Set([...v, option].filter(value => value !== option || checked))
       ])
