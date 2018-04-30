@@ -153,6 +153,22 @@ class FormDataValidator(object):
     ):
         return not set(value) & set(condition_values)
 
+    def _check_active_condition_greater_than(self, value, condition_value):
+        return all([v > condition_value for v in value])
+
+    def _check_active_condition_greater_than_equals(
+        self, value, condition_value
+    ):
+        return all([v >= condition_value for v in value])
+
+    def _check_active_condition_lower_than(self, value, condition_value):
+        return all([v < condition_value for v in value])
+
+    def _check_active_condition_lower_than_equals(
+        self, value, condition_value
+    ):
+        return all([v <= condition_value for v in value])
+
     def _validate_question(self, question, question_def, value):
         required = self._check_question_required(question, question_def)
 

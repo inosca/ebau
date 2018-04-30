@@ -213,7 +213,14 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     add_field = functools.partial(form_field_factory, instance=instance)
 
     add_field(name='kategorie-des-vorhabens', value=['Anlage(n)'])
-    add_field(name='hohe-der-anlage', value=12.5, instance=instance)
+    add_field(name='hohe-der-anlage', value=12.5)
+    add_field(name='hohe-der-anlage-gte', value='Test')
+    add_field(name='kosten-der-anlage', value=10001)
+    add_field(name='kosten-der-anlage-gt', value='Test')
+    add_field(name='tiefe-der-bohrung', value=10)
+    add_field(name='tiefe-der-bohrung-lte', value='Test')
+    add_field(name='durchmesser-der-bohrung', value=9)
+    add_field(name='durchmesser-der-bohrung-lt', value='Test')
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen',
               value='Ja')
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen-welche',
