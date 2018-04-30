@@ -1,67 +1,72 @@
 {{#with (await question) as |question|}}
-  {{#with question.field.config.columns as |columns|}}
-    <div class="uk-animation-fade">
-      {{yield}}
-      <label class="uk-form-label uk-text-bold {{if error.length 'uk-text-danger'}}">
-        {{question.field.label}}
-        {{#if question.field.required}}
-          <span class="uk-text-primary">*</span>
-        {{/if}}
-      </label>
-      <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
-        <thead>
-          <tr>
-            {{#each columns as |column|}}
-              <th>{{column.label}}</th>
-            {{/each}}
-            {{#unless readonly}}
-              <th></th>
-            {{/unless}}
-          </tr>
-        </thead>
-        <tbody>
-          {{#each question.value as |row|}}
+  {{#if (not (await question.hidden))}}
+    {{#with question.field.config.columns as |columns|}}
+      <div class="uk-animation-fade">
+        {{yield}}
+        <label class="uk-form-label uk-text-bold {{if error.length 'uk-text-danger'}}">
+          {{question.field.label}}
+          {{#if question.field.required}}
+            <span class="uk-text-primary">*</span>
+          {{/if}}
+          {{#if question.field.hint}}
+            <span class="pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>
+          {{/if}}
+        </label>
+        <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
+          <thead>
             <tr>
               {{#each columns as |column|}}
-                <td>{{get row column.name}}</td>
+                <th>{{column.label}}</th>
               {{/each}}
               {{#unless readonly}}
-                <td class="uk-text-right">
-                  <button type="button" data-test-edit-row class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
-                  <button type="button" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
-                </td>
+                <th></th>
               {{/unless}}
             </tr>
-          {{^}}
-            <tr>
-              <td colspan={{add (count-keys columns) 1}} class="uk-text-center uk-text-small ">
-                Noch keine Einträge erfasst
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
+          </thead>
+          <tbody>
+            {{#each question.value as |row|}}
+              <tr>
+                {{#each columns as |column|}}
+                  <td>{{get row column.name}}</td>
+                {{/each}}
+                {{#unless readonly}}
+                  <td class="uk-text-right">
+                    <button type="button" data-test-edit-row class="uk-icon-button" uk-icon="pencil" {{action (perform editRow) row}}></button>
+                    <button type="button" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+                  </td>
+                {{/unless}}
+              </tr>
+            {{^}}
+              <tr>
+                <td colspan={{add (count-keys columns) 1}} class="uk-text-center uk-text-small ">
+                  Noch keine Einträge erfasst
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+          {{#unless readonly}}
+            <tfoot>
+              <tr>
+                <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
+                  {{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}
+                </td>
+              </tr>
+            </tfoot>
+          {{/unless}}
+        </table>
+
+        {{camac-input-error error}}
+
         {{#unless readonly}}
-          <tfoot>
-            <tr>
-              <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
-                {{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}
-              </td>
-            </tr>
-          </tfoot>
+          {{camac-table-modal
+            name    = question.name
+            columns = columns
+            visible = showEdit
+            value   = editedRow
+            on-save = (perform saveRow)
+          }}
         {{/unless}}
-      </table>
-
-      {{camac-input-error error}}
-
-      {{#unless readonly}}
-        {{camac-table-modal
-          name    = question.name
-          columns = columns
-          visible = showEdit
-          value   = editedRow
-          on-save = (perform saveRow)
-        }}
-      {{/unless}}
-    </div>
-  {{/with}}
+      </div>
+    {{/with}}
+  {{/if}}
 {{/with}}

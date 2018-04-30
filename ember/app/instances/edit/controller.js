@@ -50,43 +50,42 @@ const Module = EmberObject.extend({
     })
   }),
 
-  state: computed(
-    'questionStore._store.@each.{value,hidden,isNew}',
-    async function() {
-      let names = this.getWithDefault('allQuestions', [])
+  state: computedTask(
+    '_state',
+    'questionStore._store.@each.{value,hidden,isNew}'
+  ),
+  _state: task(function*() {
+    let names = this.getWithDefault('allQuestions', [])
 
-      let questions = await this.get('questionStore.findSet').perform(
-        names,
-        this.get('instance')
-      )
+    let questions = yield this.get('questionStore.findSet').perform(
+      names,
+      this.get('instance')
+    )
 
-      let visibles = await all(
-        questions.map(async q => ((await q.get('hidden')) ? null : q))
-      )
+    let visibleQuestions = (yield all(
+      questions.map(async q => ((await q.get('hidden')) ? null : q))
+    )).filter(Boolean)
 
-      let visibleQuestions = visibles.filter(Boolean)
-
-      if (!visibleQuestions.length) {
-        return null
-      }
-
-      if (visibleQuestions.every(q => q.get('isNew'))) {
-        return 'untouched'
-      }
-
-      let relevantQuestions = visibleQuestions.filter(q =>
-        q.get('field.required')
-      )
-
-      if (relevantQuestions.some(q => q.get('isNew'))) {
-        return 'unfinished'
-      }
-
-      return relevantQuestions.every(q => q.validate() === true)
-        ? 'valid'
-        : 'invalid'
+    if (!visibleQuestions.length) {
+      return null
     }
-  )
+
+    if (visibleQuestions.every(q => q.get('isNew'))) {
+      return 'untouched'
+    }
+
+    let relevantQuestions = visibleQuestions.filter(q =>
+      q.get('field.required')
+    )
+
+    if (relevantQuestions.some(q => q.get('isNew'))) {
+      return 'unfinished'
+    }
+
+    return relevantQuestions.every(q => q.validate() === true)
+      ? 'valid'
+      : 'invalid'
+  })
 })
 
 export default Controller.extend({
@@ -164,7 +163,7 @@ export default Controller.extend({
       'instances.edit.index',
       ...(yield all(
         this.getWithDefault('modules.lastSuccessful.value', []).map(async m => {
-          return (await m.get('state')) ? m.get('link') : null
+          return (await m.get('state.last')) ? m.get('link') : null
         })
       )).filter(Boolean),
       ...(this.get('model.meta.editable').includes('form')
