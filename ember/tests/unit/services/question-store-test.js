@@ -191,6 +191,150 @@ module('Unit | Service | question-store', function(hooks) {
     )
   })
 
+  test('can handle greater-than active conditions', async function(assert) {
+    assert.expect(2)
+
+    this.server.get('/api/v1/form-config', {
+      questions: {
+        test: {
+          'active-condition': [
+            {
+              question: 'foo',
+              value: { 'greater-than': 5 }
+            }
+          ]
+        }
+      }
+    })
+
+    let service = this.owner.lookup('service:question-store')
+
+    let test = await service.get('find').perform('test', this.instanceId)
+    let foo = await service.get('find').perform('foo', this.instanceId)
+
+    foo.set('model.value', 5)
+    assert.equal(
+      await test.get('hidden'),
+      true,
+      'The value of foo (5) does not meet the condition'
+    )
+
+    foo.set('model.value', 6)
+    assert.equal(
+      await test.get('hidden'),
+      false,
+      'The value of foo (6) meets the condition'
+    )
+  })
+
+  test('can handle greater-than-equals active conditions', async function(assert) {
+    assert.expect(2)
+
+    this.server.get('/api/v1/form-config', {
+      questions: {
+        test: {
+          'active-condition': [
+            {
+              question: 'foo',
+              value: { 'greater-than-equals': 5 }
+            }
+          ]
+        }
+      }
+    })
+
+    let service = this.owner.lookup('service:question-store')
+
+    let test = await service.get('find').perform('test', this.instanceId)
+    let foo = await service.get('find').perform('foo', this.instanceId)
+
+    foo.set('model.value', 4)
+    assert.equal(
+      await test.get('hidden'),
+      true,
+      'The value of foo (4) does not meet the condition'
+    )
+
+    foo.set('model.value', 5)
+    assert.equal(
+      await test.get('hidden'),
+      false,
+      'The value of foo (5) meets the condition'
+    )
+  })
+
+  test('can handle lower-than active conditions', async function(assert) {
+    assert.expect(2)
+
+    this.server.get('/api/v1/form-config', {
+      questions: {
+        test: {
+          'active-condition': [
+            {
+              question: 'foo',
+              value: { 'lower-than': 5 }
+            }
+          ]
+        }
+      }
+    })
+
+    let service = this.owner.lookup('service:question-store')
+
+    let test = await service.get('find').perform('test', this.instanceId)
+    let foo = await service.get('find').perform('foo', this.instanceId)
+
+    foo.set('model.value', 5)
+    assert.equal(
+      await test.get('hidden'),
+      true,
+      'The value of foo (5) does not meet the condition'
+    )
+
+    foo.set('model.value', 4)
+    assert.equal(
+      await test.get('hidden'),
+      false,
+      'The value of foo (4) meets the condition'
+    )
+  })
+
+  test('can handle lower-than-equals active conditions', async function(assert) {
+    assert.expect(2)
+
+    this.server.get('/api/v1/form-config', {
+      questions: {
+        test: {
+          'active-condition': [
+            {
+              question: 'foo',
+              value: { 'lower-than-equals': 5 }
+            }
+          ]
+        }
+      }
+    })
+
+    let service = this.owner.lookup('service:question-store')
+
+    let test = await service.get('find').perform('test', this.instanceId)
+    let foo = await service.get('find').perform('foo', this.instanceId)
+
+    foo.set('model.value', 6)
+    assert.equal(
+      await test.get('hidden'),
+      true,
+      'The value of foo (6) does not meet the condition'
+    )
+
+    foo.set('model.value', 5)
+    assert.equal(
+      await test.get('hidden'),
+      false,
+      'The value of foo (5) meets the condition'
+    )
+  })
+
   test('can handle single and multiple values for active conditions', async function(assert) {
     assert.expect(2)
 
