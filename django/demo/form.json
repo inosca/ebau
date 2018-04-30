@@ -14,8 +14,10 @@
       "questions": [
         "kategorie-des-vorhabens",
         "art-der-anlage",
+        "dokument-parzelle",
         "anlagen-mit-erheblichen-schadstoffemissionen",
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
+        "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht",
         "hohe-der-anlage",
         "grundeigentumerschaft",
         "gwr",
@@ -84,6 +86,25 @@
           "value": { "contains-any": ["Ja"] }
         }
       ],
+      "config": {}
+    },
+    "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht": {
+      "label": "Wieso nicht?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "anlagen-mit-erheblichen-schadstoffemissionen",
+          "value": { "contains-any": ["Nein"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-parzelle": {
+      "label": "Parzelle",
+      "type": "document",
+      "required": true,
+      "active-condition": [],
       "config": {}
     },
     "art-der-befestigten-flache": {
