@@ -121,8 +121,7 @@ def test_template_merge(admin_client, template, instance, to_type,
         if to_type == 'docx':
             expected = django_file('template_result.docx')
             # TODO do proper checks of xml potentially using snapshotest
-
-            if len(response.content) != len(expected.file.read()):
+            if len(response.content) != len(expected.file.read()):  # pragma: no cover  # noqa: E501
                 with open('/tmp/camacng_template_result.docx', 'wb') as docx:
                     docx.write(response.content)
 
