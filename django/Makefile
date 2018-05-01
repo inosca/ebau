@@ -19,4 +19,4 @@ start: ## Start the development server
 test: ## Test the project
 	@touch .env
 	@flake8
-	@pytest --cov --create-db
+	@pytest --cov --no-cov-on-fail --create-db
