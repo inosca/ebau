@@ -11,7 +11,8 @@ import computedTask from 'citizen-portal/lib/computed-task'
 
 const { testing } = Ember
 
-const allowedMimeTypes = ['application/pdf', 'image/png', 'image/jpeg']
+const ALLOWED_MIME_TYPES = ['application/pdf', 'image/png', 'image/jpeg']
+const MAX_FILE_SIZE = 12 * 1024 * 1024
 
 export default CamacInputComponent.extend({
   ajax: service(),
@@ -29,7 +30,7 @@ export default CamacInputComponent.extend({
   classNameBindings: ['hidden.lastSuccessful.value:uk-hidden'],
   classNames: ['uk-margin-remove', 'uk-animation-fade'],
 
-  mimeTypes: allowedMimeTypes.join(','),
+  mimeTypes: ALLOWED_MIME_TYPES.join(','),
 
   hidden: computedTask('_hidden', 'question.hidden'),
   _hidden: task(function*() {
@@ -74,7 +75,18 @@ export default CamacInputComponent.extend({
     try {
       let file = files.item(0)
 
-      if (!allowedMimeTypes.includes(file.type)) {
+      if (file.size > MAX_FILE_SIZE) {
+        UIkit.notification(
+          `Die Datei darf nicht grösser als ${MAX_FILE_SIZE /
+            1024 /
+            1024}MB sein.`,
+          { status: 'danger' }
+        )
+
+        return
+      }
+
+      if (!ALLOWED_MIME_TYPES.includes(file.type)) {
         UIkit.notification(
           'Es können nur PDF, JPEG oder PNG Dateien hochgeladen werden.',
           { status: 'danger' }
