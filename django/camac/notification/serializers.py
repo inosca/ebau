@@ -1,17 +1,91 @@
 import itertools
 from collections import namedtuple
+from html import escape
 
+import inflection
 import jinja2
 from django.core.mail import EmailMessage
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.core.models import Activation
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
-from camac.instance.serializers import InstanceMergeSerializer
 from camac.user.models import Service
 
 from . import models
+
+MERGE_DATE_FORMAT = '%d.%m.%Y'
+
+
+class ActivationMergeSerializer(serializers.Serializer):
+    deadline_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    start_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    end_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    circulation_state = serializers.StringRelatedField()
+    service = serializers.StringRelatedField()
+    reason = serializers.CharField()
+    circulation_answer = serializers.StringRelatedField()
+    # TODO add notices (static SerializerMethodField mapping)
+
+
+class BillingEntryMergeSerializer(serializers.Serializer):
+    amount = serializers.FloatField()
+    service = serializers.StringRelatedField()
+    created = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    account = serializers.SerializerMethodField()
+    account_number = serializers.SerializerMethodField()
+
+    def get_account(self, billing_entry):
+        billing_account = billing_entry.billing_account
+        return "{0} / {1}".format(
+            billing_account.department, billing_account.name
+        )
+
+    def get_account_number(self, billing_entry):
+        return billing_entry.billing_account.account_number
+
+
+class InstanceMergeSerializer(serializers.Serializer):
+    """Converts instance into a dict to be used with template merging."""
+
+    # TODO: document.Template and notification.NotificationTemplate should
+    # be moved to its own app template including this serializer.
+
+    location = serializers.StringRelatedField()
+    identifier = serializers.CharField()
+    activations = ActivationMergeSerializer(many=True)
+    billing_entries = BillingEntryMergeSerializer(many=True)
+
+    def __init__(self, instance, *args, escape=False, **kwargs):
+        self.escape = escape
+        instance.activations = Activation.objects.filter(
+            circulation__instance=instance
+        )
+        super().__init__(instance, *args, **kwargs)
+
+    def _escape(self, data):
+        result = data
+        if isinstance(data, str):
+            result = escape(data)
+        elif isinstance(data, list):
+            result = [self._escape(value) for value in data]
+        elif isinstance(data, dict):
+            result = {key: self._escape(value) for key, value in data.items()}
+
+        return result
+
+    def to_representation(self, instance):
+        ret = super().to_representation(instance)
+
+        for field in instance.fields.all():
+            name = inflection.underscore('field-' + field.name)
+            ret[name] = field.value
+
+        if self.escape:
+            ret = self._escape(ret)
+
+        return ret
 
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
