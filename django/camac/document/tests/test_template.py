@@ -70,22 +70,44 @@ def test_template_detail(admin_client, template):
         ),
     ]
 )
-@pytest.mark.parametrize("form_field__name,instance__identifier,location__name", [  # noqa: 501
-    ('testname', '11-18-011', 'Schwyz'),
+@pytest.mark.parametrize("service__name,billing_account__department,billing_account__name", [  # noqa: E501
+    ('Amt für Tests', 'Allgemein', 'Gebühren')
+])
+@pytest.mark.parametrize("activation__reason,circulation_state__name", [
+    ('Grund', 'OK', ),
+])
+@pytest.mark.parametrize("form_field__name,instance__identifier,location__name,activation__service", [  # noqa: 501
+    (
+        'testname',
+        '11-18-011',
+        'Schwyz',
+        LazyFixture(lambda service_factory: service_factory(name='Fachstelle'))
+    ),
 ])
 def test_template_merge(admin_client, template, instance, to_type,
-                        form_field, status_code, form_field_factory):
+                        form_field, status_code, form_field_factory,
+                        activation, billing_entry):
 
     add_field = functools.partial(form_field_factory, instance=instance)
-    add_field(name='art-der-befestigten-flache', value='Lagerplatz')
-    add_field(name='kategorie-des-vorhabens', value=['Anlage(n)', 'Baute(n)'])
-    add_field(
-        name='grundeigentumerschaft',
+    add_address_field = functools.partial(
+        add_field,
         value=[
-            {'name': 'Hans Muster', 'firma': 'Firma Muster'},
+            {
+                'name': 'Hans Muster',
+                'firma': 'Firma Muster',
+                'strasse': 'Beispiel Strasse',
+                'ort': '0000 Ort',
+                'email': 'email@example.com',
+                'tel': '000 000 00 00'
+            },
             {'name': 'Hans Beispiel', 'firma': 'Firma Beispiel'}
         ]
     )
+    add_field(name='art-der-befestigten-flache', value='Lagerplatz')
+    add_field(name='kategorie-des-vorhabens', value=['Anlage(n)', 'Baute(n)'])
+    add_address_field(name='grundeigentumerschaft')
+    add_address_field(name='bauherrschaft')
+    add_address_field(name='projektverfasser-planer')
 
     url = reverse('template-merge', args=[template.pk])
     response = admin_client.get(url, data={
@@ -98,6 +120,13 @@ def test_template_merge(admin_client, template, instance, to_type,
             'filename.' + to_type)[0]
         if to_type == 'docx':
             expected = django_file('template_result.docx')
-            assert len(response.content) == len(expected.file.read()), (
-                'Docx template result not equal'
-            )
+            # TODO do proper checks of xml potentially using snapshotest
+            if len(response.content) != len(expected.file.read()):  # pragma: no cover  # noqa: E501
+                with open('/tmp/camacng_template_result.docx', 'wb') as docx:
+                    docx.write(response.content)
+
+                assert False, (
+                    'Template output changed. '
+                    'Check file at %s if it is correct and copy '
+                    'it to %s to update test'
+                ) % (docx.name, expected.name)
