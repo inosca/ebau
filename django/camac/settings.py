@@ -28,6 +28,7 @@ ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=default(['*']))
 
 INSTALLED_APPS = [
     'django.contrib.auth',
+    'django.contrib.admin',
     'django.contrib.postgres',
     'django.contrib.contenttypes',
     'camac.core.apps.DefaultConfig',
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'camac.notification.apps.DefaultConfig',
     'sorl.thumbnail',
     'django_clamd',
+    'reversion',
 ]
 
 MIDDLEWARE = [
@@ -45,6 +47,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'camac.user.middleware.GroupMiddleware',
     'camac.middleware.LoggingMiddleware',
+    'reversion.middleware.RevisionMiddleware',
 ]
 
 ROOT_URLCONF = 'camac.urls'
