@@ -10,5 +10,3 @@ class NotificationTemplateFilterSet(FilterSet):
         fields = (
             'purpose',
         )
-
-
