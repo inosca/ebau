@@ -101,6 +101,22 @@ const checkActiveConditionContainsNotAny = (value, conditionValues) => {
   return value.every(v => !conditionValues.includes(v))
 }
 
+const checkActiveConditionGreaterThan = (value, conditionValue) => {
+  return value.every(v => v > conditionValue)
+}
+
+const checkActiveConditionGreaterThanEquals = (value, conditionValue) => {
+  return value.every(v => v >= conditionValue)
+}
+
+const checkActiveConditionLowerThan = (value, conditionValue) => {
+  return value.every(v => v < conditionValue)
+}
+
+const checkActiveConditionLowerThanEquals = (value, conditionValue) => {
+  return value.every(v => v <= conditionValue)
+}
+
 export default {
   validateRequired,
   validateText,
@@ -111,5 +127,9 @@ export default {
   validateSelect,
 
   checkActiveConditionContainsAny,
-  checkActiveConditionContainsNotAny
+  checkActiveConditionContainsNotAny,
+  checkActiveConditionGreaterThan,
+  checkActiveConditionGreaterThanEquals,
+  checkActiveConditionLowerThan,
+  checkActiveConditionLowerThanEquals
 }
