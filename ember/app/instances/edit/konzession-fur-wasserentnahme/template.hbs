@@ -1,1 +1,28 @@
-{{outlet}}
+{{#camac-form instance=model.instance meta=model.meta as |form|}}
+  {{form.input 'kw-ort'}}
+  {{form.input 'kw-quelle'}}
+  {{form.input 'kw-name'}}
+  {{form.input 'kw-fuhrt-standig'}}
+  {{form.input 'kw-nutzungsart'}}
+  {{form.input 'kw-datum-bewilligung'}}
+  {{form.input 'kw-entnahmestandort-gemeinde'}}
+  {{form.input 'kw-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-entnahmestandort-ruckfuhrung'}}
+  {{form.input 'kw-entnahmestandort-ruckfuhrung-seetiefe'}}
+  {{form.input 'kw-entnahmegewasser-max'}}
+  {{form.input 'kw-entnahmegewasser-min-temp'}}
+  {{form.input 'kw-entnahmegewasser-abkuhlung'}}
+  {{form.input 'kw-entnahmegewasser-min-austritt-temp'}}
+  {{form.input 'kw-baute-art'}}
+  {{form.input 'kw-baute-wohneinheiten'}}
+  {{form.input 'kw-baute-warmebedarf'}}
+  {{form.input 'kw-baute-stockwerkeigentumerschaft'}}
+  {{form.input 'kw-baute-stockwerkeigentumerschaft-bezeichung'}}
+  {{form.input 'kw-baute-kaltemitteleinfullungen'}}
+  {{form.input 'kw-baute-leistung-verdampfer'}}
+  {{form.input 'kw-brauchwasser-zweck'}}
+  {{form.input 'kw-inbetriebnahme'}}
+  {{form.input 'kw-baute-kaltemittel'}}
+{{/camac-form}}

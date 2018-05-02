@@ -12,6 +12,19 @@
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
       "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.wald",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
       "gesuchsunterlagen"
     ],
     "projektanderung": [
@@ -28,7 +41,7 @@
       "personalien.projektverfasser-planer",
       "gesuchsunterlagen"
     ],
-    "vorentscheid-gemass-84-pbg": [
+    "vorentscheid-gemass-ss84-pbg": [
       "vorentscheid",
       "grundinformationen",
       "grundinformationen.lokalisierung",
@@ -40,6 +53,19 @@
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
       "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.wald",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
       "gesuchsunterlagen"
     ],
     "vorabklarung": [
@@ -54,6 +80,19 @@
       "personalien",
       "personalien.bauherrschaft",
       "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.wald",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
       "gesuchsunterlagen"
     ],
     "technische-bewilligung": [
@@ -65,6 +104,19 @@
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
       "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.wald",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
       "gesuchsunterlagen"
     ],
     "konzession-fur-wasserentnahme": [
@@ -90,13 +142,25 @@
       "plangenehmigungsverfahren",
       "gesuchsunterlagen"
     ],
-    "projektgenehmigungsgesuch": [
+    "projektgenehmigungsgesuch-gemass-ss15-strag": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.bewilligungsnehmer",
-      "projektgenehmigungsgesuch",
       "fachthemen",
+      "fachthemen.landwirtschaft",
+      "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
+      "fachthemen.umweltschutz",
+      "fachthemen.wald",
+      "fachthemen.verkehr",
+      "fachthemen.energie",
+      "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
+      "fachthemen.zivilschutz",
+      "fachthemen.brandschutz",
+      "fachthemen.liegenschaftsentwasserung",
+      "fachthemen.gewasserschutz",
+      "fachthemen.grundwasser-und-altlasten",
+      "fachthemen.reklamen",
       "gesuchsunterlagen"
     ]
   },
@@ -189,180 +253,367 @@
     "personalien.gesuchsteller": {
       "title": "Gesuchsteller",
       "parent": "personalien",
-      "questions": []
+      "questions": ["gesuchsteller"]
     },
     "personalien.konzessionsnehmer": {
       "title": "Konzessionsnehmer",
       "parent": "personalien",
-      "questions": []
+      "questions": ["konzessionsnehmer"]
     },
     "personalien.bewilligungsnehmer": {
       "title": "Bewilligungsnehmer",
       "parent": "personalien",
-      "questions": []
+      "questions": ["bewilligungsnehmer"]
     },
     "fachthemen": { "title": "Fachthemen", "parent": null, "questions": [] },
+    "fachthemen.landwirtschaft": {
+      "title": "Landwirtschaft",
+      "parent": "fachthemen",
+      "questions": [
+        "landwirtschaft-betriebs-nr",
+        "landwirtschaft-sak-wert",
+        "landwirtschaft-einstufung",
+        "landwirtschaft-nutzflache",
+        "landwirtschaft-bereiche",
+        "landwirtschaft-gebietskategorie",
+        "landwirtschaft-wohnbauten",
+        "landwirtschaft-stallgebaude",
+        "landwirtschaft-veranderung-tierbestand",
+        "landwirtschaft-okonomiebauten",
+        "landwirtschaft-gullenlager",
+        "landwirtschaft-mistplatte"
+      ]
+    },
+    "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone": {
+      "title":
+        "Nicht landwirtschaftliche Bauten und Anlagen ausserhalb Bauzone",
+      "parent": "fachthemen",
+      "questions": [
+        "nlbuaab-bauten",
+        "nlbuaab-anlagen",
+        "nlbuaab-erweiterungen",
+        "nlbuaab-erweiterungen-wann-welche",
+        "nlbuaab-nutzflachen-bestehend-1972",
+        "nlbuaab-nutzflachen-bestehend",
+        "nlbuaab-nutzflachen-bisherige-erweiterungen",
+        "nlbuaab-nutzflachen-geplante-erweiterungen"
+      ]
+    },
+    "fachthemen.umweltschutz": {
+      "title": "Umweltschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "umweltschutz-abfallbehandlungsanlage",
+        "umweltschutz-larmschutz-pumpe-info",
+        "umweltschutz-larmschutz-gebiet-info",
+        "umweltschutz-bodenschutz-info",
+        "umweltschutz-lichtemissionen-info"
+      ]
+    },
+    "fachthemen.wald": {
+      "title": "Wald",
+      "parent": "fachthemen",
+      "questions": [
+        "wald-forstlich",
+        "wald-auswirkungen",
+        "wald-info",
+        "wald-rodungsbewilligung-info"
+      ]
+    },
+    "fachthemen.verkehr": {
+      "title": "Verkehr",
+      "parent": "fachthemen",
+      "questions": [
+        "verkehr-strassentyp",
+        "verkehr-strassenname",
+        "verkehr-einfahrt",
+        "verkehr-parkplatze",
+        "verkehr-mehrverkehr",
+        "verkehr-strassentyp-indirekt",
+        "verkehr-strassenname-indirekt",
+        "verkehr-ursache-unterschreitung",
+        "verkehr-grenzt-an-strasse",
+        "verkehr-neugestaltung-trottoir",
+        "verkehr-einschrankungen-trottoir",
+        "verkehr-baugrube-tangieren"
+      ]
+    },
+    "fachthemen.energie": {
+      "title": "Energie",
+      "parent": "fachthemen",
+      "questions": [
+        "energie-art",
+        "energie-dachaufstellung",
+        "energie-uberragt-rechter-winkel",
+        "energie-uberragt",
+        "energie-reflexionsarm",
+        "energie-kompakt",
+        "energie-thermisch-kollektorenart",
+        "energie-thermisch-aufbereitung",
+        "energie-thermisch-grosse",
+        "energie-photovoltaik-technologie",
+        "energie-photovoltaik-gesamtleistung",
+        "energie-photovoltaik-jahresertrag",
+        "energie-photovoltaik-flache",
+        "energie-inbetriebnahme"
+      ]
+    },
+    "fachthemen.arbeitssicherheit-und-gesundheitsschutz": {
+      "title": "Arbeitssicherheit und Gesundheitsschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "arbeitssicherheit-planbesprechung",
+        "arbeitssicherheit-tangiert",
+        "arbeitssicherheit-arbeitnehmer-raumen",
+        "arbeitssicherheit-arbeitnehmer-betrieb",
+        "arbeitssicherheit-arbeitsraume-hohe",
+        "arbeitssicherheit-arbeitsraume-fensterflache",
+        "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache",
+        "arbeitssicherheit-arbeitsraume-brustungshohen",
+        "arbeitssicherheit-ausgange-lage-treppenhause",
+        "arbeitssicherheit-ausgange-laufbreite",
+        "arbeitssicherheit-ausgange-material",
+        "arbeitssicherheit-ausgange-fluchtwege",
+        "arbeitssicherheit-ausgange-arten",
+        "arbeitssicherheit-ausgange-schliessystem",
+        "arbeitssicherheit-luftung-art",
+        "arbeitssicherheit-luftung-absaugungen",
+        "arbeitssicherheit-luftung-verunreinigte-luft",
+        "arbeitssicherheit-beleuchtung-raumbeleuchtung",
+        "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung",
+        "arbeitssicherheit-innerbetriebliche-emissionen-raumklima",
+        "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen",
+        "arbeitssicherheit-innerbetriebliche-emissionen-larm",
+        "arbeitssicherheit-innerbetriebliche-emissionen-nachweis",
+        "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel",
+        "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen",
+        "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan",
+        "arbeitssicherheit-betriebseinrichtungen-ergonomie",
+        "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung",
+        "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung",
+        "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung",
+        "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen",
+        "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung",
+        "arbeitssicherheit-schweissanlagen-art",
+        "arbeitssicherheit-schweissanlagen-abschirmung",
+        "arbeitssicherheit-schweissanlagen-absaugung",
+        "arbeitssicherheit-forderanlagen-aufzuge",
+        "arbeitssicherheit-forderanlagen-krane",
+        "arbeitssicherheit-lager-gefrierraume",
+        "arbeitssicherheit-lager-chemikalien",
+        "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln",
+        "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren",
+        "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen",
+        "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten",
+        "arbeitssicherheit-sozialraume-anzahl",
+        "arbeitssicherheit-sozialraume-waschanlagen",
+        "arbeitssicherheit-sozialraume-garderoben",
+        "arbeitssicherheit-sozialraume-toiletten-duschen",
+        "arbeitssicherheit-sozialraume-sanitare-anlagen",
+        "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume",
+        "arbeitssicherheit-sozialraume-pause-und-ruheraume"
+      ]
+    },
+    "fachthemen.zivilschutz": {
+      "title": "Zivilschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "zivilschutz-schutzraum",
+        "zivilschutz-elementarschaden",
+        "zivilschutz-dispens-schutzraumbau",
+        "zivilschutz-schutzraum-bestehend",
+        "zivilschutz-schutzraumaufhebung",
+        "zivilschutz-schutzraum-grundbucheintrag",
+        "zivilschutz-schutzraum-nr",
+        "zivilschutz-schutzraum-nr-nicht-bekannt"
+      ]
+    },
+    "fachthemen.brandschutz": {
+      "title": "Brandschutz",
+      "parent": "fachthemen",
+      "questions": ["brandschutz-gefahrengut"]
+    },
+    "fachthemen.liegenschaftsentwasserung": {
+      "title": "Liegenschaftsentwässerung",
+      "parent": "fachthemen",
+      "questions": ["liegenschaftentwasserung-wassergefahrdende-stoffe"]
+    },
+    "fachthemen.gewasserschutz": {
+      "title": "Gewässerschutz",
+      "parent": "fachthemen",
+      "questions": [
+        "gewasserschutz-menge",
+        "gewasserschutz-info-gebindelager",
+        "gewasserschutz-info-tankanlagen"
+      ]
+    },
+    "fachthemen.grundwasser-und-altlasten": {
+      "title": "Grundwasser und Altlasten",
+      "parent": "fachthemen",
+      "questions": [
+        "grundwasser-warmeentnahme-art",
+        "grundwasser-geologe",
+        "grundwasser-bohrfirma",
+        "grundwasser-verwendungszweck",
+        "grundwasser-anzahl-erdwarmesonden",
+        "grundwasser-bohrtiefe",
+        "grundwasser-bohrdurchmesser",
+        "grundwasser-bohrverfahren",
+        "grundwasser-sondenrohrdurchmesser",
+        "grundwasser-sondenmaterial",
+        "grundwasser-warmetragerflussigkeit",
+        "grundwasser-totale-fullmenge",
+        "grundwasser-anzahl-energiepfahle",
+        "grundwasser-tiefe-energiepfahle",
+        "grundwasser-durchmesser-energiepfahle",
+        "grundwasser-anzahl-register",
+        "grundwasser-verlegungstiefe",
+        "grundwasser-material-der-anlage",
+        "grundwasser-sondierbohrung-anzahl-bohrungen",
+        "grundwasser-sondierbohrung-koordinaten",
+        "grundwasser-sondierbohrung-zweck",
+        "grundwasser-sondierbohrung-zweck-anderer",
+        "grundwasser-sondierbohrung-tiefe",
+        "grundwasser-sondierbohrung-pumpversuch",
+        "grundwasser-sondierbohrung-bohrfirma",
+        "grundwasser-sondierbohrung-geologe",
+        "grundwasser-sondierbohrung-entsorgung",
+        "grundwasser-deponien"
+      ]
+    },
+    "fachthemen.reklamen": {
+      "title": "Reklamen",
+      "parent": "fachthemen",
+      "questions": ["reklamen", "reklamen-info"]
+    },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
         "dokument-parzelle",
-        "dokument-katasterplan",
-        "dokument-grundrisse",
-        "dokument-schnitt-fassadenplane",
-        "dokument-umbegungsplan",
+        "dokument-aktueller-katasterplan",
+        "dokument-aktueller-auszug-aus-dem-grundbuch",
+        "dokument-grundrisse-1100",
+        "dokument-schnitt-und-fassadenplane",
+        "dokument-umgebungsplan-mit-abstandslinien-vermasst",
         "dokument-baubeschrieb",
         "dokument-zustimmung-naherbaurecht",
         "dokument-planverzeichnis",
-        "dokument-nachweis-abstellflachen",
+        "dokument-nachweis-der-abstellflachenparkierung",
         "dokument-energienachweis",
         "dokument-pfahlfundationsplan",
-        "dokument-durchflussnachweis"
+        "dokument-hydrogeologischer-nachweis",
+        "dokument-beschrieb-der-baugrubensicherung-und-entwasserung",
+        "dokument-standortdatenblatt-zur-nisv",
+        "dokument-larmschutznachweis-larmprognose",
+        "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen",
+        "dokument-entsorgungskonzept",
+        "dokument-tabelle-tierbestand",
+        "dokument-begrundung-standortgebundenheit",
+        "dokument-nutzungsberechnung-inkl-planschema-flachennachweis",
+        "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung",
+        "dokument-formular-des-cercle-bruit",
+        "dokument-beschrieb-zur-abfallbehandlungsanlage",
+        "dokument-plan-und-beschrieb-zum-bodenschutz",
+        "dokument-beleuchtungskonzept",
+        "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache",
+        "dokument-begrundung-zweck-standortgebundenheit-und-alternativen",
+        "dokument-rodungsgesuch",
+        "dokument-beschrieb-der-auswirkungen-auf-wanderwege",
+        "dokument-plan-mit-dachaufsicht-inkl-solaranlage",
+        "dokument-sicherheitsdatenblatter",
+        "dokument-bestatigung-elementarschaden",
+        "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit",
+        "dokument-entwasserungsplankanalisationsplan",
+        "dokument-unterlagen-invasive-neophyten",
+        "dokument-sondenplan",
+        "dokument-plan-mit-eingetragenen-energiepfahlen",
+        "dokument-schnittplan-der-erdkollektorenerdwarmekorbe",
+        "dokument-situationsplan-mit-lage-der-bohrlocher",
+        "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung",
+        "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht",
+        "dokument-altlastenuntersuchung",
+        "dokument-reklameunterlagen",
+        "dokument-material-und-farbkonzept-bestehend-und-neu",
+        "dokument-konzept-der-grossveranstaltung-im-wald",
+        "dokument-konzept-des-anlasses",
+        "dokument-ausgefulltes-formular-v01a",
+        "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung",
+        "dokument-unterlagen-projektanderung",
+        "dokument-gesuchsunterlagen",
+        "dokument-beschrieb-des-vorhabens",
+        "dokument-fragenkatalog"
       ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
       "title": "Anlass- / Verkehrsbewilligungen",
       "parent": null,
-      "questions": []
+      "questions": ["av-art"]
     },
     "baumeldung-fur-geringfugige-vorhaben": {
       "title": "Baumeldung für geringfügige Vorhaben",
       "parent": null,
-      "questions": []
+      "questions": ["bm-solaranlage"]
     },
     "konzession-fur-wasserentnahme": {
       "title": "Konzession für Wasserentnahme",
       "parent": null,
-      "questions": []
+      "questions": [
+        "kw-ort",
+        "kw-quelle",
+        "kw-name",
+        "kw-fuhrt-standig",
+        "kw-nutzungsart",
+        "kw-datum-bewilligung",
+        "kw-entnahmestandort-gemeinde",
+        "kw-entnahmestandort-grundstuck",
+        "kw-entnahmestandort-koordinaten",
+        "kw-entnahmestandort-beschreibung",
+        "kw-entnahmestandort-ruckfuhrung",
+        "kw-entnahmestandort-ruckfuhrung-seetiefe",
+        "kw-entnahmegewasser-max",
+        "kw-entnahmegewasser-min-temp",
+        "kw-entnahmegewasser-abkuhlung",
+        "kw-entnahmegewasser-min-austritt-temp",
+        "kw-baute-art",
+        "kw-baute-wohneinheiten",
+        "kw-baute-warmebedarf",
+        "kw-baute-stockwerkeigentumerschaft",
+        "kw-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-baute-kaltemitteleinfullungen",
+        "kw-baute-leistung-verdampfer",
+        "kw-brauchwasser-zweck",
+        "kw-inbetriebnahme",
+        "kw-baute-kaltemittel"
+      ]
     },
     "projektanderung": {
       "title": "Projektänderung zu Baugesuch",
       "parent": null,
-      "questions": []
-    },
-    "projektgenehmigungsgesuch": {
-      "title": "Projektgenehmigungsgesuch gemäss § 15 StraG",
-      "parent": null,
-      "questions": []
+      "questions": ["pa-gesuchsnr", "pa-datum"]
     },
     "plangenehmigungsverfahren": {
       "title": "Plangenehmigungsverfahren",
       "parent": null,
-      "questions": []
+      "questions": ["pgv-bewilligungsbehorde"]
     },
     "technische-bewilligung": {
       "title": "Technische Bewilligung",
       "parent": null,
-      "questions": []
+      "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck"]
     },
     "vorabklarung": {
       "title": "Vorabklärung",
       "parent": null,
-      "questions": []
+      "questions": ["va-info"]
     },
-    "vorentscheid": { "title": "Vorentscheid", "parent": null, "questions": [] }
+    "vorentscheid": {
+      "title": "Vorentscheid",
+      "parent": null,
+      "questions": ["ve-verbindlich", "ve-info"]
+    }
   },
   "questions": {
-    "dokument-parzelle": {
-      "label": "Parzelle",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-katasterplan": {
-      "label": "Katasterplan",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-grundrisse": {
-      "label": "Grundrisse",
-      "hint": "Massstab 1:100",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-schnitt-fassadenplane": {
-      "label": "Schnitt- und Fassadenpläne",
-      "hint":
-        "Massstab 1:100 mit Darstellung des Terrains bis Grundstückgrenze (gewachsenes + projektiertes Terrain)",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-umbegungsplan": {
-      "label": "Umgebungsplan",
-      "hint": "Mit Abstandslinien (vermasst)",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-baubeschrieb": {
-      "label": "Baubeschrieb",
-      "hint": "Inkl. Material- und Farbkonzept bei Bauten",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-zustimmung-naherbaurecht": {
-      "label": "Zustimmung Näherbaurecht",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-planverzeichnis": {
-      "label": "Planverzeichnis",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-nachweis-abstellflachen": {
-      "label": "Nachweis der Abstellflächen / Parkierung",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-energienachweis": {
-      "label": "Energienachweis",
-      "type": "document",
-      "required": true,
-      "active-condition": [],
-      "config": {}
-    },
-    "dokument-pfahlfundationsplan": {
-      "label": "Pfahlfundationsplan",
-      "type": "document",
-      "required": true,
-      "active-condition": [
-        {
-          "question": "pfahlfundation-vorgesehen",
-          "value": { "contains-any": ["Ja"] }
-        }
-      ],
-      "config": {}
-    },
-    "dokument-durchflussnachweis": {
-      "label": "Durchflussnachweis",
-      "hint": "Hydrogeologischer Nachweis",
-      "type": "document",
-      "required": true,
-      "active-condition": [
-        {
-          "question": "pfahlfundation-vorgesehen",
-          "value": { "contains-any": ["Ja"] }
-        }
-      ],
-      "config": {}
-    },
     "parzelle": {
       "label": "Parzellennr.",
       "type": "number",
@@ -1225,6 +1476,4231 @@
             "config": {}
           }
         ]
+      }
+    },
+    "gesuchsteller": {
+      "label": "Gesuchsteller:",
+      "type": "table",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "PLZ, Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "konzessionsnehmer": {
+      "label": "Konzessionsnehmer:",
+      "type": "table",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "PLZ, Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "bewilligungsnehmer": {
+      "label": "Bewilligungsnehmer:",
+      "type": "table",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "PLZ, Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "landwirtschaft-betriebs-nr": {
+      "label": "Wie lautet Ihre kantonale Betriebs-Nr.?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        }
+      ],
+      "config": {
+        "min": 0,
+        "step": 1
+      }
+    },
+    "landwirtschaft-sak-wert": {
+      "label":
+        "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        }
+      ],
+      "config": {
+        "min": 0,
+        "step": 0.05
+      }
+    },
+    "landwirtschaft-einstufung": {
+      "label": "Wie ist Ihr Betrieb einzustufen",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        }
+      ],
+      "config": {
+        "options": [
+          "Haupterwerbsbetrieb",
+          "Nebenerwerbsbetrieb",
+          "Freizeitlandwirtschaft"
+        ]
+      }
+    },
+    "landwirtschaft-nutzflache": {
+      "label":
+        "Landwirtschaftliche Nutzfläche (LN) gemäss aktuellen oder künftigen Betriebsverhältnissen in Aren:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        }
+      ],
+      "config": {
+        "min": 0,
+        "step": 1
+      }
+    },
+    "landwirtschaft-bereiche": {
+      "label": "Welche Bereiche umfasst resp. tangiert Ihr Bauvorhaben?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        }
+      ],
+      "config": {
+        "options": [
+          "Wohnbaute(n)",
+          "Stallgebäude",
+          "Übrige Ökonomiegebäude",
+          "Hofdüngerlager"
+        ]
+      }
+    },
+    "landwirtschaft-gebietskategorie": {
+      "label": "Welcher Gebietskategorie ist Ihr Betrieb zugeordnet",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": { "contains-any": ["Wohnbaute(n)"] }
+        }
+      ],
+      "config": {
+        "options": ["Berggebiet", "Talgebiet"]
+      }
+    },
+    "landwirtschaft-wohnbauten": {
+      "label":
+        "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Wohnbaute(n)", "Stallgebäude", "Hofdüngerlager"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "funktion",
+            "label": "Funktion",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gsn",
+            "label": "GSN",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "bewohner",
+            "label": "Anzahl Bewohner",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1, "step": 1 }
+          },
+          {
+            "name": "zimmer",
+            "label": "Anzahl Zimmer",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1, "step": 0.5 }
+          },
+          {
+            "name": "vermietet",
+            "label": "Vermietet",
+            "type": "radio",
+            "required": true,
+            "config": { "options": ["Ja", "Nein"] }
+          },
+          {
+            "name": "hausabwasser-jauchegrube",
+            "label": "Hausabwasser in Jauchegrube",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
+          },
+          {
+            "name": "hausabwasser-ara",
+            "label": "Hausabwasser in ARA",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Ja, vorhanden", "Ja, geplant", "Nein"]
+            }
+          }
+        ]
+      }
+    },
+    "landwirtschaft-stallgebaude": {
+      "label":
+        "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Stallgebäude", "Hofdüngerlager"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "funktion",
+            "label": "Funktion",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gsn",
+            "label": "GSN",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "bemerkungen",
+            "label": "bemerkungen",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "landwirtschaft-veranderung-tierbestand": {
+      "label":
+        "Führt das Bauvorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
+      "hint":
+        "Für die Beurteilung des Gesuches ist der Tierbestand gemäss Betriebsstrukdaten des AFL massgebend.",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Stallgebäude", "Hofdüngerlager"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "landwirtschaft-okonomiebauten": {
+      "label":
+        "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Übrige Ökonomiegebäude"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "funktion",
+            "label": "Funktion",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gsn",
+            "label": "GSN",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "einstellflache",
+            "label": "Einstellfläche in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1 }
+          },
+          {
+            "name": "remisenflache",
+            "label": "Remisenflache in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1 }
+          },
+          {
+            "name": "bemerkungen",
+            "label": "bemerkungen",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "landwirtschaft-gullenlager": {
+      "label": "Geben Sie die nötigen Informationen zum Güllenlager an:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Stallgebäude", "Hofdüngerlager"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "zustand",
+            "label": "Zustand",
+            "type": "radio",
+            "required": true,
+            "config": { "options": ["Bestehend", "Neu"] }
+          },
+          {
+            "name": "gsn",
+            "label": "GSN",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "grosse",
+            "label": "Grösse in m³",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1, "step": 1 }
+          },
+          {
+            "name": "typ",
+            "label": "Typ / Material",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "jauchegrube-laufhofflache",
+            "label": "In Jauchegrube entwässerte Laufhoffläche in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1 }
+          }
+        ]
+      }
+    },
+    "landwirtschaft-mistplatte": {
+      "label": "Geben Sie die nötigen Informationen zur Mistplatte an",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": { "contains-any": ["Landwirtschaft"] }
+        },
+        {
+          "question": "landwirtschaft-bereiche",
+          "value": {
+            "contains-any": ["Stallgebäude", "Hofdüngerlager"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "flache",
+            "label": "Fläche in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 1 }
+          },
+          {
+            "name": "baujahr",
+            "label": "Baujahr / Zustand",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "nlbuaab-bauten": {
+      "label":
+        "Bitte geben Sie die nötigen Informationen zu den bestehenden Bauten an:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "bezeichnung",
+            "label": "Bezeichnung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "baujahr",
+            "label": "Baujahr / Zustand",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "nlbuaab-anlagen": {
+      "label":
+        "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "bezeichnung",
+            "label": "Bezeichnung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "baujahr",
+            "label": "Baujahr / Zustand",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "nlbuaab-erweiterungen": {
+      "label":
+        "Sind seit dem 1. Juli 1972 Erweiterungen oder Umnutzungen der Bauten und Anlagen erfolgt?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "nlbuaab-erweiterungen-wann-welche": {
+      "label": "Wann wurden welche Änderungen vorgenommen?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        },
+        {
+          "question": "nlbuaab-erweiterungen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "nlbuaab-nutzflachen-bestehend-1972": {
+      "label":
+        "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
+      "type": "table",
+      "required": false,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "nutzung",
+            "label": "Nutzung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "abgf",
+            "label": "aBGF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gnf",
+            "label": "GNF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "nlbuaab-nutzflachen-bestehend": {
+      "label":
+        "Es sind Angaben zu den am Erstellungszeitpunkt bestehenden Nutzflächen erforderlich:",
+      "type": "table",
+      "required": false,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "nutzung",
+            "label": "Nutzung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "abgf",
+            "label": "aBGF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gnf",
+            "label": "GNF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "nlbuaab-nutzflachen-bisherige-erweiterungen": {
+      "label": "Es sind Angaben zu den bisherigen Erweiterungen erforderlich:",
+      "type": "table",
+      "required": false,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "nutzung",
+            "label": "Nutzung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "abgf",
+            "label": "aBGF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gnf",
+            "label": "GNF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "nlbuaab-nutzflachen-geplante-erweiterungen": {
+      "label": "Es sind Angaben zu den geplanten Erweiterungen erforderlich:",
+      "type": "table",
+      "required": false,
+      "active-condition": [
+        {
+          "question": "landwirtschaft-sak-wert",
+          "value": {
+            "lower-than": 0.75
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "nutzung",
+            "label": "Nutzung",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "gebaudeversicherungs-nr",
+            "label": "Gebäudeversicherungs-Nr.",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "abgf",
+            "label": "aBGF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          },
+          {
+            "name": "gnf",
+            "label": "GNF in m²",
+            "type": "number",
+            "required": true,
+            "config": { "min": 0, "step": 1 }
+          }
+        ]
+      }
+    },
+    "umweltschutz-larmschutz-pumpe-info": {
+      "label":
+        "Dem Gesuch ist ein Lärmschutznachweis für Luft/Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus:<ul><li>Formular des AfU (ausgefüllt)</li><li>technisches Datenblatt des Wärmepumpenherstellers</li><li>Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum</li></ul>",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Luft / Wasser-Wärmepumpe"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
+    },
+    "umweltschutz-larmschutz-gebiet-info": {
+      "label":
+        "Es ist der Nachweis zu erbringen, dass die Grenzwerte der Lärmschutzverordnung (LSV) eingehalten werden. Der Lärmschutznachweis/die Lärmprognose ist den Gesuchsunterlagen beizulegen.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "larmbelastetes-gebiet",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
+    },
+    "umweltschutz-abfallbehandlungsanlage": {
+      "label":
+        "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
+      "hint":
+        "Z.B Altmetalle, Altfahrzeuge, Bauabfälle, Sonderabfälle, Kompostieranlagen und dergleichen",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Abfallanlage, Deponie"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "umweltschutz-bodenschutz-info": {
+      "label":
+        "Da die Rekultivierungsfläche 5‘000m² oder grösser ist, sind den Gesuchsunterlagen ein Plansatz und ein kurzer Beschrieb mit Angaben zum Ausgangszustand, dem Rekultivierungsziel sowie zur Planung und Durchführung der Bodenarbeiten beizulegen. (Hilfsmittel: ZUDK Merkblatt „Umgang mit Boden“)",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "boden-5000m2",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
+    },
+    "umweltschutz-lichtemissionen-info": {
+      "label":
+        "Für Ihr Bauvorhaben ist ein Beleuchtungskonzept gemäss ZUDK Merkblatt „Lichtverschmutzung“ erforderlich. Das Konzept, welches insbesondere Platzierung und Ausrichtung der Leuchten aufzeigt, ist den Gesuchsunterlagen beizulegen.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "aussenbeleuchtung",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
+    },
+    "wald-forstlich": {
+      "label": "Handelt es sich um ein forstliches Vorhaben?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": {
+            "contains-any": ["Forstwirtschaft"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "wald-auswirkungen": {
+      "label":
+        "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": {
+            "contains-any": ["Forstwirtschaft"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "wald-info": {
+      "label":
+        "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:<ul><li>Zweck des Bauvorhabens</li><li>Standortgebundenheit</li><li>Wurden Alternativen geprüft und wenn ja, mit welchem Ergebnis?</li></ul>",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "wald-auswirkungen",
+          "value": {
+            "contains-any": ["Nein"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "wald-rodungsbewilligung-info": {
+      "label":
+        "Für Ihr Bauvorhaben ist eine Rodungsbewilligung erforderlich. Hierzu sind folgende Unterlagen nötig:<ul><li>ausgefülltes Formular des BAFU</li><li>Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung</li><li>Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen</li><li>Unterschrift aller betroffenen Grundeigentümer</li></ul>",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "wald-auswirkungen",
+          "value": {
+            "contains-any": ["Nein"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "verkehr-strassentyp": {
+      "label":
+        "Um welchen Strassentyp handelt es sich bei der direkt betroffenen Strasse?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, direkt"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Nationalstrasse",
+          "Kantonsstrasse",
+          "Bezirksstrasse",
+          "Gemeindestrasse",
+          "Privatstrasse"
+        ]
+      }
+    },
+    "verkehr-strassenname": {
+      "label": "Name der betroffenen Strasse:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, direkt"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "verkehr-einfahrt": {
+      "label": "Bitte geben Sie Informationen zur Einfahrt:",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, direkt"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Neue, direkte Einfahrt geplant",
+          "Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)",
+          "Aus- oder Umbau der bestehenden Einfahrt"
+        ]
+      }
+    },
+    "verkehr-parkplatze": {
+      "label": "Wie viele Parkplätze sind insgesamt vorgesehen?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, direkt"]
+          }
+        }
+      ],
+      "config": {
+        "min": 0,
+        "step": 1
+      }
+    },
+    "verkehr-mehrverkehr": {
+      "label":
+        "Ergibt sich bei der bestehenden Zufahrt in die Kantonsstrasse erheblicher Mehrverkehr",
+      "hint": "Vgl. Merkblatt Z15 des Tiefbauamtes",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, direkt"]
+          }
+        },
+        {
+          "question": "verkehr-strassentyp",
+          "value": {
+            "contains-any": ["Kantonsstrasse"]
+          }
+        },
+        {
+          "question": "verkehr-einfahrt",
+          "value": {
+            "contains-any": [
+              "Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)",
+              "Aus- oder Umbau der bestehenden Einfahrt"
+            ]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "verkehr-strassentyp-indirekt": {
+      "label":
+        "Um welchen Strassentyp handelt es sich bei der indirekt betroffenen Strasse?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Nationalstrasse",
+          "Kantonsstrasse",
+          "Bezirksstrasse",
+          "Gemeindestrasse",
+          "Privatstrasse"
+        ]
+      }
+    },
+    "verkehr-strassenname-indirekt": {
+      "label": "Name der betroffenen Strasse:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "verkehr-ursache-unterschreitung": {
+      "label":
+        "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
+      "type": "multiselect",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        },
+        {
+          "question": "ausnahmen",
+          "value": {
+            "contains-any": [
+              "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie"
+            ]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Baute oder ähnlich wirkende Anlagen",
+          "Bäume und Sträucher",
+          "Sonstige Einfriedungen, Mauern, Böschungen etc."
+        ],
+        "allow-custom": true
+      }
+    },
+    "verkehr-grenzt-an-strasse": {
+      "label":
+        "Grenzt das Grundstück, auf dem das Vorhaben geplant ist, direkt an die Strasse?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        },
+        {
+          "question": "verkehr-strassentyp-indirekt",
+          "value": {
+            "contains-any": ["Kantonsstrasse"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "verkehr-neugestaltung-trottoir": {
+      "label":
+        "Ist eine Neugestaltung der Umgebung entlang Trottoir / Strasse vorgesehen",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        },
+        {
+          "question": "verkehr-strassentyp-indirekt",
+          "value": {
+            "contains-any": ["Kantonsstrasse"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "verkehr-einschrankungen-trottoir": {
+      "label":
+        "Ergeben sich Einschränkungen der Sichtverhältnisse auf Trottoir und / oder Radweg und / oder Strasse?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        },
+        {
+          "question": "verkehr-strassentyp-indirekt",
+          "value": {
+            "contains-any": ["Kantonsstrasse"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "verkehr-baugrube-tangieren": {
+      "label": "Kann die Baugrube Anlagen der Strasse gefährden / tangieren?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "tangiert-vorhaben-strasse",
+          "value": {
+            "contains-any": ["Ja, indirekt"]
+          }
+        },
+        {
+          "question": "verkehr-strassentyp-indirekt",
+          "value": {
+            "contains-any": ["Kantonsstrasse"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-art": {
+      "label": "Um welche Art Solaranlage handelt es sich?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Thermische Solaranlage (Wärmeproduktion)",
+          "Photovolatische Solaranlage (Stromproduktion)"
+        ]
+      }
+    },
+    "energie-dachaufstellung": {
+      "label": "Ist eine Dachaufstellung vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-uberragt-rechter-winkel": {
+      "label":
+        "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-uberragt": {
+      "label":
+        "Ragt die Solaranlage von vorne und von oben gesehen über die Dachfläche hinaus?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-reflexionsarm": {
+      "label":
+        "Ist die Solaranlage nach dem Stand der Technik reflexionsarm vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-kompakt": {
+      "label":
+        "Ist die Solaranlage als kompakte und zusammenhängende Fläche angeordnet?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "energie-thermisch-kollektorenart": {
+      "label": "Welche Kollektorenart ist vorgesehen?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Thermische Solaranlage (Wärmeproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Flachkollektoren", "Röhrenkollektoren"]
+      }
+    },
+    "energie-thermisch-aufbereitung": {
+      "label": "Die Anlage ist vorgesehen für die Aufbereitung von:",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Thermische Solaranlage (Wärmeproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "(Brauch)Warmwasser",
+          "Warmwasser mit Heizungsunterstützung"
+        ]
+      }
+    },
+    "energie-thermisch-grosse": {
+      "label": "Wie gross ist die vorgesehen Absorberfläche in m²?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Thermische Solaranlage (Wärmeproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "energie-photovoltaik-technologie": {
+      "label": "Welche Technologie ist vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Photovolatische Solaranlage (Stromproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Monokristalline Zellen", "Polykristalline Zellen"]
+      }
+    },
+    "energie-photovoltaik-gesamtleistung": {
+      "label": "Gesamtleistung in kWpeak:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Photovolatische Solaranlage (Stromproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "energie-photovoltaik-jahresertrag": {
+      "label": "Erwarteter Jahresertrag in kWh / Jahr:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Photovolatische Solaranlage (Stromproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "energie-photovoltaik-flache": {
+      "label": "Gesamtflache der Anlage in m²:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        },
+        {
+          "question": "energie-art",
+          "value": {
+            "contains-any": ["Photovolatische Solaranlage (Stromproduktion)"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "energie-inbetriebnahme": {
+      "label": "Voraussichtliche Inbetriebnahme:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Solaranlage"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-planbesprechung": {
+      "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
+      "type": "radio",
+      "required": false,
+      "active-condition": [],
+      "config": { "options": ["Ja", "Nein"] }
+    },
+    "arbeitssicherheit-tangiert": {
+      "label": "Welche Themenbereiche werden durch Ihr Vorhaben tangiert?",
+      "type": "checkbox",
+      "required": false,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Arbeitnehmer",
+          "Arbeitsräume",
+          "Ausgänge",
+          "Lüftung",
+          "Beleuchtung",
+          "Innerbetriebliche Emissionen",
+          "Betriebseinrichtungen",
+          "Gesundheitsschädliche Stoffe",
+          "Schweissanlagen",
+          "Förderanlagen, Fördermittel",
+          "Lager und Lagereinrichtungen",
+          "Oberflächenbehandlungsanlagen",
+          "Sozialräume"
+        ]
+      }
+    },
+    "arbeitssicherheit-arbeitnehmer-raumen": {
+      "label": "Wie viele Arbeitnehmer arbeiten in den projektierten Räumen?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitnehmer"] }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "arbeitssicherheit-arbeitnehmer-betrieb": {
+      "label":
+        "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitnehmer"] }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "arbeitssicherheit-arbeitsraume-hohe": {
+      "label": "Höhe in den Arbeitsräumen in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitsräume"] }
+        }
+      ],
+      "config": {
+        "min": 1
+      }
+    },
+    "arbeitssicherheit-arbeitsraume-fensterflache": {
+      "label": "Fensterfläche in den Arbeitsräumen in m²:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitsräume"] }
+        }
+      ],
+      "config": {
+        "min": 1
+      }
+    },
+    "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache": {
+      "label":
+        "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitsräume"] }
+        }
+      ],
+      "config": {
+        "min": 0
+      }
+    },
+    "arbeitssicherheit-arbeitsraume-brustungshohen": {
+      "label": "Brüstungshöhen in den Arbeitsräumen in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Arbeitsräume"] }
+        }
+      ],
+      "config": {
+        "min": 1
+      }
+    },
+    "arbeitssicherheit-ausgange-lage-treppenhause": {
+      "label": "Lage der Treppenhäuser:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-ausgange-laufbreite": {
+      "label": "Laufbreite der Treppen:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {
+        "min": 0
+      }
+    },
+    "arbeitssicherheit-ausgange-material": {
+      "label": "Material der Treppen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-ausgange-fluchtwege": {
+      "label": "Fluchtwege und Notausgänge:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-ausgange-arten": {
+      "label": "Arten der Türen / Toren:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-ausgange-schliessystem": {
+      "label": "Schliesssystem der Ausgänge:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Ausgänge"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-luftung-art": {
+      "label": "Art der Lüftung:",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lüftung"] }
+        }
+      ],
+      "config": {
+        "options": ["Künstlich", "Natürlich"]
+      }
+    },
+    "arbeitssicherheit-luftung-absaugungen": {
+      "label": "Gibt es örtliche Absaugungen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lüftung"] }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "arbeitssicherheit-luftung-verunreinigte-luft": {
+      "label": "Gibt es verunreinigte Luft?",
+      "hint": "Durch Gase, Dämpfe, Rauch, Staub, Späne oder Gerüche",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lüftung"] }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "arbeitssicherheit-beleuchtung-raumbeleuchtung": {
+      "label": "Raumbeleuchtung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Beleuchtung"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung": {
+      "label": "Not- und Markierungsbeleuchtung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Beleuchtung"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-innerbetriebliche-emissionen-raumklima": {
+      "label": "Raumklima:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Innerbetriebliche Emissionen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen": {
+      "label": "Erschütterungen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Innerbetriebliche Emissionen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-innerbetriebliche-emissionen-larm": {
+      "label": "Lärm:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Innerbetriebliche Emissionen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-innerbetriebliche-emissionen-nachweis": {
+      "label": "Raumakustischer Nachweis:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Innerbetriebliche Emissionen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel": {
+      "label": "Arbeitsmittel:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Betriebseinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen": {
+      "label": "Produktionsanlagen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Betriebseinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
+      "label": "Aufstellungsplan:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Betriebseinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-betriebseinrichtungen-ergonomie": {
+      "label": "Büroarbeitsplätze (Ergonomie):",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Betriebseinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung": {
+      "label": "Auflistung der Stoffe:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Gesundheitsschädliche Stoffe"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung": {
+      "label": "Verwendung oder Verarbeitung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Gesundheitsschädliche Stoffe"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung": {
+      "label": "Technische Überwachung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Gesundheitsschädliche Stoffe"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen": {
+      "label": "Ex-Zonen / elektrische Überwachung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Gesundheitsschädliche Stoffe"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung": {
+      "label": "Ort, Menge, Lüftung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Gesundheitsschädliche Stoffe"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-schweissanlagen-art": {
+      "label": "Art:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Schweissanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-schweissanlagen-abschirmung": {
+      "label": "Abschirmung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Schweissanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-schweissanlagen-absaugung": {
+      "label": "Absaugung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Schweissanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-aufzuge": {
+      "label": "Aufzüge:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-krane": {
+      "label": "Kräne:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-hebebuhnen": {
+      "label": "Hebebühnen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-anpassrampen": {
+      "label": "Anpassrampen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-fordereinrichtungen": {
+      "label": "Fördereinrichtungen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-forderanlagen-stapeleinrichtungen": {
+      "label": "Stapeleinrichtungen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Förderanlagen, Fördermittel"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-lager-gefrierraume": {
+      "label": "Gefrierräume:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lager und Lagereinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-lager-silos": {
+      "label": "Silos:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lager und Lagereinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-lager-lagersysteme": {
+      "label": "Mechanische und automatische Lagersysteme:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lager und Lagereinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-lager-chemikalien": {
+      "label": "Lagerung von Chemikalien:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Lager und Lagereinrichtungen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln": {
+      "label": "Vorbehandeln:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Oberflächenbehandlungsanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren": {
+      "label": "Galvanisieren:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Oberflächenbehandlungsanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen": {
+      "label": "Farbspritzen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Oberflächenbehandlungsanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten": {
+      "label": "Pulverbeschichten:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Oberflächenbehandlungsanlagen"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-anzahl": {
+      "label": "Anzahl Sozialräume:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": { "min": 1, "step": 1 }
+    },
+    "arbeitssicherheit-sozialraume-waschanlagen": {
+      "label": "Waschanlagen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-garderoben": {
+      "label": "Garderoben:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-toiletten-duschen": {
+      "label": "Toiletten und Duschen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-sanitare-anlagen": {
+      "label": "Sanitäre Anlagen:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume": {
+      "label": "Ess- und Aufenthaltsräume:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "arbeitssicherheit-sozialraume-pause-und-ruheraume": {
+      "label": "Pausen- und Ruheräume:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "arbeitssicherheit-tangiert",
+          "value": { "contains-any": ["Sozialräume"] }
+        }
+      ],
+      "config": {}
+    },
+    "zivilschutz-schutzraum": {
+      "label":
+        "Ist im Bauvorhaben ein der Pflicht ensprechender Schutzraum eingeplant?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": { "contains-any": ["Neubau"] }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-elementarschaden": {
+      "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": { "contains-any": ["Neubau"] }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-dispens-schutzraumbau": {
+      "label":
+        "Wird für das Bauvorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": { "contains-any": ["Neubau"] }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-schutzraum-bestehend": {
+      "label":
+        "Befindet sich im Bereich des Bauvorhabens ein bestehender Schutzraum?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": ["Umbau / Erneuerung / Sanierung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-schutzraumaufhebung": {
+      "label": "Ist eine Schutzraumaufhebung vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": ["Umbau / Erneuerung / Sanierung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-schutzraum-grundbucheintrag": {
+      "label": "Sind Grundbucheinträge betreffend Schutzraum vorhanden?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": ["Umbau / Erneuerung / Sanierung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "zivilschutz-schutzraum-nr": {
+      "label": "Bitte geben Sie die kantonale Schutzraum-Nr. an:",
+      "hint": "Falls nicht bekannt, geben Sie 0 ein",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": ["Umbau / Erneuerung / Sanierung"]
+          }
+        },
+        {
+          "question": "zivilschutz-schutzraum-bestehend",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "zivilschutz-schutzraum-nr-nicht-bekannt": {
+      "label":
+        "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
+      "type": "text",
+      "required": false,
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": ["Umbau / Erneuerung / Sanierung"]
+          }
+        },
+        {
+          "question": "zivilschutz-schutzraum-bestehend",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "brandschutz-gefahrengut": {
+      "label":
+        "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "brandschutztechnisch-gefahrliche-stoffe",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Gaslager, Flüssiggaslager",
+          "Lager für brennbare Flüssigkeiten",
+          "Reifenlager",
+          "Lager für pyrotechnische Gegenstände (Sprengstoff, Feuerwerk)"
+        ]
+      }
+    },
+    "liegenschaftentwasserung-wassergefahrdende-stoffe": {
+      "label": "Werden wassergefährdende Stoffe gelagert oder umgeschlagen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": {
+            "contains-any": ["Gewerbe / Dienstleistung", "Industrie"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "gewasserschutz-menge": {
+      "label": "Welche Menge wassergefährdender Flüssigkeiten wird gelagert?",
+      "hint": "z.B. Heizöl, Treibstoffe, Chemikalien usw.",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "wassergefahrdende-stoffe",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Ab 20 bis 450 Liter (pro Behälter)",
+          "Ab 451 bis 2000 Liter (pro Behälter)",
+          "Mehr als 2000 Liter (pro Behälter)"
+        ]
+      }
+    },
+    "gewasserschutz-info-gebindelager": {
+      "label":
+        "Das ausgefüllte Meldeformular Gebindelager ist direkt beim AfU einzureichen.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "wassergefahrdende-stoffe",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        },
+        {
+          "question": "gewasserschutz-menge",
+          "value": {
+            "contains-any": ["Ab 20 bis 450 Liter (pro Behälter)"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "gewasserschutz-info-tankanlagen": {
+      "label":
+        "Das ausgefüllte Meldeformular Tankanlagen ist direkt beim AfU einzureichen.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "wassergefahrdende-stoffe",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        },
+        {
+          "question": "gewasserschutz-menge",
+          "value": {
+            "contains-any": [
+              "Ab 451 bis 2000 Liter (pro Behälter)",
+              "Mehr als 2000 Liter (pro Behälter)"
+            ]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "grundwasser-warmeentnahme-art": {
+      "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Erdwärmesonden",
+          "Energiepfähle",
+          "Erdkollektoren / Erdwärmekörbe"
+        ]
+      }
+    },
+    "grundwasser-geologe": {
+      "label": "Beauftragter Geologe (Name, Adresse, Tel., Email):",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-bohrfirma": {
+      "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden", "Energiepfähle"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-verwendungszweck": {
+      "label": "Verwendungszweck:",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Heizung", "Kühlung", "Warmwasser"]
+      }
+    },
+    "grundwasser-anzahl-erdwarmesonden": {
+      "label": "Anzahl Erdwärmesonden:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-bohrtiefe": {
+      "label": "Bohrtiefe pro Sonde in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-bohrdurchmesser": {
+      "label": "Bohrdurchmesser in mm:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-bohrverfahren": {
+      "label": "Bohrverfahren:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondenrohrdurchmesser": {
+      "label": "Sondenrohrdurchmesser in mm:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-sondenmaterial": {
+      "label": "Sondenmaterial:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-warmetragerflussigkeit": {
+      "label": "Wärmeträgerflüssigkeit",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden", "Energiepfähle"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-totale-fullmenge": {
+      "label": "Totale Füllmenge in l:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden", "Energiepfähle"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-anzahl-energiepfahle": {
+      "label": "Anzahl Energiepfähle:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Energiepfähle"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-tiefe-energiepfahle": {
+      "label": "Tiefe pro Pfahl in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Energiepfähle"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-durchmesser-energiepfahle": {
+      "label": "Energiepfähldurchmesser in mm:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Energiepfähle"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-anzahl-register": {
+      "label": "Anzahl Register resp. Erdwärmetauscher:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdkollektoren / Erdwärmekörbe"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-verlegungstiefe": {
+      "label": "Verlegungstiefe in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdkollektoren / Erdwärmekörbe"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-material-der-anlage": {
+      "label": "Material der Anlage:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Erd-Wärmepumpe"]
+          }
+        },
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdkollektoren / Erdwärmekörbe"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondierbohrung-anzahl-bohrungen": {
+      "label": "Anzahl Bohrungen:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-sondierbohrung-koordinaten": {
+      "label": "Koordinaten der Bohrstandorte:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondierbohrung-zweck": {
+      "label": "Zweck der Bohrungen:",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {
+        "options": [
+          "Baugrunduntersuchung",
+          "Altlastenuntersuchung",
+          "Grundwasserwärmenutzung",
+          "Anderer Grund"
+        ]
+      }
+    },
+    "grundwasser-sondierbohrung-zweck-anderer": {
+      "label": "Welcher?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        },
+        {
+          "question": "grundwasser-sondierbohrung-zweck",
+          "value": {
+            "contains-any": ["Anderer Grund"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondierbohrung-tiefe": {
+      "label": "Vorgesehene Bohrtiefen in m:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "grundwasser-sondierbohrung-pumpversuch": {
+      "label": "Pumpversuch?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "grundwasser-sondierbohrung-bohrfirma": {
+      "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondierbohrung-geologe": {
+      "label": "Begleitender Geologe (Name, Adresse, Tel., Email):",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-sondierbohrung-entsorgung": {
+      "label": "Entsorgung Bohrwasser",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "grundwasser-deponien": {
+      "label": "Handelt es sich (bei Teilen des Vorhabens) um eine Deponie?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Abfallanlage, Deponie"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "reklamen": {
+      "label": "Reklamen",
+      "type": "table",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Reklame"]
+          }
+        }
+      ],
+      "config": {
+        "columns": [
+          {
+            "name": "beschriftung",
+            "label": "Beschriftungstext:",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "beleuchtung",
+            "label": "Beleuchtung:",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Ja, direkt oder indirekt beleuchtet",
+                "Nein, unbeleuchtet"
+              ]
+            }
+          },
+          {
+            "name": "standort",
+            "label": "Standort:",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["Innerorts", "Ausserorts"]
+            }
+          },
+          {
+            "name": "montage",
+            "label": "Montage:",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": ["An einer Baute / Fassade", "Freistehend"]
+            }
+          },
+          {
+            "name": "betriebsdauer-von",
+            "label": "Betrieb von:",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "betriebsdauer-bis",
+            "label": "Betrieb bis:",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "reklamen-info": {
+      "label":
+        "Das Reklamevorhaben ist gut zu dokumentieren:<ul><li>Situationsplan mit:<ul><li>Vollständiger Darstellung der Liegenschaft</li><li>Vermassung des Reklamestandorts gegenüber Verkehrsflächen (Trottoir resp. Fahrbahn)</li><li>Darstellung der Ausrichtung der Reklame.</li></ul><li>Fassadenplan (soweit vorhanden) oder Fotos (ev. Fotomontage)</li><li>Massstäbliche Darstellung der Reklame(n) inkl. Farbangaben]</li></ul>",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Reklame"]
+          }
+        }
+      ],
+      "config": { "options": ["Erledigt"] }
+    },
+    "dokument-parzelle": {
+      "type": "document",
+      "required": true,
+      "label": "Parzelle",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-begrundung-standortgebundenheit": {
+      "type": "document",
+      "required": false,
+      "label": "Begründung Standortgebundenheit",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-grundrisse-1100": {
+      "type": "document",
+      "required": true,
+      "label": "Grundrisse 1:100",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-fragenkatalog": {
+      "type": "document",
+      "required": true,
+      "label": "Fragenkatalog",
+      "active-condition": [
+        {
+          "question": "va-info",
+          "value": { "contains-any": ["Erledigt"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-unterlagen-projektanderung": {
+      "type": "document",
+      "required": true,
+      "label": "Unterlagen Projektänderung",
+      "active-condition": [
+        {
+          "question": "pa-gesuchsnr",
+          "value": {
+            "contains-any": [""]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit": {
+      "type": "document",
+      "required": true,
+      "label":
+        "Schutzraumaufhebung: Antrag und Einverständniserklärung mit Begründung",
+      "active-condition": [
+        {
+          "question": "zivilschutz-schutzraumaufhebung",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-unterlagen-invasive-neophyten": {
+      "type": "document",
+      "required": false,
+      "label": "Unterlagen invasive Neophyten",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-standortdatenblatt-zur-nisv": {
+      "type": "document",
+      "required": true,
+      "label": "Standortdatenblatt zur NISV",
+      "active-condition": [
+        {
+          "questions": "anlagen-mit-erheblichen-strahlungsemissionen",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-plan-mit-eingetragenen-energiepfahlen": {
+      "type": "document",
+      "required": true,
+      "label": "Plan mit eingetragenen Energiepfählen",
+      "active-condition": [
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Energiepfähle"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-entwasserungsplankanalisationsplan": {
+      "type": "document",
+      "required": false,
+      "label": "Entwässerungsplan / Kanalisationsplan",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-plan-mit-dachaufsicht-inkl-solaranlage": {
+      "type": "document",
+      "required": true,
+      "label": "Plan mit Dachaufsicht inkl. Solaranlage",
+      "active-condition": [
+        {
+          "question": "energie-dachaufstellung",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-hydrogeologischer-nachweis": {
+      "hint": "Durchflussnachweis",
+      "type": "document",
+      "required": true,
+      "label": "Hydrogeologischer Nachweis",
+      "active-condition": [
+        {
+          "question": "pfahlfundation-vorgesehen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-plan-und-beschrieb-zum-bodenschutz": {
+      "type": "document",
+      "required": true,
+      "label": "Plan und Beschrieb zum Bodenschutz",
+      "active-condition": [
+        {
+          "question": "boden-5000m2",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-baubeschrieb": {
+      "hint": "Inkl. Material- und Farbkonzept bei Bauten",
+      "type": "document",
+      "required": true,
+      "label": "Baubeschrieb",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-beschrieb-der-baugrubensicherung-und-entwasserung": {
+      "type": "document",
+      "required": true,
+      "label": "Beschrieb der Baugrubensicherung und -entwässerung",
+      "active-condition": [
+        {
+          "question": "baugrubenumschliessung-vorgesehen",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-reklameunterlagen": {
+      "type": "document",
+      "required": true,
+      "label": "Reklameunterlagen",
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Reklame"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-konzept-der-grossveranstaltung-im-wald": {
+      "type": "document",
+      "required": true,
+      "label": "Konzept der Grossveranstaltung im Wald",
+      "active-condition": [
+        {
+          "question": "av-art",
+          "value": {
+            "contains-any": [
+              "Grossveranstaltung im Wald",
+              "Anlassbewilligung",
+              "Verkehrsbewilligung"
+            ]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-beschrieb-der-auswirkungen-auf-wanderwege": {
+      "type": "document",
+      "required": false,
+      "label": "Beschrieb der Auswirkungen auf Wanderwege",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-gesuchsunterlagen": {
+      "type": "document",
+      "required": false,
+      "label": "Gesuchsunterlagen",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-zustimmung-naherbaurecht": {
+      "type": "document",
+      "required": true,
+      "label": "Zustimmung Näherbaurecht",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht": {
+      "type": "document",
+      "required": true,
+      "label": "Schnittplan mit Entnahme- und Rückgabeschacht",
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-planverzeichnis": {
+      "type": "document",
+      "required": true,
+      "label": "Planverzeichnis",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-nutzungsberechnung-inkl-planschema-flachennachweis": {
+      "hint": "Inkl. Planschema (Flächennachweis)",
+      "type": "document",
+      "required": false,
+      "label": "Nutzungsberechnung",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-situationsplan-mit-lage-der-bohrlocher": {
+      "type": "document",
+      "required": true,
+      "label": "Situationsplan mit Lage der Bohrlöcher",
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-aktueller-katasterplan": {
+      "type": "document",
+      "required": true,
+      "label": "Aktueller Katasterplan",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-beschrieb-des-vorhabens": {
+      "type": "document",
+      "required": false,
+      "label": "Beschrieb des Vorhabens",
+      "active-condition": [
+        {
+          "question": "va-info",
+          "value": { "contains-any": ["Erledigt"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-entsorgungskonzept": {
+      "type": "document",
+      "required": true,
+      "label": "Entsorgungskonzept",
+      "active-condition": [
+        {
+          "question": "200m3-bauabfalle",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-aktueller-auszug-aus-dem-grundbuch": {
+      "type": "document",
+      "required": true,
+      "label": "Aktueller Auszug aus dem Grundbuch",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-beleuchtungskonzept": {
+      "type": "document",
+      "required": true,
+      "label": "Beleuchtungskonzept",
+      "active-condition": [
+        {
+          "question": "aussenbeleuchtung",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-altlastenuntersuchung": {
+      "type": "document",
+      "required": false,
+      "label": "Altlastenuntersuchung",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-sicherheitsdatenblatter": {
+      "type": "document",
+      "required": false,
+      "label": "Sicherheitsdatenblätter",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung": {
+      "hint": "Gegenstand der Baumeldung",
+      "type": "document",
+      "required": true,
+      "label": "Beschrieb des Vorhabens",
+      "active-condition": [
+        {
+          "question": "bm-solaranlage",
+          "value": { "contains-any": ["Nein"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-larmschutznachweis-larmprognose": {
+      "type": "document",
+      "required": true,
+      "label": "Lärmschutznachweis / Lärmprognose",
+      "active-condition": [
+        {
+          "question": "anlagen-mit-erheblichen-larmemissionen",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung": {
+      "type": "document",
+      "required": false,
+      "label": "Aussagekräftige Fotos der Liegenschaft inkl. Umgebung",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache": {
+      "type": "document",
+      "required": true,
+      "label": "Stellungnahme zu Zweck, Nutzen für Wald, Lage und Fläche",
+      "active-condition": [
+        {
+          "question": "art-der-nutzung",
+          "value": {
+            "contains-any": ["Forstwirtschaft"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-begrundung-zweck-standortgebundenheit-und-alternativen": {
+      "type": "document",
+      "required": true,
+      "label": "Begründung Zweck, Standortgebundenheit und Alternativen",
+      "active-condition": [
+        {
+          "question": "wald-auswirkungen",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-tabelle-tierbestand": {
+      "type": "document",
+      "required": true,
+      "label": "Tabelle Tierbestand",
+      "active-condition": [
+        {
+          "question": "landwirtschaft-veranderung-tierbestand",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-schnittplan-der-erdkollektorenerdwarmekorbe": {
+      "type": "document",
+      "required": true,
+      "label": "Schnittplan der Erdkollektoren / Erdwärmekörbe",
+      "active-condition": [
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdkollektoren / Erdwärmekörbe"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-schnitt-und-fassadenplane": {
+      "hint":
+        "1:100 mit Darstellung des Terrains bis Grundstücksgrenze (gewachsenes + projektiertes Terrain)",
+      "type": "document",
+      "required": false,
+      "label": "Schnitt- und Fassadenpläne",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung": {
+      "type": "document",
+      "required": true,
+      "label": "Situationsplan mit Bohrlächern und Leitungsführung",
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Sondierbohrung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-ausgefulltes-formular-v01a": {
+      "type": "document",
+      "required": true,
+      "label": "Ausgefülltes Formular V01a",
+      "active-condition": [
+        {
+          "question": "av-art",
+          "value": {
+            "contains-any": [
+              "Grossveranstaltung im Wald",
+              "Anlassbewilligung",
+              "Verkehrsbewilligung"
+            ]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-energienachweis": {
+      "type": "document",
+      "required": true,
+      "label": "Energienachweis",
+      "active-condition": [
+        {
+          "question": "vorhaben-mit-baute",
+          "value": {
+            "contains-any": [
+              "Neubau",
+              "Anbau / Erweiterung",
+              "Umbau / Erneuerung / Sanierung",
+              "Nutzungsänderung"
+            ]
+          }
+        },
+        {
+          "question": "baukosten",
+          "value": {
+            "greater-than": 250000
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-umgebungsplan-mit-abstandslinien-vermasst": {
+      "type": "document",
+      "required": false,
+      "label": "Umgebungsplan mit Abstandslinien (vermasst)",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-konzept-des-anlasses": {
+      "type": "document",
+      "required": true,
+      "label": "Konzept des Anlasses",
+      "active-condition": [
+        {
+          "question": "av-art",
+          "value": {
+            "contains-any": [
+              "Grossveranstaltung im Wald",
+              "Anlassbewilligung",
+              "Verkehrsbewilligung"
+            ]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-beschrieb-zur-abfallbehandlungsanlage": {
+      "type": "document",
+      "required": true,
+      "label": "Beschrieb zur Abfallbehandlungsanlage",
+      "active-condition": [
+        {
+          "question": "art-der-anlage",
+          "value": {
+            "contains-any": ["Abfallanlage, Deponie"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-nachweis-der-abstellflachenparkierung": {
+      "type": "document",
+      "required": true,
+      "label": "Nachweis der Abstellflächen / Parkierung",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-pfahlfundationsplan": {
+      "type": "document",
+      "required": true,
+      "label": "Pfahlfundationsplan",
+      "active-condition": [
+        {
+          "question": "pfahlfundation-vorgesehen",
+          "value": { "contains-any": ["Ja"] }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-sondenplan": {
+      "type": "document",
+      "required": true,
+      "label": "Sondenplan",
+      "active-condition": [
+        {
+          "question": "grundwasser-warmeentnahme-art",
+          "value": {
+            "contains-any": ["Erdwärmesonden"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen": {
+      "hint": "Altlastenkonzept",
+      "type": "document",
+      "required": true,
+      "label": "Beschrieb geplanter Umgang mit Bodenbelastungen",
+      "active-condition": [
+        {
+          "question": "bodenbelastungen",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-bestatigung-elementarschaden": {
+      "type": "document",
+      "required": true,
+      "label": "Bestätigung Elementarschaden",
+      "active-condition": [
+        {
+          "question": "zivilschutz-elementarschaden",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-rodungsgesuch": {
+      "hint": "Inkl. Situationsplan, Detailpläne und Unterschriften",
+      "type": "document",
+      "required": true,
+      "label": "Rodungsgesuch",
+      "active-condition": [
+        {
+          "question": "wald-auswirkungen",
+          "value": {
+            "contains-any": ["Nein"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "dokument-material-und-farbkonzept-bestehend-und-neu": {
+      "hint": "Bestehend und neu",
+      "type": "document",
+      "required": false,
+      "label": "Material- und Farbkonzept",
+      "active-condition": [],
+      "config": {}
+    },
+    "dokument-formular-des-cercle-bruit": {
+      "type": "document",
+      "hint":
+        "Dem Gesuch ist ein Lärmschutznachweis für Luft / Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus: Formular des AfU (ausgefüllt), technisches Datenblatt des Wärmepumpenherstellers, Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum",
+      "required": true,
+      "label": "Formular des Cercle Bruit",
+      "active-condition": [
+        {
+          "question": "art-der-warmepumpe",
+          "value": {
+            "contains-any": ["Luft / Wasser-Wärmepumpe"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "av-art": {
+      "label": "Welche Art von Bewilligung hat Ihr Gesuch zum Inhalt?",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Grossveranstaltung im Wald",
+          "Anlassbewilligung",
+          "Verkehrsbewilligung"
+        ]
+      }
+    },
+    "bm-solaranlage": {
+      "label":
+        "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-ort": {
+      "label": "Von wo ist geplant, Wasser zu entnehmen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Grundwasser", "Bach / Fluss", "See", "Quelle"]
+      }
+    },
+    "kw-quelle": {
+      "label": "Handelt es sich um eine private oder öffentliche Quelle?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-ort",
+          "value": {
+            "contains-any": ["Quelle"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Privat", "Öffentlich"]
+      }
+    },
+    "kw-name": {
+      "label": "Name des Gewässers:",
+      "hint": "Bach, Fluss oder See",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-ort",
+          "value": {
+            "contains-any": ["Bach / Fluss", "See"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "kw-fuhrt-standig": {
+      "label": "Führt der Bach / Fluss ständig Wasser?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-ort",
+          "value": {
+            "contains-any": ["Bach / Fluss"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-nutzungsart": {
+      "label": "Welche Nutzungsart liegt vor?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Wärmepumpe",
+          "Kühlung",
+          "Wärmepumpe und Kühlung",
+          "Trinkwasser",
+          "Brauchwasser"
+        ]
+      }
+    },
+    "kw-datum-bewilligung": {
+      "label":
+        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-entnahmestandort-gemeinde": {
+      "label": "Entnahmestandort Gemeinde:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-entnahmestandort-grundstuck": {
+      "label": "Entnahmestandort Grundstück-Nr.:",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-entnahmestandort-koordinaten": {
+      "label": "Entnahmestandort Koordinaten:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-entnahmestandort-beschreibung": {
+      "label": "Kurze Beschreibung der Anlagen",
+      "hint": "Wasserfassung, Pumpstation usw.",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-entnahmestandort-ruckfuhrung": {
+      "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "kw-entnahmestandort-ruckfuhrung-seetiefe": {
+      "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        },
+        {
+          "question": "kw-art",
+          "value": {
+            "contains-any": ["See"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "Entspricht der Konzessionswassermenge",
+      "type": "number",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-entnahmegewasser-min-temp": {
+      "label": "Minimale Temperatur der Wärmequelle in °C",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-entnahmegewasser-abkuhlung": {
+      "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-entnahmegewasser-min-austritt-temp": {
+      "label": "Minimale Austrittstemperatur in °C",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-baute-art": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "type": "multiselect",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Neubau", "Altbau", "Einfamilienhaus", "Mehrfamilienhaus"],
+        "allow-custom": true
+      }
+    },
+    "kw-baute-wohneinheiten": {
+      "label": "Wie viele Wohneinheiten sind vorgesehen?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        },
+        {
+          "question": "kw-baute-art",
+          "value": {
+            "contains-any": ["Einfamilienhaus", "Mehrfamilienhaus"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-baute-warmebedarf": {
+      "label": "Wie hoch ist der Wärmebedarf in Watt?",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-baute-stockwerkeigentumerschaft": {
+      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-baute-stockwerkeigentumerschaft-bezeichung": {
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        },
+        {
+          "question": "kw-baute-stockwerkeigentumerschaft",
+          "value": {
+            "contains-any": ["Ja"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "kw-baute-kaltemitteleinfullungen": {
+      "label": "Kältemitteleinfüllung(en) in kg:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-baute-leistung-verdampfer": {
+      "label": "Leistung Verdampfer in Watt:",
+      "type": "number",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-brauchwasser-zweck": {
+      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "kw-baute-kaltemittel": {
+      "label": "Kältemittel:",
+      "type": "text",
+      "required": true,
+      "active-condition": [
+        {
+          "question": "kw-nutzungsart",
+          "value": {
+            "contains-any": ["Wärmepumpe", "Kühlung", "Wärmepumpe und Kühlung"]
+          }
+        }
+      ],
+      "config": {}
+    },
+    "pa-gesuchsnr": {
+      "label": "Gesuchs-Nr. des rechtskräftig bewilligten Projektes:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "pa-datum": {
+      "label": "Datum der Bewilligung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "pgv-bewilligungsbehorde": {
+      "label": "Zuständige Bewilligungsbehörde:",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Bundesamt für Verkehr (BAV)",
+          "Bundesamt für Strassen (ASTRA)",
+          "Eidg. Starkstrominspektorat (ESTI)",
+          "Eidg. Departement für Verteidigung, Bevölkerungsschutz und Sport (VBS)"
+        ]
+      }
+    },
+    "tb-gesuchsnr": {
+      "label": "Gesuchs-Nr.:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "tb-datum": {
+      "label": "Datum der Baubewilligung:",
+      "type": "text",
+      "required": true,
+      "active-condition": [],
+      "config": {}
+    },
+    "tb-zweck": {
+      "label": "Für was wird um eine technische Bewilligung ersucht?",
+      "type": "multiselect",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Technische Bewilligung Brandschutz",
+          "Technische Bewilligung Zivilschutz"
+        ],
+        "allow-custom": true
+      }
+    },
+    "va-info": {
+      "label":
+        "Für Ihr Vorabklärungsgesuch ist ein Beschrieb des Vorhabens nötig. In Anlehnung daran sind die konkreten Fragen zu formulieren, zu denen Sie die Antworten der zuständigen Behörden wünschen.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "ve-verbindlich": {
+      "label": "Soll der Vorentscheid gegenüber Dritten verbindlich sein?",
+      "type": "radio",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": [
+          "Nein, ohne Drittverbindlichkeit",
+          "Ja, mit Drittverbindlichkeit gemäss §84 Abs. 3 PBG"
+        ],
+        "allow-custom": true
+      }
+    },
+    "ve-info": {
+      "label":
+        "Für Ihr Vorentscheidsgesuch ist ein Beschrieb des Vorhabens nötig. Insbesondere sind konkret die Bereiche/Fragen zu nennen, auf die sich der Vorentscheid beziehen soll.",
+      "type": "checkbox",
+      "required": true,
+      "active-condition": [],
+      "config": {
+        "options": ["Erledigt"]
       }
     }
   }

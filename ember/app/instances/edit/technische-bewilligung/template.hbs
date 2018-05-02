@@ -1,1 +1,5 @@
-{{outlet}}
+{{#camac-form instance=model.instance meta=model.meta as |form|}}
+  {{form.input 'tb-gesuchsnr'}}
+  {{form.input 'tb-datum'}}
+  {{form.input 'tb-zweck'}}
+{{/camac-form}}
