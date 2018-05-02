@@ -536,7 +536,7 @@ class AuthorityAuthorityType(models.Model):
     class Meta:
         managed = True
         db_table = 'AUTHORITY_AUTHORITY_TYPE'
-        unique_together = (('authority_id', 'authority_type_id'),)
+        # unique_together = (('authority_id', 'authority_type_id'),)
 
 
 class AuthorityLocation(models.Model):
@@ -2618,7 +2618,7 @@ class WorkflowEntry(models.Model):
     class Meta:
         managed = True
         db_table = 'WORKFLOW_ENTRY'
-        unique_together = (('instance', 'workflow_item', 'group'),)
+        # unique_together = (('instance', 'workflow_item', 'group'),)
 
 
 class WorkflowItem(models.Model):
