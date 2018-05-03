@@ -59,6 +59,9 @@ class InstanceView(mixins.InstanceQuerysetMixin,
     )
     search_fields = (
         '=identifier',
+        '=location__name',
+        '=circulations__activations__service__name',
+        '=form__description',
         'fields__value',
     )
     filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [

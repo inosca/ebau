@@ -1,7 +1,6 @@
 import re
 
-from django_filters.rest_framework import (DateFromToRangeFilter, FilterSet,
-                                           NumberFilter)
+from django_filters.rest_framework import DateFilter, FilterSet, NumberFilter
 from rest_framework.filters import BaseFilterBackend
 
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
@@ -12,7 +11,12 @@ from . import models
 class InstanceFilterSet(FilterSet):
 
     service = NumberFilter(field_name='circulations__activations__service')
-    creation_date = DateFromToRangeFilter()
+    creation_date_after = DateFilter(
+        field_name='creation_date__date', lookup_expr='gte'
+    )
+    creation_date_before = DateFilter(
+        field_name='creation_date__date', lookup_expr='lte'
+    )
     instance_state = NumberMultiValueFilter()
 
     class Meta:

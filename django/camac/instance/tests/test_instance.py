@@ -9,8 +9,8 @@ from rest_framework import status
 from camac.instance import serializers
 
 
-@pytest.mark.parametrize("instance_state__name", [
-    'new',
+@pytest.mark.parametrize("instance_state__name,instance__creation_date", [
+    ('new', "2018-04-17T09:31:56+02:00")
 ])
 @pytest.mark.parametrize("role__name,instance__user,num_queries,editable", [
     ('Applicant', LazyFixture('admin_user'), 14, {'form', 'document'}),
@@ -29,7 +29,9 @@ def test_instance_list(admin_client, instance, activation, num_queries, group,
     included = serializers.InstanceSerializer.included_serializers
     with django_assert_num_queries(num_queries):
         response = admin_client.get(url, data={
-            'include': ','.join(included.keys())
+            'include': ','.join(included.keys()),
+            'creation_date_before': '17.04.2018',
+            'creation_date_after': '17.04.2018'
         })
     assert response.status_code == status.HTTP_200_OK
 
