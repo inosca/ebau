@@ -104,6 +104,9 @@ class NotificationTemplateMergeSerializer(InstanceEditableMixin,
     instance = serializers.ResourceRelatedField(
         queryset=Instance.objects.all()
     )
+    notification_template = serializers.ResourceRelatedField(
+        queryset=models.NotificationTemplate.objects.all()
+    )
     subject = serializers.CharField(required=False)
     body = serializers.CharField(required=False)
 
@@ -116,7 +119,7 @@ class NotificationTemplateMergeSerializer(InstanceEditableMixin,
             raise exceptions.ValidationError(str(e))
 
     def validate(self, data):
-        notification_template = self.context['view'].get_object()
+        notification_template = data['notification_template']
         instance = data['instance']
 
         data['subject'] = self._merge(
