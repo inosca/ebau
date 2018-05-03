@@ -1,4 +1,5 @@
 import reversion
+from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils import timezone
 
@@ -86,11 +87,24 @@ class AttachmentSectionQuerySet(models.QuerySet):
 
 
 class AttachmentSection(models.Model):
+    RECIPIENT_TYPE_CHOICES = (
+        ('applicant', 'applicant'),
+        ('municipality', 'municipality'),
+        ('service', 'service'),
+    )
     objects = AttachmentSectionQuerySet.as_manager()
     attachment_section_id = models.AutoField(
         db_column='ATTACHMENT_SECTION_ID', primary_key=True)
     name = models.CharField(db_column='NAME', max_length=100, unique=True)
     sort = models.IntegerField(db_column='SORT', db_index=True, default=0)
+    notification_template = models.ForeignKey(
+        'notification.NotificationTemplate', models.SET_NULL, null=True,
+        blank=True, db_column='NOTIFICATION_TEMPLATE_ID', related_name='+')
+    recipient_types = ArrayField(
+        models.CharField(
+            max_length=12, choices=RECIPIENT_TYPE_CHOICES
+        ), null=True, blank=True
+    )
 
     def get_mode(self, group):
         # TODO: quick implementation
