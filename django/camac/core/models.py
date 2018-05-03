@@ -789,7 +789,7 @@ class BuildingAuthorityComment(models.Model):
     building_authority_comment_id = models.AutoField(
         db_column='BUILDING_AUTHORITY_COMMENT_ID', primary_key=True)
     building_authority_section = models.ForeignKey(
-        'BuildingAuthoritySection', models.DO_NOTHING,
+        'BuildingAuthoritySection', models.CASCADE,
         db_column='BUILDING_AUTHORITY_SECTION_ID', related_name='+')
     text = models.CharField(
         db_column='TEXT', max_length=4000, blank=True, null=True)
@@ -877,7 +877,7 @@ class BuildingAuthoritySectionDis(models.Model):
         'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     ba_section = models.ForeignKey(
-        BuildingAuthoritySection, models.DO_NOTHING, db_column='BA_SECTION_ID',
+        BuildingAuthoritySection, models.CASCADE, db_column='BA_SECTION_ID',
         related_name='+')
 
     class Meta:
