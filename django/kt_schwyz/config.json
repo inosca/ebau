@@ -5509,6 +5509,14 @@
   }
 },
 {
+  "model": "core.rapilistcirculationtype",
+  "pk": 10,
+  "fields": {
+    "resource": 8,
+    "circulation_type": 1
+  }
+},
+{
   "model": "core.rapilistinstancestate",
   "pk": 2,
   "fields": {
@@ -5613,6 +5621,70 @@
   }
 },
 {
+  "model": "core.rapilistinstancestate",
+  "pk": 26,
+  "fields": {
+    "resource": 8,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 27,
+  "fields": {
+    "resource": 8,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 28,
+  "fields": {
+    "resource": 8,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 29,
+  "fields": {
+    "resource": 8,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 30,
+  "fields": {
+    "resource": 8,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 31,
+  "fields": {
+    "resource": 8,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 32,
+  "fields": {
+    "resource": 8,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 33,
+  "fields": {
+    "resource": 8,
+    "instance_state": 10
+  }
+},
+{
   "model": "core.resource",
   "pk": 1,
   "fields": {
@@ -5691,6 +5763,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 8,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "Suche",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 6
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
@@ -5736,6 +5821,14 @@
   "fields": {
     "resource": 7,
     "role": 6
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 9,
+  "fields": {
+    "resource": 8,
+    "role": 3
   }
 },
 {
