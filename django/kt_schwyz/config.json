@@ -1681,7 +1681,7 @@
     "name": "Kosten gem\u00e4ss Rechnung",
     "account_number": "-",
     "department": "GEM",
-    "predefined": 1.0,
+    "predefined": 1,
     "service_group": 1
   }
 },
@@ -1692,7 +1692,7 @@
     "name": "All",
     "account_number": "-",
     "department": "Gemeinde",
-    "predefined": 0.0,
+    "predefined": 0,
     "service_group": null
   }
 },
@@ -2355,166 +2355,12 @@
   }
 },
 {
-  "model": "core.chapter",
-  "pk": 1,
-  "fields": {
-    "name": "Stellungnahme",
-    "description": null,
-    "javascript": null
-  }
-},
-{
   "model": "core.chapterpage",
   "pk": 1,
   "fields": {
     "chapter": 1,
     "page": 2,
     "sort": 0
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 1,
-  "fields": {
-    "circulation_type": 1,
-    "circulation_answer_type": 1,
-    "name": "Nein",
-    "sort": 0
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 2,
-  "fields": {
-    "circulation_type": 1,
-    "circulation_answer_type": 1,
-    "name": "Ja",
-    "sort": 5
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 3,
-  "fields": {
-    "circulation_type": 1,
-    "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
-    "sort": 6
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 4,
-  "fields": {
-    "circulation_type": 1,
-    "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
-    "sort": 7
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 5,
-  "fields": {
-    "circulation_type": 2,
-    "circulation_answer_type": 1,
-    "name": "Nein",
-    "sort": 1
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 6,
-  "fields": {
-    "circulation_type": 2,
-    "circulation_answer_type": 1,
-    "name": "Ja",
-    "sort": 2
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 7,
-  "fields": {
-    "circulation_type": 2,
-    "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
-    "sort": 3
-  }
-},
-{
-  "model": "core.circulationanswer",
-  "pk": 8,
-  "fields": {
-    "circulation_type": 2,
-    "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
-    "sort": 4
-  }
-},
-{
-  "model": "core.circulationanswertype",
-  "pk": 1,
-  "fields": {
-    "name": "Kurzantwort"
-  }
-},
-{
-  "model": "core.circulationstate",
-  "pk": 1,
-  "fields": {
-    "name": "RUN",
-    "sort": 0
-  }
-},
-{
-  "model": "core.circulationstate",
-  "pk": 2,
-  "fields": {
-    "name": "OK",
-    "sort": 1
-  }
-},
-{
-  "model": "core.circulationstate",
-  "pk": 3,
-  "fields": {
-    "name": "IDLE",
-    "sort": 2
-  }
-},
-{
-  "model": "core.circulationstate",
-  "pk": 4,
-  "fields": {
-    "name": "NFD",
-    "sort": 3
-  }
-},
-{
-  "model": "core.circulationstate",
-  "pk": 5,
-  "fields": {
-    "name": "DONE",
-    "sort": 4
-  }
-},
-{
-  "model": "core.circulationtype",
-  "pk": 1,
-  "fields": {
-    "name": "Zirkulation der Gemeinde",
-    "page_id": 2,
-    "parent_specific_activations": 0
-  }
-},
-{
-  "model": "core.circulationtype",
-  "pk": 2,
-  "fields": {
-    "name": "Zirkulation des Kantons",
-    "page_id": 2,
-    "parent_specific_activations": 0
   }
 },
 {
@@ -5293,30 +5139,6 @@
   }
 },
 {
-  "model": "core.mapping",
-  "pk": 1,
-  "fields": {
-    "table_name": "ANSWER",
-    "column_name": "ANSWER"
-  }
-},
-{
-  "model": "core.noticetype",
-  "pk": 1,
-  "fields": {
-    "circulation_type": 1,
-    "name": "Mitteilung an die Gemeinde"
-  }
-},
-{
-  "model": "core.noticetype",
-  "pk": 2,
-  "fields": {
-    "circulation_type": 2,
-    "name": "Mitteilung an den Kanton"
-  }
-},
-{
   "model": "core.page",
   "pk": 1,
   "fields": {
@@ -5598,54 +5420,6 @@
   }
 },
 {
-  "model": "core.question",
-  "pk": 2,
-  "fields": {
-    "question_type": 10,
-    "mapping": 1,
-    "answer_query": null,
-    "name": "Nachforderung",
-    "description": null,
-    "javascript": null,
-    "regex": null,
-    "default_answer": null,
-    "class_field": null,
-    "validation": null
-  }
-},
-{
-  "model": "core.question",
-  "pk": 3,
-  "fields": {
-    "question_type": 10,
-    "mapping": 1,
-    "answer_query": null,
-    "name": "Dossier vollst\u00e4ndig",
-    "description": null,
-    "javascript": null,
-    "regex": null,
-    "default_answer": null,
-    "class_field": null,
-    "validation": null
-  }
-},
-{
-  "model": "core.question",
-  "pk": 4,
-  "fields": {
-    "question_type": 2,
-    "mapping": 1,
-    "answer_query": null,
-    "name": "Hinweis bei Nachforderung",
-    "description": null,
-    "javascript": null,
-    "regex": null,
-    "default_answer": null,
-    "class_field": null,
-    "validation": null
-  }
-},
-{
   "model": "core.questionchapter",
   "pk": 1,
   "fields": {
@@ -5679,169 +5453,59 @@
   }
 },
 {
-  "model": "core.questiontype",
+  "model": "core.rapilistcirculationstate",
+  "pk": 19,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 1
+  }
+},
+{
+  "model": "core.rapilistcirculationstate",
+  "pk": 20,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 2
+  }
+},
+{
+  "model": "core.rapilistcirculationstate",
+  "pk": 21,
+  "fields": {
+    "resource": 6,
+    "circulation_state": 4
+  }
+},
+{
+  "model": "core.rapilistcirculationtype",
   "pk": 1,
   "fields": {
-    "name": "Text",
-    "sort": 0
+    "resource": 2,
+    "circulation_type": 1
   }
 },
 {
-  "model": "core.questiontype",
-  "pk": 2,
-  "fields": {
-    "name": "Textarea",
-    "sort": 1
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 3,
-  "fields": {
-    "name": "Select",
-    "sort": 4
-  }
-},
-{
-  "model": "core.questiontype",
+  "model": "core.rapilistcirculationtype",
   "pk": 4,
   "fields": {
-    "name": "Multi select",
-    "sort": 5
+    "resource": 4,
+    "circulation_type": 1
   }
 },
 {
-  "model": "core.questiontype",
-  "pk": 5,
-  "fields": {
-    "name": "Radiobox",
-    "sort": 6
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 6,
-  "fields": {
-    "name": "Checkbox",
-    "sort": 7
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 7,
-  "fields": {
-    "name": "Multi checkbox",
-    "sort": 8
-  }
-},
-{
-  "model": "core.questiontype",
+  "model": "core.rapilistcirculationtype",
   "pk": 8,
   "fields": {
-    "name": "File",
-    "sort": 9
+    "resource": 5,
+    "circulation_type": 1
   }
 },
 {
-  "model": "core.questiontype",
+  "model": "core.rapilistcirculationtype",
   "pk": 9,
   "fields": {
-    "name": "Note",
-    "sort": 10
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 10,
-  "fields": {
-    "name": "Date",
-    "sort": 2
-  }
-},
-{
-  "model": "core.questiontype",
-  "pk": 11,
-  "fields": {
-    "name": "Amount",
-    "sort": 3
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 1,
-  "fields": {
-    "available_resource": "apilistinstance",
-    "name": "Neue Dossiers",
-    "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 2,
-  "fields": {
-    "available_resource": "apilistinstance",
-    "name": "Pendenzenliste Start",
-    "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 4,
-  "fields": {
-    "available_resource": "apilistinstance",
-    "name": "In Zirkulation",
-    "description": "Zirkulation aus Sicht der Gemeinde",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 5,
-  "fields": {
-    "available_resource": "apilistinstance",
-    "name": "Pendenzenliste Ende",
-    "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 4
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 6,
-  "fields": {
-    "available_resource": "apilistactivation",
-    "name": "In Zirkulation",
-    "description": "Zirkulation aus Sicht der Fachstellen",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 3
-  }
-},
-{
-  "model": "core.resource",
-  "pk": 7,
-  "fields": {
-    "available_resource": "apilistinstance",
-    "name": "\u00dcbersicht aktiver Dossiers",
-    "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
-    "template": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 5
+    "resource": 7,
+    "circulation_type": 1
   }
 },
 {
@@ -5949,59 +5613,81 @@
   }
 },
 {
-  "model": "core.rapilistcirculationstate",
-  "pk": 19,
-  "fields": {
-    "resource": 6,
-    "circulation_state": 1
-  }
-},
-{
-  "model": "core.rapilistcirculationstate",
-  "pk": 20,
-  "fields": {
-    "resource": 6,
-    "circulation_state": 2
-  }
-},
-{
-  "model": "core.rapilistcirculationstate",
-  "pk": 21,
-  "fields": {
-    "resource": 6,
-    "circulation_state": 4
-  }
-},
-{
-  "model": "core.rapilistcirculationtype",
+  "model": "core.resource",
   "pk": 1,
   "fields": {
-    "resource": 2,
-    "circulation_type": 1
+    "available_resource": "apilistinstance",
+    "name": "Neue Dossiers",
+    "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 0
   }
 },
 {
-  "model": "core.rapilistcirculationtype",
+  "model": "core.resource",
+  "pk": 2,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "Pendenzenliste Start",
+    "description": "Pendenzenliste der Gemeinde f\u00fcr neue Dossiers",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.resource",
   "pk": 4,
   "fields": {
-    "resource": 4,
-    "circulation_type": 1
+    "available_resource": "apilistinstance",
+    "name": "In Zirkulation",
+    "description": "Zirkulation aus Sicht der Gemeinde",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 2
   }
 },
 {
-  "model": "core.rapilistcirculationtype",
-  "pk": 8,
+  "model": "core.resource",
+  "pk": 5,
   "fields": {
-    "resource": 5,
-    "circulation_type": 1
+    "available_resource": "apilistinstance",
+    "name": "Pendenzenliste Ende",
+    "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 4
   }
 },
 {
-  "model": "core.rapilistcirculationtype",
-  "pk": 9,
+  "model": "core.resource",
+  "pk": 6,
   "fields": {
-    "resource": 7,
-    "circulation_type": 1
+    "available_resource": "apilistactivation",
+    "name": "In Zirkulation",
+    "description": "Zirkulation aus Sicht der Fachstellen",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 7,
+  "fields": {
+    "available_resource": "apilistinstance",
+    "name": "\u00dcbersicht aktiver Dossiers",
+    "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 5
   }
 },
 {
@@ -6077,578 +5763,6 @@
   }
 },
 {
-  "model": "core.workflowitem",
-  "pk": 1,
-  "fields": {
-    "position": 5.0,
-    "name": "Pr\u00fcfung durch Gemeinde",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 10,
-  "fields": {
-    "position": 1.0,
-    "name": "Dossiereingang",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 12,
-  "fields": {
-    "position": 2.0,
-    "name": "Dossier erfasst",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 13,
-  "fields": {
-    "position": 3.0,
-    "name": "Nachforderung Gemeindebaubeh\u00f6rde",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 14,
-  "fields": {
-    "position": 4.0,
-    "name": "Dossier vollstandig",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 15,
-  "fields": {
-    "position": 6.0,
-    "name": "Publikation",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 16,
-  "fields": {
-    "position": 8.0,
-    "name": "Weiterleitung an Koord",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 21,
-  "fields": {
-    "position": 7.0,
-    "name": "Eingang Einsprachen",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 41,
-  "fields": {
-    "position": 9.0,
-    "name": "Akten Nachforderung KOORD",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 42,
-  "fields": {
-    "position": 10.0,
-    "name": "Nachforderung Fachstelle",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 43,
-  "fields": {
-    "position": 11.0,
-    "name": "Dossier vollst\u00e4ndig",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 44,
-  "fields": {
-    "position": 12.0,
-    "name": "Start Zirkulation",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 45,
-  "fields": {
-    "position": 13.0,
-    "name": "Zirkulation beendet",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 46,
-  "fields": {
-    "position": 14.0,
-    "name": "R\u00fcckgabe an Gemeinde",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 47,
-  "fields": {
-    "position": 15.0,
-    "name": "Bau- und Einspracheentscheid",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 48,
-  "fields": {
-    "position": 18.0,
-    "name": "Rechtsmittel Gemeinderat",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 49,
-  "fields": {
-    "position": 20.0,
-    "name": "Entscheid Regierungsrat",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 50,
-  "fields": {
-    "position": 21.0,
-    "name": "Rechtsmittel Regierungsrat",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 51,
-  "fields": {
-    "position": 19.0,
-    "name": "Entscheid Gemeinderat",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 52,
-  "fields": {
-    "position": 22.0,
-    "name": "Rechtsmittel Obergericht",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 53,
-  "fields": {
-    "position": 23.0,
-    "name": "Entscheid Obergericht",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 54,
-  "fields": {
-    "position": 26.0,
-    "name": "Entsch. rechtskr\u00e4ftig",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 55,
-  "fields": {
-    "position": 27.0,
-    "name": "Baubeginn erfolgt",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 56,
-  "fields": {
-    "position": 28.0,
-    "name": "Abnahme Schnurger\u00fcst",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 57,
-  "fields": {
-    "position": 35.0,
-    "name": "Bau beendet Info an Abwasser Uri",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 58,
-  "fields": {
-    "position": 29.0,
-    "name": "Abnahme Rohbau",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 59,
-  "fields": {
-    "position": 31.0,
-    "name": "Endabnahme erfolgt",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 60,
-  "fields": {
-    "position": 34.0,
-    "name": "Meldung Grundbuchvermessung",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 0,
-    "is_building_authority": 0,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 61,
-  "fields": {
-    "position": 38.0,
-    "name": "Verfahren abgeschlossen",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 62,
-  "fields": {
-    "position": 39.0,
-    "name": "Dossier archiviert",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 63,
-  "fields": {
-    "position": 24.0,
-    "name": "Rechtsmittel Bundesgericht",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 64,
-  "fields": {
-    "position": 25.0,
-    "name": "Entscheid Bundesgericht",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 2
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 65,
-  "fields": {
-    "position": 16.0,
-    "name": "Einsprachefrist",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 66,
-  "fields": {
-    "position": 40.0,
-    "name": "Meldung Baubewilligung an Geometer",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 1
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 67,
-  "fields": {
-    "position": 30.0,
-    "name": "Bau beendet",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 68,
-  "fields": {
-    "position": 32.0,
-    "name": "Bau beendet Info an Geometer",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 69,
-  "fields": {
-    "position": 33.0,
-    "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 70,
-  "fields": {
-    "position": 36.0,
-    "name": "Grundbuchanmeldung",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 71,
-  "fields": {
-    "position": 41.0,
-    "name": "Baubewilligung g\u00fcltig bis",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 0,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 72,
-  "fields": {
-    "position": 17.0,
-    "name": "Versand Baubewilligung",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 0,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 73,
-  "fields": {
-    "position": 42.0,
-    "name": "Verl\u00e4ngerung Baubewilligung bis",
-    "automatical": 0,
-    "different_color": 0,
-    "is_workflow": 0,
-    "is_building_authority": 1,
-    "workflow_section": 3
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 74,
-  "fields": {
-    "position": 43.0,
-    "name": "AC gestartet",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 4
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 79,
-  "fields": {
-    "position": 44.0,
-    "name": "AC beendet",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 4
-  }
-},
-{
-  "model": "core.workflowitem",
-  "pk": 80,
-  "fields": {
-    "position": 37.0,
-    "name": "\u00d6REB Meldung",
-    "automatical": 1,
-    "different_color": 0,
-    "is_workflow": 1,
-    "is_building_authority": 0,
-    "workflow_section": 3
-  }
-},
-{
   "model": "core.workflowrole",
   "pk": 5,
   "fields": {
@@ -6697,6 +5811,892 @@
   }
 },
 {
+  "model": "core.chapter",
+  "pk": 1,
+  "fields": {
+    "name": "Stellungnahme",
+    "description": null,
+    "javascript": null
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 1,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Nein",
+    "sort": 0
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 2,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Ja",
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 3,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Ja mit Auflagen",
+    "sort": 6
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 4,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Fachstelle nicht betroffen",
+    "sort": 7
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 5,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Nein",
+    "sort": 1
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 6,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Ja",
+    "sort": 2
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 7,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Ja mit Auflagen",
+    "sort": 3
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 8,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Fachstelle nicht betroffen",
+    "sort": 4
+  }
+},
+{
+  "model": "core.circulationanswertype",
+  "pk": 1,
+  "fields": {
+    "name": "Kurzantwort"
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 1,
+  "fields": {
+    "name": "RUN",
+    "sort": 0
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 2,
+  "fields": {
+    "name": "OK",
+    "sort": 1
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 3,
+  "fields": {
+    "name": "IDLE",
+    "sort": 2
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 4,
+  "fields": {
+    "name": "NFD",
+    "sort": 3
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 5,
+  "fields": {
+    "name": "DONE",
+    "sort": 4
+  }
+},
+{
+  "model": "core.circulationtype",
+  "pk": 1,
+  "fields": {
+    "name": "Zirkulation der Gemeinde",
+    "page_id": 2,
+    "parent_specific_activations": 0
+  }
+},
+{
+  "model": "core.circulationtype",
+  "pk": 2,
+  "fields": {
+    "name": "Zirkulation des Kantons",
+    "page_id": 2,
+    "parent_specific_activations": 0
+  }
+},
+{
+  "model": "core.mapping",
+  "pk": 1,
+  "fields": {
+    "table_name": "ANSWER",
+    "column_name": "ANSWER"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 1,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Mitteilung an die Gemeinde"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 2,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Mitteilung an den Kanton"
+  }
+},
+{
+  "model": "core.question",
+  "pk": 2,
+  "fields": {
+    "question_type": 10,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Nachforderung",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
+  }
+},
+{
+  "model": "core.question",
+  "pk": 3,
+  "fields": {
+    "question_type": 10,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Dossier vollst\u00e4ndig",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
+  }
+},
+{
+  "model": "core.question",
+  "pk": 4,
+  "fields": {
+    "question_type": 2,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Hinweis bei Nachforderung",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 1,
+  "fields": {
+    "name": "Text",
+    "sort": 0
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 2,
+  "fields": {
+    "name": "Textarea",
+    "sort": 1
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 3,
+  "fields": {
+    "name": "Select",
+    "sort": 4
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 4,
+  "fields": {
+    "name": "Multi select",
+    "sort": 5
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 5,
+  "fields": {
+    "name": "Radiobox",
+    "sort": 6
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 6,
+  "fields": {
+    "name": "Checkbox",
+    "sort": 7
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 7,
+  "fields": {
+    "name": "Multi checkbox",
+    "sort": 8
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 8,
+  "fields": {
+    "name": "File",
+    "sort": 9
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 9,
+  "fields": {
+    "name": "Note",
+    "sort": 10
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 10,
+  "fields": {
+    "name": "Date",
+    "sort": 2
+  }
+},
+{
+  "model": "core.questiontype",
+  "pk": 11,
+  "fields": {
+    "name": "Amount",
+    "sort": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 1,
+  "fields": {
+    "position": 5,
+    "name": "Pr\u00fcfung durch Gemeinde",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 10,
+  "fields": {
+    "position": 1,
+    "name": "Dossiereingang",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 12,
+  "fields": {
+    "position": 2,
+    "name": "Dossier erfasst",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 13,
+  "fields": {
+    "position": 3,
+    "name": "Nachforderung Gemeindebaubeh\u00f6rde",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 14,
+  "fields": {
+    "position": 4,
+    "name": "Dossier vollstandig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 15,
+  "fields": {
+    "position": 6,
+    "name": "Publikation",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 16,
+  "fields": {
+    "position": 8,
+    "name": "Weiterleitung an Koord",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 21,
+  "fields": {
+    "position": 7,
+    "name": "Eingang Einsprachen",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 41,
+  "fields": {
+    "position": 9,
+    "name": "Akten Nachforderung KOORD",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 42,
+  "fields": {
+    "position": 10,
+    "name": "Nachforderung Fachstelle",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 43,
+  "fields": {
+    "position": 11,
+    "name": "Dossier vollst\u00e4ndig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 44,
+  "fields": {
+    "position": 12,
+    "name": "Start Zirkulation",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 45,
+  "fields": {
+    "position": 13,
+    "name": "Zirkulation beendet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 46,
+  "fields": {
+    "position": 14,
+    "name": "R\u00fcckgabe an Gemeinde",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 47,
+  "fields": {
+    "position": 15,
+    "name": "Bau- und Einspracheentscheid",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 48,
+  "fields": {
+    "position": 18,
+    "name": "Rechtsmittel Gemeinderat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 49,
+  "fields": {
+    "position": 20,
+    "name": "Entscheid Regierungsrat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 50,
+  "fields": {
+    "position": 21,
+    "name": "Rechtsmittel Regierungsrat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 51,
+  "fields": {
+    "position": 19,
+    "name": "Entscheid Gemeinderat",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 52,
+  "fields": {
+    "position": 22,
+    "name": "Rechtsmittel Obergericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 53,
+  "fields": {
+    "position": 23,
+    "name": "Entscheid Obergericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 54,
+  "fields": {
+    "position": 26,
+    "name": "Entsch. rechtskr\u00e4ftig",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 55,
+  "fields": {
+    "position": 27,
+    "name": "Baubeginn erfolgt",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 56,
+  "fields": {
+    "position": 28,
+    "name": "Abnahme Schnurger\u00fcst",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 57,
+  "fields": {
+    "position": 35,
+    "name": "Bau beendet Info an Abwasser Uri",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 58,
+  "fields": {
+    "position": 29,
+    "name": "Abnahme Rohbau",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 59,
+  "fields": {
+    "position": 31,
+    "name": "Endabnahme erfolgt",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 60,
+  "fields": {
+    "position": 34,
+    "name": "Meldung Grundbuchvermessung",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 61,
+  "fields": {
+    "position": 38,
+    "name": "Verfahren abgeschlossen",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 62,
+  "fields": {
+    "position": 39,
+    "name": "Dossier archiviert",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 63,
+  "fields": {
+    "position": 24,
+    "name": "Rechtsmittel Bundesgericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 64,
+  "fields": {
+    "position": 25,
+    "name": "Entscheid Bundesgericht",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 2
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 65,
+  "fields": {
+    "position": 16,
+    "name": "Einsprachefrist",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 66,
+  "fields": {
+    "position": 40,
+    "name": "Meldung Baubewilligung an Geometer",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 1
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 67,
+  "fields": {
+    "position": 30,
+    "name": "Bau beendet",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 68,
+  "fields": {
+    "position": 32,
+    "name": "Bau beendet Info an Geometer",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 69,
+  "fields": {
+    "position": 33,
+    "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 70,
+  "fields": {
+    "position": 36,
+    "name": "Grundbuchanmeldung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 71,
+  "fields": {
+    "position": 41,
+    "name": "Baubewilligung g\u00fcltig bis",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 72,
+  "fields": {
+    "position": 17,
+    "name": "Versand Baubewilligung",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 73,
+  "fields": {
+    "position": 42,
+    "name": "Verl\u00e4ngerung Baubewilligung bis",
+    "automatical": 0,
+    "different_color": 0,
+    "is_workflow": 0,
+    "is_building_authority": 1,
+    "workflow_section": 3
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 74,
+  "fields": {
+    "position": 43,
+    "name": "AC gestartet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 4
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 79,
+  "fields": {
+    "position": 44,
+    "name": "AC beendet",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 4
+  }
+},
+{
+  "model": "core.workflowitem",
+  "pk": 80,
+  "fields": {
+    "position": 37,
+    "name": "\u00d6REB Meldung",
+    "automatical": 1,
+    "different_color": 0,
+    "is_workflow": 1,
+    "is_building_authority": 0,
+    "workflow_section": 3
+  }
+},
+{
   "model": "core.workflowsection",
   "pk": 1,
   "fields": {
@@ -6726,26 +6726,6 @@
   "fields": {
     "name": "Auflagen-Controlling",
     "sort": null
-  }
-},
-{
-  "model": "document.attachmentsection",
-  "pk": 1,
-  "fields": {
-    "name": "Dokumente Gesuchsteller",
-    "sort": 0,
-    "recipient_types": null,
-    "notification_template": null
-  }
-},
-{
-  "model": "document.attachmentsection",
-  "pk": 2,
-  "fields": {
-    "name": "Dokumente Fachstellen",
-    "sort": 0,
-    "recipient_types": null,
-    "notification_template": null
   }
 },
 {
@@ -6812,319 +6792,23 @@
   }
 },
 {
-  "model": "instance.form",
+  "model": "document.attachmentsection",
   "pk": 1,
   "fields": {
-    "form_state": 1,
-    "name": "baugesuch-reklamegesuch",
-    "description": "Baugesuch, Reklamegesuch"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 2,
-  "fields": {
-    "form_state": 1,
-    "name": "projektanderung",
-    "description": "Projekt\u00e4nderung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 3,
-  "fields": {
-    "form_state": 1,
-    "name": "vorentscheid-gemass-ss84-pbg",
-    "description": "Vorentscheid gem\u00e4ss \u00a784 PBG"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 4,
-  "fields": {
-    "form_state": 1,
-    "name": "vorabklarung",
-    "description": "Vorabkl\u00e4rung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 5,
-  "fields": {
-    "form_state": 1,
-    "name": "baumeldung-fur-geringfugiges-vorhaben",
-    "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 6,
-  "fields": {
-    "form_state": 1,
-    "name": "technische-bewilligung",
-    "description": "Technische Bewilligung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 7,
-  "fields": {
-    "form_state": 1,
-    "name": "konzession-fur-wasserentnahme",
-    "description": "Konzession f\u00fcr Wasserentnahme"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 8,
-  "fields": {
-    "form_state": 1,
-    "name": "plangenehmigungsgesuch",
-    "description": "Plangenehmigungsgesuch"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 9,
-  "fields": {
-    "form_state": 1,
-    "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
-    "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a715 StraG"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 10,
-  "fields": {
-    "form_state": 1,
-    "name": "anlassbewilligungen-verkehrsbewilligungen",
-    "description": "Anlassbewilligungen / Verkehrsbewilligungen"
-  }
-},
-{
-  "model": "instance.formstate",
-  "pk": 1,
-  "fields": {
-    "name": "Published"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 1,
-  "fields": {
-    "name": "new",
+    "name": "Dokumente Gesuchsteller",
     "sort": 0,
-    "description": "Neu"
+    "notification_template": null,
+    "recipient_types": null
   }
 },
 {
-  "model": "instance.instancestate",
+  "model": "document.attachmentsection",
   "pk": 2,
   "fields": {
-    "name": "subm",
-    "sort": 1,
-    "description": "Eingereicht"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 3,
-  "fields": {
-    "name": "comm",
-    "sort": 2,
-    "description": "Von Gemeinde angenommenen"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 4,
-  "fields": {
-    "name": "ext",
-    "sort": 3,
-    "description": null
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 5,
-  "fields": {
-    "name": "circ",
-    "sort": 4,
-    "description": "In Zirkulation"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 6,
-  "fields": {
-    "name": "redac",
-    "sort": 5,
-    "description": "Bauentscheid ausstehend"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 7,
-  "fields": {
-    "name": "nfd",
-    "sort": 6,
-    "description": "Nachforderung"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 8,
-  "fields": {
-    "name": "done",
-    "sort": 7,
-    "description": "Bewilligt"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 9,
-  "fields": {
-    "name": "rej",
-    "sort": 8,
-    "description": "Abgelehnt"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 10,
-  "fields": {
-    "name": "arch",
-    "sort": 9,
-    "description": "Archiviert"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 11,
-  "fields": {
-    "name": "del",
-    "sort": 10,
-    "description": "Gel\u00f6scht"
-  }
-},
-{
-  "model": "user.group",
-  "pk": 1,
-  "fields": {
-    "role": 1,
-    "service": null,
-    "name": "Admin",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 2,
-  "fields": {
-    "role": 2,
-    "service": null,
-    "name": "Guest",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 3,
-  "fields": {
-    "role": 3,
-    "service": 6,
-    "name": "Bauverwaltung Gemeinde Schwyz",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 4,
-  "fields": {
-    "role": 4,
-    "service": null,
-    "name": "Portal",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 5,
-  "fields": {
-    "role": 5,
-    "service": 4,
-    "name": "Geometer XY",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 6,
-  "fields": {
-    "role": 6,
-    "service": null,
-    "name": "Baugesuchszentrale",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 7,
-  "fields": {
-    "role": 5,
-    "service": 7,
-    "name": "Baugesuchszentrale (Fachstelle)",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 8,
-  "fields": {
-    "role": 5,
-    "service": 3,
-    "name": "Amt f\u00fcr Tests",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
+    "name": "Dokumente Fachstellen",
+    "sort": 0,
+    "notification_template": null,
+    "recipient_types": null
   }
 },
 {
@@ -7717,6 +7401,126 @@
   "fields": {
     "group": 8,
     "location": 4
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1,
+  "fields": {
+    "role": 1,
+    "service": null,
+    "name": "Admin",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 2,
+  "fields": {
+    "role": 2,
+    "service": null,
+    "name": "Guest",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 3,
+  "fields": {
+    "role": 3,
+    "service": 6,
+    "name": "Bauverwaltung Gemeinde Schwyz",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 4,
+  "fields": {
+    "role": 4,
+    "service": null,
+    "name": "Portal",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 5,
+  "fields": {
+    "role": 5,
+    "service": 4,
+    "name": "Geometer XY",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 6,
+  "fields": {
+    "role": 6,
+    "service": null,
+    "name": "Baugesuchszentrale",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 7,
+  "fields": {
+    "role": 5,
+    "service": 7,
+    "name": "Baugesuchszentrale (Fachstelle)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 8,
+  "fields": {
+    "role": 5,
+    "service": 3,
+    "name": "Amt f\u00fcr Tests",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -8328,6 +8132,202 @@
   "pk": 4,
   "fields": {
     "name": "Baugesuchszentrale"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 1,
+  "fields": {
+    "form_state": 1,
+    "name": "baugesuch-reklamegesuch",
+    "description": "Baugesuch, Reklamegesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 2,
+  "fields": {
+    "form_state": 1,
+    "name": "projektanderung",
+    "description": "Projekt\u00e4nderung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 3,
+  "fields": {
+    "form_state": 1,
+    "name": "vorentscheid-gemass-ss84-pbg",
+    "description": "Vorentscheid gem\u00e4ss \u00a784 PBG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 4,
+  "fields": {
+    "form_state": 1,
+    "name": "vorabklarung",
+    "description": "Vorabkl\u00e4rung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 5,
+  "fields": {
+    "form_state": 1,
+    "name": "baumeldung-fur-geringfugiges-vorhaben",
+    "description": "Baumeldung f\u00fcr geringf\u00fcgiges Vorhaben"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 6,
+  "fields": {
+    "form_state": 1,
+    "name": "technische-bewilligung",
+    "description": "Technische Bewilligung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 7,
+  "fields": {
+    "form_state": 1,
+    "name": "konzession-fur-wasserentnahme",
+    "description": "Konzession f\u00fcr Wasserentnahme"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 8,
+  "fields": {
+    "form_state": 1,
+    "name": "plangenehmigungsgesuch",
+    "description": "Plangenehmigungsgesuch"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 9,
+  "fields": {
+    "form_state": 1,
+    "name": "projektgenehmigungsgesuch-gemass-ss15-strag",
+    "description": "Projektgenehmigungsgesuch gem\u00e4ss \u00a715 StraG"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 10,
+  "fields": {
+    "form_state": 1,
+    "name": "anlassbewilligungen-verkehrsbewilligungen",
+    "description": "Anlassbewilligungen / Verkehrsbewilligungen"
+  }
+},
+{
+  "model": "instance.formstate",
+  "pk": 1,
+  "fields": {
+    "name": "Published"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 1,
+  "fields": {
+    "name": "new",
+    "sort": 0,
+    "description": "Neu"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 2,
+  "fields": {
+    "name": "subm",
+    "sort": 1,
+    "description": "Eingereicht"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 3,
+  "fields": {
+    "name": "comm",
+    "sort": 2,
+    "description": "Von Gemeinde angenommenen"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 4,
+  "fields": {
+    "name": "ext",
+    "sort": 3,
+    "description": null
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 5,
+  "fields": {
+    "name": "circ",
+    "sort": 4,
+    "description": "In Zirkulation"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 6,
+  "fields": {
+    "name": "redac",
+    "sort": 5,
+    "description": "Bauentscheid ausstehend"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 7,
+  "fields": {
+    "name": "nfd",
+    "sort": 6,
+    "description": "Nachforderung"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 8,
+  "fields": {
+    "name": "done",
+    "sort": 7,
+    "description": "Bewilligt"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 9,
+  "fields": {
+    "name": "rej",
+    "sort": 8,
+    "description": "Abgelehnt"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 10,
+  "fields": {
+    "name": "arch",
+    "sort": 9,
+    "description": "Archiviert"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 11,
+  "fields": {
+    "name": "del",
+    "sort": 10,
+    "description": "Gel\u00f6scht"
   }
 }
 ]
