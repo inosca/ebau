@@ -2,7 +2,8 @@ from django.db import models
 
 
 class NotificationTemplate(models.Model):
-    purpose  = models.CharField(db_column='PURPOSE', max_length=100)
+    purpose  = models.CharField(db_column='PURPOSE', max_length=100,
+                                db_index=True)
     subject  = models.TextField(db_column='SUBJECT')
     body     = models.TextField(db_column='BODY')
 

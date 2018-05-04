@@ -3,13 +3,14 @@ from rest_framework.decorators import detail_route
 
 from camac.user.permissions import permission_aware
 
-from . import models, serializers
+from . import filters, models, serializers
 
 
 class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
-    instance_editable_permission = "document"
+    instance_editable_permission = 'document'
+    filter_class = filters.NotificationTemplateFilterSet
 
     @permission_aware
     def get_queryset(self):
