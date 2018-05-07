@@ -29,18 +29,15 @@ module('Unit | Controller | instances/edit/submit', function(hooks) {
       questions: {
         'question-1': {
           type: 'text',
-          required: true,
-          'active-condition': []
+          required: true
         },
         'question-2': {
           type: 'text',
-          required: true,
-          'active-condition': []
+          required: true
         },
         'question-3': {
           type: 'text',
-          required: true,
-          'active-condition': []
+          required: true
         }
       }
     }))
