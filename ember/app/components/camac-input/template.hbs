@@ -1,5 +1,5 @@
 {{#with (await question) as |question|}}
-  {{#if (and question.field.type (not (await question.hidden)))}}
+  {{#unless question.hidden}}
     <div class="uk-animation-fade">
       {{yield}}
       <label class="uk-form-label uk-text-bold {{if (and save.last error) 'uk-text-danger'}}">
@@ -39,5 +39,5 @@
       </div>
       {{camac-input-error error}}
     </div>
-  {{/if}}
+  {{/unless}}
 {{/with}}

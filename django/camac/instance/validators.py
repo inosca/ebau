@@ -6,6 +6,7 @@ import sys
 import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
+from pyjexl.jexl import JEXL
 from rest_framework import exceptions
 
 from camac.document.models import Attachment
@@ -30,6 +31,8 @@ class FormDataValidator(object):
                 for attachment in Attachment.objects.filter(instance=instance)
             }
         }
+        self.jexl = JEXL()
+        self.jexl.add_transform('value', lambda name: self.fields.get(name))
 
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
@@ -125,49 +128,9 @@ class FormDataValidator(object):
         if not question_def['required']:
             return False
 
-        # only required when all active conditions are met
-        for cond in question_def.get('active-condition', []):
-            value = self.fields.get(cond['question'])
-            if not isinstance(value, list):
-                # avoid single values
-                value = [value]
+        expression = question_def.get('active-expression', None)
 
-            for condition_type, condition_values in cond['value'].items():
-                condition_check_method = getattr(
-                    self,
-                    '_check_active_condition_{0}'.format(
-                        inflection.underscore(condition_type)
-                    )
-                )
-
-                if not condition_check_method(value, condition_values):
-                    return False
-
-        return True
-
-    def _check_active_condition_contains_any(self, value, condition_values):
-        return set(value) & set(condition_values)
-
-    def _check_active_condition_contains_not_any(
-        self, value, condition_values
-    ):
-        return not set(value) & set(condition_values)
-
-    def _check_active_condition_greater_than(self, value, condition_value):
-        return all([v > condition_value for v in value])
-
-    def _check_active_condition_greater_than_equals(
-        self, value, condition_value
-    ):
-        return all([v >= condition_value for v in value])
-
-    def _check_active_condition_lower_than(self, value, condition_value):
-        return all([v < condition_value for v in value])
-
-    def _check_active_condition_lower_than_equals(
-        self, value, condition_value
-    ):
-        return all([v <= condition_value for v in value])
+        return expression is None or self.jexl.evaluate(expression)
 
     def _validate_question(self, question, question_def, value):
         required = self._check_question_required(question, question_def)

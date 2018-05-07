@@ -223,6 +223,8 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     add_field(name='tiefe-der-bohrung-lte', value='Test')
     add_field(name='durchmesser-der-bohrung', value=9)
     add_field(name='durchmesser-der-bohrung-lt', value='Test')
+    add_field(name='bewilligung-bohrung', value='Ja')
+    add_field(name='bohrungsdaten', value='Test')
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen',
               value='Ja')
     add_field(name='anlagen-mit-erheblichen-schadstoffemissionen-welche',

@@ -40,7 +40,6 @@ module('Integration | Component | camac-gwr', function(hooks) {
           'test-gwr': {
             type: 'gwr',
             required: true,
-            'active-condition': [],
             config: {
               columns: [
                 {
