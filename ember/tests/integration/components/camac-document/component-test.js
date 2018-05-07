@@ -25,7 +25,6 @@ module('Integration | Component | camac-document', function(hooks) {
             hint: 'Hint hint hint',
             type: 'document',
             required: true,
-            'active-condition': [],
             config: {}
           }
         }

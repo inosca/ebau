@@ -98,287 +98,13 @@ module('Unit | Service | question-store', function(hooks) {
     assert.equal(test2.validate(), true)
   })
 
-  test('can handle empty active conditions', async function(assert) {
-    assert.expect(1)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': []
-        }
-      }
-    })
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'Empty active conditions are never hidden'
-    )
-  })
-
-  test('can handle contains-any active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'contains-not-any': ['test'] }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 'test')
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (test) does not meet the condition'
-    )
-
-    foo.set('model.value', 'nottest')
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (nottest) meets the condition'
-    )
-  })
-
-  test('can handle contains-not-any active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'contains-any': ['test'] }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 'nottest')
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (nottest) does not meet the condition'
-    )
-
-    foo.set('model.value', 'test')
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (test) meets the condition'
-    )
-  })
-
-  test('can handle greater-than active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'greater-than': 5 }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 5)
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (5) does not meet the condition'
-    )
-
-    foo.set('model.value', 6)
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (6) meets the condition'
-    )
-  })
-
-  test('can handle greater-than-equals active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'greater-than-equals': 5 }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 4)
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (4) does not meet the condition'
-    )
-
-    foo.set('model.value', 5)
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (5) meets the condition'
-    )
-  })
-
-  test('can handle lower-than active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'lower-than': 5 }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 5)
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (5) does not meet the condition'
-    )
-
-    foo.set('model.value', 4)
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (4) meets the condition'
-    )
-  })
-
-  test('can handle lower-than-equals active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'lower-than-equals': 5 }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 6)
-    assert.equal(
-      await test.get('hidden'),
-      true,
-      'The value of foo (6) does not meet the condition'
-    )
-
-    foo.set('model.value', 5)
-    assert.equal(
-      await test.get('hidden'),
-      false,
-      'The value of foo (5) meets the condition'
-    )
-  })
-
-  test('can handle single and multiple values for active conditions', async function(assert) {
-    assert.expect(2)
-
-    this.server.get('/api/v1/form-config', {
-      questions: {
-        test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'contains-any': ['test'] }
-            }
-          ]
-        }
-      }
-    })
-
-    let service = this.owner.lookup('service:question-store')
-
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-
-    foo.set('model.value', 'test')
-    assert.equal(await test.get('hidden'), false, 'Can handle single values')
-
-    foo.set('model.value', ['test'])
-    assert.equal(await test.get('hidden'), false, 'Can handle multiple values')
-  })
-
-  test('can handle multiple active conditions', async function(assert) {
+  test('can handle active expressions', async function(assert) {
     assert.expect(3)
 
     this.server.get('/api/v1/form-config', {
       questions: {
         test: {
-          'active-condition': [
-            {
-              question: 'foo',
-              value: { 'contains-any': ['test'] }
-            },
-            {
-              question: 'bar',
-              value: { 'contains-not-any': ['test'] }
-            }
-          ]
+          'active-expression': "'foo'|value in [1,2] || !('bar'|value > 2)"
         }
       }
     })
@@ -389,26 +115,29 @@ module('Unit | Service | question-store', function(hooks) {
     let foo = await service.get('find').perform('foo', this.instanceId)
     let bar = await service.get('find').perform('bar', this.instanceId)
 
-    foo.set('model.value', 'nottest')
-    bar.set('model.value', 'test')
+    foo.set('model.value', 3)
+    bar.set('model.value', 3)
+    await test.get('_hiddenTask').perform()
     assert.equal(
-      await test.get('hidden'),
+      test.get('hidden'),
       true,
-      'The values of foo (nottest) AND bar (test) do not meet the condition'
+      'The values of foo (3) AND bar (3) do not meet the expression'
     )
 
-    foo.set('model.value', 'test')
+    foo.set('model.value', 2)
+    await test.get('_hiddenTask').perform()
     assert.equal(
-      await test.get('hidden'),
-      true,
-      'The values of foo (test) meets the condition but bar (test) does not'
-    )
-
-    bar.set('model.value', 'nottest')
-    assert.equal(
-      await test.get('hidden'),
+      test.get('hidden'),
       false,
-      'The values of foo (test) AND bar (nottest) meet the condition'
+      'The values of foo (2) meets the expression but bar (1) does not'
+    )
+
+    bar.set('model.value', 1)
+    await test.get('_hiddenTask').perform()
+    assert.equal(
+      test.get('hidden'),
+      false,
+      'The values of foo (3) AND bar (1) meet the expression'
     )
   })
 
