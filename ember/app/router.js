@@ -50,6 +50,7 @@ Router.map(function() {
           this.route('gewasserschutz')
           this.route('grundwasser-und-altlasten')
           this.route('reklamen')
+          this.route('lebensmittel-und-hygienesicherheit')
         })
         this.route('gesuchsunterlagen')
         this.route('anlassbewilligungen-verkehrsbewilligungen')

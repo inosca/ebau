@@ -62,10 +62,10 @@ module('Unit | Controller | instances/edit', function(hooks) {
         }
       },
       questions: {
-        'test-question-1': { required: true, 'active-condition': [] },
-        'test-question-2': { required: true, 'active-condition': [] },
-        'test-question-3': { required: true, 'active-condition': [] },
-        'test-question-4': { required: true, 'active-condition': [] }
+        'test-question-1': { required: true },
+        'test-question-2': { required: true },
+        'test-question-3': { required: true },
+        'test-question-4': { required: true }
       }
     }))
   })
@@ -157,13 +157,11 @@ module('Unit | Controller | instances/edit', function(hooks) {
       questions: {
         'form-question': {
           type: 'text',
-          required: true,
-          'active-condition': []
+          required: true
         },
         'document-question': {
           type: 'document',
-          required: true,
-          'active-condition': []
+          required: true
         }
       }
     }))

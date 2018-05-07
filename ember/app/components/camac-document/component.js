@@ -34,7 +34,7 @@ export default CamacInputComponent.extend({
 
   hidden: computedTask('_hidden', 'question.hidden'),
   _hidden: task(function*() {
-    return yield (yield this.get('question')).get('hidden')
+    return (yield this.get('question')).get('hidden')
   }),
 
   download: task(function*() {

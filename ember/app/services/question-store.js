@@ -3,11 +3,12 @@ import EmberObject, { computed, getWithDefault } from '@ember/object'
 import { reads } from '@ember/object/computed'
 import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
-import { capitalize, classify } from '@ember/string'
+import { capitalize } from '@ember/string'
 import { all } from 'rsvp'
 import { task, taskGroup } from 'ember-concurrency'
 import _validations from 'citizen-portal/questions/validations'
-import { isArray } from '@ember/array'
+import computedTask from 'citizen-portal/lib/computed-task'
+import jexl from 'npm:jexl'
 
 const Question = EmberObject.extend({
   _questions: service('question-store'),
@@ -23,6 +24,19 @@ const Question = EmberObject.extend({
   }),
 
   isNew: reads('model.isNew'),
+
+  init() {
+    this._super(...arguments)
+
+    this.set('jexl', new jexl.Jexl())
+
+    this.get('jexl').addTransform('value', async question => {
+      return (await this.get('_questions.find').perform(
+        question,
+        this.get('model.instance.id')
+      )).get('value')
+    })
+  },
 
   validate() {
     let name = this.get('name')
@@ -50,30 +64,12 @@ const Question = EmberObject.extend({
     )
   },
 
-  hidden: computed('_questions._store.@each.value', async function() {
-    let conditions = this.getWithDefault('field.active-condition', [])
+  hidden: reads('_hidden.lastSuccessful.value'),
+  _hidden: computedTask('_hiddenTask', '_questions._store.@each.value'),
+  _hiddenTask: task(function*() {
+    let expression = this.get('field.active-expression')
 
-    let conditionResults = await all(
-      conditions.map(async ({ question, value: conditionValue }) => {
-        let value = (await this.get('_questions.find').perform(
-          question,
-          this.get('model.instance.id')
-        )).get('value')
-
-        value = isArray(value) ? value : [value]
-
-        return Object.keys(conditionValue).every(conditionMethod => {
-          return this.getWithDefault(
-            `_questions._validations.checkActiveCondition${classify(
-              conditionMethod
-            )}`,
-            () => true
-          )(value, getWithDefault(conditionValue, conditionMethod, []))
-        })
-      })
-    )
-
-    return !conditionResults.every(Boolean)
+    return expression ? !(yield this.get('jexl').eval(expression)) : false
   })
 })
 
@@ -232,7 +228,8 @@ export default Service.extend({
           instance,
           query.filter(
             q =>
-              new RegExp(name).test(q.get('name')) &&
+              // This .replace takes away any file extensions
+              q.get('name').replace(/\.(png|pdf|jp(e)?g)$/, '') == name &&
               q.get('instance.id') === instance
           )
         )

@@ -62,21 +62,21 @@ const Module = EmberObject.extend({
       this.get('instance')
     )
 
-    let visibleQuestions = (yield all(
-      questions.map(async q => ((await q.get('hidden')) ? null : q))
+    questions = (yield all(
+      questions.map(
+        async q => ((await q.get('_hiddenTask').perform()) ? null : q)
+      )
     )).filter(Boolean)
 
-    if (!visibleQuestions.length) {
+    if (!questions.length) {
       return null
     }
 
-    if (visibleQuestions.every(q => q.get('isNew'))) {
+    if (questions.every(q => q.get('isNew'))) {
       return 'untouched'
     }
 
-    let relevantQuestions = visibleQuestions.filter(q =>
-      q.get('field.required')
-    )
+    let relevantQuestions = questions.filter(q => q.get('field.required'))
 
     if (relevantQuestions.some(q => q.get('isNew'))) {
       return 'unfinished'
