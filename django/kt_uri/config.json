@@ -1256,9 +1256,9 @@
     "available_action": "pageredirect",
     "button": 305,
     "name": "Weiterleitung zu Pendenzenliste",
-    "description": "",
-    "success_message": "",
-    "error_message": "",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
     "execute_always": 1,
     "sort": 4
   }
@@ -8317,7 +8317,7 @@
   "fields": {
     "resource": 122,
     "instance_resource": null,
-    "air_action_name": ""
+    "air_action_name": null
   }
 },
 {
@@ -8326,7 +8326,7 @@
   "fields": {
     "resource": 302,
     "instance_resource": null,
-    "air_action_name": ""
+    "air_action_name": null
   }
 },
 {
@@ -8407,7 +8407,7 @@
   "fields": {
     "resource": 289,
     "instance_resource": 1,
-    "air_action_name": ""
+    "air_action_name": null
   }
 },
 {
@@ -8425,7 +8425,7 @@
   "fields": {
     "resource": 297,
     "instance_resource": 1,
-    "air_action_name": ""
+    "air_action_name": null
   }
 },
 {
@@ -8434,7 +8434,7 @@
   "fields": {
     "resource": 298,
     "instance_resource": null,
-    "air_action_name": ""
+    "air_action_name": null
   }
 },
 {
