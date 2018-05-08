@@ -43,8 +43,6 @@ pure_config_models = (
     'core.AvailableResource',
     'core.AValidate',
     'core.BGroupAcl',
-    'core.BillingAccount',
-    'core.BillingAccountState',
     'core.BillingConfig',
     'core.BRoleAcl',
     'core.BServiceAcl',
