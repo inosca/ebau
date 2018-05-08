@@ -735,5 +735,91 @@
     "activation_parent": null,
     "email_sent": 0
   }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 3,
+  "fields": {
+    "name": "Kosten gem\u00e4ss Rechnung",
+    "account_number": "-",
+    "department": "GEM",
+    "predefined": 1,
+    "service_group": 1
+  }
+},
+{
+  "model": "core.billingaccount",
+  "pk": 4,
+  "fields": {
+    "name": "All",
+    "account_number": "-",
+    "department": "Gemeinde",
+    "predefined": 0,
+    "service_group": null
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 1,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 2,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 3,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 4,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 5,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 6,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 7,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.billingaccountstate",
+  "pk": 8,
+  "fields": {
+    "billing_account": 3,
+    "instance_state": 10
+  }
 }
 ]
