@@ -32,7 +32,7 @@ install: ## Install required files (jQuey, etc via NPM, php composer files)
 
 .PHONY: js
 js:
-	npm run build --prefix ./kt_uri/configuration/public
+	npm run build --prefix ./php/public
 
 .PHONY: js-watch
 js-watch:
