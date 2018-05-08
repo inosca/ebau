@@ -39990,7 +39990,7 @@
   "pk": 1,
   "fields": {
     "name": "Gemeinde",
-    "query": "SELECT\n  LOCATION_ID, NAME\nFROM\n  LOCATION\n  \nWHERE\n  LOCATION_ID IN (\n    SELECT\n      LOCATION_ID\n    FROM\n      GROUP_LOCATION\n    WHERE\n      GROUP_ID = [GROUP_ID]\n    )\n    OR\n    [ROLE_ID] NOT IN (6, 7, 1105)\nORDER BY NAME"
+    "query": "SELECT\n  \"LOCATION_ID\", \"NAME\"\nFROM\n  \"LOCATION\"\n\nWHERE\n  \"LOCATION_ID\" IN (\n    SELECT\n      \"LOCATION_ID\"\n    FROM\n      \"GROUP_LOCATION\"\n    WHERE\n      \"GROUP_ID\" = [GROUP_ID]\n    )\n    OR\n    [ROLE_ID] NOT IN (6, 7, 1105)\nORDER BY \"NAME\""
   }
 },
 {
@@ -39998,7 +39998,7 @@
   "pk": 21,
   "fields": {
     "name": "Zonenplan",
-    "query": "SELECT\n ID, DESCRIPTION\nFROM\n MAP_ZONE2"
+    "query": "SELECT\n \"ID\", \"DESCRIPTION\"\nFROM\n \"MAP_ZONE2\""
   }
 },
 {
@@ -40006,7 +40006,7 @@
   "pk": 41,
   "fields": {
     "name": "Leitbeh\u00f6rde",
-    "query": "SELECT DISTINCT\n  \"AUTHORITY\".\"AUTHORITY_ID\",\n  \"AUTHORITY\".\"NAME\"\nFROM\n  AUTHORITY\nLEFT JOIN\n  GROUP_LOCATION ON (\n  GROUP_ID = [GROUP_ID]\n)\nLEFT JOIN\n  AUTHORITY_LOCATION ON (\n    AUTHORITY.AUTHORITY_ID = AUTHORITY_LOCATION.AUTHORITY_ID\n  )\nJOIN\n  AUTHORITY_AUTHORITY_TYPE AAT ON (\n    AUTHORITY.AUTHORITY_ID = AAT.AUTHORITY_ID\n  )\nJOIN\n  AUTHORITY_TYPE AT ON (\n    AAT.AUTHORITY_TYPE_ID = AT.AUTHORITY_TYPE_ID\n  )\nLEFT JOIN\n  FORM_GROUP_FORM FGF ON (\n    FGF.FORM_ID = [URL_FORM_ID]\n  )\n\nWHERE (\n  GROUP_LOCATION.LOCATION_ID IS NULL\n  OR\n  (\n    GROUP_LOCATION.LOCATION_ID = AUTHORITY_LOCATION.LOCATION_ID\n    AND\n    (\n      (FGF.FORM_GROUP_ID = 30 AND AT.TAG = 'BG')\n      OR\n      (FGF.FORM_GROUP_ID = 141 AND AT.TAG = 'NP')\n    )\n  )\n)\nORDER BY \"AUTHORITY\".\"NAME\""
+    "query": "SELECT DISTINCT\n  \"AUTHORITY\".\"AUTHORITY_ID\",\n  \"AUTHORITY\".\"NAME\"\nFROM\n  \"AUTHORITY\"\nLEFT JOIN\n  \"GROUP_LOCATION\" ON (\n  \"GROUP_ID\" = [GROUP_ID]\n)\nLEFT JOIN\n  \"AUTHORITY_LOCATION\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AUTHORITY_LOCATION\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_AUTHORITY_TYPE\" \"AAT\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AAT\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_TYPE\" \"AT\" ON (\n    \"AAT\".\"AUTHORITY_TYPE_ID\" = \"AT\".\"AUTHORITY_TYPE_ID\"\n  )\nLEFT JOIN\n  \"FORM_GROUP_FORM\" \"FGF\" ON (\n    \"FGF\".\"FORM_ID\" = [URL_FORM_ID]\n  )\n\nWHERE (\n  \"GROUP_LOCATION\".\"LOCATION_ID\" IS NULL\n  OR\n  (\n    \"GROUP_LOCATION\".\"LOCATION_ID\" = \"AUTHORITY_LOCATION\".\"LOCATION_ID\"\n    AND\n    (\n      (\"FGF\".\"FORM_GROUP_ID\" = 30 AND \"AT\".\"TAG\" = 'BG')\n      OR\n      (\"FGF\".\"FORM_GROUP_ID\" = 141 AND \"AT\".\"TAG\" = 'NP')\n    )\n  )\n)\nORDER BY \"AUTHORITY\".\"NAME\""
   }
 },
 {
