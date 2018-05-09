@@ -16,17 +16,17 @@ const CamacInputComponent = Component.extend({
 
   question: computed('identifier', function() {
     return this.get('questionStore.find').perform(
-      this.get('identifier'),
+      this.identifier,
       this.get('instance.id')
     )
   }),
 
   save: task(function*(value) {
-    if (this.get('readonly')) {
+    if (this.readonly) {
       return
     }
 
-    let question = yield this.get('question')
+    let question = yield this.question
 
     question.set('model.value', value)
 

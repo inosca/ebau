@@ -10,7 +10,7 @@ export default AjaxService.extend({
   token: reads('session.data.authenticated.access_token'),
 
   headers: computed('token', function() {
-    let token = this.get('token')
+    let token = this.token
 
     return token ? { Authorization: `Bearer ${token}` } : {}
   }),
@@ -22,7 +22,7 @@ export default AjaxService.extend({
       res instanceof UnauthorizedError &&
       this.get('session.isAuthenticated')
     ) {
-      this.get('session').invalidate()
+      this.session.invalidate()
     }
 
     return res

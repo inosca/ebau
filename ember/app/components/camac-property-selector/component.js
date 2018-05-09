@@ -117,7 +117,7 @@ export default Component.extend({
   property: null,
 
   didReceiveAttrs() {
-    this.get('handleInitialSelection').perform()
+    this.handleInitialSelection.perform()
   },
 
   showButtons: computed(
@@ -126,7 +126,7 @@ export default Component.extend({
     'property.{number,municipality}',
     function() {
       return (
-        !this.get('readonly') &&
+        !this.readonly &&
         (this.getWithDefault('property.municipality', '')
           .trim()
           .toLowerCase() !==
@@ -140,15 +140,15 @@ export default Component.extend({
   ),
 
   handleInitialSelection: task(function*() {
-    if (this.get('selected') && !this.get('property')) {
+    if (this.selected && !this.property) {
       try {
-        let { municipality, number } = this.get('selected')
+        let { municipality, number } = this.selected
 
-        let result = yield this.get('handleSearch').perform(
+        let result = yield this.handleSearch.perform(
           `${number} ${municipality}`
         )
 
-        yield this.get('handleSearchSelection').perform(
+        yield this.handleSearchSelection.perform(
           result.find(({ geometry: { type } }) => type === 'Polygon')
         )
       } catch (e) {} // eslint-disable-line no-empty
@@ -159,7 +159,7 @@ export default Component.extend({
     yield timeout(500)
 
     try {
-      let { features } = yield this.get('ajax').request(
+      let { features } = yield this.ajax.request(
         '/maps/main/wsgi/fulltextsearch',
         {
           method: 'GET',
@@ -179,7 +179,11 @@ export default Component.extend({
       result.geometry.type === 'Polygon' &&
       LAYERS.includes(result.properties.layer_name)
     ) {
-      let { bbox, properties: { label }, geometry: { coordinates } } = result
+      let {
+        bbox,
+        properties: { label },
+        geometry: { coordinates }
+      } = result
 
       let [, number, municipality] = label.match(/^(\d+) (.+) (?=\()/)
 
@@ -190,7 +194,7 @@ export default Component.extend({
         municipality
       }
 
-      yield this.get('clear').perform()
+      yield this.clear.perform()
       scheduleOnce('afterRender', () => {
         this.set('property', property)
       })
@@ -200,7 +204,7 @@ export default Component.extend({
         coordinates: EPSG2056toLatLng(...result.geometry.coordinates)
       }
 
-      yield this.get('clear').perform()
+      yield this.clear.perform()
       scheduleOnce('afterRender', () => {
         this.set('point', point)
       })
@@ -209,7 +213,7 @@ export default Component.extend({
         EPSG2056toLatLng(...xy)
       )
 
-      yield this.get('clear').perform()
+      yield this.clear.perform()
       scheduleOnce('afterRender', () => {
         this.set('feature', feature)
       })
@@ -217,7 +221,7 @@ export default Component.extend({
   }).restartable(),
 
   handleClick: task(function*(e) {
-    if (this.get('readonly')) {
+    if (this.readonly) {
       return
     }
 
@@ -230,7 +234,7 @@ export default Component.extend({
     let bbox = [southWest.x, southWest.y, northEast.x, northEast.y].join(',')
 
     try {
-      let data = yield this.get('ajax').request(
+      let data = yield this.ajax.request(
         'https://map.geo.sz.ch/main/wsgi/mapserv_proxy',
         {
           dataType: 'xml',
@@ -278,7 +282,7 @@ export default Component.extend({
           municipality: infos.querySelector('gde_nm').textContent
         }
 
-        yield this.get('clear').perform()
+        yield this.clear.perform()
         scheduleOnce('afterRender', () => {
           this.set('property', property)
         })
@@ -303,8 +307,8 @@ export default Component.extend({
   }).restartable(),
 
   reset: task(function*() {
-    yield this.get('clear').perform()
-    yield this.get('handleInitialSelection').perform()
+    yield this.clear.perform()
+    yield this.handleInitialSelection.perform()
   }).restartable(),
 
   submit: task(function*() {
@@ -312,7 +316,7 @@ export default Component.extend({
 
     let image = yield this.get('createImage.last')
 
-    yield resolve(this.get('on-submit')(this.get('property'), image))
+    yield resolve(this['on-submit'](this.property, image))
   }).drop(),
 
   createImage: task(function*(e) {

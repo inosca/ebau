@@ -7,7 +7,7 @@ export default Controller.extend({
   }).restartable(),
 
   save: task(function*() {
-    let model = this.get('model')
+    let model = this.model
 
     yield model.save()
 

@@ -1,19 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit'
+import { module, test } from 'qunit'
+import { setupRenderingTest } from 'ember-qunit'
+import { render } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 
-moduleForComponent(
-  'camac-property-selector',
-  'Integration | Component | camac property selector',
-  {
-    integration: true
-  }
-)
+module('Integration | Component | camac property selector', function(hooks) {
+  setupRenderingTest(hooks)
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{camac-property-selector}}`)
+    await render(hbs`{{camac-property-selector}}`)
 
-  assert.ok(this._element)
+    assert.ok(this.element)
+  })
 })

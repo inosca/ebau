@@ -14,7 +14,7 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
 
   redirectUri: computed('router', function() {
     let { protocol, host } = location
-    let path = this.get('router').generate(Configuration.authenticationRoute)
+    let path = this.router.generate(Configuration.authenticationRoute)
 
     return `${protocol}//${host}${path}`
   }),
@@ -41,7 +41,12 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
    * @param {String} transition.queryParams.code The authentication code given by keycloak
    * @param {String} transition.queryParams.state The state given by keycloak
    */
-  async afterModel(_, { queryParams: { code, state } }) {
+  async afterModel(
+    _,
+    {
+      queryParams: { code, state }
+    }
+  ) {
     if (code) {
       return await this._handleCallbackRequest(code, state)
     }
@@ -70,10 +75,10 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
       assert('State did not match')
     }
 
-    this.get('session').set('data.state', undefined)
+    this.session.set('data.state', undefined)
 
     try {
-      await this.get('session').authenticate('authenticator:oidc', {
+      await this.session.authenticate('authenticator:oidc', {
         code
       })
     } catch (e) {
@@ -92,20 +97,22 @@ export default Mixin.create(UnauthenticatedRouteMixin, {
   _handleRedirectRequest() {
     let state = v4()
 
-    this.get('session').set('data.state', state)
+    this.session.set('data.state', state)
 
     let attemptedTransition = this.get('session.attemptedTransition')
 
     if (attemptedTransition) {
-      let { intent: { url } } = attemptedTransition
+      let {
+        intent: { url }
+      } = attemptedTransition
 
-      this.get('session').set('data.next', url)
+      this.session.set('data.next', url)
     }
 
     this._redirectToUrl(
       `${authEndpoint}?` +
         `client_id=${clientId}&` +
-        `redirect_uri=${this.get('redirectUri')}&` +
+        `redirect_uri=${this.redirectUri}&` +
         `response_type=code&` +
         `state=${state}`
     )

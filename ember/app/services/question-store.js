@@ -30,7 +30,7 @@ const Question = EmberObject.extend({
 
     this.set('jexl', new jexl.Jexl())
 
-    this.get('jexl').addTransform('value', async question => {
+    this.jexl.addTransform('value', async question => {
       return (await this.get('_questions.find').perform(
         question,
         this.get('model.instance.id')
@@ -39,8 +39,8 @@ const Question = EmberObject.extend({
   },
 
   validate() {
-    let name = this.get('name')
-    let { type, required: isRequired = false, config = {} } = this.get('field')
+    let name = this.name
+    let { type, required: isRequired = false, config = {} } = this.field
 
     let validations = [
       isRequired
@@ -56,7 +56,7 @@ const Question = EmberObject.extend({
       this.getWithDefault(`_questions._validations.${name}`, () => true)
     ]
 
-    let isValid = validations.map(fn => fn(config, this.get('value')))
+    let isValid = validations.map(fn => fn(config, this.value))
 
     return (
       isValid.every(v => v === true) ||
@@ -69,7 +69,7 @@ const Question = EmberObject.extend({
   _hiddenTask: task(function*() {
     let expression = this.get('field.active-expression')
 
-    return expression ? !(yield this.get('jexl').eval(expression)) : false
+    return expression ? !(yield this.jexl.eval(expression)) : false
   })
 })
 
@@ -92,7 +92,7 @@ export default Service.extend({
   },
 
   config: computed(async function() {
-    return await this.get('ajax').request('/api/v1/form-config')
+    return await this.ajax.request('/api/v1/form-config')
   }),
 
   saveQuestion: task(function*(question) {
@@ -110,15 +110,11 @@ export default Service.extend({
   }),
 
   async _buildQuestion(name, instance, query = null) {
-    let group = this.get('group')
-    let field = getWithDefault(
-      await this.get('config'),
-      `questions.${name}`,
-      {}
-    )
+    let group = this.group
+    let field = getWithDefault(await this.config, `questions.${name}`, {})
 
     if (!query) {
-      query = (await this.get('store').query(
+      query = (await this.store.query(
         field.type === 'document' ? 'attachment' : 'form-field',
         {
           group,
@@ -134,13 +130,13 @@ export default Service.extend({
         .sortBy('date')
         .reverse()
         .get('firstObject') ||
-      this.get('store').createRecord(
+      this.store.createRecord(
         field.type === 'document' ? 'attachment' : 'form-field',
         {
           name,
           instance:
-            this.get('store').peekRecord('instance', instance) ||
-            (await this.get('store').findRecord('instance', instance))
+            this.store.peekRecord('instance', instance) ||
+            (await this.store.findRecord('instance', instance))
         }
       )
 
@@ -157,7 +153,7 @@ export default Service.extend({
   },
 
   peek(name, instance) {
-    return this.get('_store').find(
+    return this._store.find(
       q => q.get('name') === name && q.get('model.instance.id') === instance
     )
   },
@@ -171,20 +167,20 @@ export default Service.extend({
 
     let q = yield this._buildQuestion(name, instance)
 
-    this.get('_store').pushObject(q)
+    this._store.pushObject(q)
 
     return q
   }).group('build'),
 
   peekSet(names, instance) {
-    return this.get('_store').filter(
+    return this._store.filter(
       q =>
         names.includes(q.get('name')) && q.get('model.instance.id') === instance
     )
   },
 
   findSet: task(function*(names, instance) {
-    let group = this.get('group')
+    let group = this.group
     let cached = this.peekSet(names, instance)
 
     let cachedNames = cached.map(({ name }) => name)
@@ -192,7 +188,7 @@ export default Service.extend({
     let query = null
 
     if (fetchedNames.length) {
-      let config = getWithDefault(yield this.get('config'), `questions`, {})
+      let config = getWithDefault(yield this.config, `questions`, {})
 
       let map = Object.keys(config).reduce((arr, key) => {
         return fetchedNames.includes(key)
@@ -205,14 +201,14 @@ export default Service.extend({
 
       query = A([
         ...(docs.length
-          ? (yield this.get('store').query('attachment', {
+          ? (yield this.store.query('attachment', {
               group,
               instance,
               name: docs.mapBy('name').join(',')
             })).toArray()
           : []),
         ...(fields.length
-          ? (yield this.get('store').query('form-field', {
+          ? (yield this.store.query('form-field', {
               group,
               instance,
               name: fields.mapBy('name').join(',')
@@ -234,7 +230,7 @@ export default Service.extend({
           )
         )
 
-        this.get('_store').pushObject(q)
+        this._store.pushObject(q)
 
         return q
       })
