@@ -11,6 +11,8 @@ services:
             - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
         ports:
             - "80:80"
+        depends_on:
+            - iweb_mock
         networks:
             camac-ng.local:
                 aliases:
@@ -106,6 +108,19 @@ services:
             - '1080:1080'
         networks:
             - camac-ng.local
+
+    iweb_mock:
+        image: node:6
+        volumes:
+            - ./iweb_mock:/usr/src/app
+        command: bash /usr/src/app/run_mock
+        environment:
+            - NODE_ENV=development
+        depends_on:
+            - php
+        networks:
+            - camac-ng.local
+
 
 networks:
     camac-ng.local:
