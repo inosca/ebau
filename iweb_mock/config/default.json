@@ -1,5 +1,5 @@
 {
-	"camacApi": "http://camac_web",
-	"camacUrl": "http://localhost:4300",
-	"base": "http://localhost:4400/"
+	"camacApi": "http://php",
+	"camacUrl": "http://camac-ng.local",
+	"base": "http://camac-ng-iweb-mock.local/"
 }
