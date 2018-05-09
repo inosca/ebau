@@ -1,6 +1,6 @@
 import Controller from '@ember/controller'
 import { inject as service } from '@ember/service'
-import config from 'ember-get-config'
+import config from '../config/environment'
 
 const { environment } = config
 

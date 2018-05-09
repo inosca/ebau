@@ -3,7 +3,7 @@ import { computed } from '@ember/object'
 import { later } from '@ember/runloop'
 import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
-import config from 'ember-get-config'
+import config from '../config/environment'
 import { assert } from '@ember/debug'
 
 const { tokenEndpoint, logoutEndpoint, clientId } = config[
