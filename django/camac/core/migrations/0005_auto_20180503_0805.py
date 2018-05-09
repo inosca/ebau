@@ -14,11 +14,6 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AlterField(
-            model_name='billingentry',
-            name='billing_account',
-            field=models.ForeignKey(blank=True, db_column='BILLING_ACCOUNT_ID', null=True, on_delete=django.db.models.deletion.CASCADE, related_name='+', to='core.BillingAccount'),
-        ),
-        migrations.AlterField(
             model_name='buildingauthoritycomment',
             name='building_authority_section',
             field=models.ForeignKey(db_column='BUILDING_AUTHORITY_SECTION_ID', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='core.BuildingAuthoritySection'),
