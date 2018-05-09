@@ -28,7 +28,7 @@ module('Integration | Component | camac-input-radio', function(hooks) {
   })
 
   test('it can be rendered in readonly mode', async function(assert) {
-    assert.expect(1)
+    assert.expect(2)
 
     this.set(
       'model',
@@ -45,7 +45,8 @@ module('Integration | Component | camac-input-radio', function(hooks) {
       hbs`{{camac-input-radio config=config model=model readonly=true}}`
     )
 
-    assert.dom('input[type=radio]:disabled').exists({ count: 3 })
+    assert.dom('input[type=radio]').exists({ count: 3 })
+    assert.dom('input[type=radio]').isDisabled()
   })
 
   test('it can change the value', async function(assert) {

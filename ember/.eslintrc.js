@@ -1,9 +1,8 @@
 module.exports = {
   globals: {
-    server: true,
+    server: true
   },
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
@@ -17,13 +16,17 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {
-    'prettier/prettier': 'error'
-  },
+  rules: {},
   overrides: [
     // node files
     {
-      files: ['testem.js', 'ember-cli-build.js', 'config/**/*.js'],
+      files: [
+        'ember-cli-build.js',
+        'testem.js',
+        'blueprints/*/index.js',
+        'config/**/*.js',
+        'lib/*/index.js'
+      ],
       parserOptions: {
         sourceType: 'script',
         ecmaVersion: 2015
@@ -31,15 +34,6 @@ module.exports = {
       env: {
         browser: false,
         node: true
-      }
-    },
-
-    // test files
-    {
-      files: ['tests/**/*.js'],
-      excludedFiles: ['tests/dummy/**/*.js'],
-      env: {
-        embertest: true
       }
     }
   ]

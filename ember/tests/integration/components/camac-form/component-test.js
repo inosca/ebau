@@ -68,7 +68,7 @@ module('Integration | Component | camac-form', function(hooks) {
     `)
 
     assert.dom('form').exists()
-    assert.dom('input:disabled').exists()
+    assert.dom('input').isDisabled()
     assert.dom('table').exists()
     assert.dom('tfoot').doesNotExist()
   })
