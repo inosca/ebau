@@ -4,7 +4,12 @@ export default Component.extend({
   classNames: ['uk-form-stacked'],
 
   actions: {
-    change(option, { target: { checked } }) {
+    change(
+      option,
+      {
+        target: { checked }
+      }
+    ) {
       let v = this.getWithDefault('model.value', [])
 
       // TODO: Reject values which are not in the given options

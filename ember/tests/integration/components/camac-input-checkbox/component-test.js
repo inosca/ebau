@@ -28,7 +28,7 @@ module('Integration | Component | camac-input-checkbox', function(hooks) {
   })
 
   test('it can be rendered in readonly mode', async function(assert) {
-    assert.expect(1)
+    assert.expect(2)
 
     this.set(
       'model',
@@ -43,7 +43,8 @@ module('Integration | Component | camac-input-checkbox', function(hooks) {
 
     await render(hbs`{{camac-input-checkbox readonly=true config=config}}`)
 
-    assert.dom('input[type=checkbox]:disabled').exists({ count: 3 })
+    assert.dom('input[type=checkbox]').exists({ count: 3 })
+    assert.dom('input[type=checkbox]').isDisabled()
   })
 
   test('it can change the value', async function(assert) {

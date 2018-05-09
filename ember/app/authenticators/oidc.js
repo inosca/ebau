@@ -3,7 +3,7 @@ import { computed } from '@ember/object'
 import { later } from '@ember/runloop'
 import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
-import config from 'ember-get-config'
+import config from '../config/environment'
 import { assert } from '@ember/debug'
 
 const { tokenEndpoint, logoutEndpoint, clientId } = config[
@@ -18,7 +18,7 @@ export default BaseAuthenticator.extend({
 
   redirectUri: computed(function() {
     let { protocol, host } = location
-    let path = this.get('router').urlFor(Configuration.authenticationRoute)
+    let path = this.router.urlFor(Configuration.authenticationRoute)
 
     return `${protocol}//${host}${path}`
   }),
@@ -33,7 +33,7 @@ export default BaseAuthenticator.extend({
    * @returns {Object} The parsed response data
    */
   async authenticate({ code }) {
-    let data = await this.get('ajax').request(tokenEndpoint, {
+    let data = await this.ajax.request(tokenEndpoint, {
       method: 'POST',
       responseType: 'application/json',
       contentType: 'application/x-www-form-urlencoded',
@@ -41,7 +41,7 @@ export default BaseAuthenticator.extend({
         code,
         client_id: clientId,
         grant_type: 'authorization_code',
-        redirect_uri: this.get('redirectUri')
+        redirect_uri: this.redirectUri
       }
     })
 
@@ -56,7 +56,7 @@ export default BaseAuthenticator.extend({
    * @return {Promise} The logout request
    */
   async invalidate({ refresh_token }) {
-    return await this.get('ajax').request(logoutEndpoint, {
+    return await this.ajax.request(logoutEndpoint, {
       method: 'POST',
       responseType: 'application/json',
       contentType: 'application/x-www-form-urlencoded',
@@ -93,7 +93,7 @@ export default BaseAuthenticator.extend({
    * @returns {Object} The parsed response data
    */
   async _refresh(refresh_token) {
-    let data = await this.get('ajax').request(tokenEndpoint, {
+    let data = await this.ajax.request(tokenEndpoint, {
       method: 'POST',
       responseType: 'application/json',
       contentType: 'application/x-www-form-urlencoded',
@@ -101,7 +101,7 @@ export default BaseAuthenticator.extend({
         refresh_token,
         client_id: clientId,
         grant_type: 'refresh_token',
-        redirect_uri: this.get('redirectUri')
+        redirect_uri: this.redirectUri
       }
     })
 

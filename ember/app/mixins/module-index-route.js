@@ -12,7 +12,7 @@ export default Mixin.create({
     await transition.promise
 
     let controller = this.controllerFor('instances.edit')
-    let links = await controller.get('links').perform()
+    let links = await controller.links.perform()
 
     // The current route name is now the actual route since we awaited the end
     // of the transition

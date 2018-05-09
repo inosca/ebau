@@ -2,7 +2,7 @@ import Component from '@ember/component'
 import UIkit from 'uikit'
 import { scheduleOnce } from '@ember/runloop'
 import CamacMultipleQuestionRowMixin from 'citizen-portal/mixins/camac-multiple-question-row'
-import config from 'ember-get-config'
+import config from '../../config/environment'
 
 export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
@@ -21,13 +21,13 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   _hide() {
-    this.get('_value').rollback()
+    this._value.rollback()
 
     this.set('visible', false)
   },
 
   didInsertElement() {
-    let id = `#modal-${this.get('elementId')}`
+    let id = `#modal-${this.elementId}`
 
     this.set('modal', UIkit.modal(id, { container: false }))
 
@@ -37,15 +37,15 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
 
   didReceiveAttrs() {
     scheduleOnce('afterRender', () => {
-      if (this.get('visible')) {
-        this.get('modal').show()
+      if (this.visible) {
+        this.modal.show()
       } else {
-        this.get('modal').hide()
+        this.modal.hide()
       }
     })
   },
 
   willDestroyElement() {
-    this.get('modal').hide()
+    this.modal.hide()
   }
 })

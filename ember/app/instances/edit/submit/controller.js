@@ -35,7 +35,7 @@ export default Controller.extend({
 
   submit: task(function*() {
     try {
-      yield this.get('ajax').request(
+      yield this.ajax.request(
         `/api/v1/instances/${this.get('model.instance.id')}/submit`,
         { method: 'POST' }
       )

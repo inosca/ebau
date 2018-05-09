@@ -48,7 +48,7 @@ module('Integration | Component | camac-input-number', function(hooks) {
       hbs`{{camac-input-number config=config model=model readonly=true}}`
     )
 
-    assert.dom('input[type=number]:disabled').exists()
+    assert.dom('input[type=number]').isDisabled()
   })
 
   test('it can change the value', async function(assert) {

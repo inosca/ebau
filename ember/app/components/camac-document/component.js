@@ -23,7 +23,7 @@ export default CamacInputComponent.extend({
 
   headers: computed('token', function() {
     return {
-      Authorization: `Bearer ${this.get('token')}`
+      Authorization: `Bearer ${this.token}`
     }
   }),
 
@@ -34,12 +34,12 @@ export default CamacInputComponent.extend({
 
   hidden: computedTask('_hidden', 'question.hidden'),
   _hidden: task(function*() {
-    return (yield this.get('question')).get('hidden')
+    return (yield this.question).get('hidden')
   }),
 
   download: task(function*() {
     try {
-      let question = yield this.get('question')
+      let question = yield this.question
 
       if (!question.get('model.path')) {
         return
@@ -47,7 +47,7 @@ export default CamacInputComponent.extend({
 
       let response = yield fetch(question.get('model.path'), {
         mode: 'cors',
-        headers: this.get('headers')
+        headers: this.headers
       })
 
       let file = yield response.blob()
@@ -68,7 +68,7 @@ export default CamacInputComponent.extend({
   }),
 
   upload: task(function*(files) {
-    if (this.get('readonly')) {
+    if (this.readonly) {
       return
     }
 
@@ -95,7 +95,7 @@ export default CamacInputComponent.extend({
         return
       }
 
-      let question = yield this.get('question')
+      let question = yield this.question
 
       let filename = `${question.get('name')}.${file.name.split('.').pop()}`
 
@@ -103,7 +103,7 @@ export default CamacInputComponent.extend({
       formData.append('instance', question.get('model.instance.id'))
       formData.append('path', file, filename)
 
-      let response = yield this.get('ajax').request('/api/v1/attachments', {
+      let response = yield this.ajax.request('/api/v1/attachments', {
         method: 'POST',
         cache: false,
         contentType: false,
@@ -114,11 +114,11 @@ export default CamacInputComponent.extend({
         }
       })
 
-      this.get('store').pushPayload(response)
+      this.store.pushPayload(response)
 
       question.set(
         'model',
-        this.get('store').peekRecord('attachment', response.data.id)
+        this.store.peekRecord('attachment', response.data.id)
       )
 
       UIkit.notification('Die Datei wurde erfolgreich hochgeladen', {
@@ -134,9 +134,7 @@ export default CamacInputComponent.extend({
 
   actions: {
     triggerUpload() {
-      this.get('element')
-        .querySelector('input[type=file')
-        .click()
+      this.element.querySelector('input[type=file').click()
     }
   }
 })

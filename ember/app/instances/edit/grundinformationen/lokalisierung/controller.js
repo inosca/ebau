@@ -62,7 +62,7 @@ export default Controller.extend({
       formData.append('instance', attachment.get('model.instance.id'))
       formData.append('path', file, filename)
 
-      let response = yield this.get('ajax').request('/api/v1/attachments', {
+      let response = yield this.ajax.request('/api/v1/attachments', {
         method: 'POST',
         cache: false,
         contentType: false,
@@ -73,11 +73,11 @@ export default Controller.extend({
         }
       })
 
-      this.get('store').pushPayload(response)
+      this.store.pushPayload(response)
 
       attachment.set(
         'model',
-        this.get('store').peekRecord('attachment', response.data.id)
+        this.store.peekRecord('attachment', response.data.id)
       )
 
       yield instance.save()

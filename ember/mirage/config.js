@@ -1,4 +1,4 @@
-import config from 'ember-get-config'
+import config from '../config/environment'
 import { Response } from 'ember-cli-mirage'
 
 const { tokenEndpoint, logoutEndpoint } = config['ember-simple-auth-oidc']
@@ -25,6 +25,8 @@ export default function() {
   })
 
   this.post(logoutEndpoint, () => {})
+
+  this.get('/api/v1/form-config', { forms: {}, modules: {}, questions: {} })
 
   this.get('/api/v1/forms')
 

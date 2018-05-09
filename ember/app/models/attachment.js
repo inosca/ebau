@@ -17,7 +17,7 @@ export default Model.extend({
 
   thumbnail: computedTask('_thumbnail', 'path'),
   _thumbnail: task(function*() {
-    if (!this.get('path')) {
+    if (!this.path) {
       return
     }
 

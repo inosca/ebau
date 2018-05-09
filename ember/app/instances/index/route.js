@@ -8,6 +8,6 @@ export default Route.extend({
   setupController(controller) {
     this._super(...arguments)
 
-    controller.get('instances').perform()
+    controller.instances.perform()
   }
 })

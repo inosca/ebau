@@ -9,7 +9,7 @@ export default Route.extend({
   },
 
   async model({ instance_id: id, group }) {
-    let response = await this.get('ajax').request(`/api/v1/instances/${id}`, {
+    let response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
         group,
         include: 'form,instance_state,location'
@@ -18,7 +18,9 @@ export default Route.extend({
         Accept: 'application/vnd.api+json'
       }
     })
-    let { data: { meta } } = response
+    let {
+      data: { meta }
+    } = response
 
     this.store.pushPayload(response)
 

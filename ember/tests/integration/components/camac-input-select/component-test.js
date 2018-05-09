@@ -47,6 +47,8 @@ module('Integration | Component | camac-input-select', function(hooks) {
       hbs`{{camac-input-select config=config model=model readonly=true}}`
     )
 
-    assert.dom('.ember-power-select-trigger[aria-disabled="true"]').exists()
+    assert
+      .dom('.ember-power-select-trigger')
+      .hasAttribute('aria-disabled', 'true')
   })
 })
