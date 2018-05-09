@@ -4,7 +4,7 @@ import v4 from 'npm:uuid/v4'
 
 export default Mixin.create({
   addRow: task(function*() {
-    let question = yield this.get('question')
+    let question = yield this.question
 
     let row = {
       uuid: v4(),
@@ -20,9 +20,9 @@ export default Mixin.create({
   }).drop(),
 
   saveRow: task(function*(row) {
-    let question = yield this.get('question')
+    let question = yield this.question
 
-    yield this.get('save').perform([
+    yield this.save.perform([
       ...question
         .getWithDefault('model.value', [])
         .filter(r => r.uuid !== row.uuid),
@@ -43,9 +43,9 @@ export default Mixin.create({
   }).restartable(),
 
   deleteRow: task(function*(row) {
-    let question = yield this.get('question')
+    let question = yield this.question
 
-    yield this.get('save').perform(
+    yield this.save.perform(
       question
         .getWithDefault('model.value', [])
         .filter(r => r.uuid !== row.uuid)

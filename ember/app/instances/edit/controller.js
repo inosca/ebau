@@ -25,7 +25,7 @@ const Module = EmberObject.extend({
   editable: computed('editableTypes.[]', async function() {
     let questions = await this.get('questionStore.findSet').perform(
       this.getWithDefault('allQuestions', []),
-      this.get('instance')
+      this.instance
     )
     let editable = this.getWithDefault('editableTypes', [])
 
@@ -59,7 +59,7 @@ const Module = EmberObject.extend({
 
     let questions = yield this.get('questionStore.findSet').perform(
       names,
-      this.get('instance')
+      this.instance
     )
 
     questions = (yield all(
@@ -122,7 +122,7 @@ export default Controller.extend({
       })
       .filter(mod => {
         try {
-          this.get('router').urlFor(mod.get('link'))
+          this.router.urlFor(mod.get('link'))
           return true
         } catch (e) {
           // URL does not exist, skip this module
@@ -188,7 +188,7 @@ export default Controller.extend({
     'currentIndex.lastSuccessful.value',
     function() {
       return (
-        this.get('currentIndex') <
+        this.currentIndex <
         this.getWithDefault('links.lastSuccessful.value.length', 0) - 1
       )
     }
@@ -198,7 +198,7 @@ export default Controller.extend({
     yield this.get('questionStore.saveQuestion.last')
 
     let links = this.get('links.lastSuccessful.value')
-    let i = this.get('currentIndex')
+    let i = this.currentIndex
 
     yield this.transitionToRoute(
       get(links, (i + links.length - 1) % links.length)
@@ -209,7 +209,7 @@ export default Controller.extend({
     yield this.get('questionStore.saveQuestion.last')
 
     let links = this.get('links.lastSuccessful.value')
-    let i = this.get('currentIndex')
+    let i = this.currentIndex
 
     yield this.transitionToRoute(get(links, (i + 1) % links.length))
   })
