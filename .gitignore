@@ -25,3 +25,4 @@ geckodriver.log
 php/public/node_modules
 php/logs/mails/
 .env
+.vscode
