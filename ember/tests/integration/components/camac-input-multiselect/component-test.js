@@ -47,7 +47,7 @@ module('Integration | Component | camac-input-multiselect', function(hooks) {
       hbs`{{camac-input-multiselect config=config model=model readonly=true}}`
     )
 
-    assert.dom('.ember-power-select-trigger-multiple-input:disabled').exists()
+    assert.dom('.ember-power-select-trigger-multiple-input').isDisabled()
   })
 
   test('it can change the value', async function(assert) {
