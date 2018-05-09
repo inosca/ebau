@@ -35,7 +35,7 @@ class Attachment(models.Model):
         'AttachmentSection', models.PROTECT,
         db_column='ATTACHMENT_SECTION_ID', related_name='attachments')
     is_parcel_picture = models.PositiveIntegerField(
-        db_column='IS_PARCEL_PICTURE', default=0, null=True)
+        db_column='IS_PARCEL_PICTURE', default=0)
     digital_signature = models.PositiveSmallIntegerField(
         db_column='DIGITAL_SIGNATURE', default=0)
     is_confidential = models.PositiveSmallIntegerField(

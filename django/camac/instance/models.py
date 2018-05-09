@@ -20,7 +20,7 @@ class Form(models.Model):
     form_state = models.ForeignKey(
         FormState, models.DO_NOTHING, db_column='FORM_STATE_ID',
         related_name='+')
-    name = models.CharField(db_column='NAME', max_length=500)
+    name = models.CharField(db_column='NAME', max_length=500, unique=True)
     description = models.CharField(
         db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
 
