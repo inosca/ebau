@@ -37027,7 +37027,7 @@
     "name": "Dossiersuche",
     "description": "Allgemeine Suche",
     "template": "/global/search.phtml",
-    "class_field": "",
+    "class_field": null,
     "hidden": 0,
     "sort": 26
   }
@@ -38251,9 +38251,9 @@
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
-    "result_template": "",
-    "query": "SELECT  DISTINCT\n  \"INSTANCE\".\"INSTANCE_ID\",\n  \"DOSSIERNR\".\"ANSWER\" as \"DOSSIER_NR\",\n  \"FORM\".\"NAME\"        as \"FORM\",\n  \"LOCATION\".\"NAME\"    as \"COMMUNITY\",\n  \"USER\".\"USERNAME\"        AS \"USER\",\n  \"APPLICANT_VIEW\".\"APPLICANT\",\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\n    FROM SANCTION\n    JOIN \"SERVICE\" ON (\n      \"SANCTION\".\"SERVICE_ID\" = \"SERVICE\".\"SERVICE_ID\"\n    )\n    WHERE \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n  ) AS \"SANCTION\",\n  CASE\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\n    WHEN \"ANSWER_STREET_247\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_247\".\"ANSWER\"\n  END AS \"STREET\",\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\") AS \"STATE\",\n  \"INSTANCE_STATE_DESCRIPTION\".\"DESCRIPTION\"    AS \"STATE_DESCRIPTION\"\nFROM \"INSTANCE\"\nLEFT JOIN \"APPLICANT_VIEW\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\n)\nJOIN \"INSTANCE_LOCATION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\n)\nJOIN \"LOCATION\" ON (\n    \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\n)\nLEFT JOIN \"ANSWER\"  \"DOSSIERNR\" ON (\n    \"DOSSIERNR\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n    AND\n    \"DOSSIERNR\".\"QUESTION_ID\" = 6\n    AND\n    \"DOSSIERNR\".\"CHAPTER_ID\" = 2\n    AND\n    \"DOSSIERNR\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_INTENT\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_INTENT\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_INTENT\".\"QUESTION_ID\" = 97\n    AND\n    \"ANSWER_INTENT\".\"CHAPTER_ID\" = 21\n    AND\n    \"ANSWER_INTENT\".\"ITEM\" = 1\n  )\n\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\n  )\n\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\n  )\nLEFT JOIN \"ANSWER_STREET_247\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_247\".\"INSTANCE_ID\"\n  )\njoin \"FORM\" ON (\n  \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\n)\nJOIN \"USER\" ON (\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\n)\nLEFT JOIN \"INSTANCE_STATE_DESCRIPTION\" ON (\n    \"INSTANCE_STATE_DESCRIPTION\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\n  )\nLEFT JOIN \"ANSWER\"  \"PARCEL_NR\" ON (\n  \"INSTANCE\".\"INSTANCE_ID\" = \"PARCEL_NR\".\"INSTANCE_ID\"\n  AND \"PARCEL_NR\".\"QUESTION_ID\" = 91 AND \"PARCEL_NR\".\"CHAPTER_ID\" = 21 AND \"PARCEL_NR\".\"ITEM\" = 1\n  )\nJOIN \"FORM_GROUP_FORM\" ON (\n  \"FORM_GROUP_FORM\".\"FORM_ID\" = \"INSTANCE\".\"FORM_ID\"\n)\nleft JOIN \"GROUP_LOCATION\" ON (\n     \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\n  )\nLEFT JOIN \"CIRCULATION\" ON (\n  \"CIRCULATION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n)\n\nLEFT JOIN \"ACTIVATION\" ON (\n  \"ACTIVATION\".\"CIRCULATION_ID\" = \"CIRCULATION\".\"CIRCULATION_ID\"\n)\nLEFT JOIN \"SANCTION\" ON (\n  \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n)\nWHERE (\n([ROLE_ID] = 3 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 30)\nOR\n([ROLE_ID] = 1061 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 141)\nOR\n([ROLE_ID] = 1101 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 241)\nOR\n([ROLE_ID] IN (7, 6) AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\")\nOR\n([ROLE_ID] = 1105 AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\" AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 253)\nOR\n([ROLE_ID] NOT IN (3, 1061, 6, 7, 1105, 1101)))",
-    "pdf_class": "",
+    "result_template": null,
+    "query": "SELECT  DISTINCT\r\n  \"INSTANCE\".\"INSTANCE_ID\",\r\n  \"DOSSIERNR\".\"ANSWER\" as \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"        as \"FORM\",\r\n  \"LOCATION\".\"NAME\"    as \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"        AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"SANCTION\"\r\n    JOIN \"SERVICE\" ON (\r\n      \"SANCTION\".\"SERVICE_ID\" = \"SERVICE\".\"SERVICE_ID\"\r\n    )\r\n    WHERE \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n  ) AS \"SANCTION\",\r\n  CASE\r\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_247\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_247\".\"ANSWER\"\r\n  END AS \"STREET\",\r\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\") AS \"STATE\",\r\n  \"INSTANCE_STATE_DESCRIPTION\".\"DESCRIPTION\"    AS \"STATE_DESCRIPTION\"\r\nFROM \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n)\r\nJOIN \"LOCATION\" ON (\r\n    \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n)\r\nLEFT JOIN \"ANSWER\"  \"DOSSIERNR\" ON (\r\n    \"DOSSIERNR\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"DOSSIERNR\".\"QUESTION_ID\" = 6\r\n    AND\r\n    \"DOSSIERNR\".\"CHAPTER_ID\" = 2\r\n    AND\r\n    \"DOSSIERNR\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"ANSWER_INTENT\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_INTENT\".\"INSTANCE_ID\"\r\n    AND\r\n    \"ANSWER_INTENT\".\"QUESTION_ID\" = 97\r\n    AND\r\n    \"ANSWER_INTENT\".\"CHAPTER_ID\" = 21\r\n    AND\r\n    \"ANSWER_INTENT\".\"ITEM\" = 1\r\n  )\r\n\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\n\r\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_247\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_247\".\"INSTANCE_ID\"\r\n  )\r\njoin \"FORM\" ON (\r\n  \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nLEFT JOIN \"INSTANCE_STATE_DESCRIPTION\" ON (\r\n    \"INSTANCE_STATE_DESCRIPTION\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER\"  \"PARCEL_NR\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"PARCEL_NR\".\"INSTANCE_ID\"\r\n  AND \"PARCEL_NR\".\"QUESTION_ID\" = 91 AND \"PARCEL_NR\".\"CHAPTER_ID\" = 21 AND \"PARCEL_NR\".\"ITEM\" = 1\r\n  )\r\nJOIN \"FORM_GROUP_FORM\" ON (\r\n  \"FORM_GROUP_FORM\".\"FORM_ID\" = \"INSTANCE\".\"FORM_ID\"\r\n)\r\nleft JOIN \"GROUP_LOCATION\" ON (\r\n     \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nLEFT JOIN \"CIRCULATION\" ON (\r\n  \"CIRCULATION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n)\r\n\r\nLEFT JOIN \"ACTIVATION\" ON (\r\n  \"ACTIVATION\".\"CIRCULATION_ID\" = \"CIRCULATION\".\"CIRCULATION_ID\"\r\n)\r\nLEFT JOIN \"SANCTION\" ON (\r\n  \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n)\r\nWHERE (\r\n([ROLE_ID] = 3 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 30)\r\nOR\r\n([ROLE_ID] = 1061 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 141)\r\nOR\r\n([ROLE_ID] = 1101 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 241)\r\nOR\r\n([ROLE_ID] IN (7, 6) AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\")\r\nOR\r\n([ROLE_ID] = 1105 AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\" AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 253)\r\nOR\r\n([ROLE_ID] NOT IN (3, 1061, 6, 7, 1105, 1101)))",
+    "pdf_class": null,
     "preserve_result": 1
   }
 },
@@ -38498,9 +38498,9 @@
     "question": 2,
     "field_name": "community",
     "label": "Gemeinde",
-    "query": "instance.instance_id in (select instance_location.instance_id from instance_location where instance_location.location_id = ?)",
+    "query": "\"INSTANCE\".\"INSTANCE_ID\" IN (SELECT \"INSTANCE_LOCATION\".\"INSTANCE_ID\" FROM \"INSTANCE_LOCATION\" WHERE \"INSTANCE_LOCATION\".\"LOCATION_ID\" = ?)",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": null
   }
 },
 {
@@ -38511,9 +38511,9 @@
     "question": 91,
     "field_name": "parcelnr",
     "label": "Parzellennummer",
-    "query": "PARCEL_NR.ANSWER = ?",
+    "query": "\"PARCEL_NR\".\"ANSWER\" = ?",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": null
   }
 },
 {
@@ -38524,9 +38524,9 @@
     "question": null,
     "field_name": "status",
     "label": "Status",
-    "query": "\"INSTANCE\".\"INSTANCE_STATE_ID\" = get_inst_state_id_by_name(?)",
+    "query": "\"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"(?)",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": null
   }
 },
 {
