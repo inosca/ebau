@@ -1,5 +1,5 @@
 import Controller from '@ember/controller'
-import config from 'ember-get-config'
+import config from '../config/environment'
 
 const { environment } = config
 

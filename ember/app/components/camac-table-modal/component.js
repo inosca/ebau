@@ -2,7 +2,7 @@ import Component from '@ember/component'
 import UIkit from 'uikit'
 import { scheduleOnce } from '@ember/runloop'
 import CamacMultipleQuestionRowMixin from 'citizen-portal/mixins/camac-multiple-question-row'
-import config from 'ember-get-config'
+import config from '../../config/environment'
 
 export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
