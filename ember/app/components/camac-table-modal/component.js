@@ -21,13 +21,13 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   _hide() {
-    this.get('_value').rollback()
+    this._value.rollback()
 
     this.set('visible', false)
   },
 
   didInsertElement() {
-    let id = `#modal-${this.get('elementId')}`
+    let id = `#modal-${this.elementId}`
 
     this.set('modal', UIkit.modal(id, { container: false }))
 
@@ -37,15 +37,15 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
 
   didReceiveAttrs() {
     scheduleOnce('afterRender', () => {
-      if (this.get('visible')) {
-        this.get('modal').show()
+      if (this.visible) {
+        this.modal.show()
       } else {
-        this.get('modal').hide()
+        this.modal.hide()
       }
     })
   },
 
   willDestroyElement() {
-    this.get('modal').hide()
+    this.modal.hide()
   }
 })

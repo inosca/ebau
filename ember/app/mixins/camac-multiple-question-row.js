@@ -11,9 +11,9 @@ export default Mixin.create({
 
   _value: computed('value', 'columns.[]', function() {
     return new Changeset(
-      this.get('value') || {},
+      this.value || {},
       (...args) => this._validate(...args),
-      this.get('columns').reduce((map, f) => {
+      this.columns.reduce((map, f) => {
         return { ...map, [f.name]: () => this._validate }
       }, {})
     )
@@ -21,7 +21,7 @@ export default Mixin.create({
 
   _validate({ key, newValue }) {
     try {
-      let { type, required: isRequired, config } = this.get('columns').find(
+      let { type, required: isRequired, config } = this.columns.find(
         f => f.name === key
       )
 
@@ -34,7 +34,7 @@ export default Mixin.create({
           () => true
         ),
         this.getWithDefault(
-          `_validations.${this.get('parentName')}/${key}`,
+          `_validations.${this.parentName}/${key}`,
           () => true
         )
       ]
@@ -51,16 +51,14 @@ export default Mixin.create({
   },
 
   save: task(function*() {
-    let changeset = this.get('_value')
+    let changeset = this._value
 
     yield changeset.validate()
 
     if (changeset.get('isValid')) {
       changeset.execute()
 
-      yield resolve(
-        this.getWithDefault('attrs.on-save', () => {})(this.get('value'))
-      )
+      yield resolve(this.getWithDefault('attrs.on-save', () => {})(this.value))
     }
   }),
 
