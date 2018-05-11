@@ -1,4 +1,4 @@
-{{#if instances.isRunning}}
+{{#if (or instances.isRunning navigate.isRunning)}}
   {{#uk-flex horizontal='center' class='uk-padding uk-animation-fade'}}
     {{uk-spinner ratio=3}}
   {{/uk-flex}}
@@ -17,7 +17,12 @@
       </thead>
       <tbody>
         {{#each filtered as |instance|}}
-          <tr role="link" title="Klicken Sie um das Dossier zu bearbeiten" class="pointer" {{action 'navigate' instance on='click'}}>
+          <tr
+            role="link"
+            title="Klicken Sie um das Dossier zu bearbeiten"
+            class="pointer"
+            {{action (perform navigate) instance on='click'}}
+          >
             <td>
               {{instance.identifier}}
             </td>

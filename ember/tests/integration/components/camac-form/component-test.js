@@ -3,15 +3,28 @@ import { setupRenderingTest } from 'ember-qunit'
 import { render } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
 
 module('Integration | Component | camac-form', function(hooks) {
   setupRenderingTest(hooks)
   setupMirage(hooks)
 
-  hooks.beforeEach(function() {
-    let { id } = this.server.create('instance')
+  hooks.beforeEach(async function() {
+    let instance = this.server.create('instance')
 
-    this.set('id', id)
+    this.set('id', instance.id)
+
+    this.server.create('form-field', {
+      name: 'test-input',
+      instance,
+      value: 'test'
+    })
+
+    this.server.create('form-field', {
+      name: 'test-table',
+      instance,
+      value: [{ 'test-input-in-table': 1 }]
+    })
 
     this.server.get('/api/v1/form-config', () => ({
       questions: {
@@ -39,6 +52,8 @@ module('Integration | Component | camac-form', function(hooks) {
         }
       }
     }))
+
+    await loadQuestions(['test-input', 'test-table'], instance.id)
   })
 
   test('it renders', async function(assert) {

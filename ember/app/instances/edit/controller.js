@@ -3,7 +3,6 @@ import EmberObject, { computed, get, getWithDefault } from '@ember/object'
 import { gt } from '@ember/object/computed'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
-import { all } from 'rsvp'
 import { getOwner } from '@ember/application'
 import computedTask from 'citizen-portal/lib/computed-task'
 
@@ -22,8 +21,8 @@ const Module = EmberObject.extend({
     ]
   }),
 
-  editable: computed('editableTypes.[]', async function() {
-    let questions = await this.get('questionStore.findSet').perform(
+  editable: computed('editableTypes.[]', function() {
+    let questions = this.questionStore.peekSet(
       this.getWithDefault('allQuestions', []),
       this.instance
     )
@@ -50,42 +49,34 @@ const Module = EmberObject.extend({
     })
   }),
 
-  state: computedTask(
-    '_state',
-    'questionStore._store.@each.{value,hidden,isNew}'
-  ),
-  _state: task(function*() {
-    let names = this.getWithDefault('allQuestions', [])
+  state: computed(
+    'questionStore._store.@each.{value,hidden,isNew}',
+    function() {
+      let names = this.getWithDefault('allQuestions', [])
 
-    let questions = yield this.get('questionStore.findSet').perform(
-      names,
-      this.instance
-    )
+      let questions = this.questionStore
+        .peekSet(names, this.instance)
+        .filter(q => !q.hidden)
 
-    questions = (yield all(
-      questions.map(
-        async q => ((await q.get('_hiddenTask').perform()) ? null : q)
-      )
-    )).filter(Boolean)
+      if (!questions.length) {
+        return null
+      }
 
-    if (!questions.length) {
-      return null
+      if (questions.every(q => q.get('isNew'))) {
+        return 'untouched'
+      }
+
+      let relevantQuestions = questions.filter(q => q.get('field.required'))
+
+      if (relevantQuestions.some(q => q.get('isNew'))) {
+        return 'unfinished'
+      }
+
+      return relevantQuestions.every(q => q.validate() === true)
+        ? 'valid'
+        : 'invalid'
     }
-
-    if (questions.every(q => q.get('isNew'))) {
-      return 'untouched'
-    }
-
-    let relevantQuestions = questions.filter(q => q.get('field.required'))
-
-    if (relevantQuestions.some(q => q.get('isNew'))) {
-      return 'unfinished'
-    }
-
-    return relevantQuestions.every(q => q.validate() === true)
-      ? 'valid'
-      : 'invalid'
-  })
+  )
 })
 
 export default Controller.extend({
@@ -153,51 +144,41 @@ export default Controller.extend({
     )
   }),
 
-  links: computedTask(
-    '_links',
+  links: computed(
     'modules.lastSuccessful.value.[]',
-    'questionStore._store.@each.{value,isNew,hidden}'
-  ),
-  _links: task(function*() {
-    return [
-      'instances.edit.index',
-      ...(yield all(
-        this.getWithDefault('modules.lastSuccessful.value', []).map(async m => {
-          return (await m.get('state.last')) ? m.get('link') : null
-        })
-      )).filter(Boolean),
-      ...(this.get('model.meta.editable').includes('form')
-        ? ['instances.edit.submit']
-        : [])
-    ]
-  }),
-
-  currentIndex: computed(
-    'links.lastSuccessful.value.[]',
-    'router.currentRouteName',
+    'questionStore._store.@each.{value,isNew,hidden}',
     function() {
-      return this.getWithDefault('links.lastSuccessful.value', []).indexOf(
-        this.get('router.currentRouteName')
-      )
+      return [
+        'instances.edit.index',
+        ...this.getWithDefault('modules.lastSuccessful.value', [])
+          .filter(({ state }) => Boolean(state))
+          .mapBy('link'),
+        ...(this.get('model.meta.editable').includes('form')
+          ? ['instances.edit.submit']
+          : [])
+      ]
     }
   ),
 
+  currentIndex: computed('links.[]', 'router.currentRouteName', function() {
+    return this.getWithDefault('links', []).indexOf(
+      this.get('router.currentRouteName')
+    )
+  }),
+
   hasPrev: gt('currentIndex', 0),
   hasNext: computed(
-    'links.lastSuccessful.value.length',
+    'links.length',
     'currentIndex.lastSuccessful.value',
     function() {
-      return (
-        this.currentIndex <
-        this.getWithDefault('links.lastSuccessful.value.length', 0) - 1
-      )
+      return this.currentIndex < this.getWithDefault('links.length', 0) - 1
     }
   ),
 
   prev: task(function*() {
     yield this.get('questionStore.saveQuestion.last')
 
-    let links = this.get('links.lastSuccessful.value')
+    let links = this.links
     let i = this.currentIndex
 
     yield this.transitionToRoute(
@@ -208,7 +189,7 @@ export default Controller.extend({
   next: task(function*() {
     yield this.get('questionStore.saveQuestion.last')
 
-    let links = this.get('links.lastSuccessful.value')
+    let links = this.links
     let i = this.currentIndex
 
     yield this.transitionToRoute(get(links, (i + 1) % links.length))

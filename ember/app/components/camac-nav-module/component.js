@@ -1,8 +1,17 @@
 import Component from '@ember/component'
-import ActiveLinkMixin from 'ember-cli-active-link-wrapper/mixins/active-link'
+import { inject as service } from '@ember/service'
+import { computed } from '@ember/object'
 
-export default Component.extend(ActiveLinkMixin, {
-  activeClass: 'uk-active',
+export default Component.extend({
+  router: service(),
 
-  tagName: 'li'
+  tagName: 'li',
+
+  classNameBindings: ['active:uk-active'],
+
+  active: computed('module.link', 'router.currentRouteName', function() {
+    return new RegExp(`^${this.get('module.link')}.*$`).test(
+      this.router.currentRouteName
+    )
+  })
 })

@@ -4,13 +4,15 @@ import { render, click, fillIn } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
 import { selectChoose } from 'ember-power-select/test-support/helpers'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
 
 module('Integration | Component | camac-gwr', function(hooks) {
   setupRenderingTest(hooks)
   setupMirage(hooks)
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
     let instance = this.server.create('instance')
+
     this.set('instance', instance)
 
     this.building = this.server.create('form-field', {
@@ -106,6 +108,8 @@ module('Integration | Component | camac-gwr', function(hooks) {
         }
       }
     })
+
+    await loadQuestions(['test-gwr'], instance.id)
   })
 
   test('it renders a GWR', async function(assert) {

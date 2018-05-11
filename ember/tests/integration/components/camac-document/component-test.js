@@ -3,16 +3,18 @@ import { setupRenderingTest } from 'ember-qunit'
 import { render, find, triggerEvent, click } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
 
 module('Integration | Component | camac-document', function(hooks) {
   setupRenderingTest(hooks)
   setupMirage(hooks)
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
     let instance = this.server.create('instance')
+
     this.set('instance', instance)
 
-    this.attachment = this.server.create('attachment', {
+    this.server.create('attachment', {
       name: 'test-document',
       instance
     })
@@ -30,12 +32,14 @@ module('Integration | Component | camac-document', function(hooks) {
         }
       }
     })
+
+    await loadQuestions(['test-document'], instance.id)
   })
 
   test('it renders', async function(assert) {
     assert.expect(2)
 
-    await render(hbs`{{camac-document 'test-document'instance=instance}}`)
+    await render(hbs`{{camac-document 'test-document' instance=instance}}`)
 
     assert.dom('.uk-text-center').hasText('Test Doc *')
     assert.dom('span[uk-icon]').hasAttribute('uk-tooltip', 'Hint hint hint')
