@@ -128,6 +128,7 @@ pure_config_models = (
 # be safely flushed and re-imported.
 models_referencing_data = (
     'core.AnswerQuery',
+    'core.BuildingAuthoritySection',
     'core.Chapter',
     'core.CirculationAnswer',
     'core.CirculationAnswerType',
