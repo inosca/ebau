@@ -12,11 +12,11 @@ export default Controller.extend({
     })
   }).restartable(),
 
-  actions: {
-    navigate(instance) {
-      this.transitionToRoute('instances.edit', instance.id, {
-        queryParams: { group: this.group }
-      })
-    }
-  }
+  navigate: task(function*(instance) {
+    let group = this.group
+
+    yield this.transitionToRoute('instances.edit', instance.id, {
+      queryParams: group ? { group } : {}
+    })
+  })
 })

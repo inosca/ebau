@@ -634,7 +634,7 @@
       "label": "Gebäude- und Wohnungsregister",
       "type": "gwr",
       "required": true,
-      "active-expression": "'Bauten(n)' in 'kategorie-des-vorhabens'|value",
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "columns": [
           {

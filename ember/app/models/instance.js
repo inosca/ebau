@@ -7,7 +7,8 @@ export default Model.extend({
   creationDate: attr('date'),
   location: belongsTo('location'),
   form: belongsTo('form'),
-  formFields: hasMany('form-field'),
+  fields: hasMany('form-field'),
+  attachments: hasMany('attachment'),
   instanceState: belongsTo('instance-state'),
   previousInstanceState: belongsTo('instance-state')
 })

@@ -1,16 +1,22 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
+import { run } from '@ember/runloop'
 
 module('Unit | Controller | instances/edit', function(hooks) {
   setupTest(hooks)
   setupMirage(hooks)
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
     let form = server.create('form', { name: 'test' })
+    let instance = server.create('instance', { formId: form.id })
+    let store = this.owner.lookup('service:store')
 
     this.model = {
-      instance: server.create('instance', { formId: form.id }),
+      instance: await run(async () =>
+        store.findRecord('instance', instance.id, { include: 'form' })
+      ),
       meta: { editable: ['form', 'document'] }
     }
 
@@ -68,6 +74,16 @@ module('Unit | Controller | instances/edit', function(hooks) {
         'test-question-4': { required: true }
       }
     }))
+
+    await loadQuestions(
+      [
+        'test-question-1',
+        'test-question-2',
+        'test-question-3',
+        'test-question-4'
+      ],
+      this.model.instance.id
+    )
   })
 
   test('it computes the modules', async function(assert) {
@@ -78,7 +94,7 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    let modules = await controller.get('modules').perform()
+    let modules = await run(async () => controller.get('modules').perform())
 
     assert.equal(modules.length, 7)
   })
@@ -91,11 +107,9 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    await controller.get('modules').perform()
+    await run(async () => controller.get('modules').perform())
 
-    let links = await controller.get('links').perform()
-
-    assert.deepEqual(links, [
+    assert.deepEqual(controller.links, [
       'instances.edit.index', // landing page
       'instances.edit.module1.test2',
       'instances.edit.module2',
@@ -113,7 +127,7 @@ module('Unit | Controller | instances/edit', function(hooks) {
     controller.set('model', this.model)
     controller.set('router', this.router)
 
-    await controller.get('modules').perform()
+    await run(async () => controller.get('modules').perform())
 
     let navigation = controller.get('navigation')
 
@@ -166,12 +180,19 @@ module('Unit | Controller | instances/edit', function(hooks) {
       }
     }))
 
+    this.owner.lookup('service:question-store').notifyPropertyChange('config')
+
+    await loadQuestions(
+      ['form-question', 'document-question'],
+      this.model.instance.id
+    )
+
     let controller = this.owner.lookup('controller:instances/edit')
 
     controller.set('model', { ...this.model, meta: { editable: ['document'] } })
     controller.set('router', this.router)
 
-    let modules = await controller.get('modules').perform()
+    let modules = await run(async () => controller.get('modules').perform())
 
     assert.equal(modules[0].get('editableTypes.length'), 1)
 

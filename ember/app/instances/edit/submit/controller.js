@@ -24,10 +24,12 @@ export default Controller.extend({
     }
 
     let questions = (yield all(
-      (yield this.get('questionStore.findSet').perform(
-        modules.reduce((flat, m) => [...flat, ...m.get('allQuestions')], []),
-        this.get('model.instance.id')
-      )).map(async q => ((await q.get('hidden')) ? null : q))
+      this.questionStore
+        .peekSet(
+          modules.reduce((flat, m) => [...flat, ...m.get('allQuestions')], []),
+          this.get('model.instance.id')
+        )
+        .map(async q => ((await q.get('hidden')) ? null : q))
     )).filter(Boolean)
 
     return questions.every(q => q.validate() === true)
