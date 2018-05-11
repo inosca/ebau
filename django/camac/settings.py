@@ -145,14 +145,6 @@ REQUEST_LOGGING_CONTENT_TYPES = env.list(
 
 # Managing files
 
-DOWNLOADVIEW_BACKEND = env.str(
-    'DJANGO_DOWNLOADVIEW_BACKEND',
-    default=default(
-        'django_downloadview.middlewares.DownloadDispatcherMiddleware'
-    )
-)
-DOWNLOADVIEW_RULES = env.list('DJANGO_DOWNLOADVIEW_RULES', default=default([]))
-
 MEDIA_ROOT = env.str(
     'DJANGO_MEDIA_ROOT', default=default(ROOT_DIR('media'))
 )
