@@ -8,12 +8,14 @@ export default async function loadQuestions(names, instanceId) {
   let qstore = owner.lookup('service:question-store')
   let store = owner.lookup('service:store')
 
+  await run(async () => await store.findRecord('instance', instanceId))
   await run(
-    async () =>
-      await store.findRecord('instance', instanceId, {
-        include: 'fields,attachments'
-      })
+    async () => await store.query('form-field', { instance: instanceId })
   )
+  await run(
+    async () => await store.query('attachment', { instance: instanceId })
+  )
+
   let qs = [
     ...store.peekAll('form-field').toArray(),
     ...store.peekAll('attachment').toArray()

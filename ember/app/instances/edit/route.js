@@ -14,12 +14,15 @@ export default Route.extend({
     let response = await this.ajax.request(`/api/v1/instances/${id}`, {
       data: {
         group,
-        include: 'form,instance_state,location,fields,attachments'
+        include: 'form,instance_state,location'
       },
       headers: {
         Accept: 'application/vnd.api+json'
       }
     })
+
+    await this.store.query('form-field', { instance: id, group })
+    await this.store.query('attachment', { instance: id, group })
 
     let {
       data: { meta }
