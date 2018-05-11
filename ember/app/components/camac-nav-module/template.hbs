@@ -1,7 +1,7 @@
 {{#link-to module.link class='uk-padding-right'}}
   <div class="uk-flex uk-flex-between uk-flex-middle">
     <div class={{unless module.parent 'uk-text-bold'}}>{{module.title}}</div>
-    {{#with module.state.lastSuccessful.value as |s|}}
+    {{#with module.state as |s|}}
       {{#if (eq s 'untouched')}}
         <span
           title="Der Abschnitt wurde noch nicht angefangen"
@@ -30,7 +30,7 @@
 {{#if module.submodules}}
   <ul class="uk-tab uk-tab-left uk-margin-left uk-margin-remove-vertical">
     {{#each module.submodules as |submodule|}}
-      {{#if submodule.state.lastSuccessful.value as |s|}}
+      {{#if submodule.state}}
         {{camac-nav-module module=submodule}}
       {{/if}}
     {{/each}}
