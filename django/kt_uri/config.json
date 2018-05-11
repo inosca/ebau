@@ -50247,7 +50247,7 @@
   "pk": 225,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG)",
+    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD",
     "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
@@ -50256,7 +50256,7 @@
   "pk": 241,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG)",
+    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD",
     "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
@@ -50265,7 +50265,7 @@
   "pk": 242,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG)",
+    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) BD",
     "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
@@ -50400,7 +50400,7 @@
   "pk": 257,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG)",
+    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
     "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
   }
 },
@@ -50409,7 +50409,7 @@
   "pk": 258,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG)",
+    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
     "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
   }
 },
@@ -50418,7 +50418,7 @@
   "pk": 259,
   "fields": {
     "form_state": 1,
-    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG)",
+    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) AFE",
     "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
   }
 },
