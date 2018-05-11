@@ -1,12 +1,13 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
 
 module('Unit | Controller | instances/edit/submit', function(hooks) {
   setupTest(hooks)
   setupMirage(hooks)
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
     let form = this.server.create('form', { name: 'test' })
 
     this.instance = this.server.create('instance', {
@@ -41,6 +42,11 @@ module('Unit | Controller | instances/edit/submit', function(hooks) {
         }
       }
     }))
+
+    await loadQuestions(
+      ['question-1', 'question-2', 'question-3'],
+      this.instance.id
+    )
   })
 
   test('it computes if the instance can be submitted', async function(assert) {
@@ -53,9 +59,9 @@ module('Unit | Controller | instances/edit/submit', function(hooks) {
     editController.setProperties({ model: this.model, router: this.router })
     controller.setProperties({ model: this.model, router: this.router })
 
-    let q1 = await store.get('find').perform('question-1', this.instance.id)
-    let q2 = await store.get('find').perform('question-2', this.instance.id)
-    let q3 = await store.get('find').perform('question-3', this.instance.id)
+    let q1 = await store.peek('question-1', this.instance.id)
+    let q2 = await store.peek('question-2', this.instance.id)
+    let q3 = await store.peek('question-3', this.instance.id)
 
     await editController.get('modules').perform()
 

@@ -1,6 +1,8 @@
 import { module, test } from 'qunit'
 import { setupTest } from 'ember-qunit'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
+import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
+import { run } from '@ember/runloop'
 
 module('Unit | Service | question-store', function(hooks) {
   setupTest(hooks)
@@ -16,47 +18,44 @@ module('Unit | Service | question-store', function(hooks) {
     }))
   })
 
-  test('can build a question', async function(assert) {
-    assert.expect(5)
+  test('can build a question without model', async function(assert) {
+    assert.expect(4)
 
     let service = this.owner.lookup('service:question-store')
 
-    this.server.get('/api/v1/form-fields', () => {
-      assert.step('backend-call')
-
-      return { data: [] }
-    })
-
-    let question = await service._buildQuestion('test', this.instanceId)
+    let question = await service.buildQuestion('test', this.instanceId)
 
     assert.ok(question.get('name'))
     assert.ok(question.get('field'))
     assert.ok(question.get('model'))
-
-    assert.verifySteps(['backend-call'])
+    assert.ok(question.get('model.isNew'))
   })
 
-  test('can find a question', async function(assert) {
-    assert.expect(1)
+  test('can build a question with model', async function(assert) {
+    assert.expect(4)
+
+    this.server.create('form-field', {
+      name: 'test',
+      instanceId: this.instanceId
+    })
 
     let service = this.owner.lookup('service:question-store')
+    let store = this.owner.lookup('service:store')
 
-    let question = await service.get('find').perform('test', this.instanceId)
+    let model = await run(
+      async () => await store.query('form-field', { name: 'test' })
+    )
 
-    assert.equal(question.get('name'), 'test')
-  })
+    let question = await service.buildQuestion(
+      'test',
+      this.instanceId,
+      model.firstObject
+    )
 
-  test('can find a set of questions', async function(assert) {
-    assert.expect(2)
-
-    let service = this.owner.lookup('service:question-store')
-
-    let [test1, test2] = await service
-      .get('findSet')
-      .perform(['test1', 'test2'], this.instanceId)
-
-    assert.equal(test1.get('name'), 'test1')
-    assert.equal(test2.get('name'), 'test2')
+    assert.ok(question.get('name'))
+    assert.ok(question.get('field'))
+    assert.ok(question.get('model'))
+    assert.notOk(question.get('model.isNew'))
   })
 
   test('can validate question', async function(assert) {
@@ -77,6 +76,8 @@ module('Unit | Service | question-store', function(hooks) {
 
     let service = this.owner.lookup('service:question-store')
 
+    await loadQuestions(['test1', 'test2'], this.instanceId)
+
     let validations = {
       test1(_, value) {
         return `${value} is an invalid value!`
@@ -88,8 +89,8 @@ module('Unit | Service | question-store', function(hooks) {
 
     service.set('_validations', validations)
 
-    let test1 = await service.get('find').perform('test1', this.instanceId)
-    let test2 = await service.get('find').perform('test2', this.instanceId)
+    let test1 = await service.peek('test1', this.instanceId)
+    let test2 = await service.peek('test2', this.instanceId)
 
     test1.set('model.value', 'somevalue')
     test2.set('model.value', 'somevalue')
@@ -109,11 +110,13 @@ module('Unit | Service | question-store', function(hooks) {
       }
     })
 
+    await loadQuestions(['test', 'foo', 'bar'], this.instanceId)
+
     let service = this.owner.lookup('service:question-store')
 
-    let test = await service.get('find').perform('test', this.instanceId)
-    let foo = await service.get('find').perform('foo', this.instanceId)
-    let bar = await service.get('find').perform('bar', this.instanceId)
+    let test = await service.peek('test', this.instanceId)
+    let foo = await service.peek('foo', this.instanceId)
+    let bar = await service.peek('bar', this.instanceId)
 
     foo.set('model.value', 3)
     bar.set('model.value', 3)
@@ -155,7 +158,9 @@ module('Unit | Service | question-store', function(hooks) {
 
     let service = this.owner.lookup('service:question-store')
 
-    let question = await service.get('find').perform('test', 1)
+    await loadQuestions(['test'], this.instanceId)
+
+    let question = service.peek('test', this.instanceId)
 
     assert.deepEqual(await service.get('saveQuestion').perform(question), [
       'Diese Frage darf nicht leer gelassen werden'

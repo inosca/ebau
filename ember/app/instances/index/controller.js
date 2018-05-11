@@ -7,16 +7,16 @@ export default Controller.extend({
 
   instances: task(function*() {
     return yield this.store.query('instance', {
-      group: this.group,
+      // group: this.group,
       include: 'form,instance-state,location'
     })
   }).restartable(),
 
-  actions: {
-    navigate(instance) {
-      this.transitionToRoute('instances.edit', instance.id, {
-        queryParams: { group: this.group }
-      })
-    }
-  }
+  navigate: task(function*(instance) {
+    let group = this.group
+
+    yield this.transitionToRoute('instances.edit', instance.id, {
+      queryParams: group ? { group } : {}
+    })
+  })
 })

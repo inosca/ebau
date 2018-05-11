@@ -15,10 +15,7 @@ const CamacInputComponent = Component.extend({
   questionStore: service('question-store'),
 
   question: computed('identifier', function() {
-    return this.get('questionStore.find').perform(
-      this.identifier,
-      this.get('instance.id')
-    )
+    return this.questionStore.peek(this.identifier, this.instance.id)
   }),
 
   save: task(function*(value) {
@@ -26,13 +23,11 @@ const CamacInputComponent = Component.extend({
       return
     }
 
-    let question = yield this.question
-
-    question.set('model.value', value)
+    this.question.set('model.value', value)
 
     this.set(
       'error',
-      yield this.get('questionStore.saveQuestion').perform(question)
+      yield this.get('questionStore.saveQuestion').perform(this.question)
     )
   }).restartable()
 })

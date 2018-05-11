@@ -2,26 +2,19 @@ import Controller from '@ember/controller'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
 import UIkit from 'uikit'
+import { computed } from '@ember/object'
 import computedTask from 'citizen-portal/lib/computed-task'
 
 export default Controller.extend({
   questionStore: service(),
   ajax: service(),
 
-  parcel: computedTask('_parcel', 'model.instance.id'),
-  _parcel: task(function*() {
-    return yield this.get('questionStore.find').perform(
-      'parzelle',
-      this.get('model.instance.id')
-    )
+  parcel: computed('model.instance.id', function() {
+    return this.questionStore.peek('parzelle', this.model.instance.id)
   }),
 
-  attachment: computedTask('_attachment', 'model.instance.id'),
-  _attachment: task(function*() {
-    return yield this.get('questionStore.find').perform(
-      'dokument-parzelle',
-      this.get('model.instance.id')
-    )
+  attachment: computed('model.instance.id', function() {
+    return this.questionStore.peek('dokument-parzelle', this.model.instance.id)
   }),
 
   selected: computedTask(
@@ -31,7 +24,7 @@ export default Controller.extend({
   ),
   _selected: task(function*() {
     let location = yield this.get('model.instance.location')
-    let parcel = yield this.get('parcel.last')
+    let parcel = this.parcel
 
     if (!location || !parcel.get('value')) {
       return null
@@ -54,7 +47,7 @@ export default Controller.extend({
 
       instance.set('location', location.get('firstObject'))
 
-      let attachment = yield this.get('attachment.last')
+      let attachment = this.attachment
 
       let filename = `${attachment.get('name')}.${file.type.split('/').pop()}`
 
@@ -82,7 +75,7 @@ export default Controller.extend({
 
       yield instance.save()
 
-      let parcel = yield this.get('parcel.last')
+      let parcel = this.parcel
       parcel.set('model.value', parseInt(number))
       yield parcel.get('model').save()
 

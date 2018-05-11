@@ -7,7 +7,6 @@ import UIkit from 'uikit'
 import fetch from 'fetch'
 import Ember from 'ember'
 import download from 'downloadjs'
-import computedTask from 'citizen-portal/lib/computed-task'
 
 const { testing } = Ember
 
@@ -27,15 +26,10 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  classNameBindings: ['hidden.lastSuccessful.value:uk-hidden'],
+  classNameBindings: ['question.hidden:uk-hidden'],
   classNames: ['uk-margin-remove', 'uk-animation-fade'],
 
   mimeTypes: ALLOWED_MIME_TYPES.join(','),
-
-  hidden: computedTask('_hidden', 'question.hidden'),
-  _hidden: task(function*() {
-    return (yield this.question).get('hidden')
-  }),
 
   download: task(function*() {
     try {

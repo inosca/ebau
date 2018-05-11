@@ -2,18 +2,18 @@
   <div uk-grid>
     <div class="uk-width-1-1 uk-width-1-3@m">
       <ul class="uk-tab uk-tab-left">
-        {{#active-link activeClass='uk-active'}}
+        <li class={{if (eq router.currentRouteName 'instances.edit.index') 'uk-active'}}>
           {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
-        {{/active-link}}
+        </li>
         {{#each navigation as |m|}}
-          {{#if m.state.lastSuccessful.value}}
+          {{#if m.state}}
             {{camac-nav-module module=m}}
           {{/if}}
         {{/each}}
         {{#if (contains 'form' model.meta.editable)}}
-          {{#active-link activeClass='uk-active'}}
+          <li class={{if (eq router.currentRouteName 'instances.edit.submit') 'uk-active'}}>
             {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bold'}}
-          {{/active-link}}
+          </li>
         {{/if}}
       </ul>
     </div>
