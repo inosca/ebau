@@ -35407,9 +35407,9 @@
     "question": null,
     "field_name": "fulltext",
     "label": "Volltext",
-    "query": "\"INSTANCE\".\"INSTANCE_ID\" IN (\n\n   SELECT\n\n      INSTANCE_ID\n\n    FROM\n\n      ANSWER\n\n    WHERE\n\n      lower(ANSWER) LIKE lower(?)\n\n )",
+    "query": "\"INSTANCE\".\"INSTANCE_ID\" IN (\r\n\r\n   SELECT\r\n\r\n      \"INSTANCE_ID\"\r\n\r\n    FROM\r\n\r\n      \"ANSWER\"\r\n\r\n    WHERE\r\n\r\n      lower(\"ANSWER\") LIKE lower(?)\r\n\r\n )",
     "wildcard": 3,
-    "class_field": ""
+    "class_field": null
   }
 },
 {
