@@ -30,7 +30,9 @@
         "bohrungsdaten",
         "grundeigentumerschaft",
         "gwr",
-        "art-der-befestigten-flache"
+        "art-der-befestigten-flache",
+        "zweck-der-warmepumpe",
+        "standort-der-warmepumpe"
       ]
     }
   },
@@ -251,6 +253,21 @@
           }
         ]
       }
+    },
+    "zweck-der-warmepumpe": {
+      "label": "Zweck der Wärmepumpe:",
+      "type": "checkbox",
+      "required": false,
+      "config": {
+        "options": ["Heizen", "Warmwasser"]
+      }
+    },
+    "standort-der-warmepumpe": {
+      "label": "Standort der Wärmepumpe",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Heizen' in 'zweck-der-warmepumpe'|value",
+      "config": {}
     }
   }
 }
