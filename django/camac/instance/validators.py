@@ -13,6 +13,17 @@ from camac.document.models import Attachment
 
 from . import models
 
+TYPE_DEFAULTS = {
+    'text': None,
+    'number': None,
+    'select': None,
+    'multiselect': [],
+    'radio': None,
+    'checkbox': [],
+    'gwr': [],
+    'table': [],
+}
+
 
 class FormDataValidator(object):
     def __init__(self, instance):
@@ -32,7 +43,10 @@ class FormDataValidator(object):
             }
         }
         self.jexl = JEXL()
-        self.jexl.add_transform('value', lambda name: self.fields.get(name))
+        self.jexl.add_transform('value', lambda name: self.fields.get(
+            name,
+            TYPE_DEFAULTS[self.forms_def['questions'][name]['type']])
+        )
 
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
