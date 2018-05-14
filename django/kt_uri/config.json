@@ -8764,7 +8764,7 @@
   "pk": 1,
   "fields": {
     "available_resource": "page",
-    "action_name": "index",
+    "action_name": "template",
     "hidden": 0
   }
 },
