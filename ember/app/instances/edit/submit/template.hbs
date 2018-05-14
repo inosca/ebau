@@ -1,7 +1,7 @@
 <div class="uk-text-center">
   <p>Wenn Sie alle Fragen korrekt ausgefüllt haben, können Sie hier das Dossier zur Kontrolle einreichen.</p>
 
-  {{#uk-button size='large' color='primary' disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
+  {{#uk-button size='large' color='primary' loading=submit.isRunning disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
 
   {{#unless canSubmit.lastSuccessful.value}}
     <div class="uk-alert uk-alert-danger">
