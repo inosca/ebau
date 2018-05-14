@@ -39,9 +39,13 @@ export default Route.extend({
   async afterModel(model) {
     let { forms, modules } = await this.questionStore.config
 
-    let questions = forms[model.instance.get('form.name')].reduce((qs, mod) => {
-      return [...qs, ...modules[mod].questions]
-    }, [])
+    let questions = [
+      ...new Set(
+        forms[model.instance.get('form.name')].reduce((qs, mod) => {
+          return [...qs, ...modules[mod].questions]
+        }, [])
+      )
+    ]
 
     let build = name =>
       this.questionStore.buildQuestion(name, model.instance.id)
