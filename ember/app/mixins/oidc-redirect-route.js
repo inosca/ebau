@@ -11,10 +11,11 @@ const { authEndpoint, clientId } = config['ember-simple-auth-oidc']
 
 export default Mixin.create(UnauthenticatedRouteMixin, {
   session: service(),
+  router: service(),
 
-  redirectUri: computed('router', function() {
+  redirectUri: computed(function() {
     let { protocol, host } = location
-    let path = this.router.generate(Configuration.authenticationRoute)
+    let path = this.router.urlFor(Configuration.authenticationRoute)
 
     return `${protocol}//${host}${path}`
   }),
