@@ -177,7 +177,8 @@ export default Component.extend({
   handleSearchSelection: task(function*(result) {
     if (
       result.geometry.type === 'Polygon' &&
-      LAYERS.includes(result.properties.layer_name)
+      'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft' ==
+        result.properties.layer_name
     ) {
       let {
         bbox,
