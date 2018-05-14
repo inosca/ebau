@@ -531,11 +531,11 @@ class Authority(models.Model):
 class AuthorityAuthorityType(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
     authority = models.ForeignKey(
-        Authority, models.DO_NOTHING,
+        Authority, models.CASCADE,
         db_column='AUTHORITY_ID', related_name='+'
     )
     authority_type = models.ForeignKey(
-        'AuthorityType', models.DO_NOTHING,
+        'AuthorityType', models.CASCADE,
         db_column='AUTHORITY_TYPE_ID', related_name='+'
     )
 
@@ -550,7 +550,7 @@ class AuthorityLocation(models.Model):
         Authority, models.CASCADE, db_column='AUTHORITY_ID',
         related_name='+')
     location = models.ForeignKey(
-        'user.Location', models.DO_NOTHING, db_column='LOCATION_ID',
+        'user.Location', models.CASCADE, db_column='LOCATION_ID',
         related_name='+')
 
     class Meta:

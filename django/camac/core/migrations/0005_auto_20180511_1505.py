@@ -32,19 +32,19 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='authorityauthoritytype',
             name='authority',
-            field=models.ForeignKey(db_column='AUTHORITY_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='core.Authority'),
+            field=models.ForeignKey(db_column='AUTHORITY_ID', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='core.Authority'),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name='authorityauthoritytype',
             name='authority_type',
-            field=models.ForeignKey(db_column='AUTHORITY_TYPE_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='core.AuthorityType'),
+            field=models.ForeignKey(db_column='AUTHORITY_TYPE_ID', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='core.AuthorityType'),
             preserve_default=False,
         ),
         migrations.AlterField(
             model_name='authoritylocation',
             name='location',
-            field=models.ForeignKey(db_column='LOCATION_ID', on_delete=django.db.models.deletion.DO_NOTHING, related_name='+', to='user.Location'),
+            field=models.ForeignKey(db_column='LOCATION_ID', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='user.Location'),
         ),
         migrations.AlterField(
             model_name='billingentry',
