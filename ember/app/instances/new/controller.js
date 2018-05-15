@@ -3,7 +3,7 @@ import { task } from 'ember-concurrency'
 
 export default Controller.extend({
   forms: task(function*() {
-    return yield this.store.findAll('form')
+    return yield this.store.query('form', {})
   }).restartable(),
 
   save: task(function*() {
