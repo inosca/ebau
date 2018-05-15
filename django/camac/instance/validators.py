@@ -13,17 +13,6 @@ from camac.document.models import Attachment
 
 from . import models
 
-TYPE_DEFAULTS = {
-    'text': None,
-    'number': None,
-    'select': None,
-    'multiselect': [],
-    'radio': None,
-    'checkbox': [],
-    'gwr': [],
-    'table': [],
-}
-
 
 class FormDataValidator(object):
     def __init__(self, instance):
@@ -43,10 +32,7 @@ class FormDataValidator(object):
             }
         }
         self.jexl = JEXL()
-        self.jexl.add_transform('value', lambda name: self.fields.get(
-            name,
-            TYPE_DEFAULTS[self.forms_def['questions'][name]['type']])
-        )
+        self.jexl.add_transform('value', lambda name: self.fields.get(name))
 
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
@@ -144,7 +130,12 @@ class FormDataValidator(object):
 
         expression = question_def.get('active-expression', None)
 
-        return expression is None or self.jexl.evaluate(expression)
+        try:
+            return expression is None or self.jexl.evaluate(expression)
+        except TypeError:
+            # A TypeError is raised if a question is not filled. It then tries
+            # to e.g compare None < 250 which can't work
+            return False
 
     def _validate_question(self, question, question_def, value):
         required = self._check_question_required(question, question_def)
