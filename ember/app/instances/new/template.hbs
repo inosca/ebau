@@ -6,7 +6,7 @@
   <h4 class="uk-text-center">Um welche Art von Gesuch handelt es sich?</h4>
 
   <div uk-grid class="uk-grid-small">
-    {{#each forms.lastSuccessful.value as |form|}}
+    {{#each (sort-by 'name' forms.lastSuccessful.value) as |form|}}
       <div class="uk-width-1-1 uk-width-1-2@s">
         {{#uk-button color=(if (eq form.id model.form.id) 'secondary' 'default') width='1-1' class='uk-flex uk-flex-center uk-flex-middle uk-text-center' on-click=(action (mut model.form) form)}}
           {{form.description}}

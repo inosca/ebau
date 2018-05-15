@@ -53,5 +53,14 @@ export default Route.extend({
     let questionObjects = await all(questions.map(await build))
 
     this.questionStore._store.pushObjects(questionObjects)
+  },
+
+  resetController(_, isExiting) {
+    if (isExiting) {
+      // We clear the store and the question store at this point so we do not
+      // have too much unnecessary data in the memory
+      this.store.unloadAll()
+      this.questionStore.clear()
+    }
   }
 })
