@@ -49,7 +49,6 @@ pure_config_models = (
     'core.BuildingAuthorityButton',
     'core.BuildingAuthorityDoc',
     'core.BuildingAuthorityEmail',
-    'core.BuildingAuthoritySection',
     'core.Button',
     'core.ChapterPage',
     'core.ChapterPageGroupAcl',
