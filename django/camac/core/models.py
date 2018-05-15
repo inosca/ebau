@@ -782,8 +782,10 @@ class BuildingAuthorityButtonstate(models.Model):
     instance = models.ForeignKey(
         'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='+')
-    is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED')
-    is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED')
+    is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED',
+                                                  default=0)
+    is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED',
+                                                   default=0)
 
     class Meta:
         managed = True
