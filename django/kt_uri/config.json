@@ -4414,7 +4414,7 @@
   "fields": {
     "sender_name": "Uri Baugesuchsverwaltung",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Nachforderung zus\u00e4tzlicher Unterlagen",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nNACHFORDERUNG\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nWir danken Ihnen f\u00fcr die Erfassung des Dossiers mit der ID [INSTANCE_ID]. Nach einer ersten Pr\u00fcfung der Unterlagen stellen wir fest, dass diverse Unterlagen / Angaben fehlen. Damit wir das Pr\u00fcfverfahren er\u00f6ffnen k\u00f6nnen, bitten wir Sie, die fehlenden Angaben gem\u00e4ss Angaben im Portal noch nachzuliefern. Bitte beachten Sie, dass das Dossier nach erfolgtem Upload der zus\u00e4tzlichen Angaben nochmals gesendet werden muss (Button \"Dossier Senden\" bet\u00e4tigen):\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]"
   }
@@ -4425,7 +4425,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Dossier weitergeleitet an Koordinationsstelle",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\nDOSSIER WEITERGELEITET AN KOORDINATIONSSTELLE\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat das Dossier Nr. [@c2q6i1] gepr\u00fcft. Es sind kantonale Bewilligungen / Pr\u00fcfungen notwendig. Das Dossier wurde zur Bearbeitung an die Koordinationsstelle f\u00fcr Baueingaben des Kantons Uri weitergeleitet.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 6 bis 7 Wochen.\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]"
   }
@@ -4436,7 +4436,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde an die Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
   }
@@ -4458,7 +4458,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Dossier angenommen",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nDOSSIER ANGENOMMEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossier mit der ID Nr. [INSTANCE_ID] wurde von der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] als vollst\u00e4ndig angenommen. Das Pr\u00fcfverfahren / Bewilligungsverfahren wurde gestartet. Sie werden mit Statusmeldungen \u00fcber den weiteren Verlauf des Verfahrens informiert.\n\nUnter dem Vorbehalt, dass das Dossier vollst\u00e4ndig ist und Seitens der kantonalen Fachstellen keine weiteren Angaben nachgefordert werden oder ein Augenschein vor Ort notwendig ist, betr\u00e4gt die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde voraussichtlich 2 Monate.\n\n\nMit freundlichen Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]"
   }
@@ -4469,7 +4469,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Dossier abgewiesen",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nDOSSIER ABGEWIESEN \n\nSehr geehrte Dame\nSehr geehrter Herr\n\nSie haben via B\u00fcrgerportal des Kantons Uri das Dossier mit der ID [INSTANCE_ID] erfasst. Wir stellen fest, dass das Dossier keinerlei Unterlagen enth\u00e4lt und auch die erforderlichen Angaben zum Vorhaben wie Art, Lage, usw. fehlen. Das Dossier wird deshalb zur\u00fcckgewiesen bzw. gel\u00f6scht.\n\nFalls das Dossier allenfalls versehentlich ohne jegliche Angaben verschickt wurde, bitten wir Sie, dieses nochmals zu erfassen.\n\nMit freundliche Gr\u00fcssen\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]"
   }
@@ -4480,7 +4480,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Dossier von Koordinationsstelle f\u00fcr Baueingaben an die Gemeinde zur\u00fcckgeschickt",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatus-Meldung zum Stand des Bewilligungsverfahrens\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDas Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde an die Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zur\u00fcckgeschickt. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 10 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
   }
@@ -4678,7 +4678,7 @@
   "fields": {
     "sender_name": "Camac Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "select * from PROJECT_SUBMITTER_DATA WHERE INSTANCE_ID = [INSTANCE_ID]",
+    "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Zirkulation abgeschlossen",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 14 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
   }
