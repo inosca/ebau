@@ -884,7 +884,7 @@ class BuildingAuthoritySectionDis(models.Model):
         'instance.Instance', models.DO_NOTHING, db_column='INSTANCE_ID',
         related_name='+')
     ba_section = models.ForeignKey(
-        BuildingAuthoritySection, models.CASCADE, db_column='BA_SECTION_ID',
+        BuildingAuthoritySection, models.DO_NOTHING, db_column='BA_SECTION_ID',
         related_name='+')
 
     class Meta:
