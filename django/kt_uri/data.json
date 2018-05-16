@@ -1,5 +1,16 @@
 [
 {
+  "model": "core.activationlog",
+  "pk": 2,
+  "fields": {
+    "id": 1,
+    "user_id": 1,
+    "action": "u",
+    "data": "{\"START_DATE\":\"2018-04-17 15:21:17+00:00\",\"DEADLINE_DATE\":\"2018-05-08 23:59:00+02:00\"}",
+    "modification_date": "2018-04-17T15:21:25Z"
+  }
+},
+{
   "model": "user.user",
   "pk": 1,
   "fields": {
@@ -11,6 +22,7 @@
     "phone": null,
     "disabled": 0,
     "language": "de",
+    "last_login": null,
     "address": null,
     "city": null,
     "zip": null
@@ -28,55 +40,10 @@
     "phone": null,
     "disabled": 0,
     "language": "de",
+    "last_login": null,
     "address": null,
     "city": null,
     "zip": null
-  }
-},
-{
-  "model": "user.role",
-  "pk": 1,
-  "fields": {
-    "role_parent": null,
-    "name": "Admin"
-  }
-},
-{
-  "model": "user.role",
-  "pk": 2,
-  "fields": {
-    "role_parent": null,
-    "name": "Guest"
-  }
-},
-{
-  "model": "user.group",
-  "pk": 1,
-  "fields": {
-    "role": 1,
-    "service": null,
-    "name": "Admin",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
-  }
-},
-{
-  "model": "user.group",
-  "pk": 2,
-  "fields": {
-    "role": 2,
-    "service": null,
-    "name": "Guest",
-    "phone": null,
-    "zip": null,
-    "city": null,
-    "address": null,
-    "email": null,
-    "website": null
   }
 },
 {
