@@ -1989,34 +1989,6 @@
   }
 },
 {
-  "model": "core.buildingauthoritysection",
-  "pk": 1,
-  "fields": {
-    "name": "Ordentliches Verfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 2,
-  "fields": {
-    "name": "Rechtsmittelverfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 3,
-  "fields": {
-    "name": "Realisierungsphase"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 4,
-  "fields": {
-    "name": "Meldungen / Dokumente"
-  }
-},
-{
   "model": "core.button",
   "pk": 1,
   "fields": {
@@ -5356,17 +5328,6 @@
   }
 },
 {
-  "model": "core.questionchapter",
-  "pk": 3,
-  "fields": {
-    "question": 4,
-    "chapter": 1,
-    "required": 0,
-    "item": 1,
-    "sort": 2
-  }
-},
-{
   "model": "core.rapilistcirculationstate",
   "pk": 19,
   "fields": {
@@ -5818,6 +5779,34 @@
   }
 },
 {
+  "model": "core.buildingauthoritysection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 4,
+  "fields": {
+    "name": "Meldungen / Dokumente"
+  }
+},
+{
   "model": "core.chapter",
   "pk": 1,
   "fields": {
@@ -5996,6 +5985,22 @@
   }
 },
 {
+  "model": "core.noticetype",
+  "pk": 3,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Hinweis bei Nachforderung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 4,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Hinweis bei Nachforderung"
+  }
+},
+{
   "model": "core.question",
   "pk": 2,
   "fields": {
@@ -6019,22 +6024,6 @@
     "mapping": 1,
     "answer_query": null,
     "name": "Dossier vollst\u00e4ndig",
-    "description": null,
-    "javascript": null,
-    "regex": null,
-    "default_answer": null,
-    "class_field": null,
-    "validation": null
-  }
-},
-{
-  "model": "core.question",
-  "pk": 4,
-  "fields": {
-    "question_type": 2,
-    "mapping": 1,
-    "answer_query": null,
-    "name": "Hinweis bei Nachforderung",
     "description": null,
     "javascript": null,
     "regex": null,
