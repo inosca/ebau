@@ -82,3 +82,7 @@ volumes:
     djangomedia:
         external:
             name: camacdjangomedia
+
+    phpsessions:
+        external:
+            name: camacphpsessions
