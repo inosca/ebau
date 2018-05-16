@@ -530,13 +530,18 @@ class Authority(models.Model):
 
 class AuthorityAuthorityType(models.Model):
     id = models.AutoField(db_column='ID', primary_key=True)
-    authority_id = models.FloatField(db_column='AUTHORITY_ID')
-    authority_type_id = models.FloatField(db_column='AUTHORITY_TYPE_ID')
+    authority = models.ForeignKey(
+        Authority, models.CASCADE,
+        db_column='AUTHORITY_ID', related_name='+'
+    )
+    authority_type = models.ForeignKey(
+        'AuthorityType', models.CASCADE,
+        db_column='AUTHORITY_TYPE_ID', related_name='+'
+    )
 
     class Meta:
         managed = True
         db_table = 'AUTHORITY_AUTHORITY_TYPE'
-        unique_together = (('authority_id', 'authority_type_id'),)
 
 
 class AuthorityLocation(models.Model):
@@ -746,7 +751,7 @@ class BillingEntry(models.Model):
     service = models.ForeignKey('user.Service', models.DO_NOTHING,
                                 db_column='SERVICE_ID', related_name='+',
                                 blank=True, null=True)
-    created = models.DateTimeField(db_column='CREATED')
+    created = models.DateTimeField(db_column='CREATED', null=True)
     amount_type = models.PositiveSmallIntegerField(db_column='AMOUNT_TYPE')
     type = models.PositiveSmallIntegerField(db_column='TYPE')
     reason = models.CharField(
@@ -777,8 +782,10 @@ class BuildingAuthorityButtonstate(models.Model):
     instance = models.ForeignKey(
         'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
         related_name='+')
-    is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED')
-    is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED')
+    is_clicked = models.PositiveSmallIntegerField(db_column='IS_CLICKED',
+                                                  default=0)
+    is_disabled = models.PositiveSmallIntegerField(db_column='IS_DISABLED',
+                                                   default=0)
 
     class Meta:
         managed = True
@@ -2618,7 +2625,6 @@ class WorkflowEntry(models.Model):
     class Meta:
         managed = True
         db_table = 'WORKFLOW_ENTRY'
-        unique_together = (('instance', 'workflow_item', 'group'),)
 
 
 class WorkflowItem(models.Model):

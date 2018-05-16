@@ -12,7 +12,7 @@ class Command(dumpdata.Command):
 
     def handle(self, *app_labels, **options):
         options['indent'] = 2
-        options['exclude'] = pure_config_models + models_referencing_data
+        options['exclude'] += pure_config_models + models_referencing_data
         options['output'] = (
             options.get('output') or settings.APPLICATION_DIR('data.json')
         )
