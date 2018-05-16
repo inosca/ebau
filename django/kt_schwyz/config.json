@@ -8023,14 +8023,14 @@
   "fields": {
     "service_group": 1,
     "service_parent": null,
-    "name": "Amt f\u00fcr Tests",
-    "description": "Amt f\u00fcr Tests",
-    "sort": 2,
+    "name": "Centralschweizeriche Kraftwerke AG",
+    "description": "CKW",
+    "sort": 3,
     "phone": null,
     "zip": null,
     "city": null,
     "address": null,
-    "email": null,
+    "email": "matthias.christen@ckw.ch",
     "website": null
   }
 },
@@ -8040,14 +8040,14 @@
   "fields": {
     "service_group": 2,
     "service_parent": null,
-    "name": "Geometer 1",
-    "description": "Der erste Geometer im Kanton",
-    "sort": 1,
+    "name": "Amt f\u00fcr Arbeit",
+    "description": "AFA",
+    "sort": 2,
     "phone": null,
     "zip": null,
     "city": null,
     "address": null,
-    "email": null,
+    "email": "afa@sz.ch",
     "website": null
   }
 },
@@ -8057,14 +8057,14 @@
   "fields": {
     "service_group": 2,
     "service_parent": null,
-    "name": "Geometer 2",
-    "description": "Test",
-    "sort": 4,
+    "name": "Amt f\u00fcr Gesundheit und Soziales",
+    "description": "AGS",
+    "sort": 29,
     "phone": null,
     "zip": null,
     "city": null,
     "address": null,
-    "email": null,
+    "email": "ags@sz.ch",
     "website": null
   }
 },
@@ -8093,7 +8093,7 @@
     "service_parent": null,
     "name": "Baugesuchszentrale",
     "description": "BGZ Kanton Schwyz",
-    "sort": 0,
+    "sort": 1,
     "phone": null,
     "zip": null,
     "city": null,
@@ -8103,17 +8103,697 @@
   }
 },
 {
+  "model": "user.service",
+  "pk": 8,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Kultur",
+    "description": "AFK",
+    "sort": 30,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afk@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 9,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Landwirtschaft",
+    "description": "AFL",
+    "sort": 31,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afl@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 10,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz",
+    "description": "AMFZ",
+    "sort": 32,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "amfz@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 11,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Natur, Jagd und Fischerei",
+    "description": "ANJF",
+    "sort": 33,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anjf@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 12,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Raumentwicklung",
+    "description": "ARE",
+    "sort": 34,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "are@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 13,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Umweltschutz",
+    "description": "AFU",
+    "sort": 35,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 14,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Vermessung und Geoinformation",
+    "description": "AVG",
+    "sort": 36,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "avg@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 15,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Wald und Naturgefahren",
+    "description": "AWN",
+    "sort": 37,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "awn@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 16,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Wasserbau",
+    "description": "AWB",
+    "sort": 38,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "awb@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 17,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr \u00f6ffentlichen Verkehr",
+    "description": "OEV",
+    "sort": 39,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "oev@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 18,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Fachdienst Verkehr Kantonspolizei Schwyz",
+    "description": "Kapo",
+    "sort": 40,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "fdv.kapo@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 19,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Hochbauamt des Kantons Schwyz",
+    "description": "HBA",
+    "sort": 41,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "hba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 20,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Tiefbauamt des Kantons Schwyz",
+    "description": "TBA",
+    "sort": 42,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "tba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 21,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Verkehrsamt Schwyz",
+    "description": "VASZ",
+    "sort": 43,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "vasz@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 22,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Laboratorium der Urkantone",
+    "description": "LABURK",
+    "sort": 44,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 23,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schweizerische S\u00fcdostbahn AG",
+    "description": "SOB",
+    "sort": 4,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anlagenmanagement@sob.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 24,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schweizerische Bundesbahnen AG Z\u00fcrich",
+    "description": "SBB-Ost",
+    "sort": 5,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "immobilienrechte.ost@sbb.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 25,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schweizerische Bundesbahnen AG Olten",
+    "description": "SBB-Mitte",
+    "sort": 6,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "immobilienrechte.mitte@sbb.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 26,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bundesamt f\u00fcr Strassen Winterthur",
+    "description": "ASTRA Winterthur",
+    "sort": 7,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "willi.schellenberg@astra.admin.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 27,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bundesamt f\u00fcr Strassen Zofingen",
+    "description": "ASTRA Zofingen",
+    "sort": 8,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "thomas.rueetschi@astra.admin.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 28,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrizit\u00e4tswerk Bezirk Schwyz",
+    "description": "EBS",
+    "sort": 9,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "claus.joerg@ebs.swiss",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 29,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrogenossenschaft Bisisthal",
+    "description": "Elektro. Bisisthal",
+    "sort": 10,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "franz.ulrich57@windowslive.com",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 30,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrizit\u00e4tswerke des Kantons Z\u00fcrich",
+    "description": "EKZ",
+    "sort": 11,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "regionsihl@ekz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 31,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrizit\u00e4tswerk der Stadt Z\u00fcrich",
+    "description": "EWZ",
+    "sort": 12,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "hochspannungsleitungen@ewz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 32,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrizit\u00e4tswerk Schwyz AG",
+    "description": "EWS",
+    "sort": 13,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "andre.arnold@ews.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 33,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "AXPO Power AG",
+    "description": "AXPO",
+    "sort": 14,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "trassesicherung@axpo.com",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 34,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Elektrizit\u00e4tswerk Altdorf",
+    "description": "EWA",
+    "sort": 15,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anton.zgraggen@ewa.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 35,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Swissgrid AG",
+    "description": "Swissgrid AG",
+    "sort": 16,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "nicole.frank@swissgrid.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 36,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Alpiq EnerTrans AG",
+    "description": "Alpiq",
+    "sort": 17,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "melissa.vetter@alpiq.com",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 37,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Z\u00fcrichsee Schifffahrtsgesellschaft",
+    "description": "ZSG",
+    "sort": 18,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "marc.rizzi@zsg.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 38,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schifffahrtsgesellschaft des Vierwaldst\u00e4ttersees",
+    "description": "SGV",
+    "sort": 19,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "m.scheurer@lakelucerne.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 39,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schifffahrtsgesellschaft f\u00fcr den Zugersee AG",
+    "description": "ZSG",
+    "sort": 20,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "benjamin.schacht@zsg.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 40,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bezirk Schwyz",
+    "description": "Bez Schwyz",
+    "sort": 21,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "info@bezirk-schwyz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 41,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bezirk H\u00f6fe",
+    "description": "Bez H\u00f6fe",
+    "sort": 22,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "bezirkskanzlei@hoefe.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 42,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bezirk March",
+    "description": "Bez March",
+    "sort": 23,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "werner.koller@bezirk-march.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 43,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Schiessoffizier",
+    "description": "Schiessoffizier",
+    "sort": 24,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "hans.wyrsch@gmx.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 44,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Linthebene Melioration",
+    "description": "LEM",
+    "sort": 25,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "hauser@linthebene.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 45,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Eidg. Starkstrominspektorat",
+    "description": "ESTI Fehraltorf",
+    "sort": 26,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "daniel.haller@esti.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 46,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bundesamt f\u00fcr Umwelt",
+    "description": "BAFU",
+    "sort": 27,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "info@bafu.admin.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 47,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bundesamt f\u00fcr Verkehr",
+    "description": "BAV",
+    "sort": 28,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "info@bav.admin.ch",
+    "website": null
+  }
+},
+{
   "model": "user.servicegroup",
   "pk": 1,
   "fields": {
-    "name": "Kantonale Fachstellen"
+    "name": "Externe Fachstellen"
   }
 },
 {
   "model": "user.servicegroup",
   "pk": 2,
   "fields": {
-    "name": "Geometer"
+    "name": "Fachstellen"
   }
 },
 {
