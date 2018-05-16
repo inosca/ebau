@@ -9,6 +9,7 @@ services:
             - /etc/camac/nginx.conf:/etc/nginx/conf.d/default.conf:ro
             - /etc/camac/letsencrypt:/var/www/letsencrypt:ro
             - /etc/letsencrypt:/etc/letsencrypt:ro
+            - /etc/camac/ssl:/etc/ssl/camac:ro
             - /etc/ssl/dhparam.pem:/etc/ssl/dhparam.pem:ro
 
     db:

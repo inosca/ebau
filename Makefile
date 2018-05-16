@@ -24,15 +24,9 @@ init-ur:
 	@chmod o+w camac/configuration/upload
 	@make _classloader
 
-.PHONY: install
-install: ## Install required files (jQuey, etc via NPM, php composer files)
-	npm install --prefix ./kt_uri/configuration/public
-	npm install --prefix ./iweb_mock/
-	cd camac && composer install
-
 .PHONY: js
 js:
-	npm run build --prefix ./kt_uri/configuration/public
+	npm run build --prefix ./php/public
 
 .PHONY: js-watch
 js-watch:

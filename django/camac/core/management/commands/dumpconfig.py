@@ -49,7 +49,6 @@ pure_config_models = (
     'core.BuildingAuthorityButton',
     'core.BuildingAuthorityDoc',
     'core.BuildingAuthorityEmail',
-    'core.BuildingAuthoritySection',
     'core.Button',
     'core.ChapterPage',
     'core.ChapterPageGroupAcl',
@@ -128,6 +127,7 @@ pure_config_models = (
 # be safely flushed and re-imported.
 models_referencing_data = (
     'core.AnswerQuery',
+    'core.BuildingAuthoritySection',
     'core.Chapter',
     'core.CirculationAnswer',
     'core.CirculationAnswerType',

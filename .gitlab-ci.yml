@@ -66,6 +66,38 @@ build-kt_schwyz-stage:
         - stage
 
 
+build-kt_uri-stage:
+    stage: build
+    services:
+        - docker:dind
+    variables:
+        APPLICATION: kt_uri
+        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE build --pull
+        - eval $COMPOSE push
+    only:
+        - stage
+
+
+build-kt_uri-production:
+    stage: build
+    services:
+        - docker:dind
+    variables:
+        APPLICATION: kt_uri
+        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE build --pull
+        - eval $COMPOSE push
+    only:
+        - production
+
+
 deploy-kt_schwyz-stage:
     environment:
         name: stage-kt_schwyz
