@@ -7,7 +7,7 @@
       value={{option}}
       disabled={{if readonly 'disabled'}}
       checked={{eq option model.value}}
-      onchange={{action (optional on-change) value='target.value'}}
+      onchange={{action (optional on-change) option}}
     >
     {{option}}
   </label>
