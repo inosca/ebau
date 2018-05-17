@@ -57,6 +57,8 @@ module.exports = function(defaults) {
     }
   })
 
+  app.import('vendor/canvas-to-blob-polyfill.js')
+
   app.import('node_modules/downloadjs/download.min.js', {
     using: [{ transformation: 'amd', as: 'downloadjs' }]
   })
