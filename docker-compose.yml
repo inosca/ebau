@@ -69,6 +69,7 @@ services:
             - APPLICATION=${APPLICATION}
         volumes:
             - djangomedia:/var/www/camac/media
+            - phpsessions:/var/www/camac/sessions
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4
@@ -93,3 +94,4 @@ services:
 volumes:
     pgdata:
     djangomedia:
+    phpsessions:
