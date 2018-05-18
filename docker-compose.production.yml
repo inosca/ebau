@@ -19,6 +19,8 @@ services:
             cache_from:
                 - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
+        ports:
+            - "5432:5342"
         environment:
             - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
         volumes:
