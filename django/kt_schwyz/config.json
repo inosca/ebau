@@ -622,6 +622,48 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 47,
+  "fields": {
+    "available_action": "notification",
+    "button": 3,
+    "name": "Email Nachforderung",
+    "description": null,
+    "success_message": "Email wurde erfolgreich versandt",
+    "error_message": "Email konnte nicht versandt werden",
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 48,
+  "fields": {
+    "available_action": "notification",
+    "button": 20,
+    "name": "Email Ablehnen",
+    "description": null,
+    "success_message": "Email wurde erfolgreich versandt",
+    "error_message": "Email konnte nicht versandt werden",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 49,
+  "fields": {
+    "available_action": "notification",
+    "button": 1,
+    "name": "Email Angenommen",
+    "description": null,
+    "success_message": "Email wurde erfolgreich versandt",
+    "error_message": "Email konnte nicht versandt werden",
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -6805,6 +6847,53 @@
     "sort": 0,
     "notification_template": null,
     "recipient_types": null
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 4,
+  "fields": {
+    "name": "Publikation",
+    "sort": 0,
+    "notification_template": null,
+    "recipient_types": "[]"
+  }
+},
+{
+  "model": "document.attachmentsection",
+  "pk": 5,
+  "fields": {
+    "name": "Einsprachen",
+    "sort": 0,
+    "notification_template": null,
+    "recipient_types": "[]"
+  }
+},
+{
+  "model": "notification.notificationtemplate",
+  "pk": 13,
+  "fields": {
+    "purpose": "Nachforderung durch die Gemeinde",
+    "subject": "Nachforderung zum Dossier {{identifier}}",
+    "body": "this is the fallback"
+  }
+},
+{
+  "model": "notification.notificationtemplate",
+  "pk": 14,
+  "fields": {
+    "purpose": "Dossier wurde abgelehnt",
+    "subject": "Dossier {{identifier}} wurde abgelehnt",
+    "body": "todo"
+  }
+},
+{
+  "model": "notification.notificationtemplate",
+  "pk": 15,
+  "fields": {
+    "purpose": "Dossier wurde angenommen",
+    "subject": "Dossier {{identifier}} wurde angenommen",
+    "body": "todo"
   }
 },
 {
