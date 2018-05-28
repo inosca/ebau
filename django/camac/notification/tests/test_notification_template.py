@@ -32,12 +32,16 @@ def test_notification_template_detail(admin_client, notification_template):
     assert response.status_code == status.HTTP_200_OK
 
 
+@pytest.mark.parametrize('notification_template__body', [
+    '{{identifier}} {{answer_period_date}}'
+])
 @pytest.mark.parametrize(
     "role__name,instance__identifier,notification_template__subject,status_code", [  # noqa: E501
         ('Canton', 'identifier', '{{identifier}}', status.HTTP_200_OK),
         ('Canton', 'identifier', '{{$invalid}}', status.HTTP_400_BAD_REQUEST),
     ]
 )
+@pytest.mark.freeze_time('2017-1-1')
 def test_notification_template_merge(admin_client, instance,
                                      notification_template,
                                      status_code, activation, billing_entry):
@@ -50,6 +54,7 @@ def test_notification_template_merge(admin_client, instance,
     if status_code == status.HTTP_200_OK:
         json = response.json()
         assert json['data']['attributes']['subject'] == instance.identifier
+        assert json['data']['attributes']['body'] == 'identifier 21.01.2017'
         assert json['data']['id'] == '{0}-{1}'.format(
             notification_template.pk, instance.pk
         )

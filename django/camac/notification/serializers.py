@@ -1,9 +1,11 @@
 import itertools
 from collections import namedtuple
+from datetime import date, timedelta
 from html import escape
 
 import inflection
 import jinja2
+from django.conf import settings
 from django.core.mail import EmailMessage
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
@@ -15,13 +17,13 @@ from camac.user.models import Service
 
 from . import models
 
-MERGE_DATE_FORMAT = '%d.%m.%Y'
-
 
 class ActivationMergeSerializer(serializers.Serializer):
-    deadline_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
-    start_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
-    end_date = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    deadline_date = serializers.DateTimeField(
+        format=settings.MERGE_DATE_FORMAT
+    )
+    start_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
+    end_date = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
     circulation_state = serializers.StringRelatedField()
     service = serializers.StringRelatedField()
     reason = serializers.CharField()
@@ -32,7 +34,7 @@ class ActivationMergeSerializer(serializers.Serializer):
 class BillingEntryMergeSerializer(serializers.Serializer):
     amount = serializers.FloatField()
     service = serializers.StringRelatedField()
-    created = serializers.DateTimeField(format=MERGE_DATE_FORMAT)
+    created = serializers.DateTimeField(format=settings.MERGE_DATE_FORMAT)
     account = serializers.SerializerMethodField()
     account_number = serializers.SerializerMethodField()
 
@@ -56,6 +58,7 @@ class InstanceMergeSerializer(serializers.Serializer):
     identifier = serializers.CharField()
     activations = ActivationMergeSerializer(many=True)
     billing_entries = BillingEntryMergeSerializer(many=True)
+    answer_period_date = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -74,6 +77,12 @@ class InstanceMergeSerializer(serializers.Serializer):
             result = {key: self._escape(value) for key, value in data.items()}
 
         return result
+
+    def get_answer_period_date(self, instace):
+        answer_period_date = (
+            date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
+        )
+        return answer_period_date.strftime(settings.MERGE_DATE_FORMAT)
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
