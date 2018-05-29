@@ -30,5 +30,5 @@ ignore =
     D107
 
 jobs=auto
-exclude = migrations
+exclude = migrations snapshots
 max-complexity = 10
