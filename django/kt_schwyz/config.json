@@ -6830,6 +6830,51 @@
   }
 },
 {
+  "model": "document.attachmentsectionroleacl",
+  "pk": 8,
+  "fields": {
+    "attachment_section": 4,
+    "role": 3,
+    "mode": "admin"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 9,
+  "fields": {
+    "attachment_section": 5,
+    "role": 3,
+    "mode": "admin"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 10,
+  "fields": {
+    "attachment_section": 5,
+    "role": 5,
+    "mode": "read"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 11,
+  "fields": {
+    "attachment_section": 5,
+    "role": 4,
+    "mode": "read"
+  }
+},
+{
+  "model": "document.attachmentsectionroleacl",
+  "pk": 12,
+  "fields": {
+    "attachment_section": 4,
+    "role": 5,
+    "mode": "read"
+  }
+},
+{
   "model": "document.attachmentsection",
   "pk": 1,
   "fields": {
