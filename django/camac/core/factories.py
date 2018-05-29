@@ -74,6 +74,23 @@ class ActivationFactory(DjangoModelFactory):
         model = models.Activation
 
 
+class NoticeTypeFactory(DjangoModelFactory):
+    name = Faker('name')
+    circulation_type = SubFactory(CirculationTypeFactory)
+
+    class Meta:
+        model = models.NoticeType
+
+
+class NoticeFactory(DjangoModelFactory):
+    activation = SubFactory(ActivationFactory)
+    notice_type = SubFactory(NoticeTypeFactory)
+    content = Faker('sentence')
+
+    class Meta:
+        model = models.Notice
+
+
 class BillingAccountFactory(DjangoModelFactory):
     name = Faker('name')
     account_number = '0000'
