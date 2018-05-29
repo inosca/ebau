@@ -1960,6 +1960,9 @@ class NoticeType(models.Model):
         related_name='+')
     name = models.CharField(db_column='NAME', max_length=50)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = 'NOTICE_TYPE'
