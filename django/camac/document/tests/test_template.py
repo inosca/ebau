@@ -76,6 +76,9 @@ def test_template_detail(admin_client, template):
 @pytest.mark.parametrize("activation__reason,circulation_state__name,circulation_answer__name", [  # noqa: E501
     ('Grund', 'OK', 'Antwort'),
 ])
+@pytest.mark.parametrize("notice_type__name,notice__content", [
+    ('Mitteilung an Gemeinde', 'Stellungsnahme Fachstelle'),
+])
 @pytest.mark.parametrize("form_field__name,instance__identifier,location__name,activation__service", [  # noqa: 501
     (
         'testname',
@@ -86,7 +89,7 @@ def test_template_detail(admin_client, template):
 ])
 def test_template_merge(admin_client, template, instance, to_type,
                         form_field, status_code, form_field_factory,
-                        activation, billing_entry):
+                        activation, billing_entry, notice):
 
     add_field = functools.partial(form_field_factory, instance=instance)
     add_address_field = functools.partial(
