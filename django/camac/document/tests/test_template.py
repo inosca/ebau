@@ -1,8 +1,11 @@
 import functools
 import mimetypes
+from io import BytesIO
 
 import pytest
 from django.urls import reverse
+from docxtpl import DocxTemplate
+from lxml import etree
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -71,7 +74,7 @@ def test_template_detail(admin_client, template):
     ]
 )
 @pytest.mark.parametrize("service__name,billing_account__department,billing_account__name", [  # noqa: E501
-    ('Amt für Tests', 'Allgemein', 'Gebühren')
+    ('Amt', 'Allgemein', 'Gebuehren')
 ])
 @pytest.mark.parametrize("activation__reason,circulation_state__name,circulation_answer__name", [  # noqa: E501
     ('Grund', 'OK', 'Antwort'),
@@ -89,7 +92,7 @@ def test_template_detail(admin_client, template):
 ])
 def test_template_merge(admin_client, template, instance, to_type,
                         form_field, status_code, form_field_factory,
-                        activation, billing_entry, notice):
+                        activation, billing_entry, notice, snapshot):
 
     add_field = functools.partial(form_field_factory, instance=instance)
     add_address_field = functools.partial(
@@ -122,14 +125,16 @@ def test_template_merge(admin_client, template, instance, to_type,
         assert response['Content-Type'] == mimetypes.guess_type(
             'filename.' + to_type)[0]
         if to_type == 'docx':
-            expected = django_file('template_result.docx')
-            # TODO do proper checks of xml potentially using snapshotest
-            if len(response.content) != len(expected.file.read()):  # pragma: no cover  # noqa: E501
-                with open('/tmp/camacng_template_result.docx', 'wb') as docx:
-                    docx.write(response.content)
-
-                assert False, (
-                    'Template output changed. '
-                    'Check file at %s if it is correct and copy '
-                    'it to %s to update test'
-                ) % (docx.name, expected.name)
+            docx = DocxTemplate(BytesIO(response.content))
+            xml = etree.tostring(
+                docx._element.body, encoding='unicode', pretty_print=True
+            )
+            try:
+                snapshot.assert_match(xml)
+            except AssertionError:  # pragma: no cover
+                with open('/tmp/camacng_template_result.docx', 'wb') as output:
+                    output.write(response.content)
+                print(
+                    'Template output changed. Check file at %s' % output.name
+                )
+                raise
