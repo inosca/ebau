@@ -73,8 +73,8 @@ def test_template_detail(admin_client, template):
 @pytest.mark.parametrize("service__name,billing_account__department,billing_account__name", [  # noqa: E501
     ('Amt für Tests', 'Allgemein', 'Gebühren')
 ])
-@pytest.mark.parametrize("activation__reason,circulation_state__name", [
-    ('Grund', 'OK', ),
+@pytest.mark.parametrize("activation__reason,circulation_state__name,circulation_answer__name", [  # noqa: E501
+    ('Grund', 'OK', 'Antwort'),
 ])
 @pytest.mark.parametrize("form_field__name,instance__identifier,location__name,activation__service", [  # noqa: 501
     (
@@ -84,7 +84,6 @@ def test_template_detail(admin_client, template):
         LazyFixture(lambda service_factory: service_factory(name='Fachstelle'))
     ),
 ])
-@pytest.mark.xfail
 def test_template_merge(admin_client, template, instance, to_type,
                         form_field, status_code, form_field_factory,
                         activation, billing_entry):
