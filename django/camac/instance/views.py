@@ -1,13 +1,16 @@
 import django_excel
 from django.conf import settings
+from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from django.http import HttpResponse
+from django.utils import timezone
 from rest_framework import response, viewsets
 from rest_framework.decorators import detail_route, list_route
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
+from camac.core.models import WorkflowEntry
 from camac.notification.serializers import \
     NotificationTemplateSendmailSerializer
 
@@ -128,6 +131,7 @@ class InstanceView(mixins.InstanceQuerysetMixin,
         methods=['post'],
         serializer_class=serializers.InstanceSubmitSerializer,
     )
+    @transaction.atomic
     def submit(self, request, pk=None):
         instance = self.get_object()
 
@@ -140,6 +144,18 @@ class InstanceView(mixins.InstanceQuerysetMixin,
         serializer = self.get_serializer(instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
+        # create workflow item when configured
+        workflow_item = settings.APPLICATION['SUBMIT'].get(
+            'WORKFLOW_ITEM'
+        )
+        if workflow_item:
+            WorkflowEntry.objects.create(
+                group=1,
+                workflow_item_id=workflow_item,
+                instance_id=pk,
+                workflow_date=timezone.now(),
+            )
 
         # send notification email when configured
         notification_template = settings.APPLICATION['SUBMIT'].get(

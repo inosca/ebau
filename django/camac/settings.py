@@ -83,6 +83,7 @@ APPLICATIONS = {
         },
         'SUBMIT': {
             'NOTIFICATION_TEMPLATE': None,
+            'WORKFLOW_ITEM': None,
         }
     },
     'kt_schwyz': {
@@ -94,6 +95,7 @@ APPLICATIONS = {
         },
         'SUBMIT': {
             'NOTIFICATION_TEMPLATE': 16,
+            'WORKFLOW_ITEM': 10,
         }
     }
     # add other application configuration here...
