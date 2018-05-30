@@ -128,6 +128,7 @@ pure_config_models = (
 models_referencing_data = (
     'core.AnswerQuery',
     'core.BuildingAuthoritySection',
+    'core.BuildingAuthorityButton',
     'core.Chapter',
     'core.CirculationAnswer',
     'core.CirculationAnswerType',
