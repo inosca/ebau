@@ -6942,6 +6942,15 @@
   }
 },
 {
+  "model": "notification.notificationtemplate",
+  "pk": 16,
+  "fields": {
+    "purpose": "Dossier wurde eingereicht",
+    "subject": "Dossier {{identifier}} wurde eingereicht",
+    "body": "todo"
+  }
+},
+{
   "model": "user.grouplocation",
   "pk": 1,
   "fields": {

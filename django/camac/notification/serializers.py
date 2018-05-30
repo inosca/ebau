@@ -110,7 +110,6 @@ class InstanceMergeSerializer(serializers.Serializer):
 
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.NotificationTemplate
         fields = (
@@ -122,6 +121,8 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
 class NotificationTemplateMergeSerializer(InstanceEditableMixin,
                                           serializers.Serializer):
+    instance_editable_permission = 'notification'
+
     instance = serializers.ResourceRelatedField(
         queryset=Instance.objects.all()
     )

@@ -104,21 +104,24 @@ class InstanceEditableMixin(AttributeMixin):
         editable = set()
 
         if instance.instance_state.name == 'new':
-            editable.update(['form', 'document'])
+            editable.update(['form', 'document', 'notification'])
 
-        if (instance.instance_state.name == 'nfd'):
-            editable.add('document')
+        if instance.instance_state.name == 'nfd':
+            editable.update(['document', 'notification'])
+
+        if instance.instance_state.name == 'subm':
+            editable.add('notification')
 
         return editable
 
     def get_editable_for_service(self, instance):
-        return {'document'}
+        return {'document', 'notification'}
 
     def get_editable_for_municipality(self, instance):
-        return {'document'}
+        return {'document', 'notification'}
 
     def get_editable_for_canton(self, instance):
-        return {'document'}
+        return {'document', 'notification'}
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
