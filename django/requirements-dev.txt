@@ -21,3 +21,4 @@ git+https://github.com/adfinis-forks/pytest-factoryboy.git@fix_deprecation_warni
 pytest-freezegun==0.2.0
 pytest-mock==1.10.0
 pytest-randomly==1.2.3
+snapshottest==0.5.0
