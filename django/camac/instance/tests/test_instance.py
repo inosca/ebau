@@ -13,10 +13,15 @@ from camac.instance import serializers
     ('new', "2018-04-17T09:31:56+02:00")
 ])
 @pytest.mark.parametrize("role__name,instance__user,num_queries,editable", [
-    ('Applicant', LazyFixture('admin_user'), 14, {'form', 'document'}),
-    ('Canton', LazyFixture('user'), 14, {'document'}),
-    ('Municipality', LazyFixture('user'), 14, {'document'}),
-    ('Service', LazyFixture('user'), 14, {'document'}),
+    (
+        'Applicant',
+        LazyFixture('admin_user'),
+        14,
+        {'form', 'document', 'notification'}
+    ),
+    ('Canton', LazyFixture('user'), 14, {'document', 'notification'}),
+    ('Municipality', LazyFixture('user'), 14, {'document', 'notification'}),
+    ('Service', LazyFixture('user'), 14, {'document', 'notification'}),
 ])
 def test_instance_list(admin_client, instance, activation, num_queries, group,
                        django_assert_num_queries, editable,
@@ -201,8 +206,13 @@ def test_instance_create(admin_client, admin_user, form,
 ])
 def test_instance_submit(admin_client, admin_user, form, form_field_factory,
                          instance, instance_state, instance_state_factory,
-                         status_code, role_factory, group_factory,
-                         group_location_factory, attachment):
+                         status_code, role_factory, group_factory, settings,
+                         group_location_factory, attachment,
+                         notification_template, mailoutbox):
+
+    settings.APPLICATION['SUBMIT']['NOTIFICATION_TEMPLATE'] = (
+        notification_template.pk
+    )
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -243,10 +253,14 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
     if status_code == status.HTTP_200_OK:
         json = response.json()
         assert json['data']['attributes']['identifier'] == '11-17-001'
-        assert set(json['data']['meta']['editable']) == set()
+        assert set(json['data']['meta']['editable']) == {'notification'}
 
         instance.refresh_from_db()
         assert instance.instance_state.name == 'subm'
+
+        assert len(mailoutbox) == 1
+        mail = mailoutbox[0]
+        mail.subject == notification_template.subject
 
 
 @pytest.mark.parametrize("role__name", ['Canton'])

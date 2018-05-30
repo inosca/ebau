@@ -80,6 +80,9 @@ APPLICATIONS = {
             'Municipality': 'municipality',
             'Service': 'service',
             'Canton': 'canton',
+        },
+        'SUBMIT': {
+            'NOTIFICATION_TEMPLATE': None,
         }
     },
     'kt_schwyz': {
@@ -88,6 +91,9 @@ APPLICATIONS = {
             'Gemeinde': 'municipality',
             'Fachstelle': 'service',
             'Kanton': 'canton',
+        },
+        'SUBMIT': {
+            'NOTIFICATION_TEMPLATE': 16,
         }
     }
     # add other application configuration here...
