@@ -8,6 +8,31 @@ from camac.user.factories import ServiceFactory, UserFactory
 from . import models
 
 
+class CirculationTypeFactory(DjangoModelFactory):
+    name = Faker('name')
+    parent_specific_activations = 0
+
+    class Meta:
+        model = models.CirculationType
+
+
+class CirculationAnswerTypeFactory(DjangoModelFactory):
+    name = Faker('name')
+
+    class Meta:
+        model = models.CirculationAnswerType
+
+
+class CirculationAnswerFactory(DjangoModelFactory):
+    name = Faker('name')
+    sort = 0
+    circulation_type = SubFactory(CirculationTypeFactory)
+    circulation_answer_type = SubFactory(CirculationAnswerTypeFactory)
+
+    class Meta:
+        model = models.CirculationAnswer
+
+
 class FormGroupFactory(DjangoModelFactory):
     name = Faker('name')
 
@@ -37,6 +62,7 @@ class ActivationFactory(DjangoModelFactory):
     service = SubFactory(ServiceFactory)
     service_parent = SubFactory(ServiceFactory)
     circulation_state = SubFactory(CirculationStateFactory)
+    circulation_answer = SubFactory(CirculationAnswerFactory)
     user = SubFactory(UserFactory)
     start_date = Faker('past_datetime', tzinfo=pytz.UTC)
     end_date = Faker('future_datetime', tzinfo=pytz.UTC)
@@ -46,6 +72,23 @@ class ActivationFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Activation
+
+
+class NoticeTypeFactory(DjangoModelFactory):
+    name = Faker('name')
+    circulation_type = SubFactory(CirculationTypeFactory)
+
+    class Meta:
+        model = models.NoticeType
+
+
+class NoticeFactory(DjangoModelFactory):
+    activation = SubFactory(ActivationFactory)
+    notice_type = SubFactory(NoticeTypeFactory)
+    content = Faker('sentence')
+
+    class Meta:
+        model = models.Notice
 
 
 class BillingAccountFactory(DjangoModelFactory):
