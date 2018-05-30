@@ -26,3 +26,4 @@ php/public/node_modules
 php/logs/mails/
 .env
 .vscode
+.~lock*
