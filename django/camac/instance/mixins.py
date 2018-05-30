@@ -83,6 +83,7 @@ class InstanceEditableMixin(AttributeMixin):
 
     Define `instance_editable_permission` what permission is needed to edit.
     Currently there are `document` for attachments and `form` for form data.
+    Set it to None if no specific permission is required.
     """
 
     def get_instance(self, obj):
@@ -97,31 +98,31 @@ class InstanceEditableMixin(AttributeMixin):
         editable_permission = self.serializer_getattr(
             'instance_editable_permission'
         )
-        return editable_permission in self.get_editable(instance)
+        return (
+            editable_permission is None or
+            editable_permission in self.get_editable(instance)
+        )
 
     @permission_aware
     def get_editable(self, instance):
         editable = set()
 
         if instance.instance_state.name == 'new':
-            editable.update(['form', 'document', 'notification'])
+            editable.update(['form', 'document'])
 
         if instance.instance_state.name == 'nfd':
-            editable.update(['document', 'notification'])
-
-        if instance.instance_state.name == 'subm':
-            editable.add('notification')
+            editable.update(['document'])
 
         return editable
 
     def get_editable_for_service(self, instance):
-        return {'document', 'notification'}
+        return {'document'}
 
     def get_editable_for_municipality(self, instance):
-        return {'document', 'notification'}
+        return {'document'}
 
     def get_editable_for_canton(self, instance):
-        return {'document', 'notification'}
+        return {'document'}
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
