@@ -2,7 +2,8 @@ import pytz
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
-from camac.user.factories import GroupFactory, LocationFactory, UserFactory
+from camac.user.factories import (GroupFactory, LocationFactory,
+                                  ServiceFactory, UserFactory)
 
 from . import models
 
@@ -53,3 +54,12 @@ class FormFieldFactory(DjangoModelFactory):
 
     class Meta:
         model = models.FormField
+
+
+class InstanceResponsibilityFactory(DjangoModelFactory):
+    service = SubFactory(ServiceFactory)
+    user = SubFactory(UserFactory)
+    instance = SubFactory(InstanceFactory)
+
+    class Meta:
+        model = models.InstanceResponsibility
