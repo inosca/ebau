@@ -7,13 +7,22 @@ from . import models
 
 
 class CurrentGroupDefault(object):
-    """Current group of user is first found default group."""
-
     def set_context(self, serializer_field):
         self.group = serializer_field.context['request'].group
 
     def __call__(self):
         return self.group
+
+    def __repr__(self):
+        return unicode_to_repr('%s()' % self.__class__.__name__)
+
+
+class CurrentServiceDefault(object):
+    def set_context(self, serializer_field):
+        self.service = serializer_field.context['request'].group.service
+
+    def __call__(self):
+        return self.service
 
     def __repr__(self):
         return unicode_to_repr('%s()' % self.__class__.__name__)

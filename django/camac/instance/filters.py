@@ -18,6 +18,7 @@ class InstanceFilterSet(FilterSet):
         field_name='creation_date__date', lookup_expr='lte'
     )
     instance_state = NumberMultiValueFilter()
+    responsible_user = NumberFilter(field_name='responsibilities__user')
 
     class Meta:
         model = models.Instance
@@ -30,6 +31,17 @@ class InstanceFilterSet(FilterSet):
             'previous_instance_state',
             'service',
             'user',
+            'responsible_user',
+        )
+
+
+class InstanceResponsibilityFilterSet(FilterSet):
+    class Meta:
+        model = models.InstanceResponsibility
+        fields = (
+            'user',
+            'service',
+            'instance',
         )
 
 
