@@ -3,6 +3,7 @@ import logging
 
 import pytest
 from django.conf import settings
+from factory import Faker
 from factory.base import FactoryMetaClass
 from keycloak import KeycloakOpenID
 from pytest_factoryboy import register
@@ -10,6 +11,7 @@ from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
+from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
 from camac.user import factories as user_factories
@@ -32,6 +34,9 @@ register_module(instance_factories)
 register_module(core_factories)
 register_module(document_factories)
 register_module(notification_factories)
+
+
+Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
 class APIKeycloakClient(APIClient):
