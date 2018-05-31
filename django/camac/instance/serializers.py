@@ -7,8 +7,9 @@ from rest_framework_json_api import serializers
 
 from camac.user.models import Group
 from camac.user.relations import (FormDataResourceRelatedField,
-                                  GroupResourceRelatedField)
-from camac.user.serializers import CurrentGroupDefault
+                                  GroupResourceRelatedField,
+                                  ServiceResourceReleatedField)
+from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from . import mixins, models, validators
 
@@ -114,6 +115,40 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
             'identifier',
             'circulations',
         )
+
+
+class InstanceResponsibilitySerializer(mixins.InstanceEditableMixin,
+                                       serializers.ModelSerializer):
+    instance_editable_permission = None
+    service = ServiceResourceReleatedField(default=CurrentServiceDefault())
+
+    def validate(self, data):
+        user = data['user']
+        service = data['service']
+
+        if service.pk not in user.groups.values_list('service_id', flat=True):
+            raise exceptions.ValidationError(
+                _('User %(user)s does not belong to service %(service)s.') % {
+                    'user': user.username,
+                    'service': service.name,
+                }
+            )
+
+        return data
+
+    class Meta:
+        model = models.InstanceResponsibility
+        fields = (
+            'user',
+            'service',
+            'instance',
+        )
+
+        included_serializers = {
+            'instance': InstanceSerializer,
+            'service': 'camac.user.serializers.ServiceSerializer',
+            'user': 'camac.user.serializers.UserSerializer',
+        }
 
 
 class InstanceSubmitSerializer(InstanceSerializer):
