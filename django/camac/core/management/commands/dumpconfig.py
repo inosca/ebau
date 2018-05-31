@@ -46,7 +46,6 @@ pure_config_models = (
     'core.BillingConfig',
     'core.BRoleAcl',
     'core.BServiceAcl',
-    'core.BuildingAuthorityButton',
     'core.BuildingAuthorityDoc',
     'core.BuildingAuthorityEmail',
     'core.Button',
