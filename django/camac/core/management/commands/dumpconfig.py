@@ -137,6 +137,7 @@ models_referencing_data = (
     'core.NoticeType',
     'core.Question',
     'core.QuestionType',
+    'core.TemplateGenerateAction',
     'core.WorkflowItem',
     'core.WorkflowSection',
     'document.AttachmentSection',
