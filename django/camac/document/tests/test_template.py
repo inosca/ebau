@@ -40,6 +40,7 @@ def test_template_detail(admin_client, template):
     assert response.status_code == status.HTTP_200_OK
 
 
+@pytest.mark.freeze_time('2018-05-28')
 @pytest.mark.parametrize(
     "role__name,template__path,instance__user,status_code,to_type", [
         (
