@@ -777,7 +777,7 @@ class BuildingAuthorityButtonstate(models.Model):
     ba_button_state_id = models.AutoField(
         db_column='BA_BUTTON_STATE_ID', primary_key=True)
     building_authority_button = models.ForeignKey(
-        BuildingAuthorityButton, models.CASCADE,
+        BuildingAuthorityButton, models.DO_NOTHING,
         db_column='BUILDING_AUTHORITY_BUTTON_ID', related_name='+')
     instance = models.ForeignKey(
         'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
