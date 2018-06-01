@@ -1404,7 +1404,7 @@
   "pk": "generate",
   "fields": {
     "module_name": "docgen",
-    "description": "Generate document with configured template (Terminating; Actions after this one will not run!)"
+    "description": "Generate document with configured template"
   }
 },
 {
