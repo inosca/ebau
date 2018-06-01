@@ -114,3 +114,22 @@ class BillingEntryFactory(DjangoModelFactory):
 
     class Meta:
         model = models.BillingEntry
+
+
+class WorkflowItemFactory(DjangoModelFactory):
+    position = 0
+    name = Faker('name')
+    automatical = 1
+    different_color = 0
+    is_workflow = 1
+    is_building_authority = 0
+
+    class Meta:
+        model = models.WorkflowItem
+
+
+class WorkflowEntryFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    workflow_item = SubFactory(WorkflowItemFactory)
+    workflow_date = Faker('past_datetime')
+    group = 1
