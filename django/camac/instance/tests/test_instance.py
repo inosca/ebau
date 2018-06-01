@@ -6,6 +6,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.core.models import WorkflowEntry
 from camac.instance import serializers
 
 
@@ -201,8 +202,14 @@ def test_instance_create(admin_client, admin_user, form,
 ])
 def test_instance_submit(admin_client, admin_user, form, form_field_factory,
                          instance, instance_state, instance_state_factory,
-                         status_code, role_factory, group_factory,
-                         group_location_factory, attachment):
+                         status_code, role_factory, group_factory, settings,
+                         group_location_factory, attachment, workflow_item,
+                         notification_template, mailoutbox):
+
+    settings.APPLICATION['SUBMIT']['NOTIFICATION_TEMPLATE'] = (
+        notification_template.pk
+    )
+    settings.APPLICATION['SUBMIT']['WORKFLOW_ITEM'] = workflow_item.pk
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -247,6 +254,13 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
 
         instance.refresh_from_db()
         assert instance.instance_state.name == 'subm'
+
+        assert len(mailoutbox) == 1
+        mail = mailoutbox[0]
+        mail.subject == notification_template.subject
+
+        assert WorkflowEntry.objects.filter(
+            instance=instance, workflow_item=workflow_item).exists()
 
 
 @pytest.mark.parametrize("role__name", ['Canton'])
