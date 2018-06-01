@@ -17095,7 +17095,7 @@
   "model": "core.docgenpdfaction",
   "pk": 4,
   "fields": {
-    "docgen_template": 161,
+    "docgen_template": 81,
     "docgen_template_class": 82,
     "action": 661
   }
