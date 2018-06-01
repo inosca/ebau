@@ -5819,6 +5819,15 @@
   }
 },
 {
+  "model": "core.templategenerateaction",
+  "pk": 4,
+  "fields": {
+    "template": 2,
+    "action": 50,
+    "as_pdf": 0
+  }
+},
+{
   "model": "core.workflowaction",
   "pk": 2,
   "fields": {
@@ -6230,15 +6239,6 @@
   "fields": {
     "name": "Amount",
     "sort": 3
-  }
-},
-{
-  "model": "core.templategenerateaction",
-  "pk": 4,
-  "fields": {
-    "template": 2,
-    "action": 50,
-    "as_pdf": 0
   }
 },
 {
@@ -6951,6 +6951,22 @@
     "attachment_section": 4,
     "role": 5,
     "mode": "read"
+  }
+},
+{
+  "model": "document.template",
+  "pk": 1,
+  "fields": {
+    "name": "Baubewilligung",
+    "path": "templates/template.docx"
+  }
+},
+{
+  "model": "document.template",
+  "pk": 2,
+  "fields": {
+    "name": "Publikation",
+    "path": "templates/template.docx"
   }
 },
 {
