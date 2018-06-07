@@ -1,0 +1,99 @@
+version: "3.4"
+services:
+    proxy:
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - /etc/camac/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - /etc/camac/letsencrypt:/var/www/letsencrypt:ro
+            - /etc/camac/ssl:/etc/ssl/camac:ro
+            - /etc/ssl/dhparam.pem:/etc/ssl/dhparam.pem:ro
+            - /etc/letsencrypt:/etc/letsencrypt:ro
+
+    db:
+        image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: db
+            cache_from:
+                - acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        restart: always
+        ports:
+            - "5432:5342"
+        environment:
+            - POSTGRES_PASSWORD_FILE=/run/secrets/postgres-passwd
+        volumes:
+            - /etc/camac/postgres_password.conf:/run/secrets/postgres-passwd:ro
+
+    django:
+        image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: django
+            cache_from:
+                - acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        restart: always
+        environment:
+            - DJANGO_ENV_FILE=/run/secrets/django.env
+        volumes:
+            - /etc/camac/django.env:/run/secrets/django.env:ro
+
+    ember:
+        image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: ember
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        restart: always
+        build:
+            args:
+                KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
+
+    php:
+        image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        build:
+            context: php
+            cache_from:
+                - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        restart: always
+        environment:
+            - APPLICATION_ENV=production
+        volumes:
+            - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
+            - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
+        depends_on:
+            - mailcatcher
+
+    mailcatcher:
+        image: schickling/mailcatcher
+        ports:
+            - '1080:1080'
+        networks:
+            - camac-ng.local
+
+    cache:
+        restart: always
+
+    unoconv:
+        restart: always
+
+    clamav:
+        restart: always
+
+    keycloak:
+        # disable keycloak
+        # workaround for https://github.com/docker/compose/issues/1896
+        command: /bin/true
+
+volumes:
+    pgdata:
+        external:
+            name: camacpgdata
+
+    djangomedia:
+        external:
+            name: camacdjangomedia
+
+    phpsessions:
+        external:
+            name: camacphpsessions
