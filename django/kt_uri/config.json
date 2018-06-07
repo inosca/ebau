@@ -32777,6 +32777,14 @@
   }
 },
 {
+  "model": "core.publicationsetting",
+  "pk": 6,
+  "fields": {
+    "key": "stopText",
+    "value": "Gemeindebaubeh\u00f6rde [@authority]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung einer Bauplanauflage\n\nSehr geehrte Damen und Herren\n\nVia CAMAC haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\n\n[@community]\n\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\nBauvorhaben: [@intent]\nBauplatz: [@c21q93i1]\nParzelle: [@c21q91i1]\nBemerkungen: [@note]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\nGemeindebaubeh\u00f6rde [@authority]\n\n\n[@zip] [@location], [@date]\n"
+  }
+},
+{
   "model": "core.questionchapter",
   "pk": 1,
   "fields": {
