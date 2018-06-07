@@ -1,9 +1,0 @@
-<row>
-  <table_name>R_SIMPLE_LIST</table_name>
-  <model_name>configuration.RSimpleList</model_name>
-  <data>
-    <RESOURCE_ID type="int">306</RESOURCE_ID>
-    <INSTANCE_STATES type="str">25</INSTANCE_STATES>
-  </data>
-</row>
-

@@ -1,9 +1,0 @@
-<row>
-  <table_name>AUTHORITY</table_name>
-  <model_name>configuration.Authority</model_name>
-  <data>
-    <AUTHORITY_ID type="int">59</AUTHORITY_ID>
-    <NAME type="str">Finanzdirektion</NAME>
-  </data>
-</row>
-
