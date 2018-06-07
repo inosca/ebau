@@ -1,9 +1,0 @@
-<row>
-  <table_name>BUILDING_AUTHORITY_SECTION</table_name>
-  <model_name>configuration.BuildingAuthoritySection</model_name>
-  <data>
-    <BUILDING_AUTHORITY_SECTION_ID type="int">4</BUILDING_AUTHORITY_SECTION_ID>
-    <NAME type="str">Meldungen / Dokumente</NAME>
-  </data>
-</row>
-

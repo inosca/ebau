@@ -1,9 +1,0 @@
-<row>
-  <table_name>PAGE_FORM_MODE</table_name>
-  <model_name>configuration.PageFormMode</model_name>
-  <data>
-    <PAGE_FORM_MODE_ID type="int">2</PAGE_FORM_MODE_ID>
-    <NAME type="str">Activable</NAME>
-  </data>
-</row>
-

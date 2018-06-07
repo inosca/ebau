@@ -1,9 +1,0 @@
-<row>
-  <table_name>IR_PAGE</table_name>
-  <model_name>configuration.IrPage</model_name>
-  <data>
-    <INSTANCE_RESOURCE_ID type="int">647</INSTANCE_RESOURCE_ID>
-    <PDF_CLASS type="str"></PDF_CLASS>
-  </data>
-</row>
-
