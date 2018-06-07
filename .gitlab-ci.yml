@@ -125,7 +125,7 @@ deploy-kt_uri-stage:
         APPLICATION: kt_uri
         # because of https://github.com/docker/compose/issues/2668 tls certs
         # need to be assigned as parameters - once fixed such params can be removed.
-        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+        COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.stage.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
         DOCKER_HOST: vm-camac-webapp-stage-01.cust.adfinis-sygroup.ch:2376
         DOCKER_TLS_VERIFY: 1
     stage: deploy
