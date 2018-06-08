@@ -12,6 +12,28 @@ class LocationView(viewsets.ReadOnlyModelViewSet):
     queryset = models.Location.objects.all()
 
 
+class UserView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = serializers.UserSerializer
+    queryset = models.User.objects.all()
+
+    @permission_aware
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.none()
+
+    def get_queryset_for_service(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups=self.request.group)
+
+    def get_queryset_for_canton(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups=self.request.group)
+
+    def get_queryset_for_municipality(self):
+        queryset = super().get_queryset()
+        return queryset.filter(groups=self.request.group)
+
+
 class ServiceView(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()

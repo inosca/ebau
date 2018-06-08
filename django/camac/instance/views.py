@@ -13,6 +13,7 @@ from rest_framework_json_api import views
 from camac.core.models import WorkflowEntry
 from camac.notification.serializers import \
     NotificationTemplateSendmailSerializer
+from camac.user.permissions import permission_aware
 
 from . import filters, mixins, models, serializers
 
@@ -181,6 +182,63 @@ class InstanceView(mixins.InstanceQuerysetMixin,
             sendmai_serializer.save()
 
         return response.Response(data=serializer.data)
+
+
+class InstanceResponsibilityView(mixins.InstanceQuerysetMixin,
+                                 views.ModelViewSet):
+
+    serializer_class = serializers.InstanceResponsibilitySerializer
+    filter_class = filters.InstanceResponsibilityFilterSet
+    queryset = models.InstanceResponsibility.objects.all()
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        return queryset.filter(service=self.request.group.service)
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        queryset = super().get_base_queryset()
+        return queryset.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_service(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_canton(self):
+        return True
+
+    def has_update_permission_for_service(self):
+        return True
+
+    def has_update_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_destroy_permission(self):
+        return False
+
+    def has_destroy_permission_for_canton(self):
+        return True
+
+    def has_destroy_permission_for_service(self):
+        return True
+
+    def has_destroy_permission_for_municipality(self):
+        return True
 
 
 class FormFieldView(mixins.InstanceQuerysetMixin,
