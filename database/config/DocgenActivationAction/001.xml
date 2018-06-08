@@ -1,9 +1,0 @@
-<row>
-  <table_name>DOCGEN_ACTIVATION_ACTION</table_name>
-  <model_name>configuration.DocgenActivationAction</model_name>
-  <data>
-    <DOCGEN_ACTIVATION_ACTION_ID type="int">1</DOCGEN_ACTIVATION_ACTION_ID>
-    <NAME type="str">Savedocketcomment</NAME>
-  </data>
-</row>
-

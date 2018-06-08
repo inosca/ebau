@@ -1,8 +1,0 @@
-<row>
-  <table_name>A_LOCATION</table_name>
-  <model_name>configuration.ALocation</model_name>
-  <data>
-    <ACTION_ID type="int">68</ACTION_ID>
-  </data>
-</row>
-

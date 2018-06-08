@@ -1,9 +1,0 @@
-<row>
-  <table_name>AUTHORITY</table_name>
-  <model_name>configuration.Authority</model_name>
-  <data>
-    <AUTHORITY_ID type="int">23</AUTHORITY_ID>
-    <NAME type="str">Baukommission Erstfeld</NAME>
-  </data>
-</row>
-
