@@ -1,9 +1,0 @@
-<row>
-  <table_name>SERVICE_GROUP</table_name>
-  <model_name>configuration.ServiceGroup</model_name>
-  <data>
-    <SERVICE_GROUP_ID type="int">61</SERVICE_GROUP_ID>
-    <NAME type="str">Fachstellen Justizdirektion</NAME>
-  </data>
-</row>
-

@@ -1,9 +1,0 @@
-<row>
-  <table_name>PAGE_FORM_GROUP</table_name>
-  <model_name>configuration.PageFormGroup</model_name>
-  <data>
-    <PAGE_FORM_GROUP_ID type="int">21</PAGE_FORM_GROUP_ID>
-    <NAME type="str">test</NAME>
-  </data>
-</row>
-

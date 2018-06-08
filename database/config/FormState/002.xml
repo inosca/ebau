@@ -1,9 +1,0 @@
-<row>
-  <table_name>FORM_STATE</table_name>
-  <model_name>configuration.FormState</model_name>
-  <data>
-    <FORM_STATE_ID type="int">2</FORM_STATE_ID>
-    <NAME type="str">Not published</NAME>
-  </data>
-</row>
-
