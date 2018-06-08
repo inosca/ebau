@@ -11,6 +11,8 @@ services:
             - /etc/camac/ssl:/etc/ssl/camac:ro
             - /etc/ssl/dhparam.pem:/etc/ssl/dhparam.pem:ro
             - /etc/letsencrypt:/etc/letsencrypt:ro
+        depends_on:
+            - mailcatcher
 
     db:
         image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -66,10 +68,6 @@ services:
 
     mailcatcher:
         image: schickling/mailcatcher
-        ports:
-            - '1080:1080'
-        networks:
-            - camac-ng.local
 
     cache:
         restart: always
