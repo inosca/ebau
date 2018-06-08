@@ -1,9 +1,0 @@
-<row>
-  <table_name>CIRCULATION_ANSWER_TYPE</table_name>
-  <model_name>configuration.CirculationAnswerType</model_name>
-  <data>
-    <CIRCULATION_ANSWER_TYPE_ID type="int">1</CIRCULATION_ANSWER_TYPE_ID>
-    <NAME type="str">Response</NAME>
-  </data>
-</row>
-

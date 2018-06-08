@@ -1,9 +1,0 @@
-<row>
-  <table_name>ATTACHMENT_EXTENSION</table_name>
-  <model_name>configuration.AttachmentExtension</model_name>
-  <data>
-    <ATTACHMENT_EXTENSION_ID type="int">43</ATTACHMENT_EXTENSION_ID>
-    <NAME type="str">ITF</NAME>
-  </data>
-</row>
-

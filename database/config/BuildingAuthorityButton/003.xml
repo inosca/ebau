@@ -1,9 +1,0 @@
-<row>
-  <table_name>BUILDING_AUTHORITY_BUTTON</table_name>
-  <model_name>configuration.BuildingAuthorityButton</model_name>
-  <data>
-    <BUILDING_AUTHORITY_BUTTON_ID type="int">3</BUILDING_AUTHORITY_BUTTON_ID>
-    <LABEL type="str">Baubewilligung erteilt, Info an Geometer</LABEL>
-  </data>
-</row>
-
