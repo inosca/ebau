@@ -89,7 +89,7 @@ class Group(models.Model):
     role = models.ForeignKey('user.Role', models.PROTECT,
                              db_column='ROLE_ID', related_name='+')
     service = models.ForeignKey('user.Service', models.SET_NULL,
-                                db_column='SERVICE_ID', related_name='+',
+                                db_column='SERVICE_ID', related_name='groups',
                                 blank=True, null=True)
     name = models.CharField(db_column='NAME', max_length=100)
     phone = models.CharField(

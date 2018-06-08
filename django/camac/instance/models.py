@@ -93,6 +93,20 @@ class Instance(models.Model):
         db_table = 'INSTANCE'
 
 
+class InstanceResponsibility(models.Model):
+    instance = models.ForeignKey(Instance, models.CASCADE,
+                                 related_name='responsibilities')
+    service = models.ForeignKey(
+        'user.Service', models.CASCADE, db_column='SERVICE_ID',
+        related_name='+')
+    user = models.ForeignKey('user.User', models.DO_NOTHING,
+                             db_column='USER_ID',
+                             related_name='responsibilities')
+
+    class Meta:
+        unique_together = (('instance', 'user', 'service'),)
+
+
 @reversion.register()
 class FormField(models.Model):
     """
