@@ -47529,6 +47529,15 @@
   }
 },
 {
+  "model": "instance.form",
+  "pk": 286,
+  "fields": {
+    "form_state": 1,
+    "name": "Land- und Rechtserwerb",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
+  }
+},
+{
   "model": "instance.formstate",
   "pk": 1,
   "fields": {
