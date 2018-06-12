@@ -1,4 +1,4 @@
-from django_filters.rest_framework import FilterSet
+from django_filters.rest_framework import DateFilter, FilterSet, NumberFilter
 
 from camac.core.models import Activation, Circulation
 from camac.filters import NumberMultiValueFilter
@@ -32,6 +32,17 @@ class ActivationFilterSet(FilterSet):
         field_name='circulation__instance__location')
     previous_instance_state = NumberMultiValueFilter(
         field_name='circulation__instance__previous_instance_state')
+    creation_date_after = DateFilter(
+        field_name='circulation__instance__creation_date__date',
+        lookup_expr='gte'
+    )
+    creation_date_before = DateFilter(
+        field_name='circulation__instance__creation_date__date',
+        lookup_expr='lte'
+    )
+    responsible_user = NumberFilter(
+        field_name='circulation__instance__responsibilities__user'
+    )
 
     class Meta:
         model = Activation
