@@ -38,6 +38,13 @@ class ActivationView(views.AutoPrefetchMixin,
             'circulation__activations',
         ]
     }
+    search_fields = (
+        '=circulation__instance__identifier',
+        '=circulation__instance__location__name',
+        '=service__name',
+        '=circulation__instance__form__description',
+        'circulation__instance__fields__value',
+    )
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
