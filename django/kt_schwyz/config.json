@@ -1201,6 +1201,15 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 52,
+  "fields": {
+    "available_instance_resource": "responsibility",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.apageredirect",
   "pk": 9,
   "fields": {
@@ -1647,6 +1656,15 @@
     "module_name": "publication",
     "controller_name": "publish",
     "description": "Publish a document"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "responsibility",
+  "fields": {
+    "module_name": "responsibility",
+    "controller_name": "responsibility",
+    "description": "Instance responsibilities"
   }
 },
 {
@@ -2497,7 +2515,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 7,
+    "sort": 6,
     "form_group": 1
   }
 },
@@ -2527,7 +2545,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 8,
+    "sort": 7,
     "form_group": 1
   }
 },
@@ -2557,7 +2575,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 6,
+    "sort": 5,
     "form_group": 1
   }
 },
@@ -2708,6 +2726,36 @@
     "class_field": null,
     "hidden": 0,
     "sort": 6,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 21,
+  "fields": {
+    "available_instance_resource": "responsibility",
+    "resource": 1,
+    "name": "Verantwortliche Person",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 8,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 22,
+  "fields": {
+    "available_instance_resource": "responsibility",
+    "resource": 6,
+    "name": "Verantwortliche Person",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 7,
     "form_group": 1
   }
 },
@@ -5132,6 +5180,105 @@
   "pk": 101,
   "fields": {
     "instance_resource": 19,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 102,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 1
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 103,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 104,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 105,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 106,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 107,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 108,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 109,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 110,
+  "fields": {
+    "instance_resource": 21,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 111,
+  "fields": {
+    "instance_resource": 22,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 112,
+  "fields": {
+    "instance_resource": 22,
     "role": 5,
     "instance_state": 7
   }
