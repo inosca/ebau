@@ -133,6 +133,7 @@ deploy-kt_uri-stage:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         - eval $COMPOSE pull
         - eval $COMPOSE up -d
+        - eval $COMPOSE stop keycloak
     only:
         - stage
 
