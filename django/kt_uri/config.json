@@ -9671,536 +9671,536 @@
   "model": "core.authorityauthoritytype",
   "pk": 1,
   "fields": {
-    "authority_id": 56.0,
-    "authority_type_id": 1.0
+    "authority": 56,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 2,
   "fields": {
-    "authority_id": 57.0,
-    "authority_type_id": 1.0
+    "authority": 57,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 3,
   "fields": {
-    "authority_id": 58.0,
-    "authority_type_id": 1.0
+    "authority": 58,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 4,
   "fields": {
-    "authority_id": 59.0,
-    "authority_type_id": 1.0
+    "authority": 59,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 5,
   "fields": {
-    "authority_id": 60.0,
-    "authority_type_id": 1.0
+    "authority": 60,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 6,
   "fields": {
-    "authority_id": 61.0,
-    "authority_type_id": 1.0
+    "authority": 61,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 7,
   "fields": {
-    "authority_id": 62.0,
-    "authority_type_id": 1.0
+    "authority": 62,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 8,
   "fields": {
-    "authority_id": 63.0,
-    "authority_type_id": 1.0
+    "authority": 63,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 9,
   "fields": {
-    "authority_id": 64.0,
-    "authority_type_id": 1.0
+    "authority": 64,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 10,
   "fields": {
-    "authority_id": 65.0,
-    "authority_type_id": 1.0
+    "authority": 65,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 11,
   "fields": {
-    "authority_id": 66.0,
-    "authority_type_id": 1.0
+    "authority": 66,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 12,
   "fields": {
-    "authority_id": 67.0,
-    "authority_type_id": 1.0
+    "authority": 67,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 13,
   "fields": {
-    "authority_id": 68.0,
-    "authority_type_id": 1.0
+    "authority": 68,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 14,
   "fields": {
-    "authority_id": 69.0,
-    "authority_type_id": 1.0
+    "authority": 69,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 15,
   "fields": {
-    "authority_id": 70.0,
-    "authority_type_id": 1.0
+    "authority": 70,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 16,
   "fields": {
-    "authority_id": 71.0,
-    "authority_type_id": 1.0
+    "authority": 71,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 17,
   "fields": {
-    "authority_id": 72.0,
-    "authority_type_id": 1.0
+    "authority": 72,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 18,
   "fields": {
-    "authority_id": 73.0,
-    "authority_type_id": 3.0
+    "authority": 73,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 19,
   "fields": {
-    "authority_id": 74.0,
-    "authority_type_id": 3.0
+    "authority": 74,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 20,
   "fields": {
-    "authority_id": 18.0,
-    "authority_type_id": 2.0
+    "authority": 18,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 21,
   "fields": {
-    "authority_id": 19.0,
-    "authority_type_id": 2.0
+    "authority": 19,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 22,
   "fields": {
-    "authority_id": 20.0,
-    "authority_type_id": 2.0
+    "authority": 20,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 23,
   "fields": {
-    "authority_id": 21.0,
-    "authority_type_id": 2.0
+    "authority": 21,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 24,
   "fields": {
-    "authority_id": 22.0,
-    "authority_type_id": 2.0
+    "authority": 22,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 25,
   "fields": {
-    "authority_id": 23.0,
-    "authority_type_id": 2.0
+    "authority": 23,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 26,
   "fields": {
-    "authority_id": 24.0,
-    "authority_type_id": 2.0
+    "authority": 24,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 27,
   "fields": {
-    "authority_id": 55.0,
-    "authority_type_id": 2.0
+    "authority": 55,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 28,
   "fields": {
-    "authority_id": 36.0,
-    "authority_type_id": 2.0
+    "authority": 36,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 29,
   "fields": {
-    "authority_id": 38.0,
-    "authority_type_id": 2.0
+    "authority": 38,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 30,
   "fields": {
-    "authority_id": 39.0,
-    "authority_type_id": 2.0
+    "authority": 39,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 31,
   "fields": {
-    "authority_id": 41.0,
-    "authority_type_id": 2.0
+    "authority": 41,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 32,
   "fields": {
-    "authority_id": 43.0,
-    "authority_type_id": 2.0
+    "authority": 43,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 33,
   "fields": {
-    "authority_id": 45.0,
-    "authority_type_id": 2.0
+    "authority": 45,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 34,
   "fields": {
-    "authority_id": 47.0,
-    "authority_type_id": 2.0
+    "authority": 47,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 35,
   "fields": {
-    "authority_id": 48.0,
-    "authority_type_id": 2.0
+    "authority": 48,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 36,
   "fields": {
-    "authority_id": 49.0,
-    "authority_type_id": 2.0
+    "authority": 49,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 37,
   "fields": {
-    "authority_id": 50.0,
-    "authority_type_id": 2.0
+    "authority": 50,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 38,
   "fields": {
-    "authority_id": 75.0,
-    "authority_type_id": 1.0
+    "authority": 75,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 39,
   "fields": {
-    "authority_id": 76.0,
-    "authority_type_id": 1.0
+    "authority": 76,
+    "authority_type": 1
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 40,
   "fields": {
-    "authority_id": 77.0,
-    "authority_type_id": 3.0
+    "authority": 77,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 41,
   "fields": {
-    "authority_id": 78.0,
-    "authority_type_id": 3.0
+    "authority": 78,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 42,
   "fields": {
-    "authority_id": 79.0,
-    "authority_type_id": 3.0
+    "authority": 79,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 43,
   "fields": {
-    "authority_id": 80.0,
-    "authority_type_id": 3.0
+    "authority": 80,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 44,
   "fields": {
-    "authority_id": 81.0,
-    "authority_type_id": 3.0
+    "authority": 81,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 45,
   "fields": {
-    "authority_id": 82.0,
-    "authority_type_id": 3.0
+    "authority": 82,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 46,
   "fields": {
-    "authority_id": 83.0,
-    "authority_type_id": 3.0
+    "authority": 83,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 47,
   "fields": {
-    "authority_id": 84.0,
-    "authority_type_id": 3.0
+    "authority": 84,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 48,
   "fields": {
-    "authority_id": 85.0,
-    "authority_type_id": 3.0
+    "authority": 85,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 49,
   "fields": {
-    "authority_id": 86.0,
-    "authority_type_id": 3.0
+    "authority": 86,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 50,
   "fields": {
-    "authority_id": 87.0,
-    "authority_type_id": 3.0
+    "authority": 87,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 51,
   "fields": {
-    "authority_id": 21.0,
-    "authority_type_id": 2.0
+    "authority": 21,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 52,
   "fields": {
-    "authority_id": 36.0,
-    "authority_type_id": 2.0
+    "authority": 36,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 53,
   "fields": {
-    "authority_id": 38.0,
-    "authority_type_id": 2.0
+    "authority": 38,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 54,
   "fields": {
-    "authority_id": 39.0,
-    "authority_type_id": 2.0
+    "authority": 39,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 55,
   "fields": {
-    "authority_id": 48.0,
-    "authority_type_id": 2.0
+    "authority": 48,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 56,
   "fields": {
-    "authority_id": 49.0,
-    "authority_type_id": 2.0
+    "authority": 49,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 57,
   "fields": {
-    "authority_id": 50.0,
-    "authority_type_id": 2.0
+    "authority": 50,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 58,
   "fields": {
-    "authority_id": 88.0,
-    "authority_type_id": 2.0
+    "authority": 88,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 59,
   "fields": {
-    "authority_id": 21.0,
-    "authority_type_id": 3.0
+    "authority": 21,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 60,
   "fields": {
-    "authority_id": 36.0,
-    "authority_type_id": 3.0
+    "authority": 36,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 61,
   "fields": {
-    "authority_id": 38.0,
-    "authority_type_id": 3.0
+    "authority": 38,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 62,
   "fields": {
-    "authority_id": 39.0,
-    "authority_type_id": 3.0
+    "authority": 39,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 63,
   "fields": {
-    "authority_id": 48.0,
-    "authority_type_id": 3.0
+    "authority": 48,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 64,
   "fields": {
-    "authority_id": 49.0,
-    "authority_type_id": 3.0
+    "authority": 49,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 65,
   "fields": {
-    "authority_id": 50.0,
-    "authority_type_id": 3.0
+    "authority": 50,
+    "authority_type": 3
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 66,
   "fields": {
-    "authority_id": 73.0,
-    "authority_type_id": 2.0
+    "authority": 73,
+    "authority_type": 2
   }
 },
 {
   "model": "core.authorityauthoritytype",
   "pk": 67,
   "fields": {
-    "authority_id": 74.0,
-    "authority_type_id": 2.0
+    "authority": 74,
+    "authority_type": 2
   }
 },
 {
@@ -14591,83 +14591,6 @@
   }
 },
 {
-  "model": "core.buildingauthoritybutton",
-  "pk": 2,
-  "fields": {
-    "label": "Baubewilligung erstellen"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 3,
-  "fields": {
-    "label": "Baubewilligung erteilt, Info an Geometer"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 4,
-  "fields": {
-    "label": "Bau beendet, Info an Geometer"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 5,
-  "fields": {
-    "label": "Bau beendet, Info an Liegenschaftssch\u00e4tzung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 6,
-  "fields": {
-    "label": "Bau beendet, Info an Abwasser Uri"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 7,
-  "fields": {
-    "label": "Grundbuchanmeldung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 8,
-  "fields": {
-    "label": "Abnahme Schnurger\u00fcst, Info an ABM"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 9,
-  "fields": {
-    "label": "Infobrief an Gesuchsteller"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 10,
-  "fields": {
-    "label": "Infobrief allgemein"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 11,
-  "fields": {
-    "label": "Baubewilligung erteilt, Info an Geb\u00e4udesch\u00e4tzung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 12,
-  "fields": {
-    "label": "Versand Baubewilligung"
-  }
-},
-{
   "model": "core.buildingauthoritydoc",
   "pk": 2,
   "fields": {
@@ -14797,34 +14720,6 @@
     "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
     "from_email": "camac@ur.ch",
     "from_name": "Camac Info"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 1,
-  "fields": {
-    "name": "Ordentliches Verfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 2,
-  "fields": {
-    "name": "Rechtsmittelverfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 3,
-  "fields": {
-    "name": "Realisierungsphase"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 4,
-  "fields": {
-    "name": "Meldungen / Dokumente"
   }
 },
 {
@@ -36893,6 +36788,111 @@
   "fields": {
     "name": "Leitbeh\u00f6rde",
     "query": "SELECT DISTINCT\n  \"AUTHORITY\".\"AUTHORITY_ID\",\n  \"AUTHORITY\".\"NAME\"\nFROM\n  \"AUTHORITY\"\nLEFT JOIN\n  \"GROUP_LOCATION\" ON (\n  \"GROUP_ID\" = [GROUP_ID]\n)\nLEFT JOIN\n  \"AUTHORITY_LOCATION\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AUTHORITY_LOCATION\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_AUTHORITY_TYPE\" \"AAT\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AAT\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_TYPE\" \"AT\" ON (\n    \"AAT\".\"AUTHORITY_TYPE_ID\" = \"AT\".\"AUTHORITY_TYPE_ID\"\n  )\nLEFT JOIN\n  \"FORM_GROUP_FORM\" \"FGF\" ON (\n    \"FGF\".\"FORM_ID\" = [URL_FORM_ID]\n  )\n\nWHERE (\n  \"GROUP_LOCATION\".\"LOCATION_ID\" IS NULL\n  OR\n  (\n    \"GROUP_LOCATION\".\"LOCATION_ID\" = \"AUTHORITY_LOCATION\".\"LOCATION_ID\"\n    AND\n    (\n      (\"FGF\".\"FORM_GROUP_ID\" = 30 AND \"AT\".\"TAG\" = 'BG')\n      OR\n      (\"FGF\".\"FORM_GROUP_ID\" = 141 AND \"AT\".\"TAG\" = 'NP')\n    )\n  )\n)\nORDER BY \"AUTHORITY\".\"NAME\""
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 4,
+  "fields": {
+    "name": "Meldungen / Dokumente"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 2,
+  "fields": {
+    "label": "Baubewilligung erstellen"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 3,
+  "fields": {
+    "label": "Baubewilligung erteilt, Info an Geometer"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 4,
+  "fields": {
+    "label": "Bau beendet, Info an Geometer"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 5,
+  "fields": {
+    "label": "Bau beendet, Info an Liegenschaftssch\u00e4tzung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 6,
+  "fields": {
+    "label": "Bau beendet, Info an Abwasser Uri"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 7,
+  "fields": {
+    "label": "Grundbuchanmeldung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 8,
+  "fields": {
+    "label": "Abnahme Schnurger\u00fcst, Info an ABM"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 9,
+  "fields": {
+    "label": "Infobrief an Gesuchsteller"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 10,
+  "fields": {
+    "label": "Infobrief allgemein"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 11,
+  "fields": {
+    "label": "Baubewilligung erteilt, Info an Geb\u00e4udesch\u00e4tzung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 12,
+  "fields": {
+    "label": "Versand Baubewilligung"
   }
 },
 {
