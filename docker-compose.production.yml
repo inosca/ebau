@@ -6,11 +6,8 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-            - /etc/camac/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-            - /etc/camac/letsencrypt:/var/www/letsencrypt:ro
-            - /etc/camac/ssl:/etc/ssl/camac:ro
-            - /etc/ssl/dhparam.pem:/etc/ssl/dhparam.pem:ro
             - /etc/letsencrypt:/etc/letsencrypt:ro
+            - /etc/camac/nginx:/etc/nginx/conf.d:ro
 
     db:
         image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
