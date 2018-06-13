@@ -86,3 +86,7 @@ volumes:
     phpsessions:
         external:
             name: camacphpsessions
+
+    phpresources:
+        external:
+            name: camacphpresources
