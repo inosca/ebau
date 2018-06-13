@@ -53,8 +53,6 @@ services:
         networks:
             - camac-ng.local
         command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loadconfig && ./manage.py runserver 0.0.0.0:80"
-        depends_on:
-            - mailcatcher
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:master
@@ -106,7 +104,6 @@ services:
         command: ["-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
 
     mailcatcher:
-        image: schickling/mailcatcher
         ports:
             - '1080:1080'
         networks:
