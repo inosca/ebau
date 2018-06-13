@@ -10,6 +10,7 @@ services:
             - php
             - django
             - keycloak
+            - mailcatcher
         volumes:
             - djangomedia:/var/lib/camac/media:ro
 
@@ -34,6 +35,7 @@ services:
             - cache
             - clamav
             - keycloak
+            - mailcatcher
         environment:
             - DJANGO_DATABASE_HOST=db
             - DJANGO_DATABASE_NAME=${APPLICATION}
@@ -65,11 +67,15 @@ services:
             - django
             - cache
             - keycloak
+            - mailcatcher
         environment:
             - APPLICATION=${APPLICATION}
         volumes:
             - djangomedia:/var/www/camac/media
             - phpsessions:/var/www/camac/sessions
+
+    mailcatcher:
+        image: schickling/mailcatcher
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4
