@@ -6,7 +6,7 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-            - /etc/camac/nginx:/etc/nginx
+            - /etc/camac/nginx:/etc/nginx:ro
 
     db:
         image: acr.run/camac-ng/camac-ng/db:${CI_COMMIT_REF_SLUG}-${APPLICATION}
