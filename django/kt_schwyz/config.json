@@ -5213,15 +5213,6 @@
 },
 {
   "model": "core.irroleacl",
-  "pk": 102,
-  "fields": {
-    "instance_resource": 21,
-    "role": 3,
-    "instance_state": 1
-  }
-},
-{
-  "model": "core.irroleacl",
   "pk": 103,
   "fields": {
     "instance_resource": 21,
