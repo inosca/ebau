@@ -41692,8 +41692,16 @@
   "model": "user.grouplocation",
   "pk": 171,
   "fields": {
-    "group": 1018,
+    "group": 1020,
     "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 172,
+  "fields": {
+    "group": 1021,
+    "location": 22
   }
 },
 {
@@ -44202,6 +44210,21 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 1021,
+  "fields": {
+    "role": 6,
+    "service": null,
+    "name": "Alle Gemeinden",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -44511,6 +44534,21 @@
     "section_number": null,
     "name": "Diverse Gemeinden",
     "commune_name": "Diverse Gemeinden",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 22,
+  "fields": {
+    "communal_cantonal_number": 22,
+    "communal_federal_number": null,
+    "district_number": null,
+    "section_number": null,
+    "name": "Alle Gemeinden",
+    "commune_name": "Alle Gemeinden",
     "district_name": null,
     "section_name": null,
     "zip": null
