@@ -17239,6 +17239,42 @@
   }
 },
 {
+  "model": "core.docgentemplate",
+  "pk": 215,
+  "fields": {
+    "name": "Rechnung AFJ BGL",
+    "path": "Rechnung AFJ BGL.docx",
+    "type": 1.0
+  }
+},
+{
+  "model": "core.docgentemplate",
+  "pk": 216,
+  "fields": {
+    "name": "Rechnung ALA BGL",
+    "path": "Rechnung ALA BGL.docx",
+    "type": 1.0
+  }
+},
+{
+  "model": "core.docgentemplate",
+  "pk": 217,
+  "fields": {
+    "name": "Rechnung AfE BGL",
+    "path": "Rechnung AfE BGL.docx",
+    "type": 1.0
+  }
+},
+{
+  "model": "core.docgentemplate",
+  "pk": 218,
+  "fields": {
+    "name": "Rechnung AfU BGL",
+    "path": "Rechnung AfU BGL.docx",
+    "type": 1.0
+  }
+},
+{
   "model": "core.docgentemplateclass",
   "pk": 42,
   "fields": {
