@@ -24,6 +24,7 @@ pure_config_models = (
     'core.ALocation',
     'core.ALocationQc',
     'core.ANotice',
+    'core.ANotification',
     'core.AnswerList',
     'core.APageredirect',
     'core.APhp',
