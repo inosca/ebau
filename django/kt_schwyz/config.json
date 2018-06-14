@@ -1210,6 +1210,33 @@
   }
 },
 {
+  "model": "core.anotification",
+  "pk": 47,
+  "fields": {
+    "template": 13,
+    "recipient_type": "Notification_Manager_Applicant",
+    "processor": "Notification_Processor_SendEmailAPI"
+  }
+},
+{
+  "model": "core.anotification",
+  "pk": 48,
+  "fields": {
+    "template": 14,
+    "recipient_type": "Notification_Manager_Applicant",
+    "processor": "Notification_Processor_SendEmailAPI"
+  }
+},
+{
+  "model": "core.anotification",
+  "pk": 49,
+  "fields": {
+    "template": 15,
+    "recipient_type": "Notification_Manager_Applicant",
+    "processor": "Notification_Processor_SendEmailAPI"
+  }
+},
+{
   "model": "core.apageredirect",
   "pk": 9,
   "fields": {
