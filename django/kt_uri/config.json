@@ -4394,7 +4394,7 @@
     "sender_email": "camac@ur.ch",
     "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
     "title": "Zirkulation gestartet",
-    "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungsverfahren\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTel.  041 875 26 81\r\nE-Mail: viktor.arnold@ur.ch"
+    "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nBaudirektion Uri\r\nKoordinationsstelle f\u00fcr Bewilligungs- und Plangenehmigungsverfahren (PGV)\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nKontakt f\u00fcr Bewilligungsverfahren: Viktor Arnold, Tel.  041 875 26 81, E-Mail: viktor.arnold@ur.ch\r\nKontrakt f\u00fcr Plangenehmigungsverfahren: Fredy Bissig, Tel. 041 875 26 09, E-Mail: fredy.bissig@ur.ch"
   }
 },
 {
@@ -7188,8 +7188,8 @@
   "pk": 181,
   "fields": {
     "question": 141,
-    "value": "geprueft",
-    "name": "gepr\u00fcft, keine Stellungnahme",
+    "value": "Keine Stellungnahme",
+    "name": "Keine Stellungnahme",
     "sort": 9
   }
 },
@@ -36992,7 +36992,7 @@
     "circulation_type": 41,
     "circulation_answer_type": 1,
     "name": "Nein",
-    "sort": 5
+    "sort": 8
   }
 },
 {
@@ -37002,7 +37002,7 @@
     "circulation_type": 41,
     "circulation_answer_type": 1,
     "name": "Ja",
-    "sort": 6
+    "sort": 9
   }
 },
 {
@@ -37012,7 +37012,7 @@
     "circulation_type": 41,
     "circulation_answer_type": 1,
     "name": "Ja mit Auflagen",
-    "sort": 7
+    "sort": 10
   }
 },
 {
@@ -37022,7 +37022,7 @@
     "circulation_type": 41,
     "circulation_answer_type": 1,
     "name": "Fachstelle nicht betroffen",
-    "sort": 8
+    "sort": 11
   }
 },
 {
@@ -37032,7 +37032,7 @@
     "circulation_type": 61,
     "circulation_answer_type": 1,
     "name": "Nein",
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -37042,7 +37042,7 @@
     "circulation_type": 61,
     "circulation_answer_type": 1,
     "name": "Ja",
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -37052,7 +37052,7 @@
     "circulation_type": 61,
     "circulation_answer_type": 1,
     "name": "Ja mit Auflagen",
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -37062,7 +37062,47 @@
     "circulation_type": 61,
     "circulation_answer_type": 1,
     "name": "Fachstelle nicht betroffen",
-    "sort": 4
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 69,
+  "fields": {
+    "circulation_type": 61,
+    "circulation_answer_type": 1,
+    "name": "Pr\u00fcfung noch nicht abgeschlossen",
+    "sort": 0
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 70,
+  "fields": {
+    "circulation_type": 41,
+    "circulation_answer_type": 1,
+    "name": "Pr\u00fcfung noch nicht abgeschlossen",
+    "sort": 6
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 71,
+  "fields": {
+    "circulation_type": 61,
+    "circulation_answer_type": 1,
+    "name": "Keine Stellungnahme",
+    "sort": 1
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 72,
+  "fields": {
+    "circulation_type": 41,
+    "circulation_answer_type": 1,
+    "name": "Keine Stellungnahme",
+    "sort": 7
   }
 },
 {
@@ -42711,15 +42751,15 @@
   "model": "user.group",
   "pk": 203,
   "fields": {
-    "role": 1081,
+    "role": 4,
     "service": 86,
     "name": "Laboratorium der Urkantone Veterin\u00e4ramt",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -43071,30 +43111,30 @@
   "model": "user.group",
   "pk": 463,
   "fields": {
-    "role": 1081,
+    "role": 2,
     "service": null,
     "name": "Kommission Naturgefahren",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
   "model": "user.group",
   "pk": 482,
   "fields": {
-    "role": 1081,
+    "role": 2,
     "service": null,
     "name": "Landwirtschaftskommission",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -43539,12 +43579,12 @@
     "role": 4,
     "service": 440,
     "name": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "ignaz.zopp@ur.ch",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -43611,15 +43651,15 @@
   "model": "user.group",
   "pk": 726,
   "fields": {
-    "role": 1081,
+    "role": 2,
     "service": 481,
     "name": "Brandschutzpr\u00fcfung TRA Projekte",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
     "email": "aeb@evakuation.ch",
-    "website": ""
+    "website": null
   }
 },
 {
@@ -43986,15 +44026,15 @@
   "model": "user.group",
   "pk": 917,
   "fields": {
-    "role": 1081,
+    "role": 2,
     "service": null,
     "name": "Test Gruppe",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -44070,6 +44110,36 @@
     "address": "",
     "email": "",
     "website": ""
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1018,
+  "fields": {
+    "role": 4,
+    "service": 588,
+    "name": "Amt f\u00fcr Umweltschutz Sachbearbeitung und Koordination W\u00e4rmenutzung",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1019,
+  "fields": {
+    "role": 1081,
+    "service": null,
+    "name": "Monitron (Pr\u00fcfung von Dossiers im Zusammenhang mit W\u00e4rmenutzung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -44532,7 +44602,7 @@
     "service_parent": null,
     "name": "ARE KOOR BG",
     "description": "Kantonale Koordinationsstelle f\u00fcr Baueingaben",
-    "sort": 91,
+    "sort": 92,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44566,7 +44636,7 @@
     "service_parent": null,
     "name": "AfAM",
     "description": "Amt f\u00fcr Arbeit und Migration",
-    "sort": 93,
+    "sort": 94,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44583,7 +44653,7 @@
     "service_parent": null,
     "name": "AfU",
     "description": "Gew\u00e4sserschutz und Immissionsschutz",
-    "sort": 95,
+    "sort": 96,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44683,15 +44753,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "LABT",
+    "name": "LABT (Trinkwasserinspektorat)",
     "description": "Laboratorium der Urkantone Trinkwasserinspektorat",
     "sort": 63,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
     "email": "trinkwasserinspektorat@laburk.ch",
-    "website": ""
+    "website": null
   }
 },
 {
@@ -44700,15 +44770,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "LABL",
+    "name": "LABL (Lebensmittelinspektorat)",
     "description": "Laboratorium der Urkantone Lebensmittelinspektorat",
     "sort": 66,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
     "email": "lebensmittelinspektorat@laburk.ch",
-    "website": ""
+    "website": null
   }
 },
 {
@@ -44717,15 +44787,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "LABV (Service noch nicht Betrieb)",
+    "name": "LABV (Veterin\u00e4ramt der Urkantone)",
     "description": "Laboratorium der Urkantone Veterin\u00e4ramt",
     "sort": 68,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -44736,7 +44806,7 @@
     "service_parent": null,
     "name": "ARE KOOR NP",
     "description": "Koordinationsstelle Nutzungplanung",
-    "sort": 120,
+    "sort": 122,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44872,7 +44942,7 @@
     "service_parent": null,
     "name": "AfWoeV",
     "description": "Amt f\u00fcr Wirtschaft und \u00f6ffentlichen Verkehr",
-    "sort": 119,
+    "sort": 121,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44889,7 +44959,7 @@
     "service_parent": null,
     "name": "ALA",
     "description": "Amt f\u00fcr Landwirtschaft",
-    "sort": 121,
+    "sort": 123,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44906,7 +44976,7 @@
     "service_parent": null,
     "name": "Alpiq",
     "description": "Alpiq Hochspannungsleitung",
-    "sort": 71,
+    "sort": 72,
     "phone": "",
     "zip": "",
     "city": "",
@@ -44991,7 +45061,7 @@
     "service_parent": null,
     "name": "Test",
     "description": "Test",
-    "sort": 131,
+    "sort": 133,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45008,7 +45078,7 @@
     "service_parent": null,
     "name": "SBB",
     "description": "SBB Hochspannungsleitung",
-    "sort": 73,
+    "sort": 74,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45091,15 +45161,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "LSSV",
+    "name": "LSSV (Landschaftsschutzverband Vierwaldst\u00e4ttersee)",
     "description": "Landschaftsschutzverband Vierwaldst\u00e4ttersee",
-    "sort": 76,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "sort": 77,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -45110,7 +45180,7 @@
     "service_parent": null,
     "name": "TEST KOORNP",
     "description": "Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)",
-    "sort": 130,
+    "sort": 132,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45159,15 +45229,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "AGO",
+    "name": "AGO (Geometer)",
     "description": "Geometer Vermessung",
     "sort": 56,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -45263,7 +45333,7 @@
     "service_parent": null,
     "name": "Gemeinde Andermatt",
     "description": "Gemeinde Andermatt als Vernehmlassungsstelle",
-    "sort": 99,
+    "sort": 101,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45280,7 +45350,7 @@
     "service_parent": null,
     "name": "Gemeinde Altdorf",
     "description": "Gemeinde Altdorf als Vernehmlassungsstelle",
-    "sort": 90,
+    "sort": 91,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45297,7 +45367,7 @@
     "service_parent": null,
     "name": "KOOR BD",
     "description": "Koordinationsstelle f\u00fcr Bewilligungsverfahren der Baudirektion",
-    "sort": 124,
+    "sort": 126,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45314,7 +45384,7 @@
     "service_parent": null,
     "name": "WB",
     "description": "Baudirektion Abteilung Wasserbau",
-    "sort": 118,
+    "sort": 120,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45331,7 +45401,7 @@
     "service_parent": null,
     "name": "AS",
     "description": "Baudirektion Abteilung Strassen",
-    "sort": 123,
+    "sort": 125,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45348,7 +45418,7 @@
     "service_parent": null,
     "name": "BK",
     "description": "Baudirektion Betrieb Kantonsstrassen",
-    "sort": 129,
+    "sort": 131,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45365,7 +45435,7 @@
     "service_parent": null,
     "name": "AfE",
     "description": "Baudirektion Amt f\u00fcr Energie",
-    "sort": 132,
+    "sort": 134,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45382,7 +45452,7 @@
     "service_parent": null,
     "name": "AfBN",
     "description": "Baudirektion Amt f\u00fcr Betrieb Nationalstrassen",
-    "sort": 133,
+    "sort": 135,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45399,7 +45469,7 @@
     "service_parent": null,
     "name": "AfH",
     "description": "Baudirektion Amt f\u00fcr Hochbau",
-    "sort": 135,
+    "sort": 137,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45450,7 +45520,7 @@
     "service_parent": null,
     "name": "BGBB",
     "description": "Bundesgesetz \u00fcber das b\u00e4uerliche Bodenrecht",
-    "sort": 122,
+    "sort": 124,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45467,7 +45537,7 @@
     "service_parent": null,
     "name": "Gemeinde Attinghausen",
     "description": "Gemeinde Attinghausen als Vernehmlassungsstelle",
-    "sort": 100,
+    "sort": 102,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45484,7 +45554,7 @@
     "service_parent": null,
     "name": "Gemeinde Bauen",
     "description": "Gemeinde Bauen als Vernehmlassungsstelle",
-    "sort": 101,
+    "sort": 103,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45501,7 +45571,7 @@
     "service_parent": null,
     "name": "Gemeinde B\u00fcrglen",
     "description": "Gemeinde B\u00fcrglen als Vernehmlassungsstelle",
-    "sort": 102,
+    "sort": 104,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45518,7 +45588,7 @@
     "service_parent": null,
     "name": "Gemeinde Erstfeld",
     "description": "Gemeinde Erstfeld  als Vernehmlassungsstelle",
-    "sort": 103,
+    "sort": 105,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45535,7 +45605,7 @@
     "service_parent": null,
     "name": "Gemeinde Fl\u00fcelen",
     "description": "Gemeinde Fl\u00fcelen als Vernehmlassungsstelle",
-    "sort": 104,
+    "sort": 106,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45552,7 +45622,7 @@
     "service_parent": null,
     "name": "Gemeinde G\u00f6schenen",
     "description": "Gemeinde G\u00f6schenen als Vernehmlassungsstelle",
-    "sort": 105,
+    "sort": 107,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45569,7 +45639,7 @@
     "service_parent": null,
     "name": "Gemeinde Gurtnellen",
     "description": "Gemeinde Gurtnellen als Vernehmlassungsstelle",
-    "sort": 106,
+    "sort": 108,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45586,7 +45656,7 @@
     "service_parent": null,
     "name": "Gemeinde Hospental",
     "description": "Gemeinde Hospental als Vernehmlassungsstelle",
-    "sort": 107,
+    "sort": 109,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45603,7 +45673,7 @@
     "service_parent": null,
     "name": "Gemeinde Isenthal",
     "description": "Gemeinde Isenthal als Vernehmlassungsstelle",
-    "sort": 108,
+    "sort": 110,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45620,7 +45690,7 @@
     "service_parent": null,
     "name": "Gemeinde Realp",
     "description": "Gemeinde Realp als Vernehmlassungsstelle",
-    "sort": 109,
+    "sort": 111,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45637,7 +45707,7 @@
     "service_parent": null,
     "name": "Gemeinde Schattdorf",
     "description": "Gemeinde Schattdorf als Vernehmlassungsstelle",
-    "sort": 110,
+    "sort": 112,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45654,7 +45724,7 @@
     "service_parent": null,
     "name": "Gemeinde Seedorf",
     "description": "Gemeinde Seedorf als Vernehmlassungsstelle",
-    "sort": 111,
+    "sort": 113,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45671,7 +45741,7 @@
     "service_parent": null,
     "name": "Gemeinde Seelisberg",
     "description": "Gemeinde Seelisberg als Vernehmlassungsstelle",
-    "sort": 112,
+    "sort": 114,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45688,7 +45758,7 @@
     "service_parent": null,
     "name": "Gemeinde Silenen",
     "description": "Gemeinde Silenen als Vernehmlassungsstelle",
-    "sort": 113,
+    "sort": 115,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45705,7 +45775,7 @@
     "service_parent": null,
     "name": "Gemeinde Sisikon",
     "description": "Gemeinde Sisikon als Vernehmlassungsstelle",
-    "sort": 114,
+    "sort": 116,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45722,7 +45792,7 @@
     "service_parent": null,
     "name": "Gemeinde Spiringen",
     "description": "Gemeinde Spiringen als Vernehmlassungsstelle",
-    "sort": 115,
+    "sort": 117,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45739,7 +45809,7 @@
     "service_parent": null,
     "name": "Gemeinde Untersch\u00e4chen",
     "description": "Gemeinde Untersch\u00e4chen als Vernehmlassungsstelle",
-    "sort": 116,
+    "sort": 118,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45756,7 +45826,7 @@
     "service_parent": null,
     "name": "Gemeinde Wassen",
     "description": "Gemeinde Wassen als Vernehmlassungsstelle",
-    "sort": 117,
+    "sort": 119,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45943,7 +46013,7 @@
     "service_parent": null,
     "name": "GBB B\u00fcrglen",
     "description": "GBB B\u00fcrglen",
-    "sort": 72,
+    "sort": 73,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45960,7 +46030,7 @@
     "service_parent": null,
     "name": "GBB Erstfeld",
     "description": "GBB Erstfeld",
-    "sort": 74,
+    "sort": 75,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45977,7 +46047,7 @@
     "service_parent": null,
     "name": "GBB Fl\u00fcelen",
     "description": "GBB Fl\u00fcelen",
-    "sort": 78,
+    "sort": 79,
     "phone": "",
     "zip": "",
     "city": "",
@@ -45994,7 +46064,7 @@
     "service_parent": null,
     "name": "GBB Urner Oberland",
     "description": "GBB Urner Oberland",
-    "sort": 79,
+    "sort": 80,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46011,7 +46081,7 @@
     "service_parent": null,
     "name": "GBB Hospental",
     "description": "GBB Hospental",
-    "sort": 80,
+    "sort": 81,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46028,7 +46098,7 @@
     "service_parent": null,
     "name": "GBB Isenthal",
     "description": "GBB Isenthal",
-    "sort": 81,
+    "sort": 82,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46045,7 +46115,7 @@
     "service_parent": null,
     "name": "GBB Realp",
     "description": "GBB Realp",
-    "sort": 82,
+    "sort": 83,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46062,7 +46132,7 @@
     "service_parent": null,
     "name": "GBB Schattdorf",
     "description": "GBB Schattdorf",
-    "sort": 83,
+    "sort": 84,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46079,7 +46149,7 @@
     "service_parent": null,
     "name": "GBB Seedorf",
     "description": "GBB Seedorf",
-    "sort": 84,
+    "sort": 85,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46096,7 +46166,7 @@
     "service_parent": null,
     "name": "GBB Seelisberg",
     "description": "GBB Seelisberg",
-    "sort": 85,
+    "sort": 86,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46113,7 +46183,7 @@
     "service_parent": null,
     "name": "GBB Silenen",
     "description": "GBB Silenen",
-    "sort": 86,
+    "sort": 87,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46130,7 +46200,7 @@
     "service_parent": null,
     "name": "GBB Sisikon",
     "description": "GBB Sisikon",
-    "sort": 87,
+    "sort": 88,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46147,7 +46217,7 @@
     "service_parent": null,
     "name": "GBB Spiringen",
     "description": "GBB Spiringen",
-    "sort": 88,
+    "sort": 89,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46164,7 +46234,7 @@
     "service_parent": null,
     "name": "GBB Untersch\u00e4chen",
     "description": "GBB Untersch\u00e4chen",
-    "sort": 89,
+    "sort": 90,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46213,15 +46283,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "Qualinova (Dossierzuweisung nur via Fachstelle)",
+    "name": "Qualinova (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
     "description": "Qualinova",
     "sort": 15,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -46317,7 +46387,7 @@
     "service_parent": null,
     "name": "Mitglieder BK Silenen",
     "description": "Mitglieder BK Silenen",
-    "sort": 69,
+    "sort": 70,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46334,7 +46404,7 @@
     "service_parent": null,
     "name": "Mitglieder BK Sisikon",
     "description": "Mitglieder BK Sisikon",
-    "sort": 70,
+    "sort": 71,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46402,7 +46472,7 @@
     "service_parent": null,
     "name": "Mitglieder BK Spiringen",
     "description": "Mitglieder BK Spiringen",
-    "sort": 75,
+    "sort": 76,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46419,7 +46489,7 @@
     "service_parent": null,
     "name": "Mitglieder BK Untersch\u00e4chen",
     "description": "Mitglieder BK Untersch\u00e4chen",
-    "sort": 77,
+    "sort": 78,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46606,7 +46676,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Soziales",
     "description": "Amt f\u00fcr Soziales",
-    "sort": 98,
+    "sort": 100,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46623,7 +46693,7 @@
     "service_parent": null,
     "name": "GSUD DS",
     "description": "Gesundheits- Sozial- und Umweltdirektion Direktionssekretariat",
-    "sort": 94,
+    "sort": 95,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46657,7 +46727,7 @@
     "service_parent": null,
     "name": "VD DS",
     "description": "Volkswirtschaftsdirektion Direktionssekretariat",
-    "sort": 92,
+    "sort": 93,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46674,7 +46744,7 @@
     "service_parent": null,
     "name": "KOOR AfU",
     "description": "Kantonale Koordinationsstelle Amt f\u00fcr Umweltschutz",
-    "sort": 125,
+    "sort": 127,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46691,7 +46761,7 @@
     "service_parent": null,
     "name": "KOOR ALA",
     "description": "Kantonale Koordinationsstelle f\u00fcr Landwirtschaft",
-    "sort": 126,
+    "sort": 128,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46708,7 +46778,7 @@
     "service_parent": null,
     "name": "KOOR AfE",
     "description": "Kantonale Koordinationsstelle f\u00fcr Energie",
-    "sort": 127,
+    "sort": 129,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46725,7 +46795,7 @@
     "service_parent": null,
     "name": "KOOR AFJ",
     "description": "Kantonale Koordinationsstelle f\u00fcr Forst und Jagd",
-    "sort": 128,
+    "sort": 130,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46740,15 +46810,15 @@
   "fields": {
     "service_group": 21,
     "service_parent": null,
-    "name": "LABB",
+    "name": "LABB (Badewasserinspektorat)",
     "description": "Badewasserinspektor",
     "sort": 67,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -46793,7 +46863,7 @@
     "service_parent": null,
     "name": "AfU GS",
     "description": "Amt f\u00fcr Umweltschutz Abteilung Gew\u00e4sserschutz",
-    "sort": 96,
+    "sort": 97,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46810,7 +46880,7 @@
     "service_parent": null,
     "name": "AfU IS",
     "description": "Amt f\u00fcr Umweltschutz Abteilung Immissionsschutz",
-    "sort": 97,
+    "sort": 99,
     "phone": "",
     "zip": "",
     "city": "",
@@ -46827,13 +46897,47 @@
     "service_parent": null,
     "name": "AfBN Baupolizei",
     "description": "Amt f\u00fcr Betrieb Nationalstrassen Bereich Baupolizei",
-    "sort": 134,
+    "sort": 136,
     "phone": "",
     "zip": "",
     "city": "",
     "address": "",
     "email": "afbn.baupolizei@ur.ch",
     "website": ""
+  }
+},
+{
+  "model": "user.service",
+  "pk": 588,
+  "fields": {
+    "service_group": 62,
+    "service_parent": null,
+    "name": "AfU GS W\u00e4rmenutzung",
+    "description": "Amt f\u00fcr Umweltschutz Dossier im Zusammenhang mit W\u00e4rmenutzung",
+    "sort": 98,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 589,
+  "fields": {
+    "service_group": 21,
+    "service_parent": null,
+    "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
+    "description": "Monitron (pr\u00fcft Dossiers im Zusammenhang mit W\u00e4rmenutzung)",
+    "sort": 69,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
