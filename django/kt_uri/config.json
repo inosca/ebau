@@ -14591,83 +14591,6 @@
   }
 },
 {
-  "model": "core.buildingauthoritybutton",
-  "pk": 2,
-  "fields": {
-    "label": "Baubewilligung erstellen"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 3,
-  "fields": {
-    "label": "Baubewilligung erteilt, Info an Geometer"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 4,
-  "fields": {
-    "label": "Bau beendet, Info an Geometer"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 5,
-  "fields": {
-    "label": "Bau beendet, Info an Liegenschaftssch\u00e4tzung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 6,
-  "fields": {
-    "label": "Bau beendet, Info an Abwasser Uri"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 7,
-  "fields": {
-    "label": "Grundbuchanmeldung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 8,
-  "fields": {
-    "label": "Abnahme Schnurger\u00fcst, Info an ABM"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 9,
-  "fields": {
-    "label": "Infobrief an Gesuchsteller"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 10,
-  "fields": {
-    "label": "Infobrief allgemein"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 11,
-  "fields": {
-    "label": "Baubewilligung erteilt, Info an Geb\u00e4udesch\u00e4tzung"
-  }
-},
-{
-  "model": "core.buildingauthoritybutton",
-  "pk": 12,
-  "fields": {
-    "label": "Versand Baubewilligung"
-  }
-},
-{
   "model": "core.buildingauthoritydoc",
   "pk": 2,
   "fields": {
@@ -14797,34 +14720,6 @@
     "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
     "from_email": "camac@ur.ch",
     "from_name": "Camac Info"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 1,
-  "fields": {
-    "name": "Ordentliches Verfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 2,
-  "fields": {
-    "name": "Rechtsmittelverfahren"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 3,
-  "fields": {
-    "name": "Realisierungsphase"
-  }
-},
-{
-  "model": "core.buildingauthoritysection",
-  "pk": 4,
-  "fields": {
-    "name": "Meldungen / Dokumente"
   }
 },
 {
@@ -36893,6 +36788,111 @@
   "fields": {
     "name": "Leitbeh\u00f6rde",
     "query": "SELECT DISTINCT\n  \"AUTHORITY\".\"AUTHORITY_ID\",\n  \"AUTHORITY\".\"NAME\"\nFROM\n  \"AUTHORITY\"\nLEFT JOIN\n  \"GROUP_LOCATION\" ON (\n  \"GROUP_ID\" = [GROUP_ID]\n)\nLEFT JOIN\n  \"AUTHORITY_LOCATION\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AUTHORITY_LOCATION\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_AUTHORITY_TYPE\" \"AAT\" ON (\n    \"AUTHORITY\".\"AUTHORITY_ID\" = \"AAT\".\"AUTHORITY_ID\"\n  )\nJOIN\n  \"AUTHORITY_TYPE\" \"AT\" ON (\n    \"AAT\".\"AUTHORITY_TYPE_ID\" = \"AT\".\"AUTHORITY_TYPE_ID\"\n  )\nLEFT JOIN\n  \"FORM_GROUP_FORM\" \"FGF\" ON (\n    \"FGF\".\"FORM_ID\" = [URL_FORM_ID]\n  )\n\nWHERE (\n  \"GROUP_LOCATION\".\"LOCATION_ID\" IS NULL\n  OR\n  (\n    \"GROUP_LOCATION\".\"LOCATION_ID\" = \"AUTHORITY_LOCATION\".\"LOCATION_ID\"\n    AND\n    (\n      (\"FGF\".\"FORM_GROUP_ID\" = 30 AND \"AT\".\"TAG\" = 'BG')\n      OR\n      (\"FGF\".\"FORM_GROUP_ID\" = 141 AND \"AT\".\"TAG\" = 'NP')\n    )\n  )\n)\nORDER BY \"AUTHORITY\".\"NAME\""
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 1,
+  "fields": {
+    "name": "Ordentliches Verfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 2,
+  "fields": {
+    "name": "Rechtsmittelverfahren"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 3,
+  "fields": {
+    "name": "Realisierungsphase"
+  }
+},
+{
+  "model": "core.buildingauthoritysection",
+  "pk": 4,
+  "fields": {
+    "name": "Meldungen / Dokumente"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 2,
+  "fields": {
+    "label": "Baubewilligung erstellen"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 3,
+  "fields": {
+    "label": "Baubewilligung erteilt, Info an Geometer"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 4,
+  "fields": {
+    "label": "Bau beendet, Info an Geometer"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 5,
+  "fields": {
+    "label": "Bau beendet, Info an Liegenschaftssch\u00e4tzung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 6,
+  "fields": {
+    "label": "Bau beendet, Info an Abwasser Uri"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 7,
+  "fields": {
+    "label": "Grundbuchanmeldung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 8,
+  "fields": {
+    "label": "Abnahme Schnurger\u00fcst, Info an ABM"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 9,
+  "fields": {
+    "label": "Infobrief an Gesuchsteller"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 10,
+  "fields": {
+    "label": "Infobrief allgemein"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 11,
+  "fields": {
+    "label": "Baubewilligung erteilt, Info an Geb\u00e4udesch\u00e4tzung"
+  }
+},
+{
+  "model": "core.buildingauthoritybutton",
+  "pk": 12,
+  "fields": {
+    "label": "Versand Baubewilligung"
   }
 },
 {
