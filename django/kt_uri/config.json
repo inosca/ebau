@@ -38670,6 +38670,22 @@
   }
 },
 {
+  "model": "core.question",
+  "pk": 270,
+  "fields": {
+    "question_type": 3,
+    "mapping": 1,
+    "answer_query": 1,
+    "name": "Parzellenstandort (Gemeinde)",
+    "description": "In welcher Gemeinde sich die gew\u00fcnschte Parzelle befindet. (Relevant f\u00fcr \"Diverse Gemeinde\" und \"Alle Gemeinden\")",
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
+  }
+},
+{
   "model": "core.questiontype",
   "pk": 1,
   "fields": {
