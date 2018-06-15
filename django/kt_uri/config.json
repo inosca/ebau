@@ -36827,6 +36827,14 @@
   }
 },
 {
+  "model": "core.answerquery",
+  "pk": 42,
+  "fields": {
+    "name": "Gemeinden (ohne Diverse/Alle Gemeinden)",
+    "query": "SELECT\r\n  \"LOCATION_ID\", \"NAME\"\r\nFROM\r\n  \"LOCATION\"\r\n\r\nWHERE\r\n  \"LOCATION_ID\" IN (\r\n    SELECT\r\n      \"LOCATION_ID\"\r\n    FROM\r\n      \"GROUP_LOCATION\"\r\n    WHERE\r\n      \"GROUP_ID\" = [GROUP_ID]\r\n    )\r\n    OR\r\n    [ROLE_ID] NOT IN (6, 7, 1105)\r\nAND \"LOCATION_ID\" NOT IN (\r\n    21,\r\n    22)\r\nORDER BY \"NAME\""
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -38675,7 +38683,7 @@
   "fields": {
     "question_type": 3,
     "mapping": 1,
-    "answer_query": 1,
+    "answer_query": 42,
     "name": "Parzellenstandort (Gemeinde)",
     "description": "In welcher Gemeinde sich die gew\u00fcnschte Parzelle befindet. (Relevant f\u00fcr \"Diverse Gemeinde\" und \"Alle Gemeinden\")",
     "javascript": null,
