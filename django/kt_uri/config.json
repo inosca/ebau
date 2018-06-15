@@ -32822,7 +32822,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 5
+    "sort": 6
   }
 },
 {
@@ -33174,7 +33174,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -33185,7 +33185,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -33196,7 +33196,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -33207,7 +33207,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 6
+    "sort": 7
   }
 },
 {
@@ -33218,7 +33218,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 7
+    "sort": 8
   }
 },
 {
@@ -33229,7 +33229,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 8
+    "sort": 9
   }
 },
 {
@@ -33240,7 +33240,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 10
+    "sort": 11
   }
 },
 {
@@ -33251,7 +33251,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 11
+    "sort": 12
   }
 },
 {
@@ -33262,7 +33262,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 13
+    "sort": 14
   }
 },
 {
@@ -33273,7 +33273,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 14
+    "sort": 15
   }
 },
 {
@@ -33284,7 +33284,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 15
+    "sort": 16
   }
 },
 {
@@ -33295,7 +33295,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 16
+    "sort": 17
   }
 },
 {
@@ -33306,7 +33306,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 17
+    "sort": 18
   }
 },
 {
@@ -33548,7 +33548,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 9
+    "sort": 10
   }
 },
 {
@@ -33592,7 +33592,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 12
+    "sort": 13
   }
 },
 {
@@ -33603,7 +33603,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 4
+    "sort": 5
   }
 },
 {
@@ -33813,6 +33813,17 @@
     "required": 0,
     "item": 1,
     "sort": 7
+  }
+},
+{
+  "model": "core.questionchapter",
+  "pk": 101,
+  "fields": {
+    "question": 270,
+    "chapter": 21,
+    "required": 0,
+    "item": 1,
+    "sort": 1
   }
 },
 {
