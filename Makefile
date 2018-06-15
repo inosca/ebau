@@ -1,4 +1,4 @@
-SHELL:=/bin/bash
+SHELL:=/bin/sh
 
 # http://clarkgrubb.com/makefile-style-guide#phony-targets
 
@@ -43,3 +43,11 @@ generate-api-doc: ## generates documentation for the i-web portal API
 .PHONY: clear-cache ## Clear the memcache
 clear-cache:
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
+
+.PHONY: dumpconfig ## Dump the configuration tables
+dumpconfig:
+	@docker-compose exec django python manage.py dumpconfig
+
+.PHONY: loadconfig ## Load config.json
+loadconfig:
+	@docker-compose exec django python manage.py loadconfig
