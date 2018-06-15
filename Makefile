@@ -51,3 +51,7 @@ dumpconfig:
 .PHONY: loadconfig ## Load config.json
 loadconfig:
 	@docker-compose exec django python manage.py loadconfig
+
+.PHONY: dbshell ## Start a psql shell
+dbshell:
+	@docker-compose exec db psql -Ucamac
