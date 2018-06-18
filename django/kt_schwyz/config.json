@@ -4310,24 +4310,6 @@
 },
 {
   "model": "core.ireditcirculationsg",
-  "pk": 1,
-  "fields": {
-    "instance_resource": 7,
-    "service_group": 2,
-    "localized": 0
-  }
-},
-{
-  "model": "core.ireditcirculationsg",
-  "pk": 2,
-  "fields": {
-    "instance_resource": 7,
-    "service_group": 1,
-    "localized": 0
-  }
-},
-{
-  "model": "core.ireditcirculationsg",
   "pk": 3,
   "fields": {
     "instance_resource": 18,
