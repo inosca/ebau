@@ -5588,7 +5588,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 19,
+  "pk": 22,
   "fields": {
     "resource": 6,
     "circulation_state": 1
@@ -5596,7 +5596,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 20,
+  "pk": 23,
   "fields": {
     "resource": 6,
     "circulation_state": 2
@@ -5604,7 +5604,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 21,
+  "pk": 24,
   "fields": {
     "resource": 6,
     "circulation_state": 4
@@ -5816,6 +5816,22 @@
   "fields": {
     "resource": 8,
     "instance_state": 10
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 34,
+  "fields": {
+    "resource": 6,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 35,
+  "fields": {
+    "resource": 6,
+    "instance_state": 7
   }
 },
 {
