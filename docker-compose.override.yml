@@ -79,6 +79,7 @@ services:
             - /var/www/camac/configuration
             - /var/www/camac/public/node_modules
             - /var/www/camac/public/public-kt_uri/js/dist
+            - /var/www/camac/public/public-kt_schwyz/js/dist
         environment:
             - APPLICATION_ENV=development
         networks:
