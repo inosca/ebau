@@ -239,7 +239,11 @@
       "parent": "grundinformationen",
       "questions": ["ausnahmen", "ausnahmen-begrundung"]
     },
-    "personalien": { "title": "Personalien", "parent": null, "questions": [] },
+    "personalien": {
+      "title": "Personalien",
+      "parent": null,
+      "questions": []
+    },
     "personalien.grundeigentumerschaft": {
       "title": "Grundeigentümerschaft",
       "parent": "personalien",
@@ -270,7 +274,11 @@
       "parent": "personalien",
       "questions": ["bewilligungsnehmer"]
     },
-    "fachthemen": { "title": "Fachthemen", "parent": null, "questions": [] },
+    "fachthemen": {
+      "title": "Fachthemen",
+      "parent": null,
+      "questions": []
+    },
     "fachthemen.landwirtschaft": {
       "title": "Landwirtschaft",
       "parent": "fachthemen",
@@ -626,12 +634,14 @@
   "questions": {
     "parzelle": {
       "label": "Parzellennr.",
+      "hint": "**Platzhalter**: *parzelle*",
       "type": "number",
       "required": true,
       "config": {}
     },
     "gwr": {
       "label": "Gebäude- und Wohnungsregister",
+      "hint": "**Platzhalter**: *gwr*",
       "type": "gwr",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
@@ -687,7 +697,9 @@
             "label": "Wie hoch ist die vorgesehene Bettenzahl?",
             "type": "number",
             "required": false,
-            "config": { "min": 0 }
+            "config": {
+              "min": 0
+            }
           },
           {
             "name": "heizungsart",
@@ -829,6 +841,7 @@
     },
     "bezeichnung": {
       "label": "Bezeichung Ihres Vorhabens:",
+      "hint": "**Platzhalter**: *bezeichnung*",
       "type": "text",
       "required": true,
       "config": {}
@@ -836,8 +849,7 @@
     "kategorie-des-vorhabens": {
       "label":
         "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
-      "hint":
-        "Bei Nutzungsänderungen kann Baute und / oder Anlage betroffen sein",
+      "hint": "**Platzhalter**: *kategorie-des-vorhabens*",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -846,6 +858,7 @@
     },
     "art-der-nutzung": {
       "label": "Welchem Zweck dient das Vorhaben?",
+      "hint": "**Platzhalter**: *art-der-nutzung*",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -862,8 +875,7 @@
     },
     "vorhaben-mit-baute": {
       "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
-      "hint":
-        "Ordnen Sie bitte Ihrem Vorhaben jene Tätigkeit zu, welche am meisten / ehesten zutrifft",
+      "hint": "**Platzhalter**: *vorhaben-mit-baute*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Bauten(n)' in 'kategorie-des-vorhabens'|value",
@@ -879,6 +891,7 @@
     },
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
+      "hint": "**Platzhalter**: *art-der-anlage*",
       "type": "multiselect",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -899,6 +912,7 @@
     },
     "art-der-befestigten-flache": {
       "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
+      "hint": "**Platzhalter**: *art-der-befestigten-flache*",
       "type": "multiselect",
       "required": true,
       "active-expression": "'Befestigte Fläche' in 'art-der-anlage'|value",
@@ -914,6 +928,7 @@
     },
     "zweck-der-leitungen": {
       "label": "Welchem Zweck dienen die Leitungen?",
+      "hint": "**Platzhalter**: *zweck-der-leitungen*",
       "type": "multiselect",
       "required": true,
       "active-expression":
@@ -930,6 +945,7 @@
     },
     "art-der-warmepumpe": {
       "label": "Welche Art Wärmepumpe ist vorgesehen?",
+      "hint": "**Platzhalter**: *art-der-warmepumpe*",
       "type": "radio",
       "required": true,
       "active-expression": "'Wärmepumpe' in 'art-der-anlage'|value",
@@ -944,6 +960,7 @@
     },
     "tangiert-vorhaben-strasse": {
       "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
+      "hint": "**Platzhalter**: *tangiert-vorhaben-strasse*",
       "type": "radio",
       "required": true,
       "config": {
@@ -952,6 +969,7 @@
     },
     "pfahlfundation-vorgesehen": {
       "label": "Ist eine Pfahlfundation vorgesehen?",
+      "hint": "**Platzhalter**: *pfahlfundation-vorgesehen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -960,6 +978,7 @@
     },
     "baugrubenumschliessung-vorgesehen": {
       "label": "Ist eine Baugrubenumschliessung vorgesehen?",
+      "hint": "**Platzhalter**: *baugrubenumschliessung-vorgesehen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -969,6 +988,7 @@
     "temporare-grundwasserabsenkung-notig": {
       "label":
         "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
+      "hint": "**Platzhalter**: *temporare-grundwasserabsenkung-notig*",
       "type": "radio",
       "required": true,
       "config": {
@@ -978,6 +998,7 @@
     "anlagen-mit-erheblichen-schadstoffemissionen": {
       "label":
         "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -986,6 +1007,8 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
       "label": "Welche?",
+      "hint":
+        "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen-welche*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -995,6 +1018,7 @@
     "anlagen-mit-erheblichen-strahlungsemissionen": {
       "label":
         "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
+      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1003,6 +1027,8 @@
     },
     "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
       "label": "Welche?",
+      "hint":
+        "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen-welche*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -1012,6 +1038,7 @@
     "anlagen-mit-erheblichen-larmemissionen": {
       "label":
         "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
+      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-larmemissionen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1021,6 +1048,7 @@
     "larmbelastetes-gebiet": {
       "label":
         "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
+      "hint": "**Platzhalter**: *larmbelastetes-gebiet*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1029,6 +1057,7 @@
     },
     "aussenbeleuchtung": {
       "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
+      "hint": "**Platzhalter**: *aussenbeleuchtung*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1038,6 +1067,7 @@
     "wassergefahrdende-stoffe": {
       "label":
         "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
+      "hint": "**Platzhalter**: *wassergefahrdende-stoffe*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1046,6 +1076,7 @@
     },
     "brandschutztechnisch-gefahrliche-stoffe": {
       "label": "Werden brandschutztechnisch gefährliche Stoffe gelagert?",
+      "hint": "**Platzhalter**: *brandschutztechnisch-gefahrliche-stoffe*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1055,6 +1086,7 @@
     "bodenbelastungen": {
       "label":
         "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
+      "hint": "**Platzhalter**: *bodenbelastungen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1063,6 +1095,7 @@
     },
     "boden-5000m2": {
       "label": "Sind mit dem Vorhaben 5‘000m² Boden (oder mehr) betroffen?",
+      "hint": "**Platzhalter**: *boden-5000m2*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1072,6 +1105,7 @@
     "ordendliche-mindestabstande": {
       "label":
         "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
+      "hint": "**Platzhalter**: *ordendliche-mindestabstande*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1081,6 +1115,7 @@
     "auswirkungen-auf-arbeitnehmer": {
       "label":
         "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
+      "hint": "**Platzhalter**: *auswirkungen-auf-arbeitnehmer*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1090,6 +1125,7 @@
     "200m3-bauabfalle": {
       "label":
         "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
+      "hint": "**Platzhalter**: *200m3-bauabfalle*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1099,6 +1135,7 @@
     "alarmierungseinrichtung-tangiert": {
       "label":
         "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
+      "hint": "**Platzhalter**: *alarmierungseinrichtung-tangiert*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1108,6 +1145,7 @@
     "lebensmittel-umgehen": {
       "label":
         "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
+      "hint": "**Platzhalter**: *lebensmittel-umgehen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1117,6 +1155,7 @@
     "trinkwasser-abgeben": {
       "label":
         "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
+      "hint": "**Platzhalter**: *trinkwasser-abgeben*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1126,6 +1165,7 @@
     "offentlich-duschanlage-oder-bad": {
       "label":
         "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
+      "hint": "**Platzhalter**: *offentlich-duschanlage-oder-bad*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1135,6 +1175,7 @@
     "gewerbliche-nutzflachen": {
       "label":
         "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
+      "hint": "**Platzhalter**: *gewerbliche-nutzflachen*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1143,6 +1184,7 @@
     },
     "gewerbliche-nutzflachen-grosse": {
       "label": "Wie gross ist / sind diese in m²?",
+      "hint": "**Platzhalter**: *gewerbliche-nutzflachen-grosse*",
       "type": "number",
       "required": true,
       "active-expression": "'gewerbliche-nutzflachen'|value == 'Ja'",
@@ -1152,6 +1194,7 @@
     },
     "hohe-der-anlage": {
       "label": "Wie hoch ist die Anlage in m?",
+      "hint": "**Platzhalter**: *hohe-der-anlage*",
       "type": "number",
       "required": true,
       "active-expression": "'Antennen' in 'art-der-anlage'|value",
@@ -1163,6 +1206,7 @@
     "geometer": {
       "label":
         "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
+      "hint": "**Platzhalter**: *geometer*",
       "type": "radio",
       "required": true,
       "config": {
@@ -1178,6 +1222,7 @@
     },
     "baugespann-errichtet": {
       "label": "Das Baugespann wurde / wird errichtet am:",
+      "hint": "**Platzhalter**: *baugespann-errichtet*",
       "type": "text",
       "required": true,
       "active-expression": "!('Baute(n)' in 'kategorie-des-vorhabens'|value)",
@@ -1185,6 +1230,7 @@
     },
     "kein-baugespann-begrundung": {
       "label": "Falls kein Baugespann erstellt wird, ist dies zu begründen:",
+      "hint": "**Platzhalter**: *kein-baugespann-begrundung*",
       "type": "text",
       "required": true,
       "active-expression": "!('Baute(n)' in 'kategorie-des-vorhabens'|value)",
@@ -1192,6 +1238,7 @@
     },
     "baukosten": {
       "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4):",
+      "hint": "**Platzhalter**: *baukosten*",
       "type": "number",
       "required": true,
       "config": {
@@ -1201,6 +1248,7 @@
     },
     "gebaudevolumen": {
       "label": "Gebäudevolumen in m³ nach SIA 116 / SIA 416:",
+      "hint": "**Platzhalter**: *gebaudevolumen*",
       "type": "number",
       "required": true,
       "config": {
@@ -1210,6 +1258,7 @@
     },
     "ausnahmen": {
       "label": "Folgende Ausnahmen werden beansprucht:",
+      "hint": "**Platzhalter**: *ausnahmen*",
       "type": "multiselect",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
@@ -1228,6 +1277,7 @@
     "ausnahmen-begrundung": {
       "label":
         "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
+      "hint": "**Platzhalter**: *ausnahmen-begrundung*",
       "type": "text",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
@@ -1235,6 +1285,7 @@
     },
     "grundeigentumerschaft": {
       "label": "Grundeigentümerschaft:",
+      "hint": "**Platzhalter**: *grundeigentumerschaft*",
       "type": "table",
       "required": true,
       "config": {
@@ -1286,6 +1337,7 @@
     },
     "bauherrschaft": {
       "label": "Bauherrschaft:",
+      "hint": "**Platzhalter**: *bauherrschaft*",
       "type": "table",
       "required": true,
       "config": {
@@ -1337,6 +1389,7 @@
     },
     "projektverfasser-planer": {
       "label": "Projektverfasser / Planer:",
+      "hint": "**Platzhalter**: *projektverfasser-planer*",
       "type": "table",
       "required": true,
       "config": {
@@ -1388,6 +1441,7 @@
     },
     "gesuchsteller": {
       "label": "Gesuchsteller:",
+      "hint": "**Platzhalter**: *gesuchsteller*",
       "type": "table",
       "required": true,
       "config": {
@@ -1439,6 +1493,7 @@
     },
     "konzessionsnehmer": {
       "label": "Konzessionsnehmer:",
+      "hint": "**Platzhalter**: *konzessionsnehmer*",
       "type": "table",
       "required": true,
       "config": {
@@ -1490,6 +1545,7 @@
     },
     "bewilligungsnehmer": {
       "label": "Bewilligungsnehmer:",
+      "hint": "**Platzhalter**: *bewilligungsnehmer*",
       "type": "table",
       "required": true,
       "config": {
@@ -1541,6 +1597,7 @@
     },
     "landwirtschaft-betriebs-nr": {
       "label": "Wie lautet Ihre kantonale Betriebs-Nr.?",
+      "hint": "**Platzhalter**: *landwirtschaft-betriebs-nr*",
       "type": "number",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -1552,6 +1609,7 @@
     "landwirtschaft-sak-wert": {
       "label":
         "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
+      "hint": "**Platzhalter**: *landwirtschaft-sak-wert*",
       "type": "number",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -1562,6 +1620,7 @@
     },
     "landwirtschaft-einstufung": {
       "label": "Wie ist Ihr Betrieb einzustufen",
+      "hint": "**Platzhalter**: *landwirtschaft-einstufung*",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -1576,6 +1635,7 @@
     "landwirtschaft-nutzflache": {
       "label":
         "Landwirtschaftliche Nutzfläche (LN) gemäss aktuellen oder künftigen Betriebsverhältnissen in Aren:",
+      "hint": "**Platzhalter**: *landwirtschaft-nutzflache*",
       "type": "number",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -1586,6 +1646,7 @@
     },
     "landwirtschaft-bereiche": {
       "label": "Welche Bereiche umfasst resp. tangiert Ihr Bauvorhaben?",
+      "hint": "**Platzhalter**: *landwirtschaft-bereiche*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -1600,6 +1661,7 @@
     },
     "landwirtschaft-gebietskategorie": {
       "label": "Welcher Gebietskategorie ist Ihr Betrieb zugeordnet",
+      "hint": "**Platzhalter**: *landwirtschaft-gebietskategorie*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -1611,6 +1673,7 @@
     "landwirtschaft-wohnbauten": {
       "label":
         "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
+      "hint": "**Platzhalter**: *landwirtschaft-wohnbauten*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1629,35 +1692,49 @@
             "label": "GSN",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "bewohner",
             "label": "Anzahl Bewohner",
             "type": "number",
             "required": true,
-            "config": { "min": 1, "step": 1 }
+            "config": {
+              "min": 1,
+              "step": 1
+            }
           },
           {
             "name": "zimmer",
             "label": "Anzahl Zimmer",
             "type": "number",
             "required": true,
-            "config": { "min": 1, "step": 0.5 }
+            "config": {
+              "min": 1,
+              "step": 0.5
+            }
           },
           {
             "name": "vermietet",
             "label": "Vermietet",
             "type": "radio",
             "required": true,
-            "config": { "options": ["Ja", "Nein"] }
+            "config": {
+              "options": ["Ja", "Nein"]
+            }
           },
           {
             "name": "hausabwasser-jauchegrube",
@@ -1683,6 +1760,7 @@
     "landwirtschaft-stallgebaude": {
       "label":
         "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
+      "hint": "**Platzhalter**: *landwirtschaft-stallgebaude*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1701,14 +1779,20 @@
             "label": "GSN",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "bemerkungen",
@@ -1723,8 +1807,7 @@
     "landwirtschaft-veranderung-tierbestand": {
       "label":
         "Führt das Bauvorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
-      "hint":
-        "Für die Beurteilung des Gesuches ist der Tierbestand gemäss Betriebsstrukdaten des AFL massgebend.",
+      "hint": "**Platzhalter**: *landwirtschaft-veranderung-tierbestand*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -1736,6 +1819,7 @@
     "landwirtschaft-okonomiebauten": {
       "label":
         "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
+      "hint": "**Platzhalter**: *landwirtschaft-okonomiebauten*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1754,28 +1838,38 @@
             "label": "GSN",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "einstellflache",
             "label": "Einstellfläche in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 1 }
+            "config": {
+              "min": 1
+            }
           },
           {
             "name": "remisenflache",
             "label": "Remisenflache in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 1 }
+            "config": {
+              "min": 1
+            }
           },
           {
             "name": "bemerkungen",
@@ -1789,6 +1883,7 @@
     },
     "landwirtschaft-gullenlager": {
       "label": "Geben Sie die nötigen Informationen zum Güllenlager an:",
+      "hint": "**Platzhalter**: *landwirtschaft-gullenlager*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1800,21 +1895,29 @@
             "label": "Zustand",
             "type": "radio",
             "required": true,
-            "config": { "options": ["Bestehend", "Neu"] }
+            "config": {
+              "options": ["Bestehend", "Neu"]
+            }
           },
           {
             "name": "gsn",
             "label": "GSN",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "grosse",
             "label": "Grösse in m³",
             "type": "number",
             "required": true,
-            "config": { "min": 1, "step": 1 }
+            "config": {
+              "min": 1,
+              "step": 1
+            }
           },
           {
             "name": "typ",
@@ -1828,13 +1931,16 @@
             "label": "In Jauchegrube entwässerte Laufhoffläche in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 1 }
+            "config": {
+              "min": 1
+            }
           }
         ]
       }
     },
     "landwirtschaft-mistplatte": {
       "label": "Geben Sie die nötigen Informationen zur Mistplatte an",
+      "hint": "**Platzhalter**: *landwirtschaft-mistplatte*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1846,7 +1952,9 @@
             "label": "Fläche in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 1 }
+            "config": {
+              "min": 1
+            }
           },
           {
             "name": "baujahr",
@@ -1861,6 +1969,7 @@
     "nlbuaab-bauten": {
       "label":
         "Bitte geben Sie die nötigen Informationen zu den bestehenden Bauten an:",
+      "hint": "**Platzhalter**: *nlbuaab-bauten*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1879,14 +1988,20 @@
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "baujahr",
             "label": "Baujahr / Zustand",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
@@ -1894,6 +2009,7 @@
     "nlbuaab-anlagen": {
       "label":
         "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
+      "hint": "**Platzhalter**: *nlbuaab-anlagen*",
       "type": "table",
       "required": true,
       "active-expression":
@@ -1912,7 +2028,10 @@
             "label": "Baujahr / Zustand",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
@@ -1920,6 +2039,7 @@
     "nlbuaab-erweiterungen": {
       "label":
         "Sind seit dem 1. Juli 1972 Erweiterungen oder Umnutzungen der Bauten und Anlagen erfolgt?",
+      "hint": "**Platzhalter**: *nlbuaab-erweiterungen*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -1930,6 +2050,7 @@
     },
     "nlbuaab-erweiterungen-wann-welche": {
       "label": "Wann wurden welche Änderungen vorgenommen?",
+      "hint": "**Platzhalter**: *nlbuaab-erweiterungen-wann-welche*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -1939,6 +2060,7 @@
     "nlbuaab-nutzflachen-bestehend-1972": {
       "label":
         "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
+      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend-1972*",
       "type": "table",
       "required": false,
       "active-expression":
@@ -1957,21 +2079,30 @@
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "abgf",
             "label": "aBGF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gnf",
             "label": "GNF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
@@ -1979,6 +2110,7 @@
     "nlbuaab-nutzflachen-bestehend": {
       "label":
         "Es sind Angaben zu den am Erstellungszeitpunkt bestehenden Nutzflächen erforderlich:",
+      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend*",
       "type": "table",
       "required": false,
       "active-expression":
@@ -1997,27 +2129,37 @@
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "abgf",
             "label": "aBGF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gnf",
             "label": "GNF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
     },
     "nlbuaab-nutzflachen-bisherige-erweiterungen": {
       "label": "Es sind Angaben zu den bisherigen Erweiterungen erforderlich:",
+      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bisherige-erweiterungen*",
       "type": "table",
       "required": false,
       "active-expression":
@@ -2036,27 +2178,37 @@
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "abgf",
             "label": "aBGF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gnf",
             "label": "GNF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
     },
     "nlbuaab-nutzflachen-geplante-erweiterungen": {
       "label": "Es sind Angaben zu den geplanten Erweiterungen erforderlich:",
+      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-geplante-erweiterungen*",
       "type": "table",
       "required": false,
       "active-expression":
@@ -2075,21 +2227,30 @@
             "label": "Gebäudeversicherungs-Nr.",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "abgf",
             "label": "aBGF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           },
           {
             "name": "gnf",
             "label": "GNF in m²",
             "type": "number",
             "required": true,
-            "config": { "min": 0, "step": 1 }
+            "config": {
+              "min": 0,
+              "step": 1
+            }
           }
         ]
       }
@@ -2097,25 +2258,30 @@
     "umweltschutz-larmschutz-pumpe-info": {
       "label":
         "Dem Gesuch ist ein Lärmschutznachweis für Luft/Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus:<ul><li>Formular des AfU (ausgefüllt)</li><li>technisches Datenblatt des Wärmepumpenherstellers</li><li>Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum</li></ul>",
+      "hint": "**Platzhalter**: *umweltschutz-larmschutz-pumpe-info*",
       "type": "checkbox",
       "required": true,
       "active-expression":
         "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "umweltschutz-larmschutz-gebiet-info": {
       "label":
         "Es ist der Nachweis zu erbringen, dass die Grenzwerte der Lärmschutzverordnung (LSV) eingehalten werden. Der Lärmschutznachweis/die Lärmprognose ist den Gesuchsunterlagen beizulegen.",
+      "hint": "**Platzhalter**: *umweltschutz-larmschutz-gebiet-info*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'larmbelastetes-gebiet'|value == 'Ja'",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "umweltschutz-abfallbehandlungsanlage": {
       "label":
         "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
-      "hint":
-        "Z.B Altmetalle, Altfahrzeuge, Bauabfälle, Sonderabfälle, Kompostieranlagen und dergleichen",
+      "hint": "**Platzhalter**: *umweltschutz-abfallbehandlungsanlage*",
       "type": "radio",
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
@@ -2126,21 +2292,28 @@
     "umweltschutz-bodenschutz-info": {
       "label":
         "Da die Rekultivierungsfläche 5‘000m² oder grösser ist, sind den Gesuchsunterlagen ein Plansatz und ein kurzer Beschrieb mit Angaben zum Ausgangszustand, dem Rekultivierungsziel sowie zur Planung und Durchführung der Bodenarbeiten beizulegen. (Hilfsmittel: ZUDK Merkblatt „Umgang mit Boden“)",
+      "hint": "**Platzhalter**: *umweltschutz-bodenschutz-info*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'boden-5000m2'|value == 'Ja'",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "umweltschutz-lichtemissionen-info": {
       "label":
         "Für Ihr Bauvorhaben ist ein Beleuchtungskonzept gemäss ZUDK Merkblatt „Lichtverschmutzung“ erforderlich. Das Konzept, welches insbesondere Platzierung und Ausrichtung der Leuchten aufzeigt, ist den Gesuchsunterlagen beizulegen.",
+      "hint": "**Platzhalter**: *umweltschutz-lichtemissionen-info*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'aussenbeleuchtung'|value == 'Ja'",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "wald-forstlich": {
       "label": "Handelt es sich um ein forstliches Vorhaben?",
+      "hint": "**Platzhalter**: *wald-forstlich*",
       "type": "radio",
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
@@ -2151,6 +2324,7 @@
     "wald-auswirkungen": {
       "label":
         "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
+      "hint": "**Platzhalter**: *wald-auswirkungen*",
       "type": "radio",
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
@@ -2161,6 +2335,7 @@
     "wald-info": {
       "label":
         "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:<ul><li>Zweck des Bauvorhabens</li><li>Standortgebundenheit</li><li>Wurden Alternativen geprüft und wenn ja, mit welchem Ergebnis?</li></ul>",
+      "hint": "**Platzhalter**: *wald-info*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -2172,6 +2347,7 @@
     "wald-rodungsbewilligung-info": {
       "label":
         "Für Ihr Bauvorhaben ist eine Rodungsbewilligung erforderlich. Hierzu sind folgende Unterlagen nötig:<ul><li>ausgefülltes Formular des BAFU</li><li>Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung</li><li>Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen</li><li>Unterschrift aller betroffenen Grundeigentümer</li></ul>",
+      "hint": "**Platzhalter**: *wald-rodungsbewilligung-info*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -2183,6 +2359,7 @@
     "verkehr-strassentyp": {
       "label":
         "Um welchen Strassentyp handelt es sich bei der direkt betroffenen Strasse?",
+      "hint": "**Platzhalter**: *verkehr-strassentyp*",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
@@ -2198,6 +2375,7 @@
     },
     "verkehr-strassenname": {
       "label": "Name der betroffenen Strasse:",
+      "hint": "**Platzhalter**: *verkehr-strassenname*",
       "type": "text",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
@@ -2205,6 +2383,7 @@
     },
     "verkehr-einfahrt": {
       "label": "Bitte geben Sie Informationen zur Einfahrt:",
+      "hint": "**Platzhalter**: *verkehr-einfahrt*",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
@@ -2218,6 +2397,7 @@
     },
     "verkehr-parkplatze": {
       "label": "Wie viele Parkplätze sind insgesamt vorgesehen?",
+      "hint": "**Platzhalter**: *verkehr-parkplatze*",
       "type": "number",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
@@ -2229,7 +2409,7 @@
     "verkehr-mehrverkehr": {
       "label":
         "Ergibt sich bei der bestehenden Zufahrt in die Kantonsstrasse erheblicher Mehrverkehr",
-      "hint": "Vgl. Merkblatt Z15 des Tiefbauamtes",
+      "hint": "**Platzhalter**: *verkehr-mehrverkehr*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2241,6 +2421,7 @@
     "verkehr-strassentyp-indirekt": {
       "label":
         "Um welchen Strassentyp handelt es sich bei der indirekt betroffenen Strasse?",
+      "hint": "**Platzhalter**: *verkehr-strassentyp-indirekt*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2257,6 +2438,7 @@
     },
     "verkehr-strassenname-indirekt": {
       "label": "Name der betroffenen Strasse:",
+      "hint": "**Platzhalter**: *verkehr-strassenname-indirekt*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2266,6 +2448,7 @@
     "verkehr-ursache-unterschreitung": {
       "label":
         "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
+      "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung*",
       "type": "multiselect",
       "required": true,
       "active-expression":
@@ -2282,6 +2465,7 @@
     "verkehr-grenzt-an-strasse": {
       "label":
         "Grenzt das Grundstück, auf dem das Vorhaben geplant ist, direkt an die Strasse?",
+      "hint": "**Platzhalter**: *verkehr-grenzt-an-strasse*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2293,6 +2477,7 @@
     "verkehr-neugestaltung-trottoir": {
       "label":
         "Ist eine Neugestaltung der Umgebung entlang Trottoir / Strasse vorgesehen",
+      "hint": "**Platzhalter**: *verkehr-neugestaltung-trottoir*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2304,6 +2489,7 @@
     "verkehr-einschrankungen-trottoir": {
       "label":
         "Ergeben sich Einschränkungen der Sichtverhältnisse auf Trottoir und / oder Radweg und / oder Strasse?",
+      "hint": "**Platzhalter**: *verkehr-einschrankungen-trottoir*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2314,6 +2500,7 @@
     },
     "verkehr-baugrube-tangieren": {
       "label": "Kann die Baugrube Anlagen der Strasse gefährden / tangieren?",
+      "hint": "**Platzhalter**: *verkehr-baugrube-tangieren*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2324,6 +2511,7 @@
     },
     "energie-art": {
       "label": "Um welche Art Solaranlage handelt es sich?",
+      "hint": "**Platzhalter**: *energie-art*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -2337,6 +2525,7 @@
     },
     "energie-dachaufstellung": {
       "label": "Ist eine Dachaufstellung vorgesehen?",
+      "hint": "**Platzhalter**: *energie-dachaufstellung*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2348,6 +2537,7 @@
     "energie-uberragt-rechter-winkel": {
       "label":
         "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
+      "hint": "**Platzhalter**: *energie-uberragt-rechter-winkel*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2359,6 +2549,7 @@
     "energie-uberragt": {
       "label":
         "Ragt die Solaranlage von vorne und von oben gesehen über die Dachfläche hinaus?",
+      "hint": "**Platzhalter**: *energie-uberragt*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2370,6 +2561,7 @@
     "energie-reflexionsarm": {
       "label":
         "Ist die Solaranlage nach dem Stand der Technik reflexionsarm vorgesehen?",
+      "hint": "**Platzhalter**: *energie-reflexionsarm*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2381,6 +2573,7 @@
     "energie-kompakt": {
       "label":
         "Ist die Solaranlage als kompakte und zusammenhängende Fläche angeordnet?",
+      "hint": "**Platzhalter**: *energie-kompakt*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2391,6 +2584,7 @@
     },
     "energie-thermisch-kollektorenart": {
       "label": "Welche Kollektorenart ist vorgesehen?",
+      "hint": "**Platzhalter**: *energie-thermisch-kollektorenart*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -2401,6 +2595,7 @@
     },
     "energie-thermisch-aufbereitung": {
       "label": "Die Anlage ist vorgesehen für die Aufbereitung von:",
+      "hint": "**Platzhalter**: *energie-thermisch-aufbereitung*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2414,6 +2609,7 @@
     },
     "energie-thermisch-grosse": {
       "label": "Wie gross ist die vorgesehen Absorberfläche in m²?",
+      "hint": "**Platzhalter**: *energie-thermisch-grosse*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2425,6 +2621,7 @@
     },
     "energie-photovoltaik-technologie": {
       "label": "Welche Technologie ist vorgesehen?",
+      "hint": "**Platzhalter**: *energie-photovoltaik-technologie*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2435,6 +2632,7 @@
     },
     "energie-photovoltaik-gesamtleistung": {
       "label": "Gesamtleistung in kWpeak:",
+      "hint": "**Platzhalter**: *energie-photovoltaik-gesamtleistung*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2446,6 +2644,7 @@
     },
     "energie-photovoltaik-jahresertrag": {
       "label": "Erwarteter Jahresertrag in kWh / Jahr:",
+      "hint": "**Platzhalter**: *energie-photovoltaik-jahresertrag*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2457,6 +2656,7 @@
     },
     "energie-photovoltaik-flache": {
       "label": "Gesamtflache der Anlage in m²:",
+      "hint": "**Platzhalter**: *energie-photovoltaik-flache*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2468,6 +2668,7 @@
     },
     "energie-inbetriebnahme": {
       "label": "Voraussichtliche Inbetriebnahme:",
+      "hint": "**Platzhalter**: *energie-inbetriebnahme*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2476,12 +2677,16 @@
     },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
+      "hint": "**Platzhalter**: *arbeitssicherheit-planbesprechung*",
       "type": "radio",
       "required": false,
-      "config": { "options": ["Ja", "Nein"] }
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
     },
     "arbeitssicherheit-tangiert": {
       "label": "Welche Themenbereiche werden durch Ihr Vorhaben tangiert?",
+      "hint": "**Platzhalter**: *arbeitssicherheit-tangiert*",
       "type": "checkbox",
       "required": false,
       "config": {
@@ -2504,6 +2709,7 @@
     },
     "arbeitssicherheit-arbeitnehmer-raumen": {
       "label": "Wie viele Arbeitnehmer arbeiten in den projektierten Räumen?",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-raumen*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2516,6 +2722,7 @@
     "arbeitssicherheit-arbeitnehmer-betrieb": {
       "label":
         "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-betrieb*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2527,6 +2734,7 @@
     },
     "arbeitssicherheit-arbeitsraume-hohe": {
       "label": "Höhe in den Arbeitsräumen in m:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-hohe*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2537,6 +2745,7 @@
     },
     "arbeitssicherheit-arbeitsraume-fensterflache": {
       "label": "Fensterfläche in den Arbeitsräumen in m²:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-fensterflache*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2548,6 +2757,8 @@
     "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache": {
       "label":
         "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-arbeitsraume-bodenflache-fensterflache*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2558,6 +2769,8 @@
     },
     "arbeitssicherheit-arbeitsraume-brustungshohen": {
       "label": "Brüstungshöhen in den Arbeitsräumen in m:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-arbeitsraume-brustungshohen*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -2568,6 +2781,7 @@
     },
     "arbeitssicherheit-ausgange-lage-treppenhause": {
       "label": "Lage der Treppenhäuser:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-lage-treppenhause*",
       "type": "text",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2575,6 +2789,7 @@
     },
     "arbeitssicherheit-ausgange-laufbreite": {
       "label": "Laufbreite der Treppen:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-laufbreite*",
       "type": "number",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2584,6 +2799,7 @@
     },
     "arbeitssicherheit-ausgange-material": {
       "label": "Material der Treppen:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-material*",
       "type": "text",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2591,6 +2807,7 @@
     },
     "arbeitssicherheit-ausgange-fluchtwege": {
       "label": "Fluchtwege und Notausgänge:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-fluchtwege*",
       "type": "text",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2598,6 +2815,7 @@
     },
     "arbeitssicherheit-ausgange-arten": {
       "label": "Arten der Türen / Toren:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-arten*",
       "type": "text",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2605,6 +2823,7 @@
     },
     "arbeitssicherheit-ausgange-schliessystem": {
       "label": "Schliesssystem der Ausgänge:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-schliessystem*",
       "type": "text",
       "required": true,
       "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
@@ -2612,6 +2831,7 @@
     },
     "arbeitssicherheit-luftung-art": {
       "label": "Art der Lüftung:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-art*",
       "type": "radio",
       "required": true,
       "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
@@ -2621,6 +2841,7 @@
     },
     "arbeitssicherheit-luftung-absaugungen": {
       "label": "Gibt es örtliche Absaugungen?",
+      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-absaugungen*",
       "type": "radio",
       "required": true,
       "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
@@ -2630,7 +2851,7 @@
     },
     "arbeitssicherheit-luftung-verunreinigte-luft": {
       "label": "Gibt es verunreinigte Luft?",
-      "hint": "Durch Gase, Dämpfe, Rauch, Staub, Späne oder Gerüche",
+      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-verunreinigte-luft*",
       "type": "radio",
       "required": true,
       "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
@@ -2640,6 +2861,8 @@
     },
     "arbeitssicherheit-beleuchtung-raumbeleuchtung": {
       "label": "Raumbeleuchtung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-beleuchtung-raumbeleuchtung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2648,6 +2871,8 @@
     },
     "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung": {
       "label": "Not- und Markierungsbeleuchtung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2656,6 +2881,8 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-raumklima": {
       "label": "Raumklima:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-raumklima*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2664,6 +2891,8 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen": {
       "label": "Erschütterungen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2672,6 +2901,8 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-larm": {
       "label": "Lärm:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-larm*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2680,6 +2911,8 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-nachweis": {
       "label": "Raumakustischer Nachweis:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-nachweis*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2688,6 +2921,8 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel": {
       "label": "Arbeitsmittel:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-arbeitsmittel*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2696,6 +2931,8 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen": {
       "label": "Produktionsanlagen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-produktionsanlagen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2704,6 +2941,8 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
       "label": "Aufstellungsplan:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-aufstellungsplan*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2712,6 +2951,8 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-ergonomie": {
       "label": "Büroarbeitsplätze (Ergonomie):",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-ergonomie*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2720,6 +2961,8 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung": {
       "label": "Auflistung der Stoffe:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2728,6 +2971,8 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung": {
       "label": "Verwendung oder Verarbeitung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2736,6 +2981,8 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung": {
       "label": "Technische Überwachung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2744,6 +2991,8 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen": {
       "label": "Ex-Zonen / elektrische Überwachung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2752,6 +3001,8 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung": {
       "label": "Ort, Menge, Lüftung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2760,6 +3011,7 @@
     },
     "arbeitssicherheit-schweissanlagen-art": {
       "label": "Art:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-art*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2768,6 +3020,8 @@
     },
     "arbeitssicherheit-schweissanlagen-abschirmung": {
       "label": "Abschirmung:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-schweissanlagen-abschirmung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2776,6 +3030,7 @@
     },
     "arbeitssicherheit-schweissanlagen-absaugung": {
       "label": "Absaugung:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-absaugung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2784,6 +3039,7 @@
     },
     "arbeitssicherheit-forderanlagen-aufzuge": {
       "label": "Aufzüge:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-aufzuge*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2792,6 +3048,7 @@
     },
     "arbeitssicherheit-forderanlagen-krane": {
       "label": "Kräne:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-krane*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2800,6 +3057,7 @@
     },
     "arbeitssicherheit-forderanlagen-hebebuhnen": {
       "label": "Hebebühnen:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-hebebuhnen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2808,6 +3066,7 @@
     },
     "arbeitssicherheit-forderanlagen-anpassrampen": {
       "label": "Anpassrampen:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-anpassrampen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2816,6 +3075,8 @@
     },
     "arbeitssicherheit-forderanlagen-fordereinrichtungen": {
       "label": "Fördereinrichtungen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-forderanlagen-fordereinrichtungen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2824,6 +3085,8 @@
     },
     "arbeitssicherheit-forderanlagen-stapeleinrichtungen": {
       "label": "Stapeleinrichtungen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-forderanlagen-stapeleinrichtungen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2832,6 +3095,7 @@
     },
     "arbeitssicherheit-lager-gefrierraume": {
       "label": "Gefrierräume:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-lager-gefrierraume*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2840,6 +3104,7 @@
     },
     "arbeitssicherheit-lager-silos": {
       "label": "Silos:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-lager-silos*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2848,6 +3113,7 @@
     },
     "arbeitssicherheit-lager-lagersysteme": {
       "label": "Mechanische und automatische Lagersysteme:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-lager-lagersysteme*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2856,6 +3122,7 @@
     },
     "arbeitssicherheit-lager-chemikalien": {
       "label": "Lagerung von Chemikalien:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-lager-chemikalien*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2864,6 +3131,8 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln": {
       "label": "Vorbehandeln:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2872,6 +3141,8 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren": {
       "label": "Galvanisieren:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2880,6 +3151,8 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen": {
       "label": "Farbspritzen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2888,6 +3161,8 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten": {
       "label": "Pulverbeschichten:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2896,14 +3171,19 @@
     },
     "arbeitssicherheit-sozialraume-anzahl": {
       "label": "Anzahl Sozialräume:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-anzahl*",
       "type": "number",
       "required": true,
       "active-expression":
         "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
-      "config": { "min": 1, "step": 1 }
+      "config": {
+        "min": 1,
+        "step": 1
+      }
     },
     "arbeitssicherheit-sozialraume-waschanlagen": {
       "label": "Waschanlagen:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-waschanlagen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2912,6 +3192,7 @@
     },
     "arbeitssicherheit-sozialraume-garderoben": {
       "label": "Garderoben:",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-garderoben*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2920,6 +3201,8 @@
     },
     "arbeitssicherheit-sozialraume-toiletten-duschen": {
       "label": "Toiletten und Duschen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-sozialraume-toiletten-duschen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2928,6 +3211,8 @@
     },
     "arbeitssicherheit-sozialraume-sanitare-anlagen": {
       "label": "Sanitäre Anlagen:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-sozialraume-sanitare-anlagen*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2936,6 +3221,8 @@
     },
     "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume": {
       "label": "Ess- und Aufenthaltsräume:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2944,6 +3231,8 @@
     },
     "arbeitssicherheit-sozialraume-pause-und-ruheraume": {
       "label": "Pausen- und Ruheräume:",
+      "hint":
+        "**Platzhalter**: *arbeitssicherheit-sozialraume-pause-und-ruheraume*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -2953,6 +3242,7 @@
     "zivilschutz-schutzraum": {
       "label":
         "Ist im Bauvorhaben ein der Pflicht ensprechender Schutzraum eingeplant?",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -2962,6 +3252,7 @@
     },
     "zivilschutz-elementarschaden": {
       "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
+      "hint": "**Platzhalter**: *zivilschutz-elementarschaden*",
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -2972,6 +3263,7 @@
     "zivilschutz-dispens-schutzraumbau": {
       "label":
         "Wird für das Bauvorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
+      "hint": "**Platzhalter**: *zivilschutz-dispens-schutzraumbau*",
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -2982,6 +3274,7 @@
     "zivilschutz-schutzraum-bestehend": {
       "label":
         "Befindet sich im Bereich des Bauvorhabens ein bestehender Schutzraum?",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraum-bestehend*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -2992,6 +3285,7 @@
     },
     "zivilschutz-schutzraumaufhebung": {
       "label": "Ist eine Schutzraumaufhebung vorgesehen?",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraumaufhebung*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -3002,6 +3296,7 @@
     },
     "zivilschutz-schutzraum-grundbucheintrag": {
       "label": "Sind Grundbucheinträge betreffend Schutzraum vorhanden?",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraum-grundbucheintrag*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -3012,7 +3307,7 @@
     },
     "zivilschutz-schutzraum-nr": {
       "label": "Bitte geben Sie die kantonale Schutzraum-Nr. an:",
-      "hint": "Falls nicht bekannt, geben Sie 0 ein",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3022,6 +3317,7 @@
     "zivilschutz-schutzraum-nr-nicht-bekannt": {
       "label":
         "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
+      "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr-nicht-bekannt*",
       "type": "text",
       "required": false,
       "active-expression":
@@ -3031,6 +3327,7 @@
     "brandschutz-gefahrengut": {
       "label":
         "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
+      "hint": "**Platzhalter**: *brandschutz-gefahrengut*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -3046,6 +3343,8 @@
     },
     "liegenschaftsentwasserung-wassergefahrdende-stoffe": {
       "label": "Werden wassergefährdende Stoffe gelagert oder umgeschlagen?",
+      "hint":
+        "**Platzhalter**: *liegenschaftsentwasserung-wassergefahrdende-stoffe*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -3056,7 +3355,7 @@
     },
     "gewasserschutz-menge": {
       "label": "Welche Menge wassergefährdender Flüssigkeiten wird gelagert?",
-      "hint": "z.B. Heizöl, Treibstoffe, Chemikalien usw.",
+      "hint": "**Platzhalter**: *gewasserschutz-menge*",
       "type": "radio",
       "required": true,
       "active-expression": "'wassergefahrdende-stoffe'|value == 'Ja'",
@@ -3071,6 +3370,7 @@
     "gewasserschutz-info-gebindelager": {
       "label":
         "Das ausgefüllte Meldeformular Gebindelager ist direkt beim AfU einzureichen.",
+      "hint": "**Platzhalter**: *gewasserschutz-info-gebindelager*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -3082,6 +3382,7 @@
     "gewasserschutz-info-tankanlagen": {
       "label":
         "Das ausgefüllte Meldeformular Tankanlagen ist direkt beim AfU einzureichen.",
+      "hint": "**Platzhalter**: *gewasserschutz-info-tankanlagen*",
       "type": "checkbox",
       "required": true,
       "active-expression":
@@ -3092,6 +3393,7 @@
     },
     "grundwasser-warmeentnahme-art": {
       "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
+      "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
       "type": "radio",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe'",
@@ -3105,6 +3407,7 @@
     },
     "grundwasser-geologe": {
       "label": "Beauftragter Geologe (Name, Adresse, Tel., Email):",
+      "hint": "**Platzhalter**: *grundwasser-geologe*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3113,6 +3416,7 @@
     },
     "grundwasser-bohrfirma": {
       "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
+      "hint": "**Platzhalter**: *grundwasser-bohrfirma*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3121,6 +3425,7 @@
     },
     "grundwasser-verwendungszweck": {
       "label": "Verwendungszweck:",
+      "hint": "**Platzhalter**: *grundwasser-verwendungszweck*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe'",
@@ -3130,6 +3435,7 @@
     },
     "grundwasser-anzahl-erdwarmesonden": {
       "label": "Anzahl Erdwärmesonden:",
+      "hint": "**Platzhalter**: *grundwasser-anzahl-erdwarmesonden*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3141,6 +3447,7 @@
     },
     "grundwasser-bohrtiefe": {
       "label": "Bohrtiefe pro Sonde in m:",
+      "hint": "**Platzhalter**: *grundwasser-bohrtiefe*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3152,6 +3459,7 @@
     },
     "grundwasser-bohrdurchmesser": {
       "label": "Bohrdurchmesser in mm:",
+      "hint": "**Platzhalter**: *grundwasser-bohrdurchmesser*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3163,6 +3471,7 @@
     },
     "grundwasser-bohrverfahren": {
       "label": "Bohrverfahren:",
+      "hint": "**Platzhalter**: *grundwasser-bohrverfahren*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3171,6 +3480,7 @@
     },
     "grundwasser-sondenrohrdurchmesser": {
       "label": "Sondenrohrdurchmesser in mm:",
+      "hint": "**Platzhalter**: *grundwasser-sondenrohrdurchmesser*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3182,6 +3492,7 @@
     },
     "grundwasser-sondenmaterial": {
       "label": "Sondenmaterial:",
+      "hint": "**Platzhalter**: *grundwasser-sondenmaterial*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3190,6 +3501,7 @@
     },
     "grundwasser-warmetragerflussigkeit": {
       "label": "Wärmeträgerflüssigkeit",
+      "hint": "**Platzhalter**: *grundwasser-warmetragerflussigkeit*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3198,6 +3510,7 @@
     },
     "grundwasser-totale-fullmenge": {
       "label": "Totale Füllmenge in l:",
+      "hint": "**Platzhalter**: *grundwasser-totale-fullmenge*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3209,6 +3522,7 @@
     },
     "grundwasser-anzahl-energiepfahle": {
       "label": "Anzahl Energiepfähle:",
+      "hint": "**Platzhalter**: *grundwasser-anzahl-energiepfahle*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3220,6 +3534,7 @@
     },
     "grundwasser-tiefe-energiepfahle": {
       "label": "Tiefe pro Pfahl in m:",
+      "hint": "**Platzhalter**: *grundwasser-tiefe-energiepfahle*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3231,6 +3546,7 @@
     },
     "grundwasser-durchmesser-energiepfahle": {
       "label": "Energiepfähldurchmesser in mm:",
+      "hint": "**Platzhalter**: *grundwasser-durchmesser-energiepfahle*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3242,6 +3558,7 @@
     },
     "grundwasser-anzahl-register": {
       "label": "Anzahl Register resp. Erdwärmetauscher:",
+      "hint": "**Platzhalter**: *grundwasser-anzahl-register*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3253,6 +3570,7 @@
     },
     "grundwasser-verlegungstiefe": {
       "label": "Verlegungstiefe in m:",
+      "hint": "**Platzhalter**: *grundwasser-verlegungstiefe*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3264,6 +3582,7 @@
     },
     "grundwasser-material-der-anlage": {
       "label": "Material der Anlage:",
+      "hint": "**Platzhalter**: *grundwasser-material-der-anlage*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3272,6 +3591,7 @@
     },
     "grundwasser-sondierbohrung-anzahl-bohrungen": {
       "label": "Anzahl Bohrungen:",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-anzahl-bohrungen*",
       "type": "number",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3282,6 +3602,7 @@
     },
     "grundwasser-sondierbohrung-koordinaten": {
       "label": "Koordinaten der Bohrstandorte:",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-koordinaten*",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3289,6 +3610,7 @@
     },
     "grundwasser-sondierbohrung-zweck": {
       "label": "Zweck der Bohrungen:",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-zweck*",
       "type": "radio",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3303,6 +3625,7 @@
     },
     "grundwasser-sondierbohrung-zweck-anderer": {
       "label": "Welcher?",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-zweck-anderer*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3311,6 +3634,7 @@
     },
     "grundwasser-sondierbohrung-tiefe": {
       "label": "Vorgesehene Bohrtiefen in m:",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-tiefe*",
       "type": "number",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3321,6 +3645,7 @@
     },
     "grundwasser-sondierbohrung-pumpversuch": {
       "label": "Pumpversuch?",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-pumpversuch*",
       "type": "radio",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3330,6 +3655,7 @@
     },
     "grundwasser-sondierbohrung-bohrfirma": {
       "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-bohrfirma*",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3337,6 +3663,7 @@
     },
     "grundwasser-sondierbohrung-geologe": {
       "label": "Begleitender Geologe (Name, Adresse, Tel., Email):",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-geologe*",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3344,6 +3671,7 @@
     },
     "grundwasser-sondierbohrung-entsorgung": {
       "label": "Entsorgung Bohrwasser",
+      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-entsorgung*",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -3351,6 +3679,7 @@
     },
     "grundwasser-deponien": {
       "label": "Handelt es sich (bei Teilen des Vorhabens) um eine Deponie?",
+      "hint": "**Platzhalter**: *grundwasser-deponien*",
       "type": "radio",
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
@@ -3360,6 +3689,7 @@
     },
     "reklamen": {
       "label": "Reklamen",
+      "hint": "**Platzhalter**: *reklamen*",
       "type": "table",
       "required": true,
       "active-expression": "'Reklame' in 'art-der-anlage'|value",
@@ -3422,400 +3752,469 @@
     "reklamen-info": {
       "label":
         "Das Reklamevorhaben ist gut zu dokumentieren:<ul><li>Situationsplan mit:<ul><li>Vollständiger Darstellung der Liegenschaft</li><li>Vermassung des Reklamestandorts gegenüber Verkehrsflächen (Trottoir resp. Fahrbahn)</li><li>Darstellung der Ausrichtung der Reklame.</li></ul><li>Fassadenplan (soweit vorhanden) oder Fotos (ev. Fotomontage)</li><li>Massstäbliche Darstellung der Reklame(n) inkl. Farbangaben]</li></ul>",
+      "hint": "**Platzhalter**: *reklamen-info*",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Reklame' in 'art-der-anlage'|value",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "lebensmittel-und-hygienesicherheit-info": {
       "label":
         "Für Ihr Vorhaben ist eine Beurteilung durch das Laboratorium der Urkantone erforderlich.",
+      "hint": "**Platzhalter**: *lebensmittel-und-hygienesicherheit-info*",
       "type": "checkbox",
       "required": true,
       "active-expression":
         "'lebensmittel-umgehen'|value == 'Ja' || 'trinkwasser-abgeben'|value == 'Ja' || 'offentlich-duschanlage-oder-bad'|value == 'Ja'",
-      "config": { "options": ["Erledigt"] }
+      "config": {
+        "options": ["Erledigt"]
+      }
     },
     "dokument-parzelle": {
+      "label": "Parzelle",
+      "hint": "**Platzhalter**: *dokument-parzelle*",
       "type": "document",
       "required": true,
-      "label": "Parzelle",
       "config": {}
     },
     "dokument-begrundung-standortgebundenheit": {
+      "label": "Begründung Standortgebundenheit",
+      "hint": "**Platzhalter**: *dokument-begrundung-standortgebundenheit*",
       "type": "document",
       "required": false,
-      "label": "Begründung Standortgebundenheit",
       "config": {}
     },
     "dokument-grundrisse-1100": {
+      "label": "Grundrisse 1:100",
+      "hint": "**Platzhalter**: *dokument-grundrisse-1100*",
       "type": "document",
       "required": true,
-      "label": "Grundrisse 1:100",
       "config": {}
     },
     "dokument-fragenkatalog": {
+      "label": "Fragenkatalog",
+      "hint": "**Platzhalter**: *dokument-fragenkatalog*",
       "type": "document",
       "required": true,
-      "label": "Fragenkatalog",
       "active-expression":
         "'Erledigt' in 'va-info'|value || 'Erledigt' in 've-info'",
       "config": {}
     },
     "dokument-unterlagen-projektanderung": {
+      "label": "Unterlagen Projektänderung",
+      "hint": "**Platzhalter**: *dokument-unterlagen-projektanderung*",
       "type": "document",
       "required": true,
-      "label": "Unterlagen Projektänderung",
       "active-expression": "'pa-gesuchsnr'|value != ''",
       "config": {}
     },
     "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit": {
-      "type": "document",
-      "required": true,
       "label":
         "Schutzraumaufhebung: Antrag und Einverständniserklärung mit Begründung",
+      "hint":
+        "**Platzhalter**: *dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit*",
+      "type": "document",
+      "required": true,
       "active-expression": "'zivilschutz-schutzraumaufhebung'|value == 'Ja'",
       "config": {}
     },
     "dokument-unterlagen-invasive-neophyten": {
+      "label": "Unterlagen invasive Neophyten",
+      "hint": "**Platzhalter**: *dokument-unterlagen-invasive-neophyten*",
       "type": "document",
       "required": false,
-      "label": "Unterlagen invasive Neophyten",
       "config": {}
     },
     "dokument-standortdatenblatt-zur-nisv": {
+      "label": "Standortdatenblatt zur NISV",
+      "hint": "**Platzhalter**: *dokument-standortdatenblatt-zur-nisv*",
       "type": "document",
       "required": true,
-      "label": "Standortdatenblatt zur NISV",
       "active-expression":
         "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
       "config": {}
     },
     "dokument-plan-mit-eingetragenen-energiepfahlen": {
+      "label": "Plan mit eingetragenen Energiepfählen",
+      "hint":
+        "**Platzhalter**: *dokument-plan-mit-eingetragenen-energiepfahlen*",
       "type": "document",
       "required": true,
-      "label": "Plan mit eingetragenen Energiepfählen",
       "active-expression":
         "'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {}
     },
     "dokument-entwasserungsplankanalisationsplan": {
+      "label": "Entwässerungsplan / Kanalisationsplan",
+      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan*",
       "type": "document",
       "required": false,
-      "label": "Entwässerungsplan / Kanalisationsplan",
       "config": {}
     },
     "dokument-plan-mit-dachaufsicht-inkl-solaranlage": {
+      "label": "Plan mit Dachaufsicht inkl. Solaranlage",
+      "hint":
+        "**Platzhalter**: *dokument-plan-mit-dachaufsicht-inkl-solaranlage*",
       "type": "document",
       "required": true,
-      "label": "Plan mit Dachaufsicht inkl. Solaranlage",
       "active-expression": "'energie-dachaufstellung'|value == 'Ja'",
       "config": {}
     },
     "dokument-hydrogeologischer-nachweis": {
-      "hint": "Durchflussnachweis",
+      "label": "Hydrogeologischer Nachweis",
+      "hint": "**Platzhalter**: *dokument-hydrogeologischer-nachweis*",
       "type": "document",
       "required": true,
-      "label": "Hydrogeologischer Nachweis",
       "active-expression": "'pfahlfundation-vorgesehen'|value == 'Ja'",
       "config": {}
     },
     "dokument-plan-und-beschrieb-zum-bodenschutz": {
+      "label": "Plan und Beschrieb zum Bodenschutz",
+      "hint": "**Platzhalter**: *dokument-plan-und-beschrieb-zum-bodenschutz*",
       "type": "document",
       "required": true,
-      "label": "Plan und Beschrieb zum Bodenschutz",
       "active-expression": "'boden-5000m2'|value == 'Ja'",
       "config": {}
     },
     "dokument-baubeschrieb": {
-      "hint": "Inkl. Material- und Farbkonzept bei Bauten",
+      "label": "Baubeschrieb",
+      "hint": "**Platzhalter**: *dokument-baubeschrieb*",
       "type": "document",
       "required": true,
-      "label": "Baubeschrieb",
       "config": {}
     },
     "dokument-beschrieb-der-baugrubensicherung-und-entwasserung": {
+      "label": "Beschrieb der Baugrubensicherung und -entwässerung",
+      "hint":
+        "**Platzhalter**: *dokument-beschrieb-der-baugrubensicherung-und-entwasserung*",
       "type": "document",
       "required": true,
-      "label": "Beschrieb der Baugrubensicherung und -entwässerung",
       "active-expression": "'baugrubenumschliessung-vorgesehen'|value == 'Ja'",
       "config": {}
     },
     "dokument-reklameunterlagen": {
+      "label": "Reklameunterlagen",
+      "hint": "**Platzhalter**: *dokument-reklameunterlagen*",
       "type": "document",
       "required": true,
-      "label": "Reklameunterlagen",
       "active-expression": "'Reklame' in 'art-der-anlage'|value",
       "config": {}
     },
     "dokument-konzept-der-grossveranstaltung-im-wald": {
+      "label": "Konzept der Grossveranstaltung im Wald",
+      "hint":
+        "**Platzhalter**: *dokument-konzept-der-grossveranstaltung-im-wald*",
       "type": "document",
       "required": true,
-      "label": "Konzept der Grossveranstaltung im Wald",
       "active-expression":
         "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
       "config": {}
     },
     "dokument-beschrieb-der-auswirkungen-auf-wanderwege": {
+      "label": "Beschrieb der Auswirkungen auf Wanderwege",
+      "hint":
+        "**Platzhalter**: *dokument-beschrieb-der-auswirkungen-auf-wanderwege*",
       "type": "document",
       "required": false,
-      "label": "Beschrieb der Auswirkungen auf Wanderwege",
       "config": {}
     },
     "dokument-gesuchsunterlagen": {
+      "label": "Gesuchsunterlagen",
+      "hint": "**Platzhalter**: *dokument-gesuchsunterlagen*",
       "type": "document",
       "required": false,
-      "label": "Gesuchsunterlagen",
       "config": {}
     },
     "dokument-zustimmung-naherbaurecht": {
+      "label": "Zustimmung Näherbaurecht",
+      "hint": "**Platzhalter**: *dokument-zustimmung-naherbaurecht*",
       "type": "document",
       "required": true,
-      "label": "Zustimmung Näherbaurecht",
       "config": {}
     },
     "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht": {
+      "label": "Schnittplan mit Entnahme- und Rückgabeschacht",
+      "hint":
+        "**Platzhalter**: *dokument-schnittplan-mit-entnahme-und-ruckgabeschacht*",
       "type": "document",
       "required": true,
-      "label": "Schnittplan mit Entnahme- und Rückgabeschacht",
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
       "config": {}
     },
     "dokument-planverzeichnis": {
+      "label": "Planverzeichnis",
+      "hint": "**Platzhalter**: *dokument-planverzeichnis*",
       "type": "document",
       "required": true,
-      "label": "Planverzeichnis",
       "config": {}
     },
     "dokument-nutzungsberechnung-inkl-planschema-flachennachweis": {
-      "hint": "Inkl. Planschema (Flächennachweis)",
+      "label": "Nutzungsberechnung",
+      "hint":
+        "**Platzhalter**: *dokument-nutzungsberechnung-inkl-planschema-flachennachweis*",
       "type": "document",
       "required": false,
-      "label": "Nutzungsberechnung",
       "config": {}
     },
     "dokument-situationsplan-mit-lage-der-bohrlocher": {
+      "label": "Situationsplan mit Lage der Bohrlöcher",
+      "hint":
+        "**Platzhalter**: *dokument-situationsplan-mit-lage-der-bohrlocher*",
       "type": "document",
       "required": true,
-      "label": "Situationsplan mit Lage der Bohrlöcher",
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
       "config": {}
     },
     "dokument-aktueller-katasterplan": {
+      "label": "Aktueller Katasterplan",
+      "hint": "**Platzhalter**: *dokument-aktueller-katasterplan*",
       "type": "document",
       "required": true,
-      "label": "Aktueller Katasterplan",
       "config": {}
     },
     "dokument-beschrieb-des-vorhabens": {
+      "label": "Beschrieb des Vorhabens",
+      "hint": "**Platzhalter**: *dokument-beschrieb-des-vorhabens*",
       "type": "document",
       "required": false,
-      "label": "Beschrieb des Vorhabens",
       "active-expression":
         "'Erledigt' in 'va-info'|value || 'Erledigt' in 've-info'",
       "config": {}
     },
     "dokument-entsorgungskonzept": {
+      "label": "Entsorgungskonzept",
+      "hint": "**Platzhalter**: *dokument-entsorgungskonzept*",
       "type": "document",
       "required": true,
-      "label": "Entsorgungskonzept",
       "active-expression": "'200m3-bauabfalle'|value == 'Ja'",
       "config": {}
     },
     "dokument-aktueller-auszug-aus-dem-grundbuch": {
+      "label": "Aktueller Auszug aus dem Grundbuch",
+      "hint": "**Platzhalter**: *dokument-aktueller-auszug-aus-dem-grundbuch*",
       "type": "document",
       "required": true,
-      "label": "Aktueller Auszug aus dem Grundbuch",
       "config": {}
     },
     "dokument-beleuchtungskonzept": {
+      "label": "Beleuchtungskonzept",
+      "hint": "**Platzhalter**: *dokument-beleuchtungskonzept*",
       "type": "document",
       "required": true,
-      "label": "Beleuchtungskonzept",
       "active-expression": "'aussenbeleuchtung'|value == 'Ja'",
       "config": {}
     },
     "dokument-altlastenuntersuchung": {
+      "label": "Altlastenuntersuchung",
+      "hint": "**Platzhalter**: *dokument-altlastenuntersuchung*",
       "type": "document",
       "required": false,
-      "label": "Altlastenuntersuchung",
       "config": {}
     },
     "dokument-sicherheitsdatenblatter": {
+      "label": "Sicherheitsdatenblätter",
+      "hint": "**Platzhalter**: *dokument-sicherheitsdatenblatter*",
       "type": "document",
       "required": true,
-      "label": "Sicherheitsdatenblätter",
       "active-expression":
         "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value || 'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja' || 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Ja'",
       "config": {}
     },
     "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung": {
-      "hint": "Gegenstand der Baumeldung",
+      "label": "Beschrieb des Vorhabens",
+      "hint":
+        "**Platzhalter**: *dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung*",
       "type": "document",
       "required": true,
-      "label": "Beschrieb des Vorhabens",
       "active-expression": "'bm-solaranlage'|value == 'Nein'",
       "config": {}
     },
     "dokument-larmschutznachweis-larmprognose": {
+      "label": "Lärmschutznachweis / Lärmprognose",
+      "hint": "**Platzhalter**: *dokument-larmschutznachweis-larmprognose*",
       "type": "document",
       "required": true,
-      "label": "Lärmschutznachweis / Lärmprognose",
       "active-expression":
         "'anlagen-mit-erheblichen-larmemissionen'|value == 'Ja' || 'larmbelastetes-gebiet'|value == 'Ja'",
       "config": {}
     },
     "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung": {
+      "label": "Aussagekräftige Fotos der Liegenschaft inkl. Umgebung",
+      "hint":
+        "**Platzhalter**: *dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung*",
       "type": "document",
       "required": false,
-      "label": "Aussagekräftige Fotos der Liegenschaft inkl. Umgebung",
       "config": {}
     },
     "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache": {
+      "label": "Stellungnahme zu Zweck, Nutzen für Wald, Lage und Fläche",
+      "hint":
+        "**Platzhalter**: *dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache*",
       "type": "document",
       "required": true,
-      "label": "Stellungnahme zu Zweck, Nutzen für Wald, Lage und Fläche",
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {}
     },
     "dokument-begrundung-zweck-standortgebundenheit-und-alternativen": {
+      "label": "Begründung Zweck, Standortgebundenheit und Alternativen",
+      "hint":
+        "**Platzhalter**: *dokument-begrundung-zweck-standortgebundenheit-und-alternativen*",
       "type": "document",
       "required": true,
-      "label": "Begründung Zweck, Standortgebundenheit und Alternativen",
       "active-expression": "'wald-auswirkungen'|value == 'Ja'",
       "config": {}
     },
     "dokument-tabelle-tierbestand": {
+      "label": "Tabelle Tierbestand",
+      "hint": "**Platzhalter**: *dokument-tabelle-tierbestand*",
       "type": "document",
       "required": true,
-      "label": "Tabelle Tierbestand",
       "active-expression":
         "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
       "config": {}
     },
     "dokument-schnittplan-der-erdkollektorenerdwarmekorbe": {
+      "label": "Schnittplan der Erdkollektoren / Erdwärmekörbe",
+      "hint":
+        "**Platzhalter**: *dokument-schnittplan-der-erdkollektorenerdwarmekorbe*",
       "type": "document",
       "required": true,
-      "label": "Schnittplan der Erdkollektoren / Erdwärmekörbe",
       "active-expression":
         "'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {}
     },
     "dokument-schnitt-und-fassadenplane": {
-      "hint":
-        "1:100 mit Darstellung des Terrains bis Grundstücksgrenze (gewachsenes + projektiertes Terrain)",
+      "label": "Schnitt- und Fassadenpläne",
+      "hint": "**Platzhalter**: *dokument-schnitt-und-fassadenplane*",
       "type": "document",
       "required": false,
-      "label": "Schnitt- und Fassadenpläne",
       "config": {}
     },
     "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung": {
+      "label": "Situationsplan mit Bohrlächern und Leitungsführung",
+      "hint":
+        "**Platzhalter**: *dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung*",
       "type": "document",
       "required": true,
-      "label": "Situationsplan mit Bohrlächern und Leitungsführung",
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
       "config": {}
     },
     "dokument-ausgefulltes-formular-v01a": {
+      "label": "Ausgefülltes Formular V01a",
+      "hint": "**Platzhalter**: *dokument-ausgefulltes-formular-v01a*",
       "type": "document",
       "required": true,
-      "label": "Ausgefülltes Formular V01a",
       "active-expression":
         "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
       "config": {}
     },
     "dokument-energienachweis": {
+      "label": "Energienachweis",
+      "hint": "**Platzhalter**: *dokument-energienachweis*",
       "type": "document",
       "required": true,
-      "label": "Energienachweis",
       "active-expression":
         "('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value) && 'baukosten'|value > 250000",
       "config": {}
     },
     "dokument-umgebungsplan-mit-abstandslinien-vermasst": {
+      "label": "Umgebungsplan mit Abstandslinien (vermasst)",
+      "hint":
+        "**Platzhalter**: *dokument-umgebungsplan-mit-abstandslinien-vermasst*",
       "type": "document",
       "required": false,
-      "label": "Umgebungsplan mit Abstandslinien (vermasst)",
       "config": {}
     },
     "dokument-konzept-des-anlasses": {
+      "label": "Konzept des Anlasses",
+      "hint": "**Platzhalter**: *dokument-konzept-des-anlasses*",
       "type": "document",
       "required": true,
-      "label": "Konzept des Anlasses",
       "active-expression":
         "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
       "config": {}
     },
     "dokument-beschrieb-zur-abfallbehandlungsanlage": {
+      "label": "Beschrieb zur Abfallbehandlungsanlage",
+      "hint":
+        "**Platzhalter**: *dokument-beschrieb-zur-abfallbehandlungsanlage*",
       "type": "document",
       "required": true,
-      "label": "Beschrieb zur Abfallbehandlungsanlage",
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
       "config": {}
     },
     "dokument-nachweis-der-abstellflachenparkierung": {
+      "label": "Nachweis der Abstellflächen / Parkierung",
+      "hint":
+        "**Platzhalter**: *dokument-nachweis-der-abstellflachenparkierung*",
       "type": "document",
       "required": true,
-      "label": "Nachweis der Abstellflächen / Parkierung",
       "config": {}
     },
     "dokument-pfahlfundationsplan": {
+      "label": "Pfahlfundationsplan",
+      "hint": "**Platzhalter**: *dokument-pfahlfundationsplan*",
       "type": "document",
       "required": true,
-      "label": "Pfahlfundationsplan",
       "active-expression": "'pfahlfundation-vorgesehen'|value == 'Ja'",
       "config": {}
     },
     "dokument-sondenplan": {
+      "label": "Sondenplan",
+      "hint": "**Platzhalter**: *dokument-sondenplan*",
       "type": "document",
       "required": true,
-      "label": "Sondenplan",
       "active-expression":
         "'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen": {
-      "hint": "Altlastenkonzept",
+      "label": "Beschrieb geplanter Umgang mit Bodenbelastungen",
+      "hint":
+        "**Platzhalter**: *dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen*",
       "type": "document",
       "required": true,
-      "label": "Beschrieb geplanter Umgang mit Bodenbelastungen",
       "active-expression": "'bodenbelastungen'|value == 'Ja'",
       "config": {}
     },
     "dokument-bestatigung-elementarschaden": {
+      "label": "Bestätigung Elementarschaden",
+      "hint": "**Platzhalter**: *dokument-bestatigung-elementarschaden*",
       "type": "document",
       "required": true,
-      "label": "Bestätigung Elementarschaden",
       "active-expression": "'zivilschutz-elementarschaden'|value == 'Ja'",
       "config": {}
     },
     "dokument-rodungsgesuch": {
-      "hint": "Inkl. Situationsplan, Detailpläne und Unterschriften",
+      "label": "Rodungsgesuch",
+      "hint": "**Platzhalter**: *dokument-rodungsgesuch*",
       "type": "document",
       "required": true,
-      "label": "Rodungsgesuch",
       "active-expression": "'wald-auswirkungen'|value == 'Nein'",
       "config": {}
     },
     "dokument-material-und-farbkonzept-bestehend-und-neu": {
-      "hint": "Bestehend und neu",
+      "label": "Material- und Farbkonzept",
+      "hint":
+        "**Platzhalter**: *dokument-material-und-farbkonzept-bestehend-und-neu*",
       "type": "document",
       "required": false,
-      "label": "Material- und Farbkonzept",
       "config": {}
     },
     "dokument-formular-des-cercle-bruit": {
-      "type": "document",
-      "hint":
-        "Dem Gesuch ist ein Lärmschutznachweis für Luft / Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus: Formular des AfU (ausgefüllt), technisches Datenblatt des Wärmepumpenherstellers, Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum",
-      "required": true,
       "label": "Formular des Cercle Bruit",
+      "hint": "**Platzhalter**: *dokument-formular-des-cercle-bruit*",
+      "type": "document",
+      "required": true,
       "active-expression":
         "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
       "config": {}
     },
     "av-art": {
       "label": "Welche Art von Bewilligung hat Ihr Gesuch zum Inhalt?",
+      "hint": "**Platzhalter**: *av-art*",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -3829,6 +4228,7 @@
     "bm-solaranlage": {
       "label":
         "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
+      "hint": "**Platzhalter**: *bm-solaranlage*",
       "type": "radio",
       "required": true,
       "config": {
@@ -3837,6 +4237,7 @@
     },
     "kw-ort": {
       "label": "Von wo ist geplant, Wasser zu entnehmen?",
+      "hint": "**Platzhalter**: *kw-ort*",
       "type": "radio",
       "required": true,
       "config": {
@@ -3845,6 +4246,7 @@
     },
     "kw-quelle": {
       "label": "Handelt es sich um eine private oder öffentliche Quelle?",
+      "hint": "**Platzhalter**: *kw-quelle*",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle'",
@@ -3854,7 +4256,7 @@
     },
     "kw-name": {
       "label": "Name des Gewässers:",
-      "hint": "Bach, Fluss oder See",
+      "hint": "**Platzhalter**: *kw-name*",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value in ['Bach / Fluss', 'See']",
@@ -3862,6 +4264,7 @@
     },
     "kw-fuhrt-standig": {
       "label": "Führt der Bach / Fluss ständig Wasser?",
+      "hint": "**Platzhalter**: *kw-fuhrt-standig*",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
@@ -3871,6 +4274,7 @@
     },
     "kw-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
+      "hint": "**Platzhalter**: *kw-nutzungsart*",
       "type": "radio",
       "required": true,
       "config": {
@@ -3886,18 +4290,21 @@
     "kw-datum-bewilligung": {
       "label":
         "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "hint": "**Platzhalter**: *kw-datum-bewilligung*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kw-entnahmestandort-gemeinde": {
       "label": "Entnahmestandort Gemeinde:",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kw-entnahmestandort-grundstuck": {
       "label": "Entnahmestandort Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
       "config": {
@@ -3907,19 +4314,21 @@
     },
     "kw-entnahmestandort-koordinaten": {
       "label": "Entnahmestandort Koordinaten:",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kw-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen",
-      "hint": "Wasserfassung, Pumpstation usw.",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kw-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -3928,6 +4337,7 @@
     },
     "kw-entnahmestandort-ruckfuhrung-seetiefe": {
       "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
+      "hint": "**Platzhalter**: *kw-entnahmestandort-ruckfuhrung-seetiefe*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3939,7 +4349,7 @@
     },
     "kw-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "Entspricht der Konzessionswassermenge",
+      "hint": "**Platzhalter**: *kw-entnahmegewasser-max*",
       "type": "number",
       "required": true,
       "config": {
@@ -3949,6 +4359,7 @@
     },
     "kw-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
+      "hint": "**Platzhalter**: *kw-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3960,6 +4371,7 @@
     },
     "kw-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
+      "hint": "**Platzhalter**: *kw-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3971,6 +4383,7 @@
     },
     "kw-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
+      "hint": "**Platzhalter**: *kw-entnahmegewasser-min-austritt-temp*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -3982,6 +4395,7 @@
     },
     "kw-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "**Platzhalter**: *kw-baute-art*",
       "type": "multiselect",
       "required": true,
       "active-expression":
@@ -3993,6 +4407,7 @@
     },
     "kw-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
+      "hint": "**Platzhalter**: *kw-baute-wohneinheiten*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -4004,6 +4419,7 @@
     },
     "kw-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
+      "hint": "**Platzhalter**: *kw-baute-warmebedarf*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -4015,6 +4431,7 @@
     },
     "kw-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "hint": "**Platzhalter**: *kw-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
       "active-expression":
@@ -4025,6 +4442,8 @@
     },
     "kw-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "hint":
+        "**Platzhalter**: *kw-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
       "active-expression": "'kw-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -4032,6 +4451,7 @@
     },
     "kw-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
+      "hint": "**Platzhalter**: *kw-baute-kaltemitteleinfullungen*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -4043,6 +4463,7 @@
     },
     "kw-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
+      "hint": "**Platzhalter**: *kw-baute-leistung-verdampfer*",
       "type": "number",
       "required": true,
       "active-expression":
@@ -4054,6 +4475,7 @@
     },
     "kw-brauchwasser-zweck": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "hint": "**Platzhalter**: *kw-brauchwasser-zweck*",
       "type": "text",
       "required": true,
       "config": {}
@@ -4061,12 +4483,14 @@
     "kw-inbetriebnahme": {
       "label":
         "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-inbetriebnahme*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kw-baute-kaltemittel": {
       "label": "Kältemittel:",
+      "hint": "**Platzhalter**: *kw-baute-kaltemittel*",
       "type": "text",
       "required": true,
       "active-expression":
@@ -4075,18 +4499,21 @@
     },
     "pa-gesuchsnr": {
       "label": "Gesuchs-Nr. des rechtskräftig bewilligten Projektes:",
+      "hint": "**Platzhalter**: *pa-gesuchsnr*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "pa-datum": {
       "label": "Datum der Bewilligung:",
+      "hint": "**Platzhalter**: *pa-datum*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "pgv-bewilligungsbehorde": {
       "label": "Zuständige Bewilligungsbehörde:",
+      "hint": "**Platzhalter**: *pgv-bewilligungsbehorde*",
       "type": "radio",
       "required": true,
       "config": {
@@ -4100,18 +4527,21 @@
     },
     "tb-gesuchsnr": {
       "label": "Gesuchs-Nr.:",
+      "hint": "**Platzhalter**: *tb-gesuchsnr*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "tb-datum": {
       "label": "Datum der Baubewilligung:",
+      "hint": "**Platzhalter**: *tb-datum*",
       "type": "text",
       "required": true,
       "config": {}
     },
     "tb-zweck": {
       "label": "Für was wird um eine technische Bewilligung ersucht?",
+      "hint": "**Platzhalter**: *tb-zweck*",
       "type": "multiselect",
       "required": true,
       "config": {
@@ -4125,6 +4555,7 @@
     "va-info": {
       "label":
         "Für Ihr Vorabklärungsgesuch ist ein Beschrieb des Vorhabens nötig. In Anlehnung daran sind die konkreten Fragen zu formulieren, zu denen Sie die Antworten der zuständigen Behörden wünschen.",
+      "hint": "**Platzhalter**: *va-info*",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -4133,6 +4564,7 @@
     },
     "ve-verbindlich": {
       "label": "Soll der Vorentscheid gegenüber Dritten verbindlich sein?",
+      "hint": "**Platzhalter**: *ve-verbindlich*",
       "type": "radio",
       "required": true,
       "config": {
@@ -4146,6 +4578,7 @@
     "ve-info": {
       "label":
         "Für Ihr Vorentscheidsgesuch ist ein Beschrieb des Vorhabens nötig. Insbesondere sind konkret die Bereiche/Fragen zu nennen, auf die sich der Vorentscheid beziehen soll.",
+      "hint": "**Platzhalter**: *ve-info*",
       "type": "checkbox",
       "required": true,
       "config": {
