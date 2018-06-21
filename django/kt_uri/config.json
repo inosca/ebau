@@ -4590,7 +4590,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von einer Gemeinde\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
   }
@@ -4601,7 +4601,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch"
   }
@@ -4612,7 +4612,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Nutzungsplanung\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 36\nE-Mail: pirmin.scheuber@ur.ch"
   }
@@ -4623,7 +4623,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle f\u00fcr Baueingaben\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
   }
@@ -4634,7 +4634,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Forst und Jagd\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Forst und Jagd\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 23 13\nE-Mail: michael.planzer@ur.ch"
   }
@@ -4645,7 +4645,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Umweltschutz\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Umweltschutz\nKlausenstrasse 4\n6460 Altdorf\n\nTel. 041 875 24 33\nE-Mail: bruno.gisler@ur.ch"
   }
@@ -4656,7 +4656,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Landwirtschaft\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Landwirtschaft\nKlausenstrasse 4\n6460 Altdorf\n\nTel. 041 875 23 00\nE-Mail: ala.vd@ur.ch"
   }
@@ -4667,7 +4667,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Baudirektion\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nBaudirektion Uri\nKlausenstrasse 2\n6460 Altdorf\n\nTel. 041 875 26 81\nE-Mail: viktor.arnold@ur.ch"
   }
@@ -4689,7 +4689,7 @@
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"CAMAC\".\"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
+    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Energie\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Energie\nKlausenstrasse 2\n6460 Altdorf\n\nTelefon:   041 875 26 88\nTelefax:   041 875 26 10\nE-Mail:   energie@ur.ch"
   }
