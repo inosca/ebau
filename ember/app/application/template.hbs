@@ -18,18 +18,14 @@
     {{#unless isEmbedded}}
       {{#uk-flex horizontal='center' vertical='middle' direction='column' class='uk-padding'}}
         {{#link-to 'index' class='uk-padding uk-link-reset uk-width-1-1 uk-width-large@m'}}
-          <div class="uk-width-1-1">
+          <div class="uk-width-1-1 uk-position-relative">
             <img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">
-            {{#uk-flex vertical='middle' horizontal='between'}}
-              <div>
-                {{#unless (eq environment 'production')}}
-                  {{uk-label label=environment}}
-                {{/unless}}
-              </div>
-              <div>
-                v{{app-version hideSha=true}}
-              </div>
-            {{/uk-flex}}
+            <span class="uk-position-bottom-left uk-margin-medium-bottom">
+              v{{app-version hideSha=true}}
+            </span>
+            {{#unless (eq environment 'production')}}
+              {{uk-label label=environment class='uk-position-bottom-left uk-margin-small-bottom'}}
+            {{/unless}}
           </div>
         {{/link-to}}
         <div>
