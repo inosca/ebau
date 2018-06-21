@@ -37,12 +37,11 @@ module('Integration | Component | camac-document', function(hooks) {
   })
 
   test('it renders', async function(assert) {
-    assert.expect(2)
+    assert.expect(1)
 
     await render(hbs`{{camac-document 'test-document' instance=instance}}`)
 
     assert.dom('.uk-text-center').hasText('Test Doc *')
-    assert.dom('span[uk-icon]').hasAttribute('uk-tooltip', 'Hint hint hint')
   })
 
   test('it can upload a document', async function(assert) {

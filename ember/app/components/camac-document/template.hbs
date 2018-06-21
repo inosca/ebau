@@ -3,7 +3,7 @@
     {{#with question.model.thumbnail.lastSuccessful.value as |thumbnail|}}
       <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
     {{/with}}
-    <div class="uk-overlay uk-overlay-primary uk-position-cover uk-flex uk-flex-center uk-flex-middle">
+    <div class="uk-overlay uk-overlay-primary uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-padding-remove-horizontal">
       {{#unless readonly}}
         {{#if upload.isRunning}}
           {{uk-spinner ratio=0.5 class='uk-animation-fade uk-icon-button'}}
@@ -32,12 +32,22 @@
           ></button>
         {{/if}}
       {{/if}}
+      {{#if question.field.hint}}
+        {{#camac-hint-dialog question.field.hint as |toggle|}}
+          <button
+            type="button"
+            uk-icon="info"
+            uk-toggle={{toggle}}
+            class="uk-icon-button uk-animation-fade"
+            title="Zusätzliche Informationen"
+          ></button>
+        {{/camac-hint-dialog}}
+      {{/if}}
     </div>
   </div>
 
   <div class="uk-padding-small uk-text-bold uk-text-center uk-position-relative">
     <small>{{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}</small>
-    {{#if question.field.hint}}<span class="uk-position-top-right pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>{{/if}}
   </div>
 </div>
 
