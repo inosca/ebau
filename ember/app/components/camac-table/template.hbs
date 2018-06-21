@@ -8,7 +8,7 @@
           <span class="uk-text-primary">*</span>
         {{/if}}
         {{#if question.field.hint}}
-          <span class="pointer" uk-icon="info" ratio="0.8" uk-tooltip={{escapeukvalue question.field.hint}} pos="right"></span>
+          {{camac-hint-dialog question.field.hint}}
         {{/if}}
       </label>
       <table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
