@@ -337,13 +337,11 @@
       "title": "Verkehr",
       "parent": "fachthemen",
       "questions": [
-        "verkehr-strassentyp",
-        "verkehr-strassenname",
+        "verkehr-strasse",
         "verkehr-einfahrt",
         "verkehr-parkplatze",
         "verkehr-mehrverkehr",
-        "verkehr-strassentyp-indirekt",
-        "verkehr-strassenname-indirekt",
+        "verkehr-strasse-indirekt",
         "verkehr-ursache-unterschreitung",
         "verkehr-grenzt-an-strasse",
         "verkehr-neugestaltung-trottoir",
@@ -2356,37 +2354,46 @@
         "options": ["Erledigt"]
       }
     },
-    "verkehr-strassentyp": {
-      "label":
-        "Um welchen Strassentyp handelt es sich bei der direkt betroffenen Strasse?",
-      "hint": "**Platzhalter**: *verkehr-strassentyp*",
-      "type": "radio",
+    "verkehr-strasse": {
+      "label": "Erfassen Sie die direkt betroffenen Strassen:",
+      "hint": "**Platzhalter**: *verkehr-strasse*",
+      "type": "table",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
       "config": {
-        "options": [
-          "Nationalstrasse",
-          "Kantonsstrasse",
-          "Bezirksstrasse",
-          "Gemeindestrasse",
-          "Privatstrasse"
+        "columns": [
+          {
+            "name": "typ",
+            "label": "Um welchen Typ handelt es sich bei der Strasse?",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Nationalstrasse",
+                "Kantonsstrasse",
+                "Bezirksstrasse",
+                "Gemeindestrasse",
+                "Privatstrasse"
+              ]
+            }
+          },
+          {
+            "name": "name",
+            "label": "Name der Strasse:",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
         ]
       }
-    },
-    "verkehr-strassenname": {
-      "label": "Name der betroffenen Strasse:",
-      "hint": "**Platzhalter**: *verkehr-strassenname*",
-      "type": "text",
-      "required": true,
-      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
-      "config": {}
     },
     "verkehr-einfahrt": {
       "label": "Bitte geben Sie Informationen zur Einfahrt:",
       "hint": "**Platzhalter**: *verkehr-einfahrt*",
       "type": "radio",
       "required": true,
-      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
+      "active-expression":
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapBy('typ'))",
       "config": {
         "options": [
           "Neue, direkte Einfahrt geplant",
@@ -2400,7 +2407,8 @@
       "hint": "**Platzhalter**: *verkehr-parkplatze*",
       "type": "number",
       "required": true,
-      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
+      "active-expression":
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapBy('typ'))",
       "config": {
         "min": 0,
         "step": 1
@@ -2413,37 +2421,44 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && 'verkehr-strassentyp'|value == 'Kantonsstrasse' && ('verkehr-einfahrt'|value == 'Direkte Einfahrt bestehend (keine Anpassungen vorgesehen' || 'verkehr-einfahrt'|value == 'Aus- oder Umbau der bestehenden Einfahrt')",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
-    "verkehr-strassentyp-indirekt": {
-      "label":
-        "Um welchen Strassentyp handelt es sich bei der indirekt betroffenen Strasse?",
-      "hint": "**Platzhalter**: *verkehr-strassentyp-indirekt*",
-      "type": "radio",
+    "verkehr-strasse-indirekt": {
+      "label": "Erfassen Sie die indirekt betroffenen Strassen:",
+      "hint": "**Platzhalter**: *verkehr-strasse-indirekt*",
+      "type": "table",
       "required": true,
       "active-expression":
         "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt'",
       "config": {
-        "options": [
-          "Nationalstrasse",
-          "Kantonsstrasse",
-          "Bezirksstrasse",
-          "Gemeindestrasse",
-          "Privatstrasse"
+        "columns": [
+          {
+            "name": "typ",
+            "label": "Um welchen Typ handelt es sich bei der Strasse?",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Nationalstrasse",
+                "Kantonsstrasse",
+                "Bezirksstrasse",
+                "Gemeindestrasse",
+                "Privatstrasse"
+              ]
+            }
+          },
+          {
+            "name": "name",
+            "label": "Name der Strasse:",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
         ]
       }
-    },
-    "verkehr-strassenname-indirekt": {
-      "label": "Name der betroffenen Strasse:",
-      "hint": "**Platzhalter**: *verkehr-strassenname-indirekt*",
-      "type": "text",
-      "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt'",
-      "config": {}
     },
     "verkehr-ursache-unterschreitung": {
       "label":
@@ -2469,7 +2484,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'verkehr-strassentyp-indirekt'|value == 'Kantonsstrasse'",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2481,7 +2496,8 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'verkehr-strassentyp-indirekt'|value == 'Kantonsstrasse'",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
+
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2493,7 +2509,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'verkehr-strassentyp-indirekt'|value == 'Kantonsstrasse'",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2504,7 +2520,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'verkehr-strassentyp-indirekt'|value == 'Kantonsstrasse'",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
