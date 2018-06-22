@@ -128,6 +128,7 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
+      "personalien.projektverfasser-planer",
       "personalien.konzessionsnehmer"
     ],
     "anlassbewilligungen-verkehrsbewilligungen": [
@@ -187,6 +188,7 @@
         "kategorie-des-vorhabens",
         "art-der-nutzung",
         "vorhaben-mit-baute",
+        "vorhaben-mit-anlage",
         "art-der-anlage",
         "art-der-befestigten-flache",
         "zweck-der-leitungen",
@@ -228,7 +230,9 @@
       "parent": "grundinformationen",
       "questions": [
         "geometer",
+        "geometer-name",
         "baugespann-errichtet",
+        "baugespann-errichtet-wann",
         "kein-baugespann-begrundung",
         "baukosten",
         "gebaudevolumen"
@@ -766,6 +770,16 @@
             }
           },
           {
+            "name": "geschosse",
+            "label": "Anzahl Geschosse",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1,
+              "step": 1
+            }
+          },
+          {
             "name": "wohnungen",
             "label": "Wohnungsliste",
             "type": "table",
@@ -873,12 +887,28 @@
         ]
       }
     },
+    "vorhaben-mit-anlage": {
+      "label": "Vorhaben mit Anlage(n): Welche Tätigkeiten sind geplant?",
+      "hint": "**Platzhalter**: *vorhaben-mit-anlage*",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
+      "config": {
+        "options": [
+          "Rückbau",
+          "Neubau",
+          "Erweiterung",
+          "Umbau / Erneuerung / Sanierung",
+          "Nutzungsänderung"
+        ]
+      }
+    },
     "vorhaben-mit-baute": {
       "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
       "hint": "**Platzhalter**: *vorhaben-mit-baute*",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Bauten(n)' in 'kategorie-des-vorhabens'|value",
+      "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": [
           "Abbruch / Rückbau",
@@ -951,10 +981,10 @@
       "active-expression": "'Wärmepumpe' in 'art-der-anlage'|value",
       "config": {
         "options": [
-          "Erd-Wärmepumpe",
+          "Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)",
           "Luft / Wasser-Wärmepumpe",
-          "Wasser / Wasser-Wärmepumpe",
-          "Sole / Wasser-Wärmepumpe"
+          "Wasser / Wasser-Wärmepumpe (z.B. Seewasser- oder Bachwassernutzung)",
+          "Sole / Wasser-Wärmepumpe (Grundwasserwärmepumpe)"
         ]
       }
     },
@@ -1215,17 +1245,34 @@
           "Geoterra AG (Richterswil, Siebnen, Pfäffikon, Einsiedeln)",
           "Lukas Domeisen AG (Uznach)",
           "HSK Ingenieur AG (Goldau, Küssnacht, Brunnen)",
-          "geometrie plus ag (Freienback, Einsiedeln)",
+          "geometrie plus ag (Freienbach, Einsiedeln)",
           "Wild Ingenieure AG (Küssnacht)"
         ]
       }
     },
+    "geometer-name": {
+      "label": "Name des zuständigen Geometers:",
+      "hint": "**Platzhalter**: *geometer-name*",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
     "baugespann-errichtet": {
-      "label": "Das Baugespann wurde / wird errichtet am:",
+      "label": "Wird ein Baugespann errichtet?",
       "hint": "**Platzhalter**: *baugespann-errichtet*",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'baugespann-errichtet'|value == 'Ja'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "baugespann-errichtet-wann": {
+      "label": "Das Baugespann wurde / wird errichtet am:",
+      "hint": "**Platzhalter**: *baugespann-errichtet-wann*",
       "type": "text",
       "required": true,
-      "active-expression": "!('Baute(n)' in 'kategorie-des-vorhabens'|value)",
+      "active-expression": "'baugespann-errichtet'|value == 'Ja'",
       "config": {}
     },
     "kein-baugespann-begrundung": {
@@ -1233,7 +1280,7 @@
       "hint": "**Platzhalter**: *kein-baugespann-begrundung*",
       "type": "text",
       "required": true,
-      "active-expression": "!('Baute(n)' in 'kategorie-des-vorhabens'|value)",
+      "active-expression": "'baugespann-errichtet'|value == 'Nein'",
       "config": {}
     },
     "baukosten": {
@@ -3396,7 +3443,8 @@
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
       "type": "radio",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe'",
+      "active-expression":
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": [
           "Erdwärmesonden",
@@ -3411,7 +3459,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-bohrfirma": {
@@ -3420,7 +3468,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-verwendungszweck": {
@@ -3428,7 +3476,8 @@
       "hint": "**Platzhalter**: *grundwasser-verwendungszweck*",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe'",
+      "active-expression":
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": ["Heizung", "Kühlung", "Warmwasser"]
       }
@@ -3439,7 +3488,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3451,7 +3500,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3463,7 +3512,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3475,7 +3524,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-sondenrohrdurchmesser": {
@@ -3484,7 +3533,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3496,7 +3545,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-warmetragerflussigkeit": {
@@ -3505,7 +3554,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-totale-fullmenge": {
@@ -3514,7 +3563,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {
         "min": 1,
         "step": 1
@@ -3526,7 +3575,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3538,7 +3587,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3550,7 +3599,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3562,7 +3611,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1,
         "step": 1
@@ -3574,7 +3623,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1,
         "step": 1
@@ -3586,7 +3635,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {}
     },
     "grundwasser-sondierbohrung-anzahl-bohrungen": {
