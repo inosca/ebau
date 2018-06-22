@@ -11,7 +11,7 @@ const CamacHelpDialogComponent = Component.extend({
     return `${this.elementId}-hint-modal`
   }),
 
-  toggle: computed('modalId', function() {
+  target: computed('modalId', function() {
     return `target: #${this.modalId}`
   }),
 
