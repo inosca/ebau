@@ -80,19 +80,6 @@ const validateRadio = ({ options }, value) => {
   return true
 }
 
-const validateMultiselect = (
-  { options, 'allow-custom': allowCustom },
-  value
-) => {
-  if (isBlank(value)) {
-    return true
-  }
-
-  return allowCustom || validateCheckbox({ options }, value)
-}
-
-const validateSelect = validateRadio
-
 const checkActiveConditionContainsAny = (value, conditionValues) => {
   return value.some(v => conditionValues.includes(v))
 }
@@ -123,8 +110,6 @@ export default {
   validateNumber,
   validateCheckbox,
   validateRadio,
-  validateMultiselect,
-  validateSelect,
 
   checkActiveConditionContainsAny,
   checkActiveConditionContainsNotAny,
