@@ -1,55 +1,115 @@
-{{#if (or instances.isRunning navigate.isRunning)}}
-  {{#uk-flex horizontal='center' class='uk-padding uk-animation-fade'}}
-    {{uk-spinner ratio=3}}
-  {{/uk-flex}}
-{{else}}
-  {{#with (reject-by 'isNew' true instances.lastSuccessful.value) as |filtered|}}
+{{#if data.lastSuccessful}}
+  {{#if (or identifier data.lastSuccessful.value data.isRunning)}}
     <h1>Ihre Dossiers</h1>
+
+    <div class="uk-search uk-search-default uk-width-1-1 uk-hidden@m">
+      <span uk-search-icon></span>
+      <input class="uk-search-input" type="search" placeholder="Gesuchsnummer suchen..." value={{identifier}} oninput={{action (perform search) value='target.value'}}>
+    </div>
+
     <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
       <thead>
         <tr>
-          <th>Gesuchsnummer</th>
-          <th>Status</th>
-          <th>Gesuchsart</th>
-          <th>Gemeinde</th>
-          <th>Erstelldatum</th>
+          <th class="uk-width-1-5">
+            <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search='identifier-search'>
+              <span>
+                Gesuchsnummer
+                {{camac-sort-icon key='identifier' sort=sort on-click=(action (mut sort))}}
+              </span>
+              <div class="uk-margin-left">
+                <a
+                  uk-search-icon
+                  uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-left-small uk-animation-fast"
+                  class="uk-toggle"
+                  href="#"
+                >
+                </a>
+              </div>
+            </div>
+            <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search='identifier-search' hidden>
+              <input
+                autofocus
+                class="uk-search-input uk-width-auto uk-padding-remove"
+                type="search"
+                placeholder="Suchen..."
+                value={{identifier}}
+                oninput={{action (perform search) value='target.value'}}
+              >
+              <a
+                uk-close
+                uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-right-small uk-animation-fast"
+                class="uk-toggle uk-flex-inline uk-flex-middle"
+                href="#"
+                {{action (mut identifier) ''}}
+              >
+              </a>
+            </div>
+          </th>
+          <th class="uk-width-1-6">
+            Status
+            {{camac-sort-icon key='instance_state__description' sort=sort on-click=(action (mut sort))}}
+          </th>
+          <th class="uk-width-expand">
+            Gesuchsart
+            {{camac-sort-icon key='form__description' sort=sort on-click=(action (mut sort))}}
+          </th>
+          <th class="uk-width-1-6">
+            Gemeinde
+            {{camac-sort-icon key='location__communal_federal_number' sort=sort on-click=(action (mut sort))}}
+          </th>
+          <th class="uk-width-1-6 uk-text-right">
+            Erstelldatum
+            {{camac-sort-icon key='creation_date' sort=sort on-click=(action (mut sort))}}
+          </th>
         </tr>
       </thead>
       <tbody>
-        {{#each filtered as |instance|}}
-          <tr
-            role="link"
-            title="Klicken Sie um das Dossier zu bearbeiten"
-            class="pointer"
-            {{action (perform navigate) instance on='click'}}
-          >
-            <td>
-              {{instance.identifier}}
-            </td>
-            <td>
-              {{instance.instanceState.description}}
-            </td>
-            <td>
-              {{instance.form.description}}
-            </td>
-            <td>
-              {{#if instance.location}}
-                {{instance.location.communalFederalNumber}} - {{instance.location.name}}
-              {{/if}}
-            </td>
-            <td>
-              {{format-date instance.creationDate}}
-            </td>
+        {{#if data.isRunning}}
+          <tr>
+            <td class="uk-text-center" colspan="5">{{uk-spinner}}</td>
           </tr>
-        {{/each}}
+        {{else}}
+          {{#each data.lastSuccessful.value as |instance|}}
+            <tr
+              role="link"
+              title="Klicken Sie um das Dossier zu bearbeiten"
+              class="pointer"
+              {{action (perform navigate) instance on='click'}}
+            >
+              <td>
+                {{instance.identifier}}
+              </td>
+              <td>
+                {{instance.instanceState.description}}
+              </td>
+              <td>
+                {{instance.form.description}}
+              </td>
+              <td>
+                {{#if instance.location}}
+                  {{instance.location.communalFederalNumber}} - {{instance.location.name}}
+                {{/if}}
+              </td>
+              <td class="uk-text-right">
+                {{format-date instance.creationDate}}
+              </td>
+            </tr>
+          {{^}}
+            <tr>
+              <td class="uk-text-center" colspan="5">
+                <i>Kein Dossier mit dieser Gesuchsnummer gefunden</i>
+              </td>
+            </tr>
+          {{/each}}
+        {{/if}}
         <tr role="link" title="Klicken Sie um ein neues Dossier zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
-          <td class="uk-text-center" colspan=6>
+          <td class="uk-text-center" colspan="5">
             {{uk-icon 'plus' scale=2}}
           </td>
         </tr>
       </tbody>
     </table>
-  {{^}}
+  {{else}}
     {{#uk-flex horizontal='center' vertical='middle' direction='column'}}
       <div class="uk-text-center uk-width-large">
         <object data="/assets/images/stamp-document.svg" class="uk-width-medium"></object>
@@ -62,5 +122,9 @@
         {{#link-to 'instances.new' class='uk-button uk-button-primary uk-button-large'}}Dossier erstellen{{/link-to}}
       </div>
     {{/uk-flex}}
-  {{/with}}
+  {{/if}}
+{{else if data.isRunning}}
+  {{#uk-flex horizontal='center' class='uk-padding uk-animation-fade'}}
+    {{uk-spinner ratio=3}}
+  {{/uk-flex}}
 {{/if}}
