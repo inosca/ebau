@@ -34,6 +34,11 @@ const Question = EmberObject.extend({
 
       return q && q.value
     })
+
+    this.jexl.addTransform(
+      'isFormType',
+      type => type === this.get('model.instance.form.name')
+    )
   },
 
   validate() {

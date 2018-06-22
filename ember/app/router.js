@@ -60,7 +60,6 @@ Router.map(function() {
         this.route('projektgenehmigungsgesuch')
         this.route('plangenehmigungsverfahren')
         this.route('technische-bewilligung')
-        this.route('vorabklarung')
         this.route('vorentscheid')
         this.route('submit')
       })

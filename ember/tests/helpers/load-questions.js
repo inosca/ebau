@@ -8,7 +8,10 @@ export default async function loadQuestions(names, instanceId) {
   let qstore = owner.lookup('service:question-store')
   let store = owner.lookup('service:store')
 
-  await run(async () => await store.findRecord('instance', instanceId))
+  await run(
+    async () =>
+      await store.findRecord('instance', instanceId, { include: 'form' })
+  )
   await run(
     async () => await store.query('form-field', { instance: instanceId })
   )
