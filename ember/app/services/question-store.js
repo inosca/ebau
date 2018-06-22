@@ -34,6 +34,11 @@ const Question = EmberObject.extend({
 
       return q && q.value
     })
+
+    this.jexl.addTransform(
+      'mapBy',
+      (arr, key) => Array.isArray(arr) && arr.map(obj => obj[key])
+    )
   },
 
   validate() {

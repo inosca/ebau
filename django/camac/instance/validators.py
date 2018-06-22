@@ -33,6 +33,10 @@ class FormDataValidator(object):
         }
         self.jexl = JEXL()
         self.jexl.add_transform('value', lambda name: self.fields.get(name))
+        self.jexl.add_transform(
+            'mapBy',
+            lambda arr, key: [obj[key] for obj in arr]
+        )
 
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
