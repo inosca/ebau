@@ -33,11 +33,11 @@
         {{/if}}
       {{/if}}
       {{#if question.field.hint}}
-        {{#camac-hint-dialog question.field.hint as |toggle|}}
+        {{#camac-hint-dialog question.field.hint as |target|}}
           <button
             type="button"
             uk-icon="info"
-            uk-toggle={{toggle}}
+            uk-toggle={{target}}
             class="uk-icon-button uk-animation-fade"
             title="Zusätzliche Informationen"
           ></button>
