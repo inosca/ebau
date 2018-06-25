@@ -34,7 +34,7 @@ class FormDataValidator(object):
         self.jexl = JEXL()
         self.jexl.add_transform('value', lambda name: self.fields.get(name))
         self.jexl.add_transform(
-            'mapBy',
+            'mapby',
             lambda arr, key: [obj[key] for obj in arr]
         )
 
