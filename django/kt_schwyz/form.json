@@ -2393,7 +2393,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapBy('typ'))",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
       "config": {
         "options": [
           "Neue, direkte Einfahrt geplant",
@@ -2408,7 +2408,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapBy('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapBy('typ'))",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
       "config": {
         "min": 0,
         "step": 1
@@ -2421,7 +2421,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapBy('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2484,7 +2484,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2496,7 +2496,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
 
       "config": {
         "options": ["Ja", "Nein"]
@@ -2509,7 +2509,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2520,7 +2520,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapBy('typ')",
+        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
