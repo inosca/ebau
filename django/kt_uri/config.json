@@ -8904,6 +8904,15 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 17,
+  "fields": {
+    "available_resource": "statistics",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.attachmentextension",
   "pk": 41,
   "fields": {
@@ -10944,6 +10953,15 @@
     "module_name": "core",
     "controller_name": "simplelist",
     "description": "Page with a list of instances (new)"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "statistics",
+  "fields": {
+    "module_name": "statistics",
+    "controller_name": "statistics",
+    "description": "Statistics module"
   }
 },
 {
