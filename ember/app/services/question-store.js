@@ -36,7 +36,7 @@ const Question = EmberObject.extend({
     })
 
     this.jexl.addTransform(
-      'mapBy',
+      'mapby',
       (arr, key) => Array.isArray(arr) && arr.map(obj => obj[key])
     )
   },

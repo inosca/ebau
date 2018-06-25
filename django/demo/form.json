@@ -274,7 +274,7 @@
       "type": "text",
       "required": "true",
       "active-expression":
-        "'Bund' in 'grundeigentumerschaft'|value|mapBy('name')",
+        "'Bund' in 'grundeigentumerschaft'|value|mapby('name')",
       "config": {}
     }
   }

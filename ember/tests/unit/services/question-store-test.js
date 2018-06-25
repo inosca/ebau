@@ -108,7 +108,7 @@ module('Unit | Service | question-store', function(hooks) {
           'active-expression': "'foo'|value in [1,2] || !('bar'|value > 2)"
         },
         'test-map': {
-          'active-expression': "'test' in [{name:'test'}]|mapBy('name')"
+          'active-expression': "'test' in [{name:'test'}]|mapby('name')"
         }
       }
     })
