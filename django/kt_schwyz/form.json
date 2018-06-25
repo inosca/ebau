@@ -68,12 +68,12 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen-ve-va"
     ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen-ve-va"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
       "grundinformationen",
@@ -490,6 +490,63 @@
       "questions": ["lebensmittel-und-hygienesicherheit-info"]
     },
     "gesuchsunterlagen": {
+      "title": "Gesuchsunterlagen",
+      "parent": null,
+      "questions": [
+        "dokument-parzelle",
+        "dokument-aktueller-katasterplan",
+        "dokument-aktueller-auszug-aus-dem-grundbuch",
+        "dokument-grundrisse-1100",
+        "dokument-schnitt-und-fassadenplane",
+        "dokument-umgebungsplan-mit-abstandslinien-vermasst",
+        "dokument-baubeschrieb",
+        "dokument-zustimmung-naherbaurecht",
+        "dokument-planverzeichnis",
+        "dokument-nachweis-der-abstellflachenparkierung",
+        "dokument-energienachweis",
+        "dokument-pfahlfundationsplan",
+        "dokument-hydrogeologischer-nachweis",
+        "dokument-beschrieb-der-baugrubensicherung-und-entwasserung",
+        "dokument-standortdatenblatt-zur-nisv",
+        "dokument-larmschutznachweis-larmprognose",
+        "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen",
+        "dokument-entsorgungskonzept",
+        "dokument-tabelle-tierbestand",
+        "dokument-begrundung-standortgebundenheit",
+        "dokument-nutzungsberechnung-inkl-planschema-flachennachweis",
+        "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung",
+        "dokument-formular-des-cercle-bruit",
+        "dokument-beschrieb-zur-abfallbehandlungsanlage",
+        "dokument-plan-und-beschrieb-zum-bodenschutz",
+        "dokument-beleuchtungskonzept",
+        "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache",
+        "dokument-begrundung-zweck-standortgebundenheit-und-alternativen",
+        "dokument-rodungsgesuch",
+        "dokument-beschrieb-der-auswirkungen-auf-wanderwege",
+        "dokument-plan-mit-dachaufsicht-inkl-solaranlage",
+        "dokument-sicherheitsdatenblatter",
+        "dokument-bestatigung-elementarschaden",
+        "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit",
+        "dokument-entwasserungsplankanalisationsplan",
+        "dokument-unterlagen-invasive-neophyten",
+        "dokument-sondenplan",
+        "dokument-plan-mit-eingetragenen-energiepfahlen",
+        "dokument-schnittplan-der-erdkollektorenerdwarmekorbe",
+        "dokument-situationsplan-mit-lage-der-bohrlocher",
+        "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung",
+        "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht",
+        "dokument-altlastenuntersuchung",
+        "dokument-reklameunterlagen",
+        "dokument-material-und-farbkonzept-bestehend-und-neu",
+        "dokument-konzept-der-grossveranstaltung-im-wald",
+        "dokument-konzept-des-anlasses",
+        "dokument-ausgefulltes-formular-v01a",
+        "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung",
+        "dokument-unterlagen-projektanderung",
+        "dokument-gesuchsunterlagen"
+      ]
+    },
+    "gesuchsunterlagen-ve-va": {
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
@@ -3685,8 +3742,6 @@
       "hint": "**Platzhalter**: *dokument-fragenkatalog*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'vorabklarung'|isFormType || 'vorentscheid-gemass-ss84-pbg'|isFormType",
       "config": {}
     },
     "dokument-unterlagen-projektanderung": {
@@ -3865,9 +3920,7 @@
       "label": "Beschrieb des Vorhabens",
       "hint": "**Platzhalter**: *dokument-beschrieb-des-vorhabens*",
       "type": "document",
-      "required": false,
-      "active-expression":
-        "'vorabklarung'|isFormType || 'vorentscheid-gemass-ss84-pbg'|isFormType",
+      "required": true,
       "config": {}
     },
     "dokument-entsorgungskonzept": {

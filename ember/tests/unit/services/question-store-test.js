@@ -100,15 +100,12 @@ module('Unit | Service | question-store', function(hooks) {
   })
 
   test('can handle active expressions', async function(assert) {
-    assert.expect(4)
+    assert.expect(3)
 
     this.server.get('/api/v1/form-config', {
       questions: {
         test: {
           'active-expression': "'foo'|value in [1,2] || !('bar'|value > 2)"
-        },
-        'test-form': {
-          'active-expression': "'baugesuch-reklamegesuch'|isFormType"
         }
       }
     })
@@ -120,10 +117,6 @@ module('Unit | Service | question-store', function(hooks) {
     let test = await service.peek('test', this.instanceId)
     let foo = await service.peek('foo', this.instanceId)
     let bar = await service.peek('bar', this.instanceId)
-
-    let testForm = await service.peek('test-form', this.instanceId)
-    await testForm.get('_hiddenTask').perform()
-    assert.equal(testForm.get('hidden'), false)
 
     foo.set('model.value', 3)
     bar.set('model.value', 3)

@@ -53,6 +53,7 @@ Router.map(function() {
           this.route('lebensmittel-und-hygienesicherheit')
         })
         this.route('gesuchsunterlagen')
+        this.route('gesuchsunterlagen-ve-va')
         this.route('anlassbewilligungen-verkehrsbewilligungen')
         this.route('baumeldung-fur-geringfugige-vorhaben')
         this.route('konzession-fur-wasserentnahme')
