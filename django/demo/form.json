@@ -32,8 +32,7 @@
         "gwr",
         "art-der-befestigten-flache",
         "zweck-der-warmepumpe",
-        "standort-der-warmepumpe",
-        "bezeichnung-baugesuch"
+        "standort-der-warmepumpe"
       ]
     }
   },
@@ -268,13 +267,6 @@
       "type": "text",
       "required": true,
       "active-expression": "'Heizen' in 'zweck-der-warmepumpe'|value",
-      "config": {}
-    },
-    "bezeichnung-baugesuch": {
-      "label": "Wie wird Ihr Baugesuch bezeichnet?",
-      "type": "text",
-      "required": true,
-      "active-expression": "'baugesuch'|isFormType",
       "config": {}
     }
   }
