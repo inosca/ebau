@@ -8913,6 +8913,15 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 18,
+  "fields": {
+    "available_resource": "statistics",
+    "action_name": "report",
+    "hidden": 1
+  }
+},
+{
   "model": "core.attachmentextension",
   "pk": 41,
   "fields": {
