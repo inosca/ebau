@@ -36,10 +36,6 @@ class FormDataValidator(object):
             'value',
             lambda name: self.fields.get(name)
         )
-        self.jexl.add_transform(
-            'isFormType',
-            lambda name: self.instance.form.name == name
-        )
 
     def _validate_question_select(self, question, question_def, value):
         self._validate_question_radio(question, question_def, value)
