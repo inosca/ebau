@@ -33968,7 +33968,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 28
+    "sort": 29
   }
 },
 {
@@ -33994,7 +33994,7 @@
     "template": "/portal/create.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 29
+    "sort": 30
   }
 },
 {
@@ -34294,6 +34294,19 @@
     "class_field": "show_list_count",
     "hidden": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 311,
+  "fields": {
+    "available_resource": "statistics",
+    "name": "Statistik",
+    "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 28
   }
 },
 {
@@ -35153,6 +35166,14 @@
   "fields": {
     "resource": 295,
     "role": 1061
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 69,
+  "fields": {
+    "resource": 311,
+    "role": 1101
   }
 },
 {
