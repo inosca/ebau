@@ -19589,6 +19589,46 @@
   }
 },
 {
+  "model": "core.formgroupform",
+  "pk": 256,
+  "fields": {
+    "form_group": 161,
+    "form": 286
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 257,
+  "fields": {
+    "form_group": 241,
+    "form": 286
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 258,
+  "fields": {
+    "form_group": 243,
+    "form": 286
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 259,
+  "fields": {
+    "form_group": 244,
+    "form": 286
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 260,
+  "fields": {
+    "form_group": 246,
+    "form": 286
+  }
+},
+{
   "model": "core.instanceresource",
   "pk": 1,
   "fields": {
@@ -32628,6 +32668,28 @@
   "fields": {
     "page": 41,
     "form": 255,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 114,
+  "fields": {
+    "page": 82,
+    "form": 286,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 115,
+  "fields": {
+    "page": 41,
+    "form": 286,
     "page_form_mode": 4,
     "page_form_group": 1,
     "sort": 1
@@ -47526,6 +47588,15 @@
     "form_state": 1,
     "name": "Meldung \u00d6REB Anpassung BD",
     "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 286,
+  "fields": {
+    "form_state": 1,
+    "name": "Land- und Rechtserwerb",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
   }
 },
 {
