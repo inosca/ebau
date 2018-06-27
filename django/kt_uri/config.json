@@ -37928,12 +37928,12 @@
     "mapping": 1,
     "answer_query": null,
     "name": "Parzellennummer",
-    "description": "",
-    "javascript": "",
-    "regex": "",
-    "default_answer": "",
-    "class_field": "",
-    "validation": ""
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": "parcelnumber",
+    "validation": null
   }
 },
 {
@@ -37945,11 +37945,11 @@
     "answer_query": null,
     "name": "Baurechtsnummer",
     "description": "(z.B. bei Bauten und Anlagen auf Gebiet der Korporationen Uri und Ursern)",
-    "javascript": "",
-    "regex": "",
-    "default_answer": "",
-    "class_field": "",
-    "validation": ""
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": "baurechtnumber",
+    "validation": null
   }
 },
 {
@@ -38700,7 +38700,7 @@
     "javascript": null,
     "regex": null,
     "default_answer": null,
-    "class_field": null,
+    "class_field": "parcellocation",
     "validation": null
   }
 },
