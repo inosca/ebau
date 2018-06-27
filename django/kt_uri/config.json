@@ -8904,6 +8904,24 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 17,
+  "fields": {
+    "available_resource": "extendedsearch",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 18,
+  "fields": {
+    "available_resource": "extendedsearch",
+    "action_name": "result",
+    "hidden": 1
+  }
+},
+{
   "model": "core.attachmentextension",
   "pk": 41,
   "fields": {
@@ -10881,6 +10899,15 @@
     "module_name": "workflow",
     "controller_name": "list",
     "description": "Show the workflow entries"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "extendedsearch",
+  "fields": {
+    "module_name": "extendedsearch",
+    "controller_name": "extendedsearch",
+    "description": "Extended search page"
   }
 },
 {
@@ -33898,7 +33925,7 @@
     "template": "/global/home.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 27
+    "sort": 28
   }
 },
 {
@@ -33950,7 +33977,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 28
+    "sort": 29
   }
 },
 {
@@ -33976,7 +34003,7 @@
     "template": "/portal/create.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 29
+    "sort": 30
   }
 },
 {
@@ -34276,6 +34303,19 @@
     "class_field": "show_list_count",
     "hidden": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 311,
+  "fields": {
+    "available_resource": "extendedsearch",
+    "name": "Erweiterte Suche",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 27
   }
 },
 {
@@ -35138,6 +35178,14 @@
   }
 },
 {
+  "model": "core.rroleacl",
+  "pk": 69,
+  "fields": {
+    "resource": 311,
+    "role": 3
+  }
+},
+{
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
@@ -35155,6 +35203,16 @@
     "query": "select  distinct\n  \"INSTANCE\".\"INSTANCE_ID\",\n  \"DOSSIERNR\".\"ANSWER\" as \"DOSSIER_NR\",\n  \"FORM\".\"NAME\"        as \"FORM\",\n  \"LOCATION\".\"NAME\"    as \"COMMUNITY\",\n  \"USER\".\"USERNAME\"        AS \"USER\",\n  CASE WHEN\n      \"ANSWER_COMPANY\".\"ANSWER\" IS NOT NULL \n    THEN \"ANSWER_COMPANY\".\"ANSWER\"\n    ELSE \"ANSWER_APPLICANT\".\"ANSWER\"\n  END AS \"PETITION\",\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\") \n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\n  CASE\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\n  END AS \"STREET\",\n  GET_STATE_NAME_BY_ID(\"INSTANCE\".\"INSTANCE_STATE_ID\") AS \"STATE\",\n  \"INSTANCE_STATE_DESCRIPTION\".\"DESCRIPTION\"    AS \"STATE_DESCRIPTION\"\n\n\n  \nFROM \"INSTANCE\"\n\nJOIN \"INSTANCE_LOCATION\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\n)\n\nJOIN \"LOCATION\" ON (\n    \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\n)\n\nLEFT JOIN \"ANSWER\"  \"DOSSIERNR\" ON (\n    \"DOSSIERNR\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\n    AND\n    \"DOSSIERNR\".\"QUESTION_ID\" = 6\n    AND\n    \"DOSSIERNR\".\"CHAPTER_ID\" = 2\n    AND\n    \"DOSSIERNR\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_APPLICANT\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_APPLICANT\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_APPLICANT\".\"QUESTION_ID\" = 23\n    AND\n    \"ANSWER_APPLICANT\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_APPLICANT\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_INTENT\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_INTENT\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_INTENT\".\"QUESTION_ID\" = 97\n    AND\n    \"ANSWER_INTENT\".\"CHAPTER_ID\" = 21\n    AND\n    \"ANSWER_INTENT\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_COMPANY\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_COMPANY\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_COMPANY\".\"QUESTION_ID\" = 221\n    AND\n    \"ANSWER_COMPANY\".\"CHAPTER_ID\" = 1\n    AND\n    \"ANSWER_COMPANY\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_STREET_BG\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_STREET_BG\".\"QUESTION_ID\" = 93\n    AND\n    \"ANSWER_STREET_BG\".\"CHAPTER_ID\" = 21\n    AND\n    \"ANSWER_STREET_BG\".\"ITEM\" = 1\n  )\nLEFT JOIN \"ANSWER\" \"ANSWER_STREET_NP\" ON (\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\n    AND\n    \"ANSWER_STREET_NP\".\"QUESTION_ID\" = 93\n    AND\n    \"ANSWER_STREET_NP\".\"CHAPTER_ID\" = 101\n    AND\n    \"ANSWER_STREET_NP\".\"ITEM\" = 1\n  )\n\n\n\njoin \"FORM\" ON (\n  \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\n)\n\nJOIN \"USER\" ON (\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\n)\n\nLEFT JOIN \"INSTANCE_STATE_DESCRIPTION\" ON (\n    \"INSTANCE_STATE_DESCRIPTION\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\n  )\n\nLEFT JOIN \"ANSWER\"  \"PARCEL_NR\" ON ( \n  \"INSTANCE\".\"INSTANCE_ID\" = \"PARCEL_NR\".\"INSTANCE_ID\" AND \"PARCEL_NR\".\"QUESTION_ID\" = 91 AND \"PARCEL_NR\".\"CHAPTER_ID\" = 21 AND \"PARCEL_NR\".\"ITEM\" = 1\n  )\n\nJOIN \"FORM_GROUP_FORM\" ON (\n  \"FORM_GROUP_FORM\".\"FORM_ID\" = \"INSTANCE\".\"FORM_ID\"\n)\n\nJOIN\n  \"GROUP_LOCATION\" ON (\n     \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\n  )\n\nWHERE\n  (([ROLE_ID] = 3 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 30)\n  OR\n  ([ROLE_ID] = 1061 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 141)\n  OR (\n    ([ROLE_ID] = 7 OR [ROLE_ID] = 6) AND \n    \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\"\n  )\n  OR\n  ([ROLE_ID] NOT IN (3, 1061, 7, 6)))",
     "pdf_class": "",
     "preserve_result": 0
+  }
+},
+{
+  "model": "core.rsearch",
+  "pk": 311,
+  "fields": {
+    "result_template": null,
+    "query": "SELECT  DISTINCT\r\n  \"INSTANCE\".\"INSTANCE_ID\",\r\n  \"DOSSIERNR\".\"ANSWER\" as \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"        as \"FORM\",\r\n  \"LOCATION\".\"NAME\"    as \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"        AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"SANCTION\"\r\n    JOIN \"SERVICE\" ON (\r\n      \"SANCTION\".\"SERVICE_ID\" = \"SERVICE\".\"SERVICE_ID\"\r\n    )\r\n    WHERE \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n  ) AS \"SANCTION\",\r\n  CASE\r\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_247\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_247\".\"ANSWER\"\r\n  END AS \"STREET\",\r\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\") AS \"STATE\",\r\n  \"INSTANCE_STATE_DESCRIPTION\".\"DESCRIPTION\"    AS \"STATE_DESCRIPTION\"\r\nFROM \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n)\r\nJOIN \"LOCATION\" ON (\r\n    \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n)\r\nLEFT JOIN \"ANSWER\"  \"DOSSIERNR\" ON (\r\n    \"DOSSIERNR\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"DOSSIERNR\".\"QUESTION_ID\" = 6\r\n    AND\r\n    \"DOSSIERNR\".\"CHAPTER_ID\" = 2\r\n    AND\r\n    \"DOSSIERNR\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"ANSWER_INTENT\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_INTENT\".\"INSTANCE_ID\"\r\n    AND\r\n    \"ANSWER_INTENT\".\"QUESTION_ID\" = 97\r\n    AND\r\n    \"ANSWER_INTENT\".\"CHAPTER_ID\" = 21\r\n    AND\r\n    \"ANSWER_INTENT\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"APPROVAL_MEASURE\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"APPROVAL_MEASURE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"APPROVAL_MEASURE\".\"QUESTION_ID\" = 261\r\n    AND\r\n    \"APPROVAL_MEASURE\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"APPROVAL_MEASURE\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"OBJECT_TYPE\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"OBJECT_TYPE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"OBJECT_TYPE\".\"QUESTION_ID\" = 262\r\n    AND\r\n    \"OBJECT_TYPE\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"OBJECT_TYPE\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"RPG_USE\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"RPG_USE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"RPG_USE\".\"QUESTION_ID\" = 263\r\n    AND\r\n    \"RPG_USE\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"RPG_USE\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"LEGAL_BASE\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"LEGAL_BASE\".\"INSTANCE_ID\"\r\n    AND\r\n    \"LEGAL_BASE\".\"QUESTION_ID\" = 264\r\n    AND\r\n    \"LEGAL_BASE\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"LEGAL_BASE\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"DECISION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"DECISION\".\"INSTANCE_ID\"\r\n    AND\r\n    \"DECISION\".\"QUESTION_ID\" = 265\r\n    AND\r\n    \"DECISION\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"DECISION\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER\" \"BAB_APPLICANT\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"BAB_APPLICANT\".\"INSTANCE_ID\"\r\n    AND\r\n    \"BAB_APPLICANT\".\"QUESTION_ID\" = 267\r\n    AND\r\n    \"BAB_APPLICANT\".\"CHAPTER_ID\" = 104\r\n    AND\r\n    \"BAB_APPLICANT\".\"ITEM\" = 1\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\n\r\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_247\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_247\".\"INSTANCE_ID\"\r\n  )\r\njoin \"FORM\" ON (\r\n  \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nLEFT JOIN \"INSTANCE_STATE_DESCRIPTION\" ON (\r\n    \"INSTANCE_STATE_DESCRIPTION\".\"INSTANCE_STATE_ID\" = \"INSTANCE\".\"INSTANCE_STATE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER\"  \"PARCEL_NR\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"PARCEL_NR\".\"INSTANCE_ID\"\r\n  AND \"PARCEL_NR\".\"QUESTION_ID\" = 91 AND \"PARCEL_NR\".\"CHAPTER_ID\" = 21 AND \"PARCEL_NR\".\"ITEM\" = 1\r\n  )\r\nJOIN \"FORM_GROUP_FORM\" ON (\r\n  \"FORM_GROUP_FORM\".\"FORM_ID\" = \"INSTANCE\".\"FORM_ID\"\r\n)\r\nleft JOIN \"GROUP_LOCATION\" ON (\r\n     \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nLEFT JOIN \"CIRCULATION\" ON (\r\n  \"CIRCULATION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n)\r\n\r\nLEFT JOIN \"ACTIVATION\" ON (\r\n  \"ACTIVATION\".\"CIRCULATION_ID\" = \"CIRCULATION\".\"CIRCULATION_ID\"\r\n)\r\nLEFT JOIN \"SANCTION\" ON (\r\n  \"SANCTION\".\"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\"\r\n)\r\nWHERE (\r\n([ROLE_ID] = 3 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 30)\r\nOR\r\n([ROLE_ID] = 1061 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 141)\r\nOR\r\n([ROLE_ID] = 1101 AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 241)\r\nOR\r\n([ROLE_ID] IN (7, 6) AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\")\r\nOR\r\n([ROLE_ID] = 1105 AND \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\" AND \"FORM_GROUP_FORM\".\"FORM_GROUP_ID\" = 253)\r\nOR\r\n([ROLE_ID] NOT IN (3, 1061, 6, 7, 1105, 1101)))",
+    "pdf_class": null,
+    "preserve_result": 1
   }
 },
 {
@@ -35365,6 +35423,116 @@
     "column_name": "SANCTION",
     "alias": "Pendenzen AC",
     "sort": 7
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 125,
+  "fields": {
+    "resource": 311,
+    "column_name": "INSTANCE_ID",
+    "alias": "ID",
+    "sort": 0
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 126,
+  "fields": {
+    "resource": 311,
+    "column_name": "DOSSIER_NR",
+    "alias": "Dossier-Nr.",
+    "sort": 1
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 127,
+  "fields": {
+    "resource": 311,
+    "column_name": "FORM",
+    "alias": "Verfahren",
+    "sort": 2
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 128,
+  "fields": {
+    "resource": 311,
+    "column_name": "COMMUNITY",
+    "alias": "Gemeinde",
+    "sort": 3
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 129,
+  "fields": {
+    "resource": 311,
+    "column_name": "USER",
+    "alias": "Ersteller",
+    "sort": 4
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 130,
+  "fields": {
+    "resource": 311,
+    "column_name": "APPLICANT",
+    "alias": "Gesuchsteller",
+    "sort": 5
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 131,
+  "fields": {
+    "resource": 311,
+    "column_name": "INTENT",
+    "alias": "Vorhaben",
+    "sort": 6
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 132,
+  "fields": {
+    "resource": 311,
+    "column_name": "SANCTION",
+    "alias": "Pendenzen AC",
+    "sort": 7
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 133,
+  "fields": {
+    "resource": 311,
+    "column_name": "STREET",
+    "alias": "Strasse / Flurname",
+    "sort": 8
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 134,
+  "fields": {
+    "resource": 311,
+    "column_name": "STATE",
+    "alias": "Status",
+    "sort": 9
+  }
+},
+{
+  "model": "core.rsearchcolumn",
+  "pk": 135,
+  "fields": {
+    "resource": 311,
+    "column_name": "STATE_DESCRIPTION",
+    "alias": "STATE_DESCRIPTION",
+    "sort": 10
   }
 },
 {
@@ -35599,6 +35767,251 @@
     "query": "(? = 0 OR \"SANCTION\".\"SERVICE_ID\" = ?) AND \"SANCTION\".\"IS_FINISHED\" = 0",
     "wildcard": 0,
     "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 84,
+  "fields": {
+    "resource": 311,
+    "question": 6,
+    "field_name": "dossiernumber",
+    "label": "Dossiernummer",
+    "query": "\"DOSSIERNR\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 85,
+  "fields": {
+    "resource": 311,
+    "question": 2,
+    "field_name": "community",
+    "label": "Gemeinde",
+    "query": "\"INSTANCE\".\"INSTANCE_ID\" IN (SELECT \"INSTANCE_LOCATION\".\"INSTANCE_ID\" FROM \"INSTANCE_LOCATION\" WHERE \"INSTANCE_LOCATION\".\"LOCATION_ID\" = ?)",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 86,
+  "fields": {
+    "resource": 311,
+    "question": 91,
+    "field_name": "parcelnr",
+    "label": "Parzellennummer",
+    "query": "\"PARCEL_NR\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 87,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "status",
+    "label": "Status",
+    "query": "\"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"(?)",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 88,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "fulltext",
+    "label": "Volltext",
+    "query": "\"INSTANCE\".\"INSTANCE_ID\" IN (\r\n\r\n   SELECT\r\n\r\n      \"INSTANCE_ID\"\r\n\r\n    FROM\r\n\r\n      \"ANSWER\"\r\n\r\n    WHERE\r\n\r\n      lower(\"ANSWER\") LIKE lower(?)\r\n\r\n )",
+    "wildcard": 3,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 89,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "form",
+    "label": "Verfahren",
+    "query": "\"INSTANCE\".\"FORM_ID\" IN ( ?)",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 90,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "creationfrom",
+    "label": "Erstellung von",
+    "query": "\"INSTANCE\".\"CREATION_DATE\" >= (TO_DATE(?, 'DD-MM-YY'))",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 91,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "creationtil",
+    "label": "Erstellung bis",
+    "query": "\"INSTANCE\".\"CREATION_DATE\" <= (TO_DATE(?, 'dd-mm-yy'))",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 92,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "serviceid",
+    "label": "Service",
+    "query": "\"ACTIVATION\".\"SERVICE_ID\" = ?",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 93,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "workflowoptions",
+    "label": "Workflow",
+    "query": "\"INSTANCE\".\"CREATION_DATE\" >= (TO_DATE('01-01-2017', 'DD-MM-YY')) AND (\n  ? = 'nachforderung' AND (\n    13 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    14 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'pendente_publikationen' AND (\n    1 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    15 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'einsprachen' AND (\n    21 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    15 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'dossier_zum_freischalten' AND (\n    1 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    16 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'erteilte_baubewilligungen' AND (\n    47 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    55 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'abgelaufene_baubewilligungen' AND (\n    71 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    55 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    1 IN (SELECT CASE WHEN WORKFLOW_DATE < SYSDATE THEN 1 ELSE 0 END FROM WORKFLOW_ENTRY\n        WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\" AND WORKFLOW_ITEM_ID = 71)\n  )\n\n  OR ? = 'schnurgeruestabnahmen_pendent' AND (\n    55 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    56 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'baustellen_in_betrieb' AND (\n    55 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    67 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'endabnahmen_pendent' AND (\n    67 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") AND\n    59 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  )\n\n  OR ? = 'rechtsmittelverfahren' AND (\n    (\n      48 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") OR\n      50 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") OR\n      52 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\") OR\n      63 IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n    )\n    AND\n    54 NOT IN (SELECT \"WORKFLOW_ITEM_ID\" FROM WORKFLOW_ENTRY WHERE INSTANCE_ID = \"INSTANCE\".\"INSTANCE_ID\")\n  ))",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 94,
+  "fields": {
+    "resource": 311,
+    "question": null,
+    "field_name": "sanction",
+    "label": "Pendenzen AC",
+    "query": "(? = 0 OR \"SANCTION\".\"SERVICE_ID\" = ?) AND \"SANCTION\".\"IS_FINISHED\" = 0",
+    "wildcard": 0,
+    "class_field": ""
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 95,
+  "fields": {
+    "resource": 311,
+    "question": 261,
+    "field_name": "approvalMeasure",
+    "label": "Bewilligungspflichtige Massnahme",
+    "query": "\"APPROVAL_MEASURE\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 96,
+  "fields": {
+    "resource": 311,
+    "question": 262,
+    "field_name": "objectType",
+    "label": "Objectart",
+    "query": "\"OBJECT_TYPE\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 97,
+  "fields": {
+    "resource": 311,
+    "question": 263,
+    "field_name": "rpgUse",
+    "label": "Nutzung nach RPG",
+    "query": "\"RPG_USE\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 98,
+  "fields": {
+    "resource": 311,
+    "question": 264,
+    "field_name": "legalBase",
+    "label": "Rechtliche Grundlage / Artikel",
+    "query": "\"LEGAL_BASE\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 99,
+  "fields": {
+    "resource": 311,
+    "question": 265,
+    "field_name": "decision",
+    "label": "Entscheid",
+    "query": "\"DECISION\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rsearchfilter",
+  "pk": 100,
+  "fields": {
+    "resource": 311,
+    "question": 267,
+    "field_name": "babApplicant",
+    "label": "Gesuchsteller",
+    "query": "\"BAB_APPLICANT\".\"ANSWER\" = ?",
+    "wildcard": 0,
+    "class_field": null
+  }
+},
+{
+  "model": "core.rserviceacl",
+  "pk": 1,
+  "fields": {
+    "resource": 311,
+    "service": 88
+  }
+},
+{
+  "model": "core.rserviceacl",
+  "pk": 2,
+  "fields": {
+    "resource": 311,
+    "service": 261
+  }
+},
+{
+  "model": "core.rserviceacl",
+  "pk": 3,
+  "fields": {
+    "resource": 311,
+    "service": 262
   }
 },
 {
