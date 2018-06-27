@@ -35186,6 +35186,54 @@
   }
 },
 {
+  "model": "core.rroleacl",
+  "pk": 70,
+  "fields": {
+    "resource": 311,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 71,
+  "fields": {
+    "resource": 311,
+    "role": 1127
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 72,
+  "fields": {
+    "resource": 311,
+    "role": 1128
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 73,
+  "fields": {
+    "resource": 311,
+    "role": 1107
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 74,
+  "fields": {
+    "resource": 311,
+    "role": 1061
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 75,
+  "fields": {
+    "resource": 311,
+    "role": 1106
+  }
+},
+{
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
