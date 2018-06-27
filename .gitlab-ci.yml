@@ -54,7 +54,7 @@ build-kt_schwyz-stage:
     services:
         - docker:dind
     variables:
-        KEYCLOAK_URL: https://login.ebau.sz.testyard.ch/auth/
+        KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/
         APPLICATION: kt_schwyz
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     script:
