@@ -32884,7 +32884,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 5
+    "sort": 6
   }
 },
 {
@@ -33236,7 +33236,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -33247,7 +33247,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -33258,7 +33258,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -33269,7 +33269,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 6
+    "sort": 7
   }
 },
 {
@@ -33280,7 +33280,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 7
+    "sort": 8
   }
 },
 {
@@ -33291,7 +33291,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 8
+    "sort": 9
   }
 },
 {
@@ -33302,7 +33302,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 10
+    "sort": 11
   }
 },
 {
@@ -33313,7 +33313,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 11
+    "sort": 12
   }
 },
 {
@@ -33324,7 +33324,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 13
+    "sort": 14
   }
 },
 {
@@ -33335,7 +33335,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 14
+    "sort": 15
   }
 },
 {
@@ -33346,7 +33346,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 15
+    "sort": 16
   }
 },
 {
@@ -33357,7 +33357,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 16
+    "sort": 17
   }
 },
 {
@@ -33368,7 +33368,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 17
+    "sort": 18
   }
 },
 {
@@ -33610,7 +33610,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 9
+    "sort": 10
   }
 },
 {
@@ -33654,7 +33654,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 12
+    "sort": 13
   }
 },
 {
@@ -33665,7 +33665,7 @@
     "chapter": 21,
     "required": 0,
     "item": 1,
-    "sort": 4
+    "sort": 5
   }
 },
 {
@@ -33875,6 +33875,17 @@
     "required": 0,
     "item": 1,
     "sort": 7
+  }
+},
+{
+  "model": "core.questionchapter",
+  "pk": 101,
+  "fields": {
+    "question": 270,
+    "chapter": 21,
+    "required": 0,
+    "item": 1,
+    "sort": 1
   }
 },
 {
@@ -36889,6 +36900,14 @@
   }
 },
 {
+  "model": "core.answerquery",
+  "pk": 42,
+  "fields": {
+    "name": "Gemeinden (ohne Diverse/Alle Gemeinden)",
+    "query": "SELECT\r\n  \"LOCATION_ID\", \"NAME\"\r\nFROM\r\n  \"LOCATION\"\r\n\r\nWHERE\r\n  \"LOCATION_ID\" IN (\r\n    SELECT\r\n      \"LOCATION_ID\"\r\n    FROM\r\n      \"GROUP_LOCATION\"\r\n    WHERE\r\n      \"GROUP_ID\" = [GROUP_ID]\r\n    )\r\n    OR\r\n    [ROLE_ID] NOT IN (6, 7, 1105)\r\nAND \"LOCATION_ID\" NOT IN (\r\n    21,\r\n    22)\r\nORDER BY \"NAME\""
+  }
+},
+{
   "model": "core.buildingauthoritysection",
   "pk": 1,
   "fields": {
@@ -37971,12 +37990,12 @@
     "mapping": 1,
     "answer_query": null,
     "name": "Parzellennummer",
-    "description": "",
-    "javascript": "",
-    "regex": "",
-    "default_answer": "",
-    "class_field": "",
-    "validation": ""
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": "parcelnumber",
+    "validation": null
   }
 },
 {
@@ -37988,11 +38007,11 @@
     "answer_query": null,
     "name": "Baurechtsnummer",
     "description": "(z.B. bei Bauten und Anlagen auf Gebiet der Korporationen Uri und Ursern)",
-    "javascript": "",
-    "regex": "",
-    "default_answer": "",
-    "class_field": "",
-    "validation": ""
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": "baurechtnumber",
+    "validation": null
   }
 },
 {
@@ -38729,6 +38748,22 @@
     "default_answer": "",
     "class_field": "",
     "validation": ""
+  }
+},
+{
+  "model": "core.question",
+  "pk": 270,
+  "fields": {
+    "question_type": 3,
+    "mapping": 1,
+    "answer_query": 42,
+    "name": "Parzellenstandort (Gemeinde)",
+    "description": "In welcher Gemeinde sich die gew\u00fcnschte Parzelle befindet. (Relevant f\u00fcr \"Diverse Gemeinde\" und \"Alle Gemeinden\")",
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": "parcellocation",
+    "validation": null
   }
 },
 {
@@ -41751,6 +41786,22 @@
   }
 },
 {
+  "model": "user.grouplocation",
+  "pk": 171,
+  "fields": {
+    "group": 1020,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 172,
+  "fields": {
+    "group": 1021,
+    "location": 22
+  }
+},
+{
   "model": "user.group",
   "pk": 1,
   "fields": {
@@ -44241,6 +44292,36 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 1020,
+  "fields": {
+    "role": 6,
+    "service": null,
+    "name": "Diverse Gemeinden",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 1021,
+  "fields": {
+    "role": 6,
+    "service": null,
+    "name": "Alle Gemeinden",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -44538,6 +44619,36 @@
     "district_name": "",
     "section_name": "",
     "zip": "6484"
+  }
+},
+{
+  "model": "user.location",
+  "pk": 21,
+  "fields": {
+    "communal_cantonal_number": 21,
+    "communal_federal_number": null,
+    "district_number": null,
+    "section_number": null,
+    "name": "Diverse Gemeinden",
+    "commune_name": "Diverse Gemeinden",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
+  }
+},
+{
+  "model": "user.location",
+  "pk": 22,
+  "fields": {
+    "communal_cantonal_number": 22,
+    "communal_federal_number": null,
+    "district_number": null,
+    "section_number": null,
+    "name": "Alle Gemeinden",
+    "commune_name": "Alle Gemeinden",
+    "district_name": null,
+    "section_name": null,
+    "zip": null
   }
 },
 {
