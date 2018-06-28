@@ -35531,7 +35531,7 @@
   "fields": {
     "resource": 311,
     "column_name": "STATE_DESCRIPTION",
-    "alias": "STATE_DESCRIPTION",
+    "alias": "Statusbeschreibung",
     "sort": 10
   }
 },
