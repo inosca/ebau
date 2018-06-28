@@ -14801,7 +14801,7 @@
     "instance_resource": 4,
     "name": "Zur\u00fcck an Gemeinde",
     "description": "ext zu comm",
-    "class_field": "",
+    "class_field": "return_to_community",
     "hidden": 0,
     "sort": 1
   }
@@ -14837,7 +14837,7 @@
     "instance_resource": 4,
     "name": "Zur\u00fcck an Gemeinde",
     "description": "redac zu done",
-    "class_field": "",
+    "class_field": "return_to_community",
     "hidden": 0,
     "sort": 2
   }
@@ -15292,8 +15292,8 @@
   "fields": {
     "instance_resource": 445,
     "name": "Zur\u00fcck an Gemeinde",
-    "description": "",
-    "class_field": "",
+    "description": null,
+    "class_field": "return_to_community",
     "hidden": 0,
     "sort": 3
   }
