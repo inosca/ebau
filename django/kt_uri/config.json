@@ -8922,6 +8922,24 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 19,
+  "fields": {
+    "available_resource": "statistics",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 20,
+  "fields": {
+    "available_resource": "statistics",
+    "action_name": "report",
+    "hidden": 1
+  }
+},
+{
   "model": "core.attachmentextension",
   "pk": 41,
   "fields": {
@@ -10971,6 +10989,15 @@
     "module_name": "core",
     "controller_name": "simplelist",
     "description": "Page with a list of instances (new)"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "statistics",
+  "fields": {
+    "module_name": "statistics",
+    "controller_name": "statistics",
+    "description": "Statistics module"
   }
 },
 {
@@ -34319,6 +34346,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 312,
+  "fields": {
+    "available_resource": "statistics",
+    "name": "Statistik",
+    "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 28
+  }
+},
+{
   "model": "core.rlist",
   "pk": 122,
   "fields": {
@@ -35181,7 +35221,63 @@
   "model": "core.rroleacl",
   "pk": 69,
   "fields": {
+    "resource": 312,
+    "role": 1101
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 70,
+  "fields": {
     "resource": 311,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 71,
+  "fields": {
+    "resource": 312,
+    "role": 1127
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 72,
+  "fields": {
+    "resource": 312,
+    "role": 1128
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 73,
+  "fields": {
+    "resource": 312,
+    "role": 1107
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 74,
+  "fields": {
+    "resource": 312,
+    "role": 1061
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 75,
+  "fields": {
+    "resource": 312,
+    "role": 1106
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 76,
+  "fields": {
+    "resource": 312,
     "role": 3
   }
 },
