@@ -190,8 +190,11 @@
         "vorhaben-mit-baute",
         "vorhaben-mit-anlage",
         "art-der-anlage",
+        "art-der-anlage-andere",
         "art-der-befestigten-flache",
+        "art-der-befestigten-flache-andere",
         "zweck-der-leitungen",
+        "zweck-der-leitungen-andere",
         "art-der-warmepumpe",
         "tangiert-vorhaben-strasse",
         "pfahlfundation-vorgesehen",
@@ -241,7 +244,7 @@
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
       "parent": "grundinformationen",
-      "questions": ["ausnahmen", "ausnahmen-begrundung"]
+      "questions": ["ausnahmen", "ausnahmen-andere", "ausnahmen-begrundung"]
     },
     "personalien": {
       "title": "Personalien",
@@ -349,6 +352,7 @@
         "verkehr-strassentyp-indirekt",
         "verkehr-strassenname-indirekt",
         "verkehr-ursache-unterschreitung",
+        "verkehr-ursache-unterschreitung-andere",
         "verkehr-grenzt-an-strasse",
         "verkehr-neugestaltung-trottoir",
         "verkehr-einschrankungen-trottoir",
@@ -598,6 +602,7 @@
         "kw-entnahmegewasser-abkuhlung",
         "kw-entnahmegewasser-min-austritt-temp",
         "kw-baute-art",
+        "kw-baute-art-andere",
         "kw-baute-wohneinheiten",
         "kw-baute-warmebedarf",
         "kw-baute-stockwerkeigentumerschaft",
@@ -622,7 +627,7 @@
     "technische-bewilligung": {
       "title": "Technische Bewilligung",
       "parent": null,
-      "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck"]
+      "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck", "tb-zweck-andere"]
     },
     "vorabklarung": {
       "title": "Vorabklärung",
@@ -922,7 +927,7 @@
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
       "hint": "**Platzhalter**: *art-der-anlage*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
@@ -935,15 +940,23 @@
           "Sondierbohrung",
           "Solaranlage",
           "Abfallanlage, Deponie",
-          "Antennen"
-        ],
-        "allow-custom": true
+          "Antennen",
+          "Andere"
+        ]
       }
+    },
+    "art-der-anlage-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *art-der-anlage-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'art-der-anlage'|value",
+      "config": {}
     },
     "art-der-befestigten-flache": {
       "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
       "hint": "**Platzhalter**: *art-der-befestigten-flache*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression": "'Befestigte Fläche' in 'art-der-anlage'|value",
       "config": {
@@ -951,15 +964,23 @@
           "Verkehrsfläche",
           "Lagerplatz",
           "Vorplatz",
-          "Terasse, Sitzplatz"
-        ],
-        "allow-custom": true
+          "Terasse, Sitzplatz",
+          "Andere"
+        ]
       }
+    },
+    "art-der-befestigten-flache-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *art-der-befestigten-flache-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'art-der-befestigten-flache'|value",
+      "config": {}
     },
     "zweck-der-leitungen": {
       "label": "Welchem Zweck dienen die Leitungen?",
       "hint": "**Platzhalter**: *zweck-der-leitungen*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression":
         "'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value",
@@ -968,10 +989,18 @@
           "Abwasserentsorgung",
           "Wasserversorgung",
           "Energieversorgung",
-          "Datenversorgung"
-        ],
-        "allow-custom": true
+          "Datenversorgung",
+          "Andere"
+        ]
       }
+    },
+    "zweck-der-leitungen-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *zweck-der-leitungen-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'zweck-der-leitungen'|value",
+      "config": {}
     },
     "art-der-warmepumpe": {
       "label": "Welche Art Wärmepumpe ist vorgesehen?",
@@ -1306,7 +1335,7 @@
     "ausnahmen": {
       "label": "Folgende Ausnahmen werden beansprucht:",
       "hint": "**Platzhalter**: *ausnahmen*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
       "config": {
@@ -1316,10 +1345,18 @@
           "Unterschreitung Gewässerabstand",
           "Unterschreitung Gewässerraum",
           "Unterschreitung Waldabstand",
-          "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie"
-        ],
-        "allow-custom": true
+          "Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie",
+          "Andere"
+        ]
       }
+    },
+    "ausnahmen-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *ausnahmen-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'ausnahmen'|value",
+      "config": {}
     },
     "ausnahmen-begrundung": {
       "label":
@@ -2496,7 +2533,7 @@
       "label":
         "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
       "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression":
         "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
@@ -2504,10 +2541,19 @@
         "options": [
           "Baute oder ähnlich wirkende Anlagen",
           "Bäume und Sträucher",
-          "Sonstige Einfriedungen, Mauern, Böschungen etc."
-        ],
-        "allow-custom": true
+          "Sonstige Einfriedungen, Mauern, Böschungen etc.",
+          "Andere"
+        ]
       }
+    },
+    "verkehr-ursache-unterschreitung-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'Andere' in 'verkehr-ursache-unterschreitung'|value",
+      "config": {}
     },
     "verkehr-grenzt-an-strasse": {
       "label":
@@ -4445,14 +4491,27 @@
     "kw-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
       "hint": "**Platzhalter**: *kw-baute-art*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "active-expression":
         "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Neubau", "Altbau", "Einfamilienhaus", "Mehrfamilienhaus"],
-        "allow-custom": true
+        "options": [
+          "Neubau",
+          "Altbau",
+          "Einfamilienhaus",
+          "Mehrfamilienhaus",
+          "Andere"
+        ]
       }
+    },
+    "kw-baute-art-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *kw-baute-art-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'kw-baute-art'|value",
+      "config": {}
     },
     "kw-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
@@ -4591,15 +4650,23 @@
     "tb-zweck": {
       "label": "Für was wird um eine technische Bewilligung ersucht?",
       "hint": "**Platzhalter**: *tb-zweck*",
-      "type": "multiselect",
+      "type": "checkbox",
       "required": true,
       "config": {
         "options": [
           "Technische Bewilligung Brandschutz",
-          "Technische Bewilligung Zivilschutz"
-        ],
-        "allow-custom": true
+          "Technische Bewilligung Zivilschutz",
+          "Andere"
+        ]
       }
+    },
+    "tb-zweck-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *tb-zweck-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Andere' in 'tb-zweck'|value",
+      "config": {}
     },
     "va-info": {
       "label":

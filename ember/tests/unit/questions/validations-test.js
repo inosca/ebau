@@ -7,9 +7,7 @@ const {
   validateText,
   validateNumber,
   validateRadio,
-  validateCheckbox,
-  validateSelect,
-  validateMultiselect
+  validateCheckbox
 } = validations
 
 module('Unit | Validations | questions', function(hooks) {
@@ -86,42 +84,6 @@ module('Unit | Validations | questions', function(hooks) {
     assert.equal(
       validateCheckbox({ options }, ['test 1', 'test 2']),
       'Die Werte müssen in den vorgegebenen Optionen vorhanden sein'
-    )
-  })
-
-  test('it validates select fields correctly', function(assert) {
-    assert.expect(2)
-
-    const options = ['option 1', 'option 2', 'option 3']
-
-    assert.equal(validateSelect({ options }, 'option 1'), true)
-    assert.equal(
-      validateSelect({ options }, 'test'),
-      'Der Wert muss in den vorgegebenen Optionen vorhanden sein'
-    )
-  })
-
-  test('it validates multiselect fields correctly', function(assert) {
-    assert.expect(5)
-
-    const options = ['option 1', 'option 2', 'option 3']
-
-    assert.equal(validateMultiselect({ options }, ['option 1']), true)
-    assert.equal(
-      validateMultiselect({ options }, ['option 1', 'option 2']),
-      true
-    )
-    assert.equal(
-      validateMultiselect({ options }, ['test']),
-      'Die Werte müssen in den vorgegebenen Optionen vorhanden sein'
-    )
-    assert.equal(
-      validateMultiselect({ options }, ['test 1', 'test 2']),
-      'Die Werte müssen in den vorgegebenen Optionen vorhanden sein'
-    )
-    assert.equal(
-      validateMultiselect({ options, 'allow-custom': true }, ['test 1']),
-      true
     )
   })
 })

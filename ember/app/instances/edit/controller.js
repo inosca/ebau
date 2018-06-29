@@ -30,16 +30,7 @@ const Module = EmberObject.extend({
 
     let editableFieldTypes = [
       ...(editable.includes('form')
-        ? [
-            'text',
-            'number',
-            'radio',
-            'checkbox',
-            'select',
-            'multiselect',
-            'table',
-            'gwr'
-          ]
+        ? ['text', 'number', 'radio', 'checkbox', 'table', 'gwr']
         : []),
       ...(editable.includes('document') ? ['document'] : [])
     ]
