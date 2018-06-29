@@ -63,6 +63,10 @@ class InstanceView(mixins.InstanceQuerysetMixin,
         'instance_id',
         'identifier',
         'instance_state__name',
+        'instance_state__description',
+        'form__description',
+        'location__communal_federal_number',
+        'creation_date',
     )
     search_fields = (
         '=identifier',
