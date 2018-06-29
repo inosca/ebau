@@ -2445,7 +2445,7 @@ class RSearch(models.Model):
                                     related_name='+')
     result_template = models.CharField(
         db_column='RESULT_TEMPLATE', max_length=500, blank=True, null=True)
-    query = models.CharField(db_column='QUERY', max_length=4000)
+    query = models.TextField(db_column='QUERY')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
     preserve_result = models.PositiveSmallIntegerField(
