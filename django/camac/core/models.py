@@ -902,7 +902,7 @@ class Button(models.Model):
         db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
-        db_column='CLASS', max_length=25, blank=True, null=True)
+        db_column='CLASS', max_length=200, blank=True, null=True)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
     sort = models.IntegerField(db_column='SORT')
 
