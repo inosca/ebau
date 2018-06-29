@@ -34,9 +34,6 @@ class FormDataValidator(object):
         self.jexl = JEXL()
         self.jexl.add_transform('value', lambda name: self.fields.get(name))
 
-    def _validate_question_select(self, question, question_def, value):
-        self._validate_question_radio(question, question_def, value)
-
     def _validate_question_radio(self, question, question_def, value):
         if value not in question_def['config']['options']:
             raise exceptions.ValidationError(
@@ -54,21 +51,6 @@ class FormDataValidator(object):
         diff = values - options
 
         if diff:
-            raise exceptions.ValidationError(
-                _('Invalid values `%(values)s` in field `%(field)s`') % {
-                    'values': ', '.join([str(val) for val in diff]),
-                    'field': question
-                }
-            )
-
-    def _validate_question_multiselect(self, question, question_def, value):
-        options = set(question_def['config']['options'])
-        allow_custom = question_def['config'].get('allow-custom')
-        # avoid `TypeError` as value may be None
-        values = set(value or [None])
-        diff = values - options
-
-        if diff and not allow_custom:
             raise exceptions.ValidationError(
                 _('Invalid values `%(values)s` in field `%(field)s`') % {
                     'values': ', '.join([str(val) for val in diff]),
