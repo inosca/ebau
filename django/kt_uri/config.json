@@ -35274,6 +35274,14 @@
   }
 },
 {
+  "model": "core.rroleacl",
+  "pk": 76,
+  "fields": {
+    "resource": 312,
+    "role": 3
+  }
+},
+{
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
