@@ -233,6 +233,14 @@
       "required": true,
       "active-expression": "'Heizen' in 'zweck-der-warmepumpe'|value",
       "config": {}
+    },
+    "grundeigentumerschaft-bund-abteilung": {
+      "label": "Welche Abteilung des Bundes ist Grundeigentümer?",
+      "type": "text",
+      "required": "true",
+      "active-expression":
+        "'Bund' in 'grundeigentumerschaft'|value|mapby('name')",
+      "config": {}
     }
   }
 }
