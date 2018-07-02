@@ -50,18 +50,6 @@ module('Integration | Component | camac-table', function(hooks) {
                 label: 'field 4',
                 type: 'checkbox',
                 config: { options: ['1', '2', '3'] }
-              },
-              {
-                name: 'f5',
-                label: 'field 5',
-                type: 'select',
-                config: { options: ['1', '2', '3'] }
-              },
-              {
-                name: 'f6',
-                label: 'field 6',
-                type: 'multiselect',
-                config: { options: ['1', '2', '3'] }
               }
             ]
           }
