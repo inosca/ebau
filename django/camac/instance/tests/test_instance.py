@@ -241,9 +241,6 @@ def test_instance_submit(admin_client, admin_user, form, form_field_factory,
         name='gwr',
         value=[{'name': 'Name', 'wohnungen': [{'stockwerk': '1OG'}]}]
     )
-    add_field(name='art-der-anlage', value=['Solaranlage', 'Antennen'])
-    add_field(name='art-der-befestigten-flache', value='Lagerplatz')
-    add_field(name='grundeigentumerschaft-bund-abteilung', value='Test')
 
     response = admin_client.post(url)
     assert response.status_code == status_code

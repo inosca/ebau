@@ -8,10 +8,8 @@ from camac.instance import validators
 @pytest.mark.parametrize("question,value", [
     ('anlagen-mit-erheblichen-schadstoffemissionen', 'invalid'),
     ('kategorie-des-vorhabens', 'invalid'),
-    ('art-der-anlage', 'invalid'),
     ('anlagen-mit-erheblichen-schadstoffemissionen-welche', 0),
     ('hohe-der-anlage', -1),
-    ('art-der-befestigten-flache', 'invalid'),
     ('dokument-parzelle', None),
 ])
 def test_form_data_validator_validate_question_type(instance, question, value):

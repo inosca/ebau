@@ -902,7 +902,7 @@ class Button(models.Model):
         db_column='DESCRIPTION', max_length=1000, blank=True, null=True)
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
-        db_column='CLASS', max_length=25, blank=True, null=True)
+        db_column='CLASS', max_length=200, blank=True, null=True)
     hidden = models.PositiveSmallIntegerField(db_column='HIDDEN')
     sort = models.IntegerField(db_column='SORT')
 
@@ -2445,7 +2445,7 @@ class RSearch(models.Model):
                                     related_name='+')
     result_template = models.CharField(
         db_column='RESULT_TEMPLATE', max_length=500, blank=True, null=True)
-    query = models.CharField(db_column='QUERY', max_length=4000)
+    query = models.TextField(db_column='QUERY')
     pdf_class = models.CharField(
         db_column='PDF_CLASS', max_length=500, blank=True, null=True)
     preserve_result = models.PositiveSmallIntegerField(

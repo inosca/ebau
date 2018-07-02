@@ -13,7 +13,6 @@
       "parent": "grundinformationen",
       "questions": [
         "kategorie-des-vorhabens",
-        "art-der-anlage",
         "dokument-parzelle",
         "anlagen-mit-erheblichen-schadstoffemissionen",
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
@@ -30,7 +29,6 @@
         "bohrungsdaten",
         "grundeigentumerschaft",
         "gwr",
-        "art-der-befestigten-flache",
         "zweck-der-warmepumpe",
         "standort-der-warmepumpe"
       ]
@@ -44,26 +42,6 @@
       "required": true,
       "config": {
         "options": ["Baute(n)", "Anlage(n)"]
-      }
-    },
-    "art-der-anlage": {
-      "label": "Welche Anlagearten sind geplant?",
-      "type": "multiselect",
-      "required": true,
-      "active-expression": "'kategorie-des-vorhabens'|value == 'Anlage(n)'",
-      "config": {
-        "options": [
-          "Befestigte Fläche",
-          "Ver- / Entsorgungsleitung",
-          "Reklame",
-          "Terrainveränderung",
-          "Wärmepumpe",
-          "Sondierbohrung",
-          "Solaranlage",
-          "Abfallanlage, Deponie",
-          "Antennen"
-        ],
-        "allow-custom": false
       }
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
@@ -97,19 +75,6 @@
       "type": "document",
       "required": true,
       "config": {}
-    },
-    "art-der-befestigten-flache": {
-      "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
-      "type": "select",
-      "required": true,
-      "config": {
-        "options": [
-          "Verkehrsfläche",
-          "Lagerplatz",
-          "Vorplatz",
-          "Terasse, Sitzplatz"
-        ]
-      }
     },
     "hohe-der-anlage": {
       "label": "Wie hoch ist die Anlage in m?",

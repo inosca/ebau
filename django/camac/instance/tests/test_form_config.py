@@ -25,10 +25,9 @@ def test_form_config_expressions(application):
     def value(name):
         question = questions[name]
 
-        if question['type'] in ['text', 'select', 'radio']:
+        if question['type'] in ['text', 'radio']:
             return 'Test'
         elif question['type'] in [
-            'multiselect',
             'checkbox',
             'table',
             'gwr'
