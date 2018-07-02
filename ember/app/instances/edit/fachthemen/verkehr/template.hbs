@@ -1,11 +1,9 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'verkehr-strassentyp'}}
-  {{form.input 'verkehr-strassenname'}}
+  {{form.table 'verkehr-strasse'}}
   {{form.input 'verkehr-einfahrt'}}
   {{form.input 'verkehr-parkplatze'}}
   {{form.input 'verkehr-mehrverkehr'}}
-  {{form.input 'verkehr-strassentyp-indirekt'}}
-  {{form.input 'verkehr-strassenname-indirekt'}}
+  {{form.table 'verkehr-strasse-indirekt'}}
   {{form.input 'verkehr-ursache-unterschreitung'}}
   {{form.input 'verkehr-ursache-unterschreitung-andere'}}
   {{form.input 'verkehr-grenzt-an-strasse'}}
