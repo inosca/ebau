@@ -100,23 +100,30 @@ module('Unit | Service | question-store', function(hooks) {
   })
 
   test('can handle active expressions', async function(assert) {
-    assert.expect(3)
+    assert.expect(4)
 
     this.server.get('/api/v1/form-config', {
       questions: {
         test: {
           'active-expression': "'foo'|value in [1,2] || !('bar'|value > 2)"
+        },
+        'test-map': {
+          'active-expression': "'test' in [{name:'test'}]|mapby('name')"
         }
       }
     })
 
-    await loadQuestions(['test', 'test-form', 'foo', 'bar'], this.instanceId)
+    await loadQuestions(['test', 'test-map', 'foo', 'bar'], this.instanceId)
 
     let service = this.owner.lookup('service:question-store')
 
     let test = await service.peek('test', this.instanceId)
     let foo = await service.peek('foo', this.instanceId)
     let bar = await service.peek('bar', this.instanceId)
+
+    let testMap = await service.peek('test-map', this.instanceId)
+    await testMap.get('_hiddenTask').perform()
+    assert.equal(testMap.get('hidden'), false)
 
     foo.set('model.value', 3)
     bar.set('model.value', 3)
