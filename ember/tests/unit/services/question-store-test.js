@@ -110,7 +110,7 @@ module('Unit | Service | question-store', function(hooks) {
       }
     })
 
-    await loadQuestions(['test', 'foo', 'bar'], this.instanceId)
+    await loadQuestions(['test', 'test-form', 'foo', 'bar'], this.instanceId)
 
     let service = this.owner.lookup('service:question-store')
 
