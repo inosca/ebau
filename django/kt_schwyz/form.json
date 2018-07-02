@@ -68,12 +68,13 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
-      "gesuchsunterlagen"
+      "gesuchsunterlagen-ve-va"
     ],
     "vorabklarung": [
       "vorabklarung",
       "grundinformationen",
-      "grundinformationen.lokalisierung"
+      "grundinformationen.lokalisierung",
+      "gesuchsunterlagen-ve-va"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
       "grundinformationen",
@@ -128,7 +129,6 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "personalien",
-      "personalien.projektverfasser-planer",
       "personalien.konzessionsnehmer"
     ],
     "anlassbewilligungen-verkehrsbewilligungen": [
@@ -322,23 +322,12 @@
     "fachthemen.umweltschutz": {
       "title": "Umweltschutz",
       "parent": "fachthemen",
-      "questions": [
-        "umweltschutz-abfallbehandlungsanlage",
-        "umweltschutz-larmschutz-pumpe-info",
-        "umweltschutz-larmschutz-gebiet-info",
-        "umweltschutz-bodenschutz-info",
-        "umweltschutz-lichtemissionen-info"
-      ]
+      "questions": ["umweltschutz-abfallbehandlungsanlage"]
     },
     "fachthemen.wald": {
       "title": "Wald",
       "parent": "fachthemen",
-      "questions": [
-        "wald-forstlich",
-        "wald-auswirkungen",
-        "wald-info",
-        "wald-rodungsbewilligung-info"
-      ]
+      "questions": ["wald-forstlich", "wald-auswirkungen"]
     },
     "fachthemen.verkehr": {
       "title": "Verkehr",
@@ -466,11 +455,7 @@
     "fachthemen.gewasserschutz": {
       "title": "Gewässerschutz",
       "parent": "fachthemen",
-      "questions": [
-        "gewasserschutz-menge",
-        "gewasserschutz-info-gebindelager",
-        "gewasserschutz-info-tankanlagen"
-      ]
+      "questions": ["gewasserschutz-menge"]
     },
     "fachthemen.grundwasser-und-altlasten": {
       "title": "Grundwasser und Altlasten",
@@ -509,7 +494,7 @@
     "fachthemen.reklamen": {
       "title": "Reklamen",
       "parent": "fachthemen",
-      "questions": ["reklamen", "reklamen-info"]
+      "questions": ["reklamen"]
     },
     "fachthemen.lebensmittel-und-hygienesicherheit": {
       "title": "Lebensmittel- und Hygienesicherheit",
@@ -517,6 +502,63 @@
       "questions": ["lebensmittel-und-hygienesicherheit-info"]
     },
     "gesuchsunterlagen": {
+      "title": "Gesuchsunterlagen",
+      "parent": null,
+      "questions": [
+        "dokument-parzelle",
+        "dokument-aktueller-katasterplan",
+        "dokument-aktueller-auszug-aus-dem-grundbuch",
+        "dokument-grundrisse-1100",
+        "dokument-schnitt-und-fassadenplane",
+        "dokument-umgebungsplan-mit-abstandslinien-vermasst",
+        "dokument-baubeschrieb",
+        "dokument-zustimmung-naherbaurecht",
+        "dokument-planverzeichnis",
+        "dokument-nachweis-der-abstellflachenparkierung",
+        "dokument-energienachweis",
+        "dokument-pfahlfundationsplan",
+        "dokument-hydrogeologischer-nachweis",
+        "dokument-beschrieb-der-baugrubensicherung-und-entwasserung",
+        "dokument-standortdatenblatt-zur-nisv",
+        "dokument-larmschutznachweis-larmprognose",
+        "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen",
+        "dokument-entsorgungskonzept",
+        "dokument-tabelle-tierbestand",
+        "dokument-begrundung-standortgebundenheit",
+        "dokument-nutzungsberechnung-inkl-planschema-flachennachweis",
+        "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung",
+        "dokument-formular-des-cercle-bruit",
+        "dokument-beschrieb-zur-abfallbehandlungsanlage",
+        "dokument-plan-und-beschrieb-zum-bodenschutz",
+        "dokument-beleuchtungskonzept",
+        "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache",
+        "dokument-begrundung-zweck-standortgebundenheit-und-alternativen",
+        "dokument-rodungsgesuch",
+        "dokument-beschrieb-der-auswirkungen-auf-wanderwege",
+        "dokument-plan-mit-dachaufsicht-inkl-solaranlage",
+        "dokument-sicherheitsdatenblatter",
+        "dokument-bestatigung-elementarschaden",
+        "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit",
+        "dokument-entwasserungsplankanalisationsplan",
+        "dokument-unterlagen-invasive-neophyten",
+        "dokument-sondenplan",
+        "dokument-plan-mit-eingetragenen-energiepfahlen",
+        "dokument-schnittplan-der-erdkollektorenerdwarmekorbe",
+        "dokument-situationsplan-mit-lage-der-bohrlocher",
+        "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung",
+        "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht",
+        "dokument-altlastenuntersuchung",
+        "dokument-reklameunterlagen",
+        "dokument-material-und-farbkonzept-bestehend-und-neu",
+        "dokument-konzept-der-grossveranstaltung-im-wald",
+        "dokument-konzept-des-anlasses",
+        "dokument-ausgefulltes-formular-v01a",
+        "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung",
+        "dokument-unterlagen-projektanderung",
+        "dokument-gesuchsunterlagen"
+      ]
+    },
+    "gesuchsunterlagen-ve-va": {
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
@@ -633,15 +675,10 @@
       "parent": null,
       "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck", "tb-zweck-andere"]
     },
-    "vorabklarung": {
-      "title": "Vorabklärung",
-      "parent": null,
-      "questions": ["va-info"]
-    },
     "vorentscheid": {
       "title": "Vorentscheid",
       "parent": null,
-      "questions": ["ve-verbindlich", "ve-info"]
+      "questions": ["ve-verbindlich"]
     }
   },
   "questions": {
@@ -901,7 +938,7 @@
       "hint": "**Platzhalter**: *vorhaben-mit-anlage*",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
+      "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": [
           "Rückbau",
@@ -917,7 +954,7 @@
       "hint": "**Platzhalter**: *vorhaben-mit-baute*",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
+      "active-expression": "'Bauten(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": [
           "Abbruch / Rückbau",
@@ -2343,29 +2380,6 @@
         ]
       }
     },
-    "umweltschutz-larmschutz-pumpe-info": {
-      "label":
-        "Dem Gesuch ist ein Lärmschutznachweis für Luft/Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus:<ul><li>Formular des AfU (ausgefüllt)</li><li>technisches Datenblatt des Wärmepumpenherstellers</li><li>Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum</li></ul>",
-      "hint": "**Platzhalter**: *umweltschutz-larmschutz-pumpe-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
-    "umweltschutz-larmschutz-gebiet-info": {
-      "label":
-        "Es ist der Nachweis zu erbringen, dass die Grenzwerte der Lärmschutzverordnung (LSV) eingehalten werden. Der Lärmschutznachweis/die Lärmprognose ist den Gesuchsunterlagen beizulegen.",
-      "hint": "**Platzhalter**: *umweltschutz-larmschutz-gebiet-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression": "'larmbelastetes-gebiet'|value == 'Ja'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
     "umweltschutz-abfallbehandlungsanlage": {
       "label":
         "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
@@ -2375,28 +2389,6 @@
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
       "config": {
         "options": ["Ja", "Nein"]
-      }
-    },
-    "umweltschutz-bodenschutz-info": {
-      "label":
-        "Da die Rekultivierungsfläche 5‘000m² oder grösser ist, sind den Gesuchsunterlagen ein Plansatz und ein kurzer Beschrieb mit Angaben zum Ausgangszustand, dem Rekultivierungsziel sowie zur Planung und Durchführung der Bodenarbeiten beizulegen. (Hilfsmittel: ZUDK Merkblatt „Umgang mit Boden“)",
-      "hint": "**Platzhalter**: *umweltschutz-bodenschutz-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression": "'boden-5000m2'|value == 'Ja'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
-    "umweltschutz-lichtemissionen-info": {
-      "label":
-        "Für Ihr Bauvorhaben ist ein Beleuchtungskonzept gemäss ZUDK Merkblatt „Lichtverschmutzung“ erforderlich. Das Konzept, welches insbesondere Platzierung und Ausrichtung der Leuchten aufzeigt, ist den Gesuchsunterlagen beizulegen.",
-      "hint": "**Platzhalter**: *umweltschutz-lichtemissionen-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression": "'aussenbeleuchtung'|value == 'Ja'",
-      "config": {
-        "options": ["Erledigt"]
       }
     },
     "wald-forstlich": {
@@ -2418,30 +2410,6 @@
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {
         "options": ["Ja", "Nein"]
-      }
-    },
-    "wald-info": {
-      "label":
-        "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:<ul><li>Zweck des Bauvorhabens</li><li>Standortgebundenheit</li><li>Wurden Alternativen geprüft und wenn ja, mit welchem Ergebnis?</li></ul>",
-      "hint": "**Platzhalter**: *wald-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'Forstwirtschaft' in 'art-der-nutzung'|value && 'wald-auswirkungen'|value == 'Nein'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
-    "wald-rodungsbewilligung-info": {
-      "label":
-        "Für Ihr Bauvorhaben ist eine Rodungsbewilligung erforderlich. Hierzu sind folgende Unterlagen nötig:<ul><li>ausgefülltes Formular des BAFU</li><li>Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung</li><li>Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen</li><li>Unterschrift aller betroffenen Grundeigentümer</li></ul>",
-      "hint": "**Platzhalter**: *wald-rodungsbewilligung-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'Forstwirtschaft' in 'art-der-nutzung'|value && 'wald-auswirkungen'|value == 'Nein'",
-      "config": {
-        "options": ["Erledigt"]
       }
     },
     "verkehr-strassentyp": {
@@ -2752,7 +2720,7 @@
       }
     },
     "energie-photovoltaik-flache": {
-      "label": "Gesamtflache der Anlage in m²:",
+      "label": "Gesamtflache der Anlage in m² (ohne Blindfläche):",
       "hint": "**Platzhalter**: *energie-photovoltaik-flache*",
       "type": "number",
       "required": true,
@@ -3464,30 +3432,6 @@
         ]
       }
     },
-    "gewasserschutz-info-gebindelager": {
-      "label":
-        "Das ausgefüllte Meldeformular Gebindelager ist direkt beim AfU einzureichen.",
-      "hint": "**Platzhalter**: *gewasserschutz-info-gebindelager*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'wassergefahrdende-stoffe'|value == 'Ja' && 'gewasserschutz-menge'|value == 'Ab 20 bis 450 Liter (pro Behälter)'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
-    "gewasserschutz-info-tankanlagen": {
-      "label":
-        "Das ausgefüllte Meldeformular Tankanlagen ist direkt beim AfU einzureichen.",
-      "hint": "**Platzhalter**: *gewasserschutz-info-tankanlagen*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'wassergefahrdende-stoffe'|value == 'Ja' && ('gewasserschutz-menge'|value == 'Ab 451 bis 2000 Liter (pro Behälter)' || 'gewasserschutz-menge'|value == 'Mehr als 2000 Liter (pro Behälter)')",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
     "grundwasser-warmeentnahme-art": {
       "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
@@ -3897,8 +3841,6 @@
       "hint": "**Platzhalter**: *dokument-fragenkatalog*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Erledigt' in 'va-info'|value || 'Erledigt' in 've-info'",
       "config": {}
     },
     "dokument-unterlagen-projektanderung": {
@@ -4077,9 +4019,7 @@
       "label": "Beschrieb des Vorhabens",
       "hint": "**Platzhalter**: *dokument-beschrieb-des-vorhabens*",
       "type": "document",
-      "required": false,
-      "active-expression":
-        "'Erledigt' in 'va-info'|value || 'Erledigt' in 've-info'",
+      "required": true,
       "config": {}
     },
     "dokument-entsorgungskonzept": {
@@ -4672,16 +4612,6 @@
       "active-expression": "'Andere' in 'tb-zweck'|value",
       "config": {}
     },
-    "va-info": {
-      "label":
-        "Für Ihr Vorabklärungsgesuch ist ein Beschrieb des Vorhabens nötig. In Anlehnung daran sind die konkreten Fragen zu formulieren, zu denen Sie die Antworten der zuständigen Behörden wünschen.",
-      "hint": "**Platzhalter**: *va-info*",
-      "type": "checkbox",
-      "required": true,
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
     "ve-verbindlich": {
       "label": "Soll der Vorentscheid gegenüber Dritten verbindlich sein?",
       "hint": "**Platzhalter**: *ve-verbindlich*",
@@ -4693,16 +4623,6 @@
           "Ja, mit Drittverbindlichkeit gemäss §84 Abs. 3 PBG"
         ],
         "allow-custom": true
-      }
-    },
-    "ve-info": {
-      "label":
-        "Für Ihr Vorentscheidsgesuch ist ein Beschrieb des Vorhabens nötig. Insbesondere sind konkret die Bereiche/Fragen zu nennen, auf die sich der Vorentscheid beziehen soll.",
-      "hint": "**Platzhalter**: *ve-info*",
-      "type": "checkbox",
-      "required": true,
-      "config": {
-        "options": ["Erledigt"]
       }
     }
   }
