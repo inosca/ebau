@@ -2,127 +2,127 @@ import { Factory, faker } from 'ember-cli-mirage'
 
 const locations = [
   {
-    federalNumber: 1301,
+    communalFederalNumber: 1301,
     name: 'Einsiedeln'
   },
   {
-    federalNumber: 1311,
+    communalFederalNumber: 1311,
     name: 'Gersau'
   },
   {
-    federalNumber: 1321,
+    communalFederalNumber: 1321,
     name: 'Feusisberg'
   },
   {
-    federalNumber: 1322,
+    communalFederalNumber: 1322,
     name: 'Freienbach'
   },
   {
-    federalNumber: 1323,
+    communalFederalNumber: 1323,
     name: 'Wollerau'
   },
   {
-    federalNumber: 1331,
+    communalFederalNumber: 1331,
     name: 'Küssnacht'
   },
   {
-    federalNumber: 1341,
+    communalFederalNumber: 1341,
     name: 'Altendorf'
   },
   {
-    federalNumber: 1342,
+    communalFederalNumber: 1342,
     name: 'Galgenen'
   },
   {
-    federalNumber: 1343,
+    communalFederalNumber: 1343,
     name: 'Innerthal'
   },
   {
-    federalNumber: 1344,
+    communalFederalNumber: 1344,
     name: 'Lachen'
   },
   {
-    federalNumber: 1345,
+    communalFederalNumber: 1345,
     name: 'Reichenburg'
   },
   {
-    federalNumber: 1346,
+    communalFederalNumber: 1346,
     name: 'Schübelbach'
   },
   {
-    federalNumber: 1347,
+    communalFederalNumber: 1347,
     name: 'Tuggen'
   },
   {
-    federalNumber: 1348,
+    communalFederalNumber: 1348,
     name: 'Vorderthal'
   },
   {
-    federalNumber: 1349,
+    communalFederalNumber: 1349,
     name: 'Wangen'
   },
   {
-    federalNumber: 1361,
+    communalFederalNumber: 1361,
     name: 'Alpthal'
   },
   {
-    federalNumber: 1362,
+    communalFederalNumber: 1362,
     name: 'Arth'
   },
   {
-    federalNumber: 1363,
+    communalFederalNumber: 1363,
     name: 'Illgau'
   },
   {
-    federalNumber: 1364,
+    communalFederalNumber: 1364,
     name: 'Ingenbohl'
   },
   {
-    federalNumber: 1365,
+    communalFederalNumber: 1365,
     name: 'Lauerz'
   },
   {
-    federalNumber: 1366,
+    communalFederalNumber: 1366,
     name: 'Morschach'
   },
   {
-    federalNumber: 1367,
+    communalFederalNumber: 1367,
     name: 'Muotathal'
   },
   {
-    federalNumber: 1368,
+    communalFederalNumber: 1368,
     name: 'Oberiberg'
   },
   {
-    federalNumber: 1369,
+    communalFederalNumber: 1369,
     name: 'Riemenstalden'
   },
   {
-    federalNumber: 1370,
+    communalFederalNumber: 1370,
     name: 'Rothenthurm'
   },
   {
-    federalNumber: 1371,
+    communalFederalNumber: 1371,
     name: 'Sattel'
   },
   {
-    federalNumber: 1372,
+    communalFederalNumber: 1372,
     name: 'Schwyz'
   },
   {
-    federalNumber: 1373,
+    communalFederalNumber: 1373,
     name: 'Steinen'
   },
   {
-    federalNumber: 1374,
+    communalFederalNumber: 1374,
     name: 'Steinerberg'
   },
-  { federalNumber: 1375, name: 'Unteriberg' }
+  { communalFederalNumber: 1375, name: 'Unteriberg' }
 ]
 
 export default Factory.extend({
-  federalNumber: faker.list.cycle(
-    ...locations.map(({ federalNumber }) => federalNumber)
+  communalFederalNumber: faker.list.cycle(
+    ...locations.map(({ communalFederalNumber }) => communalFederalNumber)
   ),
   name: faker.list.cycle(...locations.map(({ name }) => name))
 })
