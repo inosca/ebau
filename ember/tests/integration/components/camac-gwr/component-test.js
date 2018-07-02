@@ -3,7 +3,6 @@ import { setupRenderingTest } from 'ember-qunit'
 import { render, click, fillIn } from '@ember/test-helpers'
 import hbs from 'htmlbars-inline-precompile'
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage'
-import { selectChoose } from 'ember-power-select/test-support/helpers'
 import loadQuestions from 'citizen-portal/tests/helpers/load-questions'
 
 module('Integration | Component | camac-gwr', function(hooks) {
@@ -75,20 +74,6 @@ module('Integration | Component | camac-gwr', function(hooks) {
                 {
                   name: 'f5',
                   label: 'f5',
-                  type: 'select',
-                  required: true,
-                  config: { options: ['1', '2', '3'] }
-                },
-                {
-                  name: 'f6',
-                  label: 'f6',
-                  type: 'multiselect',
-                  required: true,
-                  config: { options: ['1', '2', '3'] }
-                },
-                {
-                  name: 'f7',
-                  label: 'f7',
                   type: 'table',
                   required: true,
                   config: {
@@ -166,9 +151,6 @@ module('Integration | Component | camac-gwr', function(hooks) {
     await click(
       '.uk-card:last-child .uk-margin:nth-child(4) label:nth-child(3)'
     )
-    await selectChoose('.uk-card:last-child .uk-margin:nth-child(5)', '1')
-    await selectChoose('.uk-card:last-child .uk-margin:nth-child(6)', '2')
-    await selectChoose('.uk-card:last-child .uk-margin:nth-child(6)', '3')
 
     await click('.uk-card:last-child table tfoot button')
     await fillIn('.uk-modal input', 'test')
