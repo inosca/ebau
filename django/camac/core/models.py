@@ -767,11 +767,12 @@ class BillingEntry(models.Model):
 
 
 class BillingInvoice(models.Model):
-
     billing_invoice_id = models.AutoField(
         db_column='BILLING_INVOICE_ID', primary_key=True)
     created = models.DateTimeField(db_column='CREATED')
-    name = models.TextField(db_column='NAME')
+    attachment = models.ForeignKey('document.Attachment', models.DO_NOTHING,
+                                   db_column='ATTACHMENT_ID',
+                                   related_name='attachment')
     # "type" is python keyword, that why there is a billing prefix
     billing_type = models.ForeignKey('BillingConfig', models.DO_NOTHING,
                              db_column='TYPE',
