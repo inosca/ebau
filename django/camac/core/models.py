@@ -773,10 +773,7 @@ class BillingInvoice(models.Model):
     attachment = models.ForeignKey('document.Attachment', models.DO_NOTHING,
                                    db_column='ATTACHMENT_ID',
                                    related_name='attachment')
-    # "type" is python keyword, that why there is a billing prefix
-    billing_type = models.ForeignKey('BillingConfig', models.DO_NOTHING,
-                             db_column='TYPE',
-                             related_name='billing_type')
+    type = models.PositiveSmallIntegerField(db_column='TYPE')
 
     class Meta:
         managed = True
