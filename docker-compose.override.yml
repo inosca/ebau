@@ -84,6 +84,7 @@ services:
             - APPLICATION_ENV=development
         networks:
             - camac-ng.local
+        command: ["/bin/sh", "-c", "chown -R www-data:www-data /var/www/camac/media /var/www/camac/sessions && rm -f configuration/* && cd configuration && ln -sf ../${APPLICATION}/* . && php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php && apache2-foreground"]
 
     unoconv:
         ports:
