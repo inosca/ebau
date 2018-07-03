@@ -17411,7 +17411,7 @@
   "model": "core.docgendocxaction",
   "pk": 1309,
   "fields": {
-    "docgen_template": 211,
+    "docgen_template": 219,
     "docgen_template_class": 208,
     "action": 1372
   }
@@ -17737,6 +17737,15 @@
   "fields": {
     "name": "Rechnung AfU BGL",
     "path": "Rechnung AfU BGL.docx",
+    "type": 1.0
+  }
+},
+{
+  "model": "core.docgentemplate",
+  "pk": 219,
+  "fields": {
+    "name": "Rechnung SD",
+    "path": "Rechnung SD.docx",
     "type": 1.0
   }
 },
@@ -36299,7 +36308,7 @@
 },
 {
   "model": "core.rroleacl",
-  "pk": 69,
+  "pk": 77,
   "fields": {
     "resource": 298,
     "role": 1129
@@ -36307,7 +36316,7 @@
 },
 {
   "model": "core.rroleacl",
-  "pk": 70,
+  "pk": 78,
   "fields": {
     "resource": 22,
     "role": 1129
@@ -36315,7 +36324,7 @@
 },
 {
   "model": "core.rroleacl",
-  "pk": 71,
+  "pk": 79,
   "fields": {
     "resource": 266,
     "role": 1129
@@ -36323,7 +36332,7 @@
 },
 {
   "model": "core.rroleacl",
-  "pk": 72,
+  "pk": 80,
   "fields": {
     "resource": 287,
     "role": 1129
@@ -36331,7 +36340,7 @@
 },
 {
   "model": "core.rroleacl",
-  "pk": 73,
+  "pk": 81,
   "fields": {
     "resource": 42,
     "role": 1129
