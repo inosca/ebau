@@ -73,7 +73,6 @@ services:
         volumes:
             - djangomedia:/var/www/camac/media
             - phpsessions:/var/www/camac/sessions
-            - phpresources:/var/www/camac/${APPLICATION}/resources
 
     mailcatcher:
         image: schickling/mailcatcher
@@ -100,4 +99,3 @@ volumes:
     pgdata:
     djangomedia:
     phpsessions:
-    phpresources:
