@@ -58,6 +58,8 @@ services:
         volumes:
             - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
             - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
+            # TODO: Implement resource fallback in document module, so this can be removed
+            - phpresources:/var/www/camac/kt_uri/resources
 
     cache:
         restart: always
