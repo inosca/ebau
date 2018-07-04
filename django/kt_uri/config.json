@@ -45910,7 +45910,7 @@
   "fields": {
     "role": 1129,
     "service": 590,
-    "name": "KOOR - SD",
+    "name": "KOOR - SD - Koordinationsstelle Amt f\u00fcr Kantonspolizei",
     "phone": null,
     "zip": null,
     "city": null,
@@ -49339,7 +49339,7 @@
   "fields": {
     "form_state": 1,
     "name": "Internes Mitberichtsverfahren SD AfKP",
-    "description": null
+    "description": "KOOR-SD;Koordinationsstelle SD"
   }
 },
 {
@@ -49348,7 +49348,7 @@
   "fields": {
     "form_state": 1,
     "name": "Internes Mitberichtsverfahren SD",
-    "description": null
+    "description": "KOOR-SD;Koordinationsstelle SD"
   }
 },
 {
