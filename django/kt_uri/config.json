@@ -20209,6 +20209,22 @@
   }
 },
 {
+  "model": "core.formgroupform",
+  "pk": 271,
+  "fields": {
+    "form_group": 161,
+    "form": 289
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 272,
+  "fields": {
+    "form_group": 251,
+    "form": 289
+  }
+},
+{
   "model": "core.instanceresource",
   "pk": 1,
   "fields": {
@@ -33794,6 +33810,28 @@
   "fields": {
     "page": 41,
     "form": 288,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 120,
+  "fields": {
+    "page": 1,
+    "form": 289,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 121,
+  "fields": {
+    "page": 41,
+    "form": 289,
     "page_form_mode": 4,
     "page_form_group": 1,
     "sort": 1
@@ -49365,6 +49403,15 @@
     "form_state": 1,
     "name": "Internes Mitberichtsverfahren SD",
     "description": "KOOR-SD;Koordinationsstelle SD"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 289,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
   }
 },
 {
