@@ -17750,6 +17750,15 @@
   }
 },
 {
+  "model": "core.docgentemplate",
+  "pk": 220,
+  "fields": {
+    "name": "Rechnung SD BGL",
+    "path": "Rechnung SD BGL.docx",
+    "type": 1.0
+  }
+},
+{
   "model": "core.docgentemplateclass",
   "pk": 42,
   "fields": {
