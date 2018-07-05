@@ -759,7 +759,7 @@ class BillingEntry(models.Model):
     invoiced = models.PositiveSmallIntegerField(db_column='INVOICED')
     invoice = models.ForeignKey('BillingInvoice', models.DO_NOTHING,
                                 db_column='INVOICE_ID', null=True,
-                                related_name='billing_invoice')
+                                related_name='billing_entries')
 
     class Meta:
         managed = True
@@ -772,7 +772,7 @@ class BillingInvoice(models.Model):
     created = models.DateTimeField(db_column='CREATED')
     attachment = models.ForeignKey('document.Attachment', models.DO_NOTHING,
                                    db_column='ATTACHMENT_ID',
-                                   related_name='attachment')
+                                   related_name='billing_invoices')
     type = models.PositiveSmallIntegerField(db_column='TYPE')
 
     class Meta:
