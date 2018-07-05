@@ -7,7 +7,7 @@ import { capitalize } from '@ember/string'
 import { task } from 'ember-concurrency'
 import _validations from 'citizen-portal/questions/validations'
 import computedTask from 'citizen-portal/lib/computed-task'
-import jexl from 'npm:jexl'
+import jexl from 'jexl'
 
 const Question = EmberObject.extend({
   _questions: service('question-store'),
