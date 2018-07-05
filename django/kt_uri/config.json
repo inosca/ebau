@@ -4288,6 +4288,34 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 1372,
+  "fields": {
+    "available_action": "docx",
+    "button": 919,
+    "name": "Rechnung generieren",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1373,
+  "fields": {
+    "available_action": "docx",
+    "button": 920,
+    "name": "Rechnung generieren",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
   "model": "core.aemail",
   "pk": 189,
   "fields": {
@@ -14627,6 +14655,348 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 403,
+  "fields": {
+    "button": 833,
+    "role": 1129,
+    "instance_state": 1
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 404,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 405,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 406,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 407,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 408,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 409,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 410,
+  "fields": {
+    "button": 822,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 411,
+  "fields": {
+    "button": 823,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 412,
+  "fields": {
+    "button": 824,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 413,
+  "fields": {
+    "button": 825,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 414,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 415,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 416,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 417,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 418,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 419,
+  "fields": {
+    "button": 914,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 420,
+  "fields": {
+    "button": 826,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 421,
+  "fields": {
+    "button": 826,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 422,
+  "fields": {
+    "button": 826,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 423,
+  "fields": {
+    "button": 827,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 424,
+  "fields": {
+    "button": 827,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 425,
+  "fields": {
+    "button": 828,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 426,
+  "fields": {
+    "button": 829,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 427,
+  "fields": {
+    "button": 829,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 428,
+  "fields": {
+    "button": 829,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 429,
+  "fields": {
+    "button": 829,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 430,
+  "fields": {
+    "button": 829,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 431,
+  "fields": {
+    "button": 830,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 432,
+  "fields": {
+    "button": 830,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 433,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 434,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 435,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 436,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 437,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 438,
+  "fields": {
+    "button": 919,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 439,
+  "fields": {
+    "button": 920,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 440,
+  "fields": {
+    "button": 920,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
   "model": "core.bserviceacl",
   "pk": 1,
   "fields": {
@@ -16577,6 +16947,30 @@
   }
 },
 {
+  "model": "core.button",
+  "pk": 919,
+  "fields": {
+    "instance_resource": 752,
+    "name": "Rechnung / Geb\u00fchren",
+    "description": null,
+    "class_field": "downloady",
+    "hidden": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.button",
+  "pk": 920,
+  "fields": {
+    "instance_resource": 752,
+    "name": "Rechnung Baubegleitung",
+    "description": null,
+    "class_field": "downloady",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.chapterpage",
   "pk": 1,
   "fields": {
@@ -17014,6 +17408,24 @@
   }
 },
 {
+  "model": "core.docgendocxaction",
+  "pk": 1309,
+  "fields": {
+    "docgen_template": 219,
+    "docgen_template_class": 208,
+    "action": 1372
+  }
+},
+{
+  "model": "core.docgendocxaction",
+  "pk": 1310,
+  "fields": {
+    "docgen_template": 214,
+    "docgen_template_class": 225,
+    "action": 1373
+  }
+},
+{
   "model": "core.docgenpdfaction",
   "pk": 1,
   "fields": {
@@ -17329,6 +17741,24 @@
   }
 },
 {
+  "model": "core.docgentemplate",
+  "pk": 219,
+  "fields": {
+    "name": "Rechnung SD",
+    "path": "Rechnung SD.docx",
+    "type": 1.0
+  }
+},
+{
+  "model": "core.docgentemplate",
+  "pk": 220,
+  "fields": {
+    "name": "Rechnung SD BGL",
+    "path": "Rechnung SD BGL.docx",
+    "type": 1.0
+  }
+},
+{
   "model": "core.docgentemplateclass",
   "pk": 42,
   "fields": {
@@ -17600,6 +18030,22 @@
   "fields": {
     "name": "Alle Dossiers von Organisation mit Leserechten",
     "description": ""
+  }
+},
+{
+  "model": "core.formgroup",
+  "pk": 254,
+  "fields": {
+    "name": "Alle Dossiers von der Koordinationsstelle SD",
+    "description": null
+  }
+},
+{
+  "model": "core.formgroup",
+  "pk": 255,
+  "fields": {
+    "name": "Alle Dossiers KOOR (AFJ SD)",
+    "description": null
   }
 },
 {
@@ -19683,6 +20129,86 @@
   }
 },
 {
+  "model": "core.formgroupform",
+  "pk": 261,
+  "fields": {
+    "form_group": 254,
+    "form": 247
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 262,
+  "fields": {
+    "form_group": 254,
+    "form": 288
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 263,
+  "fields": {
+    "form_group": 254,
+    "form": 287
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 264,
+  "fields": {
+    "form_group": 255,
+    "form": 260
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 265,
+  "fields": {
+    "form_group": 255,
+    "form": 281
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 266,
+  "fields": {
+    "form_group": 255,
+    "form": 247
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 267,
+  "fields": {
+    "form_group": 255,
+    "form": 288
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 268,
+  "fields": {
+    "form_group": 255,
+    "form": 287
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 269,
+  "fields": {
+    "form_group": 161,
+    "form": 288
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 270,
+  "fields": {
+    "form_group": 161,
+    "form": 287
+  }
+},
+{
   "model": "core.instanceresource",
   "pk": 1,
   "fields": {
@@ -21309,12 +21835,12 @@
     "available_instance_resource": "editformpage",
     "resource": 298,
     "name": "Dossier bearbeiten",
-    "description": "Dossiers von der Koordinationsstelle Forst und Jagd AFJ",
+    "description": "Dossiers von der Koordinationsstelle AFJ SD",
     "template": "/form/bg-form.phtml",
-    "class_field": "",
+    "class_field": null,
     "hidden": 0,
     "sort": 0,
-    "form_group": 252
+    "form_group": 255
   }
 },
 {
@@ -21354,12 +21880,12 @@
     "available_instance_resource": "editcirculation",
     "resource": 298,
     "name": "Zirkulation",
-    "description": "Zirkulation Dossiers von der Koordinationsstelle AFJ",
-    "template": "",
-    "class_field": "",
+    "description": "Zirkulation Dossiers von der Koordinationsstelle AFJ und SD",
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 3,
-    "form_group": 252
+    "form_group": 255
   }
 },
 {
@@ -21384,12 +21910,12 @@
     "available_instance_resource": "workflow",
     "resource": 298,
     "name": "Workflow",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
-    "sort": 6,
-    "form_group": 252
+    "sort": 7,
+    "form_group": 255
   }
 },
 {
@@ -21399,12 +21925,12 @@
     "available_instance_resource": "sanction",
     "resource": 298,
     "name": "Auflagen-Controlling",
-    "description": "Auflagen-Controlling f\u00fcr KOOR AJF",
-    "template": "",
-    "class_field": "",
+    "description": "Auflagen-Controlling f\u00fcr KOOR AJF und SD",
+    "template": null,
+    "class_field": null,
     "hidden": 0,
-    "sort": 7,
-    "form_group": 252
+    "sort": 8,
+    "form_group": 255
   }
 },
 {
@@ -21415,11 +21941,11 @@
     "resource": 22,
     "name": "Dossier erstellen",
     "description": "Erstellung durch die Koordinationsstelle AFJ",
-    "template": "",
-    "class_field": "",
+    "template": null,
+    "class_field": null,
     "hidden": 1,
     "sort": 8,
-    "form_group": 252
+    "form_group": 255
   }
 },
 {
@@ -21504,12 +22030,12 @@
     "available_instance_resource": "billing",
     "resource": 298,
     "name": "Geb\u00fchr Koord",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 4,
-    "form_group": 252
+    "form_group": 255
   }
 },
 {
@@ -21525,6 +22051,21 @@
     "hidden": 0,
     "sort": 1,
     "form_group": 141
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 752,
+  "fields": {
+    "available_instance_resource": "circulation",
+    "resource": 298,
+    "name": "Dossier abschliessen",
+    "description": "Zirkulation Koor SD",
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 6,
+    "form_group": 254
   }
 },
 {
@@ -23305,6 +23846,21 @@
   }
 },
 {
+  "model": "core.ircirculation",
+  "pk": 752,
+  "fields": {
+    "circulation_type": 41,
+    "service": 590,
+    "draft_circulation_answer": null,
+    "show_notice": 2,
+    "show_history": 0,
+    "show_all_children": 1,
+    "read_notice_template": null,
+    "pdf_class": null,
+    "service_to_be_interpreted": null
+  }
+},
+{
   "model": "core.ireditcirculation",
   "pk": 315,
   "fields": {
@@ -23383,10 +23939,10 @@
     "circulation_type": 41,
     "draft_circulation_answer": null,
     "show_notice": 1,
-    "add_template": "",
-    "add_activation_template": "",
-    "read_notice_template": "",
-    "pdf_class": "",
+    "add_template": null,
+    "add_activation_template": null,
+    "read_notice_template": null,
+    "pdf_class": null,
     "default_circulation_name": "Erste Zirkulation",
     "single_circulation": 1,
     "inherit_notices": 0,
@@ -24124,7 +24680,7 @@
   "pk": 735,
   "fields": {
     "page": 1,
-    "pdf_class": ""
+    "pdf_class": null
   }
 },
 {
@@ -31269,6 +31825,456 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 752,
+  "fields": {
+    "instance_resource": 742,
+    "role": 1129,
+    "instance_state": 1
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 753,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 754,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 755,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 756,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 757,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 758,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 759,
+  "fields": {
+    "instance_resource": 735,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 760,
+  "fields": {
+    "instance_resource": 736,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 762,
+  "fields": {
+    "instance_resource": 736,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 764,
+  "fields": {
+    "instance_resource": 736,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 765,
+  "fields": {
+    "instance_resource": 736,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 766,
+  "fields": {
+    "instance_resource": 736,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 767,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 768,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 769,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 770,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 771,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 772,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 773,
+  "fields": {
+    "instance_resource": 737,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 774,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 775,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 776,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 777,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 778,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 779,
+  "fields": {
+    "instance_resource": 738,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 780,
+  "fields": {
+    "instance_resource": 750,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 781,
+  "fields": {
+    "instance_resource": 750,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 782,
+  "fields": {
+    "instance_resource": 750,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 783,
+  "fields": {
+    "instance_resource": 750,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 784,
+  "fields": {
+    "instance_resource": 750,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 785,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 786,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 787,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 788,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 789,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 790,
+  "fields": {
+    "instance_resource": 740,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 791,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 1
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 792,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 793,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 794,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 795,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 796,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 797,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 798,
+  "fields": {
+    "instance_resource": 741,
+    "role": 1129,
+    "instance_state": 27
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 799,
+  "fields": {
+    "instance_resource": 752,
+    "role": 1129,
+    "instance_state": 22
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 800,
+  "fields": {
+    "instance_resource": 752,
+    "role": 1129,
+    "instance_state": 23
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 801,
+  "fields": {
+    "instance_resource": 752,
+    "role": 1129,
+    "instance_state": 24
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 802,
+  "fields": {
+    "instance_resource": 752,
+    "role": 1129,
+    "instance_state": 25
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 803,
+  "fields": {
+    "instance_resource": 752,
+    "role": 1129,
+    "instance_state": 26
+  }
+},
+{
   "model": "core.irserviceacl",
   "pk": 1,
   "fields": {
@@ -32750,6 +33756,50 @@
   }
 },
 {
+  "model": "core.pageform",
+  "pk": 116,
+  "fields": {
+    "page": 1,
+    "form": 287,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 117,
+  "fields": {
+    "page": 41,
+    "form": 287,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 118,
+  "fields": {
+    "page": 1,
+    "form": 288,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 119,
+  "fields": {
+    "page": 41,
+    "form": 288,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
   "model": "core.pageformgroup",
   "pk": 1,
   "fields": {
@@ -34195,9 +35245,9 @@
   "fields": {
     "available_resource": "simplelist",
     "name": "Pendenzenliste Start",
-    "description": "Pendenzenliste Start f\u00fcr Koord Forst und Jagd AFJ",
-    "template": "",
-    "class_field": "",
+    "description": "Pendenzenliste Start f\u00fcr Koord AFJ SD",
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 16
   }
@@ -35279,6 +36329,46 @@
   "fields": {
     "resource": 312,
     "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 77,
+  "fields": {
+    "resource": 298,
+    "role": 1129
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 78,
+  "fields": {
+    "resource": 22,
+    "role": 1129
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 79,
+  "fields": {
+    "resource": 266,
+    "role": 1129
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 80,
+  "fields": {
+    "resource": 287,
+    "role": 1129
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 81,
+  "fields": {
+    "resource": 42,
+    "role": 1129
   }
 },
 {
@@ -44831,6 +45921,21 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 1022,
+  "fields": {
+    "role": 1129,
+    "service": 590,
+    "name": "KOOR - SD - Koordinationsstelle Amt f\u00fcr Kantonspolizei",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -45310,6 +46415,14 @@
   "fields": {
     "role_parent": null,
     "name": "Koordinationsstelle Forst und Jagd AFJ"
+  }
+},
+{
+  "model": "user.role",
+  "pk": 1129,
+  "fields": {
+    "role_parent": null,
+    "name": "Koordinationsstelle SD"
   }
 },
 {
@@ -47659,6 +48772,23 @@
   }
 },
 {
+  "model": "user.service",
+  "pk": 590,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "KOOR SD",
+    "description": "KOOR SD",
+    "sort": 131,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.servicegroup",
   "pk": 1,
   "fields": {
@@ -48217,6 +49347,24 @@
     "form_state": 1,
     "name": "Land- und Rechtserwerb",
     "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 287,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren SD AfKP",
+    "description": "KOOR-SD;Koordinationsstelle SD"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 288,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren SD",
+    "description": "KOOR-SD;Koordinationsstelle SD"
   }
 },
 {
