@@ -5,10 +5,14 @@
   {{form.input 'energie-uberragt'}}
   {{form.input 'energie-reflexionsarm'}}
   {{form.input 'energie-kompakt'}}
-  {{form.input 'energie-thermisch-kollektorenart'}}
+  {{#form.input 'energie-thermisch-kollektorenart'}}
+    <h4>Thermische Solaranlage</h4>
+  {{/form.input}}
   {{form.input 'energie-thermisch-aufbereitung'}}
   {{form.input 'energie-thermisch-grosse'}}
-  {{form.input 'energie-photovoltaik-technologie'}}
+  {{#form.input 'energie-photovoltaik-technologie'}}
+    <h4>Photovoltaikanlage</h4>
+  {{/form.input}}
   {{form.input 'energie-photovoltaik-gesamtleistung'}}
   {{form.input 'energie-photovoltaik-jahresertrag'}}
   {{form.input 'energie-photovoltaik-flache'}}
