@@ -757,10 +757,27 @@ class BillingEntry(models.Model):
     reason = models.CharField(
         db_column='REASON', max_length=300, blank=True, null=True)
     invoiced = models.PositiveSmallIntegerField(db_column='INVOICED')
+    invoice = models.ForeignKey('BillingInvoice', models.DO_NOTHING,
+                                db_column='INVOICE_ID', null=True,
+                                related_name='billing_entries')
 
     class Meta:
         managed = True
         db_table = 'BILLING_ENTRY'
+
+
+class BillingInvoice(models.Model):
+    billing_invoice_id = models.AutoField(
+        db_column='BILLING_INVOICE_ID', primary_key=True)
+    created = models.DateTimeField(db_column='CREATED')
+    attachment = models.ForeignKey('document.Attachment', models.DO_NOTHING,
+                                   db_column='ATTACHMENT_ID',
+                                   related_name='billing_invoices')
+    type = models.PositiveSmallIntegerField(db_column='TYPE')
+
+    class Meta:
+        managed = True
+        db_table = 'BILLING_INVOICE'
 
 
 class BuildingAuthorityButton(models.Model):
