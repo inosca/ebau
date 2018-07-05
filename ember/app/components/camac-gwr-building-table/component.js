@@ -1,6 +1,6 @@
 import Component from '@ember/component'
 import { task } from 'ember-concurrency'
-import v4 from 'npm:uuid/v4'
+import v4 from 'uuid/v4'
 
 export default Component.extend({
   addRow: task(function*() {
