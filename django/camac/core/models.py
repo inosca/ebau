@@ -773,7 +773,7 @@ class BillingInvoice(models.Model):
     attachment = models.ForeignKey('document.Attachment', models.DO_NOTHING,
                                    db_column='ATTACHMENT_ID',
                                    related_name='billing_invoices')
-    type = models.PositiveSmallIntegerField(db_column='TYPE')
+    type = models.TextField(db_column='TYPE')
 
     class Meta:
         managed = True
