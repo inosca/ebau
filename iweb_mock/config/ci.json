@@ -1,6 +1,7 @@
 {
 	"camacUrl": "http://localhost",
 	"camacApi": "http://localhost",
-	"base": "http://localhost:4400/"
+	"base": "http://localhost:4400/",
+	"secret": "thisisjustatestsecretchangeitonprod!1337"
 }
 
