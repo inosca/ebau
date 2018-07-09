@@ -642,32 +642,142 @@
       "parent": null,
       "questions": [
         "kw-ort",
-        "kw-quelle",
-        "kw-name",
-        "kw-fuhrt-standig",
-        "kw-nutzungsart",
-        "kw-datum-bewilligung",
-        "kw-entnahmestandort-gemeinde",
-        "kw-entnahmestandort-grundstuck",
-        "kw-entnahmestandort-koordinaten",
-        "kw-entnahmestandort-beschreibung",
-        "kw-entnahmestandort-ruckfuhrung",
-        "kw-entnahmestandort-ruckfuhrung-seetiefe",
-        "kw-entnahmegewasser-max",
-        "kw-entnahmegewasser-min-temp",
-        "kw-entnahmegewasser-abkuhlung",
-        "kw-entnahmegewasser-min-austritt-temp",
-        "kw-baute-art",
-        "kw-baute-art-andere",
-        "kw-baute-wohneinheiten",
-        "kw-baute-warmebedarf",
-        "kw-baute-stockwerkeigentumerschaft",
-        "kw-baute-stockwerkeigentumerschaft-bezeichung",
-        "kw-baute-kaltemitteleinfullungen",
-        "kw-baute-leistung-verdampfer",
-        "kw-brauchwasser-zweck",
-        "kw-inbetriebnahme",
-        "kw-baute-kaltemittel"
+        "kw-1-1-nutzungsart",
+        "kw-1-1-1-datum-bewilligung",
+        "kw-1-1-1-entnahmestandort-gemeinde",
+        "kw-1-1-1-entnahmestandort-grundstuck",
+        "kw-1-1-1-entnahmestandort-koordinaten",
+        "kw-1-1-1-entnahmestandort-beschreibung",
+        "kw-1-1-1-entnahmestandort-ruckfuhrung",
+        "kw-1-1-1-entnahmegewasser-max",
+        "kw-1-1-1-entnahmegewasser-min-temp",
+        "kw-1-1-1-entnahmegewasser-abkuhlung",
+        "kw-1-1-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-1-1-baute-art",
+        "kw-1-1-1-baute-art-andere",
+        "kw-1-1-1-baute-wohneinheiten",
+        "kw-1-1-1-baute-warmebedarf",
+        "kw-1-1-1-baute-stockwerkeigentumerschaft",
+        "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-1-1-inbetriebnahme",
+        "kw-1-1-1-baute-kaltemittel",
+        "kw-1-1-1-baute-kaltemitteleinfullungen",
+        "kw-1-1-1-baute-leistung-verdampfer",
+        "kw-1-1-2-datum-bewilligung",
+        "kw-1-1-2-entnahmestandort-gemeinde",
+        "kw-1-1-2-entnahmestandort-grundstuck",
+        "kw-1-1-2-entnahmestandort-koordinaten",
+        "kw-1-1-2-entnahmestandort-beschreibung",
+        "kw-1-1-2-entnahmegewasser-max",
+        "kw-1-1-2-inbetriebnahme",
+        "kw-1-1-3-datum-bewilligung",
+        "kw-1-1-3-zweck-brauchwasser",
+        "kw-1-1-3-entnahmestandort-gemeinde",
+        "kw-1-1-3-entnahmestandort-grundstuck",
+        "kw-1-1-3-entnahmestandort-koordinaten",
+        "kw-1-1-3-entnahmestandort-beschreibung",
+        "kw-1-1-3-entnahmegewasser-max",
+        "kw-1-1-3-inbetriebnahme",
+        "kw-1-2-nutzungsart",
+        "kw-1-2-1-name-gewasser",
+        "kw-1-2-1-bach-fuhrt-wasser",
+        "kw-1-2-1-entnahmestandort-gemeinde",
+        "kw-1-2-1-entnahmestandort-grundstuck",
+        "kw-1-2-1-entnahmestandort-koordinaten",
+        "kw-1-2-1-entnahmestandort-beschreibung",
+        "kw-1-2-1-entnahmestandort-ruckfuhrung",
+        "kw-1-2-1-entnahmegewasser-max",
+        "kw-1-2-1-entnahmegewasser-min-temp",
+        "kw-1-2-1-entnahmegewasser-abkuhlung",
+        "kw-1-2-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-2-1-baute-art",
+        "kw-1-2-1-baute-warmebedarf",
+        "kw-1-2-1-baute-stockwerkeigentumerschaft",
+        "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-2-1-inbetriebnahme",
+        "kw-1-2-1-baute-kaltemittel",
+        "kw-1-2-1-baute-kaltemitteleinfullungen",
+        "kw-1-2-1-baute-leistung-verdampfer",
+        "kw-1-2-2-name-gewasser",
+        "kw-1-2-2-bach-fuhrt-wasser",
+        "kw-1-2-2-zweck-brauchwasser",
+        "kw-1-2-2-entnahmestandort-gemeinde",
+        "kw-1-2-2-entnahmestandort-grundstuck",
+        "kw-1-2-2-entnahmestandort-koordinaten",
+        "kw-1-2-2-entnahmestandort-beschreibung",
+        "kw-1-2-2-entnahmegewasser-max",
+        "kw-1-2-2-inbetriebnahme",
+        "kw-1-3-nutzungsart",
+        "kw-1-3-1-name-see",
+        "kw-1-3-1-entnahmestandort-gemeinde",
+        "kw-1-3-1-entnahmestandort-grundstuck",
+        "kw-1-3-1-entnahmestandort-koordinaten",
+        "kw-1-3-1-entnahmestandort-beschreibung",
+        "kw-1-3-1-entnahmestandort-ruckfuhrung",
+        "kw-1-3-1-entnahmestandort-tiefe",
+        "kw-1-3-1-entnahmegewasser-max",
+        "kw-1-3-1-entnahmegewasser-min-temp",
+        "kw-1-3-1-entnahmegewasser-abkuhlung",
+        "kw-1-3-1-entnahmegewasser-ges-austritt-temp",
+        "kw-1-3-1-baute-art",
+        "kw-1-3-1-baute-art-andere",
+        "kw-1-3-1-baute-wohneinheiten",
+        "kw-1-3-1-baute-warmebedarf",
+        "kw-1-3-1-baute-stockwerkeigentumerschaft",
+        "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-3-1-inbetriebnahme",
+        "kw-1-3-1-baute-kaltemittel",
+        "kw-1-3-1-baute-kaltemitteleinfullungen",
+        "kw-1-3-1-baute-leistung-verdampfer",
+        "kw-1-3-2-name-see",
+        "kw-1-3-2-entnahmestandort-gemeinde",
+        "kw-1-3-2-entnahmestandort-grundstuck",
+        "kw-1-3-2-entnahmestandort-koordinaten",
+        "kw-1-3-2-entnahmestandort-beschreibung",
+        "kw-1-3-2-entnahmegewasser-max",
+        "kw-1-3-2-inbetriebnahme",
+        "kw-1-3-3-name-see",
+        "kw-1-3-3-zweck-brauchwasser",
+        "kw-1-3-3-entnahmestandort-gemeinde",
+        "kw-1-3-3-entnahmestandort-grundstuck",
+        "kw-1-3-3-entnahmestandort-koordinaten",
+        "kw-1-3-3-entnahmestandort-beschreibung",
+        "kw-1-3-3-entnahmegewasser-max",
+        "kw-1-3-3-inbetriebnahme",
+        "kw-1-4-privat-offentlich",
+        "kw-1-4-nutzungsart",
+        "kw-1-4-1-entnahmestandort-gemeinde",
+        "kw-1-4-1-entnahmestandort-grundstuck",
+        "kw-1-4-1-entnahmestandort-koordinaten",
+        "kw-1-4-1-entnahmestandort-beschreibung",
+        "kw-1-4-1-entnahmestandort-ruckfuhrung",
+        "kw-1-4-1-entnahmegewasser-max",
+        "kw-1-4-1-entnahmegewasser-min-temp",
+        "kw-1-4-1-entnahmegewasser-abkuhlung",
+        "kw-1-4-1-entnahmegewasser-min-austritt-temp",
+        "kw-1-4-1-baute-art",
+        "kw-1-4-1-baute-art-andere",
+        "kw-1-4-1-baute-wohneinheiten",
+        "kw-1-4-1-baute-warmebedarf",
+        "kw-1-4-1-baute-stockwerkeigentumerschaft",
+        "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung",
+        "kw-1-4-1-inbetriebnahme",
+        "kw-1-4-1-baute-kaltemittel",
+        "kw-1-4-1-baute-kaltemitteleinfullungen",
+        "kw-1-4-1-baute-leistung-verdampfer",
+        "kw-1-4-2-entnahmestandort-gemeinde",
+        "kw-1-4-2-entnahmestandort-grundstuck",
+        "kw-1-4-2-entnahmestandort-koordinaten",
+        "kw-1-4-2-entnahmestandort-beschreibung",
+        "kw-1-4-2-entnahmegewasser-max",
+        "kw-1-4-2-inbetriebnahme",
+        "kw-1-4-3-zweck-brauchwasser",
+        "kw-1-4-3-entnahmestandort-gemeinde",
+        "kw-1-4-3-entnahmestandort-grundstuck",
+        "kw-1-4-3-entnahmestandort-koordinaten",
+        "kw-1-4-3-entnahmestandort-beschreibung",
+        "kw-1-4-3-entnahmegewasser-max",
+        "kw-1-4-3-inbetriebnahme"
       ]
     },
     "projektanderung": {
@@ -4384,39 +4494,12 @@
         "options": ["Grundwasser", "Bach / Fluss", "See", "Quelle"]
       }
     },
-    "kw-quelle": {
-      "label": "Handelt es sich um eine private oder öffentliche Quelle?",
-      "hint": "**Platzhalter**: *kw-quelle*",
-      "type": "radio",
-      "required": true,
-      "active-expression": "'kw-ort'|value == 'Quelle'",
-      "config": {
-        "options": ["Privat", "Öffentlich"]
-      }
-    },
-    "kw-name": {
-      "label": "Name des Gewässers:",
-      "hint": "**Platzhalter**: *kw-name*",
-      "type": "text",
-      "required": true,
-      "active-expression": "'kw-ort'|value in ['Bach / Fluss', 'See']",
-      "config": {}
-    },
-    "kw-fuhrt-standig": {
-      "label": "Führt der Bach / Fluss ständig Wasser?",
-      "hint": "**Platzhalter**: *kw-fuhrt-standig*",
-      "type": "radio",
-      "required": true,
-      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
-      "config": {
-        "options": ["Ja", "Nein"]
-      }
-    },
-    "kw-nutzungsart": {
+    "kw-1-1-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "**Platzhalter**: *kw-nutzungsart*",
+      "hint": "**Platzhalter**: *kw-1-1-nutzungsart*",
       "type": "radio",
       "required": true,
+      "active-expression": "'kw-ort'|value == 'Grundwasser'",
       "config": {
         "options": [
           "Wärmepumpe",
@@ -4427,119 +4510,120 @@
         ]
       }
     },
-    "kw-datum-bewilligung": {
+    "kw-1-1-1-datum-bewilligung": {
       "label":
         "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "**Platzhalter**: *kw-datum-bewilligung*",
+      "hint": "**Platzhalter**: *kw-1-1-1-datum-bewilligung*",
       "type": "text",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
-    "kw-entnahmestandort-gemeinde": {
-      "label": "Entnahmestandort Gemeinde:",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-gemeinde*",
+    "kw-1-1-1-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
-    "kw-entnahmestandort-grundstuck": {
-      "label": "Entnahmestandort Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-grundstuck*",
+    "kw-1-1-1-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-entnahmestandort-koordinaten": {
-      "label": "Entnahmestandort Koordinaten:",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-koordinaten*",
+    "kw-1-1-1-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
-    "kw-entnahmestandort-beschreibung": {
-      "label": "Kurze Beschreibung der Anlagen",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-beschreibung*",
+    "kw-1-1-1-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
-    "kw-entnahmestandort-ruckfuhrung": {
+    "kw-1-1-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-ruckfuhrung*",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
-    "kw-entnahmestandort-ruckfuhrung-seetiefe": {
-      "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
-      "hint": "**Platzhalter**: *kw-entnahmestandort-ruckfuhrung-seetiefe*",
-      "type": "number",
-      "required": true,
-      "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-ort'|value == 'See'",
-      "config": {
-        "min": 1,
-        "step": 1
-      }
-    },
-    "kw-entnahmegewasser-max": {
+    "kw-1-1-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-entnahmegewasser-max*",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-max*",
       "type": "number",
       "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-entnahmegewasser-min-temp": {
+    "kw-1-1-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "**Platzhalter**: *kw-entnahmegewasser-min-temp*",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-entnahmegewasser-abkuhlung": {
+    "kw-1-1-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "**Platzhalter**: *kw-entnahmegewasser-abkuhlung*",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-entnahmegewasser-min-austritt-temp": {
+    "kw-1-1-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "**Platzhalter**: *kw-entnahmegewasser-min-austritt-temp*",
+      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-austritt-temp*",
       "type": "number",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-baute-art": {
+    "kw-1-1-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "**Platzhalter**: *kw-baute-art*",
-      "type": "checkbox",
+      "hint": "**Platzhalter**: *1-1-1-kw-baute-art*",
+      "type": "radio",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": [
           "Neubau",
@@ -4550,104 +4634,1333 @@
         ]
       }
     },
-    "kw-baute-art-andere": {
+    "kw-1-1-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *kw-baute-art-andere*",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-art-andere*",
       "type": "text",
       "required": true,
-      "active-expression": "'Andere' in 'kw-baute-art'|value",
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
       "config": {}
     },
-    "kw-baute-wohneinheiten": {
+    "kw-1-1-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "**Platzhalter**: *kw-baute-wohneinheiten*",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-wohneinheiten*",
       "type": "number",
       "required": true,
       "active-expression":
-        "'kw-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-baute-warmebedarf": {
+    "kw-1-1-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "**Platzhalter**: *kw-baute-warmebedarf*",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-warmebedarf*",
       "type": "number",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
-    "kw-baute-stockwerkeigentumerschaft": {
+    "kw-1-1-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "**Platzhalter**: *kw-baute-stockwerkeigentumerschaft*",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
-    "kw-baute-stockwerkeigentumerschaft-bezeichung": {
+    "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
       "hint":
-        "**Platzhalter**: *kw-baute-stockwerkeigentumerschaft-bezeichung*",
+        "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
-      "active-expression": "'kw-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
       "config": {}
     },
-    "kw-baute-kaltemitteleinfullungen": {
-      "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "**Platzhalter**: *kw-baute-kaltemitteleinfullungen*",
-      "type": "number",
-      "required": true,
-      "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
-      "config": {
-        "min": 1,
-        "step": 1
-      }
-    },
-    "kw-baute-leistung-verdampfer": {
-      "label": "Leistung Verdampfer in Watt:",
-      "hint": "**Platzhalter**: *kw-baute-leistung-verdampfer*",
-      "type": "number",
-      "required": true,
-      "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
-      "config": {
-        "min": 1,
-        "step": 1
-      }
-    },
-    "kw-brauchwasser-zweck": {
-      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "**Platzhalter**: *kw-brauchwasser-zweck*",
-      "type": "text",
-      "required": true,
-      "config": {}
-    },
-    "kw-inbetriebnahme": {
+    "kw-1-1-1-inbetriebnahme": {
       "label":
         "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-inbetriebnahme*",
-      "type": "text",
-      "required": true,
-      "config": {}
-    },
-    "kw-baute-kaltemittel": {
-      "label": "Kältemittel:",
-      "hint": "**Platzhalter**: *kw-baute-kaltemittel*",
+      "hint": "**Platzhalter**: *kw-1-1-1-inbetriebnahme*",
       "type": "text",
       "required": true,
       "active-expression":
-        "'kw-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-1-1-baute-kaltemittel": {
+      "label": "Kältemittel:",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemittel*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-1-1-baute-kaltemitteleinfullungen": {
+      "label": "Kältemitteleinfüllung(en) in kg:",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemitteleinfullungen*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-1-baute-leistung-verdampfer": {
+      "label": "Leistung Verdampfer in Watt:",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-leistung-verdampfer*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-2-datum-bewilligung": {
+      "label":
+        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "hint": "**Platzhalter**: *kw-1-1-2-datum-bewilligung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-1-2-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-1-2-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-2-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-1-2-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-1-2-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-1-2-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-2-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-1-2-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-datum-bewilligung": {
+      "label":
+        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "hint": "**Platzhalter**: *kw-1-1-3-datum-bewilligung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-zweck-brauchwasser": {
+      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "hint": "**Platzhalter**: *kw-1-1-3-zweck-brauchwasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-3-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-1-3-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-1-3-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-1-3-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-1-3-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-nutzungsart": {
+      "label": "Welche Nutzungsart liegt vor?",
+      "hint": "**Platzhalter**: *kw-1-2-nutzungsart*",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
+      "config": {
+        "options": [
+          "Wärmepumpe",
+          "Kühlung",
+          "Wärmepumpe und Kühlung",
+          "Brauchwasser"
+        ]
+      }
+    },
+    "kw-1-2-1-name-gewasser": {
+      "label": "Name des Gewässers:",
+      "hint": "**Platzhalter**: *kw-1-2-1-name-gewasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-bach-fuhrt-wasser": {
+      "label": "Führt der Bach / Fluss ständig Wasser?",
+      "hint": "**Platzhalter**: *kw-1-2-1-bach-fuhrt-wasser*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-2-1-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-entnahmestandort-ruckfuhrung": {
+      "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-ruckfuhrung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-entnahmegewasser-min-temp": {
+      "label": "Minimale Temperatur der Wärmequelle in °C",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-entnahmegewasser-abkuhlung": {
+      "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-abkuhlung*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-entnahmegewasser-min-austritt-temp": {
+      "label": "Minimale Austrittstemperatur in °C",
+      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-austritt-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-baute-art": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "**Platzhalter**: *1-2-1-kw-baute-art*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Neubau", "Altbau"]
+      }
+    },
+    "kw-1-2-1-baute-warmebedarf": {
+      "label": "Wie hoch ist der Wärmebedarf in Watt?",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-warmebedarf*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-baute-stockwerkeigentumerschaft": {
+      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "hint":
+        "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "config": {}
+    },
+    "kw-1-2-1-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-2-1-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-baute-kaltemittel": {
+      "label": "Kältemittel:",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemittel*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-2-1-baute-kaltemitteleinfullungen": {
+      "label": "Kältemitteleinfüllung(en) in kg:",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemitteleinfullungen*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-1-baute-leistung-verdampfer": {
+      "label": "Leistung Verdampfer in Watt:",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-leistung-verdampfer*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-2-name-gewasser": {
+      "label": "Name des Gewässers:",
+      "hint": "**Platzhalter**: *kw-1-2-2-name-gewasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-2-bach-fuhrt-wasser": {
+      "label": "Führt der Bach / Fluss ständig Wasser?",
+      "hint": "**Platzhalter**: *kw-1-2-2-bach-fuhrt-wasser*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-2-2-zweck-brauchwasser": {
+      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "hint": "**Platzhalter**: *kw-1-2-2-zweck-brauchwasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-2-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-2-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-2-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-2-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-2-2-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-2-2-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-2-2-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-2-2-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-nutzungsart": {
+      "label": "Welche Nutzungsart liegt vor?",
+      "hint": "**Platzhalter**: *kw-1-3-nutzungsart*",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'See'",
+      "config": {
+        "options": [
+          "Wärmepumpe",
+          "Kühlung",
+          "Wärmepumpe und Kühlung",
+          "Trinkwasser",
+          "Brauchwasser"
+        ]
+      }
+    },
+    "kw-1-3-1-name-see": {
+      "label": "Name des Sees:",
+      "hint": "**Platzhalter**: *kw-1-3-1-name-see*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-entnahmestandort-ruckfuhrung": {
+      "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-ruckfuhrung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-entnahmestandort-tiefe": {
+      "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-tiefe*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-entnahmegewasser-min-temp": {
+      "label": "Minimale Temperatur der Wärmequelle in °C",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-min-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-entnahmegewasser-abkuhlung": {
+      "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-abkuhlung*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-entnahmegewasser-ges-austritt-temp": {
+      "label": "Geschätzte Austrittstemperatur in °C",
+      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-ges-austritt-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-baute-art": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "**Platzhalter**: *1-3-1-kw-baute-art*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": [
+          "Neubau",
+          "Altbau",
+          "Einfamilienhaus",
+          "Mehrfamilienhaus",
+          "Andere"
+        ]
+      }
+    },
+    "kw-1-3-1-baute-art-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-art-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
+      "config": {}
+    },
+    "kw-1-3-1-baute-wohneinheiten": {
+      "label": "Wie viele Wohneinheiten sind vorgesehen?",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-wohneinheiten*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-baute-warmebedarf": {
+      "label": "Wie hoch ist der Wärmebedarf in Watt?",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-warmebedarf*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-baute-stockwerkeigentumerschaft": {
+      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "hint":
+        "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "config": {}
+    },
+    "kw-1-3-1-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-3-1-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-baute-kaltemittel": {
+      "label": "Kältemittel:",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemittel*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-3-1-baute-kaltemitteleinfullungen": {
+      "label": "Kältemitteleinfüllung(en) in kg:",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemitteleinfullungen*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-1-baute-leistung-verdampfer": {
+      "label": "Leistung Verdampfer in Watt:",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-leistung-verdampfer*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-2-name-see": {
+      "label": "Name des Sees:",
+      "hint": "**Platzhalter**: *kw-1-3-2-name-see*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-3-2-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-3-2-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-2-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-3-2-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-3-2-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-3-2-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-2-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-3-2-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-name-see": {
+      "label": "Name des Sees:",
+      "hint": "**Platzhalter**: *kw-1-3-3-name-see*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-zweck-brauchwasser": {
+      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "hint": "**Platzhalter**: *kw-1-3-3-zweck-brauchwasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-3-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-3-3-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-3-3-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-3-3-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-3-3-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-4-privat-offentlich": {
+      "label": "Handelt es sich um eine private oder öffentliche Quelle?",
+      "hint": "**Platzhalter**: *kw-1-4-privat-offentlich*",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {
+        "options": ["Privat", "Öffentlich"]
+      }
+    },
+    "kw-1-4-nutzungsart": {
+      "label": "Welche Nutzungsart liegt vor?",
+      "hint": "**Platzhalter**: *kw-1-4-nutzungsart*",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'kw-ort'|value == 'Quelle'",
+      "config": {
+        "options": [
+          "Wärmepumpe",
+          "Kühlung",
+          "Wärmepumpe und Kühlung",
+          "Trinkwasser",
+          "Brauchwasser"
+        ]
+      }
+    },
+    "kw-1-4-1-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-entnahmestandort-ruckfuhrung": {
+      "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-ruckfuhrung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-entnahmegewasser-min-temp": {
+      "label": "Minimale Temperatur der Wärmequelle in °C",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-entnahmegewasser-abkuhlung": {
+      "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-abkuhlung*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-entnahmegewasser-min-austritt-temp": {
+      "label": "Minimale Austrittstemperatur in °C",
+      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-austritt-temp*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-baute-art": {
+      "label": "Um was handelt es sich bei der beheizten Baute?",
+      "hint": "**Platzhalter**: *1-4-1-kw-baute-art*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": [
+          "Neubau",
+          "Altbau",
+          "Einfamilienhaus",
+          "Mehrfamilienhaus",
+          "Andere"
+        ]
+      }
+    },
+    "kw-1-4-1-baute-art-andere": {
+      "label": "Welche?",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-art-andere*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
+      "config": {}
+    },
+    "kw-1-4-1-baute-wohneinheiten": {
+      "label": "Wie viele Wohneinheiten sind vorgesehen?",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-wohneinheiten*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-baute-warmebedarf": {
+      "label": "Wie hoch ist der Wärmebedarf in Watt?",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-warmebedarf*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-baute-stockwerkeigentumerschaft": {
+      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft*",
+      "type": "radio",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
+    "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "hint":
+        "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "config": {}
+    },
+    "kw-1-4-1-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-4-1-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-baute-kaltemittel": {
+      "label": "Kältemittel:",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemittel*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {}
+    },
+    "kw-1-4-1-baute-kaltemitteleinfullungen": {
+      "label": "Kältemitteleinfüllung(en) in kg:",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemitteleinfullungen*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-1-baute-leistung-verdampfer": {
+      "label": "Leistung Verdampfer in Watt:",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-leistung-verdampfer*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-2-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-4-2-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-2-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-4-2-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-4-2-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-4-2-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-2-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-4-2-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "config": {}
+    },
+    "kw-1-4-3-zweck-brauchwasser": {
+      "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
+      "hint": "**Platzhalter**: *kw-1-4-3-zweck-brauchwasser*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-4-3-entnahmestandort-gemeinde": {
+      "label": "Gemeinde:",
+      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-gemeinde*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-4-3-entnahmestandort-grundstuck": {
+      "label": "Grundstück-Nr.:",
+      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-grundstuck*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-3-entnahmestandort-koordinaten": {
+      "label": "Koordinaten:",
+      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-koordinaten*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-4-3-entnahmestandort-beschreibung": {
+      "label":
+        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-beschreibung*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {}
+    },
+    "kw-1-4-3-entnahmegewasser-max": {
+      "label": "Vorgesehene maximale Wasserentnahme in l/min",
+      "hint": "**Platzhalter**: *kw-1-4-3-entnahmegewasser-max*",
+      "type": "number",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "config": {
+        "min": 1,
+        "step": 1
+      }
+    },
+    "kw-1-4-3-inbetriebnahme": {
+      "label":
+        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "hint": "**Platzhalter**: *kw-1-4-3-inbetriebnahme*",
+      "type": "text",
+      "required": true,
+      "active-expression":
+        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "pa-gesuchsnr": {
