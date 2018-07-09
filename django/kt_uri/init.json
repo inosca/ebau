@@ -34,6 +34,23 @@
   }
 },
 {
+  "model": "user.user",
+  "pk": 1209,
+  "fields": {
+    "username": "portalUser",
+    "password": "0f10da7320c3fad6c1bd4e597992fb83",
+    "name": "portal",
+    "surname": "person",
+    "email": "",
+    "phone": null,
+    "disabled": 0,
+    "language": "de",
+    "address": null,
+    "city": null,
+    "zip": null
+  }
+},
+{
   "model": "user.role",
   "pk": 1,
   "fields": {
@@ -95,6 +112,15 @@
     "user": 2,
     "group": 2,
     "default_group": 1
+  }
+},
+{
+  "model": "user.usergroup",
+  "pk": 3,
+  "fields": {
+    "user": 1209,
+    "group": 685,
+    "default_group": 685
   }
 }
 ]
