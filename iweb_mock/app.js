@@ -54,8 +54,7 @@ app.post('/hash', (req, res) => {
     authenticate({
       url: `${camacApi}/portal/user/session/resource-id/248`,
       headers: {
-        'X-Auth':
-          '340acc71664cde7b4b6608a29fe7bd717c5a1d5f863054e8f260225fc7e0ad5f',
+        'X-Auth': config.get('secret'),
         'User-Agent': 'foo'
       },
       form: {
