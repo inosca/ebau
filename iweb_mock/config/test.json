@@ -2,6 +2,7 @@
 	"camacUrl": "http://camac-uri.sycloud.ch",
 	"camacApi": "http://camac-uri.sycloud.ch",
 	"base": "/portal-test/",
+	"secret": "thisisjustatestsecretchangeitonprod!1337",
 	"httpAuth": {
 		"user": "paulwalker",
 		"pass": "kantonuri"
