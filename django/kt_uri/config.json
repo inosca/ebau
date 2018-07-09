@@ -36847,7 +36847,7 @@
     "label": "Erstellung von",
     "query": "\"INSTANCE\".\"CREATION_DATE\" >= (TO_DATE(?, 'DD-MM-YY'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
@@ -36860,7 +36860,7 @@
     "label": "Erstellung bis",
     "query": "\"INSTANCE\".\"CREATION_DATE\" <= (TO_DATE(?, 'dd-mm-yy'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
@@ -36873,7 +36873,7 @@
     "label": "Erstellung von",
     "query": "\"INSTANCE\".\"CREATION_DATE\" >= (TO_DATE(?, 'DD-MM-YY'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
@@ -36886,7 +36886,7 @@
     "label": "Erstellung bis",
     "query": "\"INSTANCE\".\"CREATION_DATE\" <= (TO_DATE(?, 'dd-mm-yy'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
@@ -37081,7 +37081,7 @@
     "label": "Erstellung von",
     "query": "\"INSTANCE\".\"CREATION_DATE\" >= (TO_DATE(?, 'DD-MM-YY'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
@@ -37094,7 +37094,7 @@
     "label": "Erstellung bis",
     "query": "\"INSTANCE\".\"CREATION_DATE\" <= (TO_DATE(?, 'dd-mm-yy'))",
     "wildcard": 0,
-    "class_field": ""
+    "class_field": "date"
   }
 },
 {
