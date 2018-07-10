@@ -15047,6 +15047,24 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 441,
+  "fields": {
+    "button": 762,
+    "role": 3,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 442,
+  "fields": {
+    "button": 785,
+    "role": 3,
+    "instance_state": 21
+  }
+},
+{
   "model": "core.bserviceacl",
   "pk": 1,
   "fields": {
@@ -36512,6 +36530,14 @@
   }
 },
 {
+  "model": "core.rroleacl",
+  "pk": 82,
+  "fields": {
+    "resource": 295,
+    "role": 1127
+  }
+},
+{
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
@@ -40368,13 +40394,13 @@
     "question_type": 3,
     "mapping": 1,
     "answer_query": null,
-    "name": "Bewilligungspflichtige Massnahme",
-    "description": "",
-    "javascript": "",
-    "regex": "",
-    "default_answer": "",
-    "class_field": "",
-    "validation": ""
+    "name": "Art der Massnahme",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
   }
 },
 {
@@ -44646,7 +44672,7 @@
     "zip": null,
     "city": null,
     "address": null,
-    "email": null,
+    "email": "lebensmittelinspektorat@laburk.ch",
     "website": null
   }
 },
