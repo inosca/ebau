@@ -3803,7 +3803,7 @@
   "fields": {
     "available_action": "documentemail",
     "button": 827,
-    "name": "Zirkulation starten E-Mail",
+    "name": "Zirkulation starten E-Mail AFJ",
     "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
     "success_message": "E-Mail zum Start der Zirkulation wurde versandt",
     "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
@@ -3822,7 +3822,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -3836,7 +3836,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 4
+    "sort": 5
   }
 },
 {
@@ -3850,7 +3850,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 5
+    "sort": 6
   }
 },
 {
@@ -3873,7 +3873,7 @@
   "fields": {
     "available_action": "documentemail",
     "button": 828,
-    "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+    "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden AFJ",
     "description": null,
     "success_message": null,
     "error_message": null,
@@ -3892,7 +3892,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -4316,6 +4316,34 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 1374,
+  "fields": {
+    "available_action": "documentemail",
+    "button": 827,
+    "name": "Zirkulation starten E-Mail SD",
+    "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 3
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1375,
+  "fields": {
+    "available_action": "documentemail",
+    "button": 828,
+    "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden SD",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
   "model": "core.aemail",
   "pk": 189,
   "fields": {
@@ -4596,7 +4624,7 @@
   "fields": {
     "sender_name": "Camac Info",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0\r\n  and\r\n  252 in (select \"FORM_GROUP_ID\" from \"FORM_GROUP_FORM\" where \"FORM_ID\" = [INSTANCE_FORM_ID])",
     "title": "Zirkulation gestartet",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Forst und Jagd\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 16\r\nTelefax:   041 875 23 28\r\nE-Mail:   sid.afj@ur.ch"
   }
@@ -4607,7 +4635,7 @@
   "fields": {
     "sender_name": "Camac Info",
     "sender_email": "camac@ur.ch",
-    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0\r\n  and\r\n  252 in (select \"FORM_GROUP_ID\" from \"FORM_GROUP_FORM\" where \"FORM_ID\" = [INSTANCE_FORM_ID])",
     "title": "Zirkulation gestartet",
     "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Forst und Jagd\r\n\r\nKlausenstrasse 2\r\n6460 Altdorf\r\n\r\nTelefon:   041 875 23 16\r\nTelefax:   041 875 23 28\r\nE-Mail:   sid.afj@ur.ch"
   }
@@ -4720,6 +4748,28 @@
     "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
     "title": "\u00d6REB Meldung",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Energie\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Energie\nKlausenstrasse 2\n6460 Altdorf\n\nTelefon:   041 875 26 88\nTelefax:   041 875 26 10\nE-Mail:   energie@ur.ch"
+  }
+},
+{
+  "model": "core.aemail",
+  "pk": 1374,
+  "fields": {
+    "sender_name": "Camac Info",
+    "sender_email": "camac@ur.ch",
+    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0\r\n  and\r\n  254 in (select \"FORM_GROUP_ID\" from \"FORM_GROUP_FORM\" where \"FORM_ID\" = [INSTANCE_FORM_ID])",
+    "title": "Zirkulation gestartet",
+    "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Kantonspolizei\r\n\r\nTODO"
+  }
+},
+{
+  "model": "core.aemail",
+  "pk": 1375,
+  "fields": {
+    "sender_name": "Camac Info",
+    "sender_email": "camac@ur.ch",
+    "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0\r\n  and\r\n  254 in (select \"FORM_GROUP_ID\" from \"FORM_GROUP_FORM\" where \"FORM_ID\" = [INSTANCE_FORM_ID])",
+    "title": "Zirkulation gestartet",
+    "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Kantonspolizei\r\n\r\nTODO"
   }
 },
 {
@@ -20130,14 +20180,6 @@
 },
 {
   "model": "core.formgroupform",
-  "pk": 261,
-  "fields": {
-    "form_group": 254,
-    "form": 247
-  }
-},
-{
-  "model": "core.formgroupform",
   "pk": 262,
   "fields": {
     "form_group": 254,
@@ -20166,14 +20208,6 @@
   "fields": {
     "form_group": 255,
     "form": 281
-  }
-},
-{
-  "model": "core.formgroupform",
-  "pk": 266,
-  "fields": {
-    "form_group": 255,
-    "form": 247
   }
 },
 {
@@ -20222,6 +20256,30 @@
   "fields": {
     "form_group": 251,
     "form": 289
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 273,
+  "fields": {
+    "form_group": 254,
+    "form": 291
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 274,
+  "fields": {
+    "form_group": 255,
+    "form": 291
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 275,
+  "fields": {
+    "form_group": 161,
+    "form": 291
   }
 },
 {
@@ -33832,6 +33890,28 @@
   "fields": {
     "page": 41,
     "form": 289,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 122,
+  "fields": {
+    "page": 1,
+    "form": 291,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 123,
+  "fields": {
+    "page": 41,
+    "form": 291,
     "page_form_mode": 4,
     "page_form_group": 1,
     "sort": 1
@@ -49434,6 +49514,15 @@
     "form_state": 1,
     "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
     "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 291,
+  "fields": {
+    "form_state": 1,
+    "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet SD",
+    "description": "KOOR-SD;Koordinationsstelle SD"
   }
 },
 {
