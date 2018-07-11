@@ -1,29 +1,199 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
   {{form.input 'kw-ort'}}
-  {{form.input 'kw-quelle'}}
-  {{form.input 'kw-name'}}
-  {{form.input 'kw-fuhrt-standig'}}
-  {{form.input 'kw-nutzungsart'}}
-  {{form.input 'kw-datum-bewilligung'}}
-  {{form.input 'kw-entnahmestandort-gemeinde'}}
-  {{form.input 'kw-entnahmestandort-grundstuck'}}
-  {{form.input 'kw-entnahmestandort-koordinaten'}}
-  {{form.input 'kw-entnahmestandort-beschreibung'}}
-  {{form.input 'kw-entnahmestandort-ruckfuhrung'}}
-  {{form.input 'kw-entnahmestandort-ruckfuhrung-seetiefe'}}
-  {{form.input 'kw-entnahmegewasser-max'}}
-  {{form.input 'kw-entnahmegewasser-min-temp'}}
-  {{form.input 'kw-entnahmegewasser-abkuhlung'}}
-  {{form.input 'kw-entnahmegewasser-min-austritt-temp'}}
-  {{form.input 'kw-baute-art'}}
-  {{form.input 'kw-baute-art-andere'}}
-  {{form.input 'kw-baute-wohneinheiten'}}
-  {{form.input 'kw-baute-warmebedarf'}}
-  {{form.input 'kw-baute-stockwerkeigentumerschaft'}}
-  {{form.input 'kw-baute-stockwerkeigentumerschaft-bezeichung'}}
-  {{form.input 'kw-baute-kaltemitteleinfullungen'}}
-  {{form.input 'kw-baute-leistung-verdampfer'}}
-  {{form.input 'kw-brauchwasser-zweck'}}
-  {{form.input 'kw-inbetriebnahme'}}
-  {{form.input 'kw-baute-kaltemittel'}}
+  {{form.input 'kw-1-4-privat-offentlich'}}
+  {{form.input 'kw-1-1-nutzungsart'}}
+  {{form.input 'kw-1-2-nutzungsart'}}
+  {{form.input 'kw-1-3-nutzungsart'}}
+  {{form.input 'kw-1-4-nutzungsart'}}
+  {{form.input 'kw-1-1-1-datum-bewilligung'}}
+  {{#form.input 'kw-1-1-1-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-1-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-1-1-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-1-1-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-1-1-entnahmestandort-ruckfuhrung'}}
+  {{#form.input 'kw-1-1-1-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-1-entnahmegewasser-min-temp'}}
+  {{form.input 'kw-1-1-1-entnahmegewasser-abkuhlung'}}
+  {{form.input 'kw-1-1-1-entnahmegewasser-min-austritt-temp'}}
+  {{#form.input 'kw-1-1-1-baute-art'}}
+    <h4>Bitte machen Sie folgende Angaben zur Art der beheizten Baute</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-1-baute-art-andere'}}
+  {{form.input 'kw-1-1-1-baute-wohneinheiten'}}
+  {{form.input 'kw-1-1-1-baute-warmebedarf'}}
+  {{form.input 'kw-1-1-1-baute-stockwerkeigentumerschaft'}}
+  {{form.input 'kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung'}}
+  {{form.input 'kw-1-1-1-inbetriebnahme'}}
+  {{#form.input 'kw-1-1-1-baute-kaltemittel'}}
+    <h4>Geben Sie bitte die folgenden technischen Kenndaten an</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-1-baute-kaltemitteleinfullungen'}}
+  {{form.input 'kw-1-1-1-baute-leistung-verdampfer'}}
+  {{form.input 'kw-1-1-2-datum-bewilligung'}}
+  {{#form.input 'kw-1-1-2-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-2-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-1-2-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-1-2-entnahmestandort-beschreibung'}}
+  {{#form.input 'kw-1-1-2-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-2-inbetriebnahme'}}
+  {{form.input 'kw-1-1-3-datum-bewilligung'}}
+  {{form.input 'kw-1-1-3-zweck-brauchwasser'}}
+  {{#form.input 'kw-1-1-3-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-3-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-1-3-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-1-3-entnahmestandort-beschreibung'}}
+  {{#form.input 'kw-1-1-3-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-1-3-inbetriebnahme'}}
+  {{form.input 'kw-1-2-1-name-gewasser'}}
+  {{form.input 'kw-1-2-1-bach-fuhrt-wasser'}}
+  {{#form.input 'kw-1-2-1-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-1-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-2-1-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-2-1-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-2-1-entnahmestandort-ruckfuhrung'}}
+  {{#form.input 'kw-1-2-1-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-1-entnahmegewasser-min-temp'}}
+  {{form.input 'kw-1-2-1-entnahmegewasser-abkuhlung'}}
+  {{form.input 'kw-1-2-1-entnahmegewasser-min-austritt-temp'}}
+  {{#form.input 'kw-1-2-1-baute-art'}}
+    <h4>Bitte machen Sie folgende Angaben zur Art der beheizten Baute</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-1-baute-warmebedarf'}}
+  {{form.input 'kw-1-2-1-baute-stockwerkeigentumerschaft'}}
+  {{form.input 'kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung'}}
+  {{form.input 'kw-1-2-1-inbetriebnahme'}}
+  {{#form.input 'kw-1-2-1-baute-kaltemittel'}}
+    <h4>Geben Sie bitte die folgenden technischen Kenndaten an</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-1-baute-kaltemitteleinfullungen'}}
+  {{form.input 'kw-1-2-1-baute-leistung-verdampfer'}}
+  {{form.input 'kw-1-2-2-name-gewasser'}}
+  {{form.input 'kw-1-2-2-bach-fuhrt-wasser'}}
+  {{form.input 'kw-1-2-2-zweck-brauchwasser'}}
+  {{#form.input 'kw-1-2-2-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-2-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-2-2-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-2-2-entnahmestandort-beschreibung'}}
+  {{#form.input 'kw-1-2-2-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-2-2-inbetriebnahme'}}
+  {{form.input 'kw-1-3-1-name-see'}}
+  {{#form.input 'kw-1-3-1-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-1-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-3-1-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-3-1-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-3-1-entnahmestandort-ruckfuhrung'}}
+  {{form.input 'kw-1-3-1-entnahmestandort-tiefe'}}
+  {{#form.input 'kw-1-3-1-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-1-entnahmegewasser-min-temp'}}
+  {{form.input 'kw-1-3-1-entnahmegewasser-abkuhlung'}}
+  {{form.input 'kw-1-3-1-entnahmegewasser-ges-austritt-temp'}}
+  {{#form.input 'kw-1-3-1-baute-art'}}
+    <h4>Bitte machen Sie folgende Angaben zur Art der beheizten Baute</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-1-baute-art-andere'}}
+  {{form.input 'kw-1-3-1-baute-wohneinheiten'}}
+  {{form.input 'kw-1-3-1-baute-warmebedarf'}}
+  {{form.input 'kw-1-3-1-baute-stockwerkeigentumerschaft'}}
+  {{form.input 'kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung'}}
+  {{form.input 'kw-1-3-1-inbetriebnahme'}}
+  {{#form.input 'kw-1-3-1-baute-kaltemittel'}}
+    <h4>Geben Sie bitte die folgenden technischen Kenndaten an</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-1-baute-kaltemitteleinfullungen'}}
+  {{form.input 'kw-1-3-1-baute-leistung-verdampfer'}}
+  {{form.input 'kw-1-3-2-name-see'}}
+  {{#form.input 'kw-1-3-2-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-2-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-3-2-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-3-2-entnahmestandort-beschreibung'}}
+  {{#form.input 'kw-1-3-2-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-2-inbetriebnahme'}}
+  {{form.input 'kw-1-3-3-name-see'}}
+  {{form.input 'kw-1-3-3-zweck-brauchwasser'}}
+  {{#form.input 'kw-1-3-3-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-3-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-3-3-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-3-3-entnahmestandort-beschreibung'}}
+  {{#form.input 'kw-1-3-3-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-3-3-inbetriebnahme'}}
+  {{#form.input 'kw-1-4-1-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-1-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-4-1-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-4-1-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-4-1-entnahmestandort-ruckfuhrung'}}
+  {{#form.input 'kw-1-4-1-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-1-entnahmegewasser-min-temp'}}
+  {{form.input 'kw-1-4-1-entnahmegewasser-abkuhlung'}}
+  {{form.input 'kw-1-4-1-entnahmegewasser-min-austritt-temp'}}
+  {{#form.input 'kw-1-4-1-baute-art'}}
+    <h4>Bitte machen Sie folgende Angaben zur Art der beheizten Baute</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-1-baute-art-andere'}}
+  {{form.input 'kw-1-4-1-baute-wohneinheiten'}}
+  {{form.input 'kw-1-4-1-baute-warmebedarf'}}
+  {{form.input 'kw-1-4-1-baute-stockwerkeigentumerschaft'}}
+  {{form.input 'kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung'}}
+  {{form.input 'kw-1-4-1-inbetriebnahme'}}
+  {{#form.input 'kw-1-4-1-baute-kaltemittel'}}
+    <h4>Geben Sie bitte die folgenden technischen Kenndaten an</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-1-baute-kaltemitteleinfullungen'}}
+  {{form.input 'kw-1-4-1-baute-leistung-verdampfer'}}
+  {{#form.input 'kw-1-4-2-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-2-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-4-2-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-4-2-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-4-2-inbetriebnahme'}}
+  {{#form.input 'kw-1-4-2-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-3-zweck-brauchwasser'}}
+  {{#form.input 'kw-1-4-3-entnahmestandort-gemeinde'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahme- und Rückgabestandort</h4>
+  {{/form.input}}
+  {{form.input 'kw-1-4-3-entnahmestandort-grundstuck'}}
+  {{form.input 'kw-1-4-3-entnahmestandort-koordinaten'}}
+  {{form.input 'kw-1-4-3-entnahmestandort-beschreibung'}}
+  {{form.input 'kw-1-4-3-inbetriebnahme'}}
+  {{#form.input 'kw-1-4-3-entnahmegewasser-max'}}
+    <h4>Bitte geben Sie folgende Informationen zum Entnahmegewässer</h4>
+  {{/form.input}}
 {{/camac-form}}
