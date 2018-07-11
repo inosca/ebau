@@ -26,6 +26,7 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
     "projektanderung": [
@@ -68,6 +69,7 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
       "gesuchsunterlagen-ve-va"
     ],
     "vorabklarung": [
@@ -97,6 +99,7 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
     "technische-bewilligung": [
@@ -122,6 +125,7 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
       "gesuchsunterlagen"
     ],
     "konzession-fur-wasserentnahme": [
@@ -167,6 +171,7 @@
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
       "fachthemen.lebensmittel-und-hygienesicherheit",
+      "fachthemen.fischerei",
       "gesuchsunterlagen"
     ]
   },
@@ -500,6 +505,11 @@
       "title": "Lebensmittel- und Hygienesicherheit",
       "parent": "fachthemen",
       "questions": ["lebensmittel-und-hygienesicherheit-info"]
+    },
+    "fachthemen.fischerei": {
+      "title": "Fischerei",
+      "parent": "fachthemen",
+      "questions": ["fischerei-ufervegetation-beeintrachtigt"]
     },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
@@ -954,7 +964,7 @@
       "hint": "**Platzhalter**: *vorhaben-mit-baute*",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Bauten(n)' in 'kategorie-des-vorhabens'|value",
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": [
           "Abbruch / Rückbau",
@@ -2098,7 +2108,7 @@
       "type": "table",
       "required": true,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2138,7 +2148,7 @@
       "type": "table",
       "required": true,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2168,7 +2178,7 @@
       "type": "radio",
       "required": true,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2179,7 +2189,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "(('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja'",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
       "config": {}
     },
     "nlbuaab-nutzflachen-bestehend-1972": {
@@ -2189,7 +2199,7 @@
       "type": "table",
       "required": false,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2239,7 +2249,7 @@
       "type": "table",
       "required": false,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2288,7 +2298,7 @@
       "type": "table",
       "required": false,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2337,7 +2347,7 @@
       "type": "table",
       "required": false,
       "active-expression":
-        "('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)",
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2786,7 +2796,9 @@
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
       "hint": "**Platzhalter**: *arbeitssicherheit-planbesprechung*",
       "type": "radio",
-      "required": false,
+      "required": true,
+      "active-expression":
+        "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2795,7 +2807,9 @@
       "label": "Welche Themenbereiche werden durch Ihr Vorhaben tangiert?",
       "hint": "**Platzhalter**: *arbeitssicherheit-tangiert*",
       "type": "checkbox",
-      "required": false,
+      "required": true,
+      "active-expression":
+        "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
       "config": {
         "options": [
           "Arbeitnehmer",
@@ -2820,7 +2834,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
@@ -2833,7 +2847,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
@@ -2845,7 +2859,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitsräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
@@ -2856,7 +2870,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitsräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
@@ -2869,7 +2883,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitsräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 0
       }
@@ -2881,7 +2895,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Arbeitsräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
@@ -2891,7 +2905,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-lage-treppenhause*",
       "type": "text",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-laufbreite": {
@@ -2899,7 +2914,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-laufbreite*",
       "type": "number",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 0
       }
@@ -2909,7 +2925,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-material*",
       "type": "text",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-fluchtwege": {
@@ -2917,7 +2934,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-fluchtwege*",
       "type": "text",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-arten": {
@@ -2925,7 +2943,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-arten*",
       "type": "text",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-schliessystem": {
@@ -2933,7 +2952,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-schliessystem*",
       "type": "text",
       "required": true,
-      "active-expression": "'Ausgänge' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-luftung-art": {
@@ -2941,7 +2961,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-art*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Künstlich", "Natürlich"]
       }
@@ -2951,7 +2972,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-absaugungen*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2961,7 +2983,8 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-verunreinigte-luft*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Lüftung' in 'arbeitssicherheit-tangiert'|value",
+      "active-expression":
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2973,7 +2996,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Beleuchtung' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung": {
@@ -2983,7 +3006,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Beleuchtung' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-raumklima": {
@@ -2993,7 +3016,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen": {
@@ -3003,7 +3026,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-larm": {
@@ -3013,7 +3036,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-nachweis": {
@@ -3023,7 +3046,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel": {
@@ -3033,7 +3056,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen": {
@@ -3043,7 +3066,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
@@ -3053,7 +3076,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-ergonomie": {
@@ -3063,7 +3086,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung": {
@@ -3073,7 +3096,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung": {
@@ -3083,7 +3106,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung": {
@@ -3093,7 +3116,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen": {
@@ -3103,7 +3126,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung": {
@@ -3113,7 +3136,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-art": {
@@ -3122,7 +3145,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Schweissanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-abschirmung": {
@@ -3132,7 +3155,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Schweissanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-absaugung": {
@@ -3141,7 +3164,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Schweissanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-aufzuge": {
@@ -3150,7 +3173,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-krane": {
@@ -3159,7 +3182,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-hebebuhnen": {
@@ -3168,7 +3191,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-anpassrampen": {
@@ -3177,7 +3200,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-fordereinrichtungen": {
@@ -3187,7 +3210,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-stapeleinrichtungen": {
@@ -3197,7 +3220,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-gefrierraume": {
@@ -3206,7 +3229,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-silos": {
@@ -3215,7 +3238,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-lagersysteme": {
@@ -3224,7 +3247,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-chemikalien": {
@@ -3233,7 +3256,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln": {
@@ -3243,7 +3266,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren": {
@@ -3253,7 +3276,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen": {
@@ -3263,7 +3286,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten": {
@@ -3273,7 +3296,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-anzahl": {
@@ -3282,7 +3305,7 @@
       "type": "number",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
@@ -3294,7 +3317,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-garderoben": {
@@ -3303,7 +3326,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-toiletten-duschen": {
@@ -3313,7 +3336,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-sanitare-anlagen": {
@@ -3323,7 +3346,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume": {
@@ -3333,7 +3356,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-pause-und-ruheraume": {
@@ -3343,7 +3366,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'Sozialräume' in 'arbeitssicherheit-tangiert'|value",
+        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "zivilschutz-schutzraum": {
@@ -3351,8 +3374,7 @@
         "Ist im Bauvorhaben ein der Pflicht ensprechender Schutzraum eingeplant?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
       "type": "radio",
-      "required": true,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3361,8 +3383,7 @@
       "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
       "hint": "**Platzhalter**: *zivilschutz-elementarschaden*",
       "type": "radio",
-      "required": true,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3372,8 +3393,7 @@
         "Wird für das Bauvorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
       "hint": "**Platzhalter**: *zivilschutz-dispens-schutzraumbau*",
       "type": "radio",
-      "required": true,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3383,9 +3403,7 @@
         "Befindet sich im Bereich des Bauvorhabens ein bestehender Schutzraum?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-bestehend*",
       "type": "radio",
-      "required": true,
-      "active-expression":
-        "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3394,9 +3412,7 @@
       "label": "Ist eine Schutzraumaufhebung vorgesehen?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraumaufhebung*",
       "type": "radio",
-      "required": true,
-      "active-expression":
-        "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3405,9 +3421,7 @@
       "label": "Sind Grundbucheinträge betreffend Schutzraum vorhanden?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-grundbucheintrag*",
       "type": "radio",
-      "required": true,
-      "active-expression":
-        "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "required": false,
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3416,9 +3430,8 @@
       "label": "Bitte geben Sie die kantonale Schutzraum-Nr. an:",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr*",
       "type": "number",
-      "required": true,
-      "active-expression":
-        "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value && 'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
+      "required": false,
+      "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
       "config": {}
     },
     "zivilschutz-schutzraum-nr-nicht-bekannt": {
@@ -3427,8 +3440,7 @@
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr-nicht-bekannt*",
       "type": "text",
       "required": false,
-      "active-expression":
-        "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value && 'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
+      "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
       "config": {}
     },
     "brandschutz-gefahrengut": {
@@ -3857,6 +3869,16 @@
         "options": ["Erledigt"]
       }
     },
+    "fischerei-ufervegetation-beeintrachtigt": {
+      "label":
+        "Wird durch Ihr Vorhaben Ufervegetation permanent beeinträchtigt?",
+      "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt*",
+      "type": "radio",
+      "required": false,
+      "config": {
+        "options": ["Ja", "Nein"]
+      }
+    },
     "dokument-parzelle": {
       "label": "Parzelle",
       "hint": "**Platzhalter**: *dokument-parzelle*",
@@ -3929,11 +3951,44 @@
         "'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {}
     },
-    "dokument-entwasserungsplankanalisationsplan": {
+    "dokument-entwasserungsplankanalisationsplan-d11-1": {
       "label": "Entwässerungsplan / Kanalisationsplan",
-      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan*",
+      "hint":
+        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-1*",
       "type": "document",
-      "required": false,
+      "required": true,
+      "active-expression":
+        "('Neubau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value) || (('Neubau' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) && ('Befestigte Fläche' in 'art-der-anlage'|value || 'Abwasserentsorgung' in 'zweck-der-leitungen'|value))",
+      "config": {}
+    },
+    "dokument-entwasserungsplankanalisationsplan-d11-2-1": {
+      "label": "Entwässerungsplan / Kanalisationsplan",
+      "hint":
+        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-1*",
+      "type": "document",
+      "required": true,
+      "active-expression":
+        "'Ja' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
+      "config": {}
+    },
+    "dokument-entwasserungsplankanalisationsplan-d11-2-2": {
+      "label": "Entwässerungsplan / Kanalisationsplan",
+      "hint":
+        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-2*",
+      "type": "document",
+      "required": true,
+      "active-expression":
+        "'Nein' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
+      "config": {}
+    },
+    "dokument-entwasserungsplankanalisationsplan-d11-3": {
+      "label": "Entwässerungsplan / Kanalisationsplan",
+      "hint":
+        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-3*",
+      "type": "document",
+      "required": true,
+      "active-expression":
+        "('Baute(n)' in 'kategorie-des-vorhabens'|value) || ('Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) || ('Befestigte Fläche' in 'art-der-anlage'|value) || ('Ver- / Entsorgungsleitung' in 'art-der-anlage'|value) || ('Abfallanlage, Deponie' in 'art-der-anlage'|value) || ('Wohnen' in 'art-der-nutzung'|value && 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
       "config": {}
     },
     "dokument-plan-mit-dachaufsicht-inkl-solaranlage": {
@@ -4232,6 +4287,8 @@
         "**Platzhalter**: *dokument-nachweis-der-abstellflachenparkierung*",
       "type": "document",
       "required": true,
+      "active-expression":
+        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Landwirtschaft' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
       "config": {}
     },
     "dokument-pfahlfundationsplan": {
@@ -4282,6 +4339,8 @@
         "**Platzhalter**: *dokument-material-und-farbkonzept-bestehend-und-neu*",
       "type": "document",
       "required": false,
+      "active-expression":
+        "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value",
       "config": {}
     },
     "dokument-formular-des-cercle-bruit": {
