@@ -1,5 +1,7 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'grundwasser-warmeentnahme-art'}}
+  {{#form.input 'grundwasser-warmeentnahme-art'}}
+    <h4>Grundwasser</h4>
+  {{/form.input}}
   {{form.input 'grundwasser-verwendungszweck'}}
   {{form.input 'grundwasser-geologe'}}
   {{form.input 'grundwasser-bohrfirma'}}
@@ -26,5 +28,7 @@
   {{form.input 'grundwasser-sondierbohrung-bohrfirma'}}
   {{form.input 'grundwasser-sondierbohrung-geologe'}}
   {{form.input 'grundwasser-sondierbohrung-entsorgung'}}
-  {{form.input 'grundwasser-deponien'}}
+  {{#form.input 'grundwasser-deponien'}}
+    <h4>Deponien</h4>
+  {{/form.input}}
 {{/camac-form}}

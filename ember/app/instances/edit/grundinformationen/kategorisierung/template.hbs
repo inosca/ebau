@@ -1,6 +1,10 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
-  {{form.input 'kategorie-des-vorhabens'}}
-  {{form.input 'art-der-nutzung'}}
+  {{#form.input 'kategorie-des-vorhabens'}}
+    <h4>Kategorisierung des Vorhabens</h4>
+  {{/form.input}}
+  {{#form.input 'art-der-nutzung'}}
+    <h4>Vorgesehene Nutzung</h4>
+  {{/form.input}}
   {{form.input 'vorhaben-mit-baute'}}
   {{form.input 'vorhaben-mit-anlage'}}
   {{form.input 'art-der-anlage'}}
@@ -10,7 +14,9 @@
   {{form.input 'zweck-der-leitungen'}}
   {{form.input 'zweck-der-leitungen-andere'}}
   {{form.input 'art-der-warmepumpe'}}
-  {{form.input 'tangiert-vorhaben-strasse'}}
+  {{#form.input 'tangiert-vorhaben-strasse'}}
+    <h4>Kategorisierung des Bauvorhabens</h4>
+  {{/form.input}}
   {{form.input 'pfahlfundation-vorgesehen'}}
   {{form.input 'baugrubenumschliessung-vorgesehen'}}
   {{form.input 'temporare-grundwasserabsenkung-notig'}}
