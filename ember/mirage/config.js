@@ -14,7 +14,7 @@ export default function() {
   this.post(tokenEndpoint, () => {
     let tokenBody = btoa(
       JSON.stringify({
-        exp: Math.round(new Date().getTime() + 30 * 60 * 1000 / 1000)
+        exp: Math.round(new Date().getTime() + (30 * 60 * 1000) / 1000)
       })
     )
 

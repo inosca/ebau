@@ -4,7 +4,7 @@ import { computed } from '@ember/object'
 import { inject as service } from '@ember/service'
 import Configuration from 'ember-simple-auth/configuration'
 import config from '../config/environment'
-import v4 from 'npm:uuid/v4'
+import v4 from 'uuid/v4'
 import { assert } from '@ember/debug'
 
 const { authEndpoint, clientId } = config['ember-simple-auth-oidc']
