@@ -4107,20 +4107,6 @@
 },
 {
   "model": "core.action",
-  "pk": 1359,
-  "fields": {
-    "available_action": "email",
-    "button": 916,
-    "name": "\u00d6REB Meldung",
-    "description": "",
-    "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-    "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
   "pk": 1360,
   "fields": {
     "available_action": "email",
@@ -4219,20 +4205,6 @@
 },
 {
   "model": "core.action",
-  "pk": 1367,
-  "fields": {
-    "available_action": "workflow",
-    "button": 916,
-    "name": "\u00d6REB Workflow-Datum setzen",
-    "description": "",
-    "success_message": "",
-    "error_message": "",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
   "pk": 1368,
   "fields": {
     "available_action": "workflow",
@@ -4257,34 +4229,6 @@
     "error_message": "",
     "execute_always": 0,
     "sort": 3
-  }
-},
-{
-  "model": "core.action",
-  "pk": 1370,
-  "fields": {
-    "available_action": "email",
-    "button": 918,
-    "name": "E-Mail an Lisag",
-    "description": "",
-    "success_message": "Ein E-Mail mit der \u00d6REB Meldung wurde versendet.",
-    "error_message": "Das E-Mail mit der \u00d6REB Meldung konnte nicht versendet werden.",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 1371,
-  "fields": {
-    "available_action": "workflow",
-    "button": 918,
-    "name": "\u00d6REB Workflow-Datum setzen",
-    "description": "",
-    "success_message": "",
-    "error_message": "",
-    "execute_always": 0,
-    "sort": 1
   }
 },
 {
@@ -4708,17 +4652,6 @@
 },
 {
   "model": "core.aemail",
-  "pk": 1359,
-  "fields": {
-    "sender_name": "CAMAC - Kanton Uri",
-    "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
-    "title": "\u00d6REB Meldung",
-    "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Landwirtschaft\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Landwirtschaft\nKlausenstrasse 4\n6460 Altdorf\n\nTel. 041 875 23 00\nE-Mail: ala.vd@ur.ch"
-  }
-},
-{
-  "model": "core.aemail",
   "pk": 1360,
   "fields": {
     "sender_name": "CAMAC - Kanton Uri",
@@ -4737,17 +4670,6 @@
     "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
     "title": "Zirkulation abgeschlossen",
     "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\nStatusmeldung zum Stand des Bewilligungsverfahrens\nZIRKULATION ABGESCHLOSSEN\n\nSehr geehrte Dame\nSehr geehrter Herr\n\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 14 Tage.\n\nAmt f\u00fcr Raumentwicklung\nKoordinationsstelle f\u00fcr Baueingaben\nRathausplatz 5\n6460 Altdorf\n\nTel. 041 875 24 29\nE-Mail: raumplanung@ur.ch"
-  }
-},
-{
-  "model": "core.aemail",
-  "pk": 1370,
-  "fields": {
-    "sender_name": "CAMAC - Kanton Uri",
-    "sender_email": "camac@ur.ch",
-    "query": "SELECT \"EMAIL\", \"NAME\"\nFROM \"GROUP\"\nWHERE \"NAME\" = 'Lisag'",
-    "title": "\u00d6REB Meldung",
-    "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\n\n\u00d6REB MELDUNG\nZugewiesen von der Koordinationsstelle Amt f\u00fcr Energie\n\nSehr geehrte Dame \nSehr geehrter Herr\n\nBetreffend das CAMAC Dossier Nr. [@c2q6i1] hat die zust\u00e4ndige Stelle \u00d6REB relevante Daten erfasst und entsprechnede Dokumente hochgeladen. Wir bitten Sie, diese Daten im erw\u00e4hnten CAMAC Dossier einzusehen und die entsprechenden Eintr\u00e4ge im \u00d6REB vorzunehmen.\n\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\n\nAmt f\u00fcr Energie\nKlausenstrasse 2\n6460 Altdorf\n\nTelefon:   041 875 26 88\nTelefax:   041 875 26 10\nE-Mail:   energie@ur.ch"
   }
 },
 {
@@ -12816,15 +12738,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 193,
-  "fields": {
-    "button": 916,
-    "role": 1107,
-    "instance_state": 21
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 194,
   "fields": {
     "button": 784,
@@ -13010,15 +12923,6 @@
     "button": 874,
     "role": 1061,
     "instance_state": 26
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 215,
-  "fields": {
-    "button": 916,
-    "role": 1107,
-    "instance_state": 22
   }
 },
 {
@@ -13491,15 +13395,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 268,
-  "fields": {
-    "button": 916,
-    "role": 1107,
-    "instance_state": 23
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 269,
   "fields": {
     "button": 795,
@@ -13549,15 +13444,6 @@
   "fields": {
     "button": 812,
     "role": 1127,
-    "instance_state": 26
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 275,
-  "fields": {
-    "button": 916,
-    "role": 1107,
     "instance_state": 26
   }
 },
@@ -14472,15 +14358,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 377,
-  "fields": {
-    "button": 916,
-    "role": 1107,
-    "instance_state": 25
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 378,
   "fields": {
     "button": 834,
@@ -14522,15 +14399,6 @@
     "button": 783,
     "role": 1106,
     "instance_state": 26
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 383,
-  "fields": {
-    "button": 916,
-    "role": 1107,
-    "instance_state": 24
   }
 },
 {
@@ -14598,15 +14466,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 391,
-  "fields": {
-    "button": 918,
-    "role": 1127,
-    "instance_state": 22
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 392,
   "fields": {
     "button": 797,
@@ -14666,42 +14525,6 @@
     "button": 692,
     "role": 1101,
     "instance_state": 22
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 399,
-  "fields": {
-    "button": 918,
-    "role": 1127,
-    "instance_state": 26
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 400,
-  "fields": {
-    "button": 918,
-    "role": 1127,
-    "instance_state": 25
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 401,
-  "fields": {
-    "button": 918,
-    "role": 1127,
-    "instance_state": 23
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 402,
-  "fields": {
-    "button": 918,
-    "role": 1127,
-    "instance_state": 24
   }
 },
 {
@@ -14799,60 +14622,6 @@
   "pk": 413,
   "fields": {
     "button": 825,
-    "role": 1129,
-    "instance_state": 26
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 414,
-  "fields": {
-    "button": 914,
-    "role": 1129,
-    "instance_state": 21
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 415,
-  "fields": {
-    "button": 914,
-    "role": 1129,
-    "instance_state": 22
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 416,
-  "fields": {
-    "button": 914,
-    "role": 1129,
-    "instance_state": 23
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 417,
-  "fields": {
-    "button": 914,
-    "role": 1129,
-    "instance_state": 24
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 418,
-  "fields": {
-    "button": 914,
-    "role": 1129,
-    "instance_state": 25
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 419,
-  "fields": {
-    "button": 914,
     "role": 1129,
     "instance_state": 26
   }
@@ -16980,18 +16749,6 @@
 },
 {
   "model": "core.button",
-  "pk": 916,
-  "fields": {
-    "instance_resource": 714,
-    "name": "\u00d6REB Meldung",
-    "description": "",
-    "class_field": "oereb",
-    "hidden": 0,
-    "sort": 4
-  }
-},
-{
-  "model": "core.button",
   "pk": 917,
   "fields": {
     "instance_resource": 605,
@@ -17000,18 +16757,6 @@
     "class_field": "oereb",
     "hidden": 0,
     "sort": 5
-  }
-},
-{
-  "model": "core.button",
-  "pk": 918,
-  "fields": {
-    "instance_resource": 723,
-    "name": "\u00d6REB Meldung",
-    "description": "",
-    "class_field": "",
-    "hidden": 0,
-    "sort": 4
   }
 },
 {
@@ -37866,23 +37611,7 @@
 },
 {
   "model": "core.workflowaction",
-  "pk": 1367,
-  "fields": {
-    "workflow_item": 80,
-    "multi_value": 2
-  }
-},
-{
-  "model": "core.workflowaction",
   "pk": 1368,
-  "fields": {
-    "workflow_item": 80,
-    "multi_value": 2
-  }
-},
-{
-  "model": "core.workflowaction",
-  "pk": 1371,
   "fields": {
     "workflow_item": 80,
     "multi_value": 2
