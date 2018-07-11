@@ -3507,7 +3507,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-bohrfirma": {
@@ -3516,7 +3516,7 @@
       "type": "text",
       "required": true,
       "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-verwendungszweck": {
