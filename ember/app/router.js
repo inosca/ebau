@@ -51,6 +51,7 @@ Router.map(function() {
           this.route('grundwasser-und-altlasten')
           this.route('reklamen')
           this.route('lebensmittel-und-hygienesicherheit')
+          this.route('fischerei')
         })
         this.route('gesuchsunterlagen')
         this.route('gesuchsunterlagen-ve-va')
