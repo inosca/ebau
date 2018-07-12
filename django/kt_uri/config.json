@@ -14922,6 +14922,15 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 444,
+  "fields": {
+    "button": 150,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
   "model": "core.bserviceacl",
   "pk": 1,
   "fields": {
@@ -21327,9 +21336,9 @@
     "available_instance_resource": "buildingauthority",
     "resource": 301,
     "name": "Bauverwaltung",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 13,
     "form_group": 161
@@ -32217,6 +32226,60 @@
     "instance_resource": 752,
     "role": 1129,
     "instance_state": 26
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 804,
+  "fields": {
+    "instance_resource": 245,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 805,
+  "fields": {
+    "instance_resource": 46,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 807,
+  "fields": {
+    "instance_resource": 265,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 808,
+  "fields": {
+    "instance_resource": 405,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 809,
+  "fields": {
+    "instance_resource": 685,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 810,
+  "fields": {
+    "instance_resource": 692,
+    "role": 6,
+    "instance_state": 32
   }
 },
 {
