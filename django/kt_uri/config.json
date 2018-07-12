@@ -9704,6 +9704,27 @@
   }
 },
 {
+  "model": "core.authority",
+  "pk": 89,
+  "fields": {
+    "name": "VBS"
+  }
+},
+{
+  "model": "core.authority",
+  "pk": 90,
+  "fields": {
+    "name": "Amt f\u00fcr Kantonspolizei"
+  }
+},
+{
+  "model": "core.authority",
+  "pk": 91,
+  "fields": {
+    "name": "Bundesamt f\u00fcr Strassen (ASTRA)"
+  }
+},
+{
   "model": "core.authorityauthoritytype",
   "pk": 1,
   "fields": {
@@ -10237,6 +10258,30 @@
   "fields": {
     "authority": 74,
     "authority_type": 2
+  }
+},
+{
+  "model": "core.authorityauthoritytype",
+  "pk": 68,
+  "fields": {
+    "authority": 89,
+    "authority_type": 1
+  }
+},
+{
+  "model": "core.authorityauthoritytype",
+  "pk": 69,
+  "fields": {
+    "authority": 90,
+    "authority_type": 1
+  }
+},
+{
+  "model": "core.authorityauthoritytype",
+  "pk": 70,
+  "fields": {
+    "authority": 91,
+    "authority_type": 1
   }
 },
 {
