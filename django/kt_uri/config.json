@@ -35365,9 +35365,9 @@
   "fields": {
     "available_resource": "simplelist",
     "name": "Pendenzenliste Baubewilligung erteilt",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 25
   }
@@ -37424,7 +37424,7 @@
   "model": "core.rsimplelist",
   "pk": 300,
   "fields": {
-    "instance_states": "21,25"
+    "instance_states": "21,32,25"
   }
 },
 {
