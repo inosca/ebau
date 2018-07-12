@@ -35046,7 +35046,7 @@
     "template": "/global/home.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 28
+    "sort": 30
   }
 },
 {
@@ -35059,7 +35059,7 @@
     "template": "/global/search.phtml",
     "class_field": null,
     "hidden": 0,
-    "sort": 26
+    "sort": 27
   }
 },
 {
@@ -35072,7 +35072,7 @@
     "template": "/buildom/search.phtml",
     "class_field": "",
     "hidden": 1,
-    "sort": 25
+    "sort": 26
   }
 },
 {
@@ -35098,7 +35098,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 29
+    "sort": 31
   }
 },
 {
@@ -35124,7 +35124,7 @@
     "template": "/portal/create.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 30
+    "sort": 32
   }
 },
 {
@@ -35137,7 +35137,7 @@
     "template": "/list/circ-list.phtml",
     "class_field": "show_list_count",
     "hidden": 0,
-    "sort": 21
+    "sort": 22
   }
 },
 {
@@ -35163,7 +35163,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 18
+    "sort": 19
   }
 },
 {
@@ -35189,7 +35189,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 20
+    "sort": 21
   }
 },
 {
@@ -35228,7 +35228,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 17
+    "sort": 18
   }
 },
 {
@@ -35241,7 +35241,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 22
+    "sort": 23
   }
 },
 {
@@ -35254,7 +35254,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 23
+    "sort": 24
   }
 },
 {
@@ -35306,7 +35306,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 24
+    "sort": 25
   }
 },
 {
@@ -35384,7 +35384,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 19
+    "sort": 20
   }
 },
 {
@@ -35436,7 +35436,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 27
+    "sort": 28
   }
 },
 {
@@ -35449,7 +35449,20 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 28
+    "sort": 29
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 313,
+  "fields": {
+    "available_resource": "simplelist",
+    "name": "Pendenzenliste Gemeinde",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 17
   }
 },
 {
@@ -36421,6 +36434,14 @@
   "fields": {
     "resource": 295,
     "role": 1127
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 83,
+  "fields": {
+    "resource": 313,
+    "role": 6
   }
 },
 {
@@ -37404,6 +37425,13 @@
   "pk": 310,
   "fields": {
     "instance_states": "24,25,26"
+  }
+},
+{
+  "model": "core.rsimplelist",
+  "pk": 313,
+  "fields": {
+    "instance_states": "32"
   }
 },
 {
