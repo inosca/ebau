@@ -4288,6 +4288,34 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 1377,
+  "fields": {
+    "available_action": "save",
+    "button": 921,
+    "name": "Speichern",
+    "description": null,
+    "success_message": "Dossier gespeichert.",
+    "error_message": "Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1378,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 921,
+    "name": "Freigeben an Gemeinde COMM - EXT_GEM",
+    "description": null,
+    "success_message": "Dossier erfolgreich freigegeben.",
+    "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.aemail",
   "pk": 189,
   "fields": {
@@ -5156,6 +5184,14 @@
   "fields": {
     "current_instance_state": null,
     "next_instance_state": 23
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 1378,
+  "fields": {
+    "current_instance_state": 21,
+    "next_instance_state": 32
   }
 },
 {
@@ -14877,6 +14913,15 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 443,
+  "fields": {
+    "button": 921,
+    "role": 6,
+    "instance_state": 21
+  }
+},
+{
   "model": "core.bserviceacl",
   "pk": 1,
   "fields": {
@@ -15191,7 +15236,7 @@
     "description": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -15203,7 +15248,7 @@
     "description": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -16822,6 +16867,18 @@
     "name": "Rechnung Baubegleitung",
     "description": null,
     "class_field": "downloady",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 921,
+  "fields": {
+    "instance_resource": 245,
+    "name": "Freigeben f\u00fcr Gemeinde",
+    "description": null,
+    "class_field": "release",
     "hidden": 0,
     "sort": 1
   }
