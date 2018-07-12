@@ -15055,8 +15055,8 @@
   "pk": 4,
   "fields": {
     "instance_resource": 2,
-    "name": "Freigeben",
-    "description": "",
+    "name": "Freigeben f\u00fcr Koordinationsstelle",
+    "description": null,
     "class_field": "release",
     "hidden": 0,
     "sort": 1
@@ -15523,8 +15523,8 @@
   "pk": 470,
   "fields": {
     "instance_resource": 490,
-    "name": "Freigeben",
-    "description": "",
+    "name": "Freigeben f\u00fcr Koordinationsstelle",
+    "description": null,
     "class_field": "release",
     "hidden": 0,
     "sort": 1
