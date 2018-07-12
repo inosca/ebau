@@ -43358,13 +43358,13 @@
   "fields": {
     "role": 1061,
     "service": 87,
-    "name": "KOOR - ARE - NP Koordination Nutzungsplanung",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "name": "KOOR - ARE - NP Koordinationsstelle Nutzungsplanung",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -45548,13 +45548,13 @@
   "fields": {
     "role": 1107,
     "service": 525,
-    "name": "KOOR - ALA - Koordinationsstelle f\u00fcr Landwirtschaft",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "name": "KOOR - ALA - Koordinationsstelle Amt f\u00fcr Landwirtschaft",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -45848,7 +45848,7 @@
   "fields": {
     "role": 1129,
     "service": 590,
-    "name": "KOOR - SD - Koordinationsstelle Amt f\u00fcr Kantonspolizei",
+    "name": "KOOR - SD - Koordinationsstelle Amt f\u00fcr Kantonspolizei (BVP)",
     "phone": null,
     "zip": null,
     "city": null,
@@ -46359,7 +46359,7 @@
   "pk": 1129,
   "fields": {
     "role_parent": null,
-    "name": "Koordinationsstelle SD"
+    "name": "Koordinationsstelle Sicherheitsdirektion SD"
   }
 },
 {
