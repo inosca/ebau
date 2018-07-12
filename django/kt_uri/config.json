@@ -1293,20 +1293,6 @@
 },
 {
   "model": "core.action",
-  "pk": 770,
-  "fields": {
-    "available_action": "pageredirect",
-    "button": 153,
-    "name": "Zur\u00fcck zu Dossier bearbeiten",
-    "description": "",
-    "success_message": "",
-    "error_message": "",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
   "pk": 790,
   "fields": {
     "available_action": "docx",
@@ -4285,6 +4271,20 @@
     "error_message": null,
     "execute_always": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1376,
+  "fields": {
+    "available_action": "php",
+    "button": 153,
+    "name": "Zur\u00fcck zum Dossier",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
   }
 },
 {
@@ -8349,15 +8349,6 @@
 },
 {
   "model": "core.apageredirect",
-  "pk": 770,
-  "fields": {
-    "resource": 301,
-    "instance_resource": 2,
-    "air_action_name": "edit-page"
-  }
-},
-{
-  "model": "core.apageredirect",
   "pk": 976,
   "fields": {
     "resource": 264,
@@ -8757,6 +8748,13 @@
   "pk": 1295,
   "fields": {
     "php_class": "DossierNR"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 1374,
+  "fields": {
+    "php_class": "RedirectToInstance"
   }
 },
 {
@@ -20088,6 +20086,86 @@
   "fields": {
     "form_group": 161,
     "form": 291
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 276,
+  "fields": {
+    "form_group": 161,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 277,
+  "fields": {
+    "form_group": 30,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 278,
+  "fields": {
+    "form_group": 31,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 279,
+  "fields": {
+    "form_group": 81,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 280,
+  "fields": {
+    "form_group": 181,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 281,
+  "fields": {
+    "form_group": 221,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 282,
+  "fields": {
+    "form_group": 245,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 283,
+  "fields": {
+    "form_group": 246,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 284,
+  "fields": {
+    "form_group": 247,
+    "form": 290
+  }
+},
+{
+  "model": "core.formgroupform",
+  "pk": 285,
+  "fields": {
+    "form_group": 248,
+    "form": 290
   }
 },
 {
@@ -33651,6 +33729,39 @@
     "page_form_mode": 4,
     "page_form_group": 1,
     "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 124,
+  "fields": {
+    "page": 1,
+    "form": 290,
+    "page_form_mode": 3,
+    "page_form_group": 1,
+    "sort": 0
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 125,
+  "fields": {
+    "page": 41,
+    "form": 290,
+    "page_form_mode": 4,
+    "page_form_group": 1,
+    "sort": 1
+  }
+},
+{
+  "model": "core.pageform",
+  "pk": 126,
+  "fields": {
+    "page": 83,
+    "form": 290,
+    "page_form_mode": 1,
+    "page_form_group": 1,
+    "sort": 2
   }
 },
 {
@@ -49328,6 +49439,15 @@
     "form_state": 1,
     "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
     "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 290,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung Vorhaben",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
