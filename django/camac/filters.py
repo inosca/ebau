@@ -1,5 +1,6 @@
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
+from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import (BaseInFilter, CharFilter,
                                            NumberFilter)
 
@@ -13,6 +14,9 @@ class BaseMultiValueFilter(BaseInFilter):
     """
 
     def filter(self, qs, value):
+        if value in EMPTY_VALUES:
+            return qs
+
         lookup = self.lookup_expr
         if lookup == 'in':
             return super().filter(qs, value)

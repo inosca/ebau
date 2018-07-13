@@ -5,7 +5,7 @@ from django.db.models import OuterRef, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
 from rest_framework import response, viewsets
-from rest_framework.decorators import detail_route, list_route
+from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
@@ -52,7 +52,7 @@ class InstanceView(mixins.InstanceQuerysetMixin,
     instance_editable_permission = 'form'
 
     serializer_class = serializers.InstanceSerializer
-    filter_class = filters.InstanceFilterSet
+    filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
     prefetch_for_includes = {
         'circulations': [
@@ -89,7 +89,7 @@ class InstanceView(mixins.InstanceQuerysetMixin,
             instance.instance_state.name == 'new'
         )
 
-    @list_route(methods=['get'])
+    @action(methods=['get'], detail=False)
     def export(self, request):
         """Export filtered instances to given file format."""
         fields_queryset = models.FormField.objects.filter(
@@ -132,8 +132,9 @@ class InstanceView(mixins.InstanceQuerysetMixin,
             sheet, file_type='xlsx', file_name='list.xlsx'
         )
 
-    @detail_route(
+    @action(
         methods=['post'],
+        detail=True,
         serializer_class=serializers.InstanceSubmitSerializer,
     )
     @transaction.atomic
@@ -192,7 +193,7 @@ class InstanceResponsibilityView(mixins.InstanceQuerysetMixin,
                                  views.ModelViewSet):
 
     serializer_class = serializers.InstanceResponsibilitySerializer
-    filter_class = filters.InstanceResponsibilityFilterSet
+    filterset_class = filters.InstanceResponsibilityFilterSet
     queryset = models.InstanceResponsibility.objects.all()
 
     def get_base_queryset(self):
@@ -256,6 +257,6 @@ class FormFieldView(mixins.InstanceQuerysetMixin,
     """
 
     serializer_class = serializers.FormFieldSerializer
-    filter_class = filters.FormFieldFilterSet
+    filterset_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
     instance_editable_permission = 'form'
