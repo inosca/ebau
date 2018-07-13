@@ -1,26 +1,21 @@
-django==1.11.13 # pyup: >=1.11,<1.12
+django==1.11.14 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
-django-environ==0.4.4
-django-filter==1.1.0
-djangorestframework==3.7.7
-
-# use upstream again release once following PRs are released:
-# https://github.com/django-json-api/django-rest-framework-json-api/pull/415
-# https://github.com/django-json-api/django-rest-framework-json-api/pull/420
-git+https://github.com/adfinis-forks/django-rest-framework-json-api@json_api_field_names
-
-docxtpl==0.4.11
+django-environ==0.4.5
+django-filter==2.0.0
+djangorestframework==3.8.2
+djangorestframework-jsonapi==2.5.0
+docxtpl==0.4.13
 Jinja2==2.10
-Pillow==5.1.0
+Pillow==5.2.0
 pyexcel-webio==0.1.4
 pyexcel-io==0.5.7
 django-excel==0.0.10
 pyexcel-xlsx==0.5.6
-psycopg2-binary==2.7.4
+psycopg2-binary==2.7.5
 python-keycloak==0.12.0
 python-memcached==1.59
 sorl-thumbnail==12.4.1
-uwsgi==2.0.17
+uwsgi==2.0.17.1
 django-reversion==2.0.13
 pyjexl==0.2.3
 

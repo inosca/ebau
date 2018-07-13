@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, parsers, viewsets
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
@@ -24,7 +24,7 @@ class AttachmentView(InstanceEditableMixin,
                      views.ModelViewSet):
     queryset = models.Attachment.objects
     serializer_class = serializers.AttachmentSerializer
-    filter_class = filters.AttachmentFilterSet
+    filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = 'document'
     parser_classes = (
         parsers.MultiPartParser,
@@ -59,7 +59,7 @@ class AttachmentView(InstanceEditableMixin,
         delete(instance.path)
         super().perform_destroy(instance)
 
-    @detail_route(methods=['get'])
+    @action(methods=['get'], detail=True)
     def thumbnail(self, request, pk=None):
         attachment = self.get_object()
         path = attachment.path
@@ -122,8 +122,9 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
     def get_queryset_for_municipality(self):
         return models.Template.objects.all()
 
-    @detail_route(
+    @action(
         methods=['get'],
+        detail=True,
         serializer_class=InstanceMergeSerializer,
     )
     def merge(self, request, pk=None):

@@ -2531,7 +2531,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Mi
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>05.06.2018</w:t>
+            <w:t>06.06.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>

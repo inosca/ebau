@@ -9,7 +9,8 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import \
     NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
-from camac.user.relations import GroupFormDataResourceRelatedField
+from camac.user.relations import (CurrentUserFormDataResourceRelatedField,
+                                  GroupFormDataResourceRelatedField)
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
@@ -46,9 +47,7 @@ class AttachmentSectionDefault(object):
 class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     serializer_related_field = FormDataResourceRelatedField
 
-    user = FormDataResourceRelatedField(
-        read_only=True, default=serializers.CurrentUserDefault()
-    )
+    user = CurrentUserFormDataResourceRelatedField()
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
     attachment_section = FormDataResourceRelatedField(
         queryset=models.AttachmentSection.objects.all(),
