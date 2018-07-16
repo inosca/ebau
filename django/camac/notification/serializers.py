@@ -53,7 +53,7 @@ class BillingEntryMergeSerializer(serializers.Serializer):
         return billing_entry.billing_account.account_number
 
 
-class InstanceMergeSerializer(serializers.Serializer):
+class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     """Converts instance into a dict to be used with template merging."""
 
     # TODO: document.Template and notification.NotificationTemplate should

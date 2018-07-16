@@ -40,6 +40,55 @@ def test_template_detail(admin_client, template):
     assert response.status_code == status.HTTP_200_OK
 
 
+@pytest.mark.parametrize("role__name,status_code,template_path", [
+    ('Canton', status.HTTP_201_CREATED, 'template.docx'),
+    ('Canton', status.HTTP_400_BAD_REQUEST, 'multiple-pages.pdf'),
+    ('Municipality', status.HTTP_201_CREATED, 'template.docx'),
+    ('Service', status.HTTP_201_CREATED, 'template.docx'),
+    ('Applicant', status.HTTP_403_FORBIDDEN, 'template.docx'),
+])
+def test_template_create(admin_client, status_code, group, template_path):
+    url = reverse('template-list')
+
+    path = django_file(template_path)
+    data = {
+        'name': 'test',
+        'path': path.file,
+        'group': group.pk,
+    }
+    response = admin_client.post(url, data=data, format='multipart')
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name,status_code", [
+    ('Canton', status.HTTP_200_OK),
+    ('Municipality', status.HTTP_200_OK),
+    ('Service', status.HTTP_200_OK),
+    ('Applicant', status.HTTP_404_NOT_FOUND),
+])
+def test_template_update(admin_client, template, status_code):
+    url = reverse('template-detail', args=[template.pk])
+
+    data = {
+        'name': 'new',
+    }
+    response = admin_client.patch(url, data=data, format='multipart')
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name,status_code", [
+    ('Canton', status.HTTP_204_NO_CONTENT),
+    ('Municipality', status.HTTP_204_NO_CONTENT),
+    ('Service', status.HTTP_204_NO_CONTENT),
+    ('Applicant', status.HTTP_404_NOT_FOUND),
+])
+def test_template_destroy(admin_client, template, status_code):
+    url = reverse('template-detail', args=[template.pk])
+
+    response = admin_client.delete(url)
+    assert response.status_code == status_code
+
+
 @pytest.mark.freeze_time('2018-05-28')
 @pytest.mark.parametrize(
     "role__name,template__path,instance__user,status_code,to_type", [
