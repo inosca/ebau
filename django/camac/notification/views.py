@@ -1,5 +1,5 @@
 from rest_framework import response, status, viewsets
-from rest_framework.decorators import detail_route
+from rest_framework.decorators import action
 
 from camac.user.permissions import permission_aware
 
@@ -10,7 +10,7 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
     instance_editable_permission = 'document'
-    filter_class = filters.NotificationTemplateFilterSet
+    filterset_class = filters.NotificationTemplateFilterSet
 
     @permission_aware
     def get_queryset(self):
@@ -25,7 +25,8 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     def get_queryset_for_municipality(self):
         return models.NotificationTemplate.objects.all()
 
-    @detail_route(
+    @action(
+        detail=True,
         methods=["get"],
         serializer_class=serializers.NotificationTemplateMergeSerializer,
     )
@@ -45,7 +46,8 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
         serializer.save()
         return response.Response(data=serializer.data)
 
-    @detail_route(
+    @action(
+        detail=True,
         methods=["post"],
         serializer_class=serializers.NotificationTemplateSendmailSerializer,
     )

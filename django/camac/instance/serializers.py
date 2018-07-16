@@ -6,7 +6,8 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.user.models import Group
-from camac.user.relations import (FormDataResourceRelatedField,
+from camac.user.relations import (CurrentUserResourceRelatedField,
+                                  FormDataResourceRelatedField,
                                   GroupResourceRelatedField,
                                   ServiceResourceReleatedField)
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
@@ -40,27 +41,17 @@ class FormSerializer(serializers.ModelSerializer):
 class InstanceSerializer(mixins.InstanceEditableMixin,
                          serializers.ModelSerializer):
     editable = serializers.SerializerMethodField()
-    user = serializers.ResourceRelatedField(
-        read_only=True, default=serializers.CurrentUserDefault()
-    )
-    group = GroupResourceRelatedField(
-        read_only=True, default=CurrentGroupDefault()
-    )
-
-    creation_date = serializers.DateTimeField(
-        read_only=True, default=timezone.now
-    )
-
-    modification_date = serializers.DateTimeField(
-        read_only=True, default=timezone.now
-    )
+    user = CurrentUserResourceRelatedField()
+    group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
     instance_state = serializers.ResourceRelatedField(
-        read_only=True, default=NewInstanceStateDefault()
+        queryset=models.InstanceState.objects.filter(name='new'),
+        default=NewInstanceStateDefault()
     )
 
     previous_instance_state = serializers.ResourceRelatedField(
-        read_only=True, default=NewInstanceStateDefault()
+        queryset=models.InstanceState.objects.filter(name='new'),
+        default=NewInstanceStateDefault()
     )
 
     included_serializers = {
@@ -72,9 +63,6 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
         'previous_instance_state': InstanceStateSerializer,
         'circulations': 'camac.circulation.serializers.CirculationSerializer',
     }
-
-    def validate_modification_date(self, value):
-        return timezone.now()
 
     def validate_location(self, location):
         if self.instance and self.instance.identifier:
@@ -94,6 +82,15 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
 
         return form
 
+    def create(self, validated_data):
+        validated_data['modification_date'] = timezone.now()
+        validated_data['creation_date'] = timezone.now()
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        validated_data['modification_date'] = timezone.now()
+        return super().update(instance, validated_data)
+
     class Meta:
         model = models.Instance
         meta_fields = (
@@ -112,8 +109,10 @@ class InstanceSerializer(mixins.InstanceEditableMixin,
             'circulations',
         )
         read_only_fields = (
-            'identifier',
             'circulations',
+            'creation_date',
+            'identifier',
+            'modification_date',
         )
 
 
@@ -123,8 +122,8 @@ class InstanceResponsibilitySerializer(mixins.InstanceEditableMixin,
     service = ServiceResourceReleatedField(default=CurrentServiceDefault())
 
     def validate(self, data):
-        user = data['user']
-        service = data['service']
+        user = data.get('user', self.instance and self.instance.user)
+        service = data.get('service', self.instance and self.instance.service)
 
         if service.pk not in user.groups.values_list('service_id', flat=True):
             raise exceptions.ValidationError(
