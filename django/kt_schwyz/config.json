@@ -7121,7 +7121,8 @@
   "pk": 1,
   "fields": {
     "name": "Baubewilligung",
-    "path": "templates/template.docx"
+    "path": "templates/template.docx",
+    "group": null
   }
 },
 {
@@ -7129,7 +7130,8 @@
   "pk": 2,
   "fields": {
     "name": "Publikation",
-    "path": "templates/template.docx"
+    "path": "templates/template.docx",
+    "group": null
   }
 },
 {
