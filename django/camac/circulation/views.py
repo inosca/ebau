@@ -1,7 +1,7 @@
 import django_excel
 from django.db.models import OuterRef, Subquery
 from rest_framework import viewsets
-from rest_framework.decorators import list_route
+from rest_framework.decorators import action
 from rest_framework_json_api import views
 
 from camac.core.models import Activation, Circulation
@@ -16,7 +16,7 @@ class CirculationView(views.AutoPrefetchMixin,
                       InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
     queryset = Circulation.objects.select_related('instance')
     serializer_class = serializers.CirculationSerializer
-    filter_class = filters.CirculationFilterSet
+    filterset_class = filters.CirculationFilterSet
     prefetch_for_includes = {
         'activations': [
             'activations__circulation',
@@ -32,7 +32,7 @@ class ActivationView(views.AutoPrefetchMixin,
     instance_field = 'circulation.instance'
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related('circulation')
-    filter_class = filters.ActivationFilterSet
+    filterset_class = filters.ActivationFilterSet
     prefetch_for_includes = {
         'circulation': [
             'circulation__activations',
@@ -54,7 +54,7 @@ class ActivationView(views.AutoPrefetchMixin,
         queryset = self.get_base_queryset()
         return queryset.filter(service=self.request.group.service)
 
-    @list_route(methods=['get'])
+    @action(methods=['get'], detail=False)
     def export(self, request):
         """Export filtered activations to given file format."""
         fields_queryset = FormField.objects.filter(
