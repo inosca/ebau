@@ -1,10 +1,11 @@
 import io
 import mimetypes
 
+from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from docxtpl import DocxTemplate
-from rest_framework import exceptions, generics, parsers, viewsets
+from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
@@ -26,10 +27,6 @@ class AttachmentView(InstanceEditableMixin,
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = 'document'
-    parser_classes = (
-        parsers.MultiPartParser,
-        parsers.FormParser,
-    )
     prefetch_for_includes = {
         'instance': [
             'instance__circulations',
@@ -104,23 +101,45 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
         return queryset.filter_group(self.request.group)
 
 
-class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
+class TemplateView(views.ModelViewSet):
     queryset = models.Template.objects
     serializer_class = serializers.TemplateSerializer
     instance_editable_permission = 'document'
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_service(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    def has_object_update_permission(self, obj):
+        return obj.group == self.request.group
+
+    def has_object_destroy_permission(self, obj):
+        return self.has_object_update_permission(obj)
 
     @permission_aware
     def get_queryset(self):
         return models.Template.objects.none()
 
     def get_queryset_for_canton(self):
-        return models.Template.objects.all()
+        return models.Template.objects.filter(
+            Q(group=self.request.group) |
+            Q(group__isnull=True)
+        )
 
     def get_queryset_for_service(self):
-        return models.Template.objects.all()
+        return self.get_queryset_for_canton()
 
     def get_queryset_for_municipality(self):
-        return models.Template.objects.all()
+        return self.get_queryset_for_canton()
 
     @action(
         methods=['get'],
@@ -141,7 +160,6 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
                 'pk': self.request.query_params.get('instance')
             }
         )
-        instance = self.validate_instance(instance)
         to_type = self.request.query_params.get('type', 'docx')
 
         response = HttpResponse()
@@ -154,6 +172,7 @@ class TemplateView(InstanceEditableMixin, viewsets.ReadOnlyModelViewSet):
 
         buf = io.BytesIO()
         serializer = self.get_serializer(instance, escape=True)
+        serializer.validate_instance(instance)
         doc = DocxTemplate(template.path)
         doc.render(serializer.data)
         doc.save(buf)
