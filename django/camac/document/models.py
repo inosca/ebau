@@ -195,6 +195,8 @@ class Template(models.Model):
     name = models.CharField(max_length=255, unique=True, db_column='NAME')
     path = models.FileField(max_length=1024, upload_to='templates',
                             db_column='PATH')
+    group = models.ForeignKey('user.Group', models.CASCADE, null=True,
+                              blank=True, related_name='templates')
 
     class Meta:
         db_table = 'TEMPLATE'

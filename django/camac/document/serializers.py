@@ -1,3 +1,5 @@
+import mimetypes
+
 from django.conf import settings
 from django.utils.translation import gettext as _
 from django_clamd.validators import validate_file_infection
@@ -136,7 +138,23 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 
 class TemplateSerializer(serializers.ModelSerializer):
+    group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+
+    def validate_path(self, path):
+        if path.content_type != mimetypes.types_map['.docx']:
+            raise exceptions.ParseError(
+                _("%(mime_type)s is not a valid mime type for template.")
+                % {"mime_type": path.content_type}
+            )
+
+        validate_file_infection(path)
+
+        return path
 
     class Meta:
         model = models.Template
-        fields = ("name",)
+        fields = (
+            "name",
+            "path",
+            "group",
+        )
