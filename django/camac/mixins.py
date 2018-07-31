@@ -7,7 +7,7 @@ class AttributeMixin(object):
             value = getattr(self, attr)
         except AttributeError:
             # fallback to attribute on view
-            view = getattr(self, 'context', {}).get('view')
+            view = getattr(self, "context", {}).get("view")
             value = getattr(view, attr, default)
 
         return value

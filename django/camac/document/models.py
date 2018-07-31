@@ -5,7 +5,7 @@ from django.utils import timezone
 
 
 def attachment_path_directory_path(attachment, filename):
-    return 'attachments/files/{0}/{1}'.format(attachment.instance.pk, filename)
+    return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
 
 
 class AttachmentQuerySet(models.QuerySet):
@@ -18,48 +18,65 @@ class AttachmentQuerySet(models.QuerySet):
 class Attachment(models.Model):
     objects = AttachmentQuerySet.as_manager()
 
-    attachment_id = models.AutoField(
-        db_column='ATTACHMENT_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=255)
+    attachment_id = models.AutoField(db_column="ATTACHMENT_ID", primary_key=True)
+    name = models.CharField(db_column="NAME", max_length=255)
     instance = models.ForeignKey(
-        'instance.Instance', models.CASCADE, db_column='INSTANCE_ID',
-        related_name='attachments')
-    path = models.FileField(db_column='PATH', max_length=1024,
-                            upload_to=attachment_path_directory_path)
-    size = models.IntegerField(db_column='SIZE')
-    date = models.DateTimeField(db_column='DATE', default=timezone.now)
-    user = models.ForeignKey('user.User', models.PROTECT,
-                             db_column='USER_ID', related_name='attachments')
-    mime_type = models.CharField(db_column='MIME_TYPE', max_length=255)
+        "instance.Instance",
+        models.CASCADE,
+        db_column="INSTANCE_ID",
+        related_name="attachments",
+    )
+    path = models.FileField(
+        db_column="PATH", max_length=1024, upload_to=attachment_path_directory_path
+    )
+    size = models.IntegerField(db_column="SIZE")
+    date = models.DateTimeField(db_column="DATE", default=timezone.now)
+    user = models.ForeignKey(
+        "user.User", models.PROTECT, db_column="USER_ID", related_name="attachments"
+    )
+    mime_type = models.CharField(db_column="MIME_TYPE", max_length=255)
     attachment_section = models.ForeignKey(
-        'AttachmentSection', models.PROTECT,
-        db_column='ATTACHMENT_SECTION_ID', related_name='attachments')
+        "AttachmentSection",
+        models.PROTECT,
+        db_column="ATTACHMENT_SECTION_ID",
+        related_name="attachments",
+    )
     is_parcel_picture = models.PositiveIntegerField(
-        db_column='IS_PARCEL_PICTURE', default=0)
+        db_column="IS_PARCEL_PICTURE", default=0
+    )
     digital_signature = models.PositiveSmallIntegerField(
-        db_column='DIGITAL_SIGNATURE', default=0)
+        db_column="DIGITAL_SIGNATURE", default=0
+    )
     is_confidential = models.PositiveSmallIntegerField(
-        db_column='IS_CONFIDENTIAL', default=0)
+        db_column="IS_CONFIDENTIAL", default=0
+    )
 
-    identifier = models.CharField(db_column='IDENTIFIER', max_length=255,
-                                  blank=True, null=True)
+    identifier = models.CharField(
+        db_column="IDENTIFIER", max_length=255, blank=True, null=True
+    )
     """
     In old Camac Document module this identifier is used for identification
     and to build thumbnail path.
     Is only present for backwards compatability.
     """
 
-    group = models.ForeignKey('user.Group', models.SET_NULL,
-                              related_name='attachments', null=True)
+    group = models.ForeignKey(
+        "user.Group", models.SET_NULL, related_name="attachments", null=True
+    )
     """
     Group attachment has been uploaded with. Needs to be nullable
     (but not blank!) for db backwards compatibility with old plain camac
     document module.
     """
 
-    service = models.ForeignKey('user.Service', models.SET_NULL,
-                                db_column='SERVICE_ID', related_name='+',
-                                blank=True, null=True)
+    service = models.ForeignKey(
+        "user.Service",
+        models.SET_NULL,
+        db_column="SERVICE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
     """
     We use group instead of service in api - this field is only still present
     for backwards compatibility with old plain camac document module.
@@ -67,7 +84,7 @@ class Attachment(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'ATTACHMENT'
+        db_table = "ATTACHMENT"
 
 
 class AttachmentSectionQuerySet(models.QuerySet):
@@ -75,11 +92,11 @@ class AttachmentSectionQuerySet(models.QuerySet):
 
         role_sections = AttachmentSectionRoleAcl.objects.filter(
             role=group.role_id
-        ).values('attachment_section')
+        ).values("attachment_section")
 
-        group_sections = AttachmentSectionGroupAcl.objects.filter(
-            group=group
-        ).values('attachment_section')
+        group_sections = AttachmentSectionGroupAcl.objects.filter(group=group).values(
+            "attachment_section"
+        )
 
         return self.filter(
             models.Q(pk__in=role_sections) | models.Q(pk__in=group_sections)
@@ -88,22 +105,28 @@ class AttachmentSectionQuerySet(models.QuerySet):
 
 class AttachmentSection(models.Model):
     RECIPIENT_TYPE_CHOICES = (
-        ('applicant', 'applicant'),
-        ('municipality', 'municipality'),
-        ('service', 'service'),
+        ("applicant", "applicant"),
+        ("municipality", "municipality"),
+        ("service", "service"),
     )
     objects = AttachmentSectionQuerySet.as_manager()
     attachment_section_id = models.AutoField(
-        db_column='ATTACHMENT_SECTION_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100, unique=True)
-    sort = models.IntegerField(db_column='SORT', db_index=True, default=0)
+        db_column="ATTACHMENT_SECTION_ID", primary_key=True
+    )
+    name = models.CharField(db_column="NAME", max_length=100, unique=True)
+    sort = models.IntegerField(db_column="SORT", db_index=True, default=0)
     notification_template = models.ForeignKey(
-        'notification.NotificationTemplate', models.SET_NULL, null=True,
-        blank=True, db_column='NOTIFICATION_TEMPLATE_ID', related_name='+')
+        "notification.NotificationTemplate",
+        models.SET_NULL,
+        null=True,
+        blank=True,
+        db_column="NOTIFICATION_TEMPLATE_ID",
+        related_name="+",
+    )
     recipient_types = ArrayField(
-        models.CharField(
-            max_length=12, choices=RECIPIENT_TYPE_CHOICES
-        ), null=True, blank=True
+        models.CharField(max_length=12, choices=RECIPIENT_TYPE_CHOICES),
+        null=True,
+        blank=True,
     )
 
     def get_mode(self, group):
@@ -113,57 +136,59 @@ class AttachmentSection(models.Model):
         # AttachmentSectionDefault and validate_attachment_section resp.
         # resource field could directly filter for the mode
         group_modes = AttachmentSectionGroupAcl.objects.filter(
-            attachment_section=self,
-            group=group
-        ).values('mode')
+            attachment_section=self, group=group
+        ).values("mode")
         role_modes = AttachmentSectionRoleAcl.objects.filter(
-            attachment_section=self,
-            role=group.role_id
-        ).values('mode')
+            attachment_section=self, role=group.role_id
+        ).values("mode")
 
-        return group_modes.union(role_modes)[0]['mode']
+        return group_modes.union(role_modes)[0]["mode"]
 
     class Meta:
         managed = True
-        db_table = 'ATTACHMENT_SECTION'
+        db_table = "ATTACHMENT_SECTION"
 
 
-WRITE_PERMISSION = 'write'
-READ_PERMISSION = 'read'
-ADMIN_PERMISSION = 'admin'
+WRITE_PERMISSION = "write"
+READ_PERMISSION = "read"
+ADMIN_PERMISSION = "admin"
 
 ATTACHMENT_MODE = (
-    (READ_PERMISSION, 'Read permissions'),
-    (WRITE_PERMISSION, 'Read and write permissions'),
-    (ADMIN_PERMISSION, 'Read, write and delete permissions')
+    (READ_PERMISSION, "Read permissions"),
+    (WRITE_PERMISSION, "Read and write permissions"),
+    (ADMIN_PERMISSION, "Read, write and delete permissions"),
 )
 
 
 class AttachmentSectionRoleAcl(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
+    id = models.AutoField(db_column="ID", primary_key=True)
     attachment_section = models.ForeignKey(
-        AttachmentSection, models.CASCADE,
-        db_column='ATTACHMENT_SECTION_ID', related_name='role_acls')
-    role = models.ForeignKey('user.Role', models.CASCADE,
-                             db_column='ROLE_ID', related_name='+')
-    mode = models.CharField(db_column='MODE', max_length=10,
-                            choices=ATTACHMENT_MODE)
+        AttachmentSection,
+        models.CASCADE,
+        db_column="ATTACHMENT_SECTION_ID",
+        related_name="role_acls",
+    )
+    role = models.ForeignKey(
+        "user.Role", models.CASCADE, db_column="ROLE_ID", related_name="+"
+    )
+    mode = models.CharField(db_column="MODE", max_length=10, choices=ATTACHMENT_MODE)
 
     class Meta:
         managed = True
-        db_table = 'ATTACHMENT_SECTION_ROLE'
-        unique_together = (('attachment_section', 'role'),)
+        db_table = "ATTACHMENT_SECTION_ROLE"
+        unique_together = (("attachment_section", "role"),)
 
 
 class AttachmentSectionGroupAcl(models.Model):
     attachment_section = models.ForeignKey(
-        AttachmentSection, models.CASCADE, related_name='group_acls')
-    group = models.ForeignKey('user.Group', models.CASCADE, related_name='+')
+        AttachmentSection, models.CASCADE, related_name="group_acls"
+    )
+    group = models.ForeignKey("user.Group", models.CASCADE, related_name="+")
     mode = models.CharField(max_length=10, choices=ATTACHMENT_MODE)
 
     class Meta:
-        unique_together = (('attachment_section', 'group'),)
-        db_table = 'ATTACHMENT_SECTION_GROUP'
+        unique_together = (("attachment_section", "group"),)
+        db_table = "ATTACHMENT_SECTION_GROUP"
 
 
 class AttachmentSectionServiceAcl(models.Model):
@@ -175,28 +200,31 @@ class AttachmentSectionServiceAcl(models.Model):
     AttachmentSectionGroupAcl should be used instead.
     """
 
-    id = models.AutoField(db_column='ID', primary_key=True)
+    id = models.AutoField(db_column="ID", primary_key=True)
     attachment_section = models.ForeignKey(
-        AttachmentSection, models.CASCADE,
-        db_column='ATTACHMENT_SECTION_ID', related_name='+')
+        AttachmentSection,
+        models.CASCADE,
+        db_column="ATTACHMENT_SECTION_ID",
+        related_name="+",
+    )
     service = models.ForeignKey(
-        'user.Service', models.CASCADE, db_column='SERVICE_ID',
-        related_name='+')
-    mode = models.CharField(db_column='MODE', max_length=20)
+        "user.Service", models.CASCADE, db_column="SERVICE_ID", related_name="+"
+    )
+    mode = models.CharField(db_column="MODE", max_length=20)
 
     class Meta:
         managed = True
-        db_table = 'ATTACHMENT_SECTION_SERVICE'
-        unique_together = (('attachment_section', 'service'),)
+        db_table = "ATTACHMENT_SECTION_SERVICE"
+        unique_together = (("attachment_section", "service"),)
 
 
 class Template(models.Model):
-    template_id = models.AutoField(db_column='TEMPLATE_ID', primary_key=True)
-    name = models.CharField(max_length=255, unique=True, db_column='NAME')
-    path = models.FileField(max_length=1024, upload_to='templates',
-                            db_column='PATH')
-    group = models.ForeignKey('user.Group', models.CASCADE, null=True,
-                              blank=True, related_name='templates')
+    template_id = models.AutoField(db_column="TEMPLATE_ID", primary_key=True)
+    name = models.CharField(max_length=255, unique=True, db_column="NAME")
+    path = models.FileField(max_length=1024, upload_to="templates", db_column="PATH")
+    group = models.ForeignKey(
+        "user.Group", models.CASCADE, null=True, blank=True, related_name="templates"
+    )
 
     class Meta:
-        db_table = 'TEMPLATE'
+        db_table = "TEMPLATE"

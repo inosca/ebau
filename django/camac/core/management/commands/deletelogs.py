@@ -6,13 +6,13 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 
 log_models = (
-    'core.InstanceLog',
-    'core.InstanceLocationLog',
-    'core.NoticeLog',
-    'core.ActivationAnswerLog',
-    'core.ActivationLog',
-    'core.AnswerLog',
-    'core.CirculationLog',
+    "core.InstanceLog",
+    "core.InstanceLocationLog",
+    "core.NoticeLog",
+    "core.ActivationAnswerLog",
+    "core.ActivationLog",
+    "core.AnswerLog",
+    "core.CirculationLog",
 )
 
 
@@ -31,10 +31,10 @@ class Command(BaseCommand):
         days = options["days"]
         clean_till = timezone.now() - timedelta(days=days)
         for model_name in log_models:
-            self.stdout.write('Clean logs table {0}'.format(model_name))
+            self.stdout.write("Clean logs table {0}".format(model_name))
             (app_label, model_name) = model_name.split(".")
             model = apps.get_model(app_label=app_label, model_name=model_name)
 
             model.objects.filter(modification_date__lt=clean_till).delete()
 
-        call_command('deleterevisions', *args, **options)
+        call_command("deleterevisions", *args, **options)
