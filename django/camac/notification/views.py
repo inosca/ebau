@@ -9,7 +9,7 @@ from . import filters, models, serializers
 class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
-    instance_editable_permission = 'document'
+    instance_editable_permission = "document"
     filterset_class = filters.NotificationTemplateFilterSet
 
     @permission_aware
@@ -37,9 +37,7 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
                 "type": "instances",
                 "id": self.request.query_params.get("instance"),
             },
-            "notification_template": {
-                "type": "notification-templates", "id": pk
-            }
+            "notification_template": {"type": "notification-templates", "id": pk},
         }
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -53,9 +51,7 @@ class NotificationTemplateView(viewsets.ReadOnlyModelViewSet):
     )
     def sendmail(self, request, pk=None):
         data = request.data
-        data["notification_template"] = {
-            "type": "notification-templates", "id": pk
-        }
+        data["notification_template"] = {"type": "notification-templates", "id": pk}
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

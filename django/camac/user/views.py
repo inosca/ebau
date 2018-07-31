@@ -71,4 +71,4 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(pk__in=self.request.user.groups.values('role'))
+        return queryset.filter(pk__in=self.request.user.groups.values("role"))
