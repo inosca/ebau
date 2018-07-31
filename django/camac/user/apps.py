@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class DefaultConfig(AppConfig):
-    name = 'camac.user'
+    name = "camac.user"

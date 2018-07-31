@@ -7,8 +7,9 @@ def nested_getattr(obj, attr, default=None):
 
     If one level doesn't exist default will be returned.
     """
+
     def getattr_default(obj, name):
         return getattr(obj, name, None)
 
-    val = reduce(getattr_default, attr.split('.'), obj)
+    val = reduce(getattr_default, attr.split("."), obj)
     return val if val is not None else default

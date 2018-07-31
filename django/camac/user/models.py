@@ -22,34 +22,29 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     objects = UserManager()
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = [
-        'email', 'name', 'surname', 'language'
-    ]
+    USERNAME_FIELD = "username"
+    REQUIRED_FIELDS = ["email", "name", "surname", "language"]
 
-    id = models.AutoField(db_column='USER_ID', primary_key=True)
-    username = models.CharField(
-        db_column='USERNAME', unique=True, max_length=250)
+    id = models.AutoField(db_column="USER_ID", primary_key=True)
+    username = models.CharField(db_column="USERNAME", unique=True, max_length=250)
     password = models.CharField(
-        db_column='PASSWORD', max_length=50, blank=True, null=True)
-    name = models.CharField(db_column='NAME', max_length=100)
-    surname = models.CharField(db_column='SURNAME', max_length=100)
-    email = models.CharField(
-        db_column='EMAIL', max_length=100, blank=True, null=True)
-    phone = models.CharField(
-        db_column='PHONE', max_length=100, blank=True, null=True)
-    disabled = models.PositiveSmallIntegerField(db_column='DISABLED',
-                                                default=0)
-    language = models.CharField(db_column='LANGUAGE', max_length=2)
+        db_column="PASSWORD", max_length=50, blank=True, null=True
+    )
+    name = models.CharField(db_column="NAME", max_length=100)
+    surname = models.CharField(db_column="SURNAME", max_length=100)
+    email = models.CharField(db_column="EMAIL", max_length=100, blank=True, null=True)
+    phone = models.CharField(db_column="PHONE", max_length=100, blank=True, null=True)
+    disabled = models.PositiveSmallIntegerField(db_column="DISABLED", default=0)
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
     last_login = models.DateTimeField(
-        db_column='LAST_REQUEST_DATE', blank=True, null=True)
+        db_column="LAST_REQUEST_DATE", blank=True, null=True
+    )
     address = models.CharField(
-        db_column='ADDRESS', max_length=100, blank=True, null=True)
-    city = models.CharField(
-        db_column='CITY', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
-    groups = models.ManyToManyField('Group', through='UserGroup')
+        db_column="ADDRESS", max_length=100, blank=True, null=True
+    )
+    city = models.CharField(db_column="CITY", max_length=100, blank=True, null=True)
+    zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
+    groups = models.ManyToManyField("Group", through="UserGroup")
 
     def _make_password(self, raw_password):
         salted = settings.AUTH_PASSWORT_SALT + raw_password
@@ -65,12 +60,9 @@ class User(AbstractBaseUser):
 
         Empty passwords are not allowed.
         """
-        password_empty = raw_password in ['', None]
+        password_empty = raw_password in ["", None]
 
-        return (
-            not password_empty and
-            self.password == self._make_password(raw_password)
-        )
+        return not password_empty and self.password == self._make_password(raw_password)
 
     def get_full_name(self):
         return "{0} {1}".format(self.name, self.surname).strip()
@@ -81,146 +73,166 @@ class User(AbstractBaseUser):
 
     class Meta:
         managed = True
-        db_table = 'USER'
+        db_table = "USER"
 
 
 class Group(models.Model):
-    group_id = models.AutoField(db_column='GROUP_ID', primary_key=True)
-    role = models.ForeignKey('user.Role', models.PROTECT,
-                             db_column='ROLE_ID', related_name='+')
-    service = models.ForeignKey('user.Service', models.SET_NULL,
-                                db_column='SERVICE_ID', related_name='groups',
-                                blank=True, null=True)
-    name = models.CharField(db_column='NAME', max_length=100)
-    phone = models.CharField(
-        db_column='PHONE', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
-    city = models.CharField(
-        db_column='CITY', max_length=100, blank=True, null=True)
+    group_id = models.AutoField(db_column="GROUP_ID", primary_key=True)
+    role = models.ForeignKey(
+        "user.Role", models.PROTECT, db_column="ROLE_ID", related_name="+"
+    )
+    service = models.ForeignKey(
+        "user.Service",
+        models.SET_NULL,
+        db_column="SERVICE_ID",
+        related_name="groups",
+        blank=True,
+        null=True,
+    )
+    name = models.CharField(db_column="NAME", max_length=100)
+    phone = models.CharField(db_column="PHONE", max_length=100, blank=True, null=True)
+    zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
+    city = models.CharField(db_column="CITY", max_length=100, blank=True, null=True)
     address = models.CharField(
-        db_column='ADDRESS', max_length=100, blank=True, null=True)
-    email = models.CharField(
-        db_column='EMAIL', max_length=100, blank=True, null=True)
+        db_column="ADDRESS", max_length=100, blank=True, null=True
+    )
+    email = models.CharField(db_column="EMAIL", max_length=100, blank=True, null=True)
     website = models.CharField(
-        db_column='WEBSITE', max_length=1000, blank=True, null=True)
-    locations = models.ManyToManyField('Location', through='GroupLocation')
+        db_column="WEBSITE", max_length=1000, blank=True, null=True
+    )
+    locations = models.ManyToManyField("Location", through="GroupLocation")
 
     def __str__(self):
         return self.name
 
     class Meta:
         managed = True
-        db_table = 'GROUP'
+        db_table = "GROUP"
 
 
 class Location(models.Model):
-    location_id = models.AutoField(db_column='LOCATION_ID', primary_key=True)
+    location_id = models.AutoField(db_column="LOCATION_ID", primary_key=True)
     communal_cantonal_number = models.IntegerField(
-        db_column='COMMUNAL_CANTONAL_NUMBER', blank=True, null=True)
+        db_column="COMMUNAL_CANTONAL_NUMBER", blank=True, null=True
+    )
     communal_federal_number = models.CharField(
-        db_column='COMMUNAL_FEDERAL_NUMBER', max_length=255, blank=True,
-        null=True)
+        db_column="COMMUNAL_FEDERAL_NUMBER", max_length=255, blank=True, null=True
+    )
     district_number = models.IntegerField(
-        db_column='DISTRICT_NUMBER', blank=True, null=True)
+        db_column="DISTRICT_NUMBER", blank=True, null=True
+    )
     section_number = models.IntegerField(
-        db_column='SECTION_NUMBER', blank=True, null=True)
-    name = models.CharField(
-        db_column='NAME', max_length=100, blank=True, null=True)
+        db_column="SECTION_NUMBER", blank=True, null=True
+    )
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     commune_name = models.CharField(
-        db_column='COMMUNE_NAME', max_length=100, blank=True, null=True)
+        db_column="COMMUNE_NAME", max_length=100, blank=True, null=True
+    )
     district_name = models.CharField(
-        db_column='DISTRICT_NAME', max_length=100, blank=True, null=True)
+        db_column="DISTRICT_NAME", max_length=100, blank=True, null=True
+    )
     section_name = models.CharField(
-        db_column='SECTION_NAME', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
+        db_column="SECTION_NAME", max_length=100, blank=True, null=True
+    )
+    zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
     class Meta:
         managed = True
-        db_table = 'LOCATION'
+        db_table = "LOCATION"
 
 
 class GroupLocation(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
-    group = models.ForeignKey(Group, models.CASCADE,
-                              db_column='GROUP_ID', related_name='+')
-    location = models.ForeignKey(Location, models.CASCADE,
-                                 db_column='LOCATION_ID', related_name='+')
+    id = models.AutoField(db_column="ID", primary_key=True)
+    group = models.ForeignKey(
+        Group, models.CASCADE, db_column="GROUP_ID", related_name="+"
+    )
+    location = models.ForeignKey(
+        Location, models.CASCADE, db_column="LOCATION_ID", related_name="+"
+    )
 
     class Meta:
-            managed = True
-            db_table = 'GROUP_LOCATION'
-            unique_together = (('group', 'location'),)
+        managed = True
+        db_table = "GROUP_LOCATION"
+        unique_together = (("group", "location"),)
 
 
 class UserGroup(models.Model):
-    id = models.AutoField(db_column='ID', primary_key=True)
-    user = models.ForeignKey(User, models.CASCADE,
-                             db_column='USER_ID', related_name='user_groups')
-    group = models.ForeignKey(Group, models.CASCADE,
-                              db_column='GROUP_ID', related_name='+')
-    default_group = models.PositiveSmallIntegerField(db_column='DEFAULT_GROUP')
+    id = models.AutoField(db_column="ID", primary_key=True)
+    user = models.ForeignKey(
+        User, models.CASCADE, db_column="USER_ID", related_name="user_groups"
+    )
+    group = models.ForeignKey(
+        Group, models.CASCADE, db_column="GROUP_ID", related_name="+"
+    )
+    default_group = models.PositiveSmallIntegerField(db_column="DEFAULT_GROUP")
 
     class Meta:
         managed = True
-        db_table = 'USER_GROUP'
-        unique_together = (('user', 'group'),)
+        db_table = "USER_GROUP"
+        unique_together = (("user", "group"),)
 
 
 class Role(models.Model):
-    role_id = models.AutoField(db_column='ROLE_ID', primary_key=True)
+    role_id = models.AutoField(db_column="ROLE_ID", primary_key=True)
     role_parent = models.ForeignKey(
-        'self', models.SET_NULL, db_column='ROLE_PARENT_ID',
-        related_name='+', blank=True, null=True)
-    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+        "self",
+        models.SET_NULL,
+        db_column="ROLE_PARENT_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
+    name = models.CharField(db_column="NAME", max_length=100, unique=True)
 
     class Meta:
         managed = True
-        db_table = 'ROLE'
+        db_table = "ROLE"
 
 
 class ServiceGroup(models.Model):
-    service_group_id = models.AutoField(
-        db_column='SERVICE_GROUP_ID', primary_key=True)
-    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+    service_group_id = models.AutoField(db_column="SERVICE_GROUP_ID", primary_key=True)
+    name = models.CharField(db_column="NAME", max_length=100, unique=True)
 
     class Meta:
         managed = True
-        db_table = 'SERVICE_GROUP'
+        db_table = "SERVICE_GROUP"
 
 
 class Service(models.Model):
-    service_id = models.AutoField(db_column='SERVICE_ID', primary_key=True)
+    service_id = models.AutoField(db_column="SERVICE_ID", primary_key=True)
     service_group = models.ForeignKey(
-        ServiceGroup, models.PROTECT, db_column='SERVICE_GROUP_ID',
-        related_name='+')
+        ServiceGroup, models.PROTECT, db_column="SERVICE_GROUP_ID", related_name="+"
+    )
     service_parent = models.ForeignKey(
-        'self', models.SET_NULL, db_column='SERVICE_PARENT_ID',
-        related_name='+', blank=True, null=True)
-    name = models.CharField(db_column='NAME', max_length=100, unique=True)
+        "self",
+        models.SET_NULL,
+        db_column="SERVICE_PARENT_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
+    name = models.CharField(db_column="NAME", max_length=100, unique=True)
     description = models.CharField(
-        db_column='DESCRIPTION', max_length=255, blank=True, null=True)
-    sort = models.IntegerField(db_column='SORT')
-    phone = models.CharField(
-        db_column='PHONE', max_length=100, blank=True, null=True)
-    zip = models.CharField(
-        db_column='ZIP', max_length=10, blank=True, null=True)
-    city = models.CharField(
-        db_column='CITY', max_length=100, blank=True, null=True)
+        db_column="DESCRIPTION", max_length=255, blank=True, null=True
+    )
+    sort = models.IntegerField(db_column="SORT")
+    phone = models.CharField(db_column="PHONE", max_length=100, blank=True, null=True)
+    zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
+    city = models.CharField(db_column="CITY", max_length=100, blank=True, null=True)
     address = models.CharField(
-        db_column='ADDRESS', max_length=100, blank=True, null=True)
-    email = models.CharField(
-        db_column='EMAIL', max_length=100, blank=True, null=True)
+        db_column="ADDRESS", max_length=100, blank=True, null=True
+    )
+    email = models.CharField(db_column="EMAIL", max_length=100, blank=True, null=True)
     website = models.CharField(
-        db_column='WEBSITE', max_length=1000, blank=True, null=True)
+        db_column="WEBSITE", max_length=1000, blank=True, null=True
+    )
 
     def __str__(self):
         return self.name
 
     class Meta:
         managed = True
-        db_table = 'SERVICE'
+        db_table = "SERVICE"
