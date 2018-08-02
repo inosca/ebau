@@ -1372,6 +1372,15 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 7,
+  "fields": {
+    "available_resource": "templatemanager",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.availableaction",
   "pk": "checkquery",
   "fields": {
@@ -1719,6 +1728,15 @@
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "templatemanager",
+  "fields": {
+    "module_name": "docgen",
+    "controller_name": "templatemanager",
+    "description": "Page for managing group specific templates"
   }
 },
 {
@@ -5926,6 +5944,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 9,
+  "fields": {
+    "available_resource": "templatemanager",
+    "name": "Vorlagenverwaltung",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 7
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
@@ -5978,6 +6009,14 @@
   "pk": 9,
   "fields": {
     "resource": 8,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 10,
+  "fields": {
+    "resource": 9,
     "role": 3
   }
 },
