@@ -231,3 +231,34 @@ class FormFieldSerializer(mixins.InstanceEditableMixin, serializers.ModelSeriali
     class Meta:
         model = models.FormField
         fields = ("name", "value", "instance")
+
+
+class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+    included_serializers = {
+        "instance": InstanceSerializer,
+        "user": "camac.user.serializers.UserSerializer",
+    }
+
+    def create(self, validated_data):
+        validated_data["modification_date"] = timezone.now()
+        validated_data["creation_date"] = timezone.now()
+        validated_data["user"] = self.context["request"].user
+        validated_data["group"] = self.context["request"].group
+        return super().create(validated_data)
+
+    def update(self, instance, validated_data):
+        validated_data["modification_date"] = timezone.now()
+        return super().update(instance, validated_data)
+
+    class Meta:
+        model = models.JournalEntry
+        fields = (
+            "instance",
+            "group",
+            "user",
+            "duration",
+            "text",
+            "creation_date",
+            "modification_date",
+        )
+        read_only_fields = ("group", "user", "creation_date", "modification_date")
