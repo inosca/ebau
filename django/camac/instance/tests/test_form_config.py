@@ -10,11 +10,10 @@ from rest_framework import status
 
 def test_form_config_get(admin_client):
     url = reverse("form-config-download")
-    config = settings.APPLICATION_DIR.file("form.json")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    assert force_str(response.content) == config.read()
+    assert force_str(response.content) == settings.FORM_CONFIG
 
 
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())

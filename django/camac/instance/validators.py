@@ -1,5 +1,4 @@
 import itertools
-import json
 import os
 import sys
 
@@ -16,7 +15,7 @@ from . import models
 
 class FormDataValidator(object):
     def __init__(self, instance):
-        self.forms_def = json.loads(settings.APPLICATION_DIR.file("form.json").read())
+        self.forms_def = settings.FORM_CONFIG
         self.instance = instance
         self.fields = {
             **{
