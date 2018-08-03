@@ -205,6 +205,29 @@ class FormFieldSerializer(mixins.InstanceEditableMixin, serializers.ModelSeriali
 
     included_serializers = {"instance": InstanceSerializer}
 
+    def validate_name(self, name):
+        # TODO: check whether question is part of used form
+
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+        group = self.context["request"].group
+        permission = perms.get(group.role.name, "applicant")
+
+        question = settings.FORM_CONFIG["questions"].get(name)
+        if question is None:
+            raise exceptions.ValidationError(
+                _("invalid question %(question)s.") % {"question": name}
+            )
+
+        # per default only applicant may edit a question
+        restrict = question.get("restrict", ["applicant"])
+        if permission not in restrict:
+            raise exceptions.ValidationError(
+                _("%(permission)s is not allowed to edit question %(question)s.")
+                % {"question": name, "permission": permission}
+            )
+
+        return name
+
     class Meta:
         model = models.FormField
         fields = ("name", "value", "instance")

@@ -6038,6 +6038,59 @@
         ],
         "allow-custom": true
       }
+    },
+    "einsprecher": {
+      "restrict": ["municipality"],
+      "label": "Einsprecher:",
+      "hint": "**Platzhalter**: *einsprecher*",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "firma",
+            "label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name, Vorname",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "ort",
+            "label": "PLZ, Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
     }
   }
 }

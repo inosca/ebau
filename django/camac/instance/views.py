@@ -48,7 +48,7 @@ class InstanceView(
     """
     Instance field is actually model itself.
     """
-    instance_editable_permission = "form"
+    instance_editable_permission = "instance"
 
     serializer_class = serializers.InstanceSerializer
     filterset_class = filters.InstanceFilterSet
@@ -248,3 +248,20 @@ class FormFieldView(
     filterset_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
     instance_editable_permission = "form"
+
+    def has_destroy_permission(self):
+        return False
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+        permission = perms.get(self.request.group.role.name, "applicant")
+        questions = [
+            question
+            for question, value in settings.FORM_CONFIG["questions"].items()
+            # all permissions may read per default once they have access to instance
+            if permission
+            in value.get("restrict", ["applicant", "canton", "municipality", "service"])
+        ]
+
+        return queryset.filter(name__in=questions)

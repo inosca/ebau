@@ -3,7 +3,6 @@ import json
 import pytest
 from django.conf import settings
 from django.urls import reverse
-from django.utils.encoding import force_str
 from pyjexl.jexl import JEXL
 from rest_framework import status
 
@@ -13,7 +12,7 @@ def test_form_config_get(admin_client):
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-    assert force_str(response.content) == settings.FORM_CONFIG
+    assert response.json() == settings.FORM_CONFIG
 
 
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
