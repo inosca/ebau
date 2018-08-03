@@ -10,6 +10,7 @@ from .. import models
     "role__name,instance__user,size",
     [("Applicant", LazyFixture("admin_user"), 1), ("Unknown", LazyFixture("user"), 0)],
 )
+@pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_list(admin_client, form_field, size):
     url = reverse("form-field-list")
 
@@ -26,6 +27,7 @@ def test_form_field_list(admin_client, form_field, size):
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
+@pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_detail(admin_client, form_field, form_field__value):
     url = reverse("form-field-detail", args=[form_field.pk])
 
@@ -36,11 +38,36 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance_state__name,instance__user,status_code",
+    "role__name,instance_state__name,instance__user,form_field__name,status_code",
     [
-        ("Applicant", "new", LazyFixture("admin_user"), status.HTTP_200_OK),
-        ("Applicant", "new", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Applicant", "comm", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+        (
+            "Applicant",
+            "new",
+            LazyFixture("admin_user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_200_OK,
+        ),
+        (
+            "Applicant",
+            "new",
+            LazyFixture("admin_user"),
+            "unknown-question",
+            status.HTTP_404_NOT_FOUND,
+        ),
+        (
+            "Applicant",
+            "new",
+            LazyFixture("user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_404_NOT_FOUND,
+        ),
+        (
+            "Applicant",
+            "comm",
+            LazyFixture("admin_user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_403_FORBIDDEN,
+        ),
     ],
 )
 def test_form_field_update(admin_client, form_field, status_code):
@@ -52,20 +79,45 @@ def test_form_field_update(admin_client, form_field, status_code):
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user,status_code",
+    "role__name,instance__user,form_field_name,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_201_CREATED),
-        ("Applicant", LazyFixture("user"), status.HTTP_400_BAD_REQUEST),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_201_CREATED,
+        ),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "einsprecher",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "unknown-question",
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Applicant",
+            LazyFixture("user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_400_BAD_REQUEST,
+        ),
     ],
 )
-def test_form_field_create(admin_client, instance, status_code):
+def test_form_field_create(admin_client, instance, form_field_name, status_code):
     url = reverse("form-field-list")
 
     data = {
         "data": {
             "type": "form-fields",
             "id": None,
-            "attributes": {"name": "Test", "value": {"test-name": "test-value"}},
+            "attributes": {
+                "name": form_field_name,
+                "value": {"test-name": "test-value"},
+            },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
             },
@@ -87,10 +139,11 @@ def test_form_field_create(admin_client, instance, status_code):
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
+        ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
     ],
 )
+@pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_destroy(admin_client, form_field, status_code):
     url = reverse("form-field-detail", args=[form_field.pk])
 
