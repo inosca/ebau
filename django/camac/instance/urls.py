@@ -14,6 +14,7 @@ r.register(
     views.InstanceResponsibilityView,
     "instance-responsibility",
 )
+r.register(r"journal-entries", views.JournalEntryView, "journal-entry")
 
 urlpatterns = [
     url(

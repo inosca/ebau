@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import pytz
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
@@ -67,3 +69,16 @@ class InstanceResponsibilityFactory(DjangoModelFactory):
 
     class Meta:
         model = models.InstanceResponsibility
+
+
+class JournalEntryFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    user = SubFactory(UserFactory)
+    group = SubFactory(GroupFactory)
+    creation_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    modification_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    text = Faker("text")
+    duration = timedelta(0)
+
+    class Meta:
+        model = models.JournalEntry
