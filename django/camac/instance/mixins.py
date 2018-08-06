@@ -96,10 +96,13 @@ class InstanceEditableMixin(AttributeMixin):
 
     @permission_aware
     def get_editable(self, instance):
+        # TODO: should be replaced with can-read and can-edit permissions
+        # in form config. Difficulty is that documents are no real questions.
+
         editable = set()
 
         if instance.instance_state.name == "new":
-            editable.update(["form", "document"])
+            editable.update(["instance", "form", "document"])
 
         if instance.instance_state.name == "nfd":
             editable.update(["document"])
@@ -107,13 +110,13 @@ class InstanceEditableMixin(AttributeMixin):
         return editable
 
     def get_editable_for_service(self, instance):
-        return {"document"}
+        return {"form", "document"}
 
     def get_editable_for_municipality(self, instance):
-        return {"document"}
+        return {"form", "document"}
 
     def get_editable_for_canton(self, instance):
-        return {"document"}
+        return {"form", "document"}
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
