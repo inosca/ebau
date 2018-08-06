@@ -1,5 +1,4 @@
 import itertools
-import os
 import sys
 
 import inflection
@@ -24,7 +23,7 @@ class FormDataValidator(object):
             },
             # handle attachments like fields
             **{
-                os.path.splitext(attachment.name)[0]: attachment.path
+                attachment.question: attachment.path
                 for attachment in Attachment.objects.filter(instance=instance)
             },
         }
