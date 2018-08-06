@@ -69,6 +69,13 @@ class Attachment(models.Model):
     document module.
     """
 
+    question = models.CharField(
+        db_column="QUESTION", max_length=255, blank=True, null=True
+    )
+    """
+    Used to reference to form question. Allows multiple attachments per question.
+    """
+
     service = models.ForeignKey(
         "user.Service",
         models.SET_NULL,

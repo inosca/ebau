@@ -6,7 +6,11 @@ repos:
       language: system
       entry: black --config django/pyproject.toml
       types: [python]
-      exclude: ^(.*/migrations/.* | .*/snapshots/.*)$
+      exclude: >
+          (?x)^(
+            .*/migrations/.* |
+            .*/snapshots/.*
+          )$
     - id: isort
       name: isort
       language: system
