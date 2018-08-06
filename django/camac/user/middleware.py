@@ -12,23 +12,29 @@ def get_group(request):
     If no query param is passed on default group of user will be returned
     if any is set.
     """
-    group_id = request.GET.get('group')
+    group_id = request.GET.get("group")
     if group_id:
-        group = request.user.groups.filter(pk=group_id).select_related(
-            'role', 'service').first()
+        group = (
+            request.user.groups.filter(pk=group_id)
+            .select_related("role", "service")
+            .first()
+        )
     else:
         # no specific group is definied, default group of client is used
         # it is allowed that user may not be in this group
-        client = request.auth['aud']
-        group = models.Group.objects.filter(
-            name=client.title()).select_related('role', 'service').first()
+        client = request.auth["aud"]
+        group = (
+            models.Group.objects.filter(name=client.title())
+            .select_related("role", "service")
+            .first()
+        )
 
         # fallback, default group of user
         if group is None:
             group_qs = models.UserGroup.objects.filter(
-                user=request.user, default_group=1)
-            group_qs = group_qs.select_related('group', 'group__role',
-                                               'group__service')
+                user=request.user, default_group=1
+            )
+            group_qs = group_qs.select_related("group", "group__role", "group__service")
             user_group = group_qs.first()
             group = user_group and user_group.group
 

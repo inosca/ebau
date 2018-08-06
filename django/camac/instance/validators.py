@@ -16,9 +16,7 @@ from . import models
 
 class FormDataValidator(object):
     def __init__(self, instance):
-        self.forms_def = json.loads(
-            settings.APPLICATION_DIR.file('form.json').read()
-        )
+        self.forms_def = json.loads(settings.APPLICATION_DIR.file("form.json").read())
         self.instance = instance
         self.fields = {
             **{
@@ -29,26 +27,21 @@ class FormDataValidator(object):
             **{
                 os.path.splitext(attachment.name)[0]: attachment.path
                 for attachment in Attachment.objects.filter(instance=instance)
-            }
+            },
         }
         self.jexl = JEXL()
-        self.jexl.add_transform('value', lambda name: self.fields.get(name))
-        self.jexl.add_transform(
-            'mapby',
-            lambda arr, key: [obj[key] for obj in arr]
-        )
+        self.jexl.add_transform("value", lambda name: self.fields.get(name))
+        self.jexl.add_transform("mapby", lambda arr, key: [obj[key] for obj in arr])
 
     def _validate_question_radio(self, question, question_def, value):
-        if value not in question_def['config']['options']:
+        if value not in question_def["config"]["options"]:
             raise exceptions.ValidationError(
-                _('Invalid value `%(value)s` in field `%(field)s`') % {
-                    'value': value,
-                    'field': question
-                }
+                _("Invalid value `%(value)s` in field `%(field)s`")
+                % {"value": value, "field": question}
             )
 
     def _validate_question_checkbox(self, question, question_def, value):
-        options = set(question_def['config']['options'])
+        options = set(question_def["config"]["options"])
         # avoid `TypeError` as value may be None
 
         values = set(value or [None])
@@ -56,44 +49,39 @@ class FormDataValidator(object):
 
         if diff:
             raise exceptions.ValidationError(
-                _('Invalid values `%(values)s` in field `%(field)s`') % {
-                    'values': ', '.join([str(val) for val in diff]),
-                    'field': question
-                }
+                _("Invalid values `%(values)s` in field `%(field)s`")
+                % {"values": ", ".join([str(val) for val in diff]), "field": question}
             )
 
     def _validate_question_text(self, question, question_def, value):
         if not isinstance(value, str) or not value:
             raise exceptions.ValidationError(
-                _('Value of field `%(field)s` must be `str` and not empty') % {
-                    'field': question
-                }
+                _("Value of field `%(field)s` must be `str` and not empty")
+                % {"field": question}
             )
 
     def _validate_question_number(self, question, question_def, value):
-        min_val = question_def['config'].get('min', -sys.maxsize - 1)
-        max_val = question_def['config'].get('max', sys.maxsize)
+        min_val = question_def["config"].get("min", -sys.maxsize - 1)
+        max_val = question_def["config"].get("max", sys.maxsize)
 
         if (
-            not isinstance(value, int) and not isinstance(value, float) or
-            value < min_val or
-            value > max_val
+            not isinstance(value, int)
+            and not isinstance(value, float)
+            or value < min_val
+            or value > max_val
         ):
             raise exceptions.ValidationError(
-                _('Value of field `%(field)s` needs to be a number '
-                  'between %(min_val)s and %(max_val)s).') % {
-                      'field': question,
-                      'min_val': min_val,
-                      'max_val': max_val
-                }
+                _(
+                    "Value of field `%(field)s` needs to be a number "
+                    "between %(min_val)s and %(max_val)s)."
+                )
+                % {"field": question, "min_val": min_val, "max_val": max_val}
             )
 
     def _validate_question_document(self, question, question_def, value):
         if not value:
             raise exceptions.ValidationError(
-                _('Document missing for question `%(field)s') % {
-                    'field': question
-                }
+                _("Document missing for question `%(field)s") % {"field": question}
             )
 
     def _validate_question_gwr(self, question, question_def, value):
@@ -101,20 +89,20 @@ class FormDataValidator(object):
         self._validate_question_table(question, question_def, value)
 
     def _validate_question_table(self, question, question_def, value):
-        columns = question_def['config']['columns']
+        columns = question_def["config"]["columns"]
         for row in list(value or [{}]):
             for column in columns:
                 self._validate_question(
-                    '{0}/{1}'.format(question, column['name']),
+                    "{0}/{1}".format(question, column["name"]),
                     column,
-                    row.get(column['name'])
+                    row.get(column["name"]),
                 )
 
     def _check_question_required(self, question, question_def):
-        if not question_def['required']:
+        if not question_def["required"]:
             return False
 
-        expression = question_def.get('active-expression', None)
+        expression = question_def.get("active-expression", None)
 
         try:
             return expression is None or self.jexl.evaluate(expression)
@@ -132,29 +120,26 @@ class FormDataValidator(object):
 
         validate_method = getattr(
             self,
-            '_validate_question_{0}'.format(
-                inflection.underscore(question_def['type'])
-            )
+            "_validate_question_{0}".format(
+                inflection.underscore(question_def["type"])
+            ),
         )
         validate_method(question, question_def, value)
 
     def validate(self):
-        form_def = self.forms_def['forms'].get(self.instance.form.name)
+        form_def = self.forms_def["forms"].get(self.instance.form.name)
 
         if form_def is None:
             raise exceptions.ValidationError(
-                _('Invalid form type %(form)s.') % {
-                    'form': self.instance.form.name
-                }
+                _("Invalid form type %(form)s.") % {"form": self.instance.form.name}
             )
 
-        questions = itertools.chain(*[
-            self.forms_def['modules'][module]['questions']
-            for module in form_def
-        ])
+        questions = itertools.chain(
+            *[self.forms_def["modules"][module]["questions"] for module in form_def]
+        )
 
         for question in questions:
             value = self.fields.get(question)
             self._validate_question(
-                question, self.forms_def['questions'][question], value
+                question, self.forms_def["questions"][question], value
             )

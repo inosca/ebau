@@ -20,9 +20,9 @@ def test_authenticate_disabled_user(admin_rf, admin_user):
         assert JSONWebTokenKeycloakAuthentication().authenticate(request)
 
 
-@pytest.mark.parametrize('side_effect', [ExpiredSignatureError(), JOSEError()])
+@pytest.mark.parametrize("side_effect", [ExpiredSignatureError(), JOSEError()])
 def test_authenticate_side_effect(admin_rf, mocker, side_effect):
-    decode_token = mocker.patch('keycloak.KeycloakOpenID.decode_token')
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.side_effect = side_effect
 
     request = admin_rf.request()
@@ -30,9 +30,9 @@ def test_authenticate_side_effect(admin_rf, mocker, side_effect):
         assert JSONWebTokenKeycloakAuthentication().authenticate(request)
 
 
-@pytest.mark.parametrize('authorization', ['Bearer', 'Bearer token token'])
+@pytest.mark.parametrize("authorization", ["Bearer", "Bearer token token"])
 def test_get_jwt_value_invalid_authorization(rf, authorization):
-    rf.defaults = {'HTTP_AUTHORIZATION': authorization}
+    rf.defaults = {"HTTP_AUTHORIZATION": authorization}
     request = rf.request()
     with pytest.raises(AuthenticationFailed):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)

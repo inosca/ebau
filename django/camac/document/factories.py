@@ -9,23 +9,23 @@ from . import models
 
 
 class AttachmentSectionFactory(DjangoModelFactory):
-    name = Faker('name')
-    sort = Faker('pyint')
+    name = Faker("name")
+    sort = Faker("pyint")
     notification_template = SubFactory(NotificationTemplateFactory)
-    recipient_types = ['municipality']
+    recipient_types = ["municipality"]
 
     class Meta:
         model = models.AttachmentSection
 
 
 class AttachmentFactory(DjangoModelFactory):
-    name = Faker('file_name')
+    name = Faker("file_name")
     instance = SubFactory(InstanceFactory)
     path = ImageField(width=1024, height=768)
-    size = Faker('pyint')
+    size = Faker("pyint")
     user = SubFactory(UserFactory)
     attachment_section = SubFactory(AttachmentSectionFactory)
-    mime_type = Faker('mime_type')
+    mime_type = Faker("mime_type")
 
     class Meta:
         model = models.Attachment
@@ -50,7 +50,7 @@ class AttachmentSectionGroupAclFactory(DjangoModelFactory):
 
 
 class TemplateFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     path = ImageField(width=1024, height=768)
     group = SubFactory(GroupFactory)
 

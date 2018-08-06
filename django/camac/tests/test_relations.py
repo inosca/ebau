@@ -26,4 +26,4 @@ def test_form_data_related_field_invalid_pk(db):
         queryset=get_user_model().objects.all()
     )
     with pytest.raises(exceptions.ValidationError):
-        field.to_internal_value({'invalid'})
+        field.to_internal_value({"invalid"})
