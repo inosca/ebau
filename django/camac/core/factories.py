@@ -9,7 +9,7 @@ from . import models
 
 
 class CirculationTypeFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     parent_specific_activations = 0
 
     class Meta:
@@ -17,14 +17,14 @@ class CirculationTypeFactory(DjangoModelFactory):
 
 
 class CirculationAnswerTypeFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
 
     class Meta:
         model = models.CirculationAnswerType
 
 
 class CirculationAnswerFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     sort = 0
     circulation_type = SubFactory(CirculationTypeFactory)
     circulation_answer_type = SubFactory(CirculationAnswerTypeFactory)
@@ -34,14 +34,14 @@ class CirculationAnswerFactory(DjangoModelFactory):
 
 
 class FormGroupFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
 
     class Meta:
         model = models.FormGroup
 
 
 class CirculationStateFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     sort = 0
 
     class Meta:
@@ -49,7 +49,7 @@ class CirculationStateFactory(DjangoModelFactory):
 
 
 class CirculationFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     instance_resource_id = 0
     instance = SubFactory(InstanceFactory)
 
@@ -64,10 +64,10 @@ class ActivationFactory(DjangoModelFactory):
     circulation_state = SubFactory(CirculationStateFactory)
     circulation_answer = SubFactory(CirculationAnswerFactory)
     user = SubFactory(UserFactory)
-    start_date = Faker('past_datetime', tzinfo=pytz.UTC)
-    end_date = Faker('future_datetime', tzinfo=pytz.UTC)
-    deadline_date = Faker('future_datetime', tzinfo=pytz.UTC)
-    reason = Faker('text', max_nb_chars=50)
+    start_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    end_date = Faker("future_datetime", tzinfo=pytz.UTC)
+    deadline_date = Faker("future_datetime", tzinfo=pytz.UTC)
+    reason = Faker("text", max_nb_chars=50)
     version = 1
 
     class Meta:
@@ -75,7 +75,7 @@ class ActivationFactory(DjangoModelFactory):
 
 
 class NoticeTypeFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     circulation_type = SubFactory(CirculationTypeFactory)
 
     class Meta:
@@ -85,16 +85,16 @@ class NoticeTypeFactory(DjangoModelFactory):
 class NoticeFactory(DjangoModelFactory):
     activation = SubFactory(ActivationFactory)
     notice_type = SubFactory(NoticeTypeFactory)
-    content = Faker('sentence')
+    content = Faker("sentence")
 
     class Meta:
         model = models.Notice
 
 
 class BillingAccountFactory(DjangoModelFactory):
-    name = Faker('name')
-    account_number = '0000'
-    department = Faker('name')
+    name = Faker("name")
+    account_number = "0000"
+    department = Faker("name")
     predefined = 0
 
     class Meta:
@@ -102,12 +102,12 @@ class BillingAccountFactory(DjangoModelFactory):
 
 
 class BillingEntryFactory(DjangoModelFactory):
-    amount = Faker('pyfloat', left_digits=3, right_digits=2, positive=True)
+    amount = Faker("pyfloat", left_digits=3, right_digits=2, positive=True)
     billing_account = SubFactory(BillingAccountFactory)
     user = SubFactory(UserFactory)
     instance = SubFactory(InstanceFactory)
     service = SubFactory(ServiceFactory)
-    created = Faker('past_datetime', tzinfo=pytz.UTC)
+    created = Faker("past_datetime", tzinfo=pytz.UTC)
     amount_type = 0
     type = 0
     invoiced = 1
@@ -118,7 +118,7 @@ class BillingEntryFactory(DjangoModelFactory):
 
 class WorkflowItemFactory(DjangoModelFactory):
     position = 0
-    name = Faker('name')
+    name = Faker("name")
     automatical = 1
     different_color = 0
     is_workflow = 1
@@ -131,5 +131,5 @@ class WorkflowItemFactory(DjangoModelFactory):
 class WorkflowEntryFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     workflow_item = SubFactory(WorkflowItemFactory)
-    workflow_date = Faker('past_datetime')
+    workflow_date = Faker("past_datetime")
     group = 1

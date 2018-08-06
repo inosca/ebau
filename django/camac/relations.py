@@ -13,6 +13,6 @@ class FormDataResourceRelatedField(ResourceRelatedField):
         try:
             return self.get_queryset().get(pk=data)
         except ObjectDoesNotExist:
-            self.fail('does_not_exist', pk_value=data)
+            self.fail("does_not_exist", pk_value=data)
         except (TypeError, ValueError):
             return super().to_internal_value(data)

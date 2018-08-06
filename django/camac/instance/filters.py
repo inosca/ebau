@@ -10,39 +10,35 @@ from . import models
 
 class InstanceFilterSet(FilterSet):
 
-    service = NumberFilter(field_name='circulations__activations__service')
+    service = NumberFilter(field_name="circulations__activations__service")
     creation_date_after = DateFilter(
-        field_name='creation_date__date', lookup_expr='gte'
+        field_name="creation_date__date", lookup_expr="gte"
     )
     creation_date_before = DateFilter(
-        field_name='creation_date__date', lookup_expr='lte'
+        field_name="creation_date__date", lookup_expr="lte"
     )
     instance_state = NumberMultiValueFilter()
-    responsible_user = NumberFilter(field_name='responsibilities__user')
+    responsible_user = NumberFilter(field_name="responsibilities__user")
 
     class Meta:
         model = models.Instance
         fields = (
-            'creation_date',
-            'form',
-            'identifier',
-            'instance_state',
-            'location',
-            'previous_instance_state',
-            'service',
-            'user',
-            'responsible_user',
+            "creation_date",
+            "form",
+            "identifier",
+            "instance_state",
+            "location",
+            "previous_instance_state",
+            "service",
+            "user",
+            "responsible_user",
         )
 
 
 class InstanceResponsibilityFilterSet(FilterSet):
     class Meta:
         model = models.InstanceResponsibility
-        fields = (
-            'user',
-            'service',
-            'instance',
-        )
+        fields = ("user", "service", "instance")
 
 
 class InstanceFormFieldFilterBackend(BaseFilterBackend):
@@ -59,7 +55,7 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         query_params = request.query_params
         for param in query_params.keys():
-            fields_match = re.match(r'^fields\[(.*?)\]$', param)
+            fields_match = re.match(r"^fields\[(.*?)\]$", param)
             valuelist = query_params.getlist(param)
             if fields_match and valuelist:
                 name = fields_match.group(1)
@@ -77,7 +73,4 @@ class FormFieldFilterSet(FilterSet):
 
     class Meta:
         model = models.FormField
-        fields = (
-            'instance',
-            'name',
-        )
+        fields = ("instance", "name")

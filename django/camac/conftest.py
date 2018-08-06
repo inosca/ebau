@@ -23,10 +23,10 @@ def register_module(module):
             register(obj)
 
 
-factory_logger = logging.getLogger('factory')
+factory_logger = logging.getLogger("factory")
 factory_logger.setLevel(logging.INFO)
 
-sorl_thumbnail_logger = logging.getLogger('sorl.thumbnail')
+sorl_thumbnail_logger = logging.getLogger("sorl.thumbnail")
 sorl_thumbnail_logger.setLevel(logging.INFO)
 
 register_module(user_factories)
@@ -48,8 +48,9 @@ class APIKeycloakClient(APIClient):
         )
 
         token = keycloak.token(**credentials)
-        self.credentials(HTTP_AUTHORIZATION="{0} {1}".format(
-            'Bearer', token['access_token']))
+        self.credentials(
+            HTTP_AUTHORIZATION="{0} {1}".format("Bearer", token["access_token"])
+        )
 
 
 @pytest.fixture
@@ -71,7 +72,7 @@ def client(db):
 @pytest.fixture
 def admin_user(admin_user, group, group_location, user_group_factory):
     user_group_factory(group=group, user=admin_user, default_group=1)
-    admin_user.username = '462afaba-aeb7-494a-8596-3497b81ed701'
+    admin_user.username = "462afaba-aeb7-494a-8596-3497b81ed701"
     admin_user.save()
     return admin_user
 
@@ -79,5 +80,5 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 @pytest.fixture
 def admin_client(db, client, admin_user):
     """Return instance of a JSONAPIClient that is logged in as test user."""
-    client.login(username='admin', password='camac')
+    client.login(username="admin", password="camac")
     return client

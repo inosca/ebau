@@ -13,7 +13,7 @@ class LoggingMiddleware(object):
 
     def __call__(self, request):
         log_request = False
-        body = b''
+        body = b""
         if request.method in settings.REQUEST_LOGGING_METHODS:
             body = b"multipart/form-data"
             if request.content_type != "multipart/form-data":
@@ -22,10 +22,7 @@ class LoggingMiddleware(object):
 
         response = self.get_response(request)
         content_type = response.get("Content-Type", "")
-        if (
-            log_request and
-            content_type in settings.REQUEST_LOGGING_CONTENT_TYPES
-        ):
+        if log_request and content_type in settings.REQUEST_LOGGING_CONTENT_TYPES:
             request_logger.info(
                 "method=%s path=%s status=%s user=%s request=%s response=%s",
                 request.method,
