@@ -1,3 +1,4 @@
+import json
 import os
 import re
 
@@ -13,6 +14,7 @@ if os.path.exists(ENV_FILE):
 ENV = env.str("APPLICATION_ENV")
 APPLICATION_NAME = env.str("APPLICATION")
 APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
+FORM_CONFIG = json.loads(APPLICATION_DIR.file("form.json").read())
 
 
 def default(default_dev=env.NOTSET, default_prod=env.NOTSET):
