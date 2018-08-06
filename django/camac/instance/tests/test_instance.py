@@ -17,10 +17,10 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 14, {"form", "document"}),
-        ("Canton", LazyFixture("user"), 14, {"document"}),
-        ("Municipality", LazyFixture("user"), 14, {"document"}),
-        ("Service", LazyFixture("user"), 14, {"document"}),
+        ("Applicant", LazyFixture("admin_user"), 14, {"instance", "form", "document"}),
+        ("Canton", LazyFixture("user"), 14, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 14, {"form", "document"}),
+        ("Service", LazyFixture("user"), 14, {"form", "document"}),
     ],
 )
 def test_instance_list(
