@@ -6,13 +6,8 @@ from . import models
 
 
 class AttachmentFilterSet(FilterSet):
-    name = CharMultiValueFilter(lookup_expr='startswith')
+    name = CharMultiValueFilter(lookup_expr="startswith")
 
     class Meta:
         model = models.Attachment
-        fields = (
-            'instance',
-            'user',
-            'name',
-            'attachment_section',
-        )
+        fields = ("instance", "user", "name", "attachment_section")

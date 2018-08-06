@@ -24,12 +24,13 @@ def permission_aware(func):
     Decorator inspired by
     https://github.com/computer-lab/django-rest-framework-roles
     """
+
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         # on view request is directly on instance
         request = get_request(self)
         role = request.group.role
-        perms = settings.APPLICATION.get('ROLE_PERMISSIONS', {})
+        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         perm = perms.get(role.name)
         if perm:
             perm_func = "{0}_for_{1}".format(func.__name__, perm)
@@ -48,7 +49,7 @@ class IsGroupMember(permissions.BasePermission):
     """
 
     def has_permission(self, request, view):
-        group_required = getattr(view, 'group_required', True)
+        group_required = getattr(view, "group_required", True)
         return not group_required or bool(request.group)
 
     def has_object_permission(self, request, view, obj):
@@ -89,8 +90,8 @@ class ViewPermissions(permissions.BasePermission):
         return True
 
     def _get_action(self, view):
-        action = getattr(view, 'action', None)
-        if action == 'partial_update':
-            action = 'update'
+        action = getattr(view, "action", None)
+        if action == "partial_update":
+            action = "update"
 
         return action

@@ -8,11 +8,12 @@ from rest_framework.compat import unicode_to_repr
 from rest_framework_json_api import serializers
 
 from camac.instance.mixins import InstanceEditableMixin
-from camac.notification.serializers import \
-    NotificationTemplateSendmailSerializer
+from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
-from camac.user.relations import (CurrentUserFormDataResourceRelatedField,
-                                  GroupFormDataResourceRelatedField)
+from camac.user.relations import (
+    CurrentUserFormDataResourceRelatedField,
+    GroupFormDataResourceRelatedField,
+)
 from camac.user.serializers import CurrentGroupDefault
 
 from . import models
@@ -38,9 +39,7 @@ class AttachmentSectionDefault(object):
         self.group = serializer_field.context["request"].group
 
     def __call__(self):
-        return models.AttachmentSection.objects.filter_group(
-            self.group
-        ).first()
+        return models.AttachmentSection.objects.filter_group(self.group).first()
 
     def __repr__(self):
         return unicode_to_repr("%s()" % self.__class__.__name__)
@@ -60,10 +59,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         mode = attachment_section.get_mode(self.context["request"].group)
         if mode not in [models.WRITE_PERMISSION, models.ADMIN_PERMISSION]:
             raise exceptions.ValidationError(
-                _(
-                    "Not sufficent permissions to add file to "
-                    "section %(section)s."
-                )
+                _("Not sufficent permissions to add file to " "section %(section)s.")
                 % {"section": attachment_section.name}
             )
 
@@ -97,19 +93,17 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         attachment = super().create(validated_data)
         attachment_section = attachment.attachment_section
         if (
-            attachment_section.notification_template_id and
-            attachment_section.recipient_types
+            attachment_section.notification_template_id
+            and attachment_section.recipient_types
         ):
             # send mail when configured
             data = {
-                "instance": {
-                    "type": "instances", "id": attachment.instance_id
-                },
+                "instance": {"type": "instances", "id": attachment.instance_id},
                 "notification_template": {
                     "type": "notification-templates",
                     "id": attachment_section.notification_template_id,
                 },
-                "recipient_types": attachment_section.recipient_types
+                "recipient_types": attachment_section.recipient_types,
             }
             serializer = NotificationTemplateSendmailSerializer(
                 data=data, context=self.context
@@ -141,7 +135,7 @@ class TemplateSerializer(serializers.ModelSerializer):
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
 
     def validate_path(self, path):
-        if path.content_type != mimetypes.types_map['.docx']:
+        if path.content_type != mimetypes.types_map[".docx"]:
             raise exceptions.ParseError(
                 _("%(mime_type)s is not a valid mime type for template.")
                 % {"mime_type": path.content_type}
@@ -153,8 +147,4 @@ class TemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Template
-        fields = (
-            "name",
-            "path",
-            "group",
-        )
+        fields = ("name", "path", "group")

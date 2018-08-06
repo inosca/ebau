@@ -5,16 +5,16 @@ from . import models
 
 
 class ServiceGroupFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
 
     class Meta:
         model = models.ServiceGroup
 
 
 class ServiceFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     sort = 0
-    email = Faker('email')
+    email = Faker("email")
     service_group = SubFactory(ServiceGroupFactory)
 
     class Meta:
@@ -22,28 +22,28 @@ class ServiceFactory(DjangoModelFactory):
 
 
 class UserFactory(DjangoModelFactory):
-    name = Faker('name')
-    email = Faker('email')
-    username = Faker('name')
+    name = Faker("name")
+    email = Faker("email")
+    username = Faker("name")
     disabled = 0
-    language = 'de'
+    language = "de"
 
     class Meta:
         model = models.User
 
 
 class RoleFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
 
     class Meta:
         model = models.Role
 
 
 class GroupFactory(DjangoModelFactory):
-    name = Faker('name')
+    name = Faker("name")
     role = SubFactory(RoleFactory)
     service = SubFactory(ServiceFactory)
-    email = Faker('email')
+    email = Faker("email")
 
     class Meta:
         model = models.Group
@@ -59,8 +59,8 @@ class UserGroupFactory(DjangoModelFactory):
 
 
 class LocationFactory(DjangoModelFactory):
-    name = Faker('city')
-    communal_federal_number = Faker('pystr', min_chars=4, max_chars=4)
+    name = Faker("city")
+    communal_federal_number = Faker("pystr", min_chars=4, max_chars=4)
 
     class Meta:
         model = models.Location
