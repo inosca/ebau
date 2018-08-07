@@ -1210,6 +1210,24 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 53,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 54,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "action_name": "download",
+    "hidden": 1
+  }
+},
+{
   "model": "core.anotification",
   "pk": 47,
   "fields": {
@@ -1701,6 +1719,15 @@
     "module_name": "responsibility",
     "controller_name": "responsibility",
     "description": "Instance responsibilities"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "templatecenter",
+  "fields": {
+    "module_name": "docgen",
+    "controller_name": "templatecenter",
+    "description": "Center for generating all instance related documents (API)"
   }
 },
 {
@@ -2801,6 +2828,21 @@
     "class_field": null,
     "hidden": 0,
     "sort": 7,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 23,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "resource": 1,
+    "name": "Dokumente generieren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 9,
     "form_group": 1
   }
 },
@@ -5299,6 +5341,78 @@
     "instance_resource": 22,
     "role": 5,
     "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 113,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 114,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 115,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 116,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 117,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 118,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 119,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 120,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 9
   }
 },
 {
