@@ -1210,6 +1210,24 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 53,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
+  "model": "core.airaction",
+  "pk": 54,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "action_name": "download",
+    "hidden": 1
+  }
+},
+{
   "model": "core.anotification",
   "pk": 47,
   "fields": {
@@ -1369,6 +1387,15 @@
     "available_resource": "apilistactivation",
     "action_name": "index",
     "hidden": 1
+  }
+},
+{
+  "model": "core.araction",
+  "pk": 7,
+  "fields": {
+    "available_resource": "templatemanager",
+    "action_name": "index",
+    "hidden": 0
   }
 },
 {
@@ -1696,6 +1723,15 @@
 },
 {
   "model": "core.availableinstanceresource",
+  "pk": "templatecenter",
+  "fields": {
+    "module_name": "docgen",
+    "controller_name": "templatecenter",
+    "description": "Center for generating all instance related documents (API)"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
   "pk": "workflow",
   "fields": {
     "module_name": "workflow",
@@ -1719,6 +1755,15 @@
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "templatemanager",
+  "fields": {
+    "module_name": "docgen",
+    "controller_name": "templatemanager",
+    "description": "Page for managing group specific templates"
   }
 },
 {
@@ -2783,6 +2828,36 @@
     "class_field": null,
     "hidden": 0,
     "sort": 7,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 23,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "resource": 1,
+    "name": "Dokumente generieren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 9,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 24,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "resource": 6,
+    "name": "Dokumente generieren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 8,
     "form_group": 1
   }
 },
@@ -5284,6 +5359,96 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 113,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 114,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 115,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 116,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 117,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 118,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 119,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 120,
+  "fields": {
+    "instance_resource": 23,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 121,
+  "fields": {
+    "instance_resource": 24,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 122,
+  "fields": {
+    "instance_resource": 24,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.page",
   "pk": 1,
   "fields": {
@@ -5926,6 +6091,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 9,
+  "fields": {
+    "available_resource": "templatemanager",
+    "name": "Vorlagenverwaltung",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 7
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
@@ -5979,6 +6157,22 @@
   "fields": {
     "resource": 8,
     "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 10,
+  "fields": {
+    "resource": 9,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 11,
+  "fields": {
+    "resource": 9,
+    "role": 5
   }
 },
 {
@@ -7132,6 +7326,24 @@
     "name": "Publikation",
     "path": "templates/template.docx",
     "group": null
+  }
+},
+{
+  "model": "document.template",
+  "pk": 3,
+  "fields": {
+    "name": "foobar",
+    "path": "templates/Projektentwurf_Digitalisierung_QM_3ULyGJ1.docx",
+    "group": 3
+  }
+},
+{
+  "model": "document.template",
+  "pk": 4,
+  "fields": {
+    "name": "test",
+    "path": "templates/Cup_2017_Scharfsch\u00fctze_eXKmaih.docx",
+    "group": 8
   }
 },
 {
