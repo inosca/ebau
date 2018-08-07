@@ -1,6 +1,10 @@
 import Service, { inject as service } from '@ember/service'
-import EmberObject, { computed, getWithDefault } from '@ember/object'
-import { reads } from '@ember/object/computed'
+import EmberObject, {
+  computed,
+  getWithDefault,
+  defineProperty
+} from '@ember/object'
+import { reads, equal } from '@ember/object/computed'
 import { getOwner } from '@ember/application'
 import { A } from '@ember/array'
 import { capitalize } from '@ember/string'
@@ -12,20 +16,22 @@ import jexl from 'jexl'
 const Question = EmberObject.extend({
   _questions: service('question-store'),
 
-  name: null,
-  field: null,
-  model: null,
-
-  value: computed('model.{value,path}', 'field.type', function() {
-    return this.get('field.type') === 'document'
-      ? this.get('model.path')
-      : this.get('model.value')
-  }),
-
-  isNew: reads('model.isNew'),
-
   init() {
     this._super(...arguments)
+
+    if (this.type === 'form-field') {
+      defineProperty(this, 'value', reads('model.value'))
+      defineProperty(this, 'isNew', reads('model.isNew'))
+    } else {
+      defineProperty(
+        this,
+        'value',
+        computed('model.@each.path', function() {
+          return this.model.mapBy('path')
+        }).readOnly()
+      )
+      defineProperty(this, 'isNew', equal('model.length', 0))
+    }
 
     this.set('jexl', new jexl.Jexl())
 
@@ -111,20 +117,44 @@ export default Service.extend({
     return validity
   }),
 
+  _getModelForAttachment(name, instance) {
+    return this.store
+      .peekAll('attachment')
+      .filterBy('instance.id', instance)
+      .filterBy('question', name)
+      .sortBy('date')
+      .reverse()
+      .reduce((res, i) => {
+        if (!res.mapBy('name').includes(i.name)) {
+          res.push(i)
+        }
+
+        return res
+      }, [])
+      .sortBy('name')
+  },
+
+  _getModelForFormField(name, instance) {
+    return (
+      this.store
+        .peekAll('form-field')
+        .filterBy('instance.id', instance)
+        .findBy('name', name) ||
+      this.store.createRecord('form-field', {
+        name,
+        instance: this.store.peekRecord('instance', instance)
+      })
+    )
+  },
+
   async buildQuestion(name, instance) {
     let field = getWithDefault(await this.config, `questions.${name}`, {})
     let type = field.type === 'document' ? 'attachment' : 'form-field'
 
     let model =
-      this.store
-        .peekAll(type)
-        .find(
-          m => (m.name || '').replace(/\.(png|jp(e)?g|pdf)$/, '') === name
-        ) ||
-      this.store.createRecord(type, {
-        name,
-        instance: this.store.peekRecord('instance', instance)
-      })
+      type === 'attachment'
+        ? this._getModelForAttachment(name, instance)
+        : this._getModelForFormField(name, instance)
 
     return Question.create({
       // We need to pass the container of the current service to the question
@@ -132,22 +162,24 @@ export default Service.extend({
       // services without container context
       container: getOwner(this).__container__,
 
+      instanceId: instance,
+
       name,
       model,
-      field
+      field,
+      type
     })
   },
 
   peek(name, instance) {
     return this._store.find(
-      q => q.get('name') === name && q.get('model.instance.id') === instance
+      q => q.get('name') === name && q.get('instanceId') === instance
     )
   },
 
   peekSet(names, instance) {
     return this._store.filter(
-      q =>
-        names.includes(q.get('name')) && q.get('model.instance.id') === instance
+      q => names.includes(q.get('name')) && q.get('instanceId') === instance
     )
   }
 })

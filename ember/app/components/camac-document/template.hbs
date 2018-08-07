@@ -1,60 +1,70 @@
-<div class="uk-card uk-card-default uk-card-hover uk-margin-bottom">
-  <div class="uk-height-small uk-cover-container">
-    {{#with question.model.thumbnail.lastSuccessful.value as |thumbnail|}}
-      <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
-    {{/with}}
-    <div class="uk-overlay uk-overlay-primary uk-position-cover uk-flex uk-flex-center uk-flex-middle uk-padding-remove-horizontal">
-      {{#unless readonly}}
-        {{#if upload.isRunning}}
-          {{uk-spinner ratio=0.5 class='uk-animation-fade uk-icon-button'}}
-        {{else}}
-          <button
-            data-test-upload-document
-            type="button"
-            uk-icon="cloud-upload"
-            class="uk-icon-button uk-animation-fade"
-            title="Neues Dokument hochladen"
-            {{action 'triggerUpload'}}
-          ></button>
-        {{/if}}
-      {{/unless}}
-      {{#if question.model.path}}
-        {{#if download.isRunning}}
-          {{uk-spinner ratio=0.5 class='uk-animation-fade uk-icon-button uk-margin-small-left'}}
-        {{else}}
-          <button
-            data-test-download-document
-            type="button"
-            uk-icon="cloud-download"
-            class="uk-icon-button uk-animation-fade {{unless readonly 'uk-margin-small-left'}}"
-            title="Dokument herunterladen"
-            {{action (perform download)}}
-          ></button>
-        {{/if}}
-      {{/if}}
-      {{#if question.field.hint}}
-        {{#camac-hint-dialog question.field.hint as |target|}}
-          <button
-            type="button"
-            uk-icon="info"
-            uk-toggle={{target}}
-            class="uk-icon-button uk-animation-fade"
-            title="Zusätzliche Informationen"
-          ></button>
-        {{/camac-hint-dialog}}
-      {{/if}}
-    </div>
+<div class="uk-card uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-margin-bottom">
+  <div class="uk-card-header uk-flex uk-flex-between">
+    <span class="uk-text-bold">
+      {{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}
+    </span>
+    {{camac-hint-dialog question.field.hint}}
   </div>
-
-  <div class="uk-padding-small uk-text-bold uk-text-center uk-position-relative">
-    <small>{{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}</small>
+  <div class="uk-card-body uk-text-small uk-padding-remove">
+    <table class="uk-table uk-table-divider uk-table-small uk-table-middle">
+      <tbody>
+        {{#each question.model as |doc|}}
+          <tr>
+            <td class="uk-table-expand uk-text-truncate">
+              <span class="uk-link">{{doc.name}}</span>
+              <div uk-drop="pos: left-center; animation: uk-animation-slide-left-small" class="uk-height-small uk-width-small uk-box-shadow-large">
+                <div class="uk-width-1-1 uk-height-1-1 uk-cover-container">
+                  {{#with doc.thumbnail.lastSuccessful.value as |thumbnail|}}
+                    <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
+                  {{/with}}
+                </div>
+              </div>
+            </td>
+            <td class="uk-text-right">
+              <button
+                data-test-download-document
+                type="button"
+                uk-icon="cloud-download"
+                class="uk-icon-button"
+                title="Dokument herunterladen"
+                {{action (perform download) doc}}
+              ></button>
+              <div uk-form-custom>
+                <button
+                  data-test-replace-document
+                  type="button"
+                  uk-icon="cloud-upload"
+                  class="uk-icon-button"
+                  title="Dokument ersetzen"
+                ></button>
+                <input
+                  type="file"
+                  accept={{mimeTypes}}
+                  onchange={{action (action (perform upload) doc.name) value='target.files'}}
+                >
+              </div>
+            </td>
+          </tr>
+        {{/each}}
+        <tr>
+          <td colspan="2" class="uk-text-center">
+            <div uk-form-custom>
+              <button
+                data-test-upload-document
+                type="button"
+                uk-icon="plus"
+                class="uk-icon-button"
+                title="Neues Dokument hochladen"
+              ></button>
+              <input
+                type="file"
+                accept={{mimeTypes}}
+                onchange={{action (action (perform upload) null) value='target.files'}}
+              >
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
-
-<input
-  type="file"
-  accept={{mimeTypes}}
-  name={{question.name}}
-  onchange={{action (perform upload) value='target.files'}}
-  hidden
->
