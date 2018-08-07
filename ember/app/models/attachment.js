@@ -11,6 +11,7 @@ export default Model.extend({
   path: attr('string'),
   date: attr('date'),
   mimeType: attr('string'),
+  question: attr('string'),
   instance: belongsTo('instance'),
 
   session: service(),

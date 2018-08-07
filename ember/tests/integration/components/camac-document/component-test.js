@@ -14,8 +14,15 @@ module('Integration | Component | camac-document', function(hooks) {
 
     this.set('instance', instance)
 
+    this.server.createList('attachment', 2, {
+      name: 'foo',
+      question: 'test-document',
+      instance
+    })
+
     this.server.create('attachment', {
-      name: 'test-document',
+      name: 'bar',
+      question: 'test-document',
       instance
     })
 
@@ -41,7 +48,7 @@ module('Integration | Component | camac-document', function(hooks) {
 
     await render(hbs`{{camac-document 'test-document' instance=instance}}`)
 
-    assert.dom('.uk-text-center').hasText('Test Doc *')
+    assert.dom('.uk-card-header').hasText('Test Doc *')
   })
 
   test('it can upload a document', async function(assert) {
@@ -56,13 +63,47 @@ module('Integration | Component | camac-document', function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`)
 
     let files = [new File([new Blob()], 'testfile.png', { type: 'image/png' })]
-    let input = await find('input[type=file')
+    let input = await find('[data-test-upload-document] + input[type=file')
 
     input.files.item = i => {
       return files[i]
     }
 
-    await triggerEvent('input[type=file]', 'change')
+    await triggerEvent(
+      '[data-test-upload-document] + input[type=file]',
+      'change'
+    )
+
+    assert.verifySteps(['upload-document'])
+  })
+
+  test('it can replace a document', async function(assert) {
+    assert.expect(3)
+
+    this.server.post(
+      '/api/v1/attachments',
+      ({ attachments }, { requestBody }) => {
+        assert.step('upload-document')
+
+        assert.equal(requestBody.get('path').name, 'bar')
+
+        return attachments.first()
+      }
+    )
+
+    await render(hbs`{{camac-document 'test-document'instance=instance}}`)
+
+    let files = [new File([new Blob()], 'testfile.png', { type: 'image/png' })]
+    let input = await find('[data-test-replace-document] + input[type=file')
+
+    input.files.item = i => {
+      return files[i]
+    }
+
+    await triggerEvent(
+      '[data-test-replace-document] + input[type=file]',
+      'change'
+    )
 
     assert.verifySteps(['upload-document'])
   })

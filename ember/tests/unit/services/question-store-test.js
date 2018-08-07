@@ -43,7 +43,8 @@ module('Unit | Service | question-store', function(hooks) {
     let store = this.owner.lookup('service:store')
 
     let model = await run(
-      async () => await store.query('form-field', { name: 'test' })
+      async () =>
+        await store.query('form-field', { name: 'test', include: 'instance' })
     )
 
     let question = await service.buildQuestion(
