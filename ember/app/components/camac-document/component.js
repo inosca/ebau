@@ -26,20 +26,21 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  classNameBindings: ['question.hidden:uk-hidden'],
+  classNameBindings: [
+    'question.hidden:uk-hidden',
+    'question.field.required:uk-flex-first'
+  ],
   classNames: ['uk-margin-remove', 'uk-animation-fade'],
 
   mimeTypes: ALLOWED_MIME_TYPES.join(','),
 
-  download: task(function*() {
+  download: task(function*(document) {
     try {
-      let question = yield this.question
-
-      if (!question.get('model.path')) {
+      if (!document.get('path')) {
         return
       }
 
-      let response = yield fetch(question.get('model.path'), {
+      let response = yield fetch(document.get('path'), {
         mode: 'cors',
         headers: this.headers
       })
@@ -47,7 +48,7 @@ export default CamacInputComponent.extend({
       let file = yield response.blob()
 
       if (!testing) {
-        download(file, question.get('model.name'), file.type)
+        download(file, document.get('name'), file.type)
       }
 
       UIkit.notification('Datei wurde erfolgreich heruntergeladen', {
@@ -61,7 +62,7 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  upload: task(function*(files) {
+  upload: task(function*(filename = null, files) {
     if (this.readonly) {
       return
     }
@@ -91,11 +92,10 @@ export default CamacInputComponent.extend({
 
       let question = yield this.question
 
-      let filename = `${question.get('name')}.${file.name.split('.').pop()}`
-
       let formData = new FormData()
-      formData.append('instance', question.get('model.instance.id'))
-      formData.append('path', file, filename)
+      formData.append('instance', this.instance.id)
+      formData.append('question', this.identifier)
+      formData.append('path', file, filename || file.filename)
 
       let response = yield this.ajax.request('/api/v1/attachments', {
         method: 'POST',
@@ -112,7 +112,10 @@ export default CamacInputComponent.extend({
 
       question.set(
         'model',
-        this.store.peekRecord('attachment', response.data.id)
+        this.questionStore._getModelForAttachment(
+          this.identifier,
+          this.instance.id
+        )
       )
 
       UIkit.notification('Die Datei wurde erfolgreich hochgeladen', {
