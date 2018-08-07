@@ -2847,6 +2847,21 @@
   }
 },
 {
+  "model": "core.instanceresource",
+  "pk": 24,
+  "fields": {
+    "available_instance_resource": "templatecenter",
+    "resource": 6,
+    "name": "Dokumente generieren",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 8,
+    "form_group": 1
+  }
+},
+{
   "model": "core.instanceresourceaction",
   "pk": 1,
   "fields": {
@@ -5416,6 +5431,24 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 121,
+  "fields": {
+    "instance_resource": 24,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 122,
+  "fields": {
+    "instance_resource": 24,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.page",
   "pk": 1,
   "fields": {
@@ -6132,6 +6165,14 @@
   "fields": {
     "resource": 9,
     "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 11,
+  "fields": {
+    "resource": 9,
+    "role": 5
   }
 },
 {
@@ -7285,6 +7326,24 @@
     "name": "Publikation",
     "path": "templates/template.docx",
     "group": null
+  }
+},
+{
+  "model": "document.template",
+  "pk": 3,
+  "fields": {
+    "name": "foobar",
+    "path": "templates/Projektentwurf_Digitalisierung_QM_3ULyGJ1.docx",
+    "group": 3
+  }
+},
+{
+  "model": "document.template",
+  "pk": 4,
+  "fields": {
+    "name": "test",
+    "path": "templates/Cup_2017_Scharfsch\u00fctze_eXKmaih.docx",
+    "group": 8
   }
 },
 {
