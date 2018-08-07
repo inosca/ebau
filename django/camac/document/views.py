@@ -94,6 +94,7 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
 
 class TemplateView(views.ModelViewSet):
     queryset = models.Template.objects
+    filterset_class = filters.TemplateFilterSet
     serializer_class = serializers.TemplateSerializer
     instance_editable_permission = "document"
 
