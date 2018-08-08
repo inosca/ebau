@@ -16,7 +16,7 @@
   </div>
 
   {{#uk-flex horizontal='right' class='uk-margin-top'}}
-    {{#uk-button loading=save.isRunning color='primary' on-click=(perform save)}}
+    {{#uk-button disabled=(or (not model.form.id) save.isRunning) loading=save.isRunning color='primary' on-click=(perform save)}}
       Weiter
     {{/uk-button}}
   {{/uk-flex}}
