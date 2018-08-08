@@ -52,7 +52,8 @@ export default Controller.extend({
       let filename = `${attachment.get('name')}.${file.type.split('/').pop()}`
 
       let formData = new FormData()
-      formData.append('instance', attachment.get('model.instance.id'))
+      formData.append('instance', attachment.get('instanceId'))
+      formData.append('question', attachment.get('name'))
       formData.append('path', file, filename)
 
       let response = yield this.ajax.request('/api/v1/attachments', {
@@ -70,7 +71,10 @@ export default Controller.extend({
 
       attachment.set(
         'model',
-        this.store.peekRecord('attachment', response.data.id)
+        this.questionStore._getModelForAttachment(
+          attachment.get('name'),
+          attachment.get('instanceId')
+        )
       )
 
       yield instance.save()
