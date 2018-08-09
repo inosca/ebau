@@ -7329,24 +7329,6 @@
   }
 },
 {
-  "model": "document.template",
-  "pk": 3,
-  "fields": {
-    "name": "foobar",
-    "path": "templates/Projektentwurf_Digitalisierung_QM_3ULyGJ1.docx",
-    "group": 3
-  }
-},
-{
-  "model": "document.template",
-  "pk": 4,
-  "fields": {
-    "name": "test",
-    "path": "templates/Cup_2017_Scharfsch\u00fctze_eXKmaih.docx",
-    "group": 8
-  }
-},
-{
   "model": "document.attachmentsection",
   "pk": 1,
   "fields": {
