@@ -4288,6 +4288,34 @@
   }
 },
 {
+  "model": "core.action",
+  "pk": 1377,
+  "fields": {
+    "available_action": "save",
+    "button": 921,
+    "name": "Speichern",
+    "description": null,
+    "success_message": "Dossier gespeichert.",
+    "error_message": "Das Dossier konnte nicht frei gegeben werden, da beim Speicher ein Fehler aufgetreten ist!",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1378,
+  "fields": {
+    "available_action": "formtransition",
+    "button": 921,
+    "name": "Freigeben an Gemeinde COMM - EXT_GEM",
+    "description": null,
+    "success_message": "Dossier erfolgreich freigegeben.",
+    "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
   "model": "core.aemail",
   "pk": 189,
   "fields": {
@@ -5156,6 +5184,14 @@
   "fields": {
     "current_instance_state": null,
     "next_instance_state": 23
+  }
+},
+{
+  "model": "core.aformtransition",
+  "pk": 1378,
+  "fields": {
+    "current_instance_state": 21,
+    "next_instance_state": 32
   }
 },
 {
@@ -14877,6 +14913,24 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 443,
+  "fields": {
+    "button": 921,
+    "role": 6,
+    "instance_state": 21
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 444,
+  "fields": {
+    "button": 150,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
   "model": "core.bserviceacl",
   "pk": 1,
   "fields": {
@@ -15055,8 +15109,8 @@
   "pk": 4,
   "fields": {
     "instance_resource": 2,
-    "name": "Freigeben",
-    "description": "",
+    "name": "Freigeben f\u00fcr Koordinationsstelle",
+    "description": null,
     "class_field": "release",
     "hidden": 0,
     "sort": 1
@@ -15191,7 +15245,7 @@
     "description": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -15203,7 +15257,7 @@
     "description": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -15523,8 +15577,8 @@
   "pk": 470,
   "fields": {
     "instance_resource": 490,
-    "name": "Freigeben",
-    "description": "",
+    "name": "Freigeben f\u00fcr Koordinationsstelle",
+    "description": null,
     "class_field": "release",
     "hidden": 0,
     "sort": 1
@@ -16822,6 +16876,18 @@
     "name": "Rechnung Baubegleitung",
     "description": null,
     "class_field": "downloady",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 921,
+  "fields": {
+    "instance_resource": 245,
+    "name": "Freigeben f\u00fcr Gemeindebaubeh\u00f6rde",
+    "description": null,
+    "class_field": "release",
     "hidden": 0,
     "sort": 1
   }
@@ -21270,9 +21336,9 @@
     "available_instance_resource": "buildingauthority",
     "resource": 301,
     "name": "Bauverwaltung",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
     "sort": 13,
     "form_group": 161
@@ -32163,6 +32229,60 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 804,
+  "fields": {
+    "instance_resource": 245,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 805,
+  "fields": {
+    "instance_resource": 46,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 807,
+  "fields": {
+    "instance_resource": 265,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 808,
+  "fields": {
+    "instance_resource": 405,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 809,
+  "fields": {
+    "instance_resource": 685,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 810,
+  "fields": {
+    "instance_resource": 692,
+    "role": 6,
+    "instance_state": 32
+  }
+},
+{
   "model": "core.irserviceacl",
   "pk": 1,
   "fields": {
@@ -34989,7 +35109,7 @@
     "template": "/global/home.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 28
+    "sort": 30
   }
 },
 {
@@ -35002,7 +35122,7 @@
     "template": "/global/search.phtml",
     "class_field": null,
     "hidden": 0,
-    "sort": 26
+    "sort": 27
   }
 },
 {
@@ -35015,7 +35135,7 @@
     "template": "/buildom/search.phtml",
     "class_field": "",
     "hidden": 1,
-    "sort": 25
+    "sort": 26
   }
 },
 {
@@ -35041,7 +35161,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 29
+    "sort": 31
   }
 },
 {
@@ -35067,7 +35187,7 @@
     "template": "/portal/create.phtml",
     "class_field": "",
     "hidden": 0,
-    "sort": 30
+    "sort": 32
   }
 },
 {
@@ -35080,7 +35200,7 @@
     "template": "/list/circ-list.phtml",
     "class_field": "show_list_count",
     "hidden": 0,
-    "sort": 21
+    "sort": 22
   }
 },
 {
@@ -35106,7 +35226,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 18
+    "sort": 19
   }
 },
 {
@@ -35132,7 +35252,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 20
+    "sort": 21
   }
 },
 {
@@ -35171,7 +35291,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 17
+    "sort": 18
   }
 },
 {
@@ -35184,7 +35304,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 22
+    "sort": 23
   }
 },
 {
@@ -35197,7 +35317,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 23
+    "sort": 24
   }
 },
 {
@@ -35245,11 +35365,11 @@
   "fields": {
     "available_resource": "simplelist",
     "name": "Pendenzenliste Baubewilligung erteilt",
-    "description": "",
-    "template": "",
-    "class_field": "",
+    "description": null,
+    "template": null,
+    "class_field": null,
     "hidden": 0,
-    "sort": 24
+    "sort": 25
   }
 },
 {
@@ -35327,7 +35447,7 @@
     "template": "",
     "class_field": "",
     "hidden": 0,
-    "sort": 19
+    "sort": 20
   }
 },
 {
@@ -35379,7 +35499,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 27
+    "sort": 28
   }
 },
 {
@@ -35392,7 +35512,20 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 28
+    "sort": 29
+  }
+},
+{
+  "model": "core.resource",
+  "pk": 313,
+  "fields": {
+    "available_resource": "simplelist",
+    "name": "Pendenzenliste Gemeinde",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 17
   }
 },
 {
@@ -36367,6 +36500,14 @@
   }
 },
 {
+  "model": "core.rroleacl",
+  "pk": 83,
+  "fields": {
+    "resource": 313,
+    "role": 6
+  }
+},
+{
   "model": "core.rsearch",
   "pk": 42,
   "fields": {
@@ -37283,7 +37424,7 @@
   "model": "core.rsimplelist",
   "pk": 300,
   "fields": {
-    "instance_states": "21,25"
+    "instance_states": "21,32,25"
   }
 },
 {
@@ -37347,6 +37488,13 @@
   "pk": 310,
   "fields": {
     "instance_states": "24,25,26"
+  }
+},
+{
+  "model": "core.rsimplelist",
+  "pk": 313,
+  "fields": {
+    "instance_states": "32"
   }
 },
 {
@@ -49496,7 +49644,7 @@
   "pk": 22,
   "fields": {
     "name": "ext",
-    "sort": 2,
+    "sort": 3,
     "description": ""
   }
 },
@@ -49505,7 +49653,7 @@
   "pk": 23,
   "fields": {
     "name": "circ",
-    "sort": 3,
+    "sort": 5,
     "description": ""
   }
 },
@@ -49514,7 +49662,7 @@
   "pk": 24,
   "fields": {
     "name": "redac",
-    "sort": 4,
+    "sort": 6,
     "description": ""
   }
 },
@@ -49523,7 +49671,7 @@
   "pk": 25,
   "fields": {
     "name": "done",
-    "sort": 5,
+    "sort": 7,
     "description": ""
   }
 },
@@ -49532,7 +49680,7 @@
   "pk": 26,
   "fields": {
     "name": "arch",
-    "sort": 6,
+    "sort": 8,
     "description": ""
   }
 },
@@ -49541,7 +49689,7 @@
   "pk": 27,
   "fields": {
     "name": "del",
-    "sort": 7,
+    "sort": 9,
     "description": ""
   }
 },
@@ -49550,7 +49698,7 @@
   "pk": 28,
   "fields": {
     "name": "new_portal",
-    "sort": 8,
+    "sort": 10,
     "description": ""
   }
 },
@@ -49559,7 +49707,7 @@
   "pk": 29,
   "fields": {
     "name": "nfd",
-    "sort": 9,
+    "sort": 11,
     "description": ""
   }
 },
@@ -49568,7 +49716,7 @@
   "pk": 30,
   "fields": {
     "name": "subm",
-    "sort": 10,
+    "sort": 12,
     "description": ""
   }
 },
@@ -49577,8 +49725,17 @@
   "pk": 31,
   "fields": {
     "name": "rej",
-    "sort": 11,
+    "sort": 13,
     "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 32,
+  "fields": {
+    "name": "ext_gem",
+    "sort": 4,
+    "description": null
   }
 },
 {
