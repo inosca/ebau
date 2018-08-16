@@ -2537,30 +2537,6 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "wald-info": {
-      "label":
-        "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:<ul><li>Zweck des Bauvorhabens</li><li>Standortgebundenheit</li><li>Wurden Alternativen geprüft und wenn ja, mit welchem Ergebnis?</li></ul>",
-      "hint": "**Platzhalter**: *wald-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'Forstwirtschaft' in 'art-der-nutzung'|value && 'wald-auswirkungen'|value == 'Nein'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
-    "wald-rodungsbewilligung-info": {
-      "label":
-        "Für Ihr Bauvorhaben ist eine Rodungsbewilligung erforderlich. Hierzu sind folgende Unterlagen nötig:<ul><li>ausgefülltes Formular des BAFU</li><li>Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung</li><li>Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen</li><li>Unterschrift aller betroffenen Grundeigentümer</li></ul>",
-      "hint": "**Platzhalter**: *wald-rodungsbewilligung-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression":
-        "'Forstwirtschaft' in 'art-der-nutzung'|value && 'wald-auswirkungen'|value == 'Nein'",
-      "config": {
-        "options": ["Erledigt"]
-      }
-    },
     "verkehr-strasse": {
       "label": "Erfassen Sie die direkt betroffenen Strassen:",
       "hint": "**Platzhalter**: *verkehr-strasse*",
@@ -3959,17 +3935,6 @@
             "config": {}
           }
         ]
-      }
-    },
-    "reklamen-info": {
-      "label":
-        "Das Reklamevorhaben ist gut zu dokumentieren:<ul><li>Situationsplan mit:<ul><li>Vollständiger Darstellung der Liegenschaft</li><li>Vermassung des Reklamestandorts gegenüber Verkehrsflächen (Trottoir resp. Fahrbahn)</li><li>Darstellung der Ausrichtung der Reklame.</li></ul><li>Fassadenplan (soweit vorhanden) oder Fotos (ev. Fotomontage)</li><li>Massstäbliche Darstellung der Reklame(n) inkl. Farbangaben]</li></ul>",
-      "hint": "**Platzhalter**: *reklamen-info*",
-      "type": "checkbox",
-      "required": true,
-      "active-expression": "'Reklame' in 'art-der-anlage'|value",
-      "config": {
-        "options": ["Erledigt"]
       }
     },
     "lebensmittel-und-hygienesicherheit-info": {
