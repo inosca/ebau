@@ -1130,7 +1130,7 @@
           "Verkehrsfläche",
           "Lagerplatz",
           "Vorplatz",
-          "Terasse, Sitzplatz",
+          "Terrasse, Sitzplatz",
           "Andere"
         ]
       }
@@ -1457,7 +1457,6 @@
       "hint": "**Platzhalter**: *baugespann-errichtet*",
       "type": "radio",
       "required": true,
-      "active-expression": "'baugespann-errichtet'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1493,6 +1492,7 @@
       "hint": "**Platzhalter**: *gebaudevolumen*",
       "type": "number",
       "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "min": 0,
         "step": 0.5
@@ -2751,7 +2751,7 @@
       "config": {
         "options": [
           "Thermische Solaranlage (Wärmeproduktion)",
-          "Photovolatische Solaranlage (Stromproduktion)"
+          "Photovoltaische Solaranlage (Stromproduktion)"
         ]
       }
     },
@@ -3486,7 +3486,7 @@
     },
     "zivilschutz-schutzraum": {
       "label":
-        "Ist im Bauvorhaben ein der Pflicht ensprechender Schutzraum eingeplant?",
+        "Ist im Bauvorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
       "type": "radio",
       "required": false,
