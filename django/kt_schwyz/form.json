@@ -1130,7 +1130,7 @@
           "Verkehrsfläche",
           "Lagerplatz",
           "Vorplatz",
-          "Terasse, Sitzplatz",
+          "Terrasse, Sitzplatz",
           "Andere"
         ]
       }
@@ -2751,7 +2751,7 @@
       "config": {
         "options": [
           "Thermische Solaranlage (Wärmeproduktion)",
-          "Photovolatische Solaranlage (Stromproduktion)"
+          "Photovoltaische Solaranlage (Stromproduktion)"
         ]
       }
     },
@@ -3486,7 +3486,7 @@
     },
     "zivilschutz-schutzraum": {
       "label":
-        "Ist im Bauvorhaben ein der Pflicht ensprechender Schutzraum eingeplant?",
+        "Ist im Bauvorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
       "type": "radio",
       "required": false,
