@@ -38949,6 +38949,26 @@
   }
 },
 {
+  "model": "core.circulationanswer",
+  "pk": 73,
+  "fields": {
+    "circulation_type": 41,
+    "circulation_answer_type": 1,
+    "name": "Keine R\u00fcckmeldung",
+    "sort": 12
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 74,
+  "fields": {
+    "circulation_type": 61,
+    "circulation_answer_type": 1,
+    "name": "Keine R\u00fcckmeldung",
+    "sort": 13
+  }
+},
+{
   "model": "core.circulationanswertype",
   "pk": 1,
   "fields": {
