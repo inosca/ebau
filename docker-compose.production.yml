@@ -77,6 +77,9 @@ services:
             - ENV_FILE=/run/secrets/keycloak.env
         restart: always
 
+    postfix:
+        restart: always
+
     mailcatcher:
         restart: always
 
@@ -96,3 +99,7 @@ volumes:
     phpresources:
         external:
             name: camacphpresources
+
+    postfixdata:
+        external:
+            name: camacpostfixdata
