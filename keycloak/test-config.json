@@ -1125,7 +1125,14 @@
     "contentSecurityPolicy" : "frame-src 'self'; frame-ancestors 'self'; object-src 'none';",
     "strictTransportSecurity" : "max-age=31536000; includeSubDomains"
   },
-  "smtpServer" : { },
+  "smtpServer" : {
+    "starttls": "",
+    "auth": "",
+    "port": "1025",
+    "host": "mailcatcher",
+    "from": "info@camac-ng.local",
+    "ssl": ""
+  },
   "eventsEnabled" : false,
   "eventsListeners" : [ "jboss-logging" ],
   "enabledEventTypes" : [ ],
