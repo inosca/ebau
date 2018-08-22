@@ -95,7 +95,16 @@ services:
             - POSTGRES_DATABASE=${APPLICATION}
             - KEYCLOAK_USER=admin
 
+    postfix:
+        image: tozd/postfix
+
+        environment:
+            - MY_NETWORKS=172.16.0.0/12 127.0.0.0/8
+        volumes:
+            - postfixdata:/var/spool/postfix
+
 volumes:
     pgdata:
     djangomedia:
     phpsessions:
+    postfixdata:
