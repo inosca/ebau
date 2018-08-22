@@ -105,6 +105,12 @@ services:
         # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
         command: ["-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
 
+    postfix:
+        environment:
+            - MAILNAME=camac-ng.local
+        networks:
+            - camac-ng.local
+
     mailcatcher:
         ports:
             - '1080:1080'
