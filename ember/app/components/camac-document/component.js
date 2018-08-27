@@ -3,7 +3,6 @@ import { computed } from '@ember/object'
 import { reads } from '@ember/object/computed'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
-import UIkit from 'uikit'
 import fetch from 'fetch'
 import Ember from 'ember'
 import download from 'downloadjs'
@@ -17,6 +16,7 @@ export default CamacInputComponent.extend({
   ajax: service(),
   store: service(),
   session: service(),
+  notification: service(),
 
   token: reads('session.data.authenticated.access_token'),
 
@@ -51,13 +51,10 @@ export default CamacInputComponent.extend({
         download(file, document.get('name'), file.type)
       }
 
-      UIkit.notification('Datei wurde erfolgreich heruntergeladen', {
-        status: 'success'
-      })
+      this.notification.success('Datei wurde erfolgreich heruntergeladen')
     } catch (e) {
-      UIkit.notification(
-        'Hoppla, beim Herunterladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals',
-        { status: 'danger' }
+      this.notification.danger(
+        'Hoppla, beim Herunterladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals'
       )
     }
   }),
@@ -71,20 +68,18 @@ export default CamacInputComponent.extend({
       let file = files.item(0)
 
       if (file.size > MAX_FILE_SIZE) {
-        UIkit.notification(
+        this.notification.danger(
           `Die Datei darf nicht grösser als ${MAX_FILE_SIZE /
             1024 /
-            1024}MB sein.`,
-          { status: 'danger' }
+            1024}MB sein.`
         )
 
         return
       }
 
       if (!ALLOWED_MIME_TYPES.includes(file.type)) {
-        UIkit.notification(
-          'Es können nur PDF, JPEG oder PNG Dateien hochgeladen werden.',
-          { status: 'danger' }
+        this.notification.danger(
+          'Es können nur PDF, JPEG oder PNG Dateien hochgeladen werden.'
         )
 
         return
@@ -118,13 +113,10 @@ export default CamacInputComponent.extend({
         )
       )
 
-      UIkit.notification('Die Datei wurde erfolgreich hochgeladen', {
-        status: 'success'
-      })
+      this.notification.success('Die Datei wurde erfolgreich hochgeladen')
     } catch (e) {
-      UIkit.notification(
-        'Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals',
-        { status: 'danger' }
+      this.notification.danger(
+        'Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals'
       )
     }
   }),

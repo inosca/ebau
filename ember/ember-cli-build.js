@@ -59,14 +59,6 @@ module.exports = function(defaults) {
 
   app.import('vendor/canvas-to-blob-polyfill.js')
 
-  app.import('node_modules/downloadjs/download.min.js', {
-    using: [{ transformation: 'amd', as: 'downloadjs' }]
-  })
-
-  app.import('node_modules/html2canvas/dist/html2canvas.js', {
-    using: [{ transformation: 'amd', as: 'html2canvas' }]
-  })
-
   app.import('node_modules/proj4/dist/proj4.js')
   app.import('node_modules/proj4leaflet/src/proj4leaflet.js')
 

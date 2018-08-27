@@ -1,4 +1,4 @@
 import Route from '@ember/routing/route'
-import OIDCRedirectRouteMixin from 'citizen-portal/mixins/oidc-redirect-route'
+import OIDCAuthenticationRouteMixin from 'ember-simple-auth-oidc/mixins/oidc-authentication-route-mixin'
 
-export default Route.extend(OIDCRedirectRouteMixin, {})
+export default Route.extend(OIDCAuthenticationRouteMixin, {})
