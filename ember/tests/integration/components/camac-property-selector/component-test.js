@@ -10,7 +10,7 @@ module('Integration | Component | camac property selector', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
 
-    await render(hbs`{{camac-property-selector}}`)
+    await render(hbs`{{camac-property-selector selected=(hash)}}`)
 
     assert.ok(this.element)
   })

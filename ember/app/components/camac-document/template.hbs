@@ -12,7 +12,7 @@
           <tr>
             <td class="uk-table-expand uk-text-truncate">
               <span class="uk-link">{{doc.name}}</span>
-              <div uk-drop="pos: left-center; animation: uk-animation-slide-left-small" class="uk-height-small uk-width-small uk-box-shadow-large">
+              <div uk-drop="pos: left-center; animation: uk-animation-slide-left-small" class="uk-height-small uk-width-small uk-box-shadow-large uk-z-index">
                 <div class="uk-width-1-1 uk-height-1-1 uk-cover-container">
                   {{#with doc.thumbnail.lastSuccessful.value as |thumbnail|}}
                     <img uk-cover src={{thumbnail}} alt="Dokumentenvorschau">
