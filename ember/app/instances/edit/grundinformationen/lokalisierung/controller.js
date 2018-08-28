@@ -1,13 +1,13 @@
 import Controller from '@ember/controller'
 import { inject as service } from '@ember/service'
 import { task } from 'ember-concurrency'
-import UIkit from 'uikit'
 import { computed } from '@ember/object'
 import computedTask from 'citizen-portal/lib/computed-task'
 
 export default Controller.extend({
   questionStore: service(),
   ajax: service(),
+  notification: service(),
 
   parcel: computed('model.instance.id', function() {
     return this.questionStore.peek('parzelle', this.model.instance.id)
@@ -83,13 +83,12 @@ export default Controller.extend({
       parcel.set('model.value', parseInt(number))
       yield parcel.get('model').save()
 
-      UIkit.notification('Die Parzelle wurde erfolgreich ausgewält', {
+      this.notification.success('Die Parzelle wurde erfolgreich ausgewält', {
         status: 'success'
       })
     } catch (e) {
-      UIkit.notification(
-        'Hoppla, etwas ist schief gelaufen. Bitte versuchen Sie es erneut.',
-        { status: 'danger' }
+      this.notification.danger(
+        'Hoppla, etwas ist schief gelaufen. Bitte versuchen Sie es erneut.'
       )
     }
   })
