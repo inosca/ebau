@@ -3,11 +3,11 @@ import { inject as service } from '@ember/service'
 import computedTask from 'citizen-portal/lib/computed-task'
 import { task } from 'ember-concurrency'
 import { all } from 'rsvp'
-import UIkit from 'uikit'
 
 export default Controller.extend({
   ajax: service(),
   questionStore: service(),
+  notification: service(),
 
   editController: controller('instances.edit'),
 
@@ -42,15 +42,12 @@ export default Controller.extend({
         { method: 'POST' }
       )
 
-      UIkit.notification('Das Dossier wurde erfolgreich eingereicht', {
-        status: 'success'
-      })
+      this.notification.success('Das Dossier wurde erfolgreich eingereicht')
 
       yield this.transitionToRoute('instances')
     } catch (e) {
-      UIkit.notification(
-        'Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals.',
-        { status: 'danger' }
+      this.notification.danger(
+        'Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals.'
       )
     }
   })

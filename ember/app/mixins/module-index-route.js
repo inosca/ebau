@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service'
 
 export default Mixin.create({
   questionStore: service(),
+  router: service(),
 
   async redirect(_, transition) {
     // The current route name will be the last route or null (if window was
