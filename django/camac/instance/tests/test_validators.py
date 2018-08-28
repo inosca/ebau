@@ -12,7 +12,7 @@ from camac.instance import validators
         ("kategorie-des-vorhabens", "invalid"),
         ("anlagen-mit-erheblichen-schadstoffemissionen-welche", 0),
         ("hohe-der-anlage", -1),
-        ("dokument-parzelle", None),
+        ("dokument-parzellen", None),
     ],
 )
 def test_form_data_validator_validate_question_type(instance, question, value):

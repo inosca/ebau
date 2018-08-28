@@ -194,7 +194,7 @@ def test_instance_create(admin_client, admin_user, form, instance_state):
     "instance__user,location__communal_federal_number,instance_state__name",
     [(LazyFixture("admin_user"), "1311", "new")],
 )
-@pytest.mark.parametrize("attachment__question", ["dokument-parzelle"])
+@pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name,status_code",
     [

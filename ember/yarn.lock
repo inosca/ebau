@@ -4659,6 +4659,12 @@ ember-leaflet@^3.0.15:
     fastboot-transform "^0.1.1"
     resolve "^1.7.0"
 
+ember-lifeline@^3.0.7:
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/ember-lifeline/-/ember-lifeline-3.0.7.tgz#a87e8b133a26b8cd3dccc85fa3be8a93675a15d3"
+  dependencies:
+    ember-cli-babel "^6.8.2"
+
 ember-load-initializers@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-1.1.0.tgz#4edacc0f3a14d9f53d241ac3e5561804c8377978"
@@ -12816,6 +12822,12 @@ xdg-basedir@^2.0.0:
 xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
+
+xml-js@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/xml-js/-/xml-js-1.6.7.tgz#a99b40c18a16d3e06537b3ae026a27bd60ffe8ab"
+  dependencies:
+    sax "^1.2.4"
 
 xml-name-validator@^3.0.0:
   version "3.0.0"

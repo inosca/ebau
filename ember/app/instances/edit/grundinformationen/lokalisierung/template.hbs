@@ -6,6 +6,9 @@
 
 {{camac-property-selector
   readonly  = model.instance.identifier
-  selected  = selected.lastSuccessful.value
+  selected  = (hash
+    points  = points.value
+    parcels = parcels.value
+  )
   on-submit = (perform saveLocation)
 }}
