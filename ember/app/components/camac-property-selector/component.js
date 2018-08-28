@@ -30,6 +30,46 @@ const LAYERS = [
   'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaftnummer_projektiert.hilfslinie'
 ]
 
+const QUERY_LAYERS = [
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon',
+  'ch.sz.afk.afk_kigbo',
+  'ch.sz.afk.afk_bhf',
+  'ch.sz.afk.afk_isos',
+  'ch.sz.a081a.icomos.gaerten',
+  'ch.sz.afu.nis.hochspannungsltg',
+  'ch.sz.afu.nis.trafostation',
+  'ch.sz.afu.nis.unterwerk',
+  'ch.sz.a023a.egid',
+  'ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer_projektiert',
+  'ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer',
+  'ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser',
+  'ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser',
+  'ch.sz.awb.grp.awb_gewaesserraum',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht',
+  'ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert',
+  'ch.sz.afu.nis.mobilfunkstandort',
+  'ch.sz.afu.nis.rundfunksender',
+  'ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch',
+  'ch.sz.anjf.anjf_kant_naturschutzgebiete',
+  'ch.sz.anjf.anjf_kant_pflanzenschutzreservate',
+  'ch.sz.anjf.komm_schutzzonen',
+  'ch.sz.anjf.anjf_kant_biotope',
+  'ch.sz.a005.nutzungsplanung.grundnutzung',
+  'ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone',
+  'ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal',
+  'ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.ao',
+  'ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au',
+  'ch.sz.afu.kbsprov.provisorische_standorte',
+  'ch.sz.a006.swisstlm3d.oev.eisenbahn',
+  'ch.sz.a078.wanderwege',
+  'ch.sz.chbafu.wildtierkorridor',
+  'ch.sz.a049.fischgewaesser',
+  'ch.sz.a049.fischregionen',
+  'ch.sz.anjf_reptiliengebiete.reptiliengebiet'
+]
+
 const CENTER = [47.020714, 8.652988]
 const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]]
 
@@ -115,7 +155,7 @@ export default Component.extend({
       return features
     } catch (e) {
       this.notification.danger(
-        'Es kann keine Verbindung zu GIS Server hergestellt werden'
+        'Die Verbindung zum GIS Server ist fehlgeschlagen'
       )
     }
   }).restartable(),
@@ -151,7 +191,7 @@ export default Component.extend({
     let bbox = [southWest.x, southWest.y, northEast.x, northEast.y].join(',')
 
     try {
-      let data = yield this.ajax.request(
+      let res = yield this.ajax.request(
         'https://map.geo.sz.ch/main/wsgi/mapserv_proxy',
         {
           dataType: 'xml',
@@ -165,10 +205,8 @@ export default Component.extend({
             request: 'GetFeatureInfo',
             service: 'WMS',
             styles: 'default',
-            layers:
-              'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon',
-            query_layers:
-              'ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon',
+            layers: QUERY_LAYERS.join(','),
+            query_layers: QUERY_LAYERS.join(','),
             srs: 'EPSG:3857',
             info_format: 'application/vnd.ogc.gml',
             feature_count: 1
@@ -177,6 +215,7 @@ export default Component.extend({
       )
 
       const serializer = new XMLSerializer()
+      const data = xml2js(serializer.serializeToString(res), { compact: true })
 
       const {
         msGMLOutput: {
@@ -197,7 +236,7 @@ export default Component.extend({
             }
           }
         }
-      } = xml2js(serializer.serializeToString(data), { compact: true })
+      } = data
 
       const coordinates = rawCoordinates
         .split(' ')
@@ -211,25 +250,29 @@ export default Component.extend({
         this.parcels.pushObject({ egrid, municipality, number, coordinates })
       }
 
-      this.points.pushObject(e.latlng)
-    } catch (e) {} // eslint-disable-line no-empty
+      this.points.pushObject({ ...e.latlng, layers: data.msGMLOutput })
+    } catch (e) {
+      this.notification.danger(
+        'Die Verbindung zum GIS Server ist fehlgeschlagen'
+      )
+    }
   }).restartable(),
 
   handleAddParcelLayer: task(function*({ target }) {
     yield this._parcelLayers.pushObject(target)
 
     scheduleTask(this, 'actions', () => {
-      this._map.fitBounds(this.parcelBounds)
+      target._map.fitBounds(this.parcelBounds)
     })
   }).enqueue(),
 
-  centerLayerToPolygon: task(function*(e) {
-    yield e.target._map.fitBounds(e.target.getBounds())
+  centerLayerToPolygon: task(function*({ target }) {
+    yield target._map.fitBounds(target.getBounds())
   }).enqueue(),
 
-  centerLayerToPoint: task(function*(e) {
-    yield e.target._map.panTo(e.target.getLatLng())
-    yield e.target._map.setZoom(18)
+  centerLayerToPoint: task(function*({ target }) {
+    yield target._map.panTo(target.getLatLng())
+    yield target._map.setZoom(18)
   }).enqueue(),
 
   clear: task(function*() {
