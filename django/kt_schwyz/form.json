@@ -183,7 +183,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["bezeichnung", "parzelle", "dokument-parzelle"]
+      "questions": ["bezeichnung", "parzellen", "punkte", "dokument-parzellen"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -309,8 +309,7 @@
       ]
     },
     "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone": {
-      "title":
-        "Nicht landwirtschaftliche Bauten und Anlagen ausserhalb Bauzone",
+      "title": "Nicht landwirtschaftliche Bauten und Anlagen ausserhalb Bauzone",
       "parent": "fachthemen",
       "questions": [
         "nlbuaab-bauten",
@@ -514,7 +513,7 @@
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
-        "dokument-parzelle",
+        "dokument-parzellen",
         "dokument-aktueller-katasterplan",
         "dokument-aktueller-auszug-aus-dem-grundbuch",
         "dokument-grundrisse-1100",
@@ -574,7 +573,7 @@
       "title": "Gesuchsunterlagen",
       "parent": null,
       "questions": [
-        "dokument-parzelle",
+        "dokument-parzellen",
         "dokument-aktueller-katasterplan",
         "dokument-aktueller-auszug-aus-dem-grundbuch",
         "dokument-grundrisse-1100",
@@ -807,12 +806,60 @@
     }
   },
   "questions": {
-    "parzelle": {
-      "label": "Parzellennr.",
-      "hint": "**Platzhalter**: *parzelle*",
-      "type": "number",
+    "parzellen": {
+      "label": "Parzellen",
+      "hint": "",
+      "type": "table",
       "required": true,
-      "config": {}
+      "config": {
+        "columns": [
+          {
+            "name": "egrid",
+            "label": "EGRID",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "number",
+            "label": "Parzellennr.",
+            "type": "number",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "municipality",
+            "label": "Gemeinde",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "punkte": {
+      "label": "Punkte",
+      "hint": "",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "lat",
+            "label": "Breitengrad",
+            "type": "number",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "lng",
+            "label": "Längengrad",
+            "type": "number",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
     },
     "gwr": {
       "label": "Gebäude- und Wohnungsregister",
@@ -1032,8 +1079,7 @@
       "config": {}
     },
     "kategorie-des-vorhabens": {
-      "label":
-        "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+      "label": "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
       "hint": "**Platzhalter**: *kategorie-des-vorhabens*",
       "type": "checkbox",
       "required": true,
@@ -1148,8 +1194,7 @@
       "hint": "**Platzhalter**: *zweck-der-leitungen*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value",
+      "active-expression": "'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value",
       "config": {
         "options": [
           "Abwasserentsorgung",
@@ -1211,8 +1256,7 @@
       }
     },
     "temporare-grundwasserabsenkung-notig": {
-      "label":
-        "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
+      "label": "Ist während den Bauarbeiten eine temporäre Grundwasserabsenkung nötig?",
       "hint": "**Platzhalter**: *temporare-grundwasserabsenkung-notig*",
       "type": "radio",
       "required": true,
@@ -1221,8 +1265,7 @@
       }
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
-      "label":
-        "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+      "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen*",
       "type": "radio",
       "required": true,
@@ -1232,17 +1275,14 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
       "label": "Welche?",
-      "hint":
-        "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen-welche*",
+      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen-welche*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
+      "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
       "config": {}
     },
     "anlagen-mit-erheblichen-strahlungsemissionen": {
-      "label":
-        "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
+      "label": "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen*",
       "type": "radio",
       "required": true,
@@ -1252,17 +1292,14 @@
     },
     "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
       "label": "Welche?",
-      "hint":
-        "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen-welche*",
+      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen-welche*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
+      "active-expression": "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
       "config": {}
     },
     "anlagen-mit-erheblichen-larmemissionen": {
-      "label":
-        "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
+      "label": "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-larmemissionen*",
       "type": "radio",
       "required": true,
@@ -1271,8 +1308,7 @@
       }
     },
     "larmbelastetes-gebiet": {
-      "label":
-        "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
+      "label": "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
       "hint": "**Platzhalter**: *larmbelastetes-gebiet*",
       "type": "radio",
       "required": true,
@@ -1290,8 +1326,7 @@
       }
     },
     "wassergefahrdende-stoffe": {
-      "label":
-        "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
+      "label": "Werden wassergefährdende Stoffe/Flüssigkeiten gelagert oder umgeschlagen?",
       "hint": "**Platzhalter**: *wassergefahrdende-stoffe*",
       "type": "radio",
       "required": true,
@@ -1309,8 +1344,7 @@
       }
     },
     "bodenbelastungen": {
-      "label":
-        "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
+      "label": "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
       "hint": "**Platzhalter**: *bodenbelastungen*",
       "type": "radio",
       "required": true,
@@ -1328,8 +1362,7 @@
       }
     },
     "ordendliche-mindestabstande": {
-      "label":
-        "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
+      "label": "Werden ordentliche Mindestabstände unterschritten resp. Ausnahmen beansprucht?",
       "hint": "**Platzhalter**: *ordendliche-mindestabstande*",
       "type": "radio",
       "required": true,
@@ -1338,8 +1371,7 @@
       }
     },
     "auswirkungen-auf-arbeitnehmer": {
-      "label":
-        "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
+      "label": "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
       "hint": "**Platzhalter**: *auswirkungen-auf-arbeitnehmer*",
       "type": "radio",
       "required": true,
@@ -1348,8 +1380,7 @@
       }
     },
     "200m3-bauabfalle": {
-      "label":
-        "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
+      "label": "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
       "hint": "**Platzhalter**: *200m3-bauabfalle*",
       "type": "radio",
       "required": true,
@@ -1358,8 +1389,7 @@
       }
     },
     "alarmierungseinrichtung-tangiert": {
-      "label":
-        "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
+      "label": "Wird eine bestehende Alarmierungseinrichtung durch das Bauvorhaben tangiert?",
       "hint": "**Platzhalter**: *alarmierungseinrichtung-tangiert*",
       "type": "radio",
       "required": true,
@@ -1368,8 +1398,7 @@
       }
     },
     "lebensmittel-umgehen": {
-      "label":
-        "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
+      "label": "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
       "hint": "**Platzhalter**: *lebensmittel-umgehen*",
       "type": "radio",
       "required": true,
@@ -1378,8 +1407,7 @@
       }
     },
     "trinkwasser-abgeben": {
-      "label":
-        "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
+      "label": "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
       "hint": "**Platzhalter**: *trinkwasser-abgeben*",
       "type": "radio",
       "required": true,
@@ -1388,8 +1416,7 @@
       }
     },
     "offentlich-duschanlage-oder-bad": {
-      "label":
-        "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
+      "label": "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
       "hint": "**Platzhalter**: *offentlich-duschanlage-oder-bad*",
       "type": "radio",
       "required": true,
@@ -1398,8 +1425,7 @@
       }
     },
     "gewerbliche-nutzflachen": {
-      "label":
-        "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
+      "label": "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
       "hint": "**Platzhalter**: *gewerbliche-nutzflachen*",
       "type": "radio",
       "required": true,
@@ -1429,8 +1455,7 @@
       }
     },
     "geometer": {
-      "label":
-        "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
+      "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
       "hint": "**Platzhalter**: *geometer*",
       "type": "radio",
       "required": true,
@@ -1525,8 +1550,7 @@
       "config": {}
     },
     "ausnahmen-begrundung": {
-      "label":
-        "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
+      "label": "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
       "hint": "**Platzhalter**: *ausnahmen-begrundung*",
       "type": "text",
       "required": true,
@@ -1857,8 +1881,7 @@
       }
     },
     "landwirtschaft-sak-wert": {
-      "label":
-        "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
+      "label": "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
       "hint": "**Platzhalter**: *landwirtschaft-sak-wert*",
       "type": "number",
       "required": true,
@@ -1883,8 +1906,7 @@
       }
     },
     "landwirtschaft-nutzflache": {
-      "label":
-        "Landwirtschaftliche Nutzfläche (LN) gemäss aktuellen oder künftigen Betriebsverhältnissen in Aren:",
+      "label": "Landwirtschaftliche Nutzfläche (LN) gemäss aktuellen oder künftigen Betriebsverhältnissen in Aren:",
       "hint": "**Platzhalter**: *landwirtschaft-nutzflache*",
       "type": "number",
       "required": true,
@@ -1914,20 +1936,17 @@
       "hint": "**Platzhalter**: *landwirtschaft-gebietskategorie*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche'|value",
       "config": {
         "options": ["Berggebiet", "Talgebiet"]
       }
     },
     "landwirtschaft-wohnbauten": {
-      "label":
-        "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
+      "label": "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
       "hint": "**Platzhalter**: *landwirtschaft-wohnbauten*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1))",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1))",
       "config": {
         "columns": [
           {
@@ -2008,13 +2027,11 @@
       }
     },
     "landwirtschaft-stallgebaude": {
-      "label":
-        "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
+      "label": "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
       "hint": "**Platzhalter**: *landwirtschaft-stallgebaude*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
       "config": {
         "columns": [
           {
@@ -2055,25 +2072,21 @@
       }
     },
     "landwirtschaft-veranderung-tierbestand": {
-      "label":
-        "Führt das Bauvorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
+      "label": "Führt das Bauvorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
       "hint": "**Platzhalter**: *landwirtschaft-veranderung-tierbestand*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "landwirtschaft-okonomiebauten": {
-      "label":
-        "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
+      "label": "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
       "hint": "**Platzhalter**: *landwirtschaft-okonomiebauten*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche'|value",
       "config": {
         "columns": [
           {
@@ -2136,8 +2149,7 @@
       "hint": "**Platzhalter**: *landwirtschaft-gullenlager*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
       "config": {
         "columns": [
           {
@@ -2193,8 +2205,7 @@
       "hint": "**Platzhalter**: *landwirtschaft-mistplatte*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
       "config": {
         "columns": [
           {
@@ -2217,13 +2228,11 @@
       }
     },
     "nlbuaab-bauten": {
-      "label":
-        "Bitte geben Sie die nötigen Informationen zu den bestehenden Bauten an:",
+      "label": "Bitte geben Sie die nötigen Informationen zu den bestehenden Bauten an:",
       "hint": "**Platzhalter**: *nlbuaab-bauten*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2257,13 +2266,11 @@
       }
     },
     "nlbuaab-anlagen": {
-      "label":
-        "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
+      "label": "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
       "hint": "**Platzhalter**: *nlbuaab-anlagen*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2287,13 +2294,11 @@
       }
     },
     "nlbuaab-erweiterungen": {
-      "label":
-        "Sind seit dem 1. Juli 1972 Erweiterungen oder Umnutzungen der Bauten und Anlagen erfolgt?",
+      "label": "Sind seit dem 1. Juli 1972 Erweiterungen oder Umnutzungen der Bauten und Anlagen erfolgt?",
       "hint": "**Platzhalter**: *nlbuaab-erweiterungen*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2303,18 +2308,15 @@
       "hint": "**Platzhalter**: *nlbuaab-erweiterungen-wann-welche*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
       "config": {}
     },
     "nlbuaab-nutzflachen-bestehend-1972": {
-      "label":
-        "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
+      "label": "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
       "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend-1972*",
       "type": "table",
       "required": false,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2358,13 +2360,11 @@
       }
     },
     "nlbuaab-nutzflachen-bestehend": {
-      "label":
-        "Es sind Angaben zu den am Erstellungszeitpunkt bestehenden Nutzflächen erforderlich:",
+      "label": "Es sind Angaben zu den am Erstellungszeitpunkt bestehenden Nutzflächen erforderlich:",
       "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend*",
       "type": "table",
       "required": false,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2412,8 +2412,7 @@
       "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bisherige-erweiterungen*",
       "type": "table",
       "required": false,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2461,8 +2460,7 @@
       "hint": "**Platzhalter**: *nlbuaab-nutzflachen-geplante-erweiterungen*",
       "type": "table",
       "required": false,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2506,8 +2504,7 @@
       }
     },
     "umweltschutz-abfallbehandlungsanlage": {
-      "label":
-        "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
+      "label": "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
       "hint": "**Platzhalter**: *umweltschutz-abfallbehandlungsanlage*",
       "type": "radio",
       "required": true,
@@ -2527,8 +2524,7 @@
       }
     },
     "wald-auswirkungen": {
-      "label":
-        "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
+      "label": "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
       "hint": "**Platzhalter**: *wald-auswirkungen*",
       "type": "radio",
       "required": true,
@@ -2575,8 +2571,7 @@
       "hint": "**Platzhalter**: *verkehr-einfahrt*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
       "config": {
         "options": [
           "Neue, direkte Einfahrt geplant",
@@ -2590,21 +2585,18 @@
       "hint": "**Platzhalter**: *verkehr-parkplatze*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
       "config": {
         "min": 0,
         "step": 1
       }
     },
     "verkehr-mehrverkehr": {
-      "label":
-        "Ergibt sich bei der bestehenden Zufahrt in die Kantonsstrasse erheblicher Mehrverkehr",
+      "label": "Ergibt sich bei der bestehenden Zufahrt in die Kantonsstrasse erheblicher Mehrverkehr",
       "hint": "**Platzhalter**: *verkehr-mehrverkehr*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2614,8 +2606,7 @@
       "hint": "**Platzhalter**: *verkehr-strasse-indirekt*",
       "type": "table",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt'",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt'",
       "config": {
         "columns": [
           {
@@ -2644,13 +2635,11 @@
       }
     },
     "verkehr-ursache-unterschreitung": {
-      "label":
-        "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
+      "label": "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
       "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
       "config": {
         "options": [
           "Baute oder ähnlich wirkende Anlagen",
@@ -2665,43 +2654,36 @@
       "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung-andere*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'Andere' in 'verkehr-ursache-unterschreitung'|value",
+      "active-expression": "'Andere' in 'verkehr-ursache-unterschreitung'|value",
       "config": {}
     },
     "verkehr-grenzt-an-strasse": {
-      "label":
-        "Grenzt das Grundstück, auf dem das Vorhaben geplant ist, direkt an die Strasse?",
+      "label": "Grenzt das Grundstück, auf dem das Vorhaben geplant ist, direkt an die Strasse?",
       "hint": "**Platzhalter**: *verkehr-grenzt-an-strasse*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "verkehr-neugestaltung-trottoir": {
-      "label":
-        "Ist eine Neugestaltung der Umgebung entlang Trottoir / Strasse vorgesehen",
+      "label": "Ist eine Neugestaltung der Umgebung entlang Trottoir / Strasse vorgesehen",
       "hint": "**Platzhalter**: *verkehr-neugestaltung-trottoir*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
 
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "verkehr-einschrankungen-trottoir": {
-      "label":
-        "Ergeben sich Einschränkungen der Sichtverhältnisse auf Trottoir und / oder Radweg und / oder Strasse?",
+      "label": "Ergeben sich Einschränkungen der Sichtverhältnisse auf Trottoir und / oder Radweg und / oder Strasse?",
       "hint": "**Platzhalter**: *verkehr-einschrankungen-trottoir*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2711,8 +2693,7 @@
       "hint": "**Platzhalter**: *verkehr-baugrube-tangieren*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
+      "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2722,8 +2703,7 @@
       "hint": "**Platzhalter**: *energie-art*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": [
           "Thermische Solaranlage (Wärmeproduktion)",
@@ -2736,56 +2716,47 @@
       "hint": "**Platzhalter**: *energie-dachaufstellung*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "energie-uberragt-rechter-winkel": {
-      "label":
-        "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
+      "label": "Überragt die Solaranlage die Dachfläche im rechten Winkel um höchstens 20cm?",
       "hint": "**Platzhalter**: *energie-uberragt-rechter-winkel*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "energie-uberragt": {
-      "label":
-        "Ragt die Solaranlage von vorne und von oben gesehen über die Dachfläche hinaus?",
+      "label": "Ragt die Solaranlage von vorne und von oben gesehen über die Dachfläche hinaus?",
       "hint": "**Platzhalter**: *energie-uberragt*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "energie-reflexionsarm": {
-      "label":
-        "Ist die Solaranlage nach dem Stand der Technik reflexionsarm vorgesehen?",
+      "label": "Ist die Solaranlage nach dem Stand der Technik reflexionsarm vorgesehen?",
       "hint": "**Platzhalter**: *energie-reflexionsarm*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "energie-kompakt": {
-      "label":
-        "Ist die Solaranlage als kompakte und zusammenhängende Fläche angeordnet?",
+      "label": "Ist die Solaranlage als kompakte und zusammenhängende Fläche angeordnet?",
       "hint": "**Platzhalter**: *energie-kompakt*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2795,8 +2766,7 @@
       "hint": "**Platzhalter**: *energie-thermisch-kollektorenart*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
         "options": ["Flachkollektoren", "Röhrenkollektoren"]
       }
@@ -2806,8 +2776,7 @@
       "hint": "**Platzhalter**: *energie-thermisch-aufbereitung*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
         "options": [
           "(Brauch)Warmwasser",
@@ -2820,8 +2789,7 @@
       "hint": "**Platzhalter**: *energie-thermisch-grosse*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1,
         "step": 1
@@ -2832,8 +2800,7 @@
       "hint": "**Platzhalter**: *energie-photovoltaik-technologie*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "options": ["Monokristalline Zellen", "Polykristalline Zellen"]
       }
@@ -2843,8 +2810,7 @@
       "hint": "**Platzhalter**: *energie-photovoltaik-gesamtleistung*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1,
         "step": 1
@@ -2855,8 +2821,7 @@
       "hint": "**Platzhalter**: *energie-photovoltaik-jahresertrag*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1,
         "step": 1
@@ -2867,8 +2832,7 @@
       "hint": "**Platzhalter**: *energie-photovoltaik-flache*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
+      "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
         "min": 1,
         "step": 1
@@ -2879,8 +2843,7 @@
       "hint": "**Platzhalter**: *energie-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
+      "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {}
     },
     "arbeitssicherheit-planbesprechung": {
@@ -2888,8 +2851,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-planbesprechung*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
+      "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -2899,8 +2861,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-tangiert*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
+      "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
       "config": {
         "options": [
           "Arbeitnehmer",
@@ -2924,21 +2885,18 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-raumen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "arbeitssicherheit-arbeitnehmer-betrieb": {
-      "label":
-        "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
+      "label": "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
       "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-betrieb*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
@@ -2949,8 +2907,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-hohe*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
@@ -2960,33 +2917,27 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-fensterflache*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
     },
     "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache": {
-      "label":
-        "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-arbeitsraume-bodenflache-fensterflache*",
+      "label": "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-bodenflache-fensterflache*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 0
       }
     },
     "arbeitssicherheit-arbeitsraume-brustungshohen": {
       "label": "Brüstungshöhen in den Arbeitsräumen in m:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-arbeitsraume-brustungshohen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-brustungshohen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1
       }
@@ -2996,8 +2947,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-lage-treppenhause*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-laufbreite": {
@@ -3005,8 +2955,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-laufbreite*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 0
       }
@@ -3016,8 +2965,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-material*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-fluchtwege": {
@@ -3025,8 +2973,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-fluchtwege*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-arten": {
@@ -3034,8 +2981,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-arten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-ausgange-schliessystem": {
@@ -3043,8 +2989,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-schliessystem*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-luftung-art": {
@@ -3052,8 +2997,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Künstlich", "Natürlich"]
       }
@@ -3063,8 +3007,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-absaugungen*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3074,160 +3017,129 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-luftung-verunreinigte-luft*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "arbeitssicherheit-beleuchtung-raumbeleuchtung": {
       "label": "Raumbeleuchtung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-beleuchtung-raumbeleuchtung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-beleuchtung-raumbeleuchtung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung": {
       "label": "Not- und Markierungsbeleuchtung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-raumklima": {
       "label": "Raumklima:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-raumklima*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-raumklima*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen": {
       "label": "Erschütterungen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-larm": {
       "label": "Lärm:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-larm*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-larm*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-nachweis": {
       "label": "Raumakustischer Nachweis:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-nachweis*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-nachweis*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel": {
       "label": "Arbeitsmittel:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-arbeitsmittel*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-arbeitsmittel*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen": {
       "label": "Produktionsanlagen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-produktionsanlagen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-produktionsanlagen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
       "label": "Aufstellungsplan:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-aufstellungsplan*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-aufstellungsplan*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-betriebseinrichtungen-ergonomie": {
       "label": "Büroarbeitsplätze (Ergonomie):",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-ergonomie*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-ergonomie*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung": {
       "label": "Auflistung der Stoffe:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung": {
       "label": "Verwendung oder Verarbeitung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung": {
       "label": "Technische Überwachung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen": {
       "label": "Ex-Zonen / elektrische Überwachung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung": {
       "label": "Ort, Menge, Lüftung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-art": {
@@ -3235,18 +3147,15 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-art*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-abschirmung": {
       "label": "Abschirmung:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-schweissanlagen-abschirmung*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-abschirmung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-schweissanlagen-absaugung": {
@@ -3254,8 +3163,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-absaugung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-aufzuge": {
@@ -3263,8 +3171,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-aufzuge*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-krane": {
@@ -3272,8 +3179,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-krane*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-hebebuhnen": {
@@ -3281,8 +3187,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-hebebuhnen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-anpassrampen": {
@@ -3290,28 +3195,23 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-anpassrampen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-fordereinrichtungen": {
       "label": "Fördereinrichtungen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-forderanlagen-fordereinrichtungen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-fordereinrichtungen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-forderanlagen-stapeleinrichtungen": {
       "label": "Stapeleinrichtungen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-forderanlagen-stapeleinrichtungen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-stapeleinrichtungen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-gefrierraume": {
@@ -3319,8 +3219,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-lager-gefrierraume*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-silos": {
@@ -3328,8 +3227,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-lager-silos*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-lagersysteme": {
@@ -3337,8 +3235,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-lager-lagersysteme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-lager-chemikalien": {
@@ -3346,48 +3243,39 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-lager-chemikalien*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln": {
       "label": "Vorbehandeln:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren": {
       "label": "Galvanisieren:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen": {
       "label": "Farbspritzen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten": {
       "label": "Pulverbeschichten:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-anzahl": {
@@ -3395,8 +3283,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-anzahl*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
         "min": 1,
         "step": 1
@@ -3407,8 +3294,7 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-waschanlagen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-garderoben": {
@@ -3416,53 +3302,43 @@
       "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-garderoben*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-toiletten-duschen": {
       "label": "Toiletten und Duschen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-sozialraume-toiletten-duschen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-toiletten-duschen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-sanitare-anlagen": {
       "label": "Sanitäre Anlagen:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-sozialraume-sanitare-anlagen*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-sanitare-anlagen*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume": {
       "label": "Ess- und Aufenthaltsräume:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "arbeitssicherheit-sozialraume-pause-und-ruheraume": {
       "label": "Pausen- und Ruheräume:",
-      "hint":
-        "**Platzhalter**: *arbeitssicherheit-sozialraume-pause-und-ruheraume*",
+      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-pause-und-ruheraume*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
+      "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
       "config": {}
     },
     "zivilschutz-schutzraum": {
-      "label":
-        "Ist im Bauvorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
+      "label": "Ist im Bauvorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
       "type": "radio",
       "required": false,
@@ -3480,8 +3356,7 @@
       }
     },
     "zivilschutz-dispens-schutzraumbau": {
-      "label":
-        "Wird für das Bauvorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
+      "label": "Wird für das Bauvorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
       "hint": "**Platzhalter**: *zivilschutz-dispens-schutzraumbau*",
       "type": "radio",
       "required": false,
@@ -3490,8 +3365,7 @@
       }
     },
     "zivilschutz-schutzraum-bestehend": {
-      "label":
-        "Befindet sich im Bereich des Bauvorhabens ein bestehender Schutzraum?",
+      "label": "Befindet sich im Bereich des Bauvorhabens ein bestehender Schutzraum?",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-bestehend*",
       "type": "radio",
       "required": false,
@@ -3526,8 +3400,7 @@
       "config": {}
     },
     "zivilschutz-schutzraum-nr-nicht-bekannt": {
-      "label":
-        "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
+      "label": "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
       "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr-nicht-bekannt*",
       "type": "text",
       "required": false,
@@ -3535,13 +3408,11 @@
       "config": {}
     },
     "brandschutz-gefahrengut": {
-      "label":
-        "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
+      "label": "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
       "hint": "**Platzhalter**: *brandschutz-gefahrengut*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja'",
+      "active-expression": "'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja'",
       "config": {
         "options": [
           "Gaslager, Flüssiggaslager",
@@ -3553,12 +3424,10 @@
     },
     "liegenschaftsentwasserung-wassergefahrdende-stoffe": {
       "label": "Werden wassergefährdende Stoffe gelagert oder umgeschlagen?",
-      "hint":
-        "**Platzhalter**: *liegenschaftsentwasserung-wassergefahrdende-stoffe*",
+      "hint": "**Platzhalter**: *liegenschaftsentwasserung-wassergefahrdende-stoffe*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'Gewerbe / Dienstleistung / Industrie' in 'art-der-nutzung'|value",
+      "active-expression": "'Gewerbe / Dienstleistung / Industrie' in 'art-der-nutzung'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -3582,8 +3451,7 @@
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": [
           "Erdwärmesonden",
@@ -3597,8 +3465,7 @@
       "hint": "**Platzhalter**: *grundwasser-geologe*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-bohrfirma": {
@@ -3606,8 +3473,7 @@
       "hint": "**Platzhalter**: *grundwasser-bohrfirma*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-verwendungszweck": {
@@ -3615,8 +3481,7 @@
       "hint": "**Platzhalter**: *grundwasser-verwendungszweck*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": ["Heizung", "Kühlung", "Warmwasser"]
       }
@@ -3626,8 +3491,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-erdwarmesonden*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3638,8 +3502,7 @@
       "hint": "**Platzhalter**: *grundwasser-bohrtiefe*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3650,8 +3513,7 @@
       "hint": "**Platzhalter**: *grundwasser-bohrdurchmesser*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3662,8 +3524,7 @@
       "hint": "**Platzhalter**: *grundwasser-bohrverfahren*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-sondenrohrdurchmesser": {
@@ -3671,8 +3532,7 @@
       "hint": "**Platzhalter**: *grundwasser-sondenrohrdurchmesser*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1,
         "step": 1
@@ -3683,8 +3543,7 @@
       "hint": "**Platzhalter**: *grundwasser-sondenmaterial*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-warmetragerflussigkeit": {
@@ -3692,8 +3551,7 @@
       "hint": "**Platzhalter**: *grundwasser-warmetragerflussigkeit*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-totale-fullmenge": {
@@ -3701,8 +3559,7 @@
       "hint": "**Platzhalter**: *grundwasser-totale-fullmenge*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {
         "min": 1,
         "step": 1
@@ -3713,8 +3570,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-energiepfahle*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3725,8 +3581,7 @@
       "hint": "**Platzhalter**: *grundwasser-tiefe-energiepfahle*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3737,8 +3592,7 @@
       "hint": "**Platzhalter**: *grundwasser-durchmesser-energiepfahle*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1,
         "step": 1
@@ -3749,8 +3603,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-register*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1,
         "step": 1
@@ -3761,8 +3614,7 @@
       "hint": "**Platzhalter**: *grundwasser-verlegungstiefe*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1,
         "step": 1
@@ -3773,8 +3625,7 @@
       "hint": "**Platzhalter**: *grundwasser-material-der-anlage*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {}
     },
     "grundwasser-sondierbohrung-anzahl-bohrungen": {
@@ -3816,8 +3667,7 @@
       "hint": "**Platzhalter**: *grundwasser-sondierbohrung-zweck-anderer*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'Sondierbohrung' in 'art-der-anlage'|value && 'grundwasser-sondierbohrung-zweck'|value == 'Anderer Grund'",
+      "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value && 'grundwasser-sondierbohrung-zweck'|value == 'Anderer Grund'",
       "config": {}
     },
     "grundwasser-sondierbohrung-tiefe": {
@@ -3938,20 +3788,17 @@
       }
     },
     "lebensmittel-und-hygienesicherheit-info": {
-      "label":
-        "Für Ihr Vorhaben ist eine Beurteilung durch das Laboratorium der Urkantone erforderlich.",
+      "label": "Für Ihr Vorhaben ist eine Beurteilung durch das Laboratorium der Urkantone erforderlich.",
       "hint": "**Platzhalter**: *lebensmittel-und-hygienesicherheit-info*",
       "type": "checkbox",
       "required": true,
-      "active-expression":
-        "'lebensmittel-umgehen'|value == 'Ja' || 'trinkwasser-abgeben'|value == 'Ja' || 'offentlich-duschanlage-oder-bad'|value == 'Ja'",
+      "active-expression": "'lebensmittel-umgehen'|value == 'Ja' || 'trinkwasser-abgeben'|value == 'Ja' || 'offentlich-duschanlage-oder-bad'|value == 'Ja'",
       "config": {
         "options": ["Erledigt"]
       }
     },
     "fischerei-ufervegetation-beeintrachtigt": {
-      "label":
-        "Wird durch Ihr Vorhaben Ufervegetation permanent beeinträchtigt?",
+      "label": "Wird durch Ihr Vorhaben Ufervegetation permanent beeinträchtigt?",
       "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt*",
       "type": "radio",
       "required": false,
@@ -3959,9 +3806,9 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "dokument-parzelle": {
-      "label": "Parzelle",
-      "hint": "**Platzhalter**: *dokument-parzelle*",
+    "dokument-parzellen": {
+      "label": "Parzellen",
+      "hint": "**Platzhalter**: *dokument-parzellen*",
       "type": "document",
       "required": true,
       "config": {}
@@ -3996,10 +3843,8 @@
       "config": {}
     },
     "dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit": {
-      "label":
-        "Schutzraumaufhebung: Antrag und Einverständniserklärung mit Begründung",
-      "hint":
-        "**Platzhalter**: *dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit*",
+      "label": "Schutzraumaufhebung: Antrag und Einverständniserklärung mit Begründung",
+      "hint": "**Platzhalter**: *dokument-schutzraumaufhebung-antrag-und-einverstandniserklarung-mit*",
       "type": "document",
       "required": true,
       "active-expression": "'zivilschutz-schutzraumaufhebung'|value == 'Ja'",
@@ -4017,64 +3862,52 @@
       "hint": "**Platzhalter**: *dokument-standortdatenblatt-zur-nisv*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
+      "active-expression": "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
       "config": {}
     },
     "dokument-plan-mit-eingetragenen-energiepfahlen": {
       "label": "Plan mit eingetragenen Energiepfählen",
-      "hint":
-        "**Platzhalter**: *dokument-plan-mit-eingetragenen-energiepfahlen*",
+      "hint": "**Platzhalter**: *dokument-plan-mit-eingetragenen-energiepfahlen*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {}
     },
     "dokument-entwasserungsplankanalisationsplan-d11-1": {
       "label": "Entwässerungsplan / Kanalisationsplan",
-      "hint":
-        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-1*",
+      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-1*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "('Neubau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value) || (('Neubau' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) && ('Befestigte Fläche' in 'art-der-anlage'|value || 'Abwasserentsorgung' in 'zweck-der-leitungen'|value))",
+      "active-expression": "('Neubau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value) || (('Neubau' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) && ('Befestigte Fläche' in 'art-der-anlage'|value || 'Abwasserentsorgung' in 'zweck-der-leitungen'|value))",
       "config": {}
     },
     "dokument-entwasserungsplankanalisationsplan-d11-2-1": {
       "label": "Entwässerungsplan / Kanalisationsplan",
-      "hint":
-        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-1*",
+      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-1*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Ja' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
+      "active-expression": "'Ja' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
       "config": {}
     },
     "dokument-entwasserungsplankanalisationsplan-d11-2-2": {
       "label": "Entwässerungsplan / Kanalisationsplan",
-      "hint":
-        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-2*",
+      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-2-2*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Nein' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
+      "active-expression": "'Nein' == 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value",
       "config": {}
     },
     "dokument-entwasserungsplankanalisationsplan-d11-3": {
       "label": "Entwässerungsplan / Kanalisationsplan",
-      "hint":
-        "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-3*",
+      "hint": "**Platzhalter**: *dokument-entwasserungsplankanalisationsplan-d11-3*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "('Baute(n)' in 'kategorie-des-vorhabens'|value) || ('Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) || ('Befestigte Fläche' in 'art-der-anlage'|value) || ('Ver- / Entsorgungsleitung' in 'art-der-anlage'|value) || ('Abfallanlage, Deponie' in 'art-der-anlage'|value) || ('Wohnen' in 'art-der-nutzung'|value && 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
+      "active-expression": "('Baute(n)' in 'kategorie-des-vorhabens'|value) || ('Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value) || ('Befestigte Fläche' in 'art-der-anlage'|value) || ('Ver- / Entsorgungsleitung' in 'art-der-anlage'|value) || ('Abfallanlage, Deponie' in 'art-der-anlage'|value) || ('Wohnen' in 'art-der-nutzung'|value && 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
       "config": {}
     },
     "dokument-plan-mit-dachaufsicht-inkl-solaranlage": {
       "label": "Plan mit Dachaufsicht inkl. Solaranlage",
-      "hint":
-        "**Platzhalter**: *dokument-plan-mit-dachaufsicht-inkl-solaranlage*",
+      "hint": "**Platzhalter**: *dokument-plan-mit-dachaufsicht-inkl-solaranlage*",
       "type": "document",
       "required": true,
       "active-expression": "'energie-dachaufstellung'|value == 'Ja'",
@@ -4105,8 +3938,7 @@
     },
     "dokument-beschrieb-der-baugrubensicherung-und-entwasserung": {
       "label": "Beschrieb der Baugrubensicherung und -entwässerung",
-      "hint":
-        "**Platzhalter**: *dokument-beschrieb-der-baugrubensicherung-und-entwasserung*",
+      "hint": "**Platzhalter**: *dokument-beschrieb-der-baugrubensicherung-und-entwasserung*",
       "type": "document",
       "required": true,
       "active-expression": "'baugrubenumschliessung-vorgesehen'|value == 'Ja'",
@@ -4122,18 +3954,15 @@
     },
     "dokument-konzept-der-grossveranstaltung-im-wald": {
       "label": "Konzept der Grossveranstaltung im Wald",
-      "hint":
-        "**Platzhalter**: *dokument-konzept-der-grossveranstaltung-im-wald*",
+      "hint": "**Platzhalter**: *dokument-konzept-der-grossveranstaltung-im-wald*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
+      "active-expression": "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
       "config": {}
     },
     "dokument-beschrieb-der-auswirkungen-auf-wanderwege": {
       "label": "Beschrieb der Auswirkungen auf Wanderwege",
-      "hint":
-        "**Platzhalter**: *dokument-beschrieb-der-auswirkungen-auf-wanderwege*",
+      "hint": "**Platzhalter**: *dokument-beschrieb-der-auswirkungen-auf-wanderwege*",
       "type": "document",
       "required": false,
       "config": {}
@@ -4154,8 +3983,7 @@
     },
     "dokument-schnittplan-mit-entnahme-und-ruckgabeschacht": {
       "label": "Schnittplan mit Entnahme- und Rückgabeschacht",
-      "hint":
-        "**Platzhalter**: *dokument-schnittplan-mit-entnahme-und-ruckgabeschacht*",
+      "hint": "**Platzhalter**: *dokument-schnittplan-mit-entnahme-und-ruckgabeschacht*",
       "type": "document",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4170,16 +3998,14 @@
     },
     "dokument-nutzungsberechnung-inkl-planschema-flachennachweis": {
       "label": "Nutzungsberechnung",
-      "hint":
-        "**Platzhalter**: *dokument-nutzungsberechnung-inkl-planschema-flachennachweis*",
+      "hint": "**Platzhalter**: *dokument-nutzungsberechnung-inkl-planschema-flachennachweis*",
       "type": "document",
       "required": false,
       "config": {}
     },
     "dokument-situationsplan-mit-lage-der-bohrlocher": {
       "label": "Situationsplan mit Lage der Bohrlöcher",
-      "hint":
-        "**Platzhalter**: *dokument-situationsplan-mit-lage-der-bohrlocher*",
+      "hint": "**Platzhalter**: *dokument-situationsplan-mit-lage-der-bohrlocher*",
       "type": "document",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4234,14 +4060,12 @@
       "hint": "**Platzhalter**: *dokument-sicherheitsdatenblatter*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value || 'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja' || 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Ja'",
+      "active-expression": "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value || 'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja' || 'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Ja'",
       "config": {}
     },
     "dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung": {
       "label": "Beschrieb des Vorhabens",
-      "hint":
-        "**Platzhalter**: *dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung*",
+      "hint": "**Platzhalter**: *dokument-beschrieb-des-vorhabens-gegenstand-der-baumeldung*",
       "type": "document",
       "required": true,
       "active-expression": "'bm-solaranlage'|value == 'Nein'",
@@ -4252,22 +4076,19 @@
       "hint": "**Platzhalter**: *dokument-larmschutznachweis-larmprognose*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-larmemissionen'|value == 'Ja' || 'larmbelastetes-gebiet'|value == 'Ja'",
+      "active-expression": "'anlagen-mit-erheblichen-larmemissionen'|value == 'Ja' || 'larmbelastetes-gebiet'|value == 'Ja'",
       "config": {}
     },
     "dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung": {
       "label": "Aussagekräftige Fotos der Liegenschaft inkl. Umgebung",
-      "hint":
-        "**Platzhalter**: *dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung*",
+      "hint": "**Platzhalter**: *dokument-aussagekraftige-fotos-der-liegenschaft-inkl-umgebung*",
       "type": "document",
       "required": false,
       "config": {}
     },
     "dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache": {
       "label": "Stellungnahme zu Zweck, Nutzen für Wald, Lage und Fläche",
-      "hint":
-        "**Platzhalter**: *dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache*",
+      "hint": "**Platzhalter**: *dokument-stellungnahme-zu-zweck-nutzen-fur-wald-lage-und-flache*",
       "type": "document",
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
@@ -4275,8 +4096,7 @@
     },
     "dokument-begrundung-zweck-standortgebundenheit-und-alternativen": {
       "label": "Begründung Zweck, Standortgebundenheit und Alternativen",
-      "hint":
-        "**Platzhalter**: *dokument-begrundung-zweck-standortgebundenheit-und-alternativen*",
+      "hint": "**Platzhalter**: *dokument-begrundung-zweck-standortgebundenheit-und-alternativen*",
       "type": "document",
       "required": true,
       "active-expression": "'wald-auswirkungen'|value == 'Ja'",
@@ -4287,18 +4107,15 @@
       "hint": "**Platzhalter**: *dokument-tabelle-tierbestand*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
+      "active-expression": "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
       "config": {}
     },
     "dokument-schnittplan-der-erdkollektorenerdwarmekorbe": {
       "label": "Schnittplan der Erdkollektoren / Erdwärmekörbe",
-      "hint":
-        "**Platzhalter**: *dokument-schnittplan-der-erdkollektorenerdwarmekorbe*",
+      "hint": "**Platzhalter**: *dokument-schnittplan-der-erdkollektorenerdwarmekorbe*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {}
     },
     "dokument-schnitt-und-fassadenplane": {
@@ -4310,8 +4127,7 @@
     },
     "dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung": {
       "label": "Situationsplan mit Bohrlächern und Leitungsführung",
-      "hint":
-        "**Platzhalter**: *dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung*",
+      "hint": "**Platzhalter**: *dokument-situationsplan-mit-bohrlochern-und-leitungsfuhrung*",
       "type": "document",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4322,8 +4138,7 @@
       "hint": "**Platzhalter**: *dokument-ausgefulltes-formular-v01a*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
       "config": {}
     },
     "dokument-energienachweis": {
@@ -4331,14 +4146,12 @@
       "hint": "**Platzhalter**: *dokument-energienachweis*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value) && 'baukosten'|value > 250000",
+      "active-expression": "('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value) && 'baukosten'|value > 250000",
       "config": {}
     },
     "dokument-umgebungsplan-mit-abstandslinien-vermasst": {
       "label": "Umgebungsplan mit Abstandslinien (vermasst)",
-      "hint":
-        "**Platzhalter**: *dokument-umgebungsplan-mit-abstandslinien-vermasst*",
+      "hint": "**Platzhalter**: *dokument-umgebungsplan-mit-abstandslinien-vermasst*",
       "type": "document",
       "required": false,
       "config": {}
@@ -4348,14 +4161,12 @@
       "hint": "**Platzhalter**: *dokument-konzept-des-anlasses*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
+      "active-expression": "'Grossveranstaltung im Wald' in 'av-art'|value || 'Anlassbewilligung' in 'av-art'|value || 'Verkehrsbewilligung' in 'av-art'|value",
       "config": {}
     },
     "dokument-beschrieb-zur-abfallbehandlungsanlage": {
       "label": "Beschrieb zur Abfallbehandlungsanlage",
-      "hint":
-        "**Platzhalter**: *dokument-beschrieb-zur-abfallbehandlungsanlage*",
+      "hint": "**Platzhalter**: *dokument-beschrieb-zur-abfallbehandlungsanlage*",
       "type": "document",
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
@@ -4363,12 +4174,10 @@
     },
     "dokument-nachweis-der-abstellflachenparkierung": {
       "label": "Nachweis der Abstellflächen / Parkierung",
-      "hint":
-        "**Platzhalter**: *dokument-nachweis-der-abstellflachenparkierung*",
+      "hint": "**Platzhalter**: *dokument-nachweis-der-abstellflachenparkierung*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Landwirtschaft' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Landwirtschaft' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value)",
       "config": {}
     },
     "dokument-pfahlfundationsplan": {
@@ -4384,14 +4193,12 @@
       "hint": "**Platzhalter**: *dokument-sondenplan*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen": {
       "label": "Beschrieb geplanter Umgang mit Bodenbelastungen",
-      "hint":
-        "**Platzhalter**: *dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen*",
+      "hint": "**Platzhalter**: *dokument-beschrieb-geplanter-umgang-mit-bodenbelastungen*",
       "type": "document",
       "required": true,
       "active-expression": "'bodenbelastungen'|value == 'Ja'",
@@ -4415,12 +4222,10 @@
     },
     "dokument-material-und-farbkonzept-bestehend-und-neu": {
       "label": "Material- und Farbkonzept",
-      "hint":
-        "**Platzhalter**: *dokument-material-und-farbkonzept-bestehend-und-neu*",
+      "hint": "**Platzhalter**: *dokument-material-und-farbkonzept-bestehend-und-neu*",
       "type": "document",
       "required": false,
-      "active-expression":
-        "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value",
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value",
       "config": {}
     },
     "dokument-formular-des-cercle-bruit": {
@@ -4428,8 +4233,7 @@
       "hint": "**Platzhalter**: *dokument-formular-des-cercle-bruit*",
       "type": "document",
       "required": true,
-      "active-expression":
-        "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
       "config": {}
     },
     "av-art": {
@@ -4446,8 +4250,7 @@
       }
     },
     "bm-solaranlage": {
-      "label":
-        "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
+      "label": "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
       "hint": "**Platzhalter**: *bm-solaranlage*",
       "type": "radio",
       "required": true,
@@ -4481,13 +4284,11 @@
       }
     },
     "kw-1-1-1-datum-bewilligung": {
-      "label":
-        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
       "hint": "**Platzhalter**: *kw-1-1-1-datum-bewilligung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-entnahmestandort-gemeinde": {
@@ -4495,8 +4296,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-entnahmestandort-grundstuck": {
@@ -4504,8 +4304,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4516,18 +4315,15 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-entnahmestandort-ruckfuhrung": {
@@ -4535,8 +4331,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-entnahmegewasser-max": {
@@ -4544,8 +4339,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4556,8 +4350,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4568,8 +4361,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4580,8 +4372,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-austritt-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4592,8 +4383,7 @@
       "hint": "**Platzhalter**: *1-1-1-kw-baute-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": [
           "Neubau",
@@ -4609,8 +4399,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-art-andere*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
       "config": {}
     },
     "kw-1-1-1-baute-wohneinheiten": {
@@ -4618,8 +4407,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-wohneinheiten*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
       "config": {
         "min": 1,
         "step": 1
@@ -4630,8 +4418,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-warmebedarf*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4642,30 +4429,25 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint":
-        "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
       "config": {}
     },
     "kw-1-1-1-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-1-1-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-baute-kaltemittel": {
@@ -4673,8 +4455,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemittel*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-1-1-baute-kaltemitteleinfullungen": {
@@ -4682,8 +4463,7 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemitteleinfullungen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4694,21 +4474,18 @@
       "hint": "**Platzhalter**: *kw-1-1-1-baute-leistung-verdampfer*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-1-2-datum-bewilligung": {
-      "label":
-        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
       "hint": "**Platzhalter**: *kw-1-1-2-datum-bewilligung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-1-2-entnahmestandort-gemeinde": {
@@ -4716,8 +4493,7 @@
       "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-1-2-entnahmestandort-grundstuck": {
@@ -4725,8 +4501,7 @@
       "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -4737,18 +4512,15 @@
       "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-1-2-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-1-2-entnahmegewasser-max": {
@@ -4756,31 +4528,26 @@
       "hint": "**Platzhalter**: *kw-1-1-2-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-1-2-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-1-2-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-1-3-datum-bewilligung": {
-      "label":
-        "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
+      "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
       "hint": "**Platzhalter**: *kw-1-1-3-datum-bewilligung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-1-3-zweck-brauchwasser": {
@@ -4788,8 +4555,7 @@
       "hint": "**Platzhalter**: *kw-1-1-3-zweck-brauchwasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-1-3-entnahmestandort-gemeinde": {
@@ -4797,8 +4563,7 @@
       "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-1-3-entnahmestandort-grundstuck": {
@@ -4806,8 +4571,7 @@
       "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -4818,18 +4582,15 @@
       "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-1-3-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-1-3-entnahmegewasser-max": {
@@ -4837,21 +4598,18 @@
       "hint": "**Platzhalter**: *kw-1-1-3-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-1-3-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-1-3-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-nutzungsart": {
@@ -4874,8 +4632,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-name-gewasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-bach-fuhrt-wasser": {
@@ -4883,8 +4640,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-bach-fuhrt-wasser*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -4894,8 +4650,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-entnahmestandort-grundstuck": {
@@ -4903,8 +4658,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4915,18 +4669,15 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-entnahmestandort-ruckfuhrung": {
@@ -4934,8 +4685,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-entnahmegewasser-max": {
@@ -4943,8 +4693,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4955,8 +4704,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4967,8 +4715,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4979,8 +4726,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-austritt-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -4991,8 +4737,7 @@
       "hint": "**Platzhalter**: *1-2-1-kw-baute-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Neubau", "Altbau"]
       }
@@ -5002,8 +4747,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-baute-warmebedarf*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5014,30 +4758,25 @@
       "hint": "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint":
-        "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
       "config": {}
     },
     "kw-1-2-1-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-2-1-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-baute-kaltemittel": {
@@ -5045,8 +4784,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemittel*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-2-1-baute-kaltemitteleinfullungen": {
@@ -5054,8 +4792,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemitteleinfullungen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5066,8 +4803,7 @@
       "hint": "**Platzhalter**: *kw-1-2-1-baute-leistung-verdampfer*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5078,8 +4814,7 @@
       "hint": "**Platzhalter**: *kw-1-2-2-name-gewasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-2-bach-fuhrt-wasser": {
@@ -5087,8 +4822,7 @@
       "hint": "**Platzhalter**: *kw-1-2-2-bach-fuhrt-wasser*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -5098,8 +4832,7 @@
       "hint": "**Platzhalter**: *kw-1-2-2-zweck-brauchwasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-2-entnahmestandort-gemeinde": {
@@ -5107,8 +4840,7 @@
       "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-2-entnahmestandort-grundstuck": {
@@ -5116,8 +4848,7 @@
       "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -5128,18 +4859,15 @@
       "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-2-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-2-2-entnahmegewasser-max": {
@@ -5147,21 +4875,18 @@
       "hint": "**Platzhalter**: *kw-1-2-2-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-2-2-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-2-2-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-nutzungsart": {
@@ -5185,8 +4910,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-name-see*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-entnahmestandort-gemeinde": {
@@ -5194,8 +4918,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-entnahmestandort-grundstuck": {
@@ -5203,8 +4926,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5215,18 +4937,15 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-entnahmestandort-ruckfuhrung": {
@@ -5234,8 +4953,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-entnahmestandort-tiefe": {
@@ -5243,8 +4961,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-tiefe*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5255,8 +4972,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5267,8 +4983,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5279,8 +4994,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5291,8 +5005,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-ges-austritt-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5303,8 +5016,7 @@
       "hint": "**Platzhalter**: *1-3-1-kw-baute-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": [
           "Neubau",
@@ -5320,8 +5032,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-art-andere*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
       "config": {}
     },
     "kw-1-3-1-baute-wohneinheiten": {
@@ -5329,8 +5040,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-wohneinheiten*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
       "config": {
         "min": 1,
         "step": 1
@@ -5341,8 +5051,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-warmebedarf*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5353,30 +5062,25 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint":
-        "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
       "config": {}
     },
     "kw-1-3-1-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-3-1-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-baute-kaltemittel": {
@@ -5384,8 +5088,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemittel*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-3-1-baute-kaltemitteleinfullungen": {
@@ -5393,8 +5096,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemitteleinfullungen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5405,8 +5107,7 @@
       "hint": "**Platzhalter**: *kw-1-3-1-baute-leistung-verdampfer*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5417,8 +5118,7 @@
       "hint": "**Platzhalter**: *kw-1-3-2-name-see*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-3-2-entnahmestandort-gemeinde": {
@@ -5426,8 +5126,7 @@
       "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-3-2-entnahmestandort-grundstuck": {
@@ -5435,8 +5134,7 @@
       "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -5447,18 +5145,15 @@
       "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-3-2-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-3-2-entnahmegewasser-max": {
@@ -5466,21 +5161,18 @@
       "hint": "**Platzhalter**: *kw-1-3-2-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-3-2-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-3-2-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-3-3-name-see": {
@@ -5488,8 +5180,7 @@
       "hint": "**Platzhalter**: *kw-1-3-3-name-see*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-3-zweck-brauchwasser": {
@@ -5497,8 +5188,7 @@
       "hint": "**Platzhalter**: *kw-1-3-3-zweck-brauchwasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-3-entnahmestandort-gemeinde": {
@@ -5506,8 +5196,7 @@
       "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-3-entnahmestandort-grundstuck": {
@@ -5515,8 +5204,7 @@
       "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -5527,18 +5215,15 @@
       "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-3-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-3-3-entnahmegewasser-max": {
@@ -5546,21 +5231,18 @@
       "hint": "**Platzhalter**: *kw-1-3-3-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-3-3-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-3-3-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-4-privat-offentlich": {
@@ -5594,8 +5276,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-entnahmestandort-grundstuck": {
@@ -5603,8 +5284,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5615,18 +5295,15 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-entnahmestandort-ruckfuhrung": {
@@ -5634,8 +5311,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-ruckfuhrung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-entnahmegewasser-max": {
@@ -5643,8 +5319,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5655,8 +5330,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5667,8 +5341,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-abkuhlung*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5679,8 +5352,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-austritt-temp*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5691,8 +5363,7 @@
       "hint": "**Platzhalter**: *1-4-1-kw-baute-art*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": [
           "Neubau",
@@ -5708,8 +5379,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-art-andere*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
       "config": {}
     },
     "kw-1-4-1-baute-wohneinheiten": {
@@ -5717,8 +5387,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-wohneinheiten*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
       "config": {
         "min": 1,
         "step": 1
@@ -5729,8 +5398,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-warmebedarf*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5741,30 +5409,25 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft*",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "options": ["Ja", "Nein"]
       }
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint":
-        "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
       "config": {}
     },
     "kw-1-4-1-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-4-1-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-baute-kaltemittel": {
@@ -5772,8 +5435,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemittel*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {}
     },
     "kw-1-4-1-baute-kaltemitteleinfullungen": {
@@ -5781,8 +5443,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemitteleinfullungen*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5793,8 +5454,7 @@
       "hint": "**Platzhalter**: *kw-1-4-1-baute-leistung-verdampfer*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
         "min": 1,
         "step": 1
@@ -5805,8 +5465,7 @@
       "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-4-2-entnahmestandort-grundstuck": {
@@ -5814,8 +5473,7 @@
       "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -5826,18 +5484,15 @@
       "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-4-2-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-4-2-entnahmegewasser-max": {
@@ -5845,21 +5500,18 @@
       "hint": "**Platzhalter**: *kw-1-4-2-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-4-2-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-4-2-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
       "config": {}
     },
     "kw-1-4-3-zweck-brauchwasser": {
@@ -5867,8 +5519,7 @@
       "hint": "**Platzhalter**: *kw-1-4-3-zweck-brauchwasser*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-4-3-entnahmestandort-gemeinde": {
@@ -5876,8 +5527,7 @@
       "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-gemeinde*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-4-3-entnahmestandort-grundstuck": {
@@ -5885,8 +5535,7 @@
       "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-grundstuck*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
@@ -5897,18 +5546,15 @@
       "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-koordinaten*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-4-3-entnahmestandort-beschreibung": {
-      "label":
-        "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
       "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-beschreibung*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "kw-1-4-3-entnahmegewasser-max": {
@@ -5916,21 +5562,18 @@
       "hint": "**Platzhalter**: *kw-1-4-3-entnahmegewasser-max*",
       "type": "number",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {
         "min": 1,
         "step": 1
       }
     },
     "kw-1-4-3-inbetriebnahme": {
-      "label":
-        "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
+      "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
       "hint": "**Platzhalter**: *kw-1-4-3-inbetriebnahme*",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
+      "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
       "config": {}
     },
     "pa-gesuchsnr": {

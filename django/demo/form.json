@@ -13,7 +13,7 @@
       "parent": "grundinformationen",
       "questions": [
         "kategorie-des-vorhabens",
-        "dokument-parzelle",
+        "dokument-parzellen",
         "anlagen-mit-erheblichen-schadstoffemissionen",
         "anlagen-mit-erheblichen-schadstoffemissionen-welche",
         "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht",
@@ -36,8 +36,7 @@
   },
   "questions": {
     "kategorie-des-vorhabens": {
-      "label":
-        "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
+      "label": "Handelt es sich beim Bauvorhaben um eine Baute oder / und Anlage?",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -45,8 +44,7 @@
       }
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
-      "label":
-        "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
+      "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "type": "radio",
       "required": true,
       "active-expression": "'kategorie-des-vorhabens'|value != 'Anlage(n)'",
@@ -58,20 +56,18 @@
       "label": "Welche?",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
+      "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
       "config": {}
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht": {
       "label": "Wieso nicht?",
       "type": "text",
       "required": true,
-      "active-expression":
-        "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Nein'",
+      "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Nein'",
       "config": {}
     },
-    "dokument-parzelle": {
-      "label": "Parzelle",
+    "dokument-parzellen": {
+      "label": "Parzellen",
       "type": "document",
       "required": true,
       "config": {}
@@ -134,8 +130,7 @@
       }
     },
     "durchmesser-der-bohrung-lt": {
-      "label":
-        "Wieso wird nicht mit einem kleineren Durchmesser als 10m gebohrt?",
+      "label": "Wieso wird nicht mit einem kleineren Durchmesser als 10m gebohrt?",
       "type": "text",
       "required": true,
       "active-expression": "'durchmesser-der-bohrung'|value < 10",
@@ -145,8 +140,7 @@
       "label": "Haben Sie eine Bohrbewilligung?",
       "type": "radio",
       "required": true,
-      "active-expression":
-        "'tiefe-der-bohrung'|value > 10 || 'durchmesser-der-bohrung'|value < 10",
+      "active-expression": "'tiefe-der-bohrung'|value > 10 || 'durchmesser-der-bohrung'|value < 10",
       "config": { "options": ["Ja", "Nein"] }
     },
     "bohrungsdaten": {
@@ -238,8 +232,7 @@
       "label": "Welche Abteilung des Bundes ist Grundeigentümer?",
       "type": "text",
       "required": "true",
-      "active-expression":
-        "'Bund' in 'grundeigentumerschaft'|value|mapby('name')",
+      "active-expression": "'Bund' in 'grundeigentumerschaft'|value|mapby('name')",
       "config": {}
     },
     "einsprecher": {
