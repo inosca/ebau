@@ -1,8 +1,8 @@
-import Controller from '@ember/controller'
-import config from '../config/environment'
+import Controller from "@ember/controller";
+import config from "../config/environment";
 
-const { environment } = config
+const { environment } = config;
 
 export default Controller.extend({
   environment
-})
+});

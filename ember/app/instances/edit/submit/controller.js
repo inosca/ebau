@@ -1,54 +1,54 @@
-import Controller, { inject as controller } from '@ember/controller'
-import { inject as service } from '@ember/service'
-import computedTask from 'citizen-portal/lib/computed-task'
-import { task } from 'ember-concurrency'
-import { all } from 'rsvp'
+import Controller, { inject as controller } from "@ember/controller";
+import { inject as service } from "@ember/service";
+import computedTask from "citizen-portal/lib/computed-task";
+import { task } from "ember-concurrency";
+import { all } from "rsvp";
 
 export default Controller.extend({
   ajax: service(),
   questionStore: service(),
   notification: service(),
 
-  editController: controller('instances.edit'),
+  editController: controller("instances.edit"),
 
   canSubmit: computedTask(
-    '_canSubmit',
-    'editController.modules.lastSuccessful.value.[]',
-    'questionStore._store.@each.{value,hidden,isNew}'
+    "_canSubmit",
+    "editController.modules.lastSuccessful.value.[]",
+    "questionStore._store.@each.{value,hidden,isNew}"
   ),
   _canSubmit: task(function*() {
-    let modules = this.get('editController.modules.lastSuccessful.value')
+    let modules = this.get("editController.modules.lastSuccessful.value");
 
     if (!modules) {
-      return false
+      return false;
     }
 
     let questions = (yield all(
       this.questionStore
         .peekSet(
-          modules.reduce((flat, m) => [...flat, ...m.get('allQuestions')], []),
-          this.get('model.instance.id')
+          modules.reduce((flat, m) => [...flat, ...m.get("allQuestions")], []),
+          this.get("model.instance.id")
         )
-        .map(async q => ((await q.get('hidden')) ? null : q))
-    )).filter(Boolean)
+        .map(async q => ((await q.get("hidden")) ? null : q))
+    )).filter(Boolean);
 
-    return questions.every(q => q.validate() === true)
+    return questions.every(q => q.validate() === true);
   }),
 
   submit: task(function*() {
     try {
       yield this.ajax.request(
-        `/api/v1/instances/${this.get('model.instance.id')}/submit`,
-        { method: 'POST' }
-      )
+        `/api/v1/instances/${this.get("model.instance.id")}/submit`,
+        { method: "POST" }
+      );
 
-      this.notification.success('Das Dossier wurde erfolgreich eingereicht')
+      this.notification.success("Das Dossier wurde erfolgreich eingereicht");
 
-      yield this.transitionToRoute('instances')
+      yield this.transitionToRoute("instances");
     } catch (e) {
       this.notification.danger(
-        'Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals.'
-      )
+        "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals."
+      );
     }
   })
-})
+});

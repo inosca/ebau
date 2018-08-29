@@ -1,52 +1,52 @@
-import Component from '@ember/component'
-import { computed } from '@ember/object'
+import Component from "@ember/component";
+import { computed } from "@ember/object";
 
-export const ICON_PATH_BASE = '/assets/icons'
+export const ICON_PATH_BASE = "/assets/icons";
 
 export default Component.extend({
-  tagName: 'span',
+  tagName: "span",
 
-  classNames: ['pointer'],
+  classNames: ["pointer"],
 
-  classNameBindings: ['directionClass'],
+  classNameBindings: ["directionClass"],
 
   click(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    this['on-click'](`${this.direction > 0 ? '-' : ''}${this.key}`)
+    this["on-click"](`${this.direction > 0 ? "-" : ""}${this.key}`);
   },
 
-  direction: computed('key', 'sort', function() {
-    let match = (this.sort || '').match(new RegExp(`^(-)?${this.key}$`))
+  direction: computed("key", "sort", function() {
+    let match = (this.sort || "").match(new RegExp(`^(-)?${this.key}$`));
 
     if (!match) {
-      return 0
+      return 0;
     }
 
-    return match.filter(Boolean).length > 1 ? -1 : 1
+    return match.filter(Boolean).length > 1 ? -1 : 1;
   }),
 
-  directionClass: computed('direction', function() {
+  directionClass: computed("direction", function() {
     switch (this.direction) {
       case 1:
-        return 'sort-icon-asc'
+        return "sort-icon-asc";
       case -1:
-        return 'sort-icon-desc'
+        return "sort-icon-desc";
       case 0:
       default:
-        return 'sort-icon-neutral'
+        return "sort-icon-neutral";
     }
   }),
 
-  icon: computed('direction', function() {
+  icon: computed("direction", function() {
     switch (this.direction) {
       case 1:
-        return `${ICON_PATH_BASE}/sort-asc.svg`
+        return `${ICON_PATH_BASE}/sort-asc.svg`;
       case -1:
-        return `${ICON_PATH_BASE}/sort-desc.svg`
+        return `${ICON_PATH_BASE}/sort-desc.svg`;
       case 0:
       default:
-        return `${ICON_PATH_BASE}/sort-neutral.svg`
+        return `${ICON_PATH_BASE}/sort-neutral.svg`;
     }
   })
-})
+});

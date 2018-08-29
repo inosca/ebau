@@ -17,7 +17,7 @@ $ember-power-select-multiple-selection-color: white !default;
 $ember-power-select-multiple-selection-background-color: $global-primary-background !default;
 $ember-power-select-multiple-option-border-color: white !default;
 
-@import 'ember-power-select';
+@import "ember-power-select";
 
 .ember-basic-dropdown-content {
   z-index: 1011; // leaflet map controls have a z-index of 1000 and modals have 1010
@@ -27,7 +27,7 @@ $ember-power-select-multiple-option-border-color: white !default;
   margin: 5px 0 0 5px;
 }
 
-.ember-power-select-trigger[aria-disabled='true']
+.ember-power-select-trigger[aria-disabled="true"]
   .ember-power-select-multiple-option {
   background-color: rgb(100, 100, 100);
 }
