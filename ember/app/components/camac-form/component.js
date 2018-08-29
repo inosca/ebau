@@ -1,9 +1,9 @@
-import Component from '@ember/component'
+import Component from "@ember/component";
 
 export default Component.extend({
-  tagName: 'form',
+  tagName: "form",
 
   submit(e) {
-    e.preventDefault()
+    e.preventDefault();
   }
-})
+});

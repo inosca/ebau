@@ -1,33 +1,33 @@
-import Mixin from '@ember/object/mixin'
-import { computed } from '@ember/object'
-import { capitalize } from '@ember/string'
-import Changeset from 'ember-changeset'
-import { task } from 'ember-concurrency'
-import { resolve } from 'rsvp'
-import _validations from 'citizen-portal/questions/validations'
+import Mixin from "@ember/object/mixin";
+import { computed } from "@ember/object";
+import { capitalize } from "@ember/string";
+import Changeset from "ember-changeset";
+import { task } from "ember-concurrency";
+import { resolve } from "rsvp";
+import _validations from "citizen-portal/questions/validations";
 
 export default Mixin.create({
   _validations,
 
-  _value: computed('value', 'columns.[]', function() {
+  _value: computed("value", "columns.[]", function() {
     return new Changeset(
       this.value || {},
       (...args) => this._validate(...args),
       this.columns.reduce((map, f) => {
-        return { ...map, [f.name]: () => this._validate }
+        return { ...map, [f.name]: () => this._validate };
       }, {})
-    )
+    );
   }),
 
   _validate({ key, newValue }) {
     try {
       let { type, required: isRequired, config } = this.columns.find(
         f => f.name === key
-      )
+      );
 
       let validations = [
         isRequired
-          ? this.getWithDefault('_validations.validateRequired', () => true)
+          ? this.getWithDefault("_validations.validateRequired", () => true)
           : () => true,
         this.getWithDefault(
           `_validations.validate${capitalize(type)}`,
@@ -37,34 +37,34 @@ export default Mixin.create({
           `_validations.${this.parentName}/${key}`,
           () => true
         )
-      ]
+      ];
 
-      let isValid = validations.map(fn => fn(config, newValue))
+      let isValid = validations.map(fn => fn(config, newValue));
 
       return (
         isValid.every(v => v === true) ||
-        isValid.filter(v => typeof v === 'string')
-      )
+        isValid.filter(v => typeof v === "string")
+      );
     } catch (e) {
-      return true
+      return true;
     }
   },
 
   save: task(function*() {
-    let changeset = this._value
+    let changeset = this._value;
 
-    yield changeset.validate()
+    yield changeset.validate();
 
-    if (changeset.get('isValid')) {
-      changeset.execute()
+    if (changeset.get("isValid")) {
+      changeset.execute();
 
-      yield resolve(this.getWithDefault('attrs.on-save', () => {})(this.value))
+      yield resolve(this.getWithDefault("attrs.on-save", () => {})(this.value));
     }
   }),
 
   actions: {
     change(name, value) {
-      this.set(`_value.${name}`, value)
+      this.set(`_value.${name}`, value);
     }
   }
-})
+});
