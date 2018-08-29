@@ -578,6 +578,18 @@ class ActivationLog(models.Model):
         db_table = "ACTIVATION_LOG"
 
 
+class ActivationCallbackExclude(models.Model):
+    activation_callback_exclude_id = models.AutoField(
+        db_column="ACTIVATION_CALLBACK_EXCLUDE_ID",
+        primary_key=True
+    ),
+    service_id = models.IntegerField(db_column="SERVICE_ID")
+
+    class Meta:
+        managed = True
+        db_table = "ACTIVATION_CALLBACK_EXCLUDE"
+
+
 class AirAction(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     available_instance_resource = models.ForeignKey(
