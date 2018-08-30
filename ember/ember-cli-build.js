@@ -1,7 +1,7 @@
-'use strict'
+"use strict";
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app')
-const env = EmberApp.env()
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+const env = EmberApp.env();
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -9,41 +9,41 @@ module.exports = function(defaults) {
       slim: true
     },
     babel: {
-      plugins: ['transform-object-rest-spread']
+      plugins: ["transform-object-rest-spread"]
     },
-    'ember-cli-babel': {
+    "ember-cli-babel": {
       includePolyfill: true
     },
     fingerprint: {
-      extensions: ['ico', 'js', 'css', 'png', 'jpg', 'svg']
+      extensions: ["ico", "js", "css", "png", "jpg", "svg"]
     },
     emberCliConcat: {
       js: {
         concat: true,
         useAsync: true,
-        preserveOriginal: env === 'test'
+        preserveOriginal: env === "test"
       },
       css: {
         concat: true,
-        preserveOriginal: env === 'test'
+        preserveOriginal: env === "test"
       }
     },
     imagemin: {
       plugins: [
-        require('imagemin-jpegtran')({ progressive: true }),
-        require('imagemin-optipng')(),
-        require('imagemin-svgo')()
+        require("imagemin-jpegtran")({ progressive: true }),
+        require("imagemin-optipng")(),
+        require("imagemin-svgo")()
       ]
     },
-    'ember-service-worker': {
-      versionStrategy: 'every-build',
-      registrationStrategy: 'inline'
+    "ember-service-worker": {
+      versionStrategy: "every-build",
+      registrationStrategy: "inline"
     },
-    'esw-index': {
+    "esw-index": {
       excludeScope: [/manifest.webmanifest$/, /robots.txt$/, /sw.js$/]
     },
-    'ember-app-shell': {
-      chromeFlags: ['--no-sandbox'],
+    "ember-app-shell": {
+      chromeFlags: ["--no-sandbox"],
       criticalCSSOptions: {
         ignore: [/font-face/, /font-family/]
       }
@@ -55,12 +55,12 @@ module.exports = function(defaults) {
         ignoreCustomComments: [/^\s*EMBER_APP_SHELL_PLACEHOLDER/]
       }
     }
-  })
+  });
 
-  app.import('vendor/canvas-to-blob-polyfill.js')
+  app.import("vendor/canvas-to-blob-polyfill.js");
 
-  app.import('node_modules/proj4/dist/proj4.js')
-  app.import('node_modules/proj4leaflet/src/proj4leaflet.js')
+  app.import("node_modules/proj4/dist/proj4.js");
+  app.import("node_modules/proj4leaflet/src/proj4leaflet.js");
 
-  return app.toTree()
-}
+  return app.toTree();
+};

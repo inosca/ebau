@@ -1,24 +1,24 @@
-import Component from '@ember/component'
+import Component from "@ember/component";
 
 export default Component.extend({
-  tagName: 'input',
+  tagName: "input",
 
-  classNames: ['uk-input'],
+  classNames: ["uk-input"],
 
   attributeBindings: [
-    'type',
-    'model.value:value',
-    'readonly:disabled',
-    'config.step:step',
-    'config.max:max',
-    'config.min:min'
+    "type",
+    "model.value:value",
+    "readonly:disabled",
+    "config.step:step",
+    "config.max:max",
+    "config.min:min"
   ],
 
-  type: 'number',
+  type: "number",
 
   change(e) {
-    e.preventDefault()
+    e.preventDefault();
 
-    this.getWithDefault('attrs.on-change', () => {})(Number(e.target.value))
+    this.getWithDefault("attrs.on-change", () => {})(Number(e.target.value));
   }
-})
+});

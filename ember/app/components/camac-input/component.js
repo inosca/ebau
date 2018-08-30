@@ -1,10 +1,10 @@
-import Component from '@ember/component'
-import { inject as service } from '@ember/service'
-import { computed } from '@ember/object'
-import { task } from 'ember-concurrency'
+import Component from "@ember/component";
+import { inject as service } from "@ember/service";
+import { computed } from "@ember/object";
+import { task } from "ember-concurrency";
 
 const CamacInputComponent = Component.extend({
-  classNames: ['uk-margin'],
+  classNames: ["uk-margin"],
 
   identifier: null,
 
@@ -12,28 +12,28 @@ const CamacInputComponent = Component.extend({
 
   error: null,
 
-  questionStore: service('question-store'),
+  questionStore: service("question-store"),
 
-  question: computed('identifier', function() {
-    return this.questionStore.peek(this.identifier, this.instance.id)
+  question: computed("identifier", function() {
+    return this.questionStore.peek(this.identifier, this.instance.id);
   }),
 
   save: task(function*(value) {
     if (this.readonly) {
-      return
+      return;
     }
 
-    this.question.set('model.value', value)
+    this.question.set("model.value", value);
 
     this.set(
-      'error',
-      yield this.get('questionStore.saveQuestion').perform(this.question)
-    )
+      "error",
+      yield this.get("questionStore.saveQuestion").perform(this.question)
+    );
   }).restartable()
-})
+});
 
 CamacInputComponent.reopenClass({
-  positionalParams: ['identifier']
-})
+  positionalParams: ["identifier"]
+});
 
-export default CamacInputComponent
+export default CamacInputComponent;
