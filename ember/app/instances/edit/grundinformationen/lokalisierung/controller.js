@@ -54,16 +54,21 @@ export default Controller.extend({
   _saveParcels: task(function*(parcels) {
     this.set(
       'parcels.model.value',
-      parcels.map(({ number, ...p }) => {
-        return { ...p, number: parseInt(number), coordinates: undefined }
-      })
+      parcels.map(({ number, ...p }) => ({
+        ...p,
+        number: parseInt(number),
+        coordinates: undefined
+      }))
     )
 
     yield this.get('questionStore.saveQuestion').perform(this.parcels)
   }),
 
   _savePoints: task(function*(points) {
-    this.set('points.model.value', points)
+    this.set(
+      'points.model.value',
+      points.map(point => ({ ...point, layers: undefined }))
+    )
 
     yield this.get('questionStore.saveQuestion').perform(this.points)
   }),
