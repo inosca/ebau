@@ -1,34 +1,34 @@
-import Component from '@ember/component'
-import { computed } from '@ember/object'
-import { getOwner } from '@ember/application'
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import { getOwner } from "@ember/application";
 
 const CamacHelpDialogComponent = Component.extend({
-  tagName: 'span',
+  tagName: "span",
 
-  classNames: ['uk-margin-small-left'],
+  classNames: ["uk-margin-small-left"],
 
-  modalId: computed('elementId', function() {
-    return `${this.elementId}-hint-modal`
+  modalId: computed("elementId", function() {
+    return `${this.elementId}-hint-modal`;
   }),
 
-  target: computed('modalId', function() {
-    return `target: #${this.modalId}`
+  target: computed("modalId", function() {
+    return `target: #${this.modalId}`;
   }),
 
   didInsertElement() {
-    this._super(...arguments)
+    this._super(...arguments);
 
     this.set(
-      'modalContainer',
+      "modalContainer",
       getOwner(this)
-        .lookup('service:-document')
-        .querySelector('#modal-container')
-    )
+        .lookup("service:-document")
+        .querySelector("#modal-container")
+    );
   }
-})
+});
 
 CamacHelpDialogComponent.reopenClass({
-  positionalParams: ['text']
-})
+  positionalParams: ["text"]
+});
 
-export default CamacHelpDialogComponent
+export default CamacHelpDialogComponent;

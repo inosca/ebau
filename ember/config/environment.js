@@ -1,14 +1,14 @@
-'use strict'
+"use strict";
 
 module.exports = function(environment) {
   let oidcHost =
-    process.env.KEYCLOAK_URL || 'http://camac-ng-keycloak.local/auth'
+    process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth";
 
   let ENV = {
-    modulePrefix: 'citizen-portal',
+    modulePrefix: "citizen-portal",
     environment,
-    rootURL: '/',
-    locationType: 'auto',
+    rootURL: "/",
+    locationType: "auto",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -27,26 +27,26 @@ module.exports = function(environment) {
 
     exportApplicationGlobal: true,
 
-    'ember-simple-auth-oidc': {
-      host: oidcHost.replace(/\/$/, ''),
-      realm: 'ebau',
-      clientId: 'portal'
+    "ember-simple-auth-oidc": {
+      host: oidcHost.replace(/\/$/, ""),
+      realm: "ebau",
+      clientId: "portal"
     },
 
-    'ember-validated-form': {
+    "ember-validated-form": {
       css: {
-        group: 'uk-margin',
-        control: 'uk-input',
-        label: 'uk-form-label uk-text-bold',
-        checkbox: 'uk-checkbox',
-        radio: 'uk-radio',
-        button: 'uk-button uk-button-default',
-        submit: 'uk-button uk-button-primary'
+        group: "uk-margin",
+        control: "uk-input",
+        label: "uk-form-label uk-text-bold",
+        checkbox: "uk-checkbox",
+        radio: "uk-radio",
+        button: "uk-button uk-button-default",
+        submit: "uk-button uk-button-primary"
       }
     }
-  }
+  };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -54,29 +54,29 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none'
+    ENV.locationType = "none";
 
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false
-    ENV.APP.LOG_VIEW_LOOKUPS = false
+    ENV.APP.LOG_ACTIVE_GENERATION = false;
+    ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing'
-    ENV.APP.autoboot = false
+    ENV.APP.rootElement = "#ember-testing";
+    ENV.APP.autoboot = false;
 
-    ENV['ember-simple-auth-oidc'] = {
-      authEndpoint: '/auth/realms/ebau/protocol/openid-connect/auth',
-      tokenEndpoint: '/auth/realms/ebau/protocol/openid-connect/token',
-      logoutEndpoint: '/auth/realms/ebau/protocol/openid-connect/logout'
-    }
+    ENV["ember-simple-auth-oidc"] = {
+      authEndpoint: "/auth/realms/ebau/protocol/openid-connect/auth",
+      tokenEndpoint: "/auth/realms/ebau/protocol/openid-connect/token",
+      logoutEndpoint: "/auth/realms/ebau/protocol/openid-connect/logout"
+    };
   }
 
-  if (environment === 'production') {
-    ENV['ember-cli-mirage'] = {
+  if (environment === "production") {
+    ENV["ember-cli-mirage"] = {
       enabled: process.env.EMBER_CLI_MIRAGE || false
-    }
+    };
   }
 
-  return ENV
-}
+  return ENV;
+};

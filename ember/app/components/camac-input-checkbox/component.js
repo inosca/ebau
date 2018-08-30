@@ -1,7 +1,7 @@
-import Component from '@ember/component'
+import Component from "@ember/component";
 
 export default Component.extend({
-  classNames: ['uk-form-stacked'],
+  classNames: ["uk-form-stacked"],
 
   actions: {
     change(
@@ -10,13 +10,13 @@ export default Component.extend({
         target: { checked }
       }
     ) {
-      let v = this.getWithDefault('model.value', [])
+      let v = this.getWithDefault("model.value", []);
 
       // TODO: Reject values which are not in the given options
 
-      this.getWithDefault('attrs.on-change', () => {})([
+      this.getWithDefault("attrs.on-change", () => {})([
         ...new Set([...v, option].filter(value => value !== option || checked))
-      ])
+      ]);
     }
   }
-})
+});

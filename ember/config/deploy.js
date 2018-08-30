@@ -1,28 +1,28 @@
 /* eslint-env node */
-'use strict'
+"use strict";
 
 module.exports = function(deployTarget) {
   let ENV = {
     build: {
-      outputPath: 'build'
+      outputPath: "build"
     },
     compress: {
       keep: true,
-      compression: ['gzip', 'brotli']
+      compression: ["gzip", "brotli"]
     }
+  };
+
+  if (deployTarget === "development") {
+    ENV.build.environment = "development";
   }
 
-  if (deployTarget === 'development') {
-    ENV.build.environment = 'development'
-  }
-
-  if (deployTarget === 'production') {
-    ENV.build.environment = 'production'
+  if (deployTarget === "production") {
+    ENV.build.environment = "production";
 
     ENV.pipeline = {
       activateOnDeploy: true
-    }
+    };
   }
 
-  return ENV
-}
+  return ENV;
+};
