@@ -595,7 +595,9 @@ class ActivationCallbackNotice(models.Model):
         db_column="ACTIVATION_CALLBACK_NOTICE_ID",
         primary_key=True
     )
-    send_date = models.IntegerField(db_column="SEND_DATE")
+    activation_id = models.IntegerField(db_column="ACTIVATION_ID")
+    circuulation_id = models.IntegerField(db_column="CIRCULATION_ID")
+    send_date = models.DateTimeField(db_column="SEND_DATE")
     reason = models.TextField(db_column="REASON")
 
     class Meta:
