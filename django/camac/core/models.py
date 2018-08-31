@@ -582,12 +582,25 @@ class ActivationCallbackExclude(models.Model):
     activation_callback_exclude_id = models.AutoField(
         db_column="ACTIVATION_CALLBACK_EXCLUDE_ID",
         primary_key=True
-    ),
+    )
     service_id = models.IntegerField(db_column="SERVICE_ID")
 
     class Meta:
         managed = True
         db_table = "ACTIVATION_CALLBACK_EXCLUDE"
+
+
+class ActivationCallbackNotice(models.Model):
+    activation_callback_notice_id = models.AutoField(
+        db_column="ACTIVATION_CALLBACK_NOTICE_ID",
+        primary_key=True
+    )
+    send_date = models.IntegerField(db_column="SEND_DATE")
+    reason = models.TextField(db_column="REASON")
+
+    class Meta:
+        managed = True
+        db_table = "ACTIVATION_CALLBACK_NOTICE"
 
 
 class AirAction(models.Model):
