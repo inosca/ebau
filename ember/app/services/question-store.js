@@ -8,10 +8,23 @@ import { reads, equal } from "@ember/object/computed";
 import { getOwner } from "@ember/application";
 import { A } from "@ember/array";
 import { capitalize } from "@ember/string";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
 import _validations from "citizen-portal/questions/validations";
 import computedTask from "citizen-portal/lib/computed-task";
 import jexl from "jexl";
+import Parser from "jexl/lib/parser/Parser";
+
+const getTransforms = (obj, arr = []) => {
+  if (obj.type === "Transform") {
+    return [obj];
+  }
+
+  if (obj.left && obj.right) {
+    return getTransforms(obj.left, arr).concat(getTransforms(obj.right, arr));
+  }
+
+  return arr;
+};
 
 const Question = EmberObject.extend({
   _questions: service("question-store"),
@@ -36,7 +49,7 @@ const Question = EmberObject.extend({
     this.set("jexl", new jexl.Jexl());
 
     this.jexl.addTransform("value", question => {
-      let q = this._questions.peek(question, this.get("model.instance.id"));
+      let q = this._questions.peek(question, this.get("instanceId"));
 
       return q && q.value;
     });
@@ -46,6 +59,46 @@ const Question = EmberObject.extend({
       (arr, key) => Array.isArray(arr) && arr.map(obj => obj[key])
     );
   },
+
+  _expressionAST: computed("field.active-expression", function() {
+    let expression = this.get("field.active-expression");
+
+    if (!expression) {
+      return [];
+    }
+
+    let grammar = this.jexl._getGrammar();
+    let parser = new Parser(grammar);
+
+    parser.addTokens(this.jexl._getLexer().tokenize(expression));
+
+    return parser.complete();
+  }),
+
+  _relatedQuestionNames: computed("_expressionAST", function() {
+    return [
+      ...new Set(
+        getTransforms(this._expressionAST)
+          .filter(({ name }) => name === "value")
+          .map(({ subject: { value } }) => value)
+      )
+    ];
+  }),
+
+  _relatedQuestions: computed(
+    "_relatedQuestionNames.[]",
+    "instanceId",
+    function() {
+      return this._questions.peekSet(
+        this._relatedQuestionNames,
+        this.instanceId
+      );
+    }
+  ),
+
+  _relatedHidden: computed("_relatedQuestions.@each.hidden", function() {
+    return this._relatedQuestions.some(q => q.hidden);
+  }),
 
   validate() {
     let name = this.name;
@@ -74,12 +127,20 @@ const Question = EmberObject.extend({
   },
 
   hidden: reads("_hidden.lastSuccessful.value"),
-  _hidden: computedTask("_hiddenTask", "_questions._store.@each.value"),
+  _hidden: computedTask(
+    "_hiddenTask",
+    "_relatedQuestions.@each.value",
+    "_relatedHidden"
+  ),
   _hiddenTask: task(function*() {
+    yield timeout(100);
+
     let expression = this.get("field.active-expression");
 
-    return expression ? !(yield this.jexl.eval(expression)) : false;
-  })
+    return expression
+      ? this._relatedHidden || !(yield this.jexl.eval(expression))
+      : false;
+  }).restartable()
 });
 
 export default Service.extend({

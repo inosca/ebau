@@ -1,5 +1,6 @@
 import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
+import { settled } from "@ember/test-helpers";
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
 import { run } from "@ember/runloop";
@@ -184,5 +185,55 @@ module("Unit | Service | question-store", function(hooks) {
     question.set("model.value", 5);
     assert.deepEqual(await service.get("saveQuestion").perform(question), null);
     assert.equal(question.get("model.isNew"), false);
+  });
+
+  test("can handle hierarchical active expressions", async function(assert) {
+    assert.expect(6);
+
+    this.server.get("/api/v1/form-config", {
+      questions: {
+        test1: {},
+        test2: {
+          "active-expression": "'test1'|value == 'test1'"
+        },
+        test3: {
+          "active-expression": "'test2'|value == 'test2'"
+        }
+      }
+    });
+
+    await loadQuestions(["test1", "test2", "test3"], this.instanceId);
+
+    let service = this.owner.lookup("service:question-store");
+
+    let test1 = await service.peek("test1", this.instanceId);
+    let test2 = await service.peek("test2", this.instanceId);
+    let test3 = await service.peek("test3", this.instanceId);
+
+    test1.set("model.value", "xyz");
+    test2.set("model.value", "xyz");
+    test3.set("model.value", "xyz");
+    await settled();
+    await test2._hiddenTask.perform();
+    await test3._hiddenTask.perform();
+
+    assert.equal(test2.get("hidden"), true);
+    assert.equal(test3.get("hidden"), true);
+
+    test2.set("model.value", "test2");
+    await settled();
+    await test2._hiddenTask.perform();
+
+    assert.equal(test2.get("hidden"), true);
+    assert.equal(test3.get("hidden"), true);
+
+    test1.set("model.value", "test1");
+    test2.set("model.value", "test2");
+    await settled();
+    await test2._hiddenTask.perform();
+    await test3._hiddenTask.perform();
+
+    assert.equal(test2.get("hidden"), false);
+    assert.equal(test3.get("hidden"), false);
   });
 });
