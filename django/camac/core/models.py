@@ -596,7 +596,7 @@ class ActivationCallbackNotice(models.Model):
         primary_key=True
     )
     activation_id = models.IntegerField(db_column="ACTIVATION_ID")
-    circuulation_id = models.IntegerField(db_column="CIRCULATION_ID")
+    circulation_id = models.IntegerField(db_column="CIRCULATION_ID")
     send_date = models.DateTimeField(db_column="SEND_DATE")
     reason = models.TextField(db_column="REASON")
 
