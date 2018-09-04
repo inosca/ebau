@@ -6955,7 +6955,7 @@
   "pk": 52,
   "fields": {
     "position": 22,
-    "name": "Rechtsmittel Obergericht",
+    "name": "Rechtsmittel Verwaltungsgericht",
     "automatical": 0,
     "different_color": 0,
     "is_workflow": 1,
@@ -6968,7 +6968,7 @@
   "pk": 53,
   "fields": {
     "position": 23,
-    "name": "Entscheid Obergericht",
+    "name": "Entscheid Verwaltungsgericht",
     "automatical": 0,
     "different_color": 0,
     "is_workflow": 1,
@@ -7020,7 +7020,7 @@
   "pk": 57,
   "fields": {
     "position": 35,
-    "name": "Bau beendet Info an Abwasser Uri",
+    "name": "Bau beendet Info an Abwasser",
     "automatical": 1,
     "different_color": 0,
     "is_workflow": 1,
