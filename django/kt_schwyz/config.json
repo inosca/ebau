@@ -664,20 +664,6 @@
   }
 },
 {
-  "model": "core.action",
-  "pk": 50,
-  "fields": {
-    "available_action": "generate",
-    "button": 24,
-    "name": "generate publication doc",
-    "description": null,
-    "success_message": null,
-    "error_message": "Dokument konnte nicht generiert werden",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -2153,42 +2139,6 @@
   }
 },
 {
-  "model": "core.broleacl",
-  "pk": 37,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 3
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 38,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 39,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 6
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 40,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 7
-  }
-},
-{
   "model": "core.button",
   "pk": 1,
   "fields": {
@@ -2441,18 +2391,6 @@
   }
 },
 {
-  "model": "core.button",
-  "pk": 24,
-  "fields": {
-    "instance_resource": 4,
-    "name": "Publikation herunterladen",
-    "description": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 0
-  }
-},
-{
   "model": "core.chapterpage",
   "pk": 1,
   "fields": {
@@ -2570,7 +2508,7 @@
   "fields": {
     "available_instance_resource": "editformpage",
     "resource": 1,
-    "name": "Dossier",
+    "name": "Formular",
     "description": null,
     "template": "/ember/instance.phtml",
     "class_field": null,
@@ -2650,7 +2588,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3,
+    "sort": 11,
     "form_group": 1
   }
 },
@@ -2675,7 +2613,7 @@
   "fields": {
     "available_instance_resource": "editformpage",
     "resource": 6,
-    "name": "Dossier",
+    "name": "Formular",
     "description": null,
     "template": "/ember/instance.phtml",
     "class_field": null,
@@ -2710,7 +2648,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 2,
+    "sort": 9,
     "form_group": 1
   }
 },
@@ -4440,6 +4378,15 @@
   "fields": {
     "instance_resource": 7,
     "service_group": 4,
+    "localized": 0
+  }
+},
+{
+  "model": "core.ireditcirculationsg",
+  "pk": 6,
+  "fields": {
+    "instance_resource": 7,
+    "service_group": 5,
     "localized": 0
   }
 },
@@ -6281,15 +6228,6 @@
   }
 },
 {
-  "model": "core.templategenerateaction",
-  "pk": 4,
-  "fields": {
-    "template": 2,
-    "action": 50,
-    "as_pdf": 0
-  }
-},
-{
   "model": "core.workflowaction",
   "pk": 2,
   "fields": {
@@ -6404,7 +6342,7 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Nein",
+    "name": "Fachbereich nicht betroffen",
     "sort": 0
   }
 },
@@ -6414,8 +6352,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Ja",
-    "sort": 5
+    "name": "Unterlagenerg\u00e4nzung",
+    "sort": 7
   }
 },
 {
@@ -6424,8 +6362,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
-    "sort": 6
+    "name": "Rechtliches Geh\u00f6r",
+    "sort": 8
   }
 },
 {
@@ -6434,8 +6372,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
-    "sort": 7
+    "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
+    "sort": 9
   }
 },
 {
@@ -6444,7 +6382,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Nein",
+    "name": "Fachbereich nicht betroffen",
     "sort": 1
   }
 },
@@ -6454,7 +6392,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Ja",
+    "name": "Unterlagenerg\u00e4nzung",
     "sort": 2
   }
 },
@@ -6464,7 +6402,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
+    "name": "Rechtliches Geh\u00f6r",
     "sort": 3
   }
 },
@@ -6474,8 +6412,48 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
+    "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
     "sort": 4
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 9,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Abschliessend beurteilbar",
+    "sort": 10
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 10,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Widerspruch",
+    "sort": 11
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 11,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Abschliessend beurteilbar",
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 12,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Widerspruch",
+    "sort": 6
   }
 },
 {
@@ -6556,7 +6534,7 @@
   "pk": 1,
   "fields": {
     "circulation_type": 1,
-    "name": "Mitteilung an die Gemeinde"
+    "name": "Antrag"
   }
 },
 {
@@ -6564,7 +6542,7 @@
   "pk": 2,
   "fields": {
     "circulation_type": 2,
-    "name": "Mitteilung an den Kanton"
+    "name": "Antrag"
   }
 },
 {
@@ -6572,7 +6550,7 @@
   "pk": 3,
   "fields": {
     "circulation_type": 1,
-    "name": "Hinweis bei Nachforderung"
+    "name": "Auflagen"
   }
 },
 {
@@ -6580,7 +6558,55 @@
   "pk": 4,
   "fields": {
     "circulation_type": 2,
-    "name": "Hinweis bei Nachforderung"
+    "name": "Auflagen"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 5,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Begr\u00fcndung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 6,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Empfehlung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 7,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Hinweis"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 8,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Begr\u00fcndung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 9,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Empfehlung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 10,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Hinweis"
   }
 },
 {
@@ -6955,7 +6981,7 @@
   "pk": 52,
   "fields": {
     "position": 22,
-    "name": "Rechtsmittel Obergericht",
+    "name": "Rechtsmittel Verwaltungsgericht",
     "automatical": 0,
     "different_color": 0,
     "is_workflow": 1,
@@ -6968,7 +6994,7 @@
   "pk": 53,
   "fields": {
     "position": 23,
-    "name": "Entscheid Obergericht",
+    "name": "Entscheid Verwaltungsgericht",
     "automatical": 0,
     "different_color": 0,
     "is_workflow": 1,
@@ -7020,7 +7046,7 @@
   "pk": 57,
   "fields": {
     "position": 35,
-    "name": "Bau beendet Info an Abwasser Uri",
+    "name": "Bau beendet Info an Abwasser",
     "automatical": 1,
     "different_color": 0,
     "is_workflow": 1,
@@ -18310,6 +18336,22 @@
   }
 },
 {
+  "model": "user.grouplocation",
+  "pk": 1381,
+  "fields": {
+    "group": 79,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 1382,
+  "fields": {
+    "group": 80,
+    "location": 26
+  }
+},
+{
   "model": "user.group",
   "pk": 1,
   "fields": {
@@ -19480,6 +19522,36 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 79,
+  "fields": {
+    "role": 5,
+    "service": 77,
+    "name": "Tiefbauamt",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 80,
+  "fields": {
+    "role": 5,
+    "service": 78,
+    "name": "Hochbauamt",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -19985,7 +20057,7 @@
     "service_parent": null,
     "name": "Centralschweizeriche Kraftwerke AG",
     "description": "CKW",
-    "sort": 32,
+    "sort": 34,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20002,7 +20074,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Arbeit",
     "description": "AFA",
-    "sort": 31,
+    "sort": 33,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20019,7 +20091,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Gesundheit und Soziales",
     "description": "AGS",
-    "sort": 58,
+    "sort": 60,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20036,7 +20108,7 @@
     "service_parent": null,
     "name": "Gemeinde Schwyz",
     "description": "Gemeinde Schwyz",
-    "sort": 22,
+    "sort": 24,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20053,7 +20125,7 @@
     "service_parent": null,
     "name": "Baugesuchszentrale",
     "description": "BGZ Kanton Schwyz",
-    "sort": 30,
+    "sort": 32,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20070,7 +20142,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Kultur",
     "description": "AFK",
-    "sort": 59,
+    "sort": 61,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20087,7 +20159,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Landwirtschaft",
     "description": "AFL",
-    "sort": 60,
+    "sort": 62,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20104,7 +20176,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz",
     "description": "AMFZ",
-    "sort": 61,
+    "sort": 63,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20121,7 +20193,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Natur, Jagd und Fischerei",
     "description": "ANJF",
-    "sort": 62,
+    "sort": 64,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20138,7 +20210,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Raumentwicklung",
     "description": "ARE",
-    "sort": 63,
+    "sort": 65,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20155,7 +20227,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Umweltschutz",
     "description": "AFU",
-    "sort": 64,
+    "sort": 66,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20172,7 +20244,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Vermessung und Geoinformation",
     "description": "AVG",
-    "sort": 65,
+    "sort": 67,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20189,7 +20261,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Wald und Naturgefahren",
     "description": "AWN",
-    "sort": 66,
+    "sort": 68,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20206,7 +20278,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Wasserbau",
     "description": "AWB",
-    "sort": 67,
+    "sort": 69,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20223,7 +20295,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr \u00f6ffentlichen Verkehr",
     "description": "OEV",
-    "sort": 68,
+    "sort": 70,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20240,7 +20312,7 @@
     "service_parent": null,
     "name": "Fachdienst Verkehr Kantonspolizei Schwyz",
     "description": "Kapo",
-    "sort": 69,
+    "sort": 71,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20257,7 +20329,7 @@
     "service_parent": null,
     "name": "Hochbauamt des Kantons Schwyz",
     "description": "HBA",
-    "sort": 70,
+    "sort": 72,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20274,7 +20346,7 @@
     "service_parent": null,
     "name": "Tiefbauamt des Kantons Schwyz",
     "description": "TBA",
-    "sort": 71,
+    "sort": 73,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20291,7 +20363,7 @@
     "service_parent": null,
     "name": "Verkehrsamt Schwyz",
     "description": "VASZ",
-    "sort": 72,
+    "sort": 74,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20308,7 +20380,7 @@
     "service_parent": null,
     "name": "Laboratorium der Urkantone",
     "description": "LABURK",
-    "sort": 73,
+    "sort": 75,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20325,7 +20397,7 @@
     "service_parent": null,
     "name": "Schweizerische S\u00fcdostbahn AG",
     "description": "SOB",
-    "sort": 33,
+    "sort": 35,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20342,7 +20414,7 @@
     "service_parent": null,
     "name": "Schweizerische Bundesbahnen AG Z\u00fcrich",
     "description": "SBB-Ost",
-    "sort": 34,
+    "sort": 36,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20359,7 +20431,7 @@
     "service_parent": null,
     "name": "Schweizerische Bundesbahnen AG Olten",
     "description": "SBB-Mitte",
-    "sort": 35,
+    "sort": 37,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20376,7 +20448,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Strassen Winterthur",
     "description": "ASTRA Winterthur",
-    "sort": 36,
+    "sort": 38,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20393,7 +20465,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Strassen Zofingen",
     "description": "ASTRA Zofingen",
-    "sort": 37,
+    "sort": 39,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20410,7 +20482,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Bezirk Schwyz",
     "description": "EBS",
-    "sort": 38,
+    "sort": 40,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20427,7 +20499,7 @@
     "service_parent": null,
     "name": "Elektrogenossenschaft Bisisthal",
     "description": "Elektro. Bisisthal",
-    "sort": 39,
+    "sort": 41,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20444,7 +20516,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerke des Kantons Z\u00fcrich",
     "description": "EKZ",
-    "sort": 40,
+    "sort": 42,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20461,7 +20533,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk der Stadt Z\u00fcrich",
     "description": "EWZ",
-    "sort": 41,
+    "sort": 43,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20478,7 +20550,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Schwyz AG",
     "description": "EWS",
-    "sort": 42,
+    "sort": 44,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20495,7 +20567,7 @@
     "service_parent": null,
     "name": "AXPO Power AG",
     "description": "AXPO",
-    "sort": 43,
+    "sort": 45,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20512,7 +20584,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Altdorf",
     "description": "EWA",
-    "sort": 44,
+    "sort": 46,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20529,7 +20601,7 @@
     "service_parent": null,
     "name": "Swissgrid AG",
     "description": "Swissgrid AG",
-    "sort": 45,
+    "sort": 47,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20546,7 +20618,7 @@
     "service_parent": null,
     "name": "Alpiq EnerTrans AG",
     "description": "Alpiq",
-    "sort": 46,
+    "sort": 48,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20563,7 +20635,7 @@
     "service_parent": null,
     "name": "Z\u00fcrichsee Schifffahrtsgesellschaft",
     "description": "ZSG",
-    "sort": 47,
+    "sort": 49,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20580,7 +20652,7 @@
     "service_parent": null,
     "name": "Schifffahrtsgesellschaft des Vierwaldst\u00e4ttersees",
     "description": "SGV",
-    "sort": 48,
+    "sort": 50,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20597,7 +20669,7 @@
     "service_parent": null,
     "name": "Schifffahrtsgesellschaft f\u00fcr den Zugersee AG",
     "description": "ZSG",
-    "sort": 49,
+    "sort": 51,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20614,7 +20686,7 @@
     "service_parent": null,
     "name": "Bezirk Schwyz",
     "description": "Bez Schwyz",
-    "sort": 50,
+    "sort": 52,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20631,7 +20703,7 @@
     "service_parent": null,
     "name": "Bezirk H\u00f6fe",
     "description": "Bez H\u00f6fe",
-    "sort": 51,
+    "sort": 53,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20648,7 +20720,7 @@
     "service_parent": null,
     "name": "Bezirk March",
     "description": "Bez March",
-    "sort": 52,
+    "sort": 54,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20665,7 +20737,7 @@
     "service_parent": null,
     "name": "Schiessoffizier",
     "description": "Schiessoffizier",
-    "sort": 53,
+    "sort": 55,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20682,7 +20754,7 @@
     "service_parent": null,
     "name": "Linthebene Melioration",
     "description": "LEM",
-    "sort": 54,
+    "sort": 56,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20699,7 +20771,7 @@
     "service_parent": null,
     "name": "Eidg. Starkstrominspektorat",
     "description": "ESTI Fehraltorf",
-    "sort": 55,
+    "sort": 57,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20716,7 +20788,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Umwelt",
     "description": "BAFU",
-    "sort": 56,
+    "sort": 58,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20733,7 +20805,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Verkehr",
     "description": "BAV",
-    "sort": 57,
+    "sort": 59,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20750,7 +20822,7 @@
     "service_parent": null,
     "name": "Gemeinde Einsiedeln",
     "description": "Gemeinde Einsiedeln",
-    "sort": 0,
+    "sort": 2,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20767,7 +20839,7 @@
     "service_parent": null,
     "name": "Gemeinde K\u00fcssnacht",
     "description": "Gemeinde K\u00fcssnacht",
-    "sort": 1,
+    "sort": 3,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20784,7 +20856,7 @@
     "service_parent": null,
     "name": "Gemeinde Gersau",
     "description": "Gemeinde Gersau",
-    "sort": 2,
+    "sort": 4,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20801,7 +20873,7 @@
     "service_parent": null,
     "name": "Gemeinde Altendorf",
     "description": "Gemeinde Altendorf",
-    "sort": 3,
+    "sort": 5,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20818,7 +20890,7 @@
     "service_parent": null,
     "name": "Gemeinde Alpthal",
     "description": "Gemeinde Alpthal",
-    "sort": 4,
+    "sort": 6,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20835,7 +20907,7 @@
     "service_parent": null,
     "name": "Gemeinde Arth",
     "description": "Gemeinde Arth",
-    "sort": 5,
+    "sort": 7,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20852,7 +20924,7 @@
     "service_parent": null,
     "name": "Gemeinde Feusisberg",
     "description": "Gemeinde Feusisberg",
-    "sort": 6,
+    "sort": 8,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20869,7 +20941,7 @@
     "service_parent": null,
     "name": "Gemeinde Freienbach",
     "description": "Gemeinde Freienbach",
-    "sort": 7,
+    "sort": 9,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20886,7 +20958,7 @@
     "service_parent": null,
     "name": "Gemeinde Galgenen",
     "description": "Gemeinde Galgenen",
-    "sort": 8,
+    "sort": 10,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20903,7 +20975,7 @@
     "service_parent": null,
     "name": "Gemeinde Illgau",
     "description": "Gemeinde Illgau",
-    "sort": 9,
+    "sort": 11,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20920,7 +20992,7 @@
     "service_parent": null,
     "name": "Gemeinde Ingenbohl",
     "description": "Gemeinde Ingenbohl",
-    "sort": 10,
+    "sort": 12,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20937,7 +21009,7 @@
     "service_parent": null,
     "name": "Gemeinde Innerthal",
     "description": "Gemeinde Innerthal",
-    "sort": 11,
+    "sort": 13,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20954,7 +21026,7 @@
     "service_parent": null,
     "name": "Gemeinde Lachen",
     "description": "Gemeinde Lachen",
-    "sort": 12,
+    "sort": 14,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20971,7 +21043,7 @@
     "service_parent": null,
     "name": "Gemeinde Lauerz",
     "description": "Gemeinde Lauerz",
-    "sort": 13,
+    "sort": 15,
     "phone": null,
     "zip": null,
     "city": null,
@@ -20988,7 +21060,7 @@
     "service_parent": null,
     "name": "Gemeinde Morschach",
     "description": "Gemeinde Morschach",
-    "sort": 14,
+    "sort": 16,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21005,7 +21077,7 @@
     "service_parent": null,
     "name": "Gemeinde Muotathal",
     "description": "Gemeinde Muotathal",
-    "sort": 15,
+    "sort": 17,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21022,7 +21094,7 @@
     "service_parent": null,
     "name": "Gemeinde Oberiberg",
     "description": "Gemeinde Oberiberg",
-    "sort": 16,
+    "sort": 18,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21039,7 +21111,7 @@
     "service_parent": null,
     "name": "Gemeinde Reichenburg",
     "description": "Gemeinde Reichenburg",
-    "sort": 17,
+    "sort": 19,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21056,7 +21128,7 @@
     "service_parent": null,
     "name": "Gemeinde Riemenstalden",
     "description": "Gemeinde Riemenstalden",
-    "sort": 18,
+    "sort": 20,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21073,7 +21145,7 @@
     "service_parent": null,
     "name": "Gemeinde Rothenthurm",
     "description": "Gemeinde Rothenthurm",
-    "sort": 19,
+    "sort": 21,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21090,7 +21162,7 @@
     "service_parent": null,
     "name": "Gemeinde Sch\u00fcbelbach",
     "description": "Gemeinde Sch\u00fcbelbach",
-    "sort": 20,
+    "sort": 22,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21107,7 +21179,7 @@
     "service_parent": null,
     "name": "Gemeinde Sattel",
     "description": "Gemeinde Sattel",
-    "sort": 21,
+    "sort": 23,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21124,7 +21196,7 @@
     "service_parent": null,
     "name": "Gemeinde Steinen",
     "description": "Gemeinde Steinen",
-    "sort": 23,
+    "sort": 25,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21141,7 +21213,7 @@
     "service_parent": null,
     "name": "Gemeinde Steinerberg",
     "description": "Gemeinde Steinerberg",
-    "sort": 24,
+    "sort": 26,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21158,7 +21230,7 @@
     "service_parent": null,
     "name": "Gemeinde Tuggen",
     "description": "Gemeinde Tuggen",
-    "sort": 25,
+    "sort": 27,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21175,7 +21247,7 @@
     "service_parent": null,
     "name": "Gemeinde Unteriberg",
     "description": "Gemeinde Unteriberg",
-    "sort": 26,
+    "sort": 28,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21192,7 +21264,7 @@
     "service_parent": null,
     "name": "Gemeinde Vorderthal",
     "description": "Gemeinde Vorderthal",
-    "sort": 27,
+    "sort": 29,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21209,7 +21281,7 @@
     "service_parent": null,
     "name": "Gemeinde Wangen",
     "description": "Gemeinde Wangen",
-    "sort": 28,
+    "sort": 30,
     "phone": null,
     "zip": null,
     "city": null,
@@ -21226,12 +21298,46 @@
     "service_parent": null,
     "name": "Gemeinde Wollerau",
     "description": "Gemeinde Wollerau",
-    "sort": 29,
+    "sort": 31,
     "phone": null,
     "zip": null,
     "city": null,
     "address": null,
     "email": "hochbauamt@wollerau.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 77,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Tiefbauamt",
+    "description": "Tiefbauamt",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 78,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Hochbauamt",
+    "description": "Hochbauamt",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
     "website": null
   }
 },
@@ -21261,6 +21367,13 @@
   "pk": 4,
   "fields": {
     "name": "Baugesuchszentrale"
+  }
+},
+{
+  "model": "user.servicegroup",
+  "pk": 5,
+  "fields": {
+    "name": "Fachstellen Gemeinde Schwyz"
   }
 },
 {
