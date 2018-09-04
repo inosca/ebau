@@ -2570,7 +2570,7 @@
   "fields": {
     "available_instance_resource": "editformpage",
     "resource": 1,
-    "name": "Dossier",
+    "name": "Formular",
     "description": null,
     "template": "/ember/instance.phtml",
     "class_field": null,
@@ -2650,7 +2650,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3,
+    "sort": 11,
     "form_group": 1
   }
 },
@@ -2675,7 +2675,7 @@
   "fields": {
     "available_instance_resource": "editformpage",
     "resource": 6,
-    "name": "Dossier",
+    "name": "Formular",
     "description": null,
     "template": "/ember/instance.phtml",
     "class_field": null,
@@ -2710,7 +2710,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 2,
+    "sort": 9,
     "form_group": 1
   }
 },
