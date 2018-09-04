@@ -664,20 +664,6 @@
   }
 },
 {
-  "model": "core.action",
-  "pk": 50,
-  "fields": {
-    "available_action": "generate",
-    "button": 24,
-    "name": "generate publication doc",
-    "description": null,
-    "success_message": null,
-    "error_message": "Dokument konnte nicht generiert werden",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
   "model": "core.aformtransition",
   "pk": 1,
   "fields": {
@@ -2153,42 +2139,6 @@
   }
 },
 {
-  "model": "core.broleacl",
-  "pk": 37,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 3
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 38,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 39,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 6
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 40,
-  "fields": {
-    "button": 24,
-    "role": 3,
-    "instance_state": 7
-  }
-},
-{
   "model": "core.button",
   "pk": 1,
   "fields": {
@@ -2438,18 +2388,6 @@
     "class_field": null,
     "hidden": 0,
     "sort": 3
-  }
-},
-{
-  "model": "core.button",
-  "pk": 24,
-  "fields": {
-    "instance_resource": 4,
-    "name": "Publikation herunterladen",
-    "description": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 0
   }
 },
 {
@@ -6278,15 +6216,6 @@
   "fields": {
     "resource": 9,
     "role": 5
-  }
-},
-{
-  "model": "core.templategenerateaction",
-  "pk": 4,
-  "fields": {
-    "template": 2,
-    "action": 50,
-    "as_pdf": 0
   }
 },
 {
