@@ -6342,7 +6342,7 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Nein",
+    "name": "Fachbereich nicht betroffen",
     "sort": 0
   }
 },
@@ -6352,8 +6352,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Ja",
-    "sort": 5
+    "name": "Unterlagenerg\u00e4nzung",
+    "sort": 7
   }
 },
 {
@@ -6362,8 +6362,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
-    "sort": 6
+    "name": "Rechtliches Geh\u00f6r",
+    "sort": 8
   }
 },
 {
@@ -6372,8 +6372,8 @@
   "fields": {
     "circulation_type": 1,
     "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
-    "sort": 7
+    "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
+    "sort": 9
   }
 },
 {
@@ -6382,7 +6382,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Nein",
+    "name": "Fachbereich nicht betroffen",
     "sort": 1
   }
 },
@@ -6392,7 +6392,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Ja",
+    "name": "Unterlagenerg\u00e4nzung",
     "sort": 2
   }
 },
@@ -6402,7 +6402,7 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Ja mit Auflagen",
+    "name": "Rechtliches Geh\u00f6r",
     "sort": 3
   }
 },
@@ -6412,8 +6412,48 @@
   "fields": {
     "circulation_type": 2,
     "circulation_answer_type": 1,
-    "name": "Fachstelle nicht betroffen",
+    "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
     "sort": 4
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 9,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Abschliessend beurteilbar",
+    "sort": 10
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 10,
+  "fields": {
+    "circulation_type": 1,
+    "circulation_answer_type": 1,
+    "name": "Widerspruch",
+    "sort": 11
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 11,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Abschliessend beurteilbar",
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 12,
+  "fields": {
+    "circulation_type": 2,
+    "circulation_answer_type": 1,
+    "name": "Widerspruch",
+    "sort": 6
   }
 },
 {
@@ -6494,7 +6534,7 @@
   "pk": 1,
   "fields": {
     "circulation_type": 1,
-    "name": "Mitteilung an die Gemeinde"
+    "name": "Antrag"
   }
 },
 {
@@ -6502,7 +6542,7 @@
   "pk": 2,
   "fields": {
     "circulation_type": 2,
-    "name": "Mitteilung an den Kanton"
+    "name": "Antrag"
   }
 },
 {
@@ -6510,7 +6550,7 @@
   "pk": 3,
   "fields": {
     "circulation_type": 1,
-    "name": "Hinweis bei Nachforderung"
+    "name": "Auflagen"
   }
 },
 {
@@ -6518,7 +6558,55 @@
   "pk": 4,
   "fields": {
     "circulation_type": 2,
-    "name": "Hinweis bei Nachforderung"
+    "name": "Auflagen"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 5,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Begr\u00fcndung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 6,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Empfehlung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 7,
+  "fields": {
+    "circulation_type": 1,
+    "name": "Hinweis"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 8,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Begr\u00fcndung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 9,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Empfehlung"
+  }
+},
+{
+  "model": "core.noticetype",
+  "pk": 10,
+  "fields": {
+    "circulation_type": 2,
+    "name": "Hinweis"
   }
 },
 {
