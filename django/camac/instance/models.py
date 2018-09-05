@@ -39,6 +39,9 @@ class InstanceState(models.Model):
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = "INSTANCE_STATE"
