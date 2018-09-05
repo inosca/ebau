@@ -580,8 +580,7 @@ class ActivationLog(models.Model):
 
 class ActivationCallbackExclude(models.Model):
     activation_callback_exclude_id = models.AutoField(
-        db_column="ACTIVATION_CALLBACK_EXCLUDE_ID",
-        primary_key=True
+        db_column="ACTIVATION_CALLBACK_EXCLUDE_ID", primary_key=True
     )
     service_id = models.IntegerField(db_column="SERVICE_ID")
 
@@ -592,8 +591,7 @@ class ActivationCallbackExclude(models.Model):
 
 class ActivationCallbackNotice(models.Model):
     activation_callback_notice_id = models.AutoField(
-        db_column="ACTIVATION_CALLBACK_NOTICE_ID",
-        primary_key=True
+        db_column="ACTIVATION_CALLBACK_NOTICE_ID", primary_key=True
     )
     activation_id = models.IntegerField(db_column="ACTIVATION_ID")
     circulation_id = models.IntegerField(db_column="CIRCULATION_ID")
