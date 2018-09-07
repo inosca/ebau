@@ -107,14 +107,14 @@
       "required": true,
       "active-expression": "'breite-der-anlage'|value >= 10",
       "config": {
-        "options": ["Abgesprochen", "Schöneres Aussicht", "Anderer Grund"]
+        "options": ["Abgesprochen", "Schönere Aussicht", "Anderer Grund"]
       }
     },
     "breite-der-anlage-gte-anderer-grund": {
       "label": "Grund beschreiben",
       "type": "text",
       "required": true,
-      "active-expression": "'breite-der-anlage-gte'|value == 'Anderes'"
+      "active-expression": "'breite-der-anlage-gte'|value == 'Anderer Grund'"
     },
     "kosten-der-anlage": {
       "label": "Wie viel kostet die Anlage in CHF?",
