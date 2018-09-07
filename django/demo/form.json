@@ -19,6 +19,9 @@
         "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht",
         "hohe-der-anlage",
         "hohe-der-anlage-gte",
+        "breite-der-anlage",
+        "breite-der-anlage-gte",
+        "breite-der-anlage-gte-anderer-grund",
         "kosten-der-anlage",
         "kosten-der-anlage-gt",
         "tiefe-der-bohrung",
@@ -26,6 +29,7 @@
         "durchmesser-der-bohrung",
         "durchmesser-der-bohrung-lt",
         "bewilligung-bohrung",
+        "bewilligung-bohrung-wiesonicht",
         "bohrungsdaten",
         "grundeigentumerschaft",
         "gwr",
@@ -88,6 +92,30 @@
       "active-expression": "'hohe-der-anlage'|value >= 10",
       "config": {}
     },
+    "breite-der-anlage": {
+      "label": "Wie hoch ist die Anlage in m?",
+      "type": "number",
+      "required": false,
+      "config": {
+        "step": 1,
+        "min": 0
+      }
+    },
+    "breite-der-anlage-gte": {
+      "label": "Wieso ist die Anlage nicht breiter als oder gleich 10m?",
+      "type": "radio",
+      "required": true,
+      "active-expression": "'breite-der-anlage'|value >= 10",
+      "config": {
+        "options": ["Abgesprochen", "Schönere Aussicht", "Anderer Grund"]
+      }
+    },
+    "breite-der-anlage-gte-anderer-grund": {
+      "label": "Grund beschreiben",
+      "type": "text",
+      "required": true,
+      "active-expression": "'breite-der-anlage-gte'|value == 'Anderer Grund'"
+    },
     "kosten-der-anlage": {
       "label": "Wie viel kostet die Anlage in CHF?",
       "type": "number",
@@ -142,6 +170,12 @@
       "required": true,
       "active-expression": "'tiefe-der-bohrung'|value > 10 || 'durchmesser-der-bohrung'|value < 10",
       "config": { "options": ["Ja", "Nein"] }
+    },
+    "bewilligung-bohrung-wiesonicht": {
+      "label": "Wieso nicht?",
+      "type": "text",
+      "required": true,
+      "active-expression": "'bewilligung-bohrung'|value == 'Nein'"
     },
     "bohrungsdaten": {
       "label": "Haben Sie eine Bohrbewilligung",
