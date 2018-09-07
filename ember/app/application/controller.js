@@ -2,12 +2,14 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import config from "../config/environment";
 
-const { environment } = config;
+const { environment, oidcHost } = config;
 
 export default Controller.extend({
   session: service(),
 
   environment,
+
+  oidcHost,
 
   isEmbedded: window !== window.top,
 
