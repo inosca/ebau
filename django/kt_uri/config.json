@@ -1512,7 +1512,7 @@
     "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt",
     "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
     "execute_always": 0,
-    "sort": 1
+    "sort": 2
   }
 },
 {
@@ -1540,7 +1540,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 2
+    "sort": 3
   }
 },
 {
@@ -1568,7 +1568,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 0
+    "sort": 1
   }
 },
 {
@@ -1596,7 +1596,7 @@
     "success_message": "",
     "error_message": "",
     "execute_always": 0,
-    "sort": 3
+    "sort": 4
   }
 },
 {
@@ -4313,6 +4313,20 @@
     "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
     "execute_always": 0,
     "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 1379,
+  "fields": {
+    "available_action": "php",
+    "button": 628,
+    "name": "CheckIfNFDPossible",
+    "description": null,
+    "success_message": null,
+    "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+    "execute_always": 0,
+    "sort": 0
   }
 },
 {
@@ -8791,6 +8805,13 @@
   "pk": 1374,
   "fields": {
     "php_class": "RedirectToInstance"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 1379,
+  "fields": {
+    "php_class": "CheckIfNFDPossible"
   }
 },
 {
@@ -38946,6 +38967,26 @@
     "circulation_answer_type": 1,
     "name": "Keine Stellungnahme",
     "sort": 7
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 73,
+  "fields": {
+    "circulation_type": 41,
+    "circulation_answer_type": 1,
+    "name": "Keine R\u00fcckmeldung",
+    "sort": 12
+  }
+},
+{
+  "model": "core.circulationanswer",
+  "pk": 74,
+  "fields": {
+    "circulation_type": 61,
+    "circulation_answer_type": 1,
+    "name": "Keine R\u00fcckmeldung",
+    "sort": 13
   }
 },
 {
