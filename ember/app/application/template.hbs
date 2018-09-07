@@ -30,6 +30,7 @@
         {{/link-to}}
         <div>
           <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to 'index')}}></a>
+          <a title="Profil" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="user" href="{{oidcHost}}/realms/ebau/account" target="_blank"></a>
           {{#if session.isAuthenticated}}
             <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action 'logout'}}></button>
           {{/if}}
