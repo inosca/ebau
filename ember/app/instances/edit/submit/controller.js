@@ -42,7 +42,7 @@ export default Controller.extend({
         { method: "POST" }
       );
 
-      this.notification.success("Das Dossier wurde erfolgreich eingereicht");
+      this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
       yield this.transitionToRoute("instances");
     } catch (e) {

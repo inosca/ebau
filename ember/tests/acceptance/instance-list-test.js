@@ -18,7 +18,7 @@ module("Acceptance | instance list", function(hooks) {
     await visit("/dossiers");
 
     assert.dom("svg").exists();
-    assert.dom("h4").hasText("Sie haben noch keine Dossiers!");
+    assert.dom("h4").hasText("Sie haben noch keine Gesuche!");
     assert.dom(".uk-button-primary").exists();
 
     await click(".uk-button-primary");

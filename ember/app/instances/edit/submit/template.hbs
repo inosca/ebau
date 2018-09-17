@@ -1,11 +1,11 @@
 <div class="uk-text-center">
-  <p>Wenn Sie alle Fragen korrekt ausgefüllt haben, können Sie hier das Dossier zur Kontrolle einreichen.</p>
+  <p>Wenn Sie alle Fragen korrekt ausgefüllt haben, können Sie hier das Gesuch zur Kontrolle einreichen.</p>
 
   {{#uk-button size='large' color='primary' loading=submit.isRunning disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
 
   {{#unless canSubmit.lastSuccessful.value}}
     <div class="uk-alert uk-alert-danger">
-      Das Dossier ist noch nicht vollständig ausgefüllt, oder enthält noch
+      Das Gesuch ist noch nicht vollständig ausgefüllt, oder enthält noch
       fehlerhafte Daten. Bitte überprüfen Sie Ihre Angaben und versuchen Sie
       es nochmals.
     </div>
