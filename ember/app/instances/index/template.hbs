@@ -1,6 +1,6 @@
 {{#if data.lastSuccessful}}
   {{#if (or identifier data.lastSuccessful.value data.isRunning)}}
-    <h1>Ihre Dossiers</h1>
+    <h1>Ihre Gesuche</h1>
 
     <div class="uk-search uk-search-default uk-width-1-1 uk-hidden@m">
       <span uk-search-icon></span>
@@ -72,7 +72,7 @@
           {{#each data.lastSuccessful.value as |instance|}}
             <tr
               role="link"
-              title="Klicken Sie um das Dossier zu bearbeiten"
+              title="Klicken Sie um das Gesuch zu bearbeiten"
               class="pointer"
               {{action (perform navigate) instance on='click'}}
             >
@@ -97,12 +97,12 @@
           {{^}}
             <tr>
               <td class="uk-text-center" colspan="5">
-                <i>Kein Dossier mit dieser Gesuchsnummer gefunden</i>
+                <i>Kein Gesuch mit dieser Gesuchsnummer gefunden</i>
               </td>
             </tr>
           {{/each}}
         {{/if}}
-        <tr role="link" title="Klicken Sie um ein neues Dossier zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
+        <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
           <td class="uk-text-center" colspan="5">
             {{uk-icon 'plus' scale=2}}
           </td>
@@ -113,13 +113,13 @@
     {{#uk-flex horizontal='center' vertical='middle' direction='column'}}
       <div class="uk-text-center uk-width-large">
         <object data="/assets/images/stamp-document.svg" class="uk-width-medium"></object>
-        <h4 class="uk-margin-remove-top">Sie haben noch keine Dossiers!</h4>
+        <h4 class="uk-margin-remove-top">Sie haben noch keine Gesuche!</h4>
         <p>
-          Erstellen Sie jetzt schnell und bequem Ihr erstes Dossier. Sie
+          Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie
           können es jederzeit schliessen und problemlos ein andermal weiter
           ausfüllen.
         </p>
-        {{#link-to 'instances.new' class='uk-button uk-button-primary uk-button-large'}}Dossier erstellen{{/link-to}}
+        {{#link-to 'instances.new' class='uk-button uk-button-primary uk-button-large'}}Gesuch erstellen{{/link-to}}
       </div>
     {{/uk-flex}}
   {{/if}}
