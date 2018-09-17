@@ -192,7 +192,11 @@
         "kategorie-des-vorhabens",
         "art-der-nutzung",
         "vorhaben-mit-baute",
+        "vorhaben-mit-baute-bisherige-nutzung",
+        "vorhaben-mit-baute-geplante-nutzung",
         "vorhaben-mit-anlage",
+        "vorhaben-mit-anlage-bisherige-nutzung",
+        "vorhaben-mit-anlage-geplante-nutzung",
         "art-der-anlage",
         "art-der-anlage-andere",
         "art-der-befestigten-flache",
@@ -1120,6 +1124,22 @@
         ]
       }
     },
+    "vorhaben-mit-anlage-bisherige-nutzung": {
+      "label": "Bisherige Nutzung?",
+      "hint": "**Platzhalter**: *vorhaben-mit-anlage-bisherige-nutzung*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Nutzungsänderung' in 'vorhaben-mit-anlage'|value",
+      "config": {}
+    },
+    "vorhaben-mit-anlage-geplante-nutzung": {
+      "label": "Geplante Nutzung?",
+      "hint": "**Platzhalter**: *vorhaben-mit-anlage-geplante-nutzung*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Nutzungsänderung' in 'vorhaben-mit-anlage'|value",
+      "config": {}
+    },
     "vorhaben-mit-baute": {
       "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
       "hint": "**Platzhalter**: *vorhaben-mit-baute*",
@@ -1135,6 +1155,22 @@
           "Nutzungsänderung"
         ]
       }
+    },
+    "vorhaben-mit-baute-bisherige-nutzung": {
+      "label": "Bisherige Nutzung?",
+      "hint": "**Platzhalter**: *vorhaben-mit-baute-bisherige-nutzung*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "config": {}
+    },
+    "vorhaben-mit-baute-geplante-nutzung": {
+      "label": "Geplante Nutzung?",
+      "hint": "**Platzhalter**: *vorhaben-mit-baute-geplante-nutzung*",
+      "type": "text",
+      "required": true,
+      "active-expression": "'Nutzungsänderung' in 'vorhaben-mit-baute'|value",
+      "config": {}
     },
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
