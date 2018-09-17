@@ -1278,6 +1278,7 @@
       "hint": "**Platzhalter**: *pfahlfundation-vorgesehen*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1287,6 +1288,7 @@
       "hint": "**Platzhalter**: *baugrubenumschliessung-vorgesehen*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1366,6 +1368,7 @@
       "hint": "**Platzhalter**: *wassergefahrdende-stoffe*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1375,6 +1378,7 @@
       "hint": "**Platzhalter**: *brandschutztechnisch-gefahrliche-stoffe*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1420,6 +1424,7 @@
       "hint": "**Platzhalter**: *200m3-bauabfalle*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1434,7 +1439,7 @@
       }
     },
     "lebensmittel-umgehen": {
-      "label": "Wird mit Lebensmitteln umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
+      "label": "Wird mit Lebensmitteln oder Trinkwasser umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
       "hint": "**Platzhalter**: *lebensmittel-umgehen*",
       "type": "radio",
       "required": true,
@@ -1447,6 +1452,7 @@
       "hint": "**Platzhalter**: *trinkwasser-abgeben*",
       "type": "radio",
       "required": true,
+      "active-expression": "'lebensmittel-umgehen'|value == 'Ja'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1456,6 +1462,7 @@
       "hint": "**Platzhalter**: *offentlich-duschanlage-oder-bad*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1465,6 +1472,7 @@
       "hint": "**Platzhalter**: *gewerbliche-nutzflachen*",
       "type": "radio",
       "required": true,
+      "active-expression": "('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value) || ('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Tourismus' in 'art-der-nutzung'|value)",
       "config": {
         "options": ["Ja", "Nein"]
       }
