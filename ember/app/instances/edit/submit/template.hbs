@@ -1,5 +1,10 @@
 <div class="uk-text-center">
-  <p>Wenn Sie alle Fragen korrekt ausgefüllt haben, können Sie hier das Gesuch zur Kontrolle einreichen.</p>
+  <p class="uk-text-left">Mit Klick auf die Schaltfläche "Einreichen"...</p>
+  <p class="uk-text-left uk-margin-left">
+    ...bestätigen Sie, dass das Formular vollständig und wahrheitsgetreu ausgefüllt wurde,<br>
+    ...wird Ihr Gesuch bei der zuständigen Behörde zur Kontrolle eingereicht,<br>
+    ...können Sie an den Formulareinträgen keine Veränderungen mehr vornehmen.
+  </p>
 
   {{#uk-button size='large' color='primary' loading=submit.isRunning disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
 
