@@ -15,7 +15,7 @@ module("Acceptance | instance list", function(hooks) {
   test("has correct empty state", async function(assert) {
     assert.expect(4);
 
-    await visit("/dossiers");
+    await visit("/gesuche");
 
     assert.dom("svg").exists();
     assert.dom("h4").hasText("Sie haben noch keine Gesuche!");
@@ -23,7 +23,7 @@ module("Acceptance | instance list", function(hooks) {
 
     await click(".uk-button-primary");
 
-    assert.equal(currentURL(), "/dossiers/new");
+    assert.equal(currentURL(), "/gesuche/new");
   });
 
   test("has correct default state", async function(assert) {
@@ -31,14 +31,14 @@ module("Acceptance | instance list", function(hooks) {
 
     this.server.createList("instance", 5);
 
-    await visit("/dossiers");
+    await visit("/gesuche");
 
     // Should have 5 data rows and one to add a new row
     assert.dom("table > tbody > tr").exists({ count: 6 });
 
     await click("table > tbody > tr:last-of-type");
 
-    assert.equal(currentURL(), "/dossiers/new");
+    assert.equal(currentURL(), "/gesuche/new");
   });
 
   test("can sort and search for identifier", async function(assert) {
@@ -46,9 +46,9 @@ module("Acceptance | instance list", function(hooks) {
 
     this.server.createList("instance", 5);
 
-    await visit("/dossiers");
+    await visit("/gesuche");
 
-    assert.equal(currentURL(), "/dossiers");
+    assert.equal(currentURL(), "/gesuche");
 
     await click("a.uk-search-icon.uk-toggle");
     await fillIn("input.uk-search-input", "123");
