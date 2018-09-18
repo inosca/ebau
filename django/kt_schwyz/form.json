@@ -246,7 +246,8 @@
         "baugespann-errichtet-wann",
         "kein-baugespann-begrundung",
         "baukosten",
-        "gebaudevolumen"
+        "gebaudevolumen-sia-116",
+        "gebaudevolumen-sia-416"
       ]
     },
     "grundinformationen.ausnahmebewilligungen": {
@@ -1556,9 +1557,20 @@
         "step": 1
       }
     },
-    "gebaudevolumen": {
-      "label": "Gebäudevolumen in m³ nach SIA 116 / SIA 416:",
-      "hint": "**Platzhalter**: *gebaudevolumen*",
+    "gebaudevolumen-sia-116": {
+      "label": "Gebäudevolumen in m³ nach SIA 116:",
+      "hint": "**Platzhalter**: *gebaudevolumen-sia-116*",
+      "type": "number",
+      "required": true,
+      "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
+      "config": {
+        "min": 0,
+        "step": 0.5
+      }
+    },
+    "gebaudevolumen-sia-416": {
+      "label": "Gebäudevolumen in m³ nach SIA 416:",
+      "hint": "**Platzhalter**: *gebaudevolumen-sia-416*",
       "type": "number",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
