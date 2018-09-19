@@ -15132,7 +15132,7 @@
     "instance_resource": 2,
     "name": "Freigeben f\u00fcr Koordinationsstelle",
     "description": null,
-    "class_field": "release",
+    "class_field": "release_koor",
     "hidden": 0,
     "sort": 1
   }
@@ -15600,7 +15600,7 @@
     "instance_resource": 490,
     "name": "Freigeben f\u00fcr Koordinationsstelle",
     "description": null,
-    "class_field": "release",
+    "class_field": "release_koor",
     "hidden": 0,
     "sort": 1
   }
@@ -16908,7 +16908,7 @@
     "instance_resource": 245,
     "name": "Freigeben f\u00fcr Gemeindebaubeh\u00f6rde",
     "description": null,
-    "class_field": "release",
+    "class_field": "release_buildingauthority",
     "hidden": 0,
     "sort": 1
   }
