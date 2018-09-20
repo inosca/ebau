@@ -45,22 +45,23 @@
               </a>
             </div>
           </th>
-          <th class="uk-width-1-6">
-            Status
-            {{camac-sort-icon key='instance_state__description' sort=sort on-click=(action (mut sort))}}
-          </th>
-          <th class="uk-width-expand">
+          <th>
             Gesuchsart
             {{camac-sort-icon key='form__description' sort=sort on-click=(action (mut sort))}}
           </th>
-          <th class="uk-width-1-6">
+          <th>
+            Status
+            {{camac-sort-icon key='instance_state__description' sort=sort on-click=(action (mut sort))}}
+          </th>
+          <th>
             Gemeinde
             {{camac-sort-icon key='location__communal_federal_number' sort=sort on-click=(action (mut sort))}}
           </th>
-          <th class="uk-width-1-6 uk-text-right">
+          <th class="uk-text-right">
             Erstelldatum
             {{camac-sort-icon key='creation_date' sort=sort on-click=(action (mut sort))}}
           </th>
+          <th class="uk-width-small"></th>
         </tr>
       </thead>
       <tbody>
@@ -70,40 +71,64 @@
           </tr>
         {{else}}
           {{#each data.lastSuccessful.value as |instance|}}
-            <tr
-              role="link"
-              title="Klicken Sie um das Gesuch zu bearbeiten"
-              class="pointer"
-              {{action (perform navigate) instance on='click'}}
-            >
+            <tr>
               <td>
-                {{instance.identifier}}
+                <a
+                  title="Klicken Sie um das Gesuch zu bearbeiten"
+                  {{action (perform navigate) instance on='click'}}
+                >{{instance.identifier}}</a>
+              </td>
+              <td>
+                <a
+                  title="Klicken Sie um das Gesuch zu bearbeiten"
+                  {{action (perform navigate) instance on='click'}}
+                >{{instance.form.description}}</a>
               </td>
               <td>
                 {{instance.instanceState.description}}
               </td>
-              <td>
-                {{instance.form.description}}
-              </td>
-              <td>
+              <td class="uk-text-nowrap">
                 {{#if instance.location}}
                   {{instance.location.communalFederalNumber}} - {{instance.location.name}}
                 {{/if}}
               </td>
-              <td class="uk-text-right">
+              <td class="uk-text-right uk-text-nowrap">
                 {{format-date instance.creationDate}}
+              </td>
+              <td class="uk-text-center">
+                {{#unless instance.identifier}}
+                  <button
+                    class="uk-icon-button confirm-delete-{{instance.id}}"
+                    title="Gesuch löschen"
+                    uk-icon="trash"
+                    uk-toggle="target: .confirm-delete-{{instance.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                  ></button>
+                  <span class="uk-text-danger confirm-delete-{{instance.id}}" hidden>
+                    Löschen?<br>
+                    <button
+                      class="uk-icon-button uk-text-danger"
+                      uk-icon="check"
+                      {{action (perform delete) instance on='click' bubbles=false}}
+                    ></button>
+                    <button
+                      class="uk-icon-button uk-text-danger"
+                      uk-icon="close"
+                      uk-toggle="target: .confirm-delete-{{instance.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
+                    ></button>
+                  </span>
+                {{/unless}}
               </td>
             </tr>
           {{^}}
             <tr>
-              <td class="uk-text-center" colspan="5">
+              <td class="uk-text-center" colspan="6">
                 <i>Kein Gesuch mit dieser Gesuchsnummer gefunden</i>
               </td>
             </tr>
           {{/each}}
         {{/if}}
         <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
-          <td class="uk-text-center" colspan="5">
+          <td class="uk-text-center" colspan="6">
             {{uk-icon 'plus' scale=2}}
           </td>
         </tr>
