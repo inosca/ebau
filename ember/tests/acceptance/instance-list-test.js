@@ -59,4 +59,24 @@ module("Acceptance | instance list", function(hooks) {
 
     assert.ok(/(\?|&)sort=creation_date/.test(currentURL()));
   });
+
+  test("can delete non submitted instance", async function(assert) {
+    assert.expect(2);
+
+    this.server.createList("instance", 2, "unsubmitted");
+
+    await visit("/gesuche");
+
+    await click("table > tbody > tr > td:last-of-type > button");
+
+    assert
+      .dom("table > tbody > tr:first-of-type > td:last-of-type > span")
+      .hasText("Löschen?");
+
+    await click(
+      "table > tbody > tr:first-of-type > td:last-of-type > span > button:first-of-type"
+    );
+
+    assert.dom("table > tbody > tr").exists({ count: 2 });
+  });
 });
