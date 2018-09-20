@@ -1,4 +1,5 @@
 import Controller from "@ember/controller";
+import { inject as service } from "@ember/service";
 import { task, timeout } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 
@@ -21,6 +22,8 @@ export const queryParams = new QueryParams({
 });
 
 export default Controller.extend(queryParams.Mixin, {
+  notification: service(),
+
   setup() {
     this.data.perform();
   },
@@ -56,5 +59,13 @@ export default Controller.extend(queryParams.Mixin, {
     yield timeout(500);
 
     this.set("identifier", term);
-  }).restartable()
+  }).restartable(),
+
+  delete: task(function*(instance) {
+    yield instance
+      .destroyRecord()
+      .catch(() =>
+        this.notification.danger("Das Gesuch konnte nicht gelöscht werden")
+      );
+  })
 });
