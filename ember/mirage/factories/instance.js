@@ -1,4 +1,4 @@
-import { Factory, association, faker } from "ember-cli-mirage";
+import { Factory, association, faker, trait } from "ember-cli-mirage";
 
 export default Factory.extend({
   creationDate: () => faker.date.past(),
@@ -17,5 +17,11 @@ export default Factory.extend({
     let identifier = `${n}-${y}-${i}`;
 
     instance.update({ identifier });
-  }
+  },
+
+  unsubmitted: trait({
+    afterCreate(instance) {
+      instance.update({ identifier: null });
+    }
+  })
 });

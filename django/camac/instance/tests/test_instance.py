@@ -146,21 +146,22 @@ def test_instance_update(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
-    "role__name,instance__user",
+    "role__name,instance__user,status_code",
     [
-        ("Applicant", LazyFixture("admin_user")),
-        ("Canton", LazyFixture("user")),
-        ("Municipality", LazyFixture("user")),
-        ("Service", LazyFixture("user")),
-        ("Unknown", LazyFixture("user")),
+        ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
+        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
-def test_instance_destroy(admin_client, instance):
+def test_instance_destroy(admin_client, instance, status_code):
     url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize("instance_state__name", ["new"])
