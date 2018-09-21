@@ -4324,7 +4324,7 @@
     "name": "CheckIfNFDPossible",
     "description": null,
     "success_message": null,
-    "error_message": "Da die Frist f\u00fcr dieses Dossiers vor \u00fcber zwei Wochen abgelaufen ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+    "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
     "execute_always": 0,
     "sort": 0
   }
