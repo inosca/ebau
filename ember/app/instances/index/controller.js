@@ -62,10 +62,10 @@ export default Controller.extend(queryParams.Mixin, {
   }).restartable(),
 
   delete: task(function*(instance) {
-    yield instance
-      .destroyRecord()
-      .catch(() =>
-        this.notification.danger("Das Gesuch konnte nicht gelöscht werden")
-      );
-  })
+    try {
+      yield instance.destroyRecord();
+    } catch (e) {
+      this.notification.danger("Das Gesuch konnte nicht gelöscht werden");
+    }
+  }).drop()
 });

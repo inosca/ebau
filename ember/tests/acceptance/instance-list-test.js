@@ -61,11 +61,14 @@ module("Acceptance | instance list", function(hooks) {
   });
 
   test("can delete non submitted instance", async function(assert) {
-    assert.expect(2);
+    assert.expect(3);
 
     this.server.createList("instance", 2, "unsubmitted");
 
     await visit("/gesuche");
+
+    // Two instance rows and one "add instance" row
+    assert.dom("table > tbody > tr").exists({ count: 3 });
 
     await click("table > tbody > tr > td:last-of-type > button");
 
@@ -77,6 +80,7 @@ module("Acceptance | instance list", function(hooks) {
       "table > tbody > tr:first-of-type > td:last-of-type > span > button:first-of-type"
     );
 
+    // One instance row and one "add instance" row
     assert.dom("table > tbody > tr").exists({ count: 2 });
   });
 });
