@@ -55,8 +55,32 @@ module("Acceptance | instance list", function(hooks) {
 
     assert.ok(/(\?|&)identifier=123/.test(currentURL()));
 
-    await click("table > thead > tr > th:last-of-type > span.pointer");
+    await click("table > thead > tr > th:nth-of-type(5) > span.pointer");
 
     assert.ok(/(\?|&)sort=creation_date/.test(currentURL()));
+  });
+
+  test("can delete non submitted instance", async function(assert) {
+    assert.expect(3);
+
+    this.server.createList("instance", 2, "unsubmitted");
+
+    await visit("/gesuche");
+
+    // Two instance rows and one "add instance" row
+    assert.dom("table > tbody > tr").exists({ count: 3 });
+
+    await click("table > tbody > tr > td:last-of-type > button");
+
+    assert
+      .dom("table > tbody > tr:first-of-type > td:last-of-type > span")
+      .hasText("Löschen?");
+
+    await click(
+      "table > tbody > tr:first-of-type > td:last-of-type > span > button:first-of-type"
+    );
+
+    // One instance row and one "add instance" row
+    assert.dom("table > tbody > tr").exists({ count: 2 });
   });
 });
