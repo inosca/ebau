@@ -74,9 +74,12 @@ class InstanceView(
         filters.InstanceFormFieldFilterBackend
     ]
 
-    def has_destroy_permission(self):
-        """Disallow destroying of instances."""
-        return False
+    def has_object_destroy_permission(self, instance):
+        return (
+            instance.user == self.request.user
+            and instance.instance_state.name == "new"
+            and instance.previous_instance_state.name == "new"
+        )
 
     def has_object_submit_permission(self, instance):
         return (
