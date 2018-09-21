@@ -35528,7 +35528,7 @@
   "pk": 312,
   "fields": {
     "available_resource": "statistics",
-    "name": "Statistik",
+    "name": "Geb\u00fchren-Statistik",
     "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
     "template": null,
     "class_field": null,
@@ -44751,15 +44751,15 @@
   "model": "user.group",
   "pk": 205,
   "fields": {
-    "role": 1021,
+    "role": 4,
     "service": 103,
-    "name": "SBB",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "",
-    "website": ""
+    "name": "SBB AG Immobilien",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -45096,7 +45096,7 @@
   "model": "user.group",
   "pk": 482,
   "fields": {
-    "role": 2,
+    "role": 1104,
     "service": null,
     "name": "Landwirtschaftskommission",
     "phone": null,
