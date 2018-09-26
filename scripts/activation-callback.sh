@@ -10,7 +10,7 @@ help() {
     $(tput bold)Camac Activation Callback:$(tput sgr0)
 
     activation-callback execute
-        Callback due activations or notify services if any activations due shortly.
+        Callback due activations or notify services if any activations are due shortly.
 
     activation-callback dryrun
         Show what callback would do.
