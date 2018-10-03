@@ -21391,7 +21391,7 @@
   "fields": {
     "form_state": 1,
     "name": "projektanderung",
-    "description": "Projekt\u00e4nderung"
+    "description": "Projekt\u00e4nderung zu bewilligtem Baugesuch"
   }
 },
 {
@@ -21427,7 +21427,7 @@
   "fields": {
     "form_state": 1,
     "name": "technische-bewilligung",
-    "description": "Technische Bewilligung"
+    "description": "Gesuch um technische Bewilligung"
   }
 },
 {
