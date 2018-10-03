@@ -3,10 +3,11 @@
     {{uk-spinner ratio=3}}
   {{/uk-flex}}
 {{else}}
-  <h4 class="uk-text-center">Um welche Art von Gesuch handelt es sich?</h4>
+  <h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
 
   <div uk-grid class="uk-grid-small">
     <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+      <h4 class="uk-text-center">Vorstufe Baubewilligung {{camac-hint-dialog infoCol1}}</h4>
       {{new-form-grid-entry
         form=(find-by 'name' 'vorabklarung' forms.lastSuccessful.value)
         onSetForm=(action (mut model.form))
@@ -19,6 +20,7 @@
       }}
     </div>
     <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+      <h4 class="uk-text-center">Baubewilligung {{camac-hint-dialog infoCol2}}</h4>
       {{new-form-grid-entry
         form=(find-by 'name' 'baugesuch-reklamegesuch' forms.lastSuccessful.value)
         onSetForm=(action (mut model.form))
@@ -41,6 +43,7 @@
       }}
     </div>
     <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
+      <h4 class="uk-text-center">Spezielle Gesuche {{camac-hint-dialog infoCol3}}</h4>
       {{new-form-grid-entry
         form=(find-by 'name' 'anlassbewilligungen-verkehrsbewilligungen' forms.lastSuccessful.value)
         onSetForm=(action (mut model.form))
