@@ -116,6 +116,7 @@ deploy-kt_schwyz-stage:
         - eval $COMPOSE up -d
     only:
         - stage
+    when: manual
 
 deploy-kt_uri-stage:
     environment:
@@ -136,6 +137,7 @@ deploy-kt_uri-stage:
         - eval $COMPOSE stop keycloak
     only:
         - stage
+    when: manual
 
 pyup:
     stage: test
