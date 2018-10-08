@@ -23,7 +23,7 @@ module("Integration | Component | new-form-grid-entry", function(hooks) {
 
     assert.dom("div.uk-width-1-1 button").hasClass("uk-button-default");
 
-    assert.equal(this.element.textContent.trim(), "Baubewilligung");
+    assert.dom("button").hasText("Baubewilligung");
   });
 
   test("it renders active", async function(assert) {
@@ -42,6 +42,6 @@ module("Integration | Component | new-form-grid-entry", function(hooks) {
 
     assert.dom("div.uk-width-1-1 button").hasClass("uk-button-secondary");
 
-    assert.equal(this.element.textContent.trim(), "Baubewilligung");
+    assert.dom("button").hasText("Baubewilligung");
   });
 });
