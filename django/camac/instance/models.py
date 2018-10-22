@@ -134,6 +134,9 @@ class InstanceResponsibility(models.Model):
 class JournalEntry(models.Model):
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="journal")
     group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
     user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
     duration = models.DurationField(null=True, blank=True)
     text = models.TextField()
