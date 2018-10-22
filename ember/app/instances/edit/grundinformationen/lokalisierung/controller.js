@@ -18,7 +18,7 @@ export default Controller.extend({
 
   attachment: computed("model.instance.id", function() {
     return this.questionStore.peek(
-      "dokument-parzellen",
+      "dokument-grundstucksangaben",
       this.model.instance.id
     );
   }),
