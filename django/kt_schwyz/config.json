@@ -2543,7 +2543,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 6,
+    "sort": 7,
     "form_group": 1
   }
 },
@@ -2558,7 +2558,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 4,
+    "sort": 3,
     "form_group": 1
   }
 },
@@ -2573,7 +2573,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 7,
+    "sort": 8,
     "form_group": 1
   }
 },
@@ -2658,12 +2658,12 @@
   "fields": {
     "available_instance_resource": "editnotice",
     "resource": 6,
-    "name": "Stellungnahme",
+    "name": "Eigener Fachbericht",
     "description": null,
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 3,
+    "sort": 7,
     "form_group": 1
   }
 },
@@ -2723,7 +2723,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 5,
+    "sort": 2,
     "form_group": 1
   }
 },
@@ -2733,12 +2733,12 @@
   "fields": {
     "available_instance_resource": "editnotice",
     "resource": 6,
-    "name": "Stellungnahme (kantonal)",
+    "name": "Eigener Fachbericht (kantonal)",
     "description": null,
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 4,
+    "sort": 6,
     "form_group": 1
   }
 },
@@ -2753,7 +2753,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 6,
+    "sort": 5,
     "form_group": 1
   }
 },
@@ -2768,7 +2768,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 9,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -2783,7 +2783,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 7,
+    "sort": 4,
     "form_group": 1
   }
 },
@@ -2828,7 +2828,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 8,
+    "sort": 6,
     "form_group": 1
   }
 },
@@ -5877,14 +5877,6 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 6,
-  "fields": {
-    "resource": 1,
-    "instance_state": 2
-  }
-},
-{
-  "model": "core.rapilistinstancestate",
   "pk": 7,
   "fields": {
     "resource": 4,
@@ -6052,11 +6044,19 @@
   }
 },
 {
+  "model": "core.rapilistinstancestate",
+  "pk": 36,
+  "fields": {
+    "resource": 1,
+    "instance_state": 2
+  }
+},
+{
   "model": "core.resource",
   "pk": 1,
   "fields": {
     "available_resource": "apilistinstance",
-    "name": "Neue Dossiers",
+    "name": "Neue Gesuche",
     "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
     "template": null,
     "class_field": null,
