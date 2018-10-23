@@ -1106,12 +1106,13 @@
           "Landwirtschaft",
           "Öffentliche Nutzung",
           "Forstwirtschaft",
-          "Tourismus"
+          "Tourismus",
+          "Revitalisierung / Rekultivierung / Aufwertung / Schutz"
         ]
       }
     },
     "vorhaben-mit-anlage": {
-      "label": "Vorhaben mit Anlage(n): Welche Tätigkeiten sind geplant?",
+      "label": "Vorhaben mit Anlage(n): Welche Tätigkeitsarten sind geplant?",
       "hint": "**Platzhalter**: *vorhaben-mit-anlage*",
       "type": "checkbox",
       "required": true,
@@ -1143,7 +1144,7 @@
       "config": {}
     },
     "vorhaben-mit-baute": {
-      "label": "Vorhaben mit Baute(n): Welche Tätigkeiten sind geplant?",
+      "label": "Vorhaben mit Baute(n): Welche Tätigkeitsarten sind geplant?",
       "hint": "**Platzhalter**: *vorhaben-mit-baute*",
       "type": "checkbox",
       "required": true,
@@ -1945,7 +1946,7 @@
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
       "config": {
         "min": 0,
-        "step": 0.05
+        "step": 0.001
       }
     },
     "landwirtschaft-einstufung": {
