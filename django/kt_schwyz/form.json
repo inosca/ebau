@@ -1205,10 +1205,13 @@
     "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
       "label": "Welche?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen-welche*",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
-      "config": {}
+      "config": {
+        "cols": 20,
+        "rows": 5
+      }
     },
     "anlagen-mit-erheblichen-strahlungsemissionen": {
       "label": "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
@@ -3688,9 +3691,12 @@
           {
             "name": "beschriftung",
             "label": "Beschriftungstext:",
-            "type": "text",
+            "type": "textarea",
             "required": true,
-            "config": {}
+            "config": {
+              "cols": 20,
+              "rows": 5
+            }
           },
           {
             "name": "beleuchtung",
@@ -3870,20 +3876,26 @@
       "config": {}
     },
     "kw-1-1-1-entnahmestandort-beschreibung": {
-      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
+      "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation, usw.)",
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-beschreibung*",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
-      "config": {}
+      "config": {
+        "cols": 20,
+        "rows": 5
+      }
     },
     "kw-1-1-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
       "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-ruckfuhrung*",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
-      "config": {}
+      "config": {
+        "cols": 20,
+        "rows": 5
+      }
     },
     "kw-1-1-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
@@ -5185,10 +5197,13 @@
     "tb-zweck-andere": {
       "label": "Welche?",
       "hint": "**Platzhalter**: *tb-zweck-andere*",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'Andere' in 'tb-zweck'|value",
-      "config": {}
+      "config": {
+        "cols": 20,
+        "rows": 5
+      }
     },
     "ve-verbindlich": {
       "label": "Soll der Vorentscheid gegenüber Dritten verbindlich sein?",
