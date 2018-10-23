@@ -33,7 +33,7 @@ module("Integration | Component | camac-input-textarea", function(hooks) {
     assert.dom("textarea").hasAttribute("minlength", "0");
     assert.dom("textarea").hasAttribute("maxlength", "500");
 
-    assert.dom("textarea").hasText("foo bar");
+    assert.dom("textarea").hasValue("foo bar");
   });
 
   test("it renders in readonly mode", async function(assert) {
