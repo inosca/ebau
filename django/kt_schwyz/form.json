@@ -184,7 +184,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["bezeichnung", "parzellen", "punkte", "dokument-parzellen"]
+      "questions": ["bezeichnung", "parzellen", "punkte", "dokument-grundstucksangaben"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
