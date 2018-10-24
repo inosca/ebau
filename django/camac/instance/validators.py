@@ -60,6 +60,9 @@ class FormDataValidator(object):
                 % {"field": question}
             )
 
+    def _validate_question_textarea(self, question, question_def, value):
+        self._validate_question_text(question, question_def, value)
+
     def _validate_question_number(self, question, question_def, value):
         min_val = question_def["config"].get("min", -sys.maxsize - 1)
         max_val = question_def["config"].get("max", sys.maxsize)
