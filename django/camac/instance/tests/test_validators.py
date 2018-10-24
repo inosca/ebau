@@ -15,6 +15,7 @@ def validator(db, instance):
         ("anlagen-mit-erheblichen-schadstoffemissionen", "invalid"),
         ("kategorie-des-vorhabens", "invalid"),
         ("anlagen-mit-erheblichen-schadstoffemissionen-welche", 0),
+        ("anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht", 0),
         ("hohe-der-anlage", -1),
         ("dokument-parzellen", None),
     ],
