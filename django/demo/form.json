@@ -65,7 +65,7 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht": {
       "label": "Wieso nicht?",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Nein'",
       "config": {}
