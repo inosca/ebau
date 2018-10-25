@@ -464,7 +464,7 @@ class Activation(models.Model):
     activation_id = models.AutoField(db_column="ACTIVATION_ID", primary_key=True)
     circulation = models.ForeignKey(
         "Circulation",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="CIRCULATION_ID",
         related_name="activations",
     )
@@ -524,7 +524,7 @@ class Activation(models.Model):
 
 class ActivationAnswer(models.Model):
     activation = models.ForeignKey(
-        Activation, models.DO_NOTHING, db_column="ACTIVATION_ID", related_name="+"
+        Activation, models.CASCADE, db_column="ACTIVATION_ID", related_name="+"
     )
     question = models.ForeignKey(
         "Question", models.DO_NOTHING, db_column="QUESTION_ID", related_name="+"
@@ -969,7 +969,7 @@ class BillingEntry(models.Model):
     )
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="billing_entries",
     )
@@ -1342,7 +1342,7 @@ class Circulation(models.Model):
     )
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="circulations",
     )
@@ -2477,7 +2477,7 @@ class Notice(models.Model):
         "NoticeType", models.DO_NOTHING, db_column="NOTICE_TYPE_ID", related_name="+"
     )
     activation = models.ForeignKey(
-        Activation, models.DO_NOTHING, db_column="ACTIVATION_ID", related_name="notices"
+        Activation, models.CASCADE, db_column="ACTIVATION_ID", related_name="notices"
     )
     content = models.TextField(db_column="CONTENT", blank=True, null=True)
 
@@ -2783,10 +2783,7 @@ class PublicationEntry(models.Model):
         db_column="PUBLICATION_ENTRY_ID", primary_key=True
     )
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
     note = models.FloatField(db_column="NOTE")
     publication_date = models.DateTimeField(db_column="PUBLICATION_DATE")
@@ -3339,7 +3336,7 @@ class WorkflowEntry(models.Model):
     )
     workflow_date = models.DateTimeField(db_column="WORKFLOW_DATE")
     instance = models.ForeignKey(
-        "instance.Instance", models.DO_NOTHING, db_column="INSTANCE_ID"
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID"
     )
     workflow_item = models.ForeignKey(
         "WorkflowItem",
