@@ -132,10 +132,6 @@ def test_template_destroy(admin_client, template, status_code):
     [("Grund", "OK", "Antwort")],
 )
 @pytest.mark.parametrize(
-    "notice_type__name,notice__content",
-    [("Mitteilung an Gemeinde", "Stellungsnahme Fachstelle")],
-)
-@pytest.mark.parametrize(
     "form_field__name,instance__identifier,location__name,activation__service",
     [
         (
@@ -156,9 +152,21 @@ def test_template_merge(
     form_field_factory,
     activation,
     billing_entry,
-    notice,
+    notice_factory,
+    notice_type_factory,
     snapshot,
 ):
+    notice_type_application = notice_type_factory(name="Antrag")
+    notice_type_terms = notice_type_factory(name="Auflagen")
+
+    notice_factory(
+        activation=activation,
+        notice_type=notice_type_application,
+        content="Inhalt Antrag!",
+    )
+    notice_factory(
+        activation=activation, notice_type=notice_type_terms, content="Inhalt Auflagen!"
+    )
 
     add_field = functools.partial(form_field_factory, instance=instance)
     add_address_field = functools.partial(

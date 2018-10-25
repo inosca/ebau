@@ -10,7 +10,7 @@ from django.core.mail import EmailMessage
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
-from camac.core.models import Activation, Notice
+from camac.core.models import Activation
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
@@ -32,6 +32,7 @@ class ActivationMergeSerializer(serializers.Serializer):
     service = serializers.StringRelatedField()
     reason = serializers.CharField()
     circulation_answer = serializers.StringRelatedField()
+    notices = NoticeMergeSerializer(many=True)
 
 
 class BillingEntryMergeSerializer(serializers.Serializer):
@@ -60,11 +61,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activations = ActivationMergeSerializer(many=True)
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
-    notices = serializers.SerializerMethodField()
-
-    def get_notices(self, instance):
-        notices = Notice.objects.filter(activation__circulation__instance=instance)
-        return NoticeMergeSerializer(notices, many=True).data
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
