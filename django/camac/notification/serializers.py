@@ -61,6 +61,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activations = ActivationMergeSerializer(many=True)
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
+    publication_date = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -81,6 +82,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
         return answer_period_date.strftime(settings.MERGE_DATE_FORMAT)
+
+    def get_publication_date(self, instance):
+        publication_entry = instance.publication_entries.first()
+
+        return (
+            publication_entry
+            and publication_entry.publication_date.strftime(settings.MERGE_DATE_FORMAT)
+            or ""
+        )
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
