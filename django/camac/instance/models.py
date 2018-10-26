@@ -145,7 +145,6 @@ class JournalEntry(models.Model):
 
 
 class Issue(models.Model):
-    # TODO: create vars
     STATE_OPEN = "open"
     STATE_DELAYED = "delayed"
     STATE_DONE = "done"
