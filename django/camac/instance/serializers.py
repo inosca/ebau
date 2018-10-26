@@ -270,3 +270,28 @@ class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSeri
             "creation_date",
             "modification_date",
         )
+
+
+class IssueSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+    included_serializers = {
+        "instance": InstanceSerializer,
+        "user": "camac.user.serializers.UserSerializer",
+    }
+
+    def create(self, validated_data):
+        validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
+    class Meta:
+        model = models.Issue
+        fields = (
+            "instance",
+            "group",
+            "service",
+            "user",
+            "deadline_date",
+            "text",
+            "state",
+        )
+        read_only_fields = ("group", "service")

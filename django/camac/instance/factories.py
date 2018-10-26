@@ -83,3 +83,16 @@ class JournalEntryFactory(DjangoModelFactory):
 
     class Meta:
         model = models.JournalEntry
+
+
+class IssueFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    user = SubFactory(UserFactory)
+    group = SubFactory(GroupFactory)
+    service = SubFactory(ServiceFactory)
+    deadline_date = Faker("future_date")
+    text = Faker("text")
+    state = models.Issue.STATE_OPEN
+
+    class Meta:
+        model = models.Issue

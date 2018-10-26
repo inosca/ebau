@@ -105,6 +105,19 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return ret
 
 
+class IssueMergeSerializer(serializers.Serializer):
+    deadline_date = serializers.DateField()
+    text = serializers.CharField()
+
+    def to_representation(self, issue):
+        ret = super().to_representation(issue)
+
+        # include instance merge fields
+        ret.update(InstanceMergeSerializer(issue.instance).data)
+
+        return ret
+
+
 class NotificationTemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.NotificationTemplate
