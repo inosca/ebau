@@ -328,3 +328,63 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
     def has_object_destroy_permission_for_municipality(self, obj):
         return self.has_object_update_permission_for_canton(obj)
+
+
+class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+    """Issues used for internal use and not viewable by applicant."""
+
+    serializer_class = serializers.IssueSerializer
+    queryset = models.Issue.objects.all()
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        return queryset.filter(service=self.request.group.service_id)
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        queryset = super().get_base_queryset()
+        return queryset.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_service(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_object_update_permission(self, obj):  # pragma: no cover
+        # only needed as entry for permission aware decorator
+        # but actually never executed as applicant may actually
+        # not read any issues
+        return False
+
+    def has_object_update_permission_for_canton(self, obj):
+        return obj.service == self.request.group.service
+
+    def has_object_update_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_update_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    @permission_aware
+    def has_object_destroy_permission(self, obj):  # pragma: no cover
+        # see comment has_object_update_permission
+        return False
+
+    def has_object_destroy_permission_for_canton(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
