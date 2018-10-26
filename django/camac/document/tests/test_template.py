@@ -152,6 +152,7 @@ def test_template_merge(
     form_field_factory,
     activation,
     billing_entry,
+    publication_entry,
     notice_factory,
     notice_type_factory,
     snapshot,
