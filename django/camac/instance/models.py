@@ -144,6 +144,28 @@ class JournalEntry(models.Model):
     modification_date = models.DateTimeField()
 
 
+class Issue(models.Model):
+    STATE_OPEN = "open"
+    STATE_DELAYED = "delayed"
+    STATE_DONE = "done"
+    STATE_CHOICES = (STATE_OPEN, STATE_DELAYED, STATE_DONE)
+    STATE_CHOICES_TUPLE = ((choice, choice) for choice in STATE_CHOICES)
+
+    instance = models.ForeignKey(Instance, models.CASCADE, related_name="issues")
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    user = models.ForeignKey(
+        "user.User", models.DO_NOTHING, related_name="+", blank=True, null=True
+    )
+    deadline_date = models.DateField()
+    state = models.CharField(
+        max_length=20, choices=STATE_CHOICES_TUPLE, default=STATE_OPEN
+    )
+    text = models.TextField()
+
+
 @reversion.register()
 class FormField(models.Model):
     """
