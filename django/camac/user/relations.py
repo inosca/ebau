@@ -44,6 +44,12 @@ class ServiceResourceReleatedField(GroupResourceRelatedField):
         return Service.objects.filter(pk__in=services)
 
 
+class ServiceFormDataResourceRelatedField(
+    FormDataResourceRelatedField, GroupResourceRelatedField
+):
+    pass
+
+
 class GroupFormDataResourceRelatedField(
     FormDataResourceRelatedField, GroupResourceRelatedField
 ):

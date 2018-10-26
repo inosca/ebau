@@ -112,7 +112,7 @@ class TemplateView(views.ModelViewSet):
         return True
 
     def has_object_update_permission(self, obj):
-        return obj.group == self.request.group
+        return obj.service == self.request.group.service
 
     def has_object_destroy_permission(self, obj):
         return self.has_object_update_permission(obj)
@@ -123,8 +123,10 @@ class TemplateView(views.ModelViewSet):
 
     def get_queryset_for_canton(self):
         return models.Template.objects.filter(
-            Q(group=self.request.group) | Q(group__isnull=True)
-        )
+            Q(group=self.request.group)
+            | Q(service=self.request.group.service)
+            | Q(group__isnull=True) & Q(service__isnull=True)
+        ).distinct()
 
     def get_queryset_for_service(self):
         return self.get_queryset_for_canton()
