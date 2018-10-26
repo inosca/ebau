@@ -131,5 +131,19 @@ class WorkflowItemFactory(DjangoModelFactory):
 class WorkflowEntryFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     workflow_item = SubFactory(WorkflowItemFactory)
-    workflow_date = Faker("past_datetime")
+    workflow_date = Faker("past_datetime", tzinfo=pytz.UTC)
     group = 1
+
+    class Meta:
+        model = models.WorkflowEntry
+
+
+class PublicationEntryFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    note = 1
+    publication_date = Faker("past_datetime", tzinfo=pytz.UTC)
+    is_published = True
+    text = Faker("text")
+
+    class Meta:
+        model = models.PublicationEntry
