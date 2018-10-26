@@ -43,8 +43,8 @@ class ActivationView(
     search_fields = (
         "=circulation__instance__identifier",
         "=circulation__instance__location__name",
-        "=service__name",
-        "=circulation__instance__form__description",
+        "@service__name",
+        "@circulation__instance__form__description",
         "circulation__instance__fields__value",
     )
 
