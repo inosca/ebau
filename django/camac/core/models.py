@@ -2783,7 +2783,10 @@ class PublicationEntry(models.Model):
         db_column="PUBLICATION_ENTRY_ID", primary_key=True
     )
     instance = models.ForeignKey(
-        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
+        "instance.Instance",
+        models.CASCADE,
+        db_column="INSTANCE_ID",
+        related_name="publication_entries",
     )
     note = models.FloatField(db_column="NOTE")
     publication_date = models.DateTimeField(db_column="PUBLICATION_DATE")
