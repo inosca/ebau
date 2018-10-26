@@ -18,7 +18,7 @@ def ensure_attachment_service(apps, schema_editor):
 
 def assign_template_service(apps, schema_editor):
     Template = apps.get_model("document", "Template")
-    templates = Template.objects.all()
+    templates = Template.objects.filter(group__isnull=False)
     for template in templates:
         template.service = template.group.service
         template.save()
