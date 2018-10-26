@@ -7442,24 +7442,6 @@
   }
 },
 {
-  "model": "document.template",
-  "pk": 1,
-  "fields": {
-    "name": "Baubewilligung",
-    "path": "templates/template.docx",
-    "group": null
-  }
-},
-{
-  "model": "document.template",
-  "pk": 2,
-  "fields": {
-    "name": "Publikation",
-    "path": "templates/template.docx",
-    "group": null
-  }
-},
-{
   "model": "document.attachmentsection",
   "pk": 1,
   "fields": {

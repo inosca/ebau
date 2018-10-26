@@ -75,6 +75,7 @@ class JournalEntryFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
+    service = SubFactory(ServiceFactory)
     creation_date = Faker("past_datetime", tzinfo=pytz.UTC)
     modification_date = Faker("past_datetime", tzinfo=pytz.UTC)
     text = Faker("text")

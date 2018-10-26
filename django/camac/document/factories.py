@@ -3,7 +3,7 @@ from factory.django import DjangoModelFactory, ImageField
 
 from camac.instance.factories import InstanceFactory
 from camac.notification.factories import NotificationTemplateFactory
-from camac.user.factories import GroupFactory, RoleFactory, UserFactory
+from camac.user.factories import GroupFactory, RoleFactory, ServiceFactory, UserFactory
 
 from . import models
 
@@ -54,6 +54,7 @@ class TemplateFactory(DjangoModelFactory):
     name = Faker("name")
     path = ImageField(width=1024, height=768)
     group = SubFactory(GroupFactory)
+    service = SubFactory(ServiceFactory)
 
     class Meta:
         model = models.Template
