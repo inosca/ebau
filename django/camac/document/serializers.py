@@ -13,8 +13,10 @@ from camac.relations import FormDataResourceRelatedField
 from camac.user.relations import (
     CurrentUserFormDataResourceRelatedField,
     GroupFormDataResourceRelatedField,
+    ServiceFormDataResourceRelatedField,
+    ServiceResourceReleatedField,
 )
-from camac.user.serializers import CurrentGroupDefault
+from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from . import models
 
@@ -50,6 +52,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     user = CurrentUserFormDataResourceRelatedField()
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    service = ServiceResourceReleatedField(default=CurrentServiceDefault())
     attachment_section = FormDataResourceRelatedField(
         queryset=models.AttachmentSection.objects.all(),
         default=AttachmentSectionDefault(),
@@ -127,6 +130,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "size",
             "user",
             "group",
+            "service",
             "question",
         )
         read_only_fields = ("date", "mime_type", "name", "size", "user")
@@ -134,6 +138,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 class TemplateSerializer(serializers.ModelSerializer):
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    service = ServiceFormDataResourceRelatedField(default=CurrentServiceDefault())
 
     def validate_path(self, path):
         if path.content_type != mimetypes.types_map[".docx"]:
@@ -148,4 +153,4 @@ class TemplateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.Template
-        fields = ("name", "path", "group")
+        fields = ("name", "path", "group", "service")

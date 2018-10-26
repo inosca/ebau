@@ -85,8 +85,7 @@ class Attachment(models.Model):
         null=True,
     )
     """
-    We use group instead of service in api - this field is only still present
-    for backwards compatibility with old plain camac document module.
+    Service attachment has been uploaded with.
     """
 
     class Meta:
@@ -105,8 +104,14 @@ class AttachmentSectionQuerySet(models.QuerySet):
             "attachment_section"
         )
 
+        service_sections = AttachmentSectionServiceAcl.objects.filter(
+            service=group.service_id
+        ).values("attachment_section")
+
         return self.filter(
-            models.Q(pk__in=role_sections) | models.Q(pk__in=group_sections)
+            models.Q(pk__in=role_sections)
+            | models.Q(pk__in=group_sections)
+            | models.Q(pk__in=service_sections)
         )
 
 
@@ -137,19 +142,17 @@ class AttachmentSection(models.Model):
     )
 
     def get_mode(self, group):
-        # TODO: quick implementation
-        # amount of queries could be improved with subqueries and annotating
-        # mode to model - not trivial though
-        # AttachmentSectionDefault and validate_attachment_section resp.
-        # resource field could directly filter for the mode
         group_modes = AttachmentSectionGroupAcl.objects.filter(
             attachment_section=self, group=group
         ).values("mode")
         role_modes = AttachmentSectionRoleAcl.objects.filter(
             attachment_section=self, role=group.role_id
         ).values("mode")
+        service_nodes = AttachmentSectionServiceAcl.objects.filter(
+            attachment_section=self, service=group.service_id
+        ).values("mode")
 
-        return group_modes.union(role_modes)[0]["mode"]
+        return group_modes.union(role_modes).union(service_nodes)[0]["mode"]
 
     class Meta:
         managed = True
@@ -199,14 +202,6 @@ class AttachmentSectionGroupAcl(models.Model):
 
 
 class AttachmentSectionServiceAcl(models.Model):
-    """
-    Defines what service may see what attachment section acl.
-
-    Only here for backwards compatability as used by
-    old plain Camac document module.
-    AttachmentSectionGroupAcl should be used instead.
-    """
-
     id = models.AutoField(db_column="ID", primary_key=True)
     attachment_section = models.ForeignKey(
         AttachmentSection,
@@ -217,7 +212,7 @@ class AttachmentSectionServiceAcl(models.Model):
     service = models.ForeignKey(
         "user.Service", models.CASCADE, db_column="SERVICE_ID", related_name="+"
     )
-    mode = models.CharField(db_column="MODE", max_length=20)
+    mode = models.CharField(db_column="MODE", max_length=20, choices=ATTACHMENT_MODE)
 
     class Meta:
         managed = True
@@ -231,6 +226,9 @@ class Template(models.Model):
     path = models.FileField(max_length=1024, upload_to="templates", db_column="PATH")
     group = models.ForeignKey(
         "user.Group", models.CASCADE, null=True, blank=True, related_name="templates"
+    )
+    service = models.ForeignKey(
+        "user.Service", models.CASCADE, null=True, related_name="templates"
     )
 
     class Meta:

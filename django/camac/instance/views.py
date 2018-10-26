@@ -278,7 +278,7 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter(group=self.request.group)
+        return queryset.filter(service=self.request.group.service_id)
 
     @permission_aware
     def get_queryset(self):

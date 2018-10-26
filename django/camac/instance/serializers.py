@@ -244,6 +244,7 @@ class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSeri
         validated_data["creation_date"] = timezone.now()
         validated_data["user"] = self.context["request"].user
         validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
         return super().create(validated_data)
 
     def update(self, instance, validated_data):
@@ -255,10 +256,17 @@ class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSeri
         fields = (
             "instance",
             "group",
+            "service",
             "user",
             "duration",
             "text",
             "creation_date",
             "modification_date",
         )
-        read_only_fields = ("group", "user", "creation_date", "modification_date")
+        read_only_fields = (
+            "group",
+            "service",
+            "user",
+            "creation_date",
+            "modification_date",
+        )
