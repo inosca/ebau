@@ -1232,6 +1232,15 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 57,
+  "fields": {
+    "available_instance_resource": "issue",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.anotification",
   "pk": 47,
   "fields": {
@@ -1678,6 +1687,15 @@
     "module_name": "default",
     "controller_name": "form",
     "description": "Wizard for the creation of a form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "issue",
+  "fields": {
+    "module_name": "issue",
+    "controller_name": "issue",
+    "description": "Issue management"
   }
 },
 {
@@ -2862,6 +2880,21 @@
     "class_field": null,
     "hidden": 0,
     "sort": 11,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 27,
+  "fields": {
+    "available_instance_resource": "issue",
+    "resource": 1,
+    "name": "Pendenzen",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 12,
     "form_group": 1
   }
 },
@@ -5612,6 +5645,78 @@
     "instance_resource": 26,
     "role": 3,
     "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 140,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 141,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 142,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 143,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 144,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 145,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 146,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 147,
+  "fields": {
+    "instance_resource": 27,
+    "role": 3,
+    "instance_state": 9
   }
 },
 {
