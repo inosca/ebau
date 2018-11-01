@@ -1223,6 +1223,15 @@
   }
 },
 {
+  "model": "core.airaction",
+  "pk": 56,
+  "fields": {
+    "available_instance_resource": "journal",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.anotification",
   "pk": 47,
   "fields": {
@@ -1669,6 +1678,15 @@
     "module_name": "default",
     "controller_name": "form",
     "description": "Wizard for the creation of a form"
+  }
+},
+{
+  "model": "core.availableinstanceresource",
+  "pk": "journal",
+  "fields": {
+    "module_name": "journal",
+    "controller_name": "journal",
+    "description": "journal"
   }
 },
 {
@@ -2588,7 +2606,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 11,
+    "sort": 10,
     "form_group": 1
   }
 },
@@ -2798,7 +2816,7 @@
     "template": null,
     "class_field": null,
     "hidden": 0,
-    "sort": 10,
+    "sort": 9,
     "form_group": 1
   }
 },
@@ -2829,6 +2847,21 @@
     "class_field": null,
     "hidden": 0,
     "sort": 6,
+    "form_group": 1
+  }
+},
+{
+  "model": "core.instanceresource",
+  "pk": 26,
+  "fields": {
+    "available_instance_resource": "journal",
+    "resource": 1,
+    "name": "Journal",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 11,
     "form_group": 1
   }
 },
@@ -5496,6 +5529,87 @@
   "pk": 130,
   "fields": {
     "instance_resource": 25,
+    "role": 3,
+    "instance_state": 10
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 131,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 132,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 133,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 134,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 135,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 136,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 137,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 138,
+  "fields": {
+    "instance_resource": 26,
+    "role": 3,
+    "instance_state": 9
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 139,
+  "fields": {
+    "instance_resource": 26,
     "role": 3,
     "instance_state": 10
   }
