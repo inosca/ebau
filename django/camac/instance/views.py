@@ -274,6 +274,7 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Journal entries used for internal use and not viewable by applicant."""
 
     serializer_class = serializers.JournalEntrySerializer
+    filterset_class = filters.JournalEntryFilterSet
     queryset = models.JournalEntry.objects.all()
 
     def get_base_queryset(self):
