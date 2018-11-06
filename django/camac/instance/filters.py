@@ -50,6 +50,12 @@ class InstanceIssueFilterSet(FilterSet):
         fields = ("instance", "user", "state")
 
 
+class JournalEntryFilterSet(FilterSet):
+    class Meta:
+        model = models.JournalEntry
+        fields = ("instance", "user")
+
+
 class InstanceFormFieldFilterBackend(BaseFilterBackend):
     """
     Filter backend to filter any instance form field by its values.
