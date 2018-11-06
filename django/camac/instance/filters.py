@@ -47,7 +47,7 @@ class InstanceIssueFilterSet(FilterSet):
 
     class Meta:
         model = models.Issue
-        fields = ("user", "state")
+        fields = ("instance", "user", "state")
 
 
 class InstanceFormFieldFilterBackend(BaseFilterBackend):
