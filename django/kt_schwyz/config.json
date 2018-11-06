@@ -1412,6 +1412,15 @@
   }
 },
 {
+  "model": "core.araction",
+  "pk": 8,
+  "fields": {
+    "available_resource": "issuedashboard",
+    "action_name": "index",
+    "hidden": 0
+  }
+},
+{
   "model": "core.availableaction",
   "pk": "checkquery",
   "fields": {
@@ -1795,6 +1804,15 @@
     "module_name": "apilist",
     "controller_name": "apilist",
     "description": "Page with a list of instances received from an API backend"
+  }
+},
+{
+  "model": "core.availableresource",
+  "pk": "issuedashboard",
+  "fields": {
+    "module_name": "issue",
+    "controller_name": "issuedashboard",
+    "description": "Dashboard for all owned issues"
   }
 },
 {
@@ -5720,6 +5738,78 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 148,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 149,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 3
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 150,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 4
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 151,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 152,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 6
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 153,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 154,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 8
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 155,
+  "fields": {
+    "instance_resource": 27,
+    "role": 8,
+    "instance_state": 9
+  }
+},
+{
   "model": "core.page",
   "pk": 1,
   "fields": {
@@ -6375,6 +6465,19 @@
   }
 },
 {
+  "model": "core.resource",
+  "pk": 10,
+  "fields": {
+    "available_resource": "issuedashboard",
+    "name": "Meine Pendenzen",
+    "description": null,
+    "template": null,
+    "class_field": null,
+    "hidden": 0,
+    "sort": 8
+  }
+},
+{
   "model": "core.rroleacl",
   "pk": 1,
   "fields": {
@@ -6444,6 +6547,22 @@
   "fields": {
     "resource": 9,
     "role": 5
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 12,
+  "fields": {
+    "resource": 10,
+    "role": 3
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 13,
+  "fields": {
+    "resource": 10,
+    "role": 8
   }
 },
 {

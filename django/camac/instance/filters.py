@@ -41,6 +41,15 @@ class InstanceResponsibilityFilterSet(FilterSet):
         fields = ("user", "service", "instance")
 
 
+class InstanceIssueFilterSet(FilterSet):
+
+    state = CharMultiValueFilter()
+
+    class Meta:
+        model = models.Issue
+        fields = ("instance", "user", "state")
+
+
 class InstanceFormFieldFilterBackend(BaseFilterBackend):
     """
     Filter backend to filter any instance form field by its values.

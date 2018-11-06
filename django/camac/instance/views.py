@@ -334,6 +334,7 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Issues used for internal use and not viewable by applicant."""
 
     serializer_class = serializers.IssueSerializer
+    filterset_class = filters.InstanceIssueFilterSet
     queryset = models.Issue.objects.all()
 
     def get_base_queryset(self):
