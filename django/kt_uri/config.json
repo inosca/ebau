@@ -2600,7 +2600,7 @@
     "available_action": "formtransition",
     "button": 762,
     "name": "Status\u00e4nderung in DONE",
-    "description": "ARCH (Gemeinde) zu DONE",
+    "description": "COMM zu DONE",
     "success_message": "Die Archivierung des Dossiers wurde aufgehoben.",
     "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
     "execute_always": 0,
@@ -2992,7 +2992,7 @@
     "available_action": "formtransition",
     "button": 785,
     "name": "Status\u00e4nderung in DONE",
-    "description": "ARCH zu DONE",
+    "description": "COMM zu DONE",
     "success_message": "Die Archivierung des Dossiers wurde aufgehoben.",
     "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
     "execute_always": 0,
@@ -5060,7 +5060,7 @@
   "model": "core.aformtransition",
   "pk": 1131,
   "fields": {
-    "current_instance_state": 26,
+    "current_instance_state": 21,
     "next_instance_state": 25
   }
 },
@@ -5100,7 +5100,7 @@
   "model": "core.aformtransition",
   "pk": 1185,
   "fields": {
-    "current_instance_state": 26,
+    "current_instance_state": 21,
     "next_instance_state": 25
   }
 },
@@ -25060,7 +25060,7 @@
   "model": "core.irpage",
   "pk": 327,
   "fields": {
-    "pdf_class": ""
+    "pdf_class": null
   }
 },
 {
@@ -43623,6 +43623,14 @@
   }
 },
 {
+  "model": "user.grouplocation",
+  "pk": 173,
+  "fields": {
+    "group": 1024,
+    "location": 15
+  }
+},
+{
   "model": "user.group",
   "pk": 1,
   "fields": {
@@ -44844,12 +44852,12 @@
     "role": 1021,
     "service": 181,
     "name": "Acht Grad Ost AG",
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "stephan.furrer@swr.sh",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
   }
 },
 {
@@ -46173,6 +46181,21 @@
   }
 },
 {
+  "model": "user.group",
+  "pk": 1024,
+  "fields": {
+    "role": 1105,
+    "service": null,
+    "name": "Wasserkommission Seelisberg",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -47351,12 +47374,12 @@
     "name": "ARE NHS D",
     "description": "Amt f\u00fcr Raumentwicklung Heimatschutz und Denkmalpflege",
     "sort": 27,
-    "phone": "",
-    "zip": "",
-    "city": "",
-    "address": "",
-    "email": "artur.bucher@ur.ch",
-    "website": ""
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "thomas.brunner@ur.ch",
+    "website": null
   }
 },
 {
