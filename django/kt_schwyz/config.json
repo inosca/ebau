@@ -9,22 +9,6 @@
 },
 {
   "model": "core.acirculationtransition",
-  "pk": 11,
-  "fields": {
-    "current_circulation_state": 1,
-    "next_circulation_state": 4
-  }
-},
-{
-  "model": "core.acirculationtransition",
-  "pk": 14,
-  "fields": {
-    "current_circulation_state": 4,
-    "next_circulation_state": 1
-  }
-},
-{
-  "model": "core.acirculationtransition",
   "pk": 30,
   "fields": {
     "current_circulation_state": null,
@@ -33,17 +17,33 @@
 },
 {
   "model": "core.acirculationtransition",
-  "pk": 33,
+  "pk": 51,
   "fields": {
     "current_circulation_state": 1,
-    "next_circulation_state": 4
+    "next_circulation_state": 6
   }
 },
 {
   "model": "core.acirculationtransition",
-  "pk": 36,
+  "pk": 53,
   "fields": {
-    "current_circulation_state": 4,
+    "current_circulation_state": 6,
+    "next_circulation_state": 1
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 55,
+  "fields": {
+    "current_circulation_state": 1,
+    "next_circulation_state": 6
+  }
+},
+{
+  "model": "core.acirculationtransition",
+  "pk": 57,
+  "fields": {
+    "current_circulation_state": 6,
     "next_circulation_state": 1
   }
 },
@@ -109,24 +109,10 @@
   "fields": {
     "available_action": "save",
     "button": 4,
-    "name": "Stellungnahme speichern",
+    "name": "Fachbericht speichern",
     "description": null,
-    "success_message": "Stellungnahme erfolgreich gespeichert",
-    "error_message": "Stellungnahme konnte nicht gespeichert werden",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 7,
-  "fields": {
-    "available_action": "save",
-    "button": 5,
-    "name": "Stellungnahme speichern",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
+    "success_message": "Fachbericht erfolgreich gespeichert",
+    "error_message": "Fachbericht konnte nicht gespeichert werden",
     "execute_always": 0,
     "sort": 0
   }
@@ -152,90 +138,6 @@
     "available_action": "pageredirect",
     "button": 5,
     "name": "Weiterleitung zu Liste",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.action",
-  "pk": 10,
-  "fields": {
-    "available_action": "save",
-    "button": 6,
-    "name": "save",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 11,
-  "fields": {
-    "available_action": "circulationtransition",
-    "button": 6,
-    "name": "circ to NFD",
-    "description": null,
-    "success_message": "Nachforderung erfolgreich eingereicht",
-    "error_message": "Nachforderung konnte nicht eingereicht werden",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
-  "pk": 12,
-  "fields": {
-    "available_action": "php",
-    "button": 6,
-    "name": "set circ date NFD",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.action",
-  "pk": 13,
-  "fields": {
-    "available_action": "save",
-    "button": 7,
-    "name": "save",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 14,
-  "fields": {
-    "available_action": "circulationtransition",
-    "button": 7,
-    "name": "circ state to RUN",
-    "description": null,
-    "success_message": "Dossier erfolgreich als vollst\u00e4ndig markiert",
-    "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
-  "pk": 15,
-  "fields": {
-    "available_action": "php",
-    "button": 7,
-    "name": "set instance complete circ date",
     "description": null,
     "success_message": null,
     "error_message": null,
@@ -391,22 +293,8 @@
     "button": 14,
     "name": "save",
     "description": null,
-    "success_message": "Stellungnahme erfolgreich gespeichert",
-    "error_message": "Stellungnahme konnte nicht gespeichert werden",
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 29,
-  "fields": {
-    "available_action": "save",
-    "button": 15,
-    "name": "save",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
+    "success_message": "Fachbericht erfolgreich gespeichert",
+    "error_message": "Fachbericht konnte nicht gespeichert werden",
     "execute_always": 0,
     "sort": 0
   }
@@ -432,90 +320,6 @@
     "available_action": "pageredirect",
     "button": 15,
     "name": "Weiterleitung zu Liste",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.action",
-  "pk": 32,
-  "fields": {
-    "available_action": "save",
-    "button": 16,
-    "name": "save",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 33,
-  "fields": {
-    "available_action": "circulationtransition",
-    "button": 16,
-    "name": "circ state to NFD",
-    "description": null,
-    "success_message": "Nachforderung erfolgreich eingereicht",
-    "error_message": "Nachforderung konnte nicht eingereicht werden",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
-  "pk": 34,
-  "fields": {
-    "available_action": "php",
-    "button": 16,
-    "name": "set circ date NFD",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.action",
-  "pk": 35,
-  "fields": {
-    "available_action": "save",
-    "button": 17,
-    "name": "save",
-    "description": null,
-    "success_message": null,
-    "error_message": null,
-    "execute_always": 0,
-    "sort": 0
-  }
-},
-{
-  "model": "core.action",
-  "pk": 36,
-  "fields": {
-    "available_action": "circulationtransition",
-    "button": 17,
-    "name": "circ state to RUN",
-    "description": null,
-    "success_message": "Dossier erfolgreich als vollst\u00e4ndig markiert",
-    "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden",
-    "execute_always": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.action",
-  "pk": 37,
-  "fields": {
-    "available_action": "php",
-    "button": 17,
-    "name": "set instance complete circ date",
     "description": null,
     "success_message": null,
     "error_message": null,
@@ -661,6 +465,118 @@
     "error_message": "Email konnte nicht versandt werden",
     "execute_always": 0,
     "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 50,
+  "fields": {
+    "available_action": "save",
+    "button": 24,
+    "name": "Fachbericht speichern",
+    "description": null,
+    "success_message": "Die Fachbericht wurde erfolgreich gespeichert",
+    "error_message": "Die Fachbericht konnte nicht gespeichert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 51,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 24,
+    "name": "circ state to REVIEW",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 52,
+  "fields": {
+    "available_action": "php",
+    "button": 24,
+    "name": "Set circ date REVIEW",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 53,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 25,
+    "name": "circ state to RUN",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 54,
+  "fields": {
+    "available_action": "save",
+    "button": 26,
+    "name": "Fachbericht speichern",
+    "description": null,
+    "success_message": "Fachbericht erfolgreich gespeichert",
+    "error_message": "Fachbericht konnte nicht gespeichert werden",
+    "execute_always": 0,
+    "sort": 0
+  }
+},
+{
+  "model": "core.action",
+  "pk": 55,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 26,
+    "name": "circ state to REVIEW",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.action",
+  "pk": 56,
+  "fields": {
+    "available_action": "php",
+    "button": 26,
+    "name": "Set circ date REVIEW",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.action",
+  "pk": 57,
+  "fields": {
+    "available_action": "circulationtransition",
+    "button": 27,
+    "name": "circ state to RUN",
+    "description": null,
+    "success_message": null,
+    "error_message": null,
+    "execute_always": 0,
+    "sort": 0
   }
 },
 {
@@ -1287,20 +1203,6 @@
 },
 {
   "model": "core.aphp",
-  "pk": 12,
-  "fields": {
-    "php_class": "SetNFD"
-  }
-},
-{
-  "model": "core.aphp",
-  "pk": 15,
-  "fields": {
-    "php_class": "SetNFDComplete"
-  }
-},
-{
-  "model": "core.aphp",
   "pk": 20,
   "fields": {
     "php_class": "CircStart"
@@ -1322,20 +1224,6 @@
 },
 {
   "model": "core.aphp",
-  "pk": 34,
-  "fields": {
-    "php_class": "SetNFD"
-  }
-},
-{
-  "model": "core.aphp",
-  "pk": 37,
-  "fields": {
-    "php_class": "SetNFDComplete"
-  }
-},
-{
-  "model": "core.aphp",
   "pk": 42,
   "fields": {
     "php_class": "CircEnd"
@@ -1346,6 +1234,20 @@
   "pk": 43,
   "fields": {
     "php_class": "CircEnd"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 52,
+  "fields": {
+    "php_class": "SetReview"
+  }
+},
+{
+  "model": "core.aphp",
+  "pk": 56,
+  "fields": {
+    "php_class": "SetReview"
   }
 },
 {
@@ -1942,42 +1844,6 @@
 },
 {
   "model": "core.broleacl",
-  "pk": 8,
-  "fields": {
-    "button": 6,
-    "role": 5,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 9,
-  "fields": {
-    "button": 6,
-    "role": 5,
-    "instance_state": 7
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 10,
-  "fields": {
-    "button": 7,
-    "role": 5,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 11,
-  "fields": {
-    "button": 7,
-    "role": 5,
-    "instance_state": 7
-  }
-},
-{
-  "model": "core.broleacl",
   "pk": 12,
   "fields": {
     "button": 8,
@@ -2062,42 +1928,6 @@
   "pk": 21,
   "fields": {
     "button": 15,
-    "role": 5,
-    "instance_state": 7
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 22,
-  "fields": {
-    "button": 16,
-    "role": 5,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 23,
-  "fields": {
-    "button": 16,
-    "role": 5,
-    "instance_state": 7
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 24,
-  "fields": {
-    "button": 17,
-    "role": 5,
-    "instance_state": 5
-  }
-},
-{
-  "model": "core.broleacl",
-  "pk": 25,
-  "fields": {
-    "button": 17,
     "role": 5,
     "instance_state": 7
   }
@@ -2193,6 +2023,150 @@
   }
 },
 {
+  "model": "core.broleacl",
+  "pk": 37,
+  "fields": {
+    "button": 4,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 38,
+  "fields": {
+    "button": 4,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 39,
+  "fields": {
+    "button": 24,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 40,
+  "fields": {
+    "button": 24,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 41,
+  "fields": {
+    "button": 24,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 42,
+  "fields": {
+    "button": 24,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 43,
+  "fields": {
+    "button": 25,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 44,
+  "fields": {
+    "button": 25,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 45,
+  "fields": {
+    "button": 14,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 46,
+  "fields": {
+    "button": 14,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 47,
+  "fields": {
+    "button": 26,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 48,
+  "fields": {
+    "button": 26,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 49,
+  "fields": {
+    "button": 26,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 50,
+  "fields": {
+    "button": 26,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 51,
+  "fields": {
+    "button": 27,
+    "role": 5,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.broleacl",
+  "pk": 52,
+  "fields": {
+    "button": 27,
+    "role": 5,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.button",
   "pk": 1,
   "fields": {
@@ -2223,7 +2197,7 @@
     "instance_resource": 14,
     "name": "Speichern",
     "description": null,
-    "class_field": null,
+    "class_field": "save",
     "hidden": 0,
     "sort": 0
   }
@@ -2233,33 +2207,9 @@
   "pk": 5,
   "fields": {
     "instance_resource": 14,
-    "name": "Stellungnahme abschliessen",
+    "name": "Fachbericht abschliessen",
     "description": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.button",
-  "pk": 6,
-  "fields": {
-    "instance_resource": 14,
-    "name": "Nachforderung",
-    "description": null,
-    "class_field": "nfd",
-    "hidden": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.button",
-  "pk": 7,
-  "fields": {
-    "instance_resource": 14,
-    "name": "Dossier vollst\u00e4ndig",
-    "description": null,
-    "class_field": "nfd-complete",
+    "class_field": "done",
     "hidden": 0,
     "sort": 3
   }
@@ -2331,7 +2281,7 @@
     "instance_resource": 19,
     "name": "Speichern",
     "description": null,
-    "class_field": null,
+    "class_field": "save",
     "hidden": 0,
     "sort": 0
   }
@@ -2341,33 +2291,9 @@
   "pk": 15,
   "fields": {
     "instance_resource": 19,
-    "name": "Stellungnahme abschliessen",
+    "name": "Fachbericht abschliessen",
     "description": null,
-    "class_field": null,
-    "hidden": 0,
-    "sort": 1
-  }
-},
-{
-  "model": "core.button",
-  "pk": 16,
-  "fields": {
-    "instance_resource": 19,
-    "name": "Nachforderung",
-    "description": null,
-    "class_field": "nfd",
-    "hidden": 0,
-    "sort": 2
-  }
-},
-{
-  "model": "core.button",
-  "pk": 17,
-  "fields": {
-    "instance_resource": 19,
-    "name": "Dossier vollst\u00e4ndig",
-    "description": null,
-    "class_field": "nfd-complete",
+    "class_field": "done",
     "hidden": 0,
     "sort": 3
   }
@@ -2442,6 +2368,54 @@
     "class_field": null,
     "hidden": 0,
     "sort": 3
+  }
+},
+{
+  "model": "core.button",
+  "pk": 24,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Fachbericht erfasst",
+    "description": null,
+    "class_field": "review",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 25,
+  "fields": {
+    "instance_resource": 14,
+    "name": "Fachbericht anpassen",
+    "description": null,
+    "class_field": "edit",
+    "hidden": 0,
+    "sort": 2
+  }
+},
+{
+  "model": "core.button",
+  "pk": 26,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Fachbericht erfasst",
+    "description": null,
+    "class_field": "review",
+    "hidden": 0,
+    "sort": 1
+  }
+},
+{
+  "model": "core.button",
+  "pk": 27,
+  "fields": {
+    "instance_resource": 19,
+    "name": "Fachbericht anpassen",
+    "description": null,
+    "class_field": "edit",
+    "hidden": 0,
+    "sort": 2
   }
 },
 {
@@ -5810,6 +5784,96 @@
   }
 },
 {
+  "model": "core.irroleacl",
+  "pk": 156,
+  "fields": {
+    "instance_resource": 11,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 157,
+  "fields": {
+    "instance_resource": 11,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 158,
+  "fields": {
+    "instance_resource": 12,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 159,
+  "fields": {
+    "instance_resource": 12,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 162,
+  "fields": {
+    "instance_resource": 22,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 163,
+  "fields": {
+    "instance_resource": 22,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 164,
+  "fields": {
+    "instance_resource": 14,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 165,
+  "fields": {
+    "instance_resource": 14,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 166,
+  "fields": {
+    "instance_resource": 19,
+    "role": 7,
+    "instance_state": 5
+  }
+},
+{
+  "model": "core.irroleacl",
+  "pk": 167,
+  "fields": {
+    "instance_resource": 19,
+    "role": 7,
+    "instance_state": 7
+  }
+},
+{
   "model": "core.page",
   "pk": 1,
   "fields": {
@@ -6113,8 +6177,19 @@
   }
 },
 {
+  "model": "core.questionchapter",
+  "pk": 3,
+  "fields": {
+    "question": 4,
+    "chapter": 1,
+    "required": 0,
+    "item": 1,
+    "sort": 2
+  }
+},
+{
   "model": "core.rapilistcirculationstate",
-  "pk": 22,
+  "pk": 25,
   "fields": {
     "resource": 6,
     "circulation_state": 1
@@ -6122,7 +6197,7 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 23,
+  "pk": 26,
   "fields": {
     "resource": 6,
     "circulation_state": 2
@@ -6130,10 +6205,10 @@
 },
 {
   "model": "core.rapilistcirculationstate",
-  "pk": 24,
+  "pk": 27,
   "fields": {
     "resource": 6,
-    "circulation_state": 4
+    "circulation_state": 6
   }
 },
 {
@@ -6338,7 +6413,15 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 34,
+  "pk": 36,
+  "fields": {
+    "resource": 1,
+    "instance_state": 2
+  }
+},
+{
+  "model": "core.rapilistinstancestate",
+  "pk": 37,
   "fields": {
     "resource": 6,
     "instance_state": 5
@@ -6346,18 +6429,10 @@
 },
 {
   "model": "core.rapilistinstancestate",
-  "pk": 35,
+  "pk": 38,
   "fields": {
     "resource": 6,
     "instance_state": 7
-  }
-},
-{
-  "model": "core.rapilistinstancestate",
-  "pk": 36,
-  "fields": {
-    "resource": 1,
-    "instance_state": 2
   }
 },
 {
@@ -6563,6 +6638,14 @@
   "fields": {
     "resource": 10,
     "role": 8
+  }
+},
+{
+  "model": "core.rroleacl",
+  "pk": 14,
+  "fields": {
+    "resource": 6,
+    "role": 7
   }
 },
 {
@@ -6838,6 +6921,14 @@
   "pk": 5,
   "fields": {
     "name": "DONE",
+    "sort": 5
+  }
+},
+{
+  "model": "core.circulationstate",
+  "pk": 6,
+  "fields": {
+    "name": "REVIEW",
     "sort": 4
   }
 },
@@ -6971,6 +7062,22 @@
     "mapping": 1,
     "answer_query": null,
     "name": "Dossier vollst\u00e4ndig",
+    "description": null,
+    "javascript": null,
+    "regex": null,
+    "default_answer": null,
+    "class_field": null,
+    "validation": null
+  }
+},
+{
+  "model": "core.question",
+  "pk": 4,
+  "fields": {
+    "question_type": 10,
+    "mapping": 1,
+    "answer_query": null,
+    "name": "Zur \u00dcberpr\u00fcfung freigegeben",
     "description": null,
     "javascript": null,
     "regex": null,

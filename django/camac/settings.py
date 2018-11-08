@@ -90,6 +90,7 @@ APPLICATIONS = {
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Fachstelle": "service",
+            "Fachstelle Sachbearbeiter": "service",
             "Kanton": "canton",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
