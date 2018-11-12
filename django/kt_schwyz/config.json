@@ -18764,14 +18764,6 @@
 },
 {
   "model": "user.grouplocation",
-  "pk": 1381,
-  "fields": {
-    "group": 79,
-    "location": 26
-  }
-},
-{
-  "model": "user.grouplocation",
   "pk": 1382,
   "fields": {
     "group": 80,
@@ -29580,18 +29572,2746 @@
 },
 {
   "model": "user.grouplocation",
-  "pk": 2733,
+  "pk": 2734,
   "fields": {
-    "group": 156,
+    "group": 157,
     "location": 26
   }
 },
 {
   "model": "user.grouplocation",
-  "pk": 2734,
+  "pk": 2736,
   "fields": {
-    "group": 157,
+    "group": 79,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2737,
+  "fields": {
+    "group": 167,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2738,
+  "fields": {
+    "group": 167,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2739,
+  "fields": {
+    "group": 167,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2740,
+  "fields": {
+    "group": 167,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2741,
+  "fields": {
+    "group": 167,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2742,
+  "fields": {
+    "group": 167,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2743,
+  "fields": {
+    "group": 167,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2744,
+  "fields": {
+    "group": 167,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2745,
+  "fields": {
+    "group": 167,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2746,
+  "fields": {
+    "group": 166,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2747,
+  "fields": {
+    "group": 166,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2748,
+  "fields": {
+    "group": 166,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2749,
+  "fields": {
+    "group": 166,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2750,
+  "fields": {
+    "group": 166,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2751,
+  "fields": {
+    "group": 166,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2752,
+  "fields": {
+    "group": 166,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2753,
+  "fields": {
+    "group": 166,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2754,
+  "fields": {
+    "group": 166,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2755,
+  "fields": {
+    "group": 162,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2756,
+  "fields": {
+    "group": 162,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2757,
+  "fields": {
+    "group": 162,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2758,
+  "fields": {
+    "group": 162,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2759,
+  "fields": {
+    "group": 162,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2760,
+  "fields": {
+    "group": 162,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2761,
+  "fields": {
+    "group": 162,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2762,
+  "fields": {
+    "group": 162,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2763,
+  "fields": {
+    "group": 162,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2764,
+  "fields": {
+    "group": 162,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2765,
+  "fields": {
+    "group": 162,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2766,
+  "fields": {
+    "group": 162,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2767,
+  "fields": {
+    "group": 162,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2768,
+  "fields": {
+    "group": 162,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2769,
+  "fields": {
+    "group": 162,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2770,
+  "fields": {
+    "group": 162,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2771,
+  "fields": {
+    "group": 162,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2772,
+  "fields": {
+    "group": 162,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2773,
+  "fields": {
+    "group": 162,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2774,
+  "fields": {
+    "group": 162,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2775,
+  "fields": {
+    "group": 162,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2776,
+  "fields": {
+    "group": 162,
     "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2777,
+  "fields": {
+    "group": 162,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2778,
+  "fields": {
+    "group": 162,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2779,
+  "fields": {
+    "group": 162,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2780,
+  "fields": {
+    "group": 162,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2781,
+  "fields": {
+    "group": 162,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2782,
+  "fields": {
+    "group": 162,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2783,
+  "fields": {
+    "group": 162,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2784,
+  "fields": {
+    "group": 162,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2785,
+  "fields": {
+    "group": 163,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2786,
+  "fields": {
+    "group": 163,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2787,
+  "fields": {
+    "group": 163,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2788,
+  "fields": {
+    "group": 163,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2789,
+  "fields": {
+    "group": 163,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2790,
+  "fields": {
+    "group": 163,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2791,
+  "fields": {
+    "group": 163,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2792,
+  "fields": {
+    "group": 163,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2793,
+  "fields": {
+    "group": 163,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2794,
+  "fields": {
+    "group": 163,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2795,
+  "fields": {
+    "group": 163,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2796,
+  "fields": {
+    "group": 163,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2797,
+  "fields": {
+    "group": 163,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2798,
+  "fields": {
+    "group": 163,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2799,
+  "fields": {
+    "group": 163,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2800,
+  "fields": {
+    "group": 163,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2801,
+  "fields": {
+    "group": 163,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2802,
+  "fields": {
+    "group": 163,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2803,
+  "fields": {
+    "group": 163,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2804,
+  "fields": {
+    "group": 163,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2805,
+  "fields": {
+    "group": 163,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2806,
+  "fields": {
+    "group": 163,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2807,
+  "fields": {
+    "group": 163,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2808,
+  "fields": {
+    "group": 163,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2809,
+  "fields": {
+    "group": 163,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2810,
+  "fields": {
+    "group": 163,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2811,
+  "fields": {
+    "group": 163,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2812,
+  "fields": {
+    "group": 163,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2813,
+  "fields": {
+    "group": 163,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2814,
+  "fields": {
+    "group": 163,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2815,
+  "fields": {
+    "group": 164,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2816,
+  "fields": {
+    "group": 164,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2817,
+  "fields": {
+    "group": 164,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2818,
+  "fields": {
+    "group": 164,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2819,
+  "fields": {
+    "group": 164,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2820,
+  "fields": {
+    "group": 164,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2821,
+  "fields": {
+    "group": 164,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2822,
+  "fields": {
+    "group": 164,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2823,
+  "fields": {
+    "group": 164,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2824,
+  "fields": {
+    "group": 164,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2825,
+  "fields": {
+    "group": 164,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2826,
+  "fields": {
+    "group": 164,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2827,
+  "fields": {
+    "group": 164,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2828,
+  "fields": {
+    "group": 164,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2829,
+  "fields": {
+    "group": 164,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2830,
+  "fields": {
+    "group": 164,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2831,
+  "fields": {
+    "group": 164,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2832,
+  "fields": {
+    "group": 164,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2833,
+  "fields": {
+    "group": 164,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2834,
+  "fields": {
+    "group": 164,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2835,
+  "fields": {
+    "group": 164,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2836,
+  "fields": {
+    "group": 164,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2837,
+  "fields": {
+    "group": 164,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2838,
+  "fields": {
+    "group": 164,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2839,
+  "fields": {
+    "group": 164,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2840,
+  "fields": {
+    "group": 164,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2841,
+  "fields": {
+    "group": 164,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2842,
+  "fields": {
+    "group": 164,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2843,
+  "fields": {
+    "group": 164,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2844,
+  "fields": {
+    "group": 164,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2845,
+  "fields": {
+    "group": 165,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2846,
+  "fields": {
+    "group": 165,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2847,
+  "fields": {
+    "group": 165,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2848,
+  "fields": {
+    "group": 165,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2849,
+  "fields": {
+    "group": 165,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2850,
+  "fields": {
+    "group": 165,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2851,
+  "fields": {
+    "group": 165,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2852,
+  "fields": {
+    "group": 165,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2853,
+  "fields": {
+    "group": 165,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2854,
+  "fields": {
+    "group": 165,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2855,
+  "fields": {
+    "group": 165,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2856,
+  "fields": {
+    "group": 165,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2857,
+  "fields": {
+    "group": 165,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2858,
+  "fields": {
+    "group": 165,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2859,
+  "fields": {
+    "group": 165,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2860,
+  "fields": {
+    "group": 165,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2861,
+  "fields": {
+    "group": 165,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2862,
+  "fields": {
+    "group": 165,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2863,
+  "fields": {
+    "group": 165,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2864,
+  "fields": {
+    "group": 165,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2865,
+  "fields": {
+    "group": 165,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2866,
+  "fields": {
+    "group": 165,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2867,
+  "fields": {
+    "group": 165,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2868,
+  "fields": {
+    "group": 165,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2869,
+  "fields": {
+    "group": 165,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2870,
+  "fields": {
+    "group": 165,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2871,
+  "fields": {
+    "group": 165,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2872,
+  "fields": {
+    "group": 165,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2873,
+  "fields": {
+    "group": 165,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2874,
+  "fields": {
+    "group": 165,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2875,
+  "fields": {
+    "group": 168,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2876,
+  "fields": {
+    "group": 168,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2877,
+  "fields": {
+    "group": 168,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2878,
+  "fields": {
+    "group": 168,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2879,
+  "fields": {
+    "group": 168,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2880,
+  "fields": {
+    "group": 168,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2881,
+  "fields": {
+    "group": 168,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2882,
+  "fields": {
+    "group": 168,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2883,
+  "fields": {
+    "group": 168,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2884,
+  "fields": {
+    "group": 168,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2885,
+  "fields": {
+    "group": 168,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2886,
+  "fields": {
+    "group": 168,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2887,
+  "fields": {
+    "group": 168,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2888,
+  "fields": {
+    "group": 168,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2889,
+  "fields": {
+    "group": 168,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2890,
+  "fields": {
+    "group": 168,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2891,
+  "fields": {
+    "group": 168,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2892,
+  "fields": {
+    "group": 168,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2893,
+  "fields": {
+    "group": 168,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2894,
+  "fields": {
+    "group": 168,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2895,
+  "fields": {
+    "group": 168,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2896,
+  "fields": {
+    "group": 168,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2897,
+  "fields": {
+    "group": 168,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2898,
+  "fields": {
+    "group": 168,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2899,
+  "fields": {
+    "group": 168,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2900,
+  "fields": {
+    "group": 168,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2901,
+  "fields": {
+    "group": 168,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2902,
+  "fields": {
+    "group": 168,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2903,
+  "fields": {
+    "group": 168,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2904,
+  "fields": {
+    "group": 168,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2905,
+  "fields": {
+    "group": 169,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2906,
+  "fields": {
+    "group": 169,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2907,
+  "fields": {
+    "group": 169,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2908,
+  "fields": {
+    "group": 169,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2909,
+  "fields": {
+    "group": 169,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2910,
+  "fields": {
+    "group": 169,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2911,
+  "fields": {
+    "group": 169,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2912,
+  "fields": {
+    "group": 169,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2913,
+  "fields": {
+    "group": 169,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2914,
+  "fields": {
+    "group": 169,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2915,
+  "fields": {
+    "group": 169,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2916,
+  "fields": {
+    "group": 169,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2917,
+  "fields": {
+    "group": 169,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2918,
+  "fields": {
+    "group": 169,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2919,
+  "fields": {
+    "group": 169,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2920,
+  "fields": {
+    "group": 169,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2921,
+  "fields": {
+    "group": 169,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2922,
+  "fields": {
+    "group": 169,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2923,
+  "fields": {
+    "group": 169,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2924,
+  "fields": {
+    "group": 169,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2925,
+  "fields": {
+    "group": 169,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2926,
+  "fields": {
+    "group": 169,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2927,
+  "fields": {
+    "group": 169,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2928,
+  "fields": {
+    "group": 169,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2929,
+  "fields": {
+    "group": 169,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2930,
+  "fields": {
+    "group": 169,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2931,
+  "fields": {
+    "group": 169,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2932,
+  "fields": {
+    "group": 169,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2933,
+  "fields": {
+    "group": 169,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2934,
+  "fields": {
+    "group": 169,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2935,
+  "fields": {
+    "group": 170,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2936,
+  "fields": {
+    "group": 170,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2937,
+  "fields": {
+    "group": 170,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2938,
+  "fields": {
+    "group": 170,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2939,
+  "fields": {
+    "group": 170,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2940,
+  "fields": {
+    "group": 170,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2941,
+  "fields": {
+    "group": 170,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2942,
+  "fields": {
+    "group": 170,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2943,
+  "fields": {
+    "group": 170,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2944,
+  "fields": {
+    "group": 170,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2945,
+  "fields": {
+    "group": 170,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2946,
+  "fields": {
+    "group": 170,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2947,
+  "fields": {
+    "group": 170,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2948,
+  "fields": {
+    "group": 170,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2949,
+  "fields": {
+    "group": 170,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2950,
+  "fields": {
+    "group": 170,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2951,
+  "fields": {
+    "group": 170,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2952,
+  "fields": {
+    "group": 170,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2953,
+  "fields": {
+    "group": 170,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2954,
+  "fields": {
+    "group": 170,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2955,
+  "fields": {
+    "group": 170,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2956,
+  "fields": {
+    "group": 170,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2957,
+  "fields": {
+    "group": 170,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2958,
+  "fields": {
+    "group": 170,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2959,
+  "fields": {
+    "group": 170,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2960,
+  "fields": {
+    "group": 170,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2961,
+  "fields": {
+    "group": 170,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2962,
+  "fields": {
+    "group": 170,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2963,
+  "fields": {
+    "group": 170,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2964,
+  "fields": {
+    "group": 170,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2965,
+  "fields": {
+    "group": 171,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2966,
+  "fields": {
+    "group": 171,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2967,
+  "fields": {
+    "group": 171,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2968,
+  "fields": {
+    "group": 171,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2969,
+  "fields": {
+    "group": 171,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2970,
+  "fields": {
+    "group": 171,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2971,
+  "fields": {
+    "group": 171,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2972,
+  "fields": {
+    "group": 171,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2973,
+  "fields": {
+    "group": 171,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2974,
+  "fields": {
+    "group": 171,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2975,
+  "fields": {
+    "group": 171,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2976,
+  "fields": {
+    "group": 171,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2977,
+  "fields": {
+    "group": 171,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2978,
+  "fields": {
+    "group": 171,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2979,
+  "fields": {
+    "group": 171,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2980,
+  "fields": {
+    "group": 171,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2981,
+  "fields": {
+    "group": 171,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2982,
+  "fields": {
+    "group": 171,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2983,
+  "fields": {
+    "group": 171,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2984,
+  "fields": {
+    "group": 171,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2985,
+  "fields": {
+    "group": 171,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2986,
+  "fields": {
+    "group": 171,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2987,
+  "fields": {
+    "group": 171,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2988,
+  "fields": {
+    "group": 171,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2989,
+  "fields": {
+    "group": 171,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2990,
+  "fields": {
+    "group": 171,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2991,
+  "fields": {
+    "group": 171,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2992,
+  "fields": {
+    "group": 171,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2993,
+  "fields": {
+    "group": 171,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2994,
+  "fields": {
+    "group": 171,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2995,
+  "fields": {
+    "group": 172,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2996,
+  "fields": {
+    "group": 172,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2997,
+  "fields": {
+    "group": 172,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2998,
+  "fields": {
+    "group": 172,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2999,
+  "fields": {
+    "group": 172,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3000,
+  "fields": {
+    "group": 172,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3001,
+  "fields": {
+    "group": 172,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3002,
+  "fields": {
+    "group": 172,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3003,
+  "fields": {
+    "group": 172,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3004,
+  "fields": {
+    "group": 172,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3005,
+  "fields": {
+    "group": 172,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3006,
+  "fields": {
+    "group": 172,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3007,
+  "fields": {
+    "group": 172,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3008,
+  "fields": {
+    "group": 172,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3009,
+  "fields": {
+    "group": 172,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3010,
+  "fields": {
+    "group": 172,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3011,
+  "fields": {
+    "group": 172,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3012,
+  "fields": {
+    "group": 172,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3013,
+  "fields": {
+    "group": 172,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3014,
+  "fields": {
+    "group": 172,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3015,
+  "fields": {
+    "group": 172,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3016,
+  "fields": {
+    "group": 172,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3017,
+  "fields": {
+    "group": 172,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3018,
+  "fields": {
+    "group": 172,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3019,
+  "fields": {
+    "group": 172,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3020,
+  "fields": {
+    "group": 172,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3021,
+  "fields": {
+    "group": 172,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3022,
+  "fields": {
+    "group": 172,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3023,
+  "fields": {
+    "group": 172,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3024,
+  "fields": {
+    "group": 172,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3025,
+  "fields": {
+    "group": 173,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3026,
+  "fields": {
+    "group": 173,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3027,
+  "fields": {
+    "group": 173,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3028,
+  "fields": {
+    "group": 173,
+    "location": 30
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3029,
+  "fields": {
+    "group": 173,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3030,
+  "fields": {
+    "group": 173,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3031,
+  "fields": {
+    "group": 173,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3032,
+  "fields": {
+    "group": 173,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3033,
+  "fields": {
+    "group": 173,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3034,
+  "fields": {
+    "group": 173,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3035,
+  "fields": {
+    "group": 173,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3036,
+  "fields": {
+    "group": 173,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3037,
+  "fields": {
+    "group": 173,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3038,
+  "fields": {
+    "group": 173,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3039,
+  "fields": {
+    "group": 173,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3040,
+  "fields": {
+    "group": 173,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3041,
+  "fields": {
+    "group": 173,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3042,
+  "fields": {
+    "group": 173,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3043,
+  "fields": {
+    "group": 173,
+    "location": 23
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3044,
+  "fields": {
+    "group": 173,
+    "location": 24
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3045,
+  "fields": {
+    "group": 173,
+    "location": 25
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3046,
+  "fields": {
+    "group": 173,
+    "location": 26
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3047,
+  "fields": {
+    "group": 173,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3048,
+  "fields": {
+    "group": 173,
+    "location": 27
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3049,
+  "fields": {
+    "group": 173,
+    "location": 28
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3050,
+  "fields": {
+    "group": 173,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3051,
+  "fields": {
+    "group": 173,
+    "location": 29
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3052,
+  "fields": {
+    "group": 173,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3053,
+  "fields": {
+    "group": 173,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3054,
+  "fields": {
+    "group": 173,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3085,
+  "fields": {
+    "group": 254,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3086,
+  "fields": {
+    "group": 255,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3087,
+  "fields": {
+    "group": 256,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3089,
+  "fields": {
+    "group": 258,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3090,
+  "fields": {
+    "group": 258,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3091,
+  "fields": {
+    "group": 259,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3092,
+  "fields": {
+    "group": 260,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3094,
+  "fields": {
+    "group": 262,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3095,
+  "fields": {
+    "group": 263,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3096,
+  "fields": {
+    "group": 263,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3098,
+  "fields": {
+    "group": 265,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3099,
+  "fields": {
+    "group": 266,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3100,
+  "fields": {
+    "group": 267,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3101,
+  "fields": {
+    "group": 268,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3102,
+  "fields": {
+    "group": 269,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3103,
+  "fields": {
+    "group": 270,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3104,
+  "fields": {
+    "group": 271,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3105,
+  "fields": {
+    "group": 272,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3107,
+  "fields": {
+    "group": 261,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3108,
+  "fields": {
+    "group": 264,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3109,
+  "fields": {
+    "group": 156,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3110,
+  "fields": {
+    "group": 252,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3111,
+  "fields": {
+    "group": 253,
+    "location": 10
   }
 },
 {
@@ -29720,7 +32440,7 @@
   "fields": {
     "role": 3,
     "service": 48,
-    "name": "Gemeinde Einsiedeln",
+    "name": "Bezirk Einsiedeln",
     "phone": null,
     "zip": null,
     "city": null,
@@ -29735,7 +32455,7 @@
   "fields": {
     "role": 3,
     "service": 49,
-    "name": "Gemeinde K\u00fcssnacht",
+    "name": "Bezirk K\u00fcssnacht",
     "phone": null,
     "zip": null,
     "city": null,
@@ -29750,7 +32470,7 @@
   "fields": {
     "role": 3,
     "service": 50,
-    "name": "Gemeinde Gersau",
+    "name": "Bezirk Gersau",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30200,7 +32920,7 @@
   "fields": {
     "role": 5,
     "service": 10,
-    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz",
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Brandschutz)",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30230,7 +32950,7 @@
   "fields": {
     "role": 5,
     "service": 12,
-    "name": "Amt f\u00fcr Raumentwicklung",
+    "name": "Amt f\u00fcr Raumentwicklung (Ortsplanung)",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30650,7 +33370,7 @@
   "fields": {
     "role": 5,
     "service": 40,
-    "name": "Bezirk Schwyz",
+    "name": "Bezirk Schwyz (Gew\u00e4sser)",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30680,7 +33400,7 @@
   "fields": {
     "role": 5,
     "service": 42,
-    "name": "Bezirk March",
+    "name": "Bezirk March (Gew\u00e4sser)",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30770,7 +33490,7 @@
   "fields": {
     "role": 5,
     "service": 77,
-    "name": "Tiefbauamt",
+    "name": "Tiefbau Altendorf",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30785,7 +33505,7 @@
   "fields": {
     "role": 5,
     "service": 78,
-    "name": "Hochbauamt",
+    "name": "Hochbau",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30860,7 +33580,7 @@
   "fields": {
     "role": 8,
     "service": 48,
-    "name": "Gemeinde Einsiedeln Sachbearbeiter",
+    "name": "Bezirk Einsiedeln Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30875,7 +33595,7 @@
   "fields": {
     "role": 8,
     "service": 49,
-    "name": "Gemeinde K\u00fcssnacht Sachbearbeiter",
+    "name": "Bezirk K\u00fcssnacht Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -30890,7 +33610,7 @@
   "fields": {
     "role": 8,
     "service": 50,
-    "name": "Gemeinde Gersau Sachbearbeiter",
+    "name": "Bezirk Gersau Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31340,7 +34060,7 @@
   "fields": {
     "role": 7,
     "service": 10,
-    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz Sachbearbeiter",
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Brandschutz) Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31370,7 +34090,7 @@
   "fields": {
     "role": 7,
     "service": 12,
-    "name": "Amt f\u00fcr Raumentwicklung Sachbearbeiter",
+    "name": "Amt f\u00fcr Raumentwicklung (Ortsplanung) Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31790,7 +34510,7 @@
   "fields": {
     "role": 7,
     "service": 40,
-    "name": "Bezirk Schwyz Sachbearbeiter",
+    "name": "Bezirk Schwyz (Gew\u00e4sser) Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31820,7 +34540,7 @@
   "fields": {
     "role": 7,
     "service": 42,
-    "name": "Bezirk March Sachbearbeiter",
+    "name": "Bezirk March (Gew\u00e4sser) Sachbearbeiter",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31908,9 +34628,9 @@
   "model": "user.group",
   "pk": 156,
   "fields": {
-    "role": 7,
-    "service": 77,
-    "name": "Tiefbauamt Sachbearbeiter",
+    "role": 5,
+    "service": 145,
+    "name": "Allgemeine Genossame Reichenburg",
     "phone": null,
     "zip": null,
     "city": null,
@@ -31925,7 +34645,1732 @@
   "fields": {
     "role": 7,
     "service": 78,
-    "name": "Hochbauamt Sachbearbeiter",
+    "name": "Hochbau Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 158,
+  "fields": {
+    "role": 5,
+    "service": 79,
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Zivilschutz)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 159,
+  "fields": {
+    "role": 7,
+    "service": 79,
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Zivilschutz) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 160,
+  "fields": {
+    "role": 5,
+    "service": 80,
+    "name": "Bezirk Schwyz (Strassen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 161,
+  "fields": {
+    "role": 7,
+    "service": 80,
+    "name": "Bezirk Schwyz (Strassen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 162,
+  "fields": {
+    "role": 5,
+    "service": 81,
+    "name": "AWN (Naturgefahren)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 163,
+  "fields": {
+    "role": 7,
+    "service": 81,
+    "name": "AWN (Naturgefahren) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 164,
+  "fields": {
+    "role": 5,
+    "service": 82,
+    "name": "AWN (Forstrecht)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 165,
+  "fields": {
+    "role": 7,
+    "service": 82,
+    "name": "AWN (Forstrecht) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 166,
+  "fields": {
+    "role": 5,
+    "service": 83,
+    "name": "Bezirk March (Strassen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 167,
+  "fields": {
+    "role": 7,
+    "service": 83,
+    "name": "Bezirk March (Strassen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 168,
+  "fields": {
+    "role": 5,
+    "service": 84,
+    "name": "AWN (Langsamverkehr)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 169,
+  "fields": {
+    "role": 7,
+    "service": 84,
+    "name": "AWN (Langsamverkehr) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 170,
+  "fields": {
+    "role": 5,
+    "service": 85,
+    "name": "LdU (Lebensmittel)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 171,
+  "fields": {
+    "role": 7,
+    "service": 85,
+    "name": "LdU (Lebensmittel) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 172,
+  "fields": {
+    "role": 5,
+    "service": 86,
+    "name": "LdU (Trinkwasser)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 173,
+  "fields": {
+    "role": 7,
+    "service": 86,
+    "name": "LdU (Trinkwasser) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 174,
+  "fields": {
+    "role": 5,
+    "service": 87,
+    "name": "LdU (Chemikalien)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 175,
+  "fields": {
+    "role": 7,
+    "service": 87,
+    "name": "LdU (Chemikalien) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 176,
+  "fields": {
+    "role": 5,
+    "service": 88,
+    "name": "LdU (Kantonstierarzt)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 177,
+  "fields": {
+    "role": 7,
+    "service": 88,
+    "name": "LdU (Kantonstierarzt) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 178,
+  "fields": {
+    "role": 5,
+    "service": 89,
+    "name": "AFL (Agrarmassnahmen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 179,
+  "fields": {
+    "role": 7,
+    "service": 89,
+    "name": "AFL (Agrarmassnahmen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 180,
+  "fields": {
+    "role": 5,
+    "service": 90,
+    "name": "AFL (Strukturverbesserungen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 181,
+  "fields": {
+    "role": 7,
+    "service": 90,
+    "name": "AFL (Strukturverbesserungen) Sachberarbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 182,
+  "fields": {
+    "role": 5,
+    "service": 91,
+    "name": "AFK (Denkmalpflege)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 183,
+  "fields": {
+    "role": 7,
+    "service": 91,
+    "name": "AFK (Denkmalpflege)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 184,
+  "fields": {
+    "role": 5,
+    "service": 92,
+    "name": "AFK (Arch\u00e4ologie)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 185,
+  "fields": {
+    "role": 7,
+    "service": 92,
+    "name": "AFK (Arch\u00e4ologie) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 186,
+  "fields": {
+    "role": 5,
+    "service": 93,
+    "name": "TBA (Strategie und Entwicklung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 187,
+  "fields": {
+    "role": 7,
+    "service": 93,
+    "name": "TBA (Strategie und Entwicklung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 188,
+  "fields": {
+    "role": 5,
+    "service": 94,
+    "name": "TBA (Projektierung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 189,
+  "fields": {
+    "role": 7,
+    "service": 94,
+    "name": "TBA (Projektierung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 190,
+  "fields": {
+    "role": 5,
+    "service": 95,
+    "name": "TBA (Kunstbauten)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 191,
+  "fields": {
+    "role": 7,
+    "service": 95,
+    "name": "TBA (Kunstbauten)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 192,
+  "fields": {
+    "role": 5,
+    "service": 96,
+    "name": "TBA (Betrieb)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 193,
+  "fields": {
+    "role": 7,
+    "service": 96,
+    "name": "TBA (Betrieb)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 194,
+  "fields": {
+    "role": 5,
+    "service": 97,
+    "name": "ANJF (Natur- und Landschaftsschutz)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 195,
+  "fields": {
+    "role": 7,
+    "service": 97,
+    "name": "ANJF (Natur- und Landschaftsschutz) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 196,
+  "fields": {
+    "role": 5,
+    "service": 98,
+    "name": "ANJF (Jagd)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 197,
+  "fields": {
+    "role": 7,
+    "service": 98,
+    "name": "ANJF (Jagd) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 198,
+  "fields": {
+    "role": 5,
+    "service": 99,
+    "name": "ANJF (Fischerei)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 199,
+  "fields": {
+    "role": 7,
+    "service": 99,
+    "name": "ANJF (Fischerei) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 200,
+  "fields": {
+    "role": 5,
+    "service": 100,
+    "name": "AfU (Luftreinhaltung Emissionen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 201,
+  "fields": {
+    "role": 7,
+    "service": 100,
+    "name": "AfU (Luftreinhaltung Emissionen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 202,
+  "fields": {
+    "role": 5,
+    "service": 101,
+    "name": "AfU (St\u00f6rfallkoordination)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 203,
+  "fields": {
+    "role": 7,
+    "service": 101,
+    "name": "AfU (St\u00f6rfallkoordination) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 204,
+  "fields": {
+    "role": 5,
+    "service": 102,
+    "name": "AfU (L\u00e4rm)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 205,
+  "fields": {
+    "role": 7,
+    "service": 102,
+    "name": "AfU (L\u00e4rm) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 206,
+  "fields": {
+    "role": 5,
+    "service": 103,
+    "name": "AfU (Nichtionisierende Strahlung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 207,
+  "fields": {
+    "role": 7,
+    "service": 103,
+    "name": "AfU (Nichtionisierende Strahlung) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 208,
+  "fields": {
+    "role": 5,
+    "service": 104,
+    "name": "AfU (Umweltvertr\u00e4glichkeitspr\u00fcfung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 209,
+  "fields": {
+    "role": 7,
+    "service": 104,
+    "name": "AfU (Umweltvertr\u00e4glichkeitspr\u00fcfung) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 210,
+  "fields": {
+    "role": 5,
+    "service": 105,
+    "name": "AfU (Sonderabf\u00e4lle)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 211,
+  "fields": {
+    "role": 7,
+    "service": 105,
+    "name": "AfU (Sonderabf\u00e4lle) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 212,
+  "fields": {
+    "role": 5,
+    "service": 106,
+    "name": "AfU (Abf\u00e4lle)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 213,
+  "fields": {
+    "role": 7,
+    "service": 106,
+    "name": "AfU (Abf\u00e4lle) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 214,
+  "fields": {
+    "role": 5,
+    "service": 107,
+    "name": "AfU (Abfallanlagen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 215,
+  "fields": {
+    "role": 7,
+    "service": 107,
+    "name": "AfU (Abfallanlagen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 216,
+  "fields": {
+    "role": 5,
+    "service": 108,
+    "name": "AfU (Bodenschutz)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 217,
+  "fields": {
+    "role": 7,
+    "service": 108,
+    "name": "AfU (Bodenschutz) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 218,
+  "fields": {
+    "role": 5,
+    "service": 109,
+    "name": "AfU (Luftreinhaltung Immissionen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 219,
+  "fields": {
+    "role": 7,
+    "service": 109,
+    "name": "AfU (Luftreinhaltung Immissionen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 220,
+  "fields": {
+    "role": 5,
+    "service": 110,
+    "name": "AfU (Licht)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 221,
+  "fields": {
+    "role": 7,
+    "service": 110,
+    "name": "AfU (Licht) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 222,
+  "fields": {
+    "role": 5,
+    "service": 111,
+    "name": "AfU (Verkehrsintensive Einrichtungen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 223,
+  "fields": {
+    "role": 7,
+    "service": 111,
+    "name": "AfU (Verkehrsintensive Einrichtungen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 224,
+  "fields": {
+    "role": 5,
+    "service": 112,
+    "name": "AfU (Wasserversorgung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 225,
+  "fields": {
+    "role": 7,
+    "service": 112,
+    "name": "AfU (Wasserversorgung) Sachberabeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 226,
+  "fields": {
+    "role": 5,
+    "service": 113,
+    "name": "AfU (Wassergef\u00e4hrdende Fl\u00fcssigkeiten)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 227,
+  "fields": {
+    "role": 7,
+    "service": 113,
+    "name": "AfU (Wassergef\u00e4hrdende Fl\u00fcssigkeiten) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 228,
+  "fields": {
+    "role": 5,
+    "service": 114,
+    "name": "AfU (Pf\u00e4hlung, Bohrung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 229,
+  "fields": {
+    "role": 7,
+    "service": 114,
+    "name": "AfU (Pf\u00e4hlung, Bohrung) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 230,
+  "fields": {
+    "role": 5,
+    "service": 115,
+    "name": "AfU (Bauen im Grundwasser)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 231,
+  "fields": {
+    "role": 7,
+    "service": 115,
+    "name": "AfU (Bauen im Grundwasser) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 232,
+  "fields": {
+    "role": 5,
+    "service": 116,
+    "name": "AfU (Deponien)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 233,
+  "fields": {
+    "role": 7,
+    "service": 116,
+    "name": "AfU (Deponien) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 234,
+  "fields": {
+    "role": 5,
+    "service": 117,
+    "name": "AfU (Belastete Standorte)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 235,
+  "fields": {
+    "role": 7,
+    "service": 117,
+    "name": "AfU (Belastete Standorte) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 236,
+  "fields": {
+    "role": 5,
+    "service": 118,
+    "name": "AfU (Abbaustellen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 237,
+  "fields": {
+    "role": 7,
+    "service": 118,
+    "name": "AfU (Abbaustellen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 238,
+  "fields": {
+    "role": 5,
+    "service": 119,
+    "name": "AfU (Neobiota)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 239,
+  "fields": {
+    "role": 7,
+    "service": 119,
+    "name": "AfU (Neobiota) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 240,
+  "fields": {
+    "role": 5,
+    "service": 120,
+    "name": "AfU (Industrie- und Gewerbeabwasser)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 241,
+  "fields": {
+    "role": 7,
+    "service": 120,
+    "name": "AfU (Industrie- und Gewerbeabwasser) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 242,
+  "fields": {
+    "role": 5,
+    "service": 121,
+    "name": "AfU (Kl\u00e4ranlagen)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 243,
+  "fields": {
+    "role": 7,
+    "service": 121,
+    "name": "AfU (Kl\u00e4ranlagen) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 244,
+  "fields": {
+    "role": 5,
+    "service": 122,
+    "name": "AfU (Bauten in und an stehenden Gew\u00e4ssern)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 245,
+  "fields": {
+    "role": 7,
+    "service": 122,
+    "name": "AfU (Bauten in und an stehenden Gew\u00e4ssern) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 246,
+  "fields": {
+    "role": 5,
+    "service": 123,
+    "name": "AfU (Entw\u00e4sserung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 247,
+  "fields": {
+    "role": 7,
+    "service": 123,
+    "name": "AfU (Entw\u00e4sserung) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 248,
+  "fields": {
+    "role": 5,
+    "service": 124,
+    "name": "AfU (Wasserentnahme und -r\u00fcckgabe)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 249,
+  "fields": {
+    "role": 7,
+    "service": 124,
+    "name": "AfU (Wasserentnahme und -r\u00fcckgabe) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 250,
+  "fields": {
+    "role": 5,
+    "service": 126,
+    "name": "Amt f\u00fcr Raumentwicklung (Kantonale Planung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 251,
+  "fields": {
+    "role": 7,
+    "service": 126,
+    "name": "Amt f\u00fcr Raumentwicklung (Kantonale Planung) Sachbearbeiter",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 252,
+  "fields": {
+    "role": 5,
+    "service": 125,
+    "name": "Wuhrkorporation R\u00fctibach",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 253,
+  "fields": {
+    "role": 5,
+    "service": 146,
+    "name": "Erdgas Obersee AG",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 254,
+  "fields": {
+    "role": 5,
+    "service": 127,
+    "name": "Baukommission Altendorf",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 255,
+  "fields": {
+    "role": 5,
+    "service": 78,
+    "name": "Wasserversorgung Altendorf",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 256,
+  "fields": {
+    "role": 5,
+    "service": 128,
+    "name": "EVA Altendorf",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 257,
+  "fields": {
+    "role": 5,
+    "service": 129,
+    "name": "Geoterra AG",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 258,
+  "fields": {
+    "role": 5,
+    "service": 130,
+    "name": "Keller und Bombana (Brandschutz)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 259,
+  "fields": {
+    "role": 5,
+    "service": 131,
+    "name": "Kuster und Hager (Abwasser)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 260,
+  "fields": {
+    "role": 5,
+    "service": 132,
+    "name": "EW H\u00f6fe (Telecom, Strom)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 261,
+  "fields": {
+    "role": 5,
+    "service": 133,
+    "name": "Brandschutz Reichenburg",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 262,
+  "fields": {
+    "role": 5,
+    "service": 134,
+    "name": "Korporation Wollerau (Wasserversorgung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 263,
+  "fields": {
+    "role": 5,
+    "service": 135,
+    "name": "Remund und Kuster (Raumplanung)",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 264,
+  "fields": {
+    "role": 5,
+    "service": 136,
+    "name": "EW Reichenburg",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 265,
+  "fields": {
+    "role": 5,
+    "service": 137,
+    "name": "Brandschutz Wollerau",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 266,
+  "fields": {
+    "role": 5,
+    "service": 138,
+    "name": "Baubeh\u00f6rde Wollerau",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 267,
+  "fields": {
+    "role": 5,
+    "service": 139,
+    "name": "Hochbaukommission Lachen",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 268,
+  "fields": {
+    "role": 5,
+    "service": 140,
+    "name": "Gemeinderat Lachen",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 269,
+  "fields": {
+    "role": 5,
+    "service": 141,
+    "name": "Ingenieurb\u00fcro Marty AG",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 270,
+  "fields": {
+    "role": 5,
+    "service": 142,
+    "name": "EW Lachen AG",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 271,
+  "fields": {
+    "role": 5,
+    "service": 143,
+    "name": "ProCap",
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.group",
+  "pk": 272,
+  "fields": {
+    "role": 5,
+    "service": 144,
+    "name": "geometrie plus ag",
     "phone": null,
     "zip": null,
     "city": null,
@@ -32456,7 +36901,7 @@
     "service_parent": null,
     "name": "Centralschweizeriche Kraftwerke AG",
     "description": "CKW",
-    "sort": 34,
+    "sort": 73,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32473,7 +36918,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Arbeit",
     "description": "AFA",
-    "sort": 33,
+    "sort": 1,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32490,7 +36935,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Gesundheit und Soziales",
     "description": "AGS",
-    "sort": 60,
+    "sort": 3,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32507,7 +36952,7 @@
     "service_parent": null,
     "name": "Gemeinde Schwyz",
     "description": "Gemeinde Schwyz",
-    "sort": 24,
+    "sort": 64,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32524,7 +36969,7 @@
     "service_parent": null,
     "name": "Baugesuchszentrale",
     "description": "BGZ Kanton Schwyz",
-    "sort": 32,
+    "sort": 72,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32541,7 +36986,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Kultur",
     "description": "AFK",
-    "sort": 61,
+    "sort": 4,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32558,7 +37003,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Landwirtschaft",
     "description": "AFL",
-    "sort": 62,
+    "sort": 7,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32573,9 +37018,9 @@
   "fields": {
     "service_group": 2,
     "service_parent": null,
-    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz",
-    "description": "AMFZ",
-    "sort": 63,
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Brandschutz)",
+    "description": "AMFZ (Brandschutz)",
+    "sort": 8,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32592,7 +37037,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Natur, Jagd und Fischerei",
     "description": "ANJF",
-    "sort": 64,
+    "sort": 12,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32607,9 +37052,9 @@
   "fields": {
     "service_group": 2,
     "service_parent": null,
-    "name": "Amt f\u00fcr Raumentwicklung",
-    "description": "ARE",
-    "sort": 65,
+    "name": "Amt f\u00fcr Raumentwicklung (Ortsplanung)",
+    "description": "ARE (Ortsplanung)",
+    "sort": 18,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32626,7 +37071,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Umweltschutz",
     "description": "AFU",
-    "sort": 66,
+    "sort": 19,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32643,7 +37088,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Vermessung und Geoinformation",
     "description": "AVG",
-    "sort": 67,
+    "sort": 21,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32660,7 +37105,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Wald und Naturgefahren",
     "description": "AWN",
-    "sort": 68,
+    "sort": 23,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32677,7 +37122,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr Wasserbau",
     "description": "AWB",
-    "sort": 69,
+    "sort": 26,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32694,7 +37139,7 @@
     "service_parent": null,
     "name": "Amt f\u00fcr \u00f6ffentlichen Verkehr",
     "description": "OEV",
-    "sort": 70,
+    "sort": 29,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32711,7 +37156,7 @@
     "service_parent": null,
     "name": "Fachdienst Verkehr Kantonspolizei Schwyz",
     "description": "Kapo",
-    "sort": 71,
+    "sort": 30,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32728,7 +37173,7 @@
     "service_parent": null,
     "name": "Hochbauamt des Kantons Schwyz",
     "description": "HBA",
-    "sort": 72,
+    "sort": 33,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32745,7 +37190,7 @@
     "service_parent": null,
     "name": "Tiefbauamt des Kantons Schwyz",
     "description": "TBA",
-    "sort": 73,
+    "sort": 35,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32762,7 +37207,7 @@
     "service_parent": null,
     "name": "Verkehrsamt Schwyz",
     "description": "VASZ",
-    "sort": 74,
+    "sort": 39,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32779,7 +37224,7 @@
     "service_parent": null,
     "name": "Laboratorium der Urkantone",
     "description": "LABURK",
-    "sort": 75,
+    "sort": 37,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32796,7 +37241,7 @@
     "service_parent": null,
     "name": "Schweizerische S\u00fcdostbahn AG",
     "description": "SOB",
-    "sort": 35,
+    "sort": 74,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32813,7 +37258,7 @@
     "service_parent": null,
     "name": "Schweizerische Bundesbahnen AG Z\u00fcrich",
     "description": "SBB-Ost",
-    "sort": 36,
+    "sort": 75,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32830,7 +37275,7 @@
     "service_parent": null,
     "name": "Schweizerische Bundesbahnen AG Olten",
     "description": "SBB-Mitte",
-    "sort": 37,
+    "sort": 76,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32847,7 +37292,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Strassen Winterthur",
     "description": "ASTRA Winterthur",
-    "sort": 38,
+    "sort": 77,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32864,7 +37309,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Strassen Zofingen",
     "description": "ASTRA Zofingen",
-    "sort": 39,
+    "sort": 78,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32881,7 +37326,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Bezirk Schwyz",
     "description": "EBS",
-    "sort": 40,
+    "sort": 79,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32898,7 +37343,7 @@
     "service_parent": null,
     "name": "Elektrogenossenschaft Bisisthal",
     "description": "Elektro. Bisisthal",
-    "sort": 41,
+    "sort": 80,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32915,7 +37360,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerke des Kantons Z\u00fcrich",
     "description": "EKZ",
-    "sort": 42,
+    "sort": 81,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32932,7 +37377,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk der Stadt Z\u00fcrich",
     "description": "EWZ",
-    "sort": 43,
+    "sort": 82,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32949,7 +37394,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Schwyz AG",
     "description": "EWS",
-    "sort": 44,
+    "sort": 83,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32966,7 +37411,7 @@
     "service_parent": null,
     "name": "AXPO Power AG",
     "description": "AXPO",
-    "sort": 45,
+    "sort": 84,
     "phone": null,
     "zip": null,
     "city": null,
@@ -32983,7 +37428,7 @@
     "service_parent": null,
     "name": "Elektrizit\u00e4tswerk Altdorf",
     "description": "EWA",
-    "sort": 46,
+    "sort": 85,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33000,7 +37445,7 @@
     "service_parent": null,
     "name": "Swissgrid AG",
     "description": "Swissgrid AG",
-    "sort": 47,
+    "sort": 86,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33017,7 +37462,7 @@
     "service_parent": null,
     "name": "Alpiq EnerTrans AG",
     "description": "Alpiq",
-    "sort": 48,
+    "sort": 87,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33034,7 +37479,7 @@
     "service_parent": null,
     "name": "Z\u00fcrichsee Schifffahrtsgesellschaft",
     "description": "ZSG",
-    "sort": 49,
+    "sort": 88,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33051,7 +37496,7 @@
     "service_parent": null,
     "name": "Schifffahrtsgesellschaft des Vierwaldst\u00e4ttersees",
     "description": "SGV",
-    "sort": 50,
+    "sort": 89,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33068,7 +37513,7 @@
     "service_parent": null,
     "name": "Schifffahrtsgesellschaft f\u00fcr den Zugersee AG",
     "description": "ZSG",
-    "sort": 51,
+    "sort": 90,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33083,9 +37528,9 @@
   "fields": {
     "service_group": 1,
     "service_parent": null,
-    "name": "Bezirk Schwyz",
-    "description": "Bez Schwyz",
-    "sort": 52,
+    "name": "Bezirk Schwyz (Gew\u00e4sser)",
+    "description": "Bez Schwyz (Gew\u00e4sser)",
+    "sort": 92,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33102,7 +37547,7 @@
     "service_parent": null,
     "name": "Bezirk H\u00f6fe",
     "description": "Bez H\u00f6fe",
-    "sort": 53,
+    "sort": 93,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33117,9 +37562,9 @@
   "fields": {
     "service_group": 1,
     "service_parent": null,
-    "name": "Bezirk March",
-    "description": "Bez March",
-    "sort": 54,
+    "name": "Bezirk March (Gew\u00e4sser)",
+    "description": "Bez March (Gew\u00e4sser)",
+    "sort": 95,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33136,7 +37581,7 @@
     "service_parent": null,
     "name": "Schiessoffizier",
     "description": "Schiessoffizier",
-    "sort": 55,
+    "sort": 96,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33153,7 +37598,7 @@
     "service_parent": null,
     "name": "Linthebene Melioration",
     "description": "LEM",
-    "sort": 56,
+    "sort": 97,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33170,7 +37615,7 @@
     "service_parent": null,
     "name": "Eidg. Starkstrominspektorat",
     "description": "ESTI Fehraltorf",
-    "sort": 57,
+    "sort": 98,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33187,7 +37632,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Umwelt",
     "description": "BAFU",
-    "sort": 58,
+    "sort": 99,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33204,7 +37649,7 @@
     "service_parent": null,
     "name": "Bundesamt f\u00fcr Verkehr",
     "description": "BAV",
-    "sort": 59,
+    "sort": 100,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33219,9 +37664,9 @@
   "fields": {
     "service_group": 3,
     "service_parent": null,
-    "name": "Gemeinde Einsiedeln",
-    "description": "Gemeinde Einsiedeln",
-    "sort": 2,
+    "name": "Bezirk Einsiedeln",
+    "description": "Bezirk Einsiedeln",
+    "sort": 16,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33236,9 +37681,9 @@
   "fields": {
     "service_group": 3,
     "service_parent": null,
-    "name": "Gemeinde K\u00fcssnacht",
-    "description": "Gemeinde K\u00fcssnacht",
-    "sort": 3,
+    "name": "Bezirk K\u00fcssnacht",
+    "description": "Bezirk K\u00fcssnacht",
+    "sort": 43,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33253,9 +37698,9 @@
   "fields": {
     "service_group": 3,
     "service_parent": null,
-    "name": "Gemeinde Gersau",
-    "description": "Gemeinde Gersau",
-    "sort": 4,
+    "name": "Bezirk Gersau",
+    "description": "Bezirk Gersau",
+    "sort": 44,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33272,7 +37717,7 @@
     "service_parent": null,
     "name": "Gemeinde Altendorf",
     "description": "Gemeinde Altendorf",
-    "sort": 5,
+    "sort": 45,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33289,7 +37734,7 @@
     "service_parent": null,
     "name": "Gemeinde Alpthal",
     "description": "Gemeinde Alpthal",
-    "sort": 6,
+    "sort": 46,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33306,7 +37751,7 @@
     "service_parent": null,
     "name": "Gemeinde Arth",
     "description": "Gemeinde Arth",
-    "sort": 7,
+    "sort": 47,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33323,7 +37768,7 @@
     "service_parent": null,
     "name": "Gemeinde Feusisberg",
     "description": "Gemeinde Feusisberg",
-    "sort": 8,
+    "sort": 48,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33340,7 +37785,7 @@
     "service_parent": null,
     "name": "Gemeinde Freienbach",
     "description": "Gemeinde Freienbach",
-    "sort": 9,
+    "sort": 49,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33357,7 +37802,7 @@
     "service_parent": null,
     "name": "Gemeinde Galgenen",
     "description": "Gemeinde Galgenen",
-    "sort": 10,
+    "sort": 50,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33374,7 +37819,7 @@
     "service_parent": null,
     "name": "Gemeinde Illgau",
     "description": "Gemeinde Illgau",
-    "sort": 11,
+    "sort": 51,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33391,7 +37836,7 @@
     "service_parent": null,
     "name": "Gemeinde Ingenbohl",
     "description": "Gemeinde Ingenbohl",
-    "sort": 12,
+    "sort": 52,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33408,7 +37853,7 @@
     "service_parent": null,
     "name": "Gemeinde Innerthal",
     "description": "Gemeinde Innerthal",
-    "sort": 13,
+    "sort": 53,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33425,7 +37870,7 @@
     "service_parent": null,
     "name": "Gemeinde Lachen",
     "description": "Gemeinde Lachen",
-    "sort": 14,
+    "sort": 54,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33442,7 +37887,7 @@
     "service_parent": null,
     "name": "Gemeinde Lauerz",
     "description": "Gemeinde Lauerz",
-    "sort": 15,
+    "sort": 55,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33459,7 +37904,7 @@
     "service_parent": null,
     "name": "Gemeinde Morschach",
     "description": "Gemeinde Morschach",
-    "sort": 16,
+    "sort": 56,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33476,7 +37921,7 @@
     "service_parent": null,
     "name": "Gemeinde Muotathal",
     "description": "Gemeinde Muotathal",
-    "sort": 17,
+    "sort": 57,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33493,7 +37938,7 @@
     "service_parent": null,
     "name": "Gemeinde Oberiberg",
     "description": "Gemeinde Oberiberg",
-    "sort": 18,
+    "sort": 58,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33510,7 +37955,7 @@
     "service_parent": null,
     "name": "Gemeinde Reichenburg",
     "description": "Gemeinde Reichenburg",
-    "sort": 19,
+    "sort": 59,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33527,7 +37972,7 @@
     "service_parent": null,
     "name": "Gemeinde Riemenstalden",
     "description": "Gemeinde Riemenstalden",
-    "sort": 20,
+    "sort": 60,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33544,7 +37989,7 @@
     "service_parent": null,
     "name": "Gemeinde Rothenthurm",
     "description": "Gemeinde Rothenthurm",
-    "sort": 21,
+    "sort": 61,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33561,7 +38006,7 @@
     "service_parent": null,
     "name": "Gemeinde Sch\u00fcbelbach",
     "description": "Gemeinde Sch\u00fcbelbach",
-    "sort": 22,
+    "sort": 62,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33578,7 +38023,7 @@
     "service_parent": null,
     "name": "Gemeinde Sattel",
     "description": "Gemeinde Sattel",
-    "sort": 23,
+    "sort": 63,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33595,7 +38040,7 @@
     "service_parent": null,
     "name": "Gemeinde Steinen",
     "description": "Gemeinde Steinen",
-    "sort": 25,
+    "sort": 65,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33612,7 +38057,7 @@
     "service_parent": null,
     "name": "Gemeinde Steinerberg",
     "description": "Gemeinde Steinerberg",
-    "sort": 26,
+    "sort": 66,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33629,7 +38074,7 @@
     "service_parent": null,
     "name": "Gemeinde Tuggen",
     "description": "Gemeinde Tuggen",
-    "sort": 27,
+    "sort": 67,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33646,7 +38091,7 @@
     "service_parent": null,
     "name": "Gemeinde Unteriberg",
     "description": "Gemeinde Unteriberg",
-    "sort": 28,
+    "sort": 68,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33663,7 +38108,7 @@
     "service_parent": null,
     "name": "Gemeinde Vorderthal",
     "description": "Gemeinde Vorderthal",
-    "sort": 29,
+    "sort": 69,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33680,7 +38125,7 @@
     "service_parent": null,
     "name": "Gemeinde Wangen",
     "description": "Gemeinde Wangen",
-    "sort": 30,
+    "sort": 70,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33697,7 +38142,7 @@
     "service_parent": null,
     "name": "Gemeinde Wollerau",
     "description": "Gemeinde Wollerau",
-    "sort": 31,
+    "sort": 71,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33712,9 +38157,9 @@
   "fields": {
     "service_group": 5,
     "service_parent": null,
-    "name": "Tiefbauamt",
-    "description": "Tiefbauamt",
-    "sort": 0,
+    "name": "Tiefbau Altendorf",
+    "description": "Tiefbau Altendorf",
+    "sort": 2,
     "phone": null,
     "zip": null,
     "city": null,
@@ -33729,9 +38174,1165 @@
   "fields": {
     "service_group": 5,
     "service_parent": null,
-    "name": "Hochbauamt",
-    "description": "Hochbauamt",
+    "name": "Wasserversorgung Altendorf",
+    "description": "Wasserversorgung Altendorf",
+    "sort": 15,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 79,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Milit\u00e4r, Feuer- und Zivilschutz (Zivilschutz)",
+    "description": "AMFZ (Zivilschutz)",
+    "sort": 10,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "amfz@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 80,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bezirk Schwyz (Strassen)",
+    "description": "Bez Schwyz (Strassen)",
+    "sort": 91,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "info@bezirk-schwyz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 81,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 15,
+    "name": "AWN (Naturgefahren)",
+    "description": "AWN (Naturgefahren)",
     "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "awn@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 82,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 15,
+    "name": "AWN (Forstrecht)",
+    "description": "AWN (Forstrecht)",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "awn@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 83,
+  "fields": {
+    "service_group": 1,
+    "service_parent": null,
+    "name": "Bezirk March (Strassen)",
+    "description": "Bez March (Strassen)",
+    "sort": 94,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "urs.dobler@bezirk-march.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 84,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 15,
+    "name": "AWN (Langsamverkehr)",
+    "description": "AWN (Langsamverkehr)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "awn@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 85,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 22,
+    "name": "LdU (Lebensmittel)",
+    "description": "LdU (Lebensmittel)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "kc@laburk.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 86,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 22,
+    "name": "LdU (Trinkwasser)",
+    "description": "LdU (Trinkwasser)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "kc@laburk.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 87,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 22,
+    "name": "LdU (Chemikalien)",
+    "description": "LdU (Chemikalien)",
+    "sort": 3,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "kc@laburk.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 88,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 22,
+    "name": "LdU (Kantonstierarzt)",
+    "description": "LdU (Kantonstierarzt)",
+    "sort": 4,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "kt@laburk.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 89,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 9,
+    "name": "AFL (Agrarmassnahmen)",
+    "description": "AFL (Agrarmassnahmen)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afl@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 90,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 9,
+    "name": "AFL (Strukturverbesserungen)",
+    "description": "AFL (Strukturverbesserungen)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afl@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 91,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 8,
+    "name": "AFK (Denkmalpflege)",
+    "description": "AFK (Denkmalpflege)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afk@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 92,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 8,
+    "name": "AFK (Arch\u00e4ologie)",
+    "description": "AFK (Arch\u00e4ologie)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afk@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 93,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 20,
+    "name": "TBA (Strategie und Entwicklung)",
+    "description": "TBA (Strategie und Entwicklung)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "tba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 94,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 20,
+    "name": "TBA (Projektierung)",
+    "description": "TBA (Projektierung)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "tba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 95,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 20,
+    "name": "TBA (Kunstbauten)",
+    "description": "TBA (Kunstbauten)",
+    "sort": 3,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "tba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 96,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 20,
+    "name": "TBA (Betrieb)",
+    "description": "TBA (Betrieb)",
+    "sort": 4,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "tba@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 97,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 11,
+    "name": "ANJF (Natur- und Landschaftsschutz)",
+    "description": "ANJF (Natur- und Landschaftsschutz)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anjf@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 98,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 11,
+    "name": "ANJF (Jagd)",
+    "description": "ANJF (Jagd)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anjf@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 99,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 11,
+    "name": "ANJF (Fischerei)",
+    "description": "ANJF (Fischerei)",
+    "sort": 3,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "anjf@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 100,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Luftreinhaltung Emissionen)",
+    "description": "AfU (Luftreinhaltung Emissionen)",
+    "sort": 1,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 101,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (St\u00f6rfallkoordination)",
+    "description": "AfU (St\u00f6rfallkoordination)",
+    "sort": 2,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 102,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (L\u00e4rm)",
+    "description": "AfU (L\u00e4rm)",
+    "sort": 3,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 103,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Nichtionisierende Strahlung)",
+    "description": "AfU (Nichtionisierende Strahlung)",
+    "sort": 4,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 104,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Umweltvertr\u00e4glichkeitspr\u00fcfung)",
+    "description": "AfU (Umweltvertr\u00e4glichkeitspr\u00fcfung)",
+    "sort": 5,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 105,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Sonderabf\u00e4lle)",
+    "description": "AfU (Sonderabf\u00e4lle)",
+    "sort": 6,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 106,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Abf\u00e4lle)",
+    "description": "AfU (Abf\u00e4lle)",
+    "sort": 7,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 107,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Abfallanlagen)",
+    "description": "AfU (Abfallanlagen)",
+    "sort": 8,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 108,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Bodenschutz)",
+    "description": "AfU (Bodenschutz)",
+    "sort": 9,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 109,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Luftreinhaltung Immissionen)",
+    "description": "AfU (Luftreinhaltung Immissionen)",
+    "sort": 10,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 110,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Licht)",
+    "description": "AfU (Licht)",
+    "sort": 11,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 111,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Verkehrsintensive Einrichtungen)",
+    "description": "AfU (Verkehrsintensive Einrichtungen)",
+    "sort": 12,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 112,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Wasserversorgung)",
+    "description": "AfU (Wasserversorgung)",
+    "sort": 13,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 113,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Wassergef\u00e4hrdende Fl\u00fcssigkeiten)",
+    "description": "AfU (Wassergef\u00e4hrdende Fl\u00fcssigkeiten)",
+    "sort": 14,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 114,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Pf\u00e4hlung, Bohrung)",
+    "description": "AfU (Pf\u00e4hlung, Bohrung)",
+    "sort": 15,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 115,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Bauen im Grundwasser)",
+    "description": "AfU (Bauen im Grundwasser)",
+    "sort": 16,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 116,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Deponien)",
+    "description": "AfU (Deponien)",
+    "sort": 17,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 117,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Belastete Standorte)",
+    "description": "AfU (Belastete Standorte)",
+    "sort": 18,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 118,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Abbaustellen)",
+    "description": "AfU (Abbaustellen)",
+    "sort": 19,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 119,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Neobiota)",
+    "description": "AfU (Neobiota)",
+    "sort": 20,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 120,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Industrie- und Gewerbeabwasser)",
+    "description": "AfU (Industrie- und Gewerbeabwasser)",
+    "sort": 21,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 121,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Kl\u00e4ranlagen)",
+    "description": "AfU (Kl\u00e4ranlagen)",
+    "sort": 22,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 122,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Bauten in und an stehenden Gew\u00e4ssern)",
+    "description": "AfU (Bauten in und an stehenden Gew\u00e4ssern)",
+    "sort": 23,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 123,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Entw\u00e4sserung)",
+    "description": "AfU (Entw\u00e4sserung)",
+    "sort": 24,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 124,
+  "fields": {
+    "service_group": 2,
+    "service_parent": 13,
+    "name": "AfU (Wasserentnahme und -r\u00fcckgabe)",
+    "description": "AfU (Wasserentnahme und -r\u00fcckgabe)",
+    "sort": 25,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "afu@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 125,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Wuhrkorporation R\u00fctibach",
+    "description": "Wuhrkorporation R\u00fctibach",
+    "sort": 0,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 126,
+  "fields": {
+    "service_group": 2,
+    "service_parent": null,
+    "name": "Amt f\u00fcr Raumentwicklung (Kantonale Planung)",
+    "description": "ARE (Kantonale Planung)",
+    "sort": 14,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": "are@sz.ch",
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 127,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Baukommission Altendorf",
+    "description": "Baukommission Altendorf",
+    "sort": 9,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 128,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "EVA Altendorf",
+    "description": "EVA Altendorf",
+    "sort": 6,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 129,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Geoterra AG",
+    "description": "Geoterra AG",
+    "sort": 5,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 130,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Keller und Bombana (Brandschutz)",
+    "description": "Keller und Bombana (Brandschutz)",
+    "sort": 11,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 131,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Kuster und Hager (Abwasser)",
+    "description": "Kuster und Hager (Abwasser)",
+    "sort": 13,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 132,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "EW H\u00f6fe (Telecom, Strom)",
+    "description": "EW H\u00f6fe (Telecom, Strom)",
+    "sort": 17,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 133,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Brandschutz Reichenburg",
+    "description": "Brandschutz Reichenburg",
+    "sort": 20,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 134,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Korporation Wollerau (Wasserversorgung)",
+    "description": "Korporation Wollerau (Wasserversorgung)",
+    "sort": 22,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 135,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Remund und Kuster (Raumplanung)",
+    "description": "Remund und Kuster (Raumplanung)",
+    "sort": 24,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 136,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "EW Reichenburg",
+    "description": "EW Reichenburg",
+    "sort": 25,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 137,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Brandschutz Wollerau",
+    "description": "Brandschutz Wollerau",
+    "sort": 31,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 138,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Baubeh\u00f6rde Wollerau",
+    "description": "Baubeh\u00f6rde Wollerau",
+    "sort": 32,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 139,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Hochbaukommission Lachen",
+    "description": "Hochbaukommission Lachen",
+    "sort": 34,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 140,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Gemeinderat Lachen",
+    "description": "Gemeinderat Lachen",
+    "sort": 36,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 141,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Ingenieurb\u00fcro Marty AG",
+    "description": "Ingenieurb\u00fcro Marty AG",
+    "sort": 38,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 142,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "EW Lachen AG",
+    "description": "EW Lachen AG",
+    "sort": 40,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 143,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "ProCap",
+    "description": "ProCap",
+    "sort": 41,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 144,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "geometrie plus ag",
+    "description": "geometrie plus ag",
+    "sort": 42,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 145,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Allgemeine Genossame Reichenburg",
+    "description": "Allgemeine Genossame Reichenburg",
+    "sort": 27,
+    "phone": null,
+    "zip": null,
+    "city": null,
+    "address": null,
+    "email": null,
+    "website": null
+  }
+},
+{
+  "model": "user.service",
+  "pk": 146,
+  "fields": {
+    "service_group": 5,
+    "service_parent": null,
+    "name": "Erdgas Obersee AG",
+    "description": "Erdgas Obersee AG",
+    "sort": 28,
     "phone": null,
     "zip": null,
     "city": null,
