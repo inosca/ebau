@@ -29,6 +29,21 @@ class Form(models.Model):
         db_table = "FORM"
 
 
+class FormT(models.Model):
+    form = models.ForeignKey(
+        Form, models.CASCADE, db_column="FORM_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "FORM_T"
+
+
 class InstanceState(models.Model):
     instance_state_id = models.AutoField(
         db_column="INSTANCE_STATE_ID", primary_key=True
@@ -45,6 +60,21 @@ class InstanceState(models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_STATE"
+
+
+class InstanceStateT(models.Model):
+    instance_state = models.ForeignKey(
+        InstanceState, models.CASCADE, db_column="INSTANCE_STATE_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_STATE_T"
 
 
 class InstanceStateDescription(models.Model):

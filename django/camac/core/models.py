@@ -34,6 +34,19 @@ class ACirculationEmail(models.Model):
         db_table = "A_CIRCULATION_EMAIL"
 
 
+class ACirculationEmailT(models.Model):
+    action = models.ForeignKey(
+        ACirculationEmail, models.CASCADE, db_column="ACTION_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
+    text = models.CharField(db_column="TEXT", max_length=2000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "A_CIRCULATION_EMAIL_T"
+
+
 class ACirculationtransition(models.Model):
     action = models.OneToOneField(
         "Action",
@@ -170,6 +183,10 @@ class ADeleteCirculation(models.Model):
         related_name="+",
     )
     delete_level = models.IntegerField(db_column="DELETE_LEVEL")
+    circulation_to_be_interpreted = models.CharField(
+        db_column="CIRCULATION_TO_BE_INTERPRETED", max_length=100, blank=True, null=True
+    )
+    is_single_delete = models.NullBooleanField(db_column="IS_SINGLE_DELETE")
 
     class Meta:
         managed = True
@@ -187,12 +204,25 @@ class AEmail(models.Model):
     sender_name = models.CharField(db_column="SENDER_NAME", max_length=50)
     sender_email = models.CharField(db_column="SENDER_EMAIL", max_length=50)
     query = models.CharField(db_column="QUERY", max_length=4000)
-    title = models.CharField(db_column="TITLE", max_length=200)
-    text = models.CharField(db_column="TEXT", max_length=2000)
+    title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
+    text = models.CharField(db_column="TEXT", max_length=2000, blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = "A_EMAIL"
+
+
+class AEmailT(models.Model):
+    action = models.ForeignKey(
+        AEmail, models.CASCADE, db_column="ACTION_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
+    text = models.CharField(db_column="TEXT", max_length=2000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "A_EMAIL_T"
 
 
 class AFormtransition(models.Model):
@@ -368,6 +398,18 @@ class AProposal(models.Model):
         db_table = "A_PROPOSAL"
 
 
+class AProposalT(models.Model):
+    action = models.ForeignKey(
+        AProposal, models.CASCADE, db_column="ACTION_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    reason = models.CharField(db_column="REASON", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "A_PROPOSAL_T"
+
+
 class AProposalHoliday(models.Model):
     a_proposal_holiday_id = models.AutoField(
         db_column="A_PROPOSAL_HOLIDAY_ID", primary_key=True
@@ -442,7 +484,7 @@ class Action(models.Model):
     button = models.ForeignKey(
         "Button", models.CASCADE, db_column="BUTTON_ID", related_name="+"
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -458,6 +500,27 @@ class Action(models.Model):
     class Meta:
         managed = True
         db_table = "ACTION"
+
+
+class ActionT(models.Model):
+    action = models.ForeignKey(
+        Action, models.CASCADE, db_column="ACTION_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+    success_message = models.CharField(
+        db_column="SUCCESS_MESSAGE", max_length=1000, blank=True, null=True
+    )
+    error_message = models.CharField(
+        db_column="ERROR_MESSAGE", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "ACTION_T"
 
 
 class Activation(models.Model):
@@ -649,12 +712,24 @@ class AnswerList(models.Model):
         "Question", models.CASCADE, db_column="QUESTION_ID", related_name="+"
     )
     value = models.CharField(db_column="VALUE", max_length=20)
-    name = models.CharField(db_column="NAME", max_length=300)
+    name = models.CharField(db_column="NAME", max_length=1000, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     class Meta:
         managed = True
         db_table = "ANSWER_LIST"
+
+
+class AnswerListT(models.Model):
+    answer_list = models.ForeignKey(
+        AnswerList, models.CASCADE, db_column="ANSWER_LIST_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=1000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "ANSWER_LIST_T"
 
 
 class AnswerLog(models.Model):
@@ -1189,13 +1264,13 @@ class Button(models.Model):
         db_column="INSTANCE_RESOURCE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
-        db_column="CLASS", max_length=200, blank=True, null=True
+        db_column="CLASS", max_length=250, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
     sort = models.IntegerField(db_column="SORT")
@@ -1205,9 +1280,24 @@ class Button(models.Model):
         db_table = "BUTTON"
 
 
+class ButtonT(models.Model):
+    button = models.ForeignKey(
+        Button, models.CASCADE, db_column="BUTTON_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "BUTTON_T"
+
+
 class Chapter(models.Model):
     chapter_id = models.AutoField(db_column="CHAPTER_ID", primary_key=True)
-    name = models.CharField(db_column="NAME", max_length=500)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -1332,6 +1422,21 @@ class ChapterPageUserAcl(models.Model):
         unique_together = (("chapter", "page", "user", "instance_state"),)
 
 
+class ChapterT(models.Model):
+    chapter = models.ForeignKey(
+        Chapter, models.CASCADE, db_column="CHAPTER_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "CHAPTER_T"
+
+
 class Circulation(models.Model):
     circulation_id = models.AutoField(db_column="CIRCULATION_ID", primary_key=True)
     # While this "should" be a foreign key, we decouple to be able
@@ -1369,26 +1474,53 @@ class CirculationAnswer(models.Model):
         db_column="CIRCULATION_ANSWER_TYPE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         managed = True
         db_table = "CIRCULATION_ANSWER"
 
 
+class CirculationAnswerT(models.Model):
+    circulation_answer = models.ForeignKey(
+        CirculationAnswer,
+        models.CASCADE,
+        db_column="CIRCULATION_ANSWER_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "CIRCULATION_ANSWER_T"
+
+
 class CirculationAnswerType(models.Model):
     circulation_answer_type_id = models.AutoField(
         db_column="CIRCULATION_ANSWER_TYPE_ID", primary_key=True
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = "CIRCULATION_ANSWER_TYPE"
+
+
+class CirculationAnswerTypeT(models.Model):
+    circulation_answer_type = models.ForeignKey(
+        CirculationAnswerType,
+        models.CASCADE,
+        db_column="CIRCULATION_ANSWER_TYPE_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "CIRCULATION_ANSWER_TYPE_T"
 
 
 class CirculationLog(models.Model):
@@ -1416,7 +1548,7 @@ class CirculationReason(models.Model):
         db_column="CIRCULATION_TYPE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     class Meta:
@@ -1424,11 +1556,26 @@ class CirculationReason(models.Model):
         db_table = "CIRCULATION_REASON"
 
 
+class CirculationReasonT(models.Model):
+    circulation_reason = models.ForeignKey(
+        CirculationReason,
+        models.CASCADE,
+        db_column="CIRCULATION_REASON_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "CIRCULATION_REASON_T"
+
+
 class CirculationState(models.Model):
     circulation_state_id = models.AutoField(
         db_column="CIRCULATION_STATE_ID", primary_key=True
     )
-    name = models.CharField(db_column="NAME", max_length=100)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     def __str__(self):
@@ -1439,11 +1586,26 @@ class CirculationState(models.Model):
         db_table = "CIRCULATION_STATE"
 
 
+class CirculationStateT(models.Model):
+    circulation_state_id = models.ForeignKey(
+        CirculationState,
+        models.CASCADE,
+        db_column="CIRCULATION_STATE_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "CIRCULATION_STATE_T"
+
+
 class CirculationType(models.Model):
     circulation_type_id = models.AutoField(
         db_column="CIRCULATION_TYPE_ID", primary_key=True
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     # While this "should" be a foreign key, we decouple to be able
     # to separate config from data models
     # references Page
@@ -1570,6 +1732,21 @@ class TemplateGenerateAction(models.Model):
         unique_together = (("as_pdf", "template", "action"),)
 
 
+class CirculationTypeT(models.Model):
+    circulation_type = models.ForeignKey(
+        CirculationType,
+        models.CASCADE,
+        db_column="CIRCULATION_TYPE_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "CIRCULATION_TYPE_T"
+
+
 class DocgenPdfAction(models.Model):
     id = models.AutoField(db_column="ID", primary_key=True)
     docgen_template = models.ForeignKey(
@@ -1622,7 +1799,7 @@ class DocgenTemplateClass(models.Model):
 
 class FormGroup(models.Model):
     form_group_id = models.AutoField(db_column="FORM_GROUP_ID", primary_key=True)
-    name = models.CharField(db_column="NAME", max_length=500)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -1647,34 +1824,32 @@ class FormGroupForm(models.Model):
         unique_together = (("form_group", "form"),)
 
 
-class GlossaryCategory(models.Model):
-    glossary_category_id = models.AutoField(
-        db_column="GLOSSARY_CATEGORY_ID", primary_key=True
+class FormGroupT(models.Model):
+    form_group = models.ForeignKey(
+        FormGroup, models.CASCADE, db_column="FORM_GROUP_ID", related_name="+"
     )
-    name = models.CharField(db_column="NAME", max_length=80)
-    role_id = models.FloatField(db_column="ROLE_ID", blank=True, null=True)
-    service_id = models.FloatField(db_column="SERVICE_ID", blank=True, null=True)
-    user_id = models.FloatField(db_column="USER_ID", blank=True, null=True)
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
 
     class Meta:
         managed = True
-        db_table = "GLOSSARY_CATEGORY"
+        db_table = "FORM_GROUP_T"
 
 
-class GlossarySentence(models.Model):
-    glossary_sentence_id = models.AutoField(
-        db_column="GLOSSARY_SENTENCE_ID", primary_key=True
+class GroupPermission(models.Model):
+    id = models.AutoField(db_column="ID", primary_key=True)
+    group = models.ForeignKey(
+        "user.Group", models.DO_NOTHING, db_column="GROUP_ID", related_name="+"
     )
-    glossary_category_id = models.FloatField(db_column="GLOSSARY_CATEGORY_ID")
-    title = models.CharField(db_column="TITLE", max_length=500)
-    sentence = models.CharField(db_column="SENTENCE", max_length=4000)
-    role_id = models.FloatField(db_column="ROLE_ID", blank=True, null=True)
-    service_id = models.FloatField(db_column="SERVICE_ID", blank=True, null=True)
-    user_id = models.FloatField(db_column="USER_ID", blank=True, null=True)
+    permission_id = models.CharField(db_column="PERMISSION_ID", max_length=100)
 
     class Meta:
         managed = True
-        db_table = "GLOSSARY_SENTENCE"
+        db_table = "GROUP_PERMISSION"
+        unique_together = (("group", "permission_id"),)
 
 
 class InstanceDemo(models.Model):
@@ -1734,6 +1909,36 @@ class InstanceFormPdf(models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_FORM_PDF"
+
+
+class InstanceFormwizard(models.Model):
+    instance = models.OneToOneField(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    pages = models.CharField(db_column="PAGES", max_length=500)
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_FORMWIZARD"
+
+
+class InstanceFormwizardLog(models.Model):
+    instance_formwizard_log_id = models.AutoField(
+        db_column="INSTANCE_FORMWIZARD_LOG_ID", primary_key=True
+    )
+    modification_date = models.DateTimeField(db_column="MODIFICATION_DATE")
+    user_id = models.IntegerField(db_column="USER_ID")
+    action = models.CharField(db_column="ACTION", max_length=500)
+    data = models.TextField(db_column="DATA")
+    id = models.IntegerField(db_column="ID")
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_FORMWIZARD_LOG"
 
 
 class InstanceGuest(models.Model):
@@ -1823,7 +2028,7 @@ class InstanceResource(models.Model):
     resource = models.ForeignKey(
         "Resource", models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -1832,7 +2037,7 @@ class InstanceResource(models.Model):
     )
     # Field renamed because it was a Python reserved word.
     class_field = models.CharField(
-        db_column="CLASS", max_length=25, blank=True, null=True
+        db_column="CLASS", max_length=250, blank=True, null=True
     )
     hidden = models.PositiveSmallIntegerField(db_column="HIDDEN")
     sort = models.IntegerField(db_column="SORT")
@@ -1864,6 +2069,24 @@ class InstanceResourceAction(models.Model):
         managed = True
         db_table = "INSTANCE_RESOURCE_ACTION"
         unique_together = (("available_instance_resource", "available_action"),)
+
+
+class InstanceResourceT(models.Model):
+    instance_resource = models.ForeignKey(
+        InstanceResource,
+        models.CASCADE,
+        db_column="INSTANCE_RESOURCE_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_RESOURCE_T"
 
 
 class IrAllformpages(models.Model):
@@ -2024,6 +2247,23 @@ class IrEditcirculationSg(models.Model):
         db_table = "IR_EDITCIRCULATION_SG"
 
 
+class IrEditcirculationT(models.Model):
+    instance_resource = models.ForeignKey(
+        IrEditcirculation,
+        models.CASCADE,
+        db_column="INSTANCE_RESOURCE_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    default_circulation_name = models.CharField(
+        db_column="DEFAULT_CIRCULATION_NAME", max_length=500, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "IR_EDITCIRCULATION_T"
+
+
 class IrEditformpage(models.Model):
     instance_resource = models.OneToOneField(
         InstanceResource,
@@ -2093,11 +2333,26 @@ class IrEditletterAnswer(models.Model):
     instance_resource = models.ForeignKey(
         IrEditletter, models.CASCADE, db_column="INSTANCE_RESOURCE_ID", related_name="+"
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
 
     class Meta:
         managed = True
         db_table = "IR_EDITLETTER_ANSWER"
+
+
+class IrEditletterAnswerT(models.Model):
+    ir_editletter_answer = models.ForeignKey(
+        IrEditletterAnswer,
+        models.CASCADE,
+        db_column="IR_EDITLETTER_ANSWER_ID",
+        related_name="+",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "IR_EDITLETTER_ANSWER_T"
 
 
 class IrEditnotice(models.Model):
@@ -2224,10 +2479,32 @@ class IrFormwizard(models.Model):
     summary = models.CharField(
         db_column="SUMMARY", max_length=4000, blank=True, null=True
     )
+    php_class = models.CharField(
+        db_column="PHP_CLASS", max_length=500, blank=True, null=True
+    )
+    goto_second_page = models.PositiveSmallIntegerField(db_column="GOTO_SECOND_PAGE")
+    hide_summary_page = models.PositiveSmallIntegerField(db_column="HIDE_SUMMARY_PAGE")
+    hide_summary_questions = models.PositiveSmallIntegerField(
+        db_column="HIDE_SUMMARY_QUESTIONS"
+    )
 
     class Meta:
         managed = True
         db_table = "IR_FORMWIZARD"
+
+
+class IrFormwizardT(models.Model):
+    instance_resource = models.ForeignKey(
+        IrFormwizard, models.CASCADE, db_column="INSTANCE_RESOURCE_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    summary = models.CharField(
+        db_column="SUMMARY", max_length=4000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "IR_FORMWIZARD_T"
 
 
 class IrGroupAcl(models.Model):
@@ -2540,7 +2817,7 @@ class NoticeType(models.Model):
         db_column="CIRCULATION_TYPE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -2550,9 +2827,21 @@ class NoticeType(models.Model):
         db_table = "NOTICE_TYPE"
 
 
+class NoticeTypeT(models.Model):
+    notice_type = models.ForeignKey(
+        NoticeType, models.CASCADE, db_column="NOTICE_TYPE_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "NOTICE_TYPE_T"
+
+
 class Page(models.Model):
     page_id = models.AutoField(db_column="PAGE_ID", primary_key=True)
-    name = models.CharField(db_column="NAME", max_length=500)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -2565,12 +2854,27 @@ class Page(models.Model):
         db_table = "PAGE"
 
 
+class PageT(models.Model):
+    page = models.ForeignKey(
+        Page, models.CASCADE, db_column="PAGE_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "PAGE_T"
+
+
 class PageAnswerActivation(models.Model):
     page_answer_activation_id = models.AutoField(
         db_column="PAGE_ANSWER_ACTIVATION_ID", primary_key=True
     )
     form = models.ForeignKey(
-        "PageForm", models.CASCADE, db_column="FORM_ID", related_name="+"
+        "instance.Form", models.CASCADE, db_column="FORM_ID", related_name="+"
     )
     chapter = models.ForeignKey(
         "Chapter", models.CASCADE, db_column="CHAPTER_ID", related_name="+"
@@ -2579,7 +2883,7 @@ class PageAnswerActivation(models.Model):
         "Question", models.CASCADE, db_column="QUESTION_ID", related_name="+"
     )
     page = models.ForeignKey(
-        "PageForm", models.CASCADE, db_column="PAGE_ID", related_name="+"
+        "Page", models.CASCADE, db_column="PAGE_ID", related_name="+"
     )
     answer = models.CharField(db_column="ANSWER", max_length=4000)
 
@@ -2648,6 +2952,18 @@ class PageFormGroupAcl(models.Model):
         managed = True
         db_table = "PAGE_FORM_GROUP_ACL"
         unique_together = (("page", "form", "group", "instance_state"),)
+
+
+class PageFormGroupT(models.Model):
+    page_form_group = models.ForeignKey(
+        PageFormGroup, models.CASCADE, db_column="PAGE_FORM_GROUP_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "PAGE_FORM_GROUP_T"
 
 
 class PageFormMode(models.Model):
@@ -2831,7 +3147,7 @@ class Question(models.Model):
         blank=True,
         null=True,
     )
-    name = models.CharField(db_column="NAME", max_length=500)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -2969,6 +3285,24 @@ class QuestionChapterUserAcl(models.Model):
         unique_together = (("question", "chapter", "user", "instance_state"),)
 
 
+class QuestionT(models.Model):
+    question = models.ForeignKey(
+        Question, models.CASCADE, db_column="QUESTION_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+    default_answer = models.CharField(
+        db_column="DEFAULT_ANSWER", max_length=4000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "QUESTION_T"
+
+
 class QuestionType(models.Model):
     question_type_id = models.AutoField(db_column="QUESTION_TYPE_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=20)
@@ -3083,12 +3417,24 @@ class RListColumn(models.Model):
         RList, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
     column_name = models.CharField(db_column="COLUMN_NAME", max_length=30)
-    alias = models.CharField(db_column="ALIAS", max_length=30)
+    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     class Meta:
         managed = True
         db_table = "R_LIST_COLUMN"
+
+
+class RListColumnT(models.Model):
+    r_list_column = models.ForeignKey(
+        RListColumn, models.CASCADE, db_column="R_LIST_COLUMN_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "R_LIST_COLUMN_T"
 
 
 class RPage(models.Model):
@@ -3138,7 +3484,9 @@ class RSearch(models.Model):
     pdf_class = models.CharField(
         db_column="PDF_CLASS", max_length=500, blank=True, null=True
     )
-    preserve_result = models.PositiveSmallIntegerField(db_column="PRESERVE_RESULT")
+    preserve_result = models.PositiveSmallIntegerField(
+        db_column="PRESERVE_RESULT", default=0
+    )
 
     class Meta:
         managed = True
@@ -3153,12 +3501,24 @@ class RSearchColumn(models.Model):
         RSearch, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
     column_name = models.CharField(db_column="COLUMN_NAME", max_length=30)
-    alias = models.CharField(db_column="ALIAS", max_length=30)
+    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     class Meta:
         managed = True
         db_table = "R_SEARCH_COLUMN"
+
+
+class RSearchColumnT(models.Model):
+    r_search_column = models.ForeignKey(
+        RSearchColumn, models.CASCADE, db_column="R_SEARCH_COLUMN_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "R_SEARCH_COLUMN_T"
 
 
 class RSearchFilter(models.Model):
@@ -3177,7 +3537,10 @@ class RSearchFilter(models.Model):
         null=True,
     )
     field_name = models.CharField(db_column="FIELD_NAME", max_length=50)
-    label = models.CharField(db_column="LABEL", max_length=1000)
+    class_field = models.CharField(
+        db_column="CLASS", max_length=200, blank=True, null=True
+    )  # Field renamed because it was a Python reserved word.
+    label = models.CharField(db_column="LABEL", max_length=1000, blank=True, null=True)
     query = models.CharField(db_column="QUERY", max_length=4000)
     wildcard = models.PositiveSmallIntegerField(db_column="WILDCARD")
     # Field renamed because it was a Python reserved word.
@@ -3188,6 +3551,18 @@ class RSearchFilter(models.Model):
     class Meta:
         managed = True
         db_table = "R_SEARCH_FILTER"
+
+
+class RSearchFilterT(models.Model):
+    r_search_filter = models.ForeignKey(
+        RSearchFilter, models.CASCADE, db_column="R_SEARCH_FILTER_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    label = models.CharField(db_column="LABEL", max_length=1000, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "R_SEARCH_FILTER_T"
 
 
 class RServiceAcl(models.Model):
@@ -3207,7 +3582,7 @@ class RServiceAcl(models.Model):
 
 class RSimpleList(models.Model):
     resource_id = models.AutoField(db_column="RESOURCE_ID", primary_key=True)
-    instance_states = models.CharField(db_column="INSTANCE_STATES", max_length=100)
+    instance_states = models.CharField(db_column="INSTANCE_STATES", max_length=400)
 
     class Meta:
         managed = True
@@ -3237,7 +3612,7 @@ class Resource(models.Model):
         db_column="AVAILABLE_RESOURCE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -3254,6 +3629,21 @@ class Resource(models.Model):
     class Meta:
         managed = True
         db_table = "RESOURCE"
+
+
+class ResourceT(models.Model):
+    resource = models.ForeignKey(
+        Resource, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    description = models.CharField(
+        db_column="DESCRIPTION", max_length=1000, blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "RESOURCE_T"
 
 
 class Sanction(models.Model):
@@ -3313,6 +3703,213 @@ class ServiceAnswerActivation(models.Model):
     class Meta:
         managed = True
         db_table = "SERVICE_ANSWER_ACTIVATION"
+
+
+class InstanceService(models.Model):
+    instance = models.ForeignKey(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        related_name="+",
+    )
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, db_column="SERVICE_ID", related_name="+"
+    )
+    active = models.PositiveSmallIntegerField(db_column="ACTIVE", default=0)
+    activation_date = models.DateTimeField(
+        db_column="ACTIVATION_DATE", blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_SERVICE"
+
+
+class Publication(models.Model):
+    instance = models.AutoField(
+        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
+    )
+    start = models.DateField(db_column="START_DATE")
+    end = models.DateField(db_column="END_DATE")
+    text = models.TextField(db_column="TEXT")
+
+    class Meta:
+        managed = True
+        db_table = "PUBLICATION"
+
+
+class InstanceParent(models.Model):
+    instance = models.AutoField(
+        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
+    )
+    parent = models.ForeignKey(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="PARENT_INSTANCE_ID",
+        related_name="+",
+    )
+    user = models.ForeignKey(
+        "user.User", models.DO_NOTHING, db_column="USER_ID", related_name="+"
+    )
+    service = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="SERVICE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
+    created = models.DateTimeField(db_column="CREATED")
+
+    class Meta:
+        managed = True
+        db_table = "INSTANCE_PARENT"
+
+
+class BillingV2Entry(models.Model):
+    TAX_MODE_CHOICES = (
+        ("inclusive", "Incl 7.7%"),
+        ("exclusive", "Excl 7.7%"),
+        ("exempt", "Tax exempt"),
+    )
+
+    CALCULATION_CHOICES = (
+        ("flat", "Flat rate"),
+        ("percentage", "Percentage"),
+        ("hourly", "Hourly"),
+    )
+
+    DECIMAL_FORMAT = {"max_digits": 10, "decimal_places": 2, "null": True}
+
+    # Structural: Which instance is the item billed to?
+    instance = models.ForeignKey(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        related_name="+",
+    )
+
+    # Organisation: Who charged the item?
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+
+    # Billing text
+    text = models.TextField()
+    date_added = models.DateField()
+
+    # Tax mode = calculation model for tax
+    tax_mode = models.CharField(choices=TAX_MODE_CHOICES, max_length=20)
+
+    # Calculation mode
+    calculation = models.CharField(choices=CALCULATION_CHOICES, max_length=20)
+
+    # Tax rate (percentage)
+    tax_rate = models.DecimalField(**DECIMAL_FORMAT)
+
+    # Calculation mode: hourly rate
+    hours = models.DecimalField(**DECIMAL_FORMAT)
+    hourly_rate = models.DecimalField(**DECIMAL_FORMAT)
+
+    # Calculation mode: percentage of total cost
+    percentage = models.DecimalField(**DECIMAL_FORMAT)
+    total_cost = models.DecimalField(**DECIMAL_FORMAT)
+
+    # Final rate (may be entered directly in "flat" mode, otherwise it's
+    # calculated. We store it for easier handling in the output however.
+    final_rate = models.DecimalField(**DECIMAL_FORMAT)
+
+    class Meta:
+        managed = True
+        db_table = "BILLING_V2_ENTRY"
+
+
+class Journal(models.Model):
+    ENTRY_MODE_CHOICES = (("automatic", "Automatic"), ("user", "Manual entry by user"))
+
+    instance = models.ForeignKey(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        related_name="+",
+    )
+
+    # Created automatically or by user?
+    mode = models.CharField(choices=ENTRY_MODE_CHOICES, max_length=20, db_column="MODE")
+
+    # Creator
+    user = models.ForeignKey(
+        "user.User", models.DO_NOTHING, related_name="+", db_column="USER_ID"
+    )
+
+    # Visible for this service only
+    service = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        related_name="+",
+        db_column="SERVICE_ID",
+        blank=True,
+        null=True,
+    )
+
+    text = models.TextField(db_column="TEXT")
+    created = models.DateTimeField(db_column="CREATED")
+
+    class Meta:
+        managed = True
+        db_table = "JOURNAL"
+
+
+class JournalActionConfig(models.Model):
+    action = models.OneToOneField(
+        "Action",
+        models.CASCADE,
+        db_column="ACTION_ID",
+        primary_key=True,
+        related_name="+",
+    )
+    text = models.TextField(db_column="TEXT", blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "JOURNAL_ACTION_CONFIG"
+
+
+class JournalActionConfigT(models.Model):
+    action = models.ForeignKey(
+        "JournalActionConfig", models.CASCADE, db_column="ACTION_ID", related_name="+"
+    )
+
+    text = models.TextField(db_column="TEXT")
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+
+    class Meta:
+        managed = True
+        db_table = "JOURNAL_ACTION_CONFIG_T"
+
+
+class DocxDecision(models.Model):
+    instance = models.AutoField(
+        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
+    )
+    decision = models.CharField(db_column="DECISION", max_length=30)
+    decision_type = models.CharField(
+        db_column="DECISION_TYPE", max_length=30, blank=True, null=True
+    )
+    decision_date = models.DateField(db_column="DECISION_DATE")
+
+    class Meta:
+        managed = True
+        db_table = "DOCX_DECISION"
+
+
+class Municipality(models.Model):
+    bfs_nr = models.IntegerField(db_column="BFS_NR", primary_key=True)
+    name = models.CharField(db_column="NAME", max_length=100)
+    district_nr = models.PositiveSmallIntegerField(db_column="DISTRICT_NR")
+
+    class Meta:
+        managed = True
+        db_table = "MUNICIPALITY"
 
 
 class WorkflowAction(models.Model):
