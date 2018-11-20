@@ -42265,1387 +42265,733 @@
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 1,
-  "fields": {
-    "group": 22,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 2,
-  "fields": {
-    "group": 24,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 3,
-  "fields": {
-    "group": 24,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 4,
-  "fields": {
-    "group": 24,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 5,
-  "fields": {
-    "group": 62,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 6,
-  "fields": {
-    "group": 122,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 7,
-  "fields": {
-    "group": 122,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 8,
-  "fields": {
-    "group": 143,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 9,
-  "fields": {
-    "group": 144,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 10,
-  "fields": {
-    "group": 145,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 11,
-  "fields": {
-    "group": 146,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 12,
-  "fields": {
-    "group": 147,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 13,
-  "fields": {
-    "group": 147,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 14,
-  "fields": {
-    "group": 148,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 15,
-  "fields": {
-    "group": 149,
-    "location": 12
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 16,
-  "fields": {
-    "group": 150,
-    "location": 13
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 17,
-  "fields": {
-    "group": 151,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 18,
-  "fields": {
-    "group": 152,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 19,
-  "fields": {
-    "group": 153,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 20,
-  "fields": {
-    "group": 154,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 21,
   "fields": {
-    "group": 155,
-    "location": 18
+    "form_state": 1,
+    "name": "Baugesuch-Vorabkl\u00e4rung mit kantonaler Beteiligung",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 22,
-  "fields": {
-    "group": 156,
-    "location": 19
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 23,
-  "fields": {
-    "group": 183,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 24,
-  "fields": {
-    "group": 184,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 25,
-  "fields": {
-    "group": 185,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 26,
-  "fields": {
-    "group": 186,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 27,
-  "fields": {
-    "group": 187,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 28,
-  "fields": {
-    "group": 188,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 29,
-  "fields": {
-    "group": 189,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 30,
-  "fields": {
-    "group": 189,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 31,
-  "fields": {
-    "group": 189,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 32,
-  "fields": {
-    "group": 190,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 33,
-  "fields": {
-    "group": 191,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 34,
-  "fields": {
-    "group": 192,
-    "location": 12
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 35,
-  "fields": {
-    "group": 193,
-    "location": 13
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 36,
-  "fields": {
-    "group": 194,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 37,
-  "fields": {
-    "group": 195,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 38,
-  "fields": {
-    "group": 196,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 39,
-  "fields": {
-    "group": 197,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 40,
-  "fields": {
-    "group": 198,
-    "location": 18
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 41,
   "fields": {
-    "group": 199,
-    "location": 19
+    "form_state": 1,
+    "name": "Verfahren nach BGBB / und Apparzellierungsverfahren",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 42,
   "fields": {
-    "group": 208,
-    "location": 10
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren BG",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 43,
   "fields": {
-    "group": 183,
-    "location": 10
+    "form_state": 1,
+    "name": "Internes Genehmigungsverfahren",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 44,
   "fields": {
-    "group": 402,
-    "location": 2
+    "form_state": 1,
+    "name": "Baubewilligungsverfahren mit kantonaler Beteiligung",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 45,
   "fields": {
-    "group": 382,
-    "location": 9
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV nach Luftfahrtgesetz",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 46,
   "fields": {
-    "group": 383,
-    "location": 20
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV f\u00fcr milit\u00e4rische Bauten",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 47,
   "fields": {
-    "group": 402,
-    "location": 10
+    "form_state": 1,
+    "name": "Baubewilligungsverfahren ohne kantonale Beteiligung",
+    "description": ""
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 48,
-  "fields": {
-    "group": 503,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 49,
-  "fields": {
-    "group": 505,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 50,
-  "fields": {
-    "group": 508,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 51,
-  "fields": {
-    "group": 507,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 52,
-  "fields": {
-    "group": 506,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 53,
-  "fields": {
-    "group": 509,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 54,
-  "fields": {
-    "group": 509,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 55,
-  "fields": {
-    "group": 510,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 56,
-  "fields": {
-    "group": 511,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 57,
-  "fields": {
-    "group": 511,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 58,
-  "fields": {
-    "group": 511,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 59,
-  "fields": {
-    "group": 512,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 60,
-  "fields": {
-    "group": 513,
-    "location": 12
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 61,
   "fields": {
-    "group": 514,
-    "location": 13
+    "form_state": 1,
+    "name": "Baugesuch-Vorabkl\u00e4rung ohne kantonale Beteiligung",
+    "description": ""
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 62,
-  "fields": {
-    "group": 515,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 63,
-  "fields": {
-    "group": 516,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 64,
-  "fields": {
-    "group": 517,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 65,
-  "fields": {
-    "group": 518,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 66,
-  "fields": {
-    "group": 519,
-    "location": 18
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 67,
-  "fields": {
-    "group": 520,
-    "location": 19
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 68,
-  "fields": {
-    "group": 521,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 69,
-  "fields": {
-    "group": 504,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 70,
-  "fields": {
-    "group": 812,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 71,
-  "fields": {
-    "group": 813,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 72,
-  "fields": {
-    "group": 812,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 73,
-  "fields": {
-    "group": 812,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 74,
-  "fields": {
-    "group": 812,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 75,
-  "fields": {
-    "group": 812,
-    "location": 13
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 76,
-  "fields": {
-    "group": 812,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 77,
-  "fields": {
-    "group": 812,
-    "location": 19
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 78,
-  "fields": {
-    "group": 812,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 79,
-  "fields": {
-    "group": 812,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 80,
-  "fields": {
-    "group": 812,
-    "location": 18
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 81,
-  "fields": {
-    "group": 811,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 82,
-  "fields": {
-    "group": 812,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 83,
-  "fields": {
-    "group": 812,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 84,
-  "fields": {
-    "group": 811,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 85,
-  "fields": {
-    "group": 812,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 86,
-  "fields": {
-    "group": 811,
-    "location": 12
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 87,
-  "fields": {
-    "group": 812,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 88,
-  "fields": {
-    "group": 810,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 89,
-  "fields": {
-    "group": 812,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 90,
-  "fields": {
-    "group": 838,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 91,
-  "fields": {
-    "group": 838,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 92,
-  "fields": {
-    "group": 838,
-    "location": 12
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 93,
-  "fields": {
-    "group": 837,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 94,
-  "fields": {
-    "group": 837,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 95,
-  "fields": {
-    "group": 837,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 96,
-  "fields": {
-    "group": 837,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 97,
-  "fields": {
-    "group": 837,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 98,
-  "fields": {
-    "group": 837,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 99,
-  "fields": {
-    "group": 837,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 100,
-  "fields": {
-    "group": 837,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 101,
   "fields": {
-    "group": 837,
-    "location": 11
+    "form_state": 1,
+    "name": "Genehmigung Teilrevision Nutzungsplanung",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 102,
   "fields": {
-    "group": 837,
-    "location": 13
+    "form_state": 1,
+    "name": "Vorpr\u00fcfung Teilrevision Nutzungsplanung",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 103,
   "fields": {
-    "group": 837,
-    "location": 14
+    "form_state": 1,
+    "name": "Vorpr\u00fcfung Gesamtrevision Nutzungsplanung",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 104,
   "fields": {
-    "group": 837,
-    "location": 15
+    "form_state": 1,
+    "name": "Genehmigung Gesamtrevision Nutzungsplanung",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 105,
   "fields": {
-    "group": 837,
-    "location": 16
+    "form_state": 1,
+    "name": "Vorpr\u00fcfung Quartiergestaltungsplan QGP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 106,
   "fields": {
-    "group": 837,
-    "location": 17
+    "form_state": 1,
+    "name": "Genehmigung Quartiergestaltungsplan QGP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 107,
   "fields": {
-    "group": 837,
-    "location": 18
+    "form_state": 1,
+    "name": "Vorpr\u00fcfung Quartierplan QP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 108,
   "fields": {
-    "group": 837,
-    "location": 19
+    "form_state": 1,
+    "name": "Genehmigung Quartierplan QP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 109,
-  "fields": {
-    "group": 837,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 110,
-  "fields": {
-    "group": 937,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 111,
-  "fields": {
-    "group": 937,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 112,
-  "fields": {
-    "group": 937,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 113,
-  "fields": {
-    "group": 937,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 114,
-  "fields": {
-    "group": 937,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 115,
-  "fields": {
-    "group": 937,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 116,
-  "fields": {
-    "group": 937,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 117,
-  "fields": {
-    "group": 937,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 118,
-  "fields": {
-    "group": 937,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 119,
-  "fields": {
-    "group": 937,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 120,
-  "fields": {
-    "group": 937,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 121,
   "fields": {
-    "group": 937,
-    "location": 12
+    "form_state": 1,
+    "name": "Reklame-Gesuch (eingereicht via Gemeinde)",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 122,
-  "fields": {
-    "group": 937,
-    "location": 13
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 123,
-  "fields": {
-    "group": 937,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 124,
-  "fields": {
-    "group": 937,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 125,
-  "fields": {
-    "group": 937,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 126,
-  "fields": {
-    "group": 937,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 127,
-  "fields": {
-    "group": 937,
-    "location": 18
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 128,
-  "fields": {
-    "group": 937,
-    "location": 19
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 129,
-  "fields": {
-    "group": 937,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 130,
-  "fields": {
-    "group": 957,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 131,
-  "fields": {
-    "group": 957,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 132,
-  "fields": {
-    "group": 957,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 133,
-  "fields": {
-    "group": 957,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 134,
-  "fields": {
-    "group": 957,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 135,
-  "fields": {
-    "group": 957,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 136,
-  "fields": {
-    "group": 957,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 137,
-  "fields": {
-    "group": 957,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 138,
-  "fields": {
-    "group": 957,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 139,
-  "fields": {
-    "group": 957,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 140,
-  "fields": {
-    "group": 957,
-    "location": 11
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 141,
   "fields": {
-    "group": 957,
-    "location": 12
+    "form_state": 1,
+    "name": "Meldung-Solaranlage",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 142,
-  "fields": {
-    "group": 957,
-    "location": 13
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 143,
-  "fields": {
-    "group": 957,
-    "location": 14
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 144,
-  "fields": {
-    "group": 957,
-    "location": 15
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 145,
-  "fields": {
-    "group": 957,
-    "location": 16
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 146,
-  "fields": {
-    "group": 957,
-    "location": 17
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 147,
-  "fields": {
-    "group": 957,
-    "location": 18
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 148,
-  "fields": {
-    "group": 957,
-    "location": 19
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 149,
-  "fields": {
-    "group": 957,
-    "location": 20
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 150,
-  "fields": {
-    "group": 977,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 151,
-  "fields": {
-    "group": 1017,
-    "location": 1
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 152,
-  "fields": {
-    "group": 1017,
-    "location": 2
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 153,
-  "fields": {
-    "group": 1017,
-    "location": 3
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 154,
-  "fields": {
-    "group": 1017,
-    "location": 4
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 155,
-  "fields": {
-    "group": 1017,
-    "location": 5
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 156,
-  "fields": {
-    "group": 1017,
-    "location": 6
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 157,
-  "fields": {
-    "group": 1017,
-    "location": 7
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 158,
-  "fields": {
-    "group": 1017,
-    "location": 8
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 159,
-  "fields": {
-    "group": 1017,
-    "location": 9
-  }
-},
-{
-  "model": "user.grouplocation",
-  "pk": 160,
-  "fields": {
-    "group": 1017,
-    "location": 10
-  }
-},
-{
-  "model": "user.grouplocation",
+  "model": "instance.form",
   "pk": 161,
   "fields": {
-    "group": 1017,
-    "location": 11
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren NP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 162,
+  "model": "instance.form",
+  "pk": 181,
   "fields": {
-    "group": 1017,
-    "location": 12
+    "form_state": 1,
+    "name": "PGV Kantonsstrasse (Artikel 30 StrG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 163,
+  "model": "instance.form",
+  "pk": 201,
   "fields": {
-    "group": 1017,
-    "location": 13
+    "form_state": 1,
+    "name": "PGV Gemeindestrasse (Artikel 30 StrG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 164,
+  "model": "instance.form",
+  "pk": 221,
   "fields": {
-    "group": 1017,
-    "location": 14
+    "form_state": 1,
+    "name": "PGV Korporationsstrasse (Artikel 30 StrG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 165,
+  "model": "instance.form",
+  "pk": 222,
   "fields": {
-    "group": 1017,
-    "location": 15
+    "form_state": 1,
+    "name": "PGV vereinfachtes Verfahren (Artikel 31 StrG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 166,
+  "model": "instance.form",
+  "pk": 223,
   "fields": {
-    "group": 1017,
-    "location": 16
+    "form_state": 1,
+    "name": "PGV \u00f6ffentliche Gew\u00e4sser (Artikel 12 WBG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 167,
+  "model": "instance.form",
+  "pk": 224,
   "fields": {
-    "group": 1017,
-    "location": 17
+    "form_state": 1,
+    "name": "PGV private Gew\u00e4sser (Artikel 19 WBG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 168,
+  "model": "instance.form",
+  "pk": 225,
   "fields": {
-    "group": 1017,
-    "location": 18
+    "form_state": 1,
+    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 169,
+  "model": "instance.form",
+  "pk": 241,
   "fields": {
-    "group": 1017,
-    "location": 19
+    "form_state": 1,
+    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 170,
+  "model": "instance.form",
+  "pk": 242,
   "fields": {
-    "group": 1017,
-    "location": 20
+    "form_state": 1,
+    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) BD",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 171,
+  "model": "instance.form",
+  "pk": 243,
   "fields": {
-    "group": 1020,
-    "location": 21
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 172,
+  "model": "instance.form",
+  "pk": 244,
   "fields": {
-    "group": 1021,
-    "location": 22
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
   }
 },
 {
-  "model": "user.grouplocation",
-  "pk": 173,
+  "model": "instance.form",
+  "pk": 245,
   "fields": {
-    "group": 1024,
-    "location": 15
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 246,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgew\u00e4sser bis 500 m2 (Artikel 3 ORR)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 247,
+  "fields": {
+    "form_state": 1,
+    "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 248,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren BD",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 249,
+  "fields": {
+    "form_state": 1,
+    "name": "Reklame-Gesuch (eingereicht via Baudirektion)",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 250,
+  "fields": {
+    "form_state": 1,
+    "name": "Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 251,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren AfU",
+    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 252,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz",
+    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 253,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gem\u00e4ss UVP",
+    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 254,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren ALA",
+    "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 255,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)",
+    "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 256,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren AfE",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 257,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 258,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 259,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) AFE",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 260,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren AFJ",
+    "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 261,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung \u00d6REB Anpassung",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 281,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung \u00d6REB Anpassung AFJ",
+    "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 282,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung \u00d6REB Anpassung AFU",
+    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 284,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung \u00d6REB Anpassung ARE NP",
+    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 285,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung \u00d6REB Anpassung BD",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 286,
+  "fields": {
+    "form_state": 1,
+    "name": "Land- und Rechtserwerb",
+    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 287,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren SD AfKP",
+    "description": "KOOR-SD;Koordinationsstelle SD"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 288,
+  "fields": {
+    "form_state": 1,
+    "name": "Internes Mitberichtsverfahren SD",
+    "description": "KOOR-SD;Koordinationsstelle SD"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 289,
+  "fields": {
+    "form_state": 1,
+    "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
+    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 290,
+  "fields": {
+    "form_state": 1,
+    "name": "Meldung Vorhaben",
+    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
+  }
+},
+{
+  "model": "instance.form",
+  "pk": 291,
+  "fields": {
+    "form_state": 1,
+    "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet SD",
+    "description": "KOOR-SD;Koordinationsstelle SD"
+  }
+},
+{
+  "model": "instance.formstate",
+  "pk": 1,
+  "fields": {
+    "name": "Published"
+  }
+},
+{
+  "model": "instance.formstate",
+  "pk": 2,
+  "fields": {
+    "name": "Not published"
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 1,
+  "fields": {
+    "name": "new",
+    "sort": 0,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 21,
+  "fields": {
+    "name": "comm",
+    "sort": 1,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 22,
+  "fields": {
+    "name": "ext",
+    "sort": 3,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 23,
+  "fields": {
+    "name": "circ",
+    "sort": 5,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 24,
+  "fields": {
+    "name": "redac",
+    "sort": 6,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 25,
+  "fields": {
+    "name": "done",
+    "sort": 7,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 26,
+  "fields": {
+    "name": "arch",
+    "sort": 8,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 27,
+  "fields": {
+    "name": "del",
+    "sort": 9,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 28,
+  "fields": {
+    "name": "new_portal",
+    "sort": 10,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 29,
+  "fields": {
+    "name": "nfd",
+    "sort": 11,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 30,
+  "fields": {
+    "name": "subm",
+    "sort": 12,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 31,
+  "fields": {
+    "name": "rej",
+    "sort": 13,
+    "description": ""
+  }
+},
+{
+  "model": "instance.instancestate",
+  "pk": 32,
+  "fields": {
+    "name": "ext_gem",
+    "sort": 4,
+    "description": null
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 21,
+  "fields": {
+    "description": "Bearbeitung Gemeinde"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 22,
+  "fields": {
+    "description": "Bearbeitung Koordinationsstelle"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 23,
+  "fields": {
+    "description": "In Zirkulation"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 24,
+  "fields": {
+    "description": "Zirkulation beendet"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 25,
+  "fields": {
+    "description": "Zur\u00fcck bei Gemeinde"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 26,
+  "fields": {
+    "description": "Archiviert"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 27,
+  "fields": {
+    "description": "Gel\u00f6scht"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 28,
+  "fields": {
+    "description": "Neu Erstellt"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 29,
+  "fields": {
+    "description": "Nachforderung Dokumente"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 30,
+  "fields": {
+    "description": "Eingereicht bei Gemeinde"
+  }
+},
+{
+  "model": "instance.instancestatedescription",
+  "pk": 31,
+  "fields": {
+    "description": "Abgelehnt"
   }
 },
 {
@@ -46214,6 +45560,1390 @@
   }
 },
 {
+  "model": "user.grouplocation",
+  "pk": 1,
+  "fields": {
+    "group": 22,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 2,
+  "fields": {
+    "group": 24,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 3,
+  "fields": {
+    "group": 24,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 4,
+  "fields": {
+    "group": 24,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 5,
+  "fields": {
+    "group": 62,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 6,
+  "fields": {
+    "group": 122,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 7,
+  "fields": {
+    "group": 122,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 8,
+  "fields": {
+    "group": 143,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 9,
+  "fields": {
+    "group": 144,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 10,
+  "fields": {
+    "group": 145,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 11,
+  "fields": {
+    "group": 146,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 12,
+  "fields": {
+    "group": 147,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 13,
+  "fields": {
+    "group": 147,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 14,
+  "fields": {
+    "group": 148,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 15,
+  "fields": {
+    "group": 149,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 16,
+  "fields": {
+    "group": 150,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 17,
+  "fields": {
+    "group": 151,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 18,
+  "fields": {
+    "group": 152,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 19,
+  "fields": {
+    "group": 153,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 20,
+  "fields": {
+    "group": 154,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 21,
+  "fields": {
+    "group": 155,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 22,
+  "fields": {
+    "group": 156,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 23,
+  "fields": {
+    "group": 183,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 24,
+  "fields": {
+    "group": 184,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 25,
+  "fields": {
+    "group": 185,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 26,
+  "fields": {
+    "group": 186,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 27,
+  "fields": {
+    "group": 187,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 28,
+  "fields": {
+    "group": 188,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 29,
+  "fields": {
+    "group": 189,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 30,
+  "fields": {
+    "group": 189,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 31,
+  "fields": {
+    "group": 189,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 32,
+  "fields": {
+    "group": 190,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 33,
+  "fields": {
+    "group": 191,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 34,
+  "fields": {
+    "group": 192,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 35,
+  "fields": {
+    "group": 193,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 36,
+  "fields": {
+    "group": 194,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 37,
+  "fields": {
+    "group": 195,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 38,
+  "fields": {
+    "group": 196,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 39,
+  "fields": {
+    "group": 197,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 40,
+  "fields": {
+    "group": 198,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 41,
+  "fields": {
+    "group": 199,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 42,
+  "fields": {
+    "group": 208,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 43,
+  "fields": {
+    "group": 183,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 44,
+  "fields": {
+    "group": 402,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 45,
+  "fields": {
+    "group": 382,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 46,
+  "fields": {
+    "group": 383,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 47,
+  "fields": {
+    "group": 402,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 48,
+  "fields": {
+    "group": 503,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 49,
+  "fields": {
+    "group": 505,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 50,
+  "fields": {
+    "group": 508,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 51,
+  "fields": {
+    "group": 507,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 52,
+  "fields": {
+    "group": 506,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 53,
+  "fields": {
+    "group": 509,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 54,
+  "fields": {
+    "group": 509,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 55,
+  "fields": {
+    "group": 510,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 56,
+  "fields": {
+    "group": 511,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 57,
+  "fields": {
+    "group": 511,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 58,
+  "fields": {
+    "group": 511,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 59,
+  "fields": {
+    "group": 512,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 60,
+  "fields": {
+    "group": 513,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 61,
+  "fields": {
+    "group": 514,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 62,
+  "fields": {
+    "group": 515,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 63,
+  "fields": {
+    "group": 516,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 64,
+  "fields": {
+    "group": 517,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 65,
+  "fields": {
+    "group": 518,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 66,
+  "fields": {
+    "group": 519,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 67,
+  "fields": {
+    "group": 520,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 68,
+  "fields": {
+    "group": 521,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 69,
+  "fields": {
+    "group": 504,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 70,
+  "fields": {
+    "group": 812,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 71,
+  "fields": {
+    "group": 813,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 72,
+  "fields": {
+    "group": 812,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 73,
+  "fields": {
+    "group": 812,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 74,
+  "fields": {
+    "group": 812,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 75,
+  "fields": {
+    "group": 812,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 76,
+  "fields": {
+    "group": 812,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 77,
+  "fields": {
+    "group": 812,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 78,
+  "fields": {
+    "group": 812,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 79,
+  "fields": {
+    "group": 812,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 80,
+  "fields": {
+    "group": 812,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 81,
+  "fields": {
+    "group": 811,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 82,
+  "fields": {
+    "group": 812,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 83,
+  "fields": {
+    "group": 812,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 84,
+  "fields": {
+    "group": 811,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 85,
+  "fields": {
+    "group": 812,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 86,
+  "fields": {
+    "group": 811,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 87,
+  "fields": {
+    "group": 812,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 88,
+  "fields": {
+    "group": 810,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 89,
+  "fields": {
+    "group": 812,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 90,
+  "fields": {
+    "group": 838,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 91,
+  "fields": {
+    "group": 838,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 92,
+  "fields": {
+    "group": 838,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 93,
+  "fields": {
+    "group": 837,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 94,
+  "fields": {
+    "group": 837,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 95,
+  "fields": {
+    "group": 837,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 96,
+  "fields": {
+    "group": 837,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 97,
+  "fields": {
+    "group": 837,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 98,
+  "fields": {
+    "group": 837,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 99,
+  "fields": {
+    "group": 837,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 100,
+  "fields": {
+    "group": 837,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 101,
+  "fields": {
+    "group": 837,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 102,
+  "fields": {
+    "group": 837,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 103,
+  "fields": {
+    "group": 837,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 104,
+  "fields": {
+    "group": 837,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 105,
+  "fields": {
+    "group": 837,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 106,
+  "fields": {
+    "group": 837,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 107,
+  "fields": {
+    "group": 837,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 108,
+  "fields": {
+    "group": 837,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 109,
+  "fields": {
+    "group": 837,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 110,
+  "fields": {
+    "group": 937,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 111,
+  "fields": {
+    "group": 937,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 112,
+  "fields": {
+    "group": 937,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 113,
+  "fields": {
+    "group": 937,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 114,
+  "fields": {
+    "group": 937,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 115,
+  "fields": {
+    "group": 937,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 116,
+  "fields": {
+    "group": 937,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 117,
+  "fields": {
+    "group": 937,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 118,
+  "fields": {
+    "group": 937,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 119,
+  "fields": {
+    "group": 937,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 120,
+  "fields": {
+    "group": 937,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 121,
+  "fields": {
+    "group": 937,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 122,
+  "fields": {
+    "group": 937,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 123,
+  "fields": {
+    "group": 937,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 124,
+  "fields": {
+    "group": 937,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 125,
+  "fields": {
+    "group": 937,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 126,
+  "fields": {
+    "group": 937,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 127,
+  "fields": {
+    "group": 937,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 128,
+  "fields": {
+    "group": 937,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 129,
+  "fields": {
+    "group": 937,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 130,
+  "fields": {
+    "group": 957,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 131,
+  "fields": {
+    "group": 957,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 132,
+  "fields": {
+    "group": 957,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 133,
+  "fields": {
+    "group": 957,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 134,
+  "fields": {
+    "group": 957,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 135,
+  "fields": {
+    "group": 957,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 136,
+  "fields": {
+    "group": 957,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 137,
+  "fields": {
+    "group": 957,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 138,
+  "fields": {
+    "group": 957,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 139,
+  "fields": {
+    "group": 957,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 140,
+  "fields": {
+    "group": 957,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 141,
+  "fields": {
+    "group": 957,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 142,
+  "fields": {
+    "group": 957,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 143,
+  "fields": {
+    "group": 957,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 144,
+  "fields": {
+    "group": 957,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 145,
+  "fields": {
+    "group": 957,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 146,
+  "fields": {
+    "group": 957,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 147,
+  "fields": {
+    "group": 957,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 148,
+  "fields": {
+    "group": 957,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 149,
+  "fields": {
+    "group": 957,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 150,
+  "fields": {
+    "group": 977,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 151,
+  "fields": {
+    "group": 1017,
+    "location": 1
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 152,
+  "fields": {
+    "group": 1017,
+    "location": 2
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 153,
+  "fields": {
+    "group": 1017,
+    "location": 3
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 154,
+  "fields": {
+    "group": 1017,
+    "location": 4
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 155,
+  "fields": {
+    "group": 1017,
+    "location": 5
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 156,
+  "fields": {
+    "group": 1017,
+    "location": 6
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 157,
+  "fields": {
+    "group": 1017,
+    "location": 7
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 158,
+  "fields": {
+    "group": 1017,
+    "location": 8
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 159,
+  "fields": {
+    "group": 1017,
+    "location": 9
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 160,
+  "fields": {
+    "group": 1017,
+    "location": 10
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 161,
+  "fields": {
+    "group": 1017,
+    "location": 11
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 162,
+  "fields": {
+    "group": 1017,
+    "location": 12
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 163,
+  "fields": {
+    "group": 1017,
+    "location": 13
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 164,
+  "fields": {
+    "group": 1017,
+    "location": 14
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 165,
+  "fields": {
+    "group": 1017,
+    "location": 15
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 166,
+  "fields": {
+    "group": 1017,
+    "location": 16
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 167,
+  "fields": {
+    "group": 1017,
+    "location": 17
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 168,
+  "fields": {
+    "group": 1017,
+    "location": 18
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 169,
+  "fields": {
+    "group": 1017,
+    "location": 19
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 170,
+  "fields": {
+    "group": 1017,
+    "location": 20
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 171,
+  "fields": {
+    "group": 1020,
+    "location": 21
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 172,
+  "fields": {
+    "group": 1021,
+    "location": 22
+  }
+},
+{
+  "model": "user.grouplocation",
+  "pk": 173,
+  "fields": {
+    "group": 1024,
+    "location": 15
+  }
+},
+{
   "model": "user.location",
   "pk": 1,
   "fields": {
@@ -46717,7 +47447,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46734,7 +47465,8 @@
     "city": "",
     "address": "",
     "email": "sid.afj@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46751,7 +47483,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46768,7 +47501,8 @@
     "city": "",
     "address": "",
     "email": "sarah.bucher@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46785,7 +47519,8 @@
     "city": "",
     "address": "",
     "email": "viktor.arnold@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46802,7 +47537,8 @@
     "city": "",
     "address": "",
     "email": "gisler.martin@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46819,7 +47555,8 @@
     "city": "",
     "address": "",
     "email": "gisler.martin@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46836,7 +47573,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46853,7 +47591,8 @@
     "city": "",
     "address": "",
     "email": "info@abwasser-uri.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46870,7 +47609,8 @@
     "city": null,
     "address": null,
     "email": "trinkwasserinspektorat@laburk.ch",
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -46887,7 +47627,8 @@
     "city": null,
     "address": null,
     "email": "lebensmittelinspektorat@laburk.ch",
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -46904,7 +47645,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -46921,7 +47663,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46938,7 +47681,8 @@
     "city": "",
     "address": "",
     "email": "koorbg@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46955,7 +47699,8 @@
     "city": "",
     "address": "",
     "email": "roger.brunner@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46972,7 +47717,8 @@
     "city": "",
     "address": "",
     "email": "koornp@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -46989,7 +47735,8 @@
     "city": "",
     "address": "",
     "email": "artur.bucher@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47006,7 +47753,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47023,7 +47771,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47040,7 +47789,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47057,7 +47807,8 @@
     "city": "",
     "address": "",
     "email": "ds.vd@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47074,7 +47825,8 @@
     "city": "",
     "address": "",
     "email": "ala.vd@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47091,7 +47843,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47108,7 +47861,8 @@
     "city": "",
     "address": "",
     "email": "georges.eich@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47125,7 +47879,8 @@
     "city": "",
     "address": "",
     "email": "koornp@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47142,7 +47897,8 @@
     "city": "",
     "address": "",
     "email": "adi.arnold@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47159,7 +47915,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47176,7 +47933,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47193,7 +47951,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47210,7 +47969,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47227,7 +47987,8 @@
     "city": "",
     "address": "",
     "email": "rechtsdienst@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47244,7 +48005,8 @@
     "city": "",
     "address": "",
     "email": "ds.jd@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47261,7 +48023,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47278,7 +48041,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -47295,7 +48059,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47312,7 +48077,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47329,7 +48095,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47346,7 +48113,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -47363,7 +48131,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47380,7 +48149,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47397,7 +48167,8 @@
     "city": null,
     "address": null,
     "email": "thomas.brunner@ur.ch",
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -47414,7 +48185,8 @@
     "city": "",
     "address": "",
     "email": "koorbg@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47431,7 +48203,8 @@
     "city": "",
     "address": "",
     "email": "koorbg@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47448,7 +48221,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47465,7 +48239,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47482,7 +48257,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47499,7 +48275,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47516,7 +48293,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47533,7 +48311,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47550,7 +48329,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47567,7 +48347,8 @@
     "city": "",
     "address": "",
     "email": "afbn@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47584,7 +48365,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47601,7 +48383,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47618,7 +48401,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47635,7 +48419,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47652,7 +48437,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47669,7 +48455,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47686,7 +48473,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47703,7 +48491,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47720,7 +48509,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47737,7 +48527,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47754,7 +48545,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47771,7 +48563,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47788,7 +48581,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47805,7 +48599,8 @@
     "city": "",
     "address": "",
     "email": "gemeinde@realp.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47822,7 +48617,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47839,7 +48635,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47856,7 +48653,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47873,7 +48671,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47890,7 +48689,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47907,7 +48707,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47924,7 +48725,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47941,7 +48743,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47958,7 +48761,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47975,7 +48779,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -47992,7 +48797,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48009,7 +48815,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48026,7 +48833,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48043,7 +48851,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48060,7 +48869,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48077,7 +48887,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48094,7 +48905,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48111,7 +48923,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48128,7 +48941,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48145,7 +48959,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48162,7 +48977,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48179,7 +48995,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48196,7 +49013,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48213,7 +49031,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48230,7 +49049,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48247,7 +49067,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48264,7 +49085,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48281,7 +49103,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48298,7 +49121,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48315,7 +49139,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48332,7 +49157,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48349,7 +49175,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48366,7 +49193,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48383,7 +49211,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48400,7 +49229,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -48417,7 +49247,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48434,7 +49265,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48451,7 +49283,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48468,7 +49301,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48485,7 +49319,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48502,7 +49337,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48519,7 +49355,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48536,7 +49373,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48553,7 +49391,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48570,7 +49409,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48587,7 +49427,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48604,7 +49445,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48621,7 +49463,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48638,7 +49481,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48655,7 +49499,8 @@
     "city": "",
     "address": "",
     "email": "abm@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48672,7 +49517,8 @@
     "city": "",
     "address": "",
     "email": "georges.eich@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48689,7 +49535,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48706,7 +49553,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48723,7 +49571,8 @@
     "city": "",
     "address": "",
     "email": "aeb@evakuation.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48740,7 +49589,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48757,7 +49607,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48774,7 +49625,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48791,7 +49643,8 @@
     "city": "",
     "address": "",
     "email": "samuel.bissig@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48808,7 +49661,8 @@
     "city": "",
     "address": "",
     "email": "ds.gsud@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48825,7 +49679,8 @@
     "city": "",
     "address": "",
     "email": "ds.sid@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48842,7 +49697,8 @@
     "city": "",
     "address": "",
     "email": "ds.vd@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48859,7 +49715,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48876,7 +49733,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48893,7 +49751,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48910,7 +49769,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48927,7 +49787,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -48944,7 +49805,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48961,7 +49823,8 @@
     "city": "",
     "address": "",
     "email": "",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48978,7 +49841,8 @@
     "city": "",
     "address": "",
     "email": "afu-gs@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -48995,7 +49859,8 @@
     "city": "",
     "address": "",
     "email": "afu-is@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -49012,7 +49877,8 @@
     "city": "",
     "address": "",
     "email": "afbn.baupolizei@ur.ch",
-    "website": ""
+    "website": "",
+    "disabled": 0
   }
 },
 {
@@ -49029,7 +49895,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -49046,7 +49913,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -49063,7 +49931,8 @@
     "city": null,
     "address": null,
     "email": null,
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -49080,7 +49949,8 @@
     "city": null,
     "address": null,
     "email": "hans.wyrsch@gmx.ch",
-    "website": null
+    "website": null,
+    "disabled": 0
   }
 },
 {
@@ -49165,736 +50035,6 @@
   "pk": 68,
   "fields": {
     "name": "Sekretariate Gemeindebaubeh\u00f6rden"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 21,
-  "fields": {
-    "form_state": 1,
-    "name": "Baugesuch-Vorabkl\u00e4rung mit kantonaler Beteiligung",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 41,
-  "fields": {
-    "form_state": 1,
-    "name": "Verfahren nach BGBB / und Apparzellierungsverfahren",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 42,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren BG",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 43,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Genehmigungsverfahren",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 44,
-  "fields": {
-    "form_state": 1,
-    "name": "Baubewilligungsverfahren mit kantonaler Beteiligung",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 45,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV nach Luftfahrtgesetz",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 46,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV f\u00fcr milit\u00e4rische Bauten",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 47,
-  "fields": {
-    "form_state": 1,
-    "name": "Baubewilligungsverfahren ohne kantonale Beteiligung",
-    "description": ""
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 61,
-  "fields": {
-    "form_state": 1,
-    "name": "Baugesuch-Vorabkl\u00e4rung ohne kantonale Beteiligung",
-    "description": ""
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 101,
-  "fields": {
-    "form_state": 1,
-    "name": "Genehmigung Teilrevision Nutzungsplanung",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 102,
-  "fields": {
-    "form_state": 1,
-    "name": "Vorpr\u00fcfung Teilrevision Nutzungsplanung",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 103,
-  "fields": {
-    "form_state": 1,
-    "name": "Vorpr\u00fcfung Gesamtrevision Nutzungsplanung",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 104,
-  "fields": {
-    "form_state": 1,
-    "name": "Genehmigung Gesamtrevision Nutzungsplanung",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 105,
-  "fields": {
-    "form_state": 1,
-    "name": "Vorpr\u00fcfung Quartiergestaltungsplan QGP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 106,
-  "fields": {
-    "form_state": 1,
-    "name": "Genehmigung Quartiergestaltungsplan QGP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 107,
-  "fields": {
-    "form_state": 1,
-    "name": "Vorpr\u00fcfung Quartierplan QP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 108,
-  "fields": {
-    "form_state": 1,
-    "name": "Genehmigung Quartierplan QP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 121,
-  "fields": {
-    "form_state": 1,
-    "name": "Reklame-Gesuch (eingereicht via Gemeinde)",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 141,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung-Solaranlage",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 161,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren NP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 181,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV Kantonsstrasse (Artikel 30 StrG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 201,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV Gemeindestrasse (Artikel 30 StrG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 221,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV Korporationsstrasse (Artikel 30 StrG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 222,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV vereinfachtes Verfahren (Artikel 31 StrG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 223,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV \u00f6ffentliche Gew\u00e4sser (Artikel 12 WBG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 224,
-  "fields": {
-    "form_state": 1,
-    "name": "PGV private Gew\u00e4sser (Artikel 19 WBG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 225,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) BD",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 241,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) BD",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 242,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) BD",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 243,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV nach Starkstromverordnung (EleG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 244,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV nach Eisenbahngesetz (EBG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 245,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV nach Nationalstrassengesetz (NSG)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 246,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Baudirektion Beanspruchung Kantonsgew\u00e4sser bis 500 m2 (Artikel 3 ORR)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 247,
-  "fields": {
-    "form_state": 1,
-    "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 248,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren BD",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 249,
-  "fields": {
-    "form_state": 1,
-    "name": "Reklame-Gesuch (eingereicht via Baudirektion)",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 250,
-  "fields": {
-    "form_state": 1,
-    "name": "Mitberichtsverfahren / PGV nach Seilbahngesetz (SebG)",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 251,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren AfU",
-    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 252,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren nach Artikel 30 BG Umweltschutz",
-    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 253,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren / Bewilligungsverfahren gem\u00e4ss UVP",
-    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 254,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren ALA",
-    "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 255,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren ALA (Korporationsstrassen mit Subventionierung)",
-    "description": "KOOR-ALA;Koordinationsstelle Amt f\u00fcr Landwirtschaft"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 256,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren AfE",
-    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 257,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Regierungsrat f\u00fcr Anlagen bis 1000 kW (Artikel 18 GNG) AFE",
-    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 258,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Landrat f\u00fcr Anlagen ab 1000 kW (Artikel 18 GNG) AFE",
-    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 259,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Baudirektion f\u00fcr W\u00e4rmeentnahmen (Artikel 40 GNG) AFE",
-    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 260,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren AFJ",
-    "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 261,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung \u00d6REB Anpassung",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 281,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung \u00d6REB Anpassung AFJ",
-    "description": "KOOR-AFJ;Koordinationsstelle Amt f\u00fcr Forst und Jagd"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 282,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung \u00d6REB Anpassung AFU",
-    "description": "KOOR-AfU;Koordinationsstelle Amt f\u00fcr Umweltschutz"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 284,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung \u00d6REB Anpassung ARE NP",
-    "description": "KOOR-ARE-NP;Koordinationsstelle f\u00fcr Nutzungsplanung Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 285,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung \u00d6REB Anpassung BD",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Bewilligungsverfahren Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 286,
-  "fields": {
-    "form_state": 1,
-    "name": "Land- und Rechtserwerb",
-    "description": "KOOR-BD;Koordinationsstelle f\u00fcr Landerwerbsgesch\u00e4fte Baudirektion"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 287,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren SD AfKP",
-    "description": "KOOR-SD;Koordinationsstelle SD"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 288,
-  "fields": {
-    "form_state": 1,
-    "name": "Internes Mitberichtsverfahren SD",
-    "description": "KOOR-SD;Koordinationsstelle SD"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 289,
-  "fields": {
-    "form_state": 1,
-    "name": "Konzessionsverfahren Korporationsgew\u00e4sser mit Genehmigung durch Regierungsrat (Artikel 15 GNG)",
-    "description": "KOOR-AFE;Koordinationsstelle Amt f\u00fcr Energie"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 290,
-  "fields": {
-    "form_state": 1,
-    "name": "Meldung Vorhaben",
-    "description": "KOOR-ARE-BG;Koordinationsstelle f\u00fcr Baueingaben Amt f\u00fcr Raumentwicklung"
-  }
-},
-{
-  "model": "instance.form",
-  "pk": 291,
-  "fields": {
-    "form_state": 1,
-    "name": "Bewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet SD",
-    "description": "KOOR-SD;Koordinationsstelle SD"
-  }
-},
-{
-  "model": "instance.formstate",
-  "pk": 1,
-  "fields": {
-    "name": "Published"
-  }
-},
-{
-  "model": "instance.formstate",
-  "pk": 2,
-  "fields": {
-    "name": "Not published"
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 1,
-  "fields": {
-    "name": "new",
-    "sort": 0,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 21,
-  "fields": {
-    "name": "comm",
-    "sort": 1,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 22,
-  "fields": {
-    "name": "ext",
-    "sort": 3,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 23,
-  "fields": {
-    "name": "circ",
-    "sort": 5,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 24,
-  "fields": {
-    "name": "redac",
-    "sort": 6,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 25,
-  "fields": {
-    "name": "done",
-    "sort": 7,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 26,
-  "fields": {
-    "name": "arch",
-    "sort": 8,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 27,
-  "fields": {
-    "name": "del",
-    "sort": 9,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 28,
-  "fields": {
-    "name": "new_portal",
-    "sort": 10,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 29,
-  "fields": {
-    "name": "nfd",
-    "sort": 11,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 30,
-  "fields": {
-    "name": "subm",
-    "sort": 12,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 31,
-  "fields": {
-    "name": "rej",
-    "sort": 13,
-    "description": ""
-  }
-},
-{
-  "model": "instance.instancestate",
-  "pk": 32,
-  "fields": {
-    "name": "ext_gem",
-    "sort": 4,
-    "description": null
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 21,
-  "fields": {
-    "description": "Bearbeitung Gemeinde"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 22,
-  "fields": {
-    "description": "Bearbeitung Koordinationsstelle"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 23,
-  "fields": {
-    "description": "In Zirkulation"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 24,
-  "fields": {
-    "description": "Zirkulation beendet"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 25,
-  "fields": {
-    "description": "Zur\u00fcck bei Gemeinde"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 26,
-  "fields": {
-    "description": "Archiviert"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 27,
-  "fields": {
-    "description": "Gel\u00f6scht"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 28,
-  "fields": {
-    "description": "Neu Erstellt"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 29,
-  "fields": {
-    "description": "Nachforderung Dokumente"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 30,
-  "fields": {
-    "description": "Eingereicht bei Gemeinde"
-  }
-},
-{
-  "model": "instance.instancestatedescription",
-  "pk": 31,
-  "fields": {
-    "description": "Abgelehnt"
   }
 }
 ]
