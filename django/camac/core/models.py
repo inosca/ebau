@@ -1477,6 +1477,9 @@ class CirculationAnswer(models.Model):
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = "CIRCULATION_ANSWER"
