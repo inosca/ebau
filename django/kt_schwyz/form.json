@@ -759,7 +759,7 @@
       "label": "Gebäude- und Wohnungsregister",
       "hint": "**Platzhalter**: *gwr*",
       "type": "gwr",
-      "required": true,
+      "required": false,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "columns": [
