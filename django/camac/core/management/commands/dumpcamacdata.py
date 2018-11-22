@@ -1,6 +1,6 @@
 import io
 import json
-import sys
+
 from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
@@ -23,7 +23,7 @@ class Command(BaseCommand):
         call_command("dumpdata", *apps, **options)
         output.seek(0)
         data = json.load(output)
-        data = sorted(data, key=lambda k: (k['model'], k['pk']))
+        data = sorted(data, key=lambda k: (k["model"], k["pk"]))
 
         with open(settings.APPLICATION_DIR("data.json"), "w") as f:
             json.dump(data, f, indent=2, sort_keys=True)
