@@ -1,23 +1,45 @@
-.PHONY: help install install-dev start test
 .DEFAULT_GOAL := help
 
+GIT_USER=$(shell git config user.email)
+
+.PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: install
 install: ## Install production environment
 	@pip install --upgrade pip
 	@pip install --upgrade -r requirements.txt
 
+.PHONY: install-dev
 install-dev: ## Install development environment
 	@pip install --upgrade pip
 	@pip install --upgrade -r requirements.txt -r requirements-dev.txt
 
+.PHONY: start
 start: ## Start the development server
 	@docker-compose -f ../docker-compose.yml start db
 	@python manage.py runserver
 
+.PHONY: test
 test: ## Test the project
 	@touch .env
 	@black --check .
 	@flake8
 	@pytest --cov --no-cov-on-fail --create-db
+
+.PHONY: sqlsequencereset
+sqlsequencereset:
+	@python manage.py sqlsequencereset core | python manage.py dbshell
+
+.PHONY: sequencenamespace
+sequencenamespace:  ## Set the Sequence namespace for a given user.
+	@python manage.py sequencenamespace --user $(GIT_USER) core --execute
+
+.PHONY: _run_in_docker
+_run_in_docker:
+	./wait-for-it.sh db:5432 --timeout=60
+	./manage.py migrate
+	./manage.py loadconfig
+	make sequencenamespace
+	uwsgi
