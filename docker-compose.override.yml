@@ -96,7 +96,7 @@ services:
         ports:
             - '8080:8080'
         volumes:
-            - ./keycloak:/etc/keycloak:ro
+            - ./keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
         environment:
             - POSTGRES_PASSWORD=camac
             - KEYCLOAK_PASSWORD=camac
