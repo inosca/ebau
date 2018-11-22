@@ -61,3 +61,82 @@ loadconfig:
 .PHONY: dbshell ## Start a psql shell
 dbshell:
 	@docker-compose exec db psql -Ucamac
+
+
+######### Changes from eBau Bern #########
+
+.PHONY: mergeconfig
+mergeconfig: ## Merge config.json
+	git mergetool --tool=jsondiff && python3 tools/formatdump.py django/${APPLICATION}/config.json -i
+	make sequencenamespace
+
+.PHONY: migrate
+migrate:  ## Migrate schema
+	docker-compose exec django /app/manage.py migrate
+	make sequencenamespace
+
+.PHONY: grunt-build
+grunt-build: ## Grunt build
+	docker-compose exec web sh -c "cd configuration/public && npm run build"
+
+.PHONY: grunt-watch
+grunt-watch: ## Grunt watch
+	docker-compose exec web sh -c "cd configuration/public && npm run build && npm run watch"
+
+.PHONY: makemigrations
+makemigrations: ## Create schema migrations
+	docker-compose exec django /app/manage.py makemigrations
+
+.PHONY: flush
+flush:	## Flush database
+	@docker-compose exec django /app/manage.py flush
+
+# Directory for DB snapshots
+.PHONY: _db_snapshots_dir
+_db_snapshots_dir:
+	@mkdir -p db_snapshots
+
+.PHONY: db_snapshot
+db_snapshot: _db_snapshots_dir  ## Make a snapshot of the current state of the database
+	@docker-compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
+
+.PHONY: db_restore
+db_restore:  ## Restore latest DB snapshot created with `make db_snapshot`
+	@mkdir -p db_snapshots
+	@echo "restoring from $(SNAPSHOT)"
+	@docker-compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
+
+.PHONY: sequencenamespace
+sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
+	@docker-compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
+
+.PHONY: log
+log: ## Show logs of web container
+	@docker-compose logs --follow web
+
+.PHONY: clearcache
+clearcache: ## Clear cache
+	@docker-compose exec web php /var/www/camac/configuration/cronjob/clear-cache.php
+
+.PHONY: install
+install: composer-install npm-install bower-install ## Run install commands
+
+.PHONY: test
+test: ## Run backend tests
+	@docker-compose exec django make test
+
+.PHONY: composer-install
+composer-install: ## Install php dependencies
+	docker-compose exec web composer install -d /var/www/camac
+	docker-compose exec web composer install -d /var/www/configuration
+
+.PHONY: npm-install
+npm-install: ## Install js dependencies
+	docker-compose exec web npm install --prefix /var/www/configuration/public
+
+.PHONY: bower-install
+bower-install: ## Install frontend dependencies
+	docker-compose exec web bash -c "cd /var/www/configuration/public && bower install --allow-root"
+
+.PHONY: dev
+dev: loadconfig install grunt-watch ## Loads config, installs dependencies and continuously rebuilds CSS/JS when files change
