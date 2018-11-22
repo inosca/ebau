@@ -321,6 +321,12 @@
           }
         ]
       }
+    },
+    "baugeruest-errichtet-am": {
+      "label": "Baugerüst errichtet am",
+      "type": "date",
+      "required": true,
+      "config": {}
     }
   }
 }
