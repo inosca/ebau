@@ -18,6 +18,7 @@ def validator(db, instance):
         ("anlagen-mit-erheblichen-schadstoffemissionen-wiesonicht", 0),
         ("hohe-der-anlage", -1),
         ("dokument-parzellen", None),
+        ("baugeruest-errichtet-am", 0),
     ],
 )
 def test_form_data_validator_validate_question_type(validator, question, value):
