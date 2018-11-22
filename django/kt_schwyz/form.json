@@ -1424,7 +1424,7 @@
     "baugespann-errichtet-wann": {
       "label": "Das Baugespann wurde / wird errichtet am:",
       "hint": "**Platzhalter**: *baugespann-errichtet-wann*",
-      "type": "text",
+      "type": "date",
       "required": true,
       "active-expression": "'baugespann-errichtet'|value == 'Ja'",
       "config": {}
