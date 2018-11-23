@@ -101,6 +101,7 @@ class Group(models.Model):
         blank=True,
         null=True,
     )
+    disabled = models.PositiveSmallIntegerField(db_column="DISABLED", default=0)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     phone = models.CharField(db_column="PHONE", max_length=100, blank=True, null=True)
     zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
