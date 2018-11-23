@@ -55,10 +55,6 @@ dumpconfig:
 dumpdata:
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: dumpdata ## Dump the data tables
-dumpdata:
-	docker-compose exec django /app/manage.py dumpcamacdata
-
 .PHONY: loadconfig ## Load config.json
 loadconfig:
 	@docker-compose exec django python manage.py loadconfig
