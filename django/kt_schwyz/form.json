@@ -1899,12 +1899,10 @@
     "landwirtschaft-betriebs-nr": {
       "label": "Wie lautet Ihre kantonale Betriebs-Nr.?",
       "hint": "**Platzhalter**: *landwirtschaft-betriebs-nr*",
-      "type": "number",
+      "type": "text",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
-      "config": {
-        "min": 0
-      }
+      "config": {}
     },
     "landwirtschaft-sak-wert": {
       "label": "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
@@ -2143,7 +2141,7 @@
           },
           {
             "name": "remisenflache",
-            "label": "Remisenflache in m²",
+            "label": "Remisenfläche in m²",
             "type": "number",
             "required": true,
             "config": {
@@ -2152,7 +2150,7 @@
           },
           {
             "name": "bemerkungen",
-            "label": "bemerkungen",
+            "label": "Bemerkungen",
             "type": "text",
             "required": false,
             "config": {}
