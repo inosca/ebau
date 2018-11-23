@@ -1,10 +1,11 @@
 import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
+import { info1, info2, info3 } from "citizen-portal/instances/new/info";
 
 export default Controller.extend({
-  infoCol1: "Platzhalter Information Vorstufe",
-  infoCol2: "Platzhalter Information Baubewilligung",
-  infoCol3: "Platzhalter Information speziell",
+  infoCol1: info1,
+  infoCol2: info2,
+  infoCol3: info3,
 
   forms: task(function*() {
     return yield this.store.query("form", {});
