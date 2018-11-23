@@ -4,6 +4,8 @@ SHELL:=/bin/sh
 
 .DEFAULT_GOAL := help
 
+GIT_USER=$(shell git config user.email)
+
 .PHONY: help
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
