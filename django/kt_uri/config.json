@@ -20706,6 +20706,318 @@
   },
   {
     "fields": {
+      "group": 1,
+      "permission_id": "menu_account"
+    },
+    "model": "core.grouppermission",
+    "pk": 130195
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_user"
+    },
+    "model": "core.grouppermission",
+    "pk": 130196
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_group"
+    },
+    "model": "core.grouppermission",
+    "pk": 130197
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_role"
+    },
+    "model": "core.grouppermission",
+    "pk": 130198
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 130199
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service"
+    },
+    "model": "core.grouppermission",
+    "pk": 130200
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_form"
+    },
+    "model": "core.grouppermission",
+    "pk": 130201
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form"
+    },
+    "model": "core.grouppermission",
+    "pk": 130202
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page"
+    },
+    "model": "core.grouppermission",
+    "pk": 130203
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_chapter"
+    },
+    "model": "core.grouppermission",
+    "pk": 130204
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_question"
+    },
+    "model": "core.grouppermission",
+    "pk": 130205
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 130206
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-query"
+    },
+    "model": "core.grouppermission",
+    "pk": 130207
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-list"
+    },
+    "model": "core.grouppermission",
+    "pk": 130208
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_service-answer-activation"
+    },
+    "model": "core.grouppermission",
+    "pk": 130209
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page-answer-activation"
+    },
+    "model": "core.grouppermission",
+    "pk": 130210
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_mapping"
+    },
+    "model": "core.grouppermission",
+    "pk": 130211
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page-form-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 130212
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 130213
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_tree"
+    },
+    "model": "core.grouppermission",
+    "pk": 130214
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 130215
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 130216
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_button"
+    },
+    "model": "core.grouppermission",
+    "pk": 130217
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action"
+    },
+    "model": "core.grouppermission",
+    "pk": 130218
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-state"
+    },
+    "model": "core.grouppermission",
+    "pk": 130219
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_search-filter"
+    },
+    "model": "core.grouppermission",
+    "pk": 130220
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 130221
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 130222
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 130223
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_circulation"
+    },
+    "model": "core.grouppermission",
+    "pk": 130224
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_type"
+    },
+    "model": "core.grouppermission",
+    "pk": 130225
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_state"
+    },
+    "model": "core.grouppermission",
+    "pk": 130226
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_answer-type"
+    },
+    "model": "core.grouppermission",
+    "pk": 130227
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_answer"
+    },
+    "model": "core.grouppermission",
+    "pk": 130228
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_reason"
+    },
+    "model": "core.grouppermission",
+    "pk": 130229
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_notice-type"
+    },
+    "model": "core.grouppermission",
+    "pk": 130230
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_module"
+    },
+    "model": "core.grouppermission",
+    "pk": 130231
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "module_module"
+    },
+    "model": "core.grouppermission",
+    "pk": 130232
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "module_data-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 130233
+  },
+  {
+    "fields": {
       "available_instance_resource": "newform",
       "class_field": "",
       "description": "Erstellung durch die Gemeinde",
@@ -42998,6 +43310,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Admin",
       "phone": "",
@@ -43013,6 +43326,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Guest",
       "phone": "",
@@ -43028,6 +43342,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "KOOR - ARE - NP Koordinationsstelle Nutzungsplanung",
       "phone": null,
@@ -43043,6 +43358,7 @@
     "fields": {
       "address": "Gemeindehausplatz 4",
       "city": "Altdorf",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Altdorf",
       "phone": "",
@@ -43058,6 +43374,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Umweltschutz Sachbearbeitung und Koordination",
       "phone": "",
@@ -43073,6 +43390,7 @@
     "fields": {
       "address": "G\u00f6scheneralpstrasse 6487 G\u00f6schenen",
       "city": "G\u00f6schenen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Baukommission Urner Oberland",
       "phone": "",
@@ -43088,6 +43406,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Forst und Jagd Sachbearbeitung und Koordination",
       "phone": "",
@@ -43103,6 +43422,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Altdorf",
       "phone": "",
@@ -43118,6 +43438,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Umweltschutz Sachbearbeitung",
       "phone": "",
@@ -43133,6 +43454,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Forst und Jagd Sachbearbeitung",
       "phone": "",
@@ -43148,6 +43470,7 @@
     "fields": {
       "address": "Kirchgasse 10",
       "city": "Andermatt",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Andermatt",
       "phone": "",
@@ -43163,6 +43486,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r Fachstelle Zivilschutz",
       "phone": "",
@@ -43178,6 +43502,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "KOOR - ARE - BG Koordinationsstelle f\u00fcr Baueingaben",
       "phone": "",
@@ -43193,6 +43518,7 @@
     "fields": {
       "address": "Schulhausweg 9",
       "city": "Attinghausen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Attinghausen",
       "phone": "",
@@ -43208,6 +43534,7 @@
     "fields": {
       "address": "Gemeindekanzlei",
       "city": "Bauen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Bauen",
       "phone": "",
@@ -43223,6 +43550,7 @@
     "fields": {
       "address": "Gotthardstrasse 99",
       "city": "Erstfeld",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Erstfeld",
       "phone": "",
@@ -43238,6 +43566,7 @@
     "fields": {
       "address": "Postfach 162",
       "city": "B\u00fcrglen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde B\u00fcrglen",
       "phone": "",
@@ -43253,6 +43582,7 @@
     "fields": {
       "address": "Dorfstrasse 1",
       "city": "Fl\u00fcelen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Fl\u00fcelen",
       "phone": "",
@@ -43268,6 +43598,7 @@
     "fields": {
       "address": "Dorfstrasse 21",
       "city": "Isenthal",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Isenthal",
       "phone": "",
@@ -43283,6 +43614,7 @@
     "fields": {
       "address": "Gemeindehaus",
       "city": "Realp",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Realp",
       "phone": "",
@@ -43298,6 +43630,7 @@
     "fields": {
       "address": "Dorfplatz 1",
       "city": "Schattdorf",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Schattdorf",
       "phone": "",
@@ -43313,6 +43646,7 @@
     "fields": {
       "address": "A Prostrasse 47",
       "city": "Seedorf",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Seedorf",
       "phone": "",
@@ -43328,6 +43662,7 @@
     "fields": {
       "address": "Dorfstrasse 66",
       "city": "Seelisberg",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Seelisberg",
       "phone": "",
@@ -43343,6 +43678,7 @@
     "fields": {
       "address": "Gotthardstrasse 217",
       "city": "Silenen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Silenen",
       "phone": "",
@@ -43358,6 +43694,7 @@
     "fields": {
       "address": "Bahnhofstrasse 8",
       "city": "Sisikon",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Sisikon",
       "phone": "",
@@ -43373,6 +43710,7 @@
     "fields": {
       "address": "Dorf 10",
       "city": "Spiringen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Spiringen",
       "phone": "",
@@ -43388,6 +43726,7 @@
     "fields": {
       "address": "Kirchstrasse",
       "city": "Untersch\u00e4chen",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Untersch\u00e4chen",
       "phone": "",
@@ -43403,6 +43742,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "paul.walker@ur.ch",
       "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 1",
       "phone": "",
@@ -43418,6 +43758,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Justizdirektion Fachstelle Tourismusressort Andermatt",
       "phone": "",
@@ -43433,6 +43774,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Raumplanung - Fachstelle Nutzungsplanung",
       "phone": "",
@@ -43448,6 +43790,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r Fachstelle Brandschutz",
       "phone": "",
@@ -43463,6 +43806,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Arbeit und Migration",
       "phone": "",
@@ -43478,6 +43822,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Steuern",
       "phone": "",
@@ -43493,6 +43838,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Wirtschaft und \u00f6ffentlichen Verkehr",
       "phone": "",
@@ -43508,6 +43854,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Landwirtschaft Sachbearbeitung und Koordination",
       "phone": "",
@@ -43523,6 +43870,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Arch\u00e4ologie",
       "phone": "",
@@ -43538,6 +43886,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Natur- und -Landschaftsschutz",
       "phone": "",
@@ -43553,6 +43902,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Raumplanung - Fachbereich Seeufer innerhalb Bauzone",
       "phone": "",
@@ -43568,6 +43918,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Natur- und Heimatschutz - Wanderweg- und Bikefachstelle",
       "phone": "",
@@ -43583,6 +43934,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Strassen- und Schiffsverkehr",
       "phone": "",
@@ -43598,6 +43950,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Abwasser Uri",
       "phone": "",
@@ -43613,6 +43966,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion DS Sachbearbeitung und Koordination",
       "phone": "",
@@ -43628,6 +43982,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Energie - Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -43643,6 +43998,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Wasserbau - Pendenzen Baudirektion",
       "phone": "",
@@ -43658,6 +44014,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Betrieb Nationalstrassen - Pendenzen Baudirektion",
       "phone": "",
@@ -43673,6 +44030,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "andrea.deplazes@ur.ch",
       "name": "Baudirektion Amt f\u00fcr Hochbau - Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -43688,6 +44046,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - direkt zugewiesene Pendenzen",
       "phone": "",
@@ -43703,6 +44062,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Justizdirektion Uri Beschwerdedienst",
       "phone": "",
@@ -43718,6 +44078,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Justizdirektion Uri Rechtsdienst",
       "phone": "",
@@ -43733,6 +44094,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Justizdirektion Uri Direktionssekretariat",
       "phone": "",
@@ -43748,6 +44110,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Laboratorium der Urkantone Lebensmittelinspektorat",
       "phone": "",
@@ -43763,6 +44126,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Laboratorium der Urkantone Trinwasserinspektorat",
       "phone": "",
@@ -43778,6 +44142,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Procap",
       "phone": "",
@@ -43793,6 +44158,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Andermatt",
       "phone": "",
@@ -43808,6 +44174,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Attinghausen",
       "phone": "",
@@ -43823,6 +44190,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Bauen",
       "phone": "",
@@ -43838,6 +44206,7 @@
     "fields": {
       "address": "",
       "city": "B\u00fcrglen",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission B\u00fcrglen",
       "phone": "",
@@ -43853,6 +44222,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Erstfeld",
       "phone": "",
@@ -43868,6 +44238,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Fl\u00fcelen",
       "phone": "",
@@ -43883,6 +44254,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Urner Oberland",
       "phone": "",
@@ -43898,6 +44270,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Hospental",
       "phone": "",
@@ -43913,6 +44286,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Isenthal",
       "phone": "",
@@ -43928,6 +44302,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Realp",
       "phone": "",
@@ -43943,6 +44318,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Schattdorf",
       "phone": "",
@@ -43958,6 +44334,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Seedorf",
       "phone": "",
@@ -43973,6 +44350,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Seelisberg",
       "phone": "",
@@ -43988,6 +44366,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baukommission Silenen",
       "phone": "",
@@ -44003,6 +44382,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Sisikon",
       "phone": "",
@@ -44018,6 +44398,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Spiringen",
       "phone": "",
@@ -44033,6 +44414,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinderat Untersch\u00e4chen",
       "phone": "",
@@ -44048,6 +44430,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Kantonspolizei",
       "phone": "",
@@ -44063,6 +44446,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Kultur und Sport",
       "phone": "",
@@ -44078,6 +44462,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Alpiq",
       "phone": "",
@@ -44093,6 +44478,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": "lebensmittelinspektorat@laburk.ch",
       "name": "Laboratorium der Urkantone Veterin\u00e4ramt",
       "phone": null,
@@ -44108,6 +44494,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Landschaftsschutzverband Vierwaldst\u00e4ttersee",
       "phone": "",
@@ -44123,6 +44510,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "SBB AG Immobilien",
       "phone": null,
@@ -44138,6 +44526,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Raumplanung - Fachstelle Baugesuche",
       "phone": "",
@@ -44153,6 +44542,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Landwirtschaft Sachbearbeitung",
       "phone": "",
@@ -44168,6 +44558,7 @@
     "fields": {
       "address": "Kirchgasse 10",
       "city": "Andermatt",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat Gemeindebaubeh\u00f6rde Hospental",
       "phone": "",
@@ -44183,6 +44574,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Bundesamt f\u00fcr Verkehr",
       "phone": "",
@@ -44198,6 +44590,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "edi.schilter@zaku.ch",
       "name": "ZAKU Zentralverband Abfallbewirtschaftung Kanton Uri",
       "phone": "",
@@ -44213,6 +44606,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Acht Grad Ost AG",
       "phone": null,
@@ -44228,6 +44622,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Kommission f\u00fcr Natur- und Heimatschutz NHSK",
       "phone": "",
@@ -44243,6 +44638,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "oereb@lisag.ch",
       "name": "Lisag",
       "phone": "",
@@ -44258,6 +44654,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ZUBI Zentralschweizer Umweltbauinspektorat",
       "phone": "",
@@ -44273,6 +44670,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Qualinova",
       "phone": "",
@@ -44288,6 +44686,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Natur- und Heimatschutz - Fachstelle Heimatschutz und Denkmalpflege",
       "phone": "",
@@ -44303,6 +44702,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 2",
       "phone": "",
@@ -44318,6 +44718,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Abteilung Raumplanung - Fachstelle Bauten ausserhalb Bauzone Kreis 3",
       "phone": "",
@@ -44333,6 +44734,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeindeverwaltung Gurtnellen",
       "phone": "",
@@ -44348,6 +44750,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeindeverwaltung Wassen",
       "phone": "",
@@ -44363,6 +44766,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "simone.esprit@andermatt.ch",
       "name": "Gemeinde Andermatt als Vernehmlassungsstelle",
       "phone": "",
@@ -44378,6 +44782,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Wasserbau - Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -44393,6 +44798,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Strassen - Pendenzen Baudirektion",
       "phone": "",
@@ -44408,6 +44814,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Betrieb Kantonsstrassen - Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -44423,6 +44830,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Sicherheitsdirektion Bereitschafts- und Verkehrspolizei",
       "phone": "",
@@ -44438,6 +44846,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Landwirtschaft Fachstelle BGBB",
       "phone": "",
@@ -44453,6 +44862,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Kommission Naturgefahren",
       "phone": null,
@@ -44468,6 +44878,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Landwirtschaftskommission",
       "phone": null,
@@ -44483,6 +44894,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "KOOR BD - DS - Koordinationsstelle f\u00fcr Bewilligungsverfahren",
       "phone": "",
@@ -44498,6 +44910,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "cornelia.gamma@altdorf.ch",
       "name": "Gemeinde Altdorf als Vernehmlassungsstelle",
       "phone": "",
@@ -44513,6 +44926,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "simone.esprit@andermatt.ch",
       "name": "Gemeinde Hospental als Vernehmlassungsstelle",
       "phone": "",
@@ -44528,6 +44942,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "myrta.huser@attinghausen.ch",
       "name": "Gemeinde Attinghausen als Vernehmlassungsstelle",
       "phone": "",
@@ -44543,6 +44958,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "rdubacher@bluewin.ch",
       "name": "Gemeinde Bauen als Vernehmlassungsstelle",
       "phone": "",
@@ -44558,6 +44974,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "peter.gisler@buerglen.ch",
       "name": "Gemeinde B\u00fcrglen als Vernehmlassungsstelle",
       "phone": "",
@@ -44573,6 +44990,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "hansruedi.marti@erstfeld.ch",
       "name": "Gemeinde Erstfeld als Vernehmlassungsstelle",
       "phone": "",
@@ -44588,6 +45006,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "edi.arnold@flueelen.ch",
       "name": "Gemeinde Fl\u00fcelen als Vernehmlassungsstelle",
       "phone": "",
@@ -44603,6 +45022,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "Jessica.Walker@gurtnellen.ch",
       "name": "Gemeinde Gurtnellen als Vernehmlassungsstelle",
       "phone": "",
@@ -44618,6 +45038,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "gemeinde@goeschenen.ch",
       "name": "Gemeinde G\u00f6schenen als Vernehmlassungsstelle",
       "phone": "",
@@ -44633,6 +45054,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "gemeinde@isenthal.ch",
       "name": "Gemeinde Isenthal als Vernehmlassungsstelle",
       "phone": "",
@@ -44648,6 +45070,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "gemeinde@realp.ch",
       "name": "Gemeinde Realp als Vernehmlassungsstelle",
       "phone": "",
@@ -44663,6 +45086,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "arnold.stefan@schattdorf.ch",
       "name": "Gemeinde Schattdorf als Vernehmlassungsstelle",
       "phone": "",
@@ -44678,6 +45102,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "orlando.gmuer@seedorf-uri.ch",
       "name": "Gemeinde Seedorf als Vernehmlassungsstelle",
       "phone": "",
@@ -44693,6 +45118,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "kathrin.truttmann@seelisberg.ch",
       "name": "Gemeinde Seelisberg als Vernehmlassungsstelle",
       "phone": "",
@@ -44708,6 +45134,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "markus.zgraggen@silenen.ch",
       "name": "Gemeinde Silenen als Vernehmlassungsstelle",
       "phone": "",
@@ -44723,6 +45150,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "ursula.habegger@sisikon.ch",
       "name": "Gemeinde Sisikon als Vernehmlassungsstelle",
       "phone": "",
@@ -44738,6 +45166,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "rolf.baumann@spiringen.ch",
       "name": "Gemeinde Spiringen als Vernehmlassungsstelle",
       "phone": "",
@@ -44753,6 +45182,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "unterschaechen@bluewin.ch",
       "name": "Gemeinde Untersch\u00e4chen als Vernehmlassungsstelle",
       "phone": "",
@@ -44768,6 +45198,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Wassen als Vernehmlassungsstelle",
       "phone": "",
@@ -44783,6 +45214,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Sekretariat ENHK",
       "phone": "",
@@ -44798,6 +45230,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Strassen - Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -44813,6 +45246,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Energie - Pendenzen Baudirektion",
       "phone": "",
@@ -44828,6 +45262,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - Pendenzen Baudirektion Uri",
       "phone": "",
@@ -44843,6 +45278,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Betrieb Nationalstrassen -Direkt zugewiesene Pendenzen",
       "phone": "",
@@ -44858,6 +45294,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Amt f\u00fcr Hochbau - Pendenzen Baudirektion",
       "phone": "",
@@ -44873,6 +45310,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Baudirektion Betrieb Kantonsstrassen - Pendenzen Baudirektion",
       "phone": "",
@@ -44888,6 +45326,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Fachstelle f\u00fcr Geb\u00e4udesch\u00e4tzung",
       "phone": "",
@@ -44903,6 +45342,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr das Grundbuch",
       "phone": "",
@@ -44918,6 +45358,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r",
       "phone": null,
@@ -44933,6 +45374,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "georges.eich@ur.ch",
       "name": "ARE - Amt f\u00fcr Raumentwicklung",
       "phone": "",
@@ -44948,6 +45390,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Portal User",
       "phone": "",
@@ -44963,6 +45406,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "BAFU - Bundesamt f\u00fcr Umweltschutz",
       "phone": "",
@@ -44978,6 +45422,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "ARE - Bundesamt f\u00fcr Raumentwicklung",
       "phone": "",
@@ -44993,6 +45438,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": "aeb@evakuation.ch",
       "name": "Brandschutzpr\u00fcfung TRA Projekte",
       "phone": null,
@@ -45008,6 +45454,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeindewerke Erstfeld",
       "phone": "",
@@ -45023,6 +45470,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Finanzdirektion Direktionssekretariat",
       "phone": "",
@@ -45038,6 +45486,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "christian.mattli@ur.ch",
       "name": "Bildungs- und Kulturdirektion Direktionssekretariat",
       "phone": "",
@@ -45053,6 +45502,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "samuel.bissig@ur.ch",
       "name": "Amt f\u00fcr Soziales",
       "phone": "",
@@ -45068,6 +45518,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "heinrich.furrer@ur.ch",
       "name": "Fachstelle Statistik",
       "phone": "",
@@ -45083,6 +45534,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "emil.kaelin@ur.ch",
       "name": "Volkswirtschaftsdirektion Direktionssekretariat",
       "phone": "",
@@ -45098,6 +45550,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "roland.hartmann@ur.ch",
       "name": "Gesundheits-Sozial-und Umweltdirektion Direktionssekretariat",
       "phone": "",
@@ -45113,6 +45566,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "alexandra.kaelin@ur.ch",
       "name": "Sicherheitsdirektion Direktionssekretariat",
       "phone": "",
@@ -45128,6 +45582,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Laboratorium der Urkantone Badewasserinspektorat",
       "phone": "",
@@ -45143,6 +45598,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeindewerke Erstfeld",
       "phone": "",
@@ -45158,6 +45614,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Elektrizit\u00e4tswerk Ursern",
       "phone": "",
@@ -45173,6 +45630,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Elektrizit\u00e4tswerk Altdorf",
       "phone": "",
@@ -45188,6 +45646,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Kraftwerk G\u00f6schenen AG",
       "phone": "",
@@ -45203,6 +45662,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "KOOR \u2013 AfU \u2013 Koordinationsstelle Amt f\u00fcr Umweltschutz",
       "phone": "",
@@ -45218,6 +45678,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "KOOR - ALA - Koordinationsstelle Amt f\u00fcr Landwirtschaft",
       "phone": null,
@@ -45233,6 +45694,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "energie@ur.ch",
       "name": "KOOR - AfE - Koordinationsstelle Amt f\u00fcr Energie",
       "phone": "",
@@ -45248,6 +45710,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "KOOR - AFJ - Koordinationsstelle Amt f\u00fcr Forst und Jagd",
       "phone": "",
@@ -45263,6 +45726,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Korporation Uri",
       "phone": "",
@@ -45278,6 +45742,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Korporation Ursern",
       "phone": "",
@@ -45293,6 +45758,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "sarah.bucher@ur.ch",
       "name": "Amt f\u00fcr Umweltschutz Abteilung Gew\u00e4sserschutz Sachbearbeitung und Koordination",
       "phone": "",
@@ -45308,6 +45774,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "sarah.bucher@ur.ch",
       "name": "Amt f\u00fcr Umweltschutz Abteilung Immissionsschutz Sachbearbeitung und Koordination",
       "phone": "",
@@ -45323,6 +45790,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Umweltschutz Abteilung Gew\u00e4sserschutz Sachbearbeitung",
       "phone": "",
@@ -45338,6 +45806,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Umweltschutz Abteilung Immissionsschutz Sachbearbeitung",
       "phone": "",
@@ -45353,6 +45822,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "info@korporation-ursern.ch",
       "name": "Korporation Ursern",
       "phone": "",
@@ -45368,6 +45838,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Test Gruppe",
       "phone": null,
@@ -45383,6 +45854,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Pro Natura",
       "phone": "",
@@ -45398,6 +45870,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "VCS Sektion Uri",
       "phone": "",
@@ -45413,6 +45886,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "Gemeindeverwaltung G\u00f6schenen",
       "phone": "",
@@ -45428,6 +45902,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "afbn.baupolizei@ur.ch",
       "name": "Amt f\u00fcr Betrieb Nationalstrassen Baupolizei",
       "phone": "",
@@ -45443,6 +45918,7 @@
     "fields": {
       "address": "",
       "city": "",
+      "disabled": 0,
       "email": "",
       "name": "WWF Uri",
       "phone": "",
@@ -45458,6 +45934,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Amt f\u00fcr Umweltschutz Sachbearbeitung und Koordination W\u00e4rmenutzung",
       "phone": null,
@@ -45473,6 +45950,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Monitron (Pr\u00fcfung von Dossiers im Zusammenhang mit W\u00e4rmenutzung)",
       "phone": null,
@@ -45488,6 +45966,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Diverse Gemeinden",
       "phone": null,
@@ -45503,6 +45982,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Alle Gemeinden",
       "phone": null,
@@ -45518,6 +45998,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "KOOR - SD - Koordinationsstelle Amt f\u00fcr Kantonspolizei (BVP)",
       "phone": null,
@@ -45533,6 +46014,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "VBS Schiesswesen",
       "phone": null,
@@ -45548,6 +46030,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Wasserkommission Seelisberg",
       "phone": null,
@@ -47438,6 +47921,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Koordinationsstelle f\u00fcr Baueingaben",
+      "disabled": 0,
       "email": "",
       "name": "ARE KOOR BG",
       "phone": "",
@@ -47455,6 +47939,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Forst und Jagd und Abteilung Naturgefahren",
+      "disabled": 0,
       "email": "sid.afj@ur.ch",
       "name": "AFJ",
       "phone": "",
@@ -47472,6 +47957,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Arbeit und Migration",
+      "disabled": 0,
       "email": "",
       "name": "AfAM",
       "phone": "",
@@ -47489,6 +47975,7 @@
       "address": "",
       "city": "",
       "description": "Gew\u00e4sserschutz und Immissionsschutz",
+      "disabled": 0,
       "email": "sarah.bucher@ur.ch",
       "name": "AfU",
       "phone": "",
@@ -47506,6 +47993,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Uri Direktionssekretariat",
+      "disabled": 0,
       "email": "viktor.arnold@ur.ch",
       "name": "BD DS",
       "phone": "",
@@ -47523,6 +48011,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r Abteilung Zivilschutz",
+      "disabled": 0,
       "email": "gisler.martin@ur.ch",
       "name": "ABM ZS",
       "phone": "",
@@ -47540,6 +48029,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r Fachstelle Brandschutz",
+      "disabled": 0,
       "email": "gisler.martin@ur.ch",
       "name": "ABM BS",
       "phone": "",
@@ -47557,6 +48047,7 @@
       "address": "",
       "city": "",
       "description": "Procap Behindertengerechtes Bauen",
+      "disabled": 0,
       "email": "",
       "name": "Procap",
       "phone": "",
@@ -47574,6 +48065,7 @@
       "address": "",
       "city": "",
       "description": "Abwasser Uri",
+      "disabled": 0,
       "email": "info@abwasser-uri.ch",
       "name": "AWU",
       "phone": "",
@@ -47591,6 +48083,7 @@
       "address": null,
       "city": null,
       "description": "Laboratorium der Urkantone Trinkwasserinspektorat",
+      "disabled": 0,
       "email": "trinkwasserinspektorat@laburk.ch",
       "name": "LABT (Trinkwasserinspektorat)",
       "phone": null,
@@ -47608,6 +48101,7 @@
       "address": null,
       "city": null,
       "description": "Laboratorium der Urkantone Lebensmittelinspektorat",
+      "disabled": 0,
       "email": "lebensmittelinspektorat@laburk.ch",
       "name": "LABL (Lebensmittelinspektorat)",
       "phone": null,
@@ -47625,6 +48119,7 @@
       "address": null,
       "city": null,
       "description": "Laboratorium der Urkantone Veterin\u00e4ramt",
+      "disabled": 0,
       "email": null,
       "name": "LABV (Veterin\u00e4ramt der Urkantone)",
       "phone": null,
@@ -47642,6 +48137,7 @@
       "address": "",
       "city": "",
       "description": "Koordinationsstelle Nutzungplanung",
+      "disabled": 0,
       "email": "",
       "name": "ARE KOOR NP",
       "phone": "",
@@ -47659,6 +48155,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 1",
+      "disabled": 0,
       "email": "koorbg@ur.ch",
       "name": "ARE BaB Kreis 1",
       "phone": "",
@@ -47676,6 +48173,7 @@
       "address": "",
       "city": "",
       "description": "Fachstelle Tourismusressort Andermatt",
+      "disabled": 0,
       "email": "roger.brunner@ur.ch",
       "name": "TRA",
       "phone": "",
@@ -47693,6 +48191,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Abteilung Nutzungsplanung",
+      "disabled": 0,
       "email": "koornp@ur.ch",
       "name": "ARE NP",
       "phone": "",
@@ -47710,6 +48209,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Abteilung Natur- und Heimatschutz Fachbereich Arch\u00e4ologie",
+      "disabled": 0,
       "email": "artur.bucher@ur.ch",
       "name": "ARE NHS A",
       "phone": "",
@@ -47727,6 +48227,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Steuern",
+      "disabled": 0,
       "email": "",
       "name": "Amt f\u00fcr Steuern",
       "phone": "",
@@ -47744,6 +48245,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Kantonspolizei",
+      "disabled": 0,
       "email": "",
       "name": "AfKP",
       "phone": "",
@@ -47761,6 +48263,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Kultur und Sport",
+      "disabled": 0,
       "email": "",
       "name": "AfKS",
       "phone": "",
@@ -47778,6 +48281,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Wirtschaft und \u00f6ffentlichen Verkehr",
+      "disabled": 0,
       "email": "ds.vd@ur.ch",
       "name": "AfWoeV",
       "phone": "",
@@ -47795,6 +48299,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Landwirtschaft",
+      "disabled": 0,
       "email": "ala.vd@ur.ch",
       "name": "ALA",
       "phone": "",
@@ -47812,6 +48317,7 @@
       "address": "",
       "city": "",
       "description": "Alpiq Hochspannungsleitung",
+      "disabled": 0,
       "email": "",
       "name": "Alpiq",
       "phone": "",
@@ -47829,6 +48335,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Abteilung Natur- und Heimatschutz",
+      "disabled": 0,
       "email": "georges.eich@ur.ch",
       "name": "ARE NHS L",
       "phone": "",
@@ -47846,6 +48353,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Fachbereich Seeufer innerhalb Bauzone",
+      "disabled": 0,
       "email": "koornp@ur.ch",
       "name": "ARE SU",
       "phone": "",
@@ -47863,6 +48371,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Wanderweg- und Bikefachstelle",
+      "disabled": 0,
       "email": "adi.arnold@ur.ch",
       "name": "ARE WBF",
       "phone": "",
@@ -47880,6 +48389,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Strassen- und Schiffsverkehr",
+      "disabled": 0,
       "email": "",
       "name": "ASSV",
       "phone": "",
@@ -47897,6 +48407,7 @@
       "address": "",
       "city": "",
       "description": "Test",
+      "disabled": 0,
       "email": "",
       "name": "Test",
       "phone": "",
@@ -47914,6 +48425,7 @@
       "address": "",
       "city": "",
       "description": "SBB Hochspannungsleitung",
+      "disabled": 0,
       "email": "",
       "name": "SBB",
       "phone": "",
@@ -47931,6 +48443,7 @@
       "address": "",
       "city": "",
       "description": "Justizdirektion Beschwerdedienst",
+      "disabled": 0,
       "email": "",
       "name": "BeDi",
       "phone": "",
@@ -47948,6 +48461,7 @@
       "address": "",
       "city": "",
       "description": "Justizdirektion Rechtsdienst",
+      "disabled": 0,
       "email": "rechtsdienst@ur.ch",
       "name": "ReDi",
       "phone": "",
@@ -47965,6 +48479,7 @@
       "address": "",
       "city": "",
       "description": "Justizdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "ds.jd@ur.ch",
       "name": "JD DS",
       "phone": "",
@@ -47982,6 +48497,7 @@
       "address": "",
       "city": "",
       "description": "Mitbericht Fachstelle Koordination (proforma Zirkulation)",
+      "disabled": 0,
       "email": "",
       "name": "ARE BG",
       "phone": "",
@@ -47999,6 +48515,7 @@
       "address": null,
       "city": null,
       "description": "Landschaftsschutzverband Vierwaldst\u00e4ttersee",
+      "disabled": 0,
       "email": null,
       "name": "LSSV (Landschaftsschutzverband Vierwaldst\u00e4ttersee)",
       "phone": null,
@@ -48016,6 +48533,7 @@
       "address": "",
       "city": "",
       "description": "Mitbericht Fachstelle Nutzungsplanung (proforma Zirkulation)",
+      "disabled": 0,
       "email": "",
       "name": "TEST KOORNP",
       "phone": "",
@@ -48033,6 +48551,7 @@
       "address": "",
       "city": "",
       "description": "Bundesamt f\u00fcr Verkehr",
+      "disabled": 0,
       "email": "",
       "name": "BAV",
       "phone": "",
@@ -48050,6 +48569,7 @@
       "address": "",
       "city": "",
       "description": "Zentralverband Abfallbewirtschaftung Kanton Uri",
+      "disabled": 0,
       "email": "",
       "name": "ZAKU",
       "phone": "",
@@ -48067,6 +48587,7 @@
       "address": null,
       "city": null,
       "description": "Geometer Vermessung",
+      "disabled": 0,
       "email": null,
       "name": "AGO (Geometer)",
       "phone": null,
@@ -48084,6 +48605,7 @@
       "address": "",
       "city": "",
       "description": "LIS Uri Geoinformation",
+      "disabled": 0,
       "email": "",
       "name": "Lisag",
       "phone": "",
@@ -48101,6 +48623,7 @@
       "address": "",
       "city": "",
       "description": "Zentralschweizer Umweltbauinspektorat",
+      "disabled": 0,
       "email": "",
       "name": "ZUBI",
       "phone": "",
@@ -48118,6 +48641,7 @@
       "address": null,
       "city": null,
       "description": "Amt f\u00fcr Raumentwicklung Heimatschutz und Denkmalpflege",
+      "disabled": 0,
       "email": "thomas.brunner@ur.ch",
       "name": "ARE NHS D",
       "phone": null,
@@ -48135,6 +48659,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Fachstelle Bauten ausserhalb der Bauzone Kreis 2",
+      "disabled": 0,
       "email": "koorbg@ur.ch",
       "name": "ARE BaB Kreis 2",
       "phone": "",
@@ -48152,6 +48677,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung Fachstelle Bauten und Anlagen ausserhalb der Bauzone Kreis 3",
+      "disabled": 0,
       "email": "koorbg@ur.ch",
       "name": "ARE BaB Kreis 3",
       "phone": "",
@@ -48169,6 +48695,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Andermatt als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Andermatt",
       "phone": "",
@@ -48186,6 +48713,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Altdorf als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Altdorf",
       "phone": "",
@@ -48203,6 +48731,7 @@
       "address": "",
       "city": "",
       "description": "Koordinationsstelle f\u00fcr Bewilligungsverfahren der Baudirektion",
+      "disabled": 0,
       "email": "",
       "name": "KOOR BD",
       "phone": "",
@@ -48220,6 +48749,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Abteilung Wasserbau",
+      "disabled": 0,
       "email": "",
       "name": "WB",
       "phone": "",
@@ -48237,6 +48767,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Abteilung Strassen",
+      "disabled": 0,
       "email": "",
       "name": "AS",
       "phone": "",
@@ -48254,6 +48785,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Betrieb Kantonsstrassen",
+      "disabled": 0,
       "email": "",
       "name": "BK",
       "phone": "",
@@ -48271,6 +48803,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Amt f\u00fcr Energie",
+      "disabled": 0,
       "email": "",
       "name": "AfE",
       "phone": "",
@@ -48288,6 +48821,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Amt f\u00fcr Betrieb Nationalstrassen",
+      "disabled": 0,
       "email": "afbn@ur.ch",
       "name": "AfBN",
       "phone": "",
@@ -48305,6 +48839,7 @@
       "address": "",
       "city": "",
       "description": "Baudirektion Amt f\u00fcr Hochbau",
+      "disabled": 0,
       "email": "",
       "name": "AfH",
       "phone": "",
@@ -48322,6 +48857,7 @@
       "address": "",
       "city": "",
       "description": "Bundesamt f\u00fcr Strassen",
+      "disabled": 0,
       "email": "",
       "name": "ASTRA",
       "phone": "",
@@ -48339,6 +48875,7 @@
       "address": "",
       "city": "",
       "description": "Bereitschafts- und Verkehrspolizei",
+      "disabled": 0,
       "email": "",
       "name": "BVP",
       "phone": "",
@@ -48356,6 +48893,7 @@
       "address": "",
       "city": "",
       "description": "Bundesgesetz \u00fcber das b\u00e4uerliche Bodenrecht",
+      "disabled": 0,
       "email": "",
       "name": "BGBB",
       "phone": "",
@@ -48373,6 +48911,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Attinghausen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Attinghausen",
       "phone": "",
@@ -48390,6 +48929,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Bauen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Bauen",
       "phone": "",
@@ -48407,6 +48947,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde B\u00fcrglen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde B\u00fcrglen",
       "phone": "",
@@ -48424,6 +48965,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Erstfeld  als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Erstfeld",
       "phone": "",
@@ -48441,6 +48983,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Fl\u00fcelen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Fl\u00fcelen",
       "phone": "",
@@ -48458,6 +49001,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde G\u00f6schenen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde G\u00f6schenen",
       "phone": "",
@@ -48475,6 +49019,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Gurtnellen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Gurtnellen",
       "phone": "",
@@ -48492,6 +49037,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Hospental als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Hospental",
       "phone": "",
@@ -48509,6 +49055,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Isenthal als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Isenthal",
       "phone": "",
@@ -48526,6 +49073,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Realp als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "gemeinde@realp.ch",
       "name": "Gemeinde Realp",
       "phone": "",
@@ -48543,6 +49091,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Schattdorf als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Schattdorf",
       "phone": "",
@@ -48560,6 +49109,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Seedorf als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Seedorf",
       "phone": "",
@@ -48577,6 +49127,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Seelisberg als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Seelisberg",
       "phone": "",
@@ -48594,6 +49145,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Silenen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Silenen",
       "phone": "",
@@ -48611,6 +49163,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Sisikon als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Sisikon",
       "phone": "",
@@ -48628,6 +49181,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Spiringen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Spiringen",
       "phone": "",
@@ -48645,6 +49199,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Untersch\u00e4chen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Untersch\u00e4chen",
       "phone": "",
@@ -48662,6 +49217,7 @@
       "address": "",
       "city": "",
       "description": "Gemeinde Wassen als Vernehmlassungsstelle",
+      "disabled": 0,
       "email": "",
       "name": "Gemeinde Wassen",
       "phone": "",
@@ -48679,6 +49235,7 @@
       "address": "",
       "city": "",
       "description": "Eidgen\u00f6ssische Natur und Heimatschutzkommission",
+      "disabled": 0,
       "email": "",
       "name": "ENHK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
       "phone": "",
@@ -48696,6 +49253,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Natur und Heimatschutzkommission",
+      "disabled": 0,
       "email": "",
       "name": "NHSK (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstelle)",
       "phone": "",
@@ -48713,6 +49271,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Altdorf",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Altdorf",
       "phone": "",
@@ -48730,6 +49289,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Urner Oberland",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Urner Oberland",
       "phone": "",
@@ -48747,6 +49307,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Andermatt",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Andermatt",
       "phone": "",
@@ -48764,6 +49325,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Attinghausen",
+      "disabled": 0,
       "email": "",
       "name": "Miktglieder BK Attinghausen",
       "phone": "",
@@ -48781,6 +49343,7 @@
       "address": "",
       "city": "",
       "description": "GBB Altdorf",
+      "disabled": 0,
       "email": "",
       "name": "GBB Altdorf",
       "phone": "",
@@ -48798,6 +49361,7 @@
       "address": "",
       "city": "",
       "description": "GBB Andermatt",
+      "disabled": 0,
       "email": "",
       "name": "GBB Andermatt",
       "phone": "",
@@ -48815,6 +49379,7 @@
       "address": "",
       "city": "",
       "description": "GBB Attinghausen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Attinghausen",
       "phone": "",
@@ -48832,6 +49397,7 @@
       "address": "",
       "city": "",
       "description": "GBB Bauen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Bauen",
       "phone": "",
@@ -48849,6 +49415,7 @@
       "address": "",
       "city": "",
       "description": "GBB B\u00fcrglen",
+      "disabled": 0,
       "email": "",
       "name": "GBB B\u00fcrglen",
       "phone": "",
@@ -48866,6 +49433,7 @@
       "address": "",
       "city": "",
       "description": "GBB Erstfeld",
+      "disabled": 0,
       "email": "",
       "name": "GBB Erstfeld",
       "phone": "",
@@ -48883,6 +49451,7 @@
       "address": "",
       "city": "",
       "description": "GBB Fl\u00fcelen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Fl\u00fcelen",
       "phone": "",
@@ -48900,6 +49469,7 @@
       "address": "",
       "city": "",
       "description": "GBB Urner Oberland",
+      "disabled": 0,
       "email": "",
       "name": "GBB Urner Oberland",
       "phone": "",
@@ -48917,6 +49487,7 @@
       "address": "",
       "city": "",
       "description": "GBB Hospental",
+      "disabled": 0,
       "email": "",
       "name": "GBB Hospental",
       "phone": "",
@@ -48934,6 +49505,7 @@
       "address": "",
       "city": "",
       "description": "GBB Isenthal",
+      "disabled": 0,
       "email": "",
       "name": "GBB Isenthal",
       "phone": "",
@@ -48951,6 +49523,7 @@
       "address": "",
       "city": "",
       "description": "GBB Realp",
+      "disabled": 0,
       "email": "",
       "name": "GBB Realp",
       "phone": "",
@@ -48968,6 +49541,7 @@
       "address": "",
       "city": "",
       "description": "GBB Schattdorf",
+      "disabled": 0,
       "email": "",
       "name": "GBB Schattdorf",
       "phone": "",
@@ -48985,6 +49559,7 @@
       "address": "",
       "city": "",
       "description": "GBB Seedorf",
+      "disabled": 0,
       "email": "",
       "name": "GBB Seedorf",
       "phone": "",
@@ -49002,6 +49577,7 @@
       "address": "",
       "city": "",
       "description": "GBB Seelisberg",
+      "disabled": 0,
       "email": "",
       "name": "GBB Seelisberg",
       "phone": "",
@@ -49019,6 +49595,7 @@
       "address": "",
       "city": "",
       "description": "GBB Silenen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Silenen",
       "phone": "",
@@ -49036,6 +49613,7 @@
       "address": "",
       "city": "",
       "description": "GBB Sisikon",
+      "disabled": 0,
       "email": "",
       "name": "GBB Sisikon",
       "phone": "",
@@ -49053,6 +49631,7 @@
       "address": "",
       "city": "",
       "description": "GBB Spiringen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Spiringen",
       "phone": "",
@@ -49070,6 +49649,7 @@
       "address": "",
       "city": "",
       "description": "GBB Untersch\u00e4chen",
+      "disabled": 0,
       "email": "",
       "name": "GBB Untersch\u00e4chen",
       "phone": "",
@@ -49087,6 +49667,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Erstfeld",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Erstfeld",
       "phone": "",
@@ -49104,6 +49685,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Schattdorf",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Schattdorf",
       "phone": "",
@@ -49121,6 +49703,7 @@
       "address": null,
       "city": null,
       "description": "Qualinova",
+      "disabled": 0,
       "email": null,
       "name": "Qualinova (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
       "phone": null,
@@ -49138,6 +49721,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Bauen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Bauen",
       "phone": "",
@@ -49155,6 +49739,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK B\u00fcrglen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK B\u00fcrglen",
       "phone": "",
@@ -49172,6 +49757,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Fl\u00fcelen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Fl\u00fcelen",
       "phone": "",
@@ -49189,6 +49775,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Seedorf",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Seedorf",
       "phone": "",
@@ -49206,6 +49793,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Seelisberg",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Seelisberg",
       "phone": "",
@@ -49223,6 +49811,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Silenen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Silenen",
       "phone": "",
@@ -49240,6 +49829,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Sisikon",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Sisikon",
       "phone": "",
@@ -49257,6 +49847,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Realp",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Realp",
       "phone": "",
@@ -49274,6 +49865,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Hospental",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Hospental",
       "phone": "",
@@ -49291,6 +49883,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Isenthal",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Isenthal",
       "phone": "",
@@ -49308,6 +49901,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Spiringen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Spiringen",
       "phone": "",
@@ -49325,6 +49919,7 @@
       "address": "",
       "city": "",
       "description": "Mitglieder BK Untersch\u00e4chen",
+      "disabled": 0,
       "email": "",
       "name": "Mitglieder BK Untersch\u00e4chen",
       "phone": "",
@@ -49342,6 +49937,7 @@
       "address": "",
       "city": "",
       "description": "Fachstelle f\u00fcr Geb\u00e4udesch\u00e4tzung",
+      "disabled": 0,
       "email": "",
       "name": "FGS",
       "phone": "",
@@ -49359,6 +49955,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr das Grundbuch",
+      "disabled": 0,
       "email": "",
       "name": "AfdG",
       "phone": "",
@@ -49376,6 +49973,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r",
+      "disabled": 0,
       "email": "abm@ur.ch",
       "name": "ABM",
       "phone": "",
@@ -49393,6 +49991,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Raumentwicklung",
+      "disabled": 0,
       "email": "georges.eich@ur.ch",
       "name": "ARE",
       "phone": "",
@@ -49410,6 +50009,7 @@
       "address": "",
       "city": "",
       "description": "Bundesamt f\u00fcr Umweltschutz",
+      "disabled": 0,
       "email": "",
       "name": "BAFU (Service noch nicht in Betrieb)",
       "phone": "",
@@ -49427,6 +50027,7 @@
       "address": "",
       "city": "",
       "description": "Bundesamt f\u00fcr Raumentwicklung",
+      "disabled": 0,
       "email": "",
       "name": "ARE Bern (Service noch nicht in Betrieb)",
       "phone": "",
@@ -49444,6 +50045,7 @@
       "address": "",
       "city": "",
       "description": "Brandschutzpr\u00fcfung zugewiesener Projekte",
+      "disabled": 0,
       "email": "aeb@evakuation.ch",
       "name": "Brandschutz TRA Andermatt",
       "phone": "",
@@ -49461,6 +50063,7 @@
       "address": "",
       "city": "",
       "description": "Bildungs- und Kulturdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "",
       "name": "BKD DS",
       "phone": "",
@@ -49478,6 +50081,7 @@
       "address": "",
       "city": "",
       "description": "Fachstelle Statistik",
+      "disabled": 0,
       "email": "",
       "name": "Fachstelle Statistik",
       "phone": "",
@@ -49495,6 +50099,7 @@
       "address": "",
       "city": "",
       "description": "Finanzdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "",
       "name": "FD DS",
       "phone": "",
@@ -49512,6 +50117,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Soziales",
+      "disabled": 0,
       "email": "samuel.bissig@ur.ch",
       "name": "Amt f\u00fcr Soziales",
       "phone": "",
@@ -49529,6 +50135,7 @@
       "address": "",
       "city": "",
       "description": "Gesundheits- Sozial- und Umweltdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "ds.gsud@ur.ch",
       "name": "GSUD DS",
       "phone": "",
@@ -49546,6 +50153,7 @@
       "address": "",
       "city": "",
       "description": "Sicherheitsdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "ds.sid@ur.ch",
       "name": "SID DS",
       "phone": "",
@@ -49563,6 +50171,7 @@
       "address": "",
       "city": "",
       "description": "Volkswirtschaftsdirektion Direktionssekretariat",
+      "disabled": 0,
       "email": "ds.vd@ur.ch",
       "name": "VD DS",
       "phone": "",
@@ -49580,6 +50189,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Koordinationsstelle Amt f\u00fcr Umweltschutz",
+      "disabled": 0,
       "email": "",
       "name": "KOOR AfU",
       "phone": "",
@@ -49597,6 +50207,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Koordinationsstelle f\u00fcr Landwirtschaft",
+      "disabled": 0,
       "email": "",
       "name": "KOOR ALA",
       "phone": "",
@@ -49614,6 +50225,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Koordinationsstelle f\u00fcr Energie",
+      "disabled": 0,
       "email": "",
       "name": "KOOR AfE",
       "phone": "",
@@ -49631,6 +50243,7 @@
       "address": "",
       "city": "",
       "description": "Kantonale Koordinationsstelle f\u00fcr Forst und Jagd",
+      "disabled": 0,
       "email": "",
       "name": "KOOR AFJ",
       "phone": "",
@@ -49648,6 +50261,7 @@
       "address": null,
       "city": null,
       "description": "Badewasserinspektor",
+      "disabled": 0,
       "email": null,
       "name": "LABB (Badewasserinspektorat)",
       "phone": null,
@@ -49665,6 +50279,7 @@
       "address": "",
       "city": "",
       "description": "Korporation Uri Kanzlei",
+      "disabled": 0,
       "email": "",
       "name": "Korporation Uri (Service noch nicht in Betrieb)",
       "phone": "",
@@ -49682,6 +50297,7 @@
       "address": "",
       "city": "",
       "description": "Korporation Ursern Kanzlei",
+      "disabled": 0,
       "email": "",
       "name": "Korporation Ursern (Service noch nicht in Betrieb)",
       "phone": "",
@@ -49699,6 +50315,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Umweltschutz Abteilung Gew\u00e4sserschutz",
+      "disabled": 0,
       "email": "afu-gs@ur.ch",
       "name": "AfU GS",
       "phone": "",
@@ -49716,6 +50333,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Umweltschutz Abteilung Immissionsschutz",
+      "disabled": 0,
       "email": "afu-is@ur.ch",
       "name": "AfU IS",
       "phone": "",
@@ -49733,6 +50351,7 @@
       "address": "",
       "city": "",
       "description": "Amt f\u00fcr Betrieb Nationalstrassen Bereich Baupolizei",
+      "disabled": 0,
       "email": "afbn.baupolizei@ur.ch",
       "name": "AfBN Baupolizei",
       "phone": "",
@@ -49750,6 +50369,7 @@
       "address": null,
       "city": null,
       "description": "Amt f\u00fcr Umweltschutz Dossier im Zusammenhang mit W\u00e4rmenutzung",
+      "disabled": 0,
       "email": null,
       "name": "AfU GS W\u00e4rmenutzung",
       "phone": null,
@@ -49767,6 +50387,7 @@
       "address": null,
       "city": null,
       "description": "Monitron (pr\u00fcft Dossiers im Zusammenhang mit W\u00e4rmenutzung)",
+      "disabled": 0,
       "email": null,
       "name": "Monitron (Dossierzuweisung nur via Fachstelle, Rubrik Dossier freischalten)",
       "phone": null,
@@ -49784,6 +50405,7 @@
       "address": null,
       "city": null,
       "description": "KOOR SD",
+      "disabled": 0,
       "email": null,
       "name": "KOOR SD",
       "phone": null,
@@ -49801,6 +50423,7 @@
       "address": null,
       "city": null,
       "description": "VBS Schiesswesen (Schiessoffizier)",
+      "disabled": 0,
       "email": "hans.wyrsch@gmx.ch",
       "name": "VBS Schiesswesen",
       "phone": null,
