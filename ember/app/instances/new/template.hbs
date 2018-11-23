@@ -7,7 +7,7 @@
 
   <div uk-grid class="uk-grid-small">
     <div uk-margin class="uk-width-1-1 uk-width-1-3@s uk-flex-column">
-      <h4 class="uk-text-center">Vorstufe Baubewilligung {{camac-hint-dialog infoCol1}}</h4>
+      <h4 class="uk-text-center">Beratung und Vorentscheid {{camac-hint-dialog infoCol1}}</h4>
       {{new-form-grid-entry
         form=(find-by 'name' 'vorabklarung' forms.lastSuccessful.value)
         onSetForm=(action (mut model.form))
