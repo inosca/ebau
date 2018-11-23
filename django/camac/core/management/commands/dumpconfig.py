@@ -1,5 +1,9 @@
+import io
+import json
+
 from django.conf import settings
-from django.core.management.commands import dumpdata
+from django.core.management import call_command
+from django.core.management.base import BaseCommand
 
 # TODO: once deployed on production this list
 # needs to be reduced to tables which are not
@@ -229,7 +233,7 @@ models_referencing_data = (
 )
 
 
-class Command(dumpdata.Command):
+class Command(BaseCommand):
     help = (
         "Output the camac configuration of the database as a fixture of the "
         " given format."
@@ -237,7 +241,16 @@ class Command(dumpdata.Command):
 
     def handle(self, *app_labels, **options):
         options["indent"] = 2
-        options["output"] = options.get("output") or settings.APPLICATION_DIR(
-            "config.json"
+
+        output = io.StringIO()
+        options["stdout"] = output
+        call_command(
+            "dumpdata", *(pure_config_models + models_referencing_data), **options
         )
-        super().handle(*(pure_config_models + models_referencing_data), **options)
+        output.seek(0)
+        data = json.load(output)
+        data = sorted(data, key=lambda k: (k["model"], k["pk"]))
+
+        with open(settings.APPLICATION_DIR("config.json"), "w") as f:
+            json.dump(data, f, indent=2, sort_keys=True)
+            f.flush()

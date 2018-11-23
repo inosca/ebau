@@ -1,10 +1,8 @@
-CAMAC-BE Tools collection
-=========================
+# CAMAC Tools collection
 
 This directory is intended for various tools that support development.
 
-Diffdumps
----------
+## Diffdumps
 
 A tool to resolve conflicts in django "dumpdata" files.
 
@@ -20,20 +18,19 @@ Use as follows:
 This will allow you to interactively resolve conflicts that arise from two
 diverging `git` branches.
 
-
 The help text is reproduced here for completeness:
 
 ```bash
    $ python3 tools/diffdumps.py --help
    usage: diffdumps.py [-h] [-o OUTPUT] [-i] [-v] [--install] base first second
-   
+
    Diff and merge django data dumps
-   
+
    positional arguments:
      base        base for 3-way diff
      first       First file to compare
      second      Second file to compare
-   
+
    optional arguments:
      -h, --help  show this help message and exit
      -o OUTPUT   Output of merge
@@ -41,7 +38,6 @@ The help text is reproduced here for completeness:
      -v          Value conflicts: Only conflict if value differs (default:
                  conflict if any object is changed)
      --install   Install into Git config (repo-local)
-
 ```
 
 <!-- vim:set syntax=markdown sw=3 ts=3 et tw=78: -->

@@ -7,6 +7,7 @@ nbproject
 camac.vpp.*
 tmp
 *.swp
+*.swo
 .sass-cache/
 tools/software/
 *.css.map
