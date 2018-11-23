@@ -114,7 +114,7 @@ sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is 
 
 .PHONY: log
 log: ## Show logs of web container
-	@docker-compose logs --follow web
+	@docker-compose logs --follow php
 
 .PHONY: clearcache
 clearcache: ## Clear cache
