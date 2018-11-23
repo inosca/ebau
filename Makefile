@@ -116,7 +116,7 @@ log: ## Show logs of web container
 
 .PHONY: clearcache
 clearcache: ## Clear cache
-	@docker-compose exec web php /var/www/camac/configuration/cronjob/clear-cache.php
+	@docker-compose exec php php /var/www/camac/cronjob/clear-cache.php
 
 .PHONY: install
 install: composer-install npm-install bower-install ## Run install commands
