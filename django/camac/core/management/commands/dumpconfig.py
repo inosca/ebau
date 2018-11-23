@@ -75,6 +75,7 @@ pure_config_models = (
     "core.FormGroup",
     "core.FormGroupT",
     "core.FormGroupForm",
+    "core.GroupPermission",
     "core.InstanceResource",
     "core.InstanceResourceT",
     "core.InstanceResourceAction",
