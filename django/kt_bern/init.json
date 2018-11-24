@@ -6,7 +6,7 @@
       "disabled": 0,
       "email": "admin-camac@example.net",
       "language": "en",
-      "last_request_date": "2018-02-23T14:24:06Z",
+      "last_login": "2018-02-23T14:24:06Z",
       "name": "Static",
       "password": "10602b62c0f171f626e3d64046c27567",
       "phone": null,
@@ -14,7 +14,7 @@
       "username": "462afaba-aeb7-494a-8596-3497b81ed701",
       "zip": null
     },
-    "model": "core.user",
+    "model": "user.user",
     "pk": 1
   },
   {
@@ -24,7 +24,7 @@
       "disabled": 0,
       "email": null,
       "language": "de",
-      "last_request_date": "2018-02-23T08:21:43Z",
+      "last_login": "2018-02-23T08:21:43Z",
       "name": "Gu",
       "password": null,
       "phone": null,
@@ -32,7 +32,7 @@
       "username": "guest",
       "zip": null
     },
-    "model": "core.user",
+    "model": "user.user",
     "pk": 2
   },
   {
@@ -41,7 +41,7 @@
       "group": 1,
       "user": 1
     },
-    "model": "core.usergroup",
+    "model": "user.usergroup",
     "pk": 1
   },
   {
@@ -50,7 +50,7 @@
       "group": 2,
       "user": 2
     },
-    "model": "core.usergroup",
+    "model": "user.usergroup",
     "pk": 2
   }
 ]
