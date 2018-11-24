@@ -19,7 +19,7 @@ class Form(models.Model):
     form_state = models.ForeignKey(
         FormState, models.DO_NOTHING, db_column="FORM_STATE_ID", related_name="+"
     )
-    name = models.CharField(db_column="NAME", max_length=500, unique=True)
+    name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -48,7 +48,7 @@ class InstanceState(models.Model):
     instance_state_id = models.AutoField(
         db_column="INSTANCE_STATE_ID", primary_key=True
     )
-    name = models.CharField(db_column="NAME", max_length=100, unique=True)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT", db_index=True, default=0)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
