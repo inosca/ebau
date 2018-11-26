@@ -40,6 +40,6 @@ sequencenamespace:  ## Set the Sequence namespace for a given user.
 _run_in_docker:
 	./wait-for-it.sh db:5432 --timeout=60
 	./manage.py migrate
-	./manage.py loadconfig
+	./manage.py loadconfig --user $(GIT_USER)
 	make sequencenamespace
 	uwsgi
