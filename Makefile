@@ -42,25 +42,24 @@ generate-api-doc: ## generates documentation for the i-web portal API
 	@echo "Documentation was saved in /doc folder."
 
 
-.PHONY: clear-cache ## Clear the memcache
-clear-cache:
+.PHONY: clear-cache
+clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
 
-.PHONY: dumpconfig ## Dump the configuration tables
-dumpconfig:
+.PHONY: dumpconfig
+dumpconfig: ## Dump the configuration tables
 	@docker-compose exec django python manage.py dumpconfig
 
-
-.PHONY: dumpdata ## Dump the data tables
-dumpdata:
+.PHONY: dumpdata
+dumpdata: ## Dump the data tables
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: loadconfig ## Load config.json
-loadconfig:
+.PHONY: loadconfig
+loadconfig: ## Load config.json
 	@docker-compose exec django python manage.py loadconfig
 
-.PHONY: dbshell ## Start a psql shell
-dbshell:
+.PHONY: dbshell
+dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac
 
 
