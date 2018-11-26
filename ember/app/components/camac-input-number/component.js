@@ -16,6 +16,18 @@ export default Component.extend({
 
   type: "number",
 
+  init() {
+    /**
+     * If no step is set, decimal numbers are not allowed.
+     * So if not a specific step is defined, fallback to 0.01,
+     * this way decimal numbers with two numbers after the point are allowed.
+     */
+    if (!this.get("config.step")) {
+      this.set("config.step", 0.01);
+    }
+    this._super(...arguments);
+  },
+
   change(e) {
     e.preventDefault();
 
