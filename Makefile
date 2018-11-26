@@ -47,12 +47,10 @@ clear-cache: ## Clear the memcache
 .PHONY: dumpconfig
 dumpconfig: ## Dump the configuration tables
 	@docker-compose exec django python manage.py dumpconfig
-	python3 tools/formatdump.py django/${APPLICATION}/config.json -i
 
 .PHONY: dumpdata
 dumpdata: ## Dump the data tables
 	docker-compose exec django /app/manage.py dumpcamacdata
-	python3 tools/formatdump.py django/${APPLICATION}/data.json -i
 
 .PHONY: loadconfig
 loadconfig: ## Load config.json
