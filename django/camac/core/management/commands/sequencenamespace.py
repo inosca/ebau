@@ -90,7 +90,7 @@ class Command(AppCommand):
             '--user', default=None,
             help='Username to set the namespace to. '
                  'See settings.SEQUENCE_NAMESPACES',
-            required=True
+            required=False
         )
 
         parser.add_argument(
@@ -108,6 +108,10 @@ class Command(AppCommand):
         if options.get('execute'):
             # The DB does not want colored SQL
             self.style = color.no_style()
+
+        if not options.get('user'):
+                print("Argument --user missing!")
+                return
 
         user = options.get('user').lower()
         try:

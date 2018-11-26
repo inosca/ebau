@@ -35,4 +35,19 @@ class Command(BaseCommand):
             model.objects.all().delete()
 
         self.stdout.write("Loading config {0}".format(", ".join(fixtures)))
+        user = options.pop("user")
         call_command("loaddata", *fixtures, **options)
+
+        # only kt. BE is using sequence namespacing
+        if settings.APPLICATION_NAME == 'kt_bern':
+            call_command("sequencenamespace", "core", user=user, execute=True)
+
+
+    def add_arguments(self, parser):
+        super(Command, self).add_arguments(parser)
+        parser.add_argument(
+            '--user', default=None,
+            help='Username to set the namespace to. '
+                 'See settings.SEQUENCE_NAMESPACES',
+            required=False
+        )

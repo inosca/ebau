@@ -56,7 +56,7 @@ dumpdata: ## Dump the data tables
 
 .PHONY: loadconfig
 loadconfig: ## Load config.json
-	@docker-compose exec django python manage.py loadconfig
+	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
