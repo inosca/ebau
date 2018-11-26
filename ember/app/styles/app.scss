@@ -25,3 +25,9 @@ $form-focus-border: rgb(87, 87, 87);
 .pointer {
   cursor: pointer;
 }
+
+input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  margin: 0;
+}
