@@ -18,13 +18,17 @@ class Command(BaseCommand):
         # apps which include data models
         apps = ("circulation", "core", "document", "instance", "notification", "user")
 
-        output = io.StringIO()
-        options["stdout"] = output
+        try:
+            output = options.pop("output")
+        except KeyError:  # pragma: no cover
+            output = settings.APPLICATION_DIR("data.json")
+        tmp_output = io.StringIO()
+        options["stdout"] = tmp_output
         call_command("dumpdata", *apps, **options)
-        output.seek(0)
-        data = json.load(output)
+        tmp_output.seek(0)
+        data = json.load(tmp_output)
         data = sorted(data, key=lambda k: (k["model"], k["pk"]))
 
-        with open(settings.APPLICATION_DIR("data.json"), "w") as f:
+        with open(output, "w") as f:
             json.dump(data, f, indent=2, sort_keys=True)
             f.flush()

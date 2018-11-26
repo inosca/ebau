@@ -13,6 +13,16 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.AlterField(
+            model_name='form',
+            name='name',
+            field=models.CharField(blank=True, db_column='NAME', max_length=500, null=True),
+        ),
+        migrations.AlterField(
+            model_name='instancestate',
+            name='name',
+            field=models.CharField(blank=True, db_column='NAME', max_length=100, null=True),
+        ),
         migrations.CreateModel(
             name='FormT',
             fields=[
