@@ -1,10 +1,12 @@
 from django.conf import settings
+from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.core.models import InstanceLocation
 from camac.user.models import Group
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -73,14 +75,41 @@ class InstanceSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializ
 
         return form
 
+    @transaction.atomic
     def create(self, validated_data):
         validated_data["modification_date"] = timezone.now()
         validated_data["creation_date"] = timezone.now()
-        return super().create(validated_data)
+        instance = super().create(validated_data)
 
+        if instance.location_id is not None:
+            self._update_instance_location(instance)
+
+        return instance
+
+    @transaction.atomic
     def update(self, instance, validated_data):
         validated_data["modification_date"] = timezone.now()
-        return super().update(instance, validated_data)
+        old_location_id = instance.location_id
+        instance = super().update(instance, validated_data)
+
+        if instance.location_id != old_location_id:
+            self._update_instance_location(instance)
+
+        return instance
+
+    def _update_instance_location(self, instance):
+        """
+        Set the location also in the InstanceLocation table.
+
+        The API uses the location directly on the instance,
+        but some Camac core functions need the location in
+        the InstanceLocation table.
+        """
+        InstanceLocation.objects.filter(instance=instance).delete()
+        if instance.location is not None:
+            InstanceLocation.objects.create(
+                instance=instance, location=instance.location
+            )
 
     class Meta:
         model = models.Instance
