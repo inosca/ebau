@@ -106,9 +106,9 @@ class InstanceSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializ
         the InstanceLocation table.
         """
         InstanceLocation.objects.filter(instance=instance).delete()
-        if instance.location is not None:
+        if instance.location_id is not None:
             InstanceLocation.objects.create(
-                instance=instance, location=instance.location
+                instance=instance, location_id=instance.location_id
             )
 
     class Meta:
