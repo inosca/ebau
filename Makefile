@@ -77,11 +77,11 @@ migrate:  ## Migrate schema
 
 .PHONY: grunt-build
 grunt-build: ## Grunt build
-	docker-compose exec web sh -c "cd configuration/public && npm run build"
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-be"
 
 .PHONY: grunt-watch
 grunt-watch: ## Grunt watch
-	docker-compose exec web sh -c "cd configuration/public && npm run build && npm run watch"
+	docker-compose exec php sh -c "cd configuration/public && npm run build && npm run watch"
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
