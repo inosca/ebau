@@ -6,7 +6,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.core.models import WorkflowEntry
+from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
 
 
@@ -146,6 +146,33 @@ def test_instance_update(
     assert response.status_code == status_code
 
 
+@pytest.mark.parametrize(
+    "role__name,instance__user,instance_state__name",
+    [("Applicant", LazyFixture("admin_user"), "new")],
+)
+def test_instance_update_location(admin_client, instance, location_factory):
+    url = reverse("instance-detail", args=[instance.pk])
+
+    new_location = location_factory()
+
+    data = {
+        "data": {
+            "type": "instances",
+            "id": instance.pk,
+            "relationships": {
+                "location": {"data": {"type": "locations", "id": new_location.pk}}
+            },
+        }
+    }
+
+    response = admin_client.patch(url, data=data)
+    assert response.status_code == status.HTTP_200_OK
+
+    assert InstanceLocation.objects.filter(
+        instance=instance, location=new_location
+    ).exists()
+
+
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
@@ -164,15 +191,25 @@ def test_instance_destroy(admin_client, instance, status_code):
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("instance_state__name", ["new"])
-def test_instance_create(admin_client, admin_user, form, instance_state):
+@pytest.mark.parametrize(
+    "instance_state__name,instance__location",
+    [("new", None), ("new", LazyFixture("location"))],
+)
+def test_instance_create(admin_client, admin_user, form, instance_state, instance):
     url = reverse("instance-list")
+
+    location_data = (
+        {"type": "locations", "id": instance.location.pk} if instance.location else None
+    )
 
     data = {
         "data": {
             "type": "instances",
             "id": None,
-            "relationships": {"form": {"data": {"type": "forms", "id": form.pk}}},
+            "relationships": {
+                "form": {"data": {"type": "forms", "id": form.pk}},
+                "location": {"data": location_data},
+            },
         }
     }
 
@@ -188,6 +225,11 @@ def test_instance_create(admin_client, admin_user, form, instance_state):
     assert json["data"]["attributes"]["modification-date"] < (
         response.json()["data"]["attributes"]["modification-date"]
     )
+
+    if instance.location:
+        assert InstanceLocation.objects.filter(
+            instance_id=json["data"]["id"], location=instance.location
+        ).exists()
 
 
 @pytest.mark.freeze_time("2017-7-27")
