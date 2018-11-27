@@ -4672,7 +4672,7 @@
   {
     "fields": {
       "instance_resource": 7,
-      "localized": 0,
+      "localized": 1,
       "service_group": 5
     },
     "model": "core.ireditcirculationsg",
@@ -40837,7 +40837,7 @@
   },
   {
     "fields": {
-      "name": "Fachstellen Gemeinde Schwyz"
+      "name": "Fachstellen Gemeinden"
     },
     "model": "user.servicegroup",
     "pk": 5
