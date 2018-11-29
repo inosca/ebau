@@ -1,3 +1,8 @@
+---
+
+# TODO: Use `extends` so logic does not need to be duplicated
+
+
 image: tmaier/docker-compose:latest
 
 variables:
@@ -35,6 +40,29 @@ test:
         - eval $COMPOSE run --rm --no-deps django make install-dev test
         # run ember tests
         - eval $COMPOSE run --rm --no-deps ember yarn test
+
+
+# TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
+lint:
+  stage: test
+  image:
+    name: node:9
+  script:
+    # TODO: Discuss with christianz why this is needed.
+    #- if git grep -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+    - cd php/public
+    - npm install
+    - npm run lint
+  # TODO: Remove this once the job is fixed.
+  allow_failure: true
+
+sensiolabs-security-checker:
+  stage: test
+  image:
+    name: jsixc/sensiolabs-security-checker:7.1
+  script: /usr/local/bin/security-checker security:check ./php/composer.lock
+  # TODO: Fix violations and remove `allow_failure`.
+  allow_failure: true
 
 build:
     stage: build
@@ -118,6 +146,7 @@ deploy-kt_schwyz-stage:
         - stage
     when: manual
 
+
 deploy-kt_uri-stage:
     environment:
         name: stage-kt_uri
@@ -139,6 +168,7 @@ deploy-kt_uri-stage:
         - stage
     when: manual
 
+
 pyup:
     stage: test
     image: python:3.6
@@ -156,3 +186,56 @@ pyup:
         - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
     only:
         - disabled
+
+
+build-kt_bern-production:
+  stage: build
+  services:
+    - docker:dind
+  variables:
+    COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - eval $COMPOSE pull --ignore-pull-failures ember django php db
+    - eval $COMPOSE build --pull
+    # Create a minimal tarball which is deployable by
+    # https://github.com/camac-suisse/ansible-role-camac
+    - mkdir tarball && cd tarball
+    # Copy the content of the PHP container
+    - docker copy camac-ng_php_1:/var/www/camac/000-default.conf .
+    - docker copy camac-ng_php_1:/var/www/camac/kt_bern configuration/
+    - docker copy camac-ng_php_1:/var/lib/camac/application camac/
+    # Copy the content of the Django container
+    # TODO: This needs to be adjusted in the ansible playbook
+    - docker copy camac-ng_django_1:/app django/
+    # Create tarball of extracted files and directores
+    - tar --exclude-vcs -zcvf "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"tar --exclude-vcs -zcvf "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+  artifacts:
+    paths:
+      - "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+    expire_in: 1 month
+  only:
+    # TODO: This should be set to `production` once it is tested
+    - master
+
+
+deploy-kt_bern-production:
+  stage: deploy
+  image:
+    name: instrumentisto/rsync-ssh
+  before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "${PUBLISH_SSH_PRIVATE_KEY}" | tr -d '\r' > ~/.ssh/id_rsa
+    - echo "${PUBLISH_SSH_PUBLIC_KEY}" > ~/.ssh/id_rsa.pub
+    - chmod 600 ~/.ssh/id_rsa
+    - echo -e "Host *\n\tUser ${PUBLISH_SSH_USERNAME}\n\tIdentityFile ~/.ssh/id_rsa" > ~/.ssh/config
+    - echo "${PUBLISH_SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - "rsync ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz ${PUBLISH_RSYNC_TARGET}"
+    - "sha256sum ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+  only:
+    # TODO: This should be set to `production` once it is tested
+    - master
+  when: manual
