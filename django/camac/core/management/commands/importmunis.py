@@ -1,5 +1,8 @@
-from camac.core.dataimport import (ImportCommand, create_or_update_group,
-                                   create_or_update_service)
+from camac.core.dataimport import (
+    ImportCommand,
+    create_or_update_group,
+    create_or_update_service,
+)
 from camac.core.models import Role, ServiceGroup
 
 ROLE_LEITUNG_LEITBEHOERDE = 3
@@ -20,8 +23,8 @@ SERVICE_GROUP_LEITBEHOERDE_GEMEINDE = {
     "groups": [
         ("Leitung", ROLE_LEITUNG_LEITBEHOERDE),
         ("Sachbearbeiter", ROLE_SACHBEARBEITER_LEITBEHOERDE),
-        ("Einsichtsberechtigte", ROLE_READONLY_LEITBEHOERDE)
-    ]
+        ("Einsichtsberechtigte", ROLE_READONLY_LEITBEHOERDE),
+    ],
 }
 SERVICE_GROUP_BAUKONTROLLE = {
     "service_group": ServiceGroup.objects.get(pk=3),
@@ -29,8 +32,8 @@ SERVICE_GROUP_BAUKONTROLLE = {
     "groups": [
         ("Leitung", ROLE_LEITUNG_BAUKONTROLLE),
         ("Sachbearbeiter", ROLE_SACHBEARBEITER_BAUKONTROLLE),
-        ("Einsichtsberechtigte", ROLE_READONLY_BAUKONTROLLE)
-    ]
+        ("Einsichtsberechtigte", ROLE_READONLY_BAUKONTROLLE),
+    ],
 }
 
 
@@ -51,10 +54,8 @@ class Command(ImportCommand):
 def _import_data(data):
     service = None
     for row in data:
-        if row.get('Gemeinde'):
-            for sg in [
-                SERVICE_GROUP_BAUKONTROLLE, SERVICE_GROUP_LEITBEHOERDE_GEMEINDE
-            ]:
+        if row.get("Gemeinde"):
+            for sg in [SERVICE_GROUP_BAUKONTROLLE, SERVICE_GROUP_LEITBEHOERDE_GEMEINDE]:
                 service = create_or_update_service(
                     row, sg["name"], defaults={"service_group": sg["service_group"]}
                 )
@@ -65,21 +66,24 @@ def _import_data(data):
                         defaults={
                             "role": Role.objects.get(pk=role[1]),
                             "service": service,
-                        }
+                        },
                     )
         else:
             subservice = create_or_update_service(
-                row, "Unterfachstelle", defaults={
-                    "service_group":
-                        SERVICE_GROUP_LEITBEHOERDE_GEMEINDE["service_group"],
-                    "service_parent": service
-                }
+                row,
+                "Unterfachstelle",
+                defaults={
+                    "service_group": SERVICE_GROUP_LEITBEHOERDE_GEMEINDE[
+                        "service_group"
+                    ],
+                    "service_parent": service,
+                },
             )
             create_or_update_group(
                 row,
                 "Unterfachstelle",
                 defaults={
                     "role": Role.objects.get(pk=ROLE_UNTERFACHSTELLE),
-                    "service": subservice
+                    "service": subservice,
                 },
             )

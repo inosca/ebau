@@ -1,5 +1,8 @@
-from camac.core.dataimport import (ImportCommand, create_or_update_group,
-                                   create_or_update_service)
+from camac.core.dataimport import (
+    ImportCommand,
+    create_or_update_group,
+    create_or_update_service,
+)
 from camac.core.models import Role, ServiceGroup
 
 ROLE_LEITUNG_LEITBEHOERDE = 3
@@ -29,19 +32,18 @@ def _import_data(reader):
     service_group = None
     service = None
     for row in reader:
-        if row.get('Unterfachstelle'):
+        if row.get("Unterfachstelle"):
             subservice = create_or_update_service(
-                row, "Unterfachstelle", defaults={
-                    "service_group": service_group,
-                    "service_parent": service
-                }
+                row,
+                "Unterfachstelle",
+                defaults={"service_group": service_group, "service_parent": service},
             )
             create_or_update_group(
                 row,
                 "Unterfachstelle",
                 defaults={
                     "role": Role.objects.get(pk=ROLE_UNTERFACHSTELLE),
-                    "service": subservice
+                    "service": subservice,
                 },
             )
         else:
@@ -54,7 +56,7 @@ def _import_data(reader):
                 "Leitung",
                 defaults={
                     "role": Role.objects.get(pk=ROLE_LEITUNG_FACHSTELLE),
-                    "service": service
+                    "service": service,
                 },
             )
             create_or_update_group(
