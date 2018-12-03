@@ -8,7 +8,7 @@ env = environ.Env()
 ROOT_DIR = environ.Path(__file__) - 2
 
 ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
-if os.path.exists(ENV_FILE):
+if os.path.exists(ENV_FILE):  # pragma: no cover
     environ.Env.read_env(ENV_FILE)
 
 ENV = env.str("APPLICATION_ENV")
@@ -100,7 +100,9 @@ APPLICATIONS = {
             "Kanton": "canton",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
-    }
+    },
+    "kt_uri": {},
+    "kt_bern": {}
     # add other application configuration here...
 }
 
