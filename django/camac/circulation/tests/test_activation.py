@@ -12,10 +12,10 @@ from camac.circulation import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Applicant", LazyFixture("admin_user"), 8),
-        ("Canton", LazyFixture("user"), 8),
-        ("Municipality", LazyFixture("user"), 8),
-        ("Service", LazyFixture("user"), 8),
+        ("Applicant", LazyFixture("admin_user"), 3),
+        ("Canton", LazyFixture("user"), 3),
+        ("Municipality", LazyFixture("user"), 3),
+        ("Service", LazyFixture("user"), 3),
     ],
 )
 def test_activation_list(
@@ -63,7 +63,7 @@ def test_activation_export(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(7):
+    with django_assert_num_queries(2):
         response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     book = pyexcel.get_book(file_content=response.content, file_type="xlsx")
