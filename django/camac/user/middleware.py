@@ -22,12 +22,14 @@ def get_group(request):
     else:
         # no specific group is definied, default group of client is used
         # it is allowed that user may not be in this group
-        client = request.auth["aud"]
-        group = (
-            models.Group.objects.filter(name=client.title())
-            .select_related("role", "service")
-            .first()
-        )
+        group = None
+        if request.auth:
+            client = request.auth["aud"]
+            group = (
+                models.Group.objects.filter(name=client.title())
+                .select_related("role", "service")
+                .first()
+            )
 
         # fallback, default group of user
         if group is None:

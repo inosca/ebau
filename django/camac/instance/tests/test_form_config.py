@@ -18,7 +18,7 @@ def test_form_config_get(admin_client):
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_form_config_expressions(application):
     config = settings.ROOT_DIR.path(application).file("form.json")
-    questions = json.loads(config.read())["questions"]
+    questions = json.loads(config.read()).get("questions", {})
 
     def value(name):
         question = questions[name]

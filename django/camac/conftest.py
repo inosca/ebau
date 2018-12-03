@@ -2,10 +2,8 @@ import inspect
 import logging
 
 import pytest
-from django.conf import settings
 from factory import Faker
 from factory.base import FactoryMetaClass
-from keycloak import KeycloakOpenID
 from pytest_factoryboy import register
 from rest_framework.test import APIClient, APIRequestFactory
 
@@ -39,34 +37,9 @@ register_module(notification_factories)
 Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
-class APIKeycloakClient(APIClient):
-    def login(self, **credentials):
-        keycloak = KeycloakOpenID(
-            server_url=settings.KEYCLOAK_URL,
-            client_id=settings.KEYCLOAK_CLIENT,
-            realm_name=settings.KEYCLOAK_REALM,
-        )
-
-        token = keycloak.token(**credentials)
-        self.credentials(
-            HTTP_AUTHORIZATION="{0} {1}".format("Bearer", token["access_token"])
-        )
-
-
 @pytest.fixture
 def rf(db):
     return APIRequestFactory()
-
-
-@pytest.fixture
-def admin_rf(rf, admin_client):
-    rf.defaults = admin_client._credentials
-    return rf
-
-
-@pytest.fixture
-def client(db):
-    return APIKeycloakClient()
 
 
 @pytest.fixture
@@ -78,7 +51,8 @@ def admin_user(admin_user, group, group_location, user_group_factory):
 
 
 @pytest.fixture
-def admin_client(db, client, admin_user):
+def admin_client(db, admin_user):
     """Return instance of a JSONAPIClient that is logged in as test user."""
-    client.login(username="admin", password="camac")
+    client = APIClient()
+    client.force_authenticate(user=admin_user)
     return client
