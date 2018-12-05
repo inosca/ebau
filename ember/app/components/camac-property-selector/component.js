@@ -3,7 +3,7 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { task, timeout } from "ember-concurrency";
 import { Promise, resolve, all } from "rsvp";
-import { computed } from "@ember/object";
+import { computed, setProperties } from "@ember/object";
 import { A } from "@ember/array";
 import html2canvas from "html2canvas";
 import { xml2js } from "xml-js";
@@ -84,6 +84,8 @@ export default Component.extend({
   minZoom: 10,
   layers: LAYERS.join(","),
   maxBounds: BOUNDS,
+  points: A(),
+  parcels: A(),
 
   ajax: service(),
   notification: service(),
@@ -133,8 +135,16 @@ export default Component.extend({
     });
   }).restartable(),
 
-  parcelBounds: computed("_parcelLayers.[]", function() {
-    return L.featureGroup(this._parcelLayers).getBounds();
+  selectedArea: computed("points.@each.{lat,lng}", function() {
+    return this.get("points").map(p => ({ lat: p.lat, lng: p.lng }));
+  }),
+
+  parcelBounds: computed("parcels.[]", function() {
+    if (this.get("parcels")) {
+      return L.featureGroup(
+        this.get("parcels").map(p => L.polyline(p.coordinates))
+      ).getBounds();
+    }
   }),
 
   handleSearch: task(function*(query) {
@@ -162,15 +172,14 @@ export default Component.extend({
 
   handleSearchSelection: task(function*(result) {
     if (result.geometry.type === "Point") {
-      yield this.set(
-        "_point",
+      yield this.setProperties(
         EPSG2056toLatLng(...result.geometry.coordinates)
       );
+      yield this.set("zoom", 18);
     }
 
     if (result.geometry.type === "Polygon") {
-      yield this.set(
-        "_polygon",
+      yield this._map.fitBounds(
         result.geometry.coordinates[0].map((x, y) => EPSG2056toLatLng(x, y))
       );
     }
@@ -269,21 +278,11 @@ export default Component.extend({
     });
   }).enqueue(),
 
-  centerLayerToPolygon: task(function*({ target }) {
-    yield target._map.fitBounds(target.getBounds());
-  }).enqueue(),
-
-  centerLayerToPoint: task(function*({ target }) {
-    yield target._map.panTo(target.getLatLng());
-    yield target._map.setZoom(18);
-  }).enqueue(),
-
   clear: task(function*() {
     yield this.setProperties({
       parcels: A(),
       points: A(),
       _parcelLayers: A(),
-      _point: null,
       _feature: null
     });
   }).restartable(),
@@ -306,5 +305,10 @@ export default Component.extend({
     let image = yield new Promise(resolve => canvas.toBlob(resolve));
 
     yield resolve(this["on-submit"](this.parcels, this.points, image));
-  }).drop()
+  }).drop(),
+
+  updatePoint: task(function*(point, e) {
+    const location = e.target.getLatLng();
+    yield setProperties(point, { lat: location.lat, lng: location.lng });
+  }).enqueue()
 });
