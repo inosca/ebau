@@ -5,7 +5,7 @@ from rest_framework import status
 
 @pytest.mark.parametrize(
     "role__name,num_queries,size",
-    [("Applicant", 6, 0), ("Service", 7, 1), ("Municipality", 7, 1), ("Canton", 7, 1)],
+    [("Applicant", 1, 0), ("Service", 2, 1), ("Municipality", 2, 1), ("Canton", 2, 1)],
 )
 def test_notification_template_list(
     admin_client, notification_template, num_queries, django_assert_num_queries, size

@@ -19,5 +19,10 @@ omit=
     setup.py
     camac/settings_*.py
     camac/wsgi.py
+    # TODO: write tests for the following
+    camac/core/management/commands/importmunis.py
+    camac/core/management/commands/importrsta.py
+    camac/core/management/commands/importservices.py
+    camac/core/management/commands/sequencenamespace.py
 
 show_missing = True

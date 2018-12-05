@@ -31,9 +31,9 @@ test:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         # need to run pulling of images in subshell as otherwise CI_COMMIT_REF_SLUG
         # is set for following commands as well
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures ember django db"
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember django db"
         # start only services which are needed for testing
-        - eval $COMPOSE up -d --build db keycloak clamav unoconv
+        - eval $COMPOSE up -d --build db clamav unoconv
         # build images needed for testing
         - eval $COMPOSE build --pull ember django
         # run django tests
@@ -70,7 +70,7 @@ build:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
@@ -87,7 +87,7 @@ build-kt_schwyz-stage:
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
@@ -103,7 +103,7 @@ build-kt_uri-stage:
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
@@ -119,7 +119,7 @@ build-kt_uri-production:
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
     only:
@@ -196,7 +196,7 @@ build-kt_bern-production:
     COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-    - eval $COMPOSE pull --ignore-pull-failures ember django php db
+    - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
     - eval $COMPOSE build --pull
     # Create a minimal tarball which is deployable by
     # https://github.com/camac-suisse/ansible-role-camac
