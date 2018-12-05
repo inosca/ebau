@@ -214,9 +214,9 @@ build-kt_bern-production:
     paths:
       - "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
     expire_in: 1 month
-  only:
-    # TODO: This should be set to `production` once it is tested
-    - master
+  # TODO: This should be commented in before merging.
+  #only:
+  #  - production
 
 
 deploy-kt_bern-production:
@@ -235,7 +235,7 @@ deploy-kt_bern-production:
   script:
     - "rsync ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz ${PUBLISH_RSYNC_TARGET}"
     - "sha256sum ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
-  only:
-    # TODO: This should be set to `production` once it is tested
-    - master
+  # TODO: This should be commented in before merging.
+  #only:
+  #  - production
   when: manual
