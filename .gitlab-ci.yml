@@ -1,8 +1,5 @@
 ---
 
-# TODO: Use `extends` so logic does not need to be duplicated
-
-
 image: tmaier/docker-compose:latest
 
 variables:
@@ -21,6 +18,7 @@ stages:
     - test
     - build
     - deploy
+
 
 test:
     stage: test
@@ -49,12 +47,13 @@ lint:
     name: node:9
   script:
     # TODO: Discuss with christianz why this is needed.
-    #- if git grep -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+    - if git grep -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
     - cd php/public
     - npm install
     - npm run lint
   # TODO: Remove this once the job is fixed.
   allow_failure: true
+
 
 sensiolabs-security-checker:
   stage: test
@@ -63,6 +62,25 @@ sensiolabs-security-checker:
   script: /usr/local/bin/security-checker security:check ./php/composer.lock
   # TODO: Fix violations and remove `allow_failure`.
   allow_failure: true
+
+pyup:
+    stage: test
+    image: python:3.6
+    variables:
+        PIP_CACHE_DIR: "pip-cache"
+    cache:
+        paths:
+            - "pip-cache"
+    script:
+        # Pin to python-gitlab 1.2.0 as 1.3.0 is failing
+        # has something to do with url encoding but not clear whether issue is
+        # our configuration (Apache...) or in gitlab itself
+        # TODO test again when we use GitLab with nginx
+        - pip install -U python-gitlab==1.2.0 pyupio
+        - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
+    only:
+        - disabled
+
 
 build:
     stage: build
@@ -169,25 +187,6 @@ deploy-kt_uri-stage:
     when: manual
 
 
-pyup:
-    stage: test
-    image: python:3.6
-    variables:
-        PIP_CACHE_DIR: "pip-cache"
-    cache:
-        paths:
-            - "pip-cache"
-    script:
-        # Pin to python-gitlab 1.2.0 as 1.3.0 is failing
-        # has something to do with url encoding but not clear whether issue is
-        # our configuration (Apache...) or in gitlab itself
-        # TODO test again when we use GitLab with nginx
-        - pip install -U python-gitlab==1.2.0 pyupio
-        - pyup --provider gitlab --repo=819 --user-token=$GITTY_USER_TOKEN@https://git.adfinis-sygroup.ch/
-    only:
-        - disabled
-
-
 build-kt_bern-production:
   stage: build
   services:
@@ -201,24 +200,21 @@ build-kt_bern-production:
     # Create a minimal tarball which is deployable by
     # https://github.com/camac-suisse/ansible-role-camac
     - mkdir tarball && cd tarball
-    # Copy the content of the PHP container
-    - docker copy camac-ng_php_1:/var/www/camac/000-default.conf .
-    - docker copy camac-ng_php_1:/var/www/camac/kt_bern configuration/
-    - docker copy camac-ng_php_1:/var/lib/camac/application camac/
-    # Copy the content of the Django container
-    # TODO: This needs to be adjusted in the ansible playbook
-    - docker copy camac-ng_django_1:/app django/
-    # Create tarball of extracted files and directores
-    - tar --exclude-vcs -zcvf "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"tar --exclude-vcs -zcvf "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+    - docker cp camac-ng_php_1:/var/www/camac/kt_bern configuration/
+    - docker cp camac-ng_php_1:/var/www/camac/ camac/
+    - cd camac && rm -rf kt_* demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore && cd ..
+    # TODO: Include virtualenv in tarball
+    - docker cp camac-ng_django_1:/app django/
+    - tar --exclude-vcs -cvfz "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"tar --exclude-vcs -zcvf "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
   artifacts:
     paths:
       - "/tmp/camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
     expire_in: 1 month
-  # TODO: This should be commented in before merging.
-  #only:
-  #  - production
+  only:
+    - production
 
 
+# TODO: Test deploy
 deploy-kt_bern-production:
   stage: deploy
   image:
@@ -235,7 +231,6 @@ deploy-kt_bern-production:
   script:
     - "rsync ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz ${PUBLISH_RSYNC_TARGET}"
     - "sha256sum ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
-  # TODO: This should be commented in before merging.
-  #only:
-  #  - production
+  only:
+    - production
   when: manual
