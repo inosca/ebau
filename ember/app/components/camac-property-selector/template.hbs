@@ -48,18 +48,6 @@
         url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
       }}
 
-      {{#if _polygon}}
-        {{map.polygon locations=_polygon color='transparent' onAdd=(action (queue (perform centerLayerToPolygon) (action (mut _polygon) null)))}}
-      {{/if}}
-
-      {{#if _point}}
-        {{map.marker lat=_point.lat lng=_point.lng color='transparent' onAdd=(action (queue (perform centerLayerToPoint) (action (mut _point) null)))}}
-      {{/if}}
-
-      {{#each points as |point|}}
-        {{map.circle location=point color='blue' radius=3}}
-      {{/each}}
-
       {{#each parcels key='egrid' as |parcel|}}
         {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform handleAddParcelLayer) as |polygon|}}
           {{#tooltip-layer sticky=true}}
@@ -67,6 +55,16 @@
           {{/tooltip-layer}}
         {{/map.polygon}}
       {{/each}}
+
+      {{#each points as |point|}}
+        {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
+      {{/each}}
+
+      {{#map.polygon locations=selectedArea color="blue"}}
+        {{#tooltip-layer sticky=true}}
+          Grundriss
+        {{/tooltip-layer}}
+      {{/map.polygon}}
     {{/leaflet-map}}
   {{/if}}
 </div>
