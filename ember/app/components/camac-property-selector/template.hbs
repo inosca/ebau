@@ -9,6 +9,8 @@
     {{#power-select
       placeholder = 'Adresse oder Grundstück suchen...'
       search      = (perform handleSearch)
+      selected    = selectedSearchResult
+      allowClear  = true
       onchange    = (perform handleSearchSelection)
     as |result|}}
       {{result.properties.label}}
@@ -49,7 +51,7 @@
       }}
 
       {{#each parcels key='egrid' as |parcel|}}
-        {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform handleAddParcelLayer) as |polygon|}}
+        {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform focusOnParcels) as |polygon|}}
           {{#tooltip-layer sticky=true}}
             <strong>{{parcel.number}} {{parcel.municipality}}</strong> <i>({{parcel.egrid}})</i>
           {{/tooltip-layer}}
