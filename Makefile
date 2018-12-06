@@ -67,7 +67,6 @@ dbshell: ## Start a psql shell
 .PHONY: mergeconfig
 mergeconfig: ## Merge config.json
 	git mergetool --tool=jsondiff
-	make sequencenamespace
 
 .PHONY: migrate
 migrate:  ## Migrate schema
