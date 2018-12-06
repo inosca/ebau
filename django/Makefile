@@ -35,11 +35,3 @@ sqlsequencereset:
 .PHONY: sequencenamespace
 sequencenamespace:  ## Set the Sequence namespace for a given user.
 	@python manage.py sequencenamespace --user $(GIT_USER) core --execute
-
-.PHONY: _run_in_docker
-_run_in_docker:
-	./wait-for-it.sh db:5432 --timeout=60
-	./manage.py migrate
-	./manage.py loadconfig --user $(GIT_USER)
-	make sequencenamespace
-	uwsgi
