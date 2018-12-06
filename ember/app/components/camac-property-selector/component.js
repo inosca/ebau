@@ -86,6 +86,7 @@ export default Component.extend({
   maxBounds: BOUNDS,
   points: A(),
   parcels: A(),
+  selectedSearchResult: null,
 
   ajax: service(),
   notification: service(),
@@ -130,8 +131,7 @@ export default Component.extend({
 
     this.setProperties({
       parcels: this.selected.parcels || A(),
-      points: this.selected.points || A(),
-      _parcelLayers: A()
+      points: this.selected.points || A()
     });
   }).restartable(),
 
@@ -171,6 +171,8 @@ export default Component.extend({
   }).restartable(),
 
   handleSearchSelection: task(function*(result) {
+    this.set("selectedSearchResult", result);
+
     if (result.geometry.type === "Point") {
       yield this.setProperties(
         EPSG2056toLatLng(...result.geometry.coordinates)
@@ -271,9 +273,7 @@ export default Component.extend({
   }).restartable(),
 
   handleAddParcelLayer: task(function*({ target }) {
-    yield this._parcelLayers.pushObject(target);
-
-    scheduleTask(this, "actions", () => {
+    yield scheduleTask(this, "actions", () => {
       target._map.fitBounds(this.parcelBounds);
     });
   }).enqueue(),
@@ -282,7 +282,6 @@ export default Component.extend({
     yield this.setProperties({
       parcels: A(),
       points: A(),
-      _parcelLayers: A(),
       _feature: null
     });
   }).restartable(),
