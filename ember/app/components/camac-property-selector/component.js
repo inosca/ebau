@@ -7,7 +7,6 @@ import { computed, setProperties } from "@ember/object";
 import { A } from "@ember/array";
 import html2canvas from "html2canvas";
 import { xml2js } from "xml-js";
-import { scheduleTask } from "ember-lifeline";
 
 const LAYERS = [
   "ch.sz.a055a.kantonsgrenze",
@@ -173,6 +172,11 @@ export default Component.extend({
   handleSearchSelection: task(function*(result) {
     this.set("selectedSearchResult", result);
 
+    if (!result) {
+      yield this.focusOnParcels.perform();
+      return;
+    }
+
     if (result.geometry.type === "Point") {
       yield this.setProperties(
         EPSG2056toLatLng(...result.geometry.coordinates)
@@ -272,10 +276,8 @@ export default Component.extend({
     }
   }).restartable(),
 
-  handleAddParcelLayer: task(function*({ target }) {
-    yield scheduleTask(this, "actions", () => {
-      target._map.fitBounds(this.parcelBounds);
-    });
+  focusOnParcels: task(function*() {
+    yield this._map.fitBounds(this.parcelBounds);
   }).enqueue(),
 
   clear: task(function*() {
