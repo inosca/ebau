@@ -118,6 +118,3 @@ install: composer-install npm-install bower-install ## Run install commands
 .PHONY: test
 test: ## Run backend tests
 	@docker-compose exec django make test
-
-.PHONY: dev
-dev: loadconfig install grunt-watch ## Loads config, installs dependencies and continuously rebuilds CSS/JS when files change
