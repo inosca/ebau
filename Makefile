@@ -41,7 +41,6 @@ generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
 
-
 .PHONY: clear-cache
 clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
@@ -113,10 +112,6 @@ sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is 
 .PHONY: log
 log: ## Show logs of web container
 	@docker-compose logs --follow php
-
-.PHONY: clearcache
-clearcache: ## Clear cache
-	@docker-compose exec php php /var/www/camac/cronjob/clear-cache.php
 
 .PHONY: install
 install: composer-install npm-install bower-install ## Run install commands
