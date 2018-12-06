@@ -120,18 +120,5 @@ install: composer-install npm-install bower-install ## Run install commands
 test: ## Run backend tests
 	@docker-compose exec django make test
 
-.PHONY: composer-install
-composer-install: ## Install php dependencies
-	docker-compose exec web composer install -d /var/www/camac
-	docker-compose exec web composer install -d /var/www/configuration
-
-.PHONY: npm-install
-npm-install: ## Install js dependencies
-	docker-compose exec web npm install --prefix /var/www/configuration/public
-
-.PHONY: bower-install
-bower-install: ## Install frontend dependencies
-	docker-compose exec web bash -c "cd /var/www/configuration/public && bower install --allow-root"
-
 .PHONY: dev
 dev: loadconfig install grunt-watch ## Loads config, installs dependencies and continuously rebuilds CSS/JS when files change
