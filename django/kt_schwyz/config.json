@@ -12946,6 +12946,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukommission Arth",
       "phone": null,
@@ -12961,6 +12962,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Hochbaukommission Ingenbohl",
       "phone": null,
@@ -12976,6 +12978,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Brandschutzexperte Ingenbohl",
       "phone": null,
@@ -12991,6 +12994,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "GEP-Ingenieur Ingenbohl",
       "phone": null,
@@ -13006,6 +13010,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukontrolleur Ingenbohl",
       "phone": null,
@@ -13021,6 +13026,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukommission Morschach",
       "phone": null,
@@ -13036,6 +13042,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Brandschutzexperte Morschach",
       "phone": null,
@@ -13051,6 +13058,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "GEP-Ingenieur Morschach",
       "phone": null,
@@ -13066,6 +13074,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukontrolleur Morschach",
       "phone": null,
@@ -13081,6 +13090,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukommission Steinen",
       "phone": null,
@@ -13096,6 +13106,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Brandschutz Steinen",
       "phone": null,
@@ -13111,6 +13122,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukommission Wangen",
       "phone": null,
@@ -13126,6 +13138,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Brandschutzexperte Wangen",
       "phone": null,
@@ -13141,6 +13154,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Kassieramt Wangen",
       "phone": null,
@@ -13156,6 +13170,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "EW Wangen",
       "phone": null,
@@ -13171,6 +13186,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Wasserversorgung Wangen",
       "phone": null,
@@ -13186,6 +13202,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Bezirksrat Gersau",
       "phone": null,
@@ -13201,6 +13218,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Baukommission Gersau",
       "phone": null,
@@ -13216,6 +13234,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Brandschutz Gersau",
       "phone": null,
@@ -13231,6 +13250,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "AF Toscano AG",
       "phone": null,
@@ -13246,6 +13266,7 @@
     "fields": {
       "address": null,
       "city": null,
+      "disabled": 0,
       "email": null,
       "name": "Steuerverwaltung Gersau",
       "phone": null,
