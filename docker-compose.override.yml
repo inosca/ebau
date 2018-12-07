@@ -84,7 +84,17 @@ services:
             - APPLICATION_ENV=development
         networks:
             - camac-ng.local
-        command: ["/bin/sh", "-c", "chown -R www-data:www-data /var/www/camac/media /var/www/camac/sessions && rm -f configuration/* && cd configuration && ln -sf ../${APPLICATION}/* . && php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php && apache2-foreground"]
+        command: [
+            "/bin/sh",
+            "-c",
+            "cd /var/www/camac \
+            && chown -R www-data:www-data media sessions kt_uri/resources \
+            && rm -f configuration/* \
+            && cd configuration \
+            && ln -sf ../${APPLICATION}/* . \
+            && php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php \
+            && apache2-foreground"
+        ]
 
     unoconv:
         ports:
@@ -96,7 +106,7 @@ services:
         ports:
             - '8080:8080'
         volumes:
-            - ./keycloak:/etc/keycloak:ro
+            - ./keycloak/${APPLICATION}-test-config.json:/etc/keycloak/test-config.json:ro
         environment:
             - POSTGRES_PASSWORD=camac
             - KEYCLOAK_PASSWORD=camac

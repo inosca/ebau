@@ -1,7 +1,8 @@
 FROM python:3.6
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-  ghostscript \
+	ghostscript \
+	postgresql-client \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app
 
@@ -12,8 +13,9 @@ ENV UWSGI_INI /app/uwsgi.ini
 ENV DJANGO_DATABASE_PORT 5432
 
 COPY requirements.txt /app
+COPY requirements-dev.txt /app
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt -r requirements-dev.txt
 
 COPY . /app
 
