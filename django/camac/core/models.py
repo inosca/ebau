@@ -3420,7 +3420,7 @@ class RListColumn(models.Model):
         RList, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
     column_name = models.CharField(db_column="COLUMN_NAME", max_length=30)
-    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
+    alias = models.CharField(db_column="ALIAS", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
     class Meta:
@@ -3433,7 +3433,7 @@ class RListColumnT(models.Model):
         RListColumn, models.CASCADE, db_column="R_LIST_COLUMN_ID", related_name="+"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
-    alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
+    alias = models.CharField(db_column="ALIAS", max_length=50, blank=True, null=True)
 
     class Meta:
         managed = True
