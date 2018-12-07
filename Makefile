@@ -6,6 +6,10 @@ SHELL:=/bin/sh
 
 GIT_USER=$(shell git config user.email)
 
+define set_env
+	sed 's/^\(APPLICATION=\).*$//\1$(1)/' -i .env django/.env
+endef
+
 .PHONY: help
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -118,3 +122,15 @@ install: composer-install npm-install bower-install ## Run install commands
 .PHONY: test
 test: ## Run backend tests
 	@docker-compose exec django make test
+
+kt_uri: ## Set APPLICATION to kt_uri
+	$(call set_env,kt_uri)
+
+kt_schwyz: ## Set APPLICATION to kt_uri
+	$(call set_env,kt_schwyz)
+
+kt_bern: ## Set APPLICATION to kt_uri
+	$(call set_env,kt_bern)
+
+demo: ## Set APPLICATION to kt_uri
+	$(call set_env,demo)
