@@ -19,25 +19,26 @@ stages:
     - build
     - deploy
 
-
-test:
+test-ember:
     stage: test
     services:
         - docker:dind
     script:
-        # pull docker images for cache
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        # need to run pulling of images in subshell as otherwise CI_COMMIT_REF_SLUG
-        # is set for following commands as well
-        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember django db"
-        # start only services which are needed for testing
-        - eval $COMPOSE up -d --build db clamav unoconv
-        # build images needed for testing
-        - eval $COMPOSE build --pull ember django
-        # run django tests
-        - eval $COMPOSE run --rm --no-deps django make install-dev test
-        # run ember tests
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
+        - eval $COMPOSE build --pull ember
         - eval $COMPOSE run --rm --no-deps ember yarn test
+
+test-django:
+    stage: test
+    services:
+        - docker:dind
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet django db"
+        - eval $COMPOSE up -d --build db clamav unoconv
+        - eval $COMPOSE build --pull django
+        - eval $COMPOSE run --rm --no-deps django make install-dev test
 
 
 # TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
