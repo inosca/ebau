@@ -7272,6 +7272,15 @@
   },
   {
     "fields": {
+      "action_name": "rename",
+      "available_instance_resource": "editcirculation",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 20068
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmail",
       "recipient_type": "Notification_Manager_CurrentUser",
       "template": 1

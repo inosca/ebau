@@ -343,6 +343,15 @@
   },
   {
     "fields": {
+      "action_name": "rename",
+      "available_instance_resource": "editcirculation",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 39
+  },
+  {
+    "fields": {
       "action_name": "index",
       "available_resource": "apilist",
       "hidden": 0
