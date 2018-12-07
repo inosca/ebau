@@ -9,6 +9,7 @@ from django.core.management import call_command
 @pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
 def test_loadconfig(db, application, settings, tmpdir):
     settings.APPLICATION_DIR = settings.ROOT_DIR.path(application)
+    settings.APPLICATION_NAME = application
 
     # load data including test data
     call_command("loadconfig", stdout=open(os.devnull, "w"))

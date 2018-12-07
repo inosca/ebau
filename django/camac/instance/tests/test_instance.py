@@ -17,10 +17,10 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 14, {"instance", "form", "document"}),
-        ("Canton", LazyFixture("user"), 14, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 14, {"form", "document"}),
-        ("Service", LazyFixture("user"), 14, {"form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        ("Canton", LazyFixture("user"), 9, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
+        ("Service", LazyFixture("user"), 9, {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -335,7 +335,7 @@ def test_instance_export(
     )
     add_field(name="bezeichnung", value="Bezeichnung")
 
-    with django_assert_num_queries(7):
+    with django_assert_num_queries(2):
         response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
