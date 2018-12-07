@@ -20646,6 +20646,16 @@
   },
   {
     "fields": {
+      "name": null,
+      "question": 40183,
+      "sort": 4,
+      "value": "KEI"
+    },
+    "model": "core.answerlist",
+    "pk": 120000
+  },
+  {
+    "fields": {
       "answer_list": 1,
       "language": "de",
       "name": "Vertreter/in mit Vollmacht"
@@ -32469,6 +32479,15 @@
     },
     "model": "core.answerlistt",
     "pk": 110000
+  },
+  {
+    "fields": {
+      "answer_list": 120000,
+      "language": "de",
+      "name": "Keine"
+    },
+    "model": "core.answerlistt",
+    "pk": 120000
   },
   {
     "fields": {
