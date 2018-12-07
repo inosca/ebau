@@ -5853,6 +5853,15 @@
     "pk": 74
   },
   {
+    "fields": {
+      "action_name": "rename",
+      "available_instance_resource": "editcirculation",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 75
+  },
+  {
     "fields": {},
     "model": "core.alocation",
     "pk": 6
