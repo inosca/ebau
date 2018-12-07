@@ -123,14 +123,18 @@ install: composer-install npm-install bower-install ## Run install commands
 test: ## Run backend tests
 	@docker-compose exec django make test
 
+.PHONY: kt_uri
 kt_uri: ## Set APPLICATION to kt_uri
 	$(call set_env,kt_uri)
 
+.PHONY: kt_schwyz
 kt_schwyz: ## Set APPLICATION to kt_uri
 	$(call set_env,kt_schwyz)
 
+.PHONY: kt_bern
 kt_bern: ## Set APPLICATION to kt_uri
 	$(call set_env,kt_bern)
 
+.PHONY: demo
 demo: ## Set APPLICATION to kt_uri
 	$(call set_env,demo)
