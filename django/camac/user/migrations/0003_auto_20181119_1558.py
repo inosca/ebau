@@ -139,4 +139,9 @@ class Migration(migrations.Migration):
             name='group',
             field=models.ForeignKey(db_column='GROUP_ID', on_delete=django.db.models.deletion.CASCADE, related_name='+', to='user.Group'),
         ),
+        migrations.AddField(
+            model_name='group',
+            name='disabled',
+            field=models.PositiveSmallIntegerField(db_column='DISABLED', default=0),
+        ),
     ]

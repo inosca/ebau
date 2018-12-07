@@ -11,29 +11,54 @@ def test_authenticate_no_headers(rf):
     assert JSONWebTokenKeycloakAuthentication().authenticate(request) is None
 
 
-def test_authenticate_disabled_user(admin_rf, admin_user):
+def test_authenticate_disabled_user(rf, admin_user, mocker):
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = {
+        "sub": admin_user.username,
+        "email": admin_user.email,
+        "family_name": admin_user.name,
+        "given_name": admin_user.surname,
+    }
+    mocker.patch("keycloak.KeycloakOpenID.certs")
     admin_user.disabled = True
     admin_user.save()
 
-    request = admin_rf.request()
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     with pytest.raises(AuthenticationFailed):
-        assert JSONWebTokenKeycloakAuthentication().authenticate(request)
+        JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+
+def test_authenticate_ok(rf, admin_user, mocker):
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = {
+        "sub": admin_user.username,
+        "email": admin_user.email,
+        "family_name": admin_user.name,
+        "given_name": admin_user.surname,
+    }
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+    user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert user == admin_user
+    assert decode_token.return_value == token
 
 
 @pytest.mark.parametrize("side_effect", [ExpiredSignatureError(), JOSEError()])
-def test_authenticate_side_effect(admin_rf, mocker, side_effect):
+def test_authenticate_side_effect(rf, mocker, side_effect):
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.side_effect = side_effect
+    mocker.patch("keycloak.KeycloakOpenID.certs")
 
-    request = admin_rf.request()
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     with pytest.raises(AuthenticationFailed):
-        assert JSONWebTokenKeycloakAuthentication().authenticate(request)
+        JSONWebTokenKeycloakAuthentication().authenticate(request)
 
 
 @pytest.mark.parametrize("authorization", ["Bearer", "Bearer token token"])
 def test_get_jwt_value_invalid_authorization(rf, authorization):
-    rf.defaults = {"HTTP_AUTHORIZATION": authorization}
-    request = rf.request()
+    request = rf.request(HTTP_AUTHORIZATION=authorization)
     with pytest.raises(AuthenticationFailed):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)
 

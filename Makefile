@@ -4,6 +4,8 @@ SHELL:=/bin/sh
 
 .DEFAULT_GOAL := help
 
+GIT_USER=$(shell git config user.email)
+
 .PHONY: help
 help: ## Show the help messages
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort -k 1,1 | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -39,7 +41,6 @@ generate-api-doc: ## generates documentation for the i-web portal API
 	apidoc -i kt_uri/configuration/Custom/modules/portal/controllers/ -o doc/
 	@echo "Documentation was saved in /doc folder."
 
-
 .PHONY: clear-cache
 clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
@@ -54,8 +55,66 @@ dumpdata: ## Dump the data tables
 
 .PHONY: loadconfig
 loadconfig: ## Load config.json
-	@docker-compose exec django python manage.py loadconfig
+	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
 	@docker-compose exec db psql -Ucamac
+
+
+######### Changes from eBau Bern #########
+
+.PHONY: mergeconfig
+mergeconfig: ## Merge config.json
+	git mergetool --tool=jsondiff
+
+.PHONY: migrate
+migrate:  ## Migrate schema
+	docker-compose exec django /app/manage.py migrate
+	make sequencenamespace
+
+.PHONY: grunt-build
+grunt-build: ## Grunt build
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-be"
+
+.PHONY: grunt-watch
+grunt-watch: ## Grunt watch
+	docker-compose exec php sh -c "cd configuration/public && npm run build && npm run watch"
+
+.PHONY: makemigrations
+makemigrations: ## Create schema migrations
+	docker-compose exec django /app/manage.py makemigrations
+
+.PHONY: flush
+flush:	## Flush database
+	@docker-compose exec django /app/manage.py flush
+
+# Directory for DB snapshots
+.PHONY: _db_snapshots_dir
+_db_snapshots_dir:
+	@mkdir -p db_snapshots
+
+.PHONY: db_snapshot
+db_snapshot: _db_snapshots_dir  ## Make a snapshot of the current state of the database
+	@docker-compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
+
+.PHONY: db_restore
+db_restore:  ## Restore latest DB snapshot created with `make db_snapshot`
+	@mkdir -p db_snapshots
+	@echo "restoring from $(SNAPSHOT)"
+	@docker-compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
+
+.PHONY: sequencenamespace
+sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is detected from your git repository.
+	@docker-compose exec django make sequencenamespace GIT_USER=$(GIT_USER)
+
+.PHONY: log
+log: ## Show logs of web container
+	@docker-compose logs --follow php
+
+.PHONY: install
+install: composer-install npm-install bower-install ## Run install commands
+
+.PHONY: test
+test: ## Run backend tests
+	@docker-compose exec django make test
