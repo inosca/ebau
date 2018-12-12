@@ -102891,7 +102891,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Schalldruckpegel (dB(A))",
+      "name": "Schalldruckpegel (dB(A))...",
       "question": 40264
     },
     "model": "core.questiont",
@@ -102913,7 +102913,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "In Abstand (Meter)",
+      "name": "...gemessen in Abstand (Meter)",
       "question": 40266
     },
     "model": "core.questiont",
