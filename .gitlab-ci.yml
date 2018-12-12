@@ -118,19 +118,18 @@ build-kt_uri-production:
         # Create a minimal tarball which is deployable by
         # https://github.com/camac-suisse/ansible-role-camac
         - mkdir tarball && cd tarball
-        - docker cp camac-ng_php_1:/var/www/camac/kt_bern configuration/
-        - docker cp camac-ng_php_1:/var/www/camac/ camac/
-        - cd camac && rm -rf kt_* demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore && cd ..
-        - docker cp camac-ng_django_1:/app django/
-        - tar --exclude-vcs -cvfz "/tmp/camac-{CI_COMMIT_REF_SLUG}.tar.gz" tarball/
+        - docker cp $(docker-compose ps -q php):/var/www/camac/kt_bern configuration/
+        - docker cp $(docker-compose ps -q php):/var/www/camac/ camac/
+        - cd camac
+        - rm -rf kt_* demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore
+        - cd ..
+        - docker cp $(docker-compose ps -q django):/app django/
+        - rm -rf django/kt_uri django/kt_schwyz django/demo
+        - tar cvfz "/tmp/camac-{CI_COMMIT_REF_SLUG}.tar.gz" .
     artifacts:
         paths:
           - "/tmp/camac-${CI_COMMIT_REF_SLUG}.tar.gz"
         expire_in: 1 month
-
-# TODO: Remove this job, once the deployment has been tested.
-build-kt_bern-always:
-  extends: .build-tarball
 
 
 build-kt_bern-master:
