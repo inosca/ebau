@@ -87907,6 +87907,22 @@
       "javascript": null,
       "mapping": 1,
       "name": null,
+      "question_type": 1,
+      "regex": null,
+      "validation": "phone"
+    },
+    "model": "core.question",
+    "pk": 40931
+  },
+  {
+    "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": null,
       "question_type": 6,
       "regex": null,
       "validation": null
@@ -88928,7 +88944,7 @@
       "item": 10,
       "question": 20029,
       "required": 0,
-      "sort": 4
+      "sort": 5
     },
     "model": "core.questionchapter",
     "pk": 20077
@@ -88939,7 +88955,7 @@
       "item": 10,
       "question": 20030,
       "required": 0,
-      "sort": 5
+      "sort": 6
     },
     "model": "core.questionchapter",
     "pk": 20078
@@ -88950,7 +88966,7 @@
       "item": 10,
       "question": 20031,
       "required": 0,
-      "sort": 6
+      "sort": 7
     },
     "model": "core.questionchapter",
     "pk": 20079
@@ -88961,7 +88977,7 @@
       "item": 10,
       "question": 20032,
       "required": 0,
-      "sort": 7
+      "sort": 8
     },
     "model": "core.questionchapter",
     "pk": 20080
@@ -99085,6 +99101,17 @@
     },
     "model": "core.questionchapter",
     "pk": 40951
+  },
+  {
+    "fields": {
+      "chapter": 8,
+      "item": 10,
+      "question": 40931,
+      "required": 0,
+      "sort": 4
+    },
+    "model": "core.questionchapter",
+    "pk": 40952
   },
   {
     "fields": {
@@ -110151,6 +110178,17 @@
     },
     "model": "core.questiont",
     "pk": 40926
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "de",
+      "name": "Telefon oder Mobile",
+      "question": 40931
+    },
+    "model": "core.questiont",
+    "pk": 40927
   },
   {
     "fields": {
