@@ -46,13 +46,10 @@ lint:
   image:
     name: node:9
   script:
-    # TODO: Discuss with christianz why this is needed.
-    - if git grep -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+    - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
     - cd php/public
     - npm install
     - npm run lint
-  # TODO: Remove this once the job is fixed.
-  allow_failure: true
 
 
 sensiolabs-security-checker:
