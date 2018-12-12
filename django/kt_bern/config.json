@@ -135340,6 +135340,18 @@
   },
   {
     "fields": {
+      "always_required": 1,
+      "answer": null,
+      "chapter": 8,
+      "file_content": 70,
+      "form": 110001,
+      "question": 40078
+    },
+    "model": "file.filecontentrequired",
+    "pk": 476
+  },
+  {
+    "fields": {
       "file_content": 1,
       "language": "de",
       "name": "Beilagen Vorabkl\u00e4rung",
