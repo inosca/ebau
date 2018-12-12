@@ -3097,6 +3097,20 @@
   },
   {
     "fields": {
+      "available_action": "notification",
+      "button": 20045,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 130000
+  },
+  {
+    "fields": {
       "action": 10005,
       "description": null,
       "error_message": null,
@@ -5737,6 +5751,18 @@
   },
   {
     "fields": {
+      "action": 130000,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Benachrichtigung Gesuchsteller (Mail)",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 130000
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20000
     },
@@ -7512,6 +7538,15 @@
     },
     "model": "core.anotification",
     "pk": 80019
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmail",
+      "recipient_type": "Applicants_Notification_ApplicantList",
+      "template": 38
+    },
+    "model": "core.anotification",
+    "pk": 130000
   },
   {
     "fields": {
@@ -138764,6 +138799,15 @@
   },
   {
     "fields": {
+      "body": null,
+      "purpose": null,
+      "subject": null
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 38
+  },
+  {
+    "fields": {
       "body": "Guten Tag\r\n\r\nIhr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber Status\u00e4nderungen informiert.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
@@ -139575,6 +139619,28 @@
     },
     "model": "notification.notificationtemplatet",
     "pk": 74
+  },
+  {
+    "fields": {
+      "body": "Guten Tag\r\n\r\nSie finden die Stellungnahme zur Voranfrage mit der eBau Nr. {{EBAU_NUMBER}} in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/file/index/list/instance-resource-id/10015/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\n{{LEITBEHOERDE_NAME}}",
+      "language": "de",
+      "purpose": "08 Stellungsnahme zu Voranfrage (Gesuchsteller)",
+      "subject": "Stellungnahme zu Voranfrage (eBau Nr. {{EBAU_NUMBER}})",
+      "template": 38
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "body": "",
+      "language": "fr",
+      "purpose": "",
+      "subject": "",
+      "template": 38
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 76
   },
   {
     "fields": {
