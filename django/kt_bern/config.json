@@ -3111,6 +3111,20 @@
   },
   {
     "fields": {
+      "available_action": "notification",
+      "button": 20039,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 130001
+  },
+  {
+    "fields": {
       "action": 10005,
       "description": null,
       "error_message": null,
@@ -5763,6 +5777,18 @@
   },
   {
     "fields": {
+      "action": 130001,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Unterfachstellen in Zirkulation benachrichtigen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 130001
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20000
     },
@@ -7547,6 +7573,15 @@
     },
     "model": "core.anotification",
     "pk": 130000
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmail",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_InvolvedCirculationServices",
+      "template": 11
+    },
+    "model": "core.anotification",
+    "pk": 130001
   },
   {
     "fields": {
