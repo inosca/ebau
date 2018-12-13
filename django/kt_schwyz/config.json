@@ -1158,6 +1158,15 @@
   },
   {
     "fields": {
+      "action_name": "rename",
+      "available_instance_resource": "editcirculation",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 58
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": 13
@@ -2744,6 +2753,318 @@
     },
     "model": "core.formgroupform",
     "pk": 10
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_account"
+    },
+    "model": "core.grouppermission",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_user"
+    },
+    "model": "core.grouppermission",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_group"
+    },
+    "model": "core.grouppermission",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_role"
+    },
+    "model": "core.grouppermission",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "account_service"
+    },
+    "model": "core.grouppermission",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_form"
+    },
+    "model": "core.grouppermission",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form"
+    },
+    "model": "core.grouppermission",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page"
+    },
+    "model": "core.grouppermission",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_chapter"
+    },
+    "model": "core.grouppermission",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_question"
+    },
+    "model": "core.grouppermission",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_form-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-query"
+    },
+    "model": "core.grouppermission",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_answer-list"
+    },
+    "model": "core.grouppermission",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_service-answer-activation"
+    },
+    "model": "core.grouppermission",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page-answer-activation"
+    },
+    "model": "core.grouppermission",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_mapping"
+    },
+    "model": "core.grouppermission",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "form_page-form-group"
+    },
+    "model": "core.grouppermission",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_tree"
+    },
+    "model": "core.grouppermission",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource"
+    },
+    "model": "core.grouppermission",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_button"
+    },
+    "model": "core.grouppermission",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action"
+    },
+    "model": "core.grouppermission",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-state"
+    },
+    "model": "core.grouppermission",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_search-filter"
+    },
+    "model": "core.grouppermission",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_resource-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_instance-resource-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "resource_action-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_circulation"
+    },
+    "model": "core.grouppermission",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_type"
+    },
+    "model": "core.grouppermission",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_state"
+    },
+    "model": "core.grouppermission",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_answer-type"
+    },
+    "model": "core.grouppermission",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_answer"
+    },
+    "model": "core.grouppermission",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_reason"
+    },
+    "model": "core.grouppermission",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "circulation_notice-type"
+    },
+    "model": "core.grouppermission",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "menu_module"
+    },
+    "model": "core.grouppermission",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "module_module"
+    },
+    "model": "core.grouppermission",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "group": 1,
+      "permission_id": "module_data-loader"
+    },
+    "model": "core.grouppermission",
+    "pk": 39
   },
   {
     "fields": {
