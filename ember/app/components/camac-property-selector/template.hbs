@@ -19,7 +19,7 @@
 {{/unless}}
 
 <div class="uk-position-relative">
-  {{#if (or handleClick.isRunning submit.isRunning reset.isRunning initSelection.isRunning)}}
+  {{#if (or getLayers.isRunning submit.isRunning reset.isRunning initSelection.isRunning)}}
     <div class="uk-overlay-primary uk-position-cover">
       <div class="uk-position-center">
         {{uk-spinner ratio=2}}
@@ -36,7 +36,7 @@
       zoom      = zoom
       minZoom   = minZoom
       maxBounds = maxBounds
-      onClick   = (perform handleClick)
+      onClick   = (perform addPoint)
       onLoad    = (perform handleLoad)
       class     = 'uk-width-1-1 uk-height-large uk-margin'
     as |map|}}
@@ -50,7 +50,7 @@
         url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
       }}
 
-      {{#each parcels key='egrid' as |parcel|}}
+      {{#each parcelsX key='egrid' as |parcel|}}
         {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform focusOnParcels) as |polygon|}}
           {{#tooltip-layer sticky=true}}
             <strong>{{parcel.number}} {{parcel.municipality}}</strong> <i>({{parcel.egrid}})</i>
@@ -74,13 +74,29 @@
 {{#unless readonly}}
   <div class="uk-text-right">
     {{#if selected.parcels.length}}
-      {{#uk-button on-click=(perform reset)}}Zurücksetzen{{/uk-button}}
+      {{#uk-button on-click=(perform reset)}}Gespeicherte Auswahl laden{{/uk-button}}
     {{/if}}
+    {{#if points.length}}
+      {{#uk-button on-click=(perform clear)}}Auswahl löschen{{/uk-button}}
+      {{#uk-button color='secondary' on-click=(perform getLayers)}}Auswahl abfragen{{/uk-button}}
+    {{/if}}
+  </div>
+  <div>
+    {{#each affectedLayers as |layer|}}
+      {{layer}}
+    {{/each}}
+  </div>
+  <div class="uk-text-right uk-margin-top">
     {{#if parcels.length}}
-      {{#uk-button on-click=(perform clear)}}Leeren{{/uk-button}}
+      Auswahl in
+      <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
+        {{#each municipalities as |municipality|}}
+          <option value="{{municipality}}">{{municipality}}</option>
+        {{/each}}
+      </select>
       {{#uk-button color='primary' disabled=submit.isRunning on-click=(perform submit)}}
-        Auswahl in {{parcels.firstObject.municipality}} bestätigen
-      {{/uk-button}}
+        bestätigen
+      {{/uk-button}}{{selectedMunicipality}}
     {{/if}}
   </div>
 {{/unless}}

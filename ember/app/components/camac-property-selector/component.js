@@ -35,22 +35,22 @@ const QUERY_LAYERS = [
   "ch.sz.afk.afk_bhf",
   "ch.sz.afk.afk_isos",
   "ch.sz.a081a.icomos.gaerten",
-  "ch.sz.afu.nis.hochspannungsltg",
-  "ch.sz.afu.nis.trafostation",
-  "ch.sz.afu.nis.unterwerk",
+  //"ch.sz.afu.nis.hochspannungsltg",
+  //"ch.sz.afu.nis.trafostation",
+  //"ch.sz.afu.nis.unterwerk",
   "ch.sz.a023a.egid",
   "ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer_projektiert",
   "ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer",
   "ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser",
   "ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser",
-  "ch.sz.awb.grp.awb_gewaesserraum",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert",
+  //"ch.sz.awb.grp.awb_gewaesserraum",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert",
   "ch.sz.afu.nis.mobilfunkstandort",
   "ch.sz.afu.nis.rundfunksender",
-  "ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch",
+  //"ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch",
   "ch.sz.anjf.anjf_kant_naturschutzgebiete",
   "ch.sz.anjf.anjf_kant_pflanzenschutzreservate",
   "ch.sz.anjf.komm_schutzzonen",
@@ -60,11 +60,11 @@ const QUERY_LAYERS = [
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.ao",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au",
-  "ch.sz.afu.kbsprov.provisorische_standorte",
+  //"ch.sz.afu.kbsprov.provisorische_standorte",
   "ch.sz.a006.swisstlm3d.oev.eisenbahn",
   "ch.sz.a078.wanderwege",
-  "ch.sz.chbafu.wildtierkorridor",
-  "ch.sz.a049.fischgewaesser",
+  //"ch.sz.chbafu.wildtierkorridor",
+  //"ch.sz.a049.fischgewaesser",
   "ch.sz.a049.fischregionen",
   "ch.sz.anjf_reptiliengebiete.reptiliengebiet"
 ];
@@ -72,7 +72,9 @@ const QUERY_LAYERS = [
 const CENTER = [47.020714, 8.652988];
 const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]];
 
-const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y));
+//const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y));
+const LatLngToEPSG3857 = (lat, lng) =>
+  L.CRS.EPSG3857.project(L.latLng(lat, lng));
 const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(L.point(x, y));
 
 export default Component.extend({
@@ -85,7 +87,9 @@ export default Component.extend({
   maxBounds: BOUNDS,
   points: A(),
   parcels: A(),
+  affectedLayers: A(),
   selectedSearchResult: null,
+  selectedMunicipality: null,
 
   ajax: service(),
   notification: service(),
@@ -146,6 +150,19 @@ export default Component.extend({
     }
   }),
 
+  municipalities: computed("parcels.[]", function() {
+    return this.get("parcels").reduce((muniList, parcel) => {
+      if (!muniList.includes(parcel.municipality)) {
+        muniList.push(parcel.municipality);
+      }
+      return muniList;
+    }, []);
+  }),
+
+  setMunicipality: task(function*(municipality) {
+    yield this.set("selectedMunicipality", municipality);
+  }),
+
   handleSearch: task(function*(query) {
     yield timeout(500);
 
@@ -195,86 +212,94 @@ export default Component.extend({
     yield this.set("_map", target);
   }),
 
-  handleClick: task(function*(e) {
+  addPoint: task(function*(e) {
     if (this.readonly) {
       return;
     }
 
-    let { x: width, y: height } = e.target.getSize();
-    let { x, y } = e.containerPoint;
+    yield this.points.pushObject({ ...e.latlng });
+  }).enqueue(),
 
-    let northEast = L.CRS.EPSG3857.project(e.target.getBounds().getNorthEast());
-    let southWest = L.CRS.EPSG3857.project(e.target.getBounds().getSouthWest());
+  getLayers: task(function*() {
+    const coordinates = this.get("selectedArea").map(p => {
+      const coor = LatLngToEPSG3857(p.lat, p.lng);
+      return `${coor.x},${coor.y}`;
+    });
 
-    let bbox = [southWest.x, southWest.y, northEast.x, northEast.y].join(",");
+    const filter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">10</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
+      " "
+    )}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogc:DWithin></ogc:Filter>`;
 
-    try {
-      let res = yield this.ajax.request(
-        "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
-        {
-          dataType: "xml",
-          data: {
-            x,
-            y,
-            bbox,
-            width,
-            height,
-            version: "1.1.1",
-            request: "GetFeatureInfo",
-            service: "WMS",
-            styles: "default",
-            layers: QUERY_LAYERS.join(","),
-            query_layers: QUERY_LAYERS.join(","),
-            srs: "EPSG:3857",
-            info_format: "application/vnd.ogc.gml",
-            feature_count: 1
-          }
-        }
-      );
+    const layers = QUERY_LAYERS.map(l => {
+      return `<wfs:Query typeName="${l}">${filter}</wfs:Query>`;
+    }).join(",");
 
-      const serializer = new XMLSerializer();
-      const data = xml2js(serializer.serializeToString(res), { compact: true });
+    const response = yield this.ajax.request(
+      "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
+      {
+        method: "POST",
+        dataType: "xml",
+        contentType: "text/xml",
+        data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`
+      }
+    );
+    const serializer = new XMLSerializer();
+    const responseObject = xml2js(serializer.serializeToString(response), {
+      compact: true
+    });
+
+    this._parseAffectedLayers(responseObject);
+    this._parseAffectedParcels(responseObject);
+  }).restartable(),
+
+  _parseAffectedLayers(wfsResponse) {
+    const layers = wfsResponse["wfs:FeatureCollection"][
+      "gml:featureMember"
+    ].map(fm => {
+      return Object.getOwnPropertyNames(fm).firstObject;
+    });
+    const layerSet = new Set(layers);
+    this.set("affectedLayers", [...layerSet]);
+  },
+
+  _parseAffectedParcels(wfsResponse) {
+    const parcels = A();
+    wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
+      if (
+        !fm.hasOwnProperty(
+          "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
+        )
+      ) {
+        return;
+      }
 
       const {
-        msGMLOutput: {
-          "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_layer": {
-            "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_feature": {
-              egrid: { _text: egrid },
-              nummer: { _text: number },
-              gde_nm: { _text: municipality },
-              geometry: {
-                "gml:Polygon": {
-                  "gml:outerBoundaryIs": {
-                    "gml:LinearRing": {
-                      "gml:coordinates": { _text: rawCoordinates }
-                    }
-                  }
+        "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon": {
+          "ms:egrid": { _text: egrid },
+          "ms:gde_nm": { _text: municipality },
+          "ms:nummer": { _text: number },
+          "ms:geometry": {
+            "gml:Polygon": {
+              "gml:exterior": {
+                "gml:LinearRing": {
+                  "gml:posList": { _text: rawCoordinates }
                 }
               }
             }
           }
         }
-      } = data;
+      } = fm;
 
       const coordinates = rawCoordinates
         .split(" ")
-        .map(xy => xy.split(",").map(Number))
+        .map(xy => xy.split(".").map(Number))
         .filter(xy => xy.length === 2)
-        .map(xy => EPSG3857toLatLng(...xy));
+        .map(xy => EPSG2056toLatLng(...xy));
 
-      const existing = this.parcels.findBy("egrid", egrid);
-
-      if (!existing) {
-        this.parcels.pushObject({ egrid, municipality, number, coordinates });
-      }
-
-      this.points.pushObject({ ...e.latlng, layers: data.msGMLOutput });
-    } catch (e) {
-      this.notification.danger(
-        "Die Verbindung zum GIS Server ist fehlgeschlagen"
-      );
-    }
-  }).restartable(),
+      parcels.pushObject({ egrid, municipality, number, coordinates });
+    });
+    this.set("parcels", parcels);
+  },
 
   focusOnParcels: task(function*() {
     yield this._map.fitBounds(this.parcelBounds);
