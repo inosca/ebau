@@ -91,12 +91,12 @@
       Auswahl in
       <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
         {{#each municipalities as |municipality|}}
-          <option value="{{municipality}}">{{municipality}}</option>
+        <option value="{{municipality}}" selected={{eq selectedMunicipality municipality}}>{{municipality}}</option>
         {{/each}}
       </select>
       {{#uk-button color='primary' disabled=submit.isRunning on-click=(perform submit)}}
         bestätigen
-      {{/uk-button}}{{selectedMunicipality}}
+      {{/uk-button}}
     {{/if}}
   </div>
 {{/unless}}
