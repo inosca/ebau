@@ -50,8 +50,8 @@
         url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
       }}
 
-      {{#each parcelsX key='egrid' as |parcel|}}
-        {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform focusOnParcels) as |polygon|}}
+      {{#each parcels key='egrid' as |parcel|}}
+        {{#map.polygon locations=parcel.coordinates clickable=false color='red' as |polygon|}}
           {{#tooltip-layer sticky=true}}
             <strong>{{parcel.number}} {{parcel.municipality}}</strong> <i>({{parcel.egrid}})</i>
           {{/tooltip-layer}}
@@ -62,7 +62,7 @@
         {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
       {{/each}}
 
-      {{#map.polygon locations=selectedArea color="blue"}}
+      {{#map.polygon locations=selectedArea color="blue" onAdd=(perform focusOnParcels)}}
         {{#tooltip-layer sticky=true}}
           Grundriss
         {{/tooltip-layer}}
