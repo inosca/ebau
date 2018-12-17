@@ -76,9 +76,9 @@ export default Controller.extend({
     yield this.get("questionStore.saveQuestion").perform(this.points);
   }),
 
-  _saveLocation: task(function*(parcels) {
+  _saveLocation: task(function*(municipality) {
     let location = yield this.store.query("location", {
-      name: parcels.get("firstObject.municipality")
+      name: municipality
     });
     let instance = this.get("model.instance");
 
@@ -87,13 +87,13 @@ export default Controller.extend({
     yield instance.save();
   }),
 
-  saveLocation: task(function*(parcels, points, image) {
+  saveLocation: task(function*(parcels, points, image, municipality) {
     if (this.get("model.instance.identifier")) {
       return;
     }
 
     try {
-      yield this._saveLocation.perform(parcels);
+      yield this._saveLocation.perform(municipality);
       yield this._saveImage.perform(image);
 
       yield this._saveParcels.perform(parcels);

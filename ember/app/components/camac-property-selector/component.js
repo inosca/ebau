@@ -136,6 +136,10 @@ export default Component.extend({
       parcels: this.selected.parcels || A(),
       points: this.selected.points || A()
     });
+
+    if (this.selected.municipality) {
+      this.selectedMunicipality = this.selected.municipality;
+    }
   }).restartable(),
 
   selectedArea: computed("points.@each.{lat,lng}", function() {
@@ -332,7 +336,7 @@ export default Component.extend({
     yield this.setProperties({
       parcels: A(),
       points: A(),
-      _feature: null
+      selectedMunicipality: null
     });
   }).restartable(),
 
@@ -353,7 +357,14 @@ export default Component.extend({
 
     let image = yield new Promise(resolve => canvas.toBlob(resolve));
 
-    yield resolve(this["on-submit"](this.parcels, this.points, image));
+    // If no municipality is selected, choose the first possible one
+    const municipality = this.selectedMunicipality
+      ? this.selectedMunicipality
+      : this.municipalities.get("firstObject");
+
+    yield resolve(
+      this["on-submit"](this.parcels, this.points, image, municipality)
+    );
   }).drop(),
 
   updatePoint: task(function*(point, e) {
