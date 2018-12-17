@@ -83,7 +83,7 @@ grunt-build: ## Grunt build
 
 .PHONY: grunt-watch
 grunt-watch: ## Grunt watch
-	docker-compose exec php sh -c "cd configuration/public && npm run build && npm run watch"
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-be && npm run watch-be"
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
