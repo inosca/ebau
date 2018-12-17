@@ -75,7 +75,7 @@ const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]];
 //const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y));
 const LatLngToEPSG3857 = (lat, lng) =>
   L.CRS.EPSG3857.project(L.latLng(lat, lng));
-const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(L.point(x, y));
+const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(new L.point(x, y));
 
 export default Component.extend({
   lat: CENTER[0],
@@ -226,12 +226,21 @@ export default Component.extend({
       return `${coor.x},${coor.y}`;
     });
 
-    const filter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">10</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
+    const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
       " "
     )}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogc:DWithin></ogc:Filter>`;
 
+    const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
+      " "
+    )}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogc:Intersects></ogc:Filter>`;
+
     const layers = QUERY_LAYERS.map(l => {
-      return `<wfs:Query typeName="${l}">${filter}</wfs:Query>`;
+      const exact =
+        l ===
+        "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon";
+      return `<wfs:Query typeName="${l}">${
+        exact ? exactFilter : fuzzyFilter
+      }</wfs:Query>`;
     }).join(",");
 
     const response = yield this.ajax.request(
@@ -264,6 +273,7 @@ export default Component.extend({
 
   _parseAffectedParcels(wfsResponse) {
     const parcels = A();
+
     wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
       if (
         !fm.hasOwnProperty(
@@ -290,15 +300,28 @@ export default Component.extend({
         }
       } = fm;
 
-      const coordinates = rawCoordinates
+      const coordinatesEPSG2056 = rawCoordinates
         .split(" ")
-        .map(xy => xy.split(".").map(Number))
-        .filter(xy => xy.length === 2)
-        .map(xy => EPSG2056toLatLng(...xy));
+        .filter(point => point)
+        .map(Number);
 
-      parcels.pushObject({ egrid, municipality, number, coordinates });
+      const coordinatesLatLng = [];
+      for (let i = 0; i < coordinatesEPSG2056.length; i += 2) {
+        coordinatesLatLng.push(
+          EPSG2056toLatLng(...coordinatesEPSG2056.slice(i, i + 2))
+        );
+      }
+
+      parcels.pushObject({
+        egrid,
+        municipality,
+        number,
+        coordinates: coordinatesLatLng
+      });
     });
+
     this.set("parcels", parcels);
+    this.focusOnParcels.perform();
   },
 
   focusOnParcels: task(function*() {
@@ -319,7 +342,7 @@ export default Component.extend({
   }).restartable(),
 
   submit: task(function*() {
-    yield this._map.fitBounds(this.parcelBounds);
+    yield this.focusOnParcels.perform();
 
     yield timeout(500); // wait for the pan animation to finish
 
