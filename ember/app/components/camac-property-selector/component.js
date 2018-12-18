@@ -150,6 +150,14 @@ export default Component.extend({
     }
   }),
 
+  /**
+   * The selection needs to be a plain js array because
+   * ember-leaflet can not handle EmberArrays
+   */
+  selection: computed("points.@each.{lat,lng}", function() {
+    return this.get("points").toArray();
+  }),
+
   municipalities: computed("parcels.[]", function() {
     return this.get("parcels").reduce((muniList, parcel) => {
       if (!muniList.includes(parcel.municipality)) {
@@ -173,7 +181,7 @@ export default Component.extend({
           method: "GET",
           data: {
             query,
-            limit: 20
+            limit: 50
           }
         }
       );
@@ -221,18 +229,27 @@ export default Component.extend({
   }).enqueue(),
 
   getLayers: task(function*() {
-    const coordinates = this.get("points").map(p => {
-      const coor = LatLngToEPSG3857(p.lat, p.lng);
-      return `${coor.x},${coor.y}`;
-    });
+    const coordinates = this.get("points")
+      .map(p => {
+        const coor = LatLngToEPSG3857(p.lat, p.lng);
+        return `${coor.x},${coor.y}`;
+      })
+      .join(" ");
 
-    const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
-      " "
-    )}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogc:DWithin></ogc:Filter>`;
+    let type = "Polygon";
+    let geometryFilter = `<gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs>`;
 
-    const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:Polygon srsName="urn:ogc:def:crs:EPSG::3857"><gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates.join(
-      " "
-    )}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs></gml:Polygon></ogc:Intersects></ogc:Filter>`;
+    if (this.get("points").length === 1) {
+      type = "Point";
+      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
+    } else if (this.get("points").length === 2) {
+      type = "LineString";
+      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
+    }
+
+    const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:DWithin></ogc:Filter>`;
+
+    const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
 
     const layers = QUERY_LAYERS.map(l => {
       const exact =
@@ -366,6 +383,6 @@ export default Component.extend({
 
   updatePoint: task(function*(point, e) {
     const location = e.target.getLatLng();
-    yield setProperties(point, { lat: location.lat, lng: location.lng });
+    yield setProperties(this.points.find(p => p === point), location);
   }).enqueue()
 });
