@@ -62,11 +62,20 @@
         {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
       {{/each}}
 
-      {{#map.polygon locations=selectedArea color="blue" onAdd=(perform focusOnParcels)}}
-        {{#tooltip-layer sticky=true}}
-          Grundriss
-        {{/tooltip-layer}}
-      {{/map.polygon}}
+      {{#if (gt points.length 2)}}
+        {{#map.polygon locations=points color="blue"}}
+          {{#tooltip-layer sticky=true}}
+            Grundriss
+          {{/tooltip-layer}}
+        {{/map.polygon}}
+      {{/if}}
+      {{#if parcels.length}}
+        {{!--
+          We misuse a hidden marker here to trigger the task "focusOnParcels" when
+          everything else is loaded
+        --}}
+        {{map.marker opacity=0 lat=0 lng=0 onAdd=(perform focusOnParcels)}}
+      {{/if}}
     {{/leaflet-map}}
   {{/if}}
 </div>

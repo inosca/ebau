@@ -87,7 +87,7 @@ export default Component.extend({
   maxBounds: BOUNDS,
   points: A(),
   parcels: A(),
-  affectedLayers: A(),
+  affectedLayers: null,
   selectedSearchResult: null,
   selectedMunicipality: null,
 
@@ -142,10 +142,6 @@ export default Component.extend({
     }
   }).restartable(),
 
-  selectedArea: computed("points.@each.{lat,lng}", function() {
-    return this.get("points").map(p => ({ lat: p.lat, lng: p.lng }));
-  }),
-
   parcelBounds: computed("parcels.[]", function() {
     if (this.get("parcels")) {
       return L.featureGroup(
@@ -194,7 +190,7 @@ export default Component.extend({
     this.set("selectedSearchResult", result);
 
     if (!result) {
-      yield this.focusOnParcels.perform();
+      yield this.parcels.length && this.focusOnParcels.perform();
       return;
     }
 
@@ -225,7 +221,7 @@ export default Component.extend({
   }).enqueue(),
 
   getLayers: task(function*() {
-    const coordinates = this.get("selectedArea").map(p => {
+    const coordinates = this.get("points").map(p => {
       const coor = LatLngToEPSG3857(p.lat, p.lng);
       return `${coor.x},${coor.y}`;
     });
@@ -336,6 +332,7 @@ export default Component.extend({
     yield this.setProperties({
       parcels: A(),
       points: A(),
+      affectedLayers: null,
       selectedMunicipality: null
     });
   }).restartable(),
