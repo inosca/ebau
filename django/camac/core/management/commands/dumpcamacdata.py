@@ -16,7 +16,15 @@ class Command(BaseCommand):
         options["exclude"] = pure_config_models + models_referencing_data
 
         # apps which include data models
-        apps = ("circulation", "core", "document", "instance", "notification", "user", "applicants")
+        apps = (
+            "circulation",
+            "core",
+            "document",
+            "instance",
+            "notification",
+            "user",
+            "applicants",
+        )
 
         try:
             output = options.pop("output")
