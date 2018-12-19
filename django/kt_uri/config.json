@@ -15521,8 +15521,8 @@
   },
   {
     "fields": {
-      "class_field": "circ_send_button",
-      "description": "",
+      "class_field": "circ_send_button no-animation",
+      "description": null,
       "hidden": 0,
       "instance_resource": 367,
       "name": "Antwort senden",
