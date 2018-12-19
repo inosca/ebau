@@ -184,7 +184,7 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["bezeichnung", "parzellen", "punkte", "dokument-grundstucksangaben"]
+      "questions": ["bezeichnung", "parzellen", "punkte", "layer", "dokument-grundstucksangaben"]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -352,7 +352,8 @@
         "verkehr-grenzt-an-strasse",
         "verkehr-neugestaltung-trottoir",
         "verkehr-einschrankungen-trottoir",
-        "verkehr-baugrube-tangieren"
+        "verkehr-baugrube-tangieren",
+        "verkehr-datenverschnitt-wanderweg"
       ]
     },
     "fachthemen.energie": {
@@ -749,6 +750,23 @@
             "name": "lng",
             "label": "Längengrad",
             "type": "number",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "layer": {
+      "label": "Layer",
+      "hint": "",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
             "required": true,
             "config": {}
           }
@@ -2692,6 +2710,18 @@
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "verkehr-datenverschnitt-wanderweg": {
+      "label": "Gemäss Lokalisierung ergibt sich, dass Ihr Vorhaben im Bereich von Wanderwegen liegt. Falls es direkte Auswirkungen auf die Wanderwege gibt, und allenfalls Belagsänderungen vorgesehen sind, muss dies in einem Beschrieb dargelegt werden.",
+      "hint": "**Platzhalter**: *datenverschnitt-wanderweg*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a078.wanderwege' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "energie-art": {
