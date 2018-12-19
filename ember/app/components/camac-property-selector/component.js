@@ -377,7 +377,13 @@ export default Component.extend({
       : this.municipalities.get("firstObject");
 
     yield resolve(
-      this["on-submit"](this.parcels, this.points, image, municipality)
+      this["on-submit"](
+        this.parcels,
+        this.points,
+        image,
+        municipality,
+        this.affectedLayers
+      )
     );
   }).drop(),
 
