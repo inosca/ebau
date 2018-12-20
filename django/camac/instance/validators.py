@@ -1,14 +1,15 @@
 import itertools
 import sys
+from functools import partial
 
 import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
 from pyjexl.jexl import JEXL
-from pyjexl.parser import Transform
 from rest_framework import exceptions
 
 from camac.document.models import Attachment
+from camac.jexl import ExtractTransformSubjectAnalyzer
 
 from . import models
 
@@ -105,28 +106,6 @@ class FormDataValidator(object):
                     row.get(column["name"]),
                 )
 
-    def _get_expression_questions(self, expression, questions=[]):
-        """Get all questions referenced in expression."""
-        # copy as list is not immutable
-        questions = list(questions)
-
-        if expression is None:
-            return questions
-
-        if isinstance(expression, Transform):
-            if expression.name == "value":
-                questions.append(expression.subject.value)
-        else:
-            left = getattr(expression, "left", None)
-            right = getattr(expression, "right", None)
-
-            if left and right:
-                return self._get_expression_questions(
-                    left, questions
-                ) + self._get_expression_questions(right, questions)
-
-        return questions
-
     def _check_questions_active(self, questions):
         for question in questions:
             if not self._check_question_active(
@@ -146,7 +125,9 @@ class FormDataValidator(object):
         if expression is None:
             return True
 
-        dep_questions = self._get_expression_questions(self.jexl.parse(expression))
+        dep_questions = self.jexl.analyze(
+            expression, partial(ExtractTransformSubjectAnalyzer, transforms=["value"])
+        )
         active = False
         try:
             active = (
