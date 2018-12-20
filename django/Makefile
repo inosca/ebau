@@ -14,7 +14,7 @@ install: ## Install production environment
 .PHONY: install-dev
 install-dev: ## Install development environment
 	@pip install --upgrade pip
-	@pip install --upgrade -r requirements.txt -r requirements-dev.txt
+	@pip install --upgrade -r requirements-dev.txt
 
 .PHONY: start
 start: ## Start the development server
