@@ -29,19 +29,3 @@ def test_form_data_validator_validate_question_type(validator, question, value):
 
     with pytest.raises(exceptions.ValidationError):
         validate_method(question, question_def, value)
-
-
-@pytest.mark.parametrize(
-    "expression,questions",
-    [
-        (
-            "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
-            ["anlagen-mit-erheblichen-schadstoffemissionen"],
-        ),
-        (None, []),
-    ],
-)
-def test_get_expression_questions(validator, expression, questions):
-    parsed_expression = expression and validator.jexl.parse(expression)
-    dep_questions = validator._get_expression_questions(parsed_expression)
-    assert dep_questions == questions
