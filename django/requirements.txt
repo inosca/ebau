@@ -21,4 +21,4 @@ pyjexl==0.2.3
 
 # use upstream again release once following PR is released:
 # https://github.com/ringly/django-postgres-dbdefaults/pull/4
-git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create
+git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create#egg=django-postgres-dbdefaults
