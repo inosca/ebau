@@ -3,11 +3,10 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { task, timeout } from "ember-concurrency";
 import { Promise, resolve, all } from "rsvp";
-import { computed } from "@ember/object";
+import { computed, setProperties } from "@ember/object";
 import { A } from "@ember/array";
 import html2canvas from "html2canvas";
 import { xml2js } from "xml-js";
-import { scheduleTask } from "ember-lifeline";
 
 const LAYERS = [
   "ch.sz.a055a.kantonsgrenze",
@@ -36,22 +35,22 @@ const QUERY_LAYERS = [
   "ch.sz.afk.afk_bhf",
   "ch.sz.afk.afk_isos",
   "ch.sz.a081a.icomos.gaerten",
-  "ch.sz.afu.nis.hochspannungsltg",
-  "ch.sz.afu.nis.trafostation",
-  "ch.sz.afu.nis.unterwerk",
+  //"ch.sz.afu.nis.hochspannungsltg",
+  //"ch.sz.afu.nis.trafostation",
+  //"ch.sz.afu.nis.unterwerk",
   "ch.sz.a023a.egid",
   "ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer_projektiert",
   "ch.sz.a018.amtliche_vermessung.bodenbedeckung.gebaeudenummer",
   "ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser",
   "ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser",
-  "ch.sz.awb.grp.awb_gewaesserraum",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht",
-  "ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert",
+  //"ch.sz.awb.grp.awb_gewaesserraum",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft_projektiert",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht",
+  //"ch.sz.a018.amtliche_vermessung.liegenschaften.selbstrecht_projektiert",
   "ch.sz.afu.nis.mobilfunkstandort",
   "ch.sz.afu.nis.rundfunksender",
-  "ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch",
+  //"ch.sz.awn.a012.grp.naturgefahrenkarte.synoptisch",
   "ch.sz.anjf.anjf_kant_naturschutzgebiete",
   "ch.sz.anjf.anjf_kant_pflanzenschutzreservate",
   "ch.sz.anjf.komm_schutzzonen",
@@ -61,20 +60,24 @@ const QUERY_LAYERS = [
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.ao",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au",
-  "ch.sz.afu.kbsprov.provisorische_standorte",
+  //"ch.sz.afu.kbsprov.provisorische_standorte",
   "ch.sz.a006.swisstlm3d.oev.eisenbahn",
   "ch.sz.a078.wanderwege",
-  "ch.sz.chbafu.wildtierkorridor",
-  "ch.sz.a049.fischgewaesser",
+  //"ch.sz.chbafu.wildtierkorridor",
+  //"ch.sz.a049.fischgewaesser",
   "ch.sz.a049.fischregionen",
   "ch.sz.anjf_reptiliengebiete.reptiliengebiet"
 ];
 
+const PARCEL_LAYER =
+  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon";
+
 const CENTER = [47.020714, 8.652988];
 const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]];
 
-const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y));
-const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(L.point(x, y));
+const LatLngToEPSG3857 = (lat, lng) =>
+  L.CRS.EPSG3857.project(L.latLng(lat, lng));
+const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(new L.point(x, y));
 
 export default Component.extend({
   lat: CENTER[0],
@@ -84,6 +87,12 @@ export default Component.extend({
   minZoom: 10,
   layers: LAYERS.join(","),
   maxBounds: BOUNDS,
+  points: A(),
+  parcels: A(),
+  affectedLayers: null,
+  searchObject: null,
+  selectedSearchResult: null,
+  selectedMunicipality: null,
 
   ajax: service(),
   notification: service(),
@@ -128,13 +137,36 @@ export default Component.extend({
 
     this.setProperties({
       parcels: this.selected.parcels || A(),
-      points: this.selected.points || A(),
-      _parcelLayers: A()
+      points: this.selected.points || A()
     });
+
+    if (this.selected.municipality) {
+      this.selectedMunicipality = this.selected.municipality;
+    }
   }).restartable(),
 
-  parcelBounds: computed("_parcelLayers.[]", function() {
-    return L.featureGroup(this._parcelLayers).getBounds();
+  parcelBounds: computed("parcels.[]", function() {
+    if (this.get("parcels")) {
+      return L.featureGroup(
+        this.get("parcels").map(p => L.polyline(p.coordinates))
+      ).getBounds();
+    }
+  }),
+
+  /**
+   * The selection needs to be a plain js array because
+   * ember-leaflet can not handle EmberArrays
+   */
+  selection: computed("points.@each.{lat,lng}", function() {
+    return this.get("points").toArray();
+  }),
+
+  municipalities: computed("parcels.[]", function() {
+    return [...new Set(this.get("parcels").map(p => p.municipality))];
+  }),
+
+  setMunicipality: task(function*(municipality) {
+    yield this.set("selectedMunicipality", municipality);
   }),
 
   handleSearch: task(function*(query) {
@@ -147,7 +179,7 @@ export default Component.extend({
           method: "GET",
           data: {
             query,
-            limit: 20
+            limit: 50
           }
         }
       );
@@ -161,18 +193,29 @@ export default Component.extend({
   }).restartable(),
 
   handleSearchSelection: task(function*(result) {
+    this.set("selectedSearchResult", result);
+
+    if (!result) {
+      this.set("searchObject", null);
+      yield this.parcels.length && this.focusOnParcels.perform();
+      return;
+    }
+
     if (result.geometry.type === "Point") {
-      yield this.set(
-        "_point",
-        EPSG2056toLatLng(...result.geometry.coordinates)
-      );
+      const latLngPoint = EPSG2056toLatLng(...result.geometry.coordinates);
+
+      yield this.set("searchObject", latLngPoint);
+      yield this.setProperties(latLngPoint);
+      yield this.set("zoom", 18);
     }
 
     if (result.geometry.type === "Polygon") {
-      yield this.set(
-        "_polygon",
-        result.geometry.coordinates[0].map((x, y) => EPSG2056toLatLng(x, y))
+      const latLngPoints = result.geometry.coordinates[0].map((x, y) =>
+        EPSG2056toLatLng(x, y)
       );
+
+      yield this.set("searchObject", latLngPoints);
+      yield this._map.fitBounds(latLngPoints);
     }
   }).restartable(),
 
@@ -180,111 +223,132 @@ export default Component.extend({
     yield this.set("_map", target);
   }),
 
-  handleClick: task(function*(e) {
+  addPoint: task(function*(e) {
     if (this.readonly) {
       return;
     }
 
-    let { x: width, y: height } = e.target.getSize();
-    let { x, y } = e.containerPoint;
+    yield this.points.pushObject({ ...e.latlng });
+  }).enqueue(),
 
-    let northEast = L.CRS.EPSG3857.project(e.target.getBounds().getNorthEast());
-    let southWest = L.CRS.EPSG3857.project(e.target.getBounds().getSouthWest());
+  getLayers: task(function*() {
+    const coordinates = this.get("points")
+      .map(p => {
+        const coor = LatLngToEPSG3857(p.lat, p.lng);
+        return `${coor.x},${coor.y}`;
+      })
+      .join(" ");
 
-    let bbox = [southWest.x, southWest.y, northEast.x, northEast.y].join(",");
+    let type = "Polygon";
+    let geometryFilter = `<gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs>`;
 
-    try {
-      let res = yield this.ajax.request(
-        "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
-        {
-          dataType: "xml",
-          data: {
-            x,
-            y,
-            bbox,
-            width,
-            height,
-            version: "1.1.1",
-            request: "GetFeatureInfo",
-            service: "WMS",
-            styles: "default",
-            layers: QUERY_LAYERS.join(","),
-            query_layers: QUERY_LAYERS.join(","),
-            srs: "EPSG:3857",
-            info_format: "application/vnd.ogc.gml",
-            feature_count: 1
-          }
-        }
-      );
+    if (this.get("points").length === 1) {
+      type = "Point";
+      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
+    } else if (this.get("points").length === 2) {
+      type = "LineString";
+      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
+    }
 
-      const serializer = new XMLSerializer();
-      const data = xml2js(serializer.serializeToString(res), { compact: true });
+    const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:DWithin></ogc:Filter>`;
+
+    const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
+
+    const layers = QUERY_LAYERS.map(layer => {
+      const exact = layer === PARCEL_LAYER;
+      return `<wfs:Query typeName="${layer}">${
+        exact ? exactFilter : fuzzyFilter
+      }</wfs:Query>`;
+    }).join(",");
+
+    const response = yield this.ajax.request(
+      "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
+      {
+        method: "POST",
+        dataType: "xml",
+        contentType: "text/xml",
+        data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`
+      }
+    );
+    const serializer = new XMLSerializer();
+    const responseObject = xml2js(serializer.serializeToString(response), {
+      compact: true
+    });
+
+    this._parseAffectedLayers(responseObject);
+    this._parseAffectedParcels(responseObject);
+  }).restartable(),
+
+  _parseAffectedLayers(wfsResponse) {
+    const layers = wfsResponse["wfs:FeatureCollection"][
+      "gml:featureMember"
+    ].map(fm => {
+      return Object.getOwnPropertyNames(fm).firstObject;
+    });
+    const layerSet = new Set(layers);
+    this.set("affectedLayers", [...layerSet]);
+  },
+
+  _parseAffectedParcels(wfsResponse) {
+    const parcels = A();
+
+    wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
+      if (!fm.hasOwnProperty(`ms:${PARCEL_LAYER}`)) {
+        return;
+      }
 
       const {
-        msGMLOutput: {
-          "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_layer": {
-            "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon_feature": {
-              egrid: { _text: egrid },
-              nummer: { _text: number },
-              gde_nm: { _text: municipality },
-              geometry: {
-                "gml:Polygon": {
-                  "gml:outerBoundaryIs": {
-                    "gml:LinearRing": {
-                      "gml:coordinates": { _text: rawCoordinates }
-                    }
-                  }
+        "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon": {
+          "ms:egrid": { _text: egrid },
+          "ms:gde_nm": { _text: municipality },
+          "ms:nummer": { _text: number },
+          "ms:geometry": {
+            "gml:Polygon": {
+              "gml:exterior": {
+                "gml:LinearRing": {
+                  "gml:posList": { _text: rawCoordinates }
                 }
               }
             }
           }
         }
-      } = data;
+      } = fm;
 
-      const coordinates = rawCoordinates
+      const coordinatesEPSG2056 = rawCoordinates
         .split(" ")
-        .map(xy => xy.split(",").map(Number))
-        .filter(xy => xy.length === 2)
-        .map(xy => EPSG3857toLatLng(...xy));
+        .filter(Boolean)
+        .map(Number);
 
-      const existing = this.parcels.findBy("egrid", egrid);
-
-      if (!existing) {
-        this.parcels.pushObject({ egrid, municipality, number, coordinates });
+      const coordinatesLatLng = [];
+      for (let i = 0; i < coordinatesEPSG2056.length; i += 2) {
+        coordinatesLatLng.push(
+          EPSG2056toLatLng(...coordinatesEPSG2056.slice(i, i + 2))
+        );
       }
 
-      this.points.pushObject({ ...e.latlng, layers: data.msGMLOutput });
-    } catch (e) {
-      this.notification.danger(
-        "Die Verbindung zum GIS Server ist fehlgeschlagen"
-      );
-    }
-  }).restartable(),
-
-  handleAddParcelLayer: task(function*({ target }) {
-    yield this._parcelLayers.pushObject(target);
-
-    scheduleTask(this, "actions", () => {
-      target._map.fitBounds(this.parcelBounds);
+      parcels.pushObject({
+        egrid,
+        municipality,
+        number,
+        coordinates: coordinatesLatLng
+      });
     });
-  }).enqueue(),
 
-  centerLayerToPolygon: task(function*({ target }) {
-    yield target._map.fitBounds(target.getBounds());
-  }).enqueue(),
+    this.set("parcels", parcels);
+    this.focusOnParcels.perform();
+  },
 
-  centerLayerToPoint: task(function*({ target }) {
-    yield target._map.panTo(target.getLatLng());
-    yield target._map.setZoom(18);
+  focusOnParcels: task(function*() {
+    yield this._map.fitBounds(this.parcelBounds);
   }).enqueue(),
 
   clear: task(function*() {
     yield this.setProperties({
       parcels: A(),
       points: A(),
-      _parcelLayers: A(),
-      _point: null,
-      _feature: null
+      affectedLayers: null,
+      selectedMunicipality: null,
+      searchObject: null
     });
   }).restartable(),
 
@@ -294,7 +358,7 @@ export default Component.extend({
   }).restartable(),
 
   submit: task(function*() {
-    yield this._map.fitBounds(this.parcelBounds);
+    yield this.focusOnParcels.perform();
 
     yield timeout(500); // wait for the pan animation to finish
 
@@ -305,6 +369,24 @@ export default Component.extend({
 
     let image = yield new Promise(resolve => canvas.toBlob(resolve));
 
-    yield resolve(this["on-submit"](this.parcels, this.points, image));
-  }).drop()
+    // If no municipality is selected, choose the first possible one
+    const municipality = this.selectedMunicipality
+      ? this.selectedMunicipality
+      : this.municipalities.get("firstObject");
+
+    yield resolve(
+      this["on-submit"](
+        this.parcels,
+        this.points,
+        image,
+        municipality,
+        this.affectedLayers
+      )
+    );
+  }).drop(),
+
+  updatePoint: task(function*(point, e) {
+    const location = e.target.getLatLng();
+    yield setProperties(this.points.find(p => p === point), location);
+  }).enqueue()
 });
