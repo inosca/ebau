@@ -88,6 +88,7 @@ export default Component.extend({
   points: A(),
   parcels: A(),
   affectedLayers: null,
+  searchObject: null,
   selectedSearchResult: null,
   selectedMunicipality: null,
 
@@ -198,21 +199,26 @@ export default Component.extend({
     this.set("selectedSearchResult", result);
 
     if (!result) {
+      this.set("searchObject", null);
       yield this.parcels.length && this.focusOnParcels.perform();
       return;
     }
 
     if (result.geometry.type === "Point") {
-      yield this.setProperties(
-        EPSG2056toLatLng(...result.geometry.coordinates)
-      );
+      const latLngPoint = EPSG2056toLatLng(...result.geometry.coordinates);
+
+      yield this.set("searchObject", latLngPoint);
+      yield this.setProperties(latLngPoint);
       yield this.set("zoom", 18);
     }
 
     if (result.geometry.type === "Polygon") {
-      yield this._map.fitBounds(
-        result.geometry.coordinates[0].map((x, y) => EPSG2056toLatLng(x, y))
+      const latLngPoints = result.geometry.coordinates[0].map((x, y) =>
+        EPSG2056toLatLng(x, y)
       );
+
+      yield this.set("searchObject", latLngPoints);
+      yield this._map.fitBounds(latLngPoints);
     }
   }).restartable(),
 
@@ -350,7 +356,8 @@ export default Component.extend({
       parcels: A(),
       points: A(),
       affectedLayers: null,
-      selectedMunicipality: null
+      selectedMunicipality: null,
+      searchObject: null
     });
   }).restartable(),
 
