@@ -1638,7 +1638,7 @@ class CommissionAssignment(models.Model):
     creator_group = models.ForeignKey(
         "user.Group", models.DO_NOTHING, db_column="CREATOR_GROUP_ID", related_name="+", null=True
     )
-    adder_id = models.FloatField(db_column="ADDER_ID")
+    creator_user = models.FloatField(db_column="CREATOR_USER_ID")
     date = models.DateTimeField(db_column="DATE")
 
     class Meta:
