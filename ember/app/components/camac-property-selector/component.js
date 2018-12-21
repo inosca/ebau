@@ -69,10 +69,12 @@ const QUERY_LAYERS = [
   "ch.sz.anjf_reptiliengebiete.reptiliengebiet"
 ];
 
+const PARCEL_LAYER =
+  "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon";
+
 const CENTER = [47.020714, 8.652988];
 const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]];
 
-//const EPSG3857toLatLng = (x, y) => L.CRS.EPSG3857.unproject(L.point(x, y));
 const LatLngToEPSG3857 = (lat, lng) =>
   L.CRS.EPSG3857.project(L.latLng(lat, lng));
 const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(new L.point(x, y));
@@ -160,12 +162,7 @@ export default Component.extend({
   }),
 
   municipalities: computed("parcels.[]", function() {
-    return this.get("parcels").reduce((muniList, parcel) => {
-      if (!muniList.includes(parcel.municipality)) {
-        muniList.push(parcel.municipality);
-      }
-      return muniList;
-    }, []);
+    return [...new Set(this.get("parcels").map(p => p.municipality))];
   }),
 
   setMunicipality: task(function*(municipality) {
@@ -257,11 +254,9 @@ export default Component.extend({
 
     const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
 
-    const layers = QUERY_LAYERS.map(l => {
-      const exact =
-        l ===
-        "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon";
-      return `<wfs:Query typeName="${l}">${
+    const layers = QUERY_LAYERS.map(layer => {
+      const exact = layer === PARCEL_LAYER;
+      return `<wfs:Query typeName="${layer}">${
         exact ? exactFilter : fuzzyFilter
       }</wfs:Query>`;
     }).join(",");
@@ -298,11 +293,7 @@ export default Component.extend({
     const parcels = A();
 
     wfsResponse["wfs:FeatureCollection"]["gml:featureMember"].forEach(fm => {
-      if (
-        !fm.hasOwnProperty(
-          "ms:ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon"
-        )
-      ) {
+      if (!fm.hasOwnProperty(`ms:${PARCEL_LAYER}`)) {
         return;
       }
 
@@ -325,7 +316,7 @@ export default Component.extend({
 
       const coordinatesEPSG2056 = rawCoordinates
         .split(" ")
-        .filter(point => point)
+        .filter(Boolean)
         .map(Number);
 
       const coordinatesLatLng = [];
