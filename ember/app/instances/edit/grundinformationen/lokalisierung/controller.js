@@ -16,6 +16,10 @@ export default Controller.extend({
     return this.questionStore.peek("punkte", this.model.instance.id);
   }),
 
+  layers: computed("model.instance.id", function() {
+    return this.questionStore.peek("layer", this.model.instance.id);
+  }),
+
   attachment: computed("model.instance.id", function() {
     return this.questionStore.peek(
       "dokument-grundstucksangaben",
@@ -76,9 +80,9 @@ export default Controller.extend({
     yield this.get("questionStore.saveQuestion").perform(this.points);
   }),
 
-  _saveLocation: task(function*(parcels) {
+  _saveLocation: task(function*(municipality) {
     let location = yield this.store.query("location", {
-      name: parcels.get("firstObject.municipality")
+      name: municipality
     });
     let instance = this.get("model.instance");
 
@@ -87,17 +91,33 @@ export default Controller.extend({
     yield instance.save();
   }),
 
-  saveLocation: task(function*(parcels, points, image) {
+  _saveLayers: task(function*(affectedLayers) {
+    this.set(
+      "layers.model.value",
+      affectedLayers.map(layer => ({ name: layer }))
+    );
+
+    yield this.get("questionStore.saveQuestion").perform(this.layers);
+  }),
+
+  saveLocation: task(function*(
+    parcels,
+    points,
+    image,
+    municipality,
+    affectedLayers
+  ) {
     if (this.get("model.instance.identifier")) {
       return;
     }
 
     try {
-      yield this._saveLocation.perform(parcels);
+      yield this._saveLocation.perform(municipality);
       yield this._saveImage.perform(image);
 
       yield this._saveParcels.perform(parcels);
       yield this._savePoints.perform(points);
+      yield this._saveLayers.perform(affectedLayers);
 
       this.notification.success("Ihre Auswahl wurde erfolgreich gespeichert", {
         status: "success"

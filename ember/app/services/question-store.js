@@ -14,16 +14,29 @@ import computedTask from "citizen-portal/lib/computed-task";
 import jexl from "jexl";
 import Parser from "jexl/lib/parser/Parser";
 
-const getTransforms = (obj, arr = []) => {
-  if (obj.type === "Transform") {
-    return [obj];
+const traverseTransforms = function*(tree) {
+  for (let node of Object.values(tree)) {
+    if (typeof node === "object") {
+      yield* traverseTransforms(node);
+    }
+  }
+  if (tree.type && tree.type === "Transform") {
+    yield { name: tree.name, subject: tree.subject, args: tree.args };
+  }
+};
+
+const getTransforms = tree => {
+  let iterator = traverseTransforms(tree);
+  let result = iterator.next();
+  let transforms = [];
+
+  while (!result.done) {
+    transforms.push(result.value);
+
+    result = iterator.next();
   }
 
-  if (obj.left && obj.right) {
-    return getTransforms(obj.left, arr).concat(getTransforms(obj.right, arr));
-  }
-
-  return arr;
+  return transforms;
 };
 
 const Question = EmberObject.extend({

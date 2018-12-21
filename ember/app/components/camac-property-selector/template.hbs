@@ -1,7 +1,14 @@
 {{#unless readonly}}
-  <div class="uk-alert uk-alert-danger">
+  <div class="uk-alert uk-alert-warning">
     <p>
-      <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
+      <strong>Mit folgenden Themen kann gesucht werden:</strong>
+      <ul>
+        <li>Adresse: Strasse Hausnummer Ort</li>
+        <li>Liegenschaft, Selbstrecht: Grundstücknummer Gemeindenamen</li>
+        <li>Flurname: Flurname Gemeindename</li>
+        <li>eidg. Grundstück-ID: EGRID</li>
+        <li>Gebäudenummer: Gebäudenummer Gemeindename</li>
+      </ul>
     </p>
   </div>
 
@@ -9,6 +16,8 @@
     {{#power-select
       placeholder = 'Adresse oder Grundstück suchen...'
       search      = (perform handleSearch)
+      selected    = selectedSearchResult
+      allowClear  = true
       onchange    = (perform handleSearchSelection)
     as |result|}}
       {{result.properties.label}}
@@ -17,7 +26,7 @@
 {{/unless}}
 
 <div class="uk-position-relative">
-  {{#if (or handleClick.isRunning submit.isRunning reset.isRunning initSelection.isRunning)}}
+  {{#if (or getLayers.isRunning submit.isRunning reset.isRunning initSelection.isRunning)}}
     <div class="uk-overlay-primary uk-position-cover">
       <div class="uk-position-center">
         {{uk-spinner ratio=2}}
@@ -34,7 +43,7 @@
       zoom      = zoom
       minZoom   = minZoom
       maxBounds = maxBounds
-      onClick   = (perform handleClick)
+      onClick   = (perform addPoint)
       onLoad    = (perform handleLoad)
       class     = 'uk-width-1-1 uk-height-large uk-margin'
     as |map|}}
@@ -48,25 +57,42 @@
         url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
       }}
 
-      {{#if _polygon}}
-        {{map.polygon locations=_polygon color='transparent' onAdd=(action (queue (perform centerLayerToPolygon) (action (mut _polygon) null)))}}
-      {{/if}}
-
-      {{#if _point}}
-        {{map.marker lat=_point.lat lng=_point.lng color='transparent' onAdd=(action (queue (perform centerLayerToPoint) (action (mut _point) null)))}}
-      {{/if}}
-
-      {{#each points as |point|}}
-        {{map.circle location=point color='blue' radius=3}}
-      {{/each}}
-
       {{#each parcels key='egrid' as |parcel|}}
-        {{#map.polygon locations=parcel.coordinates clickable=false color='red' onAdd=(perform handleAddParcelLayer) as |polygon|}}
+        {{#map.polygon locations=parcel.coordinates clickable=false color='red' as |polygon|}}
           {{#tooltip-layer sticky=true}}
             <strong>{{parcel.number}} {{parcel.municipality}}</strong> <i>({{parcel.egrid}})</i>
           {{/tooltip-layer}}
         {{/map.polygon}}
       {{/each}}
+
+      {{#if (gt searchObject.length 2)}}
+        {{map.polygon locations=searchObject color="green"}}
+      {{else if searchObject}}
+        {{map.circle-marker location=searchObject radius=4 color="green"}}
+      {{/if}}
+
+      {{#each points as |point|}}
+        {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
+      {{/each}}
+
+      {{#if (eq points.length 2)}}
+        {{map.polyline locations=selection color="blue"}}
+      {{/if}}
+
+      {{#if (gt points.length 2)}}
+        {{#map.polygon locations=selection color="blue"}}
+          {{#tooltip-layer sticky=true}}
+            Grundriss
+          {{/tooltip-layer}}
+        {{/map.polygon}}
+      {{/if}}
+      {{#if parcels.length}}
+        {{!--
+          We misuse a hidden marker here to trigger the task "focusOnParcels" when
+          everything else is loaded
+        --}}
+        {{map.marker opacity=0 lat=0 lng=0 onAdd=(perform focusOnParcels)}}
+      {{/if}}
     {{/leaflet-map}}
   {{/if}}
 </div>
@@ -74,13 +100,30 @@
 {{#unless readonly}}
   <div class="uk-text-right">
     {{#if selected.parcels.length}}
-      {{#uk-button on-click=(perform reset)}}Zurücksetzen{{/uk-button}}
+      {{#uk-button on-click=(perform reset)}}Gespeicherte Auswahl laden{{/uk-button}}
     {{/if}}
+    {{#if points.length}}
+      {{#uk-button on-click=(perform clear)}}Auswahl löschen{{/uk-button}}
+      {{#uk-button color='secondary' on-click=(perform getLayers)}}Auswahl abfragen{{/uk-button}}
+    {{/if}}
+  </div>
+  <div class="uk-text-right uk-margin-top">
     {{#if parcels.length}}
-      {{#uk-button on-click=(perform clear)}}Leeren{{/uk-button}}
+      Auswahl in
+      <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
+        {{#each municipalities as |municipality|}}
+        <option value="{{municipality}}" selected={{eq selectedMunicipality municipality}}>{{municipality}}</option>
+        {{/each}}
+      </select>
       {{#uk-button color='primary' disabled=submit.isRunning on-click=(perform submit)}}
-        Auswahl in {{parcels.firstObject.municipality}} bestätigen
+        bestätigen
       {{/uk-button}}
     {{/if}}
+  </div>
+
+  <div class="uk-alert uk-alert-danger">
+    <p>
+      <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
+    </p>
   </div>
 {{/unless}}
