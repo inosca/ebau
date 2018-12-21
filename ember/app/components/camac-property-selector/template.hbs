@@ -1,7 +1,14 @@
 {{#unless readonly}}
-  <div class="uk-alert uk-alert-danger">
+  <div class="uk-alert uk-alert-warning">
     <p>
-      <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
+      <strong>Mit folgenden Themen kann gesucht werden:</strong>
+      <ul>
+        <li>Adresse: Strasse Hausnummer Ort</li>
+        <li>Liegenschaft, Selbstrecht: Grundstücknummer Gemeindenamen</li>
+        <li>Flurname: Flurname Gemeindename</li>
+        <li>eidg. Grundstück-ID: EGRID</li>
+        <li>Gebäudenummer: Gebäudenummer Gemeindename</li>
+      </ul>
     </p>
   </div>
 
@@ -111,5 +118,11 @@
         bestätigen
       {{/uk-button}}
     {{/if}}
+  </div>
+
+  <div class="uk-alert uk-alert-danger">
+    <p>
+      <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
+    </p>
   </div>
 {{/unless}}
