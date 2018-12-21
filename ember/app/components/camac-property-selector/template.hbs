@@ -65,6 +65,12 @@
         {{/map.polygon}}
       {{/each}}
 
+      {{#if (gt searchObject.length 2)}}
+        {{map.polygon locations=searchObject color="green"}}
+      {{else if searchObject}}
+        {{map.circle-marker location=searchObject radius=4 color="green"}}
+      {{/if}}
+
       {{#each points as |point|}}
         {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
       {{/each}}
@@ -100,11 +106,6 @@
       {{#uk-button on-click=(perform clear)}}Auswahl löschen{{/uk-button}}
       {{#uk-button color='secondary' on-click=(perform getLayers)}}Auswahl abfragen{{/uk-button}}
     {{/if}}
-  </div>
-  <div>
-    {{#each affectedLayers as |layer|}}
-      {{layer}}
-    {{/each}}
   </div>
   <div class="uk-text-right uk-margin-top">
     {{#if parcels.length}}
