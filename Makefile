@@ -85,6 +85,10 @@ grunt-build: ## Grunt build
 grunt-watch: ## Grunt watch
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-be && npm run watch-be"
 
+.PHONY: prettier-format
+prettier-format:
+	docker-compose exec php sh -c "cd ../camac/public && npm run prettier-format"
+
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
 	docker-compose exec django /app/manage.py makemigrations
