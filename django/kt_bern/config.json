@@ -88315,6 +88315,22 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": null,
+      "name": null,
+      "question_type": 9,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 120000
+  },
+  {
+    "fields": {
       "chapter": 1,
       "item": 1,
       "question": 20000,
@@ -90541,7 +90557,7 @@
       "item": 1,
       "question": 40148,
       "required": 0,
-      "sort": 0
+      "sort": 1
     },
     "model": "core.questionchapter",
     "pk": 40148
@@ -90552,7 +90568,7 @@
       "item": 1,
       "question": 40149,
       "required": 0,
-      "sort": 1
+      "sort": 2
     },
     "model": "core.questionchapter",
     "pk": 40149
@@ -90563,7 +90579,7 @@
       "item": 1,
       "question": 40150,
       "required": 0,
-      "sort": 2
+      "sort": 3
     },
     "model": "core.questionchapter",
     "pk": 40150
@@ -90574,7 +90590,7 @@
       "item": 1,
       "question": 40151,
       "required": 0,
-      "sort": 3
+      "sort": 4
     },
     "model": "core.questionchapter",
     "pk": 40151
@@ -90585,7 +90601,7 @@
       "item": 1,
       "question": 40152,
       "required": 0,
-      "sort": 4
+      "sort": 5
     },
     "model": "core.questionchapter",
     "pk": 40152
@@ -90596,7 +90612,7 @@
       "item": 1,
       "question": 40153,
       "required": 0,
-      "sort": 5
+      "sort": 6
     },
     "model": "core.questionchapter",
     "pk": 40153
@@ -90607,7 +90623,7 @@
       "item": 1,
       "question": 40154,
       "required": 0,
-      "sort": 6
+      "sort": 7
     },
     "model": "core.questionchapter",
     "pk": 40154
@@ -90618,7 +90634,7 @@
       "item": 1,
       "question": 40155,
       "required": 0,
-      "sort": 7
+      "sort": 8
     },
     "model": "core.questionchapter",
     "pk": 40155
@@ -90629,7 +90645,7 @@
       "item": 1,
       "question": 40156,
       "required": 0,
-      "sort": 8
+      "sort": 9
     },
     "model": "core.questionchapter",
     "pk": 40156
@@ -90640,7 +90656,7 @@
       "item": 1,
       "question": 40157,
       "required": 0,
-      "sort": 9
+      "sort": 10
     },
     "model": "core.questionchapter",
     "pk": 40157
@@ -90651,7 +90667,7 @@
       "item": 1,
       "question": 40158,
       "required": 0,
-      "sort": 10
+      "sort": 11
     },
     "model": "core.questionchapter",
     "pk": 40158
@@ -99645,6 +99661,17 @@
   },
   {
     "fields": {
+      "chapter": 40029,
+      "item": 1,
+      "question": 120000,
+      "required": 0,
+      "sort": 0
+    },
+    "model": "core.questionchapter",
+    "pk": 120000
+  },
+  {
+    "fields": {
       "default_answer": null,
       "description": null,
       "language": "de",
@@ -102002,7 +102029,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "H\u00f6chstm\u00f6glicher Grundwasserspiegel  (m \u00fc. M.)",
+      "name": "H\u00f6chstm\u00f6glicher Grundwasserspiegel (HW) (m \u00fc. M.)",
       "question": 40176
     },
     "model": "core.questiont",
@@ -102013,7 +102040,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Mittlerer Grundwasserspiegel  (m \u00fc. M.)",
+      "name": "Mittlerer Grundwasserspiegel (MW) (m \u00fc. M.)",
       "question": 40177
     },
     "model": "core.questiont",
@@ -110378,6 +110405,17 @@
     },
     "model": "core.questiont",
     "pk": 110000
+  },
+  {
+    "fields": {
+      "default_answer": "<a href=\"https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.assetref/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_merkblatt_fuer_bauten_im_grundwasser_und_grundwasserabsenkungen_gdm026_de.pdf\">Merkblatt f\u00fcr Bauten im Grundwasser und Grundwasserabsenkungen</a>",
+      "description": null,
+      "language": "de",
+      "name": "Allgemeine Hinweise",
+      "question": 120000
+    },
+    "model": "core.questiont",
+    "pk": 120000
   },
   {
     "fields": {
