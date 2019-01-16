@@ -309,7 +309,7 @@ def parse_admins(admins):
     """
     result = []
     for admin in admins:
-        match = re.search("(.+) \<(.+@.+)\>", admin)
+        match = re.search(r"(.+) \<(.+@.+)\>", admin)
         if not match:
             raise environ.ImproperlyConfigured(
                 'In DJANGO_ADMINS admin "{0}" is not in correct '
