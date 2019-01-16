@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('user', '0003_auto_20181119_1558'),
-        ('core', '0019_auto_20181207_1544'),
+        ('core', '0020_dossier_nr_prefix'),
     ]
 
     operations = [
