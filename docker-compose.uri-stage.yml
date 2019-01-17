@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+
+    proxy:
+        depends_on:
+            - iweb_mock
+
+    iweb_mock:
+        image: acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+        command: bash /usr/src/app/run_mock
+        depends_on:
+            - php
