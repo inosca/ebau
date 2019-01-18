@@ -384,6 +384,20 @@
   {
     "fields": {
       "available_action": "formtransition",
+      "button": 151,
+      "description": "COMM zu DEL (nur Gemeinde)",
+      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "name": "L\u00f6schen",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich gel\u00f6scht."
+    },
+    "model": "core.action",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
       "button": 152,
       "description": "COMM zu ARCH (nur Gemeinde)",
       "error_message": "Das Dossiert konnte nicht archiviert werden, da ein Fehler aufgetreten ist!",
@@ -4777,6 +4791,14 @@
     },
     "model": "core.aformtransition",
     "pk": 254
+  },
+  {
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 27
+    },
+    "model": "core.aformtransition",
+    "pk": 258
   },
   {
     "fields": {
@@ -15441,6 +15463,18 @@
     },
     "model": "core.button",
     "pk": 150
+  },
+  {
+    "fields": {
+      "class_field": "",
+      "description": "",
+      "hidden": 0,
+      "instance_resource": 245,
+      "name": "L\u00f6schen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 151
   },
   {
     "fields": {
