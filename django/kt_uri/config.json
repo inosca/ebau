@@ -9071,6 +9071,13 @@
   },
   {
     "fields": {
+      "name": "XLSX"
+    },
+    "model": "core.attachmentextension",
+    "pk": 49
+  },
+  {
+    "fields": {
       "attachment_extension": 41,
       "mode": "",
       "role": 3
@@ -9080,7 +9087,7 @@
   },
   {
     "fields": {
-      "attachment_extension": 41,
+      "attachment_extension": 49,
       "mode": "",
       "role": 1061
     },
@@ -9392,6 +9399,42 @@
     },
     "model": "core.attachmentextensionrole",
     "pk": 170
+  },
+  {
+    "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 171
+  },
+  {
+    "fields": {
+      "attachment_extension": 42,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 172
+  },
+  {
+    "fields": {
+      "attachment_extension": 47,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 173
+  },
+  {
+    "fields": {
+      "attachment_extension": 45,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 174
   },
   {
     "fields": {
@@ -41663,7 +41706,7 @@
   {
     "fields": {
       "attachment_section": 21,
-      "mode": "write",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -42032,7 +42075,7 @@
   {
     "fields": {
       "attachment_section": 63,
-      "mode": "read",
+      "mode": "write",
       "role": 1105
     },
     "model": "document.attachmentsectionroleacl",
@@ -42050,7 +42093,7 @@
   {
     "fields": {
       "attachment_section": 24,
-      "mode": "read",
+      "mode": "write",
       "role": 1105
     },
     "model": "document.attachmentsectionroleacl",
@@ -42131,7 +42174,7 @@
   {
     "fields": {
       "attachment_section": 63,
-      "mode": "write",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
