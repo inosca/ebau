@@ -64,11 +64,13 @@ sensiolabs-security-checker:
 
 .build-image:
     stage: build
+    variables:
+      CONTAINERS: ember django php db
     services:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet $CONTAINERS
         - eval $COMPOSE build --pull
         - eval $COMPOSE push
 
@@ -93,6 +95,7 @@ build-kt_uri-stage:
     variables:
         APPLICATION: kt_uri
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml
+        CONTAINERS: ember django php db iweb_mock
     only:
         - stage
 
