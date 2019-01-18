@@ -2597,12 +2597,12 @@
     "fields": {
       "available_action": "formtransition",
       "button": 762,
-      "description": "COMM zu DONE",
-      "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
+      "description": "EXT GEM in COMM",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
       "execute_always": 0,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung EXT GEM in COMM",
       "sort": 0,
-      "success_message": "Die Archivierung des Dossiers wurde aufgehoben."
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt"
     },
     "model": "core.action",
     "pk": 1131
@@ -2989,12 +2989,12 @@
     "fields": {
       "available_action": "formtransition",
       "button": 785,
-      "description": "COMM zu DONE",
-      "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
+      "description": "EXT - GEM in DONE",
+      "error_message": "Die Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
       "execute_always": 0,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung EXT GEM in DONE",
       "sort": 0,
-      "success_message": "Die Archivierung des Dossiers wurde aufgehoben."
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt"
     },
     "model": "core.action",
     "pk": 1185
@@ -5058,8 +5058,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 25
+      "current_instance_state": 32,
+      "next_instance_state": 21
     },
     "model": "core.aformtransition",
     "pk": 1131
@@ -5098,8 +5098,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 25
+      "current_instance_state": 32,
+      "next_instance_state": 21
     },
     "model": "core.aformtransition",
     "pk": 1185
@@ -15055,6 +15055,24 @@
   },
   {
     "fields": {
+      "button": 762,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 460
+  },
+  {
+    "fields": {
+      "button": 785,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 461
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -16390,11 +16408,11 @@
   },
   {
     "fields": {
-      "class_field": "",
-      "description": "Status eines Dossiers von ARCH nach DONE \u00e4ndern.",
+      "class_field": null,
+      "description": "\u00c4ndert den Status des Dossiers",
       "hidden": 0,
       "instance_resource": 4,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung",
       "sort": 5
     },
     "model": "core.button",
@@ -16558,11 +16576,11 @@
   },
   {
     "fields": {
-      "class_field": "",
-      "description": "Status eines Dossiers von ARCH nach DONE \u00e4ndern.",
+      "class_field": null,
+      "description": "\u00c4ndert den Status des Dossiers",
       "hidden": 0,
       "instance_resource": 107,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung",
       "sort": 5
     },
     "model": "core.button",
