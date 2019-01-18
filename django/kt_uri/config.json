@@ -17021,8 +17021,8 @@
   {
     "fields": {
       "class_field": "oereb",
-      "description": "",
-      "hidden": 0,
+      "description": null,
+      "hidden": 1,
       "instance_resource": 2,
       "name": "\u00d6REB Meldung",
       "sort": 5
