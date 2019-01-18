@@ -47837,7 +47837,7 @@
   },
   {
     "fields": {
-      "name": "NGO",
+      "name": "Gemeinde Service Stelle",
       "role_parent": null
     },
     "model": "user.role",
