@@ -4,7 +4,7 @@ django-environ==0.4.5
 django-filter==2.0.0
 djangorestframework==3.9.0
 djangorestframework-jsonapi==2.7.0
-docxtpl==0.5.16
+docxtpl==0.5.17
 Jinja2==2.10
 Pillow==5.4.1
 pyexcel-webio==0.1.4
