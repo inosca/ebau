@@ -31,3 +31,7 @@ input[type="number"] {
   -moz-appearance: textfield;
   margin: 0;
 }
+
+.wrap-text > div > label {
+  white-space: pre-line;
+}
