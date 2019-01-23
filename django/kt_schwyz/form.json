@@ -570,12 +570,12 @@
         "info-av-art-anlass",
         "info-av-art-verkehr",
         "info-bm-solaranlage",
-        "info-pa",
-        "info-pg",
-        "info-pgv",
-        "info-tb",
-        "info-va",
-        "info-ve"
+        "info-projektanderung",
+        "info-plangenehmigung",
+        "info-projektgenehmigung",
+        "info-technische-bewilligung",
+        "info-vorabklarung",
+        "info-vorentscheid"
       ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
@@ -5797,60 +5797,60 @@
         ]
       }
     },
-    "info-pa": {
+    "info-projektanderung": {
       "label": "Bitte laden Sie die Dokumente zur Projektänderung hoch. Stellen Sie sicher, dass die Pläne die Änderungen korrekt ausweisen (schwarz: bestehend resp. bewilligt; gelb: Abbruch; rot: neu).",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'projektanderung'",
       "config": {
         "options": [
           "Vorhanden"
         ]
       }
     },
-    "info-pg": {
+    "info-plangenehmigung": {
       "label": "Bitte laden Sie die Dokumente des Projektgenehmigungsgesuchs hoch.",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'plangenehmigungsgesuch'",
       "config": {
         "options": [
           "Vorhanden"
         ]
       }
     },
-    "info-pgv": {
+    "info-projektgenehmigung": {
       "label": "Bitte laden Sie die Dokumente des Projektgenehmigungsverfahrens hoch.",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'projektgenehmigungsgesuch-gemass-ss15-strag'",
       "config": {
         "options": [
           "Vorhanden"
         ]
       }
     },
-    "info-tb": {
+    "info-technische-bewilligung": {
       "label": "Es sind die Unterlagen einzureichen, welche gemäss rechtskräftiger Baubewilligung erforderlich sind.",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'technische-bewilligung'",
       "config": {
         "options": [
           "Vorhanden"
         ]
       }
     },
-    "info-va": {
+    "info-vorabklarung": {
       "label": "Für Ihr Vorabklärungsgesuch ist ein Beschrieb des Vorhabens nötig. In Anlehnung daran sind die konkreten Fragen zu formulieren, zu denen Sie die Antworten der zuständigen Behörden wünschen.",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'vorabklarung'",
       "config": {
         "options": [
           "Vorhanden"
         ]
       }
     },
-    "info-ve": {
+    "info-vorentscheid": {
       "label": "Für Ihr Vorentscheidsgesuch ist ein Beschrieb des Vorhabens nötig. Insbesondere sind konkret die Bereiche/Fragen zu nennen, auf die sich der Vorentscheid beziehen soll.",
       "type": "checkbox",
-      "active-expression": "true == false",
+      "active-expression": "form == 'vorentscheid-gemass-ss84-pbg'",
       "config": {
         "options": [
           "Vorhanden"
