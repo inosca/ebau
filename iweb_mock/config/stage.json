@@ -1,6 +1,6 @@
 {
-	"camacUrl": "http://camac-uri.sycloud.ch",
-	"camacApi": "http://camac-uri.sycloud.ch",
+	"camacUrl": "https://camac-uri.sycloud.ch",
+	"camacApi": "https://camac-uri.sycloud.ch",
 	"base": "/portal-test/",
 	"secret": "thisisjustatestsecretchangeitonprod!1337",
 	"httpAuth": {
