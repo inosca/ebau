@@ -812,8 +812,8 @@
                 "Einfamilienhaus freistehend",
                 "Einfamilienhaus angebaut",
                 "Mehrfamilienhaus ohne Zusatznutzung",
-                "Wohngebäude mit Zusatznutzung (z.B. Büro, Verkauf, Gastgewerbe, Landwirtschaft)",
-                "Nichtwohngebäude mit Wohnung(en) resp. Beherbergungsangebot (z.B. Geschäftshaus, Schulhaus, Hotel)"
+                "Wohngebäude mit Zusatznutzung (z. B. Büro, Verkauf, Gastgewerbe, Landwirtschaft)",
+                "Nichtwohngebäude mit Wohnung(en) resp. Beherbergungsangebot (z. B. Geschäftshaus, Schulhaus, Hotel)"
               ]
             }
           },
@@ -1166,7 +1166,7 @@
         "options": [
           "Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)",
           "Luft / Wasser-Wärmepumpe",
-          "Wasser / Wasser-Wärmepumpe (z.B. Seewasser- oder Bachwassernutzung)",
+          "Wasser / Wasser-Wärmepumpe (z. B. Seewasser- oder Bachwassernutzung)",
           "Sole / Wasser-Wärmepumpe (Grundwasserwärmepumpe)"
         ]
       }
@@ -1185,7 +1185,7 @@
       "hint": "**Platzhalter**: *pfahlfundation-vorgesehen*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1195,7 +1195,7 @@
       "hint": "**Platzhalter**: *baugrubenumschliessung-vorgesehen*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1205,6 +1205,7 @@
       "hint": "**Platzhalter**: *temporare-grundwasserabsenkung-notig*",
       "type": "radio",
       "required": true,
+      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1230,7 +1231,7 @@
       }
     },
     "anlagen-mit-erheblichen-strahlungsemissionen": {
-      "label": "Beinhaltet Ihr Vorhaben Anlagen oder befindet sich in der Nähe (weniger als 100m) von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
+      "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen*",
       "type": "radio",
       "required": true,
@@ -1247,7 +1248,7 @@
       "config": {}
     },
     "anlagen-mit-erheblichen-larmemissionen": {
-      "label": "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z.B. Verkehr, Lüftungen, Maschinen)?",
+      "label": "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z. B. Verkehr, Lüftungen, Maschinen)?",
       "hint": "**Platzhalter**: *anlagen-mit-erheblichen-larmemissionen*",
       "type": "radio",
       "required": true,
@@ -1330,11 +1331,11 @@
       }
     },
     "200m3-bauabfalle": {
-      "label": "Fallen mehr als 200 m 3 Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
+      "label": "Fallen mehr als 200 m³ Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
       "hint": "**Platzhalter**: *200m3-bauabfalle*",
       "type": "radio",
       "required": true,
-      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
+      "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -1343,6 +1344,7 @@
       "label": "Wird eine bestehende Alarmierungseinrichtung durch das Vorhaben tangiert?",
       "hint": "**Platzhalter**: *alarmierungseinrichtung-tangiert*",
       "type": "radio",
+      "active-expression": "true == false",
       "required": true,
       "config": {
         "options": ["Ja", "Nein"]
@@ -1368,7 +1370,7 @@
       }
     },
     "offentlich-duschanlage-oder-bad": {
-      "label": "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z.B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
+      "label": "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z. B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
       "hint": "**Platzhalter**: *offentlich-duschanlage-oder-bad*",
       "type": "radio",
       "required": true,
