@@ -2,14 +2,14 @@ import itertools
 import sys
 from functools import partial
 
+import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
-
-import inflection
-from camac.document.models import Attachment
-from camac.jexl import ExtractTransformSubjectAnalyzer
 from pyjexl.jexl import JEXL
 from rest_framework import exceptions
+
+from camac.document.models import Attachment
+from camac.jexl import ExtractTransformSubjectAnalyzer
 
 from . import models
 
