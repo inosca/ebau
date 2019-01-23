@@ -13,3 +13,5 @@ services:
             - acr.run/camac-ng/camac-ng/iweb_mock:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         depends_on:
           - php
+        environment:
+          - NODE_ENV=stage
