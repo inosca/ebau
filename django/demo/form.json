@@ -34,7 +34,8 @@
         "grundeigentumerschaft",
         "gwr",
         "zweck-der-warmepumpe",
-        "standort-der-warmepumpe"
+        "standort-der-warmepumpe",
+        "info-general"
       ]
     }
   },
@@ -327,6 +328,17 @@
       "type": "date",
       "required": true,
       "config": {}
+    },
+    "info-general": {
+      "label": "Baugerüst errichtet am",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'forms'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
     }
   }
 }
