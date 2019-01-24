@@ -153,6 +153,7 @@ MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
 DEFAULT_FILE_STORAGE = env.str(
     "DJANGO_DEFAULT_FILE_STORAGE", default="django.core.files.storage.FileSystemStorage"
 )
+FILE_UPLOAD_PERMISSIONS = env.int("FILE_UPLOAD_PERMISSIONS", default=0o644)
 
 THUMBNAIL_ENGINE = "sorl.thumbnail.engines.convert_engine.Engine"
 
