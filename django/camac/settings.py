@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
+    "gisbern",
 ]
 
 MIDDLEWARE = [
