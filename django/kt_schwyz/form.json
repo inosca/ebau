@@ -1556,9 +1556,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -1622,9 +1626,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -1688,9 +1696,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -1754,9 +1766,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -1820,9 +1836,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
@@ -1886,9 +1906,13 @@
           {
             "name": "plz",
             "label": "PLZ",
-            "type": "text",
+            "type": "number",
             "required": true,
-            "config": {}
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
           },
           {
             "name": "ort",
