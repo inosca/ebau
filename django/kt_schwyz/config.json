@@ -8249,7 +8249,7 @@
   },
   {
     "fields": {
-      "description": "Baugesuch, Reklamegesuch",
+      "description": "Baugesuch",
       "form_state": 1,
       "name": "baugesuch-reklamegesuch"
     },
