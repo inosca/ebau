@@ -32947,7 +32947,7 @@
   },
   {
     "fields": {
-      "action_name": "index",
+      "action_name": "template",
       "available_resource": "page",
       "hidden": 0
     },
