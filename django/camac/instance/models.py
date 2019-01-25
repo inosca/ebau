@@ -206,7 +206,7 @@ class FormField(models.Model):
 
     instance = models.ForeignKey(Instance, models.CASCADE, related_name="fields")
     name = models.CharField(max_length=500)
-    value = JSONField(db_index=True)
+    value = JSONField()
 
     class Meta:
         unique_together = (("instance", "name"),)
