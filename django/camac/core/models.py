@@ -1973,10 +1973,7 @@ class InstanceLocation(models.Model):
         "user.Location", models.DO_NOTHING, db_column="LOCATION_ID", related_name="+"
     )
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
 
     class Meta:
