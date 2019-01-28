@@ -51,7 +51,7 @@
       "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "type": "radio",
       "required": true,
-      "active-expression": "'kategorie-des-vorhabens'|value != 'Anlage(n)'",
+      "active-expression": "form == 'forms' && 'kategorie-des-vorhabens'|value != 'Anlage(n)'",
       "config": {
         "options": ["Ja", "Nein"]
       }
