@@ -7333,6 +7333,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "gisapi",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 20069
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmail",
       "recipient_type": "Notification_Manager_CurrentUser",
       "template": 1
@@ -33651,6 +33660,15 @@
   },
   {
     "fields": {
+      "controller_name": "gisapi",
+      "description": "GIS API",
+      "module_name": "gisapi"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "gisapi"
+  },
+  {
+    "fields": {
       "controller_name": "journal",
       "description": "Journal module",
       "module_name": "journal"
@@ -44382,6 +44400,21 @@
   },
   {
     "fields": {
+      "available_instance_resource": "gisapi",
+      "class_field": null,
+      "description": null,
+      "form_group": 40000,
+      "hidden": 1,
+      "name": null,
+      "resource": 5,
+      "sort": 31,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20064
+  },
+  {
+    "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
       "description": null,
@@ -48553,6 +48586,16 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20063
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20064,
+      "language": "de",
+      "name": "GIS API"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20064
   },
   {
     "fields": {
@@ -60912,6 +60955,96 @@
     },
     "model": "core.irroleacl",
     "pk": 21336
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21337
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21338
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 20001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21339
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21340
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21341
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80002,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21342
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80003,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21343
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21344
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110002,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21345
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 40000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21346
   },
   {
     "fields": {
