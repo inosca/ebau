@@ -137924,15 +137924,6 @@
   },
   {
     "fields": {
-      "description": null,
-      "form_state": 1,
-      "name": null
-    },
-    "model": "instance.form",
-    "pk": 110002
-  },
-  {
-    "fields": {
       "name": "Published"
     },
     "model": "instance.formstate",
@@ -137994,16 +137985,6 @@
     },
     "model": "instance.formt",
     "pk": 110001
-  },
-  {
-    "fields": {
-      "description": null,
-      "form": 110002,
-      "language": "de",
-      "name": "Ank\u00fcndigungs Banner"
-    },
-    "model": "instance.formt",
-    "pk": 110002
   },
   {
     "fields": {
