@@ -34,8 +34,7 @@
         "grundeigentumerschaft",
         "gwr",
         "zweck-der-warmepumpe",
-        "standort-der-warmepumpe",
-        "info-general"
+        "standort-der-warmepumpe"
       ]
     }
   },
@@ -52,7 +51,7 @@
       "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
       "type": "radio",
       "required": true,
-      "active-expression": "'kategorie-des-vorhabens'|value != 'Anlage(n)'",
+      "active-expression": "form == 'forms' && 'kategorie-des-vorhabens'|value != 'Anlage(n)'",
       "config": {
         "options": ["Ja", "Nein"]
       }
@@ -328,17 +327,6 @@
       "type": "date",
       "required": true,
       "config": {}
-    },
-    "info-general": {
-      "label": "Baugerüst errichtet am",
-      "type": "checkbox",
-      "required": false,
-      "active-expression": "form == 'forms'",
-      "config": {
-        "options": [
-          "Vorhanden"
-        ]
-      }
     }
   }
 }
