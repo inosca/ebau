@@ -133,7 +133,7 @@ class FormDataValidator(object):
             active = (
                 expression is None
                 or self._check_questions_active(dep_questions)
-                and self.jexl.evaluate(expression)
+                and self.jexl.evaluate(expression, {"form": self.instance.form.name})
             )
         except TypeError:
             # A TypeError is raised if a question is not filled. It then tries
