@@ -1,3 +1,10 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
   {{form.table 'projektverfasser-planer'}}
+  {{#uk-button
+    on-click=(action 'transfer')
+    class='uk-align-center uk-margin-remove-vertical'
+    disabled=(unless value 'true')
+  }}
+    Bauherrschafts Personalien Übernehmen
+  {{/uk-button}}
 {{/camac-form}}

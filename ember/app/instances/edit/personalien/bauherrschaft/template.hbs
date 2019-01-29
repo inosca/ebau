@@ -1,3 +1,12 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
   {{form.table 'bauherrschaft'}}
+  {{#if (not-eq model.instance.form.name 'baumeldung-fur-geringfugiges-vorhaben')}}
+    {{#uk-button
+      on-click=(action 'transfer')
+      class='uk-align-center uk-margin-remove-vertical'
+      disabled=(unless value 'true')
+    }}
+      Grundeigentümerschafts Personalien Übernehmen
+    {{/uk-button}}
+  {{/if}}
 {{/camac-form}}
