@@ -6451,7 +6451,7 @@
   {
     "fields": {
       "circulation_type": 1,
-      "name": "Auflagen"
+      "name": "Nebenbestimmungen"
     },
     "model": "core.noticetype",
     "pk": 3
@@ -6459,7 +6459,7 @@
   {
     "fields": {
       "circulation_type": 2,
-      "name": "Auflagen"
+      "name": "Nebenbestimmungen"
     },
     "model": "core.noticetype",
     "pk": 4
