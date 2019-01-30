@@ -6,11 +6,13 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(...arguments);
+    let question = this.questionStore.peek(
+      "bauherrschaft",
+      model.instance.get("id")
+    );
     controller.set(
-      "value",
-      this.questionStore
-        .peek("bauherrschaft", model.instance.get("id"))
-        .get("value")
+      "bauherrschaftValue",
+      question ? question.get("value") : question
     );
   }
 });
