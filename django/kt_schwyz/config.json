@@ -358,20 +358,6 @@
   {
     "fields": {
       "available_action": "formtransition",
-      "button": 20,
-      "description": null,
-      "error_message": "Dossier konnte nicht abgelehnt werden",
-      "execute_always": 0,
-      "name": "instance state to rej",
-      "sort": 0,
-      "success_message": "Dossier erfolgreich abgelehnt"
-    },
-    "model": "core.action",
-    "pk": 40
-  },
-  {
-    "fields": {
-      "available_action": "formtransition",
       "button": 21,
       "description": null,
       "error_message": "Dossier konnte nicht archiviert werden",
@@ -438,20 +424,6 @@
     },
     "model": "core.action",
     "pk": 47
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "button": 20,
-      "description": null,
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "name": "Email Ablehnen",
-      "sort": 1,
-      "success_message": "Email wurde erfolgreich versandt"
-    },
-    "model": "core.action",
-    "pk": 48
   },
   {
     "fields": {
@@ -618,14 +590,6 @@
     },
     "model": "core.aformtransition",
     "pk": 39
-  },
-  {
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 9
-    },
-    "model": "core.aformtransition",
-    "pk": 40
   },
   {
     "fields": {
@@ -1173,15 +1137,6 @@
     },
     "model": "core.anotification",
     "pk": 47
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Applicant",
-      "template": 14
-    },
-    "model": "core.anotification",
-    "pk": 48
   },
   {
     "fields": {
@@ -1961,51 +1916,6 @@
   },
   {
     "fields": {
-      "button": 20,
-      "instance_state": 2,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 29
-  },
-  {
-    "fields": {
-      "button": 20,
-      "instance_state": 3,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 30
-  },
-  {
-    "fields": {
-      "button": 20,
-      "instance_state": 5,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 31
-  },
-  {
-    "fields": {
-      "button": 20,
-      "instance_state": 6,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 32
-  },
-  {
-    "fields": {
-      "button": 20,
-      "instance_state": 7,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 33
-  },
-  {
-    "fields": {
       "button": 21,
       "instance_state": 8,
       "role": 3
@@ -2221,7 +2131,7 @@
       "description": null,
       "hidden": 0,
       "instance_resource": 3,
-      "name": "Nachforderung",
+      "name": "R\u00fcckweisung",
       "sort": 2
     },
     "model": "core.button",
@@ -2358,18 +2268,6 @@
     },
     "model": "core.button",
     "pk": 19
-  },
-  {
-    "fields": {
-      "class_field": null,
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 3,
-      "name": "Dossier ablehnen",
-      "sort": 4
-    },
-    "model": "core.button",
-    "pk": 20
   },
   {
     "fields": {
