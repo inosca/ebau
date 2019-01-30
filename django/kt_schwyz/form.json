@@ -14,6 +14,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -24,6 +25,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -55,6 +57,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -65,6 +68,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -84,6 +88,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -94,6 +99,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -110,6 +116,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -120,6 +127,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -157,6 +165,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -167,6 +176,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -330,10 +340,19 @@
       "parent": "fachthemen",
       "questions": ["umweltschutz-abfallbehandlungsanlage"]
     },
-    "fachthemen.wald": {
-      "title": "Wald",
+    "fachthemen.natur-und-landschaftsschutz": {
+      "title": "Natur- und Landschaftsschutz",
       "parent": "fachthemen",
-      "questions": ["wald-forstlich", "wald-auswirkungen"]
+      "questions": ["datenverschnitt-natur-und-landschaftsschutz"]
+    },
+    "fachthemen.wald": {
+      "title": "Wald, Flora, Fauna",
+      "parent": "fachthemen",
+      "questions": [
+        "wald-forstlich",
+        "wald-auswirkungen",
+        "datenverschnitt-reptilien"
+      ]
     },
     "fachthemen.verkehr": {
       "title": "Verkehr",
@@ -350,7 +369,8 @@
         "verkehr-neugestaltung-trottoir",
         "verkehr-einschrankungen-trottoir",
         "verkehr-baugrube-tangieren",
-        "verkehr-datenverschnitt-wanderweg"
+        "datenverschnitt-eisenbahn",
+        "datenverschnitt-wanderweg"
       ]
     },
     "fachthemen.energie": {
@@ -370,7 +390,8 @@
         "energie-photovoltaik-gesamtleistung",
         "energie-photovoltaik-jahresertrag",
         "energie-photovoltaik-flache",
-        "energie-inbetriebnahme"
+        "energie-inbetriebnahme",
+        "datenverschnitt-energie"
       ]
     },
     "fachthemen.arbeitssicherheit-und-gesundheitsschutz": {
@@ -462,7 +483,13 @@
     "fachthemen.gewasserschutz": {
       "title": "Gewässerschutz",
       "parent": "fachthemen",
-      "questions": ["gewasserschutz-menge"]
+      "questions": [
+        "gewasserschutz-menge",
+        "datenverschnitt-gewasserschutz",
+        "datenverschnitt-grundwasserschutz-zone",
+        "datenverschnitt-grundwasserschutz-areal",
+        "datenverschnitt-grundwasserschutz-bereich-au"
+      ]
     },
     "fachthemen.grundwasser-und-altlasten": {
       "title": "Grundwasser und Altlasten",
@@ -503,6 +530,11 @@
       "parent": "fachthemen",
       "questions": ["reklamen"]
     },
+    "fachthemen.denkmalschutz-und-archaeologie": {
+      "title": "Denkmalschutz und Archäologie",
+      "parent": "fachthemen",
+      "questions": ["datenverschnitt-denkmalpflege"]
+    },
     "fachthemen.lebensmittel-und-hygienesicherheit": {
       "title": "Lebensmittel- und Hygienesicherheit",
       "parent": "fachthemen",
@@ -511,7 +543,11 @@
     "fachthemen.fischerei": {
       "title": "Fischerei",
       "parent": "fachthemen",
-      "questions": ["fischerei-ufervegetation-beeintrachtigt"]
+      "questions": [
+        "fischerei-ufervegetation-beeintrachtigt",
+        "fischerei-ufervegetation-beeintrachtigt-info",
+        "datenverschnitt-fisch"
+      ]
     },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
@@ -542,7 +578,6 @@
         "info-wald-auswirkungen",
         "info-wald-auswirkungen-roden",
         "info-naturgefahren",
-        "info-wanderweg",
         "info-energie-dachaufstellung",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
@@ -2603,6 +2638,18 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "datenverschnitt-natur-und-landschaftsschutz": {
+      "label": "Ihr Vorhaben tangiert ein Schutzgebiet. Die entsprechenden Bestimmungen sind einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-natur-und-landschaftsschutz*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.anjf.anjf_kant_naturschutzgebiete' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_pflanzenschutzreservate' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.komm_schutzzonen' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_biotope' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "wald-forstlich": {
       "label": "Handelt es sich um ein forstliches Vorhaben?",
       "hint": "**Platzhalter**: *wald-forstlich*",
@@ -2621,6 +2668,18 @@
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "datenverschnitt-reptilien": {
+      "label": "Ihr Vorhaben tangiert ein Reptiliengebiet. Auf allfällige Reptilienlebensräume ist Rücksicht zu nehmen. Zu konkreten Reptilienvorkommen und planerischen Massnahmen gibt das Amt für Natur, Jagd und Fischerei Auskunft.",
+      "hint": "**Platzhalter**: *datenverschnitt-reptilien*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.anjf_reptiliengebiete.reptiliengebiet' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "verkehr-strasse": {
@@ -2787,7 +2846,19 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "verkehr-datenverschnitt-wanderweg": {
+    "datenverschnitt-eisenbahn": {
+      "label": "Ihr Vorhaben tangiert ein Bahntrasse. Die eisenbahnrechtlichen Vorschriften sind einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-eisenbahn*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.oev.eisenbahn' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-wanderweg": {
       "label": "Gemäss Lokalisierung ergibt sich, dass Ihr Vorhaben im Bereich von Wanderwegen liegt. Falls es direkte Auswirkungen auf die Wanderwege gibt, und allenfalls Belagsänderungen vorgesehen sind, muss dies in einem Beschrieb dargelegt werden.",
       "hint": "**Platzhalter**: *datenverschnitt-wanderweg*",
       "type": "checkbox",
@@ -2942,6 +3013,18 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {}
+    },
+    "datenverschnitt-energie": {
+      "lable": "Ihr Vorhaben befindet sich in der Nähe von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen, SBB-Übertragungsleitungen o. ä.). Die Vorschriften der entsprechenden gesetzlichen Grundlagen müssen eingehalten werden.",
+      "hint": "**Platzhalter**: *datenverschnitt-energie*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.afu.nis.hochspannungsltg' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.trafostation' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.unterwerk' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
     },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
@@ -3546,6 +3629,54 @@
         ]
       }
     },
+    "datenverschnitt-gewasserschutz": {
+      "label": "Die Einhaltung von Gewässerraum und -abstand ist im Bauvorhaben zu berücksichtigen. Falls eine Unterschreitung unumgänglich ist, muss um eine Ausnahmebewilligung ersucht werden (ebenfalls in diesem Formular). Gewässerraum und -abstand sind in den Plänen darzustellen.",
+      "hint": "**Platzhalter**: *datenverschnitt-gewasserschutz*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-zone": {
+      "label": "Ihr Vorhaben tangiert eine Grundwasserschutzzone. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzzonenreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-zone*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-areal": {
+      "label": "Ihr Vorhaben tangiert ein Grundwasserschutzareal. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzarealreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-areal*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-bereich-au": {
+      "label": "Ihr Vorhaben tangiert den Gewässerschutzbereich Au. Falls der Baukörper oder Teile davon unter den mittleren Grundwasserspiegel reichen, muss ein Durchflussnachweis eingereicht werden.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-bereich-au*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "grundwasser-warmeentnahme-art": {
       "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
@@ -3878,6 +4009,18 @@
         ]
       }
     },
+    "datenverschnitt-denkmalpflege": {
+      "label": "Gemäss Lokalisierung Ihres Vorhabens ergibt sich, dass ein KIGBO, die Umgebung eines KIGBO oder ein Ortsbildschutzgebiet (ISOS A) tangiert wird. Falls im Rahmen des vorliegenden Vorhabens noch kein Kontakt mit der kantonalen Denkmalpflege stattgefunden hat, ist dies umgehend nachzuholen.",
+      "hint": "**Platzhalter**: *datenverschnitt-denkmalpflege*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.afk.afk_kigbo' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_bhf' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_isos' in 'layer'|value|mapby('name') || 'ms:ch.sz.a081a.icomos.gaerten' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "lebensmittel-und-hygienesicherheit-info": {
       "label": "Für Ihr Vorhaben ist eine Beurteilung durch das Laboratorium der Urkantone erforderlich.",
       "hint": "**Platzhalter**: *lebensmittel-und-hygienesicherheit-info*",
@@ -3893,9 +4036,31 @@
       "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt*",
       "type": "radio",
       "required": false,
-      "active-expression": "false",
+      "active-expression": "'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "fischerei-ufervegetation-beeintrachtigt-info": {
+      "label": "Im Projekt muss für entsprechenden Ersatz gesorgt werden. Für Auskünfte ist die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei zuständig.",
+      "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt-info*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'fischerei-ufervegetation-beeintrachtigt'|value == 'Ja'",
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "datenverschnitt-fisch": {
+      "label": "Falls Ihr Bauvorhaben technische Eingriffe im Gewässer beinhaltet, sind Aufwertungsmassnahmen vorzusehen. Zu Art und Umfang von Aufwertungsmassnahmen gibt die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei Auskunft.",
+      "hint": "**Platzhalter**: *datenverschnitt-fisch*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a049.fischgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "dokument-grundstucksangaben": {
@@ -5561,16 +5726,6 @@
     },
     "info-naturgefahren": {
       "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ergibt sich, dass die vorhandenen Naturgefahren zu berücksichtigen sind. Zur Beurteilung Ihres Gesuches ist ein Objektschutznachweis erforderlich.",
-      "type": "checkbox",
-      "active-expression": "true == false",
-      "config": {
-        "options": [
-          "Vorhanden"
-        ]
-      }
-    },
-    "info-wanderweg": {
-      "label": "Gemäss Lokalisierung ergibt sich, dass Ihr Vorhaben im Bereich von Wanderwegen liegt. Falls es direkte Auswirkungen auf die Wanderwege gibt, und allenfalls Belagsänderungen vorgesehen sind, muss dies in einem Beschrieb dargelegt werden.",
       "type": "checkbox",
       "active-expression": "true == false",
       "config": {

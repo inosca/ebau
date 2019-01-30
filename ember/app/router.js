@@ -39,6 +39,7 @@ Router.map(function() {
             "nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone"
           );
           this.route("umweltschutz");
+          this.route("natur-und-landschaftsschutz");
           this.route("wald");
           this.route("naturgefahren");
           this.route("verkehr");
@@ -50,6 +51,7 @@ Router.map(function() {
           this.route("gewasserschutz");
           this.route("grundwasser-und-altlasten");
           this.route("reklamen");
+          this.route("denkmalschutz-und-archaeologie");
           this.route("lebensmittel-und-hygienesicherheit");
           this.route("fischerei");
         });

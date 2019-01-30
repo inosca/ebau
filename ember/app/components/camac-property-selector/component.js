@@ -58,7 +58,6 @@ const QUERY_LAYERS = [
   "ch.sz.a005.nutzungsplanung.grundnutzung",
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone",
   "ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal",
-  "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.ao",
   "ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au",
   //"ch.sz.afu.kbsprov.provisorische_standorte",
   "ch.sz.a006.swisstlm3d.oev.eisenbahn",
