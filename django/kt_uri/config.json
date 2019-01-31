@@ -384,6 +384,20 @@
   {
     "fields": {
       "available_action": "formtransition",
+      "button": 151,
+      "description": "COMM zu DEL (nur Gemeinde)",
+      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "name": "L\u00f6schen",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich gel\u00f6scht."
+    },
+    "model": "core.action",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
       "button": 152,
       "description": "COMM zu ARCH (nur Gemeinde)",
       "error_message": "Das Dossiert konnte nicht archiviert werden, da ein Fehler aufgetreten ist!",
@@ -2583,12 +2597,12 @@
     "fields": {
       "available_action": "formtransition",
       "button": 762,
-      "description": "COMM zu DONE",
-      "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
+      "description": "EXT GEM in COMM",
+      "error_message": "Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
       "execute_always": 0,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung EXT GEM in COMM",
       "sort": 0,
-      "success_message": "Die Archivierung des Dossiers wurde aufgehoben."
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt"
     },
     "model": "core.action",
     "pk": 1131
@@ -2975,12 +2989,12 @@
     "fields": {
       "available_action": "formtransition",
       "button": 785,
-      "description": "COMM zu DONE",
-      "error_message": "Die Archivierung des Dossiers konnte nicht aufgehoben werden.",
+      "description": "EXT - GEM in DONE",
+      "error_message": "Die Status\u00e4nderung konnte nicht ausgef\u00fchrt werden",
       "execute_always": 0,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung EXT GEM in DONE",
       "sort": 0,
-      "success_message": "Die Archivierung des Dossiers wurde aufgehoben."
+      "success_message": "Status\u00e4nderung erfolgreich ausgef\u00fchrt"
     },
     "model": "core.action",
     "pk": 1185
@@ -4781,6 +4795,14 @@
   {
     "fields": {
       "current_instance_state": 21,
+      "next_instance_state": 27
+    },
+    "model": "core.aformtransition",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "current_instance_state": 21,
       "next_instance_state": 26
     },
     "model": "core.aformtransition",
@@ -5036,8 +5058,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 25
+      "current_instance_state": 32,
+      "next_instance_state": 21
     },
     "model": "core.aformtransition",
     "pk": 1131
@@ -5076,8 +5098,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
-      "next_instance_state": 25
+      "current_instance_state": 32,
+      "next_instance_state": 21
     },
     "model": "core.aformtransition",
     "pk": 1185
@@ -9071,6 +9093,13 @@
   },
   {
     "fields": {
+      "name": "XLSX"
+    },
+    "model": "core.attachmentextension",
+    "pk": 49
+  },
+  {
+    "fields": {
       "attachment_extension": 41,
       "mode": "",
       "role": 3
@@ -9080,7 +9109,7 @@
   },
   {
     "fields": {
-      "attachment_extension": 41,
+      "attachment_extension": 49,
       "mode": "",
       "role": 1061
     },
@@ -9392,6 +9421,42 @@
     },
     "model": "core.attachmentextensionrole",
     "pk": 170
+  },
+  {
+    "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 171
+  },
+  {
+    "fields": {
+      "attachment_extension": 42,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 172
+  },
+  {
+    "fields": {
+      "attachment_extension": 47,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 173
+  },
+  {
+    "fields": {
+      "attachment_extension": 45,
+      "mode": null,
+      "role": 1105
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 174
   },
   {
     "fields": {
@@ -14990,6 +15055,24 @@
   },
   {
     "fields": {
+      "button": 762,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 460
+  },
+  {
+    "fields": {
+      "button": 785,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 461
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -15405,6 +15488,18 @@
       "description": "",
       "hidden": 0,
       "instance_resource": 245,
+      "name": "L\u00f6schen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 151
+  },
+  {
+    "fields": {
+      "class_field": "",
+      "description": "",
+      "hidden": 0,
+      "instance_resource": 245,
       "name": "Archivieren",
       "sort": 3
     },
@@ -15521,8 +15616,8 @@
   },
   {
     "fields": {
-      "class_field": "circ_send_button",
-      "description": "",
+      "class_field": "circ_send_button no-animation",
+      "description": null,
       "hidden": 0,
       "instance_resource": 367,
       "name": "Antwort senden",
@@ -16313,11 +16408,11 @@
   },
   {
     "fields": {
-      "class_field": "",
-      "description": "Status eines Dossiers von ARCH nach DONE \u00e4ndern.",
+      "class_field": null,
+      "description": "\u00c4ndert den Status des Dossiers",
       "hidden": 0,
       "instance_resource": 4,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung",
       "sort": 5
     },
     "model": "core.button",
@@ -16481,11 +16576,11 @@
   },
   {
     "fields": {
-      "class_field": "",
-      "description": "Status eines Dossiers von ARCH nach DONE \u00e4ndern.",
+      "class_field": null,
+      "description": "\u00c4ndert den Status des Dossiers",
       "hidden": 0,
       "instance_resource": 107,
-      "name": "Status\u00e4nderung in DONE",
+      "name": "Status\u00e4nderung",
       "sort": 5
     },
     "model": "core.button",
@@ -16926,8 +17021,8 @@
   {
     "fields": {
       "class_field": "oereb",
-      "description": "",
-      "hidden": 0,
+      "description": null,
+      "hidden": 1,
       "instance_resource": 2,
       "name": "\u00d6REB Meldung",
       "sort": 5
@@ -33041,6 +33136,24 @@
   },
   {
     "fields": {
+      "instance_resource": 4,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 813
+  },
+  {
+    "fields": {
+      "instance_resource": 107,
+      "instance_state": 32,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 814
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -41663,7 +41776,7 @@
   {
     "fields": {
       "attachment_section": 21,
-      "mode": "write",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -42032,7 +42145,7 @@
   {
     "fields": {
       "attachment_section": 63,
-      "mode": "read",
+      "mode": "write",
       "role": 1105
     },
     "model": "document.attachmentsectionroleacl",
@@ -42050,7 +42163,7 @@
   {
     "fields": {
       "attachment_section": 24,
-      "mode": "read",
+      "mode": "write",
       "role": 1105
     },
     "model": "document.attachmentsectionroleacl",
@@ -42131,7 +42244,7 @@
   {
     "fields": {
       "attachment_section": 63,
-      "mode": "write",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -44855,10 +44968,10 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Landwirtschaftskommission",
+      "name": "Wasserkommission Erstfeld",
       "phone": null,
       "role": 1104,
-      "service": null,
+      "service": 261,
       "website": null,
       "zip": null
     },
@@ -47403,6 +47516,30 @@
   },
   {
     "fields": {
+      "group": 482,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 174
+  },
+  {
+    "fields": {
+      "group": 482,
+      "location": 22
+    },
+    "model": "user.grouplocation",
+    "pk": 175
+  },
+  {
+    "fields": {
+      "group": 482,
+      "location": 21
+    },
+    "model": "user.grouplocation",
+    "pk": 176
+  },
+  {
+    "fields": {
       "communal_cantonal_number": 1,
       "communal_federal_number": "1201",
       "commune_name": "Altdorf (UR)",
@@ -47837,7 +47974,7 @@
   },
   {
     "fields": {
-      "name": "NGO",
+      "name": "Gemeinde Service Stelle",
       "role_parent": null
     },
     "model": "user.role",
