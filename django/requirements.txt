@@ -1,22 +1,22 @@
-django==1.11.16 # pyup: >=1.11,<1.12
+django==1.11.18 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
 django-environ==0.4.5
 django-filter==2.0.0
 djangorestframework==3.9.0
-djangorestframework-jsonapi==2.6.0
-docxtpl==0.5.6
+djangorestframework-jsonapi==2.7.0
+docxtpl==0.5.16
 Jinja2==2.10
-Pillow==5.3.0
+Pillow==5.4.1
 pyexcel-webio==0.1.4
-pyexcel-io==0.5.9.1
+pyexcel-io==0.5.11
 django-excel==0.0.10
 pyexcel-xlsx==0.5.6
-psycopg2-binary==2.7.5
-python-keycloak==0.13.2
+psycopg2-binary==2.7.6.1
+python-keycloak==0.14.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
 uwsgi==2.0.17.1
-django-reversion==3.0.0
+django-reversion==3.0.2
 pyjexl==0.2.3
 
 # use upstream again release once following PR is released:

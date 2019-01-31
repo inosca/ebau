@@ -184,8 +184,14 @@ def test_instance_update_location(admin_client, instance, location_factory):
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
-def test_instance_destroy(admin_client, instance, status_code):
+def test_instance_destroy(admin_client, instance, status_code, location_factory):
     url = reverse("instance-detail", args=[instance.pk])
+
+    """
+    Add InstanceLocation relationship to make sure it also will be deleted
+    when the instance is deleted (cascade deletion).
+    """
+    InstanceLocation.objects.create(location=location_factory(), instance=instance)
 
     response = admin_client.delete(url)
     assert response.status_code == status_code

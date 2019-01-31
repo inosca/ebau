@@ -7333,6 +7333,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "gisapi",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 20069
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmail",
       "recipient_type": "Notification_Manager_CurrentUser",
       "template": 1
@@ -32947,7 +32956,7 @@
   },
   {
     "fields": {
-      "action_name": "index",
+      "action_name": "template",
       "available_resource": "page",
       "hidden": 0
     },
@@ -33648,6 +33657,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "formwizard"
+  },
+  {
+    "fields": {
+      "controller_name": "gisapi",
+      "description": "GIS API",
+      "module_name": "gisapi"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "gisapi"
   },
   {
     "fields": {
@@ -44382,6 +44400,21 @@
   },
   {
     "fields": {
+      "available_instance_resource": "gisapi",
+      "class_field": null,
+      "description": null,
+      "form_group": 40000,
+      "hidden": 1,
+      "name": null,
+      "resource": 5,
+      "sort": 31,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20064
+  },
+  {
+    "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
       "description": null,
@@ -48553,6 +48586,16 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20063
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20064,
+      "language": "de",
+      "name": "GIS API"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20064
   },
   {
     "fields": {
@@ -60912,6 +60955,96 @@
     },
     "model": "core.irroleacl",
     "pk": 21336
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21337
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21338
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 20001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21339
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21340
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80001,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21341
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80002,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21342
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 80003,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21343
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21344
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 110002,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21345
+  },
+  {
+    "fields": {
+      "instance_resource": 20064,
+      "instance_state": 40000,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 21346
   },
   {
     "fields": {
@@ -88315,6 +88448,22 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": null,
+      "name": null,
+      "question_type": 9,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 120000
+  },
+  {
+    "fields": {
       "chapter": 1,
       "item": 1,
       "question": 20000,
@@ -90541,7 +90690,7 @@
       "item": 1,
       "question": 40148,
       "required": 0,
-      "sort": 0
+      "sort": 1
     },
     "model": "core.questionchapter",
     "pk": 40148
@@ -90552,7 +90701,7 @@
       "item": 1,
       "question": 40149,
       "required": 0,
-      "sort": 1
+      "sort": 2
     },
     "model": "core.questionchapter",
     "pk": 40149
@@ -90563,7 +90712,7 @@
       "item": 1,
       "question": 40150,
       "required": 0,
-      "sort": 2
+      "sort": 3
     },
     "model": "core.questionchapter",
     "pk": 40150
@@ -90574,7 +90723,7 @@
       "item": 1,
       "question": 40151,
       "required": 0,
-      "sort": 3
+      "sort": 4
     },
     "model": "core.questionchapter",
     "pk": 40151
@@ -90585,7 +90734,7 @@
       "item": 1,
       "question": 40152,
       "required": 0,
-      "sort": 4
+      "sort": 5
     },
     "model": "core.questionchapter",
     "pk": 40152
@@ -90596,7 +90745,7 @@
       "item": 1,
       "question": 40153,
       "required": 0,
-      "sort": 5
+      "sort": 6
     },
     "model": "core.questionchapter",
     "pk": 40153
@@ -90607,7 +90756,7 @@
       "item": 1,
       "question": 40154,
       "required": 0,
-      "sort": 6
+      "sort": 7
     },
     "model": "core.questionchapter",
     "pk": 40154
@@ -90618,7 +90767,7 @@
       "item": 1,
       "question": 40155,
       "required": 0,
-      "sort": 7
+      "sort": 8
     },
     "model": "core.questionchapter",
     "pk": 40155
@@ -90629,7 +90778,7 @@
       "item": 1,
       "question": 40156,
       "required": 0,
-      "sort": 8
+      "sort": 9
     },
     "model": "core.questionchapter",
     "pk": 40156
@@ -90640,7 +90789,7 @@
       "item": 1,
       "question": 40157,
       "required": 0,
-      "sort": 9
+      "sort": 10
     },
     "model": "core.questionchapter",
     "pk": 40157
@@ -90651,7 +90800,7 @@
       "item": 1,
       "question": 40158,
       "required": 0,
-      "sort": 10
+      "sort": 11
     },
     "model": "core.questionchapter",
     "pk": 40158
@@ -99645,6 +99794,17 @@
   },
   {
     "fields": {
+      "chapter": 40029,
+      "item": 1,
+      "question": 120000,
+      "required": 0,
+      "sort": 0
+    },
+    "model": "core.questionchapter",
+    "pk": 120000
+  },
+  {
+    "fields": {
       "default_answer": null,
       "description": null,
       "language": "de",
@@ -102002,7 +102162,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "H\u00f6chstm\u00f6glicher Grundwasserspiegel  (m \u00fc. M.)",
+      "name": "H\u00f6chstm\u00f6glicher Grundwasserspiegel (HW) (m \u00fc. M.)",
       "question": 40176
     },
     "model": "core.questiont",
@@ -102013,7 +102173,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Mittlerer Grundwasserspiegel  (m \u00fc. M.)",
+      "name": "Mittlerer Grundwasserspiegel (MW) (m \u00fc. M.)",
       "question": 40177
     },
     "model": "core.questiont",
@@ -110378,6 +110538,17 @@
     },
     "model": "core.questiont",
     "pk": 110000
+  },
+  {
+    "fields": {
+      "default_answer": "<a href=\"https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.assetref/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_merkblatt_fuer_bauten_im_grundwasser_und_grundwasserabsenkungen_gdm026_de.pdf\">Merkblatt f\u00fcr Bauten im Grundwasser und Grundwasserabsenkungen</a>",
+      "description": null,
+      "language": "de",
+      "name": "Allgemeine Hinweise",
+      "question": 120000
+    },
+    "model": "core.questiont",
+    "pk": 120000
   },
   {
     "fields": {
