@@ -1635,7 +1635,14 @@ class CommissionAssignment(models.Model):
         db_column="INSTANCE_ID",
         related_name="+",
     )
-    adder_id = models.FloatField(db_column="ADDER_ID")
+    creator_group = models.ForeignKey(
+        "user.Group",
+        models.DO_NOTHING,
+        db_column="CREATOR_GROUP_ID",
+        related_name="+",
+        null=True,
+    )
+    creator_user = models.FloatField(db_column="CREATOR_USER_ID")
     date = models.DateTimeField(db_column="DATE")
 
     class Meta:
@@ -1966,10 +1973,7 @@ class InstanceLocation(models.Model):
         "user.Location", models.DO_NOTHING, db_column="LOCATION_ID", related_name="+"
     )
     instance = models.ForeignKey(
-        "instance.Instance",
-        models.DO_NOTHING,
-        db_column="INSTANCE_ID",
-        related_name="+",
+        "instance.Instance", models.CASCADE, db_column="INSTANCE_ID", related_name="+"
     )
 
     class Meta:
