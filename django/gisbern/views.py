@@ -5,8 +5,6 @@ from django.core.cache import cache
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
-from . import models
-
 
 @api_view(['GET'])
 @permission_classes([])
@@ -114,7 +112,7 @@ def gis_data_view(request, egrid, format=None):
             {0}
           </ogc:Intersects>
         </ogc:Filter>
-      </Query> 
+      </Query>
       <Query typeName="a42geo_ebau_kt_wfs_d_fk:WILDSGRV_WSGOREV" srsName="EPSG:2056">
         <ogc:Filter>
           <ogc:Intersects>
@@ -345,18 +343,3 @@ def gis_data_view(request, egrid, format=None):
     multisurface = get_multisurface(egrid)
     data = get_gis_data(multisurface)
     return Response(data)
-
-@api_view(['POST'])
-@permission_classes([])
-def save_gis_data_view(request, format=None):
-    if request.method == 'POST':
-        for attr, value in request.data.items():
-            print(value)
-            models.Answer.objects.create(
-                item=1,
-                answer=value,
-                chapter_id=40003,
-                instance_id=20001
-                # question_id=
-            )
-            return Response(request.data)
