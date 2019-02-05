@@ -519,7 +519,7 @@ class IssueTemplateSetView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         methods=["post"], detail=True, serializer_class=serializers.InstanceSerializer
     )
     def generate_set(self, request, pk=None):
-        """Create issues from a issue template set"""
+        """Create issues from a issue template set."""
         issue_template_set = models.IssueTemplateSet.objects.get(id=pk)
         instance = models.Instance.objects.get(pk=request.data["id"])
         for template in issue_template_set.issue_templates.all():
