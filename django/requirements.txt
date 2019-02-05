@@ -16,7 +16,7 @@ python-keycloak==0.14.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
 uwsgi==2.0.17.1
-django-reversion==3.0.2
+django-reversion==3.0.3
 pyjexl==0.2.3
 
 # use upstream again release once following PR is released:
