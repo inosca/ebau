@@ -89,3 +89,21 @@ class FormFieldFilterSet(FilterSet):
     class Meta:
         model = models.FormField
         fields = ("instance", "name")
+
+
+class InstanceIssueTemplateFilterSet(FilterSet):
+
+    state = CharMultiValueFilter()
+
+    class Meta:
+        model = models.IssueTemplate
+        fields = ("instance", "user")
+
+
+class InstanceIssueTemplateSetFilterSet(FilterSet):
+
+    state = CharMultiValueFilter()
+
+    class Meta:
+        model = models.IssueTemplateSet
+        fields = ("instance", "name")

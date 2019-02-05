@@ -196,6 +196,44 @@ class Issue(models.Model):
     text = models.TextField()
 
 
+class IssueTemplate(models.Model):
+    instance = models.ForeignKey(
+        Instance, models.CASCADE, related_name="issue_templates"
+    )
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    user = models.ForeignKey(
+        "user.User", models.DO_NOTHING, related_name="+", blank=True, null=True
+    )
+    deadline = models.DecimalField(decimal_places=2, max_digits=10)
+    text = models.TextField()
+
+
+class IssueTemplateSet(models.Model):
+    instance = models.ForeignKey(
+        Instance, models.CASCADE, related_name="issue_template_sets"
+    )
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    issue_templates = models.ManyToManyField(
+        IssueTemplate, through="IssueTemplateSetIssueTemplate"
+    )
+    name = models.TextField()
+
+
+class IssueTemplateSetIssueTemplate(models.Model):
+    issue_template = models.ForeignKey(IssueTemplate, models.CASCADE, related_name="+")
+    issue_template_set = models.ForeignKey(
+        IssueTemplateSet,
+        models.CASCADE,
+        related_name="issue_template_set_issue_templates",
+    )
+
+
 @reversion.register()
 class FormField(models.Model):
     """

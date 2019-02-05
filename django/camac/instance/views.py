@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 import django_excel
 from django.conf import settings
 from django.db import transaction
@@ -390,3 +392,143 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
     def has_object_destroy_permission_for_municipality(self, obj):
         return self.has_object_update_permission_for_canton(obj)
+
+
+class IssueTemplateView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+    """Issues templates used for internal use and not viewable by applicant."""
+
+    serializer_class = serializers.IssueTemplateSerializer
+    filterset_class = filters.InstanceIssueTemplateFilterSet
+    queryset = models.IssueTemplate.objects.all()
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        return queryset.filter(service=self.request.group.service_id)
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        queryset = super().get_base_queryset()
+        return queryset.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_service(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_object_update_permission(self, obj):  # pragma: no cover
+        # only needed as entry for permission aware decorator
+        # but actually never executed as applicant may actually
+        # not read any issues
+        return False
+
+    def has_object_update_permission_for_canton(self, obj):
+        return obj.service == self.request.group.service
+
+    def has_object_update_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_update_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    @permission_aware
+    def has_object_destroy_permission(self, obj):  # pragma: no cover
+        # see comment has_object_update_permission
+        return False
+
+    def has_object_destroy_permission_for_canton(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+
+class IssueTemplateSetView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+    """Issue sets used for internal use and not viewable by applicant."""
+
+    serializer_class = serializers.IssueTemplateSetSerializer
+    filterset_class = filters.InstanceIssueTemplateSetFilterSet
+    queryset = models.IssueTemplateSet.objects.all()
+
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        return queryset.filter(service=self.request.group.service_id)
+
+    @permission_aware
+    def get_queryset(self):
+        """Return no result when user has no specific permission."""
+        queryset = super().get_base_queryset()
+        return queryset.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return True
+
+    def has_create_permission_for_service(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return True
+
+    @permission_aware
+    def has_object_update_permission(self, obj):  # pragma: no cover
+        # only needed as entry for permission aware decorator
+        # but actually never executed as applicant may actually
+        # not read any issues
+        return False
+
+    def has_object_update_permission_for_canton(self, obj):
+        return obj.service == self.request.group.service
+
+    def has_object_update_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_update_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    @permission_aware
+    def has_object_destroy_permission(self, obj):  # pragma: no cover
+        # see comment has_object_update_permission
+        return False
+
+    def has_object_destroy_permission_for_canton(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_service(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    def has_object_destroy_permission_for_municipality(self, obj):
+        return self.has_object_update_permission_for_canton(obj)
+
+    @action(
+        methods=["post"], detail=True, serializer_class=serializers.InstanceSerializer
+    )
+    def generate_set(self, request, pk=None):
+        """Create issues from a issue template set"""
+        issue_template_set = models.IssueTemplateSet.objects.get(id=pk)
+        instance = models.Instance.objects.get(pk=request.data["id"])
+        for template in issue_template_set.issue_templates.all():
+            models.Issue.objects.create(
+                group=template.group,
+                instance=instance,
+                service=template.service,
+                user=template.user,
+                deadline_date=timezone.now().date() + timedelta(int(template.deadline)),
+                text=template.text,
+            )
+        return response.Response("Issues Created", 201)

@@ -324,3 +324,41 @@ class IssueSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer)
             "state",
         )
         read_only_fields = ("group", "service")
+
+
+class IssueTemplateSerializer(
+    mixins.InstanceEditableMixin, serializers.ModelSerializer
+):
+    included_serializers = {
+        "instance": InstanceSerializer,
+        "user": "camac.user.serializers.UserSerializer",
+    }
+
+    def create(self, validated_data):
+        validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
+    class Meta:
+        model = models.IssueTemplate
+        fields = ("instance", "group", "service", "user", "deadline", "text")
+        read_only_fields = ("group", "service")
+
+
+class IssueTemplateSetSerializer(
+    mixins.InstanceEditableMixin, serializers.ModelSerializer
+):
+    included_serializers = {
+        "instance": InstanceSerializer,
+        "user": "camac.user.serializers.UserSerializer",
+    }
+
+    def create(self, validated_data):
+        validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
+    class Meta:
+        model = models.IssueTemplateSet
+        fields = ("instance", "group", "service", "name", "issue_templates")
+        read_only_fields = ("group", "service")
