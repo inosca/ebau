@@ -41,13 +41,12 @@ def test_issue_template_set_update(
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
-        ("Canton", status.HTTP_201_CREATED),
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
     ],
 )
 def test_issue_template_set_create(
-    admin_client, issue_template, instance, group, service, activation, status_code
+    admin_client, issue_template, group, service, activation, status_code
 ):
     url = reverse("issue-template-set-list")
 
@@ -57,10 +56,9 @@ def test_issue_template_set_create(
             "id": None,
             "attributes": {"name": "Test"},
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}},
                 "issue-templates": {
-                    "data": {"type": "issue-templates", "id": issue_template.pk}
-                },
+                    "data": [{"type": "issue-templates", "id": issue_template.pk}]
+                }
             },
         }
     }
@@ -95,20 +93,26 @@ def test_issue_template_set_destroy(
 
 @pytest.mark.parametrize("role__name", [("Canton"), ("Municipality"), ("Service")])
 def test_issue_template_set_generate_set(
-    admin_client, instance, issue_template_set_issue_template, activation
+    admin_client, issue_template_set_issue_templates, instance, activation
 ):
-    itsit = issue_template_set_issue_template
-    set_url = reverse(
-        "issue-template-set-generate-set", args=[itsit.issue_template_set.pk]
-    )
+    itsit = issue_template_set_issue_templates
+    set_url = reverse("issue-template-set-apply", args=[itsit.issuetemplateset.pk])
 
-    data = {"data": {"type": "instances", "id": instance.pk}}
+    data = {
+        "data": {
+            "type": "issue-template-sets-apply",
+            "id": None,
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
 
     set_response = admin_client.post(set_url, data=data)
-    assert set_response.status_code == status.HTTP_201_CREATED
+    assert set_response.status_code == status.HTTP_204_NO_CONTENT
 
     response = admin_client.get(reverse("issue-list"))
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == len(itsit.issue_template_set.issue_templates.all())
+    assert len(json["data"]) == itsit.issuetemplateset.issue_templates.count()

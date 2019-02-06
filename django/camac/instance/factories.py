@@ -100,11 +100,10 @@ class IssueFactory(DjangoModelFactory):
 
 
 class IssueTemplateFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
     user = SubFactory(UserFactory)
     group = SubFactory(GroupFactory)
     service = SubFactory(ServiceFactory)
-    deadline = randrange(1, 10)
+    deadline_length = randrange(1, 10)
     text = Faker("text")
 
     class Meta:
@@ -112,7 +111,6 @@ class IssueTemplateFactory(DjangoModelFactory):
 
 
 class IssueTemplateSetFactory(DjangoModelFactory):
-    instance = SubFactory(InstanceFactory)
     group = SubFactory(GroupFactory)
     service = SubFactory(ServiceFactory)
     name = Faker("sentence")
@@ -122,8 +120,8 @@ class IssueTemplateSetFactory(DjangoModelFactory):
 
 
 class IssueTemplateSetIssueTemplateFactory(DjangoModelFactory):
-    issue_template = SubFactory(IssueTemplateFactory)
-    issue_template_set = SubFactory(IssueTemplateSetFactory)
+    issuetemplate = SubFactory(IssueTemplateFactory)
+    issuetemplateset = SubFactory(IssueTemplateSetFactory)
 
     class Meta:
-        model = models.IssueTemplateSetIssueTemplate
+        model = models.IssueTemplateSet.issue_templates.through

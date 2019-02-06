@@ -39,24 +39,18 @@ def test_issue_template_update(admin_client, issue_template, activation, status_
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
-        ("Canton", status.HTTP_201_CREATED),
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
     ],
 )
-def test_issue_template_create(
-    admin_client, instance, group, service, activation, status_code
-):
+def test_issue_template_create(admin_client, group, service, activation, status_code):
     url = reverse("issue-template-list")
 
     data = {
         "data": {
             "type": "issue-templates",
             "id": None,
-            "attributes": {"text": "Test", "deadline": "2"},
-            "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
-            },
+            "attributes": {"text": "Test", "deadline_length": "2"},
         }
     }
 

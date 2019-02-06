@@ -394,22 +394,25 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         return self.has_object_update_permission_for_canton(obj)
 
 
-class IssueTemplateView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class IssueTemplateView(views.ModelViewSet):
     """Issues templates used for internal use and not viewable by applicant."""
 
     serializer_class = serializers.IssueTemplateSerializer
-    filterset_class = filters.InstanceIssueTemplateFilterSet
+    filterset_class = filters.IssueTemplateFilterSet
     queryset = models.IssueTemplate.objects.all()
-
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter(service=self.request.group.service_id)
 
     @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission."""
-        queryset = super().get_base_queryset()
-        return queryset.none()
+        return models.IssueTemplate.objects.none()
+
+    def get_queryset_for_canton(self):
+        return models.IssueTemplate.objects.all()
+
+    def get_queryset_for_service(self):
+        return models.IssueTemplate.objects.filter(service=self.request.group.service)
+
+    def get_queryset_for_municipality(self):
+        return models.IssueTemplate.objects.filter(group=self.request.group)
 
     @permission_aware
     def has_create_permission(self):
@@ -455,22 +458,27 @@ class IssueTemplateView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         return self.has_object_update_permission_for_canton(obj)
 
 
-class IssueTemplateSetView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
+class IssueTemplateSetView(views.ModelViewSet):
     """Issue sets used for internal use and not viewable by applicant."""
 
     serializer_class = serializers.IssueTemplateSetSerializer
-    filterset_class = filters.InstanceIssueTemplateSetFilterSet
+    filterset_class = filters.IssueTemplateSetFilterSet
     queryset = models.IssueTemplateSet.objects.all()
-
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter(service=self.request.group.service_id)
 
     @permission_aware
     def get_queryset(self):
-        """Return no result when user has no specific permission."""
-        queryset = super().get_base_queryset()
-        return queryset.none()
+        return models.IssueTemplateSet.objects.none()
+
+    def get_queryset_for_canton(self):
+        return models.IssueTemplateSet.objects.all()
+
+    def get_queryset_for_service(self):
+        return models.IssueTemplateSet.objects.filter(
+            service=self.request.group.service
+        )
+
+    def get_queryset_for_municipality(self):
+        return models.IssueTemplateSet.objects.filter(group=self.request.group)
 
     @permission_aware
     def has_create_permission(self):
@@ -516,19 +524,32 @@ class IssueTemplateSetView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
         return self.has_object_update_permission_for_canton(obj)
 
     @action(
-        methods=["post"], detail=True, serializer_class=serializers.InstanceSerializer
+        methods=["post"],
+        detail=True,
+        serializer_class=serializers.IssueTemplateSetApplySerializer,
     )
-    def generate_set(self, request, pk=None):
+    @transaction.atomic
+    def apply(self, request, pk=None):
         """Create issues from a issue template set."""
         issue_template_set = models.IssueTemplateSet.objects.get(id=pk)
-        instance = models.Instance.objects.get(pk=request.data["id"])
+
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        instance = serializer.validated_data["instance"]
+
+        issues = []
         for template in issue_template_set.issue_templates.all():
-            models.Issue.objects.create(
-                group=template.group,
-                instance=instance,
-                service=template.service,
-                user=template.user,
-                deadline_date=timezone.now().date() + timedelta(int(template.deadline)),
-                text=template.text,
+            issues.append(
+                models.Issue(
+                    group=template.group,
+                    instance=instance,
+                    service=template.service,
+                    user=template.user,
+                    deadline_date=timezone.now().date()
+                    + timedelta(int(template.deadline_length)),
+                    text=template.text,
+                )
             )
-        return response.Response("Issues Created", 201)
+        models.Issue.objects.bulk_create(issues)
+
+        return response.Response([], 204)
