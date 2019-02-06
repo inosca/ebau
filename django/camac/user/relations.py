@@ -36,7 +36,7 @@ class GroupResourceRelatedField(ResourceRelatedField):
         )
 
 
-class ServiceResourceReleatedField(GroupResourceRelatedField):
+class ServiceResourceRelatedField(GroupResourceRelatedField):
     """Service resource related field restricting services to user services."""
 
     def get_queryset(self):
