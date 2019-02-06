@@ -531,7 +531,7 @@ class IssueTemplateSetView(views.ModelViewSet):
     @transaction.atomic
     def apply(self, request, pk=None):
         """Create issues from a issue template set."""
-        issue_template_set = models.IssueTemplateSet.objects.get(id=pk)
+        issue_template_set = self.get_object()
 
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)

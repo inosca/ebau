@@ -91,9 +91,17 @@ def test_issue_template_set_destroy(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("role__name", [("Canton"), ("Municipality"), ("Service")])
-def test_issue_template_set_generate_set(
-    admin_client, issue_template_set_issue_templates, instance, activation
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_404_NOT_FOUND),
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Canton", status.HTTP_204_NO_CONTENT),
+        ("Service", status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_issue_template_set_apply(
+    admin_client, issue_template_set_issue_templates, instance, activation, status_code
 ):
     itsit = issue_template_set_issue_templates
     set_url = reverse("issue-template-set-apply", args=[itsit.issuetemplateset.pk])
@@ -109,10 +117,11 @@ def test_issue_template_set_generate_set(
     }
 
     set_response = admin_client.post(set_url, data=data)
-    assert set_response.status_code == status.HTTP_204_NO_CONTENT
+    assert set_response.status_code == status_code
 
-    response = admin_client.get(reverse("issue-list"))
-    assert response.status_code == status.HTTP_200_OK
+    if status_code == status.HTTP_204_NO_CONTENT:
+        response = admin_client.get(reverse("issue-list"))
+        assert response.status_code == status.HTTP_200_OK
 
-    json = response.json()
-    assert len(json["data"]) == itsit.issuetemplateset.issue_templates.count()
+        json = response.json()
+        assert len(json["data"]) == itsit.issuetemplateset.issue_templates.count()
