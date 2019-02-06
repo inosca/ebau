@@ -196,6 +196,27 @@ class Issue(models.Model):
     text = models.TextField()
 
 
+class IssueTemplate(models.Model):
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    user = models.ForeignKey(
+        "user.User", models.DO_NOTHING, related_name="+", blank=True, null=True
+    )
+    deadline_length = models.PositiveIntegerField()
+    text = models.TextField()
+
+
+class IssueTemplateSet(models.Model):
+    group = models.ForeignKey("user.Group", models.DO_NOTHING, related_name="+")
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", null=True
+    )
+    issue_templates = models.ManyToManyField(IssueTemplate, related_name="issue_sets")
+    name = models.CharField(max_length=500)
+
+
 @reversion.register()
 class FormField(models.Model):
     """
