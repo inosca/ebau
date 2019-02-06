@@ -1288,6 +1288,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "issuetemplates",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 9
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -1680,6 +1689,15 @@
     },
     "model": "core.availableresource",
     "pk": "issuedashboard"
+  },
+  {
+    "fields": {
+      "controller_name": "issuetemplates",
+      "description": "Dashboard for template issues",
+      "module_name": "issue"
+    },
+    "model": "core.availableresource",
+    "pk": "issuetemplates"
   },
   {
     "fields": {
@@ -7219,11 +7237,24 @@
       "description": null,
       "hidden": 0,
       "name": "Meine Pendenzen",
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
     "pk": 10
+  },
+  {
+    "fields": {
+      "available_resource": "issuetemplates",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Pendenzenvorlagen",
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 11
   },
   {
     "fields": {
@@ -7320,6 +7351,22 @@
     },
     "model": "core.rroleacl",
     "pk": 14
+  },
+  {
+    "fields": {
+      "resource": 11,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "resource": 11,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 16
   },
   {
     "fields": {
