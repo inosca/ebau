@@ -4,7 +4,7 @@ from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework_json_api import serializers
+from rest_framework_json_api import relations, serializers
 
 from camac.core.models import InstanceLocation
 from camac.user.models import Group
@@ -12,7 +12,7 @@ from camac.user.relations import (
     CurrentUserResourceRelatedField,
     FormDataResourceRelatedField,
     GroupResourceRelatedField,
-    ServiceResourceReleatedField,
+    ServiceResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
@@ -138,7 +138,7 @@ class InstanceResponsibilitySerializer(
     mixins.InstanceEditableMixin, serializers.ModelSerializer
 ):
     instance_editable_permission = None
-    service = ServiceResourceReleatedField(default=CurrentServiceDefault())
+    service = ServiceResourceRelatedField(default=CurrentServiceDefault())
 
     def validate(self, data):
         user = data.get("user", self.instance and self.instance.user)
@@ -324,3 +324,38 @@ class IssueSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer)
             "state",
         )
         read_only_fields = ("group", "service")
+
+
+class IssueTemplateSerializer(serializers.ModelSerializer):
+    included_serializers = {"user": "camac.user.serializers.UserSerializer"}
+
+    def create(self, validated_data):
+        validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
+    class Meta:
+        model = models.IssueTemplate
+        fields = ("group", "service", "user", "deadline_length", "text")
+        read_only_fields = ("group", "service")
+
+
+class IssueTemplateSetSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        validated_data["group"] = self.context["request"].group
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
+    class Meta:
+        model = models.IssueTemplateSet
+        fields = ("group", "service", "name", "issue_templates")
+        read_only_fields = ("group", "service")
+
+
+class IssueTemplateSetApplySerializer(
+    mixins.InstanceEditableMixin, serializers.Serializer
+):
+    instance = relations.ResourceRelatedField(queryset=models.Instance.objects)
+
+    class Meta:
+        resource_name = "issue-template-sets-apply"
