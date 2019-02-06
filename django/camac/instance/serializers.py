@@ -4,7 +4,7 @@ from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework_json_api import serializers, relations
+from rest_framework_json_api import relations, serializers
 
 from camac.core.models import InstanceLocation
 from camac.user.models import Group
