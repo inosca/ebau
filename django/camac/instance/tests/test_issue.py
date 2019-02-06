@@ -39,7 +39,6 @@ def test_issue_update(admin_client, issue, activation, status_code):
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Canton", status.HTTP_201_CREATED),
-        ("Canton", status.HTTP_201_CREATED),
         ("Service", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_201_CREATED),
     ],
