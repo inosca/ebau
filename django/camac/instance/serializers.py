@@ -341,10 +341,6 @@ class IssueTemplateSerializer(serializers.ModelSerializer):
 
 
 class IssueTemplateSetSerializer(serializers.ModelSerializer):
-    issue_templates = relations.ResourceRelatedField(
-        queryset=models.IssueTemplate.objects, many=True
-    )
-
     def create(self, validated_data):
         validated_data["group"] = self.context["request"].group
         validated_data["service"] = self.context["request"].group.service
