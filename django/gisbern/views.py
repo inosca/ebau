@@ -41,226 +41,98 @@ def gis_data_view(request, egrid, format=None):
         """
 
         xml_kanton = '''<GetFeature xmlns="http://www.opengis.net/wfs" xmlns:a42geo_ebau_kt_wfs_d_fk="http://www.geoservice.apps.be.ch/geoservice/services/a4p/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" service="WFS" version="2.0.0" outputFormat="GML2" count="100">
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_BAU_VW" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_UEO_VW" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.GSK25_GSK_VW" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:BALISKBS_KBS" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GK5_SY" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.BAUINV_BAUINV_VW" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_LSG_VW" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:FEUGEB_FG" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:WILDSG_WSGO" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:WILDSGRV_WSGOREV" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:WNI_WNIOB" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:TROSTA_TS" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GBO_GBOF" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GBO_GBOP" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:GGO_GGOP" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:ARCHINV_FUNDST" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:NSG_NSGP" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_kt_wfs_d_fk:STREU_STREU" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-    </GetFeature>'''.format(multisurface)
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_BAU_VW" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_UEO_VW" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.GSK25_GSK_VW" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:BALISKBS_KBS" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GK5_SY" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.BAUINV_BAUINV_VW" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:GEODB.UZP_LSG_VW" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:ARCHINV_FUNDST" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:NSG_NSGP" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+          <Query typeName="a42geo_ebau_kt_wfs_d_fk:STREU_STREU" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+        </GetFeature>'''.format(multisurface)
 
         xml_bund = '''<GetFeature xmlns="http://www.opengis.net/wfs" xmlns:a42geo_ebau_bund_wfs_d_fk="http://www.geoservice.apps.be.ch/geoservice/services/a4p/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" service="WFS" version="2.0.0" outputFormat="GML2" count="100">
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:MOORLAND_ML" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:BLN_BLN" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:HOCHMOOR_HM" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:FLAMOOR_FMNAT" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:AUEN_AU" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:WASSVOG_WV" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:AMPHIB_AMG" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:AMPHIB_AML" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-      <Query typeName="a42geo_ebau_bund_wfs_d_fk:JAGDBANN_JB" srsName="EPSG:2056">
-        <ogc:Filter>
-          <ogc:Intersects>
-            <ogc:PropertyName>Shape</ogc:PropertyName>
-            {0}
-          </ogc:Intersects>
-        </ogc:Filter>
-      </Query>
-    </GetFeature>'''.format(multisurface)
+          <Query typeName="a42geo_ebau_bund_wfs_d_fk:MOORLAND_ML" srsName="EPSG:2056">
+            <ogc:Filter>
+              <ogc:Intersects>
+                <ogc:PropertyName>Shape</ogc:PropertyName>
+                {0}
+              </ogc:Intersects>
+            </ogc:Filter>
+          </Query>
+        </GetFeature>'''.format(multisurface)
 
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         values = {'username': 'a42geo_ebau_user', 'password': 'a4p_7aaWb5zWgYByJ2j', 'f': 'json'}
@@ -282,28 +154,11 @@ def gis_data_view(request, egrid, format=None):
             'belasteter_standort': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}BALISKBS_KBS',
             'gebiet_mit_naturkatastrophen': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GK5_SY',
             'besonderer_landschaftsschutz': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.UZP_LSG',
-            'feuchtgebiet': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}FEUGEB_FG',
-            'waldnaturinventar': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}WNI_WNIOB',
-            'trockenstandort': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}TROSTA_TS',
-            'geschütztes_botanisches_objekt_fläche': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GBO_GBOF',
-            'geschütztes_botanisches_objekt_punkte': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GBO_GBOP',
-            'geschütztes_geologisches_objekt': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GGO_GGOP',
             'archäologisches_objekt': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}ARCHINV_FUNDS',
             'naturschutzgebiet': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}NSG_NSGP',
-            'wildschutz_genehmigt': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}WILDSG_WSGO',
-            'wildschutz_in_revision': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}WILDSG_WSGORE',
             'streusiedlungsgebiet': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}STREU_STREU',
             'bauinventar': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.BAUINV.BAUINV_VW',
-            'flachmoor': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}GEODB.FLAMOOR_FMNAT',
-            'moorlandschaft': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}MOORLAND_ML',
-            'landschaft_und_naturdenkmäler': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}BLN_BLN',
-            'hochmoor': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}HOCHMOOR_HM',
-            'nationales_flachmoor': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}FLAMOOR_FMNAT',
-            'auengebiet': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}AUEN_AU',
-            'wasser_und_zugvogelreservat': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}WASSVOG_WV',
-            'amphibienlaichgebiet_wanderobjekt': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}AMPHIB_AMG',
-            'amphibienlaichgebiet_ortsfestes_objekt': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}AMPHIB_AML',
-            'jagdbanngebiet': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}JAGDBANN_JB'
+            'moorlandschaft': '{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_bund_wfs_d_fk/MapServer/WFSServer}MOORLAND_ML'
         }
 
         # If featureMember layers are empty, the values are false
