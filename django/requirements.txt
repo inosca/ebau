@@ -15,7 +15,7 @@ psycopg2-binary==2.7.6.1
 python-keycloak==0.14.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
-uwsgi==2.0.17.1
+uwsgi==2.0.18
 django-reversion==3.0.3
 pyjexl==0.2.3
 
