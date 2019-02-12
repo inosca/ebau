@@ -7,16 +7,20 @@ from rest_framework import status
     "role__name,size",
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
-def test_issue_template_set_list(admin_client, issue_template_set, activation, size):
+def test_issue_template_set_list(
+    admin_client, issue_template_set_issue_templates, activation, size
+):
+    itsit = issue_template_set_issue_templates
     url = reverse("issue-template-set-list")
 
-    response = admin_client.get(url)
+    response = admin_client.get(url, data={"include": "issue-templates"})
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
     assert len(json["data"]) == size
     if size > 0:
-        assert json["data"][0]["id"] == str(issue_template_set.pk)
+        assert json["data"][0]["id"] == str(itsit.issuetemplateset.pk)
+        assert len(json["included"]) == itsit.issuetemplateset.issue_templates.count()
 
 
 @pytest.mark.parametrize(
