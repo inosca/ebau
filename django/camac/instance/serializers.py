@@ -341,6 +341,8 @@ class IssueTemplateSerializer(serializers.ModelSerializer):
 
 
 class IssueTemplateSetSerializer(serializers.ModelSerializer):
+    included_serializers = {"issue_templates": IssueTemplateSerializer}
+
     def create(self, validated_data):
         validated_data["group"] = self.context["request"].group
         validated_data["service"] = self.context["request"].group.service
