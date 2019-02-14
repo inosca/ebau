@@ -184,7 +184,7 @@ def gis_data_view(request, egrid, format=None):
             "besonderer_landschaftsschutz": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.UZP_LSG",
             "archäologisches_objekt": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}ARCHINV_FUNDS",
             "naturschutzgebiet": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}NSG_NSGP",
-            "bauinventar": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.BAUINV.BAUINV_VW"
+            "bauinventar": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.BAUINV.BAUINV_VW",
         }
 
         # If featureMember layers are empty, the values are false
