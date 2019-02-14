@@ -5,12 +5,6 @@ from .views import gis_data_view
 
 r = SimpleRouter()
 
-urlpatterns = [
-    url(
-        r'^egrid/(?P<egrid>.+)$',
-        gis_data_view,
-        name="egrid"
-    )
-]
+urlpatterns = [url(r"^egrid/(?P<egrid>.+)$", gis_data_view, name="egrid")]
 
 urlpatterns += r.urls
