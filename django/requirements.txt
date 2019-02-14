@@ -11,7 +11,7 @@ pyexcel-webio==0.1.4
 pyexcel-io==0.5.13
 django-excel==0.0.10
 pyexcel-xlsx==0.5.6
-psycopg2-binary==2.7.6.1
+psycopg2-binary==2.7.7
 python-keycloak==0.14.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
