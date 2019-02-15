@@ -126,8 +126,6 @@ def get_gis_data(multisurface):
             ):
                 zones.append(item.text)
                 data["nutzungszone"] = zones
-                print("-------------------------!!!!")
-                print(data["nutzungszone"])
 
         if (
             child.tag
