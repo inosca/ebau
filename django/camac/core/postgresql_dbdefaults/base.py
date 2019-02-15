@@ -2,8 +2,7 @@ from django.db.backends.postgresql.base import *  # NOQA
 
 from .schema import DatabaseSchemaEditor
 
-
-OldDatabaseWrapper = DatabaseWrapper # NOQA
+OldDatabaseWrapper = DatabaseWrapper  # NOQA
 
 
 class DatabaseWrapper(OldDatabaseWrapper):
