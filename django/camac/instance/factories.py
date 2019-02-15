@@ -1,4 +1,5 @@
 from datetime import timedelta
+from random import randrange
 
 import pytz
 from factory import Faker, SubFactory
@@ -96,3 +97,31 @@ class IssueFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Issue
+
+
+class IssueTemplateFactory(DjangoModelFactory):
+    user = SubFactory(UserFactory)
+    group = SubFactory(GroupFactory)
+    service = SubFactory(ServiceFactory)
+    deadline_length = randrange(1, 10)
+    text = Faker("text")
+
+    class Meta:
+        model = models.IssueTemplate
+
+
+class IssueTemplateSetFactory(DjangoModelFactory):
+    group = SubFactory(GroupFactory)
+    service = SubFactory(ServiceFactory)
+    name = Faker("sentence")
+
+    class Meta:
+        model = models.IssueTemplateSet
+
+
+class IssueTemplateSetIssueTemplateFactory(DjangoModelFactory):
+    issuetemplate = SubFactory(IssueTemplateFactory)
+    issuetemplateset = SubFactory(IssueTemplateSetFactory)
+
+    class Meta:
+        model = models.IssueTemplateSet.issue_templates.through

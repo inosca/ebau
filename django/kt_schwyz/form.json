@@ -4,7 +4,6 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung",
-      "grundinformationen.gwr",
       "grundinformationen.allgemeine-informationen-zum-vorhaben",
       "grundinformationen.ausnahmebewilligungen",
       "personalien",
@@ -15,6 +14,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -25,6 +25,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -34,7 +35,6 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung",
-      "grundinformationen.gwr",
       "grundinformationen.allgemeine-informationen-zum-vorhaben",
       "grundinformationen.ausnahmebewilligungen",
       "personalien",
@@ -48,7 +48,6 @@
       "grundinformationen",
       "grundinformationen.lokalisierung",
       "grundinformationen.kategorisierung",
-      "grundinformationen.gwr",
       "grundinformationen.allgemeine-informationen-zum-vorhaben",
       "personalien",
       "personalien.grundeigentumerschaft",
@@ -58,6 +57,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -68,6 +68,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -87,6 +88,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -97,6 +99,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -113,6 +116,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -123,6 +127,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -160,6 +165,7 @@
       "fachthemen.landwirtschaft",
       "fachthemen.nicht-landwirtschaftliche-bauten-und-anlagen-ausserhalb-bauzone",
       "fachthemen.umweltschutz",
+      "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
       "fachthemen.verkehr",
       "fachthemen.energie",
@@ -170,6 +176,7 @@
       "fachthemen.gewasserschutz",
       "fachthemen.grundwasser-und-altlasten",
       "fachthemen.reklamen",
+      "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
       "gesuchsunterlagen"
@@ -333,10 +340,19 @@
       "parent": "fachthemen",
       "questions": ["umweltschutz-abfallbehandlungsanlage"]
     },
-    "fachthemen.wald": {
-      "title": "Wald",
+    "fachthemen.natur-und-landschaftsschutz": {
+      "title": "Natur- und Landschaftsschutz",
       "parent": "fachthemen",
-      "questions": ["wald-forstlich", "wald-auswirkungen"]
+      "questions": ["datenverschnitt-natur-und-landschaftsschutz"]
+    },
+    "fachthemen.wald": {
+      "title": "Wald, Flora, Fauna",
+      "parent": "fachthemen",
+      "questions": [
+        "wald-forstlich",
+        "wald-auswirkungen",
+        "datenverschnitt-reptilien"
+      ]
     },
     "fachthemen.verkehr": {
       "title": "Verkehr",
@@ -353,7 +369,8 @@
         "verkehr-neugestaltung-trottoir",
         "verkehr-einschrankungen-trottoir",
         "verkehr-baugrube-tangieren",
-        "verkehr-datenverschnitt-wanderweg"
+        "datenverschnitt-eisenbahn",
+        "datenverschnitt-wanderweg"
       ]
     },
     "fachthemen.energie": {
@@ -373,7 +390,8 @@
         "energie-photovoltaik-gesamtleistung",
         "energie-photovoltaik-jahresertrag",
         "energie-photovoltaik-flache",
-        "energie-inbetriebnahme"
+        "energie-inbetriebnahme",
+        "datenverschnitt-energie"
       ]
     },
     "fachthemen.arbeitssicherheit-und-gesundheitsschutz": {
@@ -465,7 +483,13 @@
     "fachthemen.gewasserschutz": {
       "title": "Gewässerschutz",
       "parent": "fachthemen",
-      "questions": ["gewasserschutz-menge"]
+      "questions": [
+        "gewasserschutz-menge",
+        "datenverschnitt-gewasserschutz",
+        "datenverschnitt-grundwasserschutz-zone",
+        "datenverschnitt-grundwasserschutz-areal",
+        "datenverschnitt-grundwasserschutz-bereich-au"
+      ]
     },
     "fachthemen.grundwasser-und-altlasten": {
       "title": "Grundwasser und Altlasten",
@@ -506,6 +530,11 @@
       "parent": "fachthemen",
       "questions": ["reklamen"]
     },
+    "fachthemen.denkmalschutz-und-archaeologie": {
+      "title": "Denkmalschutz und Archäologie",
+      "parent": "fachthemen",
+      "questions": ["datenverschnitt-denkmalpflege"]
+    },
     "fachthemen.lebensmittel-und-hygienesicherheit": {
       "title": "Lebensmittel- und Hygienesicherheit",
       "parent": "fachthemen",
@@ -514,7 +543,11 @@
     "fachthemen.fischerei": {
       "title": "Fischerei",
       "parent": "fachthemen",
-      "questions": ["fischerei-ufervegetation-beeintrachtigt"]
+      "questions": [
+        "fischerei-ufervegetation-beeintrachtigt",
+        "fischerei-ufervegetation-beeintrachtigt-info",
+        "datenverschnitt-fisch"
+      ]
     },
     "gesuchsunterlagen": {
       "title": "Gesuchsunterlagen",
@@ -523,7 +556,58 @@
         "dokument-grundstucksangaben",
         "dokument-gutachten-nachweise-begrundungen",
         "dokument-projektplane-projektbeschrieb",
-        "dokument-weitere-gesuchsunterlagen"
+        "dokument-weitere-gesuchsunterlagen",
+        "info-vorhaben-mit-baute",
+        "info-pfahlfundation-vorgesehen",
+        "info-baugrubenumschliessung-vorgesehen",
+        "info-anlagen-mit-erheblichen-larmemissionen",
+        "info-bodenbelastungen",
+        "info-200m3-bauabfalle",
+        "info-landwirtschaft-veranderung-tierbestand",
+        "info-landwirtschaft-grundriss-stall",
+        "info-nlbuaab",
+        "info-nlbuaab-anlage",
+        "info-nlbuaab-nutzflache-berechnungsschema",
+        "info-nlbuaab-nutzflache-fotos",
+        "info-art-der-warmepumpe",
+        "info-larmbelastetes-gebiet",
+        "info-umweltschutz-abfallbehandlungsanlage",
+        "info-boden-5000m2",
+        "info-aussenbeleuchtung",
+        "info-wald-forstlich",
+        "info-wald-auswirkungen",
+        "info-wald-auswirkungen-roden",
+        "info-naturgefahren",
+        "info-energie-dachaufstellung",
+        "info-arbeitssicherheit-sicherheitsdatenblatter",
+        "info-zivilschutz-elementarschaden",
+        "info-zivilschutz-schutzraumaufhebung",
+        "info-brandschutz-gefahrengut",
+        "info-liegenschaftsentwasserung",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
+        "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein",
+        "info-liegenschaftsentwasserung-ausserhalb-bauzone",
+        "info-gewasserschutz",
+        "info-grundwasser-warmeentnahme-art-sonden",
+        "info-grundwasser-warmeentnahme-art-pfahle",
+        "info-grundwasser-warmeentnahme-art-kollektoren",
+        "info-sondierbohrung",
+        "info-grundwasser-sondierbohrung-zweck",
+        "info-belastete-standorte",
+        "info-invasive-neophyten",
+        "info-reklamen-fassade",
+        "info-reklamen-frei",
+        "info-natur-landschaftschutz",
+        "info-av-art-wald",
+        "info-av-art-anlass",
+        "info-av-art-verkehr",
+        "info-bm-solaranlage",
+        "info-projektanderung",
+        "info-plangenehmigung",
+        "info-projektgenehmigung",
+        "info-technische-bewilligung",
+        "info-vorabklarung",
+        "info-vorentscheid"
       ]
     },
     "anlassbewilligungen-verkehrsbewilligungen": {
@@ -2554,6 +2638,18 @@
         "options": ["Ja", "Nein"]
       }
     },
+    "datenverschnitt-natur-und-landschaftsschutz": {
+      "label": "Ihr Vorhaben tangiert ein Schutzgebiet. Die entsprechenden Bestimmungen sind einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-natur-und-landschaftsschutz*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.anjf.anjf_kant_naturschutzgebiete' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_pflanzenschutzreservate' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.komm_schutzzonen' in 'layer'|value|mapby('name') || 'ms:ch.sz.anjf.anjf_kant_biotope' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "wald-forstlich": {
       "label": "Handelt es sich um ein forstliches Vorhaben?",
       "hint": "**Platzhalter**: *wald-forstlich*",
@@ -2572,6 +2668,18 @@
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "datenverschnitt-reptilien": {
+      "label": "Ihr Vorhaben tangiert ein Reptiliengebiet. Auf allfällige Reptilienlebensräume ist Rücksicht zu nehmen. Zu konkreten Reptilienvorkommen und planerischen Massnahmen gibt das Amt für Natur, Jagd und Fischerei Auskunft.",
+      "hint": "**Platzhalter**: *datenverschnitt-reptilien*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.anjf_reptiliengebiete.reptiliengebiet' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "verkehr-strasse": {
@@ -2738,7 +2846,19 @@
         "options": ["Ja", "Nein"]
       }
     },
-    "verkehr-datenverschnitt-wanderweg": {
+    "datenverschnitt-eisenbahn": {
+      "label": "Ihr Vorhaben tangiert ein Bahntrasse. Die eisenbahnrechtlichen Vorschriften sind einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-eisenbahn*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.oev.eisenbahn' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-wanderweg": {
       "label": "Gemäss Lokalisierung ergibt sich, dass Ihr Vorhaben im Bereich von Wanderwegen liegt. Falls es direkte Auswirkungen auf die Wanderwege gibt, und allenfalls Belagsänderungen vorgesehen sind, muss dies in einem Beschrieb dargelegt werden.",
       "hint": "**Platzhalter**: *datenverschnitt-wanderweg*",
       "type": "checkbox",
@@ -2893,6 +3013,18 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {}
+    },
+    "datenverschnitt-energie": {
+      "lable": "Ihr Vorhaben befindet sich in der Nähe von Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen, SBB-Übertragungsleitungen o. ä.). Die Vorschriften der entsprechenden gesetzlichen Grundlagen müssen eingehalten werden.",
+      "hint": "**Platzhalter**: *datenverschnitt-energie*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.afu.nis.hochspannungsltg' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.trafostation' in 'layer'|value|mapby('name') || 'ms:ch.sz.afu.nis.unterwerk' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
     },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
@@ -3497,6 +3629,54 @@
         ]
       }
     },
+    "datenverschnitt-gewasserschutz": {
+      "label": "Die Einhaltung von Gewässerraum und -abstand ist im Bauvorhaben zu berücksichtigen. Falls eine Unterschreitung unumgänglich ist, muss um eine Ausnahmebewilligung ersucht werden (ebenfalls in diesem Formular). Gewässerraum und -abstand sind in den Plänen darzustellen.",
+      "hint": "**Platzhalter**: *datenverschnitt-gewasserschutz*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-zone": {
+      "label": "Ihr Vorhaben tangiert eine Grundwasserschutzzone. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzzonenreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-zone*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-areal": {
+      "label": "Ihr Vorhaben tangiert ein Grundwasserschutzareal. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzarealreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-areal*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-grundwasserschutz-bereich-au": {
+      "label": "Ihr Vorhaben tangiert den Gewässerschutzbereich Au. Falls der Baukörper oder Teile davon unter den mittleren Grundwasserspiegel reichen, muss ein Durchflussnachweis eingereicht werden.",
+      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-bereich-au*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "grundwasser-warmeentnahme-art": {
       "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
@@ -3829,6 +4009,18 @@
         ]
       }
     },
+    "datenverschnitt-denkmalpflege": {
+      "label": "Gemäss Lokalisierung Ihres Vorhabens ergibt sich, dass ein KIGBO, die Umgebung eines KIGBO oder ein Ortsbildschutzgebiet (ISOS A) tangiert wird. Falls im Rahmen des vorliegenden Vorhabens noch kein Kontakt mit der kantonalen Denkmalpflege stattgefunden hat, ist dies umgehend nachzuholen.",
+      "hint": "**Platzhalter**: *datenverschnitt-denkmalpflege*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.afk.afk_kigbo' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_bhf' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_isos' in 'layer'|value|mapby('name') || 'ms:ch.sz.a081a.icomos.gaerten' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
+      }
+    },
     "lebensmittel-und-hygienesicherheit-info": {
       "label": "Für Ihr Vorhaben ist eine Beurteilung durch das Laboratorium der Urkantone erforderlich.",
       "hint": "**Platzhalter**: *lebensmittel-und-hygienesicherheit-info*",
@@ -3844,9 +4036,31 @@
       "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt*",
       "type": "radio",
       "required": false,
-      "active-expression": "false",
+      "active-expression": "'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
         "options": ["Ja", "Nein"]
+      }
+    },
+    "fischerei-ufervegetation-beeintrachtigt-info": {
+      "label": "Im Projekt muss für entsprechenden Ersatz gesorgt werden. Für Auskünfte ist die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei zuständig.",
+      "hint": "**Platzhalter**: *fischerei-ufervegetation-beeintrachtigt-info*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'fischerei-ufervegetation-beeintrachtigt'|value == 'Ja'",
+      "config": {
+        "options": ["Erledigt"]
+      }
+    },
+    "datenverschnitt-fisch": {
+      "label": "Falls Ihr Bauvorhaben technische Eingriffe im Gewässer beinhaltet, sind Aufwertungsmassnahmen vorzusehen. Zu Art und Umfang von Aufwertungsmassnahmen gibt die Abteilung Fischerei des Amtes für Natur, Jagd und Fischerei Auskunft.",
+      "hint": "**Platzhalter**: *datenverschnitt-fisch*",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a049.fischgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
+      "config": {
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "dokument-grundstucksangaben": {
@@ -5302,6 +5516,573 @@
             "required": false,
             "config": {}
           }
+        ]
+      }
+    },
+    "info-vorhaben-mit-baute": {
+      "label": "Falls Baukosten über 250‘000 Fr. liegen, ist ein Energienachweis erforderlich.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'vorhaben-mit-baute'|value && 'vorhaben-mit-baute'|value != 'Abbruch / Rückbau'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-pfahlfundation-vorgesehen": {
+      "label": "Den Gesuchsunterlagen ist der Pfahlfundationsplan beizulegen, inkl. Durchflussnachweis, falls Vorhaben im Gewässerschutzbereich A u .",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'pfahlfundation-vorgesehen'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-baugrubenumschliessung-vorgesehen": {
+      "label": "Den Gesuchsunterlagen ist ein Beschrieb der Baugrubensicherung und –entwässerung mit Nennung des Bauverfahrens (Spundwand, Rühlwand, Bohrpfahlwand, Schlitzwand, o.a.) beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'baugrubenumschliessung-vorgesehen'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-anlagen-mit-erheblichen-larmemissionen": {
+      "label": "Den Gesuchsunterlagen ist ein Lärmschutznachweis / eine Lärmprognose beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'anlagen-mit-erheblichen-larmemissionen'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-bodenbelastungen": {
+      "label": "Bei Verdacht auf Schadstoffe im Boden ist ein kurzer Beschrieb bezüglich dem geplanten Vorgehen zur Untersuchung sowie der Behandlung und Verwertung des Bodens einzureichen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'bodenbelastungen'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-200m3-bauabfalle": {
+      "label": "Es ist ein Entsorgungskonzept beizulegen (Muster unter www.abfall.ch).",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'200m3-bauabfalle'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-landwirtschaft-veranderung-tierbestand": {
+      "label": "Tabelle Tierbestand ausfüllen und dem Gesuch beilegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'landwirtschaft-veranderung-tierbestand'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-landwirtschaft-grundriss-stall": {
+      "label": "Der Grundriss des bestehenden Stallteils inkl. Stalleinteilung und Nutzungsangaben sind im Plan darzustellen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value) && ('Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value)",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-nlbuaab": {
+      "label": "Den Gesuchsunterlagen ist eine umfassende Beschreibung des Vorhabens beizufügen. Es ist anzugeben, aus welchen sachlichen oder anderweitigen Gründen das Vorhaben am geplanten Standort erforderlich ist.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-nlbuaab-anlage": {
+      "label": "Die bestehenden Anlagen sind mit aussagekräftigen Fotos zu dokumentieren.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-nlbuaab-nutzflache-berechnungsschema": {
+      "label": "Die Flächenangaben sind mit einem Berechnungsschema zu dokumentieren, gegliedert nach aBGF und GNF. Wohnflächen und Gewerbeflächen sind je separat auszuweisen. Dieser Flächennachweis ist den Gesuchsunterlagen beizufügen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-nlbuaab-nutzflache-fotos": {
+      "label": "Den Gesuchsunterlagen sind aussagekräftige Fotos des Gebäudes mit allen Fassaden beizufügen, einschliesslich der Umgebung.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-art-der-warmepumpe": {
+      "label": "Dem Gesuch ist ein Lärmschutznachweis für Luft/Wasser-Wärmepumpen beizulegen. Dieser Nachweis besteht aus:",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'art-der-warmepumpe'|value == 'Luft / Wasser-Wärmepumpe'",
+      "config": {
+        "options": [
+          "Formular des AfU (ausgefüllt)",
+          "technisches Datenblatt des Wärmepumpenherstellers",
+          "Plan mit Standort der Wärmepumpe sowie Distanz zwischen Wärmepumpe und dem nächstgelegenen lärmempfindlichen Raum"
+        ]
+      }
+    },
+    "info-larmbelastetes-gebiet": {
+      "label": "Es ist der Nachweis zu erbringen, dass die Grenzwerte der Lärmschutzverordnung (LSV) eingehalten werden. Der Lärmschutznachweis/die Lärmprognose ist den Gesuchsunterlagen beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'larmbelastetes-gebiet'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-umweltschutz-abfallbehandlungsanlage": {
+      "label": "Den Gesuchsunterlagen ist ein kurzer Beschrieb beizulegen, welcher Auskunft über die Abfallarten, die Behandlung und die geplanten Mengen gibt.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'umweltschutz-abfallbehandlungsanlage'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-boden-5000m2": {
+      "label": "Da die Rekultivierungsfläche 5‘000 m 2 oder grösser ist, sind den Gesuchsunterlagen ein Plansatz und ein kurzer Beschrieb mit Angaben zum Ausgangszustand, dem Rekultivierungsziel sowie zur Planung und Durchführung der Bodenarbeiten beizulegen. (Hilfsmittel: ZUDK Merkblatt „Umgang mit Boden“)",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'boden-5000m2'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-aussenbeleuchtung": {
+      "label": "Für Ihr Bauvorhaben ist ein Beleuchtungskonzept gemäss ZUDK Merkblatt „Lichtverschmutzung“ erforderlich. Das Konzept, welches insbesondere Platzierung und Ausrichtung der Leuchten aufzeigt, ist den Gesuchsunterlagen beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'aussenbeleuchtung'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-wald-forstlich": {
+      "label": "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:\n - Zweck des Bauvorhabens\n - Nutzen für den Wald\n - Lage und Flächeninhalt des bewirtschafteten Waldes",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'wald-forstlich'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-wald-auswirkungen": {
+      "label": "Begründen Sie bitte in einem separaten Dokument folgende Punkte resp. nehmen Sie Stellung dazu:\n - Zweck des Bauvorhabens\n - Standortgebundenheit\n - Wurden Alternativen geprüft und wenn ja, mit welchem Ergebnis?",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'wald-auswirkungen'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-wald-auswirkungen-roden": {
+      "label": "Für Ihr Bauvorhaben ist eine Rodungsbewilligung erforderlich. Hierzu sind folgende Unterlagen nötig:",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'wald-auswirkungen'|value == 'Nein'",
+      "config": {
+        "options": [
+          "ausgefülltes Formular des BAFU",
+          "Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung",
+          "Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen",
+          "Unterschrift aller betroffenen Grundeigentümer"
+        ]
+      }
+    },
+    "info-naturgefahren": {
+      "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ergibt sich, dass die vorhandenen Naturgefahren zu berücksichtigen sind. Zur Beurteilung Ihres Gesuches ist ein Objektschutznachweis erforderlich.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-energie-dachaufstellung": {
+      "label": "Den Gesuchsunterlagen ist ein Plan mit Dachaufsicht und eingezeichneter Solaranlage bzw. Fotomontage beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'energie-dachaufstellung'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-arbeitssicherheit-sicherheitsdatenblatter": {
+      "label": "Den Gescuchsunterlagen sind alle relevanten Sicherheitsdatenblätter beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-zivilschutz-elementarschaden": {
+      "label": "Das Protokoll resp. die Bestätigung der Gemeinde ist beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'zivilschutz-elementarschaden'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-zivilschutz-schutzraumaufhebung": {
+      "label": "Es sind ein Antrag und eine Einverständniserklärung mit Begründung der Schutzraumaufhebung den Gesuchsunterlagen beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'zivilschutz-schutzraumaufhebung'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-brandschutz-gefahrengut": {
+      "label": "Dem Gesuch sind die Sicherheitsdatenblätter mit Angaben der gelagerten Produkte, Lagerort, Art und Menge der Gebinde beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Gaslager, Flüssiggaslager' in 'brandschutz-gefahrengut'|value || 'Lager für brennbare Flüssigkeiten' in 'brandschutz-gefahrengut'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-liegenschaftsentwasserung": {
+      "label": "Es ist ein Entwässerungsplan gemäss SN 592 000 einzureichen. Bitte beachten Sie, dass insbesondere folgende Angaben enthalten sind (Liste nicht abschliessend):\n - Abwasserleitungen, Schächte, Rinnen, Abläufe, Abscheideanlagen usw.\n - Dimensionierung und Materialisierung der Leitungen mit Gefälle und Fliessrichtung\n - Materialisierung und Gefälle von beregneten und überdachten Flächen\n - Dimensionierung und Schnitt allfälliger Versickerungs- und Retentionsanlagen\n - Bezeichnung von oberflächlichen Versickerungen im angrenzenden Wiesland\n - Anschlusspunkte an die öffentliche Kanalisation oder Einleitstellen in Gewässer\n - Schnittplan durch die geplante Einleitung in ein Oberflächengewässer\n - Beschriftung der Fallstränge",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "(('Neubau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value) || ('Neubau' in 'vorhaben-mit-anlage'|value && 'Befestigte Fläche' in 'art-der-anlage'|value) || ('Neubau' in 'vorhaben-mit-anlage'|value && 'Abwasserentsorgung' in 'zweck-der-leitungen'|value) || ('Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value && 'Befestigte Fläche' in 'art-der-anlage'|value) || ('Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value && 'Abwasserentsorgung' in 'zweck-der-leitungen'|value) || ('liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Nein'))",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+  "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja": {
+      "label": "Es ist ein Entwässerungsplan gemäss SN 592 000 einzureichen. Bitte beachten Sie, dass insbesondere folgende Angaben enthalten sind (Liste nicht abschliessend):\n - Abwasserleitungen, Schächte, Rinnen, Abläufe, Abscheideanlagen usw.\n - Dimensionierung und Materialisierung der Leitungen mit Gefälle und Fliessrichtung\n - Materialisierung und Gefälle von beregneten und überdachten Flächen\n - Beschriftung der Fallstränge\n - Dimensionierung und Schnitt allfälliger Versickerungs- und Retentionsanlagen\n - Bezeichnung von oberflächlichen Versickerungen im angrenzenden Wiesland\n - Anschlusspunkte an die öffentliche Kanalisation oder Einleitstellen in Gewässer\n - Schnittplan durch die geplante Einleitung in ein Oberflächengewässer\n - vollständige Chemikalienliste (inkl. maximale Lagermengen) sowie Sicherheitsdatenblätter aller Chemikalien. Der Chemikalien-Umschlagsort ist im Entwässerungsplan zu bezeichnen (inkl. Angaben über evtl. Auffangvolumen etc.).\n - Bei Abwasservorbehandlungsanlagen ist ein Dossier einzureichen (Angaben zum anfallenden Abwasser, Anlagenbeschrieb, Beschreibung der Verfahrensstufen, Dimensionierung, Endkontrolle usw.)",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Ja'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein": {
+      "label": "Es ist ein Entwässerungsplan gemäss SN 592 000 einzureichen. Bitte beachten Sie, dass insbesondere folgende Angaben enthalten sind (Liste nicht abschliessend):\n - Abwasserleitungen, Schächte, Rinnen, Abläufe, Abscheideanlagen usw.\n - Dimensionierung und Materialisierung der Leitungen mit Gefälle und Fliessrichtung\n - Materialisierung und Gefälle von beregneten und überdachten Flächen\n - Beschriftung der Fallstränge\n - Dimensionierung und Schnitt allfälliger Versickerungs- und Retentionsanlagen\n - Bezeichnung von oberflächlichen Versickerungen im angrenzenden Wiesland\n - Anschlusspunkte an die öffentliche Kanalisation oder Einleitstellen in Gewässer\n - Allfällige Angaben zur Abwasservorbehandlung (z. B. Fettabscheider, Mineralölabscheider, Neutralisationsanlage) mit planerischer Darstellung der Lage",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'liegenschaftsentwasserung-wassergefahrdende-stoffe'|value == 'Nein'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-liegenschaftsentwasserung-ausserhalb-bauzone": {
+      "label": "Es ist ein Entwässerungsplan gemäss SN 592 000 einzureichen. Bitte beachten Sie, dass insbesondere folgende Angaben enthalten sind (Liste nicht abschliessend):\n - Abwasserleitungen, Schächte, Rinnen, Abläufe, Abscheideanlagen usw.\n - Dimensionierung und Materialisierung der Leitungen mit Gefälle und Fliessrichtung\n - Materialisierung und Gefälle von beregneten und überdachten Flächen,\n - Beschriftung der Fallstränge\n - Dimensionierung und Schnitt allfälliger Versickerungs- und Retentionsanlagen\n - Bezeichnung von oberflächlichen Versickerungen im angrenzenden Wiesland\n - Anschlusspunkte an die öffentliche Kanalisation oder Einleitstellen in Gewässer\n - Schnittplan durch die geplante Einleitung in ein Oberflächengewässer\n - Angaben zur Schmutzwasserentsorgung (Landwirtschaftliche Verwertung, Anschluss an öffentliche Kanalisation, Kleinkläranlage oder Stapelung mit Abtransport auf die ARA)\n - Bei Kleinkläranlagen ist ein Dossier einzureichen (Herstellerfirma, Anlagenbeschrieb, Dimensionierung, Standort, Ort der Versickerung/Einleitung in Gewässer, Entsorgungsort/- art des Klärschlamms)",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-gewasserschutz": {
+      "label": "Hinweis an Gesuchsteller: Die Einhaltung von Gewässerraum und –abstand ist im Bauvorhaben zu berücksichtigen. Falls eine Unterschreitung unumgänglich ist, muss um eine Ausnahmebewilligung ersucht werden (ebenfalls in diesem Formular). Gewässerraum und –abstand sind in den Plänen darzustellen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-grundwasser-warmeentnahme-art-sonden": {
+      "label": "Es ist ein Sondenplan (Situationsplan mit den eingezeichneten Sondenstandorten) beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-grundwasser-warmeentnahme-art-pfahle": {
+      "label": "Es ist ein Situationsplan beizulegen, in dem die Energiepfähle eingetragen sind.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-grundwasser-warmeentnahme-art-kollektoren": {
+      "label": "Es ist ein Schnittplan der Erdkollektoren/Erdwärmekörbe beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-sondierbohrung": {
+      "label": "Den Gesuchsunterlagen ist ein Situationsplan beizulegen, welcher die Informationen zu den Bohrlöchern (Lage, Tiefe) aufzeigt.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-grundwasser-sondierbohrung-zweck": {
+      "label": "Der Situationsplan mit den Informationen zu den Bohrlöchern (Lage, Tiefe) ist mit den Angaben zur Leitungsführung zu ergänzen. Zudem ist ein Schnittplan mit Entnahme- und Rückgabeschacht beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'grundwasser-sondierbohrung-zweck'|value == 'Grundwasserwärmenutzung'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-belastete-standorte": {
+      "label": "Ihr Bauvorhaben wird durch den belasteten Standort mit KbS-Nr. ........ tangiert.  Es sind die Altlastenuntersuchungen (z.B. historische, technische Untersuchung) einzureichen (vgl. Ablaufschema „Bauen auf belasteten Standorten“).",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-invasive-neophyten": {
+      "label": "Gemäss kantonaler Grundlagendaten zu invasiven Neophyten (vgl. WebGIS SZ) befindet sich Ihr Bauvorhaben unmittelbar im Bereich solcher Pflanzen. Deshalb sind dem Gesuch folgende Unterlagen beizulegen:",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Informationen zu Pflanzenart(en) und deren Bestandesgrössen (Fläche, Stückzahl, etc.)",
+          "Schriftliche Erläuterung, wie die Verbreitung der vorhandenen invasiven Art unterbunden wird (Erfüllung der Anforderungen gemäss Art. 15 der Freisetzungsverordnung (SR 814.911))"
+        ]
+      }
+    },
+    "info-reklamen-fassade": {
+      "label": "Dem Gesuch ist ein Fassadenplan der Reklame beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'reklamen'|value[.montage == 'An einer Baute / Fassade'][0] != undefined",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-reklamen-frei": {
+      "label": "Dem Gesuch ist ein vermasster Situationsplan der Reklame beizulegen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'reklamen'|value[.montage == 'Freistehend'][0] != undefined",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-natur-landschaftschutz": {
+      "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ist eine Beurteilung aus der Sicht des Natur- und Landschaftsschutzes nötig. Dazu sind nebst einem Material- und Farbkonzept für neue Bauten oder Anlagen auch Angaben zur Materialisierung und Farbgebung allenfalls bestehender/bisheriger Bauten/Anlagen zu erbringen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "true == false",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-av-art-wald": {
+      "label": "Das Konzept der Grossveranstaltung im Wald ist beizulegen",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Grossveranstaltung im Wald' in 'av-art'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-av-art-anlass": {
+      "label": "Das Konzept des Anlasses ist beizulegen",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Anlassbewilligung' in 'av-art'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-av-art-verkehr": {
+      "label": "Bitte beachten Sie das Merkblatt Verkehrsbewilligungen der Kapo und füllen danach das Formular V01a aus. Das ausgefüllte Formular ist zusammen mit den Beilagen gemäss Ziff. 8. des Formulars hochzuladen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'Verkehrsbewilligung' in 'av-art'|value",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-bm-solaranlage": {
+      "label": "Zur Überprüfung Ihres geringfügigen (Bau)Vorhabens ist ein Beschrieb notwendig.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'bm-solaranlage'|value == 'Nein'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-projektanderung": {
+      "label": "Bitte laden Sie die Dokumente zur Projektänderung hoch. Stellen Sie sicher, dass die Pläne die Änderungen korrekt ausweisen (schwarz: bestehend resp. bewilligt; gelb: Abbruch; rot: neu).",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'projektanderung'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-plangenehmigung": {
+      "label": "Bitte laden Sie die Dokumente des Projektgenehmigungsgesuchs hoch.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'plangenehmigungsgesuch'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-projektgenehmigung": {
+      "label": "Bitte laden Sie die Dokumente des Projektgenehmigungsverfahrens hoch.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'projektgenehmigungsgesuch-gemass-ss15-strag'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-technische-bewilligung": {
+      "label": "Es sind die Unterlagen einzureichen, welche gemäss rechtskräftiger Baubewilligung erforderlich sind.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'technische-bewilligung'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-vorabklarung": {
+      "label": "Für Ihr Vorabklärungsgesuch ist ein Beschrieb des Vorhabens nötig. In Anlehnung daran sind die konkreten Fragen zu formulieren, zu denen Sie die Antworten der zuständigen Behörden wünschen.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'vorabklarung'",
+      "config": {
+        "options": [
+          "Vorhanden"
+        ]
+      }
+    },
+    "info-vorentscheid": {
+      "label": "Für Ihr Vorentscheidsgesuch ist ein Beschrieb des Vorhabens nötig. Insbesondere sind konkret die Bereiche/Fragen zu nennen, auf die sich der Vorentscheid beziehen soll.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "form == 'vorentscheid-gemass-ss84-pbg'",
+      "config": {
+        "options": [
+          "Vorhanden"
         ]
       }
     }

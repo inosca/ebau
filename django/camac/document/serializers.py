@@ -14,7 +14,7 @@ from camac.user.relations import (
     CurrentUserFormDataResourceRelatedField,
     GroupFormDataResourceRelatedField,
     ServiceFormDataResourceRelatedField,
-    ServiceResourceReleatedField,
+    ServiceResourceRelatedField,
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
@@ -52,7 +52,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     user = CurrentUserFormDataResourceRelatedField()
     group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
-    service = ServiceResourceReleatedField(default=CurrentServiceDefault())
+    service = ServiceResourceRelatedField(default=CurrentServiceDefault())
     attachment_section = FormDataResourceRelatedField(
         queryset=models.AttachmentSection.objects.all(),
         default=AttachmentSectionDefault(),
