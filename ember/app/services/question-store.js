@@ -45,6 +45,8 @@ const Question = EmberObject.extend({
   init() {
     this._super(...arguments);
 
+    this.set("instanceId", this.get("instance.id"));
+
     if (this.type === "form-field") {
       defineProperty(this, "value", reads("model.value"));
       defineProperty(this, "isNew", reads("model.isNew"));
@@ -62,7 +64,7 @@ const Question = EmberObject.extend({
     this.set("jexl", new jexl.Jexl());
 
     this.jexl.addTransform("value", question => {
-      let q = this._questions.peek(question, this.get("instanceId"));
+      let q = this._questions.peek(question, this.get("instance.id"));
 
       return q && q.value;
     });
@@ -151,7 +153,10 @@ const Question = EmberObject.extend({
     let expression = this.get("field.active-expression");
 
     return expression
-      ? this._relatedHidden || !(yield this.jexl.eval(expression))
+      ? this._relatedHidden ||
+          !(yield this.jexl.eval(expression, {
+            form: this.get("instance.form.name")
+          }))
       : false;
   }).restartable()
 });
@@ -236,7 +241,7 @@ export default Service.extend({
       // services without container context
       container: getOwner(this).__container__,
 
-      instanceId: instance,
+      instance: this.store.peekRecord("instance", instance),
 
       name,
       model,

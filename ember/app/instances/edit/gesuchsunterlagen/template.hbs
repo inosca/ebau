@@ -1,4 +1,55 @@
 {{#camac-form instance=model.instance meta=model.meta as |form|}}
+  {{form.input 'info-vorhaben-mit-baute'}}
+  {{form.input 'info-pfahlfundation-vorgesehen'}}
+  {{form.input 'info-baugrubenumschliessung-vorgesehen'}}
+  {{form.input 'info-anlagen-mit-erheblichen-larmemissionen'}}
+  {{form.input 'info-bodenbelastungen'}}
+  {{form.input 'info-200m3-bauabfalle'}}
+  {{form.input 'info-landwirtschaft-veranderung-tierbestand'}}
+  {{form.input 'info-landwirtschaft-grundriss-stall'}}
+  {{form.input 'info-nlbuaab'}}
+  {{form.input 'info-nlbuaab-anlage'}}
+  {{form.input 'info-nlbuaab-nutzflache-berechnungsschema'}}
+  {{form.input 'info-nlbuaab-nutzflache-fotos'}}
+  {{form.input 'info-art-der-warmepumpe'}}
+  {{form.input 'info-larmbelastetes-gebiet'}}
+  {{form.input 'info-umweltschutz-abfallbehandlungsanlage'}}
+  {{form.input 'info-boden-5000m2'}}
+  {{form.input 'info-aussenbeleuchtung'}}
+  {{form.input 'info-wald-forstlich' class="wrap-text"}}
+  {{form.input 'info-wald-auswirkungen' class="wrap-text"}}
+  {{form.input 'info-wald-auswirkungen-roden'}}
+  {{form.input 'info-naturgefahren'}}
+  {{form.input 'info-energie-dachaufstellung'}}
+  {{form.input 'info-arbeitssicherheit-sicherheitsdatenblatter'}}
+  {{form.input 'info-zivilschutz-elementarschaden'}}
+  {{form.input 'info-zivilschutz-schutzraumaufhebung'}}
+  {{form.input 'info-brandschutz-gefahrengut'}}
+  {{form.input 'info-liegenschaftsentwasserung' class="wrap-text"}}
+  {{form.input 'info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja' class="wrap-text"}}
+  {{form.input 'info-liegenschaftsentwasserung-wassergefahrdende-stoffe-nein' class="wrap-text"}}
+  {{form.input 'info-liegenschaftsentwasserung-ausserhalb-bauzone' class="wrap-text"}}
+  {{form.input 'info-gewasserschutz'}}
+  {{form.input 'info-grundwasser-warmeentnahme-art-sonden'}}
+  {{form.input 'info-grundwasser-warmeentnahme-art-pfahle'}}
+  {{form.input 'info-grundwasser-warmeentnahme-art-kollektoren'}}
+  {{form.input 'info-sondierbohrung'}}
+  {{form.input 'info-grundwasser-sondierbohrung-zweck'}}
+  {{form.input 'info-belastete-standorte'}}
+  {{form.input 'info-invasive-neophyten'}}
+  {{form.input 'info-reklamen-fassade'}}
+  {{form.input 'info-reklamen-frei'}}
+  {{form.input 'info-natur-landschaftschutz'}}
+  {{form.input 'info-av-art-wald'}}
+  {{form.input 'info-av-art-anlass'}}
+  {{form.input 'info-av-art-verkehr'}}
+  {{form.input 'info-bm-solaranlage'}}
+  {{form.input 'info-projektanderung'}}
+  {{form.input 'info-plangenehmigung'}}
+  {{form.input 'info-projektgenehmigung'}}
+  {{form.input 'info-technische-bewilligung'}}
+  {{form.input 'info-vorabklarung'}}
+  {{form.input 'info-vorentscheid'}}
   <div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@m">
     {{form.document 'dokument-grundstucksangaben'}}
     {{form.document 'dokument-gutachten-nachweise-begrundungen'}}
