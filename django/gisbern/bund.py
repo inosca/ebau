@@ -36,7 +36,7 @@ for key, value in tags.items():
 
 
 def get_token():
-    if cache.get("token"):
+    if cache.get_or_set("token"):
         return cache.get("token")
 
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
