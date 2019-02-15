@@ -62290,6 +62290,15 @@
   },
   {
     "fields": {
+      "instance_resource": 20011,
+      "instance_state": 20000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120026
+  },
+  {
+    "fields": {
       "text": ""
     },
     "model": "core.journalactionconfig",
