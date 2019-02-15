@@ -1,4 +1,28 @@
 {{#unless readonly}}
+  <div class="uk-margin">
+    <label class="uk-form-label uk-text-bold">
+      Lokalisierung Ihres Vorhabens:
+      <span class="uk-text-primary"> *</span>
+      {{camac-hint-dialog "Die Lokalisierung ist ein wichtiger Schritt beim Ausfüllen des Formulars. Versuchen Sie die räumliche Ausdehnung und Lage Ihres Vorhabens treffend darzustellen. Dadurch liefert der automatisch ausgeführte Datenverschnitt die besseren Ergebnisse und kann die nötigen Fragen auslösen. Eine ungenaue Lokalisierung führt hingegen dazu, dass Informationen, Nachweise oder andere Unterlagen fehlen und während des Beurteilungsprozesses nachgefordert werden müssen. Dies hat unweigerlich eine Verlängerung des Verfahrens zur Folge. Grundvoraussetzung für eine treffende Lokalisierung ist die passende Wahl des Geometrieelements. So soll beispielsweise für eine einzelne Reklametafel das Punktelement gewählt werden. Gehört die Reklametafel jedoch zu einer geplanten Autowerkstatt, ist das Flächenelement geeignet, um Gebäude und Reklame aufzunehmen. Das Linienelement dürfte eher selten die richtige Wahl sein, weil damit nur Vorhaben lokalisiert werden können, die geradlinig, lang und schmal sind (z. B. Leitungen, Wege u. ä.)."}}
+    </label>
+    <p>
+    Folgende Arbeitsschritte sind nötig:
+    <ol class="uk-margin-top">
+      <li>Grobe Eingrenzung/Suche des Standortes Ihres Vorhabens im Kartenfenster (entweder mit Suchthemen über das Eingabefeld oder direkt im Kartenfenster per Maus).</li>
+      <li>
+        Die räumliche Ausdehnung des Vorhabens kann über folgende Geometrieelemente festgehalten werden:
+        <ol type="a">
+          <li>Punktelement: für sehr kleinräumige Vorhaben kann mit einem Mausklick ein einzelner Punkt abgesetzt werden.</li>
+          <li>Linienelement: für einfache Linienelemente (Geraden), die mit Anfangs - und Endpunkt (ohne Zwischenpunkte) definiert werden können.</li>
+          <li>Flächenelement (Polygon): für alle Vorhaben, die nicht mit einem einzelnen Punkt oder einer Geraden lokalisiert werden können .</li>
+        </ol>
+      </li>
+      <li>Falls nötig können die gesetzten Punkte noch verschoben werden. Danach auf „AUSWAHL ABFRAGEN“ klicken.</li>
+      <li>Lokalisierung wird bestätigt durch Mausklick auf „BESTÄTIGEN“.</li>
+    </ol>
+    </p>
+  </div>
+
   <div class="uk-alert uk-alert-warning">
     <p>
       <strong>Mit folgenden Themen kann gesucht werden:</strong>
@@ -109,6 +133,7 @@
   </div>
   <div class="uk-text-right uk-margin-top">
     {{#if parcels.length}}
+      {{camac-hint-dialog "Falls mehrere Gemeinden betroffen sind, wählen Sie bitte jene Gemeinde aus, deren Gebiet durch Ihr Vorhaben am stärksten betroffen ist. Diese Gemeinde ist dann die Leitbehörde, welche die Koordinationsaufgaben übernimmt."}}
       Auswahl in
       <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
         {{#each municipalities as |municipality|}}
@@ -120,6 +145,19 @@
       {{/uk-button}}
     {{/if}}
   </div>
+
+  {{#if parcels.length}}
+    <div class="uk-margin-top">
+      <p>
+        Gemäss Lokalisierung betrifft Ihr Vorhaben die Grundstücknummer(n):
+        <ul class="uk-list uk-margin-small-top multiple-column-list">
+          {{#each parcels as |parcel|}}
+          <li>{{parcel.number}} {{parcel.municipality}}</li>
+          {{/each}}
+        </ul>
+      </p>
+    </div>
+  {{/if}}
 
   <div class="uk-alert uk-alert-danger">
     <p>
