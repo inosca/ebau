@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from os import path
 
 import requests
 from rest_framework.decorators import api_view, permission_classes
@@ -38,7 +39,7 @@ def get_multisurface(egrid):
     body = request.text
     root = ET.fromstring(body)
     for child in root.iter("{http://www.opengis.net/gml/3.2}MultiSurface"):
-        # TODO
+        # remove namespace from response to allow reuse in next request
         return ET.tostring(child, encoding="unicode").replace(
             ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
         )
@@ -81,18 +82,15 @@ def get_gis_data(multisurface):
         )
     )
 
-    xml_kanton = """<GetFeature xmlns="http://www.opengis.net/wfs" xmlns:a42geo_ebau_kt_wfs_d_fk="http://www.geoservice.apps.be.ch/geoservice/services/a4p/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gml="http://www.opengis.net/gml" service="WFS" version="2.0.0" outputFormat="GML2" count="100">
-      {0}
-    </GetFeature>""".format(
-        query
-    )
+    get_feature_xml = open(
+        path.join(path.dirname(__file__), "xml/get_feature.xml"), "r"
+    ).read()
+    xml_kanton = get_feature_xml.format(query)
 
     request_kanton = requests.post(
         "https://www.geoservice.apps.be.ch/geoservice2/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer",
         data=xml_kanton,
     )
-
-    get_root(request_kanton)
 
     tag_list = []
     data = {}
