@@ -1,4 +1,5 @@
 import requests
+from django.conf import settings
 from django.core.cache import cache
 
 from gisbern.views import get_root
@@ -47,15 +48,17 @@ def get_data(multisurface):
 
 
 def get_token():
+    if not settings.GIS_API_USERNAME or not settings.GIS_API_PASSWORD:
+        raise ValueError("Please specify GIS_API_USERNAME and GIS_API_PASSWORD")
+
     if cache.get("token"):
         return cache.get("token")
 
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     values = {
-        # settings variable auslesen
-        # "username": "a42geo_ebau_user",
-        # "password": "a4p_7aaWb5zWgYByJ2j",
-        "f": "json"
+        "username": settings.GIS_API_USERNAME,
+        "password": settings.GIS_API_PASSWORD,
+        "f": "json",
     }
     request_token = requests.post(
         "https://www.geoservice.apps.be.ch/geoservice2/tokens/generateToken",
@@ -63,6 +66,6 @@ def get_token():
         headers=headers,
     )
     token = request_token.json()["token"]
-    # TODO check lifetime
+    # Token lifetime is 1 hour according to Pierre Honsberger (aDue)
     cache.set("token", token, 3600)
     return token
