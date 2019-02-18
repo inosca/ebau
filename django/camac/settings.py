@@ -322,3 +322,7 @@ def parse_admins(admins):
 
 
 ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
+
+# GIS API (Kt. BE)
+GIS_API_USER = env.str("GIS_API_USER", "")
+GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
