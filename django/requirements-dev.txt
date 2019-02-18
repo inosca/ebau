@@ -25,3 +25,4 @@ pytest-mock==1.10.0
 pytest-randomly==1.2.3
 requests-mock==1.5.2
 snapshottest==0.5.0
+vcrpy==2.0.1
