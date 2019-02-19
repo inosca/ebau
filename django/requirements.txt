@@ -1,4 +1,4 @@
-django==1.11.18 # pyup: >=1.11,<1.12
+django==1.11.20 # pyup: >=1.11,<1.12
 django-clamd==0.4.0
 django-environ==0.4.5
 django-filter==2.1.0
@@ -8,14 +8,14 @@ docxtpl==0.5.17
 Jinja2==2.10
 Pillow==5.4.1
 pyexcel-webio==0.1.4
-pyexcel-io==0.5.11
+pyexcel-io==0.5.13
 django-excel==0.0.10
 pyexcel-xlsx==0.5.6
-psycopg2-binary==2.7.6.1
+psycopg2-binary==2.7.7
 python-keycloak==0.14.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
-uwsgi==2.0.17.1
+uwsgi==2.0.18
 django-reversion==3.0.3
 pyjexl==0.2.3
 
