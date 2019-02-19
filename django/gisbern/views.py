@@ -2,6 +2,7 @@ from os import path
 
 import requests
 from lxml import etree
+from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
@@ -10,8 +11,11 @@ from rest_framework.response import Response
 @permission_classes([])
 def gis_data_view(request, egrid, format=None):
     # View to list all the data from the GIS service.
-    multisurface = get_multisurface(egrid)
-    return Response(get_gis_data(multisurface))
+    try:
+        multisurface = get_multisurface(egrid)
+        return Response(get_gis_data(multisurface))
+    except ValueError as e:
+        return Response(str(e), status=status.HTTP_404_NOT_FOUND)
 
 
 def get_multisurface(egrid):
@@ -30,12 +34,13 @@ def get_multisurface(egrid):
     )
 
     root = etree.fromstring(request.text)
-    multisurface = root.find(".//gml:MultiSurface", root.nsmap)
-    if not multisurface:
+    try:
+        multisurface = root.find(".//gml:MultiSurface", root.nsmap)
+        return etree.tostring(multisurface, encoding="unicode").replace(
+            ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
+        )
+    except (SyntaxError, TypeError):
         raise ValueError("No multisurface found")
-    return etree.tostring(multisurface, encoding="unicode").replace(
-        ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
-    )
 
 
 def get_gis_data(multisurface):
