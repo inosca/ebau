@@ -1,7 +1,7 @@
-import xml.etree.ElementTree as ET
 from os import path
 
 import requests
+from lxml import etree
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
@@ -10,15 +10,8 @@ from rest_framework.response import Response
 @permission_classes([])
 def gis_data_view(request, egrid, format=None):
     # View to list all the data from the GIS service.
-
-    ET.register_namespace("gml", "http://www.opengis.net/gml/3.2")
-    ET.register_namespace(
-        "ogc",
-        "http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer",
-    )
     multisurface = get_multisurface(egrid)
-    data = get_gis_data(multisurface)
-    return Response(data)
+    return Response(get_gis_data(multisurface))
 
 
 def get_multisurface(egrid):
@@ -36,13 +29,13 @@ def get_multisurface(egrid):
         )
     )
 
-    body = request.text
-    root = ET.fromstring(body)
-    for child in root.iter("{http://www.opengis.net/gml/3.2}MultiSurface"):
-        # remove namespace from response to allow reuse in next request
-        return ET.tostring(child, encoding="unicode").replace(
-            ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
-        )
+    root = etree.fromstring(request.text)
+    multisurface = root.find(".//gml:MultiSurface", root.nsmap)
+    if not multisurface:
+        raise ValueError("No multisurface found")
+    return etree.tostring(multisurface, encoding="unicode").replace(
+        ' xmlns:gml="http://www.opengis.net/gml/3.2"', ""
+    )
 
 
 def get_gis_data(multisurface):
@@ -95,47 +88,40 @@ def get_gis_data(multisurface):
     tag_list = []
     data = {}
     tags = {
-        "belasteter_standort": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}BALISKBS_KBS",
-        "gebiet_mit_naturkatastrophen": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GK5_SY",
-        "besonderer_landschaftsschutz": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.UZP_LSG",
-        "archäologisches_objekt": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}ARCHINV_FUNDS",
-        "naturschutzgebiet": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}NSG_NSGP",
-        "bauinventar": "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.BAUINV.BAUINV_VW",
+        "belasteter_standort": "BALISKBS_KBS",
+        "gebiet_mit_naturkatastrophen": "GK5_SY",
+        "besonderer_landschaftsschutz": "GEODB.UZP_LSG",
+        "archäologisches_objekt": "ARCHINV_FUNDS",
+        "naturschutzgebiet": "NSG_NSGP",
+        "bauinventar": "GEODB.BAUINV.BAUINV_VW",
     }
 
+    et = get_root(request_kanton)
     # Find all layers beneath featureMember
-    for child in get_root(request_kanton).findall(
-        "./{http://www.opengis.net/gml/3.2}featureMember/"
-    ):
+    for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
         for key, value in tags.items():
-            data[key] = value in tag_list
+            data[key] = len([x for x in tag_list if value in x]) > 0
 
         # text values
-        if (
-            child.tag
-            == "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.UZP_BAU_VW"
-        ):
+        if "GEODB.UZP_BAU_VW" in child.tag:
             zones = []
             for item in child.findall(
-                "./{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}ZONE_LO"
+                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
                 zones.append(item.text)
                 data["nutzungszone"] = zones
 
-        if (
-            child.tag
-            == "{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GEODB.UZP_UEO_VW"
-        ):
+        if "GEODB.UZP_UEO_VW" in child.tag:
             for item in child.findall(
-                "./{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}ZONE_LO"
+                "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
                 data["überbauungsordnung"] = item.text
 
         for item in child.findall(
-            "./{http://x3012app435.infra.be.ch:6080/arcgis/services/a42geo/a42geo_ebau_kt_wfs_d_fk/MapServer/WFSServer}GSKT_BEZEICH_DE"
+            "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
         ):
             data["gewässerschutz"] = item.text
     return data
@@ -143,4 +129,4 @@ def get_gis_data(multisurface):
 
 def get_root(request):
     request.encoding = "UTF-8"
-    return ET.fromstring(request.text)
+    return etree.fromstring(request.text)
