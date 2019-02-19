@@ -213,7 +213,9 @@ class IssueTemplateSet(models.Model):
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, related_name="+", null=True
     )
-    issue_templates = models.ManyToManyField(IssueTemplate, related_name="issue_sets")
+    issue_templates = models.ManyToManyField(
+        IssueTemplate, related_name="issue_template_sets", blank=True
+    )
     name = models.CharField(max_length=500)
 
 
