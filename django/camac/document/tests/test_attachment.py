@@ -22,7 +22,7 @@ from .data import django_file
 )
 def test_attachment_list(
     admin_client,
-    attachment,
+    attachment_attachment_sections,
     num_queries,
     attachment_section_group_acl,
     activation,
@@ -35,7 +35,7 @@ def test_attachment_list(
         response = admin_client.get(
             url,
             data={
-                "name": attachment.name.split(".")[0],
+                "name": attachment_attachment_sections.attachment.name.split(".")[0],
                 "include": ",".join(included.keys()),
             },
         )
@@ -43,7 +43,7 @@ def test_attachment_list(
 
     json = response.json()
     assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(attachment.pk)
+    assert json["data"][0]["id"] == str(attachment_attachment_sections.attachment.pk)
 
 
 @pytest.mark.parametrize("instance_state__name", ["nfd"])
@@ -213,7 +213,7 @@ def test_attachment_create(
         assert attributes["name"] == filename
         assert attributes["mime-type"] == mime_type
         relationships = json["data"]["relationships"]
-        assert relationships["attachment-section"]["data"]["id"] == str(
+        assert relationships["attachment-sections"]["data"][0]["id"] == str(
             attachment_section.pk
         )
         assert relationships["group"]["data"]["id"] == str(instance.group.pk)
@@ -251,9 +251,14 @@ def test_attachment_download(admin_client, attachment):
     ],
 )
 def test_attachment_thumbnail(
-    admin_client, attachment, attachment_section_group_acl, status_code
+    admin_client,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    status_code,
 ):
-    url = reverse("attachment-thumbnail", args=[attachment.pk])
+    url = reverse(
+        "attachment-thumbnail", args=[attachment_attachment_sections.attachment.pk]
+    )
     response = admin_client.get(url)
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
@@ -272,8 +277,12 @@ def test_attachment_update(admin_client, attachment):
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-def test_attachment_detail(admin_client, attachment, attachment_section_group_acl):
-    url = reverse("attachment-detail", args=[attachment.pk])
+def test_attachment_detail(
+    admin_client, attachment_attachment_sections, attachment_section_group_acl
+):
+    url = reverse(
+        "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
+    )
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -309,8 +318,13 @@ def test_attachment_detail(admin_client, attachment, attachment_section_group_ac
     ],
 )
 def test_attachment_delete(
-    admin_client, attachment, attachment_section_group_acl, status_code
+    admin_client,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    status_code,
 ):
-    url = reverse("attachment-detail", args=[attachment.pk])
+    url = reverse(
+        "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
+    )
     response = admin_client.delete(url)
     assert response.status_code == status_code

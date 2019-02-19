@@ -11,7 +11,7 @@ def attachment_path_directory_path(attachment, filename):
 class AttachmentQuerySet(models.QuerySet):
     def filter_group(self, group):
         attachment_sections = AttachmentSection.objects.filter_group(group)
-        return self.filter(attachment_section__in=attachment_sections)
+        return self.filter(attachment_sections__in=attachment_sections)
 
 
 @reversion.register()
@@ -35,11 +35,8 @@ class Attachment(models.Model):
         "user.User", models.PROTECT, db_column="USER_ID", related_name="attachments"
     )
     mime_type = models.CharField(db_column="MIME_TYPE", max_length=255)
-    attachment_section = models.ForeignKey(
-        "AttachmentSection",
-        models.PROTECT,
-        db_column="ATTACHMENT_SECTION_ID",
-        related_name="attachments",
+    attachment_sections = models.ManyToManyField(
+        "AttachmentSection", related_name="attachments"
     )
     is_parcel_picture = models.PositiveIntegerField(
         db_column="IS_PARCEL_PICTURE", default=0

@@ -1,7 +1,7 @@
 from django.urls import reverse
 from rest_framework import status
 
-from . import models
+from camac.document import models
 
 
 def test_attachment_section_list(
