@@ -18,3 +18,23 @@ snapshots['test_gis_canton[CH643546955207] 1'] = {
         'überbauungsordnung': 'Teilzonenplan Moorlandschaft 336 Amsoldingen'
     }
 }
+
+snapshots['test_gis_canton[CH673533354667] 1'] = {
+    'data': {
+        'archäologisches_objekt': False,
+        'bauinventar': False,
+        'belasteter_standort': True,
+        'besonderer_landschaftsschutz': False,
+        'gebiet_mit_naturkatastrophen': True,
+        'gewässerschutz': 'Gewässerschutzbereich Au',
+        'naturschutzgebiet': False,
+        'nutzungszone': [
+            'Gewerbezone G2'
+        ],
+        'überbauungsordnung': 'Chräjeninsel'
+    }
+}
+
+snapshots['test_gis_canton[doesntexist] 1'] = {
+    'errors': 'No multisurface found'
+}
