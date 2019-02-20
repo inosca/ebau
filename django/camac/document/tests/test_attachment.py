@@ -267,11 +267,40 @@ def test_attachment_thumbnail(
         assert image.height == 300
 
 
-def test_attachment_update(admin_client, attachment):
-    url = reverse("attachment-detail", args=[attachment.pk])
+@pytest.mark.parametrize(
+    "payload,status_code",
+    [(False, status.HTTP_405_METHOD_NOT_ALLOWED), (True, status.HTTP_204_NO_CONTENT)],
+)
+def test_attachment_update(
+    admin_client,
+    attachment_section,
+    attachment_attachment_sections,
+    status_code,
+    payload,
+):
+    aasa = attachment_attachment_sections.attachment
+    url = reverse("attachment-detail", args=[aasa.pk])
 
-    response = admin_client.put(url, format="multipart")
-    assert response.status_code == status.HTTP_405_METHOD_NOT_ALLOWED
+    payload = {
+        "data": {"type": "attachments", "id": aasa.pk, "attributes": {"size": 5000}}
+    }
+    if payload:
+        payload = {
+            "data": {
+                "type": "attachments",
+                "id": aasa.pk,
+                "relationships": {
+                    "attachment-sections": {
+                        "data": [
+                            {"id": attachment_section.pk, "type": "attachment-sections"}
+                        ]
+                    }
+                },
+            }
+        }
+
+    response = admin_client.patch(url, data=payload)
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(

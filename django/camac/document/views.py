@@ -33,6 +33,13 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return queryset.filter_group(self.request.group)
 
     def update(self, request, *args, **kwargs):
+        from pprint import pprint
+
+        pprint(vars(request))
+        if request.data["attachment_sections"]:
+            response = HttpResponse()
+            response.status_code = 204
+            return response
         raise exceptions.MethodNotAllowed("update")
 
     def has_object_destroy_permission(self, obj):
