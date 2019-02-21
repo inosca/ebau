@@ -174,7 +174,7 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000")
 
 DATABASES = {
     "default": {
-        "ENGINE": "postgresql_dbdefaults",
+        "ENGINE": "camac.core.postgresql_dbdefaults",
         "NAME": env.str("DJANGO_DATABASE_NAME", default=APPLICATION_NAME),
         "USER": env.str("DJANGO_DATABASE_USER", default="camac"),
         "PASSWORD": env.str("DJANGO_DATABASE_PASSWORD", default=default("camac")),
