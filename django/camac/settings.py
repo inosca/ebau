@@ -11,7 +11,7 @@ ENV_FILE = env.str("DJANGO_ENV_FILE", default=ROOT_DIR(".env"))
 if os.path.exists(ENV_FILE):  # pragma: no cover
     environ.Env.read_env(ENV_FILE)
 
-ENV = env.str("APPLICATION_ENV")
+ENV = env.str("APPLICATION_ENV", default="production")
 APPLICATION_NAME = env.str("APPLICATION")
 APPLICATION_DIR = ROOT_DIR.path(APPLICATION_NAME)
 FORM_CONFIG = json.loads(APPLICATION_DIR.file("form.json").read())
