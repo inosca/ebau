@@ -68,6 +68,20 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
             "kategorie-des-vorhabens",
             status.HTTP_403_FORBIDDEN,
         ),
+        (
+            "Reader",
+            "new",
+            LazyFixture("user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_404_NOT_FOUND,
+        ),
+        (
+            "Reader",
+            "new",
+            LazyFixture("admin_user"),
+            "kategorie-des-vorhabens",
+            status.HTTP_404_NOT_FOUND,
+        ),
     ],
 )
 def test_form_field_update(admin_client, form_field, status_code):

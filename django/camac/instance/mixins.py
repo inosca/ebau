@@ -49,6 +49,9 @@ class InstanceQuerysetMixin(object):
 
         return queryset.filter(**{user_field: self.request.user})
 
+    def get_queryset_for_reader(self):
+        return self.get_queryset_for_municipality()
+
     def get_queryset_for_municipality(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
@@ -117,6 +120,9 @@ class InstanceEditableMixin(AttributeMixin):
 
     def get_editable_for_canton(self, instance):
         return {"form", "document"}
+
+    def get_editable_for_reader(self, instance):
+        return set()
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
