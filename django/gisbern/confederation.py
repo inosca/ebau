@@ -53,9 +53,11 @@ def get_token():
     if not settings.GIS_API_USERNAME or not settings.GIS_API_PASSWORD:
         raise ValueError("Please specify GIS_API_USERNAME and GIS_API_PASSWORD")
 
-    if cache.get("token"):
-        return cache.get("token")
+    # Token lifetime is 1 hour according to Pierre Honsberger (aDue)
+    return cache.get_or_set("token", lambda _: request_new_token(), 3600)
 
+
+def request_new_token():
     headers = {"Content-Type": "application/x-www-form-urlencoded"}
     values = {
         "username": settings.GIS_API_USERNAME,
@@ -67,7 +69,4 @@ def get_token():
         data=values,
         headers=headers,
     )
-    token = request_token.json()["token"]
-    # Token lifetime is 1 hour according to Pierre Honsberger (aDue)
-    cache.set("token", token, 3600)
-    return token
+    return request_token.json()["token"]
