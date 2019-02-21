@@ -11,7 +11,9 @@ my_vcr = vcr.VCR(
 )
 
 
-@pytest.mark.parametrize("egrid", ["CH643546955207", "CH673533354667", "doesntexist"])
+@pytest.mark.parametrize(
+    "egrid", ["CH643546955207", "CH673533354667", "CH851446093521", "doesntexist"]
+)
 def test_gis_canton(egrid, client, snapshot):
     with my_vcr.use_cassette(egrid + ".yml"):
         response = client.get(reverse("egrid", kwargs={"egrid": egrid}))
