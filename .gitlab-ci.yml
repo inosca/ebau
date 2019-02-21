@@ -128,7 +128,7 @@ build-kt_uri-production:
         - cd ..
         - docker cp $(docker-compose ps -q django):/app django/
         - rm -rf django/kt_uri django/kt_schwyz django/demo
-        - tar cvfz "../camac-${CI_COMMIT_REF_SLUG}.tar.gz" .
+        - tar cvfz "../camac-be-${CI_COMMIT_REF_SLUG}.tar.gz" .
         - cd ..
     artifacts:
         paths:
