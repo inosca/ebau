@@ -7,6 +7,7 @@ my_vcr = vcr.VCR(
     # egrid number in the body.
     match_on=["method", "scheme", "host", "port", "path", "query", "body"],
     cassette_library_dir="gisbern/tests/cassettes",
+    decode_compressed_response=True,
 )
 
 
