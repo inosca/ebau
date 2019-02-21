@@ -18,7 +18,3 @@ sorl-thumbnail==12.5.0
 uwsgi==2.0.18
 django-reversion==3.0.3
 pyjexl==0.2.3
-
-# use upstream again release once following PR is released:
-# https://github.com/ringly/django-postgres-dbdefaults/pull/4
-git+https://github.com/adfinis-forks/django-postgres-dbdefaults@fix_default_during_create#egg=django-postgres-dbdefaults
