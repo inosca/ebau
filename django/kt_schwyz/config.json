@@ -1288,6 +1288,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "issuetemplates",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 9
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -1680,6 +1689,15 @@
     },
     "model": "core.availableresource",
     "pk": "issuedashboard"
+  },
+  {
+    "fields": {
+      "controller_name": "issuetemplates",
+      "description": "Dashboard for template issues",
+      "module_name": "issue"
+    },
+    "model": "core.availableresource",
+    "pk": "issuetemplates"
   },
   {
     "fields": {
@@ -7219,11 +7237,24 @@
       "description": null,
       "hidden": 0,
       "name": "Meine Pendenzen",
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
     "pk": 10
+  },
+  {
+    "fields": {
+      "available_resource": "issuetemplates",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Pendenzenvorlagen",
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 11
   },
   {
     "fields": {
@@ -7320,6 +7351,22 @@
     },
     "model": "core.rroleacl",
     "pk": 14
+  },
+  {
+    "fields": {
+      "resource": 11,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "resource": 11,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 16
   },
   {
     "fields": {
@@ -11327,7 +11374,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "TBA (Strategie und Entwicklung)",
+      "name": "TBA (Fachstelle Strassenmanagement)",
       "phone": null,
       "role": 5,
       "service": 93,
@@ -11343,7 +11390,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "TBA (Strategie und Entwicklung)",
+      "name": "TBA (Fachstelle Strassenmanagement)",
       "phone": null,
       "role": 7,
       "service": 93,
@@ -11359,7 +11406,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "TBA (Projektierung)",
+      "name": "TBA (Planung)",
       "phone": null,
       "role": 5,
       "service": 94,
@@ -11375,7 +11422,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "TBA (Projektierung)",
+      "name": "TBA (Planung)",
       "phone": null,
       "role": 7,
       "service": 94,
@@ -14616,6 +14663,38 @@
     },
     "model": "user.group",
     "pk": 391
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "TBA (Realisierung)",
+      "phone": null,
+      "role": 5,
+      "service": 265,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 392
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "TBA (Realisierung)",
+      "phone": null,
+      "role": 7,
+      "service": 265,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 393
   },
   {
     "fields": {
@@ -38899,14 +38978,6 @@
   },
   {
     "fields": {
-      "group": 261,
-      "location": 10
-    },
-    "model": "user.grouplocation",
-    "pk": 3107
-  },
-  {
-    "fields": {
       "group": 264,
       "location": 10
     },
@@ -39000,14 +39071,6 @@
     },
     "model": "user.grouplocation",
     "pk": 3119
-  },
-  {
-    "fields": {
-      "group": 285,
-      "location": 5
-    },
-    "model": "user.grouplocation",
-    "pk": 3120
   },
   {
     "fields": {
@@ -39179,22 +39242,6 @@
   },
   {
     "fields": {
-      "group": 304,
-      "location": 18
-    },
-    "model": "user.grouplocation",
-    "pk": 3142
-  },
-  {
-    "fields": {
-      "group": 305,
-      "location": 18
-    },
-    "model": "user.grouplocation",
-    "pk": 3143
-  },
-  {
-    "fields": {
       "group": 306,
       "location": 20
     },
@@ -39216,14 +39263,6 @@
     },
     "model": "user.grouplocation",
     "pk": 3146
-  },
-  {
-    "fields": {
-      "group": 309,
-      "location": 20
-    },
-    "model": "user.grouplocation",
-    "pk": 3147
   },
   {
     "fields": {
@@ -42483,14 +42522,14 @@
     "fields": {
       "address": null,
       "city": null,
-      "description": "TBA (Strategie und Entwicklung)",
+      "description": "TBA (Fachstelle Strassenmanagement)",
       "disabled": 0,
       "email": "tba@sz.ch",
-      "name": "TBA (Strategie und Entwicklung)",
+      "name": "TBA (Fachstelle Strassenmanagement)",
       "phone": null,
       "service_group": 2,
       "service_parent": 20,
-      "sort": 1,
+      "sort": 0,
       "website": null,
       "zip": null
     },
@@ -42501,14 +42540,14 @@
     "fields": {
       "address": null,
       "city": null,
-      "description": "TBA (Projektierung)",
+      "description": "TBA (Planung)",
       "disabled": 0,
       "email": "tba@sz.ch",
-      "name": "TBA (Projektierung)",
+      "name": "TBA (Planung)",
       "phone": null,
       "service_group": 2,
       "service_parent": 20,
-      "sort": 2,
+      "sort": 1,
       "website": null,
       "zip": null
     },
@@ -42526,7 +42565,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": 20,
-      "sort": 3,
+      "sort": 2,
       "website": null,
       "zip": null
     },
@@ -42544,7 +42583,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": 20,
-      "sort": 4,
+      "sort": 3,
       "website": null,
       "zip": null
     },
@@ -45574,6 +45613,24 @@
     },
     "model": "user.service",
     "pk": 264
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "TBA (Realisierung)",
+      "disabled": 0,
+      "email": null,
+      "name": "TBA (Realisierung)",
+      "phone": null,
+      "service_group": 2,
+      "service_parent": 20,
+      "sort": 4,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 265
   },
   {
     "fields": {
