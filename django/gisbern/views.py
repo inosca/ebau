@@ -1,11 +1,11 @@
 from os import path
 
 import requests
+from django.conf import settings
 from lxml import etree
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
-from django.conf import settings
 
 
 @api_view(["GET"])
@@ -52,15 +52,15 @@ def get_gis_data(multisurface):
     """
 
     layers = [
-        "GEODB.UZP_BAU_VW",
-        "GEODB.UZP_UEO_VW",
-        "GEODB.GSK25_GSK_VW",
-        "BALISKBS_KBS",
-        "GK5_SY",
-        "GEODB.BAUINV_BAUINV_VW",
-        "GEODB.UZP_LSG_VW",
-        "ARCHINV_FUNDST",
-        "NSG_NSGP",
+        "GEODB.UZP_BAU_VW",  # Nutzungszone
+        "GEODB.UZP_UEO_VW",  # Überbauungsordnung
+        "GEODB.GSK25_GSK_VW",  # Gewässerschutzzonen
+        "BALISKBS_KBS",  # Belasteter Standort
+        "GK5_SY",  # Naturgefahren
+        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
+        "GEODB.UZP_LSG_VW",  # Besonderer Landschaftsschutz
+        "ARCHINV_FUNDST",  # Archäologische Fundstellen
+        "NSG_NSGP",  # Naturschutzgebiet
     ]
 
     query = list(
@@ -91,14 +91,14 @@ def get_gis_data(multisurface):
 
     tag_list = []
     data = {}
-    tags = {
-        "belasteter_standort": "BALISKBS_KBS",
-        "gebiet_mit_naturkatastrophen": "GK5_SY",
-        "besonderer_landschaftsschutz": "GEODB.UZP_LSG",
-        "archäologisches_objekt": "ARCHINV_FUNDS",
-        "naturschutzgebiet": "NSG_NSGP",
-        "bauinventar": "GEODB.BAUINV.BAUINV_VW",
-    }
+    tags = [
+        "BALISKBS_KBS",  # Belasteter Standort
+        "GK5_SY",  # Naturgefahren
+        "GEODB.UZP_LSG",  # Landschaftsschutz
+        "ARCHINV_FUNDST",  # Archäologische Fundstelle
+        "NSG_NSGP",  # Naturschutz
+        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
+    ]
 
     et = get_root(request_kanton)
     # Find all layers beneath featureMember
@@ -106,28 +106,30 @@ def get_gis_data(multisurface):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
-        for key, value in tags.items():
-            data[key] = len([x for x in tag_list if value in x]) > 0
+        for value in tags:
+            data[value.split(".")[-1]] = len([x for x in tag_list if value in x]) > 0
 
-        # text values
+        # Nutzungszone ([String])
         if "GEODB.UZP_BAU_VW" in child.tag:
             zones = []
             for item in child.findall(
                 "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
                 zones.append(item.text)
-                data["nutzungszone"] = zones
+                data["UZP_BAU_VW"] = zones
 
+        # Überbauungsordnung (String)
         if "GEODB.UZP_UEO_VW" in child.tag:
             for item in child.findall(
                 "a42geo_a42geo_ebau_kt_wfs_d_fk:ZONE_LO", et.nsmap
             ):
-                data["überbauungsordnung"] = item.text
+                data["UZP_UEO_VW"] = item.text
 
+        # Gewässerschutz (String)
         for item in child.findall(
             "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
         ):
-            data["gewässerschutz"] = item.text
+            data["GSKT_BEZEICH_DE"] = item.text
     return data
 
 
