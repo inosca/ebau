@@ -89,6 +89,7 @@ APPLICATIONS = {
             "Municipality": "municipality",
             "Service": "service",
             "Canton": "canton",
+            "Reader": "reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
     },

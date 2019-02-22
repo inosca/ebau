@@ -19,7 +19,7 @@ from camac.instance import serializers
     [
         ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 2, set()),
+        ("Reader", LazyFixture("user"), 9, set()),
         ("Canton", LazyFixture("user"), 9, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
         ("Service", LazyFixture("user"), 9, {"form", "document"}),
@@ -119,9 +119,10 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
+        # applicant/reader can't update their own Instance,
+        # but might update FormField etc.
         ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
-        # TODO: why can't a reader update its own instance?
-        ("Reader", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
+        ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
