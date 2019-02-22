@@ -25,6 +25,5 @@ omit=
     camac/core/management/commands/importrsta.py
     camac/core/management/commands/importservices.py
     camac/core/management/commands/sequencenamespace.py
-    gisbern/confederation.py
 
 show_missing = True
