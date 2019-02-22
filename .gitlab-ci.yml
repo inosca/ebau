@@ -132,7 +132,7 @@ build-kt_uri-production:
         - cd ..
     artifacts:
         paths:
-          - "camac-${CI_COMMIT_REF_SLUG}.tar.gz"
+          - "camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
         expire_in: 1 month
 
 
