@@ -24,7 +24,8 @@ def test_form_field_list(admin_client, form_field, size):
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user",
+    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
 )
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
@@ -73,14 +74,14 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
             "new",
             LazyFixture("user"),
             "kategorie-des-vorhabens",
-            status.HTTP_404_NOT_FOUND,
+            status.HTTP_403_FORBIDDEN,
         ),
         (
             "Reader",
             "new",
             LazyFixture("admin_user"),
             "kategorie-des-vorhabens",
-            status.HTTP_404_NOT_FOUND,
+            status.HTTP_403_FORBIDDEN,
         ),
     ],
 )
