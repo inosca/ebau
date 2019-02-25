@@ -3097,6 +3097,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 20040,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 120003
+  },
+  {
+    "fields": {
       "available_action": "notification",
       "button": 20045,
       "description": null,
@@ -5762,6 +5776,18 @@
     },
     "model": "core.actiont",
     "pk": 120002
+  },
+  {
+    "fields": {
+      "action": 120003,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Check decision",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 120003
   },
   {
     "fields": {
@@ -32913,6 +32939,13 @@
     },
     "model": "core.aphp",
     "pk": 110010
+  },
+  {
+    "fields": {
+      "php_class": "CheckDecision"
+    },
+    "model": "core.aphp",
+    "pk": 120003
   },
   {
     "fields": {
