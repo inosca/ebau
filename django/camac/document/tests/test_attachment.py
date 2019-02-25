@@ -268,38 +268,28 @@ def test_attachment_thumbnail(
 
 
 @pytest.mark.parametrize(
-    "payload,status_code",
-    [(False, status.HTTP_405_METHOD_NOT_ALLOWED), (True, status.HTTP_204_NO_CONTENT)],
+    "role__name,instance__user", [("Canton", LazyFixture("admin_user"))]
+)
+@pytest.mark.parametrize(
+    "send_data,status_code",
+    [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_200_OK)],
 )
 def test_attachment_update(
     admin_client,
     attachment_section,
     attachment_attachment_sections,
+    attachment_section_group_acl,
     status_code,
-    payload,
+    send_data,
 ):
     aasa = attachment_attachment_sections.attachment
     url = reverse("attachment-detail", args=[aasa.pk])
 
-    payload = {
-        "data": {"type": "attachments", "id": aasa.pk, "attributes": {"size": 5000}}
-    }
-    if payload:
-        payload = {
-            "data": {
-                "type": "attachments",
-                "id": aasa.pk,
-                "relationships": {
-                    "attachment-sections": {
-                        "data": [
-                            {"id": attachment_section.pk, "type": "attachment-sections"}
-                        ]
-                    }
-                },
-            }
-        }
+    data = {"attachment_sections": attachment_section.pk}
+    if send_data:
+        data = {"path": aasa.path}
 
-    response = admin_client.patch(url, data=payload)
+    response = admin_client.patch(url, data=data, format="multipart")
     assert response.status_code == status_code
 
 
