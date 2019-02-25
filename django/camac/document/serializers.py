@@ -73,10 +73,11 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return path
 
     def validate(self, data):
-        path = data["path"]
-        data["size"] = path.size
-        data["mime_type"] = path.content_type
-        data["name"] = path.name
+        if "path" in data:
+            path = data["path"]
+            data["size"] = path.size
+            data["mime_type"] = path.content_type
+            data["name"] = path.name
         return data
 
     included_serializers = {
@@ -109,6 +110,11 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
                 serializer.is_valid() and serializer.save()
 
         return attachment
+
+    def update(self, instance, validated_data):
+        if "path" in validated_data:
+            raise exceptions.ValidationError(_("Path may not be changed."))
+        return super().update(instance, validated_data)
 
     class Meta:
         model = models.Attachment
