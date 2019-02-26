@@ -267,7 +267,15 @@ class FormFieldView(
             # all permissions may read per default once they have access to instance
             if permission
             in value.get(
-                "restrict", ["reader", "applicant", "canton", "municipality", "service"]
+                "restrict",
+                [
+                    "applicant",
+                    "public_reader",
+                    "reader",
+                    "canton",
+                    "municipality",
+                    "service",
+                ],
             )
         ]
 
