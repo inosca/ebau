@@ -1,7 +1,9 @@
+import datetime
 import functools
 
 import pyexcel
 import pytest
+import pytz
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -369,3 +371,36 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     identifier = serializer.generate_identifier()
 
     assert identifier == "11-17-011"
+
+
+@pytest.mark.freeze_time("2017-7-27")
+@pytest.mark.parametrize(
+    "role__name,instance__user,publication_entry__publication_date,status_code",
+    [
+        (
+            "Municipality",
+            LazyFixture("admin_user"),
+            datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            status.HTTP_200_OK,
+        ),
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            status.HTTP_200_OK,
+        ),
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
+            status.HTTP_404_NOT_FOUND,
+        ),
+    ],
+)
+def test_instance_detail_publication(
+    admin_client, instance, publication_entry, status_code
+):
+    url = reverse("instance-detail", args=[instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status_code
