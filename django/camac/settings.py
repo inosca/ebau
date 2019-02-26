@@ -103,6 +103,8 @@ APPLICATIONS = {
             "Fachstelle": "service",
             "Fachstelle Sachbearbeiter": "service",
             "Kanton": "canton",
+            "Reader": "reader",
+            "PublicReader": "public_reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
     },
