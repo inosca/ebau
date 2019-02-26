@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db.models.constants import LOOKUP_SEP
+from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
@@ -48,6 +50,19 @@ class InstanceQuerysetMixin(object):
         user_field = self._get_instance_filter_expr("user")
 
         return queryset.filter(**{user_field: self.request.user})
+
+    def get_queryset_for_public_reader(self):
+        queryset = self.get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+
+        # instances from municipality
+        instances = models.Instance.objects.filter(
+            location__in=self.request.group.locations.all(),
+            publication_entries__publication_date__gt=timezone.now()
+            - settings.APPLICATION.get("PUBLICATION_DURATION"),
+        )
+
+        return queryset.filter(**{instance_field: instances})
 
     def get_queryset_for_reader(self):
         return self.get_queryset_for_municipality()
@@ -122,6 +137,9 @@ class InstanceEditableMixin(AttributeMixin):
         return {"form", "document"}
 
     def get_editable_for_reader(self, instance):
+        return set()
+
+    def get_editable_for_public_reader(self, instance):
         return set()
 
     def has_object_update_permission(self, obj):
