@@ -67,7 +67,7 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group)
+        return queryset.filter_group(self.request.group).distinct()
 
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
