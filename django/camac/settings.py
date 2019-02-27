@@ -104,9 +104,10 @@ APPLICATIONS = {
             "Fachstelle Sachbearbeiter": "service",
             "Kanton": "canton",
             "Reader": "reader",
-            "PublicReader": "public_reader",
+            "Publikation": "public_reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
+        "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_uri": {},
     "kt_bern": {}
