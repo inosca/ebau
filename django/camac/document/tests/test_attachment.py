@@ -253,12 +253,13 @@ def test_attachment_download(admin_client, attachment):
 def test_attachment_thumbnail(
     admin_client,
     attachment_attachment_sections,
+    attachment_attachment_section_factory,
     attachment_section_group_acl,
     status_code,
 ):
-    url = reverse(
-        "attachment-thumbnail", args=[attachment_attachment_sections.attachment.pk]
-    )
+    aasa = attachment_attachment_sections.attachment
+    attachment_attachment_section_factory(attachment=aasa)
+    url = reverse("attachment-thumbnail", args=[aasa.pk])
     response = admin_client.get(url)
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
@@ -271,25 +272,41 @@ def test_attachment_thumbnail(
     "role__name,instance__user", [("Canton", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "send_data,status_code",
+    "send_path,status_code",
     [(True, status.HTTP_400_BAD_REQUEST), (False, status.HTTP_200_OK)],
 )
 def test_attachment_update(
     admin_client,
     attachment_section,
     attachment_attachment_sections,
+    attachment_attachment_section_factory,
     attachment_section_group_acl,
     status_code,
-    send_data,
+    send_path,
 ):
     aasa = attachment_attachment_sections.attachment
+    attachment_attachment_section_factory(attachment=aasa)
     url = reverse("attachment-detail", args=[aasa.pk])
 
-    data = {"attachment_sections": attachment_section.pk}
-    if send_data:
+    format = ""
+    data = {
+        "data": {
+            "type": "attachments",
+            "id": aasa.pk,
+            "relationships": {
+                "attachment-sections": {
+                    "data": [
+                        {"type": "attachment-sections", "id": attachment_section.pk}
+                    ]
+                }
+            },
+        }
+    }
+    if send_path:
+        format = "multipart"
         data = {"path": aasa.path}
 
-    response = admin_client.patch(url, data=data, format="multipart")
+    response = admin_client.patch(url, data=data, format=format)
     assert response.status_code == status_code
 
 

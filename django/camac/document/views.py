@@ -21,7 +21,7 @@ from . import filters, models, serializers
 
 
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
-    queryset = models.Attachment.objects
+    queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
@@ -30,7 +30,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group)
+        return queryset.filter_group(self.request.group).distinct()
 
     def has_object_destroy_permission(self, obj):
         return super().has_object_destroy_permission(obj) and all(
