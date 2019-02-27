@@ -117,6 +117,8 @@ build-kt_uri-production:
         - production
 
 
+# Create a minimal tarball which is deployable by
+# https://github.com/camac-suisse/ansible-role-camac
 .build-tarball:
     stage: build
     services:
@@ -126,9 +128,8 @@ build-kt_uri-production:
         - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma
         - eval $COMPOSE build --pull
         - eval $COMPOSE up -d php django caluma
-        # Create a minimal tarball which is deployable by
-        # https://github.com/camac-suisse/ansible-role-camac
-        - mkdir tarball && cd tarball
+        - mkdir tarball
+        - cd tarball
         - docker cp $(docker-compose ps -q php):/var/www/camac/kt_bern configuration/
         - docker cp $(docker-compose ps -q php):/var/www/camac/ camac/
         - cd camac
@@ -137,11 +138,11 @@ build-kt_uri-production:
         - docker cp $(docker-compose ps -q django):/app django/
         - rm -rf django/kt_uri django/kt_schwyz django/demo
         - docker cp $(docker-compose ps -q caluma):/app caluma/
-        - tar cfz "../camac-be-${CI_COMMIT_REF_SLUG}.tar.gz" .
+        - tar cfz "../camac-be-$(cat ../VERSION.txt)-${CI_COMMIT_SHORT_SHA}.tar.gz" .
         - cd ..
     artifacts:
         paths:
-          - "camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+          - "camac-be-*.tar.gz"
         expire_in: 1 month
 
 
@@ -204,7 +205,6 @@ deploy-kt_uri-stage:
         - stage
 
 
-# TODO: Test deploy
 deploy-kt_bern-production:
   stage: deploy
   image:
@@ -219,8 +219,8 @@ deploy-kt_bern-production:
     - echo "${PUBLISH_SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - "rsync ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz ${PUBLISH_RSYNC_TARGET}"
-    - "sha256sum ./camac-be-${CI_COMMIT_REF_SLUG}.tar.gz"
+    - rsync ./camac-be-$(cat VERSION.txt)-${CI_COMMIT_SHORT_SHA}.tar.gz ${PUBLISH_RSYNC_TARGET}
+    - sha256sum ./camac-be-$(cat VERSION.txt)-${CI_COMMIT_SHORT_SHA}.tar.gz
   only:
     - production
   when: manual
