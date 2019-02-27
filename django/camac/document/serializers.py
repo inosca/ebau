@@ -45,6 +45,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     def validate_attachment_sections(self, attachment_sections):
         if not attachment_sections:
+            # Set default attachment_sections value.
             attachment_sections = models.AttachmentSection.objects.filter_group(
                 self.context["request"].group
             )[:1]
