@@ -199,11 +199,17 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
     Add InstanceLocation relationship to make sure it also will be deleted
     when the instance is deleted (cascade deletion).
     """
-    InstanceLocation.objects.create(location=location_factory(), instance=instance)
-    # TODO why isn't the deletion tested?
+    instance_location = InstanceLocation.objects.create(
+        location=location_factory(), instance=instance
+    )
 
     response = admin_client.delete(url)
+
     assert response.status_code == status_code
+
+    # verify deleted InstanceLocation if api query was successful
+    if response.status_code == status.HTTP_204_NO_CONTENT:
+        assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
 
 
 @pytest.mark.parametrize(

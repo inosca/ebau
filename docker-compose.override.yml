@@ -43,6 +43,8 @@ services:
 
     django:
         image: acr.run/camac-ng/camac-ng/django:master
+        ports:
+            - "5555:5555"
         volumes:
             - ./django:/app
         environment:
