@@ -106490,7 +106490,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Fax-Nr.",
+      "name": "Weitere Telefon-/Faxnummer",
       "question": 40490
     },
     "model": "core.questiont",
@@ -106710,7 +106710,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Fax-Nr.",
+      "name": "Weitere Telefon-/Faxnummer",
       "question": 40510
     },
     "model": "core.questiont",
@@ -106776,7 +106776,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Fax-Nr.",
+      "name": "Weitere Telefon-/Faxnummer",
       "question": 40516
     },
     "model": "core.questiont",
