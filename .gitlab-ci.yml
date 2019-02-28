@@ -53,13 +53,11 @@ lint:
     - npm run lint
 
 
-sensiolabs-security-checker:
+symfony-security-checker:
     stage: test
     image:
-        name: jsixc/sensiolabs-security-checker:7.1
-    script: /usr/local/bin/security-checker security:check ./php/composer.lock
-    # TODO: Fix violations and remove `allow_failure`.
-    allow_failure: true
+        name: jakzal/phpqa:php7.3-alpine
+    script: security-checker security:check ./php/composer.lock
 
 
 .build-image:
