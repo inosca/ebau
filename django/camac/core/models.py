@@ -3786,6 +3786,8 @@ class BillingV2Entry(models.Model):
         ("hourly", "Hourly"),
     )
 
+    ORGANIZATION_CHOICES = (("municipal", "Municipal"), ("cantonal", "Cantonal"))
+
     DECIMAL_FORMAT = {"max_digits": 10, "decimal_places": 2, "null": True}
 
     # Structural: Which instance is the item billed to?
@@ -3824,6 +3826,12 @@ class BillingV2Entry(models.Model):
     # Final rate (may be entered directly in "flat" mode, otherwise it's
     # calculated. We store it for easier handling in the output however.
     final_rate = models.DecimalField(**DECIMAL_FORMAT)
+
+    # Organization: either municipal or cantonal but can be NULL
+    # Used to distinguish which oranization collects part of the bill
+    organization = models.CharField(
+        choices=ORGANIZATION_CHOICES, max_length=20, null=True
+    )
 
     class Meta:
         managed = True
