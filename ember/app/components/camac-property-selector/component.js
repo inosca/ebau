@@ -301,7 +301,7 @@ export default Component.extend({
           "ms:egrid": { _text: egrid },
           "ms:gde_nm": { _text: municipality },
           "ms:nummer": { _text: number },
-          "ms:geometry": {
+          "ms:geom": {
             "gml:Polygon": {
               "gml:exterior": {
                 "gml:LinearRing": {
