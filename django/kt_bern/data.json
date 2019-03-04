@@ -25865,6 +25865,7 @@
   },
   {
     "fields": {
+      "additional_text": null,
       "created": "2018-11-13T07:47:41Z",
       "instance": 20004,
       "mode": "auto",
@@ -25877,6 +25878,7 @@
   },
   {
     "fields": {
+      "additional_text": null,
       "created": "2018-11-13T07:47:55Z",
       "instance": 20004,
       "mode": "auto",
@@ -25889,6 +25891,7 @@
   },
   {
     "fields": {
+      "additional_text": null,
       "created": "2018-11-13T07:48:50Z",
       "instance": 20004,
       "mode": "auto",
