@@ -5520,10 +5520,10 @@
       }
     },
     "info-vorhaben-mit-baute": {
-      "label": "Falls Baukosten über 250‘000 Fr. liegen, ist ein Energienachweis erforderlich.",
+      "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'vorhaben-mit-baute'|value && 'vorhaben-mit-baute'|value != 'Abbruch / Rückbau'",
+      "active-expression": "'vorhaben-mit-baute'|value && 'vorhaben-mit-baute'|value != 'Abbruch / Rückbau' && 'baukosten'|value > 250000",
       "config": {
         "options": [
           "Vorhanden"
