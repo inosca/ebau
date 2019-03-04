@@ -10,7 +10,7 @@ class AttachmentFilterSet(FilterSet):
 
     class Meta:
         model = models.Attachment
-        fields = ("instance", "user", "name", "attachment_section")
+        fields = ("instance", "user", "name", "attachment_sections")
 
 
 class TemplateFilterSet(FilterSet):

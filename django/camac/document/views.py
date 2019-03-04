@@ -21,7 +21,7 @@ from . import filters, models, serializers
 
 
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
-    queryset = models.Attachment.objects
+    queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
@@ -30,16 +30,15 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group)
-
-    def update(self, request, *args, **kwargs):
-        raise exceptions.MethodNotAllowed("update")
+        return queryset.filter_group(self.request.group).distinct()
 
     def has_object_destroy_permission(self, obj):
-        return super().has_object_destroy_permission(
-            obj
-        ) and obj.attachment_section.get_mode(self.request.group) == (
-            models.ADMIN_PERMISSION
+        return super().has_object_destroy_permission(obj) and all(
+            [
+                attachment_section.get_mode(self.request.group)
+                == models.ADMIN_PERMISSION
+                for attachment_section in obj.attachment_sections.all()
+            ]
         )
 
     def perform_destroy(self, instance):
@@ -53,7 +52,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         path = attachment.path
         try:
             thumbnail = get_thumbnail(path, geometry_string="x300")
-        # no proper exception handling in solr thumbnail when image type is
+        # no proper exception handling in sorl thumbnail when image type is
         # invalid - workaround catching AtttributeError
         except AttributeError:
             raise exceptions.NotFound()
@@ -68,7 +67,7 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group)
+        return queryset.filter_group(self.request.group).distinct()
 
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
