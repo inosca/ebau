@@ -3859,7 +3859,9 @@ class Journal(models.Model):
     )
 
     text = models.TextField(db_column="TEXT")
-    additional_text = models.TextField(db_column="ADDITIONAL_TEXT", blank=True, null=True)
+    additional_text = models.TextField(
+        db_column="ADDITIONAL_TEXT", blank=True, null=True
+    )
     created = models.DateTimeField(db_column="CREATED")
 
     class Meta:
