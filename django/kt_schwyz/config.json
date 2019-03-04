@@ -8086,6 +8086,16 @@
   },
   {
     "fields": {
+      "name": "Bauentscheid und Merkbl\u00e4tter",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 6
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "admin",
       "role": 3
@@ -8191,6 +8201,24 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 12
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "mode": "admin",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 14
   },
   {
     "fields": {
