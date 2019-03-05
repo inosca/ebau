@@ -1,6 +1,7 @@
 import json
 import os
 import re
+from datetime import timedelta
 
 import environ
 
@@ -89,8 +90,11 @@ APPLICATIONS = {
             "Municipality": "municipality",
             "Service": "service",
             "Canton": "canton",
+            "Reader": "reader",
+            "PublicReader": "public_reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
+        "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_schwyz": {
         # mapping between Camac role and instance permission
@@ -99,8 +103,11 @@ APPLICATIONS = {
             "Fachstelle": "service",
             "Fachstelle Sachbearbeiter": "service",
             "Kanton": "canton",
+            "Reader": "reader",
+            "Publikation": "public_reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
+        "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_uri": {},
     "kt_bern": {}
