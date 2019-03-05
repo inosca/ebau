@@ -1032,39 +1032,12 @@
   },
   {
     "fields": {
-      "action_name": "complete",
-      "available_instance_resource": "billing",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 48
-  },
-  {
-    "fields": {
       "action_name": "delete",
       "available_instance_resource": "billing",
       "hidden": 1
     },
     "model": "core.airaction",
     "pk": 49
-  },
-  {
-    "fields": {
-      "action_name": "edit",
-      "available_instance_resource": "billing",
-      "hidden": 0
-    },
-    "model": "core.airaction",
-    "pk": 50
-  },
-  {
-    "fields": {
-      "action_name": "insert",
-      "available_instance_resource": "billing",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 51
   },
   {
     "fields": {
@@ -1128,6 +1101,15 @@
     },
     "model": "core.airaction",
     "pk": 58
+  },
+  {
+    "fields": {
+      "action_name": "index",
+      "available_instance_resource": "billing",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10000
   },
   {
     "fields": {
@@ -1467,7 +1449,7 @@
   },
   {
     "fields": {
-      "controller_name": "edit",
+      "controller_name": "billing",
       "description": "Edit the billing",
       "module_name": "billing"
     },
@@ -3074,21 +3056,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "billing",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": "Geb\u00fchren",
-      "resource": 1,
-      "sort": 10,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 9
-  },
-  {
-    "fields": {
       "available_instance_resource": "circulation",
       "class_field": null,
       "description": null,
@@ -3134,21 +3101,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "billing",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": "Geb\u00fchren",
-      "resource": 6,
-      "sort": 9,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 13
-  },
-  {
-    "fields": {
       "available_instance_resource": "editnotice",
       "class_field": null,
       "description": null,
@@ -3156,7 +3108,7 @@
       "hidden": 0,
       "name": "Eigener Fachbericht",
       "resource": 6,
-      "sort": 7,
+      "sort": 6,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3194,21 +3146,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "billing",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": "Geb\u00fchren",
-      "resource": 7,
-      "sort": 2,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 17
-  },
-  {
-    "fields": {
       "available_instance_resource": "editcirculation",
       "class_field": null,
       "description": "Zirkulation des Kantons (BGZ)",
@@ -3231,7 +3168,7 @@
       "hidden": 0,
       "name": "Eigener Fachbericht (kantonal)",
       "resource": 6,
-      "sort": 6,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3246,7 +3183,7 @@
       "hidden": 0,
       "name": "Stellungnahmen",
       "resource": 6,
-      "sort": 5,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3276,7 +3213,7 @@
       "hidden": 0,
       "name": "Verantwortliche Person",
       "resource": 6,
-      "sort": 4,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3306,7 +3243,7 @@
       "hidden": 0,
       "name": "Dokumente generieren",
       "resource": 6,
-      "sort": 8,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3336,7 +3273,7 @@
       "hidden": 0,
       "name": "Journal",
       "resource": 1,
-      "sort": 11,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3351,7 +3288,7 @@
       "hidden": 0,
       "name": "Pendenzen",
       "resource": 1,
-      "sort": 12,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3386,6 +3323,36 @@
     },
     "model": "core.instanceresource",
     "pk": 29
+  },
+  {
+    "fields": {
+      "available_instance_resource": "billing",
+      "class_field": null,
+      "description": "Geb\u00fchren der Gemeinde",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Geb\u00fchren",
+      "resource": 1,
+      "sort": 12,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "available_instance_resource": "billing",
+      "class_field": null,
+      "description": "Geb\u00fchren der Fachstelle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Geb\u00fchren",
+      "resource": 6,
+      "sort": 8,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 31
   },
   {
     "fields": {
@@ -5444,78 +5411,6 @@
   },
   {
     "fields": {
-      "instance_resource": 9,
-      "instance_state": 3,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 55
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 4,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 56
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 5,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 57
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 6,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 58
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 7,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 59
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 8,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 60
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 9,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 61
-  },
-  {
-    "fields": {
-      "instance_resource": 9,
-      "instance_state": 10,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 62
-  },
-  {
-    "fields": {
       "instance_resource": 10,
       "instance_state": 3,
       "role": 3
@@ -5624,24 +5519,6 @@
   },
   {
     "fields": {
-      "instance_resource": 13,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.irroleacl",
-    "pk": 81
-  },
-  {
-    "fields": {
-      "instance_resource": 13,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.irroleacl",
-    "pk": 82
-  },
-  {
-    "fields": {
       "instance_resource": 14,
       "instance_state": 5,
       "role": 5
@@ -5747,51 +5624,6 @@
     },
     "model": "core.irroleacl",
     "pk": 94
-  },
-  {
-    "fields": {
-      "instance_resource": 17,
-      "instance_state": 3,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 95
-  },
-  {
-    "fields": {
-      "instance_resource": 17,
-      "instance_state": 5,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 96
-  },
-  {
-    "fields": {
-      "instance_resource": 17,
-      "instance_state": 6,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 97
-  },
-  {
-    "fields": {
-      "instance_resource": 17,
-      "instance_state": 7,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 98
-  },
-  {
-    "fields": {
-      "instance_resource": 17,
-      "instance_state": 8,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 99
   },
   {
     "fields": {
@@ -6449,6 +6281,96 @@
     },
     "model": "core.irroleacl",
     "pk": 175
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 176
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 4,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 177
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 178
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 179
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 180
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 8,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 181
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 9,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 182
+  },
+  {
+    "fields": {
+      "instance_resource": 30,
+      "instance_state": 10,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "instance_resource": 31,
+      "instance_state": 5,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 184
+  },
+  {
+    "fields": {
+      "instance_resource": 31,
+      "instance_state": 7,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 185
   },
   {
     "fields": {
