@@ -266,7 +266,17 @@ class FormFieldView(
             for question, value in settings.FORM_CONFIG["questions"].items()
             # all permissions may read per default once they have access to instance
             if permission
-            in value.get("restrict", ["applicant", "canton", "municipality", "service"])
+            in value.get(
+                "restrict",
+                [
+                    "applicant",
+                    "public_reader",
+                    "reader",
+                    "canton",
+                    "municipality",
+                    "service",
+                ],
+            )
         ]
 
         return queryset.filter(name__in=questions)

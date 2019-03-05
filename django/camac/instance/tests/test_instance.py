@@ -1,7 +1,9 @@
+import datetime
 import functools
 
 import pyexcel
 import pytest
+import pytz
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -18,6 +20,8 @@ from camac.instance import serializers
     "role__name,instance__user,num_queries,editable",
     [
         ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        # reader should see instances from other users but has no editables
+        ("Reader", LazyFixture("user"), 9, set()),
         ("Canton", LazyFixture("user"), 9, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
         ("Service", LazyFixture("user"), 9, {"form", "document"}),
@@ -117,7 +121,10 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
+        # applicant/reader can't update their own Instance,
+        # but might update FormField etc.
         ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
+        ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
@@ -178,6 +185,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
     "role__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
+        ("Reader", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
         ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
@@ -191,10 +199,17 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
     Add InstanceLocation relationship to make sure it also will be deleted
     when the instance is deleted (cascade deletion).
     """
-    InstanceLocation.objects.create(location=location_factory(), instance=instance)
+    instance_location = InstanceLocation.objects.create(
+        location=location_factory(), instance=instance
+    )
 
     response = admin_client.delete(url)
+
     assert response.status_code == status_code
+
+    # verify deleted InstanceLocation if api query was successful
+    if response.status_code == status.HTTP_204_NO_CONTENT:
+        assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
 
 
 @pytest.mark.parametrize(
@@ -362,3 +377,36 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     identifier = serializer.generate_identifier()
 
     assert identifier == "11-17-011"
+
+
+@pytest.mark.freeze_time("2017-7-27")
+@pytest.mark.parametrize(
+    "role__name,instance__user,publication_entry__publication_date,status_code",
+    [
+        (
+            "Municipality",
+            LazyFixture("admin_user"),
+            datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            status.HTTP_200_OK,
+        ),
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            status.HTTP_200_OK,
+        ),
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
+            status.HTTP_404_NOT_FOUND,
+        ),
+    ],
+)
+def test_instance_detail_publication(
+    admin_client, instance, publication_entry, status_code
+):
+    url = reverse("instance-detail", args=[instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status_code
