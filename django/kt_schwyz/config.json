@@ -3359,6 +3359,36 @@
   },
   {
     "fields": {
+      "available_instance_resource": "apidocuments",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Dokumente",
+      "resource": 12,
+      "sort": 0,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Formular",
+      "resource": 12,
+      "sort": 1,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 29
+  },
+  {
+    "fields": {
       "available_action": "checkquery",
       "available_instance_resource": "allformpages"
     },
@@ -4941,6 +4971,14 @@
   },
   {
     "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditformpage",
+    "pk": 29
+  },
+  {
+    "fields": {
       "circulation_type": 1,
       "edit_notice_template": null,
       "editable_after_deadline": 1,
@@ -6342,6 +6380,78 @@
   },
   {
     "fields": {
+      "instance_resource": 28,
+      "instance_state": 3,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 168
+  },
+  {
+    "fields": {
+      "instance_resource": 28,
+      "instance_state": 5,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 169
+  },
+  {
+    "fields": {
+      "instance_resource": 28,
+      "instance_state": 6,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 170
+  },
+  {
+    "fields": {
+      "instance_resource": 28,
+      "instance_state": 7,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 171
+  },
+  {
+    "fields": {
+      "instance_resource": 29,
+      "instance_state": 3,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 172
+  },
+  {
+    "fields": {
+      "instance_resource": 29,
+      "instance_state": 5,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 173
+  },
+  {
+    "fields": {
+      "instance_resource": 29,
+      "instance_state": 6,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 174
+  },
+  {
+    "fields": {
+      "instance_resource": 29,
+      "instance_state": 7,
+      "role": 9
+    },
+    "model": "core.irroleacl",
+    "pk": 175
+  },
+  {
+    "fields": {
       "column_name": "ANSWER",
       "table_name": "ANSWER"
     },
@@ -6944,6 +7054,14 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "resource": 12
+    },
+    "model": "core.rapilistcirculationtype",
+    "pk": 11
+  },
+  {
+    "fields": {
       "instance_state": 3,
       "resource": 2
     },
@@ -7128,6 +7246,38 @@
   },
   {
     "fields": {
+      "instance_state": 3,
+      "resource": 12
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "instance_state": 5,
+      "resource": 12
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "instance_state": 6,
+      "resource": 12
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "instance_state": 7,
+      "resource": 12
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 42
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -7237,7 +7387,7 @@
       "description": null,
       "hidden": 0,
       "name": "Meine Pendenzen",
-      "sort": 9,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -7250,11 +7400,24 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenvorlagen",
-      "sort": 10,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
     "pk": 11
+  },
+  {
+    "fields": {
+      "available_resource": "apilistinstance",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Publikation",
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 12
   },
   {
     "fields": {
@@ -7367,6 +7530,14 @@
     },
     "model": "core.rroleacl",
     "pk": 16
+  },
+  {
+    "fields": {
+      "resource": 12,
+      "role": 9
+    },
+    "model": "core.rroleacl",
+    "pk": 17
   },
   {
     "fields": {
@@ -8204,9 +8375,9 @@
   },
   {
     "fields": {
-      "attachment_section": 6,
-      "mode": "admin",
-      "role": 3
+      "attachment_section": 4,
+      "mode": "read",
+      "role": 9
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 13
@@ -8215,10 +8386,19 @@
     "fields": {
       "attachment_section": 6,
       "mode": "admin",
-      "role": 8
+      "role": 3
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 14
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 15
   },
   {
     "fields": {
@@ -14723,6 +14903,22 @@
     },
     "model": "user.group",
     "pk": 393
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Schwyz",
+      "phone": null,
+      "role": 9,
+      "service": 6,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 394
   },
   {
     "fields": {
@@ -39006,6 +39202,14 @@
   },
   {
     "fields": {
+      "group": 261,
+      "location": 10
+    },
+    "model": "user.grouplocation",
+    "pk": 3107
+  },
+  {
+    "fields": {
       "group": 264,
       "location": 10
     },
@@ -39099,6 +39303,14 @@
     },
     "model": "user.grouplocation",
     "pk": 3119
+  },
+  {
+    "fields": {
+      "group": 285,
+      "location": 5
+    },
+    "model": "user.grouplocation",
+    "pk": 3120
   },
   {
     "fields": {
@@ -39270,6 +39482,22 @@
   },
   {
     "fields": {
+      "group": 304,
+      "location": 18
+    },
+    "model": "user.grouplocation",
+    "pk": 3142
+  },
+  {
+    "fields": {
+      "group": 305,
+      "location": 18
+    },
+    "model": "user.grouplocation",
+    "pk": 3143
+  },
+  {
+    "fields": {
       "group": 306,
       "location": 20
     },
@@ -39291,6 +39519,14 @@
     },
     "model": "user.grouplocation",
     "pk": 3146
+  },
+  {
+    "fields": {
+      "group": 309,
+      "location": 20
+    },
+    "model": "user.grouplocation",
+    "pk": 3147
   },
   {
     "fields": {
@@ -40414,6 +40650,14 @@
   },
   {
     "fields": {
+      "group": 394,
+      "location": 26
+    },
+    "model": "user.grouplocation",
+    "pk": 3294
+  },
+  {
+    "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "1311",
       "commune_name": "Gersau",
@@ -40925,6 +41169,14 @@
     },
     "model": "user.role",
     "pk": 8
+  },
+  {
+    "fields": {
+      "name": "Publikation",
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 9
   },
   {
     "fields": {

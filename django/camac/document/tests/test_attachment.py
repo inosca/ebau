@@ -15,6 +15,7 @@ from .data import django_file
     "role__name,instance__user,num_queries",
     [
         ("Applicant", LazyFixture("admin_user"), 6),
+        ("Reader", LazyFixture("user"), 6),
         ("Canton", LazyFixture("user"), 6),
         ("Municipality", LazyFixture("user"), 6),
         ("Service", LazyFixture("user"), 6),
@@ -186,6 +187,18 @@ def test_attachment_list(
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
         ),
+        # reader can't create anything, not even with admin permissions
+        (
+            "test-thumbnail.jpg",
+            "image/jpeg",
+            "Reader",
+            LazyFixture("admin_user"),
+            LazyFixture("location"),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            models.ADMIN_PERMISSION,
+            status.HTTP_400_BAD_REQUEST,
+        ),
     ],
 )
 def test_attachment_create(
@@ -311,7 +324,8 @@ def test_attachment_update(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user",
+    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
 )
 def test_attachment_detail(
     admin_client, attachment_attachment_sections, attachment_section_group_acl
