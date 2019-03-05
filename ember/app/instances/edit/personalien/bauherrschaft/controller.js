@@ -18,8 +18,13 @@ export default Controller.extend({
         "bauherrschaft",
         this.get("model.instance.id")
       );
-      question.set("model.value", this.grundeigentumerschaftValue);
-      question.set("value", this.grundeigentumerschaftValue);
+      question.set(
+        "model.value",
+        question
+          .get("model.value")
+          .pushObjects(this.grundeigentumerschaftValue)
+          .uniqBy("uuid")
+      );
       await this.get("questionStore.saveQuestion").perform(question);
     }
   }
