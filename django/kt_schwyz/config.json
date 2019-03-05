@@ -8384,6 +8384,24 @@
   },
   {
     "fields": {
+      "attachment_section": 6,
+      "mode": "admin",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 15
+  },
+  {
+    "fields": {
       "description": "Baugesuch",
       "form_state": 1,
       "name": "baugesuch-reklamegesuch"
