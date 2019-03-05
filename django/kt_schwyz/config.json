@@ -1113,6 +1113,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "integritydashboard",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10001
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": 13
@@ -1554,6 +1563,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "formwizard"
+  },
+  {
+    "fields": {
+      "controller_name": "integritydashboard",
+      "description": "IntegrityDashboard module",
+      "module_name": "integritydashboard"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "integritydashboard"
   },
   {
     "fields": {
