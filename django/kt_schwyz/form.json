@@ -5425,7 +5425,7 @@
     "tb-datum": {
       "label": "Datum der Baubewilligung:",
       "hint": "**Platzhalter**: *tb-datum*",
-      "type": "text",
+      "type": "date",
       "required": true,
       "config": {}
     },
