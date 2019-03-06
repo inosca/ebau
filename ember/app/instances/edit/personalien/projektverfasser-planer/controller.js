@@ -15,8 +15,13 @@ export default Controller.extend({
         "projektverfasser-planer",
         this.get("model.instance.id")
       );
-      question.set("model.value", this.bauherrschaftValue);
-      question.set("value", this.bauherrschaftValue);
+      question.set(
+        "model.value",
+        question
+          .get("model.value")
+          .pushObjects(this.bauherrschaftValue)
+          .uniqBy("uuid")
+      );
       await this.get("questionStore.saveQuestion").perform(question);
     }
   }
