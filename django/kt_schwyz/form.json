@@ -1127,14 +1127,14 @@
     },
     "bezeichnung": {
       "label": "Bezeichnung Ihres Vorhabens:",
-      "hint": "**Platzhalter**: *bezeichnung*",
+      "hint": "Die Bezeichnung Ihres Vorhabens sollte kurz und trotzdem aussagekräftig sein.",
       "type": "text",
       "required": true,
       "config": {}
     },
     "kategorie-des-vorhabens": {
       "label": "Handelt es sich beim Vorhaben um eine Baute oder / und Anlage?",
-      "hint": "**Platzhalter**: *kategorie-des-vorhabens*",
+      "hint": "Baute(n): Gebäude sind ortsfeste Bauten, die zum Schutz von Menschen, Tieren oder Sachen eine feste Überdachung und in der Regel weitere Abschlüsse aufweisen. Anlage(n): Anlagen wie offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen usw. keine Gebäude.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -1228,7 +1228,7 @@
     },
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
-      "hint": "**Platzhalter**: *art-der-anlage*",
+      "hint": "Befestigte Fläche: Ver-/Entsorungsleitung: Werkleitungen, Kanalisation. Reklame: Terrainveränderung: Abtrag oder Aufschüttung von Erdreich. Wärmepumpe: Überbegriff für Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur (in der Regel ist das die Umgebung) aufnimmt und – zusammen mit der Antriebsenergie – als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur (Raumheizung) überträgt. Unterteilung siehe ID 47-50. Sondierbohrung: Probebohrung (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe (ID 49). Solaranlage: Technische Anlage zur Umwandlung von Sonnenenergie in eine andere Energieform. Abfallanlage, Deponie: Stationäre Anlage in der Abfälle gemäss Abfallverordnung behandelt werden. Antennen: Stationäre Anlage die ein Signal empfangen oder senden kann. ",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -1257,7 +1257,7 @@
     },
     "art-der-befestigten-flache": {
       "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
-      "hint": "**Platzhalter**: *art-der-befestigten-flache*",
+      "hint": "Verkehrsfläche: Verkehrsflächen sind zweckgebundene Landflächen für den fließenden und ruhenden Verkehr (z.B. Wege, Strassen, Plätze, etc.). Lagerplatz: Fläche zur Lagerung von Gegenständen. Vorplatz: freier Platz vor einem Gebäude. Terrasse, Sitzplatz: Eine Terrasse ist eine überdachte oder nicht überdachte grössere Fläche (Plattform) an einem Haus, die für den Aufenthalt im Freien vorgesehen ist.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Befestigte Fläche' in 'art-der-anlage'|value",
@@ -1281,7 +1281,7 @@
     },
     "zweck-der-leitungen": {
       "label": "Welchem Zweck dienen die Leitungen?",
-      "hint": "**Platzhalter**: *zweck-der-leitungen*",
+      "hint": "Leitungen können dem Transport verschiedener Medien dienen. Die häufigsten Arten stehen direkt zur Auswahl, wobei unter Abwasserentsorgung Schmutz-, Misch- und Regenabwasser zu verstehen ist und unter Energieversorgung Elektrizität. Lässt sich Ihr Vorhaben keinem der konkreten Leitungszwecke zuordnen, wählen Sie den untersten Auswahlpunkt.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value",
@@ -1297,7 +1297,7 @@
     },
     "zweck-der-leitungen-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *zweck-der-leitungen-andere*",
+      "hint": "Abwasserentsorgung: Leitungen, um das durch häuslichen, gewerblichen, landwirtschaftlichen oder sonstigen Gebrauch in seinen Eigenschaften veränderte Wasser (Schmutzwasser) und das von Niederschlägen aus dem Bereich von bebauten oder befestigten Flächen abfließende und zum Fortleiten gesammelte Wasser (Niederschlagswasser) sowie das sonstige zusammen mit Schmutzwasser oder Niederschlagswasser in Abwasseranlagen abfließende Wasser. Wasserversorgung: Mit der Wasserversorgung ist die Erschließung und Bereitstellung von Trinkwasser und Betriebswasser gemeint bzw. die Gesellschaft, welche diese Aufgaben übernimmt. Energieversorgung: Mit Energieversorgung wird die Belieferung von Verbrauchern mit Nutzenergie bezeichnet bzw. die Gesellschaft, welche diese Aufgabe übernimmt. Dateneversorgung: ",
       "type": "text",
       "required": true,
       "active-expression": "'Andere' in 'zweck-der-leitungen'|value",
@@ -1305,7 +1305,7 @@
     },
     "art-der-warmepumpe": {
       "label": "Welche Art Wärmepumpe ist vorgesehen?",
-      "hint": "**Platzhalter**: *art-der-warmepumpe*",
+      "hint": "Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.) : Betrieb eines Wärmepumpensystems durch das Entziehen von Wärme aus dem Erdreich mittels Erdsonden.\nLuft / Wasser-Wärmepumpe: Betrieb eines Wärmepumpensystem durch das Entziehen von Wärme aus der Umgebungsluft. \nWasser / Wasser-Wärmepumpe (z.B. Seewasser- oder Bachwassernutzung) : Betrieb eines Wärmepumpensystem durch das Entziehen von Wärme aus Grund- oder Oberflächenwasser. ",
       "type": "radio",
       "required": true,
       "active-expression": "'Wärmepumpe' in 'art-der-anlage'|value",
@@ -1320,7 +1320,7 @@
     },
     "tangiert-vorhaben-strasse": {
       "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
-      "hint": "**Platzhalter**: *tangiert-vorhaben-strasse*",
+      "hint": "Für Bauvorhaben, welche nicht direkt an einer Hauptstrasse liegen aber auf der Erschliessungsstrasse im Bereich der Einmündung in die Hauptstrasse einen erheblichen Mehrverkehr erzeugen, muss eine Einfahrtsbewilligung beantragt werden.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1333,7 +1333,7 @@
     },
     "pfahlfundation-vorgesehen": {
       "label": "Ist eine Pfahlfundation vorgesehen?",
-      "hint": "**Platzhalter**: *pfahlfundation-vorgesehen*",
+      "hint": "wird die Fundation auf Pfählen gegründet.",
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
@@ -1346,7 +1346,7 @@
     },
     "baugrubenumschliessung-vorgesehen": {
       "label": "Ist eine Baugrubenumschliessung vorgesehen?",
-      "hint": "**Platzhalter**: *baugrubenumschliessung-vorgesehen*",
+      "hint": "z.B. Spundwände, Bohrpfahlwand usw.",
       "type": "radio",
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
@@ -1372,7 +1372,7 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
       "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Schadstoffemissionen?",
-      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen*",
+      "hint": "Feuerungen aller Art (Gas, Öl, Holz); Stationäre Anlagen (Bauten, ortsfeste Einrichtungen, Geräte und Maschinen) von Industrie und Gewerbe, welche Luftverunreinigungen, z. B. Staub, Rauch, Russ, Gase, Aerosole, Dämpfe und Gerüche verursachen. Gewerbe-/Industriebetriebe, die möglicherweise Luftschadstoffe freisetzen: Metallverarbeitung, Oberflächenbehandlung und Galvanik, Möbelfabrik, Holzver- und bearbeitung, Offsetdruck, Lackproduktion, Parfümherstellung, Folienveredelung, Autogewerbe, Tankstelle, Malerbetriebe, Bootsbau und –reparatur, Textil- und Lederreinigungen (Aufzählung nicht abschliessend).",
       "type": "radio",
       "required": true,
       "config": {
@@ -1384,7 +1384,7 @@
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-schadstoffemissionen-welche*",
+      "hint": "Kataster von Sendeantennen, Trafostationen, Hochspannungsleitungen ist im WebGIS ersichtlich.",
       "type": "textarea",
       "required": true,
       "active-expression": "'anlagen-mit-erheblichen-schadstoffemissionen'|value == 'Ja'",
@@ -1407,7 +1407,7 @@
     },
     "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen-welche*",
+      "hint": "Kataster von Sendeantennen, Trafostationen, Hochspannungsleitungen ist im WebGIS ersichtlich.",
       "type": "text",
       "required": true,
       "active-expression": "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
@@ -1415,7 +1415,7 @@
     },
     "anlagen-mit-erheblichen-larmemissionen": {
       "label": "Beinhaltet Ihr Vorhaben den Bau oder die Änderung von Anlagen mit erheblichen Lärm-Emissionen (z. B. Verkehr, Lüftungen, Maschinen)?",
-      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-larmemissionen*",
+      "hint": "Anlagen mit erheblichen Lärmemissionen können z.B. Parkierunganlagen > 30 Parkplätzen, Luft-Wasser-Wärmepumpen, Industrie- und Gewerbebetriebe usw. sein.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1427,7 +1427,7 @@
     },
     "larmbelastetes-gebiet": {
       "label": "Befindet sich die geplante Baute/Anlage im Bereich eines Lärmbelastungskatasters resp. in einem lärmbelasteten Gebiet?",
-      "hint": "**Platzhalter**: *larmbelastetes-gebiet*",
+      "hint": "Grundstück in unmittelbarer Nähe zu einer Lärmquelle, häufig in der 1. Bautiefe ab z.B. Strasse, Bahnlinie, Schiessanlage, Flugfeld, Industrie- oder Gewerbebertrieb, usw. Weitere Informationen sind möglicherweise aus Lärmbelastungskataster zu entnehmen.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1439,7 +1439,7 @@
     },
     "aussenbeleuchtung": {
       "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
-      "hint": "**Platzhalter**: *aussenbeleuchtung*",
+      "hint": "Beleuchtungsanlagen, die unter freiem Himmel oder im Aussenbereich betrieben werden, gehören zur Aussenbeleuchtung",
       "type": "radio",
       "required": true,
       "config": {
@@ -1464,7 +1464,7 @@
     },
     "brandschutztechnisch-gefahrliche-stoffe": {
       "label": "Werden brandschutztechnisch gefährliche Stoffe gelagert?",
-      "hint": "**Platzhalter**: *brandschutztechnisch-gefahrliche-stoffe*",
+      "hint": "Als gefährliche Stoffe im Sinne des Brandschutzes gelten Stoffe und Zubereitungen, die einen Brand verursachen können oder solche, die im Brand- oder Explosionsfall eine besondere Gefahr für Mensch, Tier und Umwelt darstellen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
@@ -1477,7 +1477,7 @@
     },
     "bodenbelastungen": {
       "label": "Sind Bodenbelastungen gemäss „Wegleitung Bodenaushub“ (BAFU 2001) zu erwarten?",
-      "hint": "**Platzhalter**: *bodenbelastungen*",
+      "hint": "Bodenaushub z.B. im Nahbereich von Strassen, Eisenbahnlinien, Fabriken der Metallbranche ist mehr oder weniger mit schadstoffbelastet. Solcher Boden darf nicht unkontrolliert verschoben werden.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1489,7 +1489,7 @@
     },
     "boden-5000m2": {
       "label": "Sind mit dem Vorhaben 5‘000m² Boden (oder mehr) betroffen?",
-      "hint": "**Platzhalter**: *boden-5000m2*",
+      "hint": "Bei grösseren Vorhaben ist eine bodenkundliche Baubegleitung (BBB) einzusetzen. Eine Liste der BBB befindet sich unter: www.soil.ch > Bodenkundliche Baubegleitung. ",
       "type": "radio",
       "required": true,
       "config": {
@@ -1513,7 +1513,7 @@
     },
     "auswirkungen-auf-arbeitnehmer": {
       "label": "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
-      "hint": "**Platzhalter**: *auswirkungen-auf-arbeitnehmer*",
+      "hint": "Umsetzung baulicher Massnahmen oder Einsatz von Persönlicher Schutzausrüstung (PSA)",
       "type": "radio",
       "required": true,
       "config": {
@@ -1525,7 +1525,7 @@
     },
     "200m3-bauabfalle": {
       "label": "Fallen mehr als 200 m³ Bauabfälle/Bauschutt an und/oder wurde das Bauobjekt vor 1990 erstellt?",
-      "hint": "**Platzhalter**: *200m3-bauabfalle*",
+      "hint": "Die Baubewilligungsbehörde benötigt für die Beurteilung weitere Angaben, wenn mehr als 200 m3 Bauabfälle (grösser Einfamilienhaus) und / oder Schadstoffe zu erwarten (Baujahr vor 1990).",
       "type": "radio",
       "required": true,
       "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
@@ -1538,7 +1538,7 @@
     },
     "alarmierungseinrichtung-tangiert": {
       "label": "Wird eine bestehende Alarmierungseinrichtung durch das Vorhaben tangiert?",
-      "hint": "**Platzhalter**: *alarmierungseinrichtung-tangiert*",
+      "hint": "Alarmierungseinrichtungen dienen zur Warnung der Bevölkerung. Es sind festmontierte Sirenen (Zivilschutz) auf dem Gebäude.",
       "type": "radio",
       "active-expression": "true == false",
       "required": true,
@@ -1641,14 +1641,14 @@
     },
     "geometer-name": {
       "label": "Name des zuständigen Geometers:",
-      "hint": "**Platzhalter**: *geometer-name*",
+      "hint": "Die verschiedenen Geometerbüros haben teilweise mehrere Filialen mit eigenen Geometern. Geben Sie bitte den Namen des zuständigen Geometers des ausgewählten Vermessungsbüros an, falls Ihnen der Name bekannt ist. ",
       "type": "text",
       "required": false,
       "config": {}
     },
     "baugespann-errichtet": {
       "label": "Wird ein Baugespann errichtet?",
-      "hint": "**Platzhalter**: *baugespann-errichtet*",
+      "hint": "§ 78 des Planungs- und Baugesetzes gibt Auskunft über das Baugespann. ",
       "type": "radio",
       "required": true,
       "config": {
@@ -1705,7 +1705,7 @@
     },
     "ausnahmen": {
       "label": "Folgende Ausnahmen werden beansprucht:",
-      "hint": "**Platzhalter**: *ausnahmen*",
+      "hint": "Unterschreitung Grenzabstand: Begründung umUnterschreitung vom Grenzabstand. Unterschreitung Gebäudeabstand: Begründung um Unterschreitung vom Gebäudeabstand. Unterschreitung Gewässerabstand: Begründung umUnterschreitung vom Gewässerabstand. Unterschreitung Gewässerraum: Begründung um Unterschreitung vom Gewässerraum. Waldabstand: Begründung um Unterschreitung vom Waldabstand. Strassenabstand: Begründung um Unterschreitung vom Strassenabstand. Strassenbaulinie: Begründung um Unterschreitung vom der Strassenbaulinie.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
@@ -2019,7 +2019,7 @@
     },
     "konzessionsnehmer": {
       "label": "Konzessionsnehmer:",
-      "hint": "**Platzhalter**: *konzessionsnehmer*",
+      "hint": "Kein Eintrag",
       "type": "table",
       "required": true,
       "config": {
@@ -2159,7 +2159,7 @@
     },
     "landwirtschaft-betriebs-nr": {
       "label": "Wie lautet Ihre kantonale Betriebs-Nr.?",
-      "hint": "**Platzhalter**: *landwirtschaft-betriebs-nr*",
+      "hint": "Die bei der Betriebsregistrierung vom kantonalen Amt für Landwirtschaft vergebene Betriebsnummer. (Eingabeformat: xxxx.xx.xxx)",
       "type": "text",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2167,7 +2167,7 @@
     },
     "landwirtschaft-sak-wert": {
       "label": "Welchen SAK-Wert (gemäss Direktzahlungen) weist Ihr Betrieb auf?",
-      "hint": "**Platzhalter**: *landwirtschaft-sak-wert*",
+      "hint": "Die Standardarbeitskraft (SAK) ist eine Einheit zur standardisierten Bemessung der Betriebsgrösse auf der Basis der Betriebsdaten. Die zur Berechnung verwendeten Faktoren basieren auf arbeitswirtschaftlichen Grundlagen. Der SAK-Wert kann auf der letzten Direktzahlungsabrechnung entnommen werden.",
       "type": "number",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2177,7 +2177,7 @@
     },
     "landwirtschaft-einstufung": {
       "label": "Wie ist Ihr Betrieb einzustufen",
-      "hint": "**Platzhalter**: *landwirtschaft-einstufung*",
+      "hint": "Haupterwerbsbetrieb: Landwirtschaftsbetrieb, dessen Bewirtschafter überwiegend im Betrieb tätig ist, bzw. dessen Erwerbseinkommen überwiegend aus dem landwirtschaftlichen Betrieb stammt.\nNebenerwerbsbetrieb: Landwirtschaftsbetrieb, dessen Bewirtschafter einen grossen Teil seines Erwerbseinkommens ausserhalb des Landwirtschaftsbetriebes erzielt (> 0.2 SAK).\nFreizeitlandwirtschaft: Landwirtschaftsbetrieb der vom Bewirtschafter in der Freizeit neben einer vollen ausserbetrieblichen Beschäftigung betrieben wird, mit unbedeutendem landwirtschaftlichen Einkommen, bzw. Landwirtschaftsbetrieb welcher aufgrund der Betriebsgrösse nicht Direktzahlungsberechtigt ist (< 0.2 SAK).",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2191,7 +2191,7 @@
     },
     "landwirtschaft-nutzflache": {
       "label": "Landwirtschaftliche Nutzfläche (LN) gemäss aktuellen oder künftigen Betriebsverhältnissen in Aren:",
-      "hint": "**Platzhalter**: *landwirtschaft-nutzflache*",
+      "hint": "Als landwirtschaftliche Nutzfläche (LN) gilt die einem Betrieb zugeordnete, für den Pflanzenbau genutzte Fläche ohne die Sömmerungsfläche, die dem Bewirtschafter oder der Bewirtschafterin ganzjährig zur Verfügung steht und die ausschliesslich vom Betrieb aus bewirtschaftet wird (oder in naher Zukunft bewirtschaftet wird und mittels Pachtvertrag gesichert ist).",
       "type": "number",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2201,7 +2201,7 @@
     },
     "landwirtschaft-bereiche": {
       "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben?",
-      "hint": "**Platzhalter**: *landwirtschaft-bereiche*",
+      "hint": "Wohnbauten: Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\nStallgebäude: Bauten oder Bauteile, welche der Nutztierhaltung dienen.\nÜbrige Ökonomiegebäude: Remisen, Lagergebäude ohne Tierhaltung.\nHofdüngerlager: Jauchegruben, Mistplatten, usw.\n\nNur wenn das zusätzliche Feld \"Anlagen\" eingefügt wir:\nAnlagen: Futtersilo, Einzäunungen, Hagelschutznetze, Aussenausläufe, Terrainveränderungen, Güter-/Bewirtschaftungswege usw.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2216,7 +2216,7 @@
     },
     "landwirtschaft-gebietskategorie": {
       "label": "Welcher Gebietskategorie ist Ihr Betrieb zugeordnet",
-      "hint": "**Platzhalter**: *landwirtschaft-gebietskategorie*",
+      "hint": "Talgebiet: Das Talgebiet umfasst die Hügelzone und die Talzone. Berggebiet: Das Berggebiet umfasst die Bergzone I bis IV.",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche'|value",
@@ -2229,7 +2229,7 @@
     },
     "landwirtschaft-wohnbauten": {
       "label": "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
-      "hint": "**Platzhalter**: *landwirtschaft-wohnbauten*",
+      "hint": "In der unten stehenden Auflistung sind sämtliche zum Landwirtschaftsbetrieb gehörenden Wohnbauten aufzulisten.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1))",
@@ -2320,7 +2320,7 @@
     },
     "landwirtschaft-stallgebaude": {
       "label": "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
-      "hint": "**Platzhalter**: *landwirtschaft-stallgebaude*",
+      "hint": "In der unten stehenden Auflistung sind sämtliche für die Tierhaltung genutzten, eigenen und gepachteten Stallgebäude aufzuführen. Mit der Bauasführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
@@ -2363,7 +2363,7 @@
     },
     "landwirtschaft-veranderung-tierbestand": {
       "label": "Führt das Vorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
-      "hint": "**Platzhalter**: *landwirtschaft-veranderung-tierbestand*",
+      "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft in der Tabelle \"XY\" auszufüllen und bei den Gesuchsunterlagen anzufügen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
@@ -2376,7 +2376,7 @@
     },
     "landwirtschaft-okonomiebauten": {
       "label": "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
-      "hint": "**Platzhalter**: *landwirtschaft-okonomiebauten*",
+      "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Remisen- und Lagergebäude  aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche'|value",
@@ -2437,7 +2437,7 @@
     },
     "landwirtschaft-gullenlager": {
       "label": "Geben Sie die nötigen Informationen zum Güllenlager an:",
-      "hint": "**Platzhalter**: *landwirtschaft-gullenlager*",
+      "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Güllenlager aufzulisten. ",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
@@ -2494,7 +2494,7 @@
     },
     "landwirtschaft-mistplatte": {
       "label": "Geben Sie die nötigen Informationen zur Mistplatte an",
-      "hint": "**Platzhalter**: *landwirtschaft-mistplatte*",
+      "hint": "In der unten stehenden Auflistung sind sämtliche, eigenen und gepachteten Mistplatten aufzulisten. ",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
@@ -2521,7 +2521,7 @@
     },
     "nlbuaab-bauten": {
       "label": "Bitte geben Sie die nötigen Informationen zu den bestehenden Bauten an:",
-      "hint": "**Platzhalter**: *nlbuaab-bauten*",
+      "hint": "Gebäude sind ortsfeste Bauten, die zum Schutz von Menschen, Tieren oder Sachen eine feste Überdachung und in der Regel weitere Abschlüsse aufweisen.",
       "type": "table",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2557,7 +2557,7 @@
     },
     "nlbuaab-anlagen": {
       "label": "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
-      "hint": "**Platzhalter**: *nlbuaab-anlagen*",
+      "hint": "Anlagen wie offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen usw. keine Gebäude.",
       "type": "table",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2597,7 +2597,7 @@
     },
     "nlbuaab-erweiterungen-wann-welche": {
       "label": "Wann wurden welche Änderungen vorgenommen?",
-      "hint": "**Platzhalter**: *nlbuaab-erweiterungen-wann-welche*",
+      "hint": "Diese Infobox wurde bisher nicht gefunden.",
       "type": "text",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
@@ -2785,7 +2785,7 @@
     },
     "umweltschutz-abfallbehandlungsanlage": {
       "label": "Handelt es sich bei Teilen des Projektes um eine Abfallbehandlungsanlage?",
-      "hint": "**Platzhalter**: *umweltschutz-abfallbehandlungsanlage*",
+      "hint": "Der Betrieb einer Abfallbehandlungsanlage benötigt eine Bewilligung vom Amt für Umweltschutz. Dazu sind weitere Angaben notwendig.",
       "type": "radio",
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
@@ -2810,7 +2810,7 @@
     },
     "wald-forstlich": {
       "label": "Handelt es sich um ein forstliches Vorhaben?",
-      "hint": "**Platzhalter**: *wald-forstlich*",
+      "hint": "Als forstlich werden solche Vorhaben bezeichnet, die der Bewirtschaftung des Waldes dienen. Typische Beispiele sind Forstwerkhöfe, Waldstrassen sowie gedeckte Energieholzlager. Forstliche Vorhaben dürfen im Wald als zonenkonform bewilligt werden, sofern sie die Voraussetzungen gemäss Art. 13a der Waldverordnung (WaV, SR 921.01) erfüllen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
@@ -2823,7 +2823,7 @@
     },
     "wald-auswirkungen": {
       "label": "Kann Ihr Vorhaben aufgrund der beanspruchten Fläche und seiner Auswirkungen als nichtforstliche Kleinbaute oder -anlage beurteilt werden?",
-      "hint": "**Platzhalter**: *wald-auswirkungen*",
+      "hint": "Nichtforstliche Kleinbauten und Kleinanlagen sind Vorhaben im Waldareal die sich aufgrund ihrer Art und Grösse ins Bestandesgefüge einfügen und die keine Rodungsbewilligung benötigen. Klassische nichtforstliche Kleinbauten und Anlagen sind z.B. bescheidene Rastplätze, Sport- und Lehrpfade, erdverlegte Leitungen oder Kleinantennenanlagen.\n\nDie Erstellung erfordert eine Ausnahmebewilligung nach Art. 24 RPG die nur im Einvernehmen mit dem Amt für Wald und Naturgefahren erteilt werden darf. Die Definition sowie der Umgang mit nichtforstlichen Kleinbauten und –anlagen im Wald sind in den Weisungen des Amts für Wald und Naturgefahren festgehalten.",
       "type": "radio",
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
@@ -2848,7 +2848,7 @@
     },
     "verkehr-strasse": {
       "label": "Erfassen Sie die direkt betroffenen Strassen:",
-      "hint": "**Platzhalter**: *verkehr-strasse*",
+      "hint": "Listen Sie die Namen der Strassen auf, über welche die zu bebauende Parzelle erschlossen ist und/oder zu welchen der Strassenabstand unterschritten werden soll.",
       "type": "table",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt'",
@@ -2881,7 +2881,7 @@
     },
     "verkehr-einfahrt": {
       "label": "Bitte geben Sie Informationen zur Einfahrt:",
-      "hint": "**Platzhalter**: *verkehr-einfahrt*",
+      "hint": "Ist die Einfahrt bereits bestehend, wird sie umgebaut oder neu erstellt?",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
@@ -2895,7 +2895,7 @@
     },
     "verkehr-parkplatze": {
       "label": "Wie viele Parkplätze sind insgesamt vorgesehen?",
-      "hint": "**Platzhalter**: *verkehr-parkplatze*",
+      "hint": "Parkplätze müssen so angeordnet werden, dass die Fahrzeuge stets vorwärts in die Kantonsstrasse ein- und ausfahren können.",
       "type": "number",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && (('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt']) || 'Bezirksstrasse' in 'verkehr-strasse'|value|mapby('typ') || 'Gemeindestrasse' in 'verkehr-strasse'|value|mapby('typ'))",
@@ -2905,7 +2905,7 @@
     },
     "verkehr-mehrverkehr": {
       "label": "Ergibt sich bei der bestehenden Zufahrt in die Kantonsstrasse erheblicher Mehrverkehr",
-      "hint": "**Platzhalter**: *verkehr-mehrverkehr*",
+      "hint": "Ein Indiz für erheblichen Mehrverkehr ist, wenn sich die Anzahl der erschlossenen Parkplätze um 25% erhöht.",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
@@ -2918,7 +2918,7 @@
     },
     "verkehr-strasse-indirekt": {
       "label": "Erfassen Sie die indirekt betroffenen Strassen:",
-      "hint": "**Platzhalter**: *verkehr-strasse-indirekt*",
+      "hint": "Eine Strasse ist von einem Bauvorhaben indirekt betroffen, wenn darauf ein erheblicher Mehrverkehr bei der Einmündung in die Hauptstrasse (+25%) zu erwarten ist. ",
       "type": "table",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt'",
@@ -2951,7 +2951,7 @@
     },
     "verkehr-ursache-unterschreitung": {
       "label": "Es wird um eine Ausnahmebewilligung zur Unterschreitung des Strassenabstandes ersucht. Bitte geben Sie an, durch was die Unterschreitung verursacht wird:",
-      "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung*",
+      "hint": "Ausnahmebewilligungen für die Unterschreitung des Strassenabstandes können nur in begründeten Ausnahmefällen erteilt werden. Wirtschaftliche Gründe können nicht anerkannt werden.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Unterschreitung Stassenabstand oder Verletzung Strassenbaulinie' in 'ausnahmen'|value",
@@ -2966,7 +2966,7 @@
     },
     "verkehr-ursache-unterschreitung-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *verkehr-ursache-unterschreitung-andere*",
+      "hint": "Bitte begründen Sie, weshalb eine Unterschreitung des Strassenabstandes beantragen. Wirtschaftliche Gründe werden nicht akzeptiert.",
       "type": "text",
       "required": true,
       "active-expression": "'Andere' in 'verkehr-ursache-unterschreitung'|value",
@@ -2974,7 +2974,7 @@
     },
     "verkehr-grenzt-an-strasse": {
       "label": "Grenzt das Grundstück, auf dem das Vorhaben geplant ist, direkt an die Strasse?",
-      "hint": "**Platzhalter**: *verkehr-grenzt-an-strasse*",
+      "hint": "Das Tiefbauamt prüft alle Baugesuche auf Parzellen, welche direkt an die Kantonsstrasse grenzen.",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
@@ -2987,7 +2987,7 @@
     },
     "verkehr-neugestaltung-trottoir": {
       "label": "Ist eine Neugestaltung der Umgebung entlang Trottoir / Strasse vorgesehen",
-      "hint": "**Platzhalter**: *verkehr-neugestaltung-trottoir*",
+      "hint": "Falls die Umgebungsgestaltung Anlagen der Kantonsstrassen tangiert (z.B. Trottoir, Kandellaber), empfehlen wir, vorgängig mit dem Tiefbauamt Kontakt aufzunehmen. Sämtliche Kosten für projektbedingte Anpassungen an der Infrastruktur der Kantonsstrasse sind vom Verursacher zu tragen.",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
@@ -3000,7 +3000,7 @@
     },
     "verkehr-einschrankungen-trottoir": {
       "label": "Ergeben sich Einschränkungen der Sichtverhältnisse auf Trottoir und / oder Radweg und / oder Strasse?",
-      "hint": "**Platzhalter**: *verkehr-einschrankungen-trottoir*",
+      "hint": "Einfahrtsbewilligungen können in der Regel nur erteilt werden, wenn die Sichtfelder auf alle Verkehrsteilnehmer dauerhaft sichergestellt sind (vgl. Ziff. Merkblatt). In den Sichtfeldern dürfen Mauern, Sträucher etc. maximal eine Höhe von 60cm erreichen.",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
@@ -3013,7 +3013,7 @@
     },
     "verkehr-baugrube-tangieren": {
       "label": "Kann die Baugrube Anlagen der Strasse gefährden / tangieren?",
-      "hint": "**Platzhalter**: *verkehr-baugrube-tangieren*",
+      "hint": "Diese Frage ist mit \"Ja\" zu beantworten, wenn innerhalb des Strassenabstands eine Baugrube erstellt werden soll oder eine Böschungskante liegt, deren Neigung steiler als 1:1 ist. ",
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
@@ -3050,7 +3050,7 @@
     },
     "energie-art": {
       "label": "Um welche Art Solaranlage handelt es sich?",
-      "hint": "**Platzhalter**: *energie-art*",
+      "hint": "Technische Anlage zur Umwandlung von Sonnenenergie in eine andere Energieform",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -3102,7 +3102,7 @@
     },
     "energie-reflexionsarm": {
       "label": "Ist die Solaranlage nach dem Stand der Technik reflexionsarm vorgesehen?",
-      "hint": "**Platzhalter**: *energie-reflexionsarm*",
+      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
       "type": "radio",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -3115,7 +3115,7 @@
     },
     "energie-kompakt": {
       "label": "Ist die Solaranlage als kompakte und zusammenhängende Fläche angeordnet?",
-      "hint": "**Platzhalter**: *energie-kompakt*",
+      "hint": "keine Erklärung vom AMFZ notwendig, da kein Brandschutzthema",
       "type": "radio",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -3164,7 +3164,7 @@
     },
     "energie-photovoltaik-technologie": {
       "label": "Welche Technologie ist vorgesehen?",
-      "hint": "**Platzhalter**: *energie-photovoltaik-technologie*",
+      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
       "type": "radio",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3177,7 +3177,7 @@
     },
     "energie-photovoltaik-gesamtleistung": {
       "label": "Gesamtleistung in kWpeak:",
-      "hint": "**Platzhalter**: *energie-photovoltaik-gesamtleistung*",
+      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
       "type": "number",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3207,7 +3207,7 @@
     },
     "energie-inbetriebnahme": {
       "label": "Voraussichtliche Inbetriebnahme:",
-      "hint": "**Platzhalter**: *energie-inbetriebnahme*",
+      "hint": "Wirklich AFU?",
       "type": "text",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -3227,7 +3227,7 @@
     },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-planbesprechung*",
+      "hint": "Kontakt: \nGewerbe & Dienstleistung Region Einsiedeln & Ausserschwyz, Erich Steinauer, 041 819 16 31; \nGewerbe & Dienstleistung Region Innerschwyz, Stephan Schlegel, 041 819 16 33; \nIndustrielle Betriebe, Werner Scherrer, 041 819 16 30; \nE-Mail allgemein: arbeitsinspektorat@sz.ch ",
       "type": "radio",
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
@@ -3264,7 +3264,7 @@
     },
     "arbeitssicherheit-arbeitnehmer-raumen": {
       "label": "Wie viele Arbeitnehmer arbeiten in den projektierten Räumen?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-raumen*",
+      "hint": "Vollzeit- und Teilzeitarbeitnehmer",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
@@ -3274,7 +3274,7 @@
     },
     "arbeitssicherheit-arbeitnehmer-betrieb": {
       "label": "Wie viele Arbeitnehmer arbeiten im ganzen Betrieb nach Projektumsetzung?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitnehmer-betrieb*",
+      "hint": "Sämtliche Arbeitnehmer, inklusive die personellen Veränderungen, welche durch das Projekt ausgelöst werden.",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitnehmer' in 'arbeitssicherheit-tangiert'|value)",
@@ -3284,7 +3284,7 @@
     },
     "arbeitssicherheit-arbeitsraume-hohe": {
       "label": "Höhe in den Arbeitsräumen in m:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-hohe*",
+      "hint": "Die lichte Höhe der Arbeitsräume hat mindestens zu betragen:\n2,75 m bei einer Bodenfläche von höchstens 100 m²;\n3,00 m bei einer Bodenfläche von höchstens 250 m²;\n3,50 m bei einer Bodenfläche von höchstens 400 m²;\n4,00 m bei einer Bodenfläche von mehr als 400 m²",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3294,7 +3294,7 @@
     },
     "arbeitssicherheit-arbeitsraume-fensterflache": {
       "label": "Fensterfläche in den Arbeitsräumen in m²:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-fensterflache*",
+      "hint": "Die Fläche aller Fassadenfenster und Dachlichter muss bei Verwendung von normal durchsichtigem Glas ein Verhältnis zur Bodenfläche von mindestens 1 zu 8 haben.\nMindestens die Hälfte der oben vorgeschriebenen Fensterfläche muss in Form von durchsichtig verglasten Fassadenfenstern ausgeführt werden. Der Rest kann mittels Oblichtern realisiert werden.\nVon den Arbeitsplätzen aus ist der Blick ins Freie durch Fassadenfenster zu gewährleisten, soweit es Betriebseinrichtungen und Produktionstechnik gestatten.",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3304,7 +3304,7 @@
     },
     "arbeitssicherheit-arbeitsraume-bodenflache-fensterflache": {
       "label": "Verhältnis der Bodenfläche zu Fensterfläche in den Arbeitsräumen (pro Raum):",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-bodenflache-fensterflache*",
+      "hint": "Bsp: Im Plan Angabe pro Raum Bodenfläche 100 m2; Fensterfläche 20 m2 -> Verhältnis 5:1 i.O. (Verhältnis BF: FF < 8:1) ",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3314,7 +3314,7 @@
     },
     "arbeitssicherheit-arbeitsraume-brustungshohen": {
       "label": "Brüstungshöhen in den Arbeitsräumen in m:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-arbeitsraume-brustungshohen*",
+      "hint": "Die Höhe der Fensterbrüstung ist der Arbeitsweise anzupassen; sie soll nicht mehr als 1,2 m betragen.\nBei überwiegend stehender Arbeitsweise können ausnahmsweise auch maximal 1.50 m Brüstungshöhe zugelassen werden",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Arbeitsräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3324,7 +3324,7 @@
     },
     "arbeitssicherheit-ausgange-lage-treppenhause": {
       "label": "Lage der Treppenhäuser:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-lage-treppenhause*",
+      "hint": "Treppenanlagen müssen direkt ins Freie führende Ausgänge aufweisen.\nAls Fluchtwege müssen zur Verfügung stehen:\na. bei Geschossflächen von höchstens 900 m²: mindestens eine Treppenanlage oder ein direkt ins Freie führender Ausgang;\nb. bei Geschossflächen von mehr als 900 m²: mindestens zwei Treppenanlagen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3332,7 +3332,7 @@
     },
     "arbeitssicherheit-ausgange-laufbreite": {
       "label": "Laufbreite der Treppen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-laufbreite*",
+      "hint": "Hauptverkehrswege im Innern von Gebäuden müssen wenigstens 1,20 m breit sein.",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3342,7 +3342,7 @@
     },
     "arbeitssicherheit-ausgange-material": {
       "label": "Material der Treppen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-material*",
+      "hint": "Treppen sollen rutschhemmend ausgeführt sein und aus verschleissfestem Material bestehen (siehe Wegleitung zu Artikel 14 ArGV 3).",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3350,7 +3350,7 @@
     },
     "arbeitssicherheit-ausgange-fluchtwege": {
       "label": "Fluchtwege und Notausgänge:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-fluchtwege*",
+      "hint": "Türen in Fluchtwegen müssen jederzeit als solche erkannt, in Fluchtrichtung ohne Hilfsmittel rasch geöffnet und sicher benützt werden können.\nZahl, Breite, Gestaltung und Anordnung der Ausgänge müssen sich nach der Ausdehnung und dem Nutzungszweck der Gebäude oder Gebäudeteile, der Zahl der Geschosse, der Gefahr des Betriebes und der Zahl der Personen richten. Die lichte Breite einflügeliger Türen muss mindestens 0,90 m betragen. Bei zweiflügeligen Türen, die sich nur in eine Richtung öffnen lassen, muss ein Flügel eine lichte Breite von mindestens 0,90 m aufweisen. Bei zweiflügeligen Pendeltüren muss die lichte Breite jedes Flügels mindestens 0,65 m betragen.\nDie Breite von Türen, Treppen und Korridoren in Fluchtwegen darf weder durch Einbauten noch durch sonstige Einrichtungen unter die vorgeschriebenen Mindestmasse verkleinert werden.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3358,7 +3358,7 @@
     },
     "arbeitssicherheit-ausgange-arten": {
       "label": "Arten der Türen / Toren:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-arten*",
+      "hint": "Türen und Tore von Ausgängen, müssen stets ungehindert und gefahrlos begehbar sein. Sie gehören zu den Verkehrswegen, die bei Gefahr als Fluchtwege dienen. Ausgänge und Fluchtwege sind, wenn sie nicht ohne weiteres als solche erkennbar sind, zweckmässig zu kennzeichnen, vorzugsweise mit nachleuchtenden, international genormten Rettungszeichen (Piktogramme, weiss auf grünem Grund); Suva-Merkblatt 44007 \"Sicherheitskennzeichnung\".\nGlaseinsätze in Türen können die Unfallgefahr vermindern, indem sie die Übersicht über die Verkehrswege verbessern. Es sind jedoch Sicherheitsgläser zu verwenden. Je nach Anwendungsart (Grösse der Scheibe, mit oder ohne Rahmen, Absturzsicherung, Brandabschnittsbildung, mechanische Beanspruchung etc.) sind geeignete Scheiben einzusetzen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3366,7 +3366,7 @@
     },
     "arbeitssicherheit-ausgange-schliessystem": {
       "label": "Schliesssystem der Ausgänge:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-ausgange-schliessystem*",
+      "hint": "Notausgänge und Fluchtwege müssen stets ungehindert begehbar sein.\nIst ein Abschliessen dieser Ausgangstüren möglich, so muss die Notentriegelung ohne Schlüssel (z.B. Panikentriegelung, von innen mit einem Drücker zu öffnendes Schloss, usw.) möglich sein.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3374,7 +3374,7 @@
     },
     "arbeitssicherheit-luftung-art": {
       "label": "Art der Lüftung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-art*",
+      "hint": "Bei natürlicher Lüftung sind Fassadenfenster und Dachlichter sowohl für eine schwache Dauerlüftung als auch für eine rasche Durchlüftung einzurichten.\nBei künstlicher Lüftung sind Zufuhr und Abfuhr der Luft aufeinander abzustimmen und der Art der Arbeit sowie der Art des Betriebes anzupassen. Belästigende Zugerscheinungen sind zu vermeiden.\nWenn es mit Rücksicht auf die Gesundheit der Arbeitnehmer erforderlich ist, müssen Lüftungsanlagen mit einer Warneinrichtung versehen sein, die Störungen anzeigt.\nAblagerungen und Verunreinigungen, die zu einer Verschmutzung der Raumluft führen können, müssen beseitigt werden.\nLüftungskanäle müssen mit gut zugänglichen Kontroll- und Reinigungsöffnungen sowie allenfalls mit Spülwasseranschlüssen und -ableitungen ausgestattet sein.",
       "type": "radio",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3387,7 +3387,7 @@
     },
     "arbeitssicherheit-luftung-absaugungen": {
       "label": "Gibt es örtliche Absaugungen?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-absaugungen*",
+      "hint": "Luft, die durch Gerüche, Gase, Dämpfe, Nebel, Rauch, Staub, Späne und dergleichen in einer die Gesundheit beeinträchtigenden Weise verunreinigt wird, ist so nahe wie möglich an der Stelle, wo sie verunreinigt wird, wirksam abzusaugen. Nötigenfalls ist die Verunreinigungsquelle räumlich abzutrennen.\nSoweit erforderlich, ist die abgesaugte Luft durch Frischluft zu ersetzen; diese ist nötigenfalls ausreichend zu erwärmen und zu befeuchten.\nAbgesaugte Luft darf nur in die Räume zurückgeführt werden, wenn dadurch keine Gesundheitsbeeinträchtigung der Arbeitnehmer entsteht.",
       "type": "radio",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3400,7 +3400,7 @@
     },
     "arbeitssicherheit-luftung-verunreinigte-luft": {
       "label": "Gibt es verunreinigte Luft?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-luftung-verunreinigte-luft*",
+      "hint": "Hinweis zum Nichtraucherschutz am Arbeitsplatz \nDer Nichtraucherschutz am Arbeitsplatz ist auf Bundesebene grundsätzlich im Bundesgesetz und in der Verordnung zum Schutz vor Passivrauchengeregelt. Weitergehende Informationen sind auf der Internet-Seite des Bundesamtes für Gesundheit (BAG) enthalten.\n",
       "type": "radio",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3413,7 +3413,7 @@
     },
     "arbeitssicherheit-beleuchtung-raumbeleuchtung": {
       "label": "Raumbeleuchtung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-beleuchtung-raumbeleuchtung*",
+      "hint": "Räume, Arbeitsplätze und Verkehrswege innerhalb und ausserhalb der Gebäude müssen entsprechend ihrer Verwendung ausreichend natürlich oder künstlich beleuchtet sein.\nIn den Arbeitsräumen soll Tageslicht vorhanden sein sowie eine künstliche Beleuchtung, welche der Art und den Anforderungen der Arbeit angepasste Sehverhältnisse (Gleichmässigkeit, Blendung, Lichtfarbe, Farbspektrum) gewährleistet.\nRäume ohne natürliche Beleuchtung dürfen nur dann als Arbeitsräume benützt werden, wenn durch besondere bauliche oder organisatorische Massnahmen sichergestellt ist, dass den Anforderungen des Gesundheitsschutzes insgesamt Genüge getan ist.\n",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3421,7 +3421,7 @@
     },
     "arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung": {
       "label": "Not- und Markierungsbeleuchtung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-beleuchtung-not-und-markierungsbeleuchtung*",
+      "hint": "«Notbeleuchtung» ist ein Oberbegriff und umfasst die Sicherheits- und die Ersatzbeleuchtung. Das umfassende Ziel der Sicherheitsbeleuchtung ist es, beim Ausfall der allgemeinen Stromversorgung ein gefahrloses Verlassen eines Ortes zu ermöglichen. Das Einrichten von Notbeleuchtungen ist in der Verordnung über die Unfallverhütung (VUV, SR 832.30) geregelt.\nDie Funktionen einer Notbeleuchtungsanlage sind periodisch durch manuelle oder automatische Tests zu überprüfen. Die Ergebnisse sind zu protokollieren bzw. zu registrieren.\n",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Beleuchtung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3429,7 +3429,7 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-raumklima": {
       "label": "Raumklima:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-raumklima*",
+      "hint": "Durch natürliche oder künstliche Lüftung ist dafür zu sorgen, dass die Zusammensetzung der Raumluft der Gesundheit nicht abträglich ist und dass brand- und explosions-gefährliche Stoffe aus der Raumluft ferngehalten oder aus dieser abgesaugt werden. In Verbindung mit einer ausreichenden Heizung ist ein angemessenes Raumklima zu schaffen. Richtwerte für ein der Art der Arbeit angemessenes Raumklima gibt die SECO-Wegleitung zu Art. 16 ArGV 3.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3437,7 +3437,7 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen": {
       "label": "Erschütterungen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-erschütterungen*",
+      "hint": "Gebäude und Gebäudeteile müssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nArbeitsmittel müssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nArbeitsabläufe und Produktionsverfahren müssen so gestaltet und durchgeführt werden, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nZum Schutz der Arbeitnehmer sind insbesondere folgende Vorkehrungen zu treffen:\na. bauliche Massnahmen;\nb. Massnahmen an Betriebseinrichtungen;\nc. Isolation oder örtliche Abtrennung der Lärmquelle;\nd. Massnahmen der Arbeitsorganisation.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3445,7 +3445,7 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-larm": {
       "label": "Lärm:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-larm*",
+      "hint": "Gebäude und Gebäudeteile müssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nArbeitsmittel müssen so gestaltet sein, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nArbeitsabläufe und Produktionsverfahren müssen so gestaltet und durchgeführt werden, dass die Sicherheit und die Gesundheit der Arbeitnehmer nicht durch Lärm oder Vibrationen gefährdet werden.\nZum Schutz der Arbeitnehmer sind insbesondere folgende Vorkehrungen zu treffen:\na. bauliche Massnahmen;\nb. Massnahmen an Betriebseinrichtungen;\nc. Isolation oder örtliche Abtrennung der Lärmquelle;\nd. Massnahmen der Arbeitsorganisation.\nDetails zur Raumakustik für Planer / Architekten siehe SUVA Merkblatt 66008 \"Industrielle Raumakustik\".",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3453,7 +3453,7 @@
     },
     "arbeitssicherheit-innerbetriebliche-emissionen-nachweis": {
       "label": "Raumakustischer Nachweis:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-innerbetriebliche-emissionen-nachweis*",
+      "hint": "Für sämtliche Arbeitsräume mit Arbeitsplätzen sowie für Ess- und Aufenthaltsräume ist die Mindestanforderung an die Raumakustik zu erfüllen. Dabei muss die Bedingung einer der drei folgenden Richtwertvarianten erfüllt sein:\n- Schallabsorptionskoeffizient αs > 0,25\n- Nachhallzeit T in Funktion des Raumvolumens nach Tabelle 322-3 der SECO-Wegleitung zu Art. 22, ArGV3\n- Schalldruckpegelabnahme pro Distanzverdoppelung DL 2 ≥ 4 dB\nWeitere Info siehe www.suva.ch/laerm",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Innerbetriebliche Emissionen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3461,7 +3461,7 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-arbeitsmittel": {
       "label": "Arbeitsmittel:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-arbeitsmittel*",
+      "hint": "Arbeitsmittel sind Maschinen, Apparate, Werkzeuge und Anlagen, die bei der Arbeit benutzt werden.\nEs dürfen nur Arbeitsmittel eingesetzt werden, die bei ihrer bestimmungsgemässen Verwendung und bei Beachtung der gebotenen Sorgfalt die Sicherheit und die Gesundheit der Arbeitnehmer nicht gefährden.\nDie Anforderung gilt insbesondere als erfüllt, wenn der Arbeitgeber Arbeitsmittel einsetzt, welche die Bestimmungen der entsprechenden Erlasse für das Inverkehrbringen einhalten.\nAchten Sie bei der Beschaffung von Arbeitsmitteln auf die CE-Konformität und eine deutschsprachige Benutzeranleitung.\nDetails siehe SUVA Dokumentation 66084 „Arbeitsmittel Sicherheit beginnt beim Kauf“\n",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3469,7 +3469,7 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-produktionsanlagen": {
       "label": "Produktionsanlagen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-produktionsanlagen*",
+      "hint": "Sind die Produktionsanlagen konform? Es muss eine Konformitätserklärung über die gesamte Anlage beigebracht werden.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3477,7 +3477,7 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
       "label": "Aufstellungsplan:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-aufstellungsplan*",
+      "hint": "Aus den Plänen soll ersichtlich sein, wo sich ständige Arbeitsplätze befinden, dies im Hinblick auf die Beurteilung der Arbeitsplätze in Bezug auf: \n- Licht\n- Sicht ins Freie\n- räumliche Anordnung der Arbeitsplätze",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3485,7 +3485,7 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-ergonomie": {
       "label": "Büroarbeitsplätze (Ergonomie):",
-      "hint": "**Platzhalter**: *arbeitssicherheit-betriebseinrichtungen-ergonomie*",
+      "hint": "Hinweise für die Einrichtung von Büroarbeitsplätzen können Sie aus der EKAS Broschüre 6205 „Unfall - kein Zufall, Arbeitssicherheit und Gesundheitsschutz in Bürobetrieben“ entnehmen",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3493,7 +3493,7 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung": {
       "label": "Auflistung der Stoffe:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-auflistung*",
+      "hint": "Erstellen Sie eine Gefahrstoffliste, welche gesundheitsschädliche, ätzende, brand- oder explosionsgefährliche Eigenschaften aufweisen; machen Sie Mengenangaben",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
@@ -3501,7 +3501,7 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung": {
       "label": "Verwendung oder Verarbeitung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-verwendung*",
+      "hint": "Der Arbeitnehmer darf gefährlichen Substanzen (chemische Substanzen, Stäube, Gase, usw.), Lärm, Hitze, usw. nicht in einem Masse ausgesetzt sein, das den maximalen Arbeitsplatzkonzentrationswert (MAK-Wert) überschreitet. Siehe dazu Suva-Formular 1903. Wo diese Werte überschritten werden, sind die notwendigen Massnahmen in folgender Reihenfolge zu treffen: Substitution, technische Massnahmen, organisatorische Massnahmen, persönliche Schutzmassnahmen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
@@ -3509,7 +3509,7 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung": {
       "label": "Technische Überwachung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-uberwachung*",
+      "hint": "Werden Normen oder Konzepte angewendet, damit Prozesse mit gesundheitgefährenden Stoffen konform sind?",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
@@ -3517,7 +3517,7 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen": {
       "label": "Ex-Zonen / elektrische Überwachung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ex-zonen*",
+      "hint": "Details zum Thema Ex-Zonen können dem SUVA Merkblatt 2153 „Explosionsschutz. Grundsätze, Mindestvorschriften, Zonen“ entnommen werden.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
@@ -3525,7 +3525,7 @@
     },
     "arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung": {
       "label": "Ort, Menge, Lüftung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-gesundheitsschadliche-stoffe-ort-menge-luftung*",
+      "hint": "Die Lagerung von brennbaren Flüssigkeiten mit Flammpunkt unter 55 °C sowie der Umgang mit solchen Stoffen müssen den Bestimmungen der EKAS­Richtlinie 1825 „Brennbare Flüssigkeiten Lagern und Umgang“ entsprechen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Gesundheitsschädliche Stoffe' in 'arbeitssicherheit-tangiert'|value)",
@@ -3533,7 +3533,7 @@
     },
     "arbeitssicherheit-schweissanlagen-art": {
       "label": "Art:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-art*",
+      "hint": "Hinweise für den Betrieb von Anlagen für das Schweissen, Schneiden und verwandte Verfahren zum Bearbeiten metallischer Werkstoffe sind in der EKAS-Richtlinie 6509 „Schweissen, Schneiden und verwandte Verfahren zum Bearbeiten metallischer Werkstoffe“ enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3541,7 +3541,7 @@
     },
     "arbeitssicherheit-schweissanlagen-abschirmung": {
       "label": "Abschirmung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-abschirmung*",
+      "hint": "Schweissplätze von Elektroschweissern sind gegen den übrigen Arbeitsraum hin abzuschirmen. Die Abschirmungen sollen Blendungen verhindern und aus schwer entflammbarem Material bestehen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3549,7 +3549,7 @@
     },
     "arbeitssicherheit-schweissanlagen-absaugung": {
       "label": "Absaugung:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-schweissanlagen-absaugung*",
+      "hint": "Die auftretenden gesundheitsgefährdenden Gase und Rauch sind an der Entstehungsstelle abzusaugen und gefahrlos zu beseitigen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Schweissanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3557,7 +3557,7 @@
     },
     "arbeitssicherheit-forderanlagen-aufzuge": {
       "label": "Aufzüge:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-aufzuge*",
+      "hint": "Personen- und Lastenaufzüge sind nach den gesetzlichen Bestimmungen, insbesondere gemäss der Aufzugsverordnung zu erstellen.\nHinweise für die Konstruktion und den Einbau von Aufzügen sind in den Normen SN EN 81-20 und 81-50 \"Sicherheitsregeln für die Konstruktion und den Einbau von Aufzügen\".",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3565,7 +3565,7 @@
     },
     "arbeitssicherheit-forderanlagen-krane": {
       "label": "Kräne:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-krane*",
+      "hint": "Beim Bau von Krananlagen sind die in der Richtlinie 2006/42/EG \"Maschinen\" enthaltenen Grundsätze zu berücksichtigen. Weitere Hinweise zu den einzelnen Krananlagen sind in den jeweiligen Normen sowie in der Kranverordnung (SR 832.312.15) enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3573,7 +3573,7 @@
     },
     "arbeitssicherheit-forderanlagen-hebebuhnen": {
       "label": "Hebebühnen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-hebebuhnen*",
+      "hint": "Hinweise zu Hebebühnen sind in der Norm SN EN 1570-1 \"Sicherheitsanforderungen an Hubtische - Teil 1: Hubtische, die bis zu zwei feste Haltestellen anfahren\" und in der Suva-Checkliste 67067 enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3581,7 +3581,7 @@
     },
     "arbeitssicherheit-forderanlagen-anpassrampen": {
       "label": "Anpassrampen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-anpassrampen*",
+      "hint": "Hinweise zu Anpassrampen sind in der Norm SN EN 1398 \"Ladebrücken - Sicherheitsanforderungen\" und in der Suva-Checkliste  67066 enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3589,7 +3589,7 @@
     },
     "arbeitssicherheit-forderanlagen-fordereinrichtungen": {
       "label": "Fördereinrichtungen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-fordereinrichtungen*",
+      "hint": "Normen SN EN 619 \"Stetigförderer und Systeme - Sicherheits- und EMV-Anforderungen an mechanische Fördereinrichtungen für Stückgut\" und SN EN 620 \"Stetigförderer und Systeme - Sicherheits- und EMV-Anforderungen für ortsfeste Gurtförderer für Schüttgut\" sowie in den Suva-Checklisten  67022 und  67024 enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3597,7 +3597,7 @@
     },
     "arbeitssicherheit-forderanlagen-stapeleinrichtungen": {
       "label": "Stapeleinrichtungen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-forderanlagen-stapeleinrichtungen*",
+      "hint": "Lager- und Stapeleinrichtungen sind so zu gestalten, dass das Lagergut nicht umfallen, weggleiten oder abstürzen kann. Hinweise dazu sind in der Suva-Richtlinie 1791 „Richtlinien über Stapeln und Lagern“ enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Förderanlagen, Fördermittel' in 'arbeitssicherheit-tangiert'|value)",
@@ -3605,7 +3605,7 @@
     },
     "arbeitssicherheit-lager-gefrierraume": {
       "label": "Gefrierräume:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-lager-gefrierraume*",
+      "hint": "Beim Arbeiten in Kühlräumen und Gefrieranlagen verweisen wir auf die SECO-Wegleitung zu Art. 21 ArGV 3 (www.seco.admin.ch), insbesondere auch auf die seco Broschüre „Arbeiten bei Kälte“ und SUVA Merkblatt \"Schutz von Personen in Kühlräumen\" ",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3613,7 +3613,7 @@
     },
     "arbeitssicherheit-lager-silos": {
       "label": "Silos:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-lager-silos*",
+      "hint": "Hinweise zu Silos sind in der Suva-Richtlinie 1485 „Richtlinien über Silos“ enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3621,7 +3621,7 @@
     },
     "arbeitssicherheit-lager-lagersysteme": {
       "label": "Mechanische und automatische Lagersysteme:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-lager-lagersysteme*",
+      "hint": "Bei Schmalganglagern, d.h. bei Lagern bei denen der Abstand zwischen Transportmittel oder Transportgut und dem Regal weniger als 50 cm beträgt, muss das Anfahren von Personen in Gängen mit technischen Massnahmen verhindert werden.\nEin entsprechendes Sicherheitskonzept ist zu erstellen. Hinweise dazu sind z.B. in der Norm DIN 15185 Teil 2 \"Lagersysteme mit leitliniengeführten Flurförderzeugen; Personenschutz beim Einsatz von Flurförderzeugen in Schmalgängen; Sicherheitstechnische Anforderungen, Prüfung\", enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3629,7 +3629,7 @@
     },
     "arbeitssicherheit-lager-chemikalien": {
       "label": "Lagerung von Chemikalien:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-lager-chemikalien*",
+      "hint": "Gefährliche Stoffe und Zubereitungen müssen ihrer Gefährlichkeit entsprechend sicher aufbewahrt und gelagert werden. Insbesondere müssen sie:\n- vor gefährlichen äusseren Einwirkungen geschützt werden;\n- für Unbefugte unzugänglich sein;\n- so aufbewahrt oder gelagert werden, dass Verwechslungen, namentlich mit Lebensmitteln, oder irrtümliche Verwendungen verhindert werden.\nHinweise über die Lagerung von Chemikalien wie bspw. Säuren und Laugen sind in der EKAS-Richtlinie 6501 „Säuren und Laugen“ enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lager und Lagereinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3645,7 +3645,7 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren": {
       "label": "Galvanisieren:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-galvanisieren*",
+      "hint": "Hinweise zu galvanischen Anlagen sind in der Suva-Richtlinie 1792 „Richtlinien für die Galvanotechnik“ enthalten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3653,7 +3653,7 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen": {
       "label": "Farbspritzen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-farbspritzen*",
+      "hint": "Die Farbspritzanlage muss den Bestimmungen der Verordnung über die Verhütung von Unfällen und Berufskrankheiten beim Spritzen von Farben oder Lacken entsprechen. Siehe Suva 1731 / 44054 „Spritzlackieren mit Polyurethanlacken, so schützen Sie Ihre Mitarbeitenden“.\nFalls sich während der Trocknungszeit Personen im Raum aufhalten, muss derselbe derart entlüftet sein, dass keine gesundheitsschädlichen Konzentrationen von Stoffen auftreten.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3661,7 +3661,7 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten": {
       "label": "Pulverbeschichten:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-pulverbeschichten*",
+      "hint": "Anwendung der Maschinenrichtlinie (2006/42/EG) und der ATEX-Richtlinie 2014/34/EU",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3669,7 +3669,7 @@
     },
     "arbeitssicherheit-sozialraume-anzahl": {
       "label": "Anzahl Sozialräume:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-anzahl*",
+      "hint": "Die Anforderungen an die Sozialräume, d.h. Garderoben, Waschanlagen/Duschen, Toiletten, Sanitätsräume, Ess- und Aufenthaltsräume richten sich nach den betrieblichen Verhältnissen; dazu gehören das Arbeitszeitsystem (normale Tagesarbeit, Schichtbetrieb), die Art der Arbeit, der Grad der Verunreinigung der Arbeitnehmerinnen und Arbeitnehmer und der Arbeitskleidung sowie die Notwendigkeit und das Ausmass des Kleiderwechsels aus hygienischen und produktionstechnischen Gründen.\nBei der Gestaltung von Sozialräumen ist es angebracht, behindertengerechte Massnahmen vorzusehen.",
       "type": "number",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3679,7 +3679,7 @@
     },
     "arbeitssicherheit-sozialraume-waschanlagen": {
       "label": "Waschanlagen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-waschanlagen*",
+      "hint": "In der Regel sind nach Geschlechtern getrennte Garderoben, Waschanlagen und Toiletten vorzusehen. \nEine getrennte Benutzung der gleichen Einrichtungen (die abgeschlossen werden können) ist nur ausnahmsweise zulässig, z.B. in Betrieben mit einer kleinen Anzahl gleichzeitig beschäftigter Arbeitnehmerinnen und Arbeitnehmer (bis zu 10 Personen) mit wenig verschmutzender Tätigkeit, wie Bürobetriebe, oder auf Baustellen mit erschwerten Bedingungen, z.B. kurzzeitige oder Kleinbaustellen mit Sozialräumen in Baucontainern.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3687,7 +3687,7 @@
     },
     "arbeitssicherheit-sozialraume-garderoben": {
       "label": "Garderoben:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-garderoben*",
+      "hint": "Den Arbeitnehmenden sind ausreichende und den Verhältnissen angemessene Garderoben zum Wechseln und zur Aufbewahrung der Kleider zur Verfügung zu stellen, die wenn möglich in ausreichend belüftbaren, keinem andern Zwecke dienenden Räumen unterzubringen sind.\nJedem Arbeitnehmenden ist ein genügend grosser und lüftbarer Kleiderkasten oder eine offene Einrichtung zum Aufbewahren der Kleider und ein abschliessbares Fach zur Verfügung zu stellen. \nNötigenfalls muss die Arbeitskleidung getrocknet und getrennt von der Strassenkleidung aufbewahrt werden können.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3695,7 +3695,7 @@
     },
     "arbeitssicherheit-sozialraume-toiletten-duschen": {
       "label": "Toiletten und Duschen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-toiletten-duschen*",
+      "hint": "In der Nähe der Arbeitsplätze, Pausenräume, Umkleideräume und Duschen oder Waschgelegenheiten sind Toiletten in ausreichender Zahl zur Verfügung zu stellen.\n\nDie Zahl der Toiletten richtet sich nach der Zahl der gleichzeitig im Betrieb beschäftigten Arbeitnehmer.\nIn der Regel sind einzurichten:\n1. in Betrieben mit bis zu 10 Beschäftigten eine Toilette und ein Pissoir für die Männer und eine Toilette für die Frauen,\n2. in Betrieben mit bis zu 50 Beschäftigten eine Toilette und ein Pissoir für je 15 Männer und eine Toilette für je 10 Frauen,\n3. in Betrieben mit bis zu 100 Beschäftigten eine Toilette und ein Pissoir für je 20 Männer und eine Toilette für je 12 Frauen,\n4. in Betrieben mit mehr als 100 Beschäftigten eine Toilette und ein Pissoir für je 25 Männer und eine Toilette für je 15 Frauen.\n\nToiletten sind von den Arbeitsräumen durch lüftbare Vorräume zu trennen und ausreichend zu lüften.\nIn der Nähe der Toiletten müssen zweckmässige Einrichtungen und Mittel zum Waschen und Trocknen der Hände vorhanden sein.\n\nFür Arbeiten, die eine erhebliche Beschmutzung mit sich bringen oder wenn die Arbeitnehmer grosser Hitze ausgesetzt sind ist eine genügende Anzahl von Duschen einzurichten (mindestens eine Dusche für 2 bis 3 Benützer).",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3703,7 +3703,7 @@
     },
     "arbeitssicherheit-sozialraume-sanitare-anlagen": {
       "label": "Sanitäre Anlagen:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-sanitare-anlagen*",
+      "hint": "Hinweise für Sozialräume gemäss SECO Wegleitung zum Arbeitsgesetz  ArGV 3 Artikel 29 - 30",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3711,7 +3711,7 @@
     },
     "arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume": {
       "label": "Ess- und Aufenthaltsräume:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-ess-und-aufenthaltsraume*",
+      "hint": "Soweit ein Bedürfnis besteht, insbesondere bei Nacht- und Schichtarbeit, sind den Arbeitnehmenden von den Arbeitsplätzen getrennte zweckmässige, ruhige und möglichst natürlich beleuchtete Ess- und Aufenthaltsgelegenheiten mit Blick ins Freie zur Verfügung zu stellen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3719,7 +3719,7 @@
     },
     "arbeitssicherheit-sozialraume-pause-und-ruheraume": {
       "label": "Pausen- und Ruheräume:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-sozialraume-pause-und-ruheraume*",
+      "hint": "Ruheraum:\nEin besonderer Ruheraum ist nicht vorgeschrieben. Doch soll nötigenfalls eine Ruhegelegenheit für Arbeitnehmerinnen und Arbeitnehmer vorhanden sein, die sich in der Pause hinlegen möchten.\nBei Schicht-, Nachtarbeit und insbesondere bei Pikettdienst sollte eine Ruhegelegenheit vorhanden sein. Diese kann beispielsweise in einem allfälligen Erste-Hilfe-Raum eingerichtet werden (vgl. auch Art. 34 und 36 ArGV 3).\n\nSanitätsraum:\nErste Hilfe wird häufig direkt am Ereignisort geleistet. Dennoch kann ein Sanitätsraum bzw. ein Erste-Hilfe-Raum Teil des Erste-Hilfe-Konzepts sein. Der Raum muss in diesem Fall für Rettungskräfte mit Tragbahren gut zugänglich sein (Breite des Verkehrsweges 1.2 m, lichte Breite der Türe 0.9 m).",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3727,7 +3727,7 @@
     },
     "zivilschutz-schutzraum": {
       "label": "Ist im Vorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraum*",
+      "hint": "Liegt das Bauobjekt in einem Defizitgebiet und hat mehr als 38 Zimmer ist ein Schutzraum mit einem Fassungsvermögen das der Baupflicht entspricht einzuplanen. Unter 38 Zimmern kann das Gesuch um Befreiung von der Schutzraumbaupflicht mit Leistung eines Ersatzbeitrages gestellt werden. Die Baupflicht ergibt sich aus der Anzahl Zimmer und davon 2/3.",
       "type": "radio",
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -3740,7 +3740,7 @@
     },
     "zivilschutz-elementarschaden": {
       "label": "Handelt es sich um einen Wiederaufbau nach Elementarschaden?",
-      "hint": "**Platzhalter**: *zivilschutz-elementarschaden*",
+      "hint": "Feuer, Sturm und Wasser gelten als Elementarschaden und werden von der Schutzraumbaupflicht befreit. Es ist der Rapport des Schadenereignisse beizulegen.",
       "type": "radio",
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -3753,7 +3753,7 @@
     },
     "zivilschutz-dispens-schutzraumbau": {
       "label": "Wird für das Vorhaben um Dispens für den Schutzraumbau gegen Leistung eines Ersatzbeitrages gemäss den gesetzlichen Möglichkeiten und Bedingungen nachgesucht?",
-      "hint": "**Platzhalter**: *zivilschutz-dispens-schutzraumbau*",
+      "hint": "Anstelle des Baus eines Schutzraumes ist ein Ersatzbeitrag zu Leisten wenn das Bauobjekt in einem Schutzplatzüberangebotsgebiet  liegt.",
       "type": "radio",
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
@@ -3766,7 +3766,7 @@
     },
     "zivilschutz-schutzraum-bestehend": {
       "label": "Befindet sich im Bereich des Vorhabens ein bestehender Schutzraum?",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraum-bestehend*",
+      "hint": "Befindet sich im bestehenden Gebäude ein Schutzraum",
       "type": "radio",
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
@@ -3779,7 +3779,7 @@
     },
     "zivilschutz-schutzraumaufhebung": {
       "label": "Ist eine Schutzraumaufhebung vorgesehen?",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraumaufhebung*",
+      "hint": "Ein Schutzraum kann nur mit Zustimmung des Kantons aufgehoben werden. Schutzräume von einem Fassungsvermögen über 10 Schutzplätzen können nur in Ausnahmefällen aufgehoben werden. Falls der Kanton einer Aufhebung zustimmt ist eine Einverständniserklärung erforderlich.",
       "type": "radio",
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
@@ -3792,7 +3792,7 @@
     },
     "zivilschutz-schutzraum-grundbucheintrag": {
       "label": "Sind Grundbucheinträge betreffend Schutzraum vorhanden?",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraum-grundbucheintrag*",
+      "hint": "Ist im Grundbuch ein Last oder Rechteintrag betreffend Schutzraum vorhanden. Wenn ja den Detailbeleg beilegen.",
       "type": "radio",
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
@@ -3805,7 +3805,7 @@
     },
     "zivilschutz-schutzraum-nr": {
       "label": "Bitte geben Sie die kantonale Schutzraum-Nr. an:",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr*",
+      "hint": "Mit der kantonalen Schutzraumnummer ist der Schutzraum registriert und wird in die Schutzaumliste aufgenommen. Die Schutzraumnummer definiert die Gemeinde und das Gebäude.",
       "type": "number",
       "required": false,
       "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
@@ -3813,7 +3813,7 @@
     },
     "zivilschutz-schutzraum-nr-nicht-bekannt": {
       "label": "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
-      "hint": "**Platzhalter**: *zivilschutz-schutzraum-nr-nicht-bekannt*",
+      "hint": "Jeder Schutzraum hatte eine kantonale Indentätsnummer mit 6 Ziffern ist diese nicht bekannt ist der ersteller des Gebäudes ",
       "type": "text",
       "required": false,
       "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
@@ -3821,7 +3821,7 @@
     },
     "brandschutz-gefahrengut": {
       "label": "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
-      "hint": "**Platzhalter**: *brandschutz-gefahrengut*",
+      "hint": "keine Erklärung notwendig, da selbsterklärend",
       "type": "checkbox",
       "required": true,
       "active-expression": "'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja'",
@@ -3836,7 +3836,7 @@
     },
     "liegenschaftsentwasserung-wassergefahrdende-stoffe": {
       "label": "Werden wassergefährdende Stoffe gelagert oder umgeschlagen?",
-      "hint": "**Platzhalter**: *liegenschaftsentwasserung-wassergefahrdende-stoffe*",
+      "hint": "Wassergefährdende Soffe sind zum Beispiel Diesel, Fette, Öle, usw. ",
       "type": "radio",
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung / Industrie' in 'art-der-nutzung'|value",
@@ -3849,7 +3849,7 @@
     },
     "gewasserschutz-menge": {
       "label": "Welche Menge wassergefährdender Flüssigkeiten wird gelagert?",
-      "hint": "**Platzhalter**: *gewasserschutz-menge*",
+      "hint": "Wieviel Liter bzw. Tonnen werden gelagert. ",
       "type": "radio",
       "required": true,
       "active-expression": "'wassergefahrdende-stoffe'|value == 'Ja'",
@@ -3925,7 +3925,7 @@
     },
     "grundwasser-geologe": {
       "label": "Beauftragter Geologe (Name, Adresse, Tel., Email):",
-      "hint": "**Platzhalter**: *grundwasser-geologe*",
+      "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
@@ -3933,7 +3933,7 @@
     },
     "grundwasser-bohrfirma": {
       "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
-      "hint": "**Platzhalter**: *grundwasser-bohrfirma*",
+      "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
@@ -3941,7 +3941,7 @@
     },
     "grundwasser-verwendungszweck": {
       "label": "Verwendungszweck:",
-      "hint": "**Platzhalter**: *grundwasser-verwendungszweck*",
+      "hint": "z.B. Warmwasseraufbereitung, Kühlung usw.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
@@ -3965,7 +3965,7 @@
     },
     "grundwasser-bohrtiefe": {
       "label": "Bohrtiefe pro Sonde in m:",
-      "hint": "**Platzhalter**: *grundwasser-bohrtiefe*",
+      "hint": "Wie tief reichen die Sonden ins Erdreich in m.",
       "type": "number",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
@@ -3985,7 +3985,7 @@
     },
     "grundwasser-bohrverfahren": {
       "label": "Bohrverfahren:",
-      "hint": "**Platzhalter**: *grundwasser-bohrverfahren*",
+      "hint": "welches Bohrverfahren wird gewählt (z.B. Kernbohrung, Spühlbohrung usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
@@ -4003,7 +4003,7 @@
     },
     "grundwasser-sondenmaterial": {
       "label": "Sondenmaterial:",
-      "hint": "**Platzhalter**: *grundwasser-sondenmaterial*",
+      "hint": "aus welchem Material bestehen die Erdwärmesonden?",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
@@ -4011,7 +4011,7 @@
     },
     "grundwasser-warmetragerflussigkeit": {
       "label": "Wärmeträgerflüssigkeit",
-      "hint": "**Platzhalter**: *grundwasser-warmetragerflussigkeit*",
+      "hint": "Welche Wärmeträgerflüssigkeit wird verwendet?",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
@@ -4019,7 +4019,7 @@
     },
     "grundwasser-totale-fullmenge": {
       "label": "Totale Füllmenge in l:",
-      "hint": "**Platzhalter**: *grundwasser-totale-fullmenge*",
+      "hint": "Wieviele Liter Wärmeträgerflüssigkeit werden benötigt.",
       "type": "number",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
@@ -4039,7 +4039,7 @@
     },
     "grundwasser-tiefe-energiepfahle": {
       "label": "Tiefe pro Pfahl in m:",
-      "hint": "**Platzhalter**: *grundwasser-tiefe-energiepfahle*",
+      "hint": "wie tief reichen die Pfähle in den Untergrund in m",
       "type": "number",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
@@ -4087,7 +4087,7 @@
     },
     "grundwasser-sondierbohrung-anzahl-bohrungen": {
       "label": "Anzahl Bohrungen:",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-anzahl-bohrungen*",
+      "hint": "Probebohrung (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe (ID 49)",
       "type": "number",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4105,7 +4105,7 @@
     },
     "grundwasser-sondierbohrung-zweck": {
       "label": "Zweck der Bohrungen:",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-zweck*",
+      "hint": "z.B. Grundwassernutzung, Baugrunduntersuchung, Altlastenuntersuchung usw.",
       "type": "radio",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4120,7 +4120,7 @@
     },
     "grundwasser-sondierbohrung-zweck-anderer": {
       "label": "Welcher?",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-zweck-anderer*",
+      "hint": "Baugrunduntersuchung: Eine Baugrunduntersuchung soll dazu dienen, bereits im Frühstadium Aufschluss über die örtlichen Bodenverhältnisse zu geben. Altlastenuntersuchung: Voruntersuchung nach Art. 7 Altlastenverordnung, die in der Regel aus einer historischen und einer technischen Untersuchung besteht. Damit werden die für die Beurteilung der Überwachungs- und Sanierungsbedürftigkeit erforderlichen Angaben ermittelt und im Hinblick auf die Gefährdung der Umwelt bewertet. Diese Untersuchungen sind ferner notwendig, um ein Entsorgungskonzept erstellen zu können. Grundwasserwärmenutzung: Eine Grundwasserwärmenutzung (GWWN) ist ein Wärmesystem, bei welchem Wärme aus dem Grundwasser für den Betrieb eines Wärmepumpensystem genutzt wird. Das Grundwasser wird aus einem Entnahmeschacht mittels Tauchpumpe gefördert, nach dem Wärmeentzug über einen Rückgabeschacht dem Grudnwasserleiter zurückgespiesen.",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value && 'grundwasser-sondierbohrung-zweck'|value == 'Anderer Grund'",
@@ -4138,7 +4138,7 @@
     },
     "grundwasser-sondierbohrung-pumpversuch": {
       "label": "Pumpversuch?",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-pumpversuch*",
+      "hint": "Wird ein Pumpversuch durchgeführt.",
       "type": "radio",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4151,7 +4151,7 @@
     },
     "grundwasser-sondierbohrung-bohrfirma": {
       "label": "Beauftragte Bohrfirma (Name, Adresse, Tel., Email):",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-bohrfirma*",
+      "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4159,7 +4159,7 @@
     },
     "grundwasser-sondierbohrung-geologe": {
       "label": "Begleitender Geologe (Name, Adresse, Tel., Email):",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-geologe*",
+      "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4167,7 +4167,7 @@
     },
     "grundwasser-sondierbohrung-entsorgung": {
       "label": "Entsorgung Bohrwasser",
-      "hint": "**Platzhalter**: *grundwasser-sondierbohrung-entsorgung*",
+      "hint": "auf welche Art wird das Bohrwasser entsorgt?",
       "type": "text",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4175,7 +4175,7 @@
     },
     "grundwasser-deponien": {
       "label": "Handelt es sich (bei Teilen des Vorhabens) um eine Deponie?",
-      "hint": "**Platzhalter**: *grundwasser-deponien*",
+      "hint": "Aushubdeponie Typ A gemäss Art. 35 ff. Abfallverordnung (VVEA), Minimalvolumen 50'000 m3",
       "type": "radio",
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
@@ -4188,7 +4188,7 @@
     },
     "reklamen": {
       "label": "Reklamen",
-      "hint": "**Platzhalter**: *reklamen*",
+      "hint": "alle Werbeformen und andere Ankündigungen in Schrift, Bild, Licht, Ton usw.",
       "type": "table",
       "required": true,
       "active-expression": "'Reklame' in 'art-der-anlage'|value",
@@ -4361,7 +4361,7 @@
     },
     "bm-solaranlage": {
       "label": "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
-      "hint": "**Platzhalter**: *bm-solaranlage*",
+      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
       "type": "radio",
       "required": true,
       "config": {
@@ -4373,7 +4373,7 @@
     },
     "kw-ort": {
       "label": "Von wo ist geplant, Wasser zu entnehmen?",
-      "hint": "**Platzhalter**: *kw-ort*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "config": {
@@ -4387,7 +4387,7 @@
     },
     "kw-1-1-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "**Platzhalter**: *kw-1-1-nutzungsart*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser'",
@@ -4403,7 +4403,7 @@
     },
     "kw-1-1-1-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "**Platzhalter**: *kw-1-1-1-datum-bewilligung*",
+      "hint": "Kein Eintrag (oder AfU)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4411,7 +4411,7 @@
     },
     "kw-1-1-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4419,7 +4419,7 @@
     },
     "kw-1-1-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4429,7 +4429,7 @@
     },
     "kw-1-1-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4437,7 +4437,7 @@
     },
     "kw-1-1-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation, usw.)",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4448,7 +4448,7 @@
     },
     "kw-1-1-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmestandort-ruckfuhrung*",
+      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
       "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4459,7 +4459,7 @@
     },
     "kw-1-1-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4469,7 +4469,7 @@
     },
     "kw-1-1-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4479,7 +4479,7 @@
     },
     "kw-1-1-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-abkuhlung*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4489,7 +4489,7 @@
     },
     "kw-1-1-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "**Platzhalter**: *kw-1-1-1-entnahmegewasser-min-austritt-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4499,7 +4499,7 @@
     },
     "kw-1-1-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "**Platzhalter**: *1-1-1-kw-baute-art*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4515,7 +4515,7 @@
     },
     "kw-1-1-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-art-andere*",
+      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
@@ -4523,7 +4523,7 @@
     },
     "kw-1-1-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-wohneinheiten*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -4533,7 +4533,7 @@
     },
     "kw-1-1-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-warmebedarf*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4543,7 +4543,7 @@
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft*",
+      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4556,7 +4556,7 @@
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "z.B. STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -4564,7 +4564,7 @@
     },
     "kw-1-1-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-1-1-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4572,7 +4572,7 @@
     },
     "kw-1-1-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemittel*",
+      "hint": "AfU",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4580,7 +4580,7 @@
     },
     "kw-1-1-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-kaltemitteleinfullungen*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4590,7 +4590,7 @@
     },
     "kw-1-1-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "**Platzhalter**: *kw-1-1-1-baute-leistung-verdampfer*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4600,7 +4600,7 @@
     },
     "kw-1-1-2-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "**Platzhalter**: *kw-1-1-2-datum-bewilligung*",
+      "hint": "Kein Eintrag (oder AfU)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4608,7 +4608,7 @@
     },
     "kw-1-1-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4616,7 +4616,7 @@
     },
     "kw-1-1-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4626,7 +4626,7 @@
     },
     "kw-1-1-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4634,7 +4634,7 @@
     },
     "kw-1-1-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-1-2-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4642,7 +4642,7 @@
     },
     "kw-1-1-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-1-2-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4652,7 +4652,7 @@
     },
     "kw-1-1-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-1-2-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4660,7 +4660,7 @@
     },
     "kw-1-1-3-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "**Platzhalter**: *kw-1-1-3-datum-bewilligung*",
+      "hint": "Kein Eintrag (oder AfU)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4668,7 +4668,7 @@
     },
     "kw-1-1-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "**Platzhalter**: *kw-1-1-3-zweck-brauchwasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4676,7 +4676,7 @@
     },
     "kw-1-1-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4684,7 +4684,7 @@
     },
     "kw-1-1-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4694,7 +4694,7 @@
     },
     "kw-1-1-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4702,7 +4702,7 @@
     },
     "kw-1-1-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-1-3-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4710,7 +4710,7 @@
     },
     "kw-1-1-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-1-3-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4720,7 +4720,7 @@
     },
     "kw-1-1-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-1-3-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4728,7 +4728,7 @@
     },
     "kw-1-2-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "**Platzhalter**: *kw-1-2-nutzungsart*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
@@ -4743,7 +4743,7 @@
     },
     "kw-1-2-1-name-gewasser": {
       "label": "Name des Gewässers:",
-      "hint": "**Platzhalter**: *kw-1-2-1-name-gewasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4751,7 +4751,7 @@
     },
     "kw-1-2-1-bach-fuhrt-wasser": {
       "label": "Führt der Bach / Fluss ständig Wasser?",
-      "hint": "**Platzhalter**: *kw-1-2-1-bach-fuhrt-wasser*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4764,7 +4764,7 @@
     },
     "kw-1-2-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4772,7 +4772,7 @@
     },
     "kw-1-2-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4782,7 +4782,7 @@
     },
     "kw-1-2-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4790,7 +4790,7 @@
     },
     "kw-1-2-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4798,7 +4798,7 @@
     },
     "kw-1-2-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmestandort-ruckfuhrung*",
+      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4806,7 +4806,7 @@
     },
     "kw-1-2-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4816,7 +4816,7 @@
     },
     "kw-1-2-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4826,7 +4826,7 @@
     },
     "kw-1-2-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-abkuhlung*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4836,7 +4836,7 @@
     },
     "kw-1-2-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "**Platzhalter**: *kw-1-2-1-entnahmegewasser-min-austritt-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4846,7 +4846,7 @@
     },
     "kw-1-2-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "**Platzhalter**: *1-2-1-kw-baute-art*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4859,7 +4859,7 @@
     },
     "kw-1-2-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-warmebedarf*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4869,7 +4869,7 @@
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft*",
+      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4882,7 +4882,7 @@
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "z.B. STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -4890,7 +4890,7 @@
     },
     "kw-1-2-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-2-1-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4898,7 +4898,7 @@
     },
     "kw-1-2-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemittel*",
+      "hint": "AfU",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4906,7 +4906,7 @@
     },
     "kw-1-2-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-kaltemitteleinfullungen*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4916,7 +4916,7 @@
     },
     "kw-1-2-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "**Platzhalter**: *kw-1-2-1-baute-leistung-verdampfer*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4926,7 +4926,7 @@
     },
     "kw-1-2-2-name-gewasser": {
       "label": "Name des Gewässers:",
-      "hint": "**Platzhalter**: *kw-1-2-2-name-gewasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4934,7 +4934,7 @@
     },
     "kw-1-2-2-bach-fuhrt-wasser": {
       "label": "Führt der Bach / Fluss ständig Wasser?",
-      "hint": "**Platzhalter**: *kw-1-2-2-bach-fuhrt-wasser*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4947,7 +4947,7 @@
     },
     "kw-1-2-2-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "**Platzhalter**: *kw-1-2-2-zweck-brauchwasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4955,7 +4955,7 @@
     },
     "kw-1-2-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4963,7 +4963,7 @@
     },
     "kw-1-2-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4973,7 +4973,7 @@
     },
     "kw-1-2-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4981,7 +4981,7 @@
     },
     "kw-1-2-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-2-2-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4989,7 +4989,7 @@
     },
     "kw-1-2-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-2-2-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -4999,7 +4999,7 @@
     },
     "kw-1-2-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-2-2-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5007,7 +5007,7 @@
     },
     "kw-1-3-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "**Platzhalter**: *kw-1-3-nutzungsart*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See'",
@@ -5023,7 +5023,7 @@
     },
     "kw-1-3-1-name-see": {
       "label": "Name des Sees:",
-      "hint": "**Platzhalter**: *kw-1-3-1-name-see*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5031,7 +5031,7 @@
     },
     "kw-1-3-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5039,7 +5039,7 @@
     },
     "kw-1-3-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5049,7 +5049,7 @@
     },
     "kw-1-3-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5057,7 +5057,7 @@
     },
     "kw-1-3-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5065,7 +5065,7 @@
     },
     "kw-1-3-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-ruckfuhrung*",
+      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5073,7 +5073,7 @@
     },
     "kw-1-3-1-entnahmestandort-tiefe": {
       "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmestandort-tiefe*",
+      "hint": "AfU, allenfalls ANJF bei stehenden Gewässern",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5083,7 +5083,7 @@
     },
     "kw-1-3-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5093,7 +5093,7 @@
     },
     "kw-1-3-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-min-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5103,7 +5103,7 @@
     },
     "kw-1-3-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-abkuhlung*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5113,7 +5113,7 @@
     },
     "kw-1-3-1-entnahmegewasser-ges-austritt-temp": {
       "label": "Geschätzte Austrittstemperatur in °C",
-      "hint": "**Platzhalter**: *kw-1-3-1-entnahmegewasser-ges-austritt-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5123,7 +5123,7 @@
     },
     "kw-1-3-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "**Platzhalter**: *1-3-1-kw-baute-art*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5139,7 +5139,7 @@
     },
     "kw-1-3-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-art-andere*",
+      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
@@ -5147,7 +5147,7 @@
     },
     "kw-1-3-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-wohneinheiten*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -5157,7 +5157,7 @@
     },
     "kw-1-3-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-warmebedarf*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5167,7 +5167,7 @@
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft*",
+      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5180,7 +5180,7 @@
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "z.B. STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -5188,7 +5188,7 @@
     },
     "kw-1-3-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-3-1-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5196,7 +5196,7 @@
     },
     "kw-1-3-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemittel*",
+      "hint": "AfU",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5204,7 +5204,7 @@
     },
     "kw-1-3-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-kaltemitteleinfullungen*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5214,7 +5214,7 @@
     },
     "kw-1-3-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "**Platzhalter**: *kw-1-3-1-baute-leistung-verdampfer*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5224,7 +5224,7 @@
     },
     "kw-1-3-2-name-see": {
       "label": "Name des Sees:",
-      "hint": "**Platzhalter**: *kw-1-3-2-name-see*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5232,7 +5232,7 @@
     },
     "kw-1-3-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5240,7 +5240,7 @@
     },
     "kw-1-3-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5250,7 +5250,7 @@
     },
     "kw-1-3-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5258,7 +5258,7 @@
     },
     "kw-1-3-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-3-2-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5266,7 +5266,7 @@
     },
     "kw-1-3-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-3-2-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5276,7 +5276,7 @@
     },
     "kw-1-3-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-3-2-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5284,7 +5284,7 @@
     },
     "kw-1-3-3-name-see": {
       "label": "Name des Sees:",
-      "hint": "**Platzhalter**: *kw-1-3-3-name-see*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5292,7 +5292,7 @@
     },
     "kw-1-3-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "**Platzhalter**: *kw-1-3-3-zweck-brauchwasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5300,7 +5300,7 @@
     },
     "kw-1-3-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5308,7 +5308,7 @@
     },
     "kw-1-3-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5318,7 +5318,7 @@
     },
     "kw-1-3-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5326,7 +5326,7 @@
     },
     "kw-1-3-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-3-3-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5334,7 +5334,7 @@
     },
     "kw-1-3-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-3-3-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5344,7 +5344,7 @@
     },
     "kw-1-3-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-3-3-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5365,7 +5365,7 @@
     },
     "kw-1-4-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "**Platzhalter**: *kw-1-4-nutzungsart*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle'",
@@ -5381,7 +5381,7 @@
     },
     "kw-1-4-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5389,7 +5389,7 @@
     },
     "kw-1-4-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5399,7 +5399,7 @@
     },
     "kw-1-4-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5407,7 +5407,7 @@
     },
     "kw-1-4-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5415,7 +5415,7 @@
     },
     "kw-1-4-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmestandort-ruckfuhrung*",
+      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5423,7 +5423,7 @@
     },
     "kw-1-4-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5433,7 +5433,7 @@
     },
     "kw-1-4-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5443,7 +5443,7 @@
     },
     "kw-1-4-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-abkuhlung*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5453,7 +5453,7 @@
     },
     "kw-1-4-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "**Platzhalter**: *kw-1-4-1-entnahmegewasser-min-austritt-temp*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5463,7 +5463,7 @@
     },
     "kw-1-4-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "**Platzhalter**: *1-4-1-kw-baute-art*",
+      "hint": "Kein Eintrag",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5479,7 +5479,7 @@
     },
     "kw-1-4-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-art-andere*",
+      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
@@ -5487,7 +5487,7 @@
     },
     "kw-1-4-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-wohneinheiten*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -5497,7 +5497,7 @@
     },
     "kw-1-4-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-warmebedarf*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5507,7 +5507,7 @@
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft*",
+      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5520,7 +5520,7 @@
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung*",
+      "hint": "z.B. STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -5528,7 +5528,7 @@
     },
     "kw-1-4-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-4-1-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5536,7 +5536,7 @@
     },
     "kw-1-4-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemittel*",
+      "hint": "AfU",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5544,7 +5544,7 @@
     },
     "kw-1-4-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-kaltemitteleinfullungen*",
+      "hint": "AfU",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5554,7 +5554,7 @@
     },
     "kw-1-4-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "**Platzhalter**: *kw-1-4-1-baute-leistung-verdampfer*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5564,7 +5564,7 @@
     },
     "kw-1-4-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5572,7 +5572,7 @@
     },
     "kw-1-4-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5582,7 +5582,7 @@
     },
     "kw-1-4-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5590,7 +5590,7 @@
     },
     "kw-1-4-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-4-2-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5598,7 +5598,7 @@
     },
     "kw-1-4-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-4-2-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5608,7 +5608,7 @@
     },
     "kw-1-4-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-4-2-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5616,7 +5616,7 @@
     },
     "kw-1-4-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "**Platzhalter**: *kw-1-4-3-zweck-brauchwasser*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5624,7 +5624,7 @@
     },
     "kw-1-4-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-gemeinde*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5632,7 +5632,7 @@
     },
     "kw-1-4-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-grundstuck*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5642,7 +5642,7 @@
     },
     "kw-1-4-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-koordinaten*",
+      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5650,7 +5650,7 @@
     },
     "kw-1-4-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "**Platzhalter**: *kw-1-4-3-entnahmestandort-beschreibung*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5658,7 +5658,7 @@
     },
     "kw-1-4-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "**Platzhalter**: *kw-1-4-3-entnahmegewasser-max*",
+      "hint": "Kein Eintrag",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5668,7 +5668,7 @@
     },
     "kw-1-4-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "**Platzhalter**: *kw-1-4-3-inbetriebnahme*",
+      "hint": "Kein Eintrag",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
