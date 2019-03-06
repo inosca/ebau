@@ -25926,6 +25926,15 @@
   },
   {
     "fields": {
+      "instance_resource": 753,
+      "localized": 0,
+      "service_group": 69
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 249
+  },
+  {
+    "fields": {
       "page": 1,
       "pdf_class": ""
     },
@@ -51178,5 +51187,12 @@
     },
     "model": "user.servicegroup",
     "pk": 68
+  },
+  {
+    "fields": {
+      "name": "Gemeinde Service Stellen"
+    },
+    "model": "user.servicegroup",
+    "pk": 69
   }
 ]
