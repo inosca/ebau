@@ -8142,7 +8142,7 @@
       "name": "Dokumente Gesuchsteller",
       "notification_template": null,
       "recipient_types": null,
-      "sort": 0
+      "sort": 1
     },
     "model": "document.attachmentsection",
     "pk": 1
@@ -8152,7 +8152,7 @@
       "name": "Dokumente Fachstellen",
       "notification_template": null,
       "recipient_types": null,
-      "sort": 0
+      "sort": 4
     },
     "model": "document.attachmentsection",
     "pk": 2
@@ -8162,7 +8162,7 @@
       "name": "Publikation",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 0
+      "sort": 5
     },
     "model": "document.attachmentsection",
     "pk": 4
@@ -8172,7 +8172,7 @@
       "name": "Einsprachen",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 0
+      "sort": 6
     },
     "model": "document.attachmentsection",
     "pk": 5
@@ -8182,10 +8182,30 @@
       "name": "Bauentscheid und Merkbl\u00e4tter",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 0
+      "sort": 7
     },
     "model": "document.attachmentsection",
     "pk": 6
+  },
+  {
+    "fields": {
+      "name": "Dokumente Gemeinde",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 3
+    },
+    "model": "document.attachmentsection",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "name": "Schriftenverkehr",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 2
+    },
+    "model": "document.attachmentsection",
+    "pk": 8
   },
   {
     "fields": {
@@ -8321,6 +8341,141 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 15
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "admin",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "attachment_section": 2,
+      "mode": "read",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "read",
+      "role": 7
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "attachment_section": 2,
+      "mode": "admin",
+      "role": 7
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "mode": "read",
+      "role": 7
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "mode": "read",
+      "role": 7
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "admin",
+      "role": 5
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "admin",
+      "role": 7
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "admin",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "admin",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 31
   },
   {
     "fields": {
