@@ -21846,14 +21846,14 @@
   {
     "fields": {
       "available_instance_resource": "editnotice",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "form_group": 161,
       "hidden": 0,
       "name": "Stellungnahme",
       "resource": 302,
       "sort": 9,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 367
@@ -23402,6 +23402,51 @@
     },
     "model": "core.instanceresource",
     "pk": 753
+  },
+  {
+    "fields": {
+      "available_instance_resource": "formpage",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Dossier ansehen",
+      "resource": 314,
+      "sort": 0,
+      "template": "/form/read.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 755
+  },
+  {
+    "fields": {
+      "available_instance_resource": "documents",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Dokumente",
+      "resource": 314,
+      "sort": 1,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 756
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editnotice",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Stellungsnahme",
+      "resource": 314,
+      "sort": 2,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 757
   },
   {
     "fields": {
@@ -26048,11 +26093,11 @@
   {
     "fields": {
       "circulation_type": 41,
-      "edit_notice_template": "",
+      "edit_notice_template": null,
       "editable_after_deadline": 1,
       "hide_answered_notices": 0,
       "is_always_editable": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditnotice",
     "pk": 367
@@ -26068,6 +26113,18 @@
     },
     "model": "core.ireditnotice",
     "pk": 389
+  },
+  {
+    "fields": {
+      "circulation_type": 61,
+      "edit_notice_template": null,
+      "editable_after_deadline": 1,
+      "hide_answered_notices": 0,
+      "is_always_editable": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditnotice",
+    "pk": 757
   },
   {
     "fields": {
@@ -26276,6 +26333,14 @@
     },
     "model": "core.irformpage",
     "pk": 751
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.irformpage",
+    "pk": 755
   },
   {
     "fields": {
@@ -33710,6 +33775,168 @@
   },
   {
     "fields": {
+      "instance_resource": 755,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 829
+  },
+  {
+    "fields": {
+      "instance_resource": 755,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 830
+  },
+  {
+    "fields": {
+      "instance_resource": 755,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 831
+  },
+  {
+    "fields": {
+      "instance_resource": 755,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 832
+  },
+  {
+    "fields": {
+      "instance_resource": 755,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 833
+  },
+  {
+    "fields": {
+      "instance_resource": 755,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 834
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 835
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 836
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 837
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 838
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 839
+  },
+  {
+    "fields": {
+      "instance_resource": 756,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 840
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 841
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 842
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 843
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 844
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 845
+  },
+  {
+    "fields": {
+      "instance_resource": 757,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 846
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -38100,7 +38327,7 @@
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
       "name": "Dossier erstellen",
-      "sort": 30,
+      "sort": 31,
       "template": "/global/home.phtml"
     },
     "model": "core.resource",
@@ -38113,7 +38340,7 @@
       "description": "Allgemeine Suche",
       "hidden": 0,
       "name": "Dossiersuche",
-      "sort": 27,
+      "sort": 28,
       "template": "/global/search.phtml"
     },
     "model": "core.resource",
@@ -38126,7 +38353,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 26,
+      "sort": 27,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -38152,7 +38379,7 @@
       "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
       "hidden": 0,
       "name": "Portal User Resource",
-      "sort": 31,
+      "sort": 32,
       "template": ""
     },
     "model": "core.resource",
@@ -38178,7 +38405,7 @@
       "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
       "hidden": 0,
       "name": "Portal Resource",
-      "sort": 32,
+      "sort": 33,
       "template": "/portal/create.phtml"
     },
     "model": "core.resource",
@@ -38191,7 +38418,7 @@
       "description": "Dossier in Zirkulation f\u00fcr NGOs",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 22,
+      "sort": 23,
       "template": "/list/circ-list.phtml"
     },
     "model": "core.resource",
@@ -38217,7 +38444,7 @@
       "description": "",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 19,
+      "sort": 20,
       "template": ""
     },
     "model": "core.resource",
@@ -38243,7 +38470,7 @@
       "description": "",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 21,
+      "sort": 22,
       "template": ""
     },
     "model": "core.resource",
@@ -38282,7 +38509,7 @@
       "description": "",
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 18,
+      "sort": 19,
       "template": ""
     },
     "model": "core.resource",
@@ -38295,7 +38522,7 @@
       "description": "",
       "hidden": 0,
       "name": "Geb\u00fchren",
-      "sort": 23,
+      "sort": 24,
       "template": ""
     },
     "model": "core.resource",
@@ -38308,7 +38535,7 @@
       "description": "",
       "hidden": 0,
       "name": "Auflagen",
-      "sort": 24,
+      "sort": 25,
       "template": ""
     },
     "model": "core.resource",
@@ -38360,7 +38587,7 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenliste Baubewilligung erteilt",
-      "sort": 25,
+      "sort": 26,
       "template": null
     },
     "model": "core.resource",
@@ -38438,7 +38665,7 @@
       "description": "Pendenzenliste Ende f\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 20,
+      "sort": 21,
       "template": ""
     },
     "model": "core.resource",
@@ -38490,7 +38717,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erweiterte Suche",
-      "sort": 28,
+      "sort": 29,
       "template": null
     },
     "model": "core.resource",
@@ -38503,7 +38730,7 @@
       "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
       "hidden": 0,
       "name": "Geb\u00fchren-Statistik",
-      "sort": 29,
+      "sort": 30,
       "template": null
     },
     "model": "core.resource",
@@ -38521,6 +38748,19 @@
     },
     "model": "core.resource",
     "pk": 313
+  },
+  {
+    "fields": {
+      "available_resource": "simplelist",
+      "class_field": null,
+      "description": "Pendenzenliste f\u00fcr Gemeinde Service Dossiers",
+      "hidden": 0,
+      "name": "Pendenzenliste Gemeinde Service",
+      "sort": 18,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 314
   },
   {
     "fields": {
@@ -39500,6 +39740,14 @@
     },
     "model": "core.rroleacl",
     "pk": 83
+  },
+  {
+    "fields": {
+      "resource": 314,
+      "role": 1104
+    },
+    "model": "core.rroleacl",
+    "pk": 84
   },
   {
     "fields": {
@@ -40490,6 +40738,13 @@
     },
     "model": "core.rsimplelist",
     "pk": 313
+  },
+  {
+    "fields": {
+      "instance_states": "21,22,32,23,24,25"
+    },
+    "model": "core.rsimplelist",
+    "pk": 314
   },
   {
     "fields": {
