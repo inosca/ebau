@@ -10,9 +10,6 @@ export default Route.extend({
       "bauherrschaft",
       model.instance.get("id")
     );
-    controller.set(
-      "bauherrschaftValue",
-      question ? question.get("value") : question
-    );
+    controller.set("bauherrschaftValue", question ? question.get("value") : []);
   }
 });

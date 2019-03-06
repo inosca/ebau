@@ -12,7 +12,7 @@ export default Route.extend({
     );
     controller.set(
       "grundeigentumerschaftValue",
-      question ? question.get("value") : question
+      question ? question.get("value") : []
     );
   }
 });
