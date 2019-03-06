@@ -4331,6 +4331,132 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 922,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1380
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 923,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1381
+  },
+  {
+    "fields": {
+      "available_action": "documentemail",
+      "button": 923,
+      "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
+      "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
+      "execute_always": 0,
+      "name": "Zirkulation starten E-Mail",
+      "sort": 1,
+      "success_message": "E-Mail zum Start der Zirkulation wurde versandt"
+    },
+    "model": "core.action",
+    "pk": 1382
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 923,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "IDLE auf RUN setzen",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1383
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 923,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Auf Zirkulation bleiben",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1384
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 924,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1385
+  },
+  {
+    "fields": {
+      "available_action": "documentemail",
+      "button": 924,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1386
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 924,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "IDLE auf RUN setzen",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1387
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 925,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation wieder\u00f6ffnen",
+      "sort": 0,
+      "success_message": "Zirkulation wurde f\u00fcr die selektierten Fachstellen wiederer\u00f6ffnet!"
+    },
+    "model": "core.action",
+    "pk": 1388
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -4735,6 +4861,28 @@
     },
     "model": "core.aemail",
     "pk": 1375
+  },
+  {
+    "fields": {
+      "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+      "sender_email": "camac@ur.ch",
+      "sender_name": "Camac Info",
+      "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "title": "Gemeindezirkulation gestartet"
+    },
+    "model": "core.aemail",
+    "pk": 1382
+  },
+  {
+    "fields": {
+      "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+      "sender_email": "camac@ur.ch",
+      "sender_name": "Camac Info",
+      "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
+      "title": "Gemeindezirkulation"
+    },
+    "model": "core.aemail",
+    "pk": 1386
   },
   {
     "fields": {
@@ -8521,6 +8669,15 @@
   },
   {
     "fields": {
+      "air_action_name": "",
+      "instance_resource": 1,
+      "resource": 301
+    },
+    "model": "core.apageredirect",
+    "pk": 1384
+  },
+  {
+    "fields": {
       "php_class": "DossierNR"
     },
     "model": "core.aphp",
@@ -8854,6 +9011,27 @@
     },
     "model": "core.aphp",
     "pk": 1379
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 1383
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 1387
+  },
+  {
+    "fields": {
+      "php_class": "ReopenCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 1388
   },
   {
     "fields": {
@@ -15073,6 +15251,222 @@
   },
   {
     "fields": {
+      "button": 923,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 468
+  },
+  {
+    "fields": {
+      "button": 923,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 469
+  },
+  {
+    "fields": {
+      "button": 923,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 470
+  },
+  {
+    "fields": {
+      "button": 923,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 471
+  },
+  {
+    "fields": {
+      "button": 923,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 472
+  },
+  {
+    "fields": {
+      "button": 923,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 473
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 474
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 475
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 476
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 477
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 478
+  },
+  {
+    "fields": {
+      "button": 922,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 479
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 480
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 481
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 482
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 483
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 484
+  },
+  {
+    "fields": {
+      "button": 924,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 485
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 486
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 487
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 488
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 489
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 490
+  },
+  {
+    "fields": {
+      "button": 925,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 491
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -17137,6 +17531,54 @@
     },
     "model": "core.button",
     "pk": 921
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 753,
+      "name": "Speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 922
+  },
+  {
+    "fields": {
+      "class_field": "circ_start",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 753,
+      "name": "Zirkulation starten",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 923
+  },
+  {
+    "fields": {
+      "class_field": "add_to_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 753,
+      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 924
+  },
+  {
+    "fields": {
+      "class_field": "reopen_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 753,
+      "name": "Wiederer\u00f6ffnen",
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 925
   },
   {
     "fields": {
@@ -21320,7 +21762,7 @@
       "hidden": 0,
       "name": "Dossier umwandeln",
       "resource": 301,
-      "sort": 7,
+      "sort": 8,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -21335,7 +21777,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 8,
+      "sort": 9,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -21350,7 +21792,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 6,
+      "sort": 7,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -21470,7 +21912,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 9,
+      "sort": 10,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -22145,7 +22587,7 @@
       "hidden": 0,
       "name": "Auflagen-Controlling",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -22190,7 +22632,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 301,
-      "sort": 13,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -22945,6 +23387,21 @@
     },
     "model": "core.instanceresource",
     "pk": 752
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editcirculation",
+      "class_field": null,
+      "description": "Gemeindezirkulation Dossiers",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Gemeindezirkulation",
+      "resource": 301,
+      "sort": 6,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 753
   },
   {
     "fields": {
@@ -24881,6 +25338,24 @@
     },
     "model": "core.ireditcirculation",
     "pk": 738
+  },
+  {
+    "fields": {
+      "add_activation_template": null,
+      "add_template": null,
+      "circulation_email_action_id": null,
+      "circulation_type": 61,
+      "default_circulation_name": "Erste Zirkulation",
+      "display_first_circulation": 1,
+      "draft_circulation_answer": null,
+      "inherit_notices": 0,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "show_notice": 1,
+      "single_circulation": 1
+    },
+    "model": "core.ireditcirculation",
+    "pk": 753
   },
   {
     "fields": {
@@ -33169,6 +33644,60 @@
     },
     "model": "core.irroleacl",
     "pk": 816
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 817
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 818
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 819
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 820
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 821
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 822
   },
   {
     "fields": {
