@@ -46688,6 +46688,22 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeindewerke Altdorf",
+      "phone": null,
+      "role": 1104,
+      "service": 592,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1025
+  },
+  {
+    "fields": {
       "group": 22,
       "location": 1
     },
@@ -51103,6 +51119,24 @@
     },
     "model": "user.service",
     "pk": 591
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Test Gruppe zum testen der Gemeinde Zirkulation",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeindewerke Altdorf",
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 0,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 592
   },
   {
     "fields": {
