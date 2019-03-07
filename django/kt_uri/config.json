@@ -8669,8 +8669,8 @@
   },
   {
     "fields": {
-      "air_action_name": "",
-      "instance_resource": 1,
+      "air_action_name": "edit",
+      "instance_resource": 753,
       "resource": 301
     },
     "model": "core.apageredirect",
