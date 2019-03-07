@@ -18,7 +18,7 @@ export default Controller.extend({
       question.set(
         "model.value",
         question
-          .get("model.value")
+          .getWithDefault("model.value", [])
           .pushObjects(this.bauherrschaftValue)
           .uniqBy("uuid")
       );
