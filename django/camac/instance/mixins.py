@@ -60,6 +60,7 @@ class InstanceQuerysetMixin(object):
             location__in=self.request.group.locations.all(),
             publication_entries__publication_date__gt=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            publication_entries__is_published=True,
         )
 
         return queryset.filter(**{instance_field: instances})
