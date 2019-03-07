@@ -41,6 +41,10 @@ services:
         networks:
             - camac-ng.local
 
+    caluma:
+      networks:
+        - camac-ng.local
+
     django:
         image: acr.run/camac-ng/camac-ng/django:master
         ports:
