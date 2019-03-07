@@ -3303,7 +3303,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 12,
-      "sort": 0,
+      "sort": 1,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3318,7 +3318,7 @@
       "hidden": 0,
       "name": "Formular",
       "resource": 12,
-      "sort": 1,
+      "sort": 0,
       "template": "/ember/instance.phtml"
     },
     "model": "core.instanceresource",

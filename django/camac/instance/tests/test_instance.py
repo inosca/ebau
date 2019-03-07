@@ -381,24 +381,34 @@ def test_instance_generate_identifier(db, instance, instance_factory):
 
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
-    "role__name,instance__user,publication_entry__publication_date,status_code",
+    "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
     [
         (
             "Municipality",
             LazyFixture("admin_user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
+            True,
             status.HTTP_200_OK,
         ),
         (
             "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            True,
             status.HTTP_200_OK,
         ),
         (
             "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
+            True,
+            status.HTTP_404_NOT_FOUND,
+        ),
+        (
+            "PublicReader",
+            LazyFixture("admin_user"),
+            datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
+            False,
             status.HTTP_404_NOT_FOUND,
         ),
     ],
