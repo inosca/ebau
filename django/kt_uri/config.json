@@ -33,6 +33,30 @@
   },
   {
     "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 2
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1392
+  },
+  {
+    "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 41
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1397
+  },
+  {
+    "fields": {
+      "current_circulation_state": 41,
+      "next_circulation_state": 1
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1400
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 2,
       "description": "",
@@ -4471,6 +4495,160 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 926,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen.",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1390
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 927,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1391
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation auf OK setzen",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1392
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1393
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Weiterleitung zu Pendenzenliste",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1394
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 928,
+      "description": null,
+      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+      "execute_always": 0,
+      "name": "CheckIfNFDPossible",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1395
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 928,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen.",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 1,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1396
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 928,
+      "description": "Zirkulation in Nachforderung versetzen",
+      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
+      "execute_always": 0,
+      "name": "RUN - NFD",
+      "sort": 2,
+      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
+    },
+    "model": "core.action",
+    "pk": 1397
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 928,
+      "description": "Setzt das Datum vom NFD",
+      "error_message": null,
+      "execute_always": 0,
+      "name": "NFD Datum setzen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1398
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 929,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1399
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 929,
+      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
+      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
+      "execute_always": 0,
+      "name": "NFD - RUN",
+      "sort": 1,
+      "success_message": "Dossier als vollst\u00e4ndig markiert!"
+    },
+    "model": "core.action",
+    "pk": 1400
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -8692,6 +8870,15 @@
   },
   {
     "fields": {
+      "air_action_name": null,
+      "instance_resource": null,
+      "resource": 314
+    },
+    "model": "core.apageredirect",
+    "pk": 1394
+  },
+  {
+    "fields": {
       "php_class": "DossierNR"
     },
     "model": "core.aphp",
@@ -9046,6 +9233,27 @@
     },
     "model": "core.aphp",
     "pk": 1388
+  },
+  {
+    "fields": {
+      "php_class": "CircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1393
+  },
+  {
+    "fields": {
+      "php_class": "CheckIfNFDPossible"
+    },
+    "model": "core.aphp",
+    "pk": 1395
+  },
+  {
+    "fields": {
+      "php_class": "SetNFD"
+    },
+    "model": "core.aphp",
+    "pk": 1398
   },
   {
     "fields": {
@@ -15481,6 +15689,222 @@
   },
   {
     "fields": {
+      "button": 928,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 492
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 493
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 494
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 495
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 496
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 497
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 498
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 499
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 500
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 501
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 502
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 503
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 504
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 505
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 506
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 507
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 508
+  },
+  {
+    "fields": {
+      "button": 926,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 509
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 510
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 511
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 512
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 513
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 514
+  },
+  {
+    "fields": {
+      "button": 927,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 515
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -17593,6 +18017,54 @@
     },
     "model": "core.button",
     "pk": 925
+  },
+  {
+    "fields": {
+      "class_field": "circ_save_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Antwort speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 926
+  },
+  {
+    "fields": {
+      "class_field": "circ_send_button no-animation",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Antwort senden",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 927
+  },
+  {
+    "fields": {
+      "class_field": "circ_nfd_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Nachforderung",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 928
+  },
+  {
+    "fields": {
+      "class_field": "circ_complete_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Dossier vollst\u00e4ndig",
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 929
   },
   {
     "fields": {
