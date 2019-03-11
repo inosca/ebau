@@ -5,7 +5,7 @@ import sys
 PATH = "kt_schwyz/form.json"
 
 
-def importText():
+def import_text():
     with open(PATH) as f:
         data = json.load(f)
 
@@ -27,7 +27,7 @@ def importText():
             json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-def exportForm():
+def export_form():
     with open(PATH) as f:
         data = json.load(f)
     questions = data["questions"]
@@ -45,6 +45,6 @@ def exportForm():
 
 
 if sys.argv[1] == "import":
-    importText()
+    import_text()
 elif sys.argv[1] == "export":
-    exportForm()
+    export_form()
