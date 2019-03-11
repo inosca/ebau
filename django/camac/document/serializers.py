@@ -49,7 +49,18 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             attachment_sections = models.AttachmentSection.objects.filter_group(
                 self.context["request"].group
             )[:1]
+
+        existing_section_ids = set()
+        if self.instance:
+            existing_section_ids = set(
+                s.attachment_section_id for s in self.instance.attachment_sections.all()
+            )
+
         for attachment_section in attachment_sections:
+            if attachment_section.attachment_section_id in existing_section_ids:
+                # document already assigned, so even if it's forbidden,
+                # it's not a violation
+                continue
             mode = attachment_section.get_mode(self.context["request"].group)
             if mode not in [models.WRITE_PERMISSION, models.ADMIN_PERMISSION]:
                 raise exceptions.ValidationError(
