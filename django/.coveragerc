@@ -18,6 +18,7 @@ omit=
     */admin.py
     manage.py
     setup.py
+    form_json_helper.py
     camac/settings_*.py
     camac/wsgi.py
     # TODO: write tests for the following
