@@ -14999,6 +14999,470 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Wollerau",
+      "phone": null,
+      "role": 9,
+      "service": 76,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 395
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Freienbach",
+      "phone": null,
+      "role": 9,
+      "service": 55,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 396
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Bezirk Einsiedeln",
+      "phone": null,
+      "role": 9,
+      "service": 48,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 397
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Bezirk K\u00fcssnacht",
+      "phone": null,
+      "role": 9,
+      "service": 49,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 398
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Bezirk Gersau",
+      "phone": null,
+      "role": 9,
+      "service": 50,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 399
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Altendorf",
+      "phone": null,
+      "role": 9,
+      "service": 51,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 400
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Alpthal",
+      "phone": null,
+      "role": 9,
+      "service": 52,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 401
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Arth",
+      "phone": null,
+      "role": 9,
+      "service": 53,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 402
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Feusisberg",
+      "phone": null,
+      "role": 9,
+      "service": 54,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 403
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Galgenen",
+      "phone": null,
+      "role": 9,
+      "service": 56,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 404
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Illgau",
+      "phone": null,
+      "role": 9,
+      "service": 57,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 405
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Ingenbohl",
+      "phone": null,
+      "role": 9,
+      "service": 58,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 406
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Innerthal",
+      "phone": null,
+      "role": 9,
+      "service": 59,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 407
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Lachen",
+      "phone": null,
+      "role": 9,
+      "service": 60,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 408
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Lauerz",
+      "phone": null,
+      "role": 9,
+      "service": 61,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 409
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Morschach",
+      "phone": null,
+      "role": 9,
+      "service": 62,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 410
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Muotathal",
+      "phone": null,
+      "role": 9,
+      "service": 63,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 411
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Oberiberg",
+      "phone": null,
+      "role": 9,
+      "service": 64,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 412
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Reichenburg",
+      "phone": null,
+      "role": 9,
+      "service": 65,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 413
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Riemenstalden",
+      "phone": null,
+      "role": 9,
+      "service": 66,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 414
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Rothenthurm",
+      "phone": null,
+      "role": 9,
+      "service": 67,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 415
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Sch\u00fcbelbach",
+      "phone": null,
+      "role": 9,
+      "service": 68,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 416
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Sattel",
+      "phone": null,
+      "role": 9,
+      "service": 69,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 417
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Steinen",
+      "phone": null,
+      "role": 9,
+      "service": 70,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 418
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Steinerberg",
+      "phone": null,
+      "role": 9,
+      "service": 71,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 419
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Tuggen",
+      "phone": null,
+      "role": 9,
+      "service": 72,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 420
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Unteriberg",
+      "phone": null,
+      "role": 9,
+      "service": 73,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 421
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Vorderthal",
+      "phone": null,
+      "role": 9,
+      "service": 74,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 422
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Publikation Gemeinde Wangen",
+      "phone": null,
+      "role": 9,
+      "service": 75,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 423
+  },
+  {
+    "fields": {
       "group": 3,
       "location": 26
     },
@@ -40732,6 +41196,238 @@
     },
     "model": "user.grouplocation",
     "pk": 3294
+  },
+  {
+    "fields": {
+      "group": 395,
+      "location": 4
+    },
+    "model": "user.grouplocation",
+    "pk": 3295
+  },
+  {
+    "fields": {
+      "group": 396,
+      "location": 3
+    },
+    "model": "user.grouplocation",
+    "pk": 3296
+  },
+  {
+    "fields": {
+      "group": 397,
+      "location": 30
+    },
+    "model": "user.grouplocation",
+    "pk": 3297
+  },
+  {
+    "fields": {
+      "group": 398,
+      "location": 5
+    },
+    "model": "user.grouplocation",
+    "pk": 3298
+  },
+  {
+    "fields": {
+      "group": 399,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 3299
+  },
+  {
+    "fields": {
+      "group": 400,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 3300
+  },
+  {
+    "fields": {
+      "group": 401,
+      "location": 15
+    },
+    "model": "user.grouplocation",
+    "pk": 3301
+  },
+  {
+    "fields": {
+      "group": 402,
+      "location": 16
+    },
+    "model": "user.grouplocation",
+    "pk": 3302
+  },
+  {
+    "fields": {
+      "group": 403,
+      "location": 2
+    },
+    "model": "user.grouplocation",
+    "pk": 3303
+  },
+  {
+    "fields": {
+      "group": 404,
+      "location": 7
+    },
+    "model": "user.grouplocation",
+    "pk": 3304
+  },
+  {
+    "fields": {
+      "group": 405,
+      "location": 17
+    },
+    "model": "user.grouplocation",
+    "pk": 3305
+  },
+  {
+    "fields": {
+      "group": 406,
+      "location": 18
+    },
+    "model": "user.grouplocation",
+    "pk": 3306
+  },
+  {
+    "fields": {
+      "group": 407,
+      "location": 8
+    },
+    "model": "user.grouplocation",
+    "pk": 3307
+  },
+  {
+    "fields": {
+      "group": 408,
+      "location": 9
+    },
+    "model": "user.grouplocation",
+    "pk": 3308
+  },
+  {
+    "fields": {
+      "group": 409,
+      "location": 19
+    },
+    "model": "user.grouplocation",
+    "pk": 3309
+  },
+  {
+    "fields": {
+      "group": 410,
+      "location": 20
+    },
+    "model": "user.grouplocation",
+    "pk": 3310
+  },
+  {
+    "fields": {
+      "group": 411,
+      "location": 21
+    },
+    "model": "user.grouplocation",
+    "pk": 3311
+  },
+  {
+    "fields": {
+      "group": 412,
+      "location": 22
+    },
+    "model": "user.grouplocation",
+    "pk": 3312
+  },
+  {
+    "fields": {
+      "group": 413,
+      "location": 10
+    },
+    "model": "user.grouplocation",
+    "pk": 3313
+  },
+  {
+    "fields": {
+      "group": 414,
+      "location": 23
+    },
+    "model": "user.grouplocation",
+    "pk": 3314
+  },
+  {
+    "fields": {
+      "group": 415,
+      "location": 24
+    },
+    "model": "user.grouplocation",
+    "pk": 3315
+  },
+  {
+    "fields": {
+      "group": 416,
+      "location": 11
+    },
+    "model": "user.grouplocation",
+    "pk": 3316
+  },
+  {
+    "fields": {
+      "group": 417,
+      "location": 25
+    },
+    "model": "user.grouplocation",
+    "pk": 3317
+  },
+  {
+    "fields": {
+      "group": 418,
+      "location": 27
+    },
+    "model": "user.grouplocation",
+    "pk": 3318
+  },
+  {
+    "fields": {
+      "group": 419,
+      "location": 28
+    },
+    "model": "user.grouplocation",
+    "pk": 3319
+  },
+  {
+    "fields": {
+      "group": 420,
+      "location": 12
+    },
+    "model": "user.grouplocation",
+    "pk": 3320
+  },
+  {
+    "fields": {
+      "group": 421,
+      "location": 29
+    },
+    "model": "user.grouplocation",
+    "pk": 3321
+  },
+  {
+    "fields": {
+      "group": 422,
+      "location": 13
+    },
+    "model": "user.grouplocation",
+    "pk": 3322
+  },
+  {
+    "fields": {
+      "group": 423,
+      "location": 14
+    },
+    "model": "user.grouplocation",
+    "pk": 3323
   },
   {
     "fields": {
