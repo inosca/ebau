@@ -191,7 +191,13 @@
     "grundinformationen.lokalisierung": {
       "title": "Lokalisierung",
       "parent": "grundinformationen",
-      "questions": ["bezeichnung", "parzellen", "punkte", "layer", "dokument-grundstucksangaben"]
+      "questions": [
+        "bezeichnung",
+        "parzellen",
+        "punkte",
+        "layer",
+        "dokument-grundstucksangaben"
+      ]
     },
     "grundinformationen.kategorisierung": {
       "title": "Kategorisierung",
@@ -242,7 +248,9 @@
     "grundinformationen.gwr": {
       "title": "Gebäude- und Wohnungsregister",
       "parent": "grundinformationen",
-      "questions": ["gwr"]
+      "questions": [
+        "gwr"
+      ]
     },
     "grundinformationen.allgemeine-informationen-zum-vorhaben": {
       "title": "Allgemeine Informationen zum Vorhaben",
@@ -261,7 +269,11 @@
     "grundinformationen.ausnahmebewilligungen": {
       "title": "Ausnahmebewilligungen",
       "parent": "grundinformationen",
-      "questions": ["ausnahmen", "ausnahmen-andere", "ausnahmen-begrundung"]
+      "questions": [
+        "ausnahmen",
+        "ausnahmen-andere",
+        "ausnahmen-begrundung"
+      ]
     },
     "personalien": {
       "title": "Personalien",
@@ -271,32 +283,44 @@
     "personalien.grundeigentumerschaft": {
       "title": "Grundeigentümerschaft",
       "parent": "personalien",
-      "questions": ["grundeigentumerschaft"]
+      "questions": [
+        "grundeigentumerschaft"
+      ]
     },
     "personalien.bauherrschaft": {
       "title": "Bauherrschaft",
       "parent": "personalien",
-      "questions": ["bauherrschaft"]
+      "questions": [
+        "bauherrschaft"
+      ]
     },
     "personalien.projektverfasser-planer": {
       "title": "Projektverfasser / Planer",
       "parent": "personalien",
-      "questions": ["projektverfasser-planer"]
+      "questions": [
+        "projektverfasser-planer"
+      ]
     },
     "personalien.gesuchsteller": {
       "title": "Gesuchsteller",
       "parent": "personalien",
-      "questions": ["gesuchsteller"]
+      "questions": [
+        "gesuchsteller"
+      ]
     },
     "personalien.konzessionsnehmer": {
       "title": "Konzessionsnehmer",
       "parent": "personalien",
-      "questions": ["konzessionsnehmer"]
+      "questions": [
+        "konzessionsnehmer"
+      ]
     },
     "personalien.bewilligungsnehmer": {
       "title": "Bewilligungsnehmer",
       "parent": "personalien",
-      "questions": ["bewilligungsnehmer"]
+      "questions": [
+        "bewilligungsnehmer"
+      ]
     },
     "fachthemen": {
       "title": "Fachthemen",
@@ -338,12 +362,16 @@
     "fachthemen.umweltschutz": {
       "title": "Umweltschutz",
       "parent": "fachthemen",
-      "questions": ["umweltschutz-abfallbehandlungsanlage"]
+      "questions": [
+        "umweltschutz-abfallbehandlungsanlage"
+      ]
     },
     "fachthemen.natur-und-landschaftsschutz": {
       "title": "Natur- und Landschaftsschutz",
       "parent": "fachthemen",
-      "questions": ["datenverschnitt-natur-und-landschaftsschutz"]
+      "questions": [
+        "datenverschnitt-natur-und-landschaftsschutz"
+      ]
     },
     "fachthemen.wald": {
       "title": "Wald, Flora, Fauna",
@@ -473,12 +501,16 @@
     "fachthemen.brandschutz": {
       "title": "Brandschutz",
       "parent": "fachthemen",
-      "questions": ["brandschutz-gefahrengut"]
+      "questions": [
+        "brandschutz-gefahrengut"
+      ]
     },
     "fachthemen.liegenschaftsentwasserung": {
       "title": "Liegenschaftsentwässerung",
       "parent": "fachthemen",
-      "questions": ["liegenschaftsentwasserung-wassergefahrdende-stoffe"]
+      "questions": [
+        "liegenschaftsentwasserung-wassergefahrdende-stoffe"
+      ]
     },
     "fachthemen.gewasserschutz": {
       "title": "Gewässerschutz",
@@ -528,17 +560,23 @@
     "fachthemen.reklamen": {
       "title": "Reklamen",
       "parent": "fachthemen",
-      "questions": ["reklamen"]
+      "questions": [
+        "reklamen"
+      ]
     },
     "fachthemen.denkmalschutz-und-archaeologie": {
       "title": "Denkmalschutz und Archäologie",
       "parent": "fachthemen",
-      "questions": ["datenverschnitt-denkmalpflege"]
+      "questions": [
+        "datenverschnitt-denkmalpflege"
+      ]
     },
     "fachthemen.lebensmittel-und-hygienesicherheit": {
       "title": "Lebensmittel- und Hygienesicherheit",
       "parent": "fachthemen",
-      "questions": ["lebensmittel-und-hygienesicherheit-info"]
+      "questions": [
+        "lebensmittel-und-hygienesicherheit-info"
+      ]
     },
     "fachthemen.fischerei": {
       "title": "Fischerei",
@@ -613,12 +651,16 @@
     "anlassbewilligungen-verkehrsbewilligungen": {
       "title": "Anlass- / Verkehrsbewilligungen",
       "parent": null,
-      "questions": ["av-art"]
+      "questions": [
+        "av-art"
+      ]
     },
     "baumeldung-fur-geringfugige-vorhaben": {
       "title": "Baumeldung für geringfügige Vorhaben",
       "parent": null,
-      "questions": ["bm-solaranlage"]
+      "questions": [
+        "bm-solaranlage"
+      ]
     },
     "konzession-fur-wasserentnahme": {
       "title": "Konzession für Wasserentnahme",
@@ -766,22 +808,34 @@
     "projektanderung": {
       "title": "Projektänderung zu Baugesuch",
       "parent": null,
-      "questions": ["pa-gesuchsnr", "pa-datum"]
+      "questions": [
+        "pa-gesuchsnr",
+        "pa-datum"
+      ]
     },
     "plangenehmigungsverfahren": {
       "title": "Plangenehmigungsverfahren",
       "parent": null,
-      "questions": ["pgv-bewilligungsbehorde"]
+      "questions": [
+        "pgv-bewilligungsbehorde"
+      ]
     },
     "technische-bewilligung": {
       "title": "Technische Bewilligung",
       "parent": null,
-      "questions": ["tb-gesuchsnr", "tb-datum", "tb-zweck", "tb-zweck-andere"]
+      "questions": [
+        "tb-gesuchsnr",
+        "tb-datum",
+        "tb-zweck",
+        "tb-zweck-andere"
+      ]
     },
     "vorentscheid": {
       "title": "Vorentscheid",
       "parent": null,
-      "questions": ["ve-verbindlich"]
+      "questions": [
+        "ve-verbindlich"
+      ]
     }
   },
   "questions": {
@@ -907,7 +961,10 @@
             "type": "radio",
             "required": false,
             "config": {
-              "options": ["Ja", "Nein"]
+              "options": [
+                "Ja",
+                "Nein"
+              ]
             }
           },
           {
@@ -1011,7 +1068,10 @@
                   "type": "radio",
                   "required": true,
                   "config": {
-                    "options": ["Ja", "Nein"]
+                    "options": [
+                      "Ja",
+                      "Nein"
+                    ]
                   }
                 },
                 {
@@ -1078,7 +1138,10 @@
       "type": "checkbox",
       "required": true,
       "config": {
-        "options": ["Baute(n)", "Anlage(n)"]
+        "options": [
+          "Baute(n)",
+          "Anlage(n)"
+        ]
       }
     },
     "art-der-nutzung": {
@@ -1261,7 +1324,11 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja, direkt", "Ja, indirekt", "Nein"]
+        "options": [
+          "Ja, direkt",
+          "Ja, indirekt",
+          "Nein"
+        ]
       }
     },
     "pfahlfundation-vorgesehen": {
@@ -1271,7 +1338,10 @@
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "baugrubenumschliessung-vorgesehen": {
@@ -1281,7 +1351,10 @@
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "temporare-grundwasserabsenkung-notig": {
@@ -1291,7 +1364,10 @@
       "required": true,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "anlagen-mit-erheblichen-schadstoffemissionen": {
@@ -1300,7 +1376,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "anlagen-mit-erheblichen-schadstoffemissionen-welche": {
@@ -1320,7 +1399,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
@@ -1337,7 +1419,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "larmbelastetes-gebiet": {
@@ -1346,7 +1431,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "aussenbeleuchtung": {
@@ -1355,7 +1443,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "wassergefahrdende-stoffe": {
@@ -1365,7 +1456,10 @@
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "brandschutztechnisch-gefahrliche-stoffe": {
@@ -1375,7 +1469,10 @@
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "bodenbelastungen": {
@@ -1384,7 +1481,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "boden-5000m2": {
@@ -1393,7 +1493,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "ordendliche-mindestabstande": {
@@ -1402,7 +1505,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "auswirkungen-auf-arbeitnehmer": {
@@ -1411,7 +1517,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "200m3-bauabfalle": {
@@ -1421,7 +1530,10 @@
       "required": true,
       "active-expression": "'Abbruch / Rückbau' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "alarmierungseinrichtung-tangiert": {
@@ -1431,7 +1543,10 @@
       "active-expression": "true == false",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "lebensmittel-umgehen": {
@@ -1440,7 +1555,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "trinkwasser-abgeben": {
@@ -1450,7 +1568,10 @@
       "required": true,
       "active-expression": "'lebensmittel-umgehen'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "offentlich-duschanlage-oder-bad": {
@@ -1460,7 +1581,10 @@
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "gewerbliche-nutzflachen": {
@@ -1470,7 +1594,10 @@
       "required": true,
       "active-expression": "('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value) || ('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Tourismus' in 'art-der-nutzung'|value)",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "gewerbliche-nutzflachen-grosse": {
@@ -1480,7 +1607,10 @@
       "required": true,
       "active-expression": "'gewerbliche-nutzflachen'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "hohe-der-anlage": {
@@ -1522,7 +1652,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "baugespann-errichtet-wann": {
@@ -2088,7 +2221,10 @@
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche'|value",
       "config": {
-        "options": ["Berggebiet", "Talgebiet"]
+        "options": [
+          "Berggebiet",
+          "Talgebiet"
+        ]
       }
     },
     "landwirtschaft-wohnbauten": {
@@ -2148,7 +2284,10 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["Ja", "Nein"]
+              "options": [
+                "Ja",
+                "Nein"
+              ]
             }
           },
           {
@@ -2157,7 +2296,10 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["Ja", "Nein"]
+              "options": [
+                "Ja",
+                "Nein"
+              ]
             }
           },
           {
@@ -2166,7 +2308,11 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["Ja, vorhanden", "Ja, geplant", "Nein"]
+              "options": [
+                "Ja, vorhanden",
+                "Ja, geplant",
+                "Nein"
+              ]
             }
           }
         ]
@@ -2222,7 +2368,10 @@
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "landwirtschaft-okonomiebauten": {
@@ -2300,7 +2449,10 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["Bestehend", "Neu"]
+              "options": [
+                "Bestehend",
+                "Neu"
+              ]
             }
           },
           {
@@ -2437,7 +2589,10 @@
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "nlbuaab-erweiterungen-wann-welche": {
@@ -2635,7 +2790,10 @@
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "datenverschnitt-natur-und-landschaftsschutz": {
@@ -2657,7 +2815,10 @@
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "wald-auswirkungen": {
@@ -2667,7 +2828,10 @@
       "required": true,
       "active-expression": "'Forstwirtschaft' in 'art-der-nutzung'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "datenverschnitt-reptilien": {
@@ -2746,7 +2910,10 @@
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, direkt' && ('Kantonsstrasse' in 'verkehr-strasse'|value|mapby('typ') && 'verkehr-einfahrt'|value in ['Direkte Einfahrt bestehend (keine Anpassungen vorgesehen)', 'Aus- oder Umbau der bestehenden Einfahrt'])",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "verkehr-strasse-indirekt": {
@@ -2812,7 +2979,10 @@
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "verkehr-neugestaltung-trottoir": {
@@ -2821,9 +2991,11 @@
       "type": "radio",
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
-
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "verkehr-einschrankungen-trottoir": {
@@ -2833,7 +3005,10 @@
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "verkehr-baugrube-tangieren": {
@@ -2843,7 +3018,10 @@
       "required": true,
       "active-expression": "'tangiert-vorhaben-strasse'|value == 'Ja, indirekt' && 'Kantonsstrasse' in 'verkehr-strasse-indirekt'|value|mapby('typ')",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "datenverschnitt-eisenbahn": {
@@ -2890,7 +3068,10 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "energie-uberragt-rechter-winkel": {
@@ -2900,7 +3081,10 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "energie-uberragt": {
@@ -2910,7 +3094,10 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "energie-reflexionsarm": {
@@ -2920,7 +3107,10 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "energie-kompakt": {
@@ -2930,7 +3120,10 @@
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "energie-thermisch-kollektorenart": {
@@ -2940,7 +3133,10 @@
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
-        "options": ["Flachkollektoren", "Röhrenkollektoren"]
+        "options": [
+          "Flachkollektoren",
+          "Röhrenkollektoren"
+        ]
       }
     },
     "energie-thermisch-aufbereitung": {
@@ -2973,7 +3169,10 @@
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
       "config": {
-        "options": ["Monokristalline Zellen", "Polykristalline Zellen"]
+        "options": [
+          "Monokristalline Zellen",
+          "Polykristalline Zellen"
+        ]
       }
     },
     "energie-photovoltaik-gesamtleistung": {
@@ -3033,7 +3232,10 @@
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "arbeitssicherheit-tangiert": {
@@ -3177,7 +3379,10 @@
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
-        "options": ["Künstlich", "Natürlich"]
+        "options": [
+          "Künstlich",
+          "Natürlich"
+        ]
       }
     },
     "arbeitssicherheit-luftung-absaugungen": {
@@ -3187,7 +3392,10 @@
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "arbeitssicherheit-luftung-verunreinigte-luft": {
@@ -3197,7 +3405,10 @@
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "arbeitssicherheit-beleuchtung-raumbeleuchtung": {
@@ -3521,7 +3732,10 @@
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-elementarschaden": {
@@ -3531,7 +3745,10 @@
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-dispens-schutzraumbau": {
@@ -3541,7 +3758,10 @@
       "required": false,
       "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-schutzraum-bestehend": {
@@ -3551,7 +3771,10 @@
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-schutzraumaufhebung": {
@@ -3561,7 +3784,10 @@
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-schutzraum-grundbucheintrag": {
@@ -3571,7 +3797,10 @@
       "required": false,
       "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "zivilschutz-schutzraum-nr": {
@@ -3612,7 +3841,10 @@
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung / Industrie' in 'art-der-nutzung'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "gewasserschutz-menge": {
@@ -3714,7 +3946,11 @@
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
-        "options": ["Heizung", "Kühlung", "Warmwasser"]
+        "options": [
+          "Heizung",
+          "Kühlung",
+          "Warmwasser"
+        ]
       }
     },
     "grundwasser-anzahl-erdwarmesonden": {
@@ -3907,7 +4143,10 @@
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "grundwasser-sondierbohrung-bohrfirma": {
@@ -3941,7 +4180,10 @@
       "required": true,
       "active-expression": "'Abfallanlage, Deponie' in 'art-der-anlage'|value",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "reklamen": {
@@ -3980,7 +4222,10 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["Innerorts", "Ausserorts"]
+              "options": [
+                "Innerorts",
+                "Ausserorts"
+              ]
             }
           },
           {
@@ -3989,7 +4234,10 @@
             "type": "radio",
             "required": true,
             "config": {
-              "options": ["An einer Baute / Fassade", "Freistehend"]
+              "options": [
+                "An einer Baute / Fassade",
+                "Freistehend"
+              ]
             }
           },
           {
@@ -4028,7 +4276,9 @@
       "required": true,
       "active-expression": "'lebensmittel-umgehen'|value == 'Ja' || 'trinkwasser-abgeben'|value == 'Ja' || 'offentlich-duschanlage-oder-bad'|value == 'Ja'",
       "config": {
-        "options": ["Erledigt"]
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "fischerei-ufervegetation-beeintrachtigt": {
@@ -4038,7 +4288,10 @@
       "required": false,
       "active-expression": "'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "fischerei-ufervegetation-beeintrachtigt-info": {
@@ -4048,7 +4301,9 @@
       "required": false,
       "active-expression": "'fischerei-ufervegetation-beeintrachtigt'|value == 'Ja'",
       "config": {
-        "options": ["Erledigt"]
+        "options": [
+          "Erledigt"
+        ]
       }
     },
     "datenverschnitt-fisch": {
@@ -4110,7 +4365,10 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-ort": {
@@ -4119,7 +4377,12 @@
       "type": "radio",
       "required": true,
       "config": {
-        "options": ["Grundwasser", "Bach / Fluss", "See", "Quelle"]
+        "options": [
+          "Grundwasser",
+          "Bach / Fluss",
+          "See",
+          "Quelle"
+        ]
       }
     },
     "kw-1-1-nutzungsart": {
@@ -4285,7 +4548,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
@@ -4490,7 +4756,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-2-1-entnahmestandort-gemeinde": {
@@ -4582,7 +4851,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Neubau", "Altbau"]
+        "options": [
+          "Neubau",
+          "Altbau"
+        ]
       }
     },
     "kw-1-2-1-baute-warmebedarf": {
@@ -4602,7 +4874,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
@@ -4664,7 +4939,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-2-2-zweck-brauchwasser": {
@@ -4894,7 +5172,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
@@ -5076,7 +5357,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle'",
       "config": {
-        "options": ["Privat", "Öffentlich"]
+        "options": [
+          "Privat",
+          "Öffentlich"
+        ]
       }
     },
     "kw-1-4-nutzungsart": {
@@ -5228,7 +5512,10 @@
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
       "config": {
-        "options": ["Ja", "Nein"]
+        "options": [
+          "Ja",
+          "Nein"
+        ]
       }
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
@@ -5467,7 +5754,9 @@
       }
     },
     "einsprecher": {
-      "restrict": ["municipality"],
+      "restrict": [
+        "municipality"
+      ],
       "label": "Einsprecher:",
       "hint": "**Platzhalter**: *einsprecher*",
       "type": "table",
@@ -5821,7 +6110,7 @@
         ]
       }
     },
-  "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja": {
+    "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja": {
       "label": "Es ist ein Entwässerungsplan gemäss SN 592 000 einzureichen. Bitte beachten Sie, dass insbesondere folgende Angaben enthalten sind (Liste nicht abschliessend):\n - Abwasserleitungen, Schächte, Rinnen, Abläufe, Abscheideanlagen usw.\n - Dimensionierung und Materialisierung der Leitungen mit Gefälle und Fliessrichtung\n - Materialisierung und Gefälle von beregneten und überdachten Flächen\n - Beschriftung der Fallstränge\n - Dimensionierung und Schnitt allfälliger Versickerungs- und Retentionsanlagen\n - Bezeichnung von oberflächlichen Versickerungen im angrenzenden Wiesland\n - Anschlusspunkte an die öffentliche Kanalisation oder Einleitstellen in Gewässer\n - Schnittplan durch die geplante Einleitung in ein Oberflächengewässer\n - vollständige Chemikalienliste (inkl. maximale Lagermengen) sowie Sicherheitsdatenblätter aller Chemikalien. Der Chemikalien-Umschlagsort ist im Entwässerungsplan zu bezeichnen (inkl. Angaben über evtl. Auffangvolumen etc.).\n - Bei Abwasservorbehandlungsanlagen ist ein Dossier einzureichen (Angaben zum anfallenden Abwasser, Anlagenbeschrieb, Beschreibung der Verfahrensstufen, Dimensionierung, Endkontrolle usw.)",
       "type": "checkbox",
       "required": false,
