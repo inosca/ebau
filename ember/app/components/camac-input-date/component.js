@@ -1,9 +1,20 @@
 import Component from "@ember/component";
 
 export default Component.extend({
-  change(e) {
-    e.preventDefault();
+  didReceiveAttrs() {
+    this._super(...arguments);
+    this.set("date", new Date(this.get("model.value")));
+  },
 
-    this.getWithDefault("attrs.on-change", () => {})(e.target.value);
+  actions: {
+    change(date) {
+      this.getWithDefault("attrs.on-change", () => {})(
+        date
+          .toLocaleDateString()
+          .split("/")
+          .reverse()
+          .join("-")
+      );
+    }
   }
 });

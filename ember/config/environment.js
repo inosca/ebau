@@ -44,6 +44,10 @@ module.exports = function(environment) {
         button: "uk-button uk-button-default",
         submit: "uk-button uk-button-primary"
       }
+    },
+
+    moment: {
+      includeLocales: ["de-ch"]
     }
   };
 
