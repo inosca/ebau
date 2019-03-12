@@ -1,8 +1,10 @@
 {{pikaday-input
   class="uk-input"
   placeholder="DD.MM.YYYY"
-  value=model.value
+  value=date
   disabled=readonly
   minDate=config.min
   maxDate=config.max
+  useUTC=true
+  onSelection=(action 'change')
 }}
