@@ -6,6 +6,7 @@ services:
     proxy:
         image: nginx:1.13-alpine
         depends_on:
+            - caluma
             - ember
             - php
             - django
@@ -24,6 +25,23 @@ services:
             - POSTGRES_DATABASE=${APPLICATION}
         volumes:
             - pgdata:/var/lib/postgresql/data
+
+    caluma:
+      restart: always
+      build:
+        context: caluma
+        cache_from:
+          - acr.run/camac-ng/camac-ng/caluma:master
+      environment:
+        - DATABASE_HOST=db
+        - DATABASE_PORT=5432
+        - DATABASE_NAME=caluma
+        - DATABASE_PASSWORD=camac
+        - DATABASE_USER=camac
+        - ENV=development
+      depends_on:
+        - php
+        - db
 
     django:
         build:
