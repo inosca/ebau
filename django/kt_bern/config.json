@@ -33232,6 +33232,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "calumalist",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 130000
+  },
+  {
+    "fields": {
       "description": "Add a journal entry",
       "module_name": "journal"
     },
@@ -33762,6 +33771,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "service"
+  },
+  {
+    "fields": {
+      "controller_name": "calumalist",
+      "description": "Page with a list of instances (from caluma)",
+      "module_name": "calumalist"
+    },
+    "model": "core.availableresource",
+    "pk": "calumalist"
   },
   {
     "fields": {
@@ -111628,7 +111646,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -111654,7 +111672,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -111680,7 +111698,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -111693,11 +111711,24 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
     "pk": 20005
+  },
+  {
+    "fields": {
+      "available_resource": "calumalist",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 130001
   },
   {
     "fields": {
@@ -111808,6 +111839,16 @@
     },
     "model": "core.resourcet",
     "pk": 20005
+  },
+  {
+    "fields": {
+      "description": "Caluma Dossiers von Gesuchsteller",
+      "language": "de",
+      "name": "Caluma Dossiers",
+      "resource": 130001
+    },
+    "model": "core.resourcet",
+    "pk": 130001
   },
   {
     "fields": {
@@ -111951,6 +111992,14 @@
     },
     "model": "core.rroleacl",
     "pk": 20014
+  },
+  {
+    "fields": {
+      "resource": 130001,
+      "role": 6
+    },
+    "model": "core.rroleacl",
+    "pk": 130001
   },
   {
     "fields": {
