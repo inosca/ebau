@@ -338,29 +338,38 @@ def test_attachment_detail(
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "attachment__path,attachment_section_group_acl__mode,status_code",
+    "instance_state__name,attachment__path,attachment_section_group_acl__mode,status_code",
     [
         (
+            "new",
             django_file("multiple-pages.pdf"),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
+            "new",
             django_file("test-thumbnail.jpg"),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
+            "new",
             django_file("no-thumbnail.txt"),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
+            "new",
+            django_file("test-thumbnail.jpg"),
+            models.WRITE_PERMISSION,
+            status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "subm",
             django_file("test-thumbnail.jpg"),
             models.WRITE_PERMISSION,
             status.HTTP_403_FORBIDDEN,
