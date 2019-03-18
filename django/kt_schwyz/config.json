@@ -8228,7 +8228,7 @@
   {
     "fields": {
       "attachment_section": 1,
-      "mode": "write",
+      "mode": "admin",
       "role": 4
     },
     "model": "document.attachmentsectionroleacl",

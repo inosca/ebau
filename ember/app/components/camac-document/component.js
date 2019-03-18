@@ -59,7 +59,7 @@ export default CamacInputComponent.extend({
     }
   }),
 
-  upload: task(function*(filename = null, files) {
+  upload: task(function*(existingFile = null, files) {
     if (this.readonly) {
       return;
     }
@@ -90,10 +90,20 @@ export default CamacInputComponent.extend({
       let formData = new FormData();
       formData.append("instance", this.instance.id);
       formData.append("question", this.identifier);
-      formData.append("path", file, filename || file.filename);
+      formData.append(
+        "path",
+        file,
+        existingFile ? existingFile.name : file.filename
+      );
 
-      let response = yield this.ajax.request("/api/v1/attachments", {
-        method: "POST",
+      let url = "/api/v1/attachments";
+      let method = "POST";
+      if (existingFile) {
+        url = `/api/v1/attachments/${existingFile.id}`;
+        method = "PATCH";
+      }
+      let response = yield this.ajax.request(url, {
+        method: method,
         cache: false,
         contentType: false,
         processData: false,
@@ -117,6 +127,20 @@ export default CamacInputComponent.extend({
     } catch (e) {
       this.notification.danger(
         "Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
+      );
+    }
+  }),
+
+  delete: task(function*(file) {
+    try {
+      let deleted = yield file.destroyRecord();
+      this.question.set(
+        "model",
+        this.question.model.filter(f => f.id !== deleted.id)
+      );
+    } catch (e) {
+      this.notification.danger(
+        "Beim Löschen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
       );
     }
   }),
