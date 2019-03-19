@@ -374,6 +374,12 @@ def test_attachment_detail(
             models.WRITE_PERMISSION,
             status.HTTP_403_FORBIDDEN,
         ),
+        (
+            "subm",
+            django_file("test-thumbnail.jpg"),
+            models.ADMIN_PERMISSION,
+            status.HTTP_403_FORBIDDEN,
+        ),
     ],
 )
 def test_attachment_delete(
