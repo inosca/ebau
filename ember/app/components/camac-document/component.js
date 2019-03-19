@@ -93,7 +93,7 @@ export default CamacInputComponent.extend({
       formData.append(
         "path",
         file,
-        existingFile ? existingFile.name : file.filename
+        existingFile ? existingFile.name : file.name
       );
 
       let url = "/api/v1/attachments";
