@@ -1113,6 +1113,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "integritydashboard",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 10001
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": 13
@@ -1554,6 +1563,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "formwizard"
+  },
+  {
+    "fields": {
+      "controller_name": "integritydashboard",
+      "description": "IntegrityDashboard module",
+      "module_name": "integritydashboard"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "integritydashboard"
   },
   {
     "fields": {
@@ -3003,7 +3021,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 1,
-      "sort": 2,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3018,7 +3036,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 1,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3033,7 +3051,7 @@
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 1,
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3048,7 +3066,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 1,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3063,7 +3081,7 @@
       "hidden": 0,
       "name": "Stellungnahmen",
       "resource": 1,
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3198,7 +3216,7 @@
       "hidden": 0,
       "name": "Verantwortliche Person",
       "resource": 1,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3228,7 +3246,7 @@
       "hidden": 0,
       "name": "Dokumente generieren",
       "resource": 1,
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3258,7 +3276,7 @@
       "hidden": 0,
       "name": "Einsprecher",
       "resource": 1,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3273,7 +3291,7 @@
       "hidden": 0,
       "name": "Journal",
       "resource": 1,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3288,7 +3306,7 @@
       "hidden": 0,
       "name": "Pendenzen",
       "resource": 1,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3333,7 +3351,7 @@
       "hidden": 0,
       "name": "Geb\u00fchren",
       "resource": 1,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3353,6 +3371,21 @@
     },
     "model": "core.instanceresource",
     "pk": 31
+  },
+  {
+    "fields": {
+      "available_instance_resource": "integritydashboard",
+      "class_field": null,
+      "description": null,
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "resource": 1,
+      "sort": 2,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 32
   },
   {
     "fields": {
@@ -6371,6 +6404,69 @@
     },
     "model": "core.irroleacl",
     "pk": 185
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 1,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 186
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 2,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 187
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 188
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 4,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 189
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 190
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 191
+  },
+  {
+    "fields": {
+      "instance_resource": 32,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 192
   },
   {
     "fields": {
