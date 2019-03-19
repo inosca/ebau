@@ -3,7 +3,7 @@ import re
 from django_filters.rest_framework import DateFilter, FilterSet, NumberFilter
 from rest_framework.filters import BaseFilterBackend
 
-from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
+from camac.filters import CharMultiValueFilter, NumberMultiValueFilter, JSONFieldMultiValueFilter
 
 from . import models
 
@@ -85,10 +85,11 @@ class FormFieldFilterSet(FilterSet):
 
     instance = NumberMultiValueFilter()
     name = CharMultiValueFilter()
+    egrid = JSONFieldMultiValueFilter(json_field="egrid", lookup_expr="contains", field_name="value")
 
     class Meta:
         model = models.FormField
-        fields = ("instance", "name")
+        fields = ("instance", "name", "egrid")
 
 
 class IssueTemplateFilterSet(FilterSet):

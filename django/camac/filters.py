@@ -33,3 +33,20 @@ class NumberMultiValueFilter(BaseMultiValueFilter, NumberFilter):
 
 class CharMultiValueFilter(BaseMultiValueFilter, CharFilter):
     pass
+
+
+class JSONFieldMultiValueFilter(BaseMultiValueFilter, CharFilter):
+
+    def __init__(self, json_field="", *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.json_field = json_field
+
+    def filter(self, qs, value):
+        if value in EMPTY_VALUES or self.json_field == "":
+            return qs
+
+        # JSONField is a list, so value must look like this:
+        # [{'field_name': 'field_value'}]
+        # TODO is it always a list?!
+        value_new = [[{self.json_field: val}] for val in value]
+        return super().filter(qs, value_new)
