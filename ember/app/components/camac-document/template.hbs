@@ -45,6 +45,7 @@
               </div>
               {{#unless instance.identifier}}
                 <button
+                  data-test-delete-document
                   class="uk-icon-button confirm-delete-{{doc.id}}"
                   title="Dokument löschen"
                   uk-icon="trash"
@@ -53,6 +54,7 @@
                 <span class="uk-text-danger confirm-delete-{{doc.id}}" hidden>
                   Löschen?<br>
                   <button
+                    data-test-delete-document-confirm
                     class="uk-icon-button uk-text-danger"
                     uk-icon="check"
                     {{action (perform delete) doc on='click' bubbles=false}}

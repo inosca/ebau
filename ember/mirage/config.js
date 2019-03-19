@@ -70,4 +70,5 @@ export default function() {
   this.get("/api/v1/attachments/:id");
   this.get("/api/v1/attachments/:id/thumbnail", () => new Blob());
   this.patch("/api/v1/attachments/:id");
+  this.delete("/api/v1/attachments/:id");
 }
