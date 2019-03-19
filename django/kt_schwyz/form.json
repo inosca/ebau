@@ -5808,6 +5808,52 @@
         ]
       }
     },
+    "bezeichnung-override": {
+      "restrict": ["municipality"],
+      "label": "Bauzone:",
+      "type": "text",
+      "required": true,
+      "config": {}
+    },
+    "lage": {
+      "restrict": ["municipality"],
+      "label": "Lage der Bauzone:",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
+          "innerhalb",
+          "ausserhalb",
+          "beides"
+        ]
+      }
+    },
+    "verfahrensart": {
+      "restrict": ["municipality"],
+      "label": "Verfahrensart:",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
+          "ordentliches Verfahren",
+          "vereinfachtes Verfahren",
+          "Meldeverfahren"
+        ]
+      }
+    },
+    "verfahrensart-erstellt": {
+      "restrict": ["municipality"],
+      "label": "Bereits erstellt:",
+      "type": "radio",
+      "required": true,
+      "config": {
+        "options": [
+          "nein",
+          "teilweise",
+          "ja"
+        ]
+      }
+    },
     "info-vorhaben-mit-baute": {
       "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",
