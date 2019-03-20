@@ -39,13 +39,7 @@ services:
             - DATABASE_PASSWORD=camac
             - DATABASE_USER=camac
             - ENV=development
-            - VISIBILITY_CLASSES=caluma.core.visibilities.Any
-            - PERMISSION_CLASSES=caluma.core.permissions.AllowAny
-            - LANGUAGE_CODE=de
-            - LANGUAGES=de
-            - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
             - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
-
         volumes:
             - ./caluma/extensions:/app/caluma/extensions:ro
             - ./caluma/fixtures:/app/caluma/fixtures:ro
