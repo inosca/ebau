@@ -33,13 +33,19 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return queryset.filter_group(self.request.group).distinct()
 
     def has_object_destroy_permission(self, obj):
-        return super().has_object_destroy_permission(obj) and all(
+        attachment_permission = all(
             [
                 attachment_section.get_mode(self.request.group)
                 == models.ADMIN_PERMISSION
                 for attachment_section in obj.attachment_sections.all()
             ]
         )
+        if (
+            obj.instance.instance_state.name == "new"
+            and obj.instance.previous_instance_state.name == "new"
+        ):
+            return attachment_permission
+        return attachment_permission and super().has_object_destroy_permission(obj)
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""

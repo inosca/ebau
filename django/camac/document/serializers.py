@@ -124,7 +124,13 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         return attachment
 
     def update(self, instance, validated_data):
-        if "path" in validated_data:
+        if (
+            not (
+                instance.instance.instance_state.name == "new"
+                and instance.instance.previous_instance_state.name == "new"
+            )
+            and "path" in validated_data
+        ):
             raise exceptions.ValidationError(_("Path may not be changed."))
         return super().update(instance, validated_data)
 
