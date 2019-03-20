@@ -1,7 +1,9 @@
 FROM projectcaluma/caluma
 
-ENV VISIBILITY_CLASSES caluma.core.visibilities.Any
-ENV PERMISSION_CLASSES caluma.core.permissions.AllowAny
+ENV VISIBILITY_CLASSES caluma.extensions.visibilities.CustomVisibility
+ENV PERMISSION_CLASSES caluma.extensions.permissions.CustomPermission
+ENV VALIDATION_CLASSES caluma.extensions.validations.CustomValidation
+
 ENV LANGUAGE_CODE de
 ENV LANGUAGES de
 ENV OIDC_BEARER_TOKEN_REVALIDATION_TIME 300
