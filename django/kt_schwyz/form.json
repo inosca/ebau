@@ -3730,7 +3730,7 @@
       "hint": "Liegt das Bauobjekt in einem Defizitgebiet und hat mehr als 38 Zimmer ist ein Schutzraum mit einem Fassungsvermögen das der Baupflicht entspricht einzuplanen. Unter 38 Zimmern kann das Gesuch um Befreiung von der Schutzraumbaupflicht mit Leistung eines Ersatzbeitrages gestellt werden. Die Baupflicht ergibt sich aus der Anzahl Zimmer und davon 2/3.",
       "type": "radio",
       "required": false,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": [
           "Ja",
@@ -3743,7 +3743,7 @@
       "hint": "Feuer, Sturm und Wasser gelten als Elementarschaden und werden von der Schutzraumbaupflicht befreit. Es ist der Rapport des Schadenereignisse beizulegen.",
       "type": "radio",
       "required": false,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": [
           "Ja",
@@ -3756,7 +3756,7 @@
       "hint": "Anstelle des Baus eines Schutzraumes ist ein Ersatzbeitrag zu Leisten wenn das Bauobjekt in einem Schutzplatzüberangebotsgebiet  liegt.",
       "type": "radio",
       "required": false,
-      "active-expression": "'Neubau' in 'vorhaben-mit-baute'|value",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
       "config": {
         "options": [
           "Ja",
