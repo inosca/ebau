@@ -101980,7 +101980,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Findet eine Terrainver\u00e4nderung < 2000 m\u00b2, welche zu einer Bodenaufwertung f\u00fchrt?",
+      "name": "Findet eine Terrainver\u00e4nderung < 2000 m\u00b2 statt, welche zu einer Bodenaufwertung f\u00fchrt?",
       "question": 40076
     },
     "model": "core.questiont",
@@ -139514,7 +139514,7 @@
       "description": null,
       "instance_state": 20003,
       "language": "de",
-      "name": "Verfahrensprogramm zu initialisieren"
+      "name": "Zirkulation initialisieren"
     },
     "model": "instance.instancestatet",
     "pk": 20003
