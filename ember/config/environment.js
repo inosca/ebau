@@ -24,6 +24,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+
+      // array of active municipality names,
+      // used in submit and camac-property-selector
+      municipalityNames: ["Schwyz"]
     },
 
     exportApplicationGlobal: true,

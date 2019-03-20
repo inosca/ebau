@@ -5,10 +5,7 @@ import { task } from "ember-concurrency";
 import { all } from "rsvp";
 import { computed } from "@ember/object";
 import Ember from "ember";
-
-// array of the communalFederalNumber of active municipalities,
-// used in checkMunicipality
-const municipalityNumbers = [];
+import ENV from "citizen-portal/config/environment";
 
 export default Controller.extend({
   ajax: service(),
@@ -49,16 +46,13 @@ export default Controller.extend({
   // Temporary function to check if the selected municipality is active,
   // otherwise prevent submission.
   checkMunicipality: computed("model.instance.location", function() {
-    if (
-      Ember.testing ||
-      !this.get("model.instance.location.communalFederalNumber")
-    ) {
+    if (Ember.testing || !this.get("model.instance.location.name")) {
       return true;
     }
 
     return (
-      municipalityNumbers.indexOf(
-        this.get("model.instance.location.communalFederalNumber")
+      ENV.APP.municipalityNames.indexOf(
+        this.get("model.instance.location.name")
       ) >= 0
     );
   }),
