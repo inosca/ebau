@@ -28,10 +28,7 @@ services:
 
     caluma:
       restart: always
-      build:
-        context: caluma
-        cache_from:
-          - acr.run/camac-ng/camac-ng/caluma:master
+      image: projectcaluma/caluma
       environment:
         - DATABASE_HOST=db
         - DATABASE_PORT=5432
@@ -39,6 +36,14 @@ services:
         - DATABASE_PASSWORD=camac
         - DATABASE_USER=camac
         - ENV=development
+        - VISIBILITY_CLASSES=caluma.core.visibilities.Any
+        - PERMISSION_CLASSES=caluma.core.permissions.AllowAny
+        - LANGUAGE_CODE=de
+        - LANGUAGES=de
+        - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+      volumes:
+        - ./caluma/extensions:/app/caluma/extensions
+      command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
       depends_on:
         - php
         - db
