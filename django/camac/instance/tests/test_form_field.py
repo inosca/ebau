@@ -169,32 +169,31 @@ def test_form_field_destroy(admin_client, form_field, status_code):
 @pytest.mark.parametrize(
     "role__name,egrid_query,size",
     [
-        (
-            "Applicant",
-            ["CH892277844039"],
-            1,
-        ),
-        (
-            "Applicant",
-            ["CH674077422224", "CH892277844039"],
-            2
-        ),
+        ("Applicant", ["CH892277844039"], 1),
+        ("Applicant", ["CH674077422224", "CH892277844039"], 2),
     ],
 )
-def test_form_field_list_filtering(admin_client, admin_user, instance_factory, form_field_factory, egrid_query, size):
+def test_form_field_list_filtering(
+    admin_client, admin_user, instance_factory, form_field_factory, egrid_query, size
+):
 
     instance = instance_factory(user=admin_user)
     form_field_factory(
         instance=instance,
         name="parzellen",
-        value=[{"egrid": "CH674077422224", "number": 1101, "municipality": "Muotathal"}]
+        value=[
+            {"egrid": "CH674077422224", "number": 1101, "municipality": "Muotathal"}
+        ],
     )
 
     instance = instance_factory(user=admin_user)
     form_field_factory(
         instance=instance,
         name="parzellen",
-        value=[{"egrid": "CH674077422224", "number": 1101, "municipality": "Muotathal"}, {"egrid": "CH892277844039", "number": 2446, "municipality": "Schwyz"}]
+        value=[
+            {"egrid": "CH674077422224", "number": 1101, "municipality": "Muotathal"},
+            {"egrid": "CH892277844039", "number": 2446, "municipality": "Schwyz"},
+        ],
     )
 
     url = reverse("form-field-list")
