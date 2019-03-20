@@ -10,7 +10,7 @@ module("Integration | Component | camac-document", function(hooks) {
   setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    let instance = this.server.create("instance");
+    let instance = this.server.create("instance", "unsubmitted");
 
     this.set("instance", instance);
 
@@ -80,8 +80,8 @@ module("Integration | Component | camac-document", function(hooks) {
   test("it can replace a document", async function(assert) {
     assert.expect(3);
 
-    this.server.post(
-      "/api/v1/attachments",
+    this.server.patch(
+      "/api/v1/attachments/:id",
       ({ attachments }, { requestBody }) => {
         assert.step("upload-document");
 
@@ -122,5 +122,22 @@ module("Integration | Component | camac-document", function(hooks) {
     await click("[data-test-download-document]");
 
     assert.verifySteps(["download-document"]);
+  });
+
+  test("it can delete a document", async function(assert) {
+    assert.expect(2);
+
+    this.server.delete("/api/v1/attachments/:id", () => {
+      assert.step("delete-document");
+
+      return {};
+    });
+
+    await render(hbs`{{camac-document 'test-document' instance=instance}}`);
+
+    await click("[data-test-delete-document]");
+    await click("[data-test-delete-document-confirm]");
+
+    assert.verifySteps(["delete-document"]);
   });
 });
