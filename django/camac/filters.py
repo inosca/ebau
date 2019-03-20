@@ -36,7 +36,6 @@ class CharMultiValueFilter(BaseMultiValueFilter, CharFilter):
 
 
 class JSONFieldMultiValueFilter(BaseMultiValueFilter, CharFilter):
-
     def __init__(self, json_field="", *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.json_field = json_field
