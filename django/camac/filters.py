@@ -36,16 +36,21 @@ class CharMultiValueFilter(BaseMultiValueFilter, CharFilter):
 
 
 class JSONFieldMultiValueFilter(BaseMultiValueFilter, CharFilter):
-    def __init__(self, json_field="", *args, **kwargs):
+    """
+    Filter a JSON field by multiple values.
+
+    Depending on the field's structure, you can use value_transform to
+    translate the search value into a lookup that accesses the right field
+    within JSON.
+    """
+
+    def __init__(self, value_transform=lambda x: x, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.json_field = json_field
+        self.value_transform = value_transform
 
     def filter(self, qs, value):
-        if value in EMPTY_VALUES or self.json_field == "":
+        if value in EMPTY_VALUES:
             return qs
 
-        # JSONField is a list, so value must look like this:
-        # [{'field_name': 'field_value'}]
-        # TODO is it always a list?!
-        value_new = [[{self.json_field: val}] for val in value]
+        value_new = self.value_transform(value)
         return super().filter(qs, value_new)
