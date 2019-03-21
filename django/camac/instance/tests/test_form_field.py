@@ -167,17 +167,23 @@ def test_form_field_destroy(admin_client, form_field, status_code):
 
 
 @pytest.mark.parametrize(
-    "role__name,egrid_query,size",
+    "role__name,egrid_query,size,instance_ids",
     [
-        ("Applicant", ["CH892277844039"], 1),
-        ("Applicant", ["CH674077422224", "CH892277844039"], 2),
+        ("Applicant", ["CH892277844039"], 1, (2,)),
+        ("Applicant", ["CH674077422224", "CH892277844039"], 2, (1, 2)),
     ],
 )
 def test_form_field_list_filtering(
-    admin_client, admin_user, instance_factory, form_field_factory, egrid_query, size
+    admin_client,
+    admin_user,
+    instance_factory,
+    form_field_factory,
+    egrid_query,
+    size,
+    instance_ids,
 ):
 
-    instance = instance_factory(user=admin_user)
+    instance = instance_factory(pk=1, user=admin_user)
     form_field_factory(
         instance=instance,
         name="parzellen",
@@ -186,13 +192,14 @@ def test_form_field_list_filtering(
         ],
     )
 
-    instance = instance_factory(user=admin_user)
+    instance = instance_factory(pk=2, user=admin_user)
     form_field_factory(
         instance=instance,
         name="parzellen",
         value=[
             {"egrid": "CH674077422224", "number": 1101, "municipality": "Muotathal"},
             {"egrid": "CH892277844039", "number": 2446, "municipality": "Schwyz"},
+            {"egrid": "CH_DUMMY_EGRID", "number": 1234, "municipality": "Neverland"},
         ],
     )
 
@@ -203,3 +210,8 @@ def test_form_field_list_filtering(
 
     json = response.json()
     assert len(json["data"]) == size
+
+    instances_from_json = set(
+        int(entry["relationships"]["instance"]["data"]["id"]) for entry in json["data"]
+    )
+    assert set(instance_ids) == instances_from_json
