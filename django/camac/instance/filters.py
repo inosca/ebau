@@ -90,13 +90,15 @@ class FormFieldFilterSet(FilterSet):
     instance = NumberMultiValueFilter()
     name = CharMultiValueFilter()
     egrid = JSONFieldMultiValueFilter(
-        json_field="egrid", lookup_expr="contains", field_name="value"
+        value_transform=lambda value: [[{"egrid": val}] for val in value],
+        lookup_expr="contains",
+        field_name="value",
     )
-    instance__instance_state__name = CharMultiValueFilter()
+    instance_state = CharMultiValueFilter(field_name="instance__instance_state__name")
 
     class Meta:
         model = models.FormField
-        fields = ("instance", "name", "egrid")
+        fields = ("instance", "name", "egrid", "instance_state")
 
 
 class IssueTemplateFilterSet(FilterSet):
