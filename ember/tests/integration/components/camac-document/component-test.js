@@ -141,34 +141,21 @@ module("Integration | Component | camac-document", function(hooks) {
     assert.verifySteps(["delete-document"]);
   });
 
+  // If instance has never been submitted delete button is displayed
   test("delete document button is not visible", async function(assert) {
-    const newInstance = this.server.create("instance");
+    const instanceState = this.server.create("instance-state", { name: "new" });
 
-    this.set("instance", newInstance);
+    let n = String(this.instance.location.communalFederalNumber).substr(2, 4);
+    let y = String(new Date().getFullYear()).substr(2, 4);
+    let i = String(this.instance.id).padStart(3, 0);
 
-    this.server.create("attachment", {
-      name: "barbar",
-      question: "test-document2",
-      instance: newInstance
-    });
+    // Set instance to submitted
+    this.set("instance.identifier", `${n}-${y}-${i}`);
+    this.set("instance.instanceState", instanceState);
 
-    this.server.get("/api/v1/form-config", () => {
-      return {
-        questions: {
-          "test-document2": {
-            label: "Test Doc",
-            hint: "Hint hint hint",
-            type: "document",
-            required: true,
-            config: {}
-          }
-        }
-      };
-    });
+    await loadQuestions(["test-document"], this.instance.id);
 
-    await loadQuestions(["test-document2"], newInstance.id);
-
-    await render(hbs`{{camac-document 'test-document2' instance=instance}}`);
+    await render(hbs`{{camac-document 'test-document' instance=instance}}`);
 
     assert.notOk(await find("[data-test-delete-document]"));
   });
