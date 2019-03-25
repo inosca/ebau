@@ -140,4 +140,36 @@ module("Integration | Component | camac-document", function(hooks) {
 
     assert.verifySteps(["delete-document"]);
   });
+
+  test("delete document button is not visible", async function(assert) {
+    const newInstance = this.server.create("instance");
+
+    this.set("instance", newInstance);
+
+    this.server.create("attachment", {
+      name: "barbar",
+      question: "test-document2",
+      instance: newInstance
+    });
+
+    this.server.get("/api/v1/form-config", () => {
+      return {
+        questions: {
+          "test-document2": {
+            label: "Test Doc",
+            hint: "Hint hint hint",
+            type: "document",
+            required: true,
+            config: {}
+          }
+        }
+      };
+    });
+
+    await loadQuestions(["test-document2"], newInstance.id);
+
+    await render(hbs`{{camac-document 'test-document2' instance=instance}}`);
+
+    assert.notOk(await find("[data-test-delete-document]"));
+  });
 });
