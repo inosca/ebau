@@ -490,12 +490,7 @@
       "questions": [
         "zivilschutz-schutzraum",
         "zivilschutz-elementarschaden",
-        "zivilschutz-dispens-schutzraumbau",
-        "zivilschutz-schutzraum-bestehend",
-        "zivilschutz-schutzraumaufhebung",
-        "zivilschutz-schutzraum-grundbucheintrag",
-        "zivilschutz-schutzraum-nr",
-        "zivilschutz-schutzraum-nr-nicht-bekannt"
+        "zivilschutz-dispens-schutzraumbau"
       ]
     },
     "fachthemen.brandschutz": {
@@ -619,7 +614,6 @@
         "info-energie-dachaufstellung",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
-        "info-zivilschutz-schutzraumaufhebung",
         "info-brandschutz-gefahrengut",
         "info-liegenschaftsentwasserung",
         "info-liegenschaftsentwasserung-wassergefahrdende-stoffe-ja",
@@ -3764,61 +3758,6 @@
         ]
       }
     },
-    "zivilschutz-schutzraum-bestehend": {
-      "label": "Befindet sich im Bereich des Vorhabens ein bestehender Schutzraum?",
-      "hint": "Befindet sich im bestehenden Gebäude ein Schutzraum",
-      "type": "radio",
-      "required": false,
-      "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
-      "config": {
-        "options": [
-          "Ja",
-          "Nein"
-        ]
-      }
-    },
-    "zivilschutz-schutzraumaufhebung": {
-      "label": "Ist eine Schutzraumaufhebung vorgesehen?",
-      "hint": "Ein Schutzraum kann nur mit Zustimmung des Kantons aufgehoben werden. Schutzräume von einem Fassungsvermögen über 10 Schutzplätzen können nur in Ausnahmefällen aufgehoben werden. Falls der Kanton einer Aufhebung zustimmt ist eine Einverständniserklärung erforderlich.",
-      "type": "radio",
-      "required": false,
-      "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
-      "config": {
-        "options": [
-          "Ja",
-          "Nein"
-        ]
-      }
-    },
-    "zivilschutz-schutzraum-grundbucheintrag": {
-      "label": "Sind Grundbucheinträge betreffend Schutzraum vorhanden?",
-      "hint": "Ist im Grundbuch ein Last oder Rechteintrag betreffend Schutzraum vorhanden. Wenn ja den Detailbeleg beilegen.",
-      "type": "radio",
-      "required": false,
-      "active-expression": "'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value",
-      "config": {
-        "options": [
-          "Ja",
-          "Nein"
-        ]
-      }
-    },
-    "zivilschutz-schutzraum-nr": {
-      "label": "Bitte geben Sie die kantonale Schutzraum-Nr. an:",
-      "hint": "Mit der kantonalen Schutzraumnummer ist der Schutzraum registriert und wird in die Schutzaumliste aufgenommen. Die Schutzraumnummer definiert die Gemeinde und das Gebäude.",
-      "type": "number",
-      "required": false,
-      "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
-      "config": {}
-    },
-    "zivilschutz-schutzraum-nr-nicht-bekannt": {
-      "label": "Falls Ihnen die Schutzraum-Nr. nicht bekannt ist, geben Sie bitte den Namen des ehemaligen Eigentümers an:",
-      "hint": "Jeder Schutzraum hatte eine kantonale Indentätsnummer mit 6 Ziffern ist diese nicht bekannt ist der ersteller des Gebäudes ",
-      "type": "text",
-      "required": false,
-      "active-expression": "'zivilschutz-schutzraum-bestehend'|value == 'Ja'",
-      "config": {}
-    },
     "brandschutz-gefahrengut": {
       "label": "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
       "hint": "keine Erklärung notwendig, da selbsterklärend",
@@ -6117,17 +6056,6 @@
       "type": "checkbox",
       "required": false,
       "active-expression": "'zivilschutz-elementarschaden'|value == 'Ja'",
-      "config": {
-        "options": [
-          "Vorhanden"
-        ]
-      }
-    },
-    "info-zivilschutz-schutzraumaufhebung": {
-      "label": "Es sind ein Antrag und eine Einverständniserklärung mit Begründung der Schutzraumaufhebung den Gesuchsunterlagen beizulegen.",
-      "type": "checkbox",
-      "required": false,
-      "active-expression": "'zivilschutz-schutzraumaufhebung'|value == 'Ja'",
       "config": {
         "options": [
           "Vorhanden"
