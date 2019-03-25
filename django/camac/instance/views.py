@@ -174,11 +174,11 @@ class InstanceView(
                 },
                 "instance": {"id": pk, "type": "instances"},
             }
-            sendmai_serializer = NotificationTemplateSendmailSerializer(
+            sendmail_serializer = NotificationTemplateSendmailSerializer(
                 data=sendmail_data, context=context
             )
-            sendmai_serializer.is_valid(raise_exception=True)
-            sendmai_serializer.save()
+            sendmail_serializer.is_valid(raise_exception=True)
+            sendmail_serializer.save()
 
         return response.Response(data=serializer.data)
 
@@ -258,6 +258,7 @@ class FormFieldView(
         return False
 
     def get_base_queryset(self):
+
         queryset = super().get_base_queryset()
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         permission = perms.get(self.request.group.role.name, "applicant")

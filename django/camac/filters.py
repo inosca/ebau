@@ -33,3 +33,24 @@ class NumberMultiValueFilter(BaseMultiValueFilter, NumberFilter):
 
 class CharMultiValueFilter(BaseMultiValueFilter, CharFilter):
     pass
+
+
+class JSONFieldMultiValueFilter(BaseMultiValueFilter, CharFilter):
+    """
+    Filter a JSON field by multiple values.
+
+    Depending on the field's structure, you can use value_transform to
+    translate the search value into a lookup that accesses the right field
+    within JSON.
+    """
+
+    def __init__(self, value_transform=lambda x: x, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.value_transform = value_transform
+
+    def filter(self, qs, value):
+        if value in EMPTY_VALUES:
+            return qs
+
+        value_new = self.value_transform(value)
+        return super().filter(qs, value_new)
