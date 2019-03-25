@@ -1,4 +1,4 @@
-<div class="uk-card uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-margin-bottom">
+<div id={{question.name}} class="uk-card uk-card-default uk-card-hover uk-card-small uk-width-1-1 uk-margin-bottom">
   <div class="uk-card-header uk-flex uk-flex-between">
     <span class="uk-text-bold">
       {{question.field.label}}{{#if question.field.required}} <span class="uk-text-danger">*</span>{{/if}}
@@ -11,7 +11,7 @@
         {{#each question.model as |doc|}}
           <tr>
             <td class="uk-table-expand uk-text-truncate">
-              <span class="uk-link">{{doc.name}}</span>
+              <span class="uk-link" title={{doc.name}}>{{doc.name}}</span>
               <div uk-drop="pos: left-center; animation: uk-animation-slide-left-small" class="uk-height-small uk-width-small uk-box-shadow-large uk-z-index">
                 <div class="uk-width-1-1 uk-height-1-1 uk-cover-container">
                   {{#with doc.thumbnail.lastSuccessful.value as |thumbnail|}}
@@ -35,11 +35,11 @@
                   type="button"
                   uk-icon="cloud-upload"
                   class="uk-icon-button"
-                  title="Dokument ersetzen"
                 ></button>
                 <input
                   type="file"
                   accept={{mimeTypes}}
+                  title="Dokument ersetzen"
                   onchange={{action (action (perform upload) doc) value='target.files'}}
                 >
               </div>
@@ -57,11 +57,13 @@
                     data-test-delete-document-confirm
                     class="uk-icon-button uk-text-danger"
                     uk-icon="check"
+                    title="Ja"
                     {{action (perform delete) doc on='click' bubbles=false}}
                   ></button>
                   <button
                     class="uk-icon-button uk-text-danger"
                     uk-icon="close"
+                    title="Nein"
                     uk-toggle="target: .confirm-delete-{{doc.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
                   ></button>
                 </span>
@@ -71,17 +73,17 @@
         {{/each}}
         <tr>
           <td colspan="2" class="uk-text-center">
-            <div uk-form-custom>
+            <div uk-form-custom class="uk-width-1-1 uk-height-1-1">
               <button
                 data-test-upload-document
                 type="button"
                 uk-icon="plus"
-                class="uk-icon-button"
-                title="Neues Dokument hochladen"
               ></button>
               <input
                 type="file"
+                multiple="true"
                 accept={{mimeTypes}}
+                title="Neue Dokumente hochladen"
                 onchange={{action (action (perform upload) null) value='target.files'}}
               >
             </div>

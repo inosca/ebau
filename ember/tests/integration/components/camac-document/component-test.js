@@ -63,7 +63,7 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
     let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
-    let input = await find("[data-test-upload-document] + input[type=file");
+    let input = await find("[data-test-upload-document] + input[type=file]");
 
     input.files.item = i => {
       return files[i];
@@ -94,7 +94,7 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
     let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
-    let input = await find("[data-test-replace-document] + input[type=file");
+    let input = await find("[data-test-replace-document] + input[type=file]");
 
     input.files.item = i => {
       return files[i];
