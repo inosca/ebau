@@ -327,6 +327,37 @@
       "type": "date",
       "required": true,
       "config": {}
+    },
+    "parzellen": {
+      "label": "Parzellen",
+      "hint": "",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "egrid",
+            "label": "EGRID",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "number",
+            "label": "Parzellennr.",
+            "type": "number",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "municipality",
+            "label": "Gemeinde",
+            "type": "text",
+            "required": true,
+            "config": {}
+          }
+        ]
+      }
     }
   }
 }
