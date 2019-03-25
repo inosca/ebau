@@ -71,5 +71,7 @@ module.exports = function(defaults) {
 
   app.import("node_modules/moment/locale/de-ch.js");
 
+  app.import("node_modules/dropzone/dist/min/dropzone.min.js");
+
   return app.toTree();
 };
