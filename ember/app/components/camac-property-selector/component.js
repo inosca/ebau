@@ -7,6 +7,7 @@ import { computed, setProperties } from "@ember/object";
 import { A } from "@ember/array";
 import html2canvas from "html2canvas";
 import { xml2js } from "xml-js";
+import ENV from "citizen-portal/config/environment";
 
 const LAYERS = [
   "ch.sz.a055a.kantonsgrenze",
@@ -373,6 +374,8 @@ export default Component.extend({
       ? this.selectedMunicipality
       : this.municipalities.get("firstObject");
 
+    this.municipality = municipality;
+
     yield resolve(
       this["on-submit"](
         this.parcels,
@@ -387,5 +390,20 @@ export default Component.extend({
   updatePoint: task(function*(point, e) {
     const location = e.target.getLatLng();
     yield setProperties(this.points.find(p => p === point), location);
-  }).enqueue()
+  }).enqueue(),
+
+  // Temporary function to check if the selected municipality is active
+  checkMunicipality: computed("municipality", function() {
+    if (!this.municipality) {
+      return true;
+    }
+
+    return ENV.APP.municipalityNames.indexOf(this.municipality) >= 0;
+  }),
+
+  municipality: computed("municipalities", "selectedMunicipality", function() {
+    return this.selectedMunicipality
+      ? this.selectedMunicipality
+      : this.municipalities.get("firstObject");
+  })
 });

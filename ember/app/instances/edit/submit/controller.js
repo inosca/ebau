@@ -3,6 +3,9 @@ import { inject as service } from "@ember/service";
 import computedTask from "citizen-portal/lib/computed-task";
 import { task } from "ember-concurrency";
 import { all } from "rsvp";
+import { computed } from "@ember/object";
+import Ember from "ember";
+import ENV from "citizen-portal/config/environment";
 
 export default Controller.extend({
   ajax: service(),
@@ -17,6 +20,11 @@ export default Controller.extend({
     "questionStore._store.@each.{value,hidden,isNew}"
   ),
   _canSubmit: task(function*() {
+    // Calls temporary function to check if municipality is active
+    if (!this.checkMunicipality) {
+      return false;
+    }
+
     let modules = this.get("editController.modules.lastSuccessful.value");
 
     if (!modules) {
@@ -33,6 +41,20 @@ export default Controller.extend({
     )).filter(Boolean);
 
     return questions.every(q => q.validate() === true);
+  }),
+
+  // Temporary function to check if the selected municipality is active,
+  // otherwise prevent submission.
+  checkMunicipality: computed("model.instance.location", function() {
+    if (Ember.testing || !this.get("model.instance.location.name")) {
+      return true;
+    }
+
+    return (
+      ENV.APP.municipalityNames.indexOf(
+        this.get("model.instance.location.name")
+      ) >= 0
+    );
   }),
 
   submit: task(function*() {
