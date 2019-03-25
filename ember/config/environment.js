@@ -24,6 +24,41 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+
+      // array of active municipality names,
+      // used in submit and camac-property-selector
+      municipalityNames: [
+        "Alpthal",
+        "Altendorf",
+        "Arth",
+        "Einsiedeln",
+        "Feusisberg",
+        "Freienbach",
+        "Galgenen",
+        "Gersau",
+        "Illgau",
+        "Ingenbohl",
+        "Innerthal",
+        "Küssnacht",
+        "Lachen",
+        "Lauerz",
+        "Morschach",
+        "Muotathal",
+        "Oberiberg",
+        "Rechenburg",
+        "Riemenstalden",
+        "Rothenthurm",
+        "Sattel",
+        "Schwyz",
+        "Schübelbach",
+        "Steinen",
+        "Steinerberg",
+        "Tuggen",
+        "Unteriberg",
+        "Vorderthal",
+        "Wangen",
+        "Wollerau"
+      ]
     },
 
     exportApplicationGlobal: true,

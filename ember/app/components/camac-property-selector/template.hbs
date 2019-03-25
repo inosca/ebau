@@ -146,6 +146,13 @@
     {{/if}}
   </div>
 
+  {{!-- Temporary message to show that the selected municipality is not active --}}
+  {{#unless checkMunicipality}}
+    <div class="uk-alert uk-alert-danger">
+      Die Ausgewählte Gemeinde {{municipality}} ist noch nicht aktiv im neuen Gesuchsforumlar.
+    </div>
+  {{/unless}}
+
   {{#if parcels.length}}
     <div class="uk-margin-top">
       <p>

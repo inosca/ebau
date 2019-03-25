@@ -8,6 +8,13 @@
 
   {{#uk-button size='large' color='primary' loading=submit.isRunning disabled=(not canSubmit.lastSuccessful.value) on-click=(perform submit)}}Einreichen{{/uk-button}}
 
+  {{!-- Temporary message to show that the selected municipality is not active --}}
+  {{#unless checkMunicipality}}
+    <div class="uk-alert uk-alert-danger">
+      Die Ausgewählte Gemeinde {{model.instance.location.name}} ist noch nicht aktiv im neuen Gesuchsforumlar.
+    </div>
+  {{/unless}}
+
   {{#unless canSubmit.lastSuccessful.value}}
     <div class="uk-alert uk-alert-danger">
       Das Gesuch ist noch nicht vollständig ausgefüllt, oder enthält noch
