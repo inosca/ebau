@@ -374,8 +374,6 @@ export default Component.extend({
       ? this.selectedMunicipality
       : this.municipalities.get("firstObject");
 
-    this.municipality = municipality;
-
     yield resolve(
       this["on-submit"](
         this.parcels,
