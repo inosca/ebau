@@ -37,9 +37,9 @@ sequencenamespace:  ## Set the Sequence namespace for a given user.
 	@python manage.py sequencenamespace --user $(GIT_USER) core --execute
 
 .PHONY: import-help-text
-import-help-text: # Import help texts into form.json from csv. Pass data through STDIN.
-	@python form_json_helper.py import
+import-help-text: ## Import help texts into form.json from csv. Pass data through STDIN.
+	@python3 form_json_helper.py import
 
 .PHONY: export-form
-export-form: # Export form.json to csv
-	@python form_json_helper.py export
+export-form: ## Export form.json to csv
+	@python3 form_json_helper.py export
