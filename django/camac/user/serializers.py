@@ -61,4 +61,4 @@ class LocationSerializer(serializers.ModelSerializer):
 class ServiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Service
-        fields = ("name",)
+        fields = ("name", "email", "notification")
