@@ -6,7 +6,7 @@ from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
-from camac.instance.mixins import InstanceEditableMixin
+from camac.instance.mixins.schwyz import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
 from camac.user.relations import (

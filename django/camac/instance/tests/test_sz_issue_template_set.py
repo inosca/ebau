@@ -11,7 +11,7 @@ def test_issue_template_set_list(
     admin_client, issue_template_set_issue_templates, activation, size
 ):
     itsit = issue_template_set_issue_templates
-    url = reverse("issue-template-set-list")
+    url = reverse("schwyz-issue-template-set-list")
 
     response = admin_client.get(url, data={"include": "issue-templates"})
     assert response.status_code == status.HTTP_200_OK
@@ -35,7 +35,7 @@ def test_issue_template_set_list(
 def test_issue_template_set_update(
     admin_client, issue_template_set, activation, status_code
 ):
-    url = reverse("issue-template-set-detail", args=[issue_template_set.pk])
+    url = reverse("schwyz-issue-template-set-detail", args=[issue_template_set.pk])
     response = admin_client.patch(url)
     assert response.status_code == status_code
 
@@ -52,7 +52,7 @@ def test_issue_template_set_update(
 def test_issue_template_set_create(
     admin_client, issue_template, group, service, activation, status_code
 ):
-    url = reverse("issue-template-set-list")
+    url = reverse("schwyz-issue-template-set-list")
 
     data = {
         "data": {
@@ -89,7 +89,7 @@ def test_issue_template_set_create(
 def test_issue_template_set_destroy(
     admin_client, issue_template_set, activation, status_code
 ):
-    url = reverse("issue-template-set-detail", args=[issue_template_set.pk])
+    url = reverse("schwyz-issue-template-set-detail", args=[issue_template_set.pk])
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
@@ -108,7 +108,9 @@ def test_issue_template_set_apply(
     admin_client, issue_template_set_issue_templates, instance, activation, status_code
 ):
     itsit = issue_template_set_issue_templates
-    set_url = reverse("issue-template-set-apply", args=[itsit.issuetemplateset.pk])
+    set_url = reverse(
+        "schwyz-issue-template-set-apply", args=[itsit.issuetemplateset.pk]
+    )
 
     data = {
         "data": {
@@ -124,7 +126,7 @@ def test_issue_template_set_apply(
     assert set_response.status_code == status_code
 
     if status_code == status.HTTP_204_NO_CONTENT:
-        response = admin_client.get(reverse("issue-list"))
+        response = admin_client.get(reverse("schwyz-issue-list"))
         assert response.status_code == status.HTTP_200_OK
 
         json = response.json()
