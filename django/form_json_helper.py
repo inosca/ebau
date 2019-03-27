@@ -32,8 +32,8 @@ def export_form():
         data = json.load(f)
     questions = data["questions"]
 
-    form_export = open("form-export.csv", "w")
-    writer = csv.writer(form_export)
+    form_export = open("form-export.csv", "w", encoding="utf-8")
+    writer = csv.writer(form_export, delimiter=";")
 
     for k, v in questions.items():
         try:
