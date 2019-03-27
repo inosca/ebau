@@ -1,6 +1,6 @@
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render, find, triggerEvent, click } from "@ember/test-helpers";
+import { render, triggerEvent, click } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
 import loadQuestions from "citizen-portal/tests/helpers/load-questions";
@@ -63,15 +63,11 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
     let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
-    let input = await find("[data-test-upload-document] + input[type=file]");
-
-    input.files.item = i => {
-      return files[i];
-    };
 
     await triggerEvent(
       "[data-test-upload-document] + input[type=file]",
-      "change"
+      "change",
+      files
     );
 
     assert.verifySteps(["upload-document"]);
@@ -94,15 +90,11 @@ module("Integration | Component | camac-document", function(hooks) {
     await render(hbs`{{camac-document 'test-document'instance=instance}}`);
 
     let files = [new File([new Blob()], "testfile.png", { type: "image/png" })];
-    let input = await find("[data-test-replace-document] + input[type=file]");
-
-    input.files.item = i => {
-      return files[i];
-    };
 
     await triggerEvent(
       "[data-test-replace-document] + input[type=file]",
-      "change"
+      "change",
+      files
     );
 
     assert.verifySteps(["upload-document"]);

@@ -48,7 +48,7 @@ export default CamacInputComponent.extend({
       new Dropzone(`div#${this.question.name}`, {
         url: "/api/v1/attachments",
         maxFilesize: MAX_FILE_SIZE / 1024 / 1024,
-        accpetedFiles: this.mimeTypes,
+        acceptedFiles: this.mimeTypes,
         headers: {
           Accept: "application/vnd.api+json",
           Authorization: this.headers.Authorization,
@@ -113,7 +113,7 @@ export default CamacInputComponent.extend({
     }
 
     try {
-      for (let i = 0; i < !testing ? files.length : 1; i++) {
+      for (let i = 0; i < files.length; i++) {
         let file = files.item(i);
 
         if (file.size > MAX_FILE_SIZE) {
@@ -134,7 +134,7 @@ export default CamacInputComponent.extend({
           return;
         }
 
-        let question = yield this.question;
+        let question = this.question;
 
         let formData = new FormData();
         formData.append("instance", this.instance.id);
