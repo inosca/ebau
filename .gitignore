@@ -26,3 +26,4 @@ php/logs/mails/
 .env
 .vscode
 .~lock*
+form-export.csv
