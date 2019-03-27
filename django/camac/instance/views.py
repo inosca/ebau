@@ -164,7 +164,7 @@ class InstanceView(
         notification_template = settings.APPLICATION["SUBMIT"].get(
             "NOTIFICATION_TEMPLATE"
         )
-        if notification_template:
+        if notification_template and instance.group.service.notification:
             context = self.get_serializer_context()
             sendmail_data = {
                 "recipient_types": ["municipality"],
