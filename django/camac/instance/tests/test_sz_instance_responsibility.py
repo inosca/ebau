@@ -15,7 +15,7 @@ from rest_framework import status
 def test_instance_responsibility_list(
     admin_client, instance_responsibility, activation, size
 ):
-    url = reverse("instance-responsibility-list")
+    url = reverse("schwyz-instance-responsibility-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -42,7 +42,9 @@ def test_instance_responsibility_list(
 def test_instance_responsibility_update(
     admin_client, instance_responsibility, activation, status_code
 ):
-    url = reverse("instance-responsibility-detail", args=[instance_responsibility.pk])
+    url = reverse(
+        "schwyz-instance-responsibility-detail", args=[instance_responsibility.pk]
+    )
 
     response = admin_client.patch(url)
     assert response.status_code == status_code
@@ -61,7 +63,7 @@ def test_instance_responsibility_update(
 def test_instance_responsibility_create(
     admin_client, instance, admin_user, service, status_code, activation
 ):
-    url = reverse("instance-responsibility-list")
+    url = reverse("schwyz-instance-responsibility-list")
 
     data = {
         "data": {
@@ -99,7 +101,9 @@ def test_instance_responsibility_create(
 def test_instance_responsibility_destroy(
     admin_client, instance_responsibility, activation, status_code
 ):
-    url = reverse("instance-responsibility-detail", args=[instance_responsibility.pk])
+    url = reverse(
+        "schwyz-instance-responsibility-detail", args=[instance_responsibility.pk]
+    )
 
     response = admin_client.delete(url)
     assert response.status_code == status_code

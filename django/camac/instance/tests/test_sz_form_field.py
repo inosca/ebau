@@ -12,7 +12,7 @@ from .. import models
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_list(admin_client, form_field, size):
-    url = reverse("form-field-list")
+    url = reverse("schwyz-form-field-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -30,7 +30,7 @@ def test_form_field_list(admin_client, form_field, size):
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_detail(admin_client, form_field, form_field__value):
-    url = reverse("form-field-detail", args=[form_field.pk])
+    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -86,7 +86,7 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
     ],
 )
 def test_form_field_update(admin_client, form_field, status_code):
-    url = reverse("form-field-detail", args=[form_field.pk])
+    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
 
     response = admin_client.patch(url)
     assert response.status_code == status_code
@@ -123,7 +123,7 @@ def test_form_field_update(admin_client, form_field, status_code):
     ],
 )
 def test_form_field_create(admin_client, instance, form_field_name, status_code):
-    url = reverse("form-field-list")
+    url = reverse("schwyz-form-field-list")
 
     data = {
         "data": {
@@ -160,7 +160,7 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_destroy(admin_client, form_field, status_code):
-    url = reverse("form-field-detail", args=[form_field.pk])
+    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
@@ -203,7 +203,7 @@ def test_form_field_list_filtering(
         ],
     )
 
-    url = reverse("form-field-list")
+    url = reverse("schwyz-form-field-list")
     response = admin_client.get(url, data={"egrid": ",".join(egrid_query)})
 
     assert response.status_code == status.HTTP_200_OK

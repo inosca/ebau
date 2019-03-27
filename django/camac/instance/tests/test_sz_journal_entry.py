@@ -10,7 +10,7 @@ from rest_framework import status
     [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
 )
 def test_journal_entry_list(admin_client, journal_entry, activation, size):
-    url = reverse("journal-entry-list")
+    url = reverse("schwyz-journal-entry-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -32,7 +32,7 @@ def test_journal_entry_list(admin_client, journal_entry, activation, size):
     ],
 )
 def test_journal_entry_update(admin_client, journal_entry, activation, status_code):
-    url = reverse("journal-entry-detail", args=[journal_entry.pk])
+    url = reverse("schwyz-journal-entry-detail", args=[journal_entry.pk])
 
     response = admin_client.patch(url)
     assert response.status_code == status_code
@@ -49,7 +49,7 @@ def test_journal_entry_update(admin_client, journal_entry, activation, status_co
     ],
 )
 def test_journal_entry_create(admin_client, instance, group, activation, status_code):
-    url = reverse("journal-entry-list")
+    url = reverse("schwyz-journal-entry-list")
 
     data = {
         "data": {
@@ -80,7 +80,7 @@ def test_journal_entry_create(admin_client, instance, group, activation, status_
     ],
 )
 def test_journal_entry_destroy(admin_client, journal_entry, activation, status_code):
-    url = reverse("journal-entry-detail", args=[journal_entry.pk])
+    url = reverse("schwyz-journal-entry-detail", args=[journal_entry.pk])
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
