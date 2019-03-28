@@ -110,7 +110,22 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_uri": {},
-    "kt_bern": {}
+    "kt_bern": {
+        "ROLE_PERMISSIONS": {
+            "Gesuchsteller": "applicant",
+            "Leitung Fachstelle": "fachstelle",
+            "Sachbearbeiter Fachstelle": "fachstelle",
+            "Einsichtsberechtigte Fachstelle": "fachstelle",
+            "Leitung Leitbehörde": "service",
+            "Sachbearbeiter Leitbehörde": "service",
+            "Einsichtsberechtigte Leitbehörde": "service",
+            "Leitung Baukontrolle": "service",
+            "Sachbearbeiter Baukontrolle": "service",
+            "Einsichtsberechtigte Baukontrolle": "service",
+            "Unterfachstelle": "subservice",
+            "System-Betrieb": "support",
+        }
+    }
     # add other application configuration here...
 }
 
