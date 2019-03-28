@@ -1,14 +1,11 @@
-from django.conf import settings
-from django.db.models.constants import LOOKUP_SEP
-from django.utils import timezone
-from django.utils.translation import gettext as _
-from rest_framework import exceptions
-
 from camac.attrs import nested_getattr
 from camac.core.models import Circulation
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
+from django.db.models.constants import LOOKUP_SEP, Q
+from django.utils.translation import gettext as _
+from rest_framework import exceptions
 
 from .. import models
 
@@ -49,46 +46,38 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         user_field = self._get_instance_filter_expr("user")
 
+        # TODO: Why do we filter after the user here?
         return queryset.filter(**{user_field: self.request.user})
 
-    def get_queryset_for_public_reader(self):
+    def get_queryset_for_fachstelle(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-
-        # instances from municipality
-        instances = models.Instance.objects.filter(
-            location__in=self.request.group.locations.all(),
-            publication_entries__publication_date__gt=timezone.now()
-            - settings.APPLICATION.get("PUBLICATION_DURATION"),
-            publication_entries__is_published=True,
+        return queryset.filter(
+            Q(**{instance_field: self._instances_with_activation})
+            | Q(**{instance_field: self._instances_involved_in})
         )
-
-        return queryset.filter(**{instance_field: instances})
-
-    def get_queryset_for_reader(self):
-        return self.get_queryset_for_municipality()
-
-    def get_queryset_for_municipality(self):
-        queryset = self.get_base_queryset()
-        instance_field = self._get_instance_filter_expr("pk", "in")
-
-        instances = models.Instance.objects.filter(
-            location__in=self.request.group.locations.all()
-        )
-        return queryset.filter(**{instance_field: instances})
 
     def get_queryset_for_service(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
+        return queryset.filter(**{instance_field: self._instances_with_activation})
 
-        instances = Circulation.objects.filter(
+    def get_queryset_for_support(self):
+        pass
+
+    def get_queryset_for_subservice(self):
+        # NOTE: According to christianz
+        pass
+
+    def _instances_with_activation(self):
+        return Circulation.objects.filter(
             activations__service=self.request.group.service
         ).values("instance")
-        # use subquery to avoid duplicates
-        return queryset.filter(**{instance_field: instances})
 
-    def get_queryset_for_canton(self):
-        return self.get_base_queryset()
+    def _instances_involved_in(self):
+        return models.InstanceService.objects.filter(
+            activations__service=self.request.group.service
+        ).values("instance")
 
 
 class InstanceEditableMixin(AttributeMixin):
