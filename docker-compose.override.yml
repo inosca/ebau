@@ -43,6 +43,8 @@ services:
             - camac-ng.local
 
     caluma:
+      ports:
+         - "5566:5555"
       networks:
         - camac-ng.local
 
