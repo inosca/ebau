@@ -3,7 +3,8 @@ from camac.core.models import Circulation
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
-from django.db.models.constants import LOOKUP_SEP, Q
+from django.db.models.constants import LOOKUP_SEP
+from django.db.models import Q, Count
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
@@ -45,8 +46,6 @@ class InstanceQuerysetMixin(object):
     def get_queryset(self):
         queryset = self.get_base_queryset()
         user_field = self._get_instance_filter_expr("user")
-
-        # TODO: Why do we filter after the user here?
         return queryset.filter(**{user_field: self.request.user})
 
     def get_queryset_for_fachstelle(self):
@@ -63,11 +62,27 @@ class InstanceQuerysetMixin(object):
         return queryset.filter(**{instance_field: self._instances_with_activation})
 
     def get_queryset_for_support(self):
-        pass
+        return self.get_base_queryset()
 
-    def get_queryset_for_subservice(self):
-        # NOTE: According to christianz
-        pass
+    def get_queryset_for_applicant(self):
+        queryset = self._get_base_queryset()
+        instance_field = self._get_instance_filter_expr("pk", "in")
+
+        # An applicant either needs to be invited on the instance
+        invited_instances = models.Instance.objects.filter(
+            applicants__user=self.request.user
+        ).values("instance")
+
+        # Or if the instance has been freshly created an has no invitiations he need to be the
+        # owner.
+        new_owned_instances = models.Instance.objects.annotate(
+            applicants_count=Count('applicants', distinct=True)
+        ).filter(
+            user=self.request.user,
+            applicants_count=0
+        )
+
+        return queryset.filter(**{instance_field: invited_instances})
 
     def _instances_with_activation(self):
         return Circulation.objects.filter(
@@ -76,7 +91,7 @@ class InstanceQuerysetMixin(object):
 
     def _instances_involved_in(self):
         return models.InstanceService.objects.filter(
-            activations__service=self.request.group.service
+            service=self.request.group.service
         ).values("instance")
 
 
