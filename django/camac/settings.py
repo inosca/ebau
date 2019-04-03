@@ -122,7 +122,7 @@ APPLICATIONS = {
             "Leitung Baukontrolle": "service",
             "Sachbearbeiter Baukontrolle": "service",
             "Einsichtsberechtigte Baukontrolle": "service",
-            "Unterfachstelle": "subservice",
+            "Unterfachstelle": "service",
             "System-Betrieb": "support",
         }
     }
