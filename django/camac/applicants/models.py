@@ -6,7 +6,7 @@ class Applicant(models.Model):
         "instance.Instance",
         models.DO_NOTHING,
         db_column="INSTANCE_ID",
-        related_name="+",
+        related_name="applicants",
     )
     user = models.ForeignKey(
         "user.User", models.DO_NOTHING, db_column="USER_ID", related_name="+"
