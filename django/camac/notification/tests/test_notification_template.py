@@ -62,8 +62,7 @@ def test_notification_template_merge(
 
 
 @pytest.mark.parametrize(
-    "user__email,group__email,service__email",
-    [("user@example.com", "group@example.com", "service@example.com")],
+    "user__email,service__email", [("user@example.com", "service@example.com")]
 )
 @pytest.mark.parametrize(
     "notification_template__subject,instance__identifier",
@@ -105,7 +104,7 @@ def test_notification_template_sendmail(
         mail = mailoutbox[0]
         assert set(mail.bcc) == {
             "user@example.com",
-            "group@example.com",
+            "service@example.com",
             "service@example.com",
         }
         assert mail.subject == instance.identifier
