@@ -38,6 +38,12 @@ class ServiceView(viewsets.ModelViewSet):
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
 
+    def has_destroy_permission(self, obj):
+        return False
+
+    def has_object_update_permission(self, obj):
+        return obj == self.request.group.service
+
     @permission_aware
     def get_queryset(self):
         queryset = super().get_queryset()
