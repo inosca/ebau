@@ -38,7 +38,7 @@ class ServiceView(viewsets.ModelViewSet):
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
 
-    def has_destroy_permission(self, obj):
+    def has_destroy_permission(self):
         return False
 
     def has_object_update_permission(self, obj):

@@ -29,3 +29,18 @@ def test_service_update(admin_client, service, status_code):
     url = reverse("service-detail", args=[service.pk])
     response = admin_client.patch(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_service_delete(admin_client, service, status_code):
+    url = reverse("service-detail", args=[service.pk])
+    response = admin_client.delete(url)
+    assert response.status_code == status_code
