@@ -7612,7 +7612,7 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_InvolvedCirculationServices",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_CirculationServices",
       "template": 11
     },
     "model": "core.anotification",
