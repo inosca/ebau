@@ -41,6 +41,8 @@ services:
         - LANGUAGE_CODE=de
         - LANGUAGES=de
         - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+        - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+
       volumes:
         - ./caluma/extensions:/app/caluma/extensions
       command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
