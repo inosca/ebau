@@ -4,7 +4,7 @@ from django.db import models
 class Applicant(models.Model):
     instance = models.ForeignKey(
         "instance.Instance",
-        models.DO_NOTHING,
+        models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="applicants",
     )
