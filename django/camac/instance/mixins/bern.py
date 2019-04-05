@@ -1,14 +1,13 @@
-from camac.attrs import nested_getattr
-from camac.core.models import Circulation
-from camac.mixins import AttributeMixin
-from camac.request import get_request
-from camac.user.permissions import permission_aware
+from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
-from django.db.models import Q, Count
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
-from .. import models
+from camac.attrs import nested_getattr
+from camac.core.models import Circulation, InstanceService
+from camac.mixins import AttributeMixin
+from camac.request import get_request
+from camac.user.permissions import permission_aware
 
 
 class InstanceQuerysetMixin(object):
@@ -52,37 +51,22 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
         return queryset.filter(
-            Q(**{instance_field: self._instances_with_activation})
-            | Q(**{instance_field: self._instances_involved_in})
+            Q(**{instance_field: self._instances_with_activation()})
+            | Q(**{instance_field: self._instances_involved_in()})
         )
 
     def get_queryset_for_service(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        return queryset.filter(**{instance_field: self._instances_with_activation})
+        return queryset.filter(**{instance_field: self._instances_with_activation()})
 
     def get_queryset_for_support(self):
         return self.get_base_queryset()
 
     def get_queryset_for_applicant(self):
-        queryset = self._get_base_queryset()
-        instance_field = self._get_instance_filter_expr("pk", "in")
-
-        # An applicant either needs to be invited on the instance
-        invited_instances = models.Instance.objects.filter(
-            applicants__user=self.request.user
-        ).values("instance")
-
-        # Or if the instance has been freshly created an has no invitiations he need to be the
-        # owner.
-        new_owned_instances = models.Instance.objects.annotate(
-            applicants_count=Count('applicants', distinct=True)
-        ).filter(
-            user=self.request.user,
-            applicants_count=0
-        )
-
-        return queryset.filter(**{instance_field: invited_instances})
+        queryset = self.get_base_queryset()
+        # An applicant needs to be invited on the instance to access it
+        return queryset.filter(applicants__user=self.request.user)
 
     def _instances_with_activation(self):
         return Circulation.objects.filter(
@@ -90,7 +74,7 @@ class InstanceQuerysetMixin(object):
         ).values("instance")
 
     def _instances_involved_in(self):
-        return models.InstanceService.objects.filter(
+        return InstanceService.objects.filter(
             service=self.request.group.service
         ).values("instance")
 

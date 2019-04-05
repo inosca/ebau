@@ -87,11 +87,17 @@ APPLICATIONS = {
     "demo": {
         # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
+            # Only Schwyz
             "Municipality": "municipality",
-            "Service": "service",
             "Canton": "canton",
             "Reader": "reader",
             "PublicReader": "public_reader",
+            # Only Bern
+            "Applicant": "applicant",
+            "Fachstelle": "fachstelle",
+            "Support": "support",
+            # All
+            "Service": "service",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
         "PUBLICATION_DURATION": timedelta(days=30),
