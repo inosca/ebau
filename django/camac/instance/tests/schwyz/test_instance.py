@@ -1,15 +1,15 @@
 import datetime
 import functools
 
-import pytest
-
 import pyexcel
+import pytest
 import pytz
-from camac.core.models import InstanceLocation, WorkflowEntry
-from camac.instance import serializers
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
+
+from camac.core.models import InstanceLocation, WorkflowEntry
+from camac.instance import serializers
 
 
 @pytest.mark.kt_schwyz
