@@ -338,7 +338,8 @@
         "landwirtschaft-sak-wert",
         "landwirtschaft-einstufung",
         "landwirtschaft-nutzflache",
-        "landwirtschaft-bereiche",
+        "landwirtschaft-bereiche-baute",
+        "landwirtschaft-bereiche-anlage",
         "landwirtschaft-gebietskategorie",
         "landwirtschaft-wohnbauten",
         "landwirtschaft-stallgebaude",
@@ -2196,18 +2197,35 @@
         "min": 0
       }
     },
-    "landwirtschaft-bereiche": {
-      "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben?",
+    "landwirtschaft-bereiche-baute": {
+      "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben (Baute)?",
       "hint": "Wohnbauten: Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\nStallgebäude: Bauten oder Bauteile, welche der Nutztierhaltung dienen.\nÜbrige Ökonomiegebäude: Remisen, Lagergebäude ohne Tierhaltung.\nHofdüngerlager: Jauchegruben, Mistplatten, usw.\n\nNur wenn das zusätzliche Feld \"Anlagen\" eingefügt wir:\nAnlagen: Futtersilo, Einzäunungen, Hagelschutznetze, Aussenausläufe, Terrainveränderungen, Güter-/Bewirtschaftungswege usw.",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
         "options": [
           "Wohnbaute(n)",
           "Stallgebäude",
-          "Übrige Ökonomiegebäude",
-          "Hofdüngerlager"
+          "Übrige Ökonomiegebäude"
+        ]
+      }
+    },
+    "landwirtschaft-bereiche-anlage": {
+      "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben (Anlage)?",
+      "hint": "Wohnbauten: Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\nStallgebäude: Bauten oder Bauteile, welche der Nutztierhaltung dienen.\nÜbrige Ökonomiegebäude: Remisen, Lagergebäude ohne Tierhaltung.\nHofdüngerlager: Jauchegruben, Mistplatten, usw.\n\nNur wenn das zusätzliche Feld \"Anlagen\" eingefügt wir:\nAnlagen: Futtersilo, Einzäunungen, Hagelschutznetze, Aussenausläufe, Terrainveränderungen, Güter-/Bewirtschaftungswege usw.",
+      "type": "checkbox",
+      "required": true,
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Anlage(n)' in 'kategorie-des-vorhabens'|value",
+      "config": {
+        "options": [
+          "Hofdüngerlager",
+          "Futtersilo",
+          "Einzäunungen",
+          "Hagelschutznetze",
+          "Aussenausläufe",
+          "Terrainveränderung",
+          "Güter-/Bewirtschaftung"
         ]
       }
     },
@@ -2216,7 +2234,7 @@
       "hint": "Talgebiet: Das Talgebiet umfasst die Hügelzone und die Talzone. Berggebiet: Das Berggebiet umfasst die Bergzone I bis IV.",
       "type": "radio",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value",
       "config": {
         "options": [
           "Berggebiet",
@@ -2229,7 +2247,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche zum Landwirtschaftsbetrieb gehörenden Wohnbauten aufzulisten.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1))",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1)))",
       "config": {
         "columns": [
           {
@@ -2241,7 +2259,8 @@
           },
           {
             "name": "gsn",
-            "label": "GSN",
+            "label": "Grundstücksnummer (GSN)",
+            "table-label": "GSN",
             "type": "number",
             "required": true,
             "config": {
@@ -2251,6 +2270,7 @@
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
+            "table-label": "GBN",
             "type": "number",
             "required": true,
             "config": {
@@ -2288,29 +2308,26 @@
             }
           },
           {
-            "name": "hausabwasser-jauchegrube",
-            "label": "Hausabwasser in Jauchegrube",
+            "name": "hausabwasser",
+            "label": "Hausabwasser",
             "type": "radio",
             "required": true,
             "config": {
               "options": [
-                "Ja",
-                "Nein"
+                "Ableitung in Jauchgrube",
+                "Ableitung in ARA",
+                "Ableitung in ARA geplant",
+                "Andere (z. B. Kleinkläranlage oder Stapelung mit Abtransport in ARA)"
               ]
             }
           },
           {
-            "name": "hausabwasser-ara",
-            "label": "Hausabwasser in ARA",
-            "type": "radio",
-            "required": true,
-            "config": {
-              "options": [
-                "Ja, vorhanden",
-                "Ja, geplant",
-                "Nein"
-              ]
-            }
+            "name": "andere",
+            "label": "Hausabwasser Andere",
+            "table-label": "Andere",
+            "type": "text",
+            "required": false,
+            "config": {}
           }
         ]
       }
@@ -2320,7 +2337,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche für die Tierhaltung genutzten, eigenen und gepachteten Stallgebäude aufzuführen. Mit der Bauasführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value",
       "config": {
         "columns": [
           {
@@ -2332,7 +2349,8 @@
           },
           {
             "name": "gsn",
-            "label": "GSN",
+            "label": "Grundstücksnummer (GSN)",
+            "table-label": "GSN",
             "type": "number",
             "required": true,
             "config": {
@@ -2342,6 +2360,7 @@
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
+            "table-label": "GBN",
             "type": "number",
             "required": true,
             "config": {
@@ -2350,7 +2369,7 @@
           },
           {
             "name": "bemerkungen",
-            "label": "bemerkungen",
+            "label": "Bemerkungen",
             "type": "text",
             "required": false,
             "config": {}
@@ -2363,7 +2382,7 @@
       "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft in der Tabelle \"XY\" auszufüllen und bei den Gesuchsunterlagen anzufügen.",
       "type": "radio",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value",
       "config": {
         "options": [
           "Ja",
@@ -2376,7 +2395,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Remisen- und Lagergebäude  aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche-baute'|value",
       "config": {
         "columns": [
           {
@@ -2388,7 +2407,8 @@
           },
           {
             "name": "gsn",
-            "label": "GSN",
+            "label": "Grundstücksnummer (GSN)",
+            "table-label": "GSN",
             "type": "number",
             "required": true,
             "config": {
@@ -2398,6 +2418,7 @@
           {
             "name": "gebaudeversicherungs-nr",
             "label": "Gebäudeversicherungs-Nr.",
+            "table-label": "GBN",
             "type": "number",
             "required": true,
             "config": {
@@ -2405,12 +2426,12 @@
             }
           },
           {
-            "name": "einstellflache",
-            "label": "Einstellfläche in m²",
+            "name": "ubrige-lagerflache",
+            "label": "Übrige Lagerfläche in m²",
             "type": "number",
             "required": true,
             "config": {
-              "min": 1
+              "min": 0
             }
           },
           {
@@ -2437,7 +2458,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Güllenlager aufzulisten. ",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
       "config": {
         "columns": [
           {
@@ -2453,8 +2474,18 @@
             }
           },
           {
+            "name": "baujahr",
+            "label": "Baujahr",
+            "type": "number",
+            "required": false,
+            "config": {
+              "min": 0
+            }
+          },
+          {
             "name": "gsn",
-            "label": "GSN",
+            "label": "Grundstücksnummer (GSN)",
+            "table-label": "GSN",
             "type": "number",
             "required": true,
             "config": {
@@ -2473,17 +2504,24 @@
           {
             "name": "typ",
             "label": "Typ / Material",
-            "type": "text",
+            "type": "radio",
             "required": true,
-            "config": {}
+            "config": {
+              "options": [
+                "Beton-Behälter gedeckt",
+                "Beton-Behälter offen",
+                "Stahl-Behälter gedeckt",
+                "Stahl-Behälter offen"
+              ]
+            }
           },
           {
-            "name": "jauchegrube-laufhofflache",
-            "label": "In Jauchegrube entwässerte Laufhoffläche in m²",
+            "name": "jauchegrube-flache",
+            "label": "In Jauchegrube entwässerte Flächen (Laufhof / Waschplatz) in m²",
             "type": "number",
             "required": true,
             "config": {
-              "min": 1
+              "min": 0
             }
           }
         ]
@@ -2494,7 +2532,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche, eigenen und gepachteten Mistplatten aufzulisten. ",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
       "config": {
         "columns": [
           {
@@ -5877,7 +5915,7 @@
       "label": "Der Grundriss des bestehenden Stallteils inkl. Stalleinteilung und Nutzungsangaben sind im Plan darzustellen.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "('Wohnbaute(n)' in 'landwirtschaft-bereiche'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche'|value) && ('Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value)",
+      "active-expression": "('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value) && ('Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value)",
       "config": {
         "options": [
           "Vorhanden"
