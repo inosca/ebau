@@ -3,7 +3,7 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from .. import models
+from camac.instance import models
 
 
 @pytest.mark.parametrize(
