@@ -83,3 +83,15 @@ def test_instance_list_as_applicant(
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
     # Included previous_instance_state and instance_state are the same
     assert len(json["included"]) == len(included) - 1
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_detail(admin_client, admin_user, instance):
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+
+    url = reverse("bern-instance-detail", args=[instance.pk])
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
