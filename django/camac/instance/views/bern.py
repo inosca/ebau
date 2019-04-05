@@ -48,18 +48,6 @@ class InstanceView(
         filters.InstanceFormFieldFilterBackend
     ]
 
-    def has_object_destroy_permission(self, instance):
-        return (
-            instance.user == self.request.user
-            and instance.instance_state.name == "new"
-            and instance.previous_instance_state.name == "new"
-        )
-
-    def has_object_submit_permission(self, instance):
-        return (
-            instance.user == self.request.user and instance.instance_state.name == "new"
-        )
-
     @action(methods=["get"], detail=False)
     def export(self, request):
         """Export filtered instances to given file format."""

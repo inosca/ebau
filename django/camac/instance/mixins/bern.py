@@ -6,7 +6,6 @@ from rest_framework import exceptions
 from camac.attrs import nested_getattr
 from camac.core.models import Circulation, InstanceService
 from camac.mixins import AttributeMixin
-from camac.request import get_request
 from camac.user.permissions import permission_aware
 
 
@@ -103,33 +102,22 @@ class InstanceEditableMixin(AttributeMixin):
 
     @permission_aware
     def get_editable(self, instance):
-        # TODO: should be replaced with can-read and can-edit permissions
-        # in form config. Difficulty is that documents are no real questions.
-
-        editable = set()
-
-        if instance.instance_state.name == "new":
-            editable.update(["instance", "form", "document"])
-
-        if instance.instance_state.name == "nfd":
-            editable.update(["document"])
-
-        return editable
+        return set()
 
     def get_editable_for_service(self, instance):
         return {"form", "document"}
 
-    def get_editable_for_municipality(self, instance):
+    def get_editable_for_fachstelle(self, instance):
         return {"form", "document"}
 
-    def get_editable_for_canton(self, instance):
+    def get_editable_for_support(self, instance):
         return {"form", "document"}
 
-    def get_editable_for_reader(self, instance):
-        return set()
-
-    def get_editable_for_public_reader(self, instance):
-        return set()
+    def get_editable_for_applicant(self, instance):
+        if instance.instance_state.name == "Neu":
+            return {"instance", "form", "document"}
+        else:
+            return {"document"}
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)
@@ -149,26 +137,26 @@ class InstanceEditableMixin(AttributeMixin):
 
         return instance
 
-    @permission_aware
-    def validate_instance(self, instance):
-        user = get_request(self).user
-        return self._validate_instance_editablity(
-            instance, lambda: instance.user == user
-        )
+    # @permission_aware
+    # def validate_instance(self, instance):
+    #     user = get_request(self).user
+    #     return self._validate_instance_editablity(
+    #         instance, lambda: instance.user == user
+    #     )
 
-    def validate_instance_for_municipality(self, instance):
-        group = get_request(self).group
-        return self._validate_instance_editablity(
-            instance, lambda: group.locations.filter(pk=instance.location_id).exists()
-        )
+    # def validate_instance_for_municipality(self, instance):
+    #     group = get_request(self).group
+    #     return self._validate_instance_editablity(
+    #         instance, lambda: group.locations.filter(pk=instance.location_id).exists()
+    #     )
 
-    def validate_instance_for_service(self, instance):
-        service = get_request(self).group.service
-        circulations = instance.circulations.all()
+    # def validate_instance_for_service(self, instance):
+    #     service = get_request(self).group.service
+    #     circulations = instance.circulations.all()
 
-        return self._validate_instance_editablity(
-            instance, lambda: circulations.filter(activations__service=service).exists()
-        )
+    #     return self._validate_instance_editablity(
+    #         instance, lambda: circulations.filter(activations__service=service).exists()
+    #     )
 
-    def validate_instance_for_canton(self, instance):
-        return self._validate_instance_editablity(instance)
+    # def validate_instance_for_canton(self, instance):
+    #     return self._validate_instance_editablity(instance)
