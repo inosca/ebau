@@ -25,6 +25,7 @@ start: ## Start the development server
 test: ## Test the project
 	@touch .env
 	@black --check .
+	@isort --recursive --check
 	@flake8
 	@pytest --cov --no-cov-on-fail --create-db
 
