@@ -1,0 +1,31 @@
+{{#a11y-landmark tagName="main"}}
+  <div class="uk-container">
+    {{#unless isEmbedded}}
+      {{#uk-flex horizontal="center" vertical="middle" direction="column" class="uk-padding"}}
+        {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
+          <div class="uk-width-1-1 uk-position-relative">
+            {{!--<img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">--}}
+            <span class="uk-position-bottom-left uk-margin-medium-bottom">
+              v{{app-version hideSha=true}}
+            </span>
+            {{#unless (eq environment "production")}}
+              {{uk-label label=environment class="uk-position-bottom-left uk-margin-small-bottom"}}
+            {{/unless}}
+          </div>
+        {{/link-to}}
+        <div>
+          <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to "index")}}></a>
+          {{#if session.isAuthenticated}}
+            <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action (transition-to "logout")}}></button>
+          {{/if}}
+        </div>
+      {{/uk-flex}}
+    {{/unless}}
+
+    <div class="uk-padding uk-padding-remove-horizontal uk-animation-fade">
+      {{focusing-outlet}}
+    </div>
+  </div>
+{{/a11y-landmark}}
+
+<div id="modal-container"></div>
