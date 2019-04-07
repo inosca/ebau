@@ -82,6 +82,17 @@ services:
         environment:
             - ENV=docker
 
+    ember-caluma-portal:
+        build:
+            context: ember-caluma-portal
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        depends_on:
+            - django
+            - caluma
+        environment:
+            - ENV=docker
+
     php:
         build:
             context: php

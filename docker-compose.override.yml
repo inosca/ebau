@@ -75,6 +75,21 @@ services:
             args:
                 KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
 
+    ember-caluma-portal:
+        image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        volumes:
+            - ./ember-caluma-portal/nginx.conf:/etc/nginx/sites-enabled/default:ro
+            - ./ember-caluma-portal:/app
+            - /app/node_modules/
+            - /app/tmp/
+            - /app/dist/
+            - /app/build/
+        networks:
+            - camac-ng.local
+        build:
+            args:
+                KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
+
     php:
         image: acr.run/camac-ng/camac-ng/php:master
         volumes:
@@ -118,6 +133,9 @@ services:
             - KEYCLOAK_PASSWORD=camac
         networks:
             - camac-ng.local
+        # export is a bit tricky: We need to _start_ keycloak with specific arguments to perform an export
+        # command: ["-Dkeycloak.migration.action=export", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
+        #
         # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
         command: ["-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
 
