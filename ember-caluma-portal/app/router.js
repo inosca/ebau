@@ -13,6 +13,12 @@ Router.map(function() {
   this.route("logout");
   this.route("protected", { path: "/" }, function() {
     this.route("index", { path: "/", resetNamespace });
+
+    this.mount("ember-caluma", {
+      as: "form-builder",
+      path: "/form-builder",
+      resetNamespace: true
+    });
   });
 });
 
