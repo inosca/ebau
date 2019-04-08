@@ -15,6 +15,7 @@ Router.map(function() {
     this.route("index", { path: "/", resetNamespace });
     this.route("instances", { resetNamespace }, function() {
       this.route("new");
+      this.route("edit", { path: "/:instance_id" });
     });
 
     this.mount("ember-caluma", {
