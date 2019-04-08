@@ -8,6 +8,13 @@ query AllCases {
         createdByUser
         createdByGroup
         status
+        document {
+          id
+          form {
+            slug
+            name
+          }
+        }
       }
     }
   }
