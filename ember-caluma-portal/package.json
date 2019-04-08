@@ -15,7 +15,7 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
-    "start-proxy": "ember serve --proxy=http://camac-ng.local",
+    "start-proxy": "ember serve --proxy=http://caluma-portal.local",
     "test": "ember test",
     "deploy": "ember deploy"
   },
