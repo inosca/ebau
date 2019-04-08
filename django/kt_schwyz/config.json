@@ -3452,6 +3452,81 @@
   },
   {
     "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": null,
+      "description": "Forumlar ansicht f\u00fcr Leserolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Formular",
+      "resource": 13,
+      "sort": 0,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "class_field": null,
+      "description": "Dokumente f\u00fcr Leserolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Dokumente",
+      "resource": 13,
+      "sort": 1,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "available_instance_resource": "integritydashboard",
+      "class_field": null,
+      "description": "Vollst\u00e4ndigkeitspr\u00fcfung f\u00fcr Leserolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
+      "resource": 13,
+      "sort": 2,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "available_instance_resource": "circulation",
+      "class_field": null,
+      "description": "Stellungsnahmen f\u00fcr Leserolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Stellungsnahmen",
+      "resource": 13,
+      "sort": 3,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "available_instance_resource": "journal",
+      "class_field": null,
+      "description": "Journal f\u00fcr Leserolle",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Journal",
+      "resource": 13,
+      "sort": 5,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 38
+  },
+  {
+    "fields": {
       "available_action": "checkquery",
       "available_instance_resource": "allformpages"
     },
@@ -4938,6 +5013,21 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "draft_circulation_answer": null,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "service": null,
+      "service_to_be_interpreted": "[SERVICE_ID]",
+      "show_all_children": 1,
+      "show_history": 0,
+      "show_notice": 2
+    },
+    "model": "core.ircirculation",
+    "pk": 37
+  },
+  {
+    "fields": {
       "add_activation_template": null,
       "add_template": null,
       "circulation_email_action_id": null,
@@ -5042,6 +5132,14 @@
   },
   {
     "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditformpage",
+    "pk": 34
+  },
+  {
+    "fields": {
       "circulation_type": 1,
       "edit_notice_template": null,
       "editable_after_deadline": 1,
@@ -5071,6 +5169,14 @@
     },
     "model": "core.irformpage",
     "pk": 33
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.irformpage",
+    "pk": 36
   },
   {
     "fields": {
@@ -6559,6 +6665,312 @@
   },
   {
     "fields": {
+      "instance_resource": 34,
+      "instance_state": 3,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 270
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 4,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 271
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 5,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 272
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 6,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 273
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 7,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 274
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 8,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 275
+  },
+  {
+    "fields": {
+      "instance_resource": 34,
+      "instance_state": 9,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 276
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 3,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 284
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 4,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 285
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 5,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 286
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 6,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 287
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 7,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 288
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 8,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 289
+  },
+  {
+    "fields": {
+      "instance_resource": 36,
+      "instance_state": 9,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 290
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 3,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 298
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 4,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 299
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 5,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 300
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 6,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 301
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 7,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 302
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 8,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 303
+  },
+  {
+    "fields": {
+      "instance_resource": 38,
+      "instance_state": 9,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 304
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 3,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 305
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 4,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 306
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 5,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 307
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 6,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 308
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 7,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 309
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 8,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 310
+  },
+  {
+    "fields": {
+      "instance_resource": 35,
+      "instance_state": 9,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 311
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 4,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 313
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 5,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 314
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 6,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 315
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 7,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 316
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 8,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 317
+  },
+  {
+    "fields": {
+      "instance_resource": 37,
+      "instance_state": 9,
+      "role": 10
+    },
+    "model": "core.irroleacl",
+    "pk": 318
+  },
+  {
+    "fields": {
       "column_name": "ANSWER",
       "table_name": "ANSWER"
     },
@@ -7385,6 +7797,62 @@
   },
   {
     "fields": {
+      "instance_state": 3,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "instance_state": 4,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "instance_state": 5,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "instance_state": 6,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "instance_state": 7,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "instance_state": 8,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "instance_state": 9,
+      "resource": 13
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 56
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -7429,7 +7897,7 @@
       "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -7455,7 +7923,7 @@
       "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
       "hidden": 0,
       "name": "\u00dcbersicht aktiver Dossiers",
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -7468,7 +7936,7 @@
       "description": null,
       "hidden": 0,
       "name": "Suche",
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -7481,7 +7949,7 @@
       "description": null,
       "hidden": 0,
       "name": "Vorlagenverwaltung",
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -7533,11 +8001,24 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 8,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
     "pk": 13
+  },
+  {
+    "fields": {
+      "available_resource": "apilistinstance",
+      "class_field": null,
+      "description": "Gesuche die die Leserolle sehen kann",
+      "hidden": 0,
+      "name": "Gesuche",
+      "sort": 13,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 14
   },
   {
     "fields": {
@@ -7674,6 +8155,14 @@
     },
     "model": "core.rroleacl",
     "pk": 19
+  },
+  {
+    "fields": {
+      "resource": 14,
+      "role": 10
+    },
+    "model": "core.rroleacl",
+    "pk": 24
   },
   {
     "fields": {
@@ -8690,6 +9179,42 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 31
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "read",
+      "role": 10
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "mode": "read",
+      "role": 10
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "mode": "read",
+      "role": 10
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "mode": "read",
+      "role": 10
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 35
   },
   {
     "fields": {
@@ -15674,6 +16199,22 @@
     },
     "model": "user.group",
     "pk": 423
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Schwyz Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 6,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 424
   },
   {
     "fields": {
@@ -41645,6 +42186,14 @@
   },
   {
     "fields": {
+      "group": 424,
+      "location": 26
+    },
+    "model": "user.grouplocation",
+    "pk": 3324
+  },
+  {
+    "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "1311",
       "commune_name": "Gersau",
@@ -42164,6 +42713,14 @@
     },
     "model": "user.role",
     "pk": 9
+  },
+  {
+    "fields": {
+      "name": "Lesezugriff",
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 10
   },
   {
     "fields": {
