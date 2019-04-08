@@ -56,6 +56,10 @@ dumpconfig-camac:
 .PHONY: dumpconfig-caluma
 dumpconfig-caluma:
 	docker-compose exec caluma python manage.py dumpdata \
+		workflow.workflow \
+		workflow.task \
+		workflow.taskflow \
+		workflow.flow \
 		form.form \
 		form.formquestion \
 		form.question \
