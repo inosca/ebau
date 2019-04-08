@@ -18,6 +18,7 @@ services:
                 aliases:
                     - camac-ng.local
                     - camac-ng-portal.local
+                    - caluma-portal.local
                     - camac-ng-keycloak.local
 
     clamav:
