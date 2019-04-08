@@ -1,0 +1,18 @@
+[
+  {
+    "model": "form.form",
+    "pk": "baugesuch",
+    "fields": {
+      "created_at": "2019-04-08T06:05:34.098Z",
+      "modified_at": "2019-04-08T06:05:34.098Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "name": "{\"de\": \"Baugesuch\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  }
+]

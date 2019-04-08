@@ -13,6 +13,9 @@ Router.map(function() {
   this.route("logout");
   this.route("protected", { path: "/" }, function() {
     this.route("index", { path: "/", resetNamespace });
+    this.route("instances", { resetNamespace }, function() {
+      this.route("new");
+    });
 
     this.mount("ember-caluma", {
       as: "form-builder",

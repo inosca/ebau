@@ -47,7 +47,8 @@ services:
             - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
 
         volumes:
-            - ./caluma/extensions:/app/caluma/extensions
+            - ./caluma/extensions:/app/caluma/extensions:ro
+            - ./caluma/fixtures:/app/caluma/fixtures:ro
         command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
         depends_on:
             - php
