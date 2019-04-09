@@ -1,0 +1,19 @@
+mutation StartCase($input: StartCaseInput!) {
+  startCase(input: $input) {
+    case {
+      id
+      workflow {
+        startTasks {
+          id
+        }
+      }
+      workItems {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  }
+}

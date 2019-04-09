@@ -1,0 +1,40 @@
+<h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
+
+<div uk-grid class="uk-grid-small">
+  <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
+    <h4 class="uk-text-center">Beratung und Vorentscheid {{camac-hint-dialog infoCol1}}</h4>
+    {{new-form-grid-entry
+      form="vorabklaerung-einfach"
+      label="Einfache Vorabklärung"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+    {{new-form-grid-entry
+      form="vorabklaerung-vollstaendig"
+      label="Vollständige Vorabklärung"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+  </div>
+  <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
+    <h4 class="uk-text-center">Baubewilligung {{camac-hint-dialog infoCol2}}</h4>
+    {{new-form-grid-entry
+      form="baugesuch"
+      label="Baugesuch"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+    {{new-form-grid-entry
+      form="baugesuch"
+      label="Projektänderung"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+  </div>
+</div>
+
+{{#uk-flex horizontal="right" class="uk-margin-top"}}
+  {{#uk-button disabled=(or (not selectedForm) save.isRunning) loading=save.isRunning color="primary" on-click=(perform save)}}
+    Weiter
+  {{/uk-button}}
+{{/uk-flex}}
