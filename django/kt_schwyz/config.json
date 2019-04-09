@@ -428,6 +428,20 @@
   {
     "fields": {
       "available_action": "notification",
+      "button": 9,
+      "description": null,
+      "error_message": "Email konnte nicht versandt werden",
+      "execute_always": 0,
+      "name": "Email Stellungnahme",
+      "sort": 4,
+      "success_message": "Email wurde erfolgreich versandt"
+    },
+    "model": "core.action",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "available_action": "notification",
       "button": 1,
       "description": null,
       "error_message": "Email konnte nicht versandt werden",
@@ -550,6 +564,20 @@
     },
     "model": "core.action",
     "pk": 57
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 10,
+      "description": null,
+      "error_message": "Email konnte nicht versandt werden",
+      "execute_always": 0,
+      "name": "Email Stellungnahme",
+      "sort": 2,
+      "success_message": "Email wurde erfolgreich versandt"
+    },
+    "model": "core.action",
+    "pk": 58
   },
   {
     "fields": {
@@ -1132,11 +1160,29 @@
   {
     "fields": {
       "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Service",
+      "template": 17
+    },
+    "model": "core.anotification",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
       "recipient_type": "Notification_Manager_Applicant",
       "template": 15
     },
     "model": "core.anotification",
     "pk": 49
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Service",
+      "template": 17
+    },
+    "model": "core.anotification",
+    "pk": 58
   },
   {
     "fields": {
@@ -9447,6 +9493,15 @@
     },
     "model": "notification.notificationtemplate",
     "pk": 16
+  },
+  {
+    "fields": {
+      "body": "todo",
+      "purpose": "Einladung zur Stellungnahme",
+      "subject": "Stellungnahme zu Dossier {{identifier}} erforderlich"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 17
   },
   {
     "fields": {
