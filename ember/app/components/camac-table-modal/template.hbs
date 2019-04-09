@@ -14,7 +14,12 @@
                 <span class="uk-text-danger">*</span>
               {{/if}}
             </label>
-            {{component (concat 'camac-input-' column.type) renderInPlace=true config=column.config on-change=(action 'change' column.name) model=(hash value=(get _value column.name))}}
+            {{component (concat 'camac-input-' column.type)
+              renderInPlace=true
+              config=column.config
+              on-change=(queue (action 'change' column.name) (action 'checkRequired' column.name))
+              model=(hash value=(get _value column.name))
+            }}
             {{#with (get this (concat '_value.error.' column.name)) as |error|}}
               {{camac-input-error error.validation}}
             {{/with}}

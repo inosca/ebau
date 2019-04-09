@@ -1743,8 +1743,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -1753,14 +1767,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -1813,8 +1827,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -1823,14 +1851,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -1883,8 +1911,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -1893,14 +1935,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -1953,8 +1995,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -1963,14 +2019,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -2023,8 +2079,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -2033,14 +2103,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -2093,8 +2163,22 @@
       "config": {
         "columns": [
           {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
             "name": "firma",
-            "label": "Firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
             "type": "text",
             "required": false,
             "config": {}
@@ -2103,14 +2187,14 @@
             "name": "name",
             "label": "Name",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vorname",
             "label": "Vorname",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
