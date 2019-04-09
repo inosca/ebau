@@ -78,7 +78,7 @@ dumpdata: ## Dump the data tables
 loadconfig-camac:
 	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
 
-.PHONY: loadconfig-camac
+.PHONY: loadconfig-caluma
 loadconfig-caluma:
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
 
