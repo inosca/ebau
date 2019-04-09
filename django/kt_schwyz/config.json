@@ -8011,7 +8011,7 @@
     "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
-      "description": "Gesuche die die Leserolle sehen kann",
+      "description": "Gesuche der Leserolle",
       "hidden": 0,
       "name": "Gesuche",
       "sort": 13,
