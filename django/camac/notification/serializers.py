@@ -182,7 +182,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return [instance.user.email]
 
     def _get_recipients_municipality(self, instance):
-        return [instance.group.email]
+        return [instance.group.service.email]
 
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(
