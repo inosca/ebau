@@ -29,6 +29,16 @@ test-ember:
         - eval $COMPOSE build --pull ember
         - eval $COMPOSE run --rm --no-deps ember yarn test
 
+test-ember-caluma-portal:
+    stage: test
+    services:
+        - docker:dind
+    script:
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+        - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
+        - eval $COMPOSE build --pull ember-caluma-portal
+        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test
+
 test-django:
     stage: test
     services:
