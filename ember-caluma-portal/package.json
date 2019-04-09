@@ -55,6 +55,7 @@
     "ember-inline-svg": "^0.2.1",
     "ember-intl": "^3.5.2",
     "ember-load-initializers": "^1.1.0",
+    "ember-math-helpers": "^2.10.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-parachute": "^1.0.2",
     "ember-power-select": "^2.3.0",
