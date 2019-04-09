@@ -301,6 +301,7 @@ class Service(models.Model):
         db_column="WEBSITE", max_length=1000, blank=True, null=True
     )
     disabled = models.PositiveSmallIntegerField(db_column="DISABLED", default=0)
+    notification = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
         return self.name
