@@ -8,12 +8,14 @@
             <span class="uk-position-bottom-left uk-margin-medium-bottom">
               v{{app-version hideSha=true}}
             </span>
-            {{#unless (eq environment "production")}}
+            {{#if (not-eq environment "production")}}
               {{uk-label label=environment class="uk-position-bottom-left uk-margin-small-bottom"}}
-            {{/unless}}
+            {{/if}}
           </div>
         {{/link-to}}
         <div>
+          {{!-- we can't use link-to because of the uk-icon attribute --}}
+          {{! template-lint-disable no-invalid-interactive}}
           <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to "index")}}></a>
           {{#if session.isAuthenticated}}
             <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action (transition-to "logout")}}></button>

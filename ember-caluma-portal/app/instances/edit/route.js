@@ -8,7 +8,6 @@ export default Route.extend({
   notification: service(),
 
   model({ case_id }) {
-    console.log("model", case_id);
     return this.get("data").perform(case_id);
   },
 
