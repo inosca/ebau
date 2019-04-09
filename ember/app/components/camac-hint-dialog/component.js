@@ -2,7 +2,7 @@ import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { getOwner } from "@ember/application";
 
-const CamacHelpDialogComponent = Component.extend({
+const CamacHintDialogComponent = Component.extend({
   tagName: "span",
 
   classNames: ["uk-margin-small-left"],
@@ -27,8 +27,8 @@ const CamacHelpDialogComponent = Component.extend({
   }
 });
 
-CamacHelpDialogComponent.reopenClass({
+CamacHintDialogComponent.reopenClass({
   positionalParams: ["text"]
 });
 
-export default CamacHelpDialogComponent;
+export default CamacHintDialogComponent;
