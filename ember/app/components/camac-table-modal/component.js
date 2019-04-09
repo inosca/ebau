@@ -53,8 +53,8 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   /*
-   * Check if firma is set to set name and vorname as required or optional.
-   * Should only change requiredness in Personalien tables.
+   * Check if firma is set, to set name and vorname as required or not.
+   * Should only change required fields in "Personalien" tables since others don't have the field "Firma".
    */
   actions: {
     checkRequired(name, value) {
