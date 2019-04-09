@@ -26,7 +26,6 @@ export default Controller.extend({
       "startCase.case.id"
     );
 
-    console.log(caseId);
     yield this.transitionToRoute("instances.edit", caseId);
   }).drop()
 });
