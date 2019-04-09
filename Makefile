@@ -49,17 +49,41 @@ generate-api-doc: ## generates documentation for the i-web portal API
 clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
 
+.PHONY: dumpconfig-camac
+dumpconfig-camac:
+	docker-compose exec django python manage.py dumpconfig
+
+.PHONY: dumpconfig-caluma
+dumpconfig-caluma:
+	docker-compose exec caluma python manage.py dumpdata \
+		workflow.workflow \
+		workflow.task \
+		workflow.taskflow \
+		workflow.flow \
+		form.form \
+		form.formquestion \
+		form.question \
+		form.questionoption \
+		form.option \
+		> caluma/fixtures/config.json && prettier --write caluma/fixtures/config.json
+
 .PHONY: dumpconfig
-dumpconfig: ## Dump the configuration tables
-	@docker-compose exec django python manage.py dumpconfig
+dumpconfig: dumpconfig-caluma dumpconfig-camac
 
 .PHONY: dumpdata
 dumpdata: ## Dump the data tables
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: loadconfig
-loadconfig: ## Load config.json
+.PHONY: loadconfig-camac
+loadconfig-camac:
 	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
+
+.PHONY: loadconfig-camac
+loadconfig-caluma:
+	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
+
+.PHONY: loadconfig
+loadconfig: loadconfig-caluma loadconfig-camac
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
