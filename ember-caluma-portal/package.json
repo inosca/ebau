@@ -58,6 +58,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-parachute": "^1.0.2",
     "ember-power-select": "^2.3.0",
+    "ember-promise-helpers": "^1.0.6",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
     "ember-simple-auth-oidc": "^0.2.0",
