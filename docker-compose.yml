@@ -27,28 +27,32 @@ services:
             - pgdata:/var/lib/postgresql/data
 
     caluma:
-      restart: always
-      image: projectcaluma/caluma
-      environment:
-        - DATABASE_HOST=db
-        - DATABASE_PORT=5432
-        - DATABASE_NAME=caluma
-        - DATABASE_PASSWORD=camac
-        - DATABASE_USER=camac
-        - ENV=development
-        - VISIBILITY_CLASSES=caluma.core.visibilities.Any
-        - PERMISSION_CLASSES=caluma.core.permissions.AllowAny
-        - LANGUAGE_CODE=de
-        - LANGUAGES=de
-        - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
-        - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+        image: acr.run/camac-ng/camac-ng/caluma:${CI_COMMIT_REF_SLUG:-master}
+        build:
+            context: caluma
+            cache_from:
+                - acr.run/camac-ng/camac-ng/caluma:master
+        environment:
+            - DATABASE_HOST=db
+            - DATABASE_PORT=5432
+            - DATABASE_NAME=caluma
+            - DATABASE_PASSWORD=camac
+            - DATABASE_USER=camac
+            - ENV=development
+            - VISIBILITY_CLASSES=caluma.core.visibilities.Any
+            - PERMISSION_CLASSES=caluma.core.permissions.AllowAny
+            - LANGUAGE_CODE=de
+            - LANGUAGES=de
+            - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+            - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
 
-      volumes:
-        - ./caluma/extensions:/app/caluma/extensions
-      command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
-      depends_on:
-        - php
-        - db
+        volumes:
+            - ./caluma/extensions:/app/caluma/extensions:ro
+            - ./caluma/fixtures:/app/caluma/fixtures:ro
+        command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
+        depends_on:
+            - php
+            - db
 
     django:
         build:
@@ -79,6 +83,17 @@ services:
                 - acr.run/camac-ng/camac-ng/ember:master
         depends_on:
             - django
+        environment:
+            - ENV=docker
+
+    ember-caluma-portal:
+        build:
+            context: ember-caluma-portal
+            cache_from:
+                - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
+        depends_on:
+            - django
+            - caluma
         environment:
             - ENV=docker
 

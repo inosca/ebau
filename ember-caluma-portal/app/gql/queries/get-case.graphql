@@ -1,0 +1,10 @@
+query GetCase($caseId: ID!) {
+  node(id: $caseId) {
+    ... on Case {
+      id
+      document {
+        id
+      }
+    }
+  }
+}

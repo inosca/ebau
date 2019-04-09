@@ -1,0 +1,21 @@
+query AllCases {
+  allCases(workflow: "building-permit") {
+    edges {
+      node {
+        id
+        createdAt
+        modifiedAt
+        createdByUser
+        createdByGroup
+        status
+        document {
+          id
+          form {
+            slug
+            name
+          }
+        }
+      }
+    }
+  }
+}
