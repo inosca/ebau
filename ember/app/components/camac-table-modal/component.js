@@ -3,6 +3,7 @@ import UIkit from "uikit";
 import { scheduleOnce } from "@ember/runloop";
 import CamacMultipleQuestionRowMixin from "citizen-portal/mixins/camac-multiple-question-row";
 import config from "../../config/environment";
+import { set } from "@ember/object";
 
 export default Component.extend(CamacMultipleQuestionRowMixin, {
   modal: null,
@@ -43,9 +44,30 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
         this.modal.hide();
       }
     });
+
+    this.send("checkRequired", "firma", this.get("_value.firma"));
   },
 
   willDestroyElement() {
     this.modal.hide();
+  },
+
+  /*
+   * Check if firma is set to set name and vorname as required or optional.
+   * Should only change requiredness in Personalien tables.
+   */
+  actions: {
+    checkRequired(name, value) {
+      if (name === "firma") {
+        this.columns.forEach(column => {
+          if (column.name === "name" || column.name === "vorname") {
+            set(column, "required", !value);
+            if (value !== undefined) {
+              this.get("_value").validate();
+            }
+          }
+        });
+      }
+    }
   }
 });
