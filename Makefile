@@ -117,9 +117,16 @@ prettier-format:
 makemigrations: ## Create schema migrations
 	docker-compose exec django /app/manage.py makemigrations
 
-.PHONY: flush
-flush:	## Flush database
+.PHONY: flush-camac
+flush-camac:
 	@docker-compose exec django /app/manage.py flush
+
+.PHONY: flush-caluma
+flush-caluma:
+	@docker-compose exec caluma python manage.py flush
+
+.PHONY: flush
+flush: flush-caluma flush-camac
 
 # Directory for DB snapshots
 .PHONY: _db_snapshots_dir

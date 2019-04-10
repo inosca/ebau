@@ -822,22 +822,6 @@
   },
   {
     "model": "form.form",
-    "pk": "test",
-    "fields": {
-      "created_at": "2019-03-15T10:05:21.324Z",
-      "modified_at": "2019-03-15T11:46:24.451Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "name": "{\"de\": null, \"fr\": null, \"en\": \"test\"}",
-      "description": "{\"de\": null, \"fr\": null, \"en\": \"\"}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": true,
-      "source": null
-    }
-  },
-  {
-    "model": "form.form",
     "pk": "triage",
     "fields": {
       "created_at": "2019-03-15T13:10:24.049Z",
@@ -2343,19 +2327,6 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
       "question": "leckwarnsystem",
       "sort": 11
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "2e434dc8-e842-4898-a4a8-6f21197855b5",
-    "fields": {
-      "created_at": "2019-03-11T09:27:24.373Z",
-      "modified_at": "2019-03-11T09:27:24.374Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bauvorhaben",
-      "question": "beschreibung",
-      "sort": 4
     }
   },
   {
@@ -5840,19 +5811,6 @@
       "form": "1-allgemeine-informationen",
       "question": "personalien",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "bb1ad724-f653-415d-99d0-6f8218a813a5",
-    "fields": {
-      "created_at": "2019-03-15T10:10:43.263Z",
-      "modified_at": "2019-03-15T10:10:43.264Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "test",
-      "question": "informationstext",
-      "sort": 1
     }
   },
   {
@@ -12144,26 +12102,6 @@
       "meta": {},
       "row_form": null,
       "sub_form": "immissionsschutz-laermschutz",
-      "source": null
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "informationstext",
-    "fields": {
-      "created_at": "2019-03-08T13:44:56.020Z",
-      "modified_at": "2019-03-15T10:11:30.042Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "label": "{\"de\": \"Informationstext\", \"fr\": null, \"en\": null}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "configuration": { "max_length": 5 },
-      "meta": {},
-      "row_form": null,
-      "sub_form": null,
       "source": null
     }
   },
@@ -27304,7 +27242,7 @@
       "modified_at": "2019-03-11T09:24:55.989Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Abbruch\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Abbruch\"}",
       "meta": {},
       "source": null
     }
@@ -27317,7 +27255,7 @@
       "modified_at": "2019-03-11T09:24:56.031Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Andere\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Andere\"}",
       "meta": {},
       "source": null
     }
@@ -27330,7 +27268,7 @@
       "modified_at": "2019-03-11T09:24:55.957Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Erweiterung / Anbau\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Erweiterung / Anbau\"}",
       "meta": {},
       "source": null
     }
@@ -27343,7 +27281,7 @@
       "modified_at": "2019-03-11T09:24:55.925Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Neubau\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Neubau\"}",
       "meta": {},
       "source": null
     }
@@ -27356,7 +27294,7 @@
       "modified_at": "2019-03-11T09:24:56.017Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Reklame\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Reklame\"}",
       "meta": {},
       "source": null
     }
@@ -27369,7 +27307,7 @@
       "modified_at": "2019-03-11T09:24:55.986Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Technische Anlage\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Technische Anlage\"}",
       "meta": {},
       "source": null
     }
@@ -27382,7 +27320,7 @@
       "modified_at": "2019-03-11T09:24:56.037Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Tiefbauanlage\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Tiefbauanlage\"}",
       "meta": {},
       "source": null
     }
@@ -27395,7 +27333,7 @@
       "modified_at": "2019-03-11T09:24:55.925Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Um- / Ausbau\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Um- / Ausbau\"}",
       "meta": {},
       "source": null
     }
@@ -27408,7 +27346,7 @@
       "modified_at": "2019-03-11T09:24:55.978Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Umnutzung\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Umnutzung\"}",
       "meta": {},
       "source": null
     }
@@ -29215,7 +29153,7 @@
       "modified_at": "2019-03-15T08:44:51.154Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Nein\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Nein\"}",
       "meta": {},
       "source": null
     }
@@ -32153,7 +32091,7 @@
       "modified_at": "2019-03-25T13:43:28.264Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"EFH\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"EFH\"}",
       "meta": {},
       "source": null
     }
@@ -32166,7 +32104,7 @@
       "modified_at": "2019-03-25T13:43:28.266Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"MFH\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"MFH\"}",
       "meta": {},
       "source": null
     }
@@ -32179,7 +32117,7 @@
       "modified_at": "2019-03-25T13:43:28.264Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"EFH\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"EFH\"}",
       "meta": {},
       "source": null
     }
@@ -32192,7 +32130,7 @@
       "modified_at": "2019-03-25T13:43:28.266Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"MFH\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"MFH\"}",
       "meta": {},
       "source": null
     }
@@ -32634,7 +32572,7 @@
       "modified_at": "2019-03-15T08:32:06.882Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Generalvollmacht an Bevollm\\u00e4chtigte mit Unterschrift\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Generalvollmacht an Bevollm\\u00e4chtigte mit Unterschrift\"}",
       "meta": {},
       "source": null
     }
@@ -32647,7 +32585,7 @@
       "modified_at": "2019-03-15T08:32:06.899Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Vollmacht mit Handlungsspielraum\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Vollmacht mit Handlungsspielraum\"}",
       "meta": {},
       "source": null
     }
@@ -32660,7 +32598,7 @@
       "modified_at": "2019-03-11T09:29:02.459Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Pf\\u00e4hlen\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Pf\\u00e4hlen\"}",
       "meta": {},
       "source": null
     }
@@ -32673,7 +32611,7 @@
       "modified_at": "2019-03-11T09:29:02.446Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Rammen\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Rammen\"}",
       "meta": {},
       "source": null
     }
@@ -32686,7 +32624,7 @@
       "modified_at": "2019-03-11T09:29:02.462Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Sprengen\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Sprengen\"}",
       "meta": {},
       "source": null
     }
@@ -33102,7 +33040,7 @@
       "modified_at": "2019-03-15T12:57:01.897Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Geb\\u00e4udeeigent\\u00fcmer/in\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Geb\\u00e4udeeigent\\u00fcmer/in\"}",
       "meta": {},
       "source": null
     }
@@ -33115,7 +33053,7 @@
       "modified_at": "2019-03-15T12:57:01.843Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Grundeigent\\u00fcmer/in\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Grundeigent\\u00fcmer/in\"}",
       "meta": {},
       "source": null
     }
@@ -33128,7 +33066,7 @@
       "modified_at": "2019-03-15T12:57:01.815Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Projektverfasser/in\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Projektverfasser/in\"}",
       "meta": {},
       "source": null
     }
@@ -33141,7 +33079,7 @@
       "modified_at": "2019-03-15T12:57:01.804Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": null, \"fr\": null, \"en\": \"Vertreter/in mit Vollmacht\"}",
+      "label": "{\"en\": null, \"fr\": null, \"de\": \"Vertreter/in mit Vollmacht\"}",
       "meta": {},
       "source": null
     }
