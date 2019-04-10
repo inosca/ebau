@@ -57,6 +57,7 @@ Router.map(function() {
         });
         this.route("gesuchsunterlagen");
         this.route("gesuchsunterlagen-ve-va");
+        this.route("freigegebene-unterlagen");
         this.route("anlassbewilligungen-verkehrsbewilligungen");
         this.route("baumeldung-fur-geringfugige-vorhaben");
         this.route("konzession-fur-wasserentnahme");

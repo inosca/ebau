@@ -1,6 +1,6 @@
 import Model from "ember-data/model";
 import attr from "ember-data/attr";
-import { belongsTo } from "ember-data/relationships";
+import { belongsTo, hasMany } from "ember-data/relationships";
 import { inject as service } from "@ember/service";
 import computedTask from "citizen-portal/lib/computed-task";
 import { task } from "ember-concurrency";
@@ -13,6 +13,7 @@ export default Model.extend({
   mimeType: attr("string"),
   question: attr("string"),
   instance: belongsTo("instance"),
+  attachmentSections: hasMany("attachment-section"),
 
   session: service(),
 

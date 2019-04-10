@@ -7,6 +7,7 @@ import { task } from "ember-concurrency";
 import fetch from "fetch";
 import Ember from "ember";
 import download from "downloadjs";
+import ENV from "citizen-portal/config/environment";
 
 const { testing } = Ember;
 
@@ -101,6 +102,12 @@ export default CamacInputComponent.extend({
 
       if (!testing) {
         download(file, document.get("name"), file.type);
+        if (this.question.name === ENV.APP.readonlyAttachments.questionName) {
+          let post = new XMLHttpRequest();
+          post.open("POST", `/api/v1/attachments/${document.id}/log_download`);
+          post.setRequestHeader("Authorization", this.headers.Authorization);
+          post.send();
+        }
       }
 
       this.notification.success("Datei wurde erfolgreich heruntergeladen");
