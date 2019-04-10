@@ -1,3 +1,4 @@
+from django.utils import timezone
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory, ImageField
 
@@ -65,3 +66,12 @@ class TemplateFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Template
+
+
+class AttachmentDownloadHistoryFactory(DjangoModelFactory):
+    date_time = timezone.now()
+    attachment = SubFactory(AttachmentFactory)
+    user = SubFactory(UserFactory)
+
+    class Meta:
+        model = models.AttachmentDownloadHistory
