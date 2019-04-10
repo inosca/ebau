@@ -43,43 +43,47 @@ export default CamacInputComponent.extend({
 
   didInsertElement() {
     this._super(...arguments);
-    this.set(
-      "dropzone",
-      new Dropzone(`div#${this.question.name}`, {
-        url: "/api/v1/attachments",
-        maxFilesize: MAX_FILE_SIZE / 1024 / 1024,
-        acceptedFiles: this.mimeTypes,
-        headers: {
-          Accept: "application/vnd.api+json",
-          Authorization: this.headers.Authorization,
-          "Cache-Control": "no-cache"
-        },
-        paramName: "path",
-        params: { instance: this.instance.id, question: this.identifier },
-        createImageThumbnails: false,
-        previewsContainer: false,
-        clickable: false,
-        dictDefaultMessage: "",
-        success: (file, response) => {
-          this.store.pushPayload(JSON.parse(response));
+    if (!this.readonly) {
+      this.set(
+        "dropzone",
+        new Dropzone(`div#${this.question.name}`, {
+          url: "/api/v1/attachments",
+          maxFilesize: MAX_FILE_SIZE / 1024 / 1024,
+          acceptedFiles: this.mimeTypes,
+          headers: {
+            Accept: "application/vnd.api+json",
+            Authorization: this.headers.Authorization,
+            "Cache-Control": "no-cache"
+          },
+          paramName: "path",
+          params: { instance: this.instance.id, question: this.identifier },
+          createImageThumbnails: false,
+          previewsContainer: false,
+          clickable: false,
+          dictDefaultMessage: "",
+          success: (file, response) => {
+            this.store.pushPayload(JSON.parse(response));
 
-          this.question.set(
-            "model",
-            this.questionStore._getModelForAttachment(
-              this.identifier,
-              this.instance.id
-            )
-          );
+            this.question.set(
+              "model",
+              this.questionStore._getModelForAttachment(
+                this.identifier,
+                this.instance.id
+              )
+            );
 
-          this.notification.success("Die Datei wurde erfolgreich hochgeladen");
-        },
-        error: () => {
-          this.notification.danger(
-            "Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
-          );
-        }
-      })
-    );
+            this.notification.success(
+              "Die Datei wurde erfolgreich hochgeladen"
+            );
+          },
+          error: () => {
+            this.notification.danger(
+              "Hoppla, beim Hochladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
+            );
+          }
+        })
+      );
+    }
   },
 
   download: task(function*(document) {
