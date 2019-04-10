@@ -118,6 +118,22 @@
   },
   {
     "model": "form.form",
+    "pk": "7-bestaetigung",
+    "fields": {
+      "created_at": "2019-04-10T11:33:45.929Z",
+      "modified_at": "2019-04-10T11:33:45.929Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "name": "{\"de\": \"7. Best\\u00e4tigung\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "allgemeine-angaben",
     "fields": {
       "created_at": "2019-03-28T14:14:48.332Z",
@@ -1031,6 +1047,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "04423fa2-d016-4c25-b3d5-6df3b450e712",
+    "fields": {
+      "created_at": "2019-04-10T11:55:01.677Z",
+      "modified_at": "2019-04-10T11:55:01.677Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bauprofile-gestellt",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "044e62f9-8b6e-4af2-b376-73aaf6976ac0",
     "fields": {
       "created_at": "2019-03-28T15:11:08.238Z",
@@ -1377,7 +1406,20 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "5-spezialformulare",
-      "sort": 1
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "10d4aae9-24f4-4af8-a2d6-6c8bd63099f0",
+    "fields": {
+      "created_at": "2019-04-10T11:59:46.291Z",
+      "modified_at": "2019-04-10T11:59:46.291Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "einhaltung-asbestvorgaben",
+      "sort": 3
     }
   },
   {
@@ -2210,6 +2252,19 @@
       "form": "art-der-emmission-tabelle",
       "question": "abluftentreinigungsanlage-beinhaltet",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "29de5591-b072-442f-a396-d96a2f18a073",
+    "fields": {
+      "created_at": "2019-04-10T11:58:35.197Z",
+      "modified_at": "2019-04-10T11:58:35.197Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "einhaltung-radonvorgaben",
+      "sort": 4
     }
   },
   {
@@ -3054,7 +3109,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "3-grundstueck",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3878,6 +3933,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "6bd96211-7b74-44bf-b21f-14355f256db1",
+    "fields": {
+      "created_at": "2019-04-10T12:04:33.459Z",
+      "modified_at": "2019-04-10T12:04:33.459Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bestaetigung-mit-unterschrift",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "6c0170a8-4ad0-4a5d-a1a1-a9cf725ff68d",
     "fields": {
       "created_at": "2019-04-09T12:33:43.748Z",
@@ -3900,6 +3968,19 @@
       "form": "allgemeine-angaben",
       "question": "ausnuetzung",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "6c93a9db-43f9-4b06-9a3a-ad44c74a4a8c",
+    "fields": {
+      "created_at": "2019-04-10T11:42:39.832Z",
+      "modified_at": "2019-04-10T11:42:39.832Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "7-bestaetigung",
+      "sort": 1
     }
   },
   {
@@ -4055,7 +4136,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -4874,7 +4955,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "4-bauwerk",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6673,6 +6754,32 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "dd109f0e-6d0e-4c65-a8a3-847ffe879ca0",
+    "fields": {
+      "created_at": "2019-04-10T12:01:54.710Z",
+      "modified_at": "2019-04-10T12:01:54.710Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "keine-tangierung-natur-wild-vogelschutz",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "dd345b9e-d223-4880-81ae-34861da7bfdd",
+    "fields": {
+      "created_at": "2019-04-10T11:41:29.515Z",
+      "modified_at": "2019-04-10T11:41:29.515Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "anforderungen-eingehalten",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "dd347aef-5877-4521-8acf-5c9d682ea75b",
     "fields": {
       "created_at": "2019-04-01T13:09:30.213Z",
@@ -6829,6 +6936,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "e5231048-c958-4938-83b1-3d1fb3d64a55",
+    "fields": {
+      "created_at": "2019-04-10T11:56:57.376Z",
+      "modified_at": "2019-04-10T11:56:57.376Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "verpflichtung-bei-handaenderung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "e6275e82-1bac-402a-8eb2-edd714315a35",
     "fields": {
       "created_at": "2019-04-03T11:47:23.242Z",
@@ -6889,7 +7009,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -7787,6 +7907,26 @@
   },
   {
     "model": "form.question",
+    "pk": "7-bestaetigung",
+    "fields": {
+      "created_at": "2019-04-10T11:42:39.750Z",
+      "modified_at": "2019-04-10T11:42:39.750Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"7. Best\\u00e4tigung\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": "7-bestaetigung",
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "ableitung-haeusliche-abwaesser",
     "fields": {
       "created_at": "2019-04-03T13:09:09.453Z",
@@ -8059,6 +8199,26 @@
       "is_hidden": "'integration-anderer-gebaeude-nein' in 'integration-anderer-gebaeude'|answer",
       "is_archived": false,
       "configuration": { "max_length": null },
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "anforderungen-eingehalten",
+    "fields": {
+      "created_at": "2019-04-10T11:41:29.404Z",
+      "modified_at": "2019-04-10T11:41:29.404Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss Art. 11 \\u2013 15 BewD eingehalten.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
       "meta": {},
       "row_form": null,
       "sub_form": null,
@@ -8887,6 +9047,26 @@
   },
   {
     "model": "form.question",
+    "pk": "bauprofile-gestellt",
+    "fields": {
+      "created_at": "2019-04-10T11:55:01.588Z",
+      "modified_at": "2019-04-10T11:55:01.588Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "baurecht-nummer",
     "fields": {
       "created_at": "2019-03-28T14:12:52.743Z",
@@ -9555,6 +9735,26 @@
       "created_by_group": null,
       "label": "{\"de\": \"Ist das Bauvorhaben besonderen Brandrisiken ausgesetzt?\"}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "bestaetigung-mit-unterschrift",
+    "fields": {
+      "created_at": "2019-04-10T12:04:33.358Z",
+      "modified_at": "2019-04-10T12:04:33.358Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Bauherrschaft resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
+      "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -10401,6 +10601,46 @@
       "configuration": {},
       "meta": {},
       "row_form": "eigentuemer-tabelle",
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "einhaltung-asbestvorgaben",
+    "fields": {
+      "created_at": "2019-04-10T11:59:46.196Z",
+      "modified_at": "2019-04-10T11:59:46.196Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "einhaltung-radonvorgaben",
+    "fields": {
+      "created_at": "2019-04-10T11:58:35.095Z",
+      "modified_at": "2019-04-10T11:58:35.095Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Radonvorgaben gem\\u00e4ss Strahlenschutzverordnung des Bundes.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
       "sub_form": null,
       "source": null
     }
@@ -12615,6 +12855,26 @@
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr Produktionsanlagen: Kann der gesamte Inhalt des prim\\u00e4ren Systems bei allf\\u00e4lligem Auslaufen zur\\u00fcckgehalten werden?\"}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "keine-tangierung-natur-wild-vogelschutz",
+    "fields": {
+      "created_at": "2019-04-10T12:01:54.598Z",
+      "modified_at": "2019-04-10T12:01:54.598Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.\"}",
+      "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -17727,6 +17987,26 @@
   },
   {
     "model": "form.question",
+    "pk": "verpflichtung-bei-handaenderung",
+    "fields": {
+      "created_at": "2019-04-10T11:56:57.289Z",
+      "modified_at": "2019-04-10T11:56:57.289Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "versickerung",
     "fields": {
       "created_at": "2019-04-03T14:40:08.199Z",
@@ -19905,6 +20185,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "187a03d6-13d2-4fca-8533-aa8e5e8ed1fb",
+    "fields": {
+      "created_at": "2019-04-10T12:04:33.363Z",
+      "modified_at": "2019-04-10T12:04:33.363Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-mit-unterschrift",
+      "option": "bestaetigung-mit-unterschrift-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "198e0d86-5ace-48ff-870f-8f3b82225e66",
     "fields": {
       "created_at": "2019-04-02T14:11:50.453Z",
@@ -20291,6 +20584,19 @@
       "question": "waermetraegerfluessigkeit",
       "option": "waermetraegerfluessigkeit-ethylalkohol-ethanol",
       "sort": 11
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "26c0e6b5-bf1c-4586-8c95-fff377d8b8cc",
+    "fields": {
+      "created_at": "2019-04-10T11:41:29.416Z",
+      "modified_at": "2019-04-10T11:41:29.416Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "anforderungen-eingehalten",
+      "option": "anforderungen-eingehalten-ja",
+      "sort": 1
     }
   },
   {
@@ -21175,6 +21481,19 @@
       "question": "gebiet-mit-naturgefahren",
       "option": "gebiet-mit-naturgefahren-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "47e0ce93-4e4e-4ac7-9aad-776ea3f81ca9",
+    "fields": {
+      "created_at": "2019-04-10T11:56:57.293Z",
+      "modified_at": "2019-04-10T11:56:57.293Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "verpflichtung-bei-handaenderung",
+      "option": "-ja",
+      "sort": 1
     }
   },
   {
@@ -23103,6 +23422,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "87f8982e-bc4c-487a-a820-644f21ba73ff",
+    "fields": {
+      "created_at": "2019-04-10T11:55:01.596Z",
+      "modified_at": "2019-04-10T11:55:01.596Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bauprofile-gestellt",
+      "option": "bauprofile-gestellt-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "88a3949d-01e0-4421-b6da-3f16deee11d4",
     "fields": {
       "created_at": "2019-04-01T11:28:08.325Z",
@@ -23112,6 +23444,19 @@
       "question": "mit-invasiven-neophyten-belasteter-boden",
       "option": "mit-invasiven-neophyten-belasteter-boden-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "88a6e49c-e7a6-4385-9558-7c7df2e33bd0",
+    "fields": {
+      "created_at": "2019-04-10T11:59:46.198Z",
+      "modified_at": "2019-04-10T11:59:46.198Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einhaltung-asbestvorgaben",
+      "option": "einhaltung-asbestvorgaben-ja",
+      "sort": 1
     }
   },
   {
@@ -23982,6 +24327,19 @@
       "created_by_group": null,
       "question": "auskleidung",
       "option": "auskleidung-folie",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "a3d72834-b773-4167-8cea-ef7f84e20824",
+    "fields": {
+      "created_at": "2019-04-10T11:58:35.100Z",
+      "modified_at": "2019-04-10T11:58:35.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einhaltung-radonvorgaben",
+      "option": "einhaltung-radonvorgaben-ja",
       "sort": 1
     }
   },
@@ -25088,6 +25446,19 @@
       "question": "was-fuer-ein-vorhaben",
       "option": "was-fuer-ein-vorhaben-verkaufsgeschafte",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "d424dd0f-fb3c-42c3-83fc-ed502f4f0803",
+    "fields": {
+      "created_at": "2019-04-10T12:01:54.601Z",
+      "modified_at": "2019-04-10T12:01:54.601Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "keine-tangierung-natur-wild-vogelschutz",
+      "option": "-ja",
+      "sort": 1
     }
   },
   {
@@ -26431,6 +26802,19 @@
   },
   {
     "model": "form.option",
+    "pk": "-ja",
+    "fields": {
+      "created_at": "2019-04-10T11:56:57.152Z",
+      "modified_at": "2019-04-10T12:01:54.444Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "ableitung-haeusliche-abwaesser-abflusslose-grube",
     "fields": {
       "created_at": "2019-04-03T13:09:09.278Z",
@@ -26659,6 +27043,19 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "anforderungen-eingehalten-ja",
+    "fields": {
+      "created_at": "2019-04-10T11:41:29.253Z",
+      "modified_at": "2019-04-10T11:41:29.253Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
@@ -27419,6 +27816,19 @@
   },
   {
     "model": "form.option",
+    "pk": "bauprofile-gestellt-ja",
+    "fields": {
+      "created_at": "2019-04-10T11:55:01.461Z",
+      "modified_at": "2019-04-10T11:55:01.461Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "bauten-mit-greater-30-grossvieheinheiten-ja",
     "fields": {
       "created_at": "2019-03-28T09:46:55.832Z",
@@ -27725,6 +28135,19 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "bestaetigung-mit-unterschrift-ja",
+    "fields": {
+      "created_at": "2019-04-10T12:04:33.200Z",
+      "modified_at": "2019-04-10T12:04:33.200Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
@@ -28206,6 +28629,32 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "einhaltung-asbestvorgaben-ja",
+    "fields": {
+      "created_at": "2019-04-10T11:59:46.059Z",
+      "modified_at": "2019-04-10T11:59:46.059Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "einhaltung-radonvorgaben-ja",
+    "fields": {
+      "created_at": "2019-04-10T11:58:34.964Z",
+      "modified_at": "2019-04-10T11:58:34.964Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
