@@ -123,9 +123,9 @@ build-kt_uri-production:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma
         - eval $COMPOSE build --pull
-        - eval $COMPOSE up -d php django
+        - eval $COMPOSE up -d php django caluma
         # Create a minimal tarball which is deployable by
         # https://github.com/camac-suisse/ansible-role-camac
         - mkdir tarball && cd tarball
@@ -137,7 +137,7 @@ build-kt_uri-production:
         - docker cp $(docker-compose ps -q django):/app django/
         - rm -rf django/kt_uri django/kt_schwyz django/demo
         - docker cp $(docker-compose ps -q caluma):/app caluma/
-        - tar cvfz "../camac-be-${CI_COMMIT_REF_SLUG}.tar.gz" .
+        - tar cfz "../camac-be-${CI_COMMIT_REF_SLUG}.tar.gz" .
         - cd ..
     artifacts:
         paths:
