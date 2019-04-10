@@ -595,6 +595,48 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 28,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "save",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 28,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "activation idle to run",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 28,
+      "description": null,
+      "error_message": "Email konnte nicht versandt werden",
+      "execute_always": 0,
+      "name": "Email Stellungnahme",
+      "sort": 3,
+      "success_message": "Email wurde erfolgreich versandt"
+    },
+    "model": "core.action",
+    "pk": 62
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -1209,6 +1251,15 @@
   },
   {
     "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Service",
+      "template": 17
+    },
+    "model": "core.anotification",
+    "pk": 62
+  },
+  {
+    "fields": {
       "air_action_name": null,
       "instance_resource": null,
       "resource": 6
@@ -1273,6 +1324,13 @@
     },
     "model": "core.aphp",
     "pk": 56
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 61
   },
   {
     "fields": {
@@ -2438,7 +2496,7 @@
       "hidden": 0,
       "instance_resource": 18,
       "name": "Zirkulation abschliessen",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 22
@@ -2502,6 +2560,18 @@
     },
     "model": "core.button",
     "pk": 27
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 18,
+      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 28
   },
   {
     "fields": {
