@@ -73,7 +73,7 @@
             </td>
           </tr>
         {{/each}}
-        {{#unless readonly}}
+        {{#if (not readonly)}}
           <tr>
             <td colspan="2" class="uk-text-center">
               <div uk-form-custom class="uk-width-1-1 uk-height-1-1">
@@ -92,7 +92,13 @@
               </div>
             </td>
           </tr>
-        {{/unless}}
+        {{else if (and readonly (not question.model.length))}}
+          <tr>
+            <td colspan="2" class="uk-text-center">
+              Kein Eintrag vorhanden
+            </td>
+          </tr>
+        {{/if}}
       </tbody>
     </table>
   </div>
