@@ -1055,7 +1055,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bauprofile-gestellt",
-      "sort": 6
+      "sort": 11
     }
   },
   {
@@ -1419,7 +1419,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-asbestvorgaben",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -2152,6 +2152,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "26950be6-b95f-4418-81bc-8e5a81c4f38d",
+    "fields": {
+      "created_at": "2019-04-10T13:48:36.873Z",
+      "modified_at": "2019-04-10T13:48:36.873Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "keine-rueckhiebe-oder-aushiebe",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "269d8c37-5daf-4f28-91e1-984f67a22e72",
     "fields": {
       "created_at": "2019-04-09T13:55:58.329Z",
@@ -2264,7 +2277,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-radonvorgaben",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -3941,7 +3954,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-mit-unterschrift",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -5207,6 +5220,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "9bb09816-03ce-460f-9ef6-5987fc5adef3",
+    "fields": {
+      "created_at": "2019-04-10T13:29:17.195Z",
+      "modified_at": "2019-04-10T13:29:17.195Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
+      "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "9bb345d4-134c-4f47-91ec-31caa92d9747",
     "fields": {
       "created_at": "2019-04-01T14:27:33.508Z",
@@ -5593,6 +5619,19 @@
       "form": "allgemeine-angaben-zum-betrieb",
       "question": "anzahl-mitarbeitende-aktuell",
       "sort": 13
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "af595632-a9db-41cc-b5b2-302b7d02265b",
+    "fields": {
+      "created_at": "2019-04-10T13:51:16.545Z",
+      "modified_at": "2019-04-10T13:51:16.545Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bestaetigung-liegenschaftsentwaesserung",
+      "sort": 4
     }
   },
   {
@@ -6208,6 +6247,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "c7f1dc65-120b-40e0-9e33-de2a489b16fb",
+    "fields": {
+      "created_at": "2019-04-10T13:53:49.221Z",
+      "modified_at": "2019-04-10T13:53:49.221Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bestaetigung-generalvollmacht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "c84b997d-b59c-4fc4-87bb-483499f6cb46",
     "fields": {
       "created_at": "2019-04-02T13:42:24.588Z",
@@ -6762,7 +6814,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "keine-tangierung-natur-wild-vogelschutz",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -6775,7 +6827,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "anforderungen-eingehalten",
-      "sort": 7
+      "sort": 12
     }
   },
   {
@@ -6944,7 +6996,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "verpflichtung-bei-handaenderung",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -7257,6 +7309,19 @@
       "form": "eigentuemer-tabelle",
       "question": "strasse-wald-eigentuemer",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "f1222462-4a6a-4228-abe2-498d0005a5ab",
+    "fields": {
+      "created_at": "2019-04-10T13:46:41.031Z",
+      "modified_at": "2019-04-10T13:46:41.031Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "verzicht-schadensersatz-naturereignisse",
+      "sort": 9
     }
   },
   {
@@ -9047,6 +9112,26 @@
   },
   {
     "model": "form.question",
+    "pk": "bauprofile-bleiben-bis-bauentscheid-stehen",
+    "fields": {
+      "created_at": "2019-04-10T13:29:17.030Z",
+      "modified_at": "2019-04-10T13:29:17.030Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt. Hiermit wird best\\u00e4tigt, dass die Bauprofile bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "bauprofile-gestellt",
     "fields": {
       "created_at": "2019-04-10T11:55:01.588Z",
@@ -9735,6 +9820,46 @@
       "created_by_group": null,
       "label": "{\"de\": \"Ist das Bauvorhaben besonderen Brandrisiken ausgesetzt?\"}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "bestaetigung-generalvollmacht",
+    "fields": {
+      "created_at": "2019-04-10T13:53:49.095Z",
+      "modified_at": "2019-04-10T13:53:49.095Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "bestaetigung-liegenschaftsentwaesserung",
+    "fields": {
+      "created_at": "2019-04-10T13:51:16.442Z",
+      "modified_at": "2019-04-10T13:51:16.443Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
+      "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -12855,6 +12980,26 @@
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr Produktionsanlagen: Kann der gesamte Inhalt des prim\\u00e4ren Systems bei allf\\u00e4lligem Auslaufen zur\\u00fcckgehalten werden?\"}",
       "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "keine-rueckhiebe-oder-aushiebe",
+    "fields": {
+      "created_at": "2019-04-10T13:48:36.763Z",
+      "modified_at": "2019-04-10T13:48:36.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt,\"}",
+      "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -18247,6 +18392,26 @@
   },
   {
     "model": "form.question",
+    "pk": "verzicht-schadensersatz-naturereignisse",
+    "fields": {
+      "created_at": "2019-04-10T13:46:40.916Z",
+      "modified_at": "2019-04-10T13:46:40.916Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "vollmacht",
     "fields": {
       "created_at": "2019-03-15T08:32:07.078Z",
@@ -19756,6 +19921,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "0b8db1a0-098b-4146-8879-b1a240153681",
+    "fields": {
+      "created_at": "2019-04-10T13:48:36.769Z",
+      "modified_at": "2019-04-10T13:48:36.769Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "keine-rueckhiebe-oder-aushiebe",
+      "option": "keine-rueckhiebe-oder-aushiebe-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "0b9b971d-b532-4994-8d55-0f8a51db5284",
     "fields": {
       "created_at": "2019-04-01T12:23:22.178Z",
@@ -20025,6 +20203,19 @@
       "question": "naturschutz",
       "option": "naturschutz-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "136f8652-a335-47df-85ac-ca91b830ab90",
+    "fields": {
+      "created_at": "2019-04-10T13:46:40.921Z",
+      "modified_at": "2019-04-10T13:46:40.921Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "verzicht-schadensersatz-naturereignisse",
+      "option": "verzicht-schadensersatz-naturereignisse-ja",
+      "sort": 1
     }
   },
   {
@@ -20948,6 +21139,19 @@
       "question": "produkteleitung",
       "option": "produkteleitung-sichtbar",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "34828d20-3810-4d18-9f63-41613276ecd7",
+    "fields": {
+      "created_at": "2019-04-10T13:53:49.100Z",
+      "modified_at": "2019-04-10T13:53:49.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-generalvollmacht",
+      "option": "bestaetigung-generalvollmacht-ja",
+      "sort": 1
     }
   },
   {
@@ -22066,6 +22270,19 @@
       "question": "wochentag",
       "option": "wochentag-mittwoch",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "57c22ae0-b2a5-4e4e-9f54-cf7e2141fde4",
+    "fields": {
+      "created_at": "2019-04-10T13:29:17.052Z",
+      "modified_at": "2019-04-10T13:29:17.052Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
+      "option": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
+      "sort": 1
     }
   },
   {
@@ -26737,6 +26954,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "fe5bfea8-1d7b-485d-8998-34a38575076d",
+    "fields": {
+      "created_at": "2019-04-10T13:51:16.447Z",
+      "modified_at": "2019-04-10T13:51:16.447Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-liegenschaftsentwaesserung",
+      "option": "bestaetigung-liegenschaftsentwaesserung-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "fe6b7e28-ca1c-4ed5-b5f6-99395e0ef850",
     "fields": {
       "created_at": "2019-04-09T07:34:56.436Z",
@@ -27816,6 +28046,19 @@
   },
   {
     "model": "form.option",
+    "pk": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
+    "fields": {
+      "created_at": "2019-04-10T13:29:16.765Z",
+      "modified_at": "2019-04-10T13:29:16.765Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "bauprofile-gestellt-ja",
     "fields": {
       "created_at": "2019-04-10T11:55:01.461Z",
@@ -28135,6 +28378,32 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "bestaetigung-generalvollmacht-ja",
+    "fields": {
+      "created_at": "2019-04-10T13:53:48.953Z",
+      "modified_at": "2019-04-10T13:53:48.953Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "bestaetigung-liegenschaftsentwaesserung-ja",
+    "fields": {
+      "created_at": "2019-04-10T13:51:16.315Z",
+      "modified_at": "2019-04-10T13:51:16.315Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
@@ -30137,6 +30406,19 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "keine-rueckhiebe-oder-aushiebe-ja",
+    "fields": {
+      "created_at": "2019-04-10T13:48:36.621Z",
+      "modified_at": "2019-04-10T13:48:36.621Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
@@ -33049,6 +33331,19 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Warmwasser\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "verzicht-schadensersatz-naturereignisse-ja",
+    "fields": {
+      "created_at": "2019-04-10T13:46:40.761Z",
+      "modified_at": "2019-04-10T13:46:40.761Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
       "meta": {},
       "source": null
     }
