@@ -3527,7 +3527,7 @@
       "form_group": 1,
       "hidden": 0,
       "name": "Formular",
-      "resource": 13,
+      "resource": 15,
       "sort": 0,
       "template": "/ember/instance.phtml"
     },
@@ -3542,7 +3542,7 @@
       "form_group": 1,
       "hidden": 0,
       "name": "Dokumente",
-      "resource": 13,
+      "resource": 15,
       "sort": 1,
       "template": null
     },
@@ -3557,7 +3557,7 @@
       "form_group": 1,
       "hidden": 0,
       "name": "Vollst\u00e4ndigkeitspr\u00fcfung",
-      "resource": 13,
+      "resource": 15,
       "sort": 2,
       "template": null
     },
@@ -3572,7 +3572,7 @@
       "form_group": 1,
       "hidden": 0,
       "name": "Stellungsnahmen",
-      "resource": 13,
+      "resource": 15,
       "sort": 3,
       "template": null
     },
@@ -3587,8 +3587,8 @@
       "form_group": 1,
       "hidden": 0,
       "name": "Journal",
-      "resource": 13,
-      "sort": 5,
+      "resource": 15,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -7650,6 +7650,14 @@
   },
   {
     "fields": {
+      "circulation_type": 1,
+      "resource": 15
+    },
+    "model": "core.rapilistcirculationtype",
+    "pk": 12
+  },
+  {
+    "fields": {
       "instance_state": 3,
       "resource": 2
     },
@@ -7922,6 +7930,62 @@
   },
   {
     "fields": {
+      "instance_state": 3,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "instance_state": 4,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "instance_state": 5,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "instance_state": 6,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "instance_state": 7,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "instance_state": 8,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "instance_state": 9,
+      "resource": 15
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 63
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -7966,7 +8030,7 @@
       "description": "Abzuschliessende Dossiers f\u00fcr die Gemeinde",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 5,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -7992,7 +8056,7 @@
       "description": "\u00dcbersicht aktiver Dossiers f\u00fcr den Kanton",
       "hidden": 0,
       "name": "\u00dcbersicht aktiver Dossiers",
-      "sort": 6,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -8005,7 +8069,7 @@
       "description": null,
       "hidden": 0,
       "name": "Suche",
-      "sort": 7,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -8018,7 +8082,7 @@
       "description": null,
       "hidden": 0,
       "name": "Vorlagenverwaltung",
-      "sort": 8,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -8031,7 +8095,7 @@
       "description": null,
       "hidden": 0,
       "name": "Meine Pendenzen",
-      "sort": 9,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -8044,7 +8108,7 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenvorlagen",
-      "sort": 10,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -8057,7 +8121,7 @@
       "description": null,
       "hidden": 0,
       "name": "Publikation",
-      "sort": 11,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -8070,7 +8134,7 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 12,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -8083,11 +8147,11 @@
       "description": "Gesuche der Leserolle",
       "hidden": 0,
       "name": "Gesuche",
-      "sort": 13,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
-    "pk": 14
+    "pk": 15
   },
   {
     "fields": {
@@ -8227,11 +8291,11 @@
   },
   {
     "fields": {
-      "resource": 14,
+      "resource": 15,
       "role": 10
     },
     "model": "core.rroleacl",
-    "pk": 24
+    "pk": 25
   },
   {
     "fields": {
