@@ -393,3 +393,39 @@ def test_attachment_delete(
     )
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_attachment_log_download(
+    admin_client, attachment_attachment_sections, attachment_section_group_acl
+):
+    url = reverse(
+        "attachment-log-download", args=[attachment_attachment_sections.attachment.pk]
+    )
+    response = admin_client.post(url)
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_attachment_download_history(
+    admin_client,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    attachment_download_history_factory,
+):
+    attachment_download_history_factory(
+        attachment=attachment_attachment_sections.attachment
+    )
+    url = reverse(
+        "attachment-download-history",
+        args=[attachment_attachment_sections.attachment.pk],
+    )
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
