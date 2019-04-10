@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from docxtpl import DocxTemplate
-from rest_framework import exceptions, generics, viewsets
+from rest_framework import exceptions, generics, response, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
@@ -63,6 +63,21 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         except AttributeError:
             raise exceptions.NotFound()
         return HttpResponse(thumbnail.read(), "image/jpeg")
+
+    @action(methods=["post"], detail=True)
+    def log_download(self, request, pk=None):
+        entry = models.AttachmentDownloadHistory(
+            attachment=self.get_object(), user=request.user
+        )
+        entry.save()
+        return HttpResponse(status=204)
+
+    @action(detail=True)
+    def download_history(self, request, pk=None):
+        history = models.AttachmentDownloadHistory.objects.filter(
+            attachment=self.get_object()
+        )
+        return response.Response(data=history.values())
 
 
 class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):

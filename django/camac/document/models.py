@@ -230,3 +230,13 @@ class Template(models.Model):
 
     class Meta:
         db_table = "TEMPLATE"
+
+
+class AttachmentDownloadHistory(models.Model):
+    date_time = models.DateTimeField(default=timezone.now)
+    attachment = models.ForeignKey(
+        "Attachment", models.CASCADE, related_name="attachment_download_history"
+    )
+    user = models.ForeignKey(
+        "user.User", models.CASCADE, related_name="attachment_download_history"
+    )
