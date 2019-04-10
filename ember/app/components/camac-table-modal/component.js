@@ -62,9 +62,6 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
         this.columns.forEach(column => {
           if (column.name === "name" || column.name === "vorname") {
             set(column, "required", !value);
-            if (value !== undefined) {
-              this.get("_value").validate();
-            }
           }
         });
       }
