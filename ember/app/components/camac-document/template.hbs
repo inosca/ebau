@@ -29,20 +29,22 @@
                 title="Dokument herunterladen"
                 {{action (perform download) doc}}
               ></button>
-              <div uk-form-custom>
-                <button
-                  data-test-replace-document
-                  type="button"
-                  uk-icon="cloud-upload"
-                  class="uk-icon-button"
-                ></button>
-                <input
-                  type="file"
-                  accept={{mimeTypes}}
-                  title="Dokument ersetzen"
-                  onchange={{action (action (perform upload) doc) value='target.files'}}
-                >
-              </div>
+              {{#unless readonly}}
+                <div uk-form-custom>
+                  <button
+                    data-test-replace-document
+                    type="button"
+                    uk-icon="cloud-upload"
+                    class="uk-icon-button"
+                  ></button>
+                  <input
+                    type="file"
+                    accept={{mimeTypes}}
+                    title="Dokument ersetzen"
+                    onchange={{action (action (perform upload) doc) value='target.files'}}
+                  >
+                </div>
+              {{/unless}}
               {{#unless instance.identifier}}
                 <button
                   data-test-delete-document
@@ -71,24 +73,32 @@
             </td>
           </tr>
         {{/each}}
-        <tr>
-          <td colspan="2" class="uk-text-center">
-            <div uk-form-custom class="uk-width-1-1 uk-height-1-1">
-              <button
-                data-test-upload-document
-                type="button"
-                uk-icon="plus"
-              ></button>
-              <input
-                type="file"
-                multiple="true"
-                accept={{mimeTypes}}
-                title="Neue Dokumente hochladen"
-                onchange={{action (action (perform upload) null) value='target.files'}}
-              >
-            </div>
-          </td>
-        </tr>
+        {{#if (not readonly)}}
+          <tr>
+            <td colspan="2" class="uk-text-center">
+              <div uk-form-custom class="uk-width-1-1 uk-height-1-1">
+                <button
+                  data-test-upload-document
+                  type="button"
+                  uk-icon="plus"
+                ></button>
+                <input
+                  type="file"
+                  multiple="true"
+                  accept={{mimeTypes}}
+                  title="Neue Dokumente hochladen"
+                  onchange={{action (action (perform upload) null) value='target.files'}}
+                >
+              </div>
+            </td>
+          </tr>
+        {{else if (and readonly (not question.model.length))}}
+          <tr>
+            <td colspan="2" class="uk-text-center">
+              Kein Eintrag vorhanden
+            </td>
+          </tr>
+        {{/if}}
       </tbody>
     </table>
   </div>
