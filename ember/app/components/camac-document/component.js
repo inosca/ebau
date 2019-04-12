@@ -106,7 +106,17 @@ export default CamacInputComponent.extend({
           let post = new XMLHttpRequest();
           post.open("POST", `/api/v1/attachments/${document.id}/log_download`);
           post.setRequestHeader("Authorization", this.headers.Authorization);
-          post.send();
+          post.setRequestHeader("Content-Type", "application/vnd.api+json");
+          post.send(
+            JSON.stringify({
+              data: {
+                type: "attachment-log-download",
+                attributes: {
+                  name: this.get("session.data.authenticated.data.name")
+                }
+              }
+            })
+          );
         }
       }
 
