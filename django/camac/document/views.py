@@ -64,10 +64,20 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
             raise exceptions.NotFound()
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
-    @action(methods=["post"], detail=True)
+    @action(
+        methods=["post"],
+        detail=True,
+        serializer_class=serializers.AttachmentLogDownloadSerializer,
+    )
     def log_download(self, request, pk=None):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
         entry = models.AttachmentDownloadHistory(
-            attachment=self.get_object(), user=request.user
+            attachment=self.get_object(),
+            keycloakId=request.user.username,
+            name=serializer.validated_data["name"],
         )
         entry.save()
         return HttpResponse(status=204)
