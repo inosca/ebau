@@ -36,6 +36,7 @@ export default function() {
   this.patch("/api/v1/instances/:id");
   this.delete("/api/v1/instances/:id");
   this.post("/api/v1/instances/:id/submit", () => new Response(200));
+  this.get("/api/v1/instance-states/:id");
 
   this.get("/api/v1/form-fields", function(
     { formFields },
