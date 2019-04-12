@@ -237,6 +237,5 @@ class AttachmentDownloadHistory(models.Model):
     attachment = models.ForeignKey(
         "Attachment", models.CASCADE, related_name="attachment_download_history"
     )
-    user = models.ForeignKey(
-        "user.User", models.CASCADE, related_name="attachment_download_history"
-    )
+    name = models.CharField(max_length=250)
+    keycloakId = models.CharField(max_length=250)
