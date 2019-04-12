@@ -404,7 +404,16 @@ def test_attachment_log_download(
     url = reverse(
         "attachment-log-download", args=[attachment_attachment_sections.attachment.pk]
     )
-    response = admin_client.post(url)
+
+    data = {
+        "data": {
+            "type": "attachment-log-download",
+            "id": None,
+            "attributes": {"name": "johndoe"},
+        }
+    }
+
+    response = admin_client.post(url, data)
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
 
