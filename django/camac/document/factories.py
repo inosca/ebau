@@ -71,7 +71,7 @@ class TemplateFactory(DjangoModelFactory):
 class AttachmentDownloadHistoryFactory(DjangoModelFactory):
     date_time = timezone.now()
     attachment = SubFactory(AttachmentFactory)
-    username = Faker("user_name")
+    name = Faker("name")
     keycloakId = Faker("uuid4")
 
     class Meta:
