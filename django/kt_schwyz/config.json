@@ -9717,6 +9717,15 @@
   },
   {
     "fields": {
+      "body": "Es wurden ihnen Dokumente freigegeben auf dem Dossier {{identifier}}.",
+      "purpose": "Benachrichtigung Gesuchsteller",
+      "subject": "Freigegebene Gesuchsunterlagen in Dossier {{identifier}}"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 18
+  },
+  {
+    "fields": {
       "address": null,
       "city": null,
       "disabled": 0,
