@@ -9717,7 +9717,7 @@
   },
   {
     "fields": {
-      "body": "Es wurden ihnen Dokumente freigegeben auf dem Dossier {{identifier}}.",
+      "body": "Es wurden ihnen Dokumente freigegeben auf dem Dossier {{identifier}}.\r\nBenutzen sie diesen Link um sofort darauf zu kommen: http://camac-ng-portal.local/gesuche/{{instance_id}}/freigegebene-unterlagen",
       "purpose": "Benachrichtigung Gesuchsteller",
       "subject": "Freigegebene Gesuchsunterlagen in Dossier {{identifier}}"
     },
