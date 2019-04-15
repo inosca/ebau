@@ -2,6 +2,12 @@
 
 {{#uk-list bullet=true as |list|}}
   {{#list.item}}
+    <strong>Vorbemerkung:</strong>
+    Dieses Formular ersetzt die bisherigen Baugesuchsformulare Z01 bis Z15.
+    Spezifische Formulare für die Ver - und Entsorgung finden Sie auf der Homepage
+    der jeweiligen Gemeinde resp. des entsprechenden Werkes.
+  {{/list.item}}
+  {{#list.item}}
     <strong>Funktionsweise:</strong>
     {{#uk-list bullet=true as |sublist|}}
       {{#sublist.item}}
@@ -46,6 +52,27 @@
     entsprechenden Gemeinde wenden.
     Begonnene wie auch eingereichte Gesuche können Sie künftig über Ihr
     Login einsehen.
+    <br/>
+    WICHTIG: Bis die rechtlichen Grundlagen für eine rein elektronische
+    Gesuchseingabe geschaffen sind, müssen zwei vollständige Gesuchsdossiers (exkl. Gesuchsformular)
+    erstellt, unterschrieben und der Gemeinde zugestellt werden.
+    Die Vorgaben des jeweiligen Baureglementes sind einzuhalten.
+    {{camac-hint-dialog "Konkrete Schritte zur Einreichung:
+1. Gesuchsformular ausfüllen, Gesuchsunterlagen hochladen
+      und elektronisch einreichen. (Falls die Einreichung erfolgreich war,
+      wird unter «Ihre Gesuche» das Gesuch mit einer Gesuchsnummer
+      und dem neuen Status «eingereicht» aufgelistet.)
+2. Zwei vollständige Gesuchsdossiers in Papierform
+      (exkl. Gesuchsformular) erstellen und mit den gemäss Baureglement
+      nötigen Unterschriften versehen. (Die zwei Papierdossiers sind
+      solange nötig, bis die elektronische Unterschrift im Kanton Schwyz
+      rechtlich geregelt ist.
+      Ein Dossier wird nach Abschluss des Verfahrens die Bauherrschaft
+      erhalten und das zweite bleibt bei der Gemeinde.)
+3. Zustellung der beiden Dossiers an die Gemeinde.
+      WICHTIG: Die Gemeinde bearbeitet Ihr Gesuch erst,
+      wenn die Papierunterlagen vorliegen."
+    }}
   {{/list.item}}
   {{#list.item}}
     <strong>Löschen:</strong> Begonnene, aber noch nicht eingereichte Gesuche,
