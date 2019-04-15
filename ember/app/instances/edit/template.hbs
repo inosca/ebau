@@ -10,7 +10,7 @@
             {{camac-nav-module module=m}}
           {{/if}}
         {{/each}}
-        {{#if (contains 'form' model.meta.editable)}}
+        {{#if model.meta.editable.length}}
           <li class={{if (eq router.currentRouteName 'instances.edit.submit') 'uk-active'}}>
             {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bold'}}
           </li>
