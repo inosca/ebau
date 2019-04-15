@@ -19,7 +19,7 @@ export default Controller.extend({
         variables: {
           input: {
             workflow: "building-permit",
-            form: "baugesuch" // TODO make dynamic once forms are configured
+            form: this.selectedForm
           }
         }
       },
