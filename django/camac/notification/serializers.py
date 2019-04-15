@@ -62,6 +62,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     billing_entries = BillingEntryMergeSerializer(many=True)
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
+    instance_id = serializers.IntegerField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
