@@ -7,14 +7,14 @@
       "modified_at": "2019-04-08T07:17:29.147Z",
       "created_by_user": null,
       "created_by_group": null,
-      "name": "{\"de\": \"Baugesuch\"}",
+      "name": "{\"de\": \"Gesuch\"}",
       "description": "{\"de\": null}",
       "meta": {},
       "is_published": false,
       "is_archived": false,
-      "allow_all_forms": false,
+      "allow_all_forms": true,
       "start_tasks": ["fill-form"],
-      "allow_forms": ["baugesuch"]
+      "allow_forms": []
     }
   },
   {
@@ -870,6 +870,22 @@
   },
   {
     "model": "form.form",
+    "pk": "vorabklaerung-einfach",
+    "fields": {
+      "created_at": "2019-04-11T07:54:42.065Z",
+      "modified_at": "2019-04-11T07:54:42.065Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "name": "{\"de\": \"Vorabkl\\u00e4rung einfach\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "waermepumpen",
     "fields": {
       "created_at": "2019-04-01T13:27:11.838Z",
@@ -1082,6 +1098,19 @@
       "form": "allgemeine-angaben-zum-betrieb",
       "question": "schalldruckpegelabnahme",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "04c73a95-b9de-4979-81fd-9fcbc7a175a7",
+    "fields": {
+      "created_at": "2019-04-11T08:24:05.743Z",
+      "modified_at": "2019-04-11T08:24:05.743Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "gwr-egid",
+      "sort": 3
     }
   },
   {
@@ -1433,6 +1462,19 @@
       "form": "art-der-emmission-tabelle",
       "question": "feuerwaermleistung-in-kw",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "11b47291-f226-413a-9961-5c7ea6ebd974",
+    "fields": {
+      "created_at": "2019-04-11T12:35:41.903Z",
+      "modified_at": "2019-04-11T12:35:41.903Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "vorname-gesuchstellerin-vorabklaerung",
+      "sort": 11
     }
   },
   {
@@ -2490,6 +2532,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "32e9d6c4-e0ce-4253-97ec-aad07e47c11f",
+    "fields": {
+      "created_at": "2019-04-11T08:22:28.202Z",
+      "modified_at": "2019-04-11T08:22:28.202Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "lagekoordinaten",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "33047d6e-cef9-42bc-a905-465e5db62b30",
     "fields": {
       "created_at": "2019-04-03T13:24:53.518Z",
@@ -2629,6 +2684,19 @@
       "form": "5-spezialformulare",
       "question": "reklame",
       "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "38e01800-2c97-46da-9c3e-43e3edfa698c",
+    "fields": {
+      "created_at": "2019-04-11T08:00:33.718Z",
+      "modified_at": "2019-04-11T08:00:33.718Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "nummer-gesuchstellerin",
+      "sort": 9
     }
   },
   {
@@ -2967,6 +3035,19 @@
       "form": "biologische-sicherheit-und-stoerfallvorsorge",
       "question": "begasung-moeglich",
       "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "45de8660-2251-413c-b0a7-048c6c625df6",
+    "fields": {
+      "created_at": "2019-04-11T08:26:02.865Z",
+      "modified_at": "2019-04-11T08:26:02.865Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "anfrage-zur-vorabklaerung",
+      "sort": 1
     }
   },
   {
@@ -4102,6 +4183,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "7188f3d8-5cc6-4bff-a35c-764b553c1b22",
+    "fields": {
+      "created_at": "2019-04-11T08:23:58.704Z",
+      "modified_at": "2019-04-11T08:23:58.704Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "be-gid",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "71a1f02c-0435-42d7-be50-cbe8c412de42",
     "fields": {
       "created_at": "2019-04-04T08:23:39.171Z",
@@ -4362,6 +4456,32 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "7bff1bc7-a853-4bd4-982a-e4bd6aaaa529",
+    "fields": {
+      "created_at": "2019-04-11T08:00:25.265Z",
+      "modified_at": "2019-04-11T08:00:25.265Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "strasse-gesuchstellerin",
+      "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "7cfbaf75-24e0-41e7-b81a-548a35d17b1d",
+    "fields": {
+      "created_at": "2019-04-11T08:25:18.464Z",
+      "modified_at": "2019-04-11T08:25:18.464Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "e-grid-nr",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "7d948d56-be8b-4994-8ac9-a33c09022dda",
     "fields": {
       "created_at": "2019-04-09T11:44:52.130Z",
@@ -4527,6 +4647,19 @@
       "form": "gastgewerbe-allgemein",
       "question": "offnungszeiten-tabelle",
       "sort": 19
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "84240415-7f1a-46d0-90d8-b5642d85b7c7",
+    "fields": {
+      "created_at": "2019-04-11T12:34:23.551Z",
+      "modified_at": "2019-04-11T12:34:23.552Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "name-gesuchstellerin-vorabklaerung",
+      "sort": 12
     }
   },
   {
@@ -5008,6 +5141,19 @@
       "form": "wohnen",
       "question": "davon-in-garagen-oder-einstellhallen",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "94374e1d-baa0-48f1-9436-5396eddf02d1",
+    "fields": {
+      "created_at": "2019-04-11T08:23:48.840Z",
+      "modified_at": "2019-04-11T08:23:48.840Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "parzellen-nr-liegenschaftsnummer",
+      "sort": 5
     }
   },
   {
@@ -5866,6 +6012,19 @@
       "form": "gastgewerbe-fumoir",
       "question": "anzahl-sitzplaetze-fumoir",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "b78db7ed-b5cb-48d6-8f8c-c2c38589e750",
+    "fields": {
+      "created_at": "2019-04-11T08:00:53.992Z",
+      "modified_at": "2019-04-11T08:00:53.992Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "ort-gesuchstellerin",
+      "sort": 7
     }
   },
   {
@@ -7313,6 +7472,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "ef653a45-da70-4919-9e3a-9a35ea76a347",
+    "fields": {
+      "created_at": "2019-04-11T08:00:44.487Z",
+      "modified_at": "2019-04-11T08:00:44.487Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "plz-gesuchstellerin",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "f1222462-4a6a-4228-abe2-498d0005a5ab",
     "fields": {
       "created_at": "2019-04-10T13:46:41.031Z",
@@ -8284,6 +8456,26 @@
       "is_hidden": "false",
       "is_archived": false,
       "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "anfrage-zur-vorabklaerung",
+    "fields": {
+      "created_at": "2019-04-11T08:26:02.789Z",
+      "modified_at": "2019-04-11T08:26:02.789Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Anfrage zur Vorabkl\\u00e4rung\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": { "max_length": null },
       "meta": {},
       "row_form": null,
       "sub_form": null,
@@ -13512,6 +13704,26 @@
   },
   {
     "model": "form.question",
+    "pk": "lagekoordinaten",
+    "fields": {
+      "created_at": "2019-04-11T08:22:28.096Z",
+      "modified_at": "2019-04-11T08:22:28.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Lagekoordinaten\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": { "max_length": null },
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "lagekoordinaten-nord",
     "fields": {
       "created_at": "2019-03-28T14:14:29.069Z",
@@ -14435,13 +14647,33 @@
     "pk": "name-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:52:20.078Z",
-      "modified_at": "2019-04-04T07:52:20.078Z",
+      "modified_at": "2019-04-11T12:41:12.970Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!('juristische-person-personalien-nein' in 'juristische-person-personalien'|answer)",
+      "is_archived": false,
+      "configuration": { "max_length": null },
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "name-gesuchstellerin-vorabklaerung",
+    "fields": {
+      "created_at": "2019-04-11T12:34:23.414Z",
+      "modified_at": "2019-04-11T12:34:23.414Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Name\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
       "is_archived": false,
       "configuration": { "max_length": null },
       "meta": {},
@@ -18495,13 +18727,33 @@
     "pk": "vorname-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:51:39.379Z",
-      "modified_at": "2019-04-04T07:51:39.380Z",
+      "modified_at": "2019-04-11T12:40:55.844Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!('juristische-person-personalien-nein' in 'juristische-person-personalien'|answer)",
+      "is_archived": false,
+      "configuration": { "max_length": null },
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "vorname-gesuchstellerin-vorabklaerung",
+    "fields": {
+      "created_at": "2019-04-11T12:35:41.821Z",
+      "modified_at": "2019-04-11T12:35:41.821Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Vorname\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
       "is_archived": false,
       "configuration": { "max_length": null },
       "meta": {},
