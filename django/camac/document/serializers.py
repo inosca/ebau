@@ -96,6 +96,7 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         "user": "camac.user.serializers.UserSerializer",
         "instance": "camac.instance.serializers.InstanceSerializer",
         "attachment_sections": AttachmentSectionSerializer,
+        "service": "camac.user.serializers.ServiceSerializer",
     }
 
     def create(self, validated_data):
