@@ -196,6 +196,7 @@
       "parent": "grundinformationen",
       "questions": [
         "bezeichnung",
+        "projektnummer",
         "parzellen",
         "punkte",
         "layer",
@@ -1130,6 +1131,13 @@
       "required": true,
       "config": {}
     },
+    "projektnummer": {
+      "label": "Projektnummer:",
+      "hint": "Dieses Eingabefeld dient Projektverfassern/Gesuchstellern, die eigens definierte Projektnummer mit dem Gesuch zu verknüpfen. Für die Behörden ist diese Angabe ohne Bedeutung.",
+      "type": "text",
+      "required": false,
+      "config": {}
+    },
     "kategorie-des-vorhabens": {
       "label": "Handelt es sich beim Vorhaben um eine Baute oder / und Anlage?",
       "hint": "Baute(n): Gebäude sind ortsfeste Bauten, die zum Schutz von Menschen, Tieren oder Sachen eine feste Überdachung und in der Regel weitere Abschlüsse aufweisen. Anlage(n): Anlagen wie offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen usw. keine Gebäude.",
@@ -1309,10 +1317,9 @@
       "active-expression": "'Wärmepumpe' in 'art-der-anlage'|value",
       "config": {
         "options": [
-          "Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)",
+          "Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)",
           "Luft / Wasser-Wärmepumpe",
-          "Wasser / Wasser-Wärmepumpe (z. B. Seewasser- oder Bachwassernutzung)",
-          "Sole / Wasser-Wärmepumpe (Grundwasserwärmepumpe)"
+          "Wasser / Wasser-Wärmepumpe (z. B. Grundwasser-, Seewasser- oder Bachwassernutzung)"
         ]
       }
     },
@@ -3978,7 +3985,7 @@
       "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
       "type": "radio",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": [
           "Erdwärmesonden",
@@ -3992,7 +3999,7 @@
       "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-bohrfirma": {
@@ -4000,7 +4007,7 @@
       "hint": "falls bekannt, bitte angeben.",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-verwendungszweck": {
@@ -4008,7 +4015,7 @@
       "hint": "z.B. Warmwasseraufbereitung, Kühlung usw.",
       "type": "checkbox",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
       "config": {
         "options": [
           "Heizung",
@@ -4022,7 +4029,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-erdwarmesonden*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1
       }
@@ -4032,7 +4039,7 @@
       "hint": "Wie tief reichen die Sonden ins Erdreich in m.",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1
       }
@@ -4042,7 +4049,7 @@
       "hint": "**Platzhalter**: *grundwasser-bohrdurchmesser*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1
       }
@@ -4052,7 +4059,7 @@
       "hint": "welches Bohrverfahren wird gewählt (z.B. Kernbohrung, Spühlbohrung usw.).",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-sondenrohrdurchmesser": {
@@ -4060,7 +4067,7 @@
       "hint": "**Platzhalter**: *grundwasser-sondenrohrdurchmesser*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {
         "min": 1
       }
@@ -4070,7 +4077,7 @@
       "hint": "aus welchem Material bestehen die Erdwärmesonden?",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
       "config": {}
     },
     "grundwasser-warmetragerflussigkeit": {
@@ -4078,7 +4085,7 @@
       "hint": "Welche Wärmeträgerflüssigkeit wird verwendet?",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {}
     },
     "grundwasser-totale-fullmenge": {
@@ -4086,7 +4093,7 @@
       "hint": "Wieviele Liter Wärmeträgerflüssigkeit werden benötigt.",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && ('grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden' || 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle')",
       "config": {
         "min": 1
       }
@@ -4096,7 +4103,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-energiepfahle*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1
       }
@@ -4106,7 +4113,7 @@
       "hint": "wie tief reichen die Pfähle in den Untergrund in m",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1
       }
@@ -4116,7 +4123,7 @@
       "hint": "**Platzhalter**: *grundwasser-durchmesser-energiepfahle*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Energiepfähle'",
       "config": {
         "min": 1
       }
@@ -4126,7 +4133,7 @@
       "hint": "**Platzhalter**: *grundwasser-anzahl-register*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1
       }
@@ -4136,7 +4143,7 @@
       "hint": "**Platzhalter**: *grundwasser-verlegungstiefe*",
       "type": "number",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {
         "min": 1
       }
@@ -4146,7 +4153,7 @@
       "hint": "**Platzhalter**: *grundwasser-material-der-anlage*",
       "type": "text",
       "required": true,
-      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
+      "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
       "config": {}
     },
     "grundwasser-sondierbohrung-anzahl-bohrungen": {
