@@ -301,7 +301,7 @@ EMAIL_HOST = env.str("DJANGO_EMAIL_HOST", default("localhost"))
 EMAIL_PORT = env.str("DJANGO_EMAIL_PORT", 25)
 
 EMAIL_HOST_USER = env.str("DJANGO_EMAIL_HOST_USER", "")
-EMAIL_PASSWORD = env.str("DJANGO_EMAIL_HOST_PASSWORD", "")
+EMAIL_HOST_PASSWORD = env.str("DJANGO_EMAIL_HOST_PASSWORD", "")
 EMAIL_USE_TLS = env.str("DJANGO_EMAIL_USE_TLS", False)
 
 # Merge definition
