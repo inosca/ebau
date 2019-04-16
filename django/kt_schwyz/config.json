@@ -9063,7 +9063,7 @@
   },
   {
     "fields": {
-      "name": "Dokumente vom Gesuchsteller",
+      "name": "Dokumente des Gesuchstellers",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 1
