@@ -182,4 +182,4 @@ class AttachmentDownloadHistorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.AttachmentDownloadHistory
-        fields = "__all__"
+        fields = ("date_time", "keycloak_id", "name", "attachment", "group")
