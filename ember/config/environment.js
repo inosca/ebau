@@ -27,7 +27,6 @@ module.exports = function(environment) {
 
       // special attachment section mapping
       readonlyAttachments: {
-        questionName: "dokument-freigegeben",
         attachmentSectionId: "9"
       },
 
