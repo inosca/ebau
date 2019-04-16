@@ -13718,7 +13718,7 @@
       "email": null,
       "name": "Baukommission Altendorf",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 127,
       "website": null,
       "zip": null
@@ -13830,7 +13830,7 @@
       "email": null,
       "name": "Baukommission Illgau",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 133,
       "website": null,
       "zip": null
@@ -13910,7 +13910,7 @@
       "email": null,
       "name": "Baubeh\u00f6rde Wollerau",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 138,
       "website": null,
       "zip": null
@@ -13926,7 +13926,7 @@
       "email": null,
       "name": "Hochbaukommission Lachen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 139,
       "website": null,
       "zip": null
@@ -13942,7 +13942,7 @@
       "email": null,
       "name": "Gemeinderat Lachen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 140,
       "website": null,
       "zip": null
@@ -14166,7 +14166,7 @@
       "email": null,
       "name": "Baukommission K\u00fcssnacht",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 156,
       "website": null,
       "zip": null
@@ -14214,7 +14214,7 @@
       "email": null,
       "name": "Gemeinderat Illgau",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 159,
       "website": null,
       "zip": null
@@ -14246,7 +14246,7 @@
       "email": null,
       "name": "Baukommission Schwyz",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 161,
       "website": null,
       "zip": null
@@ -14470,7 +14470,7 @@
       "email": null,
       "name": "Baukommission Arth",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 176,
       "website": null,
       "zip": null
@@ -14486,7 +14486,7 @@
       "email": null,
       "name": "Hochbaukommission Ingenbohl",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 177,
       "website": null,
       "zip": null
@@ -14518,7 +14518,7 @@
       "email": null,
       "name": "Gemeinderat Reichenburg",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 179,
       "website": null,
       "zip": null
@@ -14534,7 +14534,7 @@
       "email": null,
       "name": "Bauko Tiefbau und Umwelt Reichenburg",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 180,
       "website": null,
       "zip": null
@@ -14550,7 +14550,7 @@
       "email": null,
       "name": "Baukommission Morschach",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 181,
       "website": null,
       "zip": null
@@ -14566,7 +14566,7 @@
       "email": null,
       "name": "Gemeinderat Lauerz",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 182,
       "website": null,
       "zip": null
@@ -14598,7 +14598,7 @@
       "email": null,
       "name": "Baukommission Reichenburg",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 184,
       "website": null,
       "zip": null
@@ -14614,7 +14614,7 @@
       "email": null,
       "name": "Baukommission Steinen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 185,
       "website": null,
       "zip": null
@@ -14646,7 +14646,7 @@
       "email": null,
       "name": "Baukommission Wangen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 187,
       "website": null,
       "zip": null
@@ -14726,7 +14726,7 @@
       "email": null,
       "name": "Bezirksrat Gersau",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 192,
       "website": null,
       "zip": null
@@ -14742,7 +14742,7 @@
       "email": null,
       "name": "Baukommission Gersau",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 193,
       "website": null,
       "zip": null
@@ -14758,7 +14758,7 @@
       "email": null,
       "name": "Baukommission Lauerz",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 194,
       "website": null,
       "zip": null
@@ -14854,7 +14854,7 @@
       "email": null,
       "name": "Baukommission Steinerberg",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 201,
       "website": null,
       "zip": null
@@ -14950,7 +14950,7 @@
       "email": null,
       "name": "Baukommission Galgenen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 207,
       "website": null,
       "zip": null
@@ -15046,7 +15046,7 @@
       "email": null,
       "name": "Gemeinderat Freienbach",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 213,
       "website": null,
       "zip": null
@@ -15062,7 +15062,7 @@
       "email": null,
       "name": "Hochbaukommission Freienbach",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 214,
       "website": null,
       "zip": null
@@ -15110,7 +15110,7 @@
       "email": null,
       "name": "Baukommission Innerthal",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 217,
       "website": null,
       "zip": null
@@ -15126,7 +15126,7 @@
       "email": null,
       "name": "Baukommission Vorderthal",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 218,
       "website": null,
       "zip": null
@@ -15142,7 +15142,7 @@
       "email": null,
       "name": "Gemeinderat Vorderthal",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 219,
       "website": null,
       "zip": null
@@ -15254,7 +15254,7 @@
       "email": null,
       "name": "Baukommission Muotathal",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 226,
       "website": null,
       "zip": null
@@ -15318,7 +15318,7 @@
       "email": null,
       "name": "Baukommission Oberiberg",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 230,
       "website": null,
       "zip": null
@@ -15366,7 +15366,7 @@
       "email": null,
       "name": "Gemeinderat Tuggen",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 233,
       "website": null,
       "zip": null
@@ -15414,7 +15414,7 @@
       "email": null,
       "name": "Gemeinderat Alpthal",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 236,
       "website": null,
       "zip": null
@@ -15462,7 +15462,7 @@
       "email": null,
       "name": "Baukommission Riemenstalden",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 239,
       "website": null,
       "zip": null
@@ -15494,7 +15494,7 @@
       "email": null,
       "name": "Bezirksrat Einsiedeln",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 241,
       "website": null,
       "zip": null
@@ -15574,7 +15574,7 @@
       "email": null,
       "name": "Baubeh\u00f6rde Einsiedeln",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 246,
       "website": null,
       "zip": null
@@ -15606,7 +15606,7 @@
       "email": null,
       "name": "Baubeh\u00f6rde Rothenthurm",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 248,
       "website": null,
       "zip": null
@@ -15686,7 +15686,7 @@
       "email": null,
       "name": "Baukommission Sattel",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 253,
       "website": null,
       "zip": null
@@ -15702,7 +15702,7 @@
       "email": null,
       "name": "Tiefbaukommission Sattel",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 254,
       "website": null,
       "zip": null
@@ -15734,7 +15734,7 @@
       "email": null,
       "name": "Gemeinderat Sattel",
       "phone": null,
-      "role": 5,
+      "role": 10,
       "service": 256,
       "website": null,
       "zip": null
@@ -16445,6 +16445,470 @@
     },
     "model": "user.group",
     "pk": 424
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bezirk Einsiedeln Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 48,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 425
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bezirk K\u00fcssnacht Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 49,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 426
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bezirk Gersau Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 50,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 427
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Altendorf Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 51,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 428
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Alpthal Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 52,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 429
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Arth Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 53,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 430
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Feusisberg Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 54,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 431
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Freienbach Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 55,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 432
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Galgenen Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 56,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 433
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Illgau Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 57,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 434
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Ingenbohl Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 58,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 435
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Innerthal Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 59,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 436
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Lachen Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 60,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 437
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Lauerz Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 61,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 438
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Morschach Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 62,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 439
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Muotathal Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 63,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 440
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Oberiberg Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 64,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 441
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Reichenburg Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 65,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 442
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Riemenstalden Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 66,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 443
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Rothenthurm Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 67,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 444
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Sch\u00fcbelbach Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 68,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 445
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Sattel Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 69,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 446
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Steinen Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 70,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 447
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Steinerberg Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 71,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 448
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Tuggen Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 72,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 449
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Unteriberg Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 73,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 450
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Vorderthal Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 74,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 451
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Wangen Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 75,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 452
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinde Wollerau Lesezugriff",
+      "phone": null,
+      "role": 10,
+      "service": 76,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 453
   },
   {
     "fields": {
@@ -42424,6 +42888,246 @@
   },
   {
     "fields": {
+      "group": 425,
+      "location": 30
+    },
+    "model": "user.grouplocation",
+    "pk": 3325
+  },
+  {
+    "fields": {
+      "group": 426,
+      "location": 5
+    },
+    "model": "user.grouplocation",
+    "pk": 3326
+  },
+  {
+    "fields": {
+      "group": 427,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 3327
+  },
+  {
+    "fields": {
+      "group": 428,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 3328
+  },
+  {
+    "fields": {
+      "group": 429,
+      "location": 15
+    },
+    "model": "user.grouplocation",
+    "pk": 3329
+  },
+  {
+    "fields": {
+      "group": 430,
+      "location": 16
+    },
+    "model": "user.grouplocation",
+    "pk": 3330
+  },
+  {
+    "fields": {
+      "group": 431,
+      "location": 2
+    },
+    "model": "user.grouplocation",
+    "pk": 3331
+  },
+  {
+    "fields": {
+      "group": 432,
+      "location": 3
+    },
+    "model": "user.grouplocation",
+    "pk": 3332
+  },
+  {
+    "fields": {
+      "group": 433,
+      "location": 7
+    },
+    "model": "user.grouplocation",
+    "pk": 3333
+  },
+  {
+    "fields": {
+      "group": 434,
+      "location": 17
+    },
+    "model": "user.grouplocation",
+    "pk": 3334
+  },
+  {
+    "fields": {
+      "group": 435,
+      "location": 18
+    },
+    "model": "user.grouplocation",
+    "pk": 3335
+  },
+  {
+    "fields": {
+      "group": 436,
+      "location": 8
+    },
+    "model": "user.grouplocation",
+    "pk": 3336
+  },
+  {
+    "fields": {
+      "group": 437,
+      "location": 9
+    },
+    "model": "user.grouplocation",
+    "pk": 3337
+  },
+  {
+    "fields": {
+      "group": 438,
+      "location": 19
+    },
+    "model": "user.grouplocation",
+    "pk": 3338
+  },
+  {
+    "fields": {
+      "group": 439,
+      "location": 20
+    },
+    "model": "user.grouplocation",
+    "pk": 3339
+  },
+  {
+    "fields": {
+      "group": 440,
+      "location": 21
+    },
+    "model": "user.grouplocation",
+    "pk": 3340
+  },
+  {
+    "fields": {
+      "group": 441,
+      "location": 22
+    },
+    "model": "user.grouplocation",
+    "pk": 3341
+  },
+  {
+    "fields": {
+      "group": 442,
+      "location": 10
+    },
+    "model": "user.grouplocation",
+    "pk": 3342
+  },
+  {
+    "fields": {
+      "group": 443,
+      "location": 23
+    },
+    "model": "user.grouplocation",
+    "pk": 3343
+  },
+  {
+    "fields": {
+      "group": 444,
+      "location": 24
+    },
+    "model": "user.grouplocation",
+    "pk": 3344
+  },
+  {
+    "fields": {
+      "group": 445,
+      "location": 11
+    },
+    "model": "user.grouplocation",
+    "pk": 3345
+  },
+  {
+    "fields": {
+      "group": 446,
+      "location": 25
+    },
+    "model": "user.grouplocation",
+    "pk": 3346
+  },
+  {
+    "fields": {
+      "group": 447,
+      "location": 27
+    },
+    "model": "user.grouplocation",
+    "pk": 3347
+  },
+  {
+    "fields": {
+      "group": 448,
+      "location": 28
+    },
+    "model": "user.grouplocation",
+    "pk": 3348
+  },
+  {
+    "fields": {
+      "group": 449,
+      "location": 12
+    },
+    "model": "user.grouplocation",
+    "pk": 3349
+  },
+  {
+    "fields": {
+      "group": 450,
+      "location": 29
+    },
+    "model": "user.grouplocation",
+    "pk": 3350
+  },
+  {
+    "fields": {
+      "group": 451,
+      "location": 13
+    },
+    "model": "user.grouplocation",
+    "pk": 3351
+  },
+  {
+    "fields": {
+      "group": 452,
+      "location": 14
+    },
+    "model": "user.grouplocation",
+    "pk": 3352
+  },
+  {
+    "fields": {
+      "group": 453,
+      "location": 4
+    },
+    "model": "user.grouplocation",
+    "pk": 3353
+  },
+  {
+    "fields": {
+      "group": 263,
+      "location": 7
+    },
+    "model": "user.grouplocation",
+    "pk": 3354
+  },
+  {
+    "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "1311",
       "commune_name": "Gersau",
@@ -43319,7 +44023,7 @@
       "city": null,
       "description": "LABURK",
       "disabled": 0,
-      "email": null,
+      "email": "bernhard.traber@bazl.admin.ch",
       "name": "Laboratorium der Urkantone",
       "notification": 1,
       "phone": null,
@@ -43889,7 +44593,7 @@
       "city": null,
       "description": "Gemeinde Alpthal",
       "disabled": 0,
-      "email": "gemeinde@alpthal.ch",
+      "email": "franz.mueller@alpthal.ch",
       "name": "Gemeinde Alpthal",
       "notification": 1,
       "phone": null,
@@ -44060,7 +44764,7 @@
       "city": null,
       "description": "Gemeinde Lauerz",
       "disabled": 0,
-      "email": "gemeinde@lauerz.ch",
+      "email": "anduena.rexhaj@lauerz.ch",
       "name": "Gemeinde Lauerz",
       "notification": 1,
       "phone": null,
@@ -44174,7 +44878,7 @@
       "city": null,
       "description": "Gemeinde Rothenthurm",
       "disabled": 0,
-      "email": "info@rothenthurm.ch",
+      "email": "pirmin.abegg@rothenthurm.ch",
       "name": "Gemeinde Rothenthurm",
       "notification": 1,
       "phone": null,
@@ -44231,7 +44935,7 @@
       "city": null,
       "description": "Gemeinde Steinen",
       "disabled": 0,
-      "email": "gemeinde@steinen.ch",
+      "email": "daniel.bosshart@steinen.ch",
       "name": "Gemeinde Steinen",
       "notification": 1,
       "phone": null,
@@ -46853,7 +47557,7 @@
       "city": null,
       "description": "Tiefbauamt Galgenen",
       "disabled": 0,
-      "email": null,
+      "email": "tiefbauamt@galgenen.ch",
       "name": "Tiefbauamt Galgenen",
       "notification": 1,
       "phone": null,
