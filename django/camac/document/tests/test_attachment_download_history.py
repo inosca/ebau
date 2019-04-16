@@ -10,7 +10,7 @@ def test_attachment_download_history_list(
     admin_client, attachment_download_history_factory
 ):
     adhl = attachment_download_history_factory.create_batch(2)
-    url = reverse("attachment-download-history-list")
+    url = reverse("attachmentdownloadhistory-list")
     response = admin_client.get(url, {"attachment": adhl[0].attachment.pk})
 
     assert response.status_code == status.HTTP_200_OK
@@ -35,7 +35,7 @@ def test_attachment_download_history_create(
     download_response = admin_client.get(download_url)
     assert download_response.status_code == status.HTTP_200_OK
 
-    histroy_url = reverse("attachment-download-history-list")
+    histroy_url = reverse("attachmentdownloadhistory-list")
     history_response = admin_client.get(histroy_url)
 
     assert history_response.status_code == status.HTTP_200_OK
