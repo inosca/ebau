@@ -79,6 +79,13 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
         attachment = self.get_object()
         download_path = kwargs.get(self.lookup_field)
 
+        models.AttachmentDownloadHistory.objects.create(
+            keycloak_id=request.user.username,
+            name="{0} {1}".format(request.user.name, request.user.surname),
+            attachment=self.get_object(),
+            group=request.group,
+        )
+
         response = HttpResponse(content_type=attachment.mime_type)
         response["Content-Disposition"] = 'attachment; filename="%s"' % smart_str(
             attachment.name
@@ -175,3 +182,10 @@ class TemplateView(views.ModelViewSet):
 
         response.write(buf.read())
         return response
+
+
+class AttachmentDownloadHistoryView(viewsets.ReadOnlyModelViewSet):
+    queryset = models.AttachmentDownloadHistory.objects.all()
+    ordering_fields = ("date_time", "name")
+    filterset_class = filters.AttachmentDownloadHistoryFilterSet
+    serializer_class = serializers.AttachmentDownloadHistorySerializer

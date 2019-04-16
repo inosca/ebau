@@ -174,3 +174,12 @@ class TemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Template
         fields = ("name", "path", "group", "service")
+
+
+class AttachmentDownloadHistorySerializer(serializers.ModelSerializer):
+    group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    attachment = FormDataResourceRelatedField(queryset=models.Attachment.objects)
+
+    class Meta:
+        model = models.AttachmentDownloadHistory
+        fields = ("date_time", "keycloak_id", "name", "attachment", "group")

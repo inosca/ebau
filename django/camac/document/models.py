@@ -230,3 +230,15 @@ class Template(models.Model):
 
     class Meta:
         db_table = "TEMPLATE"
+
+
+class AttachmentDownloadHistory(models.Model):
+    date_time = models.DateTimeField(default=timezone.now)
+    keycloak_id = models.CharField(max_length=250)
+    name = models.CharField(max_length=250)
+    attachment = models.ForeignKey(
+        "Attachment", models.CASCADE, related_name="attachment_download_history"
+    )
+    group = models.ForeignKey(
+        "user.Group", models.CASCADE, related_name="attachment_download_history"
+    )
