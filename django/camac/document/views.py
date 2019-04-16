@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 from docxtpl import DocxTemplate
-from rest_framework import exceptions, generics, response, viewsets
+from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
@@ -64,31 +64,6 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
             raise exceptions.NotFound()
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
-    @action(
-        methods=["post"],
-        detail=True,
-        serializer_class=serializers.AttachmentLogDownloadSerializer,
-    )
-    def log_download(self, request, pk=None):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        entry = models.AttachmentDownloadHistory(
-            attachment=self.get_object(),
-            keycloakId=request.user.username,
-            name=serializer.validated_data["name"],
-        )
-        entry.save()
-        return HttpResponse(status=204)
-
-    @action(detail=True)
-    def download_history(self, request, pk=None):
-        history = models.AttachmentDownloadHistory.objects.filter(
-            attachment=self.get_object()
-        )
-        return response.Response(data=history.values())
-
 
 class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
     """Attachment view to download attachment."""
@@ -103,6 +78,14 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
         download_path = kwargs.get(self.lookup_field)
+
+        entry = models.AttachmentDownloadHistory(
+            keycloak_id=request.user.username,
+            name="{0} {1}".format(request.user.name, request.user.surname),
+            attachment=self.get_object(),
+            group=request.group,
+        )
+        entry.save()
 
         response = HttpResponse(content_type=attachment.mime_type)
         response["Content-Disposition"] = 'attachment; filename="%s"' % smart_str(
@@ -200,3 +183,10 @@ class TemplateView(views.ModelViewSet):
 
         response.write(buf.read())
         return response
+
+
+class AttachmentDownloadHistoryView(viewsets.ReadOnlyModelViewSet):
+    queryset = models.AttachmentDownloadHistory.objects.all()
+    ordering_fields = ("date_time", "name")
+    filterset_class = filters.AttachmentDownloadHistoryFilterSet
+    serializer_class = serializers.AttachmentDownloadHistorySerializer
