@@ -8,11 +8,7 @@ r = SimpleRouter(trailing_slash=False)
 r.register(r"attachments", views.AttachmentView)
 r.register(r"attachment-sections", views.AttachmentSectionView)
 r.register(r"templates", views.TemplateView)
-r.register(
-    r"attachment-download-history",
-    views.AttachmentDownloadHistoryView,
-    "attachment-download-history",
-)
+r.register(r"attachment-download-history", views.AttachmentDownloadHistoryView)
 
 
 urlpatterns = [

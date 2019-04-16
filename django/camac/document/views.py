@@ -79,13 +79,12 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
         attachment = self.get_object()
         download_path = kwargs.get(self.lookup_field)
 
-        entry = models.AttachmentDownloadHistory(
+        models.AttachmentDownloadHistory.objects.create(
             keycloak_id=request.user.username,
             name="{0} {1}".format(request.user.name, request.user.surname),
             attachment=self.get_object(),
             group=request.group,
         )
-        entry.save()
 
         response = HttpResponse(content_type=attachment.mime_type)
         response["Content-Disposition"] = 'attachment; filename="%s"' % smart_str(
