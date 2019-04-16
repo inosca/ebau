@@ -155,7 +155,8 @@ const Question = EmberObject.extend({
     return expression
       ? this._relatedHidden ||
           !(yield this.jexl.eval(expression, {
-            form: this.get("instance.form.name")
+            form: this.get("instance.form.name"),
+            state: this.get("instance.instanceState.name")
           }))
       : false;
   }).restartable()

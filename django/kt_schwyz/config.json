@@ -9063,9 +9063,9 @@
   },
   {
     "fields": {
-      "name": "Dokumente Gesuchsteller",
+      "name": "Dokumente des Gesuchstellers",
       "notification_template": null,
-      "recipient_types": null,
+      "recipient_types": "[]",
       "sort": 1
     },
     "model": "document.attachmentsection",
@@ -9130,6 +9130,16 @@
     },
     "model": "document.attachmentsection",
     "pk": 8
+  },
+  {
+    "fields": {
+      "name": "Dokumente f\u00fcr Gesuchsteller",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 8
+    },
+    "model": "document.attachmentsection",
+    "pk": 9
   },
   {
     "fields": {
@@ -9439,6 +9449,33 @@
   },
   {
     "fields": {
+      "attachment_section": 9,
+      "mode": "read",
+      "role": 4
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "attachment_section": 9,
+      "mode": "admin",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "attachment_section": 9,
+      "mode": "admin",
+      "role": 8
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 38
+  },
+  {
+    "fields": {
       "description": "Baugesuch",
       "form_state": 1,
       "name": "baugesuch-reklamegesuch"
@@ -9677,6 +9714,15 @@
     },
     "model": "notification.notificationtemplate",
     "pk": 17
+  },
+  {
+    "fields": {
+      "body": "Es wurden ihnen Dokumente freigegeben auf dem Dossier {{identifier}}.\r\nBenutzen sie diesen Link um sofort darauf zu kommen: http://camac-ng-portal.local/gesuche/{{instance_id}}/freigegebene-unterlagen",
+      "purpose": "Benachrichtigung Gesuchsteller",
+      "subject": "Freigegebene Gesuchsunterlagen in Dossier {{identifier}}"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 18
   },
   {
     "fields": {

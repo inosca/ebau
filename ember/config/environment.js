@@ -25,6 +25,11 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
 
+      // special attachment section mapping
+      readonlyAttachments: {
+        attachmentSectionId: "9"
+      },
+
       // array of active municipality names,
       // used in submit and camac-property-selector
       municipalityNames: [

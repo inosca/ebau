@@ -22,7 +22,11 @@ export default Route.extend({
     });
 
     await this.store.query("form-field", { instance: id, group });
-    await this.store.query("attachment", { instance: id, group });
+    await this.store.query("attachment", {
+      instance: id,
+      group,
+      include: "attachment-sections"
+    });
 
     let {
       data: { meta }
