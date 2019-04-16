@@ -70,9 +70,10 @@ class TemplateFactory(DjangoModelFactory):
 
 class AttachmentDownloadHistoryFactory(DjangoModelFactory):
     date_time = timezone.now()
-    attachment = SubFactory(AttachmentFactory)
     name = Faker("name")
-    keycloakId = Faker("uuid4")
+    keycloak_id = Faker("uuid4")
+    attachment = SubFactory(AttachmentFactory)
+    group = SubFactory(GroupFactory)
 
     class Meta:
         model = models.AttachmentDownloadHistory

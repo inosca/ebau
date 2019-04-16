@@ -176,11 +176,10 @@ class TemplateSerializer(serializers.ModelSerializer):
         fields = ("name", "path", "group", "service")
 
 
-class AttachmentLogDownloadSerializer(serializers.Serializer):
-    name = serializers.CharField(required=True)
-
-    def create(self, validated_data):
-        return models.AttachmentDownloadHistory(**validated_data)
+class AttachmentDownloadHistorySerializer(serializers.ModelSerializer):
+    group = GroupFormDataResourceRelatedField(default=CurrentGroupDefault())
+    attachment = FormDataResourceRelatedField(queryset=models.Attachment.objects)
 
     class Meta:
-        resource_name = "attachment-log-download"
+        model = models.AttachmentDownloadHistory
+        fields = "__all__"
