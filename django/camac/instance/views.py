@@ -84,8 +84,9 @@ class InstanceView(
         )
 
     def has_object_submit_permission(self, instance):
-        return (
-            instance.user == self.request.user and instance.instance_state.name == "new"
+        return instance.user == self.request.user and instance.instance_state.name in (
+            "new",
+            "nfd",
         )
 
     @action(methods=["get"], detail=False)
@@ -141,14 +142,24 @@ class InstanceView(
         instance = self.get_object()
 
         # change state of instance
+        new_instance_state = (
+            models.InstanceState.objects.get(name="subm").pk
+            if instance.instance_state.name == "new"
+            else instance.previous_instance_state.pk
+        )
         data = {
             "previous_instance_state": instance.instance_state.pk,
-            "instance_state": models.InstanceState.objects.get(name="subm").pk,
+            "instance_state": new_instance_state,
         }
 
         serializer = self.get_serializer(instance, data=data, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+
+        # remove the microseconds because this date is displayed in camac and
+        # camac can't handle microseconds..
+        now = timezone.now()
+        camac_now = now - timedelta(microseconds=now.microsecond)
 
         # create workflow item when configured
         workflow_item = settings.APPLICATION["SUBMIT"].get("WORKFLOW_ITEM")
@@ -157,7 +168,7 @@ class InstanceView(
                 group=1,
                 workflow_item_id=workflow_item,
                 instance_id=pk,
-                workflow_date=timezone.now(),
+                workflow_date=camac_now,
             )
 
         # send notification email when configured
