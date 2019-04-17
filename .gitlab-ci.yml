@@ -125,9 +125,9 @@ build-kt_uri-production:
         - docker:dind
     script:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
-        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma
+        - eval $COMPOSE pull --ignore-pull-failures --quiet ember django php db caluma ember-caluma-portal
         - eval $COMPOSE build --pull
-        - eval $COMPOSE up -d php django caluma
+        - eval $COMPOSE up -d php django caluma ember-caluma-portal
         - mkdir tarball
         - cd tarball
         - docker cp $(docker-compose ps -q php):/var/www/camac/kt_bern configuration/
@@ -138,6 +138,7 @@ build-kt_uri-production:
         - docker cp $(docker-compose ps -q django):/app django/
         - rm -rf django/kt_uri django/kt_schwyz django/demo
         - docker cp $(docker-compose ps -q caluma):/app caluma/
+        - docker cp $(docker-compose ps -q ember-caluma-portal):/app ember-caluma-portal/
         - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
         - cd ..
     artifacts:
