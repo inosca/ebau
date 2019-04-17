@@ -6,7 +6,10 @@ export default Controller.extend({
   questionStore: service("question-store"),
 
   questionActive: computed("model.instance.fields.@each", function() {
-    return this.get("model.instance.fields").findBy("name", "bauherrschaft");
+    return (
+      this.get("model.meta.editable").includes("form") &&
+      this.get("model.instance.fields").findBy("name", "bauherrschaft")
+    );
   }),
 
   actions: {
