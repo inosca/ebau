@@ -1188,7 +1188,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -1747,7 +1747,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "zufahrten-plaetze-in-quadratmeter",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -1890,7 +1890,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "versickerung-platz-und-verkehrsflaechen",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1994,7 +1994,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -2008,6 +2008,19 @@
       "form": "gastgewerbe-allgemein",
       "question": "ausschankraeume",
       "sort": 11
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "2104c529-14ad-46c4-88fa-cedaefe6d884",
+    "fields": {
+      "created_at": "2019-04-12T11:59:04.192Z",
+      "modified_at": "2019-04-12T11:59:04.192Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-grundstueckentwaesserung",
+      "question": "art-versickerung-dach",
+      "sort": 5
     }
   },
   {
@@ -2384,7 +2397,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "typ-platz-und-verkehrsflaechen",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -2553,7 +2566,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "neue-dachflaechen-in-quadratmeter",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -2722,7 +2735,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "sanitaertechnische-anpassungen-liegenschaft",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -2840,6 +2853,19 @@
       "form": "triage",
       "question": "feuerungsanlagen",
       "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "40c3ff8b-601f-40c7-b0f9-da307e7459f3",
+    "fields": {
+      "created_at": "2019-04-12T08:18:11.401Z",
+      "modified_at": "2019-04-12T08:18:11.401Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "beschreibung-bauvorhaben",
+      "sort": 4
     }
   },
   {
@@ -3074,19 +3100,6 @@
       "form": "personalien-betreiberin-der-anlage",
       "question": "plz-personalien",
       "sort": 11
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "4663c96d-e567-4caa-9fec-ad594ef90fdb",
-    "fields": {
-      "created_at": "2019-04-04T10:48:49.549Z",
-      "modified_at": "2019-04-04T10:48:49.549Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "bauvorhaben",
-      "question": "beschreibung-bauvorhaben",
-      "sort": 4
     }
   },
   {
@@ -3489,7 +3502,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "platz-und-verkehrsflaechen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3697,6 +3710,19 @@
       "created_by_group": null,
       "form": "bauvorhaben",
       "question": "dauer-in-monaten",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "614ca2eb-2b60-4273-a0a2-2906702dc9f0",
+    "fields": {
+      "created_at": "2019-04-12T12:03:54.224Z",
+      "modified_at": "2019-04-12T12:03:54.224Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-grundstueckentwaesserung",
+      "question": "art-versickerung-platz",
       "sort": 1
     }
   },
@@ -3996,7 +4022,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "neubau-abwasseranlagen-grundleitungen",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -4048,7 +4074,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "typ-dachflaechen",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -4308,7 +4334,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "entwaesserung-der-dachflaechen",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -4620,7 +4646,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "beschreibung-grundstueckentwaesserung",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -5049,7 +5075,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "ableitung-haeusliche-abwaesser",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -6882,7 +6908,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "versickerung-dachflaechen",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -7753,7 +7779,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "aenderungen-dachflaechen-zufahrten-plaetzen",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -7779,7 +7805,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "brandbelastung",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -9024,6 +9050,46 @@
   },
   {
     "model": "form.question",
+    "pk": "art-versickerung-dach",
+    "fields": {
+      "created_at": "2019-04-12T11:59:04.096Z",
+      "modified_at": "2019-04-12T11:59:04.096Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Art\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'versickerung-dachflaechen-ja' in 'versickerung-dachflaechen'|answer",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "art-versickerung-platz",
+    "fields": {
+      "created_at": "2019-04-12T12:03:54.124Z",
+      "modified_at": "2019-04-12T12:03:54.124Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Art\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "'versickerung-platz-und-verkehrsflaechen-ja' in 'versickerung-platz-und-verkehrsflaechen'|answer",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "atmosphaerischer-unterdruck",
     "fields": {
       "created_at": "2019-04-02T13:53:21.558Z",
@@ -9746,12 +9812,12 @@
     "model": "form.question",
     "pk": "beschreibung-bauvorhaben",
     "fields": {
-      "created_at": "2019-04-04T10:48:49.458Z",
-      "modified_at": "2019-04-04T10:48:49.458Z",
-      "created_by_user": null,
-      "created_by_group": null,
+      "created_at": "2019-04-12T08:18:11.316Z",
+      "modified_at": "2019-04-12T08:18:11.316Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
       "label": "{\"de\": \"Beschreibung\"}",
-      "type": "text",
+      "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -9787,13 +9853,13 @@
     "pk": "beschreibung-der-gefaehrdung",
     "fields": {
       "created_at": "2019-04-09T07:40:23.905Z",
-      "modified_at": "2019-04-09T07:40:23.905Z",
+      "modified_at": "2019-04-15T08:39:27.228Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Beschreibung der Gef\\u00e4hrdung\"}",
       "type": "textarea",
       "is_required": "false",
-      "is_hidden": "'prozessart' in 'prozessart'|answer",
+      "is_hidden": "!('prozessart-absenkung-einsturz' in 'prozessart'|answer || 'prozessart-felssturz' in 'prozessart'|answer || 'prozessart-fliesslawine' in 'prozessart'|answer || 'prozessart-hangmure' in 'prozessart'|answer || 'prozessart-murgang' in 'prozessart'|answer || 'prozessart-absenkung-staublawine' in 'prozessart'|answer || 'prozessart-schneegleiten' in 'prozessart'|answer || 'prozessart-permanente-rutschung' in 'prozessart'|answer || 'prozessart-steinschlag' in 'prozessart'|answer || 'prozessart-ueberschwemmung' in 'prozessart'|answer || 'prozessart-ufererosion' in 'prozessart'|answer || 'prozessart-uferrutschung' in 'prozessart'|answer)",
       "is_archived": false,
       "configuration": { "max_length": null },
       "meta": {},
@@ -12587,10 +12653,10 @@
     "pk": "hoehe-groesser-als-1800-m-ue-m",
     "fields": {
       "created_at": "2019-04-01T11:25:29.924Z",
-      "modified_at": "2019-04-01T11:26:25Z",
+      "modified_at": "2019-04-12T10:41:59.495Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Ist das Bauvorhaben auf einer H\\u00f6he >= 1'800 m \\u00fc. M.\"}",
+      "label": "{\"de\": \"Ist das Bauvorhaben auf einer H\\u00f6he \\u2265 1'800 m \\u00fc. M.\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "'ist-durch-das-bauvorhaben-boden-betroffen-nein' in 'ist-durch-das-bauvorhaben-boden-betroffen'|answer",
@@ -13267,7 +13333,7 @@
     "pk": "kleintank-tabelle",
     "fields": {
       "created_at": "2019-04-09T11:40:19.053Z",
-      "modified_at": "2019-04-09T11:40:19.053Z",
+      "modified_at": "2019-04-12T11:28:52.879Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Kleintank\"}",
@@ -13907,10 +13973,10 @@
     "pk": "leitungsbau-auf-landwirtschaftlichem-boden",
     "fields": {
       "created_at": "2019-04-01T11:30:17.083Z",
-      "modified_at": "2019-04-01T11:30:17.083Z",
+      "modified_at": "2019-04-12T10:45:52.076Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Erfolgt ein Leitungsbau auf landwirtschaftlich genutztem Boden >= 1000 m L\\u00e4nge (ohne Einpfl\\u00fcgen)?\"}",
+      "label": "{\"de\": \"Erfolgt ein Leitungsbau auf landwirtschaftlich genutztem Boden \\u2265 1000 m L\\u00e4nge (ohne Einpfl\\u00fcgen)?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "'ist-durch-das-bauvorhaben-boden-betroffen-nein' in 'ist-durch-das-bauvorhaben-boden-betroffen'|answer",
@@ -14027,7 +14093,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien",
     "fields": {
       "created_at": "2019-03-28T09:21:10.402Z",
-      "modified_at": "2019-04-09T09:23:22.175Z",
+      "modified_at": "2019-04-12T08:43:35.504Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Werden nach der Bauabnahme Anlagen oder Maschinen aus den folgenden Kategorien betrieben?\"}",
@@ -15347,10 +15413,10 @@
     "pk": "nutzungsart",
     "fields": {
       "created_at": "2019-03-15T13:15:44.560Z",
-      "modified_at": "2019-03-28T10:10:46.326Z",
+      "modified_at": "2019-04-12T08:25:30.603Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Nutzungsart\"}",
+      "label": "{\"de\": \"F\\u00fcr welche Nutzungsart dient das Bauvorhaben?\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -18067,13 +18133,13 @@
     "pk": "typ-dachflaechen",
     "fields": {
       "created_at": "2019-04-09T12:33:43.663Z",
-      "modified_at": "2019-04-09T12:33:43.663Z",
+      "modified_at": "2019-04-12T11:54:50.245Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'aenderungen-dachflaechen-zufahrten-plaetzen-nein' in 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer",
+      "is_hidden": "'versickerung-dachflaechen-nein' in 'versickerung-dachflaechen'|answer",
       "is_archived": false,
       "configuration": {},
       "meta": {},
@@ -18127,13 +18193,13 @@
     "pk": "typ-platz-und-verkehrsflaechen",
     "fields": {
       "created_at": "2019-04-09T12:38:37.840Z",
-      "modified_at": "2019-04-09T12:38:37.840Z",
+      "modified_at": "2019-04-12T12:04:48.598Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "'aenderungen-dachflaechen-zufahrten-plaetzen-nein' in 'aenderungen-dachflaechen-zufahrten-plaetzen'|answer",
+      "is_hidden": "'versickerung-platz-und-verkehrsflaechen-nein' in 'versickerung-platz-und-verkehrsflaechen'|answer",
       "is_archived": false,
       "configuration": {},
       "meta": {},
@@ -18987,7 +19053,7 @@
     "pk": "was-fuer-ein-vorhaben",
     "fields": {
       "created_at": "2019-03-28T09:16:13.122Z",
-      "modified_at": "2019-04-09T09:21:23.662Z",
+      "modified_at": "2019-04-12T08:34:45.567Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Um was handelt es sich beim Vorhaben?\"}",
@@ -19167,7 +19233,7 @@
     "pk": "welche-art-vorhaben",
     "fields": {
       "created_at": "2019-03-28T09:41:34.611Z",
-      "modified_at": "2019-04-09T09:23:49.077Z",
+      "modified_at": "2019-04-12T08:55:26.158Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Um was handelt es sich beim Vorhaben?\"}",
@@ -19965,19 +20031,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "05923dce-6c63-4df9-a15f-342b180e2b87",
-    "fields": {
-      "created_at": "2019-04-01T11:26:25.002Z",
-      "modified_at": "2019-04-01T11:26:25.002Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "hoehe-groesser-als-1800-m-ue-m",
-      "option": "hoehe-groesser-als-1800-m-ue-m-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "05c99e81-d05f-4161-ad69-937b0980ccdf",
     "fields": {
       "created_at": "2019-04-09T14:20:14.192Z",
@@ -20160,19 +20213,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "0b81afb5-f050-430a-bed6-10ca23011a28",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-andere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "0b8db1a0-098b-4146-8879-b1a240153681",
     "fields": {
       "created_at": "2019-04-10T13:48:36.769Z",
@@ -20251,19 +20291,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "0d22f547-78f0-471e-b9f8-4456e468f2a2",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-unbekannte-nutzung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "0dfcefcf-78ce-4bff-b868-d01d77573f54",
     "fields": {
       "created_at": "2019-04-05T08:24:42.226Z",
@@ -20286,6 +20313,19 @@
       "question": "organismen-in-anlage",
       "option": "organismen-in-anlage-parasiten",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "0e56f69c-dfc3-423e-840b-493209328705",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.606Z",
+      "modified_at": "2019-04-12T08:25:30.606Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-landwirtschaft",
+      "sort": 3
     }
   },
   {
@@ -20316,19 +20356,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "0e844910-b7d1-47aa-8250-b74e9f445e5b",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-parking",
-      "sort": 10
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "0eb8d19a-35ba-42b4-8076-5f1e429de8d7",
     "fields": {
       "created_at": "2019-04-01T10:42:44.406Z",
@@ -20337,19 +20364,6 @@
       "created_by_group": null,
       "question": "gewaesserschutzbereich",
       "option": "gewaesserschutzbereich-au",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "0f0065c5-0bea-4218-90eb-60df8941918a",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.082Z",
-      "modified_at": "2019-04-09T09:23:49.082Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-reklamevorhaben",
       "sort": 2
     }
   },
@@ -20389,19 +20403,6 @@
       "created_by_group": null,
       "question": "luftreinigung-mit-hepa-filter",
       "option": "luftreinigung-mit-hepa-filter-ja",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "10377ecd-c096-4608-a2f9-dafb4c47b7b6",
-    "fields": {
-      "created_at": "2019-04-09T09:23:22.179Z",
-      "modified_at": "2019-04-09T09:23:22.179Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "maschinen-aus-den-folgenden-kategorien",
-      "option": "maschinen-aus-den-folgenden-kategorien-strom",
       "sort": 2
     }
   },
@@ -20511,6 +20512,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "148cac8b-a4c1-4da4-a7b3-1a3cd16821af",
+    "fields": {
+      "created_at": "2019-04-12T12:04:48.600Z",
+      "modified_at": "2019-04-12T12:04:48.600Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "typ-platz-und-verkehrsflaechen",
+      "option": "typ-platz-und-verkehrsflaechen-uber-schulter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "149a882c-dc92-4a02-a7ab-9ccce4204692",
     "fields": {
       "created_at": "2019-04-03T10:45:56.698Z",
@@ -20576,6 +20590,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "163e92dd-b4bb-416f-85fe-9be08036f7e4",
+    "fields": {
+      "created_at": "2019-04-12T08:43:35.508Z",
+      "modified_at": "2019-04-12T08:43:35.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "maschinen-aus-den-folgenden-kategorien",
+      "option": "maschinen-aus-den-folgenden-kategorien-reinigung",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "1640f1c1-30be-4211-82b8-57ee16a08183",
     "fields": {
       "created_at": "2019-03-28T09:49:51.865Z",
@@ -20598,6 +20625,32 @@
       "question": "projektverfasserin-identisch",
       "option": "projektverfasserin-identisch-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "16af331f-1206-4991-94c8-ff52d50e21b6",
+    "fields": {
+      "created_at": "2019-04-12T11:59:04.105Z",
+      "modified_at": "2019-04-12T11:59:04.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-dach",
+      "option": "art-versickerung-dach-regenwasserkanal",
+      "sort": 3
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "178befba-c9a9-422a-9cf8-ac387cc740f3",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.607Z",
+      "modified_at": "2019-04-12T08:25:30.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-gewerbe",
+      "sort": 7
     }
   },
   {
@@ -20693,15 +20746,15 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "1b55d66f-a7e1-4366-bfd3-44225cbae62d",
+    "pk": "1b6681e1-437e-4dfe-888c-f1d6ea9e5bf3",
     "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-verwaltungsgebaude",
-      "sort": 6
+      "created_at": "2019-04-12T11:59:04.105Z",
+      "modified_at": "2019-04-12T11:59:04.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-dach",
+      "option": "art-versickerung-dach-mischwasserkanal",
+      "sort": 1
     }
   },
   {
@@ -20823,6 +20876,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "1d1c29d3-08e2-4886-a2dd-ece87ae9ef0a",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-verkehrintensives-vorhaben",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "1d37ad81-d171-4c59-91d7-0db670e508ca",
     "fields": {
       "created_at": "2019-04-08T13:03:39.696Z",
@@ -20927,6 +20993,32 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "224b9d5b-8dd2-463d-8217-a7b325388fcf",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-bauten-unbekannter-nutzung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "22d80fce-b4ad-4d9a-bc4a-040af7bdf0f6",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.163Z",
+      "modified_at": "2019-04-12T08:55:26.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-schule-kindergarten",
+      "sort": 12
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "230e9deb-7970-43ea-bdf1-8a8846cd9f4e",
     "fields": {
       "created_at": "2019-04-02T13:55:44.968Z",
@@ -21005,6 +21097,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "24b5171a-fd3c-4b50-b5c3-e9c4f90bc3a9",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.607Z",
+      "modified_at": "2019-04-12T08:25:30.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-verkauf",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "24b6c413-1e01-41b5-9fcb-a1f6146718b6",
     "fields": {
       "created_at": "2019-04-01T10:10:22.231Z",
@@ -21053,6 +21158,19 @@
       "question": "art-der-baugrubenumschliessung",
       "option": "art-der-baugrubenumschliessung-nagelwand",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "2737b154-c9e2-49a2-99c9-64c55fe75cc7",
+    "fields": {
+      "created_at": "2019-04-12T12:03:54.129Z",
+      "modified_at": "2019-04-12T12:03:54.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-platz",
+      "option": "art-versickerung-platz-regenwasserkanal",
+      "sort": 3
     }
   },
   {
@@ -21131,6 +21249,19 @@
       "question": "mehr-als-1500-m3-bodenmaterial",
       "option": "mehr-als-1500-m3-bodenmaterial-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "2950a5b7-b592-488f-9376-451f2b1cabf5",
+    "fields": {
+      "created_at": "2019-04-12T08:43:35.507Z",
+      "modified_at": "2019-04-12T08:43:35.507Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "maschinen-aus-den-folgenden-kategorien",
+      "option": "maschinen-aus-den-folgenden-kategorien-werkhoefe",
+      "sort": 1
     }
   },
   {
@@ -21252,6 +21383,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "2f1a03ee-c5bb-48e3-9f8c-6e5dff682261",
+    "fields": {
+      "created_at": "2019-04-12T10:41:59.498Z",
+      "modified_at": "2019-04-12T10:41:59.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "hoehe-groesser-als-1800-m-ue-m",
+      "option": "hoehe-groesser-als-1800-m-ue-m-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "2f39bdad-7811-4577-a3fa-569863fe61de",
     "fields": {
       "created_at": "2019-04-05T09:07:35.942Z",
@@ -21330,6 +21474,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "32a422df-8d5a-41f3-80de-91b3fbde66fe",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.607Z",
+      "modified_at": "2019-04-12T08:25:30.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-industrie",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "32ff5c26-ed77-4e15-ac94-94b9c11e4a3b",
     "fields": {
       "created_at": "2019-04-01T13:28:09.851Z",
@@ -21339,19 +21496,6 @@
       "question": "welche-waermepumpen",
       "option": "welche-waermepumpen-luft",
       "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "33b52f0a-091b-4679-8acf-8a32c4512efb",
-    "fields": {
-      "created_at": "2019-04-01T11:30:17.085Z",
-      "modified_at": "2019-04-01T11:30:17.085Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "leitungsbau-auf-landwirtschaftlichem-boden",
-      "option": "leitungsbau-auf-landwirtschaftlichem-boden-ja",
-      "sort": 2
     }
   },
   {
@@ -21707,6 +21851,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "3db26619-e707-4951-9659-ac70ef3c789c",
+    "fields": {
+      "created_at": "2019-04-12T10:45:52.081Z",
+      "modified_at": "2019-04-12T10:45:52.082Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "leitungsbau-auf-landwirtschaftlichem-boden",
+      "option": "leitungsbau-auf-landwirtschaftlichem-boden-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "3eb353a8-e65e-4f88-abe3-0556728e87c8",
     "fields": {
       "created_at": "2019-04-02T13:50:09.091Z",
@@ -21742,6 +21899,19 @@
       "question": "art-der-beleuchtung",
       "option": "art-der-beleuchtung-blinkend",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "41254085-acf2-4d56-8219-a354453f5e74",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-spitaeler",
+      "sort": 3
     }
   },
   {
@@ -22123,6 +22293,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "4e0b8c84-f1f8-46b4-9cd1-30f7f8b607cf",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-parking",
+      "sort": 11
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "4e93a82e-688f-4f51-86c9-c8bc6f90e7db",
     "fields": {
       "created_at": "2019-04-03T12:07:12.716Z",
@@ -22197,6 +22380,19 @@
       "question": "brandschutzrisiken",
       "option": "brandschutzrisiken-flaeche-ueber-12000-m",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "501ba35f-5cbd-4fdd-82cc-b45d4b5f2a2d",
+    "fields": {
+      "created_at": "2019-04-12T08:43:35.508Z",
+      "modified_at": "2019-04-12T08:43:35.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "maschinen-aus-den-folgenden-kategorien",
+      "option": "maschinen-aus-den-folgenden-kategorien-erzeugung",
+      "sort": 3
     }
   },
   {
@@ -22305,19 +22501,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "523aff27-5623-45b2-af6e-1adfb1fee1a2",
-    "fields": {
-      "created_at": "2019-04-09T12:38:37.842Z",
-      "modified_at": "2019-04-09T12:38:37.842Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "typ-platz-und-verkehrsflaechen",
-      "option": "typ-platz-und-verkehrsflaechen-uber-schulter",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "52aa9743-437a-4648-b9c7-11077f1b4729",
     "fields": {
       "created_at": "2019-04-03T10:45:56.699Z",
@@ -22422,6 +22605,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "54600091-6c2c-4c9e-a6f8-f95b4b245662",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-grossraumbueros",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "548d9198-f1d7-4cc3-8206-ccbdeabdc704",
     "fields": {
       "created_at": "2019-03-11T09:24:56.214Z",
@@ -22509,6 +22705,19 @@
       "question": "waermetraegerfluessigkeit",
       "option": "waermetraegerfluessigkeit-kaliumcarbonat",
       "sort": 6
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "5720dd6a-7fb1-4866-90d3-cd2d11e8b72a",
+    "fields": {
+      "created_at": "2019-04-12T08:43:35.508Z",
+      "modified_at": "2019-04-12T08:43:35.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "maschinen-aus-den-folgenden-kategorien",
+      "option": "maschinen-aus-den-folgenden-kategorien-strom",
+      "sort": 2
     }
   },
   {
@@ -22656,19 +22865,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "5d2f8a61-4fef-4c87-9c87-78aca4e06df1",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.331Z",
-      "modified_at": "2019-03-28T10:10:46.331Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-gastgewerbe",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "5d725e12-9fe4-4370-9a61-eddb006b17ba",
     "fields": {
       "created_at": "2019-04-03T14:30:48.399Z",
@@ -22729,6 +22925,19 @@
       "created_by_group": null,
       "question": "erleichterungen-waermeschutz",
       "option": "erleichterungen-waermeschutz-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "617b5d0a-7bea-4039-a5b7-3e1afc8a5fce",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.606Z",
+      "modified_at": "2019-04-12T08:25:30.606Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-andere",
       "sort": 1
     }
   },
@@ -22838,19 +23047,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "6397ffd8-45f1-4765-a82a-70f40a53e3b6",
-    "fields": {
-      "created_at": "2019-04-09T12:38:37.842Z",
-      "modified_at": "2019-04-09T12:38:37.842Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "typ-platz-und-verkehrsflaechen",
-      "option": "typ-platz-und-verkehrsflaechen-typ-a",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "63ab1d6d-56f2-475c-8b63-084de71dd4ff",
     "fields": {
       "created_at": "2019-04-02T10:41:06.475Z",
@@ -22916,6 +23112,32 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "65b654f1-0919-4c30-87cd-e0c1274f5565",
+    "fields": {
+      "created_at": "2019-04-12T12:04:48.600Z",
+      "modified_at": "2019-04-12T12:04:48.600Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "typ-platz-und-verkehrsflaechen",
+      "option": "typ-platz-und-verkehrsflaechen-typ-a",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "666cd75a-31bf-4585-8a36-c26778c0bed3",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.606Z",
+      "modified_at": "2019-04-12T08:25:30.606Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-lager",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "66a6c2d1-24db-4bbf-aaa0-54169df006fd",
     "fields": {
       "created_at": "2019-04-09T12:12:27.608Z",
@@ -22925,19 +23147,6 @@
       "question": "auffangwanne",
       "option": "auffangwanne-stahl",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "67028a06-1c89-4501-9645-b404431ed849",
-    "fields": {
-      "created_at": "2019-04-09T09:23:22.179Z",
-      "modified_at": "2019-04-09T09:23:22.179Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "maschinen-aus-den-folgenden-kategorien",
-      "option": "maschinen-aus-den-folgenden-kategorien-transport",
-      "sort": 4
     }
   },
   {
@@ -23046,19 +23255,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "6b13d468-38a8-4dd1-ad97-a778d2ce6c34",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-schulekindergarten",
-      "sort": 11
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "6b174565-01c2-4182-bb1a-b0a975a23920",
     "fields": {
       "created_at": "2019-04-02T11:21:06.750Z",
@@ -23093,19 +23289,6 @@
       "created_by_group": null,
       "question": "wohnungsgroesse",
       "option": "wohnungsgroesse-27",
-      "sort": 4
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "6c72d016-7004-4402-af3a-37e91313b7d8",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-lager",
       "sort": 4
     }
   },
@@ -23159,6 +23342,19 @@
       "question": "wohnungsgroesse",
       "option": "wohnungsgroesse-21",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "6dfcd687-87e2-43f2-a0ca-4c17b2e2f743",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.607Z",
+      "modified_at": "2019-04-12T08:25:30.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-dienstleistung",
+      "sort": 6
     }
   },
   {
@@ -23293,6 +23489,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "70679fa9-2321-4bf6-8783-ae83adb006ce",
+    "fields": {
+      "created_at": "2019-04-12T10:41:59.498Z",
+      "modified_at": "2019-04-12T10:41:59.498Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "hoehe-groesser-als-1800-m-ue-m",
+      "option": "hoehe-groesser-als-1800-m-ue-m-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "707a5fcf-83f2-4cfc-84d0-567b95454397",
     "fields": {
       "created_at": "2019-04-05T08:33:39.217Z",
@@ -23302,19 +23511,6 @@
       "question": "wochentag",
       "option": "wochentag-dienstag",
       "sort": 6
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "7087bd0a-f296-46c6-a4ed-c5446816d81d",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-gastgewerbe",
-      "sort": 4
     }
   },
   {
@@ -23341,19 +23537,6 @@
       "question": "gefaehrlich-fuer-bevoelkerung-oder-umwelt",
       "option": "gefaehrlich-fuer-bevoelkerung-oder-umwelt-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "72abf25d-4684-4a32-a6c2-a9afd17b970e",
-    "fields": {
-      "created_at": "2019-04-09T09:23:22.179Z",
-      "modified_at": "2019-04-09T09:23:22.179Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "maschinen-aus-den-folgenden-kategorien",
-      "option": "maschinen-aus-den-folgenden-kategorien-erzeugung",
-      "sort": 3
     }
   },
   {
@@ -23488,6 +23671,32 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "763e0eb6-34af-4edc-a9e4-43f3395f0dfe",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-verkaufsgeschaefte",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "76eaa2c8-bfc0-4a16-b2f1-fbd9033d0722",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-gastgewerbe",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "7716fa50-f794-4d7c-8b59-4d7541a153b8",
     "fields": {
       "created_at": "2019-04-01T07:49:55.014Z",
@@ -23497,6 +23706,19 @@
       "question": "juristische-person-personalien",
       "option": "juristische-person-personalien-nein",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "7778a85c-5951-462d-b192-f54b8d74da26",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.163Z",
+      "modified_at": "2019-04-12T08:55:26.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-gebaeude-geringer-abmessung",
+      "sort": 14
     }
   },
   {
@@ -23527,14 +23749,14 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "78f1647a-169e-4b9c-8f07-57a52c058e8f",
+    "pk": "793a5841-69a8-4f53-b3e0-0537714851ff",
     "fields": {
-      "created_at": "2019-04-09T09:23:22.179Z",
-      "modified_at": "2019-04-09T09:23:22.179Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "maschinen-aus-den-folgenden-kategorien",
-      "option": "maschinen-aus-den-folgenden-kategorien-reinigung",
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-tourismus",
       "sort": 5
     }
   },
@@ -23549,19 +23771,6 @@
       "question": "art-der-notausgaenge",
       "option": "art-der-notausgaenge-drehfluegeltueren",
       "sort": 3
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "7a10b7e9-bff6-4951-9927-fe88fc35bde3",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-aussenraum-strassen-trottoirs",
-      "sort": 9
     }
   },
   {
@@ -23696,6 +23905,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "7fab0058-f2b6-4457-8f2a-73560bf4bcc9",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-beherbergungsbetriebe",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "7fae4101-1134-4bf4-9d89-0930143f06e2",
     "fields": {
       "created_at": "2019-04-09T11:53:54.929Z",
@@ -23761,28 +23983,15 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "827b41ef-9803-47b0-9482-74d87491a9fc",
+    "pk": "83aa0aa0-e134-4fdc-8357-77110d2cc8dd",
     "fields": {
-      "created_at": "2019-04-09T09:23:49.082Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-tourismus",
-      "sort": 5
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "83ee0fe3-c089-4cb4-ba35-83c1e28fd001",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-wohnen",
-      "sort": 9
+      "created_at": "2019-04-12T10:45:52.081Z",
+      "modified_at": "2019-04-12T10:45:52.081Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "leitungsbau-auf-landwirtschaftlichem-boden",
+      "option": "leitungsbau-auf-landwirtschaftlichem-boden-nein",
+      "sort": 1
     }
   },
   {
@@ -23969,19 +24178,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "8abd3f94-a16b-4adc-a0a5-8335a1d85909",
-    "fields": {
-      "created_at": "2019-04-09T12:33:43.668Z",
-      "modified_at": "2019-04-09T12:33:43.668Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "typ-dachflaechen",
-      "option": "typ-dachflaechen-typ-a",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "8b900d31-b55e-4a0b-9fdd-378908add8bf",
     "fields": {
       "created_at": "2019-04-03T13:28:32.470Z",
@@ -24095,6 +24291,19 @@
       "question": "wochentag",
       "option": "wochentag-samstag",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "8dfd8b6f-14a6-4bec-a7a6-240a949fac69",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-grosse-personenbelegung",
+      "sort": 10
     }
   },
   {
@@ -24294,6 +24503,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "91b5ff17-8e29-4756-8069-3cd2cf9c2b77",
+    "fields": {
+      "created_at": "2019-04-12T11:59:04.105Z",
+      "modified_at": "2019-04-12T11:59:04.105Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-dach",
+      "option": "art-versickerung-dach-oberflaechengewaesser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "9212aa0c-8167-478f-bf13-285b837051f2",
     "fields": {
       "created_at": "2019-04-01T13:45:01.249Z",
@@ -24303,19 +24525,6 @@
       "question": "betriebsweise",
       "option": "betriebsweise-bivalent",
       "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "92281d8e-3291-4108-a97d-243d43734619",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-spitaler",
-      "sort": 3
     }
   },
   {
@@ -24355,19 +24564,6 @@
       "question": "wohnungsgroesse",
       "option": "wohnungsgroesse-18",
       "sort": 13
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "934e7444-6f6c-41e9-9fe6-01e552f8a9f4",
-    "fields": {
-      "created_at": "2019-04-09T09:23:22.179Z",
-      "modified_at": "2019-04-09T09:23:22.179Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "maschinen-aus-den-folgenden-kategorien",
-      "option": "maschinen-aus-den-folgenden-kategorien-werkhofe",
-      "sort": 1
     }
   },
   {
@@ -24515,19 +24711,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "97a2b6cc-845c-4e73-898d-76073d719ab0",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.082Z",
-      "modified_at": "2019-04-09T09:23:49.082Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-planungen",
-      "sort": 3
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "97e6c662-52b6-4943-85b7-55bb440cd137",
     "fields": {
       "created_at": "2019-04-09T07:34:56.436Z",
@@ -24575,6 +24758,19 @@
       "created_by_group": null,
       "question": "hoehe",
       "option": "hoehe-mittlere-hoehe-zwischen-11-m-und-30-m",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "98e562d2-cf6a-44ef-badb-eba2e7b720bb",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.606Z",
+      "modified_at": "2019-04-12T08:25:30.606Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-gastgewerbe",
       "sort": 2
     }
   },
@@ -24667,19 +24863,6 @@
       "question": "ist-das-vorhaben-energierelevant",
       "option": "ist-das-vorhaben-energierelevant-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "9c669947-51c6-4ec3-8edd-ab13b7fb2a15",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.331Z",
-      "modified_at": "2019-03-28T10:10:46.331Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-landwirtschaft",
-      "sort": 3
     }
   },
   {
@@ -24879,15 +25062,15 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "a5d3d0e1-bc24-4b48-b03e-cc3a6a5d03d7",
+    "pk": "a627430b-297e-4f24-9a68-95e2b9227636",
     "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-gewerbe",
-      "sort": 7
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-planungen",
+      "sort": 3
     }
   },
   {
@@ -24901,19 +25084,6 @@
       "question": "juristische-person-grundeigentuemerin",
       "option": "juristische-person-grundeigentuemerin-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "a6e4de21-3507-4351-9904-a684578c0127",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-verkehrintensives-vorhaben",
-      "sort": 7
     }
   },
   {
@@ -24940,19 +25110,6 @@
       "question": "integration-anderer-gebaeude",
       "option": "integration-anderer-gebaeude-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "a922fba9-09f5-4a9a-95a4-27c7fb0e2e10",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-gebaeude-geringer-abmessung",
-      "sort": 13
     }
   },
   {
@@ -25048,19 +25205,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "adacb13d-5016-4508-af4f-59286c715a44",
-    "fields": {
-      "created_at": "2019-04-01T11:30:17.085Z",
-      "modified_at": "2019-04-01T11:30:17.085Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "leitungsbau-auf-landwirtschaftlichem-boden",
-      "option": "leitungsbau-auf-landwirtschaftlichem-boden-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "adc49e34-ecf0-4ed8-958e-38c01a28afbc",
     "fields": {
       "created_at": "2019-04-01T14:42:04.812Z",
@@ -25109,6 +25253,19 @@
       "question": "prozessart",
       "option": "prozessart-ufererosion",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "af6d9182-e774-4810-a637-08f0194385e9",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-andere",
+      "sort": 1
     }
   },
   {
@@ -25230,6 +25387,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "b45ce351-a4ef-41b1-a8fe-0de05e434bc4",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-umnutzungen",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "b5b31c2b-20da-4592-bb32-0a1130d5e620",
     "fields": {
       "created_at": "2019-04-02T10:44:46.031Z",
@@ -25347,19 +25517,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "b97fdaf3-7cfd-485d-aed1-fd1fd30373b4",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.082Z",
-      "modified_at": "2019-04-09T09:23:49.082Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-fischhaltung",
-      "sort": 4
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "b9b761e4-3e47-4b9d-a6cd-9f2afba02954",
     "fields": {
       "created_at": "2019-04-09T13:59:34.469Z",
@@ -25386,15 +25543,15 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "bc0c4789-c6fa-4be5-9ad0-0204d7fe23de",
+    "pk": "bb2174ee-d97b-4fd7-b556-79d42725bc1a",
     "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
+      "created_at": "2019-04-12T08:55:26.163Z",
+      "modified_at": "2019-04-12T08:55:26.163Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
       "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-umnutzungen",
-      "sort": 6
+      "option": "welche-art-vorhaben-erschliessungsanlagen",
+      "sort": 13
     }
   },
   {
@@ -25503,6 +25660,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "c048326e-6ad5-42fe-b7e1-3254acfa28b7",
+    "fields": {
+      "created_at": "2019-04-12T08:43:35.508Z",
+      "modified_at": "2019-04-12T08:43:35.508Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "maschinen-aus-den-folgenden-kategorien",
+      "option": "maschinen-aus-den-folgenden-kategorien-transport",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "c1676e76-725a-4c95-85dc-019de0a78d2b",
     "fields": {
       "created_at": "2019-03-15T12:57:02.035Z",
@@ -25581,14 +25751,14 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "c31c587e-14d6-4c40-a6a8-fafbb15be57e",
+    "pk": "c32be5bb-5171-4a83-99a6-04f42931e80b",
     "fields": {
-      "created_at": "2019-04-01T11:26:25.002Z",
-      "modified_at": "2019-04-01T11:26:25.002Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "hoehe-groesser-als-1800-m-ue-m",
-      "option": "hoehe-groesser-als-1800-m-ue-m-ja",
+      "created_at": "2019-04-12T11:54:50.248Z",
+      "modified_at": "2019-04-12T11:54:50.248Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "typ-dachflaechen",
+      "option": "typ-dachflaechen-typ-a",
       "sort": 2
     }
   },
@@ -25737,6 +25907,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "c7f2ab26-8f5d-4ae3-a73d-bf9b0dcf0687",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.161Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-reklamevorhaben",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "c7fa8554-5a72-4a73-a63d-46c1ea67d17e",
     "fields": {
       "created_at": "2019-04-09T07:32:41.727Z",
@@ -25759,6 +25942,19 @@
       "question": "sterilisation-des-abwassers",
       "option": "sterilisation-des-abwassers-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "c879efde-a452-416b-9d99-c8ceb71c607f",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.571Z",
+      "modified_at": "2019-04-12T08:34:45.571Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "was-fuer-ein-vorhaben",
+      "option": "was-fuer-ein-vorhaben-verwaltungsgebaeude",
+      "sort": 7
     }
   },
   {
@@ -25811,6 +26007,19 @@
       "question": "wohnungsgroesse",
       "option": "wohnungsgroesse-13",
       "sort": 18
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "cd20f997-0f37-4e7a-a258-7f4182f062ca",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-erstellung-aussenraum",
+      "sort": 9
     }
   },
   {
@@ -25906,19 +26115,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "d392e9dd-9c9c-40d0-aa08-4f04873a021d",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-verkaufsgeschafte",
-      "sort": 5
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "d424dd0f-fb3c-42c3-83fc-ed502f4f0803",
     "fields": {
       "created_at": "2019-04-10T12:01:54.601Z",
@@ -25941,19 +26137,6 @@
       "question": "baugruppe-bauinventar",
       "option": "baugruppe-bauinventar-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "d51fbfc2-b6d0-46c0-9347-d3da04d0a7f0",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.331Z",
-      "modified_at": "2019-03-28T10:10:46.331Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-andere",
-      "sort": 1
     }
   },
   {
@@ -26010,6 +26193,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "d77bdac9-c530-4c26-b273-3127508ad57b",
+    "fields": {
+      "created_at": "2019-04-12T08:25:30.607Z",
+      "modified_at": "2019-04-12T08:25:30.607Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "nutzungsart",
+      "option": "nutzungsart-wohnen",
+      "sort": 9
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "d7c128c2-908f-42f8-a7bb-8d1218be030f",
     "fields": {
       "created_at": "2019-04-09T12:02:16.940Z",
@@ -26045,19 +26241,6 @@
       "question": "schutzbauwerk",
       "option": "schutzbauwerk-mit-auskleidung",
       "sort": 3
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "d9c6a6ec-d969-4bc4-8e8b-2d3c1470ffe4",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-verkauf",
-      "sort": 5
     }
   },
   {
@@ -26122,19 +26305,6 @@
       "created_by_group": null,
       "question": "art-der-fundationsmassnahmen",
       "option": "art-der-fundationsmassnahmen-tiefenfundation",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "dcb35a28-8f59-4e10-bc69-65e20843b728",
-    "fields": {
-      "created_at": "2019-04-09T09:21:23.665Z",
-      "modified_at": "2019-04-09T09:21:23.665Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "was-fuer-ein-vorhaben",
-      "option": "was-fuer-ein-vorhaben-behebergungsbetriebe",
       "sort": 2
     }
   },
@@ -26205,19 +26375,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "e0930a1e-57dd-4be3-bade-b7d0b58072bf",
-    "fields": {
-      "created_at": "2019-04-09T12:33:43.668Z",
-      "modified_at": "2019-04-09T12:33:43.668Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "typ-dachflaechen",
-      "option": "typ-dachflaechen-typ-b",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "e0f88b97-d015-4902-95fd-ce4bdc877d1c",
     "fields": {
       "created_at": "2019-04-01T11:34:45.214Z",
@@ -26227,19 +26384,6 @@
       "question": "beanspruchte-flaeche-ober-unterboden-5000-m2",
       "option": "beanspruchte-flaeche-ober-unterboden-5000-m2-nein",
       "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "e1ecb606-d8aa-4cb2-9867-67e81ccc855a",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-ferienhaus",
-      "sort": 7
     }
   },
   {
@@ -26309,19 +26453,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "e65d3ac2-b533-4303-9657-90d90f69381e",
-    "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-industrie",
-      "sort": 8
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "e6f1383c-b61a-4737-86de-84904a9af65c",
     "fields": {
       "created_at": "2019-04-09T06:58:34.660Z",
@@ -26370,6 +26501,19 @@
       "question": "wochentag-laden",
       "option": "wochentag-laden-freitag",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "e7e37426-6167-4984-901e-6d3127fc72b6",
+    "fields": {
+      "created_at": "2019-04-12T12:03:54.128Z",
+      "modified_at": "2019-04-12T12:03:54.128Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-platz",
+      "option": "art-versickerung-platz-mischwasserkanal",
+      "sort": 1
     }
   },
   {
@@ -26478,19 +26622,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "eabb0bcc-bd78-4949-96e8-db0ef3bc43ed",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.082Z",
-      "modified_at": "2019-04-09T09:23:49.082Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-weitere",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "eb44860f-ae08-418c-b62a-6236a13fa2df",
     "fields": {
       "created_at": "2019-04-02T13:53:21.561Z",
@@ -26582,6 +26713,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "ed324886-db3a-4a84-a653-4e08b7653e4f",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-fischhaltung-aquakulturanlage",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "ed85bd05-75c2-4884-b3fa-6adb8257f467",
     "fields": {
       "created_at": "2019-04-03T13:09:09.456Z",
@@ -26608,6 +26752,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "edf0ea53-a345-49a8-9489-bd94eb532187",
+    "fields": {
+      "created_at": "2019-04-12T12:03:54.129Z",
+      "modified_at": "2019-04-12T12:03:54.129Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "art-versickerung-platz",
+      "option": "art-versickerung-platz-oberflachengewasser",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "ee2fa02e-65ba-4a2d-b93a-fc600401d960",
     "fields": {
       "created_at": "2019-04-02T10:35:46.941Z",
@@ -26617,19 +26774,6 @@
       "question": "laermige-bauphase-laenger-als-6-tage",
       "option": "laermige-bauphase-laenger-als-6-tage-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "ee3dcbf9-83a3-4ef3-9915-66942156ea48",
-    "fields": {
-      "created_at": "2019-04-09T09:23:49.083Z",
-      "modified_at": "2019-04-09T09:23:49.083Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "welche-art-vorhaben",
-      "option": "welche-art-vorhaben-erschlissungsanlagen",
-      "sort": 12
     }
   },
   {
@@ -26668,6 +26812,19 @@
       "created_by_group": null,
       "question": "stoerende-lichtreflektionen",
       "option": "stoerende-lichtreflektionen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "ef1a3a48-9d22-4ea9-8831-687cb1a3b41e",
+    "fields": {
+      "created_at": "2019-04-12T11:54:50.248Z",
+      "modified_at": "2019-04-12T11:54:50.248Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "typ-dachflaechen",
+      "option": "typ-dachflaechen-typ-b",
       "sort": 1
     }
   },
@@ -26803,6 +26960,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "f340f274-9e2b-4534-a4c7-99edc0115675",
+    "fields": {
+      "created_at": "2019-04-12T08:55:26.162Z",
+      "modified_at": "2019-04-12T08:55:26.162Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-ferienhaus",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "f3701dff-d29e-4d40-89e8-924b687c0c49",
     "fields": {
       "created_at": "2019-04-02T08:23:03.768Z",
@@ -26842,15 +27012,15 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "f4c1a8a8-2e1b-4d5c-b8b9-34c263d2b9f4",
+    "pk": "f4d9a50d-6b5f-4433-929a-fcecfd7e6689",
     "fields": {
-      "created_at": "2019-03-28T10:10:46.332Z",
-      "modified_at": "2019-03-28T10:10:46.332Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "question": "nutzungsart",
-      "option": "nutzungsart-dienstleistung",
-      "sort": 6
+      "created_at": "2019-04-12T08:55:26.161Z",
+      "modified_at": "2019-04-12T08:55:26.161Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "welche-art-vorhaben",
+      "option": "welche-art-vorhaben-weitere",
+      "sort": 1
     }
   },
   {
@@ -27941,6 +28111,84 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schiebet\\u00fcren\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-dach-mischwasserkanal",
+    "fields": {
+      "created_at": "2019-04-12T11:59:03.891Z",
+      "modified_at": "2019-04-12T11:59:03.891Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Mischwasserkanal (\\u00f6ffentliche Leitung)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-dach-oberflaechengewaesser",
+    "fields": {
+      "created_at": "2019-04-12T11:59:03.883Z",
+      "modified_at": "2019-04-12T11:59:03.883Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Oberfl\\u00e4chengew\\u00e4sser (Private Leitung)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-dach-regenwasserkanal",
+    "fields": {
+      "created_at": "2019-04-12T11:59:03.879Z",
+      "modified_at": "2019-04-12T11:59:03.879Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Regenwasserkanal (\\u00f6ffentliche Leitung)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-platz-mischwasserkanal",
+    "fields": {
+      "created_at": "2019-04-12T12:03:53.938Z",
+      "modified_at": "2019-04-12T12:03:53.938Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Mischwasserkanal (\\u00f6ffentliche Leitung)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-platz-oberflachengewasser",
+    "fields": {
+      "created_at": "2019-04-12T12:03:53.945Z",
+      "modified_at": "2019-04-12T12:03:53.945Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Oberfl\\u00e4chengew\\u00e4sser (Private Leitung)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "art-versickerung-platz-regenwasserkanal",
+    "fields": {
+      "created_at": "2019-04-12T12:03:53.936Z",
+      "modified_at": "2019-04-12T12:03:53.936Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Regenwasserkanal (\\u00f6ffentliche Leitung)\"}",
       "meta": {},
       "source": null
     }
@@ -30303,7 +30551,7 @@
     "pk": "hoehe-groesser-als-1800-m-ue-m-ja",
     "fields": {
       "created_at": "2019-04-01T11:25:29.784Z",
-      "modified_at": "2019-04-01T11:26:24.833Z",
+      "modified_at": "2019-04-12T10:41:59.333Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -30316,7 +30564,7 @@
     "pk": "hoehe-groesser-als-1800-m-ue-m-nein",
     "fields": {
       "created_at": "2019-04-01T11:25:29.786Z",
-      "modified_at": "2019-04-01T11:26:24.826Z",
+      "modified_at": "2019-04-12T10:41:59.339Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -30940,7 +31188,7 @@
     "pk": "leitungsbau-auf-landwirtschaftlichem-boden-ja",
     "fields": {
       "created_at": "2019-04-01T11:30:16.913Z",
-      "modified_at": "2019-04-01T11:30:16.913Z",
+      "modified_at": "2019-04-12T10:45:51.920Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -30953,7 +31201,7 @@
     "pk": "leitungsbau-auf-landwirtschaftlichem-boden-nein",
     "fields": {
       "created_at": "2019-04-01T11:30:16.916Z",
-      "modified_at": "2019-04-01T11:30:16.917Z",
+      "modified_at": "2019-04-12T10:45:51.933Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -31096,10 +31344,10 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-erzeugung",
     "fields": {
       "created_at": "2019-03-28T09:21:10.195Z",
-      "modified_at": "2019-04-09T09:23:21.868Z",
+      "modified_at": "2019-04-12T08:43:35.267Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Erzeugung\"}",
+      "label": "{\"de\": \"F\\u00fcr die industrielle / gewerbliche Erzeugung von Lebens- oder Futtermittel\"}",
       "meta": {},
       "source": null
     }
@@ -31109,10 +31357,10 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-reinigung",
     "fields": {
       "created_at": "2019-03-28T09:21:10.163Z",
-      "modified_at": "2019-04-09T09:23:21.798Z",
+      "modified_at": "2019-04-12T08:43:35.258Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Reinigung\"}",
+      "label": "{\"de\": \"F\\u00fcr die Reinigung-, Aufbereitung- und Beschichtung\"}",
       "meta": {},
       "source": null
     }
@@ -31122,10 +31370,10 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-strom",
     "fields": {
       "created_at": "2019-03-28T09:21:10.266Z",
-      "modified_at": "2019-04-09T09:23:21.869Z",
+      "modified_at": "2019-04-12T08:43:35.278Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Strom\"}",
+      "label": "{\"de\": \"F\\u00fcr die Erzegung, Speicherung oder Lagerung von Strom, W\\u00e4rme oder Brennstoffen\"}",
       "meta": {},
       "source": null
     }
@@ -31135,10 +31383,23 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-transport",
     "fields": {
       "created_at": "2019-03-28T09:21:10.188Z",
-      "modified_at": "2019-04-09T09:23:21.805Z",
+      "modified_at": "2019-04-12T08:43:35.284Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Transport\"}",
+      "label": "{\"de\": \"F\\u00fcr den Transport und das Verpacken von Materialien\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "maschinen-aus-den-folgenden-kategorien-werkhoefe",
+    "fields": {
+      "created_at": "2019-03-28T09:21:10.224Z",
+      "modified_at": "2019-04-12T08:43:35.298Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"F\\u00fcr Deponien, Werkh\\u00f6fe, Betriebsgeb\\u00e4ude oder auf Betriebsarealen\"}",
       "meta": {},
       "source": null
     }
@@ -31148,10 +31409,10 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-werkhofe",
     "fields": {
       "created_at": "2019-03-28T09:21:10.224Z",
-      "modified_at": "2019-04-09T09:23:21.855Z",
+      "modified_at": "2019-04-12T08:43:35.298Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Werkh\\u00f6fe\"}",
+      "label": "{\"de\": \"F\\u00fcr Deponien, Werkh\\u00f6fe, Betriebsgeb\\u00e4ude oder auf Betriebsarealen\"}",
       "meta": {},
       "source": null
     }
@@ -31603,7 +31864,7 @@
     "pk": "nutzungsart-andere",
     "fields": {
       "created_at": "2019-03-15T13:15:44.395Z",
-      "modified_at": "2019-03-28T10:10:46.158Z",
+      "modified_at": "2019-04-12T08:25:30.430Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -31616,7 +31877,7 @@
     "pk": "nutzungsart-dienstleistung",
     "fields": {
       "created_at": "2019-03-15T13:15:44.411Z",
-      "modified_at": "2019-03-28T10:10:46.066Z",
+      "modified_at": "2019-04-12T08:25:30.330Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Dienstleistung\"}",
@@ -31629,7 +31890,7 @@
     "pk": "nutzungsart-gastgewerbe",
     "fields": {
       "created_at": "2019-03-15T13:15:44.379Z",
-      "modified_at": "2019-03-28T10:10:46.125Z",
+      "modified_at": "2019-04-12T08:25:30.396Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Gastgewerbe\"}",
@@ -31642,7 +31903,7 @@
     "pk": "nutzungsart-gewerbe",
     "fields": {
       "created_at": "2019-03-15T13:15:44.327Z",
-      "modified_at": "2019-03-28T10:10:46.045Z",
+      "modified_at": "2019-04-12T08:25:30.362Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Gewerbe\"}",
@@ -31655,7 +31916,7 @@
     "pk": "nutzungsart-industrie",
     "fields": {
       "created_at": "2019-03-15T13:15:44.292Z",
-      "modified_at": "2019-03-28T10:10:46Z",
+      "modified_at": "2019-04-12T08:25:30.305Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Industrie\"}",
@@ -31668,7 +31929,7 @@
     "pk": "nutzungsart-lager",
     "fields": {
       "created_at": "2019-03-15T13:15:44.338Z",
-      "modified_at": "2019-03-28T10:10:46.094Z",
+      "modified_at": "2019-04-12T08:25:30.351Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Lager\"}",
@@ -31681,7 +31942,7 @@
     "pk": "nutzungsart-landwirtschaft",
     "fields": {
       "created_at": "2019-03-15T13:15:44.373Z",
-      "modified_at": "2019-03-28T10:10:46.098Z",
+      "modified_at": "2019-04-12T08:25:30.429Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Landwirtschaft\"}",
@@ -31694,7 +31955,7 @@
     "pk": "nutzungsart-verkauf",
     "fields": {
       "created_at": "2019-03-15T13:15:44.352Z",
-      "modified_at": "2019-03-28T10:10:46.092Z",
+      "modified_at": "2019-04-12T08:25:30.389Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verkauf\"}",
@@ -31707,7 +31968,7 @@
     "pk": "nutzungsart-wohnen",
     "fields": {
       "created_at": "2019-03-15T13:15:44.283Z",
-      "modified_at": "2019-03-28T10:10:46Z",
+      "modified_at": "2019-04-12T08:25:30.316Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wohnen\"}",
@@ -33007,7 +33268,7 @@
     "pk": "typ-dachflaechen-typ-a",
     "fields": {
       "created_at": "2019-04-09T12:33:43.534Z",
-      "modified_at": "2019-04-09T12:33:43.534Z",
+      "modified_at": "2019-04-12T11:54:50.053Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ A\"}",
@@ -33020,7 +33281,7 @@
     "pk": "typ-dachflaechen-typ-b",
     "fields": {
       "created_at": "2019-04-09T12:33:43.536Z",
-      "modified_at": "2019-04-09T12:33:43.536Z",
+      "modified_at": "2019-04-12T11:54:50.067Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ B\"}",
@@ -33033,7 +33294,7 @@
     "pk": "typ-platz-und-verkehrsflaechen-typ-a",
     "fields": {
       "created_at": "2019-04-09T12:38:37.671Z",
-      "modified_at": "2019-04-09T12:38:37.671Z",
+      "modified_at": "2019-04-12T12:04:48.398Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ A\"}",
@@ -33046,7 +33307,7 @@
     "pk": "typ-platz-und-verkehrsflaechen-uber-schulter",
     "fields": {
       "created_at": "2019-04-09T12:38:37.692Z",
-      "modified_at": "2019-04-09T12:38:37.692Z",
+      "modified_at": "2019-04-12T12:04:48.411Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"\\u00dcber Schulter\"}",
@@ -33865,7 +34126,7 @@
     "pk": "was-fuer-ein-vorhaben-andere",
     "fields": {
       "created_at": "2019-03-28T09:16:12.946Z",
-      "modified_at": "2019-04-09T09:21:23.512Z",
+      "modified_at": "2019-04-12T08:34:45.300Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -33888,13 +34149,52 @@
   },
   {
     "model": "form.option",
+    "pk": "was-fuer-ein-vorhaben-beherbergungsbetriebe",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.315Z",
+      "modified_at": "2019-04-12T08:34:45.315Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Beherbergungsbetriebe (Hotel, Ferienheim, ...)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "was-fuer-ein-vorhaben-gastgewerbe",
     "fields": {
       "created_at": "2019-03-28T09:16:12.892Z",
-      "modified_at": "2019-04-09T09:21:23.476Z",
+      "modified_at": "2019-04-12T08:34:45.238Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Gastgewerbe\"}",
+      "label": "{\"de\": \"Gastgewerbe (Restaurant)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "was-fuer-ein-vorhaben-grossraumbueros",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.325Z",
+      "modified_at": "2019-04-12T08:34:45.325Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Grossraumb\\u00fcros 400 m\\u00b2 oder mehr als 20 Arbeitspl\\u00e4tze im gleichen Raum\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "was-fuer-ein-vorhaben-spitaeler",
+    "fields": {
+      "created_at": "2019-04-12T08:34:45.277Z",
+      "modified_at": "2019-04-12T08:34:45.277Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Spit\\u00e4ler, Kliniken, Heime, Schwimmb\\u00e4der, Sportpl\\u00e4tze / Sportanlagen, Eishallen, Kinos, Theater, Museen, Kirchen und Schulh\\u00e4user mit mech. Werkst\\u00e4tten, Lagerhallen\"}",
       "meta": {},
       "source": null
     }
@@ -33914,13 +34214,26 @@
   },
   {
     "model": "form.option",
+    "pk": "was-fuer-ein-vorhaben-verkaufsgeschaefte",
+    "fields": {
+      "created_at": "2019-03-28T09:16:12.890Z",
+      "modified_at": "2019-04-12T08:34:45.264Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verkaufsgesch\\u00e4fte / Gesch\\u00e4ftsh\\u00e4user / Einkaufszentren\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "was-fuer-ein-vorhaben-verkaufsgeschafte",
     "fields": {
       "created_at": "2019-03-28T09:16:12.890Z",
-      "modified_at": "2019-04-09T09:21:23.411Z",
+      "modified_at": "2019-04-12T08:34:45.264Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Verkaufsgesch\\u00e4fte\"}",
+      "label": "{\"de\": \"Verkaufsgesch\\u00e4fte / Gesch\\u00e4ftsh\\u00e4user / Einkaufszentren\"}",
       "meta": {},
       "source": null
     }
@@ -33930,7 +34243,7 @@
     "pk": "was-fuer-ein-vorhaben-verkehrintensives-vorhaben",
     "fields": {
       "created_at": "2019-03-28T09:16:12.857Z",
-      "modified_at": "2019-04-09T09:21:23.329Z",
+      "modified_at": "2019-04-12T08:34:45.205Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verkehrintensives Vorhaben\"}",
@@ -33940,10 +34253,23 @@
   },
   {
     "model": "form.option",
+    "pk": "was-fuer-ein-vorhaben-verwaltungsgebaeude",
+    "fields": {
+      "created_at": "2019-03-28T09:16:12.871Z",
+      "modified_at": "2019-04-12T08:34:45.287Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verwaltungsgeb\\u00e4ude\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "was-fuer-ein-vorhaben-verwaltungsgebaude",
     "fields": {
       "created_at": "2019-03-28T09:16:12.871Z",
-      "modified_at": "2019-04-09T09:21:23.372Z",
+      "modified_at": "2019-04-12T08:34:45.287Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verwaltungsgeb\\u00e4ude\"}",
@@ -34005,6 +34331,19 @@
   },
   {
     "model": "form.option",
+    "pk": "was-fur-ein-vorhaben-verkaufsgeschaefte",
+    "fields": {
+      "created_at": "2019-03-28T09:16:12.890Z",
+      "modified_at": "2019-03-28T09:16:12.890Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verkaufsgesch\\u00e4fte\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "was-fur-ein-vorhaben-verkaufsgeschafte",
     "fields": {
       "created_at": "2019-03-28T09:16:12.890Z",
@@ -34025,6 +34364,19 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verkehrintensives Vorhaben\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "was-fur-ein-vorhaben-verwaltungsgebaeude",
+    "fields": {
+      "created_at": "2019-03-28T09:16:12.871Z",
+      "modified_at": "2019-03-28T09:16:12.871Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verwaltungsgeb\\u00e4ude\"}",
       "meta": {},
       "source": null
     }
@@ -34135,13 +34487,52 @@
   },
   {
     "model": "form.option",
+    "pk": "welche-art-vorhaben-bauten-unbekannter-nutzung",
+    "fields": {
+      "created_at": "2019-04-12T08:55:25.813Z",
+      "modified_at": "2019-04-12T08:55:25.813Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Bauten unbekannter Nutzung\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "welche-art-vorhaben-erschliessungsanlagen",
+    "fields": {
+      "created_at": "2019-03-28T09:41:34.240Z",
+      "modified_at": "2019-04-12T08:55:25.702Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Erschliessungsanlagen (z.B. Alpwege, Waldstrassen, ...)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "welche-art-vorhaben-erschlissungsanlagen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.240Z",
-      "modified_at": "2019-04-09T09:23:48.679Z",
+      "modified_at": "2019-04-12T08:55:25.702Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Erschlissungsanlagen\"}",
+      "label": "{\"de\": \"Erschliessungsanlagen (z.B. Alpwege, Waldstrassen, ...)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "welche-art-vorhaben-erstellung-aussenraum",
+    "fields": {
+      "created_at": "2019-04-12T08:55:25.794Z",
+      "modified_at": "2019-04-12T08:55:25.794Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Erstellung / Erneuerung von Aussenraum (Strasse, Fussweg, Trottoirs, Haltestellen, etc.)\"}",
       "meta": {},
       "source": null
     }
@@ -34151,7 +34542,7 @@
     "pk": "welche-art-vorhaben-ferienhaus",
     "fields": {
       "created_at": "2019-03-28T09:41:34.329Z",
-      "modified_at": "2019-04-09T09:23:48.773Z",
+      "modified_at": "2019-04-12T08:55:25.840Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ferienhaus\"}",
@@ -34174,10 +34565,23 @@
   },
   {
     "model": "form.option",
+    "pk": "welche-art-vorhaben-fischhaltung-aquakulturanlage",
+    "fields": {
+      "created_at": "2019-04-12T08:55:25.874Z",
+      "modified_at": "2019-04-12T08:55:25.875Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Fischhaltung / Aquakulturanlage\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "welche-art-vorhaben-gebaeude-geringer-abmessung",
     "fields": {
       "created_at": "2019-03-28T09:41:34.212Z",
-      "modified_at": "2019-04-09T09:23:48.647Z",
+      "modified_at": "2019-04-12T08:55:25.637Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude geringer Abmessung\"}",
@@ -34187,10 +34591,23 @@
   },
   {
     "model": "form.option",
+    "pk": "welche-art-vorhaben-grosse-personenbelegung",
+    "fields": {
+      "created_at": "2019-04-12T08:55:25.675Z",
+      "modified_at": "2019-04-12T08:55:25.675Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"R\\u00e4ume mit grosser Personenbelegung ((\\u00fcber 300 Personen)\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "welche-art-vorhaben-parking",
     "fields": {
       "created_at": "2019-03-28T09:41:34.275Z",
-      "modified_at": "2019-04-09T09:23:48.699Z",
+      "modified_at": "2019-04-12T08:55:25.677Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Parking\"}",
@@ -34203,10 +34620,10 @@
     "pk": "welche-art-vorhaben-planungen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.379Z",
-      "modified_at": "2019-04-09T09:23:48.785Z",
+      "modified_at": "2019-04-12T08:55:25.843Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Planungen\"}",
+      "label": "{\"de\": \"Planungen (z.B. UeO mit Baubewilligung)\"}",
       "meta": {},
       "source": null
     }
@@ -34216,7 +34633,7 @@
     "pk": "welche-art-vorhaben-reklamevorhaben",
     "fields": {
       "created_at": "2019-03-28T09:41:34.406Z",
-      "modified_at": "2019-04-09T09:23:48.818Z",
+      "modified_at": "2019-04-12T08:55:25.887Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Reklamevorhaben\"}",
@@ -34226,13 +34643,26 @@
   },
   {
     "model": "form.option",
+    "pk": "welche-art-vorhaben-schule-kindergarten",
+    "fields": {
+      "created_at": "2019-03-28T09:41:34.271Z",
+      "modified_at": "2019-04-12T08:55:25.631Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Schule / Kindergarten\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "welche-art-vorhaben-schulekindergarten",
     "fields": {
       "created_at": "2019-03-28T09:41:34.271Z",
-      "modified_at": "2019-04-09T09:23:48.663Z",
+      "modified_at": "2019-04-12T08:55:25.631Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Schule/Kindergarten\"}",
+      "label": "{\"de\": \"Schule / Kindergarten\"}",
       "meta": {},
       "source": null
     }
@@ -34242,10 +34672,10 @@
     "pk": "welche-art-vorhaben-tourismus",
     "fields": {
       "created_at": "2019-03-28T09:41:34.378Z",
-      "modified_at": "2019-04-09T09:23:48.787Z",
+      "modified_at": "2019-04-12T08:55:25.872Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Tourismus\"}",
+      "label": "{\"de\": \"Tourismus (z.B. Bikestrecke, Spielpl\\u00e4tze, Wanderwege)\"}",
       "meta": {},
       "source": null
     }
@@ -34255,10 +34685,10 @@
     "pk": "welche-art-vorhaben-umnutzungen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.335Z",
-      "modified_at": "2019-04-09T09:23:48.754Z",
+      "modified_at": "2019-04-12T08:55:25.808Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Umnutzungen\"}",
+      "label": "{\"de\": \"Umnutzungen (z.B. Zivile Nutzung milit\\u00e4rischer Bauten)\"}",
       "meta": {},
       "source": null
     }
@@ -34281,7 +34711,7 @@
     "pk": "welche-art-vorhaben-weitere",
     "fields": {
       "created_at": "2019-03-28T09:41:34.408Z",
-      "modified_at": "2019-04-09T09:23:48.839Z",
+      "modified_at": "2019-04-12T08:55:25.897Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Weitere\"}",
