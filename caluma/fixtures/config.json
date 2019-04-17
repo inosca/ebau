@@ -2480,6 +2480,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "2f4e8717-6c1e-4c8d-86cd-5fe9b2bc9df2",
+    "fields": {
+      "created_at": "2019-04-17T08:00:04.047Z",
+      "modified_at": "2019-04-17T08:00:04.047Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
+      "question": "gebinde-in-grundwasserschutzzone",
+      "sort": 19
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "30327e21-c9c0-485e-93df-a0f670f65c1d",
     "fields": {
       "created_at": "2019-04-08T12:59:20.263Z",
@@ -2631,7 +2644,7 @@
       "created_by_group": null,
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
       "question": "lagerung-von-stoffen",
-      "sort": 16
+      "sort": 21
     }
   },
   {
@@ -3364,6 +3377,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "51930c42-9dda-4ab2-96fd-30ee4e34f42c",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.409Z",
+      "modified_at": "2019-04-17T07:49:46.409Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
+      "question": "gebindelager-mit-totalem-nutzvolumen",
+      "sort": 20
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "51a2f8ed-dac2-4ac0-b962-6aef98aaaf82",
     "fields": {
       "created_at": "2019-04-04T10:32:24.088Z",
@@ -3737,6 +3763,19 @@
       "form": "kleintank-tabelle",
       "question": "fassvermoegen-in-liter",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "62e9d1d2-5b2d-45f2-b07a-91f686a1fced",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.562Z",
+      "modified_at": "2019-04-17T08:07:07.563Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
+      "question": "tanks-in-gewaesserschutzbereichen",
+      "sort": 17
     }
   },
   {
@@ -5743,6 +5782,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "ad1d8195-f43c-45c7-890a-56c4ea267c53",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.882Z",
+      "modified_at": "2019-04-17T08:09:49.883Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
+      "question": "fluessigkeiten-wassergefaehrdungsklasse-a",
+      "sort": 16
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "adfbc334-c956-448b-b821-ee939db6bf59",
     "fields": {
       "created_at": "2019-04-04T09:32:38.227Z",
@@ -7325,6 +7377,19 @@
       "form": "gastgewerbe-fumoir",
       "question": "mechanische-lueftung",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "e9b3f839-700c-4ba2-9ae1-b05fa5513f07",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.856Z",
+      "modified_at": "2019-04-17T08:05:00.856Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
+      "question": "tankanlage-ueber-2000-liter",
+      "sort": 18
     }
   },
   {
@@ -11530,6 +11595,26 @@
   },
   {
     "model": "form.question",
+    "pk": "fluessigkeiten-wassergefaehrdungsklasse-a",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.787Z",
+      "modified_at": "2019-04-17T08:09:49.787Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Werden Fl\\u00fcssigkeiten der Wassergef\\u00e4hrdungsklasse A (entspricht WGK 2 und 3) gelagert?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-nein' in 'gebindelager-mit-totalem-nutzvolumen'|answer",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "folgender-raum-soll-als-fumoir-bewilligt-werden",
     "fields": {
       "created_at": "2019-04-08T12:59:20.175Z",
@@ -11817,6 +11902,46 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Gebiet mit bekannten oder vermuteten Naturgefahren\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "gebinde-in-grundwasserschutzzone",
+    "fields": {
+      "created_at": "2019-04-17T08:00:03.956Z",
+      "modified_at": "2019-04-17T08:00:03.956Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ist das Gebinde / Tankanlage in einer Grundwasserschutzzone S3, Sm und / oder einem Grundwasserschutzareal?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-nein' in 'gebindelager-mit-totalem-nutzvolumen'|answer",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "gebindelager-mit-totalem-nutzvolumen",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.280Z",
+      "modified_at": "2019-04-17T07:49:46.280Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Gebindelager mit totalem Nutzvolumen > 450 l oder Tankanlagen mit > 450 l pro Tank\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -17650,6 +17775,26 @@
   },
   {
     "model": "form.question",
+    "pk": "tankanlage-ueber-2000-liter",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.758Z",
+      "modified_at": "2019-04-17T08:05:00.758Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Handelt es sich um eine Tankanlage mit Beh\\u00e4ltern, die jeweils gr\\u00f6sser als 2000 l sind?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-nein' in 'gebindelager-mit-totalem-nutzvolumen'|answer",
+      "is_archived": false,
+      "configuration": {},
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "tankfabrikant",
     "fields": {
       "created_at": "2019-04-09T11:37:22.150Z",
@@ -17682,6 +17827,26 @@
       "is_hidden": "false",
       "is_archived": false,
       "configuration": { "max_length": null },
+      "meta": {},
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "tanks-in-gewaesserschutzbereichen",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.469Z",
+      "modified_at": "2019-04-17T08:07:07.469Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Werden Tanks und Rohrleitungen in Gew\\u00e4sserschutzbereichen Ao, Au, Zo, Zu erdverlegt?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'gebindelager-mit-totalem-nutzvolumen-nein' in 'gebindelager-mit-totalem-nutzvolumen'|answer",
+      "is_archived": false,
+      "configuration": {},
       "meta": {},
       "row_form": null,
       "sub_form": null,
@@ -19875,6 +20040,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "01be9c52-c60e-4bfe-aef8-4f7c44adfeba",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.792Z",
+      "modified_at": "2019-04-17T08:09:49.792Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "fluessigkeiten-wassergefaehrdungsklasse-a",
+      "option": "fluessigkeiten-wassergefaehrdungsklasse-a-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "020f6cd0-e0b7-4242-926c-0279c0425cfe",
     "fields": {
       "created_at": "2019-04-02T10:47:39.033Z",
@@ -20811,6 +20989,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "1c6386d7-416c-4212-8b17-647aea4a82c0",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.763Z",
+      "modified_at": "2019-04-17T08:05:00.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "tankanlage-ueber-2000-liter",
+      "option": "tankanlage-ueber-2000-liter-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "1c95f78e-54a8-41f8-8fe2-d914d0b90e36",
     "fields": {
       "created_at": "2019-04-09T13:55:58.217Z",
@@ -21513,6 +21704,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "34236771-16ca-44fe-b47a-1e2f46afc640",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.295Z",
+      "modified_at": "2019-04-17T07:49:46.295Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "gebindelager-mit-totalem-nutzvolumen",
+      "option": "gebindelager-mit-totalem-nutzvolumen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "3459621e-7e2c-4b34-84f2-9697a706d25f",
     "fields": {
       "created_at": "2019-04-01T11:12:31.843Z",
@@ -21872,6 +22076,19 @@
       "created_by_group": null,
       "question": "sicherheitsmassnahmen-eingehalten",
       "option": "sicherheitsmassnahmen-eingehalten-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "3ec302a9-3a56-41b9-8427-64c404d0a7de",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.295Z",
+      "modified_at": "2019-04-17T07:49:46.296Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "gebindelager-mit-totalem-nutzvolumen",
+      "option": "gebindelager-mit-totalem-nutzvolumen-ja",
       "sort": 2
     }
   },
@@ -22496,6 +22713,19 @@
       "created_by_group": null,
       "question": "handelt-es-sich-um-eine-baute-im-wald",
       "option": "handelt-es-sich-um-eine-baute-im-wald-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "5270b600-f9c8-48c3-ad2a-239b251b59b6",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.763Z",
+      "modified_at": "2019-04-17T08:05:00.763Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "tankanlage-ueber-2000-liter",
+      "option": "tankanlage-ueber-2000-liter-ja",
       "sort": 2
     }
   },
@@ -24022,6 +24252,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "863d8156-53a5-46fb-9054-a201f54fc412",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.471Z",
+      "modified_at": "2019-04-17T08:07:07.471Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "tanks-in-gewaesserschutzbereichen",
+      "option": "tanks-in-gewaesserschutzbereichen-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "8655df94-d8c5-4f8d-8e43-ead7dad7099f",
     "fields": {
       "created_at": "2019-04-08T15:01:58.876Z",
@@ -24971,6 +25214,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "a2a242c4-db15-4ca7-afff-940153babcb4",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.792Z",
+      "modified_at": "2019-04-17T08:09:49.792Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "fluessigkeiten-wassergefaehrdungsklasse-a",
+      "option": "fluessigkeiten-wassergefaehrdungsklasse-a-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "a3d6de69-f073-47ee-9cc6-d4dac6f05222",
     "fields": {
       "created_at": "2019-04-09T12:08:26.519Z",
@@ -25396,6 +25652,19 @@
       "question": "welche-art-vorhaben",
       "option": "welche-art-vorhaben-umnutzungen",
       "sort": 6
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "b4a0a733-fd53-459d-b844-9d1dc979ca4a",
+    "fields": {
+      "created_at": "2019-04-17T08:00:03.960Z",
+      "modified_at": "2019-04-17T08:00:03.960Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "gebinde-in-grundwasserschutzzone",
+      "option": "gebinde-in-grundwasserschutzzone-nein",
+      "sort": 1
     }
   },
   {
@@ -26111,6 +26380,19 @@
       "question": "produkteleitung",
       "option": "produkteleitung-doppelmantel",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "d40a980a-13eb-4bb3-9419-54cef4925005",
+    "fields": {
+      "created_at": "2019-04-17T08:00:03.960Z",
+      "modified_at": "2019-04-17T08:00:03.960Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "gebinde-in-grundwasserschutzzone",
+      "option": "gebinde-in-grundwasserschutzzone-ja",
+      "sort": 2
     }
   },
   {
@@ -27163,6 +27445,19 @@
       "created_by_group": null,
       "question": "stoerende-lichtreflektionen",
       "option": "stoerende-lichtreflektionen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "f8f063dc-1f01-4560-885a-49fcb1419a41",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.471Z",
+      "modified_at": "2019-04-17T08:07:07.471Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "tanks-in-gewaesserschutzbereichen",
+      "option": "tanks-in-gewaesserschutzbereichen-ja",
       "sort": 2
     }
   },
@@ -29755,6 +30050,32 @@
   },
   {
     "model": "form.option",
+    "pk": "fluessigkeiten-wassergefaehrdungsklasse-a-ja",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.561Z",
+      "modified_at": "2019-04-17T08:09:49.561Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "fluessigkeiten-wassergefaehrdungsklasse-a-nein",
+    "fields": {
+      "created_at": "2019-04-17T08:09:49.569Z",
+      "modified_at": "2019-04-17T08:09:49.569Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "forstliche-baute-ja",
     "fields": {
       "created_at": "2019-04-08T13:24:40.803Z",
@@ -29930,6 +30251,58 @@
       "modified_at": "2019-04-08T08:36:39.055Z",
       "created_by_user": null,
       "created_by_group": null,
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "gebinde-in-grundwasserschutzzone-ja",
+    "fields": {
+      "created_at": "2019-04-17T08:00:03.808Z",
+      "modified_at": "2019-04-17T08:00:03.808Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "gebinde-in-grundwasserschutzzone-nein",
+    "fields": {
+      "created_at": "2019-04-17T08:00:03.818Z",
+      "modified_at": "2019-04-17T08:00:03.818Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "gebindelager-mit-totalem-nutzvolumen-ja",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.098Z",
+      "modified_at": "2019-04-17T07:49:46.098Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "gebindelager-mit-totalem-nutzvolumen-nein",
+    "fields": {
+      "created_at": "2019-04-17T07:49:46.099Z",
+      "modified_at": "2019-04-17T07:49:46.099Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
       "meta": {},
       "source": null
@@ -33206,6 +33579,58 @@
       "modified_at": "2019-04-05T09:04:22.556Z",
       "created_by_user": null,
       "created_by_group": null,
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "tankanlage-ueber-2000-liter-ja",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.623Z",
+      "modified_at": "2019-04-17T08:05:00.623Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "tankanlage-ueber-2000-liter-nein",
+    "fields": {
+      "created_at": "2019-04-17T08:05:00.624Z",
+      "modified_at": "2019-04-17T08:05:00.625Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "tanks-in-gewaesserschutzbereichen-ja",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.320Z",
+      "modified_at": "2019-04-17T08:07:07.320Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "tanks-in-gewaesserschutzbereichen-nein",
+    "fields": {
+      "created_at": "2019-04-17T08:07:07.328Z",
+      "modified_at": "2019-04-17T08:07:07.328Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
       "meta": {},
       "source": null
