@@ -637,6 +637,34 @@
   },
   {
     "fields": {
+      "available_action": "workflow",
+      "button": 23,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Workflow Datum Nachforderung der Gemeinde",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 23,
+      "description": null,
+      "error_message": "Email konnte nicht versandt werden",
+      "execute_always": 0,
+      "name": "Email Nachforderun",
+      "sort": 2,
+      "success_message": "Email wurde erfolgreich versandt"
+    },
+    "model": "core.action",
+    "pk": 64
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -1257,6 +1285,15 @@
     },
     "model": "core.anotification",
     "pk": 62
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Applicant",
+      "template": 13
+    },
+    "model": "core.anotification",
+    "pk": 64
   },
   {
     "fields": {
@@ -8408,6 +8445,14 @@
     },
     "model": "core.workflowaction",
     "pk": 19
+  },
+  {
+    "fields": {
+      "multi_value": 1,
+      "workflow_item": 13
+    },
+    "model": "core.workflowaction",
+    "pk": 63
   },
   {
     "fields": {
