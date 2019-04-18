@@ -4,7 +4,7 @@
 module.exports = function(deployTarget) {
   let ENV = {
     build: {
-      outputPath: "build"
+      outputPath: "dist"
     },
     compress: {
       keep: true,
