@@ -334,3 +334,18 @@ ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
 GIS_BASE_URL = env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch")
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
+
+GIS_BOOLEAN_LAYERS = [
+    # "GEODB.GSK25_GSK_VW",  # Gewässerschutzzonen
+    "BALISKBS_KBS",  # Belasteter Standort
+    "GK5_SY",  # Naturgefahren
+    # "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
+    "GEODB.UZP_LSG_VW",  # Besonderer Landschaftsschutz
+    "ARCHINV_FUNDST",  # Archäologische Fundstellen
+    "NSG_NSGP",  # Naturschutzgebiet
+]
+
+GIS_SPECIAL_LAYERS = [
+    "GEODB.UZP_BAU_VW",  # Nutzungszone
+    "GEODB.UZP_UEO_VW",  # Überbauungsordnung
+]

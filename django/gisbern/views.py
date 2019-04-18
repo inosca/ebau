@@ -53,18 +53,6 @@ def get_gis_data(multisurface):
     :rtype:                     dict
     """
 
-    layers = [
-        "GEODB.UZP_BAU_VW",  # Nutzungszone
-        "GEODB.UZP_UEO_VW",  # Überbauungsordnung
-        "GEODB.GSK25_GSK_VW",  # Gewässerschutzzonen
-        "BALISKBS_KBS",  # Belasteter Standort
-        "GK5_SY",  # Naturgefahren
-        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
-        "GEODB.UZP_LSG_VW",  # Besonderer Landschaftsschutz
-        "ARCHINV_FUNDST",  # Archäologische Fundstellen
-        "NSG_NSGP",  # Naturschutzgebiet
-    ]
-
     query = list(
         map(
             lambda x: """<Query typeName="a42geo_ebau_kt_wfs_d_fk:{0}" srsName="EPSG:2056">
@@ -77,7 +65,7 @@ def get_gis_data(multisurface):
       </Query>)""".format(
                 x, multisurface
             ),
-            layers,
+            settings.GIS_BOOLEAN_LAYERS + settings.GIS_SPECIAL_LAYERS,
         )
     )
 
@@ -95,22 +83,13 @@ def get_gis_data(multisurface):
 
     tag_list = []
     data = {}
-    tags = [
-        "BALISKBS_KBS",  # Belasteter Standort
-        "GK5_SY",  # Naturgefahren
-        "GEODB.UZP_LSG",  # Landschaftsschutz
-        "ARCHINV_FUNDST",  # Archäologische Fundstelle
-        "NSG_NSGP",  # Naturschutz
-        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
-    ]
-
     et = get_root(request_kanton)
     # Find all layers beneath featureMember
     for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
-        for value in tags:
+        for value in settings.GIS_BOOLEAN_LAYERS:
             data[value.split(".")[-1]] = len([x for x in tag_list if value in x]) > 0
 
         # Nutzungszone ([String])
