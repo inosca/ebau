@@ -1,2 +1,60 @@
-@import 'ember-uikit';
 @import "ember-power-select";
+@import "ember-uikit";
+@import "ember-caluma";
+
+.camac-nav-module-icon {
+  position: relative;
+  height: 0.75rem;
+  width: 0.75rem;
+  color: transparent;
+  border: 1px solid transparent;
+
+  transition: color 500ms ease, border 500ms ease;
+}
+
+.camac-nav-module-icon::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.camac-nav-module-icon-untouched {
+  color: transparent;
+  border-color: $global-border;
+}
+
+.camac-nav-module-icon-unfinished {
+  color: darken($global-warning-background, 20%);
+  border-color: lighten($global-warning-background, 10%);
+}
+
+.camac-nav-module-icon-valid {
+  color: darken($global-success-background, 20%);
+  border-color: lighten($global-success-background, 10%);
+}
+
+.camac-nav-module-icon-invalid {
+  color: darken($global-danger-background, 20%);
+  border-color: lighten($global-danger-background, 10%);
+}
+
+.camac-nav-module-icon-readonly {
+  opacity: 0.6;
+}
+
+.camac-nav-module-icon-unfinished::before {
+  content: "?";
+}
+
+.camac-nav-module-icon-valid::before {
+  content: "✓";
+}
+
+.camac-nav-module-icon-invalid::before {
+  content: "×";
+}
