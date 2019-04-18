@@ -4422,9 +4422,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@czosel/ember-caluma#nested-jexl:
-  version "0.0.3"
-  resolved "https://codeload.github.com/czosel/ember-caluma/tar.gz/6f768f9700dd0d16d54d9955451742e09685bead"
+ember-caluma@0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-0.0.4.tgz#5e32afbf477af9a806c0b4315773a60e6ea11277"
+  integrity sha512-ZNTWQ39MkwQj3ODCgdZmtouZmsuLi5+Ck8TphWeN5hFb+NUa0Jg+HMvRKlVibMtFbjXzFZqfAtFdOP7Sy0zOcw==
   dependencies:
     apollo-link-context "1.0.17"
     broccoli-funnel "2.0.2"
@@ -4438,21 +4439,21 @@ ember-caluma@czosel/ember-caluma#nested-jexl:
     ember-cli-sass "9.0.1"
     ember-cli-string-helpers "2.0.0"
     ember-composable-helpers "2.2.0"
-    ember-concurrency "0.9.0"
+    ember-concurrency "0.10.0"
     ember-fetch "6.5.0"
     ember-intl "3.5.2"
     ember-math-helpers "2.10.0"
     ember-promise-helpers "1.0.6"
     ember-test-selectors "2.1.0"
     ember-uikit "0.7.3"
-    ember-validated-form "2.0.0-alpha.4"
-    graphql "14.2.0"
+    ember-validated-form "2.0.0-alpha.5"
+    graphql "14.2.1"
     graphql-iso-date "3.6.1"
     graphql-tag "2.10.1"
     graphql-tools "4.0.4"
     jexl "1.1.4"
     liquid-fire "0.29.5"
-    sass "1.17.3"
+    sass "1.18.0"
     slugify "1.3.4"
     uuid "3.3.2"
 
@@ -5004,7 +5005,17 @@ ember-composable-helpers@2.2.0, ember-composable-helpers@^2.2.0:
     broccoli-funnel "^1.0.1"
     ember-cli-babel "^7.1.0"
 
-ember-concurrency@0.9.0, ember-concurrency@^0.9.0:
+ember-concurrency@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-0.10.0.tgz#9c7c79dca411e01466119f02d7197c0a4ff0df08"
+  integrity sha512-KhNNkUqnAN0isuAwSHaTJtmY/MdHJogSSAj7lCigzfJn2+21yafQcwzoVqf5LdMOn2+owWYURr1YiwzuOvlGyQ==
+  dependencies:
+    babel-core "^6.24.1"
+    ember-cli-babel "^6.8.2"
+    ember-compatibility-helpers "^1.2.0"
+    ember-maybe-import-regenerator "^0.1.5"
+
+ember-concurrency@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-0.9.0.tgz#0016652ff780fb665842e7f47815ee0601122ea1"
   integrity sha512-JDjvwSlZBUQwv1+qUj6YUqXXe0Y0/to4ppUTNXQ1EEiEAopkHJXQUn0ZcFOiQpEinrYp34Vg6+lUNskoJFL2Vg==
@@ -5489,10 +5500,10 @@ ember-uikit@0.7.3, ember-uikit@^0.7.3:
     ember-toggle "^5.3.0"
     uikit "^3.0.3"
 
-ember-validated-form@2.0.0-alpha.4:
-  version "2.0.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/ember-validated-form/-/ember-validated-form-2.0.0-alpha.4.tgz#0e78c82466e8e6eeedd200c8eef2d1b9d5a0ff45"
-  integrity sha512-dZ3i7Nzm6qaNSoknRaXXHOz5P9qVrEn21Di3Ofyv5kMNpI1m6apsbU/zZW3s47OIlDSCABXQhZsa0v5htRMuNg==
+ember-validated-form@2.0.0-alpha.5:
+  version "2.0.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/ember-validated-form/-/ember-validated-form-2.0.0-alpha.5.tgz#c2fcd875e28fdb1993ffe829c2cfdb73bf8333c7"
+  integrity sha512-/0j0wU6YzwrdHYT90fXQp4u06kmrK2WsgU1uzh9LNKSD7as7dVsia4vYBE5QalBhO/QKNUBH5bQpS/jnYaLtnQ==
   dependencies:
     ember-auto-import "^1.2.13"
     ember-cli-babel "^7.1.2"
@@ -6705,14 +6716,7 @@ graphql-tools@4.0.4:
     iterall "^1.1.3"
     uuid "^3.1.0"
 
-graphql@14.2.0:
-  version "14.2.0"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.2.0.tgz#ff25813ad6d186f3975977d56bc2d2434871f3b9"
-  integrity sha512-dlFHRtxsL4sBy1C1e3v64IUd5ndZhAOHZ/z3Dr4Nm6+cvr9elrnz4BhMF9h9mRBBnhUCGLc4GH4xvPbKG6sUeA==
-  dependencies:
-    iterall "^1.2.2"
-
-graphql@^14.0.2:
+graphql@14.2.1, graphql@^14.0.2:
   version "14.2.1"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.2.1.tgz#779529bf9a01e7207b977a54c20670b48ca6e95c"
   integrity sha512-2PL1UbvKeSjy/lUeJqHk+eR9CvuErXoCNwJI4jm3oNFEeY+9ELqHNKO1ZuSxAkasPkpWbmT/iMRMFxd3cEL3tQ==
@@ -10642,10 +10646,10 @@ sane@^4.0.0:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@1.17.3:
-  version "1.17.3"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.17.3.tgz#19f9164cf8653b9fca670a64e53285272c96d192"
-  integrity sha512-S4vJawbrNUxJUBiHLXPYUKZCoO6cvq3/3ZFBV66a+PafTxcDEFJB+FHLDFl0P+rUfha/703ajEXMuGTYhJESkQ==
+sass@1.18.0:
+  version "1.18.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.18.0.tgz#f34371c31e268e555c2ac8e43d2b64d194e7d090"
+  integrity sha512-Mc579V+BhH693tqt+lvph+gmRqmC6BjtsEVsjkW1944DEA5a0wPuCi781hL3fY4EDuqZnEVPbu42CZRywwE97g==
   dependencies:
     chokidar "^2.0.0"
 
