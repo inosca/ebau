@@ -6023,7 +6023,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "form": "1-allgemeine-informationen",
-      "question": "durchgefuhrte-vorabklarungen",
+      "question": "durchgefuehrte-vorabklaerungen",
       "sort": 3
     }
   },
@@ -10675,7 +10675,7 @@
   },
   {
     "model": "form.question",
-    "pk": "durchgefuhrte-vorabklarungen",
+    "pk": "durchgefuehrte-vorabklaerungen",
     "fields": {
       "created_at": "2019-04-01T15:24:13.058Z",
       "modified_at": "2019-04-01T15:24:13.059Z",
@@ -19316,26 +19316,6 @@
   {
     "model": "form.question",
     "pk": "weitere-hinzufuegen",
-    "fields": {
-      "created_at": "2019-03-25T10:02:34.522Z",
-      "modified_at": "2019-03-29T12:24:00.917Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "label": "{\"de\": \"Weitere hinzuf\\u00fcgen\"}",
-      "type": "table",
-      "is_required": "true",
-      "is_hidden": "'nein' in 'wurden-vorabklaerungen-durchgefuehrt'|answer",
-      "is_archived": false,
-      "configuration": {},
-      "meta": {},
-      "row_form": "durchgefuehrte-vorabklaerungen-tabelle",
-      "sub_form": null,
-      "source": null
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "weitere-hinzufugen",
     "fields": {
       "created_at": "2019-03-25T10:02:34.522Z",
       "modified_at": "2019-03-29T12:24:00.917Z",
