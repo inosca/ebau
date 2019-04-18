@@ -112,7 +112,7 @@ def get_gis_data(multisurface):
         for item in child.findall(
             "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
         ):
-            data["GSKT_BEZEICH_DE"] = item.text
+            data["GSKT_BEZEICH_DE"] = item.text  # pragma: no cover
     return data
 
 
