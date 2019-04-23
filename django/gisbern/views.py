@@ -53,9 +53,7 @@ def get_gis_data(multisurface):
     :rtype:                     dict
     """
 
-    layers = [
-        "GEODB.UZP_BAU_VW",  # Nutzungszone
-        "GEODB.UZP_UEO_VW",  # Überbauungsordnung
+    all_boolean_layers = [
         "GEODB.GSK25_GSK_VW",  # Gewässerschutzzonen
         "BALISKBS_KBS",  # Belasteter Standort
         "GK5_SY",  # Naturgefahren
@@ -64,6 +62,18 @@ def get_gis_data(multisurface):
         "ARCHINV_FUNDST",  # Archäologische Fundstellen
         "NSG_NSGP",  # Naturschutzgebiet
     ]
+    all_special_layers = [
+        "GEODB.UZP_BAU_VW",  # Nutzungszone
+        "GEODB.UZP_UEO_VW",  # Überbauungsordnung
+    ]
+
+    boolean_layers = [
+        l for l in all_boolean_layers if l not in settings.GIS_SKIP_BOOLEAN_LAYERS
+    ]
+    special_layers = [
+        l for l in all_special_layers if l not in settings.GIS_SKIP_SPECIAL_LAYERS
+    ]
+    print(boolean_layers)
 
     query = list(
         map(
@@ -77,7 +87,7 @@ def get_gis_data(multisurface):
       </Query>)""".format(
                 x, multisurface
             ),
-            layers,
+            boolean_layers + special_layers,
         )
     )
 
@@ -95,22 +105,13 @@ def get_gis_data(multisurface):
 
     tag_list = []
     data = {}
-    tags = [
-        "BALISKBS_KBS",  # Belasteter Standort
-        "GK5_SY",  # Naturgefahren
-        "GEODB.UZP_LSG",  # Landschaftsschutz
-        "ARCHINV_FUNDST",  # Archäologische Fundstelle
-        "NSG_NSGP",  # Naturschutz
-        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
-    ]
-
     et = get_root(request_kanton)
     # Find all layers beneath featureMember
     for child in et.findall("./{http://www.opengis.net/gml/3.2}featureMember/"):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
-        for value in tags:
+        for value in boolean_layers:
             data[value.split(".")[-1]] = len([x for x in tag_list if value in x]) > 0
 
         # Nutzungszone ([String])
@@ -133,7 +134,7 @@ def get_gis_data(multisurface):
         for item in child.findall(
             "a42geo_a42geo_ebau_kt_wfs_d_fk:GSKT_BEZEICH_DE", et.nsmap
         ):
-            data["GSKT_BEZEICH_DE"] = item.text
+            data["GSKT_BEZEICH_DE"] = item.text  # pragma: no cover
     return data
 
 
