@@ -19,6 +19,12 @@ export default CamacInputComponent.extend({
   session: service(),
   notification: service(),
 
+  /**
+   * Workaround because thumbnails don't work when
+   * embedded. So just don't show them if isEmbedded is true.
+   */
+  isEmbedded: window !== window.top,
+
   token: reads("session.data.authenticated.access_token"),
 
   headers: computed("token", function() {
@@ -92,7 +98,11 @@ export default CamacInputComponent.extend({
         return;
       }
 
-      let response = yield fetch(document.get("path"), {
+      const url = this.get("group")
+        ? `${document.get("path")}?group=${this.get("group")}`
+        : document.get("path");
+
+      let response = yield fetch(url, {
         mode: "cors",
         headers: this.headers
       });

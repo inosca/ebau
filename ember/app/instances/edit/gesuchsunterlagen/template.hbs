@@ -50,9 +50,9 @@
   {{form.input 'info-vorabklarung'}}
   {{form.input 'info-vorentscheid'}}
   <div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@m">
-    {{form.document 'dokument-grundstucksangaben'}}
-    {{form.document 'dokument-gutachten-nachweise-begrundungen'}}
-    {{form.document 'dokument-projektplane-projektbeschrieb'}}
-    {{form.document 'dokument-weitere-gesuchsunterlagen'}}
+    {{form.document 'dokument-grundstucksangaben' group=params.group}}
+    {{form.document 'dokument-gutachten-nachweise-begrundungen' group=params.group}}
+    {{form.document 'dokument-projektplane-projektbeschrieb' group=params.group}}
+    {{form.document 'dokument-weitere-gesuchsunterlagen' group=params.group}}
   </div>
 {{/camac-form}}
