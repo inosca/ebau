@@ -53,6 +53,28 @@ def get_gis_data(multisurface):
     :rtype:                     dict
     """
 
+    all_boolean_layers = [
+        "GEODB.GSK25_GSK_VW",  # Gewässerschutzzonen
+        "BALISKBS_KBS",  # Belasteter Standort
+        "GK5_SY",  # Naturgefahren
+        "GEODB.BAUINV_BAUINV_VW",  # Bauinventar
+        "GEODB.UZP_LSG_VW",  # Besonderer Landschaftsschutz
+        "ARCHINV_FUNDST",  # Archäologische Fundstellen
+        "NSG_NSGP",  # Naturschutzgebiet
+    ]
+    all_special_layers = [
+        "GEODB.UZP_BAU_VW",  # Nutzungszone
+        "GEODB.UZP_UEO_VW",  # Überbauungsordnung
+    ]
+
+    boolean_layers = [
+        l for l in all_boolean_layers if l not in settings.GIS_SKIP_BOOLEAN_LAYERS
+    ]
+    special_layers = [
+        l for l in all_special_layers if l not in settings.GIS_SKIP_SPECIAL_LAYERS
+    ]
+    print(boolean_layers)
+
     query = list(
         map(
             lambda x: """<Query typeName="a42geo_ebau_kt_wfs_d_fk:{0}" srsName="EPSG:2056">
@@ -65,7 +87,7 @@ def get_gis_data(multisurface):
       </Query>)""".format(
                 x, multisurface
             ),
-            settings.GIS_BOOLEAN_LAYERS + settings.GIS_SPECIAL_LAYERS,
+            boolean_layers + special_layers,
         )
     )
 
@@ -89,7 +111,7 @@ def get_gis_data(multisurface):
         tag_list.append(child.tag)
 
         # true/false values of kanton service
-        for value in settings.GIS_BOOLEAN_LAYERS:
+        for value in boolean_layers:
             data[value.split(".")[-1]] = len([x for x in tag_list if value in x]) > 0
 
         # Nutzungszone ([String])
