@@ -67,6 +67,8 @@ services:
             - DJANGO_UNOCONV_URL=http://unoconv:3000
             - DJANGO_CLAMD_TCP_ADDR=clamav
             - APPLICATION=${APPLICATION}
+            # some GIS layers are currently broken
+            - GIS_SKIP_BOOLEAN_LAYERS=GEODB.GSK25_GSK_VW,GEODB.BAUINV_BAUINV_VW
         volumes:
             - djangomedia:/var/lib/camac/media
 
