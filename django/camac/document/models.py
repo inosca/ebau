@@ -149,7 +149,11 @@ class AttachmentSection(models.Model):
             attachment_section=self, service=group.service_id
         ).values("mode")
 
-        return group_modes.union(role_modes).union(service_nodes)[0]["mode"]
+        mode = (
+            group_modes.union(role_modes).union(service_nodes).order_by("mode").first()
+        )
+
+        return None if mode is None else mode["mode"]
 
     class Meta:
         managed = True
