@@ -3,7 +3,6 @@ services:
     proxy:
         image: nginx:1.13-alpine
         depends_on:
-            - caluma
             - ember
             - php
             - django
