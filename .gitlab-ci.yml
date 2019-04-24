@@ -95,7 +95,18 @@ build-kt_schwyz-stage:
         APPLICATION: kt_schwyz
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     only:
-        - stage
+        - stage-sz
+
+
+build-kt_schwyz-production:
+    extends: .build-image
+    variables:
+        KEYCLOAK_URL: https://behoerden.ebau-sz.ch/auth/
+        APPLICATION: kt_schwyz
+        COMPOSE: docker-compose -f docker-compose.production.sz.yml
+        CONTAINERS: ember django php
+    only:
+        - production-sz
 
 
 build-kt_uri-stage:
@@ -188,7 +199,19 @@ deploy-kt_schwyz-stage:
         APPLICATION: kt_schwyz
         DOCKER_HOST: vm-camac-webapp-stage-02.cust.adfinis-sygroup.ch:2376
     only:
-        - stage
+        - stage-sz
+
+
+deploy-kt_schwyz-production:
+    extends: deploy-kt_schwyz-stage
+    environment:
+        name: production-kt_schwyz
+        url: https://behoerden.ebau-sz.ch/
+    variables:
+        COMPOSE: docker-compose -f docker-compose.production.sz.yml --tlsverify --tlscert /root/.docker/cert.pem --tlskey /root/.docker/key.pem --tlscacert /root/.docker/ca.pem
+        DOCKER_HOST: vm-kantonsz-web-01.cust.adfinis-sygroup.ch:2376
+    only:
+        - production-sz
 
 
 deploy-kt_uri-stage:
