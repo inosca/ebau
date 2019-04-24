@@ -39,12 +39,11 @@ services:
             context: ember
             cache_from:
                 - acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
+            args:
+                KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
         depends_on:
             - django
         restart: always
-        build:
-            args:
-                KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
 
     php:
         image: acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
