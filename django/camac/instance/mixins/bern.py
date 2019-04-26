@@ -65,7 +65,7 @@ class InstanceQuerysetMixin(object):
     def get_queryset_for_applicant(self):
         queryset = self.get_base_queryset()
         # An applicant needs to be invited on the instance to access it
-        return queryset.filter(applicants__user=self.request.user)
+        return queryset.filter(involved_applicants__user=self.request.user)
 
     def _instances_with_activation(self):
         return Circulation.objects.filter(

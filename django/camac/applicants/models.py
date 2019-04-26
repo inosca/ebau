@@ -6,7 +6,9 @@ class Applicant(models.Model):
         "instance.Instance",
         models.CASCADE,
         db_column="INSTANCE_ID",
-        related_name="applicants",
+        # NOTE: The "involved_" prefix is required because the instance views annotate
+        # "applicants". And we did not wanted to break backwards compatibility
+        related_name="involved_applicants",
     )
     user = models.ForeignKey(
         "user.User", models.DO_NOTHING, db_column="USER_ID", related_name="+"
