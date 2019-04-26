@@ -58,6 +58,8 @@ services:
         environment:
             - APPLICATION_ENV=production
         volumes:
+            - djangomedia:/var/www/camac/media
+            - phpsessions:/var/www/camac/sessions
             - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
             - /etc/camac/application.ini:/var/www/camac/${APPLICATION}/configs/application.local.ini:ro
             # TODO: Implement resource fallback in document module, so this can be removed
