@@ -8620,7 +8620,7 @@
     "pk": "anforderungen-eingehalten",
     "fields": {
       "created_at": "2019-04-10T11:41:29.404Z",
-      "modified_at": "2019-04-25T09:48:30.101Z",
+      "modified_at": "2019-04-26T11:09:21.943Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss Art. 11 \\u2013 15 BewD eingehalten.\"}",
@@ -8631,7 +8631,7 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Baubewilligungsdekret](https://www.belex.sites.be.ch/frontend/versions/569)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -9610,7 +9610,7 @@
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen",
     "fields": {
       "created_at": "2019-04-10T13:29:17.030Z",
-      "modified_at": "2019-04-10T13:29:17.030Z",
+      "modified_at": "2019-04-26T11:10:53.019Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt. Hiermit wird best\\u00e4tigt, dass die Bauprofile bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.\"}",
@@ -9619,9 +9619,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -9632,18 +9632,18 @@
     "pk": "bauprofile-gestellt",
     "fields": {
       "created_at": "2019-04-10T11:55:01.588Z",
-      "modified_at": "2019-04-25T10:28:23.760Z",
+      "modified_at": "2019-04-26T11:10:45.651Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt.\"}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Baubewilligungsdekret](https://www.belex.sites.be.ch/frontend/versions/569)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -10402,7 +10402,7 @@
     "pk": "bestaetigung-generalvollmacht",
     "fields": {
       "created_at": "2019-04-10T13:53:49.095Z",
-      "modified_at": "2019-04-10T13:53:49.095Z",
+      "modified_at": "2019-04-26T11:12:53.923Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
@@ -10411,9 +10411,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -10424,7 +10424,7 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung",
     "fields": {
       "created_at": "2019-04-10T13:51:16.442Z",
-      "modified_at": "2019-04-25T10:30:34.009Z",
+      "modified_at": "2019-04-26T11:12:18.591Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
@@ -10435,7 +10435,7 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Merkblatt Entw\\u00e4sserung von Industrie \\u2013 und Gewerbeliegenschaften](https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_entwaesserung_von_industrie_und_gewerbeliegenschaften_ig023_de.pdf)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -10446,7 +10446,7 @@
     "pk": "bestaetigung-mit-unterschrift",
     "fields": {
       "created_at": "2019-04-10T12:04:33.358Z",
-      "modified_at": "2019-04-10T12:04:33.358Z",
+      "modified_at": "2019-04-26T11:12:43.982Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauherrschaft resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
@@ -10455,9 +10455,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -11392,7 +11392,7 @@
     "pk": "einhaltung-asbestvorgaben",
     "fields": {
       "created_at": "2019-04-10T11:59:46.196Z",
-      "modified_at": "2019-04-25T10:30:01.233Z",
+      "modified_at": "2019-04-26T11:12:06.961Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).\"}",
@@ -11403,7 +11403,7 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Umweltsicherheit - Asbest](https://www.gef.be.ch/gef/de/index/gesundheit/gesundheit/umweltsicherheit/Asbest.html)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -11414,7 +11414,7 @@
     "pk": "einhaltung-radonvorgaben",
     "fields": {
       "created_at": "2019-04-10T11:58:35.095Z",
-      "modified_at": "2019-04-25T10:29:31.992Z",
+      "modified_at": "2019-04-26T11:11:52.319Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Radonvorgaben gem\\u00e4ss Strahlenschutzverordnung des Bundes.\"}",
@@ -11425,7 +11425,7 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Umweltsicherheit - Radon](https://www.gef.be.ch/gef/de/index/gesundheit/gesundheit/umweltsicherheit/Radon.html)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -13966,7 +13966,7 @@
     "pk": "keine-rueckhiebe-oder-aushiebe",
     "fields": {
       "created_at": "2019-04-10T13:48:36.763Z",
-      "modified_at": "2019-04-10T13:48:36.763Z",
+      "modified_at": "2019-04-26T11:11:12.689Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt,\"}",
@@ -13975,9 +13975,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -13988,7 +13988,7 @@
     "pk": "keine-tangierung-natur-wild-vogelschutz",
     "fields": {
       "created_at": "2019-04-10T12:01:54.598Z",
-      "modified_at": "2019-04-25T10:32:27.896Z",
+      "modified_at": "2019-04-26T11:12:33.096Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.\"}",
@@ -13999,7 +13999,7 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Anforderungen des Natur-, Wild- und Vogelschutzes an Baugesuchsunterlagen - Checkliste mit Erl\\u00e4uterungen (Arbeitshilfe)](https://www.vol.be.ch/vol/de/index/natur/naturfoerderung/publikationen.assetref/dam/documents/VOL/LANAT/de/Natur/Naturfoerderung/PUB_LANAT_NF_Anforderungen_Baugesuche_de.pdf)\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -19708,7 +19708,7 @@
     "pk": "verpflichtung-bei-handaenderung",
     "fields": {
       "created_at": "2019-04-10T11:56:57.289Z",
-      "modified_at": "2019-04-10T11:56:57.289Z",
+      "modified_at": "2019-04-26T11:11:34.066Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
@@ -19717,9 +19717,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -19994,7 +19994,7 @@
     "pk": "verzicht-schadensersatz-naturereignisse",
     "fields": {
       "created_at": "2019-04-10T13:46:40.916Z",
-      "modified_at": "2019-04-10T13:46:40.916Z",
+      "modified_at": "2019-04-26T11:10:58.625Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
@@ -20003,9 +20003,9 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "hideLabel": true, "widgetOverride": null },
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -21344,6 +21344,32 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "03150ad4-05d4-4c7d-add5-3ea97bba8260",
+    "fields": {
+      "created_at": "2019-04-26T11:09:21.946Z",
+      "modified_at": "2019-04-26T11:09:21.946Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "anforderungen-eingehalten",
+      "option": "anforderungen-eingehalten-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "032653c3-6f06-45da-a395-f9684886a976",
+    "fields": {
+      "created_at": "2019-04-26T11:10:58.628Z",
+      "modified_at": "2019-04-26T11:10:58.628Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "verzicht-schadensersatz-naturereignisse",
+      "option": "verzicht-schadensersatz-naturereignisse-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "035fbd96-8882-42e2-8e38-d65d942c2fe9",
     "fields": {
       "created_at": "2019-03-28T08:37:03.610Z",
@@ -21578,19 +21604,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "0b8db1a0-098b-4146-8879-b1a240153681",
-    "fields": {
-      "created_at": "2019-04-10T13:48:36.769Z",
-      "modified_at": "2019-04-10T13:48:36.769Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "keine-rueckhiebe-oder-aushiebe",
-      "option": "keine-rueckhiebe-oder-aushiebe-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "0bac6b6d-4bf6-4dc7-8cd2-bef386ecdc7f",
     "fields": {
       "created_at": "2019-03-15T08:32:07.082Z",
@@ -21795,19 +21808,6 @@
       "question": "organismen-in-anlage",
       "option": "organismen-in-anlage-pilze",
       "sort": 5
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "136f8652-a335-47df-85ac-ca91b830ab90",
-    "fields": {
-      "created_at": "2019-04-10T13:46:40.921Z",
-      "modified_at": "2019-04-10T13:46:40.921Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "verzicht-schadensersatz-naturereignisse",
-      "option": "verzicht-schadensersatz-naturereignisse-ja",
-      "sort": 1
     }
   },
   {
@@ -22041,32 +22041,6 @@
       "created_by_group": null,
       "question": "prostitution",
       "option": "prostitution-nein",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "187a03d6-13d2-4fca-8533-aa8e5e8ed1fb",
-    "fields": {
-      "created_at": "2019-04-10T12:04:33.363Z",
-      "modified_at": "2019-04-10T12:04:33.363Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bestaetigung-mit-unterschrift",
-      "option": "bestaetigung-mit-unterschrift-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "195148bb-1d5c-4a10-a952-3b7189003811",
-    "fields": {
-      "created_at": "2019-04-25T10:32:27.899Z",
-      "modified_at": "2019-04-25T10:32:27.899Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "keine-tangierung-natur-wild-vogelschutz",
-      "option": "-ja",
       "sort": 1
     }
   },
@@ -22930,19 +22904,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "34828d20-3810-4d18-9f63-41613276ecd7",
-    "fields": {
-      "created_at": "2019-04-10T13:53:49.100Z",
-      "modified_at": "2019-04-10T13:53:49.100Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bestaetigung-generalvollmacht",
-      "option": "bestaetigung-generalvollmacht-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "348bc16b-00b5-46ea-a472-60f068d32d64",
     "fields": {
       "created_at": "2019-04-18T14:06:21.613Z",
@@ -23411,6 +23372,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "422b10f6-1ef2-42c5-a7b1-b63d9416e1c7",
+    "fields": {
+      "created_at": "2019-04-26T11:12:33.098Z",
+      "modified_at": "2019-04-26T11:12:33.098Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "keine-tangierung-natur-wild-vogelschutz",
+      "option": "keine-tangierung-natur-wild-vogelschutz--ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "4314d0a6-1b9b-4041-827e-95cd02e01193",
     "fields": {
       "created_at": "2019-04-03T14:02:51.130Z",
@@ -23593,19 +23567,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "47e0ce93-4e4e-4ac7-9aad-776ea3f81ca9",
-    "fields": {
-      "created_at": "2019-04-10T11:56:57.293Z",
-      "modified_at": "2019-04-10T11:56:57.293Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "verpflichtung-bei-handaenderung",
-      "option": "-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "482f39f3-8e53-4ff5-8197-09471acf2f4b",
     "fields": {
       "created_at": "2019-04-02T13:42:24.458Z",
@@ -23706,6 +23667,19 @@
       "question": "finden-bauarbeiten-in-der-nacht-statt",
       "option": "finden-bauarbeiten-in-der-nacht-statt-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "4a5d5a08-079d-401a-b617-8f141364c486",
+    "fields": {
+      "created_at": "2019-04-26T11:11:12.698Z",
+      "modified_at": "2019-04-26T11:11:12.698Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "keine-rueckhiebe-oder-aushiebe",
+      "option": "keine-rueckhiebe-oder-aushiebe-ja",
+      "sort": 1
     }
   },
   {
@@ -24178,19 +24152,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "57c22ae0-b2a5-4e4e-9f54-cf7e2141fde4",
-    "fields": {
-      "created_at": "2019-04-10T13:29:17.052Z",
-      "modified_at": "2019-04-10T13:29:17.052Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
-      "option": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "57fc5bb1-d9e9-4ec0-9830-fc490e190ecc",
     "fields": {
       "created_at": "2019-04-09T12:37:04.968Z",
@@ -24386,6 +24347,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "62204325-1602-431e-ae2d-3cd833c47869",
+    "fields": {
+      "created_at": "2019-04-26T11:11:34.070Z",
+      "modified_at": "2019-04-26T11:11:34.070Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "verpflichtung-bei-handaenderung",
+      "option": "verpflichtung-bei-handaenderung--ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "626a38db-65a6-48f7-968e-5bac3feb167a",
     "fields": {
       "created_at": "2019-04-18T14:38:21.499Z",
@@ -24395,19 +24369,6 @@
       "question": "nutzungsart",
       "option": "nutzungsart-industrie",
       "sort": 8
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "628e2d35-9899-4c9e-ad23-df49e4f34b4d",
-    "fields": {
-      "created_at": "2019-04-25T10:29:31.994Z",
-      "modified_at": "2019-04-25T10:29:31.994Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "einhaltung-radonvorgaben",
-      "option": "einhaltung-radonvorgaben-ja",
-      "sort": 1
     }
   },
   {
@@ -24867,19 +24828,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "70833e4e-f365-462d-b8e1-ac915a3d1e66",
-    "fields": {
-      "created_at": "2019-04-25T10:30:01.236Z",
-      "modified_at": "2019-04-25T10:30:01.236Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "einhaltung-asbestvorgaben",
-      "option": "einhaltung-asbestvorgaben-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "712f671d-78dd-4dc7-9841-2cbc55908eb0",
     "fields": {
       "created_at": "2019-04-25T09:13:59.654Z",
@@ -25032,6 +24980,19 @@
       "question": "brandbelastung",
       "option": "brandbelastung-ja",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "78ba921a-881d-4e24-bc76-ef65db5ad50f",
+    "fields": {
+      "created_at": "2019-04-26T11:10:45.654Z",
+      "modified_at": "2019-04-26T11:10:45.654Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bauprofile-gestellt",
+      "option": "bauprofile-gestellt-ja",
+      "sort": 1
     }
   },
   {
@@ -25213,6 +25174,19 @@
       "created_by_group": null,
       "question": "handelt-es-sich-um-eine-juristische-person",
       "option": "handelt-es-sich-um-eine-juristische-person-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "7f117f5a-1715-4d47-807d-983db041b6d7",
+    "fields": {
+      "created_at": "2019-04-26T11:11:52.323Z",
+      "modified_at": "2019-04-26T11:11:52.323Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einhaltung-radonvorgaben",
+      "option": "einhaltung-radonvorgaben-ja",
       "sort": 1
     }
   },
@@ -25487,19 +25461,6 @@
       "question": "prostitution",
       "option": "prostitution-ja",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "89b40ce3-a647-489b-a8e8-7533ddf569e0",
-    "fields": {
-      "created_at": "2019-04-25T09:48:30.103Z",
-      "modified_at": "2019-04-25T09:48:30.103Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "anforderungen-eingehalten",
-      "option": "anforderungen-eingehalten-ja",
-      "sort": 1
     }
   },
   {
@@ -26843,6 +26804,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "b401238b-8d43-4bdc-9913-3cd34086a2a4",
+    "fields": {
+      "created_at": "2019-04-26T11:12:53.925Z",
+      "modified_at": "2019-04-26T11:12:53.925Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-generalvollmacht",
+      "option": "bestaetigung-generalvollmacht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "b4a0a733-fd53-459d-b844-9d1dc979ca4a",
     "fields": {
       "created_at": "2019-04-17T08:00:03.960Z",
@@ -26851,6 +26825,19 @@
       "created_by_group": "[]",
       "question": "gebinde-in-grundwasserschutzzone",
       "option": "gebinde-in-grundwasserschutzzone-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "b4f97a3a-291f-40fa-b4b1-2f1431e9e6dc",
+    "fields": {
+      "created_at": "2019-04-26T11:10:53.021Z",
+      "modified_at": "2019-04-26T11:10:53.022Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
+      "option": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
       "sort": 1
     }
   },
@@ -27064,19 +27051,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "bc078049-afbd-48ae-98d0-cd13d96d3766",
-    "fields": {
-      "created_at": "2019-04-25T10:30:34.013Z",
-      "modified_at": "2019-04-25T10:30:34.013Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bestaetigung-liegenschaftsentwaesserung",
-      "option": "bestaetigung-liegenschaftsentwaesserung-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "bc14f142-de37-4c25-8a1c-c121d14f471b",
     "fields": {
       "created_at": "2019-04-18T14:58:28.461Z",
@@ -27099,6 +27073,19 @@
       "question": "produkteleitung",
       "option": "produkteleitung-1-strang",
       "sort": 7
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "bd1b4520-5865-40c3-ba76-347e42cf5f71",
+    "fields": {
+      "created_at": "2019-04-26T11:12:06.964Z",
+      "modified_at": "2019-04-26T11:12:06.964Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einhaltung-asbestvorgaben",
+      "option": "einhaltung-asbestvorgaben-ja",
+      "sort": 1
     }
   },
   {
@@ -27467,6 +27454,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "cd6ba674-3c5d-4e53-a8a4-473bbb16a7b4",
+    "fields": {
+      "created_at": "2019-04-26T11:12:43.987Z",
+      "modified_at": "2019-04-26T11:12:43.988Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-mit-unterschrift",
+      "option": "bestaetigung-mit-unterschrift-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "ce6dbbbf-125d-4471-b288-67dc8f9c68c1",
     "fields": {
       "created_at": "2019-04-18T14:06:21.614Z",
@@ -27766,19 +27766,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "da30309a-518c-461b-a46e-7ef0bc08a3ad",
-    "fields": {
-      "created_at": "2019-04-25T10:28:23.764Z",
-      "modified_at": "2019-04-25T10:28:23.764Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bauprofile-gestellt",
-      "option": "bauprofile-gestellt-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "db6460ba-a7a5-40d6-b16c-5e9938e3423a",
     "fields": {
       "created_at": "2019-04-08T14:11:51.200Z",
@@ -28047,6 +28034,19 @@
       "created_by_group": null,
       "question": "schalldruckpegelabnahme",
       "option": "schalldruckpegelabnahme-nein",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "e655f54a-4c71-4ce6-89aa-7ae5bc2d3fad",
+    "fields": {
+      "created_at": "2019-04-26T11:12:18.595Z",
+      "modified_at": "2019-04-26T11:12:18.595Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-liegenschaftsentwaesserung",
+      "option": "bestaetigung-liegenschaftsentwaesserung-ja",
       "sort": 1
     }
   },
@@ -29225,10 +29225,10 @@
     "pk": "anforderungen-eingehalten-ja",
     "fields": {
       "created_at": "2019-04-10T11:41:29.253Z",
-      "modified_at": "2019-04-25T09:48:29.974Z",
+      "modified_at": "2019-04-26T11:09:21.752Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Anforderungen sind gem\\u00e4ss Art. 11 \\u2013 15 BewD eingehalten.\"}",
       "meta": {},
       "source": null
     }
@@ -30070,10 +30070,10 @@
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
     "fields": {
       "created_at": "2019-04-10T13:29:16.765Z",
-      "modified_at": "2019-04-10T13:29:16.765Z",
+      "modified_at": "2019-04-26T11:10:52.876Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt. Hiermit wird best\\u00e4tigt, dass die Bauprofile bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.\"}",
       "meta": {},
       "source": null
     }
@@ -30083,10 +30083,10 @@
     "pk": "bauprofile-gestellt-ja",
     "fields": {
       "created_at": "2019-04-10T11:55:01.461Z",
-      "modified_at": "2019-04-25T10:28:23.613Z",
+      "modified_at": "2019-04-26T11:10:45.506Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt.\"}",
       "meta": {},
       "source": null
     }
@@ -30408,10 +30408,10 @@
     "pk": "bestaetigung-generalvollmacht-ja",
     "fields": {
       "created_at": "2019-04-10T13:53:48.953Z",
-      "modified_at": "2019-04-10T13:53:48.953Z",
+      "modified_at": "2019-04-26T11:12:53.722Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
       "meta": {},
       "source": null
     }
@@ -30421,10 +30421,10 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung-ja",
     "fields": {
       "created_at": "2019-04-10T13:51:16.315Z",
-      "modified_at": "2019-04-25T10:30:33.791Z",
+      "modified_at": "2019-04-26T11:12:18.372Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
       "meta": {},
       "source": null
     }
@@ -30434,10 +30434,10 @@
     "pk": "bestaetigung-mit-unterschrift-ja",
     "fields": {
       "created_at": "2019-04-10T12:04:33.200Z",
-      "modified_at": "2019-04-10T12:04:33.200Z",
+      "modified_at": "2019-04-26T11:12:43.787Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Bauherrschaft resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
       "meta": {},
       "source": null
     }
@@ -30928,10 +30928,10 @@
     "pk": "einhaltung-asbestvorgaben-ja",
     "fields": {
       "created_at": "2019-04-10T11:59:46.059Z",
-      "modified_at": "2019-04-25T10:30:01.089Z",
+      "modified_at": "2019-04-26T11:12:06.760Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).\"}",
       "meta": {},
       "source": null
     }
@@ -30941,10 +30941,10 @@
     "pk": "einhaltung-radonvorgaben-ja",
     "fields": {
       "created_at": "2019-04-10T11:58:34.964Z",
-      "modified_at": "2019-04-25T10:29:31.861Z",
+      "modified_at": "2019-04-26T11:11:52.144Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Radonvorgaben gem\\u00e4ss Strahlenschutzverordnung des Bundes.\"}",
       "meta": {},
       "source": null
     }
@@ -32514,10 +32514,23 @@
     "pk": "keine-rueckhiebe-oder-aushiebe-ja",
     "fields": {
       "created_at": "2019-04-10T13:48:36.621Z",
-      "modified_at": "2019-04-10T13:48:36.621Z",
+      "modified_at": "2019-04-26T11:11:12.517Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt,\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "keine-tangierung-natur-wild-vogelschutz--ja",
+    "fields": {
+      "created_at": "2019-04-26T11:12:32.854Z",
+      "modified_at": "2019-04-26T11:12:32.854Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.\"}",
       "meta": {},
       "source": null
     }
@@ -35072,6 +35085,19 @@
   },
   {
     "model": "form.option",
+    "pk": "verpflichtung-bei-handaenderung--ja",
+    "fields": {
+      "created_at": "2019-04-26T11:11:33.879Z",
+      "modified_at": "2019-04-26T11:11:33.879Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "versickerung-dachflaechen-ja",
     "fields": {
       "created_at": "2019-04-09T12:29:51.249Z",
@@ -35504,10 +35530,10 @@
     "pk": "verzicht-schadensersatz-naturereignisse-ja",
     "fields": {
       "created_at": "2019-04-10T13:46:40.761Z",
-      "modified_at": "2019-04-10T13:46:40.761Z",
+      "modified_at": "2019-04-26T11:10:58.442Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\"}",
+      "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
       "meta": {},
       "source": null
     }
