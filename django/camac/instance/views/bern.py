@@ -13,6 +13,7 @@ from camac.notification.serializers import NotificationTemplateSendmailSerialize
 
 from .. import filters, models, serializers
 from ..mixins import bern as mixins
+from ..serializers.bern import BernInstanceSerializer
 
 
 class InstanceView(
@@ -24,7 +25,7 @@ class InstanceView(
     """
     instance_editable_permission = "instance"
 
-    serializer_class = serializers.InstanceSerializer
+    serializer_class = BernInstanceSerializer
     filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
     prefetch_for_includes = {"circulations": ["circulations__activations"]}
