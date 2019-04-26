@@ -77,7 +77,10 @@
                   "instances.edit" edge.node.id
                   title="Klicken Sie um das Gesuch zu bearbeiten"
                 }}
-                  {{edge.node.id}}
+                  {{edge.node.document.form.name}} vom {{format-date edge.node.createdAt}}
+                  {{#if (get edge.node.meta "camac-instance-id")}}
+                    ({{get edge.node.meta "camac-instance-id" }})
+                  {{/if}}
                 {{/link-to}}
               </td>
               <td>{{edge.node.document.form.name}}</td>
