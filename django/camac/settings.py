@@ -83,9 +83,8 @@ WSGI_APPLICATION = "camac.wsgi.application"
 # an application is defined by the customer e.g. uri, schwyz, etc.
 
 APPLICATIONS = {
-    # settings for demp app, can also used as example
     "demo": {
-        # mapping between Camac role and instance permission
+        # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             # Only Schwyz
             "Municipality": "municipality",
@@ -103,7 +102,6 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_schwyz": {
-        # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Fachstelle": "service",
@@ -115,7 +113,6 @@ APPLICATIONS = {
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
     },
-    "kt_uri": {},
     "kt_bern": {
         "ROLE_PERMISSIONS": {
             "Gesuchsteller": "applicant",
@@ -131,8 +128,8 @@ APPLICATIONS = {
             "Unterfachstelle": "service",
             "System-Betrieb": "support",
         }
-    }
-    # add other application configuration here...
+    },
+    "kt_uri": {},
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
