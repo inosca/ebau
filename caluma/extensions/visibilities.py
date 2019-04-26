@@ -99,7 +99,6 @@ class FilterViaCamacAPIMixin:
             raise RuntimeError(
                 "Requested model %s has no configured visibility" % qs_model
             )
-
         role = self.role(info)
         default_filter = filters_by_model_and_role[qs_model]["_default"]
 
