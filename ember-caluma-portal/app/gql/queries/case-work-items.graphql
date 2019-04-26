@@ -1,0 +1,14 @@
+query WorkItems ($caseId: ID!){
+  allWorkItems(case: $caseId) {
+    edges {
+      node {
+        id
+        status
+        task {
+          id
+          slug
+        }
+      }
+    }
+  }
+}

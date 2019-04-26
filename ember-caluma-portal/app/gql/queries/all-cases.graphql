@@ -3,6 +3,7 @@ query AllCases {
     edges {
       node {
         id
+        meta
         createdAt
         modifiedAt
         createdByUser
