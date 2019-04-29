@@ -13,6 +13,7 @@ services:
             - "443:443"
         volumes:
             - /etc/letsencrypt:/etc/letsencrypt:ro
+            - /srv/www/htdocs:/var/www/letsencrypt:ro
             - /etc/camac/nginx:/etc/nginx/conf.d:ro
             - djangomedia:/var/lib/camac/media:ro
 
