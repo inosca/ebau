@@ -57,6 +57,7 @@ services:
             - keycloak
         restart: always
         environment:
+            - APPLICATION=${APPLICATION}
             - APPLICATION_ENV=production
         volumes:
             - djangomedia:/var/www/camac/media

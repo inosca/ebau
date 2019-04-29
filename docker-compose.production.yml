@@ -76,7 +76,6 @@ services:
                 - acr.run/camac-ng/camac-ng/php:${CI_COMMIT_REF_SLUG}-${APPLICATION}
         restart: always
         environment:
-            - APPLICATION=${APPLICATION}
             - APPLICATION_ENV=production
         volumes:
             - /etc/camac/php.ini:/usr/local/etc/php/php.ini:ro
