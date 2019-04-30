@@ -232,6 +232,13 @@ models_referencing_data = (
     "user.ServiceGroupT",
 )
 
+sz_exclude_models_referencing_data = [
+    "user.Group",
+    "user.GroupT",
+    "user.GroupLocation",
+    "user.Service",
+]
+
 
 class Command(BaseCommand):
     help = (
@@ -242,15 +249,24 @@ class Command(BaseCommand):
     def handle(self, *app_labels, **options):
         options["indent"] = 2
 
+        export_models = [*pure_config_models, *models_referencing_data]
+
+        # kt_schwyz only: Since Schwyz manages groups and services on their own,
+        # do not export them otherwise they will be overwritten in production!
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            export_models = [
+                model
+                for model in export_models
+                if model not in sz_exclude_models_referencing_data
+            ]
+
         try:
             output = options.pop("output")
         except KeyError:  # pragma: no cover
             output = settings.APPLICATION_DIR("config.json")
         tmp_output = io.StringIO()
         options["stdout"] = tmp_output
-        call_command(
-            "dumpdata", *(pure_config_models + models_referencing_data), **options
-        )
+        call_command("dumpdata", *export_models, **options)
         tmp_output.seek(0)
         data = json.load(tmp_output)
         data = sorted(data, key=lambda k: (k["model"], k["pk"]))
