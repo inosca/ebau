@@ -52,7 +52,6 @@ pure_config_models = (
     "core.AvailableInstanceResource",
     "core.AvailableResource",
     "core.AValidate",
-    "core.BGroupAcl",
     "core.BillingConfig",
     "core.BRoleAcl",
     "core.BServiceAcl",
@@ -84,7 +83,6 @@ pure_config_models = (
     "core.InstanceResourceT",
     "core.InstanceResourceAction",
     "core.IrAllformpages",
-    "core.IrCirculation",
     "core.IrEditcirculation",
     "core.IrEditcirculationT",
     "core.IrEditcirculationSg",
@@ -196,6 +194,7 @@ pure_config_models = (
 # be safely flushed and re-imported.
 models_referencing_data = (
     "core.AnswerQuery",
+    "core.BGroupAcl",
     "core.BuildingAuthoritySection",
     "core.BuildingAuthorityButton",
     "core.Chapter",
@@ -203,6 +202,7 @@ models_referencing_data = (
     "core.CirculationAnswerType",
     "core.CirculationState",
     "core.CirculationType",
+    "core.IrCirculation",
     "core.Mapping",
     "core.NoticeType",
     "core.Question",
@@ -228,9 +228,18 @@ models_referencing_data = (
     "user.Role",
     "user.RoleT",
     "user.Service",
+    "user.ServiceT",
     "user.ServiceGroup",
     "user.ServiceGroupT",
 )
+
+sz_exclude_models_referencing_data = [
+    "user.Group",
+    "user.GroupT",
+    "user.GroupLocation",
+    "user.Service",
+    "user.ServiceT",
+]
 
 
 class Command(BaseCommand):
@@ -242,15 +251,24 @@ class Command(BaseCommand):
     def handle(self, *app_labels, **options):
         options["indent"] = 2
 
+        export_models = [*pure_config_models, *models_referencing_data]
+
+        # kt_schwyz only: Since Schwyz manages groups and services on their own,
+        # do not export them otherwise they will be overwritten in production!
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            export_models = [
+                model
+                for model in export_models
+                if model not in sz_exclude_models_referencing_data
+            ]
+
         try:
             output = options.pop("output")
         except KeyError:  # pragma: no cover
             output = settings.APPLICATION_DIR("config.json")
         tmp_output = io.StringIO()
         options["stdout"] = tmp_output
-        call_command(
-            "dumpdata", *(pure_config_models + models_referencing_data), **options
-        )
+        call_command("dumpdata", *export_models, **options)
         tmp_output.seek(0)
         data = json.load(tmp_output)
         data = sorted(data, key=lambda k: (k["model"], k["pk"]))
