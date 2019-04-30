@@ -228,6 +228,7 @@ models_referencing_data = (
     "user.Role",
     "user.RoleT",
     "user.Service",
+    "user.ServiceT",
     "user.ServiceGroup",
     "user.ServiceGroupT",
 )
@@ -237,6 +238,7 @@ sz_exclude_models_referencing_data = [
     "user.GroupT",
     "user.GroupLocation",
     "user.Service",
+    "user.ServiceT",
 ]
 
 
