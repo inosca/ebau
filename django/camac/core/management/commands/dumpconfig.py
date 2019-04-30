@@ -52,7 +52,6 @@ pure_config_models = (
     "core.AvailableInstanceResource",
     "core.AvailableResource",
     "core.AValidate",
-    "core.BGroupAcl",
     "core.BillingConfig",
     "core.BRoleAcl",
     "core.BServiceAcl",
@@ -84,7 +83,6 @@ pure_config_models = (
     "core.InstanceResourceT",
     "core.InstanceResourceAction",
     "core.IrAllformpages",
-    "core.IrCirculation",
     "core.IrEditcirculation",
     "core.IrEditcirculationT",
     "core.IrEditcirculationSg",
@@ -196,6 +194,7 @@ pure_config_models = (
 # be safely flushed and re-imported.
 models_referencing_data = (
     "core.AnswerQuery",
+    "core.BGroupAcl",
     "core.BuildingAuthoritySection",
     "core.BuildingAuthorityButton",
     "core.Chapter",
@@ -203,6 +202,7 @@ models_referencing_data = (
     "core.CirculationAnswerType",
     "core.CirculationState",
     "core.CirculationType",
+    "core.IrCirculation",
     "core.Mapping",
     "core.NoticeType",
     "core.Question",
