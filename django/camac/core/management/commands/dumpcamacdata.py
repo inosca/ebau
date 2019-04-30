@@ -5,7 +5,11 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from .dumpconfig import models_referencing_data, pure_config_models
+from .dumpconfig import (
+    models_referencing_data,
+    pure_config_models,
+    sz_exclude_models_referencing_data,
+)
 
 
 class Command(BaseCommand):
@@ -13,7 +17,18 @@ class Command(BaseCommand):
 
     def handle(self, *app_labels, **options):
         options["indent"] = 2
-        options["exclude"] = pure_config_models + models_referencing_data
+
+        exclude_models = [*pure_config_models, *models_referencing_data]
+
+        # respect customer specific excludes
+        if settings.APPLICATION_NAME == "kt_schwyz":
+            exclude_models = [
+                model
+                for model in exclude_models
+                if model not in sz_exclude_models_referencing_data
+            ]
+
+        options["exclude"] = exclude_models
 
         # apps which include data models
         apps = (
