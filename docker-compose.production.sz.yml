@@ -88,6 +88,13 @@ services:
             - ENV_FILE=/run/secrets/keycloak.env
         restart: always
 
+    postfix:
+      image: mwader/postfix-relay
+      restart: always
+      environment:
+        - POSTFIX_myhostname=ebau-sz.ch
+        - POSTFIX_mail_name=noreply@ebau-sz.ch
+
 volumes:
     djangomedia:
         external:
