@@ -34,35 +34,15 @@ module.exports = function(environment) {
       // used in submit and camac-property-selector
       municipalityNames: [
         "Alpthal",
-        "Altendorf",
-        "Arth",
-        "Einsiedeln",
-        "Feusisberg",
-        "Freienbach",
         "Galgenen",
-        "Gersau",
-        "Illgau",
-        "Ingenbohl",
         "Innerthal",
-        "Küssnacht",
-        "Lachen",
         "Lauerz",
-        "Morschach",
         "Muotathal",
         "Oberiberg",
-        "Rechenburg",
         "Riemenstalden",
         "Rothenthurm",
-        "Sattel",
-        "Schwyz",
-        "Schübelbach",
         "Steinen",
-        "Steinerberg",
-        "Tuggen",
-        "Unteriberg",
-        "Vorderthal",
-        "Wangen",
-        "Wollerau"
+        "Steinerberg"
       ]
     },
 
