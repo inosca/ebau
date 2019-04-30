@@ -101,7 +101,7 @@ build-kt_schwyz-stage:
 build-kt_schwyz-production:
     extends: .build-image
     variables:
-        KEYCLOAK_URL: https://behoerden.ebau-sz.ch/auth/
+        KEYCLOAK_URL: https://ebau-sz.ch/auth/
         APPLICATION: kt_schwyz
         COMPOSE: docker-compose -f docker-compose.production.sz.yml
         CONTAINERS: ember django php
