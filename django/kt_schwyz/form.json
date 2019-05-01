@@ -5908,9 +5908,27 @@
       "restrict": [
         "municipality"
       ],
-      "label": "Bauzone:",
-      "type": "text",
+      "label": "Bezeichung des Vorhabens:",
+      "type": "textarea",
       "required": true,
+      "config": {}
+    },
+    "betroffene-nutzungszonen": {
+      "restrict": [
+        "municipality"
+      ],
+      "label": "Betroffene Nutzungszonen:",
+      "type": "textarea",
+      "required": false,
+      "config": {}
+    },
+    "ortsbezeichnung-des-vorhabens": {
+      "restrict": [
+        "municipality"
+      ],
+      "label": "Ortsbezeichnung des Vorhabens (Adresse, Flurname, o. ä.):",
+      "type": "textarea",
+      "required": false,
       "config": {}
     },
     "lage": {
