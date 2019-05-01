@@ -25,8 +25,20 @@
       selectedForm=selectedForm
     }}
     {{new-form-grid-entry
-      form="baugesuch"
+      form="projektaenderung"
       label="Projektänderung"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+    {{new-form-grid-entry
+      form="generelles-baugesuch"
+      label="Generelles Baugesuch"
+      onSetForm=(action (mut selectedForm))
+      selectedForm=selectedForm
+    }}
+    {{new-form-grid-entry
+      form="baugesuch-mit-uvp"
+      label="Baugesuch mit UVP"
       onSetForm=(action (mut selectedForm))
       selectedForm=selectedForm
     }}
