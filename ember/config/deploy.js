@@ -17,7 +17,7 @@ module.exports = function(deployTarget) {
   }
 
   if (deployTarget === "staging") {
-    ENV.build.environment = "production";
+    ENV.build.environment = "stage";
   }
 
   if (deployTarget === "production") {

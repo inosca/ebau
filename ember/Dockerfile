@@ -30,8 +30,9 @@ COPY . /app
 COPY ./nginx.conf /etc/nginx/sites-enabled/default
 
 ARG KEYCLOAK_URL_ARG
+ARG DEPLOY_TARGET
 ENV KEYCLOAK_URL=$KEYCLOAK_URL_ARG
-RUN yarn deploy production
+RUN yarn deploy $DEPLOY_TARGET
 
 EXPOSE 80
 
