@@ -9766,13 +9766,13 @@
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen",
     "fields": {
       "created_at": "2019-04-10T13:29:17.030Z",
-      "modified_at": "2019-04-26T14:31:59.543Z",
+      "modified_at": "2019-05-01T11:56:10.094Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt. Hiermit wird best\\u00e4tigt, dass die Bauprofile bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!('baubeschrieb-neubau' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-erweiterung-anbau' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben'))",
+      "is_hidden": "!(['baubeschrieb-neubau', 'baubeschrieb-erweiterung-anbau'] intersects 'parent.1-allgemeine-informationen.bauvorhaben.baubeschrieb'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -10630,13 +10630,13 @@
     "pk": "bestaetigung-generalvollmacht",
     "fields": {
       "created_at": "2019-04-10T13:53:49.095Z",
-      "modified_at": "2019-04-29T08:18:50.528Z",
+      "modified_at": "2019-05-01T11:38:59.028Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!('personalien-vertreterin-mit-vollmacht-generalvollmacht' in 'personalien-vertreterin-mit-vollmacht'|answer('parent.1-allgemeine-informationen.personalien'))",
+      "is_hidden": "!('personalien-vertreterin-mit-vollmacht-generalvollmacht' in 'parent.1-allgemeine-informationen.personalien.personalien-vertreterin-mit-vollmacht'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -10654,13 +10654,13 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung",
     "fields": {
       "created_at": "2019-04-10T13:51:16.442Z",
-      "modified_at": "2019-04-29T06:52:01.554Z",
+      "modified_at": "2019-05-01T11:32:58.541Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!( 'nutzungsart-wohnen' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-industrie' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-gewerbe' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-dienstleistung' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-verkauf' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-lager' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-landwirtschaft' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-gastgewerbe' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage') || 'nutzungsart-andere' in 'nutzungsart'|answer('parent.2-nutzung-bauvorhaben.triage'))",
+      "is_hidden": "!([\n    'nutzungsart-wohnen', \n    'nutzungsart-industrie', \n    'nutzungsart-gewerbe', \n    'nutzungsart-dienstleistung', \n    'nutzungsart-verkauf', \n    'nutzungsart-lager', \n    'nutzungsart-landwirtschaft', \n    'nutzungsart-gastgewerbe', \n    'nutzungsart-andere'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.nutzungsart'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Merkblatt Entw\\u00e4sserung von Industrie \\u2013 und Gewerbeliegenschaften](https://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.assetref/content/dam/documents/JGK/AGR/de/Baubewilligungen/AGR_BAUEN_ERLAEUTERUNG_entwaesserung_von_industrie_und_gewerbeliegenschaften_ig023_de.pdf)\"}",
@@ -11710,13 +11710,13 @@
     "pk": "einhaltung-asbestvorgaben",
     "fields": {
       "created_at": "2019-04-10T11:59:46.196Z",
-      "modified_at": "2019-04-29T06:31:51.757Z",
+      "modified_at": "2019-05-01T11:54:10.331Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!('baubeschrieb-um-ausbau' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-erweiterung-anbau' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-abbruch' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-umnutzung' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-technische-anlage' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-tiefbauanlage' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben') || 'baubeschrieb-andere' in 'baubeschrieb'|answer('parent.1-allgemeine-informationen.bauvorhaben'))",
+      "is_hidden": "!('parent.1-allgemeine-informationen.bauvorhaben.baubeschrieb'|answer intersects [\n    'baubeschrieb-um-ausbau',\n    'baubeschrieb-erweiterung-anbau',\n    'baubeschrieb-abbruch',\n    'baubeschrieb-umnutzung',\n    'baubeschrieb-technische-anlage',\n    'baubeschrieb-tiefbauanlage',\n    'baubeschrieb-andere'\n])",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"[Umweltsicherheit - Asbest](https://www.gef.be.ch/gef/de/index/gesundheit/gesundheit/umweltsicherheit/Asbest.html)\"}",
@@ -21118,13 +21118,13 @@
     "pk": "verzicht-schadensersatz-naturereignisse",
     "fields": {
       "created_at": "2019-04-10T13:46:40.916Z",
-      "modified_at": "2019-04-26T14:42:18.505Z",
+      "modified_at": "2019-05-01T11:57:18.833Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "\"gebiet-mit-naturgefahren-nein\" in \"gebiet-mit-naturgefahren\"|answer(\"parent.3-grundstueck.zonenvorschriften-schutzzonen\")",
+      "is_hidden": "\"gebiet-mit-naturgefahren-nein\" in \"parent.3-grundstueck.zonenvorschriften-schutzzonen.gebiet-mit-naturgefahren\"|answer",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -22563,6 +22563,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "0297dc8c-db04-4efe-939e-4afe97f5ebf8",
+    "fields": {
+      "created_at": "2019-05-01T11:38:59.030Z",
+      "modified_at": "2019-05-01T11:38:59.031Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-generalvollmacht",
+      "option": "bestaetigung-generalvollmacht-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "02b4630c-3f4d-44ef-a86e-587fdd7333db",
     "fields": {
       "created_at": "2019-04-01T12:18:00.406Z",
@@ -22819,19 +22832,6 @@
       "question": "was-fuer-ein-vorhaben",
       "option": "was-fuer-ein-vorhaben-grossraumbueros",
       "sort": 4
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "0a7d994d-e858-4d07-aa41-6c8c0a419e7d",
-    "fields": {
-      "created_at": "2019-04-29T06:31:51.763Z",
-      "modified_at": "2019-04-29T06:31:51.763Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "einhaltung-asbestvorgaben",
-      "option": "einhaltung-asbestvorgaben-ja",
-      "sort": 1
     }
   },
   {
@@ -23963,6 +23963,19 @@
       "question": "welche-art-vorhaben",
       "option": "welche-art-vorhaben-gebaeude-geringer-abmessung",
       "sort": 14
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "2d64d1f2-01b3-4fb4-8d7b-2b4bbf75c070",
+    "fields": {
+      "created_at": "2019-05-01T11:57:18.835Z",
+      "modified_at": "2019-05-01T11:57:18.835Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "verzicht-schadensersatz-naturereignisse",
+      "option": "verzicht-schadensersatz-naturereignisse-ja",
+      "sort": 1
     }
   },
   {
@@ -25501,19 +25514,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "5b993024-3685-40d7-96d7-c0cc9ee63a9d",
-    "fields": {
-      "created_at": "2019-04-29T08:18:50.531Z",
-      "modified_at": "2019-04-29T08:18:50.531Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bestaetigung-generalvollmacht",
-      "option": "bestaetigung-generalvollmacht-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "5bcb403e-78db-4bc1-96a0-c1b9ec7542ce",
     "fields": {
       "created_at": "2019-04-25T08:46:21.310Z",
@@ -26108,19 +26108,6 @@
       "question": "wochentag",
       "option": "wochentag-dienstag",
       "sort": 6
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "710a1631-999d-40e8-bdbb-8e2b3f5cfead",
-    "fields": {
-      "created_at": "2019-04-26T14:31:59.552Z",
-      "modified_at": "2019-04-26T14:31:59.553Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
-      "option": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
-      "sort": 1
     }
   },
   {
@@ -27308,19 +27295,6 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "974955ad-f1f9-4d3b-b899-0fbfec5fef52",
-    "fields": {
-      "created_at": "2019-04-29T06:52:01.563Z",
-      "modified_at": "2019-04-29T06:52:01.563Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "bestaetigung-liegenschaftsentwaesserung",
-      "option": "bestaetigung-liegenschaftsentwaesserung-ja",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
     "pk": "97e6c662-52b6-4943-85b7-55bb440cd137",
     "fields": {
       "created_at": "2019-04-09T07:34:56.436Z",
@@ -27512,6 +27486,19 @@
       "question": "nutzungsart",
       "option": "nutzungsart-gewerbe",
       "sort": 7
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "9ff7a0fc-3a27-40af-b40c-be02843f2037",
+    "fields": {
+      "created_at": "2019-05-01T11:32:58.543Z",
+      "modified_at": "2019-05-01T11:32:58.543Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bestaetigung-liegenschaftsentwaesserung",
+      "option": "bestaetigung-liegenschaftsentwaesserung-ja",
+      "sort": 1
     }
   },
   {
@@ -28946,6 +28933,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "d59fccf1-f036-44f5-9e91-0514dd65d2b3",
+    "fields": {
+      "created_at": "2019-05-01T11:54:10.333Z",
+      "modified_at": "2019-05-01T11:54:10.333Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einhaltung-asbestvorgaben",
+      "option": "einhaltung-asbestvorgaben-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "d62030a6-c012-447e-82df-7dbd38766698",
     "fields": {
       "created_at": "2019-04-03T14:02:51.130Z",
@@ -29137,6 +29137,19 @@
       "question": "typ-platz-und-verkehrsflaechen",
       "option": "typ-platz-und-verkehrsflaechen-typ-a",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "dd99002e-671c-4b08-8a14-9ae43d75e258",
+    "fields": {
+      "created_at": "2019-05-01T11:56:10.096Z",
+      "modified_at": "2019-05-01T11:56:10.096Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
+      "option": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
+      "sort": 1
     }
   },
   {
@@ -29670,19 +29683,6 @@
       "question": "produkteleitung",
       "option": "produkteleitung-im-leckerkennungsrohr",
       "sort": 8
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "eff756f3-4054-4a7e-9f52-5f7576a4ffcd",
-    "fields": {
-      "created_at": "2019-04-26T14:42:18.515Z",
-      "modified_at": "2019-04-26T14:42:18.515Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "verzicht-schadensersatz-naturereignisse",
-      "option": "verzicht-schadensersatz-naturereignisse-ja",
-      "sort": 1
     }
   },
   {
@@ -31354,7 +31354,7 @@
     "pk": "bauprofile-bleiben-bis-bauentscheid-stehen-ja",
     "fields": {
       "created_at": "2019-04-10T13:29:16.765Z",
-      "modified_at": "2019-04-26T14:31:59.383Z",
+      "modified_at": "2019-05-01T11:56:09.992Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauprofile sind gem\\u00e4ss Art. 16 BewD gestellt. Hiermit wird best\\u00e4tigt, dass die Bauprofile bis zum rechtskr\\u00e4ftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.\"}",
@@ -31692,7 +31692,7 @@
     "pk": "bestaetigung-generalvollmacht-ja",
     "fields": {
       "created_at": "2019-04-10T13:53:48.953Z",
-      "modified_at": "2019-04-29T08:18:50.378Z",
+      "modified_at": "2019-05-01T11:38:58.937Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
@@ -31705,7 +31705,7 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung-ja",
     "fields": {
       "created_at": "2019-04-10T13:51:16.315Z",
-      "modified_at": "2019-04-29T06:52:01.397Z",
+      "modified_at": "2019-05-01T11:32:58.437Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
@@ -32212,7 +32212,7 @@
     "pk": "einhaltung-asbestvorgaben-ja",
     "fields": {
       "created_at": "2019-04-10T11:59:46.059Z",
-      "modified_at": "2019-04-29T06:31:51.595Z",
+      "modified_at": "2019-05-01T11:54:10.206Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV).\"}",
@@ -36814,7 +36814,7 @@
     "pk": "verzicht-schadensersatz-naturereignisse-ja",
     "fields": {
       "created_at": "2019-04-10T13:46:40.761Z",
-      "modified_at": "2019-04-26T14:42:18.361Z",
+      "modified_at": "2019-05-01T11:57:18.702Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
