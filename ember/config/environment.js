@@ -32,18 +32,7 @@ module.exports = function(environment) {
 
       // array of active municipality names,
       // used in submit and camac-property-selector
-      municipalityNames: [
-        "Alpthal",
-        "Galgenen",
-        "Innerthal",
-        "Lauerz",
-        "Muotathal",
-        "Oberiberg",
-        "Riemenstalden",
-        "Rothenthurm",
-        "Steinen",
-        "Steinerberg"
-      ]
+      municipalityNames: []
     },
 
     exportApplicationGlobal: true,
@@ -97,10 +86,62 @@ module.exports = function(environment) {
     };
   }
 
+  if (environment === "stage") {
+    ENV["ember-cli-mirage"] = {
+      enabled: process.env.EMBER_CLI_MIRAGE || false
+    };
+
+    ENV.APP.municipalityNames = [
+      "Alpthal",
+      "Altendorf",
+      "Arth",
+      "Einsiedeln",
+      "Feusisberg",
+      "Freienbach",
+      "Galgenen",
+      "Gersau",
+      "Illgau",
+      "Ingenbohl",
+      "Innerthal",
+      "Küssnacht",
+      "Lachen",
+      "Lauerz",
+      "Morschach",
+      "Muotathal",
+      "Oberiberg",
+      "Rechenburg",
+      "Riemenstalden",
+      "Rothenthurm",
+      "Sattel",
+      "Schwyz",
+      "Schübelbach",
+      "Steinen",
+      "Steinerberg",
+      "Tuggen",
+      "Unteriberg",
+      "Vorderthal",
+      "Wangen",
+      "Wollerau"
+    ];
+  }
+
   if (environment === "production") {
     ENV["ember-cli-mirage"] = {
       enabled: process.env.EMBER_CLI_MIRAGE || false
     };
+
+    ENV.APP.municipalityNames = [
+      "Alpthal",
+      "Galgenen",
+      "Innerthal",
+      "Lauerz",
+      "Muotathal",
+      "Oberiberg",
+      "Riemenstalden",
+      "Rothenthurm",
+      "Steinen",
+      "Steinerberg"
+    ];
   }
 
   return ENV;
