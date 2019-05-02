@@ -77,6 +77,7 @@ services:
         build:
             args:
                 KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
+                DEPLOY_TARGET: staging
 
     ember-caluma-portal:
         image: acr.run/camac-ng/camac-ng/ember-caluma-portal:master
