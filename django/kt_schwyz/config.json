@@ -9,14 +9,6 @@
   },
   {
     "fields": {
-      "current_circulation_state": null,
-      "next_circulation_state": 2
-    },
-    "model": "core.acirculationtransition",
-    "pk": 30
-  },
-  {
-    "fields": {
       "current_circulation_state": 1,
       "next_circulation_state": 6
     },
@@ -30,22 +22,6 @@
     },
     "model": "core.acirculationtransition",
     "pk": 53
-  },
-  {
-    "fields": {
-      "current_circulation_state": 1,
-      "next_circulation_state": 6
-    },
-    "model": "core.acirculationtransition",
-    "pk": 55
-  },
-  {
-    "fields": {
-      "current_circulation_state": 6,
-      "next_circulation_state": 1
-    },
-    "model": "core.acirculationtransition",
-    "pk": 57
   },
   {
     "fields": {
@@ -287,48 +263,6 @@
   },
   {
     "fields": {
-      "available_action": "save",
-      "button": 14,
-      "description": null,
-      "error_message": "Fachbericht konnte nicht gespeichert werden",
-      "execute_always": 0,
-      "name": "save",
-      "sort": 0,
-      "success_message": "Fachbericht erfolgreich gespeichert"
-    },
-    "model": "core.action",
-    "pk": 28
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 15,
-      "description": null,
-      "error_message": "Stellungnahme konnte nicht abgeschlossen werden",
-      "execute_always": 0,
-      "name": "circ state to OK",
-      "sort": 1,
-      "success_message": "Stellungnahme erfolgreich abgeschlossen"
-    },
-    "model": "core.action",
-    "pk": 30
-  },
-  {
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 15,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Weiterleitung zu Liste",
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 31
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 18,
       "description": null,
@@ -511,62 +445,6 @@
   },
   {
     "fields": {
-      "available_action": "save",
-      "button": 26,
-      "description": null,
-      "error_message": "Fachbericht konnte nicht gespeichert werden",
-      "execute_always": 0,
-      "name": "Fachbericht speichern",
-      "sort": 0,
-      "success_message": "Fachbericht erfolgreich gespeichert"
-    },
-    "model": "core.action",
-    "pk": 54
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 26,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "circ state to REVIEW",
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 55
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 26,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Set circ date REVIEW",
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 56
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 27,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "circ state to RUN",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 57
-  },
-  {
-    "fields": {
       "available_action": "notification",
       "button": 10,
       "description": null,
@@ -662,6 +540,118 @@
     },
     "model": "core.action",
     "pk": 64
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 29,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht aktualisiert werden",
+      "execute_always": 0,
+      "name": "save",
+      "sort": 0,
+      "success_message": "Zirkulation erfolgreich aktualisiert"
+    },
+    "model": "core.action",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 30,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "save",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 30,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht gestartet werden",
+      "execute_always": 0,
+      "name": "activation idle to run",
+      "sort": 1,
+      "success_message": "Zirkulation erfolgreich gestartet"
+    },
+    "model": "core.action",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 30,
+      "description": null,
+      "error_message": "Email konnte nicht versendet werden",
+      "execute_always": 0,
+      "name": "Email Stellungnahme",
+      "sort": 2,
+      "success_message": "Email wurde erfolgreich versendet"
+    },
+    "model": "core.action",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 31,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "save",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 31,
+      "description": null,
+      "error_message": "Konnte nicht zur Zirkulation hinzugef\u00fcgt werden",
+      "execute_always": 0,
+      "name": "activation idle to run",
+      "sort": 1,
+      "success_message": "Erfolgreich zur Zirkulation hinzugef\u00fcgt"
+    },
+    "model": "core.action",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 31,
+      "description": null,
+      "error_message": "Email konnte nicht versendet werden",
+      "execute_always": 0,
+      "name": "Email Stellungnahme",
+      "sort": 2,
+      "success_message": "Email erfolgreich versendet"
+    },
+    "model": "core.action",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 32,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
+      "execute_always": 0,
+      "name": "circ state to DONE",
+      "sort": 0,
+      "success_message": "Zirkulation abgeschlossen"
+    },
+    "model": "core.action",
+    "pk": 72
   },
   {
     "fields": {
@@ -1297,12 +1287,21 @@
   },
   {
     "fields": {
-      "air_action_name": null,
-      "instance_resource": null,
-      "resource": 6
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Service",
+      "template": 17
     },
-    "model": "core.apageredirect",
-    "pk": 9
+    "model": "core.anotification",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Notification_Manager_Service",
+      "template": 17
+    },
+    "model": "core.anotification",
+    "pk": 71
   },
   {
     "fields": {
@@ -1311,7 +1310,7 @@
       "resource": 6
     },
     "model": "core.apageredirect",
-    "pk": 31
+    "pk": 9
   },
   {
     "fields": {
@@ -1357,17 +1356,31 @@
   },
   {
     "fields": {
-      "php_class": "SetReview"
+      "php_class": "CircStart"
     },
     "model": "core.aphp",
-    "pk": 56
+    "pk": 61
   },
   {
     "fields": {
       "php_class": "CircStart"
     },
     "model": "core.aphp",
-    "pk": 61
+    "pk": 67
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "php_class": "CircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 72
   },
   {
     "fields": {
@@ -2125,42 +2138,6 @@
   },
   {
     "fields": {
-      "button": 14,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 18
-  },
-  {
-    "fields": {
-      "button": 14,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 19
-  },
-  {
-    "fields": {
-      "button": 15,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 20
-  },
-  {
-    "fields": {
-      "button": 15,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 21
-  },
-  {
-    "fields": {
       "button": 18,
       "instance_state": 5,
       "role": 3
@@ -2275,78 +2252,6 @@
     },
     "model": "core.broleacl",
     "pk": 44
-  },
-  {
-    "fields": {
-      "button": 14,
-      "instance_state": 5,
-      "role": 7
-    },
-    "model": "core.broleacl",
-    "pk": 45
-  },
-  {
-    "fields": {
-      "button": 14,
-      "instance_state": 7,
-      "role": 7
-    },
-    "model": "core.broleacl",
-    "pk": 46
-  },
-  {
-    "fields": {
-      "button": 26,
-      "instance_state": 5,
-      "role": 7
-    },
-    "model": "core.broleacl",
-    "pk": 47
-  },
-  {
-    "fields": {
-      "button": 26,
-      "instance_state": 7,
-      "role": 7
-    },
-    "model": "core.broleacl",
-    "pk": 48
-  },
-  {
-    "fields": {
-      "button": 26,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 49
-  },
-  {
-    "fields": {
-      "button": 26,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 50
-  },
-  {
-    "fields": {
-      "button": 27,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 51
-  },
-  {
-    "fields": {
-      "button": 27,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.broleacl",
-    "pk": 52
   },
   {
     "fields": {
@@ -2486,30 +2391,6 @@
   },
   {
     "fields": {
-      "class_field": "save",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 19,
-      "name": "Speichern",
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 14
-  },
-  {
-    "fields": {
-      "class_field": "done",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 19,
-      "name": "Fachbericht abschliessen",
-      "sort": 3
-    },
-    "model": "core.button",
-    "pk": 15
-  },
-  {
-    "fields": {
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -2594,30 +2475,6 @@
   },
   {
     "fields": {
-      "class_field": "review",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 19,
-      "name": "Fachbericht erfasst",
-      "sort": 1
-    },
-    "model": "core.button",
-    "pk": 26
-  },
-  {
-    "fields": {
-      "class_field": "edit",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 19,
-      "name": "Fachbericht anpassen",
-      "sort": 2
-    },
-    "model": "core.button",
-    "pk": 27
-  },
-  {
-    "fields": {
       "class_field": "add_to_circ",
       "description": null,
       "hidden": 0,
@@ -2627,6 +2484,54 @@
     },
     "model": "core.button",
     "pk": 28
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 39,
+      "name": "Speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "class_field": "circ_start",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 39,
+      "name": "Zirkulation starten",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "class_field": "add_to_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 39,
+      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 39,
+      "name": "Zirkulation abschliessen",
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 32
   },
   {
     "fields": {
@@ -2823,7 +2728,7 @@
   },
   {
     "fields": {
-      "name": "Zirkulation der Gemeinde",
+      "name": "Zirkulation",
       "page_id": 2,
       "parent_specific_activations": 0
     },
@@ -3383,7 +3288,7 @@
       "hidden": 0,
       "name": "Eigener Fachbericht",
       "resource": 6,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3426,7 +3331,7 @@
       "description": "Zirkulation des Kantons (BGZ)",
       "form_group": 1,
       "hidden": 0,
-      "name": "Zirkulation",
+      "name": "Zirkulation BGZ",
       "resource": 6,
       "sort": 2,
       "template": null
@@ -3436,29 +3341,14 @@
   },
   {
     "fields": {
-      "available_instance_resource": "editnotice",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": "Eigener Fachbericht (kantonal)",
-      "resource": 6,
-      "sort": 5,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 19
-  },
-  {
-    "fields": {
       "available_instance_resource": "circulation",
       "class_field": null,
-      "description": "Stellungnahmen einer BGZ Zirkulation",
+      "description": "Stellungnahmen der Fachstellen Zirkulation",
       "form_group": 1,
       "hidden": 0,
       "name": "Stellungnahmen",
       "resource": 6,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3488,7 +3378,7 @@
       "hidden": 0,
       "name": "Verantwortliche Person",
       "resource": 6,
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3518,7 +3408,7 @@
       "hidden": 0,
       "name": "Dokumente generieren",
       "resource": 6,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3623,7 +3513,7 @@
       "hidden": 0,
       "name": "Geb\u00fchren",
       "resource": 6,
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.instanceresource",
@@ -3718,6 +3608,21 @@
     },
     "model": "core.instanceresource",
     "pk": 38
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editcirculation",
+      "class_field": null,
+      "description": "Zirkulation der Fachstellen f\u00fcr die Unterfachstellen",
+      "form_group": 1,
+      "hidden": 0,
+      "name": "Zirkulation",
+      "resource": 6,
+      "sort": 3,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 39
   },
   {
     "fields": {
@@ -5192,12 +5097,12 @@
   },
   {
     "fields": {
-      "circulation_type": 2,
+      "circulation_type": 1,
       "draft_circulation_answer": null,
       "pdf_class": null,
       "read_notice_template": null,
-      "service": 7,
-      "service_to_be_interpreted": null,
+      "service": null,
+      "service_to_be_interpreted": "[SERVICE_ID]",
       "show_all_children": 0,
       "show_history": 0,
       "show_notice": 2
@@ -5243,7 +5148,7 @@
       "add_activation_template": null,
       "add_template": null,
       "circulation_email_action_id": null,
-      "circulation_type": 2,
+      "circulation_type": 1,
       "default_circulation_name": "Zirkulation des Kantons",
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
@@ -5255,6 +5160,24 @@
     },
     "model": "core.ireditcirculation",
     "pk": 18
+  },
+  {
+    "fields": {
+      "add_activation_template": null,
+      "add_template": null,
+      "circulation_email_action_id": null,
+      "circulation_type": 1,
+      "default_circulation_name": null,
+      "display_first_circulation": 1,
+      "draft_circulation_answer": null,
+      "inherit_notices": 0,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "show_notice": 1,
+      "single_circulation": 1
+    },
+    "model": "core.ireditcirculation",
+    "pk": 39
   },
   {
     "fields": {
@@ -5346,18 +5269,6 @@
   },
   {
     "fields": {
-      "circulation_type": 2,
-      "edit_notice_template": null,
-      "editable_after_deadline": 1,
-      "hide_answered_notices": 0,
-      "is_always_editable": 1,
-      "pdf_class": null
-    },
-    "model": "core.ireditnotice",
-    "pk": 19
-  },
-  {
-    "fields": {
       "page": 1,
       "pdf_class": null
     },
@@ -5389,24 +5300,6 @@
     },
     "model": "core.irgroupacl",
     "pk": 2
-  },
-  {
-    "fields": {
-      "group": 7,
-      "instance_resource": 20,
-      "instance_state": 5
-    },
-    "model": "core.irgroupacl",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "group": 7,
-      "instance_resource": 20,
-      "instance_state": 7
-    },
-    "model": "core.irgroupacl",
-    "pk": 4
   },
   {
     "fields": {
@@ -6022,24 +5915,6 @@
   },
   {
     "fields": {
-      "instance_resource": 19,
-      "instance_state": 5,
-      "role": 5
-    },
-    "model": "core.irroleacl",
-    "pk": 100
-  },
-  {
-    "fields": {
-      "instance_resource": 19,
-      "instance_state": 7,
-      "role": 5
-    },
-    "model": "core.irroleacl",
-    "pk": 101
-  },
-  {
-    "fields": {
       "instance_resource": 21,
       "instance_state": 2,
       "role": 3
@@ -6586,24 +6461,6 @@
     },
     "model": "core.irroleacl",
     "pk": 165
-  },
-  {
-    "fields": {
-      "instance_resource": 19,
-      "instance_state": 5,
-      "role": 7
-    },
-    "model": "core.irroleacl",
-    "pk": 166
-  },
-  {
-    "fields": {
-      "instance_resource": 19,
-      "instance_state": 7,
-      "role": 7
-    },
-    "model": "core.irroleacl",
-    "pk": 167
   },
   {
     "fields": {
@@ -7252,6 +7109,42 @@
     },
     "model": "core.irroleacl",
     "pk": 329
+  },
+  {
+    "fields": {
+      "instance_resource": 39,
+      "instance_state": 5,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 330
+  },
+  {
+    "fields": {
+      "instance_resource": 39,
+      "instance_state": 7,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 331
+  },
+  {
+    "fields": {
+      "instance_resource": 20,
+      "instance_state": 5,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 332
+  },
+  {
+    "fields": {
+      "instance_resource": 20,
+      "instance_state": 7,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 333
   },
   {
     "fields": {
