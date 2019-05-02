@@ -4490,9 +4490,9 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@projectcaluma/ember-caluma#3b72fec910dadb5f3a0ec154f48c26d6e37b701e:
+ember-caluma@projectcaluma/ember-caluma#25cfd80eb3f2f49e53012f63d1a693a078df12ad:
   version "0.0.4"
-  resolved "https://codeload.github.com/projectcaluma/ember-caluma/tar.gz/3b72fec910dadb5f3a0ec154f48c26d6e37b701e"
+  resolved "https://codeload.github.com/projectcaluma/ember-caluma/tar.gz/25cfd80eb3f2f49e53012f63d1a693a078df12ad"
   dependencies:
     apollo-link-context "^1.0.17"
     broccoli-funnel "^2.0.2"
