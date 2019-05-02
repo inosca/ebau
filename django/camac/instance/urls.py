@@ -31,7 +31,7 @@ if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
         )
     )
 
-elif settings.APPLICATION_NAME == "kt_bern":
+elif settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
     r.register(r"instances", be_views.InstanceView, "instance")
 
 elif settings.APPLICATION_NAME == "demo":
