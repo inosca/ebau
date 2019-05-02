@@ -7,7 +7,7 @@ from .views import bern as be_views, schwyz as sz_views
 r = SimpleRouter(trailing_slash=False)
 urlpatterns = []
 
-if settings.APPLICATION_NAME == "kt_schwyz":
+if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
     r.register(r"forms", sz_views.FormView, "form")
     r.register(r"instances", sz_views.InstanceView, "instance")
     r.register(r"form-fields", sz_views.FormFieldView, "form-field")
