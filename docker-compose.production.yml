@@ -45,6 +45,7 @@ services:
         build:
             args:
                 KEYCLOAK_URL_ARG: ${KEYCLOAK_URL}
+                DEPLOY_TARGET: staging
 
     ember-caluma-portal:
         image: acr.run/camac-ng/camac-ng/ember-caluma-portal:${CI_COMMIT_REF_SLUG}-${APPLICATION}
