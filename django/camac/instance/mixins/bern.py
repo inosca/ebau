@@ -7,7 +7,8 @@ from camac.mixins import AttributeMixin
 from camac.user.permissions import permission_aware
 
 
-class InstanceQuerysetMixin(object):
+class InstanceQuerysetMixin(object):  # pragma: no cover
+    # TODO: One day, we should do exhaustive testing of this ACL stuff
     """
     Mixin to filter queryset by instances which may be read by given role.
 
@@ -76,7 +77,8 @@ class InstanceQuerysetMixin(object):
         ).values("instance")
 
 
-class InstanceEditableMixin(AttributeMixin):
+class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
+    # TODO: One day, we should do exhaustive testing of this ACL stuff
     """Mixin to determine whether action is allowed on given instance.
 
     Define `instance_editable_permission` what permission is needed to edit.
