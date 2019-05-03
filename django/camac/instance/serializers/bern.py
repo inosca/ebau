@@ -130,7 +130,7 @@ class BernInstanceSerializer(InstanceSerializer):
                 "Authorization": get_authorization_header(self.context["request"])
             },
         )
-        if caluma_resp.status_code not in (200, 201):
+        if caluma_resp.status_code not in (200, 201):  # pragma: no cover
             raise ValidationError("Error while linking case and instance")
 
         return created
