@@ -5088,7 +5088,7 @@
       "read_notice_template": null,
       "service": null,
       "service_to_be_interpreted": "[SERVICE_ID]",
-      "show_all_children": 1,
+      "show_all_children": 0,
       "show_history": 0,
       "show_notice": 2
     },
@@ -5101,9 +5101,9 @@
       "draft_circulation_answer": null,
       "pdf_class": null,
       "read_notice_template": null,
-      "service": null,
+      "service": 7,
       "service_to_be_interpreted": "[SERVICE_ID]",
-      "show_all_children": 0,
+      "show_all_children": 1,
       "show_history": 0,
       "show_notice": 2
     },
