@@ -120,7 +120,7 @@ class FilterViaCamacAPIMixin:
         # Find documents where I'm registered as a requester ("gesuchsteller").
         docs_requester = form_models.Document.objects.filter(
             family__in=form_models.Answer.objects.filter(
-                question_id="e-mail-gesuchstellerin", value=user_email
+                question_id="doesnt-exist-yet", value=user_email
             ).values("document__family")
         )
 
@@ -132,7 +132,7 @@ class FilterViaCamacAPIMixin:
             created_by_user=user_identifier
         ).exclude(
             family__in=form_models.Answer.objects.filter(
-                question_id="e-mail-gesuchstellerin"
+                question_id="doesnt-exist-yet"
             ).values("document__family")
         )
 
