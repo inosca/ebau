@@ -24632,7 +24632,7 @@
       "created_by_group": null,
       "label": "{\"de\": \"Wurden Vorabkl\\u00e4rungen durchgef\\u00fchrt?\"}",
       "type": "choice",
-      "is_required": "'formulartyp'|answer != 'vorabklaerung-vollstaendig'",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
