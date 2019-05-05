@@ -10,16 +10,16 @@ class Municipalities(BaseDataSource):
     @data_source_cache(timeout=3600)
     def get_data(self, info):
         return [
-            ["20011", "Oberburg"],
-            ["20013", "Rüderswil"],
-            ["20017", "Trubschachen"],
-            ["20019", "Wynigen"],
-            ["2", "Burgdorf"],
-            ["20003", "Eggiwil"],
-            ["20005", "Hasle b. B."],
-            ["20007", "Langnau i. E."],
-            ["20009", "Lyssach"],
-            ["20015", "Utzenstorf"],
+            "Oberburg",
+            "Rüderswil",
+            "Trubschachen",
+            "Wynigen",
+            "Burgdorf",
+            "Eggiwil",
+            "Hasle b. B.",
+            "Langnau i. E.",
+            "Lyssach",
+            "Utzenstorf",
         ]
 
 

@@ -13,7 +13,7 @@
           <th class="uk-width-1-5">
             <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search="identifier-search">
               <span>
-                Gesuchsnummer
+                eBau-Nr.
                 {{camac-sort-icon key="identifier" sort=sort on-click=(action (mut sort))}}
               </span>
               <div class="uk-margin-left">
@@ -72,16 +72,16 @@
         {{else}}
           {{#each data.lastSuccessful.value as |edge|}}
             <tr>
+              <td>-</td>
               <td>
                 {{#link-to
                   "instances.edit" edge.node.id
                   title="Klicken Sie um das Gesuch zu bearbeiten"
                 }}
-                  {{edge.node.id}}
+                  {{instance-type edge.node.document}}
                 {{/link-to}}
               </td>
-              <td>{{edge.node.document.form.name}}</td>
-              <td>{{edge.node.status}}</td>
+              <td>{{t (concat "instance.status." edge.node.status)}}</td>
               <td class="uk-text-nowrap">
                 {{!-- TODO
                 {{#if instance.location}}
