@@ -29,7 +29,7 @@
     "ember-a11y-landmarks": "^1.0.1",
     "ember-ajax": "^5.0.0",
     "ember-apollo-client": "^2.0.0-beta.3",
-    "ember-caluma": "czosel/ember-caluma#225627c4d6e080211207e1846a381368fa5cb3f7",
+    "ember-caluma": "czosel/ember-caluma#30241807fc8703986419be5d19e57e2765f74ad5",
     "ember-cli": "~3.8.2",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^6.16.0",

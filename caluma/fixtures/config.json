@@ -1326,6 +1326,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "0b3819a0-a674-4d0e-a56a-8ff9f55e0345",
+    "fields": {
+      "created_at": "2019-05-05T13:01:55.956Z",
+      "modified_at": "2019-05-05T13:01:55.956Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen-tabelle",
+      "question": "amts-fachstelle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0b655d25-4056-4634-8305-e34b776e8d53",
     "fields": {
       "created_at": "2019-04-08T08:36:39.325Z",
@@ -1529,7 +1542,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -2803,7 +2816,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "nr",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2868,7 +2881,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -3414,7 +3427,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "ort-grundstueck",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3428,6 +3441,19 @@
       "form": "gastgewerbe-allgemein",
       "question": "striptease",
       "sort": 20
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "4b4e1e86-3028-43b5-90f4-7d70d16b1db6",
+    "fields": {
+      "created_at": "2019-05-05T12:57:43.578Z",
+      "modified_at": "2019-05-05T12:57:43.578Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "gemeinde",
+      "sort": 8
     }
   },
   {
@@ -4844,7 +4870,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -5078,7 +5104,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -6638,7 +6664,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -6716,7 +6742,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "karte",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -7306,6 +7332,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "cd34b33d-3c85-4f14-a0f0-b095d8d93ed5",
+    "fields": {
+      "created_at": "2019-05-05T12:48:17.249Z",
+      "modified_at": "2019-05-05T12:48:17.249Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-angaben",
+      "question": "gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "cd8eea77-4a73-447f-b178-ff097bc0a430",
     "fields": {
       "created_at": "2019-04-01T14:15:41.400Z",
@@ -7860,7 +7899,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "strasse-flurname",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -8432,7 +8471,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -9667,6 +9706,30 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "amts-fachstelle",
+    "fields": {
+      "created_at": "2019-05-05T13:01:55.868Z",
+      "modified_at": "2019-05-05T13:01:55.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Amts- / Fachstelle\"}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "cf-field/input/powerselect" },
+      "data_source": "Services",
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -14395,6 +14458,30 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "gemeinde",
+    "fields": {
+      "created_at": "2019-05-05T12:48:17.169Z",
+      "modified_at": "2019-05-05T12:54:08.450Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Zust\\u00e4ndige Gemeinde\"}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "cf-field/input/powerselect" },
+      "data_source": "Municipalities",
       "row_form": null,
       "sub_form": null,
       "source": null
