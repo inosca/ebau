@@ -4786,7 +4786,7 @@ ember-cli-lodash-subset@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
-ember-cli-moment-shim@^3.6.0:
+ember-cli-moment-shim@^3.6.0, ember-cli-moment-shim@^3.7.1:
   version "3.7.1"
   resolved "https://registry.yarnpkg.com/ember-cli-moment-shim/-/ember-cli-moment-shim-3.7.1.tgz#3ad691c5027c1f38a4890fe47d74b5224cc98e32"
   integrity sha512-U3HHuEU7sXQ78v25ifmIa9w4nQPQ7vK/LZ2bt18pN3aKNvIDYiLe/MDeXGmqfFIq3OfruKG+CF+7dOLqxuzSlQ==
@@ -5420,7 +5420,7 @@ ember-parachute@^1.0.2:
   dependencies:
     ember-cli-babel "^7.1.2"
 
-ember-pikaday@2.3.1:
+ember-pikaday@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/ember-pikaday/-/ember-pikaday-2.3.1.tgz#c70eaefcbe3fd7306bf72f27acfdd9be117aecb6"
   integrity sha512-pFFyamXuoKO8Qd/NPygWlvlMTL/hXuJ3cdXQ4jlZEmw0Py+4KApQCaTOlPIBrXbLCabh2+CkqSuBv6dP8+F1dg==
