@@ -1503,7 +1503,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "5-spezialformulare",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3466,7 +3466,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "3-grundstueck",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -4441,7 +4441,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "7-bestaetigung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4610,7 +4610,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4871,19 +4871,6 @@
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
       "sort": 12
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "7c2e8cb7-7f56-453c-adc2-79e2d93ea203",
-    "fields": {
-      "created_at": "2019-05-03T11:08:00.572Z",
-      "modified_at": "2019-05-03T11:08:00.573Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "durchgefuehrte-vorabklaerungen",
-      "question": "durchgefuehrte-vorabklaerungen-titel",
-      "sort": 2
     }
   },
   {
@@ -5343,6 +5330,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "8aa4701c-46ed-4b61-95e5-c76ce48d821a",
+    "fields": {
+      "created_at": "2019-05-05T14:48:27.731Z",
+      "modified_at": "2019-05-05T14:48:27.731Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "formulartyp",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "8ab9a906-e6c7-4e2f-aa55-76fd7d16fd8b",
     "fields": {
       "created_at": "2019-04-08T13:17:01.456Z",
@@ -5598,7 +5598,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "4-bauwerk",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8159,7 +8159,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8641,19 +8641,6 @@
       "form": "biologische-sicherheit-und-stoerfallvorsorge",
       "question": "zugang-zum-arbeitsbereich-ueber-schleuse",
       "sort": 18
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "f43347d3-bb20-491b-a006-333047ef7547",
-    "fields": {
-      "created_at": "2019-04-18T08:03:52.125Z",
-      "modified_at": "2019-04-18T08:03:52.125Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "formulartyp",
-      "sort": 1
     }
   },
   {
@@ -24212,10 +24199,10 @@
     "pk": "weitere-hinzufuegen",
     "fields": {
       "created_at": "2019-03-25T10:02:34.522Z",
-      "modified_at": "2019-05-03T08:30:08.865Z",
+      "modified_at": "2019-05-05T13:34:57.214Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Weitere hinzuf\\u00fcgen\"}",
+      "label": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\"}",
       "type": "table",
       "is_required": "true",
       "is_hidden": "!(\n  'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer\n)",
