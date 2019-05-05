@@ -30,7 +30,7 @@ class Services(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        return [
+        data = [
             [
                 "20031",
                 "Amt für Bevölkerungsschutz, Sport und Militär- Abteilung Zivil- und Bevölkerungsschutz",
@@ -459,3 +459,4 @@ class Services(BaseDataSource):
             ["20216", "Unterfachstelle Werner und Partner AG"],
             ["-1", "Andere"],
         ]
+        return [x[1] for x in data]
