@@ -25,7 +25,7 @@ if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
     )
     urlpatterns.append(
         url(
-            r"schwyz-form-config",
+            r"form-config",
             sz_views.FormConfigDownloadView.as_view(),
             name="schwyz-form-config-download",
         )
