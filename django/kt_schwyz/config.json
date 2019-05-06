@@ -5101,7 +5101,7 @@
       "draft_circulation_answer": null,
       "pdf_class": null,
       "read_notice_template": null,
-      "service": 7,
+      "service": null,
       "service_to_be_interpreted": "[SERVICE_ID]",
       "show_all_children": 1,
       "show_history": 0,
