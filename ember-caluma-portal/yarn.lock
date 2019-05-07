@@ -4490,9 +4490,9 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@projectcaluma/ember-caluma#243ff0b9f9596d08cc90415aecffe811f98b2904:
+ember-caluma@projectcaluma/ember-caluma#cca7d033416d3f4cd35c95e1d4432c7c4794faff:
   version "0.0.4"
-  resolved "https://codeload.github.com/projectcaluma/ember-caluma/tar.gz/243ff0b9f9596d08cc90415aecffe811f98b2904"
+  resolved "https://codeload.github.com/projectcaluma/ember-caluma/tar.gz/cca7d033416d3f4cd35c95e1d4432c7c4794faff"
   dependencies:
     apollo-link-context "^1.0.17"
     broccoli-funnel "^2.0.2"
@@ -4519,7 +4519,7 @@ ember-caluma@projectcaluma/ember-caluma#243ff0b9f9596d08cc90415aecffe811f98b2904
     graphql-iso-date "^3.6.1"
     graphql-tag "^2.10.1"
     graphql-tools "^4.0.4"
-    jexl czosel/Jexl#allow-arbitrary-whitespace
+    jexl TomFrost/Jexl#2866a4aca9c46114ecc0d342942a7732763fd151
     liquid-fire "^0.29.5"
     sass "^1.18.0"
     slugify "^1.3.4"
@@ -7685,9 +7685,9 @@ iterall@^1.1.3, iterall@^1.2.2:
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
   integrity sha512-yynBb1g+RFUPY64fTrFv7nsjRrENBQJaX2UL+2Szc9REFrSNm1rpSXHGzhmAy7a9uv3vlvgBlXnf9RqmPH1/DA==
 
-jexl@czosel/Jexl#allow-arbitrary-whitespace:
-  version "2.1.1"
-  resolved "https://codeload.github.com/czosel/Jexl/tar.gz/6b3eb2f6177b1e042e06bfc5d958a7272d6bb39d"
+jexl@TomFrost/Jexl#2866a4aca9c46114ecc0d342942a7732763fd151:
+  version "1.1.4"
+  resolved "https://codeload.github.com/TomFrost/Jexl/tar.gz/2866a4aca9c46114ecc0d342942a7732763fd151"
 
 jquery-deferred@^0.3.0:
   version "0.3.1"
