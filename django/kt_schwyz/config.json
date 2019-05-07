@@ -9700,54 +9700,54 @@
   },
   {
     "fields": {
-      "body": "this is the fallback",
-      "purpose": "Nachforderung durch die Gemeinde",
-      "subject": "Nachforderung zum Dossier {{identifier}}"
+      "body": "Ihr Gesuch ({{identifier}}, {{location}}) weist formelle M\u00e4ngel auf. Bitte bereinigen Sie diese und reichen das Gesuch wieder ein.",
+      "purpose": "R\u00fcckweisung",
+      "subject": "Gesuch {{identifier}}: R\u00fcckweisung zur Erg\u00e4nzung / Bereinigung"
     },
     "model": "notification.notificationtemplate",
     "pk": 13
   },
   {
     "fields": {
-      "body": "todo",
-      "purpose": "Dossier wurde abgelehnt",
-      "subject": "Dossier {{identifier}} wurde abgelehnt"
+      "body": "Die bisherige materielle Pr\u00fcfung Ihres Gesuchs ({{identifier}}, {{location}}) hat ergeben, dass erg\u00e4nzende Unterlagen und/oder eine Projektanpassung n\u00f6tig sind. Details k\u00f6nnen Sie dem Schreiben in der Dokumentenablage \u00abFreigegebene Unterlagen\u00bb entnehmen. Einen Direktlink erhalten Sie mit separater E-Mail Nachricht.",
+      "purpose": "Nachforderung",
+      "subject": "Gesuch {{identifier}}: Nachforderung"
     },
     "model": "notification.notificationtemplate",
     "pk": 14
   },
   {
     "fields": {
-      "body": "todo",
-      "purpose": "Dossier wurde angenommen",
-      "subject": "Dossier {{identifier}} wurde angenommen"
+      "body": "Ihr Gesuch ({{identifier}}, {{location}}) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
+      "purpose": "Bewilligungsprozess gestartet",
+      "subject": "Gesuch {{identifier}}: Bewilligungsprozess gestartet"
     },
     "model": "notification.notificationtemplate",
     "pk": 15
   },
   {
     "fields": {
-      "body": "todo",
-      "purpose": "Dossier wurde eingereicht",
-      "subject": "Dossier {{identifier}} wurde eingereicht"
+      "body": "Ein neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen ({{identifier}}, {{location}}).\r\n\r\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
+      "purpose": "Gesuchseingang",
+      "subject": "Gesuch {{identifier}}: neues Gesuch oder Aktion in laufendem Gesuch"
     },
     "model": "notification.notificationtemplate",
     "pk": 16
   },
   {
     "fields": {
-      "body": "todo",
+      "body": "Geben Sie bitte zum Gesuch {{identifier}}, {{location}} eine materielle Beurteilung / Stellungnahme ab. ",
       "purpose": "Einladung zur Stellungnahme",
-      "subject": "Stellungnahme zu Dossier {{identifier}} erforderlich"
+      "subject": "Gesuch {{identifier}}: Einladung zur materiellen Beurteilung"
     },
     "model": "notification.notificationtemplate",
     "pk": 17
   },
   {
     "fields": {
-      "body": "Es wurden ihnen Dokumente freigegeben auf dem Dossier {{identifier}}.\r\nBenutzen sie diesen Link um sofort darauf zu kommen: http://camac-ng-portal.local/gesuche/{{instance_id}}/freigegebene-unterlagen",
-      "purpose": "Benachrichtigung Gesuchsteller",
-      "subject": "Freigegebene Gesuchsunterlagen in Dossier {{identifier}}"
+      "body": "Zu Ihrem Gesuch {{identifier}}, {{location}} wurden Ihnen Dokumente freigegeben. Sie k\u00f6nnen diese \u00fcber das eBau Portal einsehen.\r\n",
+      "purpose": "Bereitstellung von Dokumenten",
+      "subject": "Gesuch {{identifier}}: Dokumente zum Download bereit"
     },
     "model": "notification.notificationtemplate",
     "pk": 18
