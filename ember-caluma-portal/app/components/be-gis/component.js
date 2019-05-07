@@ -28,13 +28,5 @@ export default Component.extend({
       "&retainSelection=true" +
       (!isReadOnly ? "&callback_fts_mw=ftsResult&fts_search=true" : "")
     ); // Full-text search
-  }),
-
-  actions: {
-    reload() {
-      const iframe = this.get("element").querySelector("iframe");
-      // cross-domain iframe reload, https://stackoverflow.com/a/4062084
-      iframe.src = iframe.src;
-    }
-  }
+  })
 });

@@ -1,5 +1,5 @@
 import { helper } from "@ember/component/helper";
-import { get } from "@ember/object";
+import { get, getWithDefault } from "@ember/object";
 
 export const formTypes = {
   "vorabklaerung-einfach": "Einfache Vorabklärung",
@@ -11,9 +11,12 @@ export const formTypes = {
 };
 
 export function instanceType([document]) {
-  const slug =
-    get(document, "answers.edges.firstObject.node.stringValue") ||
-    get(document, "form.name");
+  const formTypeAnswer = getWithDefault(document, "answers.edges", []).find(
+    edge => edge.node.question.slug === "formulartyp"
+  );
+  const slug = formTypeAnswer
+    ? formTypeAnswer.node.stringValue
+    : get(document, "form.name");
   return formTypes[slug] || slug;
 }
 
