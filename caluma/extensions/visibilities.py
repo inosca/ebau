@@ -117,10 +117,15 @@ class FilterViaCamacAPIMixin:
         user_identifier = info.context.user.userinfo.get("sub")
         user_email = info.context.user.userinfo.get("email")
 
+        """
+        Warning: This feature has been temporarily disabled, because it caused
+        "lock-out" issues during testing. The "invite" feature still needs to be
+        clearly specified and implemented accordingly.
+        """
         # Find documents where I'm registered as a requester ("gesuchsteller").
         docs_requester = form_models.Document.objects.filter(
             family__in=form_models.Answer.objects.filter(
-                question_id="doesnt-exist-yet", value=user_email
+                question_id="e-mail-gesuchstellerin____disabled", value=user_email
             ).values("document__family")
         )
 
@@ -132,7 +137,7 @@ class FilterViaCamacAPIMixin:
             created_by_user=user_identifier
         ).exclude(
             family__in=form_models.Answer.objects.filter(
-                question_id="doesnt-exist-yet"
+                question_id="e-mail-gesuchstellerin____disabled"
             ).values("document__family")
         )
 

@@ -15,7 +15,8 @@ export default Controller.extend({
 
   save: task(function*() {
     // we always create a baugesuch, except for "vorabklaerung-einfach"
-    const isVorabklaerungEinfach = this.selectedForm == "vorabklaerung-einfach";
+    const isVorabklaerungEinfach =
+      this.selectedForm === "vorabklaerung-einfach";
     const formToCreate = isVorabklaerungEinfach
       ? this.selectedForm
       : "baugesuch";

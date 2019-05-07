@@ -21,6 +21,9 @@ query AllCases {
                 ... on StringAnswer {
                   stringValue: value
                 }
+                question {
+                  slug
+                }
               }
             }
           }
