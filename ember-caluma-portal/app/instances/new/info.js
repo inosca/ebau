@@ -4,8 +4,6 @@ export const info1 = `**Einfache Vorabklärung:**
 
 export const info2 = `**Baugesuch:**
 
-**Projektänderung:**
-
 **Generelles Baugesuch:**
 
 **Baugesuch mit UVP:** `;
