@@ -11,7 +11,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.core.models import Activation
-from camac.instance.mixins import InstanceEditableMixin
+from camac.instance.mixins.schwyz import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
 

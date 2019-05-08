@@ -83,21 +83,25 @@ WSGI_APPLICATION = "camac.wsgi.application"
 # an application is defined by the customer e.g. uri, schwyz, etc.
 
 APPLICATIONS = {
-    # settings for demp app, can also used as example
     "demo": {
-        # mapping between Camac role and instance permission
+        # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
+            # Only Schwyz
             "Municipality": "municipality",
-            "Service": "service",
             "Canton": "canton",
             "Reader": "reader",
             "PublicReader": "public_reader",
+            # Only Bern
+            "Applicant": "applicant",
+            "Fachstelle": "fachstelle",
+            "Support": "support",
+            # All
+            "Service": "service",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
         "PUBLICATION_DURATION": timedelta(days=30),
     },
     "kt_schwyz": {
-        # mapping between Camac role and instance permission
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
             "Fachstelle": "service",
@@ -109,9 +113,23 @@ APPLICATIONS = {
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
     },
+    "kt_bern": {
+        "ROLE_PERMISSIONS": {
+            "Gesuchsteller": "applicant",
+            "Leitung Fachstelle": "fachstelle",
+            "Sachbearbeiter Fachstelle": "fachstelle",
+            "Einsichtsberechtigte Fachstelle": "fachstelle",
+            "Leitung Leitbehörde": "service",
+            "Sachbearbeiter Leitbehörde": "service",
+            "Einsichtsberechtigte Leitbehörde": "service",
+            "Leitung Baukontrolle": "service",
+            "Sachbearbeiter Baukontrolle": "service",
+            "Einsichtsberechtigte Baukontrolle": "service",
+            "Unterfachstelle": "service",
+            "System-Betrieb": "support",
+        }
+    },
     "kt_uri": {},
-    "kt_bern": {}
-    # add other application configuration here...
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
@@ -338,3 +356,5 @@ GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
+
+CALUMA_URL = env.str("CALUMA_URL", "http://caluma:8000/graphql/")

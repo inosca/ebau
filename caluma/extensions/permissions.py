@@ -6,6 +6,8 @@ from caluma.core.permissions import (
     object_permission_for,
     permission_for,
 )
+from caluma.form.schema import SaveDocument, SaveDocumentAnswer, SaveForm
+from caluma.workflow.schema import SaveCase
 
 log = getLogger()
 
@@ -26,4 +28,34 @@ class CustomPermission(BasePermission):
     def has_permission_default(self, mutation, info):
         operation = mutation.__name__
         log.warning(f"fallback permission: allowing mutation '{operation}'")
+        return True
+
+    @permission_for(SaveDocument)
+    def has_permission_for_savedocument(self, mutation, info):
+        log.debug(f"ACL DEBUG: save document")
+        return True
+
+    @permission_for(SaveForm)
+    def has_permission_for_save_form(self, mutation, info):
+        log.debug(f"ACL DEBUG: save form")
+        return True
+
+    @permission_for(SaveDocumentAnswer)
+    def permission_for_savedocumentanswer(self, mutation, info):
+        log.debug(f"ACL DEBUG: save answer")
+        return True
+
+    @object_permission_for(SaveDocumentAnswer)
+    def object_permission_for_savedocumentanswer(self, mutation, info, instance):
+        log.debug(f"ACL DEBUG: save answer")
+        return True
+
+    @object_permission_for(SaveForm)
+    def has_object_permission_for_save_form(self, mutation, info, instance):
+        log.debug(f"ACL DEBUG: object permission for save form")
+        return instance.slug != "protected-form"
+
+    @permission_for(SaveCase)
+    def has_permission_for_save_case(self, mutation, info):
+        log.debug(f"ACL DEBUG: object permission for save case")
         return True
