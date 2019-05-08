@@ -8226,7 +8226,7 @@
     "fields": {
       "name": "Viehtriebweg",
       "question": 262,
-      "sort": 7,
+      "sort": 8,
       "value": "viehtriebweg"
     },
     "model": "core.answerlist",
@@ -8236,7 +8236,7 @@
     "fields": {
       "name": "Bewirtschaftungsweg",
       "question": 262,
-      "sort": 8,
+      "sort": 9,
       "value": "bewirtschaftungsweg"
     },
     "model": "core.answerlist",
@@ -8246,7 +8246,7 @@
     "fields": {
       "name": "Hof- / G\u00fctererschliessung",
       "question": 262,
-      "sort": 9,
+      "sort": 10,
       "value": "hofg\u00fcter"
     },
     "model": "core.answerlist",
@@ -8256,7 +8256,7 @@
     "fields": {
       "name": "Andere",
       "question": 262,
-      "sort": 11,
+      "sort": 13,
       "value": "andere"
     },
     "model": "core.answerlist",
@@ -8296,7 +8296,7 @@
     "fields": {
       "name": "RPG 16a RPV 34 1 \u00d6konomiebauten f\u00fcr die bodenabh\u00e4ngige Landwirtschaft",
       "question": 264,
-      "sort": 0,
+      "sort": 1,
       "value": "5001"
     },
     "model": "core.answerlist",
@@ -8306,7 +8306,7 @@
     "fields": {
       "name": "RPG 18a Solaranlagen",
       "question": 264,
-      "sort": 11,
+      "sort": 12,
       "value": "5015"
     },
     "model": "core.answerlist",
@@ -8316,7 +8316,7 @@
     "fields": {
       "name": "RPG 22 allgemein zonenkonform",
       "question": 264,
-      "sort": 12,
+      "sort": 13,
       "value": "1 Kein GWR Code"
     },
     "model": "core.answerlist",
@@ -8326,7 +8326,7 @@
     "fields": {
       "name": "RPG 24 Standortgebundene Bauten und Anlagen",
       "question": 264,
-      "sort": 13,
+      "sort": 14,
       "value": "5021"
     },
     "model": "core.answerlist",
@@ -8336,7 +8336,7 @@
     "fields": {
       "name": "RPG 24a Zweck\u00e4nderung ohne bauliche Massnahmen",
       "question": 264,
-      "sort": 16,
+      "sort": 17,
       "value": "5031"
     },
     "model": "core.answerlist",
@@ -8346,7 +8346,7 @@
     "fields": {
       "name": "RPG 24b 1 Nichtlandwirtschaftliche Nebenbetriebe zur Existenzsicherung",
       "question": 264,
-      "sort": 17,
+      "sort": 18,
       "value": "5041"
     },
     "model": "core.answerlist",
@@ -8356,7 +8356,7 @@
     "fields": {
       "name": "RPG 24c RPV 42 \u00c4nderung zonenwidrig gewordener Bauten und Anlagen",
       "question": 264,
-      "sort": 20,
+      "sort": 21,
       "value": "5051"
     },
     "model": "core.answerlist",
@@ -8366,7 +8366,7 @@
     "fields": {
       "name": "RPG 24d 1 RPV 42a \u00c4nderungen an ehemals landwirtschaftlich genutzten Wohnbauten",
       "question": 264,
-      "sort": 21,
+      "sort": 22,
       "value": "5061"
     },
     "model": "core.answerlist",
@@ -8376,7 +8376,7 @@
     "fields": {
       "name": "RPG 24e 1 Hobbym\u00e4ssige Tierhaltung  in nahe bei der Bauzone gelegenen Geb\u00e4uden",
       "question": 264,
-      "sort": 22,
+      "sort": 23,
       "value": "5064"
     },
     "model": "core.answerlist",
@@ -8386,7 +8386,7 @@
     "fields": {
       "name": "RPG 37a RPV 43 \u00c4nderung zonenwidrig gewordener gewerblicher Bauten",
       "question": 264,
-      "sort": 25,
+      "sort": 26,
       "value": "5071"
     },
     "model": "core.answerlist",
@@ -8396,7 +8396,7 @@
     "fields": {
       "name": "Andere Dossiers",
       "question": 264,
-      "sort": 27,
+      "sort": 28,
       "value": "3 Kein GWR Code"
     },
     "model": "core.answerlist",
@@ -8434,67 +8434,67 @@
   },
   {
     "fields": {
-      "name": "Privatperson",
+      "name": "Privatpersonen (inkl. Erbengemeinschaften)",
       "question": 267,
-      "sort": 0,
-      "value": "privat"
+      "sort": 18,
+      "value": "6161"
     },
     "model": "core.answerlist",
     "pk": 316
   },
   {
     "fields": {
-      "name": "Kantonale Beh\u00f6rde / Institution",
+      "name": "Kanton (z.B. ARE BD, ohne \u00f6ffentliche Unternehmen)",
       "question": 267,
-      "sort": 1,
-      "value": "kanton"
+      "sort": 6,
+      "value": "6110"
     },
     "model": "core.answerlist",
     "pk": 317
   },
   {
     "fields": {
-      "name": "Kommunale Beh\u00f6rde / Institution",
+      "name": "Gemeinden (inkl. Korporationen B\u00fcrgergemeinden und Alpgenossenschaften)",
       "question": 267,
-      "sort": 2,
-      "value": "gemeinde"
+      "sort": 8,
+      "value": "6115"
     },
     "model": "core.answerlist",
     "pk": 318
   },
   {
     "fields": {
-      "name": "Privatrechtliche Gemeinschaft (z.B. Genossenschaft)",
+      "name": "Immobilienbranche (Einzelpersonen oder Personengesellschaften)",
       "question": 267,
-      "sort": 3,
-      "value": "gemeinschaft"
+      "sort": 23,
+      "value": "6141"
     },
     "model": "core.answerlist",
     "pk": 319
   },
   {
     "fields": {
-      "name": "Korporation",
+      "name": "Banken",
       "question": 267,
-      "sort": 4,
-      "value": "korporation"
+      "sort": 13,
+      "value": "6124"
     },
     "model": "core.answerlist",
     "pk": 320
   },
   {
     "fields": {
-      "name": "Andere",
+      "name": "Bundesamt f\u00fcr Umweltschutz",
       "question": 267,
-      "sort": 5,
-      "value": "andere"
+      "sort": 26,
+      "value": "BAFU"
     },
     "model": "core.answerlist",
     "pk": 321
   },
   {
     "fields": {
-      "name": "Abparzellierung",
+      "name": "Abparzellierung Ver\u00e4usserung Betriebs\u00fcbergabe",
       "question": 261,
       "sort": 6,
       "value": "bgbb"
@@ -8516,7 +8516,7 @@
     "fields": {
       "name": "BGBB 4a VBB Abparzellierung von Bauten und Anlagen, Feststellungsverf\u00fcgung",
       "question": 264,
-      "sort": 26,
+      "sort": 27,
       "value": "2 Kein GWR Code"
     },
     "model": "core.answerlist",
@@ -8526,7 +8526,7 @@
     "fields": {
       "name": "Fahrnisbauten",
       "question": 262,
-      "sort": 10,
+      "sort": 11,
       "value": "Befristet"
     },
     "model": "core.answerlist",
@@ -8536,7 +8536,7 @@
     "fields": {
       "name": "RPG 16a 1 RPV 34 2 Landwirtschaftliche Bauten: Aufbereitung Lagerung und Verkauf",
       "question": 264,
-      "sort": 1,
+      "sort": 2,
       "value": "5002"
     },
     "model": "core.answerlist",
@@ -8546,7 +8546,7 @@
     "fields": {
       "name": "RPG 16a 1 RPV 34 3 Wohnbauten f\u00fcr landwirtschaftliche Gewerbe",
       "question": 264,
-      "sort": 2,
+      "sort": 3,
       "value": "5003"
     },
     "model": "core.answerlist",
@@ -8556,7 +8556,7 @@
     "fields": {
       "name": "RPG 16a RPV 35 Gemeinschaftliche Stallbauten",
       "question": 264,
-      "sort": 3,
+      "sort": 4,
       "value": "5004"
     },
     "model": "core.answerlist",
@@ -8566,7 +8566,7 @@
     "fields": {
       "name": "RPG 16a 2 RPV 36 Innere Aufstockung Tierhaltung (Schweinest\u00e4lle, Gefl\u00fcgelhallen)",
       "question": 264,
-      "sort": 4,
+      "sort": 5,
       "value": "5005"
     },
     "model": "core.answerlist",
@@ -8576,7 +8576,7 @@
     "fields": {
       "name": "RPG 16a 2 RPV 37 Innere Aufstockung Gem\u00fcse- und Pflanzenbau (Gew\u00e4chsh\u00e4user)",
       "question": 264,
-      "sort": 5,
+      "sort": 6,
       "value": "5006"
     },
     "model": "core.answerlist",
@@ -8586,7 +8586,7 @@
     "fields": {
       "name": "RPG 16a 3 RPV 38 Bauten und Anlagen in Speziallandwirtschaftszonen",
       "question": 264,
-      "sort": 6,
+      "sort": 7,
       "value": "5007"
     },
     "model": "core.answerlist",
@@ -8596,7 +8596,7 @@
     "fields": {
       "name": "RPG 16a 1 RPV 34a Gewinnung von Energie aus Biomasse",
       "question": 264,
-      "sort": 7,
+      "sort": 8,
       "value": "5008"
     },
     "model": "core.answerlist",
@@ -8606,7 +8606,7 @@
     "fields": {
       "name": "RPG 17 allgemein, Zonenkonforme Bauten und Anlagen in Schutzzonen",
       "question": 264,
-      "sort": 8,
+      "sort": 9,
       "value": "5009"
     },
     "model": "core.answerlist",
@@ -8616,7 +8616,7 @@
     "fields": {
       "name": "RPG 18 allgemein, Zonenkonforme Bauten und Anlagen in Spezialzonen (Deponie, Sport, u.\u00e4. ohne Weiler, Erhaltungszonen)",
       "question": 264,
-      "sort": 9,
+      "sort": 10,
       "value": "5011"
     },
     "model": "core.answerlist",
@@ -8626,7 +8626,7 @@
     "fields": {
       "name": "RPG 18 RPV 33 Zonenkonforme Bauten und Anlagen in Weiler- oder Erhaltungszonen u.\u00e4.",
       "question": 264,
-      "sort": 10,
+      "sort": 11,
       "value": "5012"
     },
     "model": "core.answerlist",
@@ -8636,7 +8636,7 @@
     "fields": {
       "name": "RPG 24 RPV 39 1 Vollst\u00e4ndige Zweck\u00e4nderung von Bauten in Streusiedlungsgebieten",
       "question": 264,
-      "sort": 14,
+      "sort": 15,
       "value": "5022"
     },
     "model": "core.answerlist",
@@ -8646,7 +8646,7 @@
     "fields": {
       "name": "RPG 24 RPV 39 2 Vollst\u00e4ndige Zweck\u00e4nderung landschaftspr\u00e4gender Bauten",
       "question": 264,
-      "sort": 15,
+      "sort": 16,
       "value": "5023"
     },
     "model": "core.answerlist",
@@ -8656,7 +8656,7 @@
     "fields": {
       "name": "RPG 24b 1 bis Nichtlandw. Nebenbetriebe mit engem Bezug zu landw. Gewerbe",
       "question": 264,
-      "sort": 18,
+      "sort": 19,
       "value": "5043"
     },
     "model": "core.answerlist",
@@ -8666,7 +8666,7 @@
     "fields": {
       "name": "RPG 24b 1 ter Nichtlandw. Nebenbetriebe in tempor\u00e4ren Betriebszentren",
       "question": 264,
-      "sort": 19,
+      "sort": 20,
       "value": "5044"
     },
     "model": "core.answerlist",
@@ -8676,7 +8676,7 @@
     "fields": {
       "name": "RPG 24e 2-4 Aussenanlagen zur hobbym\u00e4ssigen Tierhaltung",
       "question": 264,
-      "sort": 23,
+      "sort": 24,
       "value": "5063"
     },
     "model": "core.answerlist",
@@ -8686,11 +8686,241 @@
     "fields": {
       "name": "RPG 24d 2 Vollst\u00e4ndige Zweck\u00e4nderung gesch\u00fctzter Bauten",
       "question": 264,
-      "sort": 24,
+      "sort": 25,
       "value": "5062"
     },
     "model": "core.answerlist",
     "pk": 409
+  },
+  {
+    "fields": {
+      "name": "Innerhalb Bauzone",
+      "question": 264,
+      "sort": 0,
+      "value": "5000"
+    },
+    "model": "core.answerlist",
+    "pk": 410
+  },
+  {
+    "fields": {
+      "name": "SBB (Schweizerische Bundesbahnen)",
+      "question": 267,
+      "sort": 0,
+      "value": "6101"
+    },
+    "model": "core.answerlist",
+    "pk": 411
+  },
+  {
+    "fields": {
+      "name": "VBS (Eidg. Departement f\u00fcr Verteidigung, Bev\u00f6lkerungsschutz und Sport)",
+      "question": 267,
+      "sort": 1,
+      "value": "6103"
+    },
+    "model": "core.answerlist",
+    "pk": 412
+  },
+  {
+    "fields": {
+      "name": "BBL (Bundesamt f\u00fcr Bauten und Logistik)",
+      "question": 267,
+      "sort": 2,
+      "value": "6104"
+    },
+    "model": "core.answerlist",
+    "pk": 413
+  },
+  {
+    "fields": {
+      "name": "ASTRA (Bundesamt f\u00fcr Strassen)",
+      "question": 267,
+      "sort": 3,
+      "value": "6105"
+    },
+    "model": "core.answerlist",
+    "pk": 414
+  },
+  {
+    "fields": {
+      "name": "Swisscom",
+      "question": 267,
+      "sort": 4,
+      "value": "6107"
+    },
+    "model": "core.answerlist",
+    "pk": 415
+  },
+  {
+    "fields": {
+      "name": "Die Post",
+      "question": 267,
+      "sort": 5,
+      "value": "6108"
+    },
+    "model": "core.answerlist",
+    "pk": 416
+  },
+  {
+    "fields": {
+      "name": "Kanton (\u00f6ffentliche Unternehmen des Kantons, z.B. Spital)",
+      "question": 267,
+      "sort": 7,
+      "value": "6111"
+    },
+    "model": "core.answerlist",
+    "pk": 418
+  },
+  {
+    "fields": {
+      "name": "Gemeinden (\u00f6ffentliche Unternehmen Gemeinde, z.B. Wasserwerke, Elektrizit\u00e4stwerke)",
+      "question": 267,
+      "sort": 9,
+      "value": "6116"
+    },
+    "model": "core.answerlist",
+    "pk": 420
+  },
+  {
+    "fields": {
+      "name": "Versicherungsgesellschaften",
+      "question": 267,
+      "sort": 10,
+      "value": "6121"
+    },
+    "model": "core.answerlist",
+    "pk": 421
+  },
+  {
+    "fields": {
+      "name": "Personalf\u00fcrsorgestiftungen (Pensionskassen)",
+      "question": 267,
+      "sort": 11,
+      "value": "6122"
+    },
+    "model": "core.answerlist",
+    "pk": 422
+  },
+  {
+    "fields": {
+      "name": "Krankenkassen, SUVA",
+      "question": 267,
+      "sort": 12,
+      "value": "6123"
+    },
+    "model": "core.answerlist",
+    "pk": 423
+  },
+  {
+    "fields": {
+      "name": "Elektrizit\u00e4tswerke (ausgenommen gemeindeeigene Werke)",
+      "question": 267,
+      "sort": 14,
+      "value": "6131"
+    },
+    "model": "core.answerlist",
+    "pk": 424
+  },
+  {
+    "fields": {
+      "name": "Gaswerke",
+      "question": 267,
+      "sort": 15,
+      "value": "6132"
+    },
+    "model": "core.answerlist",
+    "pk": 425
+  },
+  {
+    "fields": {
+      "name": "Privatbahnen",
+      "question": 267,
+      "sort": 16,
+      "value": "6133"
+    },
+    "model": "core.answerlist",
+    "pk": 426
+  },
+  {
+    "fields": {
+      "name": "Internationale Organisationen, Botschaften",
+      "question": 267,
+      "sort": 22,
+      "value": "6163"
+    },
+    "model": "core.answerlist",
+    "pk": 427
+  },
+  {
+    "fields": {
+      "name": "Andere private Auftraggeber (z.B. SAC Sektionen, Kirchgemeinden, Stiftungen, Vereine)",
+      "question": 267,
+      "sort": 21,
+      "value": "6162"
+    },
+    "model": "core.answerlist",
+    "pk": 428
+  },
+  {
+    "fields": {
+      "name": "Einzelfirmen oder Personengesellschaften",
+      "question": 267,
+      "sort": 19,
+      "value": "6151"
+    },
+    "model": "core.answerlist",
+    "pk": 429
+  },
+  {
+    "fields": {
+      "name": "Kapitalgesellschaften (AG, GmbH, Genossenschaft)",
+      "question": 267,
+      "sort": 20,
+      "value": "6152"
+    },
+    "model": "core.answerlist",
+    "pk": 430
+  },
+  {
+    "fields": {
+      "name": "Immobilienbranche (AG, GmbH, Genossenschaft)",
+      "question": 267,
+      "sort": 17,
+      "value": "6143"
+    },
+    "model": "core.answerlist",
+    "pk": 431
+  },
+  {
+    "fields": {
+      "name": "Immobilienbranche (Wohnbaugenossenschaften)",
+      "question": 267,
+      "sort": 24,
+      "value": "6142"
+    },
+    "model": "core.answerlist",
+    "pk": 432
+  },
+  {
+    "fields": {
+      "name": "Wanderweg",
+      "question": 262,
+      "sort": 7,
+      "value": "Wanderweg"
+    },
+    "model": "core.answerlist",
+    "pk": 433
+  },
+  {
+    "fields": {
+      "name": "Betrieb Gewerbe Liegenschaften",
+      "question": 262,
+      "sort": 12,
+      "value": "Betrieb Hof"
+    },
+    "model": "core.answerlist",
+    "pk": 434
   },
   {
     "fields": {
@@ -8858,24 +9088,6 @@
     },
     "model": "core.apageredirect",
     "pk": 1284
-  },
-  {
-    "fields": {
-      "air_action_name": "edit",
-      "instance_resource": 753,
-      "resource": 301
-    },
-    "model": "core.apageredirect",
-    "pk": 1384
-  },
-  {
-    "fields": {
-      "air_action_name": null,
-      "instance_resource": null,
-      "resource": 314
-    },
-    "model": "core.apageredirect",
-    "pk": 1394
   },
   {
     "fields": {
@@ -9857,6 +10069,78 @@
     },
     "model": "core.attachmentextensionrole",
     "pk": 174
+  },
+  {
+    "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1061
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 175
+  },
+  {
+    "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 176
+  },
+  {
+    "fields": {
+      "attachment_extension": 47,
+      "mode": null,
+      "role": 1
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 177
+  },
+  {
+    "fields": {
+      "attachment_extension": 47,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 178
+  },
+  {
+    "fields": {
+      "attachment_extension": 42,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 179
+  },
+  {
+    "fields": {
+      "attachment_extension": 45,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 180
+  },
+  {
+    "fields": {
+      "attachment_extension": 46,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 181
+  },
+  {
+    "fields": {
+      "attachment_extension": 49,
+      "mode": null,
+      "role": 1129
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 182
   },
   {
     "fields": {
@@ -22248,7 +22532,7 @@
       "hidden": 0,
       "name": "Dossier umwandeln",
       "resource": 301,
-      "sort": 8,
+      "sort": 7,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -22263,7 +22547,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 9,
+      "sort": 8,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -22278,7 +22562,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 7,
+      "sort": 6,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -22398,7 +22682,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 10,
+      "sort": 9,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23073,7 +23357,7 @@
       "hidden": 0,
       "name": "Auflagen-Controlling",
       "resource": 301,
-      "sort": 11,
+      "sort": 10,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23118,7 +23402,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 301,
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37492,12 +37776,12 @@
   {
     "fields": {
       "answer_query": null,
-      "class_field": "",
-      "default_answer": "",
-      "description": "",
-      "javascript": "",
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
       "mapping": 1,
-      "name": "Rechtliche Grundlage / Artikel",
+      "name": "Bewilligungsgrund - Rechtliche Grundlage",
       "question_type": 3,
       "regex": "",
       "validation": ""
@@ -37529,7 +37813,7 @@
       "description": "",
       "javascript": "",
       "mapping": 1,
-      "name": "Gesuchsteller",
+      "name": "Typ der Auftraggeber  - Gesuchsteller",
       "question_type": 3,
       "regex": "",
       "validation": ""
@@ -38813,7 +39097,7 @@
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
       "name": "Dossier erstellen",
-      "sort": 31,
+      "sort": 30,
       "template": "/global/home.phtml"
     },
     "model": "core.resource",
@@ -38826,7 +39110,7 @@
       "description": "Allgemeine Suche",
       "hidden": 0,
       "name": "Dossiersuche",
-      "sort": 28,
+      "sort": 27,
       "template": "/global/search.phtml"
     },
     "model": "core.resource",
@@ -38839,7 +39123,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 27,
+      "sort": 26,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -38865,7 +39149,7 @@
       "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
       "hidden": 0,
       "name": "Portal User Resource",
-      "sort": 32,
+      "sort": 31,
       "template": ""
     },
     "model": "core.resource",
@@ -38891,7 +39175,7 @@
       "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
       "hidden": 0,
       "name": "Portal Resource",
-      "sort": 33,
+      "sort": 32,
       "template": "/portal/create.phtml"
     },
     "model": "core.resource",
@@ -38904,7 +39188,7 @@
       "description": "Dossier in Zirkulation f\u00fcr NGOs",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 23,
+      "sort": 22,
       "template": "/list/circ-list.phtml"
     },
     "model": "core.resource",
@@ -38926,12 +39210,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Zirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 20,
-      "template": ""
+      "sort": 19,
+      "template": null
     },
     "model": "core.resource",
     "pk": 266
@@ -38956,7 +39240,7 @@
       "description": "",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 22,
+      "sort": 21,
       "template": ""
     },
     "model": "core.resource",
@@ -38995,8 +39279,8 @@
       "description": "",
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 19,
-      "template": ""
+      "sort": 18,
+      "template": null
     },
     "model": "core.resource",
     "pk": 293
@@ -39008,7 +39292,7 @@
       "description": "",
       "hidden": 0,
       "name": "Geb\u00fchren",
-      "sort": 24,
+      "sort": 23,
       "template": ""
     },
     "model": "core.resource",
@@ -39021,7 +39305,7 @@
       "description": "",
       "hidden": 0,
       "name": "Auflagen",
-      "sort": 25,
+      "sort": 24,
       "template": ""
     },
     "model": "core.resource",
@@ -39073,7 +39357,7 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenliste Baubewilligung erteilt",
-      "sort": 26,
+      "sort": 25,
       "template": null
     },
     "model": "core.resource",
@@ -39151,7 +39435,7 @@
       "description": "Pendenzenliste Ende f\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Pendenzenliste Ende",
-      "sort": 21,
+      "sort": 20,
       "template": ""
     },
     "model": "core.resource",
@@ -39203,7 +39487,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erweiterte Suche",
-      "sort": 29,
+      "sort": 28,
       "template": null
     },
     "model": "core.resource",
@@ -39216,7 +39500,7 @@
       "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
       "hidden": 0,
       "name": "Geb\u00fchren-Statistik",
-      "sort": 30,
+      "sort": 29,
       "template": null
     },
     "model": "core.resource",
@@ -41108,7 +41392,7 @@
   },
   {
     "fields": {
-      "instance_states": "21,22,23,24,25"
+      "instance_states": "21,22,32,23,24,25"
     },
     "model": "core.rsimplelist",
     "pk": 293
@@ -47470,9 +47754,9 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Gemeindewerke Altdorf",
+      "name": "Swissgrid",
       "phone": null,
-      "role": 1104,
+      "role": 4,
       "service": 592,
       "website": null,
       "zip": null
@@ -49390,7 +49674,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 93,
+      "sort": 94,
       "website": "",
       "zip": ""
     },
@@ -49428,7 +49712,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 95,
+      "sort": 96,
       "website": "",
       "zip": ""
     },
@@ -49447,7 +49731,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 97,
+      "sort": 98,
       "website": "",
       "zip": ""
     },
@@ -49618,7 +49902,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 123,
+      "sort": 124,
       "website": "",
       "zip": ""
     },
@@ -49770,7 +50054,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 122,
+      "sort": 123,
       "website": "",
       "zip": ""
     },
@@ -49789,7 +50073,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 124,
+      "sort": 125,
       "website": "",
       "zip": ""
     },
@@ -49903,7 +50187,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 135,
+      "sort": 136,
       "website": "",
       "zip": ""
     },
@@ -50017,7 +50301,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 78,
+      "sort": 79,
       "website": null,
       "zip": null
     },
@@ -50036,7 +50320,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 134,
+      "sort": 135,
       "website": "",
       "zip": ""
     },
@@ -50207,7 +50491,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 102,
+      "sort": 103,
       "website": "",
       "zip": ""
     },
@@ -50226,7 +50510,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 92,
+      "sort": 93,
       "website": "",
       "zip": ""
     },
@@ -50245,7 +50529,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 127,
+      "sort": 128,
       "website": "",
       "zip": ""
     },
@@ -50264,7 +50548,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 121,
+      "sort": 122,
       "website": "",
       "zip": ""
     },
@@ -50283,7 +50567,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 126,
+      "sort": 127,
       "website": "",
       "zip": ""
     },
@@ -50302,7 +50586,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 133,
+      "sort": 134,
       "website": "",
       "zip": ""
     },
@@ -50321,7 +50605,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 136,
+      "sort": 137,
       "website": "",
       "zip": ""
     },
@@ -50340,7 +50624,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 137,
+      "sort": 138,
       "website": "",
       "zip": ""
     },
@@ -50359,7 +50643,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 139,
+      "sort": 140,
       "website": "",
       "zip": ""
     },
@@ -50416,7 +50700,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 125,
+      "sort": 126,
       "website": "",
       "zip": ""
     },
@@ -50435,7 +50719,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 103,
+      "sort": 104,
       "website": "",
       "zip": ""
     },
@@ -50454,7 +50738,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 104,
+      "sort": 105,
       "website": "",
       "zip": ""
     },
@@ -50473,7 +50757,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 105,
+      "sort": 106,
       "website": "",
       "zip": ""
     },
@@ -50492,7 +50776,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 106,
+      "sort": 107,
       "website": "",
       "zip": ""
     },
@@ -50511,7 +50795,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 107,
+      "sort": 108,
       "website": "",
       "zip": ""
     },
@@ -50530,7 +50814,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 108,
+      "sort": 109,
       "website": "",
       "zip": ""
     },
@@ -50549,7 +50833,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 109,
+      "sort": 110,
       "website": "",
       "zip": ""
     },
@@ -50568,7 +50852,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 110,
+      "sort": 111,
       "website": "",
       "zip": ""
     },
@@ -50587,7 +50871,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 111,
+      "sort": 112,
       "website": "",
       "zip": ""
     },
@@ -50606,7 +50890,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 112,
+      "sort": 113,
       "website": "",
       "zip": ""
     },
@@ -50625,7 +50909,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 113,
+      "sort": 114,
       "website": "",
       "zip": ""
     },
@@ -50644,7 +50928,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 114,
+      "sort": 115,
       "website": "",
       "zip": ""
     },
@@ -50663,7 +50947,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 115,
+      "sort": 116,
       "website": "",
       "zip": ""
     },
@@ -50682,7 +50966,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 116,
+      "sort": 117,
       "website": "",
       "zip": ""
     },
@@ -50701,7 +50985,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 117,
+      "sort": 118,
       "website": "",
       "zip": ""
     },
@@ -50720,7 +51004,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 118,
+      "sort": 119,
       "website": "",
       "zip": ""
     },
@@ -50739,7 +51023,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 119,
+      "sort": 120,
       "website": "",
       "zip": ""
     },
@@ -50758,7 +51042,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 120,
+      "sort": 121,
       "website": "",
       "zip": ""
     },
@@ -50986,7 +51270,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 76,
+      "sort": 77,
       "website": "",
       "zip": ""
     },
@@ -51005,7 +51289,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 80,
+      "sort": 81,
       "website": "",
       "zip": ""
     },
@@ -51024,7 +51308,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 81,
+      "sort": 82,
       "website": "",
       "zip": ""
     },
@@ -51043,7 +51327,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 82,
+      "sort": 83,
       "website": "",
       "zip": ""
     },
@@ -51062,7 +51346,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 83,
+      "sort": 84,
       "website": "",
       "zip": ""
     },
@@ -51081,7 +51365,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 84,
+      "sort": 85,
       "website": "",
       "zip": ""
     },
@@ -51100,7 +51384,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 85,
+      "sort": 86,
       "website": "",
       "zip": ""
     },
@@ -51119,7 +51403,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 86,
+      "sort": 87,
       "website": "",
       "zip": ""
     },
@@ -51138,7 +51422,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 87,
+      "sort": 88,
       "website": "",
       "zip": ""
     },
@@ -51157,7 +51441,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 88,
+      "sort": 89,
       "website": "",
       "zip": ""
     },
@@ -51176,7 +51460,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 89,
+      "sort": 90,
       "website": "",
       "zip": ""
     },
@@ -51195,7 +51479,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 90,
+      "sort": 91,
       "website": "",
       "zip": ""
     },
@@ -51214,7 +51498,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 91,
+      "sort": 92,
       "website": "",
       "zip": ""
     },
@@ -51480,7 +51764,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 77,
+      "sort": 78,
       "website": "",
       "zip": ""
     },
@@ -51499,7 +51783,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 79,
+      "sort": 80,
       "website": "",
       "zip": ""
     },
@@ -51550,7 +51834,7 @@
       "city": "",
       "description": "Amt f\u00fcr Bev\u00f6lkerungsschutz und Milit\u00e4r",
       "disabled": 0,
-      "email": "abm@ur.ch",
+      "email": "thomas.flachsmann@ur.ch",
       "name": "ABM",
       "notification": 1,
       "phone": "",
@@ -51708,7 +51992,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 101,
+      "sort": 102,
       "website": "",
       "zip": ""
     },
@@ -51727,7 +52011,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 96,
+      "sort": 97,
       "website": "",
       "zip": ""
     },
@@ -51765,7 +52049,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 94,
+      "sort": 95,
       "website": "",
       "zip": ""
     },
@@ -51784,7 +52068,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 128,
+      "sort": 129,
       "website": "",
       "zip": ""
     },
@@ -51803,7 +52087,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 129,
+      "sort": 130,
       "website": "",
       "zip": ""
     },
@@ -51822,7 +52106,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 130,
+      "sort": 131,
       "website": "",
       "zip": ""
     },
@@ -51841,7 +52125,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 131,
+      "sort": 132,
       "website": "",
       "zip": ""
     },
@@ -51917,7 +52201,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 98,
+      "sort": 99,
       "website": "",
       "zip": ""
     },
@@ -51936,7 +52220,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 100,
+      "sort": 101,
       "website": "",
       "zip": ""
     },
@@ -51955,7 +52239,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 138,
+      "sort": 139,
       "website": "",
       "zip": ""
     },
@@ -51974,7 +52258,7 @@
       "phone": null,
       "service_group": 62,
       "service_parent": null,
-      "sort": 99,
+      "sort": 100,
       "website": null,
       "zip": null
     },
@@ -52012,7 +52296,7 @@
       "phone": null,
       "service_group": 1,
       "service_parent": null,
-      "sort": 132,
+      "sort": 133,
       "website": null,
       "zip": null
     },
@@ -52042,15 +52326,15 @@
     "fields": {
       "address": null,
       "city": null,
-      "description": "Test Gruppe zum testen der Gemeinde Zirkulation",
+      "description": "Swissgrid",
       "disabled": 0,
       "email": null,
-      "name": "Gemeindewerke Altdorf",
+      "name": "Swissgrid",
       "notification": 1,
       "phone": null,
-      "service_group": 69,
+      "service_group": 21,
       "service_parent": null,
-      "sort": 0,
+      "sort": 76,
       "website": null,
       "zip": null
     },
