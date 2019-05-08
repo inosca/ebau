@@ -8,7 +8,7 @@ from rest_framework import status
 
 
 def test_form_config_get(admin_client):
-    url = reverse("form-config-download")
+    url = reverse("schwyz-form-config-download")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK

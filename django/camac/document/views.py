@@ -11,7 +11,7 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
-from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
+from camac.instance.mixins.schwyz import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.unoconv import convert

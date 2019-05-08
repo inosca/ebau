@@ -1,7 +1,12 @@
 <div class="uk-padding">
-  {{cf-navigation
-    documentId=(atob model.document.id)
-    section=section
-    subSection=subSection
-  }}
+  <button {{action (perform submit)}}>Einreichen</button>
+</div>
+<div class="uk-padding">
+  {{#if model.data.value}}
+    {{cf-navigation
+      documentId=(atob model.data.value.document.id)
+      section=section
+      subSection=subSection
+    }}
+  {{/if}}
 </div>
