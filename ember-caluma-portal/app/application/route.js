@@ -14,5 +14,9 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       label: "Karte",
       component: "be-gis"
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Einreichen Button",
+      component: "be-submit-instance"
+    });
   }
 });
