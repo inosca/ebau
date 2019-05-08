@@ -3,15 +3,15 @@
     {{#unless isEmbedded}}
       {{#uk-flex horizontal="center" vertical="middle" direction="column" class="uk-padding"}}
         {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
-          <div class="uk-width-1-1 uk-position-relative">
-            {{!--<img class="uk-width-1-1" src="/assets/images/logo-kanton-schwyz.svg" alt="Kanton Schwyz">--}}
-            <span class="uk-position-bottom-left uk-margin-medium-bottom">
-              v{{app-version hideSha=true}}
-            </span>
-            {{#if (not-eq environment "production")}}
-              {{uk-label label=environment class="uk-position-bottom-left uk-margin-small-bottom"}}
-            {{/if}}
+          <div class="uk-width-1-1">
+            <img src="/assets/images/logo-ebau-bern-1.svg" alt="Logo eBau BE">
           </div>
+          {{#if (not-eq environment "production")}}
+            <div class="uk-width-1-1 uk-margin-top">
+              <span>v{{app-version hideSha=true}}</span>
+              {{uk-label label=environment}}
+            </div>
+          {{/if}}
         {{/link-to}}
         <div>
           {{!-- we can't use link-to because of the uk-icon attribute --}}
