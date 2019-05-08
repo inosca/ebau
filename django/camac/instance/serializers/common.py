@@ -16,7 +16,8 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import mixins, models, validators
+from .. import models, validators
+from ..mixins import schwyz as mixins
 
 
 class NewInstanceStateDefault(object):

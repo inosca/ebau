@@ -1,5 +1,7 @@
 [flake8]
 ignore =
+    # invalid escape sequence
+    W605
     # whitespace before ':'
     E203,
     # too many leading ### in a block comment

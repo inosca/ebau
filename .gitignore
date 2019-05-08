@@ -24,6 +24,7 @@ postgres-data
 geckodriver.log
 php/logs/mails/
 .env
+env
 .vscode
 .~lock*
 form-export.csv

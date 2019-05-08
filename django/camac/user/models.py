@@ -234,6 +234,9 @@ class Role(models.Model):
     )
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
 
+    def __repr__(self):
+        return self.name
+
     class Meta:
         managed = True
         db_table = "ROLE"
