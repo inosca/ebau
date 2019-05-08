@@ -1,8 +1,8 @@
-<h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Gesuch handelt es sich?</h4>
+<h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Dossier handelt es sich?</h4>
 
 <div uk-grid class="uk-grid-small">
   <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
-    <h4 class="uk-text-center">Beratung und Vorentscheid {{camac-hint-dialog infoCol1}}</h4>
+    <h4 class="uk-text-center">Vorabklärung {{camac-hint-dialog infoCol1}}</h4>
     {{new-form-grid-entry
       form="vorabklaerung-einfach"
       label="Einfache Vorabklärung"
@@ -17,16 +17,10 @@
     }}
   </div>
   <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
-    <h4 class="uk-text-center">Baubewilligung {{camac-hint-dialog infoCol2}}</h4>
+    <h4 class="uk-text-center">Gesuche {{camac-hint-dialog infoCol2}}</h4>
     {{new-form-grid-entry
       form="baugesuch"
       label="Baugesuch"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
-    {{new-form-grid-entry
-      form="projektaenderung"
-      label="Projektänderung"
       onSetForm=(action (mut selectedForm))
       selectedForm=selectedForm
     }}

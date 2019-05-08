@@ -11,7 +11,7 @@ import download from "downloadjs";
 const { testing } = Ember;
 
 const ALLOWED_MIME_TYPES = ["application/pdf", "image/png", "image/jpeg"];
-const MAX_FILE_SIZE = 25 * 1024 * 1024;
+const MAX_FILE_SIZE = 60 * 1024 * 1024;
 
 export default CamacInputComponent.extend({
   ajax: service(),

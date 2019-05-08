@@ -1,0 +1,5 @@
+mutation($input: SaveDocumentStringAnswerInput!) {
+  saveDocumentStringAnswer(input: $input) {
+    clientMutationId
+  }
+}
