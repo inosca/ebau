@@ -1326,6 +1326,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "0b3819a0-a674-4d0e-a56a-8ff9f55e0345",
+    "fields": {
+      "created_at": "2019-05-05T13:01:55.956Z",
+      "modified_at": "2019-05-05T13:01:55.956Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "durchgefuehrte-vorabklaerungen-tabelle",
+      "question": "amts-fachstelle",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0b655d25-4056-4634-8305-e34b776e8d53",
     "fields": {
       "created_at": "2019-04-08T08:36:39.325Z",
@@ -1360,7 +1373,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "kontaktperson-vorname-projektverfasserin",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -1490,7 +1503,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "5-spezialformulare",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -1529,7 +1542,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -1672,7 +1685,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "vorname-projektverfasserin",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -1724,7 +1737,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "vorname-grundeigentuemerin",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -1764,19 +1777,6 @@
       "form": "vertreterin-mit-vollmacht",
       "question": "strasse-vertreterin",
       "sort": 7
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "167c0c60-241b-4165-b4ca-fbea1738e05f",
-    "fields": {
-      "created_at": "2019-05-03T15:57:11.282Z",
-      "modified_at": "2019-05-03T15:57:11.282Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "zonenvorschriften-schutzzonen",
-      "question": "bauinventar-titel",
-      "sort": 17
     }
   },
   {
@@ -1958,7 +1958,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "kontaktperson-name-projektverfasserin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -1971,7 +1971,7 @@
       "created_by_group": null,
       "form": "personalien-betreiberin-der-anlage",
       "question": "vorname-gewaesserschutzfragen",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -2036,7 +2036,7 @@
       "created_by_group": null,
       "form": "solar-und-sendeanlagen",
       "question": "vorname-sendeanlage",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -2062,7 +2062,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "name-gebaeudeeigentuemerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -2782,19 +2782,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "371ac558-ee83-476e-89dc-712690af68fc",
-    "fields": {
-      "created_at": "2019-05-03T15:55:37.259Z",
-      "modified_at": "2019-05-03T15:55:37.259Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "zonenvorschriften-schutzzonen",
-      "question": "gewasserschutz-titel",
-      "sort": 22
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "374e25d8-1fa1-45c1-a8a3-5d315573f462",
     "fields": {
       "created_at": "2019-03-28T14:15:25.612Z",
@@ -2803,7 +2790,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "nr",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2868,7 +2855,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -2985,7 +2972,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "kontaktperson-name-grundeigentuemerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3219,7 +3206,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "name-vertreterin",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3414,7 +3401,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "ort-grundstueck",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3432,6 +3419,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "4b4e1e86-3028-43b5-90f4-7d70d16b1db6",
+    "fields": {
+      "created_at": "2019-05-05T12:57:43.578Z",
+      "modified_at": "2019-05-05T12:57:43.578Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "gemeinde",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "4b515ec2-d428-46eb-9203-b0d038cd218a",
     "fields": {
       "created_at": "2019-04-02T07:53:03.413Z",
@@ -3440,7 +3440,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "3-grundstueck",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3492,7 +3492,7 @@
       "created_by_group": null,
       "form": "personalien-gastgewerbe",
       "question": "name-gastgewerbe",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3843,7 +3843,7 @@
       "created_by_group": null,
       "form": "solar-und-sendeanlagen",
       "question": "name-sendeanlage",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -4077,7 +4077,7 @@
       "created_by_group": null,
       "form": "personalien-betreiberin-der-anlage",
       "question": "vorname-kontaktperson",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -4298,7 +4298,7 @@
       "created_by_group": null,
       "form": "eigentuemer-tabelle",
       "question": "vorname-wald-eigentuemer",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -4415,7 +4415,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "7-bestaetigung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -4454,7 +4454,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "kontaktperson-name-gebaeudeeigentuemerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -4506,7 +4506,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "kontaktperson-vorname-vertreterin",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -4545,7 +4545,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "kontaktperson-vorname-grundeigentuemerin",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -4558,7 +4558,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "name-gesuchstellerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -4584,7 +4584,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -4844,20 +4844,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 10
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "7c2e8cb7-7f56-453c-adc2-79e2d93ea203",
-    "fields": {
-      "created_at": "2019-05-03T11:08:00.572Z",
-      "modified_at": "2019-05-03T11:08:00.573Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "durchgefuehrte-vorabklaerungen",
-      "question": "durchgefuehrte-vorabklaerungen-titel",
-      "sort": 2
+      "sort": 12
     }
   },
   {
@@ -5000,7 +4987,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "kontaktperson-vorname-gesuchstellerin",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -5078,7 +5065,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -5317,6 +5304,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "8aa4701c-46ed-4b61-95e5-c76ce48d821a",
+    "fields": {
+      "created_at": "2019-05-05T14:48:27.731Z",
+      "modified_at": "2019-05-05T14:48:27.731Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "formulartyp",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "8ab9a906-e6c7-4e2f-aa55-76fd7d16fd8b",
     "fields": {
       "created_at": "2019-04-08T13:17:01.456Z",
@@ -5338,7 +5338,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "kontaktperson-name-gesuchstellerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5572,7 +5572,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "4-bauwerk",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5754,7 +5754,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "vorname-vertreterin",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -6092,7 +6092,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "vorname-gebaeudeeigentuemerin",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -6521,7 +6521,7 @@
       "created_by_group": null,
       "form": "gebaudeeigentumerin",
       "question": "kontaktperson-vorname-gebaeudeeigentuemerin",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -6638,7 +6638,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -6704,6 +6704,19 @@
       "form": "3-grundstueck",
       "question": "zonenvorschriften-baurechtliche-grundordnung",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "b9ae6787-4c12-4b11-9d37-05d8f89230ff",
+    "fields": {
+      "created_at": "2019-05-05T11:28:18.067Z",
+      "modified_at": "2019-05-05T11:28:18.067Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-angaben",
+      "question": "karte",
+      "sort": 13
     }
   },
   {
@@ -7293,6 +7306,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "cd34b33d-3c85-4f14-a0f0-b095d8d93ed5",
+    "fields": {
+      "created_at": "2019-05-05T12:48:17.249Z",
+      "modified_at": "2019-05-05T12:48:17.249Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-angaben",
+      "question": "gemeinde",
+      "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "cd8eea77-4a73-447f-b178-ff097bc0a430",
     "fields": {
       "created_at": "2019-04-01T14:15:41.400Z",
@@ -7509,7 +7535,7 @@
       "created_by_group": null,
       "form": "projektverfasserin",
       "question": "name-projektverfasserin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -7691,7 +7717,7 @@
       "created_by_group": null,
       "form": "personalien-betreiberin-der-anlage",
       "question": "name-kontaktperson",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -7847,7 +7873,7 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "strasse-flurname",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -7912,7 +7938,7 @@
       "created_by_group": null,
       "form": "grundeigentumerin",
       "question": "name-grundeigentuemerin",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8055,7 +8081,7 @@
       "created_by_group": null,
       "form": "eigentuemer-tabelle",
       "question": "name-wald-eigentuemer",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -8107,7 +8133,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -8419,7 +8445,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -8593,19 +8619,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "f43347d3-bb20-491b-a006-333047ef7547",
-    "fields": {
-      "created_at": "2019-04-18T08:03:52.125Z",
-      "modified_at": "2019-04-18T08:03:52.125Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "formulartyp",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "f490709e-4386-4414-abae-00d938c1d25d",
     "fields": {
       "created_at": "2019-04-09T12:12:27.717Z",
@@ -8654,6 +8667,19 @@
       "form": "brandschutz",
       "question": "besondere-brandrisiken",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "f4f28fce-911e-40ef-a5b4-22d955609d4e",
+    "fields": {
+      "created_at": "2019-05-05T11:33:50.892Z",
+      "modified_at": "2019-05-05T11:33:50.892Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "karte-einfache-vorabklaerung",
+      "sort": 7
     }
   },
   {
@@ -8731,7 +8757,7 @@
       "created_by_group": null,
       "form": "personalien-betreiberin-der-anlage",
       "question": "name-gewaesserschutzfragen",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -8835,7 +8861,7 @@
       "created_by_group": null,
       "form": "personalien-gastgewerbe",
       "question": "vorname-gastgewerbe",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -8939,7 +8965,7 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "kontaktperson-name-vertreterin",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -8991,7 +9017,7 @@
       "created_by_group": null,
       "form": "personalien-tabelle",
       "question": "vorname-gesuchstellerin",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -9219,10 +9245,10 @@
     "pk": "ableitung-in-guellegrube",
     "fields": {
       "created_at": "2019-03-25T14:02:50.734Z",
-      "modified_at": "2019-05-03T10:14:25.461Z",
+      "modified_at": "2019-05-06T10:05:50.707Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Handelt es sich um ein landwirtschaftliches Bauvorhaben mit Ableitung (Abwasser aus Wohn- und/oder \\u00f6konomieteil) in eine G\\u00fcllegrube?\"}",
+      "label": "{\"de\": \"Handelt es sich um ein landwirtschaftliches Bauvorhaben mit Ableitung (Abwasser aus Wohn- und/oder \\u00d6konomieanteil) in eine G\\u00fcllegrube?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!([\n  'nutzungsart-wohnen',\n  'nutzungsart-landwirtschaft'\n] intersects 'nutzungsart'|answer\n)",
@@ -9507,19 +9533,19 @@
     "pk": "aenderungen-dachflaechen-zufahrten-plaetzen",
     "fields": {
       "created_at": "2019-04-03T13:22:25.453Z",
-      "modified_at": "2019-04-03T13:22:25.453Z",
+      "modified_at": "2019-05-06T09:16:53.910Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Es erfolgen \\u00e4nderungen an Dachfl\\u00e4chen, Zufahrten, Pl\\u00e4tzen, PW-Parkpl\\u00e4tzen?\"}",
+      "label": "{\"de\": \"Es erfolgen \\u00c4nderungen an Dachfl\\u00e4chen, Zufahrten, Pl\\u00e4tzen, PW-Parkpl\\u00e4tzen?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -9641,6 +9667,30 @@
       "configuration": {},
       "meta": {},
       "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "amts-fachstelle",
+    "fields": {
+      "created_at": "2019-05-05T13:01:55.868Z",
+      "modified_at": "2019-05-05T13:01:55.868Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Amts- / Fachstelle\"}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "cf-field/input/powerselect" },
+      "data_source": "Services",
       "row_form": null,
       "sub_form": null,
       "source": null
@@ -9819,19 +9869,19 @@
     "pk": "anzahl-damen-toiletten",
     "fields": {
       "created_at": "2019-04-05T10:12:01.086Z",
-      "modified_at": "2019-04-05T10:12:01.088Z",
+      "modified_at": "2019-05-06T12:36:06.869Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anzahl Toiletten Damen\"}",
+      "label": "{\"de\": \"Damen\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -9987,19 +10037,19 @@
     "pk": "anzahl-pissoire",
     "fields": {
       "created_at": "2019-04-05T10:14:36.532Z",
-      "modified_at": "2019-04-05T10:14:36.532Z",
+      "modified_at": "2019-05-06T12:36:32.152Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anzahl Pissoire\"}",
+      "label": "{\"de\": \"Pissoire\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -10083,19 +10133,19 @@
     "pk": "anzahl-toiletten-herren",
     "fields": {
       "created_at": "2019-04-05T10:12:49.259Z",
-      "modified_at": "2019-04-05T10:12:49.260Z",
+      "modified_at": "2019-05-06T12:36:19.617Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anzahl Toiletten Herren\"}",
+      "label": "{\"de\": \"Herren\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -10299,7 +10349,7 @@
     "pk": "art-der-emmission",
     "fields": {
       "created_at": "2019-04-09T14:02:00.117Z",
-      "modified_at": "2019-04-09T14:02:00.117Z",
+      "modified_at": "2019-05-06T10:13:35.238Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Art der Emmission\"}",
@@ -10308,10 +10358,10 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -11835,10 +11885,10 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung",
     "fields": {
       "created_at": "2019-04-10T13:51:16.442Z",
-      "modified_at": "2019-05-03T08:13:14.065Z",
+      "modified_at": "2019-05-06T11:33:04.317Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem bei allen Teilf\\u00e4chen die vorgesehene Nutzung, die Befestigungsart, das Gef\\u00e4lle sowie die Entw\\u00e4sserungsart eingetragen sind.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!([\n  'nutzungsart-wohnen',\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-verkauf',\n  'nutzungsart-lager',\n  'nutzungsart-landwirtschaft',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-andere'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.nutzungsart'|answer\n)",
@@ -11859,10 +11909,10 @@
     "pk": "bestaetigung-mit-unterschrift",
     "fields": {
       "created_at": "2019-04-10T12:04:33.358Z",
-      "modified_at": "2019-04-26T11:12:43.982Z",
+      "modified_at": "2019-05-06T11:34:20.144Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -12267,7 +12317,7 @@
     "pk": "brandschutzrisiken",
     "fields": {
       "created_at": "2019-04-01T12:16:30.841Z",
-      "modified_at": "2019-05-03T08:28:57.301Z",
+      "modified_at": "2019-05-06T09:27:29.556Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Besondere Brandschutzrisiken\"}",
@@ -13035,19 +13085,19 @@
     "pk": "eigenstaendiger-grossverbraucher",
     "fields": {
       "created_at": "2019-04-01T12:40:22.667Z",
-      "modified_at": "2019-04-04T06:40:52.340Z",
+      "modified_at": "2019-05-06T10:08:52.383Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Ist das Bauvorhaben Teil eines Geb\\u00e4udes oder Geb\\u00e4udeparks, welches bereits ein Grossverbraucher ist oder ist das Bauvvorhaben ein eigenst\\u00e4ndiger Grossverbraucher?\"}",
+      "label": "{\"de\": \"Ist das Bauvorhaben Teil eines Geb\\u00e4udes oder Geb\\u00e4udeparks, welches bereits ein Grossverbraucher ist oder ist das Bauvorhaben ein eigenst\\u00e4ndiger Grossverbraucher?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13347,7 +13397,7 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde",
     "fields": {
       "created_at": "2019-04-01T14:04:05.880Z",
-      "modified_at": "2019-05-03T15:12:47.043Z",
+      "modified_at": "2019-05-06T12:32:35.580Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Erfolgt der Entzug / Eintrag von W\\u00e4rme mittels Erdw\\u00e4rmesonde?\"}",
@@ -13356,7 +13406,7 @@
       "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"**Nein**\\n  \\nBeispielsweise Erdregister, Energiepf\\u00e4hle, W\\u00e4rmek\\u00f6rbe\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
@@ -13995,13 +14045,13 @@
     "pk": "fuer-welche-gebaeude",
     "fields": {
       "created_at": "2019-04-01T13:21:35.449Z",
-      "modified_at": "2019-05-03T10:37:43.611Z",
+      "modified_at": "2019-05-06T10:33:19.254Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr welche Geb\\u00e4ude?\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'sammelschutzraum-nein' == 'sammelschutzraum'|answer\n)",
+      "is_hidden": "!(\n  'sammelschutzraum-ja' == 'sammelschutzraum'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -14376,6 +14426,30 @@
   },
   {
     "model": "form.question",
+    "pk": "gemeinde",
+    "fields": {
+      "created_at": "2019-05-05T12:48:17.169Z",
+      "modified_at": "2019-05-05T12:54:08.450Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Zust\\u00e4ndige Gemeinde\"}",
+      "type": "dynamic_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "cf-field/input/powerselect" },
+      "data_source": "Municipalities",
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "gemessen-in-abstand-meter",
     "fields": {
       "created_at": "2019-04-02T09:00:05.589Z",
@@ -14427,19 +14501,19 @@
     "pk": "gentechnisch-veraenderte-pathogene-organismen",
     "fields": {
       "created_at": "2019-05-02T15:25:18.631Z",
-      "modified_at": "2019-05-02T15:25:18.631Z",
+      "modified_at": "2019-05-06T10:07:33.286Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Handelt es sich um eine Anlage in welcher mit gentechnisch ver\\u00e4nderten oder pathogenen Organismen (Klasse 3 oder 4) T\\u00e4tigkeiten durchgef\\u00fchrt werden?\"}",
+      "label": "{\"de\": \"Handelt es sich um eine Anlage, in welcher mit gentechnisch ver\\u00e4nderten oder pathogenen Organismen (Klasse 3 oder 4) T\\u00e4tigkeiten durchgef\\u00fchrt werden?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -14715,19 +14789,19 @@
     "pk": "gewaesserschutzbereich",
     "fields": {
       "created_at": "2019-04-01T10:42:44.403Z",
-      "modified_at": "2019-04-01T10:42:44.403Z",
+      "modified_at": "2019-05-06T09:58:11.825Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Gewaesserschutzbereich\"}",
+      "label": "{\"de\": \"Gew\\u00e4sserschutzbereich\"}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16224,13 +16298,61 @@
   },
   {
     "model": "form.question",
+    "pk": "karte",
+    "fields": {
+      "created_at": "2019-05-05T11:28:18.012Z",
+      "modified_at": "2019-05-05T11:28:18.012Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Karte\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": { "widgetOverride": "be-gis" },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "karte-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-05-05T11:33:50.822Z",
+      "modified_at": "2019-05-05T11:34:57.358Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Karte\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": { "widgetOverride": "be-gis" },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "keine-rueckhiebe-oder-aushiebe",
     "fields": {
       "created_at": "2019-04-10T13:48:36.763Z",
-      "modified_at": "2019-05-03T08:08:23.613Z",
+      "modified_at": "2019-05-06T11:30:09.589Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt,\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt f\\u00fcr sich und seine/ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihm/ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\n  'bau-im-wald-oder-innerhalb-von-30-m-abstand-ja' == 'parent.2-nutzung-bauvorhaben.triage.bau-im-wald-oder-innerhalb-von-30-m-abstand'|answer\n)",
@@ -16251,10 +16373,10 @@
     "pk": "keine-tangierung-natur-wild-vogelschutz",
     "fields": {
       "created_at": "2019-04-10T12:01:54.598Z",
-      "modified_at": "2019-04-26T11:12:33.096Z",
+      "modified_at": "2019-05-06T14:42:29.714Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutz tangiert.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -17355,19 +17477,19 @@
     "pk": "maschinen-and-anlagen-sendeanlage-titel",
     "fields": {
       "created_at": "2019-05-04T12:51:31.812Z",
-      "modified_at": "2019-05-04T12:51:31.812Z",
+      "modified_at": "2019-05-06T11:20:04.291Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Maschinen & Anlagen (Sendeanlage)\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"***\\n**Maschinen & Anlagen (Sendeanlage)**\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17403,10 +17525,10 @@
     "pk": "maschinen-mit-aussenlaermimmissionen",
     "fields": {
       "created_at": "2019-04-02T10:46:02.361Z",
-      "modified_at": "2019-04-25T09:20:58.704Z",
+      "modified_at": "2019-05-06T10:11:01.810Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Werden Maschinen un/oder Anlagen betrieben, welche Aussenl\\u00e4rmimmissionen verursachen?\"}",
+      "label": "{\"de\": \"Werden Maschinen und/oder Anlagen betrieben, welche Aussenl\\u00e4rmimmissionen verursachen?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -18555,19 +18677,19 @@
     "pk": "neubau-abwasseranlagen-grundleitungen",
     "fields": {
       "created_at": "2019-04-03T13:28:32.468Z",
-      "modified_at": "2019-04-03T13:28:32.468Z",
+      "modified_at": "2019-05-06T10:16:18.294Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Neubau von Abwasseranlagen, Grundleitungen, Grundst\\u00fccksanschlussleitungen?\"}",
+      "label": "{\"de\": \"Neubau von Abwasseranlagen, Grundleitungen, Grundst\\u00fcckanschlussleitungen?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19107,10 +19229,10 @@
     "pk": "oeffentlichkeit",
     "fields": {
       "created_at": "2019-04-05T08:27:48.653Z",
-      "modified_at": "2019-04-25T09:28:28.261Z",
+      "modified_at": "2019-05-06T10:11:42.511Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"\\u00f6ffentlichkeit\"}",
+      "label": "{\"de\": \"\\u00d6ffentlichkeit\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -20331,7 +20453,7 @@
     "pk": "qss-stufe",
     "fields": {
       "created_at": "2019-04-01T12:19:18.723Z",
-      "modified_at": "2019-05-03T16:15:35.740Z",
+      "modified_at": "2019-05-06T14:13:34.789Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"QSS-Stufe\"}",
@@ -20343,7 +20465,7 @@
       "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n  \\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n  \\n[QSS-Logik ](http://camac-ng.local/public/download/eBau_QSS%20Stufen_Neu.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": { "widgetOverride": "cf-field/input/powerselect" },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -21003,7 +21125,7 @@
     "pk": "schutzraumbefreiung-beantragt",
     "fields": {
       "created_at": "2019-04-01T13:11:05.444Z",
-      "modified_at": "2019-05-02T15:07:53.375Z",
+      "modified_at": "2019-05-06T11:09:41.673Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wird eine Schutzraumbefreiung beantragt?\"}",
@@ -22467,10 +22589,10 @@
     "pk": "terrainveraenderung-weniger-als-2000m2",
     "fields": {
       "created_at": "2019-04-01T11:43:01.159Z",
-      "modified_at": "2019-05-03T07:36:41.640Z",
+      "modified_at": "2019-05-06T10:00:06.670Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Findet eine Terrainver\\u00e4nderung < 2000m\\u00b2, welche zu einer Bodenaufwertung f\\u00fchrt?\"}",
+      "label": "{\"de\": \"Findet eine Terrainver\\u00e4nderung < 2000 m\\u00b2 statt, welche zu einer Bodenaufwertung f\\u00fchrt?\"}",
       "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
@@ -22827,10 +22949,10 @@
     "pk": "ueberbauung-in-prozent",
     "fields": {
       "created_at": "2019-03-28T14:57:14.512Z",
-      "modified_at": "2019-04-25T08:02:27.996Z",
+      "modified_at": "2019-05-06T10:02:25.106Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"\\u00fcberbauung in %\"}",
+      "label": "{\"de\": \"\\u00dcberbauung in %\"}",
       "type": "text",
       "is_required": "false",
       "is_hidden": "false",
@@ -23043,10 +23165,10 @@
     "pk": "verpflichtung-bei-handaenderung",
     "fields": {
       "created_at": "2019-04-10T11:56:57.289Z",
-      "modified_at": "2019-04-26T11:11:34.066Z",
+      "modified_at": "2019-05-06T11:32:02.639Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich der/die Gesuchsteller/in und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -23379,10 +23501,10 @@
     "pk": "verzicht-schadensersatz-naturereignisse",
     "fields": {
       "created_at": "2019-04-10T13:46:40.916Z",
-      "modified_at": "2019-05-04T13:29:16.656Z",
+      "modified_at": "2019-05-06T11:27:43.731Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in verzichtet f\\u00fcr sich und seine/ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\n 'gebiet-mit-naturgefahren-ja' == 'parent.3-grundstueck.zonenvorschriften-schutzzonen.gebiet-mit-naturgefahren'|answer\n)",
@@ -24051,10 +24173,10 @@
     "pk": "weitere-hinzufuegen",
     "fields": {
       "created_at": "2019-03-25T10:02:34.522Z",
-      "modified_at": "2019-05-03T08:30:08.865Z",
+      "modified_at": "2019-05-05T13:34:57.214Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Weitere hinzuf\\u00fcgen\"}",
+      "label": "{\"de\": \"Durchgef\\u00fchrte Vorabkl\\u00e4rungen\"}",
       "type": "table",
       "is_required": "true",
       "is_hidden": "!(\n  'wurden-vorabklaerungen-durchgefuehrt-ja' == 'wurden-vorabklaerungen-durchgefuehrt'|answer\n)",
@@ -24123,7 +24245,7 @@
     "pk": "welche-art-vorhaben",
     "fields": {
       "created_at": "2019-03-28T09:41:34.611Z",
-      "modified_at": "2019-05-03T14:13:08.020Z",
+      "modified_at": "2019-05-06T14:41:07.761Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Um was handelt es sich beim Vorhaben?\"}",
@@ -24632,7 +24754,7 @@
       "created_by_group": null,
       "label": "{\"de\": \"Wurden Vorabkl\\u00e4rungen durchgef\\u00fchrt?\"}",
       "type": "choice",
-      "is_required": "'formulartyp'|answer != 'vorabklaerung-vollstaendig'",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
@@ -24675,7 +24797,7 @@
     "pk": "zivilschutz",
     "fields": {
       "created_at": "2019-04-02T09:07:02.909Z",
-      "modified_at": "2019-05-03T07:56:55.424Z",
+      "modified_at": "2019-05-06T10:50:52.353Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zivilschutz\"}",
@@ -32940,7 +33062,7 @@
     "pk": "ableitung-in-guellegrube-ja",
     "fields": {
       "created_at": "2019-03-25T14:02:50.603Z",
-      "modified_at": "2019-05-03T10:14:25.138Z",
+      "modified_at": "2019-05-06T10:05:50.460Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -32953,7 +33075,7 @@
     "pk": "ableitung-in-guellegrube-nein",
     "fields": {
       "created_at": "2019-03-25T14:02:50.602Z",
-      "modified_at": "2019-05-03T10:14:25.128Z",
+      "modified_at": "2019-05-06T10:05:50.455Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -33044,7 +33166,7 @@
     "pk": "aenderungen-dachflaechen-zufahrten-plaetzen-ja",
     "fields": {
       "created_at": "2019-04-03T13:22:25.270Z",
-      "modified_at": "2019-04-03T13:22:25.270Z",
+      "modified_at": "2019-05-06T09:16:53.662Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -33057,7 +33179,7 @@
     "pk": "aenderungen-dachflaechen-zufahrten-plaetzen-nein",
     "fields": {
       "created_at": "2019-04-03T13:22:25.277Z",
-      "modified_at": "2019-04-03T13:22:25.277Z",
+      "modified_at": "2019-05-06T09:16:53.668Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -33317,7 +33439,7 @@
     "pk": "art-der-emmission-andere",
     "fields": {
       "created_at": "2019-04-09T14:01:59.870Z",
-      "modified_at": "2019-04-09T14:01:59.871Z",
+      "modified_at": "2019-05-06T10:13:35.080Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -33330,10 +33452,10 @@
     "pk": "art-der-emmission-gas-und-dampffoermige-stoffe",
     "fields": {
       "created_at": "2019-04-09T14:01:59.845Z",
-      "modified_at": "2019-04-09T14:01:59.845Z",
+      "modified_at": "2019-05-06T10:13:35.055Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Gas- und Dampff\\u00f6rmige Stoffe\"}",
+      "label": "{\"de\": \"Gas- und dampff\\u00f6rmige Stoffe\"}",
       "meta": {},
       "source": null
     }
@@ -33343,7 +33465,7 @@
     "pk": "art-der-emmission-geruchsstoffe",
     "fields": {
       "created_at": "2019-04-09T14:01:59.844Z",
-      "modified_at": "2019-04-09T14:01:59.844Z",
+      "modified_at": "2019-05-06T10:13:35.072Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geruchsstoffe\"}",
@@ -33356,7 +33478,7 @@
     "pk": "art-der-emmission-staubfoermige-stoffe",
     "fields": {
       "created_at": "2019-04-09T14:01:59.853Z",
-      "modified_at": "2019-04-09T14:01:59.853Z",
+      "modified_at": "2019-05-06T10:13:35.069Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Staubf\\u00f6rmige Stoffe\"}",
@@ -34318,10 +34440,10 @@
     "pk": "bestaetigung-liegenschaftsentwaesserung-ja",
     "fields": {
       "created_at": "2019-04-10T13:51:16.315Z",
-      "modified_at": "2019-05-03T08:13:13.906Z",
+      "modified_at": "2019-05-06T11:33:04.026Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem be\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die Liegenschaftsentw\\u00e4sserung gem\\u00e4ss dem AWA-Merkblatt \\\"Entw\\u00e4sserung von Industrie- und Gewerbeliegenschaften\\\" geplant und realisiert werden. Als Beilage enth\\u00e4lt das Gesuch einen Umgebungsplan, auf dem bei allen Teilf\\u00e4chen die vorgesehene Nutzung, die Befestigungsart, das Gef\\u00e4lle sowie die Entw\\u00e4sserungsart eingetragen sind.\"}",
       "meta": {},
       "source": null
     }
@@ -34331,10 +34453,10 @@
     "pk": "bestaetigung-mit-unterschrift-ja",
     "fields": {
       "created_at": "2019-04-10T12:04:33.200Z",
-      "modified_at": "2019-04-26T11:12:43.787Z",
+      "modified_at": "2019-05-06T11:34:19.981Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in resp. die bevollm\\u00e4chtigte Vertretung best\\u00e4tigt mit rechtsg\\u00fcltiger Unterschrift, dass die elektronisch \\u00fcbermittelten Daten (inkl. dem unterzeichneten Situationsplan) vollst\\u00e4ndig und wahrheitsgetreu ausgef\\u00fcllt und eingereicht worden sind.\"}",
       "meta": {},
       "source": null
     }
@@ -34396,7 +34518,7 @@
     "pk": "brandschutzrisiken-ab-2000kg-fluessigkeit",
     "fields": {
       "created_at": "2019-04-01T12:16:30.489Z",
-      "modified_at": "2019-05-03T08:28:56.778Z",
+      "modified_at": "2019-05-06T09:27:29.165Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"\\u00fcber 2000kg brennbare Fl\\u00fcssigkeit\"}",
@@ -34409,7 +34531,7 @@
     "pk": "brandschutzrisiken-atrien-doppelfassaden",
     "fields": {
       "created_at": "2019-04-01T12:16:30.591Z",
-      "modified_at": "2019-05-03T08:28:56.950Z",
+      "modified_at": "2019-05-06T09:27:29.267Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauten mit Atrien oder Doppelfassaden\"}",
@@ -34422,7 +34544,7 @@
     "pk": "brandschutzrisiken-aussenwand-bekleidung",
     "fields": {
       "created_at": "2019-04-01T12:16:30.347Z",
-      "modified_at": "2019-05-03T08:28:56.601Z",
+      "modified_at": "2019-05-06T09:27:28.899Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Aussenwand: Bekleidung\"}",
@@ -34435,7 +34557,7 @@
     "pk": "brandschutzrisiken-bis-2000kg-fluessigkeit",
     "fields": {
       "created_at": "2019-04-01T12:16:30.431Z",
-      "modified_at": "2019-05-03T08:28:56.720Z",
+      "modified_at": "2019-05-06T09:27:29.094Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"bis 2000kg brennbare Fl\\u00fcssigkeit\"}",
@@ -34448,7 +34570,7 @@
     "pk": "brandschutzrisiken-daemmschichtbildende-systeme",
     "fields": {
       "created_at": "2019-04-01T12:16:30.397Z",
-      "modified_at": "2019-05-03T08:28:56.712Z",
+      "modified_at": "2019-05-06T09:27:29.010Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"D\\u00e4mmschichtbildende Systeme\"}",
@@ -34461,10 +34583,10 @@
     "pk": "brandschutzrisiken-explosionsgefahr",
     "fields": {
       "created_at": "2019-04-01T12:16:30.561Z",
-      "modified_at": "2019-05-03T08:28:56.892Z",
+      "modified_at": "2019-05-06T09:27:29.283Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Explosionsgef\\u00e4hrdete R\\u00f6ume oder Zonen\"}",
+      "label": "{\"de\": \"Explosionsgef\\u00e4hrdete R\\u00e4ume oder Zonen\"}",
       "meta": {},
       "source": null
     }
@@ -34474,7 +34596,7 @@
     "pk": "brandschutzrisiken-feuerwerk-bis-300kg",
     "fields": {
       "created_at": "2019-04-01T12:16:30.497Z",
-      "modified_at": "2019-05-03T08:28:56.806Z",
+      "modified_at": "2019-05-06T09:27:29.203Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Feuerwerksk\\u00f6rper bis 300kg\"}",
@@ -34487,7 +34609,7 @@
     "pk": "brandschutzrisiken-feuerwerk-uber-300kg",
     "fields": {
       "created_at": "2019-04-01T12:16:30.536Z",
-      "modified_at": "2019-05-03T08:28:56.814Z",
+      "modified_at": "2019-05-06T09:27:29.199Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Feuerwerksk\\u00f6rper \\u00fcber 300kg\"}",
@@ -34500,7 +34622,7 @@
     "pk": "brandschutzrisiken-flaeche-ueber-12000-m",
     "fields": {
       "created_at": "2019-04-01T12:16:30.612Z",
-      "modified_at": "2019-05-03T08:28:56.979Z",
+      "modified_at": "2019-05-06T09:27:29.358Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bruttogeschossfl\\u00e4che \\u00fcber 12000 m\\u00b2\"}",
@@ -34513,7 +34635,7 @@
     "pk": "brandschutzrisiken-flaeche-ueber-7200-m2",
     "fields": {
       "created_at": "2019-04-01T12:16:30.595Z",
-      "modified_at": "2019-05-03T08:28:56.966Z",
+      "modified_at": "2019-05-06T09:27:29.349Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Brandabschnittsfl\\u00e4che \\u00fcber 7200 m\\u00b2\"}",
@@ -34526,7 +34648,7 @@
     "pk": "brandschutzrisiken-gase-bis-1000kg",
     "fields": {
       "created_at": "2019-04-01T12:16:30.423Z",
-      "modified_at": "2019-05-03T08:28:56.731Z",
+      "modified_at": "2019-05-06T09:27:29.049Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Brennbare Gase bis 1000 kg\"}",
@@ -34539,7 +34661,7 @@
     "pk": "brandschutzrisiken-gase-ueber-1000kg",
     "fields": {
       "created_at": "2019-04-01T12:16:30.429Z",
-      "modified_at": "2019-05-03T08:28:56.722Z",
+      "modified_at": "2019-05-06T09:27:29.033Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Brennbare Gase \\u00fcber 1000 kg\"}",
@@ -34552,7 +34674,7 @@
     "pk": "brandschutzrisiken-gefaehrdende-stoffe",
     "fields": {
       "created_at": "2019-04-01T12:16:30.561Z",
-      "modified_at": "2019-05-03T08:28:56.945Z",
+      "modified_at": "2019-05-06T09:27:29.235Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Mensch und Umwelt gef\\u00e4hrdende Stoffe\"}",
@@ -34565,7 +34687,7 @@
     "pk": "brandschutzrisiken-hohe-brandschutzmassnahmen",
     "fields": {
       "created_at": "2019-04-01T12:16:30.645Z",
-      "modified_at": "2019-05-03T08:28:56.989Z",
+      "modified_at": "2019-05-06T09:27:29.371Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Hoher Anteil an Brandschutzmassnahmen\"}",
@@ -34578,7 +34700,7 @@
     "pk": "brandschutzrisiken-lagerung-fester-brennstoffe-5m",
     "fields": {
       "created_at": "2019-04-01T12:16:30.644Z",
-      "modified_at": "2019-05-03T08:28:56.984Z",
+      "modified_at": "2019-05-06T09:27:29.392Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Lagerung fester Brennstoffe 5m\\u00b3\"}",
@@ -34591,7 +34713,7 @@
     "pk": "brandschutzrisiken-nachweisverfahren",
     "fields": {
       "created_at": "2019-04-01T12:16:30.643Z",
-      "modified_at": "2019-05-03T08:28:56.981Z",
+      "modified_at": "2019-05-06T09:27:29.334Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Anwendung von Nachweisverfahren\"}",
@@ -34604,7 +34726,7 @@
     "pk": "brandschutzrisiken-pneulager-bis-60t",
     "fields": {
       "created_at": "2019-04-01T12:16:30.506Z",
-      "modified_at": "2019-05-03T08:28:56.749Z",
+      "modified_at": "2019-05-06T09:27:29.128Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Pneulager bis 60t\"}",
@@ -34617,7 +34739,7 @@
     "pk": "brandschutzrisiken-pneulager-ueber-60t",
     "fields": {
       "created_at": "2019-04-01T12:16:30.482Z",
-      "modified_at": "2019-05-03T08:28:56.846Z",
+      "modified_at": "2019-05-06T09:27:29.198Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Pneulager \\u00fcber 60t\"}",
@@ -34630,7 +34752,7 @@
     "pk": "brandschutzrisiken-tragwerk-brennbar",
     "fields": {
       "created_at": "2019-04-01T12:16:30.385Z",
-      "modified_at": "2019-05-03T08:28:56.627Z",
+      "modified_at": "2019-05-06T09:27:28.964Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Tragwerk brennbar\"}",
@@ -34799,7 +34921,7 @@
     "pk": "eigenstaendiger-grossverbraucher-ja",
     "fields": {
       "created_at": "2019-04-01T12:40:22.538Z",
-      "modified_at": "2019-04-04T06:40:52.143Z",
+      "modified_at": "2019-05-06T10:08:52.235Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -34812,7 +34934,7 @@
     "pk": "eigenstaendiger-grossverbraucher-nein",
     "fields": {
       "created_at": "2019-04-01T12:40:22.543Z",
-      "modified_at": "2019-04-04T06:40:52.154Z",
+      "modified_at": "2019-05-06T10:08:52.240Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -34903,7 +35025,7 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde-ja",
     "fields": {
       "created_at": "2019-04-01T14:04:05.693Z",
-      "modified_at": "2019-05-03T15:12:46.789Z",
+      "modified_at": "2019-05-06T12:32:35.427Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -34916,7 +35038,7 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde-nein",
     "fields": {
       "created_at": "2019-04-01T14:04:05.708Z",
-      "modified_at": "2019-05-03T15:12:46.800Z",
+      "modified_at": "2019-05-06T12:32:35.433Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -35605,7 +35727,7 @@
     "pk": "gentechnisch-veraenderte-pathogene-organismen-ja",
     "fields": {
       "created_at": "2019-05-02T15:25:18.466Z",
-      "modified_at": "2019-05-02T15:25:18.466Z",
+      "modified_at": "2019-05-06T10:07:33.103Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Ja\"}",
@@ -35618,7 +35740,7 @@
     "pk": "gentechnisch-veraenderte-pathogene-organismen-nein",
     "fields": {
       "created_at": "2019-05-02T15:25:18.486Z",
-      "modified_at": "2019-05-02T15:25:18.486Z",
+      "modified_at": "2019-05-06T10:07:33.097Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
@@ -35683,7 +35805,7 @@
     "pk": "gewaesserschutzbereich-ao",
     "fields": {
       "created_at": "2019-04-01T10:42:44.220Z",
-      "modified_at": "2019-04-01T10:42:44.220Z",
+      "modified_at": "2019-05-06T09:58:11.643Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ao\"}",
@@ -35696,7 +35818,7 @@
     "pk": "gewaesserschutzbereich-au",
     "fields": {
       "created_at": "2019-04-01T10:42:44.224Z",
-      "modified_at": "2019-04-01T10:42:44.224Z",
+      "modified_at": "2019-05-06T09:58:11.645Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Au\"}",
@@ -35709,7 +35831,7 @@
     "pk": "gewaesserschutzbereich-ueb",
     "fields": {
       "created_at": "2019-04-01T10:42:44.208Z",
-      "modified_at": "2019-04-01T10:42:44.208Z",
+      "modified_at": "2019-05-06T09:58:11.629Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"\\u00fcB\"}",
@@ -35722,7 +35844,7 @@
     "pk": "gewaesserschutzbereich-zu",
     "fields": {
       "created_at": "2019-04-01T10:42:44.244Z",
-      "modified_at": "2019-04-01T10:42:44.244Z",
+      "modified_at": "2019-05-06T09:58:11.662Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Zu\"}",
@@ -36515,10 +36637,10 @@
     "pk": "keine-rueckhiebe-oder-aushiebe-ja",
     "fields": {
       "created_at": "2019-04-10T13:48:36.621Z",
-      "modified_at": "2019-05-03T08:08:23.461Z",
+      "modified_at": "2019-05-06T11:30:09.442Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt,\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt f\\u00fcr sich und seine/ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihm/ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
       "meta": {},
       "source": null
     }
@@ -36528,10 +36650,10 @@
     "pk": "keine-tangierung-natur-wild-vogelschutz--ja",
     "fields": {
       "created_at": "2019-04-26T11:12:32.854Z",
-      "modified_at": "2019-04-26T11:12:32.854Z",
+      "modified_at": "2019-05-06T14:42:29.565Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutz tangiert.\"}",
       "meta": {},
       "source": null
     }
@@ -37035,7 +37157,7 @@
     "pk": "maschinen-mit-aussenlaermimmissionen-ja",
     "fields": {
       "created_at": "2019-04-02T10:46:02.164Z",
-      "modified_at": "2019-04-25T09:20:58.557Z",
+      "modified_at": "2019-05-06T10:11:01.664Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -37048,7 +37170,7 @@
     "pk": "maschinen-mit-aussenlaermimmissionen-nein",
     "fields": {
       "created_at": "2019-04-02T10:46:02.135Z",
-      "modified_at": "2019-04-25T09:20:58.559Z",
+      "modified_at": "2019-05-06T10:11:01.669Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -37399,7 +37521,7 @@
     "pk": "neubau-abwasseranlagen-grundleitungen-ja",
     "fields": {
       "created_at": "2019-04-03T13:28:32.327Z",
-      "modified_at": "2019-04-03T13:28:32.327Z",
+      "modified_at": "2019-05-06T10:16:18.149Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -37412,7 +37534,7 @@
     "pk": "neubau-abwasseranlagen-grundleitungen-nein",
     "fields": {
       "created_at": "2019-04-03T13:28:32.332Z",
-      "modified_at": "2019-04-03T13:28:32.332Z",
+      "modified_at": "2019-05-06T10:16:18.155Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -37698,7 +37820,7 @@
     "pk": "oeffentlichkeit-nicht-oeffentlich",
     "fields": {
       "created_at": "2019-04-05T08:27:48.465Z",
-      "modified_at": "2019-04-25T09:28:28.041Z",
+      "modified_at": "2019-05-06T10:11:42.370Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"nicht \\u00f6ffentlich\"}",
@@ -37711,7 +37833,7 @@
     "pk": "oeffentlichkeit-oeffentlich",
     "fields": {
       "created_at": "2019-04-05T08:27:48.475Z",
-      "modified_at": "2019-04-25T09:28:28.040Z",
+      "modified_at": "2019-05-06T10:11:42.366Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"\\u00f6ffentlich\"}",
@@ -38218,7 +38340,7 @@
     "pk": "qss-stufe-1",
     "fields": {
       "created_at": "2019-04-01T12:19:18.529Z",
-      "modified_at": "2019-05-03T16:15:35.536Z",
+      "modified_at": "2019-05-06T14:13:34.590Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"1\"}",
@@ -38231,7 +38353,7 @@
     "pk": "qss-stufe-2",
     "fields": {
       "created_at": "2019-04-01T12:19:18.540Z",
-      "modified_at": "2019-05-03T16:15:35.561Z",
+      "modified_at": "2019-05-06T14:13:34.592Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"2\"}",
@@ -38244,7 +38366,7 @@
     "pk": "qss-stufe-3",
     "fields": {
       "created_at": "2019-04-01T12:19:18.570Z",
-      "modified_at": "2019-05-03T16:15:35.569Z",
+      "modified_at": "2019-05-06T14:13:34.607Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"3\"}",
@@ -38621,7 +38743,7 @@
     "pk": "schutzraumbefreiung-beantragt-ja",
     "fields": {
       "created_at": "2019-04-01T13:11:05.218Z",
-      "modified_at": "2019-05-02T15:07:53.229Z",
+      "modified_at": "2019-05-06T11:09:41.411Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -38634,7 +38756,7 @@
     "pk": "schutzraumbefreiung-beantragt-nein",
     "fields": {
       "created_at": "2019-04-01T13:11:05.221Z",
-      "modified_at": "2019-05-02T15:07:53.216Z",
+      "modified_at": "2019-05-06T11:09:41.414Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -38959,7 +39081,7 @@
     "pk": "terrainveraenderung-weniger-als-2000m2-ja",
     "fields": {
       "created_at": "2019-04-01T11:43:00.976Z",
-      "modified_at": "2019-05-03T07:36:41.503Z",
+      "modified_at": "2019-05-06T10:00:06.490Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -38972,7 +39094,7 @@
     "pk": "terrainveraenderung-weniger-als-2000m2-nein",
     "fields": {
       "created_at": "2019-04-01T11:43:00.986Z",
-      "modified_at": "2019-05-03T07:36:41.516Z",
+      "modified_at": "2019-05-06T10:00:06.492Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -39141,10 +39263,10 @@
     "pk": "verpflichtung-bei-handaenderung--ja",
     "fields": {
       "created_at": "2019-04-26T11:11:33.879Z",
-      "modified_at": "2019-04-26T11:11:33.879Z",
+      "modified_at": "2019-05-06T11:32:02.512Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich der/die Gesuchsteller/in und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
       "meta": {},
       "source": null
     }
@@ -39583,10 +39705,10 @@
     "pk": "verzicht-schadensersatz-naturereignisse-ja",
     "fields": {
       "created_at": "2019-04-10T13:46:40.761Z",
-      "modified_at": "2019-05-04T13:29:16.532Z",
+      "modified_at": "2019-05-06T11:27:43.552Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Die Bauherrschaft verzichtet f\\u00fcr sich und ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anl\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in verzichtet f\\u00fcr sich und seine/ihre Rechtsnachfolger ausdr\\u00fccklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. \\u00e4hnlichen Anlage verursacht werden k\\u00f6nnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.\"}",
       "meta": {},
       "source": null
     }
@@ -40246,7 +40368,7 @@
     "pk": "welche-art-vorhaben-bauten-unbekannter-nutzung",
     "fields": {
       "created_at": "2019-04-12T08:55:25.813Z",
-      "modified_at": "2019-05-03T14:13:07.632Z",
+      "modified_at": "2019-05-06T14:41:07.466Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Bauten unbekannter Nutzung\"}",
@@ -40259,7 +40381,7 @@
     "pk": "welche-art-vorhaben-erschliessungsanlagen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.240Z",
-      "modified_at": "2019-05-03T14:13:07.598Z",
+      "modified_at": "2019-05-06T14:41:07.305Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Erschliessungsanlagen (z.B. Alpwege, Waldstrassen, ...)\"}",
@@ -40285,7 +40407,7 @@
     "pk": "welche-art-vorhaben-erstellung-aussenraum",
     "fields": {
       "created_at": "2019-04-12T08:55:25.794Z",
-      "modified_at": "2019-05-03T14:13:07.657Z",
+      "modified_at": "2019-05-06T14:41:07.363Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Erstellung / Erneuerung von Aussenraum (Strasse, Fussweg, Trottoirs, Haltestellen, etc.)\"}",
@@ -40298,7 +40420,7 @@
     "pk": "welche-art-vorhaben-ferienhaus",
     "fields": {
       "created_at": "2019-03-28T09:41:34.329Z",
-      "modified_at": "2019-05-03T14:13:07.693Z",
+      "modified_at": "2019-05-06T14:41:07.502Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ferienhaus\"}",
@@ -40324,7 +40446,7 @@
     "pk": "welche-art-vorhaben-fischhaltung-aquakulturanlage",
     "fields": {
       "created_at": "2019-04-12T08:55:25.874Z",
-      "modified_at": "2019-05-03T14:13:07.769Z",
+      "modified_at": "2019-05-06T14:41:07.518Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Fischhaltung / Aquakulturanlage\"}",
@@ -40337,7 +40459,7 @@
     "pk": "welche-art-vorhaben-gebaeude-geringer-abmessung",
     "fields": {
       "created_at": "2019-03-28T09:41:34.212Z",
-      "modified_at": "2019-05-03T14:13:07.596Z",
+      "modified_at": "2019-05-06T14:41:07.250Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Geb\\u00e4ude geringer Abmessung\"}",
@@ -40350,10 +40472,10 @@
     "pk": "welche-art-vorhaben-grosse-personenbelegung",
     "fields": {
       "created_at": "2019-04-12T08:55:25.675Z",
-      "modified_at": "2019-05-03T14:13:07.635Z",
+      "modified_at": "2019-05-06T14:41:07.369Z",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
-      "label": "{\"de\": \"R\\u00e4ume mit grosser Personenbelegung ((\\u00fcber 300 Personen)\"}",
+      "label": "{\"de\": \"R\\u00e4ume mit grosser Personenbelegung (\\u00fcber 300 Personen)\"}",
       "meta": {},
       "source": null
     }
@@ -40363,7 +40485,7 @@
     "pk": "welche-art-vorhaben-parking",
     "fields": {
       "created_at": "2019-03-28T09:41:34.275Z",
-      "modified_at": "2019-05-03T14:13:07.731Z",
+      "modified_at": "2019-05-06T14:41:07.350Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Parking\"}",
@@ -40376,7 +40498,7 @@
     "pk": "welche-art-vorhaben-planungen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.379Z",
-      "modified_at": "2019-05-03T14:13:07.829Z",
+      "modified_at": "2019-05-06T14:41:07.565Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Planungen (z.B. UeO mit Baubewilligung)\"}",
@@ -40389,7 +40511,7 @@
     "pk": "welche-art-vorhaben-reklamevorhaben",
     "fields": {
       "created_at": "2019-03-28T09:41:34.406Z",
-      "modified_at": "2019-05-03T14:13:07.840Z",
+      "modified_at": "2019-05-06T14:41:07.583Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Reklamevorhaben\"}",
@@ -40402,7 +40524,7 @@
     "pk": "welche-art-vorhaben-schule-kindergarten",
     "fields": {
       "created_at": "2019-03-28T09:41:34.271Z",
-      "modified_at": "2019-05-03T14:13:07.650Z",
+      "modified_at": "2019-05-06T14:41:07.379Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schule / Kindergarten\"}",
@@ -40428,7 +40550,7 @@
     "pk": "welche-art-vorhaben-tourismus",
     "fields": {
       "created_at": "2019-03-28T09:41:34.378Z",
-      "modified_at": "2019-05-03T14:13:07.767Z",
+      "modified_at": "2019-05-06T14:41:07.510Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Tourismus (z.B. Bikestrecke, Spielpl\\u00e4tze, Wanderwege)\"}",
@@ -40441,10 +40563,10 @@
     "pk": "welche-art-vorhaben-umnutzungen",
     "fields": {
       "created_at": "2019-03-28T09:41:34.335Z",
-      "modified_at": "2019-05-03T14:13:07.695Z",
+      "modified_at": "2019-05-06T14:41:07.467Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Umnutzungen (z.B. Zivile Nutzung milit\\u00e4rischer Bauten)\"}",
+      "label": "{\"de\": \"Umnutzungen (z.B. zivile Nutzung milit\\u00e4rischer Bauten)\"}",
       "meta": {},
       "source": null
     }
@@ -40467,7 +40589,7 @@
     "pk": "welche-art-vorhaben-weitere",
     "fields": {
       "created_at": "2019-03-28T09:41:34.408Z",
-      "modified_at": "2019-05-03T14:13:07.822Z",
+      "modified_at": "2019-05-06T14:41:07.594Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Weitere\"}",

@@ -1,0 +1,4 @@
+instance:
+  status:
+    RUNNING: Neu
+    COMPLETED: Abgeschlossen

@@ -8,7 +8,8 @@ module.exports = function(environment) {
     modulePrefix: "ember-caluma-portal",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "router-scroll",
+    historySupportMiddleware: true,
     oidcHost,
     "ember-simple-auth-oidc": {
       host:
@@ -37,6 +38,9 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    moment: {
+      includeLocales: ['de-ch']
     }
   };
 
