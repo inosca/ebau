@@ -15,6 +15,19 @@ query AllCases {
             slug
             name
           }
+          answers(question: "formulartyp") {
+            edges {
+              node {
+                id
+                ... on StringAnswer {
+                  stringValue: value
+                }
+                question {
+                  slug
+                }
+              }
+            }
+          }
         }
       }
     }

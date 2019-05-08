@@ -2,7 +2,8 @@ import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
 import { info1, info2 } from "ember-caluma-portal/instances/new/info";
 import { inject as service } from "@ember/service";
-import mutation from "ember-caluma-portal/gql/mutations/start-case";
+import startCase from "ember-caluma-portal/gql/mutations/start-case";
+import saveDocumentStringAnswer from "ember-caluma-portal/gql/mutations/save-document-string-answer";
 
 export default Controller.extend({
   apollo: service(),
@@ -13,19 +14,39 @@ export default Controller.extend({
   selectedForm: null,
 
   save: task(function*() {
-    const caseId = yield this.get("apollo").mutate(
+    // we always create a baugesuch, except for "vorabklaerung-einfach"
+    const isVorabklaerungEinfach =
+      this.selectedForm === "vorabklaerung-einfach";
+    const formToCreate = isVorabklaerungEinfach
+      ? this.selectedForm
+      : "baugesuch";
+
+    const caseObj = yield this.get("apollo").mutate(
       {
-        mutation,
+        mutation: startCase,
         variables: {
           input: {
             workflow: "building-permit",
-            form: this.selectedForm
+            form: formToCreate
           }
         }
       },
-      "startCase.case.id"
+      "startCase.case"
     );
 
-    yield this.transitionToRoute("instances.edit", caseId);
+    if (!isVorabklaerungEinfach) {
+      yield this.get("apollo").mutate({
+        mutation: saveDocumentStringAnswer,
+        variables: {
+          input: {
+            question: "formulartyp",
+            document: caseObj.document.id,
+            value: this.selectedForm
+          }
+        }
+      });
+    }
+
+    yield this.transitionToRoute("instances.edit", caseObj.id);
   }).drop()
 });

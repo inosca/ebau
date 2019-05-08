@@ -2,6 +2,9 @@ mutation StartCase($input: StartCaseInput!) {
   startCase(input: $input) {
     case {
       id
+      document {
+        id
+      }
       workflow {
         startTasks {
           id
