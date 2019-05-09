@@ -3,7 +3,7 @@ import mimetypes
 
 from django.db.models import Q
 from django.http import HttpResponse
-from django.utils.encoding import smart_str
+from django.utils.encoding import escape_uri_path
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
@@ -87,10 +87,10 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
         )
 
         response = HttpResponse(content_type=attachment.mime_type)
-        response["Content-Disposition"] = 'attachment; filename="%s"' % smart_str(
+        response["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
             attachment.name
         )
-        response["X-Accel-Redirect"] = "/" + smart_str(download_path)
+        response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
         return response
 
 
