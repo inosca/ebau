@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0026_merge_20190308_1805'),
+        ('core', '0027_fix_question_id_in_intentions_view'),
     ]
 
     operations = [
