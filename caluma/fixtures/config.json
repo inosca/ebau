@@ -537,10 +537,10 @@
     "pk": "immissionsschutz",
     "fields": {
       "created_at": "2019-04-02T11:09:20.937Z",
-      "modified_at": "2019-04-02T11:09:20.937Z",
+      "modified_at": "2019-05-09T10:55:52.779Z",
       "created_by_user": null,
       "created_by_group": null,
-      "name": "{\"de\": \"Immissionsschutz\"}",
+      "name": "{\"de\": \"Immissionsschutz I\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -553,10 +553,10 @@
     "pk": "immissionsschutz-laermschutz",
     "fields": {
       "created_at": "2019-04-02T10:34:35.499Z",
-      "modified_at": "2019-04-02T10:34:35.499Z",
+      "modified_at": "2019-05-09T10:56:06.278Z",
       "created_by_user": null,
       "created_by_group": null,
-      "name": "{\"de\": \"Immissionsschutz - L\\u00e4rmschutz\"}",
+      "name": "{\"de\": \"Immissionsschutz II\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -1233,7 +1233,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 25
+      "sort": 27
     }
   },
   {
@@ -1558,7 +1558,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -1584,7 +1584,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "gefaehrliche-stoffe",
-      "sort": 22
+      "sort": 24
     }
   },
   {
@@ -1610,7 +1610,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "gibt-es-bewilligungspflichtige-reklame",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -1935,7 +1935,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "zivilschutz",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -2104,7 +2104,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 23
+      "sort": 25
     }
   },
   {
@@ -2572,7 +2572,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "hindernisfreies-bauen",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -2707,19 +2707,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "32e9d6c4-e0ce-4253-97ec-aad07e47c11f",
-    "fields": {
-      "created_at": "2019-04-11T08:22:28.202Z",
-      "modified_at": "2019-04-11T08:22:28.202Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "lagekoordinaten",
-      "sort": 6
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "33047d6e-cef9-42bc-a905-465e5db62b30",
     "fields": {
       "created_at": "2019-04-03T13:24:53.518Z",
@@ -2819,7 +2806,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -2858,7 +2845,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "reklame",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -2871,7 +2858,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -2962,7 +2949,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "weitere-vorhaben",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -2975,7 +2962,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ableitung-in-guellegrube",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -3040,7 +3027,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "feuerungsanlagen",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -3118,7 +3105,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "wassergefaehrdende-explosive-stoffe",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -3443,7 +3430,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gemeinde",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3495,7 +3482,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "maschinen-und-anlagen",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -4184,7 +4171,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-das-vorhaben-energierelevant",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -4470,7 +4457,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "aussenlaerm",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -4678,7 +4665,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "biologische-sicherheit-und-stoerfallvorsorge",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -4795,7 +4782,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "immissionsschutz-laermschutz",
-      "sort": 16
+      "sort": 14
     }
   },
   {
@@ -4886,7 +4873,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -5107,7 +5094,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -5120,7 +5107,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "personalien-betreiberin-der-anlage",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -5173,6 +5160,19 @@
       "form": "sondenmodelle-tabelle",
       "question": "anzahl-sonden",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "85c4cc3e-0c97-441d-8360-bf95cb59f98c",
+    "fields": {
+      "created_at": "2019-05-09T10:46:01.290Z",
+      "modified_at": "2019-05-09T10:46:01.290Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
+      "sort": 6
     }
   },
   {
@@ -5250,7 +5250,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "naturgefahren",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -5263,7 +5263,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "waermepumpen",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -5476,6 +5476,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "8ed27314-7bf7-4005-a90d-9db8745793e0",
+    "fields": {
+      "created_at": "2019-05-09T10:43:28.981Z",
+      "modified_at": "2019-05-09T10:43:28.982Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "8f848be3-89f2-4116-a83a-9e581020c41a",
     "fields": {
       "created_at": "2019-04-01T11:15:21.579Z",
@@ -5549,7 +5562,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "gastgewerbe-fumoir",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -5601,7 +5614,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -5692,7 +5705,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "welche-art-vorhaben",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -5749,13 +5762,13 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "96b05fe5-aedd-42f3-aa2d-f68ac59c45b8",
+    "pk": "a7e7cbfb-00a0-49cb-a820-f379e0519b30",
     "fields": {
-      "created_at": "2019-04-01T13:28:09.932Z",
-      "modified_at": "2019-04-01T13:28:09.932Z",
+      "created_at": "2019-05-09T07:57:31.107Z",
+      "modified_at": "2019-05-09T07:57:31.107Z",
       "created_by_user": null,
       "created_by_group": null,
-      "form": "waermepumpen",
+      "form": "triage",
       "question": "welche-waermepumpen",
       "sort": 39
     }
@@ -5861,7 +5874,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "verunreinigte-abluft",
-      "sort": 21
+      "sort": 23
     }
   },
   {
@@ -6160,7 +6173,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -6303,7 +6316,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "sind-belange-des-gewasserschutzes-betroffen",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -6433,7 +6446,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "nutzungsart",
-      "sort": 27
+      "sort": 29
     }
   },
   {
@@ -6589,7 +6602,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-mit-bauabfaellen-zu-rechnen",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -6693,7 +6706,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -6953,7 +6966,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "allgemeine-angaben-zum-betrieb",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -7057,7 +7070,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -7070,7 +7083,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "schutzraum-pflicht",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -7226,7 +7239,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "wald",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -7538,7 +7551,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "entsorgung",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -7552,19 +7565,6 @@
       "form": "energie",
       "question": "nummer-energie",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "d3d8b792-551b-4f8e-88c5-a26aaee3cfe9",
-    "fields": {
-      "created_at": "2019-04-03T07:51:23.235Z",
-      "modified_at": "2019-04-03T07:51:23.235Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "solar-und-sendeanlagen",
-      "question": "geplante-anlagen",
-      "sort": 20
     }
   },
   {
@@ -7811,7 +7811,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-durch-das-bauvorhaben-boden-betroffen",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -8058,7 +8058,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 26
+      "sort": 28
     }
   },
   {
@@ -8123,7 +8123,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "personalien-gastgewerbe",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -8362,6 +8362,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "ebf5792f-b563-49fe-b032-c91ae501d3b6",
+    "fields": {
+      "created_at": "2019-05-09T09:03:20.705Z",
+      "modified_at": "2019-05-09T09:03:20.705Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "triage",
+      "question": "geplante-anlagen",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "ec0f3048-2294-46c1-b586-3388f890fc18",
     "fields": {
       "created_at": "2019-04-08T13:40:04.846Z",
@@ -8396,7 +8409,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "gastgewerbe-allgemein",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -8487,7 +8500,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -8500,7 +8513,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -8578,7 +8591,7 @@
       "created_by_group": null,
       "form": "5-spezialformulare",
       "question": "solar-und-sendeanlagen",
-      "sort": 10
+      "sort": 9
     }
   },
   {
@@ -8604,7 +8617,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "bau-im-wald-oder-innerhalb-von-30-m-abstand",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -8734,7 +8747,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -8851,7 +8864,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "brandbelastung",
-      "sort": 24
+      "sort": 26
     }
   },
   {
@@ -8903,7 +8916,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 17
+      "sort": 19
     }
   },
   {
@@ -10307,19 +10320,19 @@
     "pk": "anzahl-wohnungen-bestehend",
     "fields": {
       "created_at": "2019-04-03T10:46:47.033Z",
-      "modified_at": "2019-04-03T10:46:47.033Z",
+      "modified_at": "2019-05-09T11:03:13.657Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anzahl Wohnungen bestehend\"}",
+      "label": "{\"de\": \"Anzahl bestehender Wohnungen dieser Gr\\u00f6sse\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -10332,19 +10345,19 @@
     "pk": "anzahl-wohnungen-neu",
     "fields": {
       "created_at": "2019-04-03T10:58:35.498Z",
-      "modified_at": "2019-04-03T10:58:35.498Z",
+      "modified_at": "2019-05-09T11:03:33.979Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Anzahl Wohnungen neu\"}",
+      "label": "{\"de\": \"Anzahl neuer Wohnungen dieser Gr\\u00f6sse\"}",
       "type": "integer",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12057,10 +12070,10 @@
     "pk": "bestaetigung-generalvollmacht",
     "fields": {
       "created_at": "2019-04-10T13:53:49.095Z",
-      "modified_at": "2019-05-02T07:43:30.675Z",
+      "modified_at": "2019-05-09T11:01:03.021Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -12182,13 +12195,13 @@
     "pk": "betriebsweise",
     "fields": {
       "created_at": "2019-04-01T13:45:01.248Z",
-      "modified_at": "2019-05-03T15:11:08.171Z",
+      "modified_at": "2019-05-09T08:12:43.540Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Betriebsweise\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -12207,13 +12220,13 @@
     "pk": "bezeichnung",
     "fields": {
       "created_at": "2019-04-03T08:10:05.115Z",
-      "modified_at": "2019-05-03T15:03:16.406Z",
+      "modified_at": "2019-05-09T09:26:40.874Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bezeichnung\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -13238,7 +13251,7 @@
       "label": "{\"de\": \"E-Mail\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -13682,13 +13695,13 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde",
     "fields": {
       "created_at": "2019-04-01T14:04:05.880Z",
-      "modified_at": "2019-05-06T12:32:35.580Z",
+      "modified_at": "2019-05-09T08:13:23.133Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Erfolgt der Entzug / Eintrag von W\\u00e4rme mittels Erdw\\u00e4rmesonde?\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"**Nein**\\n  \\nBeispielsweise Erdregister, Energiepf\\u00e4hle, W\\u00e4rmek\\u00f6rbe\"}",
@@ -13782,13 +13795,13 @@
     "pk": "fabrikat",
     "fields": {
       "created_at": "2019-04-01T13:35:41.271Z",
-      "modified_at": "2019-05-03T15:10:07.792Z",
+      "modified_at": "2019-05-09T08:11:38.544Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Fabrikat\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -14307,13 +14320,13 @@
     "pk": "fuellmenge-in-kg",
     "fields": {
       "created_at": "2019-04-01T13:38:31.467Z",
-      "modified_at": "2019-05-03T15:10:38.168Z",
+      "modified_at": "2019-05-09T08:12:03.635Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcllmenge in kg\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -14707,10 +14720,10 @@
     "pk": "gefaehrliche-stoffe",
     "fields": {
       "created_at": "2019-03-15T13:23:59.864Z",
-      "modified_at": "2019-05-03T10:08:06.315Z",
+      "modified_at": "2019-05-09T10:51:08.521Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Werden nach der Bauabnahme gesundheitssch\\u00e4dliche, giftige, brandgef\\u00e4hrliche oder explosive Stoffe gelagert oder verwendet?\"}",
+      "label": "{\"de\": \"Sicherheit und Gesundheit am Arbeitsplatz: Werden nach der Bauabnahme gesundheitssch\\u00e4dliche, giftige, brandgef\\u00e4hrliche oder explosive Stoffe gelagert oder verwendet?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-lager'\n] intersects 'nutzungsart'|answer\n)",
@@ -14807,13 +14820,13 @@
     "pk": "gemessen-in-abstand-meter",
     "fields": {
       "created_at": "2019-04-02T09:00:05.589Z",
-      "modified_at": "2019-05-03T15:15:44.679Z",
+      "modified_at": "2019-05-09T08:20:14.761Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"...gemessen in Abstand (Meter)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -15507,19 +15520,19 @@
     "pk": "handelt-es-sich-um-ein-sensibles-objekt",
     "fields": {
       "created_at": "2019-05-02T16:04:51.142Z",
-      "modified_at": "2019-05-02T16:04:51.142Z",
+      "modified_at": "2019-05-09T10:54:13.366Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Handelt es sich um ein sensibles Objekt?\"}",
+      "label": "{\"de\": \"Naturgefahren: Handelt es sich um ein sensibles Objekt?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15632,13 +15645,13 @@
     "pk": "heizleistungsbedarf-boden-untergrund",
     "fields": {
       "created_at": "2019-04-01T13:43:33.429Z",
-      "modified_at": "2019-05-03T15:10:58.628Z",
+      "modified_at": "2019-05-09T08:12:32.281Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Heizleistungsbedarf in kW (falls K\\u00e4lteleistung nicht bekannt)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -15682,13 +15695,13 @@
     "pk": "heizleistungsbedarf-luft",
     "fields": {
       "created_at": "2019-04-02T08:40:46.360Z",
-      "modified_at": "2019-05-03T15:15:20.721Z",
+      "modified_at": "2019-05-09T08:19:23.975Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Heizleistungsbedarf in kW (falls K\\u00e4lteleistung nicht bekannt)\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -15707,13 +15720,13 @@
     "pk": "heizleistungsbedarf-wasser",
     "fields": {
       "created_at": "2019-04-01T14:49:44.047Z",
-      "modified_at": "2019-05-03T15:14:30.151Z",
+      "modified_at": "2019-05-09T08:16:31.336Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Heizleistungsbedarf in kW (falls K\\u00e4lteleistung nicht bekannt)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -15932,10 +15945,10 @@
     "pk": "immissionsschutz",
     "fields": {
       "created_at": "2019-04-02T11:15:07.927Z",
-      "modified_at": "2019-05-03T18:01:30.172Z",
+      "modified_at": "2019-05-09T10:56:57.654Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Immissionsschutz\"}",
+      "label": "{\"de\": \"Immissionsschutz I\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "!(\n  'bauten-mit-mehr-als-30-grossvieheinheiten-ja' == 'parent.2-nutzung-bauvorhaben.triage.bauten-mit-mehr-als-30-grossvieheinheiten'|answer ||\n  'werden-neue-hofduengeranlagen-erstellt-ja' ==\n'parent.2-nutzung-bauvorhaben.triage.werden-neue-hofduengeranlagen-erstellt'|answer ||\n[\n  'baubeschrieb-neubau', \n  'baubeschrieb-um-ausbau', \n  'baubeschrieb-erweiterung-anbau'\n] intersects 'parent.1-allgemeine-informationen.bauvorhaben.baubeschrieb'|answer ||\n[\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-landwirtschaft',\n  'nutzungsart-dienstleistung'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.nutzungsart'|answer ||\n[\n  'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw',\n  'feuerungsanlagen-holzfeuerungen'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.feuerungsanlagen'|answer)",
@@ -15982,19 +15995,19 @@
     "pk": "immissionsschutz-blendung-von-solaranlagen-titel",
     "fields": {
       "created_at": "2019-05-04T12:23:02.841Z",
-      "modified_at": "2019-05-04T12:23:02.841Z",
+      "modified_at": "2019-05-09T09:21:48.363Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Immissionsschutz - Blendung von Solaranlagen\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-solar-oder-photovoltaik-anlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-solar-oder-photovoltaik-anlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"***\\n**Immissionsschutz - Blendung von Solaranlagen**\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16032,10 +16045,10 @@
     "pk": "immissionsschutz-laermschutz",
     "fields": {
       "created_at": "2019-04-02T10:48:56.934Z",
-      "modified_at": "2019-05-04T10:56:48.380Z",
+      "modified_at": "2019-05-09T10:57:07.965Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Immissionsschutz - L\\u00e4rmschutz\"}",
+      "label": "{\"de\": \"Immissionsschutz II\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "!(\n  'bauten-mit-mehr-als-30-grossvieheinheiten-ja' == 'parent.2-nutzung-bauvorhaben.triage.bauten-mit-mehr-als-30-grossvieheinheiten'|answer ||\n  'werden-neue-hofduengeranlagen-erstellt-ja' ==\n'parent.2-nutzung-bauvorhaben.triage.werden-neue-hofduengeranlagen-erstellt'|answer ||\n[\n  'vorbereitende-massnahmen-rammen',\n  'vorbereitende-massnahmen-pfaehlen',\n  'vorbereitende-massnahmen-sprengen'\n] intersects 'parent.1-allgemeine-informationen.bauvorhaben.vorbereitende-massnahmen'|answer || \n[\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-lager',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-andere'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.nutzungsart'|answer ||\n[\n  'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw',\n  'feuerungsanlagen-holzfeuerungen'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.feuerungsanlagen'|answer)",
@@ -16457,13 +16470,13 @@
     "pk": "kaelteleistung-boden-untergrund",
     "fields": {
       "created_at": "2019-04-01T13:39:13.085Z",
-      "modified_at": "2019-05-03T15:10:48.566Z",
+      "modified_at": "2019-05-09T08:12:12.226Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00e4lteleistung kW (B0/W35)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -16557,13 +16570,13 @@
     "pk": "kaelteleistung-luft",
     "fields": {
       "created_at": "2019-04-02T08:28:22.633Z",
-      "modified_at": "2019-05-03T15:15:12.825Z",
+      "modified_at": "2019-05-09T08:19:15.183Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00e4lteleistung in kW\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -16582,13 +16595,13 @@
     "pk": "kaelteleistung-wasser",
     "fields": {
       "created_at": "2019-04-01T14:46:46.131Z",
-      "modified_at": "2019-05-03T15:14:19.568Z",
+      "modified_at": "2019-05-09T08:16:13.502Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00e4lteleistung in kW (W10/W35)\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -16607,13 +16620,13 @@
     "pk": "kaeltemittel",
     "fields": {
       "created_at": "2019-04-01T13:38:04.904Z",
-      "modified_at": "2019-05-03T15:10:29.352Z",
+      "modified_at": "2019-05-09T08:11:55.355Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00e4ltemittel\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -16782,10 +16795,10 @@
     "pk": "keine-rueckhiebe-oder-aushiebe",
     "fields": {
       "created_at": "2019-04-10T13:48:36.763Z",
-      "modified_at": "2019-05-06T11:30:09.589Z",
+      "modified_at": "2019-05-09T11:07:16.856Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt f\\u00fcr sich und seine/ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihm/ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
+      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolge zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "!(\n  'bau-im-wald-oder-innerhalb-von-30-m-abstand-ja' == 'parent.2-nutzung-bauvorhaben.triage.bau-im-wald-oder-innerhalb-von-30-m-abstand'|answer\n)",
@@ -17138,7 +17151,7 @@
       "label": "{\"de\": \"Kontaktperson\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -17482,13 +17495,13 @@
     "pk": "lage",
     "fields": {
       "created_at": "2019-04-02T08:23:03.756Z",
-      "modified_at": "2019-05-03T15:14:43.067Z",
+      "modified_at": "2019-05-09T08:18:13.743Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Lage\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -17554,6 +17567,31 @@
   },
   {
     "model": "form.question",
+    "pk": "lagekoordinaten-nord-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-05-09T10:46:01.220Z",
+      "modified_at": "2019-05-09T10:46:01.220Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Lagekoordinaten \\u2013 Nord\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "lagekoordinaten-ost",
     "fields": {
       "created_at": "2019-03-28T14:14:04.276Z",
@@ -17563,6 +17601,31 @@
       "label": "{\"de\": \"Lagekoordinaten - Ost\"}",
       "type": "text",
       "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "lagekoordinaten-ost-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-05-09T10:43:28.861Z",
+      "modified_at": "2019-05-09T10:43:28.861Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Lagekoordinaten - Ost\"}",
+      "type": "text",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
@@ -17682,19 +17745,19 @@
     "pk": "lagerung-wassergefahrdender-flussigkeiten-titel",
     "fields": {
       "created_at": "2019-05-03T16:28:23.422Z",
-      "modified_at": "2019-05-03T16:28:23.422Z",
+      "modified_at": "2019-05-09T14:14:23.749Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'brennbare-fluessigkeit-gas-ja' == 'lagerung-von-stoffen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"***\\n**Lagerung wassergef\\u00e4hrdender Fl\\u00fcssigkeiten**\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17963,7 +18026,7 @@
       "label": "{\"de\": \"Maschinen & Anlagen (Sendeanlage)\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -18632,13 +18695,13 @@
     "pk": "name-betrieb-sendeanlage",
     "fields": {
       "created_at": "2019-04-04T09:00:54.491Z",
-      "modified_at": "2019-05-04T12:45:17.255Z",
+      "modified_at": "2019-05-09T09:10:02.171Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name Betrieb\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -19063,7 +19126,7 @@
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -19588,7 +19651,7 @@
       "label": "{\"de\": \"Nummer\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -20188,7 +20251,7 @@
       "label": "{\"de\": \"Ort\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -20407,13 +20470,13 @@
     "pk": "personalien-betreiberin-der-anlage-titel",
     "fields": {
       "created_at": "2019-05-04T12:25:25.295Z",
-      "modified_at": "2019-05-04T12:44:44.755Z",
+      "modified_at": "2019-05-09T09:09:31.736Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Personalien - Betreiber/in der Anlage (Sendeanlage)\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -20888,7 +20951,7 @@
       "label": "{\"de\": \"PLZ\"}",
       "type": "integer",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21407,13 +21470,13 @@
     "pk": "schalldruckpegel-dba",
     "fields": {
       "created_at": "2019-04-02T08:59:04.317Z",
-      "modified_at": "2019-05-03T15:15:37.613Z",
+      "modified_at": "2019-05-09T08:19:56.424Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schalldruckpegel (dB(A))\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21457,13 +21520,13 @@
     "pk": "schallleistungspegel-dba",
     "fields": {
       "created_at": "2019-04-02T08:57:36.072Z",
-      "modified_at": "2019-05-03T15:15:30.286Z",
+      "modified_at": "2019-05-09T08:19:45.747Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Schallleistungspegel (dB(A))\"}",
       "type": "integer",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"Nach EN13487 berechnet\"}",
@@ -21482,13 +21545,13 @@
     "pk": "schallpegelangaben-titel",
     "fields": {
       "created_at": "2019-05-04T10:38:02.214Z",
-      "modified_at": "2019-05-04T10:40:27.818Z",
+      "modified_at": "2019-05-09T08:19:32.803Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Schallpegelangaben\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -21957,19 +22020,19 @@
     "pk": "solar-und-sendeanlagen",
     "fields": {
       "created_at": "2019-04-03T08:03:09.992Z",
-      "modified_at": "2019-04-03T08:03:09.992Z",
+      "modified_at": "2019-05-09T09:07:14.385Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Solar- & Sendeanlagen\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!([\n  'geplante-anlagen-solar-oder-photovoltaik-anlage',\n  'geplante-anlagen-sendeanlage'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": "solar-und-sendeanlagen",
@@ -22082,13 +22145,13 @@
     "pk": "standort",
     "fields": {
       "created_at": "2019-04-03T08:11:20.682Z",
-      "modified_at": "2019-05-03T15:03:51.389Z",
+      "modified_at": "2019-05-09T09:27:10.741Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Standort\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -22182,13 +22245,13 @@
     "pk": "stoerende-lichtreflektionen",
     "fields": {
       "created_at": "2019-04-03T07:53:47.364Z",
-      "modified_at": "2019-05-03T15:01:15.613Z",
+      "modified_at": "2019-05-09T09:09:02.632Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bestehen Bedenken oder Einw\\u00e4nde hinsichtlich Lichtreflektionen (Blendungen), welche f\\u00fcr die Nachbarschaft st\\u00f6rend sein k\\u00f6nnen?\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-solar-oder-photovoltaik-anlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-solar-oder-photovoltaik-anlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -22513,7 +22576,7 @@
       "label": "{\"de\": \"Strasse\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -22663,7 +22726,7 @@
       "label": "{\"de\": \"T\\u00e4tigkeit des Betriebs\"}",
       "type": "textarea",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -22882,13 +22945,13 @@
     "pk": "technische-angaben-zur-waermepumpe-luft-titel",
     "fields": {
       "created_at": "2019-05-04T10:36:10.125Z",
-      "modified_at": "2019-05-04T10:36:42.218Z",
+      "modified_at": "2019-05-09T08:18:44.851Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Technische Angaben zur W\\u00e4rmepumpe\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -22907,13 +22970,13 @@
     "pk": "technische-angaben-zur-warmepumpe-titel",
     "fields": {
       "created_at": "2019-05-04T10:02:35.863Z",
-      "modified_at": "2019-05-04T10:05:47.218Z",
+      "modified_at": "2019-05-09T08:16:02.406Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Technische Angaben zur W\\u00e4rmepumpe\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -23188,7 +23251,7 @@
       "label": "{\"de\": \"Telefon oder Mobile\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -23457,13 +23520,13 @@
     "pk": "typ",
     "fields": {
       "created_at": "2019-04-01T13:37:41.455Z",
-      "modified_at": "2019-05-03T15:03:24.148Z",
+      "modified_at": "2019-05-09T09:26:53.223Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -23582,13 +23645,13 @@
     "pk": "typ-waermepumpen",
     "fields": {
       "created_at": "2019-04-04T11:28:03.814Z",
-      "modified_at": "2019-05-03T15:10:19.004Z",
+      "modified_at": "2019-05-09T08:11:46.938Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Typ\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -23707,7 +23770,7 @@
     "pk": "um-was-fuer-ein-gebaeude-handelt-es-sich",
     "fields": {
       "created_at": "2019-03-15T13:17:11.788Z",
-      "modified_at": "2019-05-03T15:06:25.081Z",
+      "modified_at": "2019-05-09T10:38:36.758Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Um was f\\u00fcr ein Geb\\u00e4ude handelt es sich?\"}",
@@ -23716,7 +23779,7 @@
       "is_hidden": "!(\n  'nutzungsart-wohnen' in 'nutzungsart'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"Dies ist eine generelle Umschreibung des Geb\\u00e4udes, welches erstellt oder umgebaut werden soll (z.B. Mehrfamilienhaus, Wohn- und Gewerbegeb\\u00e4ude, Produktionshalle, B\\u00fcrogeb\\u00e4ude etc.). Es k\\u00f6nnen auch mehrere Geb\\u00e4ude beschrieben werden wie z.B. Neubau, Wohnsiedlung mit 6 Mehrfamilienh\\u00e4usern und einem Verkaufsgesch\\u00e4ft. Umschreibung was ist ein EFH und was ein MFH (Art. 43 Abs. 2 BauV)\"}",
+      "info_text": "{\"de\": \"Dies ist eine generelle Umschreibung des Geb\\u00e4udes, welches erstellt oder umgebaut werden soll (z.B. bei Mehrfamilienhaus (MFH), Wohn- und Gewerbegeb\\u00e4ude, Produktionshalle, B\\u00fcrogeb\\u00e4ude etc.). Umschreibung was ist ein EFH und was ein MFH [(Art. 43 Abs. 3 BauV)](https://www.belex.sites.be.ch/frontend/versions/1522/art43?locale=de)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
@@ -23882,10 +23945,10 @@
     "pk": "verpflichtung-bei-handaenderung",
     "fields": {
       "created_at": "2019-04-10T11:56:57.289Z",
-      "modified_at": "2019-05-06T11:32:02.639Z",
+      "modified_at": "2019-05-09T11:08:26.312Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich der/die Gesuchsteller/in und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung einer allf\\u00e4lligen Rechtsnachfolge zu \\u00fcberbinden.\"}",
       "type": "multiple_choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -24057,13 +24120,13 @@
     "pk": "verwendung",
     "fields": {
       "created_at": "2019-04-03T08:10:52.588Z",
-      "modified_at": "2019-05-03T15:03:34.307Z",
+      "modified_at": "2019-05-09T09:27:01.983Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verwendung\"}",
       "type": "text",
       "is_required": "false",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -24132,13 +24195,13 @@
     "pk": "verwendungszweck-boden-untergrund",
     "fields": {
       "created_at": "2019-04-01T13:59:12.670Z",
-      "modified_at": "2019-05-03T15:12:19.160Z",
+      "modified_at": "2019-05-09T08:12:58.340Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verwendungszweck\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -24182,13 +24245,13 @@
     "pk": "verwendungszweck-luft",
     "fields": {
       "created_at": "2019-04-02T08:56:35.575Z",
-      "modified_at": "2019-05-03T15:14:51.798Z",
+      "modified_at": "2019-05-09T08:18:23.645Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verwendungszweck\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -24207,13 +24270,13 @@
     "pk": "verwendungszweck-wasser",
     "fields": {
       "created_at": "2019-04-02T08:53:54.553Z",
-      "modified_at": "2019-05-03T15:13:42.862Z",
+      "modified_at": "2019-05-09T08:15:34.676Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Verwendungszweck\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -24513,7 +24576,7 @@
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'geplante-anlagen'|answer\n)",
+      "is_hidden": "!(\n  'geplante-anlagen-sendeanlage' in 'parent.parent.2-nutzung-bauvorhaben.triage.geplante-anlagen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -24582,19 +24645,19 @@
     "pk": "waermepumpen",
     "fields": {
       "created_at": "2019-04-02T09:07:37.033Z",
-      "modified_at": "2019-04-02T09:07:37.033Z",
+      "modified_at": "2019-05-09T08:04:17.084Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"W\\u00e4rmepumpen\"}",
       "type": "form",
       "is_required": "false",
-      "is_hidden": "false",
+      "is_hidden": "!([\n  'welche-waermepumpen-boden-untergrund',\n  'welche-waermepumpen-wasser',\n  'welche-waermepumpen-luft'\n] intersects 'parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": "waermepumpen",
@@ -24607,13 +24670,13 @@
     "pk": "waermepumpen-titel",
     "fields": {
       "created_at": "2019-05-04T09:51:08.276Z",
-      "modified_at": "2019-05-04T10:04:04.240Z",
+      "modified_at": "2019-05-09T08:47:37.139Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"W\\u00e4rmepumpen\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -24707,13 +24770,13 @@
     "pk": "warmepumpen-bodenuntergrund-titel",
     "fields": {
       "created_at": "2019-05-04T09:45:45.059Z",
-      "modified_at": "2019-05-04T09:52:54.043Z",
+      "modified_at": "2019-05-09T08:57:38.252Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"W\\u00e4rmepumpen - Boden/Untergrund\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-boden-untergrund' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"- Die Nutzung von W\\u00e4rme aus Boden/Untergrund erfordert eine Gew\\u00e4sserschutzbewilligung.\\n  \\n- Die Anlagen sind in einem Plan darzustellen und zu vermessen.\"}",
@@ -24732,13 +24795,13 @@
     "pk": "warmepumpen-luft-titel",
     "fields": {
       "created_at": "2019-05-04T10:23:52.310Z",
-      "modified_at": "2019-05-04T10:27:30.674Z",
+      "modified_at": "2019-05-09T08:59:52.349Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"W\\u00e4rmepumpen - Luft\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-luft' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -24757,13 +24820,13 @@
     "pk": "warmepumpen-wasser-titel",
     "fields": {
       "created_at": "2019-05-04T09:56:33.813Z",
-      "modified_at": "2019-05-04T09:57:31.372Z",
+      "modified_at": "2019-05-09T08:15:19.588Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"W\\u00e4rmepumpen - Wasser\"}",
       "type": "static",
       "is_required": "false",
-      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'welche-waermepumpen'|answer\n)",
+      "is_hidden": "!(\n  'welche-waermepumpen-wasser' in 'parent.parent.2-nutzung-bauvorhaben.triage.welche-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"- Die Nutzung von Wasser (Grundwasser, Wasser aus B\\u00e4chen, Fl\\u00fcssen, Seen und gr\\u00f6sseren Quellen) ben\\u00f6tigt eine kantonale Konzession.\\n  \\n- Die Anlagen sind in einem Plan darzustellen und zu vermessen.\"}",
@@ -24857,10 +24920,10 @@
     "pk": "wassergefaehrdende-explosive-stoffe",
     "fields": {
       "created_at": "2019-04-29T08:57:03.190Z",
-      "modified_at": "2019-05-03T14:24:23.201Z",
+      "modified_at": "2019-05-09T10:52:27.074Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Werden neu wassergef\\u00e4hrdende, explosive, gesundheitsgef\\u00e4hrdende oder brennbare Stoffe gelagert oder verwendet?\"}",
+      "label": "{\"de\": \"Gew\\u00e4sserschutz: Werden neu wassergef\\u00e4hrdende, explosive, gesundheitsgef\\u00e4hrdende oder brennbare Stoffe gelagert oder verwendet?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-lager',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer || 'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw' in 'feuerungsanlagen'|answer || 'verunreinigte-abluft-nein' in 'verunreinigte-abluft'|answer)",
@@ -25032,7 +25095,7 @@
     "pk": "welche-waermepumpen",
     "fields": {
       "created_at": "2019-04-01T13:28:09.849Z",
-      "modified_at": "2019-04-01T13:28:09.849Z",
+      "modified_at": "2019-05-09T07:57:40.733Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Welche W\\u00e4rmepumpen sind im Bauvorhaben vorgesehen?\"}",
@@ -25041,10 +25104,10 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25507,10 +25570,10 @@
     "pk": "wohnungsgroesse",
     "fields": {
       "created_at": "2019-04-03T10:45:56.687Z",
-      "modified_at": "2019-04-18T14:06:21.602Z",
+      "modified_at": "2019-05-09T11:02:16.998Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Wohnungsgr\\u00f6sse\"}",
+      "label": "{\"de\": \"Wohnungsgr\\u00f6sse (Anzahl Zimmer)\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
@@ -28997,7 +29060,7 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "verpflichtung-bei-handaenderung",
-      "option": "verpflichtung-bei-handaenderung--ja",
+      "option": "verpflichtung-bei-handaenderung-ja",
       "sort": 1
     }
   },
@@ -35220,10 +35283,10 @@
     "pk": "bestaetigung-generalvollmacht-ja",
     "fields": {
       "created_at": "2019-04-10T13:53:48.953Z",
-      "modified_at": "2019-05-02T07:43:30.527Z",
+      "modified_at": "2019-05-09T11:01:02.844Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
       "meta": {},
       "source": null
     }
@@ -35259,7 +35322,7 @@
     "pk": "betriebsweise-bivalent",
     "fields": {
       "created_at": "2019-04-01T13:45:01.096Z",
-      "modified_at": "2019-05-03T15:11:07.950Z",
+      "modified_at": "2019-05-09T08:12:43.332Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bivalent\"}",
@@ -35272,7 +35335,7 @@
     "pk": "betriebsweise-monovalent",
     "fields": {
       "created_at": "2019-04-01T13:45:01.090Z",
-      "modified_at": "2019-05-03T15:11:07.956Z",
+      "modified_at": "2019-05-09T08:12:43.328Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Monovalent\"}",
@@ -35818,7 +35881,7 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde-ja",
     "fields": {
       "created_at": "2019-04-01T14:04:05.693Z",
-      "modified_at": "2019-05-06T12:32:35.427Z",
+      "modified_at": "2019-05-09T08:13:22.961Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -35831,7 +35894,7 @@
     "pk": "entzug-von-waerme-mittels-erdwaermesonde-nein",
     "fields": {
       "created_at": "2019-04-01T14:04:05.708Z",
-      "modified_at": "2019-05-06T12:32:35.433Z",
+      "modified_at": "2019-05-09T08:13:22.974Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -36377,7 +36440,7 @@
     "pk": "gefaehrliche-stoffe-ja",
     "fields": {
       "created_at": "2019-03-15T13:23:59.669Z",
-      "modified_at": "2019-05-03T10:08:05.987Z",
+      "modified_at": "2019-05-09T10:51:08.361Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -36390,7 +36453,7 @@
     "pk": "gefaehrliche-stoffe-nein",
     "fields": {
       "created_at": "2019-03-15T13:23:59.684Z",
-      "modified_at": "2019-05-03T10:08:05.992Z",
+      "modified_at": "2019-05-09T10:51:08.353Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -36832,7 +36895,7 @@
     "pk": "handelt-es-sich-um-ein-sensibles-objekt-ja",
     "fields": {
       "created_at": "2019-05-02T16:04:50.975Z",
-      "modified_at": "2019-05-02T16:04:50.976Z",
+      "modified_at": "2019-05-09T10:54:13.211Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Ja\"}",
@@ -36845,7 +36908,7 @@
     "pk": "handelt-es-sich-um-ein-sensibles-objekt-nein",
     "fields": {
       "created_at": "2019-05-02T16:04:50.985Z",
-      "modified_at": "2019-05-02T16:04:50.985Z",
+      "modified_at": "2019-05-09T10:54:13.231Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
@@ -37430,10 +37493,10 @@
     "pk": "keine-rueckhiebe-oder-aushiebe-ja",
     "fields": {
       "created_at": "2019-04-10T13:48:36.621Z",
-      "modified_at": "2019-05-06T11:30:09.442Z",
+      "modified_at": "2019-05-09T11:07:16.701Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Der/die Gesuchsteller/in nimmt f\\u00fcr sich und seine/ihre Rechtsnachfolger zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihm/ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
+      "label": "{\"de\": \"Die Bauherrschaft nimmt f\\u00fcr sich und ihre Rechtsnachfolge zur Kenntnis, dass keine R\\u00fcckhiebe oder andere \\u00fcber das Kapprecht hinausgehenden Aushiebe an dem vom N\\u00e4herbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr geh\\u00f6rt, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gr\\u00fcnden vorzunehmen.\"}",
       "meta": {},
       "source": null
     }
@@ -37586,7 +37649,7 @@
     "pk": "lage-aussen",
     "fields": {
       "created_at": "2019-04-02T08:23:03.524Z",
-      "modified_at": "2019-05-03T15:14:42.773Z",
+      "modified_at": "2019-05-09T08:18:13.609Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Aussen\"}",
@@ -37599,7 +37662,7 @@
     "pk": "lage-beides",
     "fields": {
       "created_at": "2019-04-02T08:23:03.533Z",
-      "modified_at": "2019-05-03T15:14:42.787Z",
+      "modified_at": "2019-05-09T08:18:13.595Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Beides\"}",
@@ -37612,7 +37675,7 @@
     "pk": "lage-innen",
     "fields": {
       "created_at": "2019-04-02T08:23:03.517Z",
-      "modified_at": "2019-05-03T15:14:42.771Z",
+      "modified_at": "2019-05-09T08:18:13.580Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Innen\"}",
@@ -39744,7 +39807,7 @@
     "pk": "stoerende-lichtreflektionen-ja",
     "fields": {
       "created_at": "2019-04-03T07:53:47.222Z",
-      "modified_at": "2019-05-03T15:01:15.319Z",
+      "modified_at": "2019-05-09T09:09:02.471Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -39757,7 +39820,7 @@
     "pk": "stoerende-lichtreflektionen-nein",
     "fields": {
       "created_at": "2019-04-03T07:53:47.220Z",
-      "modified_at": "2019-05-03T15:01:15.328Z",
+      "modified_at": "2019-05-09T09:09:02.464Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -39952,7 +40015,7 @@
     "pk": "um-was-fuer-ein-gebaeude-handelt-es-sich-efh",
     "fields": {
       "created_at": "2019-03-15T13:17:11.628Z",
-      "modified_at": "2019-05-03T15:06:24.869Z",
+      "modified_at": "2019-05-09T10:38:36.567Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"EFH\"}",
@@ -39965,7 +40028,7 @@
     "pk": "um-was-fuer-ein-gebaeude-handelt-es-sich-mfh",
     "fields": {
       "created_at": "2019-03-15T13:17:11.627Z",
-      "modified_at": "2019-05-03T15:06:24.880Z",
+      "modified_at": "2019-05-09T10:38:36.569Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"MFH\"}",
@@ -40053,13 +40116,13 @@
   },
   {
     "model": "form.option",
-    "pk": "verpflichtung-bei-handaenderung--ja",
+    "pk": "verpflichtung-bei-handaenderung-ja",
     "fields": {
       "created_at": "2019-04-26T11:11:33.879Z",
-      "modified_at": "2019-05-06T11:32:02.512Z",
+      "modified_at": "2019-05-09T11:08:26.172Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich der/die Gesuchsteller/in und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung allf\\u00e4lligen Rechtsnachfolgern zu \\u00fcberbinden.\"}",
+      "label": "{\"de\": \"Bei einer allf\\u00e4lligen Hand\\u00e4nderung verpflichten sich die Bauherrschaft und Grundeigent\\u00fcmerin/Grundeigent\\u00fcmer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erkl\\u00e4rung einer allf\\u00e4lligen Rechtsnachfolge zu \\u00fcberbinden.\"}",
       "meta": {},
       "source": null
     }
@@ -40212,7 +40275,7 @@
     "pk": "verwendungszweck-boden-untergrund-andere",
     "fields": {
       "created_at": "2019-04-01T13:59:12.470Z",
-      "modified_at": "2019-05-03T15:12:18.895Z",
+      "modified_at": "2019-05-09T08:12:58.162Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -40225,7 +40288,7 @@
     "pk": "verwendungszweck-boden-untergrund-kuehlen",
     "fields": {
       "created_at": "2019-04-02T08:24:04.731Z",
-      "modified_at": "2019-05-03T15:12:18.887Z",
+      "modified_at": "2019-05-09T08:12:58.153Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00fchlen\"}",
@@ -40238,7 +40301,7 @@
     "pk": "verwendungszweck-boden-untergrund-raumheizung",
     "fields": {
       "created_at": "2019-04-01T13:59:12.432Z",
-      "modified_at": "2019-05-03T15:12:18.864Z",
+      "modified_at": "2019-05-09T08:12:58.130Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumheizung\"}",
@@ -40251,7 +40314,7 @@
     "pk": "verwendungszweck-boden-untergrund-warmwasser",
     "fields": {
       "created_at": "2019-04-01T13:59:12.434Z",
-      "modified_at": "2019-05-03T15:12:18.867Z",
+      "modified_at": "2019-05-09T08:12:58.138Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Warmwasser\"}",
@@ -40368,7 +40431,7 @@
     "pk": "verwendungszweck-luft-andere",
     "fields": {
       "created_at": "2019-04-02T08:56:35.391Z",
-      "modified_at": "2019-05-03T15:14:51.564Z",
+      "modified_at": "2019-05-09T08:18:23.478Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -40381,7 +40444,7 @@
     "pk": "verwendungszweck-luft-kuehlen",
     "fields": {
       "created_at": "2019-04-02T08:56:35.380Z",
-      "modified_at": "2019-05-03T15:14:51.542Z",
+      "modified_at": "2019-05-09T08:18:23.469Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00fchlen\"}",
@@ -40394,7 +40457,7 @@
     "pk": "verwendungszweck-luft-raumheizung",
     "fields": {
       "created_at": "2019-04-02T08:56:35.386Z",
-      "modified_at": "2019-05-03T15:14:51.517Z",
+      "modified_at": "2019-05-09T08:18:23.467Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumheizung\"}",
@@ -40407,7 +40470,7 @@
     "pk": "verwendungszweck-luft-warmwasser",
     "fields": {
       "created_at": "2019-04-02T08:56:35.407Z",
-      "modified_at": "2019-05-03T15:14:51.535Z",
+      "modified_at": "2019-05-09T08:18:23.476Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Warmwasser\"}",
@@ -40446,7 +40509,7 @@
     "pk": "verwendungszweck-wasser-andere",
     "fields": {
       "created_at": "2019-04-02T08:53:54.379Z",
-      "modified_at": "2019-05-03T15:13:42.616Z",
+      "modified_at": "2019-05-09T08:15:34.476Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Andere\"}",
@@ -40459,7 +40522,7 @@
     "pk": "verwendungszweck-wasser-kuehlen",
     "fields": {
       "created_at": "2019-04-02T08:53:54.385Z",
-      "modified_at": "2019-05-03T15:13:42.599Z",
+      "modified_at": "2019-05-09T08:15:34.462Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"K\\u00fchlen\"}",
@@ -40472,7 +40535,7 @@
     "pk": "verwendungszweck-wasser-raumheizung",
     "fields": {
       "created_at": "2019-04-02T08:53:54.354Z",
-      "modified_at": "2019-05-03T15:13:42.572Z",
+      "modified_at": "2019-05-09T08:15:34.443Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Raumheizung\"}",
@@ -40485,7 +40548,7 @@
     "pk": "verwendungszweck-wasser-warmwasser",
     "fields": {
       "created_at": "2019-04-02T08:53:54.366Z",
-      "modified_at": "2019-05-03T15:13:42.575Z",
+      "modified_at": "2019-05-09T08:15:34.466Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Warmwasser\"}",
@@ -41070,7 +41133,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-ja",
     "fields": {
       "created_at": "2019-04-29T08:57:03.027Z",
-      "modified_at": "2019-05-03T14:24:23.020Z",
+      "modified_at": "2019-05-09T10:52:26.904Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Ja\"}",
@@ -41083,7 +41146,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-nein",
     "fields": {
       "created_at": "2019-04-29T08:57:03.035Z",
-      "modified_at": "2019-05-03T14:24:23.031Z",
+      "modified_at": "2019-05-09T10:52:26.909Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
@@ -41395,7 +41458,7 @@
     "pk": "welche-waermepumpen-boden-untergrund",
     "fields": {
       "created_at": "2019-04-01T13:28:09.717Z",
-      "modified_at": "2019-04-01T13:28:09.717Z",
+      "modified_at": "2019-05-09T07:57:40.514Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Boden / Untergrund\"}",
@@ -41408,7 +41471,7 @@
     "pk": "welche-waermepumpen-luft",
     "fields": {
       "created_at": "2019-04-01T13:28:09.728Z",
-      "modified_at": "2019-04-01T13:28:09.729Z",
+      "modified_at": "2019-05-09T07:57:40.537Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Luft\"}",
@@ -41421,7 +41484,7 @@
     "pk": "welche-waermepumpen-wasser",
     "fields": {
       "created_at": "2019-04-01T13:28:09.734Z",
-      "modified_at": "2019-04-01T13:28:09.734Z",
+      "modified_at": "2019-05-09T07:57:40.541Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wasser\"}",
@@ -41876,7 +41939,7 @@
     "pk": "wohnungsgroesse-1",
     "fields": {
       "created_at": "2019-04-03T10:45:55.806Z",
-      "modified_at": "2019-04-18T14:06:20.693Z",
+      "modified_at": "2019-05-09T11:02:16.054Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"1\"}",
@@ -41889,7 +41952,7 @@
     "pk": "wohnungsgroesse-10",
     "fields": {
       "created_at": "2019-04-03T10:45:55.985Z",
-      "modified_at": "2019-04-18T14:06:21.040Z",
+      "modified_at": "2019-05-09T11:02:16.287Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"10\"}",
@@ -41902,7 +41965,7 @@
     "pk": "wohnungsgroesse-11",
     "fields": {
       "created_at": "2019-04-03T10:45:56.008Z",
-      "modified_at": "2019-04-18T14:06:20.973Z",
+      "modified_at": "2019-05-09T11:02:16.355Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"11\"}",
@@ -41915,7 +41978,7 @@
     "pk": "wohnungsgroesse-12",
     "fields": {
       "created_at": "2019-04-03T10:45:56.049Z",
-      "modified_at": "2019-04-18T14:06:21.021Z",
+      "modified_at": "2019-05-09T11:02:16.399Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"12\"}",
@@ -41928,7 +41991,7 @@
     "pk": "wohnungsgroesse-13",
     "fields": {
       "created_at": "2019-04-03T10:45:56.060Z",
-      "modified_at": "2019-04-18T14:06:21.022Z",
+      "modified_at": "2019-05-09T11:02:16.403Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"13\"}",
@@ -41941,7 +42004,7 @@
     "pk": "wohnungsgroesse-14",
     "fields": {
       "created_at": "2019-04-03T10:45:56.087Z",
-      "modified_at": "2019-04-18T14:06:20.976Z",
+      "modified_at": "2019-05-09T11:02:16.388Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"14\"}",
@@ -41954,7 +42017,7 @@
     "pk": "wohnungsgroesse-15",
     "fields": {
       "created_at": "2019-04-03T10:45:56.046Z",
-      "modified_at": "2019-04-18T14:06:21.125Z",
+      "modified_at": "2019-05-09T11:02:16.418Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"15\"}",
@@ -41967,7 +42030,7 @@
     "pk": "wohnungsgroesse-16",
     "fields": {
       "created_at": "2019-04-03T10:45:56.088Z",
-      "modified_at": "2019-04-18T14:06:21.194Z",
+      "modified_at": "2019-05-09T11:02:16.565Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"16\"}",
@@ -41980,7 +42043,7 @@
     "pk": "wohnungsgroesse-17",
     "fields": {
       "created_at": "2019-04-03T10:45:56.120Z",
-      "modified_at": "2019-04-18T14:06:21.139Z",
+      "modified_at": "2019-05-09T11:02:16.533Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"17\"}",
@@ -41993,7 +42056,7 @@
     "pk": "wohnungsgroesse-18",
     "fields": {
       "created_at": "2019-04-03T10:45:56.112Z",
-      "modified_at": "2019-04-18T14:06:21.192Z",
+      "modified_at": "2019-05-09T11:02:16.545Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"18\"}",
@@ -42006,7 +42069,7 @@
     "pk": "wohnungsgroesse-19",
     "fields": {
       "created_at": "2019-04-03T10:45:56.140Z",
-      "modified_at": "2019-04-18T14:06:21.209Z",
+      "modified_at": "2019-05-09T11:02:16.535Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"19\"}",
@@ -42019,7 +42082,7 @@
     "pk": "wohnungsgroesse-2",
     "fields": {
       "created_at": "2019-04-03T10:45:55.809Z",
-      "modified_at": "2019-04-18T14:06:20.724Z",
+      "modified_at": "2019-05-09T11:02:16.214Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"2\"}",
@@ -42032,7 +42095,7 @@
     "pk": "wohnungsgroesse-20",
     "fields": {
       "created_at": "2019-04-03T10:45:56.150Z",
-      "modified_at": "2019-04-18T14:06:21.328Z",
+      "modified_at": "2019-05-09T11:02:16.665Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"20\"}",
@@ -42045,7 +42108,7 @@
     "pk": "wohnungsgroesse-21",
     "fields": {
       "created_at": "2019-04-03T10:45:56.178Z",
-      "modified_at": "2019-04-18T14:06:21.232Z",
+      "modified_at": "2019-05-09T11:02:16.596Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"21\"}",
@@ -42058,7 +42121,7 @@
     "pk": "wohnungsgroesse-22",
     "fields": {
       "created_at": "2019-04-03T10:45:56.186Z",
-      "modified_at": "2019-04-18T14:06:21.302Z",
+      "modified_at": "2019-05-09T11:02:16.629Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"22\"}",
@@ -42071,7 +42134,7 @@
     "pk": "wohnungsgroesse-23",
     "fields": {
       "created_at": "2019-04-03T10:45:56.199Z",
-      "modified_at": "2019-04-18T14:06:21.233Z",
+      "modified_at": "2019-05-09T11:02:16.656Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"23\"}",
@@ -42084,7 +42147,7 @@
     "pk": "wohnungsgroesse-24",
     "fields": {
       "created_at": "2019-04-03T10:45:56.206Z",
-      "modified_at": "2019-04-18T14:06:21.239Z",
+      "modified_at": "2019-05-09T11:02:16.691Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"24\"}",
@@ -42097,7 +42160,7 @@
     "pk": "wohnungsgroesse-25",
     "fields": {
       "created_at": "2019-04-03T10:45:56.241Z",
-      "modified_at": "2019-04-18T14:06:21.374Z",
+      "modified_at": "2019-05-09T11:02:16.766Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"25\"}",
@@ -42110,7 +42173,7 @@
     "pk": "wohnungsgroesse-26",
     "fields": {
       "created_at": "2019-04-03T10:45:56.241Z",
-      "modified_at": "2019-04-18T14:06:21.362Z",
+      "modified_at": "2019-05-09T11:02:16.769Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"26\"}",
@@ -42123,7 +42186,7 @@
     "pk": "wohnungsgroesse-27",
     "fields": {
       "created_at": "2019-04-03T10:45:56.271Z",
-      "modified_at": "2019-04-18T14:06:21.383Z",
+      "modified_at": "2019-05-09T11:02:16.750Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"27\"}",
@@ -42136,7 +42199,7 @@
     "pk": "wohnungsgroesse-28",
     "fields": {
       "created_at": "2019-04-03T10:45:56.297Z",
-      "modified_at": "2019-04-18T14:06:21.421Z",
+      "modified_at": "2019-05-09T11:02:16.742Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"28\"}",
@@ -42149,7 +42212,7 @@
     "pk": "wohnungsgroesse-29",
     "fields": {
       "created_at": "2019-04-03T10:45:56.292Z",
-      "modified_at": "2019-04-18T14:06:21.436Z",
+      "modified_at": "2019-05-09T11:02:16.796Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"29\"}",
@@ -42162,7 +42225,7 @@
     "pk": "wohnungsgroesse-3",
     "fields": {
       "created_at": "2019-04-03T10:45:55.836Z",
-      "modified_at": "2019-04-18T14:06:20.726Z",
+      "modified_at": "2019-05-09T11:02:16.144Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"3\"}",
@@ -42175,7 +42238,7 @@
     "pk": "wohnungsgroesse-30",
     "fields": {
       "created_at": "2019-04-03T10:45:56.302Z",
-      "modified_at": "2019-04-18T14:06:21.425Z",
+      "modified_at": "2019-05-09T11:02:16.804Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"30\"}",
@@ -42188,7 +42251,7 @@
     "pk": "wohnungsgroesse-4",
     "fields": {
       "created_at": "2019-04-03T10:45:55.903Z",
-      "modified_at": "2019-04-18T14:06:20.762Z",
+      "modified_at": "2019-05-09T11:02:16.197Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"4\"}",
@@ -42201,7 +42264,7 @@
     "pk": "wohnungsgroesse-5",
     "fields": {
       "created_at": "2019-04-03T10:45:55.898Z",
-      "modified_at": "2019-04-18T14:06:20.801Z",
+      "modified_at": "2019-05-09T11:02:16.155Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"5\"}",
@@ -42214,7 +42277,7 @@
     "pk": "wohnungsgroesse-6",
     "fields": {
       "created_at": "2019-04-03T10:45:56.003Z",
-      "modified_at": "2019-04-18T14:06:20.948Z",
+      "modified_at": "2019-05-09T11:02:16.260Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"6\"}",
@@ -42227,7 +42290,7 @@
     "pk": "wohnungsgroesse-7",
     "fields": {
       "created_at": "2019-04-03T10:45:55.924Z",
-      "modified_at": "2019-04-18T14:06:20.964Z",
+      "modified_at": "2019-05-09T11:02:16.237Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"7\"}",
@@ -42240,7 +42303,7 @@
     "pk": "wohnungsgroesse-8",
     "fields": {
       "created_at": "2019-04-03T10:45:55.972Z",
-      "modified_at": "2019-04-18T14:06:20.924Z",
+      "modified_at": "2019-05-09T11:02:16.272Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"8\"}",
@@ -42253,7 +42316,7 @@
     "pk": "wohnungsgroesse-9",
     "fields": {
       "created_at": "2019-04-03T10:45:55.932Z",
-      "modified_at": "2019-04-18T14:06:20.895Z",
+      "modified_at": "2019-05-09T11:02:16.309Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"9\"}",
