@@ -10,6 +10,7 @@ const resetNamespace = true;
 
 Router.map(function() {
   this.route("login");
+  this.route("logout");
   this.route("app-shell");
   this.route("notfound", { path: "/*path" });
 

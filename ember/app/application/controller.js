@@ -11,11 +11,5 @@ export default Controller.extend({
 
   oidcHost,
 
-  isEmbedded: window !== window.top,
-
-  actions: {
-    logout() {
-      this.session.invalidate();
-    }
-  }
+  isEmbedded: window !== window.top
 });
