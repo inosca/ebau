@@ -76,7 +76,7 @@ services:
             - camac-ng.local
         build:
             args:
-                KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/
+                KEYCLOAK_URL_ARG: http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect
                 DEPLOY_TARGET: staging
 
     ember-caluma-portal:
