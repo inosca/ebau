@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   let oidcHost =
-    process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth/";
+    process.env.KEYCLOAK_URL ||
+    "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect";
 
   let ENV = {
     modulePrefix: "citizen-portal",
@@ -39,8 +40,12 @@ module.exports = function(environment) {
 
     "ember-simple-auth-oidc": {
       host: oidcHost.replace(/\/$/, ""),
-      realm: "ebau",
-      clientId: "portal"
+      clientId: "portal",
+      authEndpoint: "/auth",
+      tokenEndpoint: "/token",
+      userinfoEndpoint: "/userinfo",
+      endSessionEndpoint: "/logout",
+      afterLogoutUri: "/"
     },
 
     "ember-validated-form": {
