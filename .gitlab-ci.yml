@@ -91,7 +91,7 @@ build:
 build-kt_schwyz-stage:
     extends: .build-image
     variables:
-        KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/
+        KEYCLOAK_URL: https://camac-schwyz.sycloud.ch/auth/realms/ebau/protocol/openid-connect
         APPLICATION: kt_schwyz
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     only:
@@ -101,7 +101,7 @@ build-kt_schwyz-stage:
 build-kt_schwyz-production:
     extends: .build-image
     variables:
-        KEYCLOAK_URL: https://ebau-sz.ch/auth/
+        KEYCLOAK_URL: https://ebau-sz.ch/auth/realms/ebau/protocol/openid-connect
         APPLICATION: kt_schwyz
         COMPOSE: docker-compose -f docker-compose.production.sz.yml
         CONTAINERS: ember django php

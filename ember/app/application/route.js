@@ -1,8 +1,8 @@
 import Route from "@ember/routing/route";
-import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mixin";
+import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 import moment from "moment";
 
-export default Route.extend(ApplicationRouteMixin, {
+export default Route.extend(OIDCApplicationRouteMixin, {
   sessionAuthenticated() {
     let next = this.get("session.data.next");
 

@@ -4914,9 +4914,10 @@ ember-service-worker@^0.7.0:
     hash-for-dep "^1.2.3"
     rollup-plugin-replace "^1.1.1"
 
-ember-simple-auth-oidc@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-0.1.2.tgz#6a75da8c2a4e26100f87d448b382e4558c8f15d4"
+ember-simple-auth-oidc@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/ember-simple-auth-oidc/-/ember-simple-auth-oidc-0.2.0.tgz#8e58fd2d43812bd52233eada12ac1acc9da1a6b8"
+  integrity sha512-gQu4sboACXf4yQvAwEsVk30rIF0Vu1y8KNsFifRAP7j3hLm/axKee1kYGKjky5qMbA78H6DSl8LhGo5jeEqGlw==
   dependencies:
     ember-ajax "^3.1.0"
     ember-auto-import "^1.0.1"
