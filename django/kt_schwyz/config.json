@@ -2594,46 +2594,6 @@
   {
     "fields": {
       "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Fachbereich nicht betroffen",
-      "sort": 1
-    },
-    "model": "core.circulationanswer",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Unterlagenerg\u00e4nzung",
-      "sort": 2
-    },
-    "model": "core.circulationanswer",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Rechtliches Geh\u00f6r",
-      "sort": 3
-    },
-    "model": "core.circulationanswer",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
-      "sort": 4
-    },
-    "model": "core.circulationanswer",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Abschliessend beurteilbar",
       "sort": 10
@@ -2650,26 +2610,6 @@
     },
     "model": "core.circulationanswer",
     "pk": 10
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Abschliessend beurteilbar",
-      "sort": 5
-    },
-    "model": "core.circulationanswer",
-    "pk": 11
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 2,
-      "name": "Widerspruch",
-      "sort": 6
-    },
-    "model": "core.circulationanswer",
-    "pk": 12
   },
   {
     "fields": {
@@ -2734,15 +2674,6 @@
     },
     "model": "core.circulationtype",
     "pk": 1
-  },
-  {
-    "fields": {
-      "name": "Zirkulation des Kantons",
-      "page_id": 2,
-      "parent_specific_activations": 0
-    },
-    "model": "core.circulationtype",
-    "pk": 2
   },
   {
     "fields": {
@@ -5131,7 +5062,7 @@
       "add_template": null,
       "circulation_email_action_id": null,
       "circulation_type": 1,
-      "default_circulation_name": "Zirkulation der Gemeinde",
+      "default_circulation_name": "Zirkulation",
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
@@ -5149,7 +5080,7 @@
       "add_template": null,
       "circulation_email_action_id": null,
       "circulation_type": 1,
-      "default_circulation_name": "Zirkulation des Kantons",
+      "default_circulation_name": "Zirkulation",
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
@@ -7164,27 +7095,11 @@
   },
   {
     "fields": {
-      "circulation_type": 2,
-      "name": "Antrag"
-    },
-    "model": "core.noticetype",
-    "pk": 2
-  },
-  {
-    "fields": {
       "circulation_type": 1,
       "name": "Nebenbestimmungen"
     },
     "model": "core.noticetype",
     "pk": 3
-  },
-  {
-    "fields": {
-      "circulation_type": 2,
-      "name": "Nebenbestimmungen"
-    },
-    "model": "core.noticetype",
-    "pk": 4
   },
   {
     "fields": {
@@ -7209,30 +7124,6 @@
     },
     "model": "core.noticetype",
     "pk": 7
-  },
-  {
-    "fields": {
-      "circulation_type": 2,
-      "name": "Begr\u00fcndung"
-    },
-    "model": "core.noticetype",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "circulation_type": 2,
-      "name": "Empfehlung"
-    },
-    "model": "core.noticetype",
-    "pk": 9
-  },
-  {
-    "fields": {
-      "circulation_type": 2,
-      "name": "Hinweis"
-    },
-    "model": "core.noticetype",
-    "pk": 10
   },
   {
     "fields": {
