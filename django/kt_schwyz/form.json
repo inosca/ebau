@@ -959,21 +959,24 @@
           {
             "name": "kategorie",
             "label": "Gebäudekategorie",
+            "hint": "**Provisorische Unterkünfte:**\nMobile oder provisorische Unterkünfte die dauernd bewohnt sind oder als Arbeitsstätte dienen.\n*Beispiele: Wohnwagen, Waggons, Wohnschiff e, Baracken , Verkaufsstände, Baustellenbaracken.*\n\n**Gebäude mit ausschliesslicher Wohnnutzung:**\nGebäude mit reiner Wohnnutzung bestehen ausschliesslich aus Wohnungen und haben keine Nebennutzung. Zu dieser Kategorie gehören sowohl Einfamilien- als auch Mehrfamilienhäuser.\n*Beispiele: Villen, Mehrfamilienhäuser ohne Geschäfte, Büroräumlichkeiten u.dgl., Chalets, Wochenendhäuser, Doppel- und Reiheneinfamilienhäuser, Terrassenhäuser usw.*\n\n**Andere Wohngebäude (Wohngebäude mit Nebennutzung):**\nWohngebäude mit Nebennutzung bestehen mehrheitlich aus Wohnungen, enthalten aber auch industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Wohngebäude mit Wohnungen und z.B. einem Geschäft, einer Werkstatt oder einer Bank im Erdgeschoss, Wohngebäude mit Wohnungen und Arztpraxen oder Büroräumlichkeiten im Gebäude, Landwirtschaftliche Betriebsgebäude mit Wohnteil, Ferienhäuser mit Sportgeschäft im Erdgeschoss.*\n\n**Gebäude mit teilweiser Wohnnutzung:**\nGebäude mit teilweiser Wohnnutzung enthalten Wohnungen, bestehen aber mehrheitlich aus industriellen, gewerblichen, kommerziellen oder landwirtschaftlichen Räumlichkeiten.\n*Beispiele: Schulhäuser, Fabriken, Verwaltungsgebäude usw. mit einer Abwartswohnung o.dgl., Gebäude mit Räumlichkeiten für Kollektivhaushalte bzw. für gemeinschaftliches Wohnen wie Kliniken, Heime, Internate, Strafanstalten usw. Gebäude für touristische Zwecke fallen ebenfalls in diese Kategorie.*\n\n**Gebäude ohne Wohnnutzung:**\nGebäude ohne Wohnnutzung umfassen ausschliesslich Räumlichkeiten ohne Wohnnutzung wie industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Schul- , Kultur- , Industrie- , Lager- , Büro- oder Verwaltungsgebäude, Kirchen, Sporthallen, landwirtschaftliche Betriebsgebäude, Nebenbauten wie Garagen, Kleintierställe, Bienenhäuser usw.*\n\n**Sonderbauten:**\nSonderbauten sind Bauwerke, die nicht zur Beherbergung von Menschen, Tieren oder Sachen bestimmt sind.\n*Beispiele: Telefonkabinen, offene Hallen, Carports, Parkhäuser, Perronüberdachungen usw.*",
             "type": "radio",
             "required": true,
             "config": {
               "options": [
-                "Einfamilienhaus freistehend",
-                "Einfamilienhaus angebaut",
-                "Mehrfamilienhaus ohne Zusatznutzung",
-                "Wohngebäude mit Zusatznutzung (z. B. Büro, Verkauf, Gastgewerbe, Landwirtschaft)",
-                "Nichtwohngebäude mit Wohnung(en) resp. Beherbergungsangebot (z. B. Geschäftshaus, Schulhaus, Hotel)"
+                "Provisorische Unterkünfte",
+                "Gebäude mit ausschliesslicher Wohnnutzung",
+                "Andere Wohngebäude (Wohngebäude mit Nebennutzung)",
+                "Gebäude mit teilweiser Wohnnutzung",
+                "Gebäude ohne Wohnnutzung",
+                "Sonderbauten"
               ]
             }
           },
           {
-            "name": "beherbungsbetrieb",
-            "label": "Handelt es sich um einen Beherbungsbetrieb A oder B?",
+            "name": "beherbergungsbetrieb",
+            "label": "Handelt es sich um einen Beherbergungsbetrieb A oder B?",
+            "hint": "Als Beherbergungsbetriebe A und B gelten:\n\n**Beherbergungsbetrieb A:**\nBauten, in denen dauernd oder vorübergehend 10 oder mehr kranke, pflegebedürftige oder auf fremde Hilfe angewiesene Personen aufgenommen werden (z.B. Krankenhäuser, Alters- und Pflegeheime, Heime für Behinderte, Strafanstalten, geschlossene Erziehungsanstalten).\n\n**Beherbergungsbetrieb B:**\nBauten, in denen dauernd oder vorübergehend 15 oder mehr Personen aufgenommen werden, welche nicht auf fremde Hilfe angewiesen sind (z.B. Hotels, Pensionen, Ferienheime).",
             "type": "radio",
             "required": false,
             "config": {
@@ -995,6 +998,7 @@
           {
             "name": "heizungsart",
             "label": "Heizungsart",
+            "hint": "Falls mehrere Heizungsarten geplant sind, ist die überwiegende Art anzugeben.",
             "type": "radio",
             "required": true,
             "config": {
@@ -1011,6 +1015,7 @@
           {
             "name": "energietrager-heizung",
             "label": "Wichtigster Energieträger für Heizung",
+            "hint": "Falls mehrere Energieträger für Heizung vorgesehen sind, ist der wichtigste anzugeben.",
             "type": "radio",
             "required": true,
             "config": {
@@ -1030,6 +1035,7 @@
           {
             "name": "energietrager-warmwasser",
             "label": "Wichtigster Energieträger für Warmwasser",
+            "hint": "Falls mehrere Energieträger für Warmwasser vorgesehen sind, ist der wichtigste anzugeben.",
             "type": "radio",
             "required": true,
             "config": {
@@ -1058,6 +1064,7 @@
           {
             "name": "geschosse",
             "label": "Anzahl Geschosse",
+            "hint": "Das Parterre ist bei der Anzahl Geschosse mitzuzählen. Dach- /Untergeschosse sind nur mitzuzählen, wenn sie teilweise für Wohnzwecke vorgesehen sind. Kellergeschosse sind nicht zu berücksichtigen.",
             "type": "number",
             "required": true,
             "config": {
@@ -1067,6 +1074,7 @@
           {
             "name": "wohnungen",
             "label": "Wohnungsliste",
+            "hint": "Bitte geben Sie pro Wohnung dieses Gebäudes die verlangten Informationen an. Durch Anklicken des Quadrats mit dem «Plus-Zeichen» können Sie die Eingabemaske öffnen – pro Wohnung jeweils eine Eingabemaske.",
             "type": "table",
             "required": true,
             "config": {
@@ -1074,6 +1082,7 @@
                 {
                   "name": "stockwerk",
                   "label": "Stockwerk",
+                  "hint": "Geben Sie bitte an, auf welchem Stockwerk sich die Wohnung befindet. Dazu können Sie Angaben verwenden wie:\n- Einfamilienhaus\n- Parterre\n- Hochparterre\n- 1., 2., 3. Stock usw.\n- 1., 2. Untergeschoss usw.",
                   "type": "text",
                   "required": true,
                   "config": {}
@@ -1081,6 +1090,7 @@
                 {
                   "name": "maisonette",
                   "label": "Maisonette",
+                  "hint": "Falls die Wohnung mehrere Geschosse umfasst, wählen Sie bitte «Ja».",
                   "type": "radio",
                   "required": true,
                   "config": {
@@ -1100,13 +1110,15 @@
                 {
                   "name": "lage",
                   "label": "Lage",
+                  "hint": "Mit «Lage» ist die Position der Wohnung auf dem Stockwerk gemeint (z.B. links, nordwest).",
                   "type": "text",
                   "required": true,
                   "config": {}
                 },
                 {
-                  "name": "zimmer",
-                  "label": "Zimmer",
+                  "name": "anzahl-zimmer",
+                  "label": "Anzahl Zimmer",
+                  "hint": "Bei der Anzahl Zimmer sind Küchen, Badezimmer, halbe Zimmer, Reduits, Korridore, Veranden, Mansarden wegzulassen.",
                   "type": "number",
                   "required": true,
                   "config": {
@@ -1116,6 +1128,7 @@
                 {
                   "name": "flache",
                   "label": "Fläche",
+                  "hint": "Bei der Angabe der Wohnungsfläche ist die bewohnbare Bruttofläche in m² anzugeben. Alle Zimmer, Küchen, Kochnischen, Badezimmer, Abstellräume, Gänge, Veranden usw. sind einzurechnen (offene Balkone/Terrassen, unbewohnbare Keller- oder Dachräume gehören nicht dazu).",
                   "type": "number",
                   "required": true,
                   "config": {
