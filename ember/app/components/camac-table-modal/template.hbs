@@ -13,6 +13,9 @@
               {{#if column.required}}
                 <span class="uk-text-danger">*</span>
               {{/if}}
+              {{#if column.hint}}
+                {{camac-hint-dialog column.hint}}
+              {{/if}}
             </label>
             {{component (concat 'camac-input-' column.type)
               renderInPlace=true
