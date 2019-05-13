@@ -1108,19 +1108,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "04423fa2-d016-4c25-b3d5-6df3b450e712",
-    "fields": {
-      "created_at": "2019-04-10T11:55:01.677Z",
-      "modified_at": "2019-04-10T11:55:01.677Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "7-bestaetigung",
-      "question": "bauprofile-gestellt",
-      "sort": 11
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "044e62f9-8b6e-4af2-b376-73aaf6976ac0",
     "fields": {
       "created_at": "2019-03-28T15:11:08.238Z",
@@ -1342,6 +1329,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "0a76cfdc-2389-46fd-83bb-5eb5d21d4cf0",
+    "fields": {
+      "created_at": "2019-05-13T07:52:39.938Z",
+      "modified_at": "2019-05-13T07:52:39.938Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "parzellennummer",
+      "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0b3819a0-a674-4d0e-a56a-8ff9f55e0345",
     "fields": {
       "created_at": "2019-05-05T13:01:55.956Z",
@@ -1558,7 +1558,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -2733,6 +2733,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "34693ca0-6396-4609-9844-c1a487a90c89",
+    "fields": {
+      "created_at": "2019-05-13T07:40:06.227Z",
+      "modified_at": "2019-05-13T07:40:06.227Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "parzellennummer",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "3496feff-f890-4e2f-88c7-f352b108bd95",
     "fields": {
       "created_at": "2019-04-05T10:15:50.297Z",
@@ -2858,7 +2871,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -3430,7 +3443,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gemeinde",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3846,6 +3859,19 @@
       "created_by_group": null,
       "form": "solar-und-sendeanlagen",
       "question": "name-sendeanlage",
+      "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "59a9ccec-5640-4848-b7f7-dbfd581cae14",
+    "fields": {
+      "created_at": "2019-05-13T07:55:51.010Z",
+      "modified_at": "2019-05-13T07:55:51.010Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "parzelle-tabelle",
+      "question": "liegenschaftsnummer",
       "sort": 9
     }
   },
@@ -4873,7 +4899,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -5094,7 +5120,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -5172,7 +5198,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -5437,6 +5463,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "8cbbd601-8fe6-4f14-b6b2-186039872d9b",
+    "fields": {
+      "created_at": "2019-05-13T07:43:38.757Z",
+      "modified_at": "2019-05-13T07:43:38.757Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "liegenschaftsnummer",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "8dd6149d-43fb-4578-9249-ec2100f2de9d",
     "fields": {
       "created_at": "2019-04-01T12:40:22.746Z",
@@ -5484,7 +5523,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5684,19 +5723,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "94374e1d-baa0-48f1-9436-5396eddf02d1",
-    "fields": {
-      "created_at": "2019-04-11T08:23:48.840Z",
-      "modified_at": "2019-04-11T08:23:48.840Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "parzellen-nr-liegenschaftsnummer",
-      "sort": 5
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "94d154f8-43eb-4450-ba97-0d127c3e882e",
     "fields": {
       "created_at": "2019-03-28T09:41:34.726Z",
@@ -5888,19 +5914,6 @@
       "form": "parzelle-tabelle",
       "question": "baurecht-nummer",
       "sort": 8
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "9a262324-50c7-42b6-969d-d0ba2e302723",
-    "fields": {
-      "created_at": "2019-03-28T14:12:32.578Z",
-      "modified_at": "2019-03-28T14:12:32.578Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "parzelle-tabelle",
-      "question": "parzellen-nr-liegenschaftsnummer",
-      "sort": 9
     }
   },
   {
@@ -6706,7 +6719,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -8513,7 +8526,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -8747,7 +8760,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -17892,6 +17905,31 @@
   },
   {
     "model": "form.question",
+    "pk": "liegenschaftsnummer",
+    "fields": {
+      "created_at": "2019-05-13T07:43:38.657Z",
+      "modified_at": "2019-05-13T07:43:38.657Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Liegenschaftsnummer\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_value": null, "min_value": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "liegt-die-baute-im-waldabstandsbereich",
     "fields": {
       "created_at": "2019-04-08T13:25:56.198Z",
@@ -20383,6 +20421,31 @@
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_length": null },
       "meta": { "widgetOverride": null },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "parzellennummer",
+    "fields": {
+      "created_at": "2019-05-13T07:40:06.122Z",
+      "modified_at": "2019-05-13T07:40:06.122Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Parzellennummer\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"Parzelle: Durch Vermessung festgelegtes Grundst\\u00fcck (bzw. Grundst\\u00fccksteil).\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_value": null, "min_value": null },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
