@@ -4614,9 +4614,9 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@czosel/ember-caluma#navigation-hidden-fix:
+ember-caluma@projectcaluma/ember-caluma#020f9c8029c63376fa83e8848ba27f8a86f853f4:
   version "0.0.4"
-  resolved "https://codeload.github.com/czosel/ember-caluma/tar.gz/6a50dd1d9ac5d74688e65efde0a5a517204640fb"
+  resolved "https://codeload.github.com/projectcaluma/ember-caluma/tar.gz/020f9c8029c63376fa83e8848ba27f8a86f853f4"
   dependencies:
     apollo-link-context "^1.0.17"
     broccoli-funnel "^2.0.2"
@@ -4637,7 +4637,7 @@ ember-caluma@czosel/ember-caluma#navigation-hidden-fix:
     ember-math-helpers "^2.10.0"
     ember-promise-helpers "^1.0.6"
     ember-test-selectors "^2.1.0"
-    ember-uikit "^0.8.0"
+    ember-uikit "^0.8.1"
     ember-validated-form "^2.0.0-alpha.5"
     graphql "^14.2.1"
     graphql-iso-date "^3.6.1"
@@ -5714,6 +5714,23 @@ ember-uikit@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.8.0.tgz#0ec43545537557c4fcf785d850ac9e5d9c958eb1"
   integrity sha512-WrvY+1fu20+wlGgTBJcWFVdJWSuSN1Gowuz9Vpxs6401hLkl6fNIRaIKoaq5AqyhR0KRjXZEVLRmyxT28+hv+A==
+  dependencies:
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.0"
+    broccoli-stew "^2.0.0"
+    chalk "^2.3.0"
+    ember-auto-import "^1.2.21"
+    ember-cli-babel "^7.5.0"
+    ember-cli-htmlbars "^3.0.0"
+    ember-cli-htmlbars-inline-precompile "^2.1.0"
+    ember-get-config "^0.2.4"
+    ember-toggle "^5.3.0"
+    uikit "3.1.2"
+
+ember-uikit@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.8.1.tgz#cd91b484e1866902f3c2a6e23217b1ab37a85295"
+  integrity sha512-Cc4Uh7JJpw1TbVhKCfx3z6cx7mK9/yowJE74OeDGml/EWDWtahcoxV48YsD7LHvEZha9S2BsMcvkJq0hXtKvVA==
   dependencies:
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^3.0.0"
