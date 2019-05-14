@@ -1,8 +1,11 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { computed } from "@ember/object";
 import { task } from "ember-concurrency";
 import allCasesQuery from "ember-caluma-portal/gql/queries/all-cases";
 import QueryParams from "ember-parachute";
+
+const SLUG_MUNICIPALITY = "gemeinde";
 
 export const queryParams = new QueryParams({
   sort: {
@@ -41,5 +44,22 @@ export default Controller.extend(queryParams.Mixin, {
         this.get("intl").t("global.loadingError")
       );
     }
-  }).restartable()
+  }).restartable(),
+
+  municipalities: computed("data.lastSuccessful.value", function() {
+    return this.getWithDefault("data.lastSuccessful.value", [])
+      .map(edge => edge.node.document.answers.edges
+        .filter(edge => edge.node.__typename === "FormAnswer")
+        .map(edge => edge.node.formValue.answers.edges.map(edge => {
+          const answer = edge.node.formValue.answers.edges.find(edge =>
+            edge.node.question.slug === SLUG_MUNICIPALITY
+          );
+          return answer && answer.node.stringValue;
+        })[0])[0]
+      );
+  }),
+
+  applicants: computed("data.lastSuccessful.value", function() {
+    const cases = this.getWithDefault("data.lastSuccessful.value", []);
+  })
 });
