@@ -15,7 +15,7 @@ from camac.instance import serializers
     "role__name,instance__user,editable",
     [
         ("Service", LazyFixture("user"), {"form", "document"}),
-        ("Fachstelle", LazyFixture("user"), {"form", "instance", "document"}),
+        ("Municipality", LazyFixture("user"), {"form", "document"}),
         ("Support", LazyFixture("user"), {"form", "instance", "document"}),
     ],
 )
