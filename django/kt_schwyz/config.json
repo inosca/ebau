@@ -655,6 +655,34 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 33,
+      "description": null,
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "execute_always": 0,
+      "name": "Create new circulation",
+      "sort": 0,
+      "success_message": "Neue Zirkulation erstellt"
+    },
+    "model": "core.action",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 33,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Redirect to newest circulation page",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 74
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -1314,6 +1342,15 @@
   },
   {
     "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 7,
+      "resource": 1
+    },
+    "model": "core.apageredirect",
+    "pk": 74
+  },
+  {
+    "fields": {
       "php_class": "CircStart"
     },
     "model": "core.aphp",
@@ -1381,6 +1418,13 @@
     },
     "model": "core.aphp",
     "pk": 72
+  },
+  {
+    "fields": {
+      "php_class": "CreateCirc"
+    },
+    "model": "core.aphp",
+    "pk": 73
   },
   {
     "fields": {
@@ -2348,7 +2392,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Zirkulation starten",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.button",
     "pk": 9
@@ -2360,7 +2404,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 10
@@ -2396,7 +2440,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Zirkulation abschliessen",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.button",
     "pk": 18
@@ -2444,7 +2488,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Nachforderung an Gesuchsteller",
-      "sort": 3
+      "sort": 4
     },
     "model": "core.button",
     "pk": 23
@@ -2532,6 +2576,18 @@
     },
     "model": "core.button",
     "pk": 32
+  },
+  {
+    "fields": {
+      "class_field": "create_new_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 7,
+      "name": "Neue Zirkulation erstellen",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 33
   },
   {
     "fields": {
@@ -5063,13 +5119,13 @@
       "circulation_email_action_id": null,
       "circulation_type": 1,
       "default_circulation_name": "Zirkulation",
-      "display_first_circulation": 1,
+      "display_first_circulation": 0,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 1,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 7
