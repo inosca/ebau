@@ -240,7 +240,7 @@ class FormFieldSerializer(mixins.InstanceEditableMixin, serializers.ModelSeriali
 
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         group = self.context["request"].group
-        permission = perms.get(group.role.name, "applicant")
+        permission = perms.get(group.role.get_name(), "applicant")
 
         question = settings.FORM_CONFIG["questions"].get(name)
         if question is None:

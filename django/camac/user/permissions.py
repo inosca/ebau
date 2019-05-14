@@ -31,7 +31,7 @@ def permission_aware(func):
         request = get_request(self)
         role = request.group.role
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        perm = perms.get(role.name)
+        perm = perms.get(role.get_name())
         if perm:
             perm_func = "{0}_for_{1}".format(func.__name__, perm)
             if hasattr(self, perm_func):

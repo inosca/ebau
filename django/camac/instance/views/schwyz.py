@@ -273,7 +273,7 @@ class FormFieldView(
 
         queryset = super().get_base_queryset()
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        permission = perms.get(self.request.group.role.name, "applicant")
+        permission = perms.get(self.request.group.role.get_name(), "applicant")
         questions = [
             question
             for question, value in settings.FORM_CONFIG["questions"].items()
