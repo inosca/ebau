@@ -10,16 +10,16 @@ class Municipalities(BaseDataSource):
     @data_source_cache(timeout=3600)
     def get_data(self, info):
         return [
-            "Oberburg",
-            "Rüderswil",
-            "Trubschachen",
-            "Wynigen",
-            "Burgdorf",
-            "Eggiwil",
-            "Hasle b. B.",
-            "Langnau i. E.",
-            "Lyssach",
-            "Utzenstorf",
+            ["20011", "Oberburg"],
+            ["20013", "Rüderswil"],
+            ["20017", "Trubschachen"],
+            ["20019", "Wynigen"],
+            ["2", "Burgdorf"],
+            ["20003", "Eggiwil"],
+            ["20005", "Hasle b. B."],
+            ["20007", "Langnau i. E."],
+            ["20009", "Lyssach"],
+            ["20015", "Utzenstorf"],
         ]
 
 
@@ -30,7 +30,7 @@ class Services(BaseDataSource):
 
     @data_source_cache(timeout=3600)
     def get_data(self, info):
-        data = [
+        return [
             [
                 "20031",
                 "Amt für Bevölkerungsschutz, Sport und Militär- Abteilung Zivil- und Bevölkerungsschutz",
@@ -459,4 +459,3 @@ class Services(BaseDataSource):
             ["20216", "Unterfachstelle Werner und Partner AG"],
             ["-1", "Andere"],
         ]
-        return [x[1] for x in data]
