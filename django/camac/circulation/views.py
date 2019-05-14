@@ -5,7 +5,7 @@ from rest_framework.decorators import action
 from rest_framework_json_api import views
 
 from camac.core.models import Activation, Circulation
-from camac.instance.mixins.schwyz import InstanceQuerysetMixin
+from camac.instance.mixins.kt_schwyz import InstanceQuerysetMixin
 from camac.instance.models import FormField
 
 from . import filters, serializers
