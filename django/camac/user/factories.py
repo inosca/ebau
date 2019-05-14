@@ -1,4 +1,4 @@
-from factory import Faker, SubFactory
+from factory import Faker, RelatedFactory, SubFactory
 from factory.django import DjangoModelFactory
 
 from . import models
@@ -34,9 +34,19 @@ class UserFactory(DjangoModelFactory):
 
 class RoleFactory(DjangoModelFactory):
     name = Faker("name")
+    trans = RelatedFactory("camac.user.factories.RoleTFactory", "role")
 
     class Meta:
         model = models.Role
+
+
+class RoleTFactory(DjangoModelFactory):
+    name = Faker("name")
+    role = SubFactory(RoleFactory)
+    language = "de"
+
+    class Meta:
+        model = models.RoleT
 
 
 class GroupFactory(DjangoModelFactory):
