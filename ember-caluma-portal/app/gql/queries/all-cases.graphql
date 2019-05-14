@@ -15,10 +15,78 @@ query AllCases {
             slug
             name
           }
-          answers(question: "formulartyp") {
+          answers(questions: ["formulartyp", "1-allgemeine-informationen", "3-grundstueck"]) {
             edges {
               node {
                 id
+
+                ... on FormAnswer {
+                  formValue: value {
+                    id
+                    answers(questions: ["personalien", "allgemeine-angaben"]) {
+                      edges {
+                        node {
+                          id
+                          ... on FormAnswer {
+                            formValue: value {
+                              id
+                              answers(questions: ["personalien-gesuchstellerin", "gemeinde"]) {
+                                edges {
+                                  node {
+                                    id
+                                    ... on FormAnswer {
+                                      formValue: value {
+                                        id
+                                        answers {
+                                          edges {
+                                            node {
+                                              id
+
+                                              ... on TableAnswer {
+                                                tableValue: value {
+                                                  id
+                                                  answers {
+                                                    edges {
+                                                      node {
+                                                        question {
+                                                          slug
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+
+                                              ... on StringAnswer {
+                                                stringValue: value
+                                              }
+
+                                              question {
+                                                slug
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+
+                                    ... on StringAnswer {
+                                      stringValue: value
+                                    }
+                                    question {
+                                      slug
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+
                 ... on StringAnswer {
                   stringValue: value
                 }

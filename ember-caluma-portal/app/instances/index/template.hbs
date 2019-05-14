@@ -70,7 +70,7 @@
             <td class="uk-text-center" colspan="5">{{uk-spinner}}</td>
           </tr>
         {{else}}
-          {{#each data.lastSuccessful.value as |edge|}}
+          {{#each data.lastSuccessful.value as |edge i|}}
             <tr>
               <td>-</td>
               <td>
@@ -83,10 +83,7 @@
               </td>
               <td>{{t (concat "instance.status." edge.node.status)}}</td>
               <td class="uk-text-nowrap">
-                {{!-- TODO
-                {{#if instance.location}}
-                  {{instance.location.communalFederalNumber}} - {{instance.location.name}}
-                {{/if}}--}}
+                {{get municipalities i}}
               </td>
               <td class="uk-text-right uk-text-nowrap">
                 {{format-date edge.node.createdAt}}
@@ -148,3 +145,5 @@
     {{uk-spinner ratio=3}}
   {{/uk-flex}}
 {{/if}}
+
+{{log "municipalities" municipalities}}
