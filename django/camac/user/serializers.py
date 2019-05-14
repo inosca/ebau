@@ -45,7 +45,7 @@ class RoleSerializer(serializers.ModelSerializer):
 
     def get_permission(self, role):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        return perms.get(role.name)
+        return perms.get(role.get_name())
 
     class Meta:
         model = models.Role

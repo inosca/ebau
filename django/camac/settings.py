@@ -87,17 +87,17 @@ APPLICATIONS = {
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
             # Only Schwyz
-            "Municipality": "municipality",
             "Canton": "canton",
             "Reader": "reader",
             "PublicReader": "public_reader",
             # Only Bern
-            "Applicant": "applicant",
-            "Fachstelle": "fachstelle",
             "Support": "support",
             # All
+            "Applicant": "applicant",
+            "Municipality": "municipality",
             "Service": "service",
         },
+        "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
         "PUBLICATION_DURATION": timedelta(days=30),
     },
@@ -116,18 +116,19 @@ APPLICATIONS = {
     "kt_bern": {
         "ROLE_PERMISSIONS": {
             "Gesuchsteller": "applicant",
-            "Leitung Fachstelle": "fachstelle",
-            "Sachbearbeiter Fachstelle": "fachstelle",
-            "Einsichtsberechtigte Fachstelle": "fachstelle",
-            "Leitung Leitbehörde": "service",
-            "Sachbearbeiter Leitbehörde": "service",
-            "Einsichtsberechtigte Leitbehörde": "service",
-            "Leitung Baukontrolle": "service",
-            "Sachbearbeiter Baukontrolle": "service",
-            "Einsichtsberechtigte Baukontrolle": "service",
+            "Leitung Fachstelle": "service",
+            "Sachbearbeiter Fachstelle": "service",
+            "Einsichtsberechtigte Fachstelle": "service",
+            "Leitung Leitbehörde": "municipality",
+            "Sachbearbeiter Leitbehörde": "municipality",
+            "Einsichtsberechtigte Leitbehörde": "municipality",
+            "Leitung Baukontrolle": "municipality",
+            "Sachbearbeiter Baukontrolle": "municipality",
+            "Einsichtsberechtigte Baukontrolle": "municipality",
             "Unterfachstelle": "service",
             "System-Betrieb": "support",
-        }
+        },
+        "IS_MULTILINGUAL": True,
     },
     "kt_uri": {},
 }
