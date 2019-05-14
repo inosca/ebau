@@ -21192,7 +21192,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n  \\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n  \\n[QSS-Logik ](http://camac-ng.local/public/download/eBau_QSS%20Stufen_Neu.pdf)\"}",
+      "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n  \\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n  \\n[QSS-Logik](/assets/downloads/eBau_QSS%20Stufen_Neu.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": "cf-field/input/powerselect" },
