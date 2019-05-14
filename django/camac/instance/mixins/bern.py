@@ -45,7 +45,7 @@ class InstanceQuerysetMixin(object):  # pragma: no cover
         user_field = self._get_instance_filter_expr("user")
         return queryset.filter(**{user_field: self.request.user})
 
-    def get_queryset_for_fachstelle(self):
+    def get_queryset_for_municipality(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
         return queryset.filter(
@@ -104,10 +104,10 @@ class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
     def get_editable(self, instance):
         return set()
 
-    def get_editable_for_service(self, instance):
+    def get_editable_for_municipality(self, instance):
         return {"form", "document"}
 
-    def get_editable_for_fachstelle(self, instance):
+    def get_editable_for_service(self, instance):
         return {"form", "document"}
 
     def get_editable_for_support(self, instance):
