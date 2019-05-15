@@ -5,9 +5,7 @@ import workItemsQuery from "ember-caluma-portal/gql/queries/case-work-items";
 import completeWorkItem from "ember-caluma-portal/gql/mutations/complete-work-item";
 
 export default Component.extend({
-  ajax: service(),
   notification: service(),
-  session: service(),
   apollo: service(),
 
   submit: task(function*() {
@@ -38,32 +36,6 @@ export default Component.extend({
           "allWorkItems.edges"
         );
       }
-
-      yield this.ajax.request(`/api/v1/instances`, {
-        method: "POST",
-        data: {
-          data: {
-            type: "instances",
-            attributes: {
-              "caluma-case-id": caseId
-            },
-            relationships: {
-              form: {
-                data: { id: 1, type: "forms" }
-              },
-              "instance-state": {
-                data: { id: 20000, type: "instance-states" }
-              }
-            }
-          }
-        },
-        headers: {
-          Authorization: `Bearer ${this.get(
-            "session.data.authenticated.access_token"
-          )}`,
-          "content-type": "application/vnd.api+json"
-        }
-      });
 
       this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
