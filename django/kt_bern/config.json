@@ -111576,6 +111576,13 @@
   },
   {
     "fields": {
+      "instance_states": "20000,20006,20003,20004,20005,20010,20011,40001,20013,40003,40002,20014,10000,20007,20008,20009,120000"
+    },
+    "model": "core.rcalumalist",
+    "pk": 20006
+  },
+  {
+    "fields": {
       "available_resource": "search",
       "class_field": null,
       "description": null,
@@ -111607,7 +111614,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -111620,7 +111627,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -111633,7 +111640,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -111724,11 +111731,11 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
-    "pk": 130001
+    "pk": 20006
   },
   {
     "fields": {
@@ -111842,13 +111849,13 @@
   },
   {
     "fields": {
-      "description": "Caluma Dossiers von Gesuchsteller",
+      "description": "Dossier list for Leitbeh\u00f6rde (Caluma)",
       "language": "de",
-      "name": "Caluma Dossiers",
-      "resource": 130001
+      "name": "Meine Dossiers (Caluma)",
+      "resource": 20006
     },
     "model": "core.resourcet",
-    "pk": 130001
+    "pk": 20006
   },
   {
     "fields": {
@@ -111995,11 +112002,11 @@
   },
   {
     "fields": {
-      "resource": 130001,
-      "role": 6
+      "resource": 20006,
+      "role": 3
     },
     "model": "core.rroleacl",
-    "pk": 130001
+    "pk": 20015
   },
   {
     "fields": {
