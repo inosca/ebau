@@ -8,6 +8,7 @@ from rest_framework.serializers import ValidationError
 from rest_framework_json_api import serializers
 
 from .. import models
+from ...core import models as core_models
 from .common import InstanceSerializer
 
 log = getLogger()
@@ -72,26 +73,26 @@ class BernInstanceSerializer(InstanceSerializer):
         data["caluma_case_data"] = caluma_resp.json()["data"]["node"]
         log.debug("Caluma case information: %s", data["caluma_case_data"])
 
-        case_meta = data["caluma_case_data"]["meta"]
-        work_items = data["caluma_case_data"]["workItems"]["edges"]
+        # case_meta = data["caluma_case_data"]["meta"]
+        # work_items = data["caluma_case_data"]["workItems"]["edges"]
 
         # Ensure case is actually completely filled
-        for item in work_items:
-            task_slug = item["node"]["task"]["slug"]
-            item_status = item["node"]["status"]
-            if task_slug == "fill-form" and item_status != "COMPLETED":
-                raise ValidationError(
-                    "Cannot create instance before form is filled correctly"
-                )
+        # for item in work_items:
+        #     task_slug = item["node"]["task"]["slug"]
+        #     item_status = item["node"]["status"]
+        #     if task_slug == "fill-form" and item_status != "COMPLETED":
+        #         raise ValidationError(
+        #             "Cannot create instance before form is filled correctly"
+        #         )
 
-        if "camac-instance-id" in case_meta:
-            # Already linked. this should not be, as we just
-            # created a new Camac instance for a caluma case that
-            # has already an instance assigned
-            raise ValidationError(
-                f"Caluma case already has an instance id "
-                f"assigned: {case_meta['camac-instance-id']}"
-            )
+        # if "camac-instance-id" in case_meta:
+        #     # Already linked. this should not be, as we just
+        #     # created a new Camac instance for a caluma case that
+        #     # has already an instance assigned
+        #     raise ValidationError(
+        #         f"Caluma case already has an instance id "
+        #         f"assigned: {case_meta['camac-instance-id']}"
+        #     )
 
         return data
 
@@ -132,6 +133,10 @@ class BernInstanceSerializer(InstanceSerializer):
         )
         if caluma_resp.status_code not in (200, 201):  # pragma: no cover
             raise ValidationError("Error while linking case and instance")
+
+        core_models.InstanceService.objects.create(
+            instance=created, service_id=2, active=1
+        )
 
         return created
 

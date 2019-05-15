@@ -1,10 +1,12 @@
-query GetCase($caseId: ID!) {
-  node(id: $caseId) {
-    ... on Case {
-      id
-      status
-      document {
+query GetCase($caseId: GenericScalar!) {
+  allCases(metaValue: { key: "camac-instance-id", value: $caseId }) {
+    edges {
+      node {
         id
+        status
+        document {
+          id
+        }
       }
     }
   }
