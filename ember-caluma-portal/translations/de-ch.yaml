@@ -1,4 +1,4 @@
 instance:
   status:
     RUNNING: Neu
-    COMPLETED: Abgeschlossen
+    COMPLETED: Eingereicht
