@@ -2,6 +2,7 @@ query GetCase($caseId: ID!) {
   node(id: $caseId) {
     ... on Case {
       id
+      status
       document {
         id
       }

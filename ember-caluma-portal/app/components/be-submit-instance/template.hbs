@@ -1,1 +1,3 @@
-{{uk-button label="Einreichen" on-click=(perform submit)}}
+{{#unless disabled}}
+  {{uk-button label="Einreichen" on-click=(perform submit)}}
+{{/unless}}
