@@ -7,6 +7,8 @@ import saveDocumentStringAnswer from "ember-caluma-portal/gql/mutations/save-doc
 
 export default Controller.extend({
   apollo: service(),
+  ajax: service(),
+  session: service(),
 
   infoCol1: info1,
   infoCol2: info2,
@@ -46,6 +48,33 @@ export default Controller.extend({
         }
       });
     }
+
+    // create instance in CAMAC
+    yield this.ajax.request(`/api/v1/instances`, {
+      method: "POST",
+      data: {
+        data: {
+          type: "instances",
+          attributes: {
+            "caluma-case-id": caseObj.id
+          },
+          relationships: {
+            form: {
+              data: { id: 1, type: "forms" }
+            },
+            "instance-state": {
+              data: { id: 20000, type: "instance-states" }
+            }
+          }
+        }
+      },
+      headers: {
+        Authorization: `Bearer ${this.get(
+          "session.data.authenticated.access_token"
+        )}`,
+        "content-type": "application/vnd.api+json"
+      }
+    });
 
     yield this.transitionToRoute("instances.edit", caseObj.id);
   }).drop()

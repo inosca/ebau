@@ -72,15 +72,15 @@
         {{else}}
           {{#each data.lastSuccessful.value as |edge|}}
             <tr>
-              <td>-</td>
               <td>
                 {{#link-to
-                  "instances.edit" edge.node.id
+                  "instances.edit" edge.node.meta.camac-instance-id
                   title="Klicken Sie um das Gesuch zu bearbeiten"
                 }}
-                  {{instance-type edge.node.document}}
+                  {{edge.node.meta.camac-instance-id}}
                 {{/link-to}}
               </td>
+              <td>{{instance-type edge.node.document}}</td>
               <td>{{t (concat "instance.status." edge.node.status)}}</td>
               <td class="uk-text-nowrap">
                 {{!-- TODO
