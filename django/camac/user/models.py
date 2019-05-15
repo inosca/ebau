@@ -88,7 +88,22 @@ class UserT(models.Model):
         db_table = "USER_T"
 
 
-class Group(models.Model):
+class MultilingualModel(models.Model):
+    """Mixin for models that have a multilingual "name" property."""
+
+    def get_name(self):
+        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            return self.trans.get(language="de").name
+        return self.name
+
+    def __str__(self):
+        return self.get_name()
+
+    class Meta:
+        abstract = True
+
+
+class Group(MultilingualModel):
     group_id = models.AutoField(db_column="GROUP_ID", primary_key=True)
     role = models.ForeignKey(
         "user.Role", models.PROTECT, db_column="ROLE_ID", related_name="+"
@@ -115,9 +130,6 @@ class Group(models.Model):
     )
     locations = models.ManyToManyField("Location", through="GroupLocation")
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "GROUP"
@@ -125,7 +137,7 @@ class Group(models.Model):
 
 class GroupT(models.Model):
     group = models.ForeignKey(
-        Group, models.CASCADE, db_column="GROUP_ID", related_name="+"
+        Group, models.CASCADE, db_column="GROUP_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=200, blank=True, null=True)
@@ -136,7 +148,7 @@ class GroupT(models.Model):
         db_table = "GROUP_T"
 
 
-class Location(models.Model):
+class Location(MultilingualModel):
     location_id = models.AutoField(db_column="LOCATION_ID", primary_key=True)
     communal_cantonal_number = models.IntegerField(
         db_column="COMMUNAL_CANTONAL_NUMBER", blank=True, null=True
@@ -162,9 +174,6 @@ class Location(models.Model):
     )
     zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "LOCATION"
@@ -172,7 +181,7 @@ class Location(models.Model):
 
 class LocationT(models.Model):
     location = models.ForeignKey(
-        Location, models.CASCADE, db_column="LOCATION_ID", related_name="+"
+        Location, models.CASCADE, db_column="LOCATION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
@@ -222,7 +231,7 @@ class UserGroup(models.Model):
         unique_together = (("user", "group"),)
 
 
-class Role(models.Model):
+class Role(MultilingualModel):
     role_id = models.AutoField(db_column="ROLE_ID", primary_key=True)
     role_parent = models.ForeignKey(
         "self",
@@ -233,14 +242,6 @@ class Role(models.Model):
         null=True,
     )
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
-
-    def get_name(self):
-        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-            return self.trans.get(language="de").name
-        return self.name
-
-    def __repr__(self):
-        return self.name
 
     class Meta:
         managed = True
@@ -280,7 +281,7 @@ class ServiceGroupT(models.Model):
         db_table = "SERVICE_GROUP_T"
 
 
-class Service(models.Model):
+class Service(MultilingualModel):
     service_id = models.AutoField(db_column="SERVICE_ID", primary_key=True)
     service_group = models.ForeignKey(
         ServiceGroup, models.PROTECT, db_column="SERVICE_GROUP_ID", related_name="+"
@@ -311,9 +312,6 @@ class Service(models.Model):
     disabled = models.PositiveSmallIntegerField(db_column="DISABLED", default=0)
     notification = models.PositiveSmallIntegerField(default=1)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "SERVICE"
@@ -321,7 +319,7 @@ class Service(models.Model):
 
 class ServiceT(models.Model):
     service = models.ForeignKey(
-        Service, models.CASCADE, db_column="SERVICE_ID", related_name="+"
+        Service, models.CASCADE, db_column="SERVICE_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=200, blank=True, null=True)
