@@ -1,6 +1,10 @@
+import logging
+
 from django.utils.functional import SimpleLazyObject
 
 from . import models
+
+request_logger = logging.getLogger("django.request")
 
 
 def get_group(request):
@@ -40,6 +44,7 @@ def get_group(request):
             user_group = group_qs.first()
             group = user_group and user_group.group
 
+    request_logger.debug(f"group: {group.get_name()}")
     return group
 
 
