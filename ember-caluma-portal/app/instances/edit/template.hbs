@@ -1,11 +1,13 @@
 <div class="uk-padding">
   {{cf-navigation
     documentId=(atob model.data.value.firstObject.node.document.id)
-    disabled=(eq model.data.value.status "COMPLETED")
+    disabled=(or (eq model.data.value.status "COMPLETED") isEmbedded)
     section=section
     subSection=subSection
     context=(hash
       caseId=model.data.value.firstObject.node.id
+      group=group
+      role=role
     )
   }}
 </div>
