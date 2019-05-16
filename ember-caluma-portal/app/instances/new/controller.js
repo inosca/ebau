@@ -50,7 +50,7 @@ export default Controller.extend({
     }
 
     // create instance in CAMAC
-    yield this.ajax.request(`/api/v1/instances`, {
+    const instance = yield this.ajax.request(`/api/v1/instances`, {
       method: "POST",
       data: {
         data: {
@@ -76,6 +76,6 @@ export default Controller.extend({
       }
     });
 
-    yield this.transitionToRoute("instances.edit", caseObj.id);
+    yield this.transitionToRoute("instances.edit", instance.instance_id);
   }).drop()
 });
