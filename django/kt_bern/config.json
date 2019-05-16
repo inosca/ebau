@@ -43363,7 +43363,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 31,
+      "sort": 32,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43378,7 +43378,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 32,
+      "sort": 33,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43438,7 +43438,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 6,
+      "sort": 7,
       "template": "/file/file-readonly.phtml"
     },
     "model": "core.instanceresource",
@@ -43468,7 +43468,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 7,
+      "sort": 8,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43498,7 +43498,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 8,
+      "sort": 9,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43543,7 +43543,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 9,
+      "sort": 10,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43618,7 +43618,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 17,
+      "sort": 18,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -43633,7 +43633,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 18,
+      "sort": 19,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43693,7 +43693,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 15,
+      "sort": 16,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43708,7 +43708,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 30,
+      "sort": 31,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43738,7 +43738,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 12,
+      "sort": 13,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43768,7 +43768,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 5,
+      "sort": 6,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43783,7 +43783,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 34,
+      "sort": 35,
       "template": "/responsible/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43813,7 +43813,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 36,
+      "sort": 37,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43843,7 +43843,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 19,
+      "sort": 20,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43858,7 +43858,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 3,
+      "sort": 4,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43873,7 +43873,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 4,
+      "sort": 5,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43918,7 +43918,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 14,
+      "sort": 15,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43933,7 +43933,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 20,
+      "sort": 21,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43963,7 +43963,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 25,
+      "sort": 26,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43978,7 +43978,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 26,
+      "sort": 27,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43993,7 +43993,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 27,
+      "sort": 28,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44008,7 +44008,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 28,
+      "sort": 29,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44023,7 +44023,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 29,
+      "sort": 30,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44083,7 +44083,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 21,
+      "sort": 22,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -44098,7 +44098,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 23,
+      "sort": 24,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -44113,7 +44113,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 22,
+      "sort": 23,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44128,7 +44128,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 24,
+      "sort": 25,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44263,7 +44263,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 16,
+      "sort": 17,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44458,7 +44458,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 10,
+      "sort": 11,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44473,7 +44473,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 11,
+      "sort": 12,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44593,7 +44593,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 13,
+      "sort": 14,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44818,7 +44818,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 35,
+      "sort": 36,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -44878,7 +44878,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 0,
+      "sort": 1,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44893,7 +44893,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 1,
+      "sort": 2,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44908,7 +44908,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 2,
+      "sort": 3,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -45028,7 +45028,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 33,
+      "sort": 34,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -45063,6 +45063,21 @@
     },
     "model": "core.instanceresource",
     "pk": 110015
+  },
+  {
+    "fields": {
+      "available_instance_resource": "page",
+      "class_field": null,
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 2,
+      "sort": 0,
+      "template": "/ember/instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 110016
   },
   {
     "fields": {
@@ -49080,6 +49095,16 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_resource": 110016,
+      "language": "de",
+      "name": "Formular"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 110016
+  },
+  {
+    "fields": {
       "page_form_group": null,
       "pdf_class": "Form",
       "show_all_page_form_mode": 0
@@ -49804,6 +49829,13 @@
     },
     "model": "core.irpage",
     "pk": 110015
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 110016
   },
   {
     "fields": {
@@ -63223,6 +63255,159 @@
     },
     "model": "core.irroleacl",
     "pk": 120026
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120027
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120028
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120029
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120030
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20005,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120031
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20010,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120032
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20011,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120033
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 40001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120034
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20013,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120035
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 40003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120036
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 40002,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120037
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20014,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120038
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120039
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20007,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120040
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20008,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120041
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 20009,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120042
+  },
+  {
+    "fields": {
+      "instance_resource": 110016,
+      "instance_state": 120000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 120043
   },
   {
     "fields": {
