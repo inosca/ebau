@@ -116,6 +116,7 @@ class InstanceSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializ
         model = models.Instance
         meta_fields = ("editable",)
         fields = (
+            "instance_id",
             "instance_state",
             "identifier",
             "location",
