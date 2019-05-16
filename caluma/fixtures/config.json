@@ -1288,7 +1288,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ist-ein-fumoir-betroffen",
-      "sort": 27
+      "sort": 25
     }
   },
   {
@@ -1665,7 +1665,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "gefaehrliche-stoffe",
-      "sort": 24
+      "sort": 22
     }
   },
   {
@@ -2289,7 +2289,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "maschinelle-arbeitsmittel",
-      "sort": 25
+      "sort": 23
     }
   },
   {
@@ -3108,7 +3108,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "werden-neue-hofduengeranlagen-erstellt",
-      "sort": 18
+      "sort": 17
     }
   },
   {
@@ -3264,7 +3264,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "ableitung-in-guellegrube",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -3342,7 +3342,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "feuerungsanlagen",
-      "sort": 21
+      "sort": 19
     }
   },
   {
@@ -5006,7 +5006,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "aussenlaerm",
-      "sort": 22
+      "sort": 20
     }
   },
   {
@@ -6293,7 +6293,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "was-fuer-ein-vorhaben",
-      "sort": 20
+      "sort": 28
     }
   },
   {
@@ -6410,7 +6410,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "welche-art-vorhaben",
-      "sort": 14
+      "sort": 27
     }
   },
   {
@@ -6579,7 +6579,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "verunreinigte-abluft",
-      "sort": 23
+      "sort": 21
     }
   },
   {
@@ -6891,7 +6891,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "maschinen-aus-den-folgenden-kategorien",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -7983,7 +7983,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "werden-siloanlagen-erstellt",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -9088,7 +9088,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "um-was-fuer-ein-gebaeude-handelt-es-sich",
-      "sort": 28
+      "sort": 26
     }
   },
   {
@@ -9998,7 +9998,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "brandbelastung",
-      "sort": 26
+      "sort": 24
     }
   },
   {
@@ -10050,7 +10050,7 @@
       "created_by_group": null,
       "form": "triage",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
-      "sort": 19
+      "sort": 18
     }
   },
   {
@@ -10660,14 +10660,14 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"bis\"}",
-      "type": "date",
+      "type": "text",
       "is_required": "false",
       "is_hidden": "!(\n  'abschaltung-geplant-ja' == 'abschaltung-geplant'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
-      "configuration": {},
+      "configuration": { "max_length": null },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -10710,14 +10710,14 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"von\"}",
-      "type": "date",
+      "type": "text",
       "is_required": "false",
       "is_hidden": "!(\n  'abschaltung-geplant-ja' == 'abschaltung-geplant'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
-      "configuration": {},
+      "configuration": { "max_length": null },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -12606,7 +12606,7 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser",
     "fields": {
       "created_at": "2019-04-01T10:44:45.806Z",
-      "modified_at": "2019-04-25T08:24:10.863Z",
+      "modified_at": "2019-05-16T10:40:43.282Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Bauten oder Pf\\u00e4hlen im Grundwasser oder Grundwasserabsenkung\"}",
@@ -12615,7 +12615,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"Informationen auf Merkblatt:\\n  \\n[Merkblatt - Bauten im Grundwasser und Grundwasserabsenkungen](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/BA_GA/BA_GA_Merkblatt_Bauten_Grundwasser.pdf)\"}",
+      "info_text": "{\"de\": \"Informationen auf Merkblatt:\\n  \\n[Merkblatt - Bauten im Grundwasser und Grundwasserabsenkungen](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Grundwasser.assetref/dam/documents/BVE/AWA/de/WASSER/Grundwasser/Bauten%20im%20Grundwasser/BA_GA_Merkblatt_Bauten_Grundwasser.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
@@ -12931,7 +12931,7 @@
     "pk": "belasteter-standort",
     "fields": {
       "created_at": "2019-04-01T10:43:26.755Z",
-      "modified_at": "2019-04-25T08:20:57.044Z",
+      "modified_at": "2019-05-16T10:30:05.168Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Belasteter Standort?\"}",
@@ -12940,7 +12940,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"Belastete Standorte sind Orte, deren Untergrund sicher oder mit grosser Wahrscheinlichkeit durch abgelagerte Abf\\u00e4lle oder versickerte Schadstoffe verunreinigt sind.\\n\\n[Merkblatt f\\u00fcr das Bauen auf belasteten Standorten](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/AltlastenBelasteteStandorte.assetref/dam/documents/BVE/AWA/de/BA_GA/BA_ga_gdm027_MB%20f%C3%BCr%20Bauen%20auf%20belasteten%20Standorten.pdf)\"}",
+      "info_text": "{\"de\": \"Belastete Standorte sind Orte, deren Untergrund sicher oder mit grosser Wahrscheinlichkeit durch abgelagerte Abf\\u00e4lle oder versickerte Schadstoffe verunreinigt sind.\\n\\n[Merkblatt f\\u00fcr das Bauen auf belasteten Standorten](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/AltlastenBelasteteStandorte.assetref/dam/documents/BVE/AWA/de/UMWELT/Altlasten%20-%20Belastete%20Standorte%20-%20Schiessanlagen/Altlasten-%20Belastete%20Standorte/BA_ga_gdm027_MB%20f%C3%BCr%20Bauen%20auf%20belasteten%20Standorten.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
@@ -13156,10 +13156,10 @@
     "pk": "beschreibung-andere",
     "fields": {
       "created_at": "2019-04-03T14:11:33.075Z",
-      "modified_at": "2019-05-03T14:47:05.053Z",
+      "modified_at": "2019-05-16T10:23:28.359Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Beschreibung\"}",
+      "label": "{\"de\": \"Beschreibung Andere\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!(\n  'art-der-fundationsmassnahmen-andere' in 'art-der-fundationsmassnahmen'|answer\n)",
@@ -13456,10 +13456,10 @@
     "pk": "beschreibung-tiefenfundation",
     "fields": {
       "created_at": "2019-04-03T14:08:59.126Z",
-      "modified_at": "2019-05-03T14:46:34.145Z",
+      "modified_at": "2019-05-16T10:23:19.133Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Beschreibung\"}",
+      "label": "{\"de\": \"Beschreibung Tiefenfundation\"}",
       "type": "text",
       "is_required": "true",
       "is_hidden": "!(\n  'art-der-fundationsmassnahmen-tiefenfundation' in 'art-der-fundationsmassnahmen'|answer\n)",
@@ -13581,13 +13581,13 @@
     "pk": "bestaetigung-generalvollmacht",
     "fields": {
       "created_at": "2019-04-10T13:53:49.095Z",
-      "modified_at": "2019-05-09T11:01:03.021Z",
+      "modified_at": "2019-05-16T11:08:11.896Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
       "type": "multiple_choice",
       "is_required": "true",
-      "is_hidden": "false",
+      "is_hidden": "!(\n  'vollmacht-generalvollmacht' in 'parent.1-allgemeine-informationen.personalien.personalien-vertreterin-mit-vollmacht'|answer|mapby('vollmacht')\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -20531,7 +20531,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien",
     "fields": {
       "created_at": "2019-03-28T09:21:10.402Z",
-      "modified_at": "2019-05-03T13:47:53.362Z",
+      "modified_at": "2019-05-16T11:46:44.363Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Werden nach der Bauabnahme Anlagen oder Maschinen aus den folgenden Kategorien betrieben?\"}",
@@ -20581,7 +20581,7 @@
     "pk": "maschinen-und-anlagen",
     "fields": {
       "created_at": "2019-04-09T07:28:41.539Z",
-      "modified_at": "2019-05-03T08:03:43.231Z",
+      "modified_at": "2019-05-16T09:38:32.480Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Maschinen & Anlagen\"}",
@@ -28781,7 +28781,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt",
     "fields": {
       "created_at": "2019-03-28T09:47:46.554Z",
-      "modified_at": "2019-05-03T15:07:31.689Z",
+      "modified_at": "2019-05-16T10:44:47.743Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Werden neue Hofd\\u00fcngeranlagen erstellt?\"}",
@@ -28790,7 +28790,7 @@
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"[Ingenieurbest\\u00e4tigung](http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/SWW_GE/Landwirtschaft/Ingenieurbestaetigung_d_2016_ae041.pdf)\"}",
+      "info_text": "{\"de\": \"[Ingenieurbest\\u00e4tigung](https://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/WASSER/Grundst%C3%BCcksentw%C3%A4sserung/Landwirtschaft/Ingenieurbestaetigung_d_2016_ae041.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
@@ -30610,8 +30610,8 @@
     "model": "form.questionoption",
     "pk": "bauten-oder-pfaehlen-im-grundwasser.bauten-oder-pfaehlen-im-grundwasser-ja",
     "fields": {
-      "created_at": "2019-05-10T16:46:00.886Z",
-      "modified_at": "2019-05-10T16:46:00.887Z",
+      "created_at": "2019-05-16T10:40:43.290Z",
+      "modified_at": "2019-05-16T10:40:43.290Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-oder-pfaehlen-im-grundwasser",
@@ -30623,8 +30623,8 @@
     "model": "form.questionoption",
     "pk": "bauten-oder-pfaehlen-im-grundwasser.bauten-oder-pfaehlen-im-grundwasser-nein",
     "fields": {
-      "created_at": "2019-05-10T16:46:02.959Z",
-      "modified_at": "2019-05-10T16:46:02.959Z",
+      "created_at": "2019-05-16T10:40:43.286Z",
+      "modified_at": "2019-05-16T10:40:43.286Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-oder-pfaehlen-im-grundwasser",
@@ -30792,8 +30792,8 @@
     "model": "form.questionoption",
     "pk": "belasteter-standort.belasteter-standort-ja",
     "fields": {
-      "created_at": "2019-05-10T16:45:59.997Z",
-      "modified_at": "2019-05-10T16:45:59.997Z",
+      "created_at": "2019-05-16T10:30:05.202Z",
+      "modified_at": "2019-05-16T10:30:05.202Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "belasteter-standort",
@@ -30805,8 +30805,8 @@
     "model": "form.questionoption",
     "pk": "belasteter-standort.belasteter-standort-nein",
     "fields": {
-      "created_at": "2019-05-10T16:46:01.409Z",
-      "modified_at": "2019-05-10T16:46:01.409Z",
+      "created_at": "2019-05-16T10:30:05.182Z",
+      "modified_at": "2019-05-16T10:30:05.182Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "belasteter-standort",
@@ -30844,8 +30844,8 @@
     "model": "form.questionoption",
     "pk": "bestaetigung-generalvollmacht.bestaetigung-generalvollmacht-ja",
     "fields": {
-      "created_at": "2019-05-10T16:46:01.160Z",
-      "modified_at": "2019-05-10T16:46:01.160Z",
+      "created_at": "2019-05-16T11:08:11.902Z",
+      "modified_at": "2019-05-16T11:08:11.902Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bestaetigung-generalvollmacht",
@@ -33457,8 +33457,8 @@
     "model": "form.questionoption",
     "pk": "maschinen-aus-den-folgenden-kategorien.maschinen-aus-den-folgenden-kategorien-erzeugung",
     "fields": {
-      "created_at": "2019-05-10T16:45:58.733Z",
-      "modified_at": "2019-05-10T16:45:58.733Z",
+      "created_at": "2019-05-16T11:46:44.374Z",
+      "modified_at": "2019-05-16T11:46:44.374Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "maschinen-aus-den-folgenden-kategorien",
@@ -33470,8 +33470,8 @@
     "model": "form.questionoption",
     "pk": "maschinen-aus-den-folgenden-kategorien.maschinen-aus-den-folgenden-kategorien-reinigung",
     "fields": {
-      "created_at": "2019-05-10T16:45:58.407Z",
-      "modified_at": "2019-05-10T16:45:58.407Z",
+      "created_at": "2019-05-16T11:46:44.378Z",
+      "modified_at": "2019-05-16T11:46:44.378Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "maschinen-aus-den-folgenden-kategorien",
@@ -33483,8 +33483,8 @@
     "model": "form.questionoption",
     "pk": "maschinen-aus-den-folgenden-kategorien.maschinen-aus-den-folgenden-kategorien-strom",
     "fields": {
-      "created_at": "2019-05-10T16:45:59.251Z",
-      "modified_at": "2019-05-10T16:45:59.252Z",
+      "created_at": "2019-05-16T11:46:44.371Z",
+      "modified_at": "2019-05-16T11:46:44.371Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "maschinen-aus-den-folgenden-kategorien",
@@ -33496,8 +33496,8 @@
     "model": "form.questionoption",
     "pk": "maschinen-aus-den-folgenden-kategorien.maschinen-aus-den-folgenden-kategorien-transport",
     "fields": {
-      "created_at": "2019-05-10T16:45:58.643Z",
-      "modified_at": "2019-05-10T16:45:58.643Z",
+      "created_at": "2019-05-16T11:46:44.377Z",
+      "modified_at": "2019-05-16T11:46:44.377Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "maschinen-aus-den-folgenden-kategorien",
@@ -33509,8 +33509,8 @@
     "model": "form.questionoption",
     "pk": "maschinen-aus-den-folgenden-kategorien.maschinen-aus-den-folgenden-kategorien-werkhoefe",
     "fields": {
-      "created_at": "2019-05-10T16:46:01.288Z",
-      "modified_at": "2019-05-10T16:46:01.288Z",
+      "created_at": "2019-05-16T11:46:44.367Z",
+      "modified_at": "2019-05-16T11:46:44.367Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "maschinen-aus-den-folgenden-kategorien",
@@ -36733,8 +36733,8 @@
     "model": "form.questionoption",
     "pk": "werden-neue-hofduengeranlagen-erstellt.werden-neue-hofduengeranlagen-erstellt-ja",
     "fields": {
-      "created_at": "2019-05-10T16:46:00.042Z",
-      "modified_at": "2019-05-10T16:46:00.042Z",
+      "created_at": "2019-05-16T10:44:47.765Z",
+      "modified_at": "2019-05-16T10:44:47.765Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "werden-neue-hofduengeranlagen-erstellt",
@@ -36746,8 +36746,8 @@
     "model": "form.questionoption",
     "pk": "werden-neue-hofduengeranlagen-erstellt.werden-neue-hofduengeranlagen-erstellt-nein",
     "fields": {
-      "created_at": "2019-05-10T16:46:02.872Z",
-      "modified_at": "2019-05-10T16:46:02.872Z",
+      "created_at": "2019-05-16T10:44:47.759Z",
+      "modified_at": "2019-05-16T10:44:47.759Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "werden-neue-hofduengeranlagen-erstellt",
@@ -38684,7 +38684,7 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser-ja",
     "fields": {
       "created_at": "2019-04-01T10:44:45.619Z",
-      "modified_at": "2019-04-25T08:24:10.684Z",
+      "modified_at": "2019-05-16T10:40:43.087Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -38697,7 +38697,7 @@
     "pk": "bauten-oder-pfaehlen-im-grundwasser-nein",
     "fields": {
       "created_at": "2019-04-01T10:44:45.622Z",
-      "modified_at": "2019-04-25T08:24:10.698Z",
+      "modified_at": "2019-05-16T10:40:43.082Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -38892,7 +38892,7 @@
     "pk": "belasteter-standort-ja",
     "fields": {
       "created_at": "2019-04-01T10:43:26.576Z",
-      "modified_at": "2019-04-25T08:20:56.770Z",
+      "modified_at": "2019-05-16T10:30:04.922Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -38905,7 +38905,7 @@
     "pk": "belasteter-standort-nein",
     "fields": {
       "created_at": "2019-04-01T10:43:26.595Z",
-      "modified_at": "2019-04-25T08:20:56.771Z",
+      "modified_at": "2019-05-16T10:30:04.926Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -38944,7 +38944,7 @@
     "pk": "bestaetigung-generalvollmacht-ja",
     "fields": {
       "created_at": "2019-04-10T13:53:48.953Z",
-      "modified_at": "2019-05-09T11:01:02.844Z",
+      "modified_at": "2019-05-16T11:08:11.655Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift die Generalvollmacht an Bevollm\\u00e4chtigte.\"}",
@@ -41596,7 +41596,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-erzeugung",
     "fields": {
       "created_at": "2019-03-28T09:21:10.195Z",
-      "modified_at": "2019-05-03T13:47:53.160Z",
+      "modified_at": "2019-05-16T11:46:44.139Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr die industrielle / gewerbliche Erzeugung von Lebens- oder Futtermittel\"}",
@@ -41609,7 +41609,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-reinigung",
     "fields": {
       "created_at": "2019-03-28T09:21:10.163Z",
-      "modified_at": "2019-05-03T13:47:53.146Z",
+      "modified_at": "2019-05-16T11:46:43.945Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr die Reinigung-, Aufbereitung- und Beschichtung\"}",
@@ -41622,7 +41622,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-strom",
     "fields": {
       "created_at": "2019-03-28T09:21:10.266Z",
-      "modified_at": "2019-05-03T13:47:53.144Z",
+      "modified_at": "2019-05-16T11:46:44.063Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr die Erzegung, Speicherung oder Lagerung von Strom, W\\u00e4rme oder Brennstoffen\"}",
@@ -41635,7 +41635,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-transport",
     "fields": {
       "created_at": "2019-03-28T09:21:10.188Z",
-      "modified_at": "2019-05-03T13:47:53.162Z",
+      "modified_at": "2019-05-16T11:46:44.059Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr den Transport und das Verpacken von Materialien\"}",
@@ -41648,7 +41648,7 @@
     "pk": "maschinen-aus-den-folgenden-kategorien-werkhoefe",
     "fields": {
       "created_at": "2019-03-28T09:21:10.224Z",
-      "modified_at": "2019-05-03T13:47:53.155Z",
+      "modified_at": "2019-05-16T11:46:44.068Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"F\\u00fcr Deponien, Werkh\\u00f6fe, Betriebsgeb\\u00e4ude oder auf Betriebsarealen\"}",
@@ -45275,7 +45275,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt-ja",
     "fields": {
       "created_at": "2019-03-28T09:47:46.405Z",
-      "modified_at": "2019-05-03T15:07:31.489Z",
+      "modified_at": "2019-05-16T10:44:47.585Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -45288,7 +45288,7 @@
     "pk": "werden-neue-hofduengeranlagen-erstellt-nein",
     "fields": {
       "created_at": "2019-03-28T09:47:46.416Z",
-      "modified_at": "2019-05-03T15:07:31.494Z",
+      "modified_at": "2019-05-16T10:44:47.594Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
