@@ -10,7 +10,7 @@ from rest_framework.test import APIClient, APIRequestFactory
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.faker import FreezegunAwareDatetimeProvider
-from camac.instance import factories as instance_factories
+from camac.instance import factories as instance_factories, models as instance_models
 from camac.notification import factories as notification_factories
 from camac.user import factories as user_factories
 
@@ -56,3 +56,11 @@ def admin_client(db, admin_user):
     client = APIClient()
     client.force_authenticate(user=admin_user)
     return client
+
+
+@pytest.fixture
+def instance_states(db, instance_state_factory):
+    new, _ = instance_models.InstanceState.objects.get_or_create(pk=1)
+    new.trans.create(name="Neu", language="de")
+    subm, _ = instance_models.InstanceState.objects.get_or_create(pk=20000)
+    subm.trans.create(name="eBau-Nummer zu vergeben", language="de")
