@@ -5710,23 +5710,6 @@ ember-truth-helpers@^2.0.0, ember-truth-helpers@^2.1.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-uikit@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.8.0.tgz#0ec43545537557c4fcf785d850ac9e5d9c958eb1"
-  integrity sha512-WrvY+1fu20+wlGgTBJcWFVdJWSuSN1Gowuz9Vpxs6401hLkl6fNIRaIKoaq5AqyhR0KRjXZEVLRmyxT28+hv+A==
-  dependencies:
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.0"
-    broccoli-stew "^2.0.0"
-    chalk "^2.3.0"
-    ember-auto-import "^1.2.21"
-    ember-cli-babel "^7.5.0"
-    ember-cli-htmlbars "^3.0.0"
-    ember-cli-htmlbars-inline-precompile "^2.1.0"
-    ember-get-config "^0.2.4"
-    ember-toggle "^5.3.0"
-    uikit "3.1.2"
-
 ember-uikit@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.8.1.tgz#cd91b484e1866902f3c2a6e23217b1ab37a85295"
@@ -12079,10 +12062,9 @@ uid-number@0.0.6:
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
   integrity sha1-DqEOgDXo61uOREnwbaHHMGY7qoE=
 
-uikit@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.1.2.tgz#53a5225a355c3beb3f4bc3c138a32e76344f3d2a"
-  integrity sha512-rZ+i0cld3i33RQXqNEp5iR7EdyICGKUFKQvwR8cfn8bHznQMbeuQjIsFhsGAz2jg1xLZvnEIbKoPc/cKKTlEQw==
+uikit@3.1.2, uikit@fkm/uikit#fork/focusable:
+  version "3.1.4"
+  resolved "https://codeload.github.com/fkm/uikit/tar.gz/c6e9b2784d045666e778cbdca019f250d18b3caf"
 
 umask@~1.1.0:
   version "1.1.0"
