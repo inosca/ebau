@@ -3,6 +3,7 @@ import hashlib
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
+from ..core import models as core_models
 
 
 class UserManager(BaseUserManager):
@@ -88,22 +89,7 @@ class UserT(models.Model):
         db_table = "USER_T"
 
 
-class MultilingualModel(models.Model):
-    """Mixin for models that have a multilingual "name" property."""
-
-    def get_name(self):
-        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-            return self.trans.get(language="de").name
-        return self.name
-
-    def __str__(self):
-        return self.get_name()
-
-    class Meta:
-        abstract = True
-
-
-class Group(MultilingualModel):
+class Group(core_models.MultilingualModel, models.Model):
     group_id = models.AutoField(db_column="GROUP_ID", primary_key=True)
     role = models.ForeignKey(
         "user.Role", models.PROTECT, db_column="ROLE_ID", related_name="+"
@@ -148,7 +134,7 @@ class GroupT(models.Model):
         db_table = "GROUP_T"
 
 
-class Location(MultilingualModel):
+class Location(core_models.MultilingualModel, models.Model):
     location_id = models.AutoField(db_column="LOCATION_ID", primary_key=True)
     communal_cantonal_number = models.IntegerField(
         db_column="COMMUNAL_CANTONAL_NUMBER", blank=True, null=True
@@ -231,7 +217,7 @@ class UserGroup(models.Model):
         unique_together = (("user", "group"),)
 
 
-class Role(MultilingualModel):
+class Role(core_models.MultilingualModel, models.Model):
     role_id = models.AutoField(db_column="ROLE_ID", primary_key=True)
     role_parent = models.ForeignKey(
         "self",
@@ -281,7 +267,7 @@ class ServiceGroupT(models.Model):
         db_table = "SERVICE_GROUP_T"
 
 
-class Service(MultilingualModel):
+class Service(core_models.MultilingualModel, models.Model):
     service_id = models.AutoField(db_column="SERVICE_ID", primary_key=True)
     service_group = models.ForeignKey(
         ServiceGroup, models.PROTECT, db_column="SERVICE_GROUP_ID", related_name="+"

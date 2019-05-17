@@ -63,7 +63,7 @@ export default Controller.extend({
               data: { id: 1, type: "forms" }
             },
             "instance-state": {
-              data: { id: 20000, type: "instance-states" }
+              data: { id: 1, type: "instance-states" }
             }
           }
         }

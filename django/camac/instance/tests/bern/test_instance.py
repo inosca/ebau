@@ -142,3 +142,23 @@ def test_instance_destroy(
     url = reverse("bern-instance-detail", args=[instance.pk])
     response = admin_client.delete(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("instance_state__name", ["Neu"])
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_submit(admin_client, role, instance, instance_states, admin_user):
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+    url = reverse("bern-instance-detail", args=[instance.pk])
+    data = {
+        "data": {
+            "type": "instances",
+            "id": instance.pk,
+            "relationships": {
+                "instance-state": {"data": {"type": "instance-states", "id": 20000}}
+            },
+        }
+    }
+    response = admin_client.patch(url, data)
+    assert response.status_code == status.HTTP_200_OK, response.json()

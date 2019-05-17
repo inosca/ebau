@@ -38,3 +38,10 @@ class InstanceView(
     filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
         filters.InstanceFormFieldFilterBackend
     ]
+
+    def has_object_update_permission(self, instance):
+        return (
+            instance.user == self.request.user
+            and instance.instance_state.get_name() == "Neu"
+            and instance.previous_instance_state.get_name() == "Neu"
+        )
