@@ -82,6 +82,9 @@ class BernInstanceSerializer(InstanceSerializer):
                           }
                           document {
                             id
+                            form {
+                              slug
+                            }
                             answers(questions: ["gemeinde", "3-grundstueck"]) {
                               edges {
                                 node {
@@ -95,15 +98,27 @@ class BernInstanceSerializer(InstanceSerializer):
                                   ...on FormAnswer {
                                     formValue: value {
                                       id
-                                      answers(question: "gemeinde") {
+                                      answers(question: "allgemeine-angaben") {
                                         edges {
                                           node {
                                             id
-                                            ... on StringAnswer {
-                                              stringValue: value
-                                            }
-                                            question {
-                                              slug
+                                            ...on FormAnswer {
+                                              formValue: value {
+                                                id
+                                                answers(question: "gemeinde") {
+                                                  edges {
+                                                    node {
+                                                      id
+                                                      ... on StringAnswer {
+                                                        stringValue: value
+                                                      }
+                                                      question {
+                                                        slug
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
                                             }
                                           }
                                         }
@@ -205,9 +220,42 @@ class BernInstanceSerializer(InstanceSerializer):
             self.instance.instance_state = models.InstanceState.objects.get(
                 pk=INSTANCE_STATE_SUBMITTED
             )
-            # TODO submit at correct municipality
+            form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
+
+            service_id = None
+            try:
+                if form == "vorabklaerung-einfach":
+                    service_id = int(
+                        validated_data.get("caluma_case_data")["document"]["answers"][
+                            "edges"
+                        ][0]["node"]["stringValue"]
+                    )
+                else:
+                    # TODO It's probably clear that this is not ideal ^_^
+                    service_id = validated_data.get("caluma_case_data")["document"][
+                        "answers"
+                    ]["edges"][0]["node"]["formValue"]["answers"]["edges"][0]["node"][
+                        "formValue"
+                    ][
+                        "answers"
+                    ][
+                        "edges"
+                    ][
+                        0
+                    ][
+                        "node"
+                    ][
+                        "stringValue"
+                    ]
+            except KeyError:
+                pass
+
+            if not service_id:
+                request_logger.error("Municipality not found")
+                service_id = 2  # default to Burgdorf
+
             core_models.InstanceService.objects.create(
-                instance=self.instance, service_id=2, active=1
+                instance=self.instance, service_id=service_id, active=1
             )
 
             self.instance.save()
