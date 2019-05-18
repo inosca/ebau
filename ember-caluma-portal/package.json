@@ -69,7 +69,7 @@
     "ember-source": "~3.8.0",
     "ember-transition-helper": "^1.0.0",
     "ember-truth-helpers": "^2.1.0",
-    "ember-uikit": "^0.8.0",
+    "ember-uikit": "^0.8.1",
     "eslint-plugin-ember": "^5.2.0",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.8.0",
@@ -77,5 +77,8 @@
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
+  },
+  "resolutions": {
+    "**/uikit": "fkm/uikit#fork/focusable"
   }
 }
