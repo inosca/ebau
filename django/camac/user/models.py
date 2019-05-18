@@ -3,6 +3,7 @@ import hashlib
 from django.conf import settings
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
+
 from ..core import models as core_models
 
 
