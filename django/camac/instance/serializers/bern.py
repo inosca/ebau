@@ -43,14 +43,11 @@ class BernInstanceSerializer(InstanceSerializer):
         return value
 
     def _is_submit(self, data):
-        import pdb
-
-        pdb.set_trace()
         if self.instance:
             old_version = models.Instance.objects.get(pk=self.instance.pk)
             return (
-                old_version.instance_state_id != data.get("instance_state_id")
-                and data.get("instance_state_id") == INSTANCE_STATE_SUBMITTED
+                old_version.instance_state_id != data.get("instance_state").pk
+                and data.get("instance_state").pk == INSTANCE_STATE_SUBMITTED
             )
 
     def validate(self, data):
@@ -127,9 +124,6 @@ class BernInstanceSerializer(InstanceSerializer):
                 "Authorization": get_authorization_header(self.context["request"])
             },
         )
-        import web_pdb
-
-        web_pdb.set_trace()
         data["caluma_case_data"] = caluma_resp.json()["data"]["node"]
         request_logger.info("Caluma case information: %s", data["caluma_case_data"])
 
@@ -208,11 +202,17 @@ class BernInstanceSerializer(InstanceSerializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        import web_pdb
+        request_logger.info("Updating instance %s" % instance.pk)
 
-        web_pdb.set_trace()
-        validated_data["modification_date"] = timezone.now()
-        request_logger.info("Updating instance", instance.pk)
+        if self._is_submit(validated_data):
+            validated_data["modification_date"] = timezone.now()
+            self.instance.instance_state = models.InstanceState.objects.get(
+                pk=INSTANCE_STATE_SUBMITTED
+            )
+            self.instance.save()
+        else:
+            # TODO correct?
+            raise ValidationError(f"Updating cases is only allowed for submitting")
 
         return instance
 
