@@ -10,7 +10,7 @@
     <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
       <thead>
         <tr>
-          <th class="uk-width-1-5">
+          {{!--<th class="uk-width-1-5">
             <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search="identifier-search">
               <span>
                 eBau-Nr.
@@ -44,33 +44,36 @@
               >
               </a>
             </div>
-          </th>
+          </th>--}}
+          <th>eBau-Nr.</th>
           <th>
             Gesuchsart
-            {{camac-sort-icon key="form__description" sort=sort on-click=(action (mut sort))}}
-          </th>
-          <th>
-            Status
-            {{camac-sort-icon key="instance_state__description" sort=sort on-click=(action (mut sort))}}
+            {{!--{{camac-sort-icon key="form__description" sort=sort on-click=(action (mut sort))}}--}}
           </th>
           <th>
             Gemeinde
-            {{camac-sort-icon key="location__communal_federal_number" sort=sort on-click=(action (mut sort))}}
+            {{!--{{camac-sort-icon key="location__communal_federal_number" sort=sort on-click=(action (mut sort))}}--}}
           </th>
+          <th>Adresse</th>
           <th class="uk-text-right">
             Erstelldatum
-            {{camac-sort-icon key="creation_date" sort=sort on-click=(action (mut sort))}}
+            {{!--{{camac-sort-icon key="creation_date" sort=sort on-click=(action (mut sort))}}--}}
           </th>
-          <th class="uk-width-small"></th>
+          <th>
+            Status
+            {{!--{{camac-sort-icon key="instance_state__description" sort=sort on-click=(action (mut sort))}}--}}
+          </th>
+          <th>Bauvorhaben</th>
+          {{!--<th class="uk-width-small"></th>--}}
         </tr>
       </thead>
       <tbody>
         {{#if data.isRunning}}
           <tr>
-            <td class="uk-text-center" colspan="5">{{uk-spinner}}</td>
+            <td class="uk-text-center" colspan="6">{{uk-spinner}}</td>
           </tr>
         {{else}}
-          {{#each data.lastSuccessful.value as |edge|}}
+          {{#each data.lastSuccessful.value as |edge i|}}
             <tr>
               <td>
                 {{#link-to
@@ -81,18 +84,19 @@
                 {{/link-to}}
               </td>
               <td>{{instance-type edge.node.document}}</td>
-              <td>{{t (concat "instance.status." edge.node.status)}}</td>
               <td class="uk-text-nowrap">
-                {{!-- TODO
-                {{#if instance.location}}
-                  {{instance.location.communalFederalNumber}} - {{instance.location.name}}
-                {{/if}}--}}
+                {{get municipalities i}}
               </td>
+              <td>{{get addresses i}}</td>
               <td class="uk-text-right uk-text-nowrap">
                 {{format-date edge.node.createdAt}}
               </td>
+              <td>{{t (concat "instance.status." edge.node.status)}}</td>
+              <td class="uk-text-truncate" title={{get descriptions i}}>
+                {{get descriptions i}}
+              </td>
+              {{!--
               <td class="uk-text-center">
-                {{!--
                 <button
                   class="uk-icon-button confirm-delete-{{edge.node.id}}"
                   title="Gesuch löschen"
@@ -111,8 +115,9 @@
                     uk-icon="close"
                     uk-toggle="target: .confirm-delete-{{edge.node.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
                   ></button>
-                </span>--}}
+                </span>
               </td>
+              --}}
             </tr>
           {{^}}
             <tr>
@@ -123,7 +128,7 @@
           {{/each}}
         {{/if}}
         <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to "instances.new") on="click"}}>
-          <td class="uk-text-center" colspan="6">
+          <td class="uk-text-center" colspan="7">
             {{uk-icon "plus" scale=2}}
           </td>
         </tr>
