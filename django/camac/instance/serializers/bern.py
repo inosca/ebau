@@ -2,8 +2,8 @@ import json
 from logging import getLogger
 
 import requests
-from django.db import transaction
 from django.conf import settings
+from django.db import transaction
 from django.utils import timezone
 from rest_framework.authentication import get_authorization_header
 from rest_framework.serializers import ValidationError
