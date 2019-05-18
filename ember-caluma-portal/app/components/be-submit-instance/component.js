@@ -6,12 +6,12 @@ import completeWorkItem from "ember-caluma-portal/gql/mutations/complete-work-it
 
 const INSTANCE_STATE_SUBMITTED = 20000;
 const GROUP_APPLICANT = 6;
-
 export default Component.extend({
   notification: service(),
   apollo: service(),
   ajax: service(),
   session: service(),
+  router: service(),
 
   submit: task(function*() {
     try {
@@ -76,7 +76,7 @@ export default Component.extend({
 
       this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
-      yield this.transitionToRoute("instances");
+      yield this.router.transitionTo("instances");
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
@@ -85,5 +85,5 @@ export default Component.extend({
         `Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. ${reasons}`
       );
     }
-  })
+  }).drop()
 });
