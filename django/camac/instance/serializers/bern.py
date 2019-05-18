@@ -194,10 +194,6 @@ class BernInstanceSerializer(InstanceSerializer):
         if caluma_resp.status_code not in (200, 201):  # pragma: no cover
             raise ValidationError("Error while linking case and instance")
 
-        core_models.InstanceService.objects.create(
-            instance=created, service_id=2, active=1
-        )
-
         return created
 
     @transaction.atomic
@@ -209,6 +205,11 @@ class BernInstanceSerializer(InstanceSerializer):
             self.instance.instance_state = models.InstanceState.objects.get(
                 pk=INSTANCE_STATE_SUBMITTED
             )
+            # TODO submit at correct municipality
+            core_models.InstanceService.objects.create(
+                instance=self.instance, service_id=2, active=1
+            )
+
             self.instance.save()
         else:
             # TODO correct?
