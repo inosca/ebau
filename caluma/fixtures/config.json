@@ -23239,7 +23239,7 @@
     "pk": "personalien-gebaudeeigentumerin",
     "fields": {
       "created_at": "2019-03-15T12:17:29.200Z",
-      "modified_at": "2019-05-20T07:59:44.063Z",
+      "modified_at": "2019-05-20T10:38:48.244Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Geb\\u00e4udeeigent\\u00fcmer/in\"}",
@@ -23255,7 +23255,9 @@
         "widgetOverride": null,
         "columnsToDisplay": [
           "name-gebaeudeeigentuemerin",
-          "vorname-gebaeudeeigentuemerin"
+          "vorname-gebaeudeeigentuemerin",
+          "telefon-oder-mobile-gebaeudeeigentuemerin",
+          "e-mail-gebaeudeeigentuemerin"
         ]
       },
       "data_source": null,
@@ -23270,7 +23272,7 @@
     "pk": "personalien-gesuchstellerin",
     "fields": {
       "created_at": "2019-03-25T10:14:57.271Z",
-      "modified_at": "2019-05-20T07:59:26.487Z",
+      "modified_at": "2019-05-20T10:38:28.549Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Gesuchsteller/in\"}",
@@ -23284,7 +23286,12 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null,
-        "columnsToDisplay": ["name-gesuchstellerin", "vorname-gesuchstellerin"]
+        "columnsToDisplay": [
+          "name-gesuchstellerin",
+          "vorname-gesuchstellerin",
+          "e-mail-gesuchstellerin",
+          "telefon-oder-mobile-gesuchstellerin"
+        ]
       },
       "data_source": null,
       "row_form": "personalien-tabelle",
@@ -23298,7 +23305,7 @@
     "pk": "personalien-grundeigentumerin",
     "fields": {
       "created_at": "2019-03-15T12:16:49.305Z",
-      "modified_at": "2019-05-20T07:59:37.243Z",
+      "modified_at": "2019-05-20T10:38:42.466Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Grundeigent\\u00fcmer/in\"}",
@@ -23314,7 +23321,9 @@
         "widgetOverride": null,
         "columnsToDisplay": [
           "name-grundeigentuemerin",
-          "vorname-grundeigentuemerin"
+          "vorname-grundeigentuemerin",
+          "telefon-oder-mobile-grundeigentuemerin",
+          "e-mail-grundeigentuemerin"
         ]
       },
       "data_source": null,
@@ -23329,7 +23338,7 @@
     "pk": "personalien-projektverfasserin",
     "fields": {
       "created_at": "2019-03-15T12:15:48.393Z",
-      "modified_at": "2019-05-20T07:59:50.015Z",
+      "modified_at": "2019-05-20T10:38:53.876Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Projektverfasser/in\"}",
@@ -23345,7 +23354,9 @@
         "widgetOverride": null,
         "columnsToDisplay": [
           "name-projektverfasserin",
-          "vorname-projektverfasserin"
+          "vorname-projektverfasserin",
+          "telefon-oder-mobile-projektverfasserin",
+          "e-mail-projektverfasserin"
         ]
       },
       "data_source": null,
@@ -23385,7 +23396,7 @@
     "pk": "personalien-vertreterin-mit-vollmacht",
     "fields": {
       "created_at": "2019-03-15T09:31:48.851Z",
-      "modified_at": "2019-05-20T07:57:25.631Z",
+      "modified_at": "2019-05-20T10:38:36.830Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Vertreter/in mit Vollmacht\"}",
@@ -23399,7 +23410,12 @@
       "configuration": {},
       "meta": {
         "widgetOverride": null,
-        "columnsToDisplay": ["name-vertreterin", "vorname-vertreterin"]
+        "columnsToDisplay": [
+          "name-vertreterin",
+          "vorname-vertreterin",
+          "e-mail-vertreterin",
+          "telefon-oder-mobile-vertreterin"
+        ]
       },
       "data_source": null,
       "row_form": "vertreterin-mit-vollmacht",
