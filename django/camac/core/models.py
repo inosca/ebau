@@ -1,14 +1,19 @@
 from django.conf import settings
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 
 class MultilingualModel:
     """Mixin for models that have a multilingual "name" property."""
 
     def get_name(self):
-        if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+        if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            return self.name
+
+        try:
             return self.trans.get(language="de").name
-        return self.name
+        except ObjectDoesNotExist:
+            return self.name
 
     def __str__(self):
         return self.get_name()

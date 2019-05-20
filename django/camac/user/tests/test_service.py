@@ -51,7 +51,6 @@ def test_service_delete(admin_client, service, status_code):
     "role_t__name,size",
     [("Gesuchsteller", 0), ("Leitung Fachstelle", 1), ("Leitung Leitbehörde", 1)],
 )
-@pytest.mark.skip(reason="in a rush")
 def test_multilingual(admin_client, monkeypatch, service, size):
     monkeypatch.setattr(settings, "APPLICATION", settings.APPLICATIONS.get("kt_bern"))
 
