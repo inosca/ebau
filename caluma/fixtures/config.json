@@ -1449,19 +1449,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "0c875cda-e19a-4ae2-b374-5972e15ce682",
-    "fields": {
-      "created_at": "2019-04-04T08:02:59.100Z",
-      "modified_at": "2019-04-04T08:02:59.100Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "projektverfasserin",
-      "question": "kontaktperson-vorname-projektverfasserin",
-      "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "0ce5320f-9de8-47fb-8026-36ec6be264ac",
     "fields": {
       "created_at": "2019-04-03T11:31:54.408Z",
@@ -2069,19 +2056,6 @@
       "form": "solar-und-sendeanlagen",
       "question": "name-betrieb-sendeanlage",
       "sort": 16
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "1b7d776c-52dd-4960-84b9-112e334dae33",
-    "fields": {
-      "created_at": "2019-04-04T08:03:40.649Z",
-      "modified_at": "2019-04-04T08:03:40.649Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "projektverfasserin",
-      "question": "kontaktperson-name-projektverfasserin",
-      "sort": 10
     }
   },
   {
@@ -3265,19 +3239,6 @@
       "form": "triage",
       "question": "ableitung-in-guellegrube",
       "sort": 15
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "3cf83737-0854-4081-a645-17d6fb01d182",
-    "fields": {
-      "created_at": "2019-04-04T08:25:09.502Z",
-      "modified_at": "2019-04-04T08:25:09.502Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "grundeigentumerin",
-      "question": "kontaktperson-name-grundeigentuemerin",
-      "sort": 10
     }
   },
   {
@@ -5011,19 +4972,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "6d8dbfd4-61f2-4606-b8a2-cd095daec8b9",
-    "fields": {
-      "created_at": "2019-04-04T08:40:29.967Z",
-      "modified_at": "2019-04-04T08:40:29.967Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "gebaudeeigentumerin",
-      "question": "kontaktperson-name-gebaeudeeigentuemerin",
-      "sort": 10
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "6e3c00f2-0526-4a0f-a168-4d402bec656b",
     "fields": {
       "created_at": "2019-03-29T12:22:56.079Z",
@@ -5063,19 +5011,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "6fd124bf-a99f-4d5e-a20a-8f84b4fccf4d",
-    "fields": {
-      "created_at": "2019-04-04T07:32:09.094Z",
-      "modified_at": "2019-04-04T07:32:09.094Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vertreterin-mit-vollmacht",
-      "question": "kontaktperson-vorname-vertreterin",
-      "sort": 10
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "712db67c-e735-4fdb-b61e-58468ae3eb1e",
     "fields": {
       "created_at": "2019-04-09T14:25:27.102Z",
@@ -5098,19 +5033,6 @@
       "form": "vorabklaerung-einfach",
       "question": "be-gid",
       "sort": 4
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "71a1f02c-0435-42d7-be50-cbe8c412de42",
-    "fields": {
-      "created_at": "2019-04-04T08:23:39.171Z",
-      "modified_at": "2019-04-04T08:23:39.171Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "grundeigentumerin",
-      "question": "kontaktperson-vorname-grundeigentuemerin",
-      "sort": 9
     }
   },
   {
@@ -5609,19 +5531,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "81b713b4-690c-4ed8-b36f-d8e749598e77",
-    "fields": {
-      "created_at": "2019-04-04T07:49:59.838Z",
-      "modified_at": "2019-04-04T07:49:59.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "personalien-tabelle",
-      "question": "kontaktperson-vorname-gesuchstellerin",
-      "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "81ca5eff-cf6f-48ce-93e1-ef8566fded56",
     "fields": {
       "created_at": "2019-04-02T14:17:26.884Z",
@@ -6008,19 +5917,6 @@
       "form": "wald",
       "question": "handelt-es-sich-um-eine-baute-im-wald",
       "sort": 8
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "8bbe97c5-83b9-4ade-af05-b21aa36a4347",
-    "fields": {
-      "created_at": "2019-04-04T07:50:50.485Z",
-      "modified_at": "2019-04-04T07:50:50.485Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "personalien-tabelle",
-      "question": "kontaktperson-name-gesuchstellerin",
-      "sort": 10
     }
   },
   {
@@ -7386,19 +7282,6 @@
       "form": "6-dokumente",
       "question": "skizze-der-reklame-mit-farbangaben-dokument",
       "sort": 6
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "b2c86949-0c43-4452-99bf-1fe52bc319c9",
-    "fields": {
-      "created_at": "2019-04-04T08:39:39.937Z",
-      "modified_at": "2019-04-04T08:39:39.937Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "gebaudeeigentumerin",
-      "question": "kontaktperson-vorname-gebaeudeeigentuemerin",
-      "sort": 9
     }
   },
   {
@@ -10142,19 +10025,6 @@
       "form": "gewaesserschutz-bauten-im-grundwasser",
       "question": "mittlerer-grundwasserspiegel",
       "sort": 19
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "fd78439b-7464-42f3-830c-84c543fd92df",
-    "fields": {
-      "created_at": "2019-04-04T07:33:16.990Z",
-      "modified_at": "2019-04-04T07:33:16.990Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vertreterin-mit-vollmacht",
-      "question": "kontaktperson-name-vertreterin",
-      "sort": 11
     }
   },
   {
@@ -20793,19 +20663,19 @@
     "pk": "maschinen-und-anlagen-tabelle",
     "fields": {
       "created_at": "2019-04-09T07:25:41.960Z",
-      "modified_at": "2019-04-09T07:25:41.960Z",
+      "modified_at": "2019-05-20T07:58:40.596Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Maschinen & Anlagen\"}",
       "type": "table",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": null, "columnsToDisplay": [] },
       "data_source": null,
       "row_form": "maschinen-und-anlagen-tabelle",
       "sub_form": null,
@@ -21593,13 +21463,13 @@
     "pk": "name-gebaeudeeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:42:45.838Z",
-      "modified_at": "2019-05-03T08:41:29.341Z",
+      "modified_at": "2019-05-20T08:02:00.832Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-gebaeudeeigentuemerin-nein' == 'juristische-person-gebaeudeeigentuemerin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21618,13 +21488,13 @@
     "pk": "name-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:52:20.078Z",
-      "modified_at": "2019-05-03T09:28:25.816Z",
+      "modified_at": "2019-05-20T08:00:44.498Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-personalien-nein' == 'juristische-person-personalien'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21693,13 +21563,13 @@
     "pk": "name-grundeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:26:54.958Z",
-      "modified_at": "2019-05-03T09:06:08.798Z",
+      "modified_at": "2019-05-20T08:01:23.223Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-grundeigentuemerin-nein' == 'juristische-person-grundeigentuemerin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21893,13 +21763,13 @@
     "pk": "name-projektverfasserin",
     "fields": {
       "created_at": "2019-04-04T08:05:37.386Z",
-      "modified_at": "2019-05-03T09:30:43.456Z",
+      "modified_at": "2019-05-20T08:03:57.237Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-projektverfasserin-nein' == 'juristische-person-projektverfasserin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -21943,13 +21813,13 @@
     "pk": "name-vertreterin",
     "fields": {
       "created_at": "2019-04-04T07:43:17.677Z",
-      "modified_at": "2019-05-03T10:20:46.429Z",
+      "modified_at": "2019-05-20T07:55:38.621Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Name\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-vertreterin-nein' == 'juristische-person-vertreterin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -23343,7 +23213,7 @@
     "pk": "personalien-gebaudeeigentumerin",
     "fields": {
       "created_at": "2019-03-15T12:17:29.200Z",
-      "modified_at": "2019-05-03T14:58:22.189Z",
+      "modified_at": "2019-05-20T07:59:44.063Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Geb\\u00e4udeeigent\\u00fcmer/in\"}",
@@ -23355,7 +23225,13 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": {
+        "widgetOverride": null,
+        "columnsToDisplay": [
+          "name-gebaeudeeigentuemerin",
+          "vorname-gebaeudeeigentuemerin"
+        ]
+      },
       "data_source": null,
       "row_form": "gebaudeeigentumerin",
       "sub_form": null,
@@ -23368,7 +23244,7 @@
     "pk": "personalien-gesuchstellerin",
     "fields": {
       "created_at": "2019-03-25T10:14:57.271Z",
-      "modified_at": "2019-03-25T10:14:57.271Z",
+      "modified_at": "2019-05-20T07:59:26.487Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Gesuchsteller/in\"}",
@@ -23377,10 +23253,13 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "widgetOverride": null,
+        "columnsToDisplay": ["name-gesuchstellerin", "vorname-gesuchstellerin"]
+      },
       "data_source": null,
       "row_form": "personalien-tabelle",
       "sub_form": null,
@@ -23393,7 +23272,7 @@
     "pk": "personalien-grundeigentumerin",
     "fields": {
       "created_at": "2019-03-15T12:16:49.305Z",
-      "modified_at": "2019-05-03T14:58:13.305Z",
+      "modified_at": "2019-05-20T07:59:37.243Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Grundeigent\\u00fcmer/in\"}",
@@ -23405,7 +23284,13 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": {
+        "widgetOverride": null,
+        "columnsToDisplay": [
+          "name-grundeigentuemerin",
+          "vorname-grundeigentuemerin"
+        ]
+      },
       "data_source": null,
       "row_form": "grundeigentumerin",
       "sub_form": null,
@@ -23418,7 +23303,7 @@
     "pk": "personalien-projektverfasserin",
     "fields": {
       "created_at": "2019-03-15T12:15:48.393Z",
-      "modified_at": "2019-05-03T14:58:31.949Z",
+      "modified_at": "2019-05-20T07:59:50.015Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Projektverfasser/in\"}",
@@ -23430,7 +23315,13 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": {
+        "widgetOverride": null,
+        "columnsToDisplay": [
+          "name-projektverfasserin",
+          "vorname-projektverfasserin"
+        ]
+      },
       "data_source": null,
       "row_form": "projektverfasserin",
       "sub_form": null,
@@ -23468,7 +23359,7 @@
     "pk": "personalien-vertreterin-mit-vollmacht",
     "fields": {
       "created_at": "2019-03-15T09:31:48.851Z",
-      "modified_at": "2019-05-03T14:57:28.337Z",
+      "modified_at": "2019-05-20T07:57:25.631Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Personalien - Vertreter/in mit Vollmacht\"}",
@@ -23480,7 +23371,10 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": null },
+      "meta": {
+        "widgetOverride": null,
+        "columnsToDisplay": ["name-vertreterin", "vorname-vertreterin"]
+      },
       "data_source": null,
       "row_form": "vertreterin-mit-vollmacht",
       "sub_form": null,
@@ -28218,19 +28112,19 @@
     "pk": "vorname-gebaeudeeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:41:34.429Z",
-      "modified_at": "2019-04-04T08:41:34.429Z",
+      "modified_at": "2019-05-20T08:02:12.002Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!('juristische-person-gebaeudeeigentuemerin-nein' in 'juristische-person-gebaeudeeigentuemerin'|answer)",
+      "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_length": null },
-      "meta": {},
+      "meta": { "widgetOverride": null },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28243,13 +28137,13 @@
     "pk": "vorname-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-04T07:51:39.379Z",
-      "modified_at": "2019-05-03T09:28:19.360Z",
+      "modified_at": "2019-05-20T08:00:56.417Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-personalien-nein' == 'juristische-person-personalien'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -28318,13 +28212,13 @@
     "pk": "vorname-grundeigentuemerin",
     "fields": {
       "created_at": "2019-04-04T08:26:08.904Z",
-      "modified_at": "2019-05-03T09:05:55.918Z",
+      "modified_at": "2019-05-20T08:01:32.356Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-grundeigentuemerin-nein' == 'juristische-person-grundeigentuemerin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -28368,13 +28262,13 @@
     "pk": "vorname-projektverfasserin",
     "fields": {
       "created_at": "2019-04-04T08:04:44.181Z",
-      "modified_at": "2019-05-03T09:30:23.162Z",
+      "modified_at": "2019-05-20T08:04:10.345Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-projektverfasserin-nein' == 'juristische-person-projektverfasserin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -28418,13 +28312,13 @@
     "pk": "vorname-vertreterin",
     "fields": {
       "created_at": "2019-04-04T07:42:30.569Z",
-      "modified_at": "2019-05-03T10:20:37.453Z",
+      "modified_at": "2019-05-20T07:55:47.523Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Vorname\"}",
       "type": "text",
       "is_required": "true",
-      "is_hidden": "!(\n  'juristische-person-vertreterin-nein' == 'juristische-person-vertreterin'|answer\n)",
+      "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
