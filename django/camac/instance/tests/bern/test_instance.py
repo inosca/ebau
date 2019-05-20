@@ -125,17 +125,14 @@ def test_instance_search(admin_client, admin_user, instance, form_field, search)
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
-        # NOTE: Problem is that queryset is limited to instances with activations...
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        # TODO: I think the schwyz setup is broken. 404 is returned because of the queryset is empty
-        # and not because someone is not allowed to destroy an instance. DRF returns 403 if the
-        # permission has been denied.
         ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Support", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+        # Support has access to dossier, and can also delete in this test because the instance
+        # is owned by the same user
+        ("Support", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
     ],
 )
-@pytest.mark.skip(reason="in a rush")
 def test_instance_destroy(
     admin_client, role, admin_user, instance, status_code, location_factory
 ):
