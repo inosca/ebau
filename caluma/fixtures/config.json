@@ -1197,7 +1197,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gwr-egid",
-      "sort": 4
+      "sort": 3
     }
   },
   {
@@ -1626,7 +1626,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 16
+      "sort": 15
     }
   },
   {
@@ -2978,7 +2978,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "parzellennummer",
-      "sort": 7
+      "sort": 6
     }
   },
   {
@@ -3134,7 +3134,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 14
+      "sort": 13
     }
   },
   {
@@ -3589,7 +3589,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "anfrage-zur-vorabklaerung",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -5032,7 +5032,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "be-gid",
-      "sort": 5
+      "sort": 4
     }
   },
   {
@@ -5370,7 +5370,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 15
+      "sort": 14
     }
   },
   {
@@ -5383,7 +5383,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "e-grid-nr",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -5617,7 +5617,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 17
+      "sort": 16
     }
   },
   {
@@ -5708,7 +5708,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 8
+      "sort": 7
     }
   },
   {
@@ -5981,7 +5981,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "liegenschaftsnummer",
-      "sort": 6
+      "sort": 5
     }
   },
   {
@@ -6033,7 +6033,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 9
+      "sort": 8
     }
   },
   {
@@ -7424,7 +7424,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 12
+      "sort": 11
     }
   },
   {
@@ -7815,6 +7815,19 @@
       "form": "3-grundstueck",
       "question": "bodenschutz",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "c384c10f-fe47-41a5-b245-2b96d108a615",
+    "fields": {
+      "created_at": "2019-05-17T13:02:27.803Z",
+      "modified_at": "2019-05-17T13:02:27.811Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "6-dokumente",
+      "sort": 4
     }
   },
   {
@@ -9478,7 +9491,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 13
+      "sort": 12
     }
   },
   {
@@ -9764,7 +9777,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 11
+      "sort": 9
     }
   },
   {
@@ -17626,7 +17639,7 @@
     "pk": "grundstuecksentwaesserungsplan-dokument",
     "fields": {
       "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
+      "modified_at": "2019-05-17T14:30:03.169Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Grundst\\u00fccksentw\\u00e4sserungsplan SN 592 000\"}",
@@ -18476,7 +18489,7 @@
     "pk": "inanspruchnahme-boden-dokument",
     "fields": {
       "created_at": "2019-05-13T11:24:20.401Z",
-      "modified_at": "2019-05-13T14:02:43.125Z",
+      "modified_at": "2019-05-17T14:33:41.539Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Inanspruchnahme Boden\"}",
@@ -24084,7 +24097,7 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n  \\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n  \\n[QSS-Logik](/assets/downloads/eBau_QSS%20Stufen_Neu.pdf)\"}",
+      "info_text": "{\"de\": \"Geb\\u00e4ude und Anlagen sowie bauliche oder nutzungsbezogene \\u00c4nderungen an allen Bauten und Anlagen werden in eine der vier Qualit\\u00e4tssicherungsstufen (QSS 1 bis 4) eingeteilt. Ab QSS 2 muss der QS-Verantwortliche Brandschutz \\u00fcber eine Ausbildung verf\\u00fcgen, die von der VKF anerkannt ist.\\n  \\n[Infoplattform f\\u00fcr Brandschutz](https://heureka.gvb.ch/de/startseite/)\\n  \\n[QSS-Logik ](http://camac-ng.local/public/download/eBau_QSS%20Stufen_Neu.pdf)\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": "cf-field/input/powerselect" },
@@ -25275,7 +25288,7 @@
     "pk": "sicherungsmassnahme-dokument",
     "fields": {
       "created_at": "2019-05-13T11:05:15.835Z",
-      "modified_at": "2019-05-16T07:34:03.597Z",
+      "modified_at": "2019-05-17T14:30:55.274Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Sicherungsmassnahme\"}",
@@ -33051,8 +33064,8 @@
     "model": "form.questionoption",
     "pk": "grundstuecksentwaesserungsplan-dokument.grundstuecksentwaesserungsplan-dokument-ja",
     "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
+      "created_at": "2019-05-17T14:30:03.176Z",
+      "modified_at": "2019-05-17T14:30:03.176Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "grundstuecksentwaesserungsplan-dokument",
@@ -33454,8 +33467,8 @@
     "model": "form.questionoption",
     "pk": "inanspruchnahme-boden-dokument.inanspruchnahme-boden-dokument-ja",
     "fields": {
-      "created_at": "2019-05-13T10:41:13.495Z",
-      "modified_at": "2019-05-16T07:16:52.013Z",
+      "created_at": "2019-05-17T14:33:41.542Z",
+      "modified_at": "2019-05-17T14:33:41.542Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "inanspruchnahme-boden-dokument",
@@ -37731,8 +37744,8 @@
     "model": "form.questionoption",
     "pk": "wassergefaehrdende-explosive-stoffe.wassergefaehrdende-explosive-stoffe-ja",
     "fields": {
-      "created_at": "2019-05-18T14:01:57.143Z",
-      "modified_at": "2019-05-18T14:01:57.143Z",
+      "created_at": "2019-05-10T16:46:00.276Z",
+      "modified_at": "2019-05-10T16:46:00.276Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "wassergefaehrdende-explosive-stoffe",
@@ -37744,8 +37757,8 @@
     "model": "form.questionoption",
     "pk": "wassergefaehrdende-explosive-stoffe.wassergefaehrdende-explosive-stoffe-nein",
     "fields": {
-      "created_at": "2019-05-18T14:01:57.140Z",
-      "modified_at": "2019-05-18T14:01:57.140Z",
+      "created_at": "2019-05-10T16:46:01.191Z",
+      "modified_at": "2019-05-10T16:46:01.191Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "wassergefaehrdende-explosive-stoffe",
@@ -47378,7 +47391,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-ja",
     "fields": {
       "created_at": "2019-04-29T08:57:03.027Z",
-      "modified_at": "2019-05-18T14:01:56.996Z",
+      "modified_at": "2019-05-09T10:52:26.904Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Ja\"}",
@@ -47391,7 +47404,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-nein",
     "fields": {
       "created_at": "2019-04-29T08:57:03.035Z",
-      "modified_at": "2019-05-18T14:01:56.997Z",
+      "modified_at": "2019-05-09T10:52:26.909Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
