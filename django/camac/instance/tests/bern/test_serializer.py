@@ -103,7 +103,7 @@ def test_create_instance(
 
     case_id = "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU="
     create_resp = admin_client.post(
-        reverse("bern-instance-list"),
+        reverse("instance-list"),
         {
             "data": {
                 "type": "instances",
