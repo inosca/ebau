@@ -7,216 +7,6 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots['test_create_instance 1'] = [
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                    query ($case_id: ID!) {
-                      node(id:$case_id) {
-                        ... on Case {
-                          id
-                          meta
-                          workflow {
-                            id
-                          }
-                          workItems {
-                            edges {
-                              node {
-                                status
-                                task {
-                                  slug
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                ''',
-                'variables': {
-                    'case_id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU='
-                }
-            }
-        }
-    ),
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                       mutation save_instance_id ($input: SaveCaseInput!) {
-                         saveCase (input: $input) {
-                           case {
-                             id
-                             meta
-                           }
-                         }
-                       }
-                ''',
-                'variables': {
-                    'input': {
-                        'id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=',
-                        'meta': '{"camac-instance-id": "XXX"}',
-                        'workflow': 'V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0'
-                    }
-                }
-            }
-        }
-    )
-]
-
-snapshots['test_create_instance[work_item_resp0] 1'] = [
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                    query ($case_id: ID!) {
-                      node(id:$case_id) {
-                        ... on Case {
-                          id
-                          meta
-                          workflow {
-                            id
-                          }
-                          workItems {
-                            edges {
-                              node {
-                                status
-                                task {
-                                  slug
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                ''',
-                'variables': {
-                    'case_id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU='
-                }
-            }
-        }
-    ),
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                       mutation save_instance_id ($input: SaveCaseInput!) {
-                         saveCase (input: $input) {
-                           case {
-                             id
-                             meta
-                           }
-                         }
-                       }
-                ''',
-                'variables': {
-                    'input': {
-                        'id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=',
-                        'meta': '{"camac-instance-id": "XXX"}',
-                        'workflow': 'V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0'
-                    }
-                }
-            }
-        }
-    )
-]
-
-snapshots['test_create_instance[work_item_resp0-200] 1'] = [
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                    query ($case_id: ID!) {
-                      node(id:$case_id) {
-                        ... on Case {
-                          id
-                          meta
-                          workflow {
-                            id
-                          }
-                          workItems {
-                            edges {
-                              node {
-                                status
-                                task {
-                                  slug
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                ''',
-                'variables': {
-                    'case_id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU='
-                }
-            }
-        }
-    ),
-    (
-        'http://caluma:8000/graphql/',
-        (
-        ),
-        {
-            'headers': {
-                'Authorization': b''
-            },
-            'json': {
-                'query': '''
-                       mutation save_instance_id ($input: SaveCaseInput!) {
-                         saveCase (input: $input) {
-                           case {
-                             id
-                             meta
-                           }
-                         }
-                       }
-                ''',
-                'variables': {
-                    'input': {
-                        'id': 'Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=',
-                        'meta': '{"camac-instance-id": "XXX"}',
-                        'workflow': 'V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0'
-                    }
-                }
-            }
-        }
-    )
-]
-
 snapshots['test_create_instance[work_item_resp0-201] 1'] = [
     (
         'http://caluma:8000/graphql/',
@@ -242,6 +32,55 @@ snapshots['test_create_instance[work_item_resp0-201] 1'] = [
                                 status
                                 task {
                                   slug
+                                }
+                              }
+                            }
+                          }
+                          document {
+                            id
+                            form {
+                              slug
+                            }
+                            answers(questions: ["gemeinde", "3-grundstueck"]) {
+                              edges {
+                                node {
+                                  id
+                                  question {
+                                    slug
+                                  }
+                                  ... on StringAnswer {
+                                    stringValue: value
+                                  }
+                                  ...on FormAnswer {
+                                    formValue: value {
+                                      id
+                                      answers(question: "allgemeine-angaben") {
+                                        edges {
+                                          node {
+                                            id
+                                            ...on FormAnswer {
+                                              formValue: value {
+                                                id
+                                                answers(question: "gemeinde") {
+                                                  edges {
+                                                    node {
+                                                      id
+                                                      ... on StringAnswer {
+                                                        stringValue: value
+                                                      }
+                                                      question {
+                                                        slug
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
                                 }
                               }
                             }

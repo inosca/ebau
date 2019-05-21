@@ -9,12 +9,17 @@ from lxml import etree
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
 from .data import django_file
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Canton", 1), ("Service", 1), ("Municipality", 1)],
+    [("Applicant", 0), ("Kanton", 1), ("Fachstelle", 1), ("Gemeinde", 1)],
 )
 def test_template_list(admin_client, template, size):
     url = reverse("template-list")
@@ -28,7 +33,7 @@ def test_template_list(admin_client, template, size):
         assert json["data"][0]["id"] == str(template.pk)
 
 
-@pytest.mark.parametrize("role__name", [("Canton")])
+@pytest.mark.parametrize("role__name", [("Kanton")])
 def test_template_detail(admin_client, template):
     url = reverse("template-detail", args=[template.pk])
 
@@ -39,10 +44,10 @@ def test_template_detail(admin_client, template):
 @pytest.mark.parametrize(
     "role__name,status_code,template_path",
     [
-        ("Canton", status.HTTP_201_CREATED, "template.docx"),
-        ("Canton", status.HTTP_400_BAD_REQUEST, "multiple-pages.pdf"),
-        ("Municipality", status.HTTP_201_CREATED, "template.docx"),
-        ("Service", status.HTTP_201_CREATED, "template.docx"),
+        ("Kanton", status.HTTP_201_CREATED, "template.docx"),
+        ("Kanton", status.HTTP_400_BAD_REQUEST, "multiple-pages.pdf"),
+        ("Gemeinde", status.HTTP_201_CREATED, "template.docx"),
+        ("Fachstelle", status.HTTP_201_CREATED, "template.docx"),
         ("Applicant", status.HTTP_403_FORBIDDEN, "template.docx"),
     ],
 )
@@ -58,9 +63,9 @@ def test_template_create(admin_client, status_code, group, template_path):
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
-        ("Canton", status.HTTP_200_OK),
-        ("Municipality", status.HTTP_200_OK),
-        ("Service", status.HTTP_200_OK),
+        ("Kanton", status.HTTP_200_OK),
+        ("Gemeinde", status.HTTP_200_OK),
+        ("Fachstelle", status.HTTP_200_OK),
         ("Applicant", status.HTTP_404_NOT_FOUND),
     ],
 )
@@ -75,9 +80,9 @@ def test_template_update(admin_client, template, status_code):
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
-        ("Canton", status.HTTP_204_NO_CONTENT),
-        ("Municipality", status.HTTP_204_NO_CONTENT),
-        ("Service", status.HTTP_204_NO_CONTENT),
+        ("Kanton", status.HTTP_204_NO_CONTENT),
+        ("Gemeinde", status.HTTP_204_NO_CONTENT),
+        ("Fachstelle", status.HTTP_204_NO_CONTENT),
         ("Applicant", status.HTTP_404_NOT_FOUND),
     ],
 )
@@ -93,21 +98,21 @@ def test_template_destroy(admin_client, template, status_code):
     "role__name,template__path,instance__user,status_code,to_type",
     [
         (
-            "Canton",
+            "Kanton",
             django_file("template.docx"),
             LazyFixture("user"),
             status.HTTP_200_OK,
             "docx",
         ),
         (
-            "Canton",
+            "Kanton",
             django_file("template.docx"),
             LazyFixture("user"),
             status.HTTP_200_OK,
             "pdf",
         ),
         (
-            "Canton",
+            "Kanton",
             django_file("template.docx"),
             LazyFixture("user"),
             status.HTTP_400_BAD_REQUEST,
@@ -115,7 +120,7 @@ def test_template_destroy(admin_client, template, status_code):
         ),
         # service is not assigned to instance so not allowed to build document
         (
-            "Service",
+            "Fachstelle",
             django_file("template.docx"),
             LazyFixture("user"),
             status.HTTP_400_BAD_REQUEST,
