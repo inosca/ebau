@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
@@ -146,8 +148,36 @@ def test_instance_destroy(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-@pytest.mark.skip(reason="in a rush")
-def test_instance_submit(admin_client, role, instance, instance_states, admin_user):
+def test_instance_submit(
+    requests_mock, admin_client, role, instance, instance_states, service, admin_user
+):
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        text=json.dumps(
+            {
+                "data": {
+                    "node": {
+                        "workItems": {
+                            "edges": [
+                                {
+                                    "node": {
+                                        "task": {"slug": "fill-form"},
+                                        "status": "COMPLETED",
+                                    }
+                                }
+                            ]
+                        },
+                        "document": {
+                            "form": {"slug": "vorabklaerung-einfach"},
+                            "answers": {
+                                "edges": [{"node": {"stringValue": service.pk}}]
+                            },
+                        },
+                    }
+                }
+            }
+        ),
+    )
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
     url = reverse("bern-instance-detail", args=[instance.pk])
     data = {
