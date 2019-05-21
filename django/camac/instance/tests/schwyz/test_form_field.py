@@ -4,6 +4,10 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.instance import models
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
@@ -155,7 +159,7 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
     "role__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])

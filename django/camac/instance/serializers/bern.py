@@ -235,10 +235,10 @@ class BernInstanceSerializer(InstanceSerializer):
                 service_id = first_answer["formValue"]["answers"]["edges"][0]["node"][
                     "formValue"
                 ]["answers"]["edges"][0]["node"]["stringValue"]
-        except KeyError:
+        except KeyError:  # pragma: no cover
             pass
 
-        if not service_id:
+        if not service_id:  # pragma: no cover
             request_logger.error("Municipality not found")
             service_id = 2  # default to Burgdorf
 

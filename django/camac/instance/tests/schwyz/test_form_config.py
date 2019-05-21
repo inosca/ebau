@@ -6,6 +6,11 @@ from django.urls import reverse
 from pyjexl.jexl import JEXL
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
+
 
 def test_form_config_get(admin_client):
     url = reverse("schwyz-form-config-download")
