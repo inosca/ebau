@@ -148,8 +148,25 @@ def test_instance_destroy(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
+@pytest.mark.parametrize(
+    "work_item_status,new_instance_state,response_status",
+    [
+        ("COMPLETED", 20000, status.HTTP_200_OK),
+        ("READY", 20000, status.HTTP_400_BAD_REQUEST),
+        ("COMPLETED", 1, status.HTTP_400_BAD_REQUEST),
+    ],
+)
 def test_instance_submit(
-    requests_mock, admin_client, role, instance, instance_states, service, admin_user
+    requests_mock,
+    admin_client,
+    role,
+    instance,
+    instance_states,
+    service,
+    admin_user,
+    work_item_status,
+    response_status,
+    new_instance_state,
 ):
     requests_mock.post(
         "http://caluma:8000/graphql/",
@@ -157,12 +174,13 @@ def test_instance_submit(
             {
                 "data": {
                     "node": {
+                        "meta": {},
                         "workItems": {
                             "edges": [
                                 {
                                     "node": {
                                         "task": {"slug": "fill-form"},
-                                        "status": "COMPLETED",
+                                        "status": work_item_status,
                                     }
                                 }
                             ]
@@ -185,9 +203,11 @@ def test_instance_submit(
             "type": "instances",
             "id": instance.pk,
             "relationships": {
-                "instance-state": {"data": {"type": "instance-states", "id": 20000}}
+                "instance-state": {
+                    "data": {"type": "instance-states", "id": new_instance_state}
+                }
             },
         }
     }
     response = admin_client.patch(url, data)
-    assert response.status_code == status.HTTP_200_OK, response.json()
+    assert response.status_code == response_status
