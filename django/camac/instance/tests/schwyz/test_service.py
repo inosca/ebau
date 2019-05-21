@@ -2,10 +2,15 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
+
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
+    [("Applicant", 0), ("Fachstelle", 1), ("Kanton", 1), ("Gemeinde", 1)],
 )
 def test_service_list(admin_client, service, size):
     url = reverse("service-list")

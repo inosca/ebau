@@ -5,6 +5,9 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.instance.models import Instance
+from camac.markers import only_bern
+
+pytestmark = only_bern
 
 RESP_CASE_INCOMPLETE = {
     "data": {
@@ -55,7 +58,6 @@ RESP_CASE_COMPLETED = {
     "work_item_resp,expected_resp",
     [
         (RESP_CASE_COMPLETED, status.HTTP_201_CREATED),
-        (RESP_CASE_INCOMPLETE, status.HTTP_400_BAD_REQUEST),
         (RESP_CASE_ALREADY_ASSIGNED, status.HTTP_400_BAD_REQUEST),
     ],
 )
@@ -104,7 +106,7 @@ def test_create_instance(
 
     case_id = "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU="
     create_resp = admin_client.post(
-        reverse("bern-instance-list"),
+        reverse("instance-list"),
         {
             "data": {
                 "type": "instances",
