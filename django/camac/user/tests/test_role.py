@@ -1,6 +1,9 @@
 import pytest
+from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
+
+from camac.markers import only_bern
 
 
 def test_role_list(admin_client, role, role_factory):
@@ -15,22 +18,9 @@ def test_role_list(admin_client, role, role_factory):
     assert json["data"][0]["id"] == str(role.pk)
 
 
+@only_bern
 @pytest.mark.parametrize(
-    "role__name,permission",
-    [
-        # TODO: Schwyz does not have an extra applicant permission. Instead if the authenticated
-        # user is owner of an instance he is considered the applicant.
-        #
-        # Bern on the other hand has an applicant permission. In Bern to be considered an applicant
-        # you need to have entry in the APPLICANT database table.
-        #
-        # Since tests run with APPLICANTION_NAME demo (see APPLICATIONS in settings.py) we can only
-        # test the bern case here. This should be fixed.
-        ("Applicant", "applicant"),
-        ("Canton", "canton"),
-        ("Municipality", "municipality"),
-        ("Service", "service"),
-    ],
+    "role_t__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
 )
 def test_role_detail(admin_client, role, permission):
     url = reverse("role-detail", args=[role.pk])

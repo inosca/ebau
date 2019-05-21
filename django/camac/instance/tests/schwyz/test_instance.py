@@ -10,6 +10,10 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.mark.kt_schwyz
@@ -23,9 +27,9 @@ from camac.instance import serializers
         ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
         ("Reader", LazyFixture("user"), 9, set()),
-        ("Canton", LazyFixture("user"), 9, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
-        ("Service", LazyFixture("user"), 9, {"form", "document"}),
+        ("Kanton", LazyFixture("user"), 9, {"form", "document"}),
+        ("Gemeinde", LazyFixture("user"), 9, {"form", "document"}),
+        ("Fachstelle", LazyFixture("user"), 9, {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -38,7 +42,7 @@ def test_instance_list(
     editable,
     group_location_factory,
 ):
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
     group_location_factory(group=group)
@@ -68,7 +72,7 @@ def test_instance_list(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_detail(admin_client, instance):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -88,7 +92,7 @@ def test_instance_detail(admin_client, instance):
     ],
 )
 def test_instance_search(admin_client, instance, form_field, search):
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     response = admin_client.get(url, {"search": search})
     assert response.status_code == status.HTTP_200_OK
@@ -109,7 +113,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         form_field_factory(name=value, value=value, instance=instance)
         filters["fields[" + value + "]"] = value
 
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     response = admin_client.get(url, filters)
     assert response.status_code == status.HTTP_200_OK
@@ -127,16 +131,16 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         # but might update FormField etc.
         ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
         ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_update(
     admin_client, instance, location_factory, form_factory, status_code
 ):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     data = {
         "data": {
@@ -160,7 +164,7 @@ def test_instance_update(
     [("Applicant", LazyFixture("admin_user"), "new")],
 )
 def test_instance_update_location(admin_client, instance, location_factory):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     new_location = location_factory()
 
@@ -188,14 +192,14 @@ def test_instance_update_location(admin_client, instance, location_factory):
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
         ("Reader", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
 def test_instance_destroy(admin_client, instance, status_code, location_factory):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     """
     Add InstanceLocation relationship to make sure it also will be deleted
@@ -219,7 +223,7 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
     [("new", None), ("new", LazyFixture("location"))],
 )
 def test_instance_create(admin_client, admin_user, form, instance_state, instance):
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     location_data = (
         {"type": "locations", "id": instance.location.pk} if instance.location else None
@@ -241,7 +245,7 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
 
     json = response.json()
 
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
     response = admin_client.post(url, data=json)
     assert response.status_code == status.HTTP_201_CREATED
 
@@ -299,12 +303,12 @@ def test_instance_submit(
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
-        role = role_factory(name="Municipality")
+        role = role_factory(name="Gemeinde")
         group = group_factory(role=role)
         group_location_factory(group=group, location=instance.location)
 
     instance_state_factory(name="subm")
-    url = reverse("schwyz-instance-submit", args=[instance.pk])
+    url = reverse("instance-submit", args=[instance.pk])
     add_field = functools.partial(form_field_factory, instance=instance)
 
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)"])
@@ -324,7 +328,7 @@ def test_instance_submit(
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
 
     response = admin_client.post(url)
-    assert response.status_code == status_code
+    assert response.status_code == status_code, response.content
 
     if status_code == status.HTTP_200_OK:
         json = response.json()
@@ -343,11 +347,11 @@ def test_instance_submit(
         ).exists()
 
 
-@pytest.mark.parametrize("role__name", ["Canton"])
+@pytest.mark.parametrize("role__name", ["Kanton"])
 def test_instance_export(
     admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
 ):
-    url = reverse("schwyz-instance-export")
+    url = reverse("instance-export")
     instances = instance_factory.create_batch(2, user=user)
     instance = instances[0]
 
@@ -386,28 +390,28 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
     [
         (
-            "Municipality",
+            "Gemeinde",
             LazyFixture("admin_user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             False,
@@ -418,7 +422,7 @@ def test_instance_generate_identifier(db, instance, instance_factory):
 def test_instance_detail_publication(
     admin_client, instance, publication_entry, status_code
 ):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status_code
