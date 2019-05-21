@@ -59,7 +59,7 @@ def admin_client(db, admin_user):
 
 
 @pytest.fixture
-def instance_states(db, instance_state_factory):
+def bern_instance_states(db, instance_state_factory):
     new, _ = instance_models.InstanceState.objects.get_or_create(pk=1)
     new.trans.create(name="Neu", language="de")
     subm, _ = instance_models.InstanceState.objects.get_or_create(pk=20000)
