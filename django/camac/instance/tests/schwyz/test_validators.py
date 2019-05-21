@@ -2,6 +2,10 @@ import pytest
 from rest_framework import exceptions
 
 from camac.instance import validators
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.fixture

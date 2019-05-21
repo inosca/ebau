@@ -2,16 +2,21 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
+
 
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Canton", 1), ("Municipality", 1), ("Service", 1)],
+    [("Applicant", 0), ("Kanton", 1), ("Gemeinde", 1), ("Fachstelle", 1)],
 )
 def test_issue_template_set_list(
     admin_client, issue_template_set_issue_templates, activation, size
 ):
     itsit = issue_template_set_issue_templates
-    url = reverse("schwyz-issue-template-set-list")
+    url = reverse("issue-template-set-list")
 
     response = admin_client.get(url, data={"include": "issue-templates"})
     assert response.status_code == status.HTTP_200_OK
@@ -27,15 +32,15 @@ def test_issue_template_set_list(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", status.HTTP_200_OK),
-        ("Canton", status.HTTP_200_OK),
-        ("Service", status.HTTP_200_OK),
+        ("Gemeinde", status.HTTP_200_OK),
+        ("Kanton", status.HTTP_200_OK),
+        ("Fachstelle", status.HTTP_200_OK),
     ],
 )
 def test_issue_template_set_update(
     admin_client, issue_template_set, activation, status_code
 ):
-    url = reverse("schwyz-issue-template-set-detail", args=[issue_template_set.pk])
+    url = reverse("issue-template-set-detail", args=[issue_template_set.pk])
     response = admin_client.patch(url)
     assert response.status_code == status_code
 
@@ -44,15 +49,15 @@ def test_issue_template_set_update(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Canton", status.HTTP_201_CREATED),
-        ("Service", status.HTTP_201_CREATED),
-        ("Municipality", status.HTTP_201_CREATED),
+        ("Kanton", status.HTTP_201_CREATED),
+        ("Fachstelle", status.HTTP_201_CREATED),
+        ("Gemeinde", status.HTTP_201_CREATED),
     ],
 )
 def test_issue_template_set_create(
     admin_client, issue_template, group, service, activation, status_code
 ):
-    url = reverse("schwyz-issue-template-set-list")
+    url = reverse("issue-template-set-list")
 
     data = {
         "data": {
@@ -81,15 +86,15 @@ def test_issue_template_set_create(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", status.HTTP_204_NO_CONTENT),
-        ("Canton", status.HTTP_204_NO_CONTENT),
-        ("Service", status.HTTP_204_NO_CONTENT),
+        ("Gemeinde", status.HTTP_204_NO_CONTENT),
+        ("Kanton", status.HTTP_204_NO_CONTENT),
+        ("Fachstelle", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_issue_template_set_destroy(
     admin_client, issue_template_set, activation, status_code
 ):
-    url = reverse("schwyz-issue-template-set-detail", args=[issue_template_set.pk])
+    url = reverse("issue-template-set-detail", args=[issue_template_set.pk])
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
@@ -99,18 +104,16 @@ def test_issue_template_set_destroy(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Municipality", status.HTTP_204_NO_CONTENT),
-        ("Canton", status.HTTP_204_NO_CONTENT),
-        ("Service", status.HTTP_204_NO_CONTENT),
+        ("Gemeinde", status.HTTP_204_NO_CONTENT),
+        ("Kanton", status.HTTP_204_NO_CONTENT),
+        ("Fachstelle", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_issue_template_set_apply(
     admin_client, issue_template_set_issue_templates, instance, activation, status_code
 ):
     itsit = issue_template_set_issue_templates
-    set_url = reverse(
-        "schwyz-issue-template-set-apply", args=[itsit.issuetemplateset.pk]
-    )
+    set_url = reverse("issue-template-set-apply", args=[itsit.issuetemplateset.pk])
 
     data = {
         "data": {
@@ -126,7 +129,7 @@ def test_issue_template_set_apply(
     assert set_response.status_code == status_code
 
     if status_code == status.HTTP_204_NO_CONTENT:
-        response = admin_client.get(reverse("schwyz-issue-list"))
+        response = admin_client.get(reverse("issue-list"))
         assert response.status_code == status.HTTP_200_OK
 
         json = response.json()
