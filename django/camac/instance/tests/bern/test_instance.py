@@ -161,7 +161,7 @@ def test_instance_submit(
     admin_client,
     role,
     instance,
-    instance_states,
+    bern_instance_states,
     service,
     admin_user,
     work_item_status,
