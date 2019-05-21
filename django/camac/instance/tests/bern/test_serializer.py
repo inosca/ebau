@@ -55,7 +55,6 @@ RESP_CASE_COMPLETED = {
     "work_item_resp,expected_resp",
     [
         (RESP_CASE_COMPLETED, status.HTTP_201_CREATED),
-        (RESP_CASE_INCOMPLETE, status.HTTP_400_BAD_REQUEST),
         (RESP_CASE_ALREADY_ASSIGNED, status.HTTP_400_BAD_REQUEST),
     ],
 )
