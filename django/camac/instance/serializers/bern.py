@@ -37,7 +37,7 @@ class BernInstanceSerializer(InstanceSerializer):
     caluma_case_id = serializers.CharField(required=False)
 
     def validate_instance_state(self, value):
-        if not self.instance:
+        if not self.instance:  # pragma: no cover
             request_logger.info("Creating new instance, overriding %s" % value)
             return models.InstanceState.objects.get(pk=INSTANCE_STATE_NEW)
         return value
@@ -144,7 +144,7 @@ class BernInstanceSerializer(InstanceSerializer):
 
         if not self._is_submit(data):
             case_meta = data["caluma_case_data"]["meta"]
-            if "camac-instance-id" in case_meta:
+            if "camac-instance-id" in case_meta:  # pragma: no cover
                 # Already linked. this should not be, as we just
                 # created a new Camac instance for a caluma case that
                 # has already an instance assigned
@@ -165,7 +165,7 @@ class BernInstanceSerializer(InstanceSerializer):
 
         return data
 
-    def create(self, validated_data):
+    def create(self, validated_data):  # pragma: no cover
         case_id = validated_data.pop("caluma_case_id")
         case_data = validated_data.pop("caluma_case_data")
         case_meta = case_data["meta"]
@@ -215,53 +215,38 @@ class BernInstanceSerializer(InstanceSerializer):
     def update(self, instance, validated_data):
         request_logger.info("Updating instance %s" % instance.pk)
 
-        if self._is_submit(validated_data):
-            validated_data["modification_date"] = timezone.now()
-            self.instance.instance_state = models.InstanceState.objects.get(
-                pk=INSTANCE_STATE_SUBMITTED
-            )
-            form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
-
-            service_id = None
-            try:
-                if form == "vorabklaerung-einfach":
-                    service_id = int(
-                        validated_data.get("caluma_case_data")["document"]["answers"][
-                            "edges"
-                        ][0]["node"]["stringValue"]
-                    )
-                else:
-                    # TODO It's probably clear that this is not ideal ^_^
-                    service_id = validated_data.get("caluma_case_data")["document"][
-                        "answers"
-                    ]["edges"][0]["node"]["formValue"]["answers"]["edges"][0]["node"][
-                        "formValue"
-                    ][
-                        "answers"
-                    ][
-                        "edges"
-                    ][
-                        0
-                    ][
-                        "node"
-                    ][
-                        "stringValue"
-                    ]
-            except KeyError:
-                pass
-
-            if not service_id:
-                request_logger.error("Municipality not found")
-                service_id = 2  # default to Burgdorf
-
-            core_models.InstanceService.objects.create(
-                instance=self.instance, service_id=service_id, active=1
-            )
-
-            self.instance.save()
-        else:
-            # TODO correct?
+        if not self._is_submit(validated_data):
             raise ValidationError(f"Updating cases is only allowed for submitting")
+
+        validated_data["modification_date"] = timezone.now()
+        self.instance.instance_state = models.InstanceState.objects.get(
+            pk=INSTANCE_STATE_SUBMITTED
+        )
+        form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
+        first_answer = validated_data.get("caluma_case_data")["document"]["answers"][
+            "edges"
+        ][0]["node"]
+
+        service_id = None
+        try:
+            if form == "vorabklaerung-einfach":
+                service_id = int(first_answer["stringValue"])
+            else:  # pragma: no cover
+                service_id = first_answer["formValue"]["answers"]["edges"][0]["node"][
+                    "formValue"
+                ]["answers"]["edges"][0]["node"]["stringValue"]
+        except KeyError:
+            pass
+
+        if not service_id:
+            request_logger.error("Municipality not found")
+            service_id = 2  # default to Burgdorf
+
+        core_models.InstanceService.objects.create(
+            instance=self.instance, service_id=service_id, active=1
+        )
+
+        self.instance.save()
 
         return instance
 
