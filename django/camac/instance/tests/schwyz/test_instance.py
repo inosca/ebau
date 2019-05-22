@@ -125,7 +125,7 @@ def do_test_instance_list(
     assert len(json["included"]) == len(included) - 1
 
 
-@pytest.mark.kt_schwyz
+@only_schwyz
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -179,6 +179,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
     assert len(json["data"]) == 1
 
 
+@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__identifier", [("new", "00-00-000")]
 )
@@ -188,10 +189,10 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         # applicant/reader can't update their own Instance,
         # but might update FormField etc.
         ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
-        ("Lesezugriff", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
@@ -217,6 +218,7 @@ def test_instance_update(
     assert response.status_code == status_code
 
 
+@only_demo
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name",
     [("Applicant", LazyFixture("admin_user"), "new")],
@@ -244,15 +246,16 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ).exists()
 
 
+@only_demo
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Lesezugriff", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Reader", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
+        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Municipality", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
         ("Unknown", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
     ],
 )
@@ -276,6 +279,7 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
         assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
 
 
+@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__location",
     [("new", None), ("new", LazyFixture("location"))],
@@ -362,7 +366,7 @@ def test_instance_submit(
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
-        role = role_factory(name="Gemeinde")
+        role = role_factory(name="Municipality")
         group = group_factory(role=role)
         group_location_factory(group=group, location=instance.location)
 
@@ -379,6 +383,7 @@ def test_instance_submit(
     add_field(name="tiefe-der-bohrung-lte", value="Test")
     add_field(name="durchmesser-der-bohrung", value=9)
     add_field(name="durchmesser-der-bohrung-lt", value="Test")
+    add_field(name="bezeichnung", value="Bezeichnung")
     add_field(name="bewilligung-bohrung", value="Ja")
     add_field(name="bohrungsdaten", value="Test")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen", value="Ja")
@@ -406,6 +411,7 @@ def test_instance_submit(
         ).exists()
 
 
+@only_schwyz
 @pytest.mark.parametrize("role__name", ["Kanton"])
 def test_instance_export(
     admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
@@ -444,6 +450,7 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     assert identifier == "11-17-011"
 
 
+@only_schwyz
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
