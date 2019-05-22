@@ -90,6 +90,7 @@ APPLICATIONS = {
             "Applicant": "applicant",
             "Municipality": "municipality",
             "Service": "service",
+            "Reader": "reader",
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},

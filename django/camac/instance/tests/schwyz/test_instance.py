@@ -10,13 +10,11 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
-from camac.markers import only_schwyz
+from camac.markers import only_demo, only_schwyz
+
 
 # module-level skip if we're not testing Schwyz variant
-pytestmark = only_schwyz
-
-
-@pytest.mark.kt_schwyz
+@only_schwyz
 @pytest.mark.parametrize(
     "instance_state__name,instance__creation_date",
     [("new", "2018-04-17T09:31:56+02:00")],
@@ -32,7 +30,67 @@ pytestmark = only_schwyz
         ("Fachstelle", LazyFixture("user"), 9, {"form", "document"}),
     ],
 )
-def test_instance_list(
+def test_instance_list_sz(
+    admin_client,
+    instance,
+    activation,
+    num_queries,
+    group,
+    django_assert_num_queries,
+    editable,
+    group_location_factory,
+):
+    return do_test_instance_list(
+        admin_client,
+        instance,
+        activation,
+        num_queries,
+        group,
+        django_assert_num_queries,
+        editable,
+        group_location_factory,
+    )
+
+
+@only_demo
+@pytest.mark.parametrize(
+    "instance_state__name,instance__creation_date",
+    [("new", "2018-04-17T09:31:56+02:00")],
+)
+@pytest.mark.parametrize(
+    "role__name,instance__user,num_queries,editable",
+    [
+        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        # reader should see instances from other users but has no editables
+        ("Reader", LazyFixture("user"), 9, set()),
+        ("Canton", LazyFixture("user"), 9, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
+        ("Service", LazyFixture("user"), 9, {"form", "document"}),
+    ],
+)
+def test_instance_list_demo(
+    admin_client,
+    instance,
+    activation,
+    num_queries,
+    group,
+    django_assert_num_queries,
+    editable,
+    group_location_factory,
+):
+    return do_test_instance_list(
+        admin_client,
+        instance,
+        activation,
+        num_queries,
+        group,
+        django_assert_num_queries,
+        editable,
+        group_location_factory,
+    )
+
+
+def do_test_instance_list(
     admin_client,
     instance,
     activation,
@@ -259,6 +317,7 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
         ).exists()
 
 
+@only_demo
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
@@ -268,18 +327,13 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name,status_code",
     [
-        (
-            "Applicant",
-            LazyFixture("location"),
-            "baugesuch-reklamegesuch",
-            status.HTTP_200_OK,
-        ),
+        ("Applicant", LazyFixture("location"), "baugesuch", status.HTTP_200_OK),
         ("Applicant", LazyFixture("location"), "", status.HTTP_400_BAD_REQUEST),
-        ("Applicant", None, "baugesuch-reklamegesuch", status.HTTP_400_BAD_REQUEST),
+        ("Applicant", None, "baugesuch", status.HTTP_400_BAD_REQUEST),
         (
             "Applicant",
             LazyFixture(lambda location_factory: location_factory()),
-            "baugesuch-reklamegesuch",
+            "baugesuch",
             status.HTTP_400_BAD_REQUEST,
         ),
     ],
