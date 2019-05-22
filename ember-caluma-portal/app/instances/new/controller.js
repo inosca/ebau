@@ -1,3 +1,4 @@
+import fetch from "fetch";
 import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
 import { info1, info2 } from "ember-caluma-portal/instances/new/info";
@@ -7,7 +8,6 @@ import saveDocumentStringAnswer from "ember-caluma-portal/gql/mutations/save-doc
 
 export default Controller.extend({
   apollo: service(),
-  ajax: service(),
   session: service(),
 
   infoCol1: info1,
@@ -50,9 +50,9 @@ export default Controller.extend({
     }
 
     // create instance in CAMAC
-    const instance = yield this.ajax.request(`/api/v1/instances`, {
+    const response = yield fetch(`/api/v1/instances`, {
       method: "POST",
-      data: {
+      body: JSON.stringify({
         data: {
           type: "instances",
           attributes: {
@@ -67,15 +67,17 @@ export default Controller.extend({
             }
           }
         }
-      },
+      }),
       headers: {
-        Authorization: `Bearer ${this.get(
+        authorization: `Bearer ${this.get(
           "session.data.authenticated.access_token"
         )}`,
+        accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json"
       }
     });
 
-    yield this.transitionToRoute("instances.edit", instance.instance_id);
+    const instance = yield response.json();
+    yield this.transitionToRoute("instances.edit", instance.data.id);
   }).drop()
 });
