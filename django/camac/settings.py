@@ -83,6 +83,18 @@ WSGI_APPLICATION = "camac.wsgi.application"
 # an application is defined by the customer e.g. uri, schwyz, etc.
 
 APPLICATIONS = {
+    "demo": {
+        # Mapping between camac role and instance permission.
+        "ROLE_PERMISSIONS": {
+            # Commonly used roles
+            "Applicant": "applicant",
+            "Municipality": "municipality",
+            "Service": "service",
+        },
+        "IS_MULTILINGUAL": False,
+        "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
+        "PUBLICATION_DURATION": timedelta(days=30),
+    },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
