@@ -974,7 +974,7 @@
             }
           },
           {
-            "name": "beherbergungsbetrieb",
+            "name": "beherbungsbetrieb",
             "label": "Handelt es sich um einen Beherbergungsbetrieb A oder B?",
             "hint": "Als Beherbergungsbetriebe A und B gelten:\n\n**Beherbergungsbetrieb A:**\nBauten, in denen dauernd oder vorübergehend 10 oder mehr kranke, pflegebedürftige oder auf fremde Hilfe angewiesene Personen aufgenommen werden (z.B. Krankenhäuser, Alters- und Pflegeheime, Heime für Behinderte, Strafanstalten, geschlossene Erziehungsanstalten).\n\n**Beherbergungsbetrieb B:**\nBauten, in denen dauernd oder vorübergehend 15 oder mehr Personen aufgenommen werden, welche nicht auf fremde Hilfe angewiesen sind (z.B. Hotels, Pensionen, Ferienheime).",
             "type": "radio",
@@ -1116,7 +1116,7 @@
                   "config": {}
                 },
                 {
-                  "name": "anzahl-zimmer",
+                  "name": "zimmer",
                   "label": "Anzahl Zimmer",
                   "hint": "Bei der Anzahl Zimmer sind Küchen, Badezimmer, halbe Zimmer, Reduits, Korridore, Veranden, Mansarden wegzulassen.",
                   "type": "number",
