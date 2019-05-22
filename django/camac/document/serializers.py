@@ -1,3 +1,4 @@
+import importlib
 import mimetypes
 
 from django.conf import settings
@@ -6,7 +7,6 @@ from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
-from camac.instance.mixins.schwyz import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
 from camac.user.relations import (
@@ -18,6 +18,8 @@ from camac.user.relations import (
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from . import models
+
+mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
 
 class AttachmentSectionSerializer(serializers.ModelSerializer):
@@ -33,7 +35,7 @@ class AttachmentSectionSerializer(serializers.ModelSerializer):
         fields = ("name",)
 
 
-class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
+class AttachmentSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
     serializer_related_field = FormDataResourceRelatedField
 
     user = CurrentUserFormDataResourceRelatedField()

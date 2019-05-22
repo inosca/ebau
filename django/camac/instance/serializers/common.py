@@ -1,3 +1,5 @@
+import importlib
+
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Max
@@ -17,7 +19,8 @@ from camac.user.relations import (
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
 from .. import models, validators
-from ..mixins import schwyz as mixins
+
+mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
 
 class NewInstanceStateDefault(object):

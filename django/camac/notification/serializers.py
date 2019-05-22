@@ -1,3 +1,4 @@
+import importlib
 import itertools
 from collections import namedtuple
 from datetime import date, timedelta
@@ -11,11 +12,12 @@ from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
 from camac.core.models import Activation
-from camac.instance.mixins.schwyz import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
 
 from . import models
+
+mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
 
 class NoticeMergeSerializer(serializers.Serializer):
@@ -50,7 +52,7 @@ class BillingEntryMergeSerializer(serializers.Serializer):
         return billing_entry.billing_account.account_number
 
 
-class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
+class InstanceMergeSerializer(mixins.InstanceEditableMixin, serializers.Serializer):
     """Converts instance into a dict to be used with template merging."""
 
     # TODO: document.Template and notification.NotificationTemplate should
@@ -126,7 +128,7 @@ class NotificationTemplateSerializer(serializers.ModelSerializer):
 
 
 class NotificationTemplateMergeSerializer(
-    InstanceEditableMixin, serializers.Serializer
+    mixins.InstanceEditableMixin, serializers.Serializer
 ):
     instance_editable_permission = None
     """
