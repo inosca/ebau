@@ -1,9 +1,15 @@
 import pytest
 from django.conf import settings
+from django.core.cache import cache
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from rest_framework.exceptions import AuthenticationFailed
 
 from camac.user.authentication import JSONWebTokenKeycloakAuthentication
+
+
+@pytest.fixture(scope="function", autouse=True)
+def clear_cache():
+    cache.clear()
 
 
 def test_authenticate_no_headers(rf):
