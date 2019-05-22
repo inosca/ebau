@@ -26,7 +26,7 @@ pytestmark = only_schwyz
     [
         ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 9, set()),
+        ("Lesezugriff", LazyFixture("user"), 9, set()),
         ("Kanton", LazyFixture("user"), 9, {"form", "document"}),
         ("Gemeinde", LazyFixture("user"), 9, {"form", "document"}),
         ("Fachstelle", LazyFixture("user"), 9, {"form", "document"}),
@@ -130,7 +130,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         # applicant/reader can't update their own Instance,
         # but might update FormField etc.
         ("Applicant", LazyFixture("admin_user"), status.HTTP_400_BAD_REQUEST),
-        ("Reader", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Lesezugriff", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
@@ -191,7 +191,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
     "role__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Reader", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
+        ("Lesezugriff", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
         ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Gemeinde", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
@@ -268,13 +268,18 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
 @pytest.mark.parametrize(
     "role__name,instance__location,form__name,status_code",
     [
-        ("Applicant", LazyFixture("location"), "baugesuch", status.HTTP_200_OK),
+        (
+            "Applicant",
+            LazyFixture("location"),
+            "baugesuch-reklamegesuch",
+            status.HTTP_200_OK,
+        ),
         ("Applicant", LazyFixture("location"), "", status.HTTP_400_BAD_REQUEST),
-        ("Applicant", None, "baugesuch", status.HTTP_400_BAD_REQUEST),
+        ("Applicant", None, "baugesuch-reklamegesuch", status.HTTP_400_BAD_REQUEST),
         (
             "Applicant",
             LazyFixture(lambda location_factory: location_factory()),
-            "baugesuch",
+            "baugesuch-reklamegesuch",
             status.HTTP_400_BAD_REQUEST,
         ),
     ],
