@@ -12,13 +12,9 @@ export default Controller.extend({
   isEmbedded: window !== window.top,
 
   headers: computed("group", "role", function() {
-    const headers = {};
-    if (this.get("group")) {
-      headers["X-CAMAC-GROUP"] = this.get("group");
-    }
-    if (this.get("role")) {
-      headers["X-CAMAC-GROUP"] = this.get("role");
-    }
-    return headers;
+    return {
+      ...(this.group ? { "X-CAMAC-GROUP": this.group } : {}),
+      ...(this.role ? { "X-CAMAC-ROLE": this.role } : {})
+    };
   })
 });
