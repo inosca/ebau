@@ -22,7 +22,7 @@ pytestmark = only_bern
     [
         ("Leitung Fachstelle", LazyFixture("user"), {"form", "document"}),
         ("Leitung Baukontrolle", LazyFixture("user"), {"form", "document"}),
-        ("System-Betrieb", LazyFixture("user"), {"form", "instance", "document"}),
+        ("System-Betrieb", LazyFixture("user"), {"form", "document"}),
     ],
 )
 def test_instance_list(
@@ -52,7 +52,7 @@ def test_instance_list(
 
 @pytest.mark.parametrize(
     "instance_state__name,instance__creation_date",
-    [("new", "2018-04-17T09:31:56+02:00")],
+    [("Neu", "2018-04-17T09:31:56+02:00")],
 )
 @pytest.mark.parametrize(
     "role_t__name,instance__user,editable",
