@@ -13,7 +13,7 @@ pytestmark = only_schwyz
 
 
 def test_form_config_get(admin_client):
-    url = reverse("schwyz-form-config-download")
+    url = reverse("form-config-download")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
