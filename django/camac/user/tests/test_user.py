@@ -30,7 +30,7 @@ def test_me(admin_client, admin_user):
 @only_schwyz
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Service", 1), ("Kanton", 1), ("Gemeinde", 1)],
+    [("Applicant", 0), ("Fachstelle", 1), ("Kanton", 1), ("Gemeinde", 1)],
 )
 def test_user_list_sz(admin_client, size):
     url = reverse("user-list")
