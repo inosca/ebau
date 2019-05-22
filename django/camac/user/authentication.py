@@ -1,7 +1,10 @@
+import hashlib
+
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.cache import cache
 from django.utils import translation
-from django.utils.encoding import smart_text
+from django.utils.encoding import force_bytes, smart_text
 from django.utils.translation import ugettext as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
@@ -34,6 +37,18 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         if jwt_value is None:
             return None
 
+        # token might be too long for key so we use hash sum instead.
+        token_hash = hashlib.sha1(force_bytes(jwt_value)).hexdigest()
+
+        userinfo = cache.get_or_set(
+            "authentication.userinfo.%s" % token_hash,
+            lambda: self._decode_jwt(jwt_value),
+            timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
+        )
+
+        return userinfo
+
+    def _decode_jwt(self, jwt_value):
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
