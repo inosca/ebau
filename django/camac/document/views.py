@@ -1,6 +1,8 @@
+import importlib
 import io
 import mimetypes
 
+from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.encoding import escape_uri_path
@@ -11,7 +13,6 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
-from camac.instance.mixins.schwyz import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
 from camac.unoconv import convert
@@ -19,8 +20,12 @@ from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
 
+mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
-class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
+
+class AttachmentView(
+    mixins.InstanceEditableMixin, mixins.InstanceQuerysetMixin, views.ModelViewSet
+):
     queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
@@ -65,7 +70,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
 
-class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
+class AttachmentPathView(mixins.InstanceQuerysetMixin, RetrieveAPIView):
     """Attachment view to download attachment."""
 
     queryset = models.Attachment.objects

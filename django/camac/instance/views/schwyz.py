@@ -17,7 +17,7 @@ from camac.notification.serializers import NotificationTemplateSendmailSerialize
 from camac.user.permissions import permission_aware
 
 from .. import filters, models, serializers
-from ..mixins import schwyz as mixins
+from ..mixins import kt_schwyz as mixins
 
 
 class FormView(viewsets.ReadOnlyModelViewSet):

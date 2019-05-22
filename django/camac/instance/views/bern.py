@@ -2,7 +2,7 @@ from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
 from .. import filters, models
-from ..mixins import bern as mixins
+from ..mixins import kt_bern as mixins
 from ..serializers.bern import BernInstanceSerializer
 
 
