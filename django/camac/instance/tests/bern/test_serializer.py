@@ -5,6 +5,9 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.instance.models import Instance
+from camac.markers import only_bern
+
+pytestmark = only_bern
 
 RESP_CASE_INCOMPLETE = {
     "data": {
