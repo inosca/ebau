@@ -27,9 +27,9 @@ test: ## Test the project
 	@black --check .
 	@isort --recursive --check
 	@flake8
-	@APPLICATION=demo      pytest --cov              --no-cov-on-fail --create-db
-	@APPLICATION=kt_bern   pytest --cov --cov-append --no-cov-on-fail --create-db
-	@APPLICATION=kt_schwyz pytest --cov --cov-append --no-cov-on-fail --create-db
+	@APPLICATION=demo      pytest --cov              --no-cov-on-fail --create-db --cov-fail-under=80
+	@APPLICATION=kt_bern   pytest --cov --cov-append --no-cov-on-fail --create-db --cov-fail-under=80
+	@APPLICATION=kt_schwyz pytest --cov --cov-append --no-cov-on-fail --create-db --cov-fail-under=100
 
 .PHONY: sqlsequencereset
 sqlsequencereset:
