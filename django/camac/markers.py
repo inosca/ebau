@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 """Some custom markers for tests.
 
 Enables us to selectively run tests that are not project-agnostic.

@@ -27,7 +27,7 @@ if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
         url(
             r"form-config",
             sz_views.FormConfigDownloadView.as_view(),
-            name="form-config-download",
+            name="schwyz-form-config-download",
         )
     )
 
