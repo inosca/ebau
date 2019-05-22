@@ -17,6 +17,6 @@ def vcr_config():
     "egrid", ["CH643546955207", "CH673533354667", "CH851446093521", "doesntexist"]
 )
 @pytest.mark.vcr()
-def test_gis_canton(egrid, client, snapshot):
+def test_gis_canton(egrid, client, vcr_config, snapshot):
     response = client.get(reverse("egrid", kwargs={"egrid": egrid}))
     snapshot.assert_match(response.json())
