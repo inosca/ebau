@@ -151,9 +151,6 @@ sequencenamespace:  ## Set the Sequence namespace for a given user. GIT_USER is 
 log: ## Show logs of web container
 	@docker-compose logs --follow php
 
-.PHONY: install
-install: composer-install npm-install bower-install ## Run install commands
-
 .PHONY: test
 test: ## Run backend tests
 	@docker-compose exec django make test
