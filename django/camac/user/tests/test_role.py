@@ -25,6 +25,9 @@ def test_role_list(admin_client, role, role_factory):
 def test_role_detail(admin_client, role, permission):
     url = reverse("role-detail", args=[role.pk])
 
+    role.name = role.trans.get(language="de").name
+    role.save()
+
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
