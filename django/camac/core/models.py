@@ -1,4 +1,22 @@
+from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+
+
+class MultilingualModel:
+    """Mixin for models that have a multilingual "name" property."""
+
+    def get_name(self):
+        if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
+            return self.name
+
+        try:
+            return self.trans.get(language="de").name
+        except ObjectDoesNotExist:
+            return self.name
+
+    def __str__(self):
+        return self.get_name()
 
 
 class ACheckquery(models.Model):
@@ -3594,6 +3612,15 @@ class RSimpleList(models.Model):
     class Meta:
         managed = True
         db_table = "R_SIMPLE_LIST"
+
+
+class RCalumaList(models.Model):
+    resource_id = models.AutoField(db_column="RESOURCE_ID", primary_key=True)
+    instance_states = models.CharField(db_column="INSTANCE_STATES", max_length=400)
+
+    class Meta:
+        managed = True
+        db_table = "R_CALUMA_LIST"
 
 
 class RUserAcl(models.Model):

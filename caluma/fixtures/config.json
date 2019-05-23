@@ -3745,7 +3745,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gemeinde",
-      "sort": 11
+      "sort": 10
     }
   },
   {
@@ -9764,7 +9764,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -19151,16 +19151,16 @@
     "pk": "karte",
     "fields": {
       "created_at": "2019-05-05T11:28:18.012Z",
-      "modified_at": "2019-05-05T11:28:18.012Z",
+      "modified_at": "2019-05-18T10:16:19.856Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Karte\"}",
       "type": "text",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_length": null },
       "meta": { "widgetOverride": "be-gis" },
@@ -28675,13 +28675,13 @@
     "pk": "wassergefaehrdende-explosive-stoffe",
     "fields": {
       "created_at": "2019-04-29T08:57:03.190Z",
-      "modified_at": "2019-05-09T10:52:27.074Z",
+      "modified_at": "2019-05-18T14:01:57.136Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Gew\\u00e4sserschutz: Werden neu wassergef\\u00e4hrdende, explosive, gesundheitsgef\\u00e4hrdende oder brennbare Stoffe gelagert oder verwendet?\"}",
       "type": "choice",
       "is_required": "true",
-      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-lager',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer || 'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw' in 'feuerungsanlagen'|answer || 'verunreinigte-abluft-nein' in 'verunreinigte-abluft'|answer)",
+      "is_hidden": "!([\n  'nutzungsart-industrie',\n  'nutzungsart-dienstleistung',\n  'nutzungsart-lager',\n  'nutzungsart-gewerbe'\n] intersects 'nutzungsart'|answer || 'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw' in 'feuerungsanlagen'|answer || 'verunreinigte-abluft-nein' == 'verunreinigte-abluft'|answer)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": \"\"}",
@@ -37731,8 +37731,8 @@
     "model": "form.questionoption",
     "pk": "wassergefaehrdende-explosive-stoffe.wassergefaehrdende-explosive-stoffe-ja",
     "fields": {
-      "created_at": "2019-05-10T16:46:00.276Z",
-      "modified_at": "2019-05-10T16:46:00.276Z",
+      "created_at": "2019-05-18T14:01:57.143Z",
+      "modified_at": "2019-05-18T14:01:57.143Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "wassergefaehrdende-explosive-stoffe",
@@ -37744,8 +37744,8 @@
     "model": "form.questionoption",
     "pk": "wassergefaehrdende-explosive-stoffe.wassergefaehrdende-explosive-stoffe-nein",
     "fields": {
-      "created_at": "2019-05-10T16:46:01.191Z",
-      "modified_at": "2019-05-10T16:46:01.191Z",
+      "created_at": "2019-05-18T14:01:57.140Z",
+      "modified_at": "2019-05-18T14:01:57.140Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "wassergefaehrdende-explosive-stoffe",
@@ -47378,7 +47378,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-ja",
     "fields": {
       "created_at": "2019-04-29T08:57:03.027Z",
-      "modified_at": "2019-05-09T10:52:26.904Z",
+      "modified_at": "2019-05-18T14:01:56.996Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Ja\"}",
@@ -47391,7 +47391,7 @@
     "pk": "wassergefaehrdende-explosive-stoffe-nein",
     "fields": {
       "created_at": "2019-04-29T08:57:03.035Z",
-      "modified_at": "2019-05-09T10:52:26.909Z",
+      "modified_at": "2019-05-18T14:01:56.997Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",

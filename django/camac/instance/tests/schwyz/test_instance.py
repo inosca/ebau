@@ -10,9 +10,49 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
+from camac.markers import only_demo, only_schwyz
 
 
-@pytest.mark.kt_schwyz
+# module-level skip if we're not testing Schwyz variant
+@only_schwyz
+@pytest.mark.parametrize(
+    "instance_state__name,instance__creation_date",
+    [("new", "2018-04-17T09:31:56+02:00")],
+)
+@pytest.mark.parametrize(
+    "role__name,instance__user,num_queries,editable",
+    [
+        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        # reader should see instances from other users but has no editables
+        ("Lesezugriff", LazyFixture("user"), 9, set()),
+        ("Kanton", LazyFixture("user"), 9, {"form", "document"}),
+        ("Gemeinde", LazyFixture("user"), 9, {"form", "document"}),
+        ("Fachstelle", LazyFixture("user"), 9, {"form", "document"}),
+    ],
+)
+def test_instance_list_sz(
+    admin_client,
+    instance,
+    activation,
+    num_queries,
+    group,
+    django_assert_num_queries,
+    editable,
+    group_location_factory,
+):
+    return do_test_instance_list(
+        admin_client,
+        instance,
+        activation,
+        num_queries,
+        group,
+        django_assert_num_queries,
+        editable,
+        group_location_factory,
+    )
+
+
+@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__creation_date",
     [("new", "2018-04-17T09:31:56+02:00")],
@@ -28,7 +68,7 @@ from camac.instance import serializers
         ("Service", LazyFixture("user"), 9, {"form", "document"}),
     ],
 )
-def test_instance_list(
+def test_instance_list_demo(
     admin_client,
     instance,
     activation,
@@ -38,7 +78,29 @@ def test_instance_list(
     editable,
     group_location_factory,
 ):
-    url = reverse("schwyz-instance-list")
+    return do_test_instance_list(
+        admin_client,
+        instance,
+        activation,
+        num_queries,
+        group,
+        django_assert_num_queries,
+        editable,
+        group_location_factory,
+    )
+
+
+def do_test_instance_list(
+    admin_client,
+    instance,
+    activation,
+    num_queries,
+    group,
+    django_assert_num_queries,
+    editable,
+    group_location_factory,
+):
+    url = reverse("instance-list")
 
     # verify that two locations may be assigned to group
     group_location_factory(group=group)
@@ -63,12 +125,12 @@ def test_instance_list(
     assert len(json["included"]) == len(included) - 1
 
 
-@pytest.mark.kt_schwyz
+@only_schwyz
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_detail(admin_client, instance):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -88,7 +150,7 @@ def test_instance_detail(admin_client, instance):
     ],
 )
 def test_instance_search(admin_client, instance, form_field, search):
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     response = admin_client.get(url, {"search": search})
     assert response.status_code == status.HTTP_200_OK
@@ -109,7 +171,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
         form_field_factory(name=value, value=value, instance=instance)
         filters["fields[" + value + "]"] = value
 
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     response = admin_client.get(url, filters)
     assert response.status_code == status.HTTP_200_OK
@@ -117,6 +179,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
     assert len(json["data"]) == 1
 
 
+@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__identifier", [("new", "00-00-000")]
 )
@@ -136,7 +199,7 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
 def test_instance_update(
     admin_client, instance, location_factory, form_factory, status_code
 ):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     data = {
         "data": {
@@ -155,12 +218,13 @@ def test_instance_update(
     assert response.status_code == status_code
 
 
+@only_demo
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name",
     [("Applicant", LazyFixture("admin_user"), "new")],
 )
 def test_instance_update_location(admin_client, instance, location_factory):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     new_location = location_factory()
 
@@ -182,6 +246,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ).exists()
 
 
+@only_demo
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
@@ -195,7 +260,7 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ],
 )
 def test_instance_destroy(admin_client, instance, status_code, location_factory):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     """
     Add InstanceLocation relationship to make sure it also will be deleted
@@ -214,12 +279,13 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
         assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
 
 
+@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__location",
     [("new", None), ("new", LazyFixture("location"))],
 )
 def test_instance_create(admin_client, admin_user, form, instance_state, instance):
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
 
     location_data = (
         {"type": "locations", "id": instance.location.pk} if instance.location else None
@@ -241,7 +307,7 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
 
     json = response.json()
 
-    url = reverse("schwyz-instance-list")
+    url = reverse("instance-list")
     response = admin_client.post(url, data=json)
     assert response.status_code == status.HTTP_201_CREATED
 
@@ -255,6 +321,7 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
         ).exists()
 
 
+@only_demo
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
@@ -304,7 +371,7 @@ def test_instance_submit(
         group_location_factory(group=group, location=instance.location)
 
     instance_state_factory(name="subm")
-    url = reverse("schwyz-instance-submit", args=[instance.pk])
+    url = reverse("instance-submit", args=[instance.pk])
     add_field = functools.partial(form_field_factory, instance=instance)
 
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)"])
@@ -316,6 +383,7 @@ def test_instance_submit(
     add_field(name="tiefe-der-bohrung-lte", value="Test")
     add_field(name="durchmesser-der-bohrung", value=9)
     add_field(name="durchmesser-der-bohrung-lt", value="Test")
+    add_field(name="bezeichnung", value="Bezeichnung")
     add_field(name="bewilligung-bohrung", value="Ja")
     add_field(name="bohrungsdaten", value="Test")
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen", value="Ja")
@@ -324,7 +392,7 @@ def test_instance_submit(
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
 
     response = admin_client.post(url)
-    assert response.status_code == status_code
+    assert response.status_code == status_code, response.content
 
     if status_code == status.HTTP_200_OK:
         json = response.json()
@@ -343,11 +411,12 @@ def test_instance_submit(
         ).exists()
 
 
-@pytest.mark.parametrize("role__name", ["Canton"])
+@only_schwyz
+@pytest.mark.parametrize("role__name", ["Kanton"])
 def test_instance_export(
     admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
 ):
-    url = reverse("schwyz-instance-export")
+    url = reverse("instance-export")
     instances = instance_factory.create_batch(2, user=user)
     instance = instances[0]
 
@@ -381,33 +450,34 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     assert identifier == "11-17-011"
 
 
+@only_schwyz
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
     [
         (
-            "Municipality",
+            "Gemeinde",
             LazyFixture("admin_user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
         (
-            "PublicReader",
+            "Publikation",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             False,
@@ -418,7 +488,7 @@ def test_instance_generate_identifier(db, instance, instance_factory):
 def test_instance_detail_publication(
     admin_client, instance, publication_entry, status_code
 ):
-    url = reverse("schwyz-instance-detail", args=[instance.pk])
+    url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status_code

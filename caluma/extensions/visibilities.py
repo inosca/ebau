@@ -52,22 +52,20 @@ class FilterViaCamacAPIMixin:
                     # to search "down the tree" via family ID instead.
                     document__family__in=self._accessible_doc_families(info)
                 ),
-                "_default": lambda: dict(
-                    # Instance question is in top-level document
-                    document__answers__question_id="camac-instance-id",
-                    document__answers__value__in=self._all_visible_instances(info),
-                ),
+                "_default": lambda: {
+                    "meta__camac-instance-id__in": self._all_visible_instances(info)
+                },
             },
             "Document": {
                 "gesuchsteller": lambda: dict(
                     # Same special case again
                     family__in=self._accessible_doc_families(info)
                 ),
-                "_default": lambda: dict(
-                    # Instance question is in top-level document
-                    answers__question_id="camac-instance-id",
-                    answers__value__in=self._all_visible_instances(info),
-                ),
+                "_default": lambda: {
+                    "case__meta__camac-instance-id__in": self._all_visible_instances(
+                        info
+                    )
+                },
             },
             "Answer": {
                 "gesuchsteller": lambda: dict(
@@ -76,8 +74,13 @@ class FilterViaCamacAPIMixin:
                 ),
                 "_default": lambda: dict(
                     # Instance question is in top-level document
-                    answers__question_id="camac-instance-id",
-                    answers__value__in=self._all_visible_instances(info),
+                    document__family__in=form_models.Document.objects.filter(
+                        **{
+                            "case__meta__camac-instance-id__in": self._all_visible_instances(
+                                info
+                            )
+                        }
+                    )
                 ),
             },
             "WorkItem": {
@@ -85,13 +88,9 @@ class FilterViaCamacAPIMixin:
                     # Same special case again, this time indirectly via document
                     case__document__family__in=self._accessible_doc_families(info)
                 ),
-                "_default": lambda: dict(
-                    # Instance question is in top-level document
-                    case__document__answers__question_id="camac-instance-id",
-                    case__document__answers__value__in=self._all_visible_instances(
-                        info
-                    ),
-                ),
+                "_default": lambda: {
+                    "meta__camac-instance-id__in": self._all_visible_instances(info)
+                },
             },
         }
 
@@ -149,6 +148,10 @@ class FilterViaCamacAPIMixin:
         """Extract role name from request."""
         return info.context.META.get("HTTP_X_CAMAC_ROLE", "gesuchsteller")
 
+    def group(self, info):
+        """Extract group name from request."""
+        return info.context.META.get("HTTP_X_CAMAC_GROUP", None)
+
     def _all_visible_instances(self, info):
         """Fetch visible camac instances from NG API, caches the result.
 
@@ -169,7 +172,7 @@ class FilterViaCamacAPIMixin:
         resp = requests.get(
             f"{camac_api}/api/v1/instances",
             # forward role as filter
-            {"role": self.role(info)},
+            {"role": self.role(info), "group": self.group(info)},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )

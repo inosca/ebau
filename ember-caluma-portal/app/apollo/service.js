@@ -10,9 +10,12 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
   link: computed("session.data.authenticated.access_token", function() {
     const httpLink = this._super(...arguments);
 
-    const authMiddleware = setContext(async () => {
+    const authMiddleware = setContext(async (request, context) => {
       const token = this.get("session.data.authenticated.access_token");
-      return { headers: { authorization: `Bearer ${token}` } };
+      context.headers = Object.assign({}, context.headers, {
+        authorization: `Bearer ${token}`
+      });
+      return context;
     });
 
     return authMiddleware.concat(httpLink);

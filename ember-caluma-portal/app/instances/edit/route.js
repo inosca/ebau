@@ -20,9 +20,9 @@ export default Route.extend({
         {
           query: getCaseQuery,
           fetchPolicy: "cache-and-network",
-          variables: { caseId }
+          variables: { caseId: parseInt(caseId) }
         },
-        "node"
+        "allCases.edges"
       );
     } catch (e) {
       // eslint-disable-next-line no-console
