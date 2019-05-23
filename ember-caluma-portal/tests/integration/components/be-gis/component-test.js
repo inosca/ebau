@@ -8,7 +8,6 @@ module("Integration | Component | be-gis", function(hooks) {
 
   test("it renders", async function(assert) {
     await render(hbs`{{be-gis}}`);
-
-    assert.ok(this.element.textContent.trim());
+    assert.ok(this.element);
   });
 });
