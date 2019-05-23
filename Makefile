@@ -101,13 +101,21 @@ migrate:  ## Migrate schema
 	docker-compose exec django /app/manage.py migrate
 	make sequencenamespace
 
-.PHONY: grunt-build
-grunt-build: ## Grunt build
+.PHONY: grunt-build-be
+grunt-build-be: ## Grunt build
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-be"
 
-.PHONY: grunt-watch
-grunt-watch: ## Grunt watch
+.PHONY: grunt-watch-be
+grunt-watch-be: ## Grunt watch
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-be && npm run watch-be"
+
+.PHONY: grunt-build-sz
+grunt-build-sz: ## Grunt build
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz"
+
+.PHONY: grunt-watch-sz
+grunt-watch-sz: ## Grunt watch
+	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz && npm run watch-sz"
 
 .PHONY: prettier-format
 prettier-format:
