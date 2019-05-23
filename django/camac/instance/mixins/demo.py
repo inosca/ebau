@@ -12,6 +12,11 @@ from camac.user.permissions import permission_aware
 
 from .. import models
 
+# pragma: no cover
+
+# We're excluding this file from coverage as it's basically a copy of the
+# kt_schwyz mixin and isn't production relevant either way
+
 
 class InstanceQuerysetMixin(object):
     """
