@@ -18,5 +18,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       label: "Einreichen Button",
       component: "be-submit-instance"
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Dokument Formular",
+      component: "be-documents-form",
+      type: "FormQuestion"
+    });
   }
 });
