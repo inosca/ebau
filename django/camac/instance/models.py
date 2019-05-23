@@ -2,6 +2,8 @@ import reversion
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
+from ..core import models as core_models
+
 
 class FormState(models.Model):
     form_state_id = models.AutoField(db_column="FORM_STATE_ID", primary_key=True)
@@ -44,7 +46,7 @@ class FormT(models.Model):
         db_table = "FORM_T"
 
 
-class InstanceState(models.Model):
+class InstanceState(core_models.MultilingualModel, models.Model):
     instance_state_id = models.AutoField(
         db_column="INSTANCE_STATE_ID", primary_key=True
     )
@@ -54,9 +56,6 @@ class InstanceState(models.Model):
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "INSTANCE_STATE"
@@ -64,7 +63,10 @@ class InstanceState(models.Model):
 
 class InstanceStateT(models.Model):
     instance_state = models.ForeignKey(
-        InstanceState, models.CASCADE, db_column="INSTANCE_STATE_ID", related_name="+"
+        InstanceState,
+        models.CASCADE,
+        db_column="INSTANCE_STATE_ID",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)

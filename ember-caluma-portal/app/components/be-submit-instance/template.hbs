@@ -1,3 +1,6 @@
 {{#unless disabled}}
-  {{uk-button label="Einreichen" on-click=(perform submit)}}
+  {{uk-button label="Einreichen" loading=submit.isRunning on-click=(perform submit)}}
+  {{#if submit.isRunning}}
+    <span class="uk-text-muted uk-margin-small-left uk-animation-fade">Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld.</span>
+  {{/if}}
 {{/unless}}

@@ -86,16 +86,12 @@ APPLICATIONS = {
     "demo": {
         # Mapping between camac role and instance permission.
         "ROLE_PERMISSIONS": {
-            # Only Schwyz
-            "Canton": "canton",
-            "Reader": "reader",
-            "PublicReader": "public_reader",
-            # Only Bern
-            "Support": "support",
-            # All
+            # Commonly used roles
             "Applicant": "applicant",
             "Municipality": "municipality",
             "Service": "service",
+            "Reader": "reader",
+            "Canton": "canton",
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},

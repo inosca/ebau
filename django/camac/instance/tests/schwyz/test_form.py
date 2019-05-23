@@ -1,9 +1,14 @@
 from django.urls import reverse
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
+
 
 def test_form_list(admin_client, form):
-    url = reverse("schwyz-form-list")
+    url = reverse("form-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -14,7 +19,7 @@ def test_form_list(admin_client, form):
 
 
 def test_form_detail(admin_client, form):
-    url = reverse("schwyz-form-detail", args=[form.pk])
+    url = reverse("form-detail", args=[form.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
