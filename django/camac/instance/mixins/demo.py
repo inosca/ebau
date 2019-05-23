@@ -12,13 +12,11 @@ from camac.user.permissions import permission_aware
 
 from .. import models
 
-# pragma: no cover
-
 # We're excluding this file from coverage as it's basically a copy of the
 # kt_schwyz mixin and isn't production relevant either way
 
 
-class InstanceQuerysetMixin(object):
+class InstanceQuerysetMixin(object):  # pragma: no cover
     """
     Mixin to filter queryset by instances which may be read by given role.
 
@@ -96,7 +94,7 @@ class InstanceQuerysetMixin(object):
         return self.get_base_queryset()
 
 
-class InstanceEditableMixin(AttributeMixin):
+class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
     """Mixin to determine whether action is allowed on given instance.
 
     Define `instance_editable_permission` what permission is needed to edit.
