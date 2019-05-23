@@ -10,8 +10,7 @@
     <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
       <thead>
         <tr>
-          {{!--
-          <th class="uk-width-1-5">
+          {{!--<th class="uk-width-1-5">
             <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search="identifier-search">
               <span>
                 eBau-Nr.
@@ -45,8 +44,8 @@
               >
               </a>
             </div>
-          </th>
-          --}}
+          </th>--}}
+          <th>eBau-Nr.</th>
           <th>
             Gesuchsart
             {{!--{{camac-sort-icon key="form__description" sort=sort on-click=(action (mut sort))}}--}}
@@ -76,15 +75,15 @@
         {{else}}
           {{#each data.lastSuccessful.value as |edge i|}}
             <tr>
-              {{!--<td>-</td>--}}
               <td>
                 {{#link-to
-                  "instances.edit" edge.node.id
+                  "instances.edit" edge.node.meta.camac-instance-id
                   title="Klicken Sie um das Gesuch zu bearbeiten"
                 }}
-                  {{instance-type edge.node.document}}
+                  {{edge.node.meta.camac-instance-id}}
                 {{/link-to}}
               </td>
+              <td>{{instance-type edge.node.document}}</td>
               <td class="uk-text-nowrap">
                 {{get municipalities i}}
               </td>
@@ -129,7 +128,7 @@
           {{/each}}
         {{/if}}
         <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to "instances.new") on="click"}}>
-          <td class="uk-text-center" colspan="6">
+          <td class="uk-text-center" colspan="7">
             {{uk-icon "plus" scale=2}}
           </td>
         </tr>

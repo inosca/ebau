@@ -13,7 +13,7 @@ from . import models
 
 
 class InstanceFilterSet(FilterSet):
-
+    instance_id = NumberMultiValueFilter()
     service = NumberFilter(field_name="circulations__activations__service")
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"

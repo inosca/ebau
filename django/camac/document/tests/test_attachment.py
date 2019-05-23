@@ -7,18 +7,22 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.document import models, serializers
+from camac.markers import only_schwyz
 
 from .data import django_file
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
         ("Applicant", LazyFixture("admin_user"), 7),
-        ("Reader", LazyFixture("user"), 7),
-        ("Canton", LazyFixture("user"), 7),
-        ("Municipality", LazyFixture("user"), 7),
-        ("Service", LazyFixture("user"), 7),
+        ("Lesezugriff", LazyFixture("user"), 7),
+        ("Kanton", LazyFixture("user"), 7),
+        ("Gemeinde", LazyFixture("user"), 7),
+        ("Fachstelle", LazyFixture("user"), 7),
     ],
 )
 def test_attachment_list(
@@ -70,7 +74,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Municipality",
+            "Gemeinde",
             LazyFixture("user"),
             LazyFixture("location"),
             LazyFixture("service"),
@@ -84,7 +88,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Service",
+            "Fachstelle",
             LazyFixture("user"),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
@@ -97,7 +101,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Canton",
+            "Kanton",
             LazyFixture("user"),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
@@ -151,7 +155,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Municipality",
+            "Gemeinde",
             LazyFixture("user"),
             LazyFixture(lambda location_factory: location_factory()),
             LazyFixture("service"),
@@ -165,7 +169,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Municipality",
+            "Gemeinde",
             LazyFixture("user"),
             LazyFixture("location"),
             LazyFixture("service"),
@@ -179,7 +183,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Service",
+            "Fachstelle",
             LazyFixture("admin_user"),
             LazyFixture("location"),
             LazyFixture(lambda service_factory: service_factory()),
@@ -191,7 +195,7 @@ def test_attachment_list(
         (
             "test-thumbnail.jpg",
             "image/jpeg",
-            "Reader",
+            "Lesezugriff",
             LazyFixture("admin_user"),
             LazyFixture("location"),
             LazyFixture("service"),
@@ -282,7 +286,7 @@ def test_attachment_thumbnail(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Canton", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Kanton", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
     "send_path,status_code",
@@ -325,7 +329,10 @@ def test_attachment_update(
 
 @pytest.mark.parametrize(
     "role__name,instance__user",
-    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
+    [
+        ("Applicant", LazyFixture("admin_user")),
+        ("Lesezugriff", LazyFixture("admin_user")),
+    ],
 )
 def test_attachment_detail(
     admin_client, attachment_attachment_sections, attachment_section_group_acl

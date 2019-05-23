@@ -4,6 +4,10 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.instance import models
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
@@ -12,7 +16,7 @@ from camac.instance import models
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_list(admin_client, form_field, size):
-    url = reverse("schwyz-form-field-list")
+    url = reverse("form-field-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -25,12 +29,15 @@ def test_form_field_list(admin_client, form_field, size):
 
 @pytest.mark.parametrize(
     "role__name,instance__user",
-    [("Applicant", LazyFixture("admin_user")), ("Reader", LazyFixture("admin_user"))],
+    [
+        ("Applicant", LazyFixture("admin_user")),
+        ("Lesezugriff", LazyFixture("admin_user")),
+    ],
 )
 @pytest.mark.parametrize("form_field__value", [["Test1", "Test2"]])
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_detail(admin_client, form_field, form_field__value):
-    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
+    url = reverse("form-field-detail", args=[form_field.pk])
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
@@ -70,14 +77,14 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
             status.HTTP_403_FORBIDDEN,
         ),
         (
-            "Reader",
+            "Lesezugriff",
             "new",
             LazyFixture("user"),
             "kategorie-des-vorhabens",
             status.HTTP_403_FORBIDDEN,
         ),
         (
-            "Reader",
+            "Lesezugriff",
             "new",
             LazyFixture("admin_user"),
             "kategorie-des-vorhabens",
@@ -86,7 +93,7 @@ def test_form_field_detail(admin_client, form_field, form_field__value):
     ],
 )
 def test_form_field_update(admin_client, form_field, status_code):
-    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
+    url = reverse("form-field-detail", args=[form_field.pk])
 
     response = admin_client.patch(url)
     assert response.status_code == status_code
@@ -123,7 +130,7 @@ def test_form_field_update(admin_client, form_field, status_code):
     ],
 )
 def test_form_field_create(admin_client, instance, form_field_name, status_code):
-    url = reverse("schwyz-form-field-list")
+    url = reverse("form-field-list")
 
     data = {
         "data": {
@@ -155,12 +162,12 @@ def test_form_field_create(admin_client, instance, form_field_name, status_code)
     "role__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
-        ("Canton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Kanton", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
     ],
 )
 @pytest.mark.parametrize("form_field__name", ["kategorie-des-vorhabens"])
 def test_form_field_destroy(admin_client, form_field, status_code):
-    url = reverse("schwyz-form-field-detail", args=[form_field.pk])
+    url = reverse("form-field-detail", args=[form_field.pk])
 
     response = admin_client.delete(url)
     assert response.status_code == status_code
@@ -203,7 +210,7 @@ def test_form_field_list_filtering(
         ],
     )
 
-    url = reverse("schwyz-form-field-list")
+    url = reverse("form-field-list")
     response = admin_client.get(url, data={"egrid": ",".join(egrid_query)})
 
     assert response.status_code == status.HTTP_200_OK

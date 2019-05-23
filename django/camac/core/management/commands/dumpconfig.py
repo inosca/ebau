@@ -139,6 +139,7 @@ pure_config_models = (
     "core.RSearchFilterT",
     "core.RServiceAcl",
     "core.RSimpleList",
+    "core.RCalumaList",
     "core.ServiceAnswerActivation",
     # file
     "file.AFilecheckcontent",

@@ -6,9 +6,14 @@ from django.urls import reverse
 from pyjexl.jexl import JEXL
 from rest_framework import status
 
+from camac.markers import only_schwyz
+
+# module-level skip if we're not testing Schwyz variant
+pytestmark = only_schwyz
+
 
 def test_form_config_get(admin_client):
-    url = reverse("schwyz-form-config-download")
+    url = reverse("form-config-download")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
