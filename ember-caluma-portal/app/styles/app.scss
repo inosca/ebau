@@ -1,8 +1,10 @@
 $global-primary-background: #f00;
 $modal-z-index: 1;
-@import "ember-power-select";
+
 @import "ember-uikit";
 @import "ember-caluma";
+@import "ember-power-select";
+
 @import "gis";
 
 .camac-nav-module-icon {
@@ -63,7 +65,7 @@ $modal-z-index: 1;
 }
 
 // Make help-icons more eye-catchy as requested by the client.
-button.uk-icon[uk-icon=info] {
+button.uk-icon[uk-icon="info"] {
   background-color: transparent;
 
   svg {
