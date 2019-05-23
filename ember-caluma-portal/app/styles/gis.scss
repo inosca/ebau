@@ -3,3 +3,8 @@
   height: 550px;
   border: 1px solid #e5e5e5;
 }
+
+// Remove gray background from icon-button.
+.gis-map .uk-icon[uk-icon=warning] {
+  background-color: transparent;
+}
