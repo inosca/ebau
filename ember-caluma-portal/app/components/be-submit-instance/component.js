@@ -1,4 +1,3 @@
-import fetch from "fetch";
 import Component from "@ember/component";
 import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
@@ -11,8 +10,8 @@ export default Component.extend({
   notification: service(),
   apollo: service(),
   ajax: service(),
-  session: service(),
   router: service(),
+  fetch: service(),
 
   submit: task(function*() {
     try {
@@ -45,33 +44,29 @@ export default Component.extend({
         );
       }
       // submit instance in CAMAC
-      yield fetch(`/api/v1/instances/${instanceId}?group=${GROUP_APPLICANT}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          data: {
-            type: "instances",
-            id: instanceId,
-            attributes: {
-              "caluma-case-id": caseId
-            },
-            relationships: {
-              "instance-state": {
-                data: {
-                  id: INSTANCE_STATE_SUBMITTED,
-                  type: "instance-states"
+      yield this.fetch.fetch(
+        `/api/v1/instances/${instanceId}?group=${GROUP_APPLICANT}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({
+            data: {
+              type: "instances",
+              id: instanceId,
+              attributes: {
+                "caluma-case-id": caseId
+              },
+              relationships: {
+                "instance-state": {
+                  data: {
+                    id: INSTANCE_STATE_SUBMITTED,
+                    type: "instance-states"
+                  }
                 }
               }
             }
-          }
-        }),
-        headers: {
-          authorization: `Bearer ${this.get(
-            "session.data.authenticated.access_token"
-          )}`,
-          accept: "application/vnd.api+json",
-          "content-type": "application/vnd.api+json"
+          })
         }
-      });
+      );
 
       this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
