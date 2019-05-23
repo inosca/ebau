@@ -2,3 +2,53 @@ instance:
   status:
     RUNNING: Neu
     COMPLETED: Eingereicht
+
+documents:
+  contents: "Was ist in diesem Dokument enthalten?"
+  requiredContent: "Pflichtinhalte"
+  optionalContent: "Optionale Inhalte"
+  search: "Kategorien durchsuchen..."
+
+  download: "Datei herunterladen"
+  upload: "Hochladen"
+  cancel: "Abbrechen"
+
+  drag: "Ziehen Sie eine Datei in diesen Bereich oder"
+  click: "drücken sie hier um eine Datei hochzuladen"
+
+  missingTags: "Es {count, plural, =0 {fehlen keine Pflichtinhalte mehr} =1 {fehlt noch ein Pflichtinhalt} other {fehlen noch # Pflichtinhalte}}"
+  noTags: "Keine Inhalte"
+  showTags: "Inhalte anzeigen"
+  date: "Hochgeladen am {date} um {time}"
+
+  uploadSuccess: "Die Datei wurde erfolgreich hochgeladen"
+  uploadError: "Beim Hochladen der Datei ist etwas schief gelaufen"
+
+  downloadSuccess: "Die Datei wurde erfolgreich heruntergeladen"
+  downloadError: "Beim Herunterladen der Datei ist etwas schief gelaufen"
+
+  tags:
+    beilagen-vorabklaerung: "Beilagen Vorabklärung"
+    allgemeine-informationen: "Allgemeine Informationen"
+    bauwerk-allgemein: "Bauwerk - Allgemein"
+    informationen-ueber-grundstueck: "Informationen über Grundstück"
+    zustimmungen: "Zustimmungen"
+    bauwerk-brandschutz: "Bauwerk - Brandschutz"
+    spezialformulare-waermepumpen: "Spezialformulare - Wärmepumpen"
+    spezialformulare-zivilschutz: "Spezialformulare - Zivilschutz"
+    spezialformulare-gastgewerbe: "Spezialformulare - Gastgewerbe"
+    plaene: "Pläne"
+    spezialformulare-biologische-sicherheit: "Spezialformulare - Biologische Sicherheit"
+    spezialformulare-stoerfallvorsorge: "Spezialformulare - Störfallvorsorge"
+    bauwerk-gewaesserschutz: "Bauwerk - Gewässerschutz"
+    bauwerk-energie: "Bauwerk - Energie"
+    spezialformulare-immissionsschutz: "Spezialformulare - Immissionsschutz"
+    spezialformulare-entsorgung-bodenschutz: "Spezialformulare - Entsorgung & Bodenschutz"
+    spezialformulare-wald: "Spezialformulare - Wald"
+    spezialformulare-naturgefahren: "Spezialformulare - Naturgefahren"
+    baugesuch-mit-uvp: "Baugesuch mit UVP"
+    spezialformulare-reklame: "Spezialformulare - Reklame"
+    bauen-ausserhalb-bauzone: "Bauen ausserhalb Bauzone"
+    selbstdeklaration-2: "Selbstdeklaration 2"
+
+    weitere-unterlagen: "Weitere Unterlagen"

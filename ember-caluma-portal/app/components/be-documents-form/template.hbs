@@ -1,0 +1,126 @@
+{{#if file}}
+  <h3>{{t "documents.contents"}}</h3>
+
+  <div class="uk-margin">
+    {{#if allRequiredTags.length}}
+      <label class="uk-text-bold uk-margin">{{t "documents.requiredContent"}}</label>
+      {{#each-in requiredTags as |title fields|}}
+        <div class="uk-margin">
+          <label>{{t (concat "documents.tags." title)}}</label>
+          <div class="uk-margin-left">
+            {{#each fields as |field|}}
+              <label>
+                <input
+                  type="checkbox"
+                  class="uk-checkbox"
+                  checked={{if (contains field selectedRequiredTags) "checked"}}
+                  onchange={{action "updateSelectedRequiredTags" field}}
+                >
+                {{field.question.label}}
+              </label>
+              <br>
+            {{/each}}
+          </div>
+        </div>
+      {{/each-in}}
+    {{/if}}
+
+    <div class="uk-margin">
+      <label class="uk-text-bold">{{t "documents.optionalContent"}}</label>
+      {{#power-select-multiple
+        multiple=true
+        selected=selectedOptionalTags
+        options=optionalTags
+        searchField="question.label"
+        onchange=(action (mut selectedOptionalTags))
+        onkeydown=(action "createCustomTag")
+      as |field|}}
+        {{field.question.label}}
+      {{/power-select-multiple}}
+    </div>
+  </div>
+  <div class="uk-margin uk-text-right">
+    <button class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
+    <button class="uk-button uk-button-primary" {{action (perform save)}}>{{t "documents.upload"}}</button>
+  </div>
+  <hr>
+{{else}}
+  {{#file-dropzone name="documents" as |dropzone|}}
+    <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+      {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
+      <div>
+        {{#if dropzone.supported}}
+          {{t "documents.drag"}}
+        {{/if}}
+        {{#file-upload name="documents" onfileadd=(action (mut file))}}
+          <span class="uk-link">{{t "documents.click"}}</span>
+        {{/file-upload}}
+      </div>
+      <div class="uk-inline uk-margin-top">
+        <span class="uk-text-warning uk-text-small">{{t "documents.missingTags" count=allRequiredTags.length}}</span>
+        {{#if allRequiredTags.length}}
+          <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; delay-hide: 0;">
+            <div class="uk-card uk-card-body uk-card-default uk-padding-small uk-box-shadow-medium uk-text-left uk-text-small">
+              {{#each-in requiredTags as |title fields|}}
+                <span class="uk-text-bold">{{t (concat "documents.tags." title)}}</span>
+                <ul class="uk-list uk-list-bullet">
+                  {{#each fields as |field|}}
+                    <li>{{field.question.label}}</li>
+                  {{/each}}
+                </ul>
+              {{/each-in}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  {{/file-dropzone}}
+{{/if}}
+
+{{#if data.isRunning}}
+  <div class="uk-flex uk-flex-center">
+    {{uk-spinner ratio=2}}
+  </div>
+{{else}}
+  <ul class="uk-list uk-list-divider">
+    {{#each data.lastSuccessful.value as |attachment|}}
+      <li>
+        <div uk-grid class="uk-grid-small">
+          <div class="uk-width-expand">
+            <a href="#" title={{t "documents.download"}} class="uk-text-bold uk-text-link" {{action (perform attachment.download)}}>
+              {{attachment.name}}
+            </a>
+            <span class="uk-text-meta uk-text-small">
+              {{attachment.size}}
+            </span>
+            <br>
+            <span class="uk-text-meta">
+              {{t "documents.date"
+                date=(moment-format attachment.date "DD.MM.YYYY")
+                time=(moment-format attachment.date "HH:mm")
+              }}
+            </span>
+          </div>
+          <div class="uk-flex uk-flex-middle uk-text-meta uk-inline">
+            {{#if attachment.tags.length}}
+              <span class="uk-link">
+                {{t "documents.showTags"}}
+              </span>
+              <div uk-drop="pos: bottom; animation: uk-animation-slide-top-small; delay-hide: 0;">
+                <div class="uk-card uk-card-body uk-card-default uk-padding-small uk-box-shadow-medium uk-text-left uk-text-small">
+                  <ul class="uk-list uk-list-bullet uk-padding-remove-left">
+                    {{#each attachment.tags as |tag|}}
+                      <li>{{tag}}</li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            {{else}}
+              {{t "documents.noTags"}}
+            {{/if}}
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
