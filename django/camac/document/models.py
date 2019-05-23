@@ -1,5 +1,5 @@
 import reversion
-from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import ArrayField, JSONField
 from django.db import models
 from django.utils import timezone
 
@@ -84,6 +84,8 @@ class Attachment(models.Model):
     """
     Service attachment has been uploaded with.
     """
+
+    meta = JSONField(default=dict)
 
     class Meta:
         managed = True
