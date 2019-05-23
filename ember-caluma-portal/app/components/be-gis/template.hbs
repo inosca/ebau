@@ -1,7 +1,30 @@
 <iframe name="map" src={{link}}></iframe>
-<div class="uk-text-right">
-  <small class="uk-text-muted">
-    Wird die Karte nicht richtig dargestellt?
-    <a href={{link}} target="map">Neu laden</a>
-  </small>
+
+<div class="uk-flex uk-flex-between uk-margin-small-top">
+  <span>
+    {{uk-button
+      label="Daten übernehmen"
+      on-click=(action "applySelection")
+      size="small"
+    }}
+
+    <button
+      type="button"
+      class="uk-icon-button"
+      uk-icon="warning"
+      {{action (mut warningVisible) true}}>
+    </button>
+  </span>
+
+  <div class="uk-text-right">
+    <small class="uk-text-muted">
+      Wird die Karte nicht richtig dargestellt?
+      <a href={{link}} target="map">Neu laden</a>
+    </small>
+  </div>
 </div>
+
+{{#uk-modal visible=warningVisible}}
+  Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu
+  angelegt. Alle manuell ergänzten Informationen gehen dabei verloren.
+{{/uk-modal}}
