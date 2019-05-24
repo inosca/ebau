@@ -174,10 +174,9 @@ export default Component.extend({
         )
       })
     );
-    formData.append("group", GROUP);
     formData.append("path", this.file.blob, this.file.name);
 
-    yield this.fetch.fetch("/api/v1/attachments", {
+    yield this.fetch.fetch(`/api/v1/attachments?group=${GROUP}`, {
       method: "post",
       body: formData,
       headers: {
