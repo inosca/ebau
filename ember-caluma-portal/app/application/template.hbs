@@ -1,28 +1,26 @@
-{{#a11y-landmark tagName="main"}}
+{{#a11y-landmark tagName="main" class=(if isEmbedded "embedded")}}
   <div class="uk-container">
-    {{#unless isEmbedded}}
-      {{#uk-flex horizontal="center" vertical="middle" direction="column" class="uk-padding"}}
-        {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
-          <div class="uk-width-1-1">
-            <img src="/assets/images/logo-ebau-bern-1.svg" alt="Logo eBau BE">
-          </div>
-          {{#if (not-eq environment "production")}}
-            <div class="uk-width-1-1 uk-margin-top">
-              <span>v{{app-version hideSha=true}}</span>
-              {{uk-label label=environment}}
-            </div>
-          {{/if}}
-        {{/link-to}}
-        <div>
-          {{!-- we can't use link-to because of the uk-icon attribute --}}
-          {{! template-lint-disable no-invalid-interactive}}
-          <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to "index")}}></a>
-          {{#if session.isAuthenticated}}
-            <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action (transition-to "logout")}}></button>
-          {{/if}}
+    {{#uk-flex horizontal="center" vertical="middle" direction="column" class="uk-padding" tagName="header"}}
+      {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
+        <div class="uk-width-1-1">
+          <img src="/assets/images/logo-ebau-bern-1.svg" alt="Logo eBau BE">
         </div>
-      {{/uk-flex}}
-    {{/unless}}
+        {{#if (not-eq environment "production")}}
+          <div class="uk-width-1-1 uk-margin-top">
+            <span>v{{app-version hideSha=true}}</span>
+            {{uk-label label=environment}}
+          </div>
+        {{/if}}
+      {{/link-to}}
+      <div>
+        {{!-- we can't use link-to because of the uk-icon attribute --}}
+        {{! template-lint-disable no-invalid-interactive}}
+        <a title="Startseite" class="uk-icon-button uk-animation-fade" uk-icon="home" {{action (transition-to "index")}}></a>
+        {{#if session.isAuthenticated}}
+          <button type="button" title="Ausloggen" class="uk-icon-button uk-animation-fade uk-margin-left" uk-icon="sign-out" {{action (transition-to "logout")}}></button>
+        {{/if}}
+      </div>
+    {{/uk-flex}}
 
     <div class="uk-padding uk-padding-remove-horizontal uk-animation-fade">
       {{focusing-outlet}}
