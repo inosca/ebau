@@ -7368,6 +7368,42 @@
   },
   {
     "fields": {
+      "action_name": "list",
+      "available_instance_resource": "apidocuments",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 20070
+  },
+  {
+    "fields": {
+      "action_name": "upload",
+      "available_instance_resource": "apidocuments",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 20071
+  },
+  {
+    "fields": {
+      "action_name": "download",
+      "available_instance_resource": "apidocuments",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 20072
+  },
+  {
+    "fields": {
+      "action_name": "delete",
+      "available_instance_resource": "apidocuments",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 20073
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmail",
       "recipient_type": "Notification_Manager_CurrentUser",
       "template": 1
@@ -33450,6 +33486,15 @@
   },
   {
     "fields": {
+      "controller_name": "list",
+      "description": "List of instance documents (API source)",
+      "module_name": "apidocuments"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "apidocuments"
+  },
+  {
+    "fields": {
       "controller_name": "applicants",
       "description": "Applicants module",
       "module_name": "applicants"
@@ -43363,7 +43408,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 32,
+      "sort": 33,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43378,7 +43423,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 33,
+      "sort": 34,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43438,7 +43483,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 7,
+      "sort": 8,
       "template": "/file/file-readonly.phtml"
     },
     "model": "core.instanceresource",
@@ -43468,7 +43513,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 8,
+      "sort": 9,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43498,7 +43543,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 9,
+      "sort": 10,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43543,7 +43588,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 10,
+      "sort": 11,
       "template": "/file/upload.phtml"
     },
     "model": "core.instanceresource",
@@ -43618,7 +43663,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 18,
+      "sort": 19,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -43633,7 +43678,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 19,
+      "sort": 20,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43693,7 +43738,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 16,
+      "sort": 17,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43708,7 +43753,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 31,
+      "sort": 32,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43738,7 +43783,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 13,
+      "sort": 14,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43783,7 +43828,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 35,
+      "sort": 36,
       "template": "/responsible/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43813,7 +43858,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 37,
+      "sort": 38,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43843,7 +43888,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 20,
+      "sort": 21,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43918,7 +43963,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 15,
+      "sort": 16,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43933,7 +43978,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 21,
+      "sort": 22,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43963,7 +44008,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 26,
+      "sort": 27,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -43978,7 +44023,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 27,
+      "sort": 28,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -43993,7 +44038,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 28,
+      "sort": 29,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44008,7 +44053,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 29,
+      "sort": 30,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44023,7 +44068,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 30,
+      "sort": 31,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44083,7 +44128,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 22,
+      "sort": 23,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -44098,7 +44143,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 24,
+      "sort": 25,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -44113,7 +44158,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 23,
+      "sort": 24,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44128,7 +44173,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 25,
+      "sort": 26,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44263,7 +44308,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 17,
+      "sort": 18,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44458,7 +44503,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 11,
+      "sort": 12,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44473,7 +44518,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 12,
+      "sort": 13,
       "template": "/form/read-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44508,6 +44553,21 @@
     },
     "model": "core.instanceresource",
     "pk": 20067
+  },
+  {
+    "fields": {
+      "available_instance_resource": "apidocuments",
+      "class_field": null,
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 2,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20068
   },
   {
     "fields": {
@@ -44608,7 +44668,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 14,
+      "sort": 15,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44833,7 +44893,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 36,
+      "sort": 37,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -45043,7 +45103,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 34,
+      "sort": 35,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -48737,6 +48797,16 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20067
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20068,
+      "language": "de",
+      "name": "Dokumente"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20068
   },
   {
     "fields": {
@@ -62387,6 +62457,150 @@
     },
     "model": "core.irroleacl",
     "pk": 21475
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21476
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21477
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21478
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21479
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20005,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21480
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20010,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21481
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20011,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21482
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 40001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21483
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20013,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21484
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 40003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21485
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 40002,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21486
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20014,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21487
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 10000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21488
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20008,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21489
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 20009,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21490
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 120000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21491
   },
   {
     "fields": {
@@ -117785,6 +117999,34 @@
     },
     "model": "core.serviceansweractivation",
     "pk": 80324
+  },
+  {
+    "fields": {
+      "name": "Beilagen zum Gesuch",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "read",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "admin",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 2
   },
   {
     "fields": {
