@@ -10975,7 +10975,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "zustimmungen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "zustimmungen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -11875,7 +11879,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauen-ausserhalb-bauzone" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauen-ausserhalb-bauzone"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -11900,7 +11908,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-energie" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-energie"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -11950,7 +11962,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12200,7 +12216,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauen-ausserhalb-bauzone" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauen-ausserhalb-bauzone"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12250,7 +12270,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauen-ausserhalb-bauzone" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauen-ausserhalb-bauzone"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12275,7 +12299,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -12975,7 +13003,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-allgemein" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-allgemein"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13025,7 +13057,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-allgemein" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-allgemein"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13425,7 +13461,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-gastgewerbe"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-gastgewerbe"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13500,7 +13540,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13625,7 +13669,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-gastgewerbe" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-gastgewerbe"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13700,7 +13748,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-zivilschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-zivilschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -13975,7 +14027,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -14100,7 +14156,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-brandschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-brandschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -14125,7 +14185,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-brandschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-brandschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -14475,7 +14539,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "selbstdeklaration-2" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "selbstdeklaration-2"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15150,7 +15218,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-wald"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-wald"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15275,7 +15347,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-energie" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-energie"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15325,7 +15401,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15375,7 +15455,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15400,7 +15484,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15450,7 +15538,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15550,7 +15642,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15800,7 +15896,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15825,7 +15925,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-reklame" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-reklame"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16125,7 +16229,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16663,7 +16771,7 @@
     "pk": "gefahrengutachten-dokument",
     "fields": {
       "created_at": "2019-05-13T12:45:45.180Z",
-      "modified_at": "2019-05-23T08:53:18.000Z",
+      "modified_at": "2019-05-23T08:53:18Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Gefahrengutachten\"}",
@@ -16675,7 +16783,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-naturgefahren" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-naturgefahren"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17000,7 +17112,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17025,7 +17141,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17050,7 +17170,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-energie"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-energie"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17075,7 +17199,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-immissionsschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-immissionsschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17200,7 +17328,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17450,7 +17582,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17525,7 +17661,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17550,7 +17690,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -17600,7 +17744,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "beilagen-vorabklaerung" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "beilagen-vorabklaerung"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -18175,7 +18323,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null,  "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -18200,7 +18352,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -18450,7 +18606,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "zustimmungen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "zustimmungen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19075,7 +19235,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19800,7 +19964,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19850,7 +20018,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -19900,7 +20072,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-stoerfallvorsorge"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-stoerfallvorsorge"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -20388,16 +20564,16 @@
     "pk": "liegenschaftsnummer",
     "fields": {
       "created_at": "2019-05-13T07:43:38.657Z",
-      "modified_at": "2019-05-13T07:43:38.657Z",
+      "modified_at": "2019-05-24T12:11:49.955Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Liegenschaftsnummer\"}",
       "type": "integer",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_value": null, "min_value": null },
       "meta": {},
@@ -20825,7 +21001,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -20850,7 +21030,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -21175,7 +21359,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-immissionsschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-immissionsschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -21200,7 +21388,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "zustimmungen"  },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "zustimmungen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23390,7 +23582,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23415,7 +23611,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23440,7 +23640,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-biologische-sicherheit"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-biologische-sicherheit"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23465,7 +23669,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-biologische-sicherheit" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-biologische-sicherheit"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23515,7 +23723,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -23990,7 +24202,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-brandschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-brandschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24065,7 +24281,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-brandschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-brandschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24165,7 +24385,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24315,7 +24539,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-stoerfallvorsorge" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-stoerfallvorsorge"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24340,7 +24568,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-wald" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-wald"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24365,7 +24597,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-wald" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-wald"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24465,7 +24701,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24590,7 +24830,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24790,7 +25034,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24815,7 +25063,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -24965,7 +25217,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-zivilschutz"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-zivilschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25115,7 +25371,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-stoerfallvorsorge" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-stoerfallvorsorge"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25190,7 +25450,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-zivilschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-zivilschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25240,7 +25504,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-allgemein" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-allgemein"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25315,7 +25583,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25390,7 +25662,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-reklame" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-reklame"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25490,7 +25766,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25615,7 +25895,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-biologische-sicherheit"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-biologische-sicherheit"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -25765,7 +26049,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-stoerfallvorsorge"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-stoerfallvorsorge"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27190,7 +27478,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27265,7 +27557,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-wald" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-wald"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27390,7 +27686,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27415,7 +27715,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "baugesuch-mit-uvp" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "baugesuch-mit-uvp"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27615,7 +27919,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "bauwerk-gewaesserschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "bauwerk-gewaesserschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27690,7 +27998,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "informationen-ueber-grundstueck" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "informationen-ueber-grundstueck"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27915,7 +28227,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-entsorgung-bodenschutz" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-entsorgung-bodenschutz"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -27990,7 +28306,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "allgemeine-informationen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "allgemeine-informationen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28015,7 +28335,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "allgemeine-informationen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "allgemeine-informationen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28340,7 +28664,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "baugesuch-mit-uvp" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "baugesuch-mit-uvp"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -28715,7 +29043,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "spezialformulare-waermepumpen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "spezialformulare-waermepumpen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29040,7 +29372,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "plaene" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "plaene"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29640,7 +29976,11 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "zustimmungen"},
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "zustimmungen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -29665,7 +30005,11 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": null, "documentCategory": "zustimmungen" },
+      "meta": {
+        "hideLabel": true,
+        "widgetOverride": null,
+        "documentCategory": "zustimmungen"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
