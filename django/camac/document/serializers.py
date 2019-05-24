@@ -154,6 +154,7 @@ class AttachmentSerializer(mixins.InstanceEditableMixin, serializers.ModelSerial
             "group",
             "service",
             "question",
+            "meta",
         )
         read_only_fields = ("date", "mime_type", "name", "size", "user")
 
