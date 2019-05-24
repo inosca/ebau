@@ -6,6 +6,7 @@ import getCaseQuery from "ember-caluma-portal/gql/queries/get-case";
 export default Route.extend({
   apollo: service(),
   notification: service(),
+  intl: service(),
 
   model({ case_id }) {
     return {

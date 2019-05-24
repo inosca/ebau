@@ -27,6 +27,7 @@ export const queryParams = new QueryParams({
 export default Controller.extend(queryParams.Mixin, {
   apollo: service(),
   notification: service(),
+  intl: service(),
 
   setup() {
     this.data.perform();
