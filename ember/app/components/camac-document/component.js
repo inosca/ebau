@@ -161,7 +161,7 @@ export default CamacInputComponent.extend({
 
         let url = "/api/v1/attachments";
         let method = "POST";
-        if (existingFile) {
+        if (existingFile && !this.instance.identifier) {
           url = `/api/v1/attachments/${existingFile.id}`;
           method = "PATCH";
         }
