@@ -15635,7 +15635,7 @@
       "created_by_group": "[]",
       "label": "{\"de\": \"Erdw\\u00e4rmensondendimensionierung\"}",
       "type": "multiple_choice",
-      "is_required": "'dimensionierung-erdwaermesonden-andere-grundlage' in 'parent.5-spezialformulare.waermepumpen.dimensionierung-erdwaermesonden'|answer",
+      "is_required": "'dimensionierung-erdwaermesonden-andere-grundlage' == 'parent.5-spezialformulare.waermepumpen.dimensionierung-erdwaermesonden'|answer",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
