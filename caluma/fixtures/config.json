@@ -1197,7 +1197,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gwr-egid",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -1626,7 +1626,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 15
+      "sort": 16
     }
   },
   {
@@ -2978,7 +2978,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "parzellennummer",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3134,7 +3134,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "nummer-gesuchstellerin",
-      "sort": 13
+      "sort": 14
     }
   },
   {
@@ -3589,7 +3589,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "anfrage-zur-vorabklaerung",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -3745,7 +3745,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "gemeinde",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -5019,7 +5019,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "be-gid",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -5357,7 +5357,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "strasse-gesuchstellerin",
-      "sort": 14
+      "sort": 15
     }
   },
   {
@@ -5370,7 +5370,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "e-grid-nr",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5604,7 +5604,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 16
+      "sort": 17
     }
   },
   {
@@ -5695,7 +5695,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -5968,7 +5968,20 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "liegenschaftsnummer",
-      "sort": 5
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "8d4422cc-f418-4b02-aa11-c915ff5cf579",
+    "fields": {
+      "created_at": "2019-05-26T09:09:07.029Z",
+      "modified_at": "2019-05-26T09:09:07.029Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-einfach",
+      "question": "einreichen-button",
+      "sort": 1
     }
   },
   {
@@ -6020,7 +6033,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -7411,7 +7424,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "ort-gesuchstellerin",
-      "sort": 11
+      "sort": 12
     }
   },
   {
@@ -9465,7 +9478,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "plz-gesuchstellerin",
-      "sort": 12
+      "sort": 13
     }
   },
   {
@@ -9751,7 +9764,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
       "question": "karte-einfache-vorabklaerung",
-      "sort": 9
+      "sort": 10
     }
   },
   {
