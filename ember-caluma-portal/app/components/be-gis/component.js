@@ -6,20 +6,104 @@ import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
 const KEY_TABLE_QUESTION = "parzelle";
-const KEY_PARCEL = "parzellennummer";
-const KEY_BAURECHT = "baurecht-nummer";
-const KEY_EGRID = "e-grid-nr";
-const KEY_COORD_NORTH = "lagekoordinaten-nord";
-const KEY_COORD_EAST = "lagekoordinaten-ost";
-const KEYS = [
-  KEY_PARCEL,
-  KEY_BAURECHT,
-  KEY_EGRID,
-  KEY_COORD_NORTH,
-  KEY_COORD_EAST
+const KEY_TABLE_PARCEL = "parzellennummer";
+const KEY_TABLE_BAURECHT = "baurecht-nummer";
+const KEY_TABLE_EGRID = "e-grid-nr";
+const KEY_TABLE_COORD_NORTH = "lagekoordinaten-nord";
+const KEY_TABLE_COORD_EAST = "lagekoordinaten-ost";
+const KEYS_TABLE = [
+  KEY_TABLE_PARCEL,
+  KEY_TABLE_BAURECHT,
+  KEY_TABLE_EGRID,
+  KEY_TABLE_COORD_NORTH,
+  KEY_TABLE_COORD_EAST
 ];
 
+const KEY_SIMPLE_MAP = "karte-einfache-vorabklaerung";
+const KEY_SIMPLE_PARCEL = "parzellennummer";
+//const KEY_SIMPLE_BAURECHT = "baurecht-nummer";
+const KEY_SIMPLE_EGRID = "e-grid-nr";
+const KEY_SIMPLE_COORD_NORTH = "lagekoordinaten-nord-einfache-vorabklaerung";
+const KEY_SIMPLE_COORD_EAST = "lagekoordinaten-ost-einfache-vorabklaerung";
+const KEYS_SIMPLE = [
+  KEY_SIMPLE_MAP,
+  KEY_SIMPLE_PARCEL,
+  //KEY_SIMPLE_BAURECHT,
+  KEY_SIMPLE_EGRID,
+  KEY_SIMPLE_COORD_NORTH,
+  KEY_SIMPLE_COORD_EAST
+];
+const KEYS_SIMPLE_HASH = {
+  [KEY_SIMPLE_COORD_NORTH]: KEY_TABLE_COORD_NORTH,
+  [KEY_SIMPLE_COORD_EAST]: KEY_TABLE_COORD_EAST
+}
+
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
+
+/*
+const FIELD_MAP = {
+  ARCHINV_FUNDST: {
+    path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
+    values: {
+      true: "gebiet-mit-archaeologischen-objekten-ja",
+      false: "gebiet-mit-archaeologischen-objekten-nein"
+    }
+  },
+  BALISKBS_KBS: {
+    path: "parent.zonenvorschriften-schutzzonen.belasteter-standort",
+    values: {
+      true: "belasteter-standort-ja",
+      false: "belasteter-standort-nein"
+    }
+  },
+  BAUINV_BAUINV_VW: {
+    path: "parent.zonenvorschriften-schutzzonen.handelt-es-sich-um-ein-baudenkmal",
+    values: {
+      true: "handelt-es-sich-um-ein-baudenkmal-ja",
+      false: "handelt-es-sich-um-ein-baudenkmal-nein"
+    }
+  },
+  GK5_SY: {
+    path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-naturgefahren",
+    values: {
+      true: "gebiet-mit-naturgefahren-ja",
+      false: "gebiet-mit-naturgefahren-nein"
+    }
+  },
+//  GSK25_GSK_VW: {
+//    path: "parent.zonenvorschriften-schutzzonen."
+//  },
+  GSKT_BEZEICH_DE: {
+    path: "parent.zonenvorschriften-schutzzonen.gewaesserschutzbereich",
+    values: {
+      "übriger Bereich üB": "gewaesserschutzbereich-ueb",
+      "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
+      "Gewässerschutzbereich Au": "gewaesserschutzbereich-au",
+      "Provisorischer Zuströmbereich Zu": "gewaesserschutzbereich-zu"
+    }
+  },
+  NSG_NSGP: {
+    path: "parent.zonenvorschriften-schutzzonen.naturschutz",
+    values: {
+      true: "naturschutz-ja",
+      false: "naturschutz-nein"
+    }
+  },
+  UZP_BAU_VW: {
+    path: "parent.zonenvorschriften-baurechtliche-grundordnung.nutzungszone"
+  },
+  UZP_LSG_VW: {
+    path: "parent.zonenvorschriften-schutzzonen.objekt-des-besonderen-landschaftsschutzes",
+    values: {
+      true: "objekt-des-besonderen-landschaftsschutzes-ja",
+      false: "objekt-des-besonderen-landschaftsschutzes-nein"
+    }
+  },
+  UZP_UEO_VW: {
+    path: "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
+  }
+};
+*/
 
 /**
  * Combine the values of all parcels to one array by
@@ -75,7 +159,9 @@ export default Component.extend({
 
   disabled: false,
   parcels: null,
-  warningVisible: false,
+  warningOverride: false,
+  warningOnlyOne: false,
+  warningNoSelection: false,
 
   link: computed(function() {
     // This try/catch block is necessary as long as we don't have a mock
@@ -89,14 +175,15 @@ export default Component.extend({
       // Find the E-Grid field of the first parcel.
       const rows = table && table.answer.rowDocuments;
       const field = rows && rows[0].fields.find(
-        field => field.question.slug === KEY_EGRID
+        field => field.question.slug === KEY_TABLE_EGRID
       );
       // Set the selection and egrid variables.
       const selection = field && field.answer.value;
       const egrid = selection ? selection : "EGRID";
 
       return (
-        "https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp?baseURL=https://www.map.apps.be.ch/pub" +
+        "https://www.map.apps.be.ch/pub/client_mapwidget/default.jsp" +
+        "?baseURL=https://www.map.apps.be.ch/pub" +
         "&project=a42pub_ebau_cl" +
         "&map_adv=true" +
         "&useXD=true" +
@@ -125,7 +212,7 @@ export default Component.extend({
 
   origin: computed("link", function() {
     // The regular expression extracts the scheme and hostname from the link.
-    // We need this to check if "message" events were sent by this iframe.
+    // We need this to check if the "message" events were sent by the iframe.
     if (REGEXP_ORIGIN.test(this.link)) {
       return this.link.match(REGEXP_ORIGIN)[1];
     }
@@ -218,11 +305,11 @@ export default Component.extend({
 
         // Create the parcel object
         let parcel = {
-          [KEY_PARCEL]: parcel_number,
-          [KEY_BAURECHT]: baurecht_number,
-          [KEY_EGRID]: coords.keyvalue[egrid_feature_index],
-          [KEY_COORD_EAST]: parseInt(coords.xgeo),
-          [KEY_COORD_NORTH]: parseInt(coords.ygeo)
+          [KEY_TABLE_PARCEL]: parcel_number,
+          [KEY_TABLE_BAURECHT]: baurecht_number,
+          [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
+          [KEY_TABLE_COORD_EAST]: parseInt(coords.xgeo),
+          [KEY_TABLE_COORD_NORTH]: parseInt(coords.ygeo)
         };
 
         let parcel_key = `${coords.x}.${coords.y}`;
@@ -232,13 +319,13 @@ export default Component.extend({
 
           if (parcel_number !== "") {
             // We are currently handling the "Baurecht" parcel, so take only that value
-            parcel[KEY_BAURECHT] = oldParcel[KEY_BAURECHT];
+            parcel[KEY_TABLE_BAURECHT] = oldParcel[KEY_TABLE_BAURECHT];
           } else {
             // Take all the other values and overwrite the "Baurecht" ones
-            parcel[KEY_PARCEL]      = oldParcel[KEY_PARCEL];
-            parcel[KEY_EGRID]       = oldParcel[KEY_EGRID];
-            parcel[KEY_COORD_EAST]  = oldParcel[KEY_COORD_EAST];
-            parcel[KEY_COORD_NORTH] = oldParcel[KEY_COORD_NORTH];
+            parcel[KEY_TABLE_PARCEL]      = oldParcel[KEY_TABLE_PARCEL];
+            parcel[KEY_TABLE_EGRID]       = oldParcel[KEY_TABLE_EGRID];
+            parcel[KEY_TABLE_COORD_EAST]  = oldParcel[KEY_TABLE_COORD_EAST];
+            parcel[KEY_TABLE_COORD_NORTH] = oldParcel[KEY_TABLE_COORD_NORTH];
           }
         }
 
@@ -249,14 +336,53 @@ export default Component.extend({
     this.set("parcels", Object.values(parcels));
   },
 
+  async applyParcelSelection(parcels) {
+    if (this.field.question.slug === KEY_SIMPLE_MAP) {
+      await this.populateFields(parcels);
+    } else {
+      await this.populateTable(parcels);
+    }
+  },
+
   /**
-   * Creates a new document for each parcel and saves the parcel values
-   * in the corresponding fields.
+   * Saves the parcel values in their corresponding fields from the
+   * current document. This method is used for the preliminary assessment
+   * and only allows for one parcel.
    *
    * @method populateFields
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
   async populateFields(parcels) {
+    if (parcels.length > 1) {
+      this.set("warningOnlyOne", true);
+      return;
+    }
+
+    const [parcel] = parcels;
+    const fields = this.field.document.fields.filter(
+      field => KEYS_SIMPLE.includes(field.question.slug)
+    );
+
+    await Promise.all(fields.map(async field => {
+      const slug = KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
+      const value = String(parcel[slug]);
+
+      if (value !== null && value.length > 0) {
+        field.answer.set("value", value);
+        return field.save.perform();
+      }
+    }));
+  },
+
+  /**
+   * Creates a new document for each parcel and saves the parcel values
+   * in their corresponding fields. This method is used for all workflows
+   * except the preliminary assessment.
+   *
+   * @method populateTable
+   * @param {Array} parcels The parcels prepared by `addremoveResult`.
+   */
+  async populateTable(parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
       field => field.question.slug === KEY_TABLE_QUESTION
@@ -280,18 +406,18 @@ export default Component.extend({
       const newDocument = this.documentStore.find(newDocumentRaw);
 
       const fields = newDocument.fields.filter(
-        field => KEYS.includes(field.question.slug)
+        field => KEYS_TABLE.includes(field.question.slug)
       );
 
-      fields.forEach(async field => {
+      await Promise.all(fields.map(async field => {
         const slug = field.question.slug;
         const value = String(parcel[slug]);
 
         if (value !== null && value.length > 0) {
           field.answer.set("value", value);
-          await field.save.perform();
+          return field.save.perform();
         }
-      });
+      }));
 
       rows.push(newDocument);
     }));
@@ -304,11 +430,11 @@ export default Component.extend({
 /*
   fetchAdditionalData(parcels) {
     const requests = parcels.map(parcel => {
-      return $.get(`/api/v1/egrid/${parcel[KEY_EGRID]}`);
+      return $.get(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`);
     });
 
     $.when(...requests).then(
-      function success(...args) {
+      (...args) => {
         const multi = Array.isArray(args[1]);
 
         const success = multi
@@ -325,9 +451,28 @@ export default Component.extend({
 
         console.log("data_raw", data_raw);
         console.log("data_gis", data_gis);
+
+        for (let key in FIELD_MAP) {
+          const field = this.field.document.findField(FIELD_MAP[key].path);
+          const type = field.question.__typename;
+          const values_map = FIELD_MAP[key].values;
+          let value = data_gis[key];
+
+          if (type === "ChoiceQuestion") {
+            value = values_map[value];
+          } else if (type === "MultipleChoiceQuestion") {
+            value = Array.isArray(value) ? value : [value];
+            value = value.map(val => values_map[val]);
+          } else if (Array.isArray(value)) {
+            value = value.join(", ");
+          }
+
+          field.answer.set("value", value);
+          field.save.perform();
+        }
       },
-      function error(jqXHR, textStatus, errorThrown) {
-        console.log("error", arguments);
+      (jqXHR, textStatus, errorThrown) => {
+        console.error("error", arguments);
       }
     );
   },
@@ -349,10 +494,12 @@ export default Component.extend({
   },
 
   actions: {
-    applySelection() {
-      if (this.parcels) {
-        this.populateFields(this.parcels);
-        //this.fetchAdditionalData(this.parcels);
+    async applySelection() {
+      if (this.parcels && this.parcels.length) {
+        await this.applyParcelSelection(this.parcels);
+        //await this.fetchAdditionalData(this.parcels);
+      } else {
+        this.set("warningNoSelection", true);
       }
     }
   }
