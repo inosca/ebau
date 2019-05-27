@@ -36,3 +36,29 @@
 {{#uk-modal visible=warningNoSelection}}
   Sie haben keine Parzelle ausgewählt.
 {{/uk-modal}}
+
+{{#uk-modal visible=confirmationGis}}
+  <h1 class="uk-modal-title">Daten übernehmen?</h1>
+
+  <ul class="uk-list uk-list-divider">
+    {{#each gisData as |data|}}
+      <li>
+        <strong>{{data.field.question.label}}</strong><br>
+        {{data.value_pretty}}
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="uk-text-right uk-margin-top">
+    {{uk-button
+      label="Nein"
+      on-click=(action (mut confirmationGis) false)
+    }}
+
+    {{uk-button
+      label="Ja"
+      color="primary"
+      on-click=(action "saveAdditionalData")
+    }}
+  </div>
+{{/uk-modal}}
