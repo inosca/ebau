@@ -6878,7 +6878,7 @@
       "created_by_group": null,
       "form": "8-freigabequittung",
       "question": "freigabequittung-text",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7295,6 +7295,19 @@
       "form": "6-dokumente",
       "question": "skizze-der-reklame-mit-farbangaben-dokument",
       "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "b2e12837-f063-4089-8125-947f4bc3e6da",
+    "fields": {
+      "created_at": "2019-05-27T10:42:24.779Z",
+      "modified_at": "2019-05-27T10:42:24.779Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "zu-unterzeichnende-dokumente",
+      "sort": 2
     }
   },
   {
@@ -29818,6 +29831,31 @@
       "data_source": null,
       "row_form": null,
       "sub_form": "zonenvorschriften-schutzzonen",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "zu-unterzeichnende-dokumente",
+    "fields": {
+      "created_at": "2019-05-27T10:42:24.697Z",
+      "modified_at": "2019-05-27T10:42:24.697Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Zu unterzeichnende Dokumente\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "be-documents-to-sign" },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
       "source": null,
       "format_validators": "[]"
     }
