@@ -1,0 +1,15 @@
+{{#if tags.isRunning}}
+  <div class="uk-flex uk-flex-center">
+    {{uk-spinner ratio=2}}
+  </div>
+{{else}}
+  {{#if tags.length}}
+    <ul class="uk-list uk-list-bullet">
+      {{#each tags.lastSuccessful.value as |tag|}}
+        <li>{{tag}}</li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>{{t "freigabequittung.noFiles"}}</p>
+  {{/if}}
+{{/if}}
