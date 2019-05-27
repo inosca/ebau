@@ -27734,7 +27734,7 @@
       "created_by_group": "[]",
       "label": "{\"de\": \"Umweltvertr\\u00e4glichkeitsbericht\"}",
       "type": "multiple_choice",
-      "is_required": "true",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
