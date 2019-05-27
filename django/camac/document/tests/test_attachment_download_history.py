@@ -23,11 +23,20 @@ def test_attachment_download_history_list(
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user,attachment__path",
-    [("Applicant", LazyFixture("admin_user"), django_file("multiple-pages.pdf"))],
+    "instance__user,attachment__path,applicant__invitee",
+    [
+        (
+            LazyFixture("admin_user"),
+            django_file("multiple-pages.pdf"),
+            LazyFixture("admin_user"),
+        )
+    ],
 )
 def test_attachment_download_history_create(
-    admin_client, attachment_attachment_sections, attachment_section_group_acl
+    admin_client,
+    attachment_attachment_sections,
+    attachment_section_group_acl,
+    applicant,
 ):
     download_url = reverse(
         "attachment-download", args=[attachment_attachment_sections.attachment.path]

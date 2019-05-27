@@ -7,6 +7,7 @@ from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
 from rest_framework.test import APIClient, APIRequestFactory
 
+from camac.applicants import factories as applicant_factories
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.faker import FreezegunAwareDatetimeProvider
@@ -32,6 +33,7 @@ register_module(instance_factories)
 register_module(core_factories)
 register_module(document_factories)
 register_module(notification_factories)
+register_module(applicant_factories)
 
 
 Faker.add_provider(FreezegunAwareDatetimeProvider)
