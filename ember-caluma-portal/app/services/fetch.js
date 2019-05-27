@@ -17,7 +17,7 @@ export default Service.extend({
   }),
 
   fetch(resource, init = {}) {
-    init.headers = Object.assign(this.headers, init.headers);
+    init.headers = Object.assign({}, this.headers, init.headers);
 
     Object.keys(init.headers).forEach(
       k => init.headers[k] === undefined && delete init.headers[k]
