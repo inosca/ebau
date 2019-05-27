@@ -117,7 +117,6 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
-            "Gesuchsteller": "applicant",
             "Leitung Fachstelle": "service",
             "Sachbearbeiter Fachstelle": "service",
             "Einsichtsberechtigte Fachstelle": "service",

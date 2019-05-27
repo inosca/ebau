@@ -1,6 +1,6 @@
 import logging
-
 from django.utils.functional import SimpleLazyObject
+from django.conf import settings
 
 from . import models
 
@@ -28,9 +28,12 @@ def get_group(request):
         # it is allowed that user may not be in this group
         group = None
         if request.auth:
+            filter_expr = "name"
+            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                filter_expr = "trans__name"
             client = request.auth["aud"]
             group = (
-                models.Group.objects.filter(name=client.title())
+                models.Group.objects.filter(**{filter_expr: client.title()})
                 .select_related("role", "service")
                 .first()
             )

@@ -132,8 +132,8 @@ def test_instance_search(admin_client, admin_user, instance, form_field, search)
     "role_t__name,instance__user,status_code",
     [
         ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Service", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
-        ("Fachstelle", LazyFixture("user"), status.HTTP_404_NOT_FOUND),
+        ("Service", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
+        ("Fachstelle", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
         # Support has access to dossier, and can also delete in this test because the instance
         # is owned by the same user
         ("Support", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
