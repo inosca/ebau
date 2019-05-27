@@ -1,64 +1,18 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
-import EmberObject, { computed, getWithDefault } from "@ember/object";
-import { filterBy, reads } from "@ember/object/computed";
+import { computed } from "@ember/object";
+import { filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
 import { isBlank } from "@ember/utils";
 import { getOwner } from "@ember/application";
+import Attachment from "ember-caluma-portal/lib/attachment";
 
 import gql from "graphql-tag";
-import filesize from "filesize";
-import download from "downloadjs";
-import moment from "moment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const GROUP = 6;
-
-const Attachment = EmberObject.extend({
-  fetch: service(),
-  notification: service(),
-  intl: service(),
-
-  name: reads("attributes.name"),
-  path: reads("attributes.path"),
-  size: computed("attributes.size", function() {
-    return filesize(this.attributes.size);
-  }),
-  date: computed("attributes.date", function() {
-    return moment(this.attributes.date);
-  }),
-  tags: computed("attributes.meta.tags", function() {
-    return getWithDefault(this, "attributes.meta.tags", []).map(slug => {
-      const field = this.document.fields.find(f => f.question.slug === slug);
-
-      return (field && field.question.label) || slug;
-    });
-  }),
-
-  download: task(function*() {
-    try {
-      let response = yield this.fetch.fetch(`${this.path}?group=${GROUP}`, {
-        mode: "cors",
-        headers: {
-          accept: undefined,
-          "content-type": undefined
-        }
-      });
-
-      let file = yield response.blob();
-
-      download(file, this.name, file.type);
-
-      this.notification.success(this.intl.t("documents.downloadSuccess"));
-    } catch (e) {
-      /* eslint-disable-next-line no-console */
-      console.error(e);
-      this.notification.danger(this.intl.t("documents.downloadError"));
-    }
-  })
-});
 
 export default Component.extend({
   intl: service(),
