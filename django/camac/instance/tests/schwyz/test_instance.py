@@ -136,6 +136,7 @@ def test_instance_detail(admin_client, instance):
     assert response.status_code == status.HTTP_200_OK
 
 
+@only_schwyz
 @pytest.mark.parametrize("instance__identifier", ["00-00-000"])
 @pytest.mark.parametrize("form_field__name", ["name"])
 @pytest.mark.parametrize(
@@ -159,6 +160,7 @@ def test_instance_search(admin_client, instance, form_field, search):
     assert json["data"][0]["id"] == str(instance.pk)
 
 
+@only_schwyz
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
