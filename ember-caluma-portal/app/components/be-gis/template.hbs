@@ -1,7 +1,7 @@
 <iframe name="map" src={{link}}></iframe>
 
 <div class="uk-flex uk-flex-between uk-margin-small-top">
-  <span>
+  <div>
     {{uk-button
       label="Daten übernehmen"
       on-click=(action "applySelection")
@@ -12,9 +12,9 @@
       type="button"
       class="uk-icon-button"
       uk-icon="warning"
-      {{action (mut warningVisible) true}}>
+      {{action (mut warningOverride) true}}>
     </button>
-  </span>
+  </div>
 
   <div class="uk-text-right">
     <small class="uk-text-muted">
@@ -24,7 +24,15 @@
   </div>
 </div>
 
-{{#uk-modal visible=warningVisible}}
+{{#uk-modal visible=warningOverride}}
   Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu
   angelegt. Alle manuell ergänzten Informationen gehen dabei verloren.
+{{/uk-modal}}
+
+{{#uk-modal visible=warningOnlyOne}}
+  Bei einer einfachen Vorabklärung kann maximal eine Parzelle ausgewählt werden.
+{{/uk-modal}}
+
+{{#uk-modal visible=warningNoSelection}}
+  Sie haben keine Parzelle ausgewählt.
 {{/uk-modal}}
