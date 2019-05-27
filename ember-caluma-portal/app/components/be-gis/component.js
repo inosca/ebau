@@ -1,7 +1,7 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import { A } from "@ember/array";
 import { inject as service } from "@ember/service";
-//import $ from 'jquery';
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
@@ -40,7 +40,6 @@ const KEYS_SIMPLE_HASH = {
 
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
-/*
 const FIELD_MAP = {
   ARCHINV_FUNDST: {
     path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
@@ -103,7 +102,6 @@ const FIELD_MAP = {
     path: "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
   }
 };
-*/
 
 /**
  * Combine the values of all parcels to one array by
@@ -112,8 +110,7 @@ const FIELD_MAP = {
  *
  * There's a test in php/kt_bern/public/js-dev/test/reduce-test.js
  */
-/*
- function reduceArrayValues(data) {
+function reduceArrayValues(data) {
   return data.reduce((result, curr) => {
     [...new Set([...Object.keys(result), ...Object.keys(curr)])].forEach(
       key => {
@@ -135,7 +132,6 @@ const FIELD_MAP = {
     return result;
   });
 }
-*/
 
 // ?
 // use Cross Domain Communication
@@ -159,9 +155,11 @@ export default Component.extend({
 
   disabled: false,
   parcels: null,
+  gisData: null,
   warningOverride: false,
   warningOnlyOne: false,
   warningNoSelection: false,
+  confirmationGis: false,
 
   link: computed(function() {
     // This try/catch block is necessary as long as we don't have a mock
@@ -336,14 +334,6 @@ export default Component.extend({
     this.set("parcels", Object.values(parcels));
   },
 
-  async applyParcelSelection(parcels) {
-    if (this.field.question.slug === KEY_SIMPLE_MAP) {
-      await this.populateFields(parcels);
-    } else {
-      await this.populateTable(parcels);
-    }
-  },
-
   /**
    * Saves the parcel values in their corresponding fields from the
    * current document. This method is used for the preliminary assessment
@@ -427,56 +417,59 @@ export default Component.extend({
     table.save.perform();
   },
 
-/*
-  fetchAdditionalData(parcels) {
-    const requests = parcels.map(parcel => {
-      return $.get(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`);
-    });
+  async fetchAdditionalData(parcels) {
+    const responses = await Promise.all(parcels.map(async parcel =>
+      await fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
+    ));
 
-    $.when(...requests).then(
-      (...args) => {
-        const multi = Array.isArray(args[1]);
+    const success = responses.every(response => response.ok);
 
-        const success = multi
-          ? args.every(arg => arg[1] === "success")
-          : args[1] === "success";
+    if (success) {
+      const data_raw = (
+        await Promise.all(responses
+          //.filter(response => response.ok)
+          .map(response => response.json())
+        )
+      ).map(json => json.data);
 
-        console.log("success", success);
+      const data_gis = reduceArrayValues(data_raw);
 
-        const data_raw = multi
-          ? args.map(arg => arg[0].data)
-          : [args[0].data];
+      this.set("gisData", A());
 
-        const data_gis = reduceArrayValues(data_raw);
+      for (let key in FIELD_MAP) {
+        const field = this.field.document.findField(FIELD_MAP[key].path);
+        const type = field.question.__typename;
+        const values_map = FIELD_MAP[key].values;
+        let value = data_gis[key];
+        let value_pretty = value;
 
-        console.log("data_raw", data_raw);
-        console.log("data_gis", data_gis);
-
-        for (let key in FIELD_MAP) {
-          const field = this.field.document.findField(FIELD_MAP[key].path);
-          const type = field.question.__typename;
-          const values_map = FIELD_MAP[key].values;
-          let value = data_gis[key];
-
-          if (type === "ChoiceQuestion") {
-            value = values_map[value];
-          } else if (type === "MultipleChoiceQuestion") {
-            value = Array.isArray(value) ? value : [value];
-            value = value.map(val => values_map[val]);
-          } else if (Array.isArray(value)) {
-            value = value.join(", ");
-          }
-
-          field.answer.set("value", value);
-          field.save.perform();
+        if (value === undefined) {
+          continue;
         }
-      },
-      (jqXHR, textStatus, errorThrown) => {
-        console.error("error", arguments);
+
+        if (type === "ChoiceQuestion") {
+          value = values_map[value];
+          value_pretty = field.question.choiceOptions.edges.find(
+            edge => edge.node.slug === value
+          ).node.label;
+        } else if (type === "MultipleChoiceQuestion") {
+          value = Array.isArray(value) ? value : [value];
+          value = value.map(val => values_map[val]);
+          value_pretty = field.question.multipleChoiceOptions.edges.filter(
+            edge => edge.node.slug.includes(value)
+          ).map(edge => edge.node.label);
+        } else if (Array.isArray(value)) {
+          value = value.join(", ");
+          value_pretty = value;
+        }
+
+        this.gisData.pushObject({ field, value, value_pretty });
       }
-    );
+      this.set("confirmationGis", true);
+    } else {
+      alert("fu");
+    }
   },
-*/
 
   init() {
     this._super(...arguments);
@@ -496,11 +489,22 @@ export default Component.extend({
   actions: {
     async applySelection() {
       if (this.parcels && this.parcels.length) {
-        await this.applyParcelSelection(this.parcels);
-        //await this.fetchAdditionalData(this.parcels);
+        if (this.field.question.slug === KEY_SIMPLE_MAP) {
+          await this.populateFields(this.parcels);
+        } else {
+          await this.populateTable(this.parcels);
+          await this.fetchAdditionalData(this.parcels);
+        }
       } else {
         this.set("warningNoSelection", true);
       }
+    },
+    saveAdditionalData() {
+      this.set("confirmationGis", false);
+      this.gisData.forEach(({ field, value }) => {
+        field.answer.set("value", value);
+        field.save.perform();
+      });
     }
   }
 });
