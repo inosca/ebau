@@ -52,3 +52,6 @@ documents:
     selbstdeklaration-2: "Selbstdeklaration 2"
 
     weitere-unterlagen: "Weitere Unterlagen"
+
+freigabequittung:
+  noFiles: "Es sind keine Dokumente zu unterschreiben."
