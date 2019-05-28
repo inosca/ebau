@@ -19690,7 +19690,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Ja mit Auflagen",
-      "sort": 11
+      "sort": 4
     },
     "model": "core.circulationanswer",
     "pk": 67
@@ -19700,7 +19700,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Fachstelle nicht betroffen",
-      "sort": 12
+      "sort": 5
     },
     "model": "core.circulationanswer",
     "pk": 68
@@ -19720,7 +19720,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Pr\u00fcfung noch nicht abgeschlossen",
-      "sort": 13
+      "sort": 6
     },
     "model": "core.circulationanswer",
     "pk": 70
@@ -19730,7 +19730,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Keine Stellungnahme",
-      "sort": 8
+      "sort": 1
     },
     "model": "core.circulationanswer",
     "pk": 71
@@ -19740,7 +19740,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Keine Stellungnahme",
-      "sort": 14
+      "sort": 7
     },
     "model": "core.circulationanswer",
     "pk": 72
@@ -19750,7 +19750,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Keine R\u00fcckmeldung",
-      "sort": 19
+      "sort": 12
     },
     "model": "core.circulationanswer",
     "pk": 73
@@ -19760,80 +19760,10 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Keine R\u00fcckmeldung",
-      "sort": 20
+      "sort": 13
     },
     "model": "core.circulationanswer",
     "pk": 74
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Keine R\u00fcckmeldung",
-      "sort": 7
-    },
-    "model": "core.circulationanswer",
-    "pk": 75
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Fachstelle nicht betroffen",
-      "sort": 6
-    },
-    "model": "core.circulationanswer",
-    "pk": 76
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Ja mit Auflagen",
-      "sort": 5
-    },
-    "model": "core.circulationanswer",
-    "pk": 77
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Ja",
-      "sort": 4
-    },
-    "model": "core.circulationanswer",
-    "pk": 78
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Nein",
-      "sort": 3
-    },
-    "model": "core.circulationanswer",
-    "pk": 79
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Keine Stellungnahme",
-      "sort": 2
-    },
-    "model": "core.circulationanswer",
-    "pk": 80
-  },
-  {
-    "fields": {
-      "circulation_answer_type": 1,
-      "circulation_type": 62,
-      "name": "Pr\u00fcfung noch nicht abgeschlossen",
-      "sort": 1
-    },
-    "model": "core.circulationanswer",
-    "pk": 81
   },
   {
     "fields": {
@@ -19853,7 +19783,7 @@
     "fields": {
       "circulation_type": 41,
       "name": "E-Dossier",
-      "sort": 4
+      "sort": 3
     },
     "model": "core.circulationreason",
     "pk": 41
@@ -19862,7 +19792,7 @@
     "fields": {
       "circulation_type": 41,
       "name": "kein E-Dossier",
-      "sort": 5
+      "sort": 4
     },
     "model": "core.circulationreason",
     "pk": 42
@@ -19871,7 +19801,7 @@
     "fields": {
       "circulation_type": 61,
       "name": "E-Dossier",
-      "sort": 0
+      "sort": 1
     },
     "model": "core.circulationreason",
     "pk": 43
@@ -19880,28 +19810,10 @@
     "fields": {
       "circulation_type": 61,
       "name": "kein E-Dossier",
-      "sort": 3
-    },
-    "model": "core.circulationreason",
-    "pk": 44
-  },
-  {
-    "fields": {
-      "circulation_type": 62,
-      "name": "E-Dossier",
-      "sort": 1
-    },
-    "model": "core.circulationreason",
-    "pk": 45
-  },
-  {
-    "fields": {
-      "circulation_type": 62,
-      "name": "kein E-Dossier",
       "sort": 2
     },
     "model": "core.circulationreason",
-    "pk": 46
+    "pk": 44
   },
   {
     "fields": {
@@ -19952,15 +19864,6 @@
     },
     "model": "core.circulationtype",
     "pk": 61
-  },
-  {
-    "fields": {
-      "name": "Zirkulation Dossiers von der Bundesstelle",
-      "page_id": 41,
-      "parent_specific_activations": 0
-    },
-    "model": "core.circulationtype",
-    "pk": 62
   },
   {
     "fields": {
@@ -20832,14 +20735,6 @@
     },
     "model": "core.formgroup",
     "pk": 255
-  },
-  {
-    "fields": {
-      "description": null,
-      "name": "Alle Dossiers Bundesstelle"
-    },
-    "model": "core.formgroup",
-    "pk": 256
   },
   {
     "fields": {
@@ -24471,7 +24366,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 267,
       "sort": 11,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 683
@@ -24486,7 +24381,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 288,
       "sort": 8,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 684
@@ -24501,7 +24396,7 @@
       "name": "Auflagen bewirtschaften",
       "resource": 301,
       "sort": 10,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 685
@@ -24516,7 +24411,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 264,
       "sort": 9,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 690
@@ -24741,7 +24636,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 289,
       "sort": 8,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 707
@@ -24891,7 +24786,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 296,
       "sort": 7,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 721
@@ -25011,7 +24906,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 297,
       "sort": 7,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 729
@@ -25155,10 +25050,10 @@
     "fields": {
       "available_instance_resource": "sanction",
       "class_field": null,
-      "description": "Auflagen-Controlling f\u00fcr KOOR AJF und SD",
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AJF und SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 298,
       "sort": 8,
       "template": null
@@ -25184,8 +25079,8 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "form_group": 161,
       "hidden": 0,
       "name": "BaB Datenerfassung",
@@ -25199,14 +25094,14 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "BaB Daten erfassen KOOR BG",
       "form_group": 161,
       "hidden": 0,
       "name": "BaB Datenerfassung",
       "resource": 267,
       "sort": 12,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 746
@@ -25214,14 +25109,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor Afu",
       "form_group": 249,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 289,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 747
@@ -25229,14 +25124,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor ALA",
       "form_group": 250,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 296,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 748
@@ -25244,14 +25139,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten AfE",
       "form_group": 251,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 297,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 749
@@ -25260,10 +25155,10 @@
     "fields": {
       "available_instance_resource": "billing",
       "class_field": null,
-      "description": null,
+      "description": "Geb\u00fchren verwalten Koor AFJ SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 298,
       "sort": 4,
       "template": null
@@ -25278,7 +25173,7 @@
       "description": "Anschauen der NP Dossiers",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 309,
       "sort": 1,
       "template": ""
@@ -40955,7 +40850,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erfasste Auflagen",
-      "sort": 26,
+      "sort": 24,
       "template": null
     },
     "model": "core.resource",
@@ -40968,7 +40863,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 15,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -40981,7 +40876,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 16,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -40994,7 +40889,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 17,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -41007,7 +40902,7 @@
       "description": null,
       "hidden": 0,
       "name": "Bau- und Einspracheentscheid zugestellt",
-      "sort": 27,
+      "sort": 25,
       "template": null
     },
     "model": "core.resource",
@@ -47552,16 +47447,16 @@
   },
   {
     "fields": {
-      "address": null,
-      "city": null,
+      "address": "",
+      "city": "",
       "disabled": 0,
-      "email": null,
+      "email": "",
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - direkt zugewiesene Pendenzen",
-      "phone": null,
+      "phone": "",
       "role": 4,
       "service": 309,
-      "website": null,
-      "zip": null
+      "website": "",
+      "zip": ""
     },
     "model": "user.group",
     "pk": 176
@@ -48080,16 +47975,16 @@
   },
   {
     "fields": {
-      "address": null,
-      "city": null,
+      "address": "",
+      "city": "",
       "disabled": 0,
-      "email": null,
+      "email": "",
       "name": "Bundesamt f\u00fcr Verkehr",
-      "phone": null,
-      "role": 1130,
+      "phone": "",
+      "role": 4,
       "service": 141,
-      "website": null,
-      "zip": null
+      "website": "",
+      "zip": ""
     },
     "model": "user.group",
     "pk": 222
@@ -48768,16 +48663,16 @@
   },
   {
     "fields": {
-      "address": null,
-      "city": null,
+      "address": "",
+      "city": "",
       "disabled": 0,
-      "email": null,
+      "email": "",
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - Pendenzen Baudirektion Uri",
-      "phone": null,
+      "phone": "",
       "role": 1021,
       "service": 41,
-      "website": null,
-      "zip": null
+      "website": "",
+      "zip": ""
     },
     "model": "user.group",
     "pk": 565
