@@ -21,6 +21,8 @@ documents:
   showTags: "Inhalte anzeigen"
   date: "Hochgeladen am {date} um {time}"
 
+  wrongMimeType: "Dieser Dateityp ist nicht erlaubt. Erlaubte Dateitypen sind PDF, PNG und JPEG."
+
   uploadSuccess: "Die Datei wurde erfolgreich hochgeladen"
   uploadError: "Beim Hochladen der Datei ist etwas schief gelaufen"
 

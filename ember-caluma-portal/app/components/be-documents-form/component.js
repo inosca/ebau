@@ -13,6 +13,7 @@ import gql from "graphql-tag";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const GROUP = 6;
+const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
 export default Component.extend({
   intl: service(),
@@ -117,6 +118,12 @@ export default Component.extend({
   ),
 
   saveFile: task(function*() {
+    if (!ALLOWED_MIMETYPES.includes(this.file.blob.type)) {
+      this.notification.danger(this.intl.t("documents.wrongMimeType"));
+
+      throw new Error();
+    }
+
     const formData = new FormData();
 
     formData.append("instance", this.instanceId);
@@ -130,13 +137,24 @@ export default Component.extend({
     );
     formData.append("path", this.file.blob, this.file.name);
 
-    yield this.fetch.fetch(`/api/v1/attachments?group=${GROUP}`, {
-      method: "post",
-      body: formData,
-      headers: {
-        "content-type": undefined
+    const response = yield this.fetch.fetch(
+      `/api/v1/attachments?group=${GROUP}`,
+      {
+        method: "post",
+        body: formData,
+        headers: {
+          "content-type": undefined
+        }
       }
-    });
+    );
+
+    if (!response.ok) {
+      const {
+        errors: [{ detail: e }]
+      } = yield response.json();
+
+      throw new Error(e);
+    }
   }),
 
   saveFields: task(function*() {
