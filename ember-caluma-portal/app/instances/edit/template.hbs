@@ -1,5 +1,5 @@
 <div class="uk-padding">
-  {{#let model.data.value.firstObject.node as |case|}}
+  {{#let data.lastSuccessful.value.firstObject.node as |case|}}
     {{cf-navigation
       documentId=(atob case.document.id)
       disabled=(or (eq case.status "COMPLETED") isEmbedded)
