@@ -264,20 +264,6 @@
   {
     "fields": {
       "available_action": "formtransition",
-      "button": 18,
-      "description": null,
-      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
-      "execute_always": 0,
-      "name": "instance state to redac",
-      "sort": 1,
-      "success_message": "Zirkulation erfolgreich abgeschlossen"
-    },
-    "model": "core.action",
-    "pk": 38
-  },
-  {
-    "fields": {
-      "available_action": "formtransition",
       "button": 19,
       "description": null,
       "error_message": "Baubewilligung konnte nicht erteilt werden",
@@ -683,6 +669,20 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 34,
+      "description": null,
+      "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
+      "execute_always": 0,
+      "name": "instance state to redac",
+      "sort": 0,
+      "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben"
+    },
+    "model": "core.action",
+    "pk": 75
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -707,14 +707,6 @@
   },
   {
     "fields": {
-      "current_instance_state": 5,
-      "next_instance_state": 6
-    },
-    "model": "core.aformtransition",
-    "pk": 38
-  },
-  {
-    "fields": {
       "current_instance_state": 6,
       "next_instance_state": 8
     },
@@ -736,6 +728,14 @@
     },
     "model": "core.aformtransition",
     "pk": 44
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 6
+    },
+    "model": "core.aformtransition",
+    "pk": 75
   },
   {
     "fields": {
@@ -2299,6 +2299,24 @@
   },
   {
     "fields": {
+      "button": 34,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "button": 34,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 46
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
@@ -2403,7 +2421,7 @@
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
-      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
       "sort": 3
     },
     "model": "core.button",
@@ -2435,12 +2453,12 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "circ_end",
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
       "name": "Zirkulation abschliessen",
-      "sort": 5
+      "sort": 4
     },
     "model": "core.button",
     "pk": 18
@@ -2488,7 +2506,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Nachforderung an Gesuchsteller",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.button",
     "pk": 23
@@ -2588,6 +2606,18 @@
     },
     "model": "core.button",
     "pk": 33
+  },
+  {
+    "fields": {
+      "class_field": "decision_start",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 7,
+      "name": "Entscheid starten",
+      "sort": 7
+    },
+    "model": "core.button",
+    "pk": 34
   },
   {
     "fields": {
