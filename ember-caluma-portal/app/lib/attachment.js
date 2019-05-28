@@ -23,9 +23,13 @@ export default EmberObject.extend({
   }),
   tags: computed("attributes.meta.tags", function() {
     return getWithDefault(this, "attributes.meta.tags", []).map(slug => {
-      const field = this.document.findField(`root.6-dokumente.${slug}`);
+      try {
+        const field = this.document.findField(`root.6-dokumente.${slug}`);
 
-      return (field && field.question.label) || slug;
+        return field.question.label;
+      } catch (e) {
+        return slug;
+      }
     });
   }),
 
