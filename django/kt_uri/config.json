@@ -41,6 +41,22 @@
   },
   {
     "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 41
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1397
+  },
+  {
+    "fields": {
+      "current_circulation_state": 41,
+      "next_circulation_state": 1
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1400
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 2,
       "description": "",
@@ -4395,6 +4411,20 @@
   },
   {
     "fields": {
+      "available_action": "pageredirect",
+      "button": 923,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Auf Zirkulation bleiben",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1384
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 924,
       "description": null,
@@ -4504,6 +4534,384 @@
     },
     "model": "core.action",
     "pk": 1392
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1393
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Weiterleitung zu Pendenzenliste",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1394
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 928,
+      "description": null,
+      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+      "execute_always": 0,
+      "name": "CheckIfNFDPossible",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1395
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 928,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen.",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 1,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1396
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 928,
+      "description": "Zirkulation in Nachforderung versetzen",
+      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
+      "execute_always": 0,
+      "name": "RUN - NFD",
+      "sort": 2,
+      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
+    },
+    "model": "core.action",
+    "pk": 1397
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 928,
+      "description": "Setzt das Datum vom NFD",
+      "error_message": null,
+      "execute_always": 0,
+      "name": "NFD Datum setzen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1398
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 929,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1399
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 929,
+      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
+      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
+      "execute_always": 0,
+      "name": "NFD - RUN",
+      "sort": 1,
+      "success_message": "Dossier als vollst\u00e4ndig markiert!"
+    },
+    "model": "core.action",
+    "pk": 1400
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 930,
+      "description": null,
+      "error_message": "Dossier konnte nicht erstellt werden!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich erstellt."
+    },
+    "model": "core.action",
+    "pk": 1401
+  },
+  {
+    "fields": {
+      "available_action": "location",
+      "button": 930,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Standort Setzen",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1402
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 930,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Dossier-NR setzen",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1403
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 930,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Workflow Datum setzen auf Dossier erfasst",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1404
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 931,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1405
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 932,
+      "description": null,
+      "error_message": "Das Dossier konnte nicht gel\u00f6scht werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "name": "L\u00f6schen",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich gel\u00f6scht."
+    },
+    "model": "core.action",
+    "pk": 1406
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 933,
+      "description": null,
+      "error_message": "Das Dossiert konnte nicht archiviert werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "name": "Archivieren",
+      "sort": 0,
+      "success_message": "Dossier erfolgreich archiviert."
+    },
+    "model": "core.action",
+    "pk": 1407
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 934,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1408
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 935,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1409
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 935,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht gestartet werden!",
+      "execute_always": 1,
+      "name": "Zirkulation starten",
+      "sort": 1,
+      "success_message": "Zirkulation erfolgreich gestartet."
+    },
+    "model": "core.action",
+    "pk": 1410
+  },
+  {
+    "fields": {
+      "available_action": "documentemail",
+      "button": 935,
+      "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
+      "error_message": "E-Mail zum Start der Zirkulation konnte nicht versendet werden",
+      "execute_always": 0,
+      "name": "Zirkulation starten E-Mail",
+      "sort": 2,
+      "success_message": "E-Mail zum Start der Zirkulation wurde versandt"
+    },
+    "model": "core.action",
+    "pk": 1411
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 935,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "IDLE auf RUN setzen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1412
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 935,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation starten",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1413
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 935,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Auf Zirkulation bleiben",
+      "sort": 5,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1414
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 938,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation wieder\u00f6ffnen",
+      "sort": 0,
+      "success_message": "Zirkulation wurde f\u00fcr die selektierten Fachstellen wiederer\u00f6ffnet!"
+    },
+    "model": "core.action",
+    "pk": 1415
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 936,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich."
+    },
+    "model": "core.action",
+    "pk": 1416
+  },
+  {
+    "fields": {
+      "available_action": "documentemail",
+      "button": 936,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "E-Mail an hinzugef\u00fcgte Fachstellen versenden",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1417
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 936,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "IDLE auf RUN setzen",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1418
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 933,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Archivieren",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1419
   },
   {
     "fields": {
@@ -4933,6 +5341,28 @@
     },
     "model": "core.aemail",
     "pk": 1386
+  },
+  {
+    "fields": {
+      "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+      "sender_email": "camac@ur.ch",
+      "sender_name": "Camac Info",
+      "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nNEUE PENDENZ\r\nDie Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBEARBEITUNG IM CAMAC\r\n- Upload Verf\u00fcgung / Stellungnahme (bitte Scan - Dokument inkl. Unterschrift hochladen).\r\n- Kurzantwort ausw\u00e4hlen.\r\n- Art der Sachbearbeitung ausw\u00e4hlen.\r\n- Kurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde erfassen.\r\n- Geb\u00fchren erfassen.\r\n- Senden\r\n\r\nAKTENNACHFORDERUNG\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern. Dazu setzen Sie das Dossier in den Status NFD (Button \u00abNachforderung\u00bb). Im daf\u00fcr vorgesehenen Feld bitte eintragen, bei wem, welche Unterlagen nachgefordert wurden. Dossier im Status NFD (Pendenz beim Gesuchsteller) werden blau hinterlegt.\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "title": "Zirkulation gestartet"
+    },
+    "model": "core.aemail",
+    "pk": 1411
+  },
+  {
+    "fields": {
+      "query": "SELECT\r\n  u.\"NAME\" || ' ' || u.\"SURNAME\" as \"NAME\",\r\n  u.\"EMAIL\" as \"EMAIL\",\r\n  a.\"ACTIVATION_ID\" as \"ACTIVATIONID\"\r\nFROM\r\n  \"CIRCULATION\" c\r\nJOIN\r\n  \"ACTIVATION\" a ON a.\"CIRCULATION_ID\" = c.\"CIRCULATION_ID\"\r\nJOIN\r\n  \"GROUP\" g ON g.\"SERVICE_ID\" = a.\"SERVICE_ID\"\r\nJOIN\r\n  \"USER_GROUP\" ug ON ug.\"GROUP_ID\" = g.\"GROUP_ID\"\r\n  AND\r\n  ug.\"DEFAULT_GROUP\" = 1\r\nJOIN\r\n  \"USER\" u ON u.\"USER_ID\" = ug.\"USER_ID\"\r\nWHERE\r\n  c.\"CIRCULATION_ID\" = [CIRCULATION_ID]\r\n  AND\r\n  u.\"EMAIL\" IS NOT NULL\r\n  AND\r\n  a.\"CIRCULATION_STATE_ID\" = 21\r\n  and\r\n  u.\"DISABLED\" = 0",
+      "sender_email": "camac@ur.ch",
+      "sender_name": "Camac",
+      "text": "Die Zirkulation der Instanz [INSTANCE_ID] wurde gestartet\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nCAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nMeldung an kantonale Fachstelle\r\n\r\nIm CAMAC wurde das Dossier Nr. [@c2q6i1] eingetragen und Ihrer Fachstelle als Pendenz zugewiesen. Wir bitten Sie, das Dossier zu pr\u00fcfen und uns die entsprechende R\u00fcckmeldung (Stellungnahme / Verf\u00fcgung / Planvisum usw.) innert Frist zur\u00fcckzuschicken.\r\n\r\nBITTE VERGESSEN SIE NICHT, DAS DOSSIER IM CAMAC ZU BEARBEITEN\r\n\r\n-  Upload Entscheiddokumente (bitte Originaldokument mit Unterschrift hochladen)\r\n-  Kurzantwort ausw\u00e4hlen (speichern)\r\n-  Art der Sachbearbeitung ausw\u00e4hlen (speichern)\r\n-  Senden\r\n\r\nKurzkommentare f\u00fcr die Koordinationsstelle oder f\u00fcr die Gemeindebaubeh\u00f6rde k\u00f6nnen direkt im Camac erfasst werden.\r\n\r\nSofern Sie weitere Unterlagen ben\u00f6tigen, bitten wir Sie, diese direkt beim Gesuchsteller anzufordern und uns gleichzeitig dar\u00fcber in Kenntnis zu setzen (mail).\r\n\r\nBei Fragen stehen wir Ihnen gerne zur Verf\u00fcgung.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel.  041 875 24 24\r\nFax: 041 875 24 25\r\nE-Mail: paul.walker@ur.ch",
+      "title": "Zirkulation gestartet"
+    },
+    "model": "core.aemail",
+    "pk": 1417
   },
   {
     "fields": {
@@ -5405,6 +5835,30 @@
     },
     "model": "core.aformtransition",
     "pk": 1378
+  },
+  {
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 27
+    },
+    "model": "core.aformtransition",
+    "pk": 1406
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    },
+    "model": "core.aformtransition",
+    "pk": 1407
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 23
+    },
+    "model": "core.aformtransition",
+    "pk": 1410
   },
   {
     "fields": {
@@ -6142,6 +6596,11 @@
     "pk": 1294
   },
   {
+    "fields": {},
+    "model": "core.alocation",
+    "pk": 1402
+  },
+  {
     "fields": {
       "action": 6,
       "chapter": 3,
@@ -6239,6 +6698,15 @@
     },
     "model": "core.alocationqc",
     "pk": 12
+  },
+  {
+    "fields": {
+      "action": 1402,
+      "chapter": 3,
+      "question": 2
+    },
+    "model": "core.alocationqc",
+    "pk": 13
   },
   {
     "fields": {
@@ -8949,6 +9417,15 @@
   },
   {
     "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 763,
+      "resource": 316
+    },
+    "model": "core.apageredirect",
+    "pk": 1414
+  },
+  {
+    "fields": {
       "php_class": "DossierNR"
     },
     "model": "core.aphp",
@@ -9303,6 +9780,55 @@
     },
     "model": "core.aphp",
     "pk": 1388
+  },
+  {
+    "fields": {
+      "php_class": "CircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1393
+  },
+  {
+    "fields": {
+      "php_class": "CheckIfNFDPossible"
+    },
+    "model": "core.aphp",
+    "pk": 1395
+  },
+  {
+    "fields": {
+      "php_class": "SetNFD"
+    },
+    "model": "core.aphp",
+    "pk": 1398
+  },
+  {
+    "fields": {
+      "php_class": "DossierNR"
+    },
+    "model": "core.aphp",
+    "pk": 1403
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 1412
+  },
+  {
+    "fields": {
+      "php_class": "ReopenCirculation"
+    },
+    "model": "core.aphp",
+    "pk": 1415
+  },
+  {
+    "fields": {
+      "php_class": "CircStart"
+    },
+    "model": "core.aphp",
+    "pk": 1418
   },
   {
     "fields": {
@@ -15810,6 +16336,114 @@
   },
   {
     "fields": {
+      "button": 928,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 492
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 493
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 494
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 495
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 496
+  },
+  {
+    "fields": {
+      "button": 928,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 497
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 498
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 499
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 500
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 501
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 502
+  },
+  {
+    "fields": {
+      "button": 929,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 503
+  },
+  {
+    "fields": {
       "button": 926,
       "instance_state": 21,
       "role": 1104
@@ -15915,6 +16549,150 @@
     },
     "model": "core.broleacl",
     "pk": 515
+  },
+  {
+    "fields": {
+      "button": 930,
+      "instance_state": 1,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 516
+  },
+  {
+    "fields": {
+      "button": 931,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 517
+  },
+  {
+    "fields": {
+      "button": 933,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 518
+  },
+  {
+    "fields": {
+      "button": 934,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 519
+  },
+  {
+    "fields": {
+      "button": 934,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 520
+  },
+  {
+    "fields": {
+      "button": 934,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 521
+  },
+  {
+    "fields": {
+      "button": 935,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 522
+  },
+  {
+    "fields": {
+      "button": 935,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 523
+  },
+  {
+    "fields": {
+      "button": 936,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 524
+  },
+  {
+    "fields": {
+      "button": 938,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 531
+  },
+  {
+    "fields": {
+      "button": 938,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 532
+  },
+  {
+    "fields": {
+      "button": 938,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 533
+  },
+  {
+    "fields": {
+      "button": 932,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 535
+  },
+  {
+    "fields": {
+      "button": 934,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 536
+  },
+  {
+    "fields": {
+      "button": 935,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 538
+  },
+  {
+    "fields": {
+      "button": 938,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 545
   },
   {
     "fields": {
@@ -18057,6 +18835,126 @@
   },
   {
     "fields": {
+      "class_field": "circ_nfd_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Nachforderung",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 928
+  },
+  {
+    "fields": {
+      "class_field": "circ_complete_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 757,
+      "name": "Dossier vollst\u00e4ndig",
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 929
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 759,
+      "name": "Erstellen",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 930
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 758,
+      "name": "Speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 931
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 758,
+      "name": "L\u00f6schen",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 932
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 758,
+      "name": "Archivieren",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 933
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 763,
+      "name": "Speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 934
+  },
+  {
+    "fields": {
+      "class_field": "circ_start",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 763,
+      "name": "Zirkulation starten",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 935
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 763,
+      "name": "Zur Zirkulation hinzuf\u00fcgen",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 936
+  },
+  {
+    "fields": {
+      "class_field": "reopen_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 763,
+      "name": "Wiederer\u00f6ffnen",
+      "sort": 4
+    },
+    "model": "core.button",
+    "pk": 938
+  },
+  {
+    "fields": {
       "description": "Alle Daten der beteiligten Personen",
       "javascript": "",
       "name": "Personendaten"
@@ -18321,7 +19219,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Nein",
-      "sort": 8
+      "sort": 15
     },
     "model": "core.circulationanswer",
     "pk": 61
@@ -18331,7 +19229,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Ja",
-      "sort": 9
+      "sort": 16
     },
     "model": "core.circulationanswer",
     "pk": 62
@@ -18341,7 +19239,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Ja mit Auflagen",
-      "sort": 10
+      "sort": 17
     },
     "model": "core.circulationanswer",
     "pk": 63
@@ -18351,7 +19249,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Fachstelle nicht betroffen",
-      "sort": 11
+      "sort": 18
     },
     "model": "core.circulationanswer",
     "pk": 64
@@ -18361,7 +19259,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Nein",
-      "sort": 2
+      "sort": 9
     },
     "model": "core.circulationanswer",
     "pk": 65
@@ -18371,7 +19269,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Ja",
-      "sort": 3
+      "sort": 10
     },
     "model": "core.circulationanswer",
     "pk": 66
@@ -18381,7 +19279,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Ja mit Auflagen",
-      "sort": 4
+      "sort": 11
     },
     "model": "core.circulationanswer",
     "pk": 67
@@ -18391,7 +19289,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Fachstelle nicht betroffen",
-      "sort": 5
+      "sort": 12
     },
     "model": "core.circulationanswer",
     "pk": 68
@@ -18411,7 +19309,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Pr\u00fcfung noch nicht abgeschlossen",
-      "sort": 6
+      "sort": 13
     },
     "model": "core.circulationanswer",
     "pk": 70
@@ -18421,7 +19319,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Keine Stellungnahme",
-      "sort": 1
+      "sort": 8
     },
     "model": "core.circulationanswer",
     "pk": 71
@@ -18431,7 +19329,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Keine Stellungnahme",
-      "sort": 7
+      "sort": 14
     },
     "model": "core.circulationanswer",
     "pk": 72
@@ -18441,7 +19339,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 41,
       "name": "Keine R\u00fcckmeldung",
-      "sort": 12
+      "sort": 19
     },
     "model": "core.circulationanswer",
     "pk": 73
@@ -18451,10 +19349,80 @@
       "circulation_answer_type": 1,
       "circulation_type": 61,
       "name": "Keine R\u00fcckmeldung",
-      "sort": 13
+      "sort": 20
     },
     "model": "core.circulationanswer",
     "pk": 74
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Keine R\u00fcckmeldung",
+      "sort": 7
+    },
+    "model": "core.circulationanswer",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Fachstelle nicht betroffen",
+      "sort": 6
+    },
+    "model": "core.circulationanswer",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Ja mit Auflagen",
+      "sort": 5
+    },
+    "model": "core.circulationanswer",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Ja",
+      "sort": 4
+    },
+    "model": "core.circulationanswer",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Nein",
+      "sort": 3
+    },
+    "model": "core.circulationanswer",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Keine Stellungnahme",
+      "sort": 2
+    },
+    "model": "core.circulationanswer",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Pr\u00fcfung noch nicht abgeschlossen",
+      "sort": 1
+    },
+    "model": "core.circulationanswer",
+    "pk": 81
   },
   {
     "fields": {
@@ -18474,7 +19442,7 @@
     "fields": {
       "circulation_type": 41,
       "name": "E-Dossier",
-      "sort": 3
+      "sort": 4
     },
     "model": "core.circulationreason",
     "pk": 41
@@ -18483,7 +19451,7 @@
     "fields": {
       "circulation_type": 41,
       "name": "kein E-Dossier",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.circulationreason",
     "pk": 42
@@ -18492,7 +19460,7 @@
     "fields": {
       "circulation_type": 61,
       "name": "E-Dossier",
-      "sort": 1
+      "sort": 0
     },
     "model": "core.circulationreason",
     "pk": 43
@@ -18501,10 +19469,28 @@
     "fields": {
       "circulation_type": 61,
       "name": "kein E-Dossier",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.circulationreason",
     "pk": 44
+  },
+  {
+    "fields": {
+      "circulation_type": 62,
+      "name": "E-Dossier",
+      "sort": 1
+    },
+    "model": "core.circulationreason",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "circulation_type": 62,
+      "name": "kein E-Dossier",
+      "sort": 2
+    },
+    "model": "core.circulationreason",
+    "pk": 46
   },
   {
     "fields": {
@@ -18555,6 +19541,15 @@
     },
     "model": "core.circulationtype",
     "pk": 61
+  },
+  {
+    "fields": {
+      "name": "Zirkulation Dossiers von der Bundesstelle",
+      "page_id": 41,
+      "parent_specific_activations": 0
+    },
+    "model": "core.circulationtype",
+    "pk": 62
   },
   {
     "fields": {
@@ -19426,6 +20421,14 @@
     },
     "model": "core.formgroup",
     "pk": 255
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "Alle Dossiers Bundesstelle"
+    },
+    "model": "core.formgroup",
+    "pk": 256
   },
   {
     "fields": {
@@ -21693,6 +22696,22 @@
   },
   {
     "fields": {
+      "form": 244,
+      "form_group": 256
+    },
+    "model": "core.formgroupform",
+    "pk": 286
+  },
+  {
+    "fields": {
+      "form": 250,
+      "form_group": 256
+    },
+    "model": "core.formgroupform",
+    "pk": 287
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -22312,7 +23331,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 302,
-      "sort": 17,
+      "sort": 12,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -22342,7 +23361,7 @@
       "hidden": 1,
       "name": "Subfachstellen miteinbeziehen",
       "resource": 302,
-      "sort": 15,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -22373,7 +23392,7 @@
       "name": "R\u00fcckmeldung",
       "resource": 122,
       "sort": 1,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 389
@@ -22396,7 +23415,7 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": null,
+      "class_field": "",
       "description": "Dossiers von Koord NP",
       "form_group": 141,
       "hidden": 0,
@@ -22493,7 +23512,7 @@
       "name": "Geb\u00fchren verwalten",
       "resource": 288,
       "sort": 4,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 485
@@ -22702,7 +23721,7 @@
       "hidden": 0,
       "name": "Dossier f\u00fcr Fachbereich freischalten",
       "resource": 302,
-      "sort": 18,
+      "sort": 13,
       "template": "/dept/commissioners.phtml"
     },
     "model": "core.instanceresource",
@@ -22793,7 +23812,7 @@
       "name": "Geb\u00fchren verwalten",
       "resource": 264,
       "sort": 5,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 645
@@ -22846,7 +23865,7 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": null,
+      "class_field": "",
       "description": "Seite f\u00fcr die Bearbeitung vom Dossier Beanspruchung von Kantonsgebiet weil es eine andere Seite hat",
       "form_group": 243,
       "hidden": 0,
@@ -23033,7 +24052,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 267,
       "sort": 11,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 683
@@ -23048,7 +24067,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 288,
       "sort": 8,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 684
@@ -23062,8 +24081,8 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 12,
-      "template": null
+      "sort": 10,
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 685
@@ -23078,7 +24097,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 264,
       "sort": 9,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 690
@@ -23092,8 +24111,8 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 302,
-      "sort": 19,
-      "template": null
+      "sort": 14,
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 691
@@ -23303,7 +24322,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 289,
       "sort": 8,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 707
@@ -23453,7 +24472,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 296,
       "sort": 7,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 721
@@ -23573,7 +24592,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 297,
       "sort": 7,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 729
@@ -23746,14 +24765,14 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": null,
-      "description": null,
+      "class_field": "",
+      "description": "",
       "form_group": 161,
       "hidden": 0,
       "name": "BaB Daten erfassen",
       "resource": 302,
-      "sort": 20,
-      "template": null
+      "sort": 15,
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 744
@@ -23768,7 +24787,7 @@
       "name": "BaB Daten erfassen",
       "resource": 267,
       "sort": 12,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 746
@@ -23783,7 +24802,7 @@
       "name": "Geb\u00fchren verwalten",
       "resource": 289,
       "sort": 4,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 747
@@ -23798,7 +24817,7 @@
       "name": "Geb\u00fchren verwalten",
       "resource": 296,
       "sort": 4,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 748
@@ -23813,7 +24832,7 @@
       "name": "Geb\u00fchren verwalten",
       "resource": 297,
       "sort": 4,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 749
@@ -23925,6 +24944,36 @@
   },
   {
     "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": null,
+      "description": "Dossiers von der Bundesstelle",
+      "form_group": 256,
+      "hidden": 0,
+      "name": "Dossier bearbeiten",
+      "resource": 316,
+      "sort": 0,
+      "template": "/form/bg-form.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 758
+  },
+  {
+    "fields": {
+      "available_instance_resource": "newform",
+      "class_field": null,
+      "description": "Erstellung durch Bundesstelle",
+      "form_group": 256,
+      "hidden": 1,
+      "name": "Neues Dossier erstellen",
+      "resource": 22,
+      "sort": 9,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 759
+  },
+  {
+    "fields": {
       "available_instance_resource": "circulation",
       "class_field": null,
       "description": "Einsehen von Resultaten der Gemeindezirkulation",
@@ -23936,7 +24985,52 @@
       "template": null
     },
     "model": "core.instanceresource",
-    "pk": 758
+    "pk": 760
+  },
+  {
+    "fields": {
+      "available_instance_resource": "documents",
+      "class_field": null,
+      "description": "Dokumente Bundesstelle",
+      "form_group": 256,
+      "hidden": 0,
+      "name": "Dokumente",
+      "resource": 316,
+      "sort": 1,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 761
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editcirculation",
+      "class_field": null,
+      "description": "Zirkulation Dossier Bundesstelle",
+      "form_group": 256,
+      "hidden": 0,
+      "name": "Zirkulation",
+      "resource": 316,
+      "sort": 2,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 763
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editnotice",
+      "class_field": null,
+      "description": "Stellungnahme Dossiers von der Bundesstelle",
+      "form_group": 256,
+      "hidden": 0,
+      "name": "Stellungnahme",
+      "resource": 302,
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 764
   },
   {
     "fields": {
@@ -25747,6 +26841,21 @@
   },
   {
     "fields": {
+      "circulation_type": 62,
+      "draft_circulation_answer": null,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "service": 309,
+      "service_to_be_interpreted": null,
+      "show_all_children": 1,
+      "show_history": 0,
+      "show_notice": 2
+    },
+    "model": "core.ircirculation",
+    "pk": 760
+  },
+  {
+    "fields": {
       "add_activation_template": "",
       "add_template": "",
       "circulation_email_action_id": null,
@@ -25906,6 +27015,24 @@
     },
     "model": "core.ireditcirculation",
     "pk": 753
+  },
+  {
+    "fields": {
+      "add_activation_template": null,
+      "add_template": null,
+      "circulation_email_action_id": null,
+      "circulation_type": 62,
+      "default_circulation_name": "Erste Zirkulation",
+      "display_first_circulation": 1,
+      "draft_circulation_answer": null,
+      "inherit_notices": 0,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "show_notice": 1,
+      "single_circulation": 1
+    },
+    "model": "core.ireditcirculation",
+    "pk": 763
   },
   {
     "fields": {
@@ -26485,6 +27612,33 @@
   },
   {
     "fields": {
+      "instance_resource": 763,
+      "localized": 0,
+      "service_group": 41
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 250
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "localized": 0,
+      "service_group": 1
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 251
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "localized": 0,
+      "service_group": 21
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 252
+  },
+  {
+    "fields": {
       "page": 1,
       "pdf_class": ""
     },
@@ -26597,6 +27751,14 @@
   },
   {
     "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditformpage",
+    "pk": 758
+  },
+  {
+    "fields": {
       "circulation_type": 41,
       "edit_notice_template": null,
       "editable_after_deadline": 1,
@@ -26630,6 +27792,18 @@
     },
     "model": "core.ireditnotice",
     "pk": 757
+  },
+  {
+    "fields": {
+      "circulation_type": 62,
+      "edit_notice_template": null,
+      "editable_after_deadline": 1,
+      "hide_answered_notices": 0,
+      "is_always_editable": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditnotice",
+    "pk": 764
   },
   {
     "fields": {
@@ -26926,6 +28100,14 @@
     },
     "model": "core.irnewform",
     "pk": 742
+  },
+  {
+    "fields": {
+      "instance_state": 21,
+      "page_form_group": null
+    },
+    "model": "core.irnewform",
+    "pk": 759
   },
   {
     "fields": {
@@ -34443,6 +35625,294 @@
   {
     "fields": {
       "instance_resource": 758,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 847
+  },
+  {
+    "fields": {
+      "instance_resource": 759,
+      "instance_state": 1,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 848
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 849
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 850
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 851
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 852
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 25,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 853
+  },
+  {
+    "fields": {
+      "instance_resource": 761,
+      "instance_state": 26,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 854
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 875
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 876
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 877
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 878
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 25,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 879
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 26,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 880
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "instance_state": 27,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 881
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 882
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 883
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 884
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 885
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 25,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 886
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 26,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 887
+  },
+  {
+    "fields": {
+      "instance_resource": 760,
+      "instance_state": 27,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 888
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 22,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 889
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 23,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 890
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 24,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 891
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 25,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 892
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 26,
+      "role": 1130
+    },
+    "model": "core.irroleacl",
+    "pk": 893
+  },
+  {
+    "fields": {
+      "instance_resource": 764,
+      "instance_state": 23,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 894
+  },
+  {
+    "fields": {
+      "instance_resource": 764,
+      "instance_state": 24,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 895
+  },
+  {
+    "fields": {
+      "instance_resource": 764,
+      "instance_state": 23,
+      "role": 1021
+    },
+    "model": "core.irroleacl",
+    "pk": 896
+  },
+  {
+    "fields": {
+      "instance_resource": 764,
+      "instance_state": 24,
+      "role": 1021
+    },
+    "model": "core.irroleacl",
+    "pk": 897
+  },
+  {
+    "fields": {
+      "instance_resource": 764,
+      "instance_state": 23,
+      "role": 1102
+    },
+    "model": "core.irroleacl",
+    "pk": 898
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
       "instance_state": 1,
       "role": 6
     },
@@ -34758,6 +36228,14 @@
     },
     "model": "core.noticetype",
     "pk": 25
+  },
+  {
+    "fields": {
+      "circulation_type": 62,
+      "name": "Mitteilung an die Gemeindebaubeh\u00f6rde"
+    },
+    "model": "core.noticetype",
+    "pk": 26
   },
   {
     "fields": {
@@ -35611,7 +37089,7 @@
       "page": 83,
       "page_form_group": 1,
       "page_form_mode": 1,
-      "sort": 2
+      "sort": 1
     },
     "model": "core.pageform",
     "pk": 73
@@ -38960,7 +40438,7 @@
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
       "name": "Neues Dossier erstellen",
-      "sort": 30,
+      "sort": 32,
       "template": "/global/home.phtml"
     },
     "model": "core.resource",
@@ -38973,7 +40451,7 @@
       "description": "Allgemeine Suche",
       "hidden": 0,
       "name": "Dossier suchen",
-      "sort": 27,
+      "sort": 29,
       "template": "/global/search.phtml"
     },
     "model": "core.resource",
@@ -38986,7 +40464,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 26,
+      "sort": 28,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -39012,7 +40490,7 @@
       "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
       "hidden": 0,
       "name": "Portal User Resource",
-      "sort": 31,
+      "sort": 33,
       "template": ""
     },
     "model": "core.resource",
@@ -39038,7 +40516,7 @@
       "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
       "hidden": 0,
       "name": "Portal Resource",
-      "sort": 32,
+      "sort": 34,
       "template": "/portal/create.phtml"
     },
     "model": "core.resource",
@@ -39051,7 +40529,7 @@
       "description": "Dossier in Zirkulation f\u00fcr NGOs",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 22,
+      "sort": 24,
       "template": "/list/circ-list.phtml"
     },
     "model": "core.resource",
@@ -39064,7 +40542,7 @@
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -39077,7 +40555,7 @@
       "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
       "name": "Dossierzirkulation beendet",
-      "sort": 19,
+      "sort": 21,
       "template": null
     },
     "model": "core.resource",
@@ -39090,7 +40568,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -39103,7 +40581,7 @@
       "description": "",
       "hidden": 0,
       "name": "Dossiers in Zirkulation",
-      "sort": 21,
+      "sort": 23,
       "template": ""
     },
     "model": "core.resource",
@@ -39116,7 +40594,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -39129,7 +40607,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -39142,7 +40620,7 @@
       "description": "",
       "hidden": 0,
       "name": "Bauplanauflage",
-      "sort": 18,
+      "sort": 20,
       "template": null
     },
     "model": "core.resource",
@@ -39155,7 +40633,7 @@
       "description": null,
       "hidden": 0,
       "name": "Baubegleitungssgeb\u00fchren",
-      "sort": 23,
+      "sort": 25,
       "template": null
     },
     "model": "core.resource",
@@ -39168,7 +40646,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erfasste Auflagen",
-      "sort": 24,
+      "sort": 26,
       "template": null
     },
     "model": "core.resource",
@@ -39181,7 +40659,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -39194,7 +40672,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 15,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -39207,7 +40685,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 16,
+      "sort": 17,
       "template": null
     },
     "model": "core.resource",
@@ -39220,7 +40698,7 @@
       "description": null,
       "hidden": 0,
       "name": "Bau- und Einspracheentscheid zugestellt",
-      "sort": 25,
+      "sort": 27,
       "template": null
     },
     "model": "core.resource",
@@ -39294,7 +40772,20 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
+      "class_field": null,
+      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
+      "hidden": 0,
+      "name": "Kantonale Pr\u00fcfung beendet",
+      "sort": 20,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 306
+  },
+  {
+    "fields": {
+      "available_resource": "simplelist",
+      "class_field": null,
       "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
       "hidden": 0,
       "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
@@ -39337,7 +40828,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erweiterte Suche",
-      "sort": 28,
+      "sort": 30,
       "template": null
     },
     "model": "core.resource",
@@ -39350,7 +40841,7 @@
       "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
       "hidden": 0,
       "name": "Geb\u00fchren-Statistik",
-      "sort": 29,
+      "sort": 31,
       "template": null
     },
     "model": "core.resource",
@@ -39363,7 +40854,7 @@
       "description": null,
       "hidden": 0,
       "name": "Aufgaben Gemeindebaubeh\u00f6rde",
-      "sort": 17,
+      "sort": 18,
       "template": null
     },
     "model": "core.resource",
@@ -39376,11 +40867,24 @@
       "description": null,
       "hidden": 0,
       "name": "Aufgaben Gemeindebaubeh\u00f6rde",
-      "sort": 18,
+      "sort": 19,
       "template": null
     },
     "model": "core.resource",
     "pk": 314
+  },
+  {
+    "fields": {
+      "available_resource": "simplelist",
+      "class_field": null,
+      "description": "Dossierbearbeitung starten Bundesstellen",
+      "hidden": 0,
+      "name": "Dossierbearbeitung starten",
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 316
   },
   {
     "fields": {
@@ -40187,6 +41691,14 @@
   },
   {
     "fields": {
+      "resource": 306,
+      "role": 6
+    },
+    "model": "core.rroleacl",
+    "pk": 62
+  },
+  {
+    "fields": {
       "resource": 302,
       "role": 1021
     },
@@ -40363,11 +41875,59 @@
   },
   {
     "fields": {
+      "resource": 22,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 86
+  },
+  {
+    "fields": {
       "resource": 266,
       "role": 6
     },
     "model": "core.rroleacl",
     "pk": 87
+  },
+  {
+    "fields": {
+      "resource": 102,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 88
+  },
+  {
+    "fields": {
+      "resource": 287,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 89
+  },
+  {
+    "fields": {
+      "resource": 266,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 90
+  },
+  {
+    "fields": {
+      "resource": 42,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 91
+  },
+  {
+    "fields": {
+      "resource": 316,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 92
   },
   {
     "fields": {
@@ -41326,6 +42886,13 @@
   },
   {
     "fields": {
+      "instance_states": "25"
+    },
+    "model": "core.rsimplelist",
+    "pk": 306
+  },
+  {
+    "fields": {
       "instance_states": "21,22,23"
     },
     "model": "core.rsimplelist",
@@ -41358,6 +42925,13 @@
     },
     "model": "core.rsimplelist",
     "pk": 314
+  },
+  {
+    "fields": {
+      "instance_states": "21"
+    },
+    "model": "core.rsimplelist",
+    "pk": 316
   },
   {
     "fields": {
@@ -41718,6 +43292,30 @@
     },
     "model": "core.workflowaction",
     "pk": 1389
+  },
+  {
+    "fields": {
+      "multi_value": 0,
+      "workflow_item": 12
+    },
+    "model": "core.workflowaction",
+    "pk": 1404
+  },
+  {
+    "fields": {
+      "multi_value": 0,
+      "workflow_item": 44
+    },
+    "model": "core.workflowaction",
+    "pk": 1413
+  },
+  {
+    "fields": {
+      "multi_value": 0,
+      "workflow_item": 62
+    },
+    "model": "core.workflowaction",
+    "pk": 1419
   },
   {
     "fields": {
@@ -43971,6 +45569,33 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 317
+  },
+  {
+    "fields": {
+      "attachment_section": 63,
+      "mode": "read",
+      "role": 1130
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 318
+  },
+  {
+    "fields": {
+      "attachment_section": 23,
+      "mode": "read",
+      "role": 1130
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 319
+  },
+  {
+    "fields": {
+      "attachment_section": 24,
+      "mode": "read",
+      "role": 1130
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 320
   },
   {
     "fields": {
@@ -49520,6 +51145,14 @@
     },
     "model": "user.role",
     "pk": 1129
+  },
+  {
+    "fields": {
+      "name": "Bundesstelle",
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 1130
   },
   {
     "fields": {
