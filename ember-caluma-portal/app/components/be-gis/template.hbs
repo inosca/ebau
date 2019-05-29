@@ -12,7 +12,7 @@
       type="button"
       class="uk-icon-button"
       uk-icon="warning"
-      {{action (mut warningOverride) true}}>
+      {{action (mut informationOverride) true}}>
     </button>
   </div>
 
@@ -24,17 +24,9 @@
   </div>
 </div>
 
-{{#uk-modal visible=warningOverride}}
+{{#uk-modal visible=informationOverride}}
   Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu
   angelegt. Alle manuell ergänzten Informationen gehen dabei verloren.
-{{/uk-modal}}
-
-{{#uk-modal visible=warningOnlyOne}}
-  Bei einer einfachen Vorabklärung kann maximal eine Parzelle ausgewählt werden.
-{{/uk-modal}}
-
-{{#uk-modal visible=warningNoSelection}}
-  Sie haben keine Parzelle ausgewählt.
 {{/uk-modal}}
 
 {{#uk-modal visible=confirmationGis}}
