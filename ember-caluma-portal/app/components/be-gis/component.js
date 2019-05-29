@@ -2,6 +2,8 @@ import Component from "@ember/component";
 import { computed } from "@ember/object";
 import { A } from "@ember/array";
 import { inject as service } from "@ember/service";
+import { all } from "rsvp";
+import { task } from "ember-concurrency";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
@@ -21,6 +23,7 @@ const KEYS_TABLE = [
 
 const KEY_SIMPLE_MAP = "karte-einfache-vorabklaerung";
 const KEY_SIMPLE_PARCEL = "parzellennummer";
+// The question baurecht-nummer is not present in the simple form.
 //const KEY_SIMPLE_BAURECHT = "baurecht-nummer";
 const KEY_SIMPLE_EGRID = "e-grid-nr";
 const KEY_SIMPLE_COORD_NORTH = "lagekoordinaten-nord-einfache-vorabklaerung";
@@ -69,9 +72,8 @@ const FIELD_MAP = {
       false: "gebiet-mit-naturgefahren-nein"
     }
   },
-//  GSK25_GSK_VW: {
-//    path: "parent.zonenvorschriften-schutzzonen."
-//  },
+  // The question GSK25_GSK_VW is not present in our form.
+  //GSK25_GSK_VW: {},
   GSKT_BEZEICH_DE: {
     path: "parent.zonenvorschriften-schutzzonen.gewaesserschutzbereich",
     values: {
@@ -150,15 +152,15 @@ function reduceArrayValues(data) {
 export default Component.extend({
   apollo: service(),
   documentStore: service(),
+  notification: service(),
+  fetch: service(),
 
   classNames: ["gis-map"],
 
   disabled: false,
   parcels: null,
   gisData: null,
-  warningOverride: false,
-  warningOnlyOne: false,
-  warningNoSelection: false,
+  informationOverride: false,
   confirmationGis: false,
 
   link: computed(function() {
@@ -342,18 +344,13 @@ export default Component.extend({
    * @method populateFields
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  async populateFields(parcels) {
-    if (parcels.length > 1) {
-      this.set("warningOnlyOne", true);
-      return;
-    }
-
+  populateFields: task(function* (parcels) {
     const [parcel] = parcels;
     const fields = this.field.document.fields.filter(
       field => KEYS_SIMPLE.includes(field.question.slug)
     );
 
-    await Promise.all(fields.map(async field => {
+    yield all(fields.map(async field => {
       const slug = KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
       const value = String(parcel[slug]);
 
@@ -362,7 +359,7 @@ export default Component.extend({
         return field.save.perform();
       }
     }));
-  },
+  }),
 
   /**
    * Creates a new document for each parcel and saves the parcel values
@@ -372,7 +369,7 @@ export default Component.extend({
    * @method populateTable
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  async populateTable(parcels) {
+  populateTable: task(function* (parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
       field => field.question.slug === KEY_TABLE_QUESTION
@@ -388,7 +385,7 @@ export default Component.extend({
     const rows = [];
 
     // Create, populate, and add a new row for each parcel.
-    await Promise.all(parcels.map(async parcel => {
+    yield all(parcels.map(async parcel => {
       const newDocumentRaw = await this.apollo.mutate(
         mutation,
         "saveDocument.document"
@@ -399,7 +396,7 @@ export default Component.extend({
         field => KEYS_TABLE.includes(field.question.slug)
       );
 
-      await Promise.all(fields.map(async field => {
+      await all(fields.map(async field => {
         const slug = field.question.slug;
         const value = String(parcel[slug]);
 
@@ -415,28 +412,25 @@ export default Component.extend({
     table.answer.set("rowDocuments", rows);
     table.answer.set("value", rows.map(doc => doc.id));
     table.save.perform();
-  },
+  }),
 
-  async fetchAdditionalData(parcels) {
-    const responses = await Promise.all(parcels.map(async parcel =>
-      await fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
+  fetchAdditionalData: task(function* (parcels) {
+    this.set("gisData", A());
+
+    const responses = yield all(parcels.map(async parcel =>
+      await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
     ));
 
     const success = responses.every(response => response.ok);
 
     if (success) {
       const data_raw = (
-        await Promise.all(responses
-          //.filter(response => response.ok)
-          .map(response => response.json())
-        )
+        yield all(responses.map(response => response.json()))
       ).map(json => json.data);
 
       const data_gis = reduceArrayValues(data_raw);
 
-      this.set("gisData", A());
-
-      for (let key in FIELD_MAP) {
+      for (const key in FIELD_MAP) {
         const field = this.field.document.findField(FIELD_MAP[key].path);
         const type = field.question.__typename;
         const values_map = FIELD_MAP[key].values;
@@ -467,9 +461,13 @@ export default Component.extend({
       }
       this.set("confirmationGis", true);
     } else {
-      alert("fu");
+      this.notification.danger(
+        "Bei der Abfrage der zusätzlichen Information ist " +
+        "ein Fehler aufgetreten. Bitte versuchen Sie erneut " +
+        "die Daten zu übernehmen."
+      );
     }
-  },
+  }),
 
   init() {
     this._super(...arguments);
@@ -487,16 +485,31 @@ export default Component.extend({
   },
 
   actions: {
-    async applySelection() {
+    applySelection() {
       if (this.parcels && this.parcels.length) {
         if (this.field.question.slug === KEY_SIMPLE_MAP) {
-          await this.populateFields(this.parcels);
+          if (this.parcels.length > 1) {
+            this.notification.danger(
+              "Bei einer einfachen Vorabklärung kann maximal " +
+              "eine Parzelle ausgewählt werden."
+            );
+          } else {
+            this.populateFields.perform(this.parcels);
+          }
         } else {
-          await this.populateTable(this.parcels);
-          await this.fetchAdditionalData(this.parcels);
+          if (this.parcels.length > 20) {
+            this.notification.danger(
+              "Sie müssen Ihre Auswahl auf 20 Parzellen beschränken."
+            );
+          } else {
+            this.populateTable.perform(this.parcels);
+            this.fetchAdditionalData.perform(this.parcels);
+          }
         }
       } else {
-        this.set("warningNoSelection", true);
+        this.notification.danger(
+          "Sie müssen mindestens eine Parzelle auswählen."
+        );
       }
     },
     saveAdditionalData() {
