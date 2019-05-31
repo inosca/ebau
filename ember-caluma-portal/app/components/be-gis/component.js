@@ -154,6 +154,7 @@ export default Component.extend({
   documentStore: service(),
   notification: service(),
   fetch: service(),
+  intl: service(),
 
   classNames: ["gis-map"],
 
@@ -462,9 +463,7 @@ export default Component.extend({
       this.set("confirmationGis", true);
     } else {
       this.notification.danger(
-        "Bei der Abfrage der zusätzlichen Information ist " +
-        "ein Fehler aufgetreten. Bitte versuchen Sie erneut " +
-        "die Daten zu übernehmen."
+        this.intl.t("gis.notifications.error-additional")
       );
     }
   }),
@@ -490,8 +489,7 @@ export default Component.extend({
         if (this.field.question.slug === KEY_SIMPLE_MAP) {
           if (this.parcels.length > 1) {
             this.notification.danger(
-              "Bei einer einfachen Vorabklärung kann maximal " +
-              "eine Parzelle ausgewählt werden."
+              this.intl.t("gis.notifications.max-one")
             );
           } else {
             this.populateFields.perform(this.parcels);
@@ -499,7 +497,7 @@ export default Component.extend({
         } else {
           if (this.parcels.length > 20) {
             this.notification.danger(
-              "Sie müssen Ihre Auswahl auf 20 Parzellen beschränken."
+              this.intl.t("gis.notifications.max-twenty")
             );
           } else {
             this.populateTable.perform(this.parcels);
@@ -508,7 +506,7 @@ export default Component.extend({
         }
       } else {
         this.notification.danger(
-          "Sie müssen mindestens eine Parzelle auswählen."
+          this.intl.t("gis.notifications.min-one")
         );
       }
     },
