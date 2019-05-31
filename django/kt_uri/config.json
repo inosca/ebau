@@ -22332,10 +22332,10 @@
     "fields": {
       "available_instance_resource": "formpage",
       "class_field": "",
-      "description": "Zum alle Dossier anschauen, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja eh bearbeitet werden.",
+      "description": "Zum alle Personen- und Projektdaten, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja eh bearbeitet werden.",
       "form_group": 30,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 3,
       "template": "/form/read.phtml"
@@ -22346,11 +22346,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers von der Gemeinde",
+      "class_field": null,
+      "description": "Personen- und Projektdaten bearbeiten von der Gemeinde",
       "form_group": 81,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 0,
       "template": "/form/bg-form.phtml"
@@ -22365,7 +22365,7 @@
       "description": "Dossier Ansehen alle Dossiers von BG und BD",
       "form_group": 245,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -22391,11 +22391,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR BG",
       "form_group": 30,
       "hidden": 1,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 267,
       "sort": 2,
       "template": "/form/read.phtml"
@@ -22421,11 +22421,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers von der Koordinationsstelle",
+      "class_field": null,
+      "description": "Personen- und Projektdaten bearbeiten von der Koordinationsstelle",
       "form_group": 32,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 1,
       "template": "/form/bg-form.phtml"
@@ -22481,14 +22481,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten  Koor BG",
       "form_group": 30,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 267,
       "sort": 6,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 205
@@ -22496,11 +22496,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR BG & Gemeindebaubeh\u00f6rde",
       "form_group": 30,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -22526,11 +22526,11 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "form_group": 221,
       "hidden": 0,
-      "name": "Dossier umwandeln",
+      "name": "Verfahren \u00e4ndern",
       "resource": 301,
       "sort": 7,
       "template": "/change/gem.phtml"
@@ -22620,7 +22620,7 @@
       "description": null,
       "form_group": 161,
       "hidden": 0,
-      "name": "Stellungnahme",
+      "name": "R\u00fcckmeldung",
       "resource": 302,
       "sort": 9,
       "template": null
@@ -22650,7 +22650,7 @@
       "description": "",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 122,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -22661,14 +22661,14 @@
   {
     "fields": {
       "available_instance_resource": "editnotice",
-      "class_field": "",
-      "description": "Stellungnahme Dossiers von der Koordinationsstelle",
+      "class_field": null,
+      "description": "R\u00fcckmeldung Dossiers von der Koordinationsstelle",
       "form_group": 32,
       "hidden": 0,
-      "name": "Stellungnahme",
+      "name": "R\u00fcckmeldung",
       "resource": 122,
       "sort": 1,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 389
@@ -22691,11 +22691,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
+      "class_field": null,
       "description": "Dossiers von Koord NP",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 288,
       "sort": 0,
       "template": "/form/np-form.phtml"
@@ -22736,11 +22736,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR NP",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 288,
       "sort": 1,
       "template": "/form/np-read.phtml"
@@ -22781,14 +22781,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor NP",
       "form_group": 141,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 288,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 485
@@ -22875,7 +22875,7 @@
       "description": "Zum alle Dossier NP anschauen, ohne jedoch die, die comm sind.\nDie die Comm sind, k\u00f6nnen ja bearbeitet werden.",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 4,
       "template": "/form/np-read.phtml"
@@ -22890,7 +22890,7 @@
       "description": "Dossiers Nutzungsplanung ansehen",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 1,
       "template": "/form/np-read.phtml"
@@ -22920,7 +22920,7 @@
       "description": "Dossieransicht f\u00fcr Amt Fachstelle OHNE Koordination bei der Dossiersuche f\u00fcr BG Dossiers",
       "form_group": 30,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 1,
       "template": "/form/read.phtml"
@@ -22935,7 +22935,7 @@
       "description": "Anschauen f\u00fcr Amt Fachstelle f\u00fcr die Dossiersuche f\u00fcr NP",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 2,
       "template": "/form/np-read.phtml"
@@ -22965,7 +22965,7 @@
       "description": "Anschauen der Dossiers der Gruppe Baukoordination",
       "form_group": 246,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 309,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -22995,7 +22995,7 @@
       "description": "Verwalten der Kommissionsmitglieder",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier freischalten f\u00fcr:",
+      "name": "Dossier f\u00fcr Fachbereich freischalten",
       "resource": 302,
       "sort": 18,
       "template": "/dept/commissioners.phtml"
@@ -23006,11 +23006,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossier bearbeiten f\u00fcr alle Dossiers KOOR BD",
+      "class_field": null,
+      "description": "Personen- und Projektdaten bearbeiten f\u00fcr alle Dossiers KOOR BD",
       "form_group": 242,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 264,
       "sort": 0,
       "template": "/form/bd-form.phtml"
@@ -23025,7 +23025,7 @@
       "description": "Lese-Modus aller Dossiers",
       "form_group": 241,
       "hidden": 1,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 264,
       "sort": 2,
       "template": ""
@@ -23081,14 +23081,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor BD",
       "form_group": 241,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 264,
       "sort": 5,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 645
@@ -23141,11 +23141,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
+      "class_field": null,
       "description": "Seite f\u00fcr die Bearbeitung vom Dossier Beanspruchung von Kantonsgebiet weil es eine andere Seite hat",
       "form_group": 243,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 264,
       "sort": 1,
       "template": "/form/bd-form-247.phtml"
@@ -23160,7 +23160,7 @@
       "description": "Ansehen Dossier Baubewilligungsverfahren f\u00fcr die Beanspruchung von Kantonsgebiet",
       "form_group": 243,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 2,
       "template": "/form/bd-form-247-read.phtml"
@@ -23250,7 +23250,7 @@
       "description": "Read-Only-Moduls f\u00fcr die Dossiers f\u00fcr das Portal",
       "form_group": 248,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 251,
       "sort": 0,
       "template": "/portal/read.phtml"
@@ -23310,7 +23310,7 @@
       "description": "",
       "form_group": 247,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 250,
       "sort": 0,
       "template": "/form/submitted-read.phtml"
@@ -23321,14 +23321,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR BG",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR BG",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 267,
       "sort": 11,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 683
@@ -23336,14 +23336,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR NP",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR NP",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 288,
       "sort": 8,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 684
@@ -23351,14 +23351,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling Gemeindebaubeh\u00f6rde",
+      "class_field": null,
+      "description": "Auflagen bewirtschaften Gemeindebaubeh\u00f6rde",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Auflagen bewirtschaften",
       "resource": 301,
       "sort": 10,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 685
@@ -23366,14 +23366,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR BD",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR BD",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 264,
       "sort": 9,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 690
@@ -23381,14 +23381,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr Vernehmlassungsstellen",
+      "class_field": null,
+      "description": "Auflagen bewirtschaften f\u00fcr Vernehmlassungsstellen",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Auflagen bewirtschaften",
       "resource": 302,
       "sort": 19,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 691
@@ -23415,7 +23415,7 @@
       "description": "",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 254,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -23442,10 +23442,10 @@
     "fields": {
       "available_instance_resource": "formpage",
       "class_field": "",
-      "description": "Dossier ansehen f\u00fcr Organisation mit Leserechten",
+      "description": "Personen- und Projektdaten f\u00fcr Organisation mit Leserechten",
       "form_group": 253,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 307,
       "sort": 0,
       "template": ""
@@ -23486,11 +23486,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers von der Koordinationsstelle Umweltschutz AfU",
+      "class_field": null,
+      "description": "Personen- und Projektdaten von der Koordinationsstelle Umweltschutz AfU",
       "form_group": 249,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 289,
       "sort": 0,
       "template": "/form/bg-form.phtml"
@@ -23501,11 +23501,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR AfU",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 289,
       "sort": 1,
       "template": "/form/read.phtml"
@@ -23591,14 +23591,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR AfU",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AfU",
       "form_group": 161,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 289,
       "sort": 8,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 707
@@ -23625,7 +23625,7 @@
       "description": "Dossier Ansehen alle Dossiers von AfU",
       "form_group": 249,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 3,
       "template": "/form/read.phtml"
@@ -23640,7 +23640,7 @@
       "description": "Dossier Ansehen alle Dossiers von ALA",
       "form_group": 250,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 4,
       "template": "/form/read.phtml"
@@ -23651,11 +23651,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers von der Koordinationsstelle Landwirtschaft ALA",
+      "class_field": null,
+      "description": "Personen- und Projektdaten von der Koordinationsstelle Landwirtschaft ALA",
       "form_group": 250,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 296,
       "sort": 0,
       "template": "/form/bg-form.phtml"
@@ -23666,11 +23666,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR ALA",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 296,
       "sort": 1,
       "template": "/form/read.phtml"
@@ -23741,14 +23741,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR ALA",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR ALA",
       "form_group": 250,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 296,
       "sort": 7,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 721
@@ -23771,11 +23771,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers von der Koordinationsstelle Energie AfE",
+      "class_field": null,
+      "description": "Personen- und Projektdaten von der Koordinationsstelle Energie AfE",
       "form_group": 251,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 297,
       "sort": 0,
       "template": "/form/bg-form.phtml"
@@ -23786,11 +23786,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR AfE",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 297,
       "sort": 1,
       "template": "/form/read.phtml"
@@ -23861,14 +23861,14 @@
   {
     "fields": {
       "available_instance_resource": "sanction",
-      "class_field": "",
-      "description": "Auflagen-Controlling f\u00fcr KOOR AfE",
+      "class_field": null,
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AfE",
       "form_group": 251,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 297,
       "sort": 7,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 729
@@ -23880,7 +23880,7 @@
       "description": "Dossier Ansehen alle Dossiers von AfE",
       "form_group": 251,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 5,
       "template": "/form/read.phtml"
@@ -23910,7 +23910,7 @@
       "description": "Dossier Ansehen alle Dossiers von AFJ",
       "form_group": 252,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 6,
       "template": "/form/read.phtml"
@@ -23922,10 +23922,10 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
-      "description": "Dossiers von der Koordinationsstelle AFJ SD",
+      "description": "Personen- und Projektdaten von der Koordinationsstelle AFJ SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 298,
       "sort": 0,
       "template": "/form/bg-form.phtml"
@@ -23936,11 +23936,11 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Personen- und Projektdaten KOOR AFJ SD",
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 298,
       "sort": 1,
       "template": "/form/read.phtml"
@@ -24012,10 +24012,10 @@
     "fields": {
       "available_instance_resource": "sanction",
       "class_field": null,
-      "description": "Auflagen-Controlling f\u00fcr KOOR AJF und SD",
+      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AJF und SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Auflagen-Controlling",
+      "name": "Erfasste Auflagen bewirtschaften",
       "resource": 298,
       "sort": 8,
       "template": null
@@ -24041,14 +24041,14 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "form_group": 161,
       "hidden": 0,
-      "name": "BaB Datenerfassung",
+      "name": "BaB Daten erfassen",
       "resource": 302,
       "sort": 20,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 744
@@ -24056,14 +24056,14 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "BaB Daten erfassen KOOR BG",
       "form_group": 161,
       "hidden": 0,
-      "name": "BaB Datenerfassung",
+      "name": "BaB Daten erfassen",
       "resource": 267,
       "sort": 12,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 746
@@ -24071,14 +24071,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor Afu",
       "form_group": 249,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 289,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 747
@@ -24086,14 +24086,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten Koor ALA",
       "form_group": 250,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 296,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 748
@@ -24101,14 +24101,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": "Geb\u00fchren verwalten AfE",
       "form_group": 251,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 297,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 749
@@ -24117,10 +24117,10 @@
     "fields": {
       "available_instance_resource": "billing",
       "class_field": null,
-      "description": null,
+      "description": "Geb\u00fchren verwalten Koor AFJ SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Geb\u00fchr Koord",
+      "name": "Geb\u00fchren verwalten",
       "resource": 298,
       "sort": 4,
       "template": null
@@ -24135,7 +24135,7 @@
       "description": "Anschauen der NP Dossiers",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier anschauen",
+      "name": "Personen- und Projektdaten",
       "resource": 309,
       "sort": 1,
       "template": ""
@@ -24180,7 +24180,7 @@
       "description": null,
       "form_group": 161,
       "hidden": 0,
-      "name": "Dossier ansehen",
+      "name": "Personen- und Projektdaten",
       "resource": 314,
       "sort": 0,
       "template": "/form/read.phtml"
@@ -24210,7 +24210,7 @@
       "description": null,
       "form_group": 161,
       "hidden": 0,
-      "name": "Stellungsnahme",
+      "name": "R\u00fcckmeldung",
       "resource": 314,
       "sort": 2,
       "template": null
@@ -26759,7 +26759,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 4
@@ -26767,7 +26767,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 107
@@ -26783,7 +26783,7 @@
   {
     "fields": {
       "page": 81,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 445
@@ -26799,7 +26799,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 605
@@ -26807,7 +26807,7 @@
   {
     "fields": {
       "page": 82,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 649
@@ -26831,7 +26831,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 699
@@ -26839,7 +26839,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 714
@@ -26847,7 +26847,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 723
@@ -26875,11 +26875,11 @@
   {
     "fields": {
       "circulation_type": 41,
-      "edit_notice_template": "",
+      "edit_notice_template": null,
       "editable_after_deadline": 0,
       "hide_answered_notices": 1,
       "is_always_editable": 0,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditnotice",
     "pk": 389
@@ -26915,7 +26915,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 85
@@ -26923,7 +26923,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 225
@@ -26939,7 +26939,7 @@
   {
     "fields": {
       "page": 81,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 465
@@ -27035,7 +27035,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 700
@@ -27059,7 +27059,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 715
@@ -27067,7 +27067,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 724
@@ -27091,7 +27091,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irformpage",
     "pk": 736
@@ -27194,7 +27194,7 @@
   },
   {
     "fields": {
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irpage",
     "pk": 246
@@ -27229,7 +27229,7 @@
   },
   {
     "fields": {
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.irpage",
     "pk": 586
@@ -39093,10 +39093,10 @@
   {
     "fields": {
       "available_resource": "page",
-      "class_field": "",
+      "class_field": null,
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
-      "name": "Dossier erstellen",
+      "name": "Neues Dossier erstellen",
       "sort": 30,
       "template": "/global/home.phtml"
     },
@@ -39109,7 +39109,7 @@
       "class_field": null,
       "description": "Allgemeine Suche",
       "hidden": 0,
-      "name": "Dossiersuche",
+      "name": "Dossier suchen",
       "sort": 27,
       "template": "/global/search.phtml"
     },
@@ -39197,12 +39197,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr die Koordinationsstelle Baudirektion BD",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 12,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 264
@@ -39211,9 +39211,9 @@
     "fields": {
       "available_resource": "simplelist",
       "class_field": null,
-      "description": "Zirkulation bei den Fachstellen abgeschlossen",
+      "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
-      "name": "Pendenzenliste Ende",
+      "name": "Dossierzirkulation beendet",
       "sort": 19,
       "template": null
     },
@@ -39223,12 +39223,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr Koord Baugesuche BG",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 10,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 267
@@ -39249,12 +39249,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzliste Start f\u00fcr Koord NP",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 11,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 288
@@ -39262,12 +39262,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr Koord Umweltschutz AfU",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 13,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 289
@@ -39288,12 +39288,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
-      "name": "Geb\u00fchren",
+      "name": "Baubegleitungssgeb\u00fchren",
       "sort": 23,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 294
@@ -39301,12 +39301,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
-      "name": "Auflagen",
+      "name": "Erfasste Auflagen",
       "sort": 24,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 295
@@ -39314,12 +39314,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr Koord Landwirtschaft ALA",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 14,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 296
@@ -39327,12 +39327,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr Koord Energie AfE",
+      "class_field": null,
+      "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 15,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 297
@@ -39341,9 +39341,9 @@
     "fields": {
       "available_resource": "simplelist",
       "class_field": null,
-      "description": "Pendenzenliste Start f\u00fcr Koord AFJ SD",
+      "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierzirkulation starten",
       "sort": 16,
       "template": null
     },
@@ -39356,7 +39356,7 @@
       "class_field": null,
       "description": null,
       "hidden": 0,
-      "name": "Pendenzenliste Baubewilligung erteilt",
+      "name": "Bau- und Einspracheentscheid zugestellt",
       "sort": 25,
       "template": null
     },
@@ -39366,12 +39366,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Start f\u00fcr Gemeinden",
+      "class_field": null,
+      "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
       "hidden": 0,
-      "name": "Pendenzenliste Start",
+      "name": "Dossierbearbeitung starten",
       "sort": 9,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 301
@@ -39379,12 +39379,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste f\u00fcr Vernehmlassungsstellen",
+      "class_field": null,
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Vernehmlassungsstellen",
       "hidden": 0,
-      "name": "Pendenzenliste",
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 302
@@ -39392,12 +39392,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
-      "name": "In Zirkulation (BG)",
+      "name": "In Zirkulation (KOOR ARE BG)",
       "sort": 5,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 303
@@ -39405,12 +39405,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
-      "name": "In Zirkulation (BD)",
+      "name": "In Zirkulation (KOOR BD)",
       "sort": 6,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 304
@@ -39418,12 +39418,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "hidden": 0,
-      "name": "In Zirkulation (NP)",
+      "name": "In Zirkulation (KOOR ARE NP)",
       "sort": 7,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 305
@@ -39431,12 +39431,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
-      "description": "Pendenzenliste Ende f\u00fcr Gemeinden",
+      "class_field": null,
+      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
       "hidden": 0,
-      "name": "Pendenzenliste Ende",
+      "name": "Kantonale Pr\u00fcfung beendet",
       "sort": 20,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 306
@@ -39444,12 +39444,12 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": "",
+      "class_field": null,
       "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
       "hidden": 0,
-      "name": "Baubewilligungsverfahren und Vorabkl\u00e4rungen",
+      "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
       "sort": 3,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 307
@@ -39458,11 +39458,11 @@
     "fields": {
       "available_resource": "simplelist",
       "class_field": "show_list_count",
-      "description": "Pendenzenliste f\u00fcr die Kommissionsmitglieder",
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr die Kommissionsmitglieder",
       "hidden": 0,
-      "name": "Pendenzenliste",
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
       "sort": 1,
-      "template": ""
+      "template": null
     },
     "model": "core.resource",
     "pk": 309
@@ -39512,7 +39512,7 @@
       "class_field": null,
       "description": null,
       "hidden": 0,
-      "name": "Pendenzenliste Gemeinde",
+      "name": "Aufgaben Gemeindebaubeh\u00f6rde",
       "sort": 17,
       "template": null
     },
@@ -39523,9 +39523,9 @@
     "fields": {
       "available_resource": "simplelist",
       "class_field": null,
-      "description": "Pendenzenliste f\u00fcr Gemeinde Service Dossiers",
+      "description": null,
       "hidden": 0,
-      "name": "Pendenzenliste Gemeinde Service",
+      "name": "Aufgaben Gemeindebaubeh\u00f6rde",
       "sort": 18,
       "template": null
     },
@@ -39835,7 +39835,7 @@
   },
   {
     "fields": {
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.rpage",
     "pk": 22
@@ -40751,7 +40751,7 @@
   },
   {
     "fields": {
-      "alias": "Pendenzen AC",
+      "alias": "Offene Auflagen",
       "column_name": "SANCTION",
       "resource": 42,
       "sort": 7
