@@ -2,10 +2,12 @@ import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import ApolloService from "ember-apollo-client/services/apollo";
 import { setContext } from "apollo-link-context";
+import { onError } from "apollo-link-error";
 import CalumaApolloServiceMixin from "ember-caluma/mixins/caluma-apollo-service-mixin";
 
 export default ApolloService.extend(CalumaApolloServiceMixin, {
   session: service(),
+  router: service(),
 
   link: computed("session.data.authenticated.access_token", function() {
     const httpLink = this._super(...arguments);
@@ -18,6 +20,20 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
       return context;
     });
 
-    return authMiddleware.concat(httpLink);
+    const authAfterware = onError(error => {
+      const { networkError, graphQLErrors } = error;
+
+      if (
+        (graphQLErrors &&
+          graphQLErrors.some(({ message }) =>
+            /^401 Client Error/.test(message)
+          )) ||
+        (networkError && networkError.statusCode === 401)
+      ) {
+        this.router.transitionTo("logout");
+      }
+    });
+
+    return authMiddleware.concat(authAfterware).concat(httpLink);
   })
 });
