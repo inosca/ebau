@@ -3646,7 +3646,7 @@ class Resource(models.Model):
         db_column="AVAILABLE_RESOURCE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -3670,7 +3670,7 @@ class ResourceT(models.Model):
         Resource, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
-    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
