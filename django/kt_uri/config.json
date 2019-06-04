@@ -22712,6 +22712,14 @@
   },
   {
     "fields": {
+      "form": 292,
+      "form_group": 256
+    },
+    "model": "core.formgroupform",
+    "pk": 288
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -23115,7 +23123,7 @@
   {
     "fields": {
       "available_instance_resource": "formpage",
-      "class_field": null,
+      "class_field": "",
       "description": "Personen- und Projektdaten KOOR BG",
       "form_group": 30,
       "hidden": 1,
@@ -23145,7 +23153,7 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": null,
+      "class_field": "",
       "description": "Personen- und Projektdaten bearbeiten von der Koordinationsstelle",
       "form_group": 32,
       "hidden": 0,
@@ -23205,14 +23213,14 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": null,
+      "class_field": "",
       "description": "Geb\u00fchren verwalten  Koor BG",
       "form_group": 30,
       "hidden": 0,
       "name": "Geb\u00fchren verwalten",
       "resource": 267,
       "sort": 6,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 205
@@ -23250,8 +23258,8 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
-      "description": null,
+      "class_field": "",
+      "description": "",
       "form_group": 221,
       "hidden": 0,
       "name": "Verfahren \u00e4ndern",
@@ -23341,7 +23349,7 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "class_field": null,
-      "description": null,
+      "description": "R\u00fcckmeldung der Koodinationsstelle",
       "form_group": 161,
       "hidden": 0,
       "name": "R\u00fcckmeldung",
@@ -24736,10 +24744,10 @@
     "fields": {
       "available_instance_resource": "sanction",
       "class_field": null,
-      "description": "Erfasste Auflagen bewirtschaften f\u00fcr KOOR AJF und SD",
+      "description": "Auflagen-Controlling f\u00fcr KOOR AJF und SD",
       "form_group": 255,
       "hidden": 0,
-      "name": "Erfasste Auflagen bewirtschaften",
+      "name": "Auflagen-Controlling",
       "resource": 298,
       "sort": 8,
       "template": null
@@ -24769,7 +24777,7 @@
       "description": "",
       "form_group": 161,
       "hidden": 0,
-      "name": "BaB Daten erfassen",
+      "name": "BaB Datenerfassung",
       "resource": 302,
       "sort": 15,
       "template": ""
@@ -24780,11 +24788,11 @@
   {
     "fields": {
       "available_instance_resource": "bab",
-      "class_field": null,
-      "description": "BaB Daten erfassen KOOR BG",
+      "class_field": "",
+      "description": "",
       "form_group": 161,
       "hidden": 0,
-      "name": "BaB Daten erfassen",
+      "name": "BaB Datenerfassung",
       "resource": 267,
       "sort": 12,
       "template": ""
@@ -24795,11 +24803,11 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": null,
-      "description": "Geb\u00fchren verwalten Koor Afu",
+      "class_field": "",
+      "description": "",
       "form_group": 249,
       "hidden": 0,
-      "name": "Geb\u00fchren verwalten",
+      "name": "Geb\u00fchr Koord",
       "resource": 289,
       "sort": 4,
       "template": ""
@@ -24810,11 +24818,11 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": null,
-      "description": "Geb\u00fchren verwalten Koor ALA",
+      "class_field": "",
+      "description": "",
       "form_group": 250,
       "hidden": 0,
-      "name": "Geb\u00fchren verwalten",
+      "name": "Geb\u00fchr Koord",
       "resource": 296,
       "sort": 4,
       "template": ""
@@ -24825,11 +24833,11 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": null,
-      "description": "Geb\u00fchren verwalten AfE",
+      "class_field": "",
+      "description": "",
       "form_group": 251,
       "hidden": 0,
-      "name": "Geb\u00fchren verwalten",
+      "name": "Geb\u00fchr Koord",
       "resource": 297,
       "sort": 4,
       "template": ""
@@ -24841,10 +24849,10 @@
     "fields": {
       "available_instance_resource": "billing",
       "class_field": null,
-      "description": "Geb\u00fchren verwalten Koor AFJ SD",
+      "description": null,
       "form_group": 255,
       "hidden": 0,
-      "name": "Geb\u00fchren verwalten",
+      "name": "Geb\u00fchr Koord",
       "resource": 298,
       "sort": 4,
       "template": null
@@ -24859,7 +24867,7 @@
       "description": "Anschauen der NP Dossiers",
       "form_group": 141,
       "hidden": 0,
-      "name": "Personen- und Projektdaten",
+      "name": "Dossier anschauen",
       "resource": 309,
       "sort": 1,
       "template": ""
@@ -24976,12 +24984,12 @@
     "fields": {
       "available_instance_resource": "circulation",
       "class_field": null,
-      "description": "Einsehen von Resultaten der Gemeindezirkulation",
-      "form_group": 161,
+      "description": null,
+      "form_group": 256,
       "hidden": 0,
-      "name": "Gemeindezirkulation Resultat",
-      "resource": 301,
-      "sort": 7,
+      "name": "Dossier Abschliessen",
+      "resource": 316,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -26823,21 +26831,6 @@
     },
     "model": "core.ircirculation",
     "pk": 752
-  },
-  {
-    "fields": {
-      "circulation_type": 61,
-      "draft_circulation_answer": null,
-      "pdf_class": null,
-      "read_notice_template": null,
-      "service": 301,
-      "service_to_be_interpreted": null,
-      "show_all_children": 1,
-      "show_history": 0,
-      "show_notice": 2
-    },
-    "model": "core.ircirculation",
-    "pk": 758
   },
   {
     "fields": {
@@ -35912,123 +35905,6 @@
   },
   {
     "fields": {
-      "instance_resource": 758,
-      "instance_state": 1,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 860
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 21,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 861
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 22,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 862
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 32,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 863
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 23,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 864
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 24,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 865
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 25,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 866
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 26,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 867
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 27,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 868
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 28,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 869
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 29,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 870
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 30,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 871
-  },
-  {
-    "fields": {
-      "instance_resource": 758,
-      "instance_state": 31,
-      "role": 6
-    },
-    "model": "core.irroleacl",
-    "pk": 872
-  },
-  {
-    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -36216,7 +36092,7 @@
   {
     "fields": {
       "circulation_type": 61,
-      "name": "Mitteilungen an die Gemeindebaubeh\u00f6rde"
+      "name": "Mitteilungen an die Koordinationsstelle"
     },
     "model": "core.noticetype",
     "pk": 24
@@ -36232,7 +36108,7 @@
   {
     "fields": {
       "circulation_type": 62,
-      "name": "Mitteilung an die Gemeindebaubeh\u00f6rde"
+      "name": "MItteilung an die Gemeindebaubeh\u00f6rde"
     },
     "model": "core.noticetype",
     "pk": 26
@@ -37687,6 +37563,28 @@
     },
     "model": "core.pageform",
     "pk": 127
+  },
+  {
+    "fields": {
+      "form": 292,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 3,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 128
+  },
+  {
+    "fields": {
+      "form": 292,
+      "page": 41,
+      "page_form_group": 1,
+      "page_form_mode": 4,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 129
   },
   {
     "fields": {
@@ -46274,6 +46172,15 @@
   },
   {
     "fields": {
+      "description": "Bundesstelle; KOOR BAV",
+      "form_state": 1,
+      "name": "Internes Mitberichtsverfahren Bundesstelle"
+    },
+    "model": "instance.form",
+    "pk": 292
+  },
+  {
+    "fields": {
       "name": "Published"
     },
     "model": "instance.formstate",
@@ -47218,16 +47125,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - direkt zugewiesene Pendenzen",
-      "phone": "",
+      "phone": null,
       "role": 4,
       "service": 309,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 176
@@ -47746,16 +47653,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "Bundesamt f\u00fcr Verkehr",
-      "phone": "",
-      "role": 4,
+      "phone": null,
+      "role": 1130,
       "service": 141,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 222
@@ -48434,16 +48341,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "ASTRA - Bundesamt f\u00fcr Strassen - Pendenzen Baudirektion Uri",
-      "phone": "",
+      "phone": null,
       "role": 1021,
       "service": 41,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 565
