@@ -1337,7 +1337,7 @@
   },
   {
     "fields": {
-      "php_class": "CircEnd"
+      "php_class": "AllCircEnd"
     },
     "model": "core.aphp",
     "pk": 42
@@ -2347,7 +2347,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
@@ -2383,7 +2383,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 18,
@@ -2491,7 +2491,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 39,
@@ -5074,7 +5074,7 @@
       "read_notice_template": null,
       "service": null,
       "service_to_be_interpreted": "[SERVICE_ID]",
-      "show_all_children": 1,
+      "show_all_children": 0,
       "show_history": 0,
       "show_notice": 2
     },
