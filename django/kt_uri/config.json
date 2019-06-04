@@ -19767,6 +19767,76 @@
   },
   {
     "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Keine R\u00fcckmeldung",
+      "sort": 7
+    },
+    "model": "core.circulationanswer",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Fachstelle nicht betroffen",
+      "sort": 6
+    },
+    "model": "core.circulationanswer",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Ja mit Auflagen",
+      "sort": 5
+    },
+    "model": "core.circulationanswer",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Ja",
+      "sort": 4
+    },
+    "model": "core.circulationanswer",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Nein",
+      "sort": 3
+    },
+    "model": "core.circulationanswer",
+    "pk": 79
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Keine Stellungnahme",
+      "sort": 2
+    },
+    "model": "core.circulationanswer",
+    "pk": 80
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 62,
+      "name": "Pr\u00fcfung noch nicht abgeschlossen",
+      "sort": 1
+    },
+    "model": "core.circulationanswer",
+    "pk": 81
+  },
+  {
+    "fields": {
       "name": "Response"
     },
     "model": "core.circulationanswertype",
@@ -19817,6 +19887,24 @@
   },
   {
     "fields": {
+      "circulation_type": 62,
+      "name": "E-Dossier",
+      "sort": 1
+    },
+    "model": "core.circulationreason",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "circulation_type": 62,
+      "name": "kein E-Dossier",
+      "sort": 2
+    },
+    "model": "core.circulationreason",
+    "pk": 46
+  },
+  {
+    "fields": {
       "name": "RUN",
       "sort": 0
     },
@@ -19864,6 +19952,15 @@
     },
     "model": "core.circulationtype",
     "pk": 61
+  },
+  {
+    "fields": {
+      "name": "Zirkulation Dossiers von der Bundesstelle",
+      "page_id": 41,
+      "parent_specific_activations": 0
+    },
+    "model": "core.circulationtype",
+    "pk": 62
   },
   {
     "fields": {
@@ -20735,6 +20832,14 @@
     },
     "model": "core.formgroup",
     "pk": 255
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "Alle Dossiers Bundesstelle"
+    },
+    "model": "core.formgroup",
+    "pk": 256
   },
   {
     "fields": {
@@ -25101,7 +25206,7 @@
       "name": "BaB Datenerfassung",
       "resource": 267,
       "sort": 12,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 746
@@ -47975,16 +48080,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "Bundesamt f\u00fcr Verkehr",
-      "phone": "",
-      "role": 4,
+      "phone": null,
+      "role": 1130,
       "service": 141,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 222
