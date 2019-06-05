@@ -3,7 +3,7 @@
 <div class="uk-flex uk-flex-between uk-margin-small-top">
   <div>
     {{uk-button
-      label="Daten übernehmen"
+      label=(t "gis.apply-button")
       on-click=(action "applySelection")
       size="small"
     }}
@@ -12,27 +12,44 @@
       type="button"
       class="uk-icon-button"
       uk-icon="warning"
-      {{action (mut warningOverride) true}}>
+      {{action (mut informationOverride) true}}>
     </button>
   </div>
 
   <div class="uk-text-right">
     <small class="uk-text-muted">
-      Wird die Karte nicht richtig dargestellt?
-      <a href={{link}} target="map">Neu laden</a>
+      {{t "gis.no-map.message"}}
+      <a href={{link}} target="map">{{t "gis.no-map.link"}}</a>
     </small>
   </div>
 </div>
 
-{{#uk-modal visible=warningOverride}}
-  Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu
-  angelegt. Alle manuell ergänzten Informationen gehen dabei verloren.
+{{#uk-modal visible=informationOverride}}
+  {{t "gis.info-override"}}
 {{/uk-modal}}
 
-{{#uk-modal visible=warningOnlyOne}}
-  Bei einer einfachen Vorabklärung kann maximal eine Parzelle ausgewählt werden.
-{{/uk-modal}}
+{{#uk-modal visible=confirmationGis}}
+  <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
 
-{{#uk-modal visible=warningNoSelection}}
-  Sie haben keine Parzelle ausgewählt.
+  <ul class="uk-list uk-list-divider">
+    {{#each gisData as |data|}}
+      <li>
+        <strong>{{data.field.question.label}}</strong><br>
+        {{data.value_pretty}}
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="uk-text-right uk-margin-top">
+    {{uk-button
+      label=(t "gis.additional.no")
+      on-click=(action (mut confirmationGis) false)
+    }}
+
+    {{uk-button
+      label=(t "gis.additional.yes")
+      color="primary"
+      on-click=(action "saveAdditionalData")
+    }}
+  </div>
 {{/uk-modal}}
