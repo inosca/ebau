@@ -57,3 +57,20 @@ documents:
 
 freigabequittung:
   noFiles: "Es sind keine Dokumente zu unterschreiben."
+
+gis:
+  apply-button: "Daten übernehmen"
+  no-map:
+    message: "Wird die Karte nicht richtig dargestellt?"
+    link: "Neu laden"
+  info-override: "Beim übernehmen der Daten, werden die bisherigen Einträge gelöscht und neu angelegt. Alle manuell ergänzten Informationen gehen dabei verloren."
+  additional:
+    title: "Daten übernehmen?"
+    yes: "Ja"
+    no: "Nein"
+
+  notifications:
+    min-one: "Sie müssen mindestens eine Parzelle auswählen."
+    max-one: "Bei einer einfachen Vorabklärung kann maximal eine Parzelle ausgewählt werden."
+    max-twenty: "Sie müssen Ihre Auswahl auf 20 Parzellen beschränken."
+    error-additional: "Bei der Abfrage der zusätzlichen Information ist ein Fehler aufgetreten. Bitte versuchen Sie erneut die Daten zu übernehmen."
