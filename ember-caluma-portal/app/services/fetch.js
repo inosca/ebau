@@ -12,7 +12,8 @@ export default Service.extend({
     return {
       authorization: `Bearer ${this.token}`,
       accept: "application/vnd.api+json",
-      "content-type": "application/vnd.api+json"
+      "content-type": "application/vnd.api+json",
+      "cache-control": "no-cache"
     };
   }),
 

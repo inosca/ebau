@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from rest_framework.compat import unicode_to_repr
 from rest_framework_json_api import serializers
 
+from camac.core.serializers import MultilingualSerializer
+
 from . import models
 
 
@@ -34,13 +36,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ("name", "surname", "username", "language")
 
 
-class GroupSerializer(serializers.ModelSerializer):
+class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.Group
         fields = ("name",)
 
 
-class RoleSerializer(serializers.ModelSerializer):
+class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
     permission = serializers.SerializerMethodField()
 
     def get_permission(self, role):
@@ -58,7 +60,7 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ("name", "communal_federal_number")
 
 
-class ServiceSerializer(serializers.ModelSerializer):
+class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.Service
         fields = ("name", "email", "notification")
