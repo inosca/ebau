@@ -1,6 +1,6 @@
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+from django.utils import translation
 
 
 class MultilingualModel:
@@ -10,10 +10,13 @@ class MultilingualModel:
         if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
             return self.name
 
-        try:
-            return self.trans.get(language="de").name
-        except ObjectDoesNotExist:
+        lang = translation.get_language()
+        match = self.trans.filter(language=lang).first()
+        if not match:
+            match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
+        if not match:
             return self.name
+        return match.name
 
     def __str__(self):
         return self.get_name()
