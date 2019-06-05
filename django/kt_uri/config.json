@@ -23466,7 +23466,7 @@
       "name": "Dossier bearbeiten",
       "resource": 301,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 2
@@ -23496,7 +23496,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 4
@@ -23571,7 +23571,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 267,
       "sort": 1,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 107
@@ -23661,7 +23661,7 @@
       "name": "Dossier bearbeiten",
       "resource": 301,
       "sort": 2,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 245
@@ -23841,7 +23841,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 288,
       "sort": 0,
-      "template": "/form/np-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 445
@@ -23999,14 +23999,14 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
+      "class_field": null,
       "description": "Dossiers NP die von der Gemeinde erstellt werden und an die Koordinationsstelle weiter geschickt werden.",
       "form_group": 141,
       "hidden": 0,
       "name": "Dossier bearbeiten",
       "resource": 301,
       "sort": 1,
-      "template": "/form/np-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 490
@@ -24156,7 +24156,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 264,
       "sort": 0,
-      "template": "/form/bd-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 605
@@ -24291,7 +24291,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 264,
       "sort": 1,
-      "template": "/form/bd-form-247.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 649
@@ -24351,7 +24351,7 @@
       "name": "Dossier bearbeiten",
       "resource": 250,
       "sort": 1,
-      "template": "/form/portal-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 672
@@ -24636,7 +24636,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 289,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 699
@@ -24801,7 +24801,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 296,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 714
@@ -24891,7 +24891,7 @@
       "name": "Erfasste Auflagen bewirtschaften",
       "resource": 296,
       "sort": 7,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 721
@@ -24921,7 +24921,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 297,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 723
@@ -25071,7 +25071,7 @@
       "name": "Personen- und Projektdaten bearbeiten",
       "resource": 298,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 735
@@ -25371,7 +25371,7 @@
       "name": "Dossier bearbeiten",
       "resource": 316,
       "sort": 0,
-      "template": "/form/bg-form.phtml"
+      "template": "/form/form-edit.phtml"
     },
     "model": "core.instanceresource",
     "pk": 758
@@ -28044,7 +28044,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 2
@@ -28084,7 +28084,7 @@
   {
     "fields": {
       "page": 81,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 490
@@ -28116,7 +28116,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 672
@@ -36544,8 +36544,8 @@
   },
   {
     "fields": {
-      "description": "",
-      "javascript": "",
+      "description": null,
+      "javascript": null,
       "name": "Zirkulation"
     },
     "model": "core.page",
