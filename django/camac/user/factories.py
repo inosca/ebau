@@ -21,6 +21,15 @@ class ServiceFactory(DjangoModelFactory):
         model = models.Service
 
 
+class ServiceTFactory(DjangoModelFactory):
+    name = Faker("name")
+    service = SubFactory(ServiceFactory)
+    language = "de"
+
+    class Meta:
+        model = models.ServiceT
+
+
 class UserFactory(DjangoModelFactory):
     name = Faker("name")
     email = Faker("email")
@@ -57,6 +66,15 @@ class GroupFactory(DjangoModelFactory):
 
     class Meta:
         model = models.Group
+
+
+class GroupTFactory(DjangoModelFactory):
+    name = Faker("name")
+    group = SubFactory(GroupFactory)
+    language = "de"
+
+    class Meta:
+        model = models.GroupT
 
 
 class UserGroupFactory(DjangoModelFactory):
