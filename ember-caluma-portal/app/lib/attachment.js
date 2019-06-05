@@ -21,11 +21,15 @@ export default EmberObject.extend({
   date: computed("attributes.date", function() {
     return moment(this.attributes.date);
   }),
+
   tags: computed("attributes.context.tags", function() {
     return getWithDefault(this, "attributes.context.tags", []).map(slug => {
-      const field = this.document.findField(`root.6-dokumente.${slug}`);
-
-      return (field && field.question.label) || slug;
+      try {
+        const field = this.document.findField(`root.6-dokumente.${slug}`);
+        return field.question.label;
+      } catch (e) {
+        return slug;
+      }
     });
   }),
 
