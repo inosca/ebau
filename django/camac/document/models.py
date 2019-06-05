@@ -85,7 +85,7 @@ class Attachment(models.Model):
     Service attachment has been uploaded with.
     """
 
-    meta = JSONField(default=dict)
+    context = JSONField(default=dict)
 
     class Meta:
         managed = True
