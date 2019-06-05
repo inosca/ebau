@@ -1,7 +1,9 @@
 import Component from "@ember/component";
 import { computed } from "@ember/object";
+import { A } from "@ember/array";
 import { inject as service } from "@ember/service";
-//import $ from 'jquery';
+import { all } from "rsvp";
+import { task } from "ember-concurrency";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
@@ -21,6 +23,7 @@ const KEYS_TABLE = [
 
 const KEY_SIMPLE_MAP = "karte-einfache-vorabklaerung";
 const KEY_SIMPLE_PARCEL = "parzellennummer";
+// The question baurecht-nummer is not present in the simple form.
 //const KEY_SIMPLE_BAURECHT = "baurecht-nummer";
 const KEY_SIMPLE_EGRID = "e-grid-nr";
 const KEY_SIMPLE_COORD_NORTH = "lagekoordinaten-nord-einfache-vorabklaerung";
@@ -40,7 +43,6 @@ const KEYS_SIMPLE_HASH = {
 
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
-/*
 const FIELD_MAP = {
   ARCHINV_FUNDST: {
     path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
@@ -70,9 +72,8 @@ const FIELD_MAP = {
       false: "gebiet-mit-naturgefahren-nein"
     }
   },
-//  GSK25_GSK_VW: {
-//    path: "parent.zonenvorschriften-schutzzonen."
-//  },
+  // The question GSK25_GSK_VW is not present in our form.
+  //GSK25_GSK_VW: {},
   GSKT_BEZEICH_DE: {
     path: "parent.zonenvorschriften-schutzzonen.gewaesserschutzbereich",
     values: {
@@ -103,7 +104,6 @@ const FIELD_MAP = {
     path: "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
   }
 };
-*/
 
 /**
  * Combine the values of all parcels to one array by
@@ -112,8 +112,7 @@ const FIELD_MAP = {
  *
  * There's a test in php/kt_bern/public/js-dev/test/reduce-test.js
  */
-/*
- function reduceArrayValues(data) {
+function reduceArrayValues(data) {
   return data.reduce((result, curr) => {
     [...new Set([...Object.keys(result), ...Object.keys(curr)])].forEach(
       key => {
@@ -135,7 +134,6 @@ const FIELD_MAP = {
     return result;
   });
 }
-*/
 
 // ?
 // use Cross Domain Communication
@@ -154,14 +152,17 @@ const FIELD_MAP = {
 export default Component.extend({
   apollo: service(),
   documentStore: service(),
+  notification: service(),
+  fetch: service(),
+  intl: service(),
 
   classNames: ["gis-map"],
 
   disabled: false,
   parcels: null,
-  warningOverride: false,
-  warningOnlyOne: false,
-  warningNoSelection: false,
+  gisData: null,
+  informationOverride: false,
+  confirmationGis: false,
 
   link: computed(function() {
     // This try/catch block is necessary as long as we don't have a mock
@@ -336,14 +337,6 @@ export default Component.extend({
     this.set("parcels", Object.values(parcels));
   },
 
-  async applyParcelSelection(parcels) {
-    if (this.field.question.slug === KEY_SIMPLE_MAP) {
-      await this.populateFields(parcels);
-    } else {
-      await this.populateTable(parcels);
-    }
-  },
-
   /**
    * Saves the parcel values in their corresponding fields from the
    * current document. This method is used for the preliminary assessment
@@ -352,18 +345,13 @@ export default Component.extend({
    * @method populateFields
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  async populateFields(parcels) {
-    if (parcels.length > 1) {
-      this.set("warningOnlyOne", true);
-      return;
-    }
-
+  populateFields: task(function* (parcels) {
     const [parcel] = parcels;
     const fields = this.field.document.fields.filter(
       field => KEYS_SIMPLE.includes(field.question.slug)
     );
 
-    await Promise.all(fields.map(async field => {
+    yield all(fields.map(async field => {
       const slug = KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
       const value = String(parcel[slug]);
 
@@ -372,7 +360,7 @@ export default Component.extend({
         return field.save.perform();
       }
     }));
-  },
+  }),
 
   /**
    * Creates a new document for each parcel and saves the parcel values
@@ -382,7 +370,7 @@ export default Component.extend({
    * @method populateTable
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  async populateTable(parcels) {
+  populateTable: task(function* (parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
       field => field.question.slug === KEY_TABLE_QUESTION
@@ -398,7 +386,7 @@ export default Component.extend({
     const rows = [];
 
     // Create, populate, and add a new row for each parcel.
-    await Promise.all(parcels.map(async parcel => {
+    yield all(parcels.map(async parcel => {
       const newDocumentRaw = await this.apollo.mutate(
         mutation,
         "saveDocument.document"
@@ -409,7 +397,7 @@ export default Component.extend({
         field => KEYS_TABLE.includes(field.question.slug)
       );
 
-      await Promise.all(fields.map(async field => {
+      await all(fields.map(async field => {
         const slug = field.question.slug;
         const value = String(parcel[slug]);
 
@@ -425,58 +413,60 @@ export default Component.extend({
     table.answer.set("rowDocuments", rows);
     table.answer.set("value", rows.map(doc => doc.id));
     table.save.perform();
-  },
+  }),
 
-/*
-  fetchAdditionalData(parcels) {
-    const requests = parcels.map(parcel => {
-      return $.get(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`);
-    });
+  fetchAdditionalData: task(function* (parcels) {
+    this.set("gisData", A());
 
-    $.when(...requests).then(
-      (...args) => {
-        const multi = Array.isArray(args[1]);
+    const responses = yield all(parcels.map(async parcel =>
+      await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
+    ));
 
-        const success = multi
-          ? args.every(arg => arg[1] === "success")
-          : args[1] === "success";
+    const success = responses.every(response => response.ok);
 
-        console.log("success", success);
+    if (success) {
+      const data_raw = (
+        yield all(responses.map(response => response.json()))
+      ).map(json => json.data);
 
-        const data_raw = multi
-          ? args.map(arg => arg[0].data)
-          : [args[0].data];
+      const data_gis = reduceArrayValues(data_raw);
 
-        const data_gis = reduceArrayValues(data_raw);
+      for (const key in FIELD_MAP) {
+        const field = this.field.document.findField(FIELD_MAP[key].path);
+        const type = field.question.__typename;
+        const values_map = FIELD_MAP[key].values;
+        let value = data_gis[key];
+        let value_pretty = value;
 
-        console.log("data_raw", data_raw);
-        console.log("data_gis", data_gis);
-
-        for (let key in FIELD_MAP) {
-          const field = this.field.document.findField(FIELD_MAP[key].path);
-          const type = field.question.__typename;
-          const values_map = FIELD_MAP[key].values;
-          let value = data_gis[key];
-
-          if (type === "ChoiceQuestion") {
-            value = values_map[value];
-          } else if (type === "MultipleChoiceQuestion") {
-            value = Array.isArray(value) ? value : [value];
-            value = value.map(val => values_map[val]);
-          } else if (Array.isArray(value)) {
-            value = value.join(", ");
-          }
-
-          field.answer.set("value", value);
-          field.save.perform();
+        if (value === undefined) {
+          continue;
         }
-      },
-      (jqXHR, textStatus, errorThrown) => {
-        console.error("error", arguments);
+
+        if (type === "ChoiceQuestion") {
+          value = values_map[value];
+          value_pretty = field.question.choiceOptions.edges.find(
+            edge => edge.node.slug === value
+          ).node.label;
+        } else if (type === "MultipleChoiceQuestion") {
+          value = Array.isArray(value) ? value : [value];
+          value = value.map(val => values_map[val]);
+          value_pretty = field.question.multipleChoiceOptions.edges.filter(
+            edge => edge.node.slug.includes(value)
+          ).map(edge => edge.node.label);
+        } else if (Array.isArray(value)) {
+          value = value.join(", ");
+          value_pretty = value;
+        }
+
+        this.gisData.pushObject({ field, value, value_pretty });
       }
-    );
-  },
-*/
+      this.set("confirmationGis", true);
+    } else {
+      this.notification.danger(
+        this.intl.t("gis.notifications.error-additional")
+      );
+    }
+  }),
 
   init() {
     this._super(...arguments);
@@ -494,13 +484,38 @@ export default Component.extend({
   },
 
   actions: {
-    async applySelection() {
+    applySelection() {
       if (this.parcels && this.parcels.length) {
-        await this.applyParcelSelection(this.parcels);
-        //await this.fetchAdditionalData(this.parcels);
+        if (this.field.question.slug === KEY_SIMPLE_MAP) {
+          if (this.parcels.length > 1) {
+            this.notification.danger(
+              this.intl.t("gis.notifications.max-one")
+            );
+          } else {
+            this.populateFields.perform(this.parcels);
+          }
+        } else {
+          if (this.parcels.length > 20) {
+            this.notification.danger(
+              this.intl.t("gis.notifications.max-twenty")
+            );
+          } else {
+            this.populateTable.perform(this.parcels);
+            this.fetchAdditionalData.perform(this.parcels);
+          }
+        }
       } else {
-        this.set("warningNoSelection", true);
+        this.notification.danger(
+          this.intl.t("gis.notifications.min-one")
+        );
       }
+    },
+    saveAdditionalData() {
+      this.set("confirmationGis", false);
+      this.gisData.forEach(({ field, value }) => {
+        field.answer.set("value", value);
+        field.save.perform();
+      });
     }
   }
 });

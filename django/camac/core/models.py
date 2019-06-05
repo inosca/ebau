@@ -1,6 +1,6 @@
 from django.conf import settings
-from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
+from django.utils import translation
 
 
 class MultilingualModel:
@@ -10,10 +10,13 @@ class MultilingualModel:
         if not settings.APPLICATION.get("IS_MULTILINGUAL", False):
             return self.name
 
-        try:
-            return self.trans.get(language="de").name
-        except ObjectDoesNotExist:
+        lang = translation.get_language()
+        match = self.trans.filter(language=lang).first()
+        if not match:
+            match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
+        if not match:
             return self.name
+        return match.name
 
     def __str__(self):
         return self.get_name()
@@ -1468,6 +1471,14 @@ class Circulation(models.Model):
         models.CASCADE,
         db_column="INSTANCE_ID",
         related_name="circulations",
+    )
+    service = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="SERVICE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
     )
     name = models.CharField(db_column="NAME", max_length=50)
 
@@ -3646,7 +3657,7 @@ class Resource(models.Model):
         db_column="AVAILABLE_RESOURCE_ID",
         related_name="+",
     )
-    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )
@@ -3670,7 +3681,7 @@ class ResourceT(models.Model):
         Resource, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
-    name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     description = models.CharField(
         db_column="DESCRIPTION", max_length=1000, blank=True, null=True
     )

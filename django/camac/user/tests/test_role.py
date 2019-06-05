@@ -22,14 +22,12 @@ def test_role_list(admin_client, role, role_factory):
 @pytest.mark.parametrize(
     "role_t__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
 )
-def test_role_detail(admin_client, role, permission):
-    url = reverse("role-detail", args=[role.pk])
-
-    role.name = role.trans.get(language="de").name
-    role.save()
+def test_role_detail(admin_client, role, role_t, permission):
+    url = reverse("role-detail", args=[role_t.pk])
 
     response = admin_client.get(url)
 
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert json["data"]["attributes"]["permission"] == permission
+    assert json["data"]["attributes"]["name"] == role_t.name
