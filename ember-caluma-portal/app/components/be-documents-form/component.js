@@ -128,7 +128,7 @@ export default Component.extend({
 
     formData.append("instance", this.instanceId);
     formData.append(
-      "meta",
+      "context",
       JSON.stringify({
         tags: this.allSelectedTags.map(
           ({ question: { slug, label } }) => slug || label
