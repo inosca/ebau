@@ -235,48 +235,6 @@
   },
   {
     "fields": {
-      "available_action": "save",
-      "button": 12,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "save",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 24
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 12,
-      "description": null,
-      "error_message": "Zirkulation konnte nicht gestartet werden",
-      "execute_always": 0,
-      "name": "activation idle to run",
-      "sort": 1,
-      "success_message": "Zirkulation erfolgreich gestartet"
-    },
-    "model": "core.action",
-    "pk": 25
-  },
-  {
-    "fields": {
-      "available_action": "formtransition",
-      "button": 18,
-      "description": null,
-      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
-      "execute_always": 0,
-      "name": "instance state to redac",
-      "sort": 1,
-      "success_message": "Zirkulation erfolgreich abgeschlossen"
-    },
-    "model": "core.action",
-    "pk": 38
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 19,
       "description": null,
@@ -459,20 +417,6 @@
   },
   {
     "fields": {
-      "available_action": "notification",
-      "button": 12,
-      "description": null,
-      "error_message": "Email konnte nicht versandt werden",
-      "execute_always": 0,
-      "name": "Email Stellungnahme",
-      "sort": 2,
-      "success_message": "Email wurde erfolgreich versandt"
-    },
-    "model": "core.action",
-    "pk": 59
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 28,
       "description": null,
@@ -558,48 +502,6 @@
   {
     "fields": {
       "available_action": "save",
-      "button": 30,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "save",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 66
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 30,
-      "description": null,
-      "error_message": "Zirkulation konnte nicht gestartet werden",
-      "execute_always": 0,
-      "name": "activation idle to run",
-      "sort": 1,
-      "success_message": "Zirkulation erfolgreich gestartet"
-    },
-    "model": "core.action",
-    "pk": 67
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "button": 30,
-      "description": null,
-      "error_message": "Email konnte nicht versendet werden",
-      "execute_always": 0,
-      "name": "Email Stellungnahme",
-      "sort": 2,
-      "success_message": "Email wurde erfolgreich versendet"
-    },
-    "model": "core.action",
-    "pk": 68
-  },
-  {
-    "fields": {
-      "available_action": "save",
       "button": 31,
       "description": null,
       "error_message": null,
@@ -655,6 +557,104 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 33,
+      "description": null,
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "execute_always": 0,
+      "name": "Create new circulation",
+      "sort": 0,
+      "success_message": "Neue Zirkulation erstellt"
+    },
+    "model": "core.action",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 33,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Redirect to newest circulation page",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 34,
+      "description": null,
+      "error_message": "Gesuch konnte nicht zu \"Entscheid\" verschoben werden",
+      "execute_always": 0,
+      "name": "instance state to redac",
+      "sort": 0,
+      "success_message": "Gesuch erfolgreich zu \"Entscheid\" verschoben"
+    },
+    "model": "core.action",
+    "pk": 75
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 35,
+      "description": null,
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "execute_always": 0,
+      "name": "Create new circulation",
+      "sort": 0,
+      "success_message": "Neue Zirkulation erstellt"
+    },
+    "model": "core.action",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 35,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Redirect to newest circulation page",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 36,
+      "description": null,
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "execute_always": 0,
+      "name": "Create new circulation",
+      "sort": 0,
+      "success_message": "Neue Zirkulation erstellt"
+    },
+    "model": "core.action",
+    "pk": 78
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 36,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Redirect to newest circulation page",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 79
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -679,14 +679,6 @@
   },
   {
     "fields": {
-      "current_instance_state": 5,
-      "next_instance_state": 6
-    },
-    "model": "core.aformtransition",
-    "pk": 38
-  },
-  {
-    "fields": {
       "current_instance_state": 6,
       "next_instance_state": 8
     },
@@ -708,6 +700,14 @@
     },
     "model": "core.aformtransition",
     "pk": 44
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 6
+    },
+    "model": "core.aformtransition",
+    "pk": 75
   },
   {
     "fields": {
@@ -1265,15 +1265,6 @@
       "template": 17
     },
     "model": "core.anotification",
-    "pk": 59
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
-      "template": 17
-    },
-    "model": "core.anotification",
     "pk": 62
   },
   {
@@ -1284,15 +1275,6 @@
     },
     "model": "core.anotification",
     "pk": 64
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmailAPI",
-      "recipient_type": "Notification_Manager_Service",
-      "template": 17
-    },
-    "model": "core.anotification",
-    "pk": 68
   },
   {
     "fields": {
@@ -1314,6 +1296,33 @@
   },
   {
     "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 7,
+      "resource": 1
+    },
+    "model": "core.apageredirect",
+    "pk": 74
+  },
+  {
+    "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 18,
+      "resource": 6
+    },
+    "model": "core.apageredirect",
+    "pk": 77
+  },
+  {
+    "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 39,
+      "resource": 6
+    },
+    "model": "core.apageredirect",
+    "pk": 79
+  },
+  {
+    "fields": {
       "php_class": "CircStart"
     },
     "model": "core.aphp",
@@ -1328,14 +1337,7 @@
   },
   {
     "fields": {
-      "php_class": "CircStart"
-    },
-    "model": "core.aphp",
-    "pk": 25
-  },
-  {
-    "fields": {
-      "php_class": "CircEnd"
+      "php_class": "AllCircEnd"
     },
     "model": "core.aphp",
     "pk": 42
@@ -1366,13 +1368,6 @@
       "php_class": "CircStart"
     },
     "model": "core.aphp",
-    "pk": 67
-  },
-  {
-    "fields": {
-      "php_class": "CircStart"
-    },
-    "model": "core.aphp",
     "pk": 70
   },
   {
@@ -1381,6 +1376,27 @@
     },
     "model": "core.aphp",
     "pk": 72
+  },
+  {
+    "fields": {
+      "php_class": "CreateCirc"
+    },
+    "model": "core.aphp",
+    "pk": 73
+  },
+  {
+    "fields": {
+      "php_class": "CreateCirc"
+    },
+    "model": "core.aphp",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "php_class": "CreateCirc"
+    },
+    "model": "core.aphp",
+    "pk": 78
   },
   {
     "fields": {
@@ -1968,24 +1984,6 @@
   },
   {
     "fields": {
-      "button": 12,
-      "group": 7,
-      "instance_state": 5
-    },
-    "model": "core.bgroupacl",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "button": 12,
-      "group": 7,
-      "instance_state": 7
-    },
-    "model": "core.bgroupacl",
-    "pk": 4
-  },
-  {
-    "fields": {
       "button": 22,
       "group": 7,
       "instance_state": 5
@@ -2255,6 +2253,24 @@
   },
   {
     "fields": {
+      "button": 34,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "button": 34,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 46
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
@@ -2331,7 +2347,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
@@ -2348,7 +2364,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Zirkulation starten",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.button",
     "pk": 9
@@ -2359,15 +2375,15 @@
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
-      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
-      "sort": 2
+      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
+      "sort": 3
     },
     "model": "core.button",
     "pk": 10
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 18,
@@ -2379,19 +2395,7 @@
   },
   {
     "fields": {
-      "class_field": "circ_start",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 18,
-      "name": "Zirkulation starten",
-      "sort": 1
-    },
-    "model": "core.button",
-    "pk": 12
-  },
-  {
-    "fields": {
-      "class_field": null,
+      "class_field": "circ_end",
       "description": null,
       "hidden": 0,
       "instance_resource": 7,
@@ -2427,7 +2431,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "circ_end",
       "description": null,
       "hidden": 0,
       "instance_resource": 18,
@@ -2444,7 +2448,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Nachforderung an Gesuchsteller",
-      "sort": 3
+      "sort": 5
     },
     "model": "core.button",
     "pk": 23
@@ -2479,7 +2483,7 @@
       "description": null,
       "hidden": 0,
       "instance_resource": 18,
-      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
       "sort": 2
     },
     "model": "core.button",
@@ -2487,7 +2491,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "save",
       "description": null,
       "hidden": 0,
       "instance_resource": 39,
@@ -2499,23 +2503,11 @@
   },
   {
     "fields": {
-      "class_field": "circ_start",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 39,
-      "name": "Zirkulation starten",
-      "sort": 1
-    },
-    "model": "core.button",
-    "pk": 30
-  },
-  {
-    "fields": {
       "class_field": "add_to_circ",
       "description": null,
       "hidden": 0,
       "instance_resource": 39,
-      "name": "Zur laufenden Zirkulation hinzuf\u00fcgen",
+      "name": "Zu aktueller Zirkulation hinzuf\u00fcgen",
       "sort": 2
     },
     "model": "core.button",
@@ -2523,7 +2515,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "circ_end",
       "description": null,
       "hidden": 0,
       "instance_resource": 39,
@@ -2532,6 +2524,54 @@
     },
     "model": "core.button",
     "pk": 32
+  },
+  {
+    "fields": {
+      "class_field": "create_new_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 7,
+      "name": "Neue Zirkulation erstellen",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "class_field": "decision_start",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 7,
+      "name": "Entscheid starten",
+      "sort": 7
+    },
+    "model": "core.button",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "class_field": "create_new_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 18,
+      "name": "Neue Zirkulation erstellen",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "class_field": "create_new_circ",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 39,
+      "name": "Neue Zirkulation erstellen",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 36
   },
   {
     "fields": {
@@ -5034,7 +5074,7 @@
       "read_notice_template": null,
       "service": null,
       "service_to_be_interpreted": "[SERVICE_ID]",
-      "show_all_children": 1,
+      "show_all_children": 0,
       "show_history": 0,
       "show_notice": 2
     },
@@ -5063,13 +5103,13 @@
       "circulation_email_action_id": null,
       "circulation_type": 1,
       "default_circulation_name": "Zirkulation",
-      "display_first_circulation": 1,
+      "display_first_circulation": 0,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 1,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 7
@@ -5081,13 +5121,13 @@
       "circulation_email_action_id": null,
       "circulation_type": 1,
       "default_circulation_name": "Zirkulation",
-      "display_first_circulation": 1,
+      "display_first_circulation": 0,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 1,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 18
@@ -5099,13 +5139,13 @@
       "circulation_email_action_id": null,
       "circulation_type": 1,
       "default_circulation_name": null,
-      "display_first_circulation": 1,
+      "display_first_circulation": 0,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 1,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 39
