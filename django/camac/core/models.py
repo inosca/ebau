@@ -1472,6 +1472,14 @@ class Circulation(models.Model):
         db_column="INSTANCE_ID",
         related_name="circulations",
     )
+    service = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="SERVICE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
     name = models.CharField(db_column="NAME", max_length=50)
 
     class Meta:
