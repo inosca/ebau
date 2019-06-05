@@ -2671,6 +2671,7 @@
         1,
         4
       ],
+      "context": {},
       "date": "2019-04-17T10:50:20.567Z",
       "digital_signature": 0,
       "group": 4,
@@ -2678,7 +2679,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/1/dokument-grundstucksangaben.png",
@@ -2695,6 +2695,7 @@
       "attachment_sections": [
         9
       ],
+      "context": {},
       "date": "2019-04-17T10:55:46.107Z",
       "digital_signature": 0,
       "group": 3,
@@ -2702,7 +2703,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "mulan_painting.jpg",
       "path": "attachments/files/1/mulan_painting.jpg",
@@ -2719,6 +2719,7 @@
       "attachment_sections": [
         9
       ],
+      "context": {},
       "date": "2019-04-17T10:56:13.569Z",
       "digital_signature": 0,
       "group": 3,
@@ -2726,7 +2727,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "Kirishima-Touka.jpg",
       "path": "attachments/files/1/Kirishima-Touka.jpg",
@@ -2743,6 +2743,7 @@
       "attachment_sections": [
         4
       ],
+      "context": {},
       "date": "2019-04-23T08:29:24.713Z",
       "digital_signature": 0,
       "group": 3,
@@ -2750,7 +2751,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "mulan_painting.jpg",
       "path": "attachments/files/1/mulan_painting_CIDe4qE.jpg",
@@ -2767,6 +2767,7 @@
       "attachment_sections": [
         8
       ],
+      "context": {},
       "date": "2019-04-23T08:47:23.675Z",
       "digital_signature": 0,
       "group": 3,
@@ -2774,7 +2775,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "touka.jpg",
       "path": "attachments/files/1/touka.jpg",
@@ -2791,6 +2791,7 @@
       "attachment_sections": [
         7
       ],
+      "context": {},
       "date": "2019-04-23T08:47:34.756Z",
       "digital_signature": 0,
       "group": 3,
@@ -2798,7 +2799,6 @@
       "instance": 1,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "LogoTVWorb.jpg",
       "path": "attachments/files/1/LogoTVWorb.jpg",
@@ -2815,6 +2815,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-04-30T17:29:48.583Z",
       "digital_signature": 0,
       "group": 4,
@@ -2822,7 +2823,6 @@
       "instance": 4,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/4/dokument-grundstucksangaben.png",
@@ -2839,6 +2839,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-04-30T17:38:44.344Z",
       "digital_signature": 0,
       "group": 4,
@@ -2846,7 +2847,6 @@
       "instance": 5,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/5/dokument-grundstucksangaben.png",
@@ -2863,6 +2863,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-01T08:37:12.509Z",
       "digital_signature": 0,
       "group": 4,
@@ -2870,7 +2871,6 @@
       "instance": 6,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/6/dokument-grundstucksangaben.png",
@@ -2887,6 +2887,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-01T08:37:44.296Z",
       "digital_signature": 0,
       "group": 4,
@@ -2894,7 +2895,6 @@
       "instance": 6,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "mulan_painting.jpg",
       "path": "attachments/files/6/mulan_painting.jpg",
@@ -2911,6 +2911,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-02T14:24:31.593Z",
       "digital_signature": 0,
       "group": 4,
@@ -2918,7 +2919,6 @@
       "instance": 7,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/7/dokument-grundstucksangaben.png",
@@ -2935,6 +2935,7 @@
       "attachment_sections": [
         8
       ],
+      "context": {},
       "date": "2019-05-08T09:09:26.463Z",
       "digital_signature": 0,
       "group": 3,
@@ -2942,7 +2943,6 @@
       "instance": 7,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "test\u00fcx.jpg",
       "path": "attachments/files/7/test\u00fcx.jpg",
@@ -2959,6 +2959,7 @@
       "attachment_sections": [
         8
       ],
+      "context": {},
       "date": "2019-05-08T17:36:04.660Z",
       "digital_signature": 0,
       "group": 3,
@@ -2966,7 +2967,6 @@
       "instance": 7,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "m\u00fclan.jpg",
       "path": "attachments/files/7/m\u00fclan.jpg",
@@ -2983,6 +2983,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T09:04:02.518Z",
       "digital_signature": 0,
       "group": 4,
@@ -2990,7 +2991,6 @@
       "instance": 8,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/8/dokument-grundstucksangaben.png",
@@ -3007,6 +3007,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T09:05:57.518Z",
       "digital_signature": 0,
       "group": 4,
@@ -3014,7 +3015,6 @@
       "instance": 8,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "application/pdf",
       "name": "Bergwanderung_2018.pdf",
       "path": "attachments/files/8/Bergwanderung_2018_7ZR0sHY.pdf",
@@ -3031,6 +3031,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T09:08:52.083Z",
       "digital_signature": 0,
       "group": 4,
@@ -3038,7 +3039,6 @@
       "instance": 8,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "application/pdf",
       "name": "Bergwanderung_2018.pdf",
       "path": "attachments/files/8/Bergwanderung_2018_Q5p0hEp.pdf",
@@ -3055,6 +3055,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T09:09:18.987Z",
       "digital_signature": 0,
       "group": 4,
@@ -3062,7 +3063,6 @@
       "instance": 8,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "application/pdf",
       "name": "Bergwanderung_2018.pdf",
       "path": "attachments/files/8/Bergwanderung_2018_FqZMPyG.pdf",
@@ -3079,6 +3079,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T13:01:18.595Z",
       "digital_signature": 0,
       "group": 4,
@@ -3086,7 +3087,6 @@
       "instance": 12,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/png",
       "name": "dokument-grundstucksangaben.png",
       "path": "attachments/files/12/dokument-grundstucksangaben.png",
@@ -3103,6 +3103,7 @@
       "attachment_sections": [
         1
       ],
+      "context": {},
       "date": "2019-05-24T13:01:32.408Z",
       "digital_signature": 0,
       "group": 4,
@@ -3110,7 +3111,6 @@
       "instance": 12,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "m\u00fclan.jpg",
       "path": "attachments/files/12/m\u00fclan.jpg",
@@ -3127,6 +3127,7 @@
       "attachment_sections": [
         7
       ],
+      "context": {},
       "date": "2019-05-28T08:58:45.014Z",
       "digital_signature": 0,
       "group": 3,
@@ -3134,7 +3135,6 @@
       "instance": 8,
       "is_confidential": 0,
       "is_parcel_picture": 0,
-      "meta": {},
       "mime_type": "image/jpeg",
       "name": "m\u00fclan.jpg",
       "path": "attachments/files/8/m\u00fclan.jpg",
