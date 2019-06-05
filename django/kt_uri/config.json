@@ -23481,7 +23481,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 3,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 3
@@ -23511,7 +23511,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 22
@@ -23541,7 +23541,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 267,
       "sort": 2,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 85
@@ -23646,7 +23646,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 225
@@ -23796,7 +23796,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 122,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 388
@@ -23886,7 +23886,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 288,
       "sort": 1,
-      "template": "/form/np-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 465
@@ -24021,7 +24021,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 301,
       "sort": 4,
-      "template": "/form/np-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 491
@@ -24036,7 +24036,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 1,
-      "template": "/form/np-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 505
@@ -24066,7 +24066,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 1,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 526
@@ -24081,7 +24081,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 42,
       "sort": 2,
-      "template": "/form/np-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 527
@@ -24111,7 +24111,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 309,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 565
@@ -24306,7 +24306,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 2,
-      "template": "/form/bd-form-247-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 650
@@ -24396,7 +24396,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 251,
       "sort": 0,
-      "template": "/portal/read.phtml"
+      "template": "/portal/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 677
@@ -24456,7 +24456,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 250,
       "sort": 0,
-      "template": "/form/submitted-read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 682
@@ -24561,7 +24561,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 254,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 693
@@ -24651,7 +24651,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 289,
       "sort": 1,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 700
@@ -24771,7 +24771,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 3,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 711
@@ -24786,7 +24786,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 4,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 712
@@ -24816,7 +24816,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 296,
       "sort": 1,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 715
@@ -24936,7 +24936,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 297,
       "sort": 1,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 724
@@ -25026,7 +25026,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 5,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 730
@@ -25056,7 +25056,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 6,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 733
@@ -25086,7 +25086,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 298,
       "sort": 1,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 736
@@ -25326,7 +25326,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 314,
       "sort": 0,
-      "template": "/form/read.phtml"
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 755
