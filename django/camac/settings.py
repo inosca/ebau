@@ -58,7 +58,9 @@ MIDDLEWARE = [
     "camac.user.middleware.GroupMiddleware",
     "camac.middleware.LoggingMiddleware",
     "reversion.middleware.RevisionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
+
 
 ROOT_URLCONF = "camac.urls"
 
@@ -241,7 +243,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = "de-ch"
+LANGUAGE_CODE = "de"
+LANGUAGES = [("de", "German"), ("fr", "French")]
 TIME_ZONE = "Europe/Zurich"
 USE_I18N = True
 USE_L10N = True
