@@ -5,17 +5,5 @@ main.embedded {
     > header {
       display: none;
     }
-
-    > .uk-padding {
-      padding: 0;
-
-      > .focusing-outlet > .focusing-outlet > .focusing-outlet > .uk-padding {
-        padding: 0;
-      }
-    }
-  }
-
-  .cf-navigation > .uk-tab {
-    margin-left: 0 !important;
   }
 }

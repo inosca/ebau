@@ -1,14 +1,23 @@
-<div class="uk-padding">
-  {{#let data.lastSuccessful.value.firstObject.node as |case|}}
-    {{cf-navigation
-      documentId=(atob case.document.id)
-      disabled=(or (eq case.status "COMPLETED") isEmbedded)
-      section=section
-      subSection=subSection
-      context=(hash
-        caseId=case.id
-        headers=headers
-      )
-    }}
-  {{/let}}
-</div>
+{{#let data.lastSuccessful.value.firstObject.node as |case|}}
+  {{#cf-content
+    documentId=(atob case.document.id)
+    disabled=(or (eq case.status "COMPLETED") isEmbedded)
+    context=(hash
+      caseId=case.id
+      headers=headers
+    )
+  as |content|}}
+    {{#if content.rootDocument.childDocuments.length}}
+      <div uk-grid>
+        <div class="uk-width-1-1 uk-width-1-3@{{if isEmbedded "s" "m"}}">{{content.navigation}}</div>
+        <div class="uk-width-1-1 uk-width-2-3@{{if isEmbedded "s" "m"}}">
+          {{content.form}}
+          <hr>
+          {{content.pagination}}
+        </div>
+      </div>
+    {{else}}
+      {{content.form}}
+    {{/if}}
+  {{/cf-content}}
+{{/let}}
