@@ -62,7 +62,10 @@ export default Component.extend({
     const tags = [
       ...new Set(
         data.reduce(
-          (flat, attachment) => [...flat, ...attachment.attributes.meta.tags],
+          (flat, attachment) => [
+            ...flat,
+            ...attachment.attributes.context.tags
+          ],
           []
         )
       )
