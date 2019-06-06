@@ -64,7 +64,7 @@ export default Component.extend({
         data.reduce(
           (flat, attachment) => [
             ...flat,
-            ...attachment.attributes.context.tags
+            ...(attachment.attributes.context.tags || [])
           ],
           []
         )
