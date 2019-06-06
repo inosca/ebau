@@ -41,22 +41,6 @@
   },
   {
     "fields": {
-      "current_circulation_state": null,
-      "next_circulation_state": 41
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "current_circulation_state": 41,
-      "next_circulation_state": 1
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1400
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 2,
       "description": "",
@@ -4411,20 +4395,6 @@
   },
   {
     "fields": {
-      "available_action": "pageredirect",
-      "button": 923,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Auf Zirkulation bleiben",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1384
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 924,
       "description": null,
@@ -4534,118 +4504,6 @@
     },
     "model": "core.action",
     "pk": 1392
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Zirkulation Ende",
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Weiterleitung zu Pendenzenliste",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1394
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": null,
-      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
-      "execute_always": 0,
-      "name": "CheckIfNFDPossible",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 928,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen.",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 1,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1396
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 928,
-      "description": "Zirkulation in Nachforderung versetzen",
-      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
-      "execute_always": 0,
-      "name": "RUN - NFD",
-      "sort": 2,
-      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
-    },
-    "model": "core.action",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": "Setzt das Datum vom NFD",
-      "error_message": null,
-      "execute_always": 0,
-      "name": "NFD Datum setzen",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1398
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 929,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 0,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1399
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 929,
-      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
-      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
-      "execute_always": 0,
-      "name": "NFD - RUN",
-      "sort": 1,
-      "success_message": "Dossier als vollst\u00e4ndig markiert!"
-    },
-    "model": "core.action",
-    "pk": 1400
   },
   {
     "fields": {
@@ -9445,27 +9303,6 @@
     },
     "model": "core.aphp",
     "pk": 1388
-  },
-  {
-    "fields": {
-      "php_class": "CircEnd"
-    },
-    "model": "core.aphp",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "php_class": "CheckIfNFDPossible"
-    },
-    "model": "core.aphp",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "php_class": "SetNFD"
-    },
-    "model": "core.aphp",
-    "pk": 1398
   },
   {
     "fields": {
@@ -15973,114 +15810,6 @@
   },
   {
     "fields": {
-      "button": 928,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 492
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 493
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 494
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 495
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 496
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 497
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 498
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 499
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 500
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 501
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 502
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 503
-  },
-  {
-    "fields": {
       "button": 926,
       "instance_state": 21,
       "role": 1104
@@ -18325,30 +18054,6 @@
     },
     "model": "core.button",
     "pk": 927
-  },
-  {
-    "fields": {
-      "class_field": "circ_nfd_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Nachforderung",
-      "sort": 2
-    },
-    "model": "core.button",
-    "pk": 928
-  },
-  {
-    "fields": {
-      "class_field": "circ_complete_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Dossier vollst\u00e4ndig",
-      "sort": 3
-    },
-    "model": "core.button",
-    "pk": 929
   },
   {
     "fields": {
@@ -22532,7 +22237,7 @@
       "hidden": 0,
       "name": "Verfahren \u00e4ndern",
       "resource": 301,
-      "sort": 7,
+      "sort": 9,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -22547,7 +22252,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 8,
+      "sort": 10,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -22562,7 +22267,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 6,
+      "sort": 8,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -22682,7 +22387,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 9,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23357,7 +23062,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 10,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -24217,6 +23922,21 @@
     },
     "model": "core.instanceresource",
     "pk": 757
+  },
+  {
+    "fields": {
+      "available_instance_resource": "circulation",
+      "class_field": null,
+      "description": "Einsehen von Resultaten der Gemeindezirkulation",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Gemeindezirkulation Resultat",
+      "resource": 301,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 758
   },
   {
     "fields": {
@@ -26009,6 +25729,21 @@
     },
     "model": "core.ircirculation",
     "pk": 752
+  },
+  {
+    "fields": {
+      "circulation_type": 61,
+      "draft_circulation_answer": null,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "service": 301,
+      "service_to_be_interpreted": null,
+      "show_all_children": 1,
+      "show_history": 0,
+      "show_notice": 2
+    },
+    "model": "core.ircirculation",
+    "pk": 758
   },
   {
     "fields": {
@@ -34707,6 +34442,123 @@
   },
   {
     "fields": {
+      "instance_resource": 758,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 860
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 861
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 862
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 863
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 864
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 865
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 866
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 867
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 868
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 28,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 869
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 870
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 871
+  },
+  {
+    "fields": {
+      "instance_resource": 758,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 872
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -34894,7 +34746,7 @@
   {
     "fields": {
       "circulation_type": 61,
-      "name": "Mitteilungen an die Koordinationsstelle"
+      "name": "Mitteilungen an die Gemeindebaubeh\u00f6rde"
     },
     "model": "core.noticetype",
     "pk": 24
@@ -35759,7 +35611,7 @@
       "page": 83,
       "page_form_group": 1,
       "page_form_mode": 1,
-      "sort": 1
+      "sort": 2
     },
     "model": "core.pageform",
     "pk": 73
@@ -36346,6 +36198,17 @@
     },
     "model": "core.pageform",
     "pk": 126
+  },
+  {
+    "fields": {
+      "form": 47,
+      "page": 41,
+      "page_form_group": 1,
+      "page_form_mode": 1,
+      "sort": 1
+    },
+    "model": "core.pageform",
+    "pk": 127
   },
   {
     "fields": {
@@ -39431,20 +39294,7 @@
   {
     "fields": {
       "available_resource": "simplelist",
-      "class_field": null,
-      "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
-      "hidden": 0,
-      "name": "Kantonale Pr\u00fcfung beendet",
-      "sort": 20,
-      "template": null
-    },
-    "model": "core.resource",
-    "pk": 306
-  },
-  {
-    "fields": {
-      "available_resource": "simplelist",
-      "class_field": null,
+      "class_field": "",
       "description": "Dossiers die bei den Gemeinden und dem Kanton in Bearbeitung sind, Anzeige f\u00fcr Organisation mit Leserechten",
       "hidden": 0,
       "name": "Laufende Baubewilligungsverfahren und Vorabkl\u00e4rungen",
@@ -40337,14 +40187,6 @@
   },
   {
     "fields": {
-      "resource": 306,
-      "role": 6
-    },
-    "model": "core.rroleacl",
-    "pk": 62
-  },
-  {
-    "fields": {
       "resource": 302,
       "role": 1021
     },
@@ -40518,6 +40360,14 @@
     },
     "model": "core.rroleacl",
     "pk": 84
+  },
+  {
+    "fields": {
+      "resource": 266,
+      "role": 6
+    },
+    "model": "core.rroleacl",
+    "pk": 87
   },
   {
     "fields": {
@@ -41473,13 +41323,6 @@
     },
     "model": "core.rsimplelist",
     "pk": 305
-  },
-  {
-    "fields": {
-      "instance_states": "25"
-    },
-    "model": "core.rsimplelist",
-    "pk": 306
   },
   {
     "fields": {
