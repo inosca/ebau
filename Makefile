@@ -70,9 +70,23 @@ dumpconfig-caluma:
 .PHONY: dumpconfig
 dumpconfig: dumpconfig-caluma dumpconfig-camac
 
-.PHONY: dumpdata
-dumpdata: ## Dump the data tables
+.PHONY: dumpdata-camac
+dumpdata-camac: ## Dump the data tables
 	docker-compose exec django /app/manage.py dumpcamacdata
+
+.PHONY: dumpdata-caluma
+dumpdata-caluma:
+	docker-compose exec caluma python manage.py dumpdata \
+		workflow.case \
+		workflow.workitem \
+		form.document \
+		form.answer \
+		form.answerdocument \
+		> caluma/fixtures/data.json && prettier --write caluma/fixtures/data.json
+
+
+.PHONY: dumpdata
+dumpdata: dumpdata-caluma dumpdata-camac
 
 .PHONY: loadconfig-camac
 loadconfig-camac:
@@ -81,6 +95,10 @@ loadconfig-camac:
 .PHONY: loadconfig-caluma
 loadconfig-caluma:
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
+
+.PHONY: loaddata-caluma
+loaddata-caluma:
+	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/data.json
 
 .PHONY: loadconfig
 loadconfig: loadconfig-caluma loadconfig-camac
