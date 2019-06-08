@@ -149167,6 +149167,342 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20228,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20394
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20229,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20395
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20230,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20396
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20231,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20397
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20232,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20398
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20233,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20399
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20234,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20400
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20235,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20401
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20236,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20402
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20237,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20403
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20238,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20404
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20239,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20405
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20240,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20406
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20241,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20407
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20242,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20408
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20243,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20409
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20244,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20410
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20245,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20411
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20246,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20412
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20247,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20413
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20248,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20414
+  },
+  {
+    "fields": {
       "city": null,
       "group": 1,
       "language": "de",
@@ -153947,6 +154283,426 @@
   },
   {
     "fields": {
+      "city": null,
+      "group": 20394,
+      "language": "de",
+      "name": "Regierungsstatthalteramt Emmental (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20566
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20394,
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Emmental (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20567
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20395,
+      "language": "de",
+      "name": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)"
+    },
+    "model": "user.groupt",
+    "pk": 20568
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20395,
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)"
+    },
+    "model": "user.groupt",
+    "pk": 20569
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20396,
+      "language": "de",
+      "name": "Lauperswil (Langnau i.E.)"
+    },
+    "model": "user.groupt",
+    "pk": 20570
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20396,
+      "language": "fr",
+      "name": "Lauperswil (Langnau i.E.)"
+    },
+    "model": "user.groupt",
+    "pk": 20571
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20397,
+      "language": "de",
+      "name": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20572
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20397,
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20573
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20398,
+      "language": "de",
+      "name": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20574
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20398,
+      "language": "fr",
+      "name": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20575
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20399,
+      "language": "de",
+      "name": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)"
+    },
+    "model": "user.groupt",
+    "pk": 20576
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20399,
+      "language": "fr",
+      "name": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)"
+    },
+    "model": "user.groupt",
+    "pk": 20577
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20400,
+      "language": "de",
+      "name": "Unterfachstelle BKW-Energie AG (Eggiwil)"
+    },
+    "model": "user.groupt",
+    "pk": 20578
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20400,
+      "language": "fr",
+      "name": "Unterfachstelle BKW-Energie AG (Eggiwil)"
+    },
+    "model": "user.groupt",
+    "pk": 20579
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20401,
+      "language": "de",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)"
+    },
+    "model": "user.groupt",
+    "pk": 20580
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20401,
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)"
+    },
+    "model": "user.groupt",
+    "pk": 20581
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20402,
+      "language": "de",
+      "name": "Swisscom1 (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20582
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20402,
+      "language": "fr",
+      "name": "Swisscom1 (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20583
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20403,
+      "language": "de",
+      "name": "Baukontrolle (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20584
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20403,
+      "language": "fr",
+      "name": "Baukontrolle (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20585
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20404,
+      "language": "de",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)"
+    },
+    "model": "user.groupt",
+    "pk": 20586
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20404,
+      "language": "fr",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)"
+    },
+    "model": "user.groupt",
+    "pk": 20587
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20405,
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20588
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20405,
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20589
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20406,
+      "language": "de",
+      "name": "Waldabteilung Mittelland (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20590
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20406,
+      "language": "fr",
+      "name": "Waldabteilung Mittelland (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20591
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20407,
+      "language": "de",
+      "name": "Swisscom AG (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20592
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20407,
+      "language": "fr",
+      "name": "Swisscom AG (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20593
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20408,
+      "language": "de",
+      "name": "Unterfachstelle EWO (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20594
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20408,
+      "language": "fr",
+      "name": "Unterfachstelle EWO (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20595
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20409,
+      "language": "de",
+      "name": "Swisscom (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20596
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20409,
+      "language": "fr",
+      "name": "Swisscom (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20597
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20410,
+      "language": "de",
+      "name": "Swisscom Schweiz AG (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20598
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20410,
+      "language": "fr",
+      "name": "Swisscom Schweiz AG (Oberburg)"
+    },
+    "model": "user.groupt",
+    "pk": 20599
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20411,
+      "language": "de",
+      "name": "SBB AG (Regierungsstatthalteramt Emmental)"
+    },
+    "model": "user.groupt",
+    "pk": 20600
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20411,
+      "language": "fr",
+      "name": "SBB AG (Regierungsstatthalteramt Emmental)"
+    },
+    "model": "user.groupt",
+    "pk": 20601
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20412,
+      "language": "de",
+      "name": "Wasserversorgung (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20602
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20412,
+      "language": "fr",
+      "name": "Wasserversorgung (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20603
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20413,
+      "language": "de",
+      "name": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20604
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20413,
+      "language": "fr",
+      "name": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 20605
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20414,
+      "language": "de",
+      "name": "Unterfachstelle Gastgewerbe (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20606
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20414,
+      "language": "fr",
+      "name": "Unterfachstelle Gastgewerbe (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20607
+  },
+  {
+    "fields": {
       "name": null,
       "role_parent": null
     },
@@ -157490,6 +158246,405 @@
   },
   {
     "fields": {
+      "address": "Amtshaus, Dorfstrasse 21",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "rsta.em@jgk.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "031 635 34 76",
+      "service_group": 2,
+      "service_parent": 20011,
+      "sort": 0,
+      "website": "https://www.jgk.be.ch/jgk/de/index/direktion/organisation/rsta/gemeinden_regierungsstatthalteraemter/emmental/kontakt.html",
+      "zip": "3550"
+    },
+    "model": "user.service",
+    "pk": 20228
+  },
+  {
+    "fields": {
+      "address": "Bahnhofplatz 5",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "martin.meyer@hasle.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "034 460 45 55",
+      "service_group": 2,
+      "service_parent": 20005,
+      "sort": 0,
+      "website": "",
+      "zip": "3415"
+    },
+    "model": "user.service",
+    "pk": 20229
+  },
+  {
+    "fields": {
+      "address": "Dorfstrasse 51",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "nicole.hofer@lauperswil.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "0344962220",
+      "service_group": 20000,
+      "service_parent": 20023,
+      "sort": 0,
+      "website": "www.lauperswil.ch",
+      "zip": "3438"
+    },
+    "model": "user.service",
+    "pk": 20230
+  },
+  {
+    "fields": {
+      "address": "Lyssachstrasse 92",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "alfred.engel@burgdorf.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "0344294211",
+      "service_group": 2,
+      "service_parent": 2,
+      "sort": 0,
+      "website": "",
+      "zip": "3401"
+    },
+    "model": "user.service",
+    "pk": 20231
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "roger.hess@burgdorf.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 2,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20232
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 1,
+      "email": "ernst.friberg@bls.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 20000,
+      "service_parent": 20023,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20233
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 1,
+      "email": "Sbauvorhaben@bkw.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20003,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20234
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "zivilschutz@langnau-ie.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20007,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20235
+  },
+  {
+    "fields": {
+      "address": "Alte Tiefenaustrasse 6",
+      "city": null,
+      "description": null,
+      "disabled": 1,
+      "email": "Lines.BE@swisscom.com",
+      "name": null,
+      "notification": 1,
+      "phone": "0800 477 587",
+      "service_group": 2,
+      "service_parent": 20011,
+      "sort": 0,
+      "website": "www.swisscom.com",
+      "zip": "3048"
+    },
+    "model": "user.service",
+    "pk": 20236
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "beat.boss@lauperswil.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20013,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20237
+  },
+  {
+    "fields": {
+      "address": "Bernstrasse 19",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "eBau@ostag-ing.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "034 420 02 98",
+      "service_group": 2,
+      "service_parent": 20019,
+      "sort": 0,
+      "website": "www.infostag.ch",
+      "zip": "3400"
+    },
+    "model": "user.service",
+    "pk": 20238
+  },
+  {
+    "fields": {
+      "address": "Nydeggasse 11/13",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "oundr.agr@jgk.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 1,
+      "service_parent": 20032,
+      "sort": 0,
+      "website": "www.be.ch/agr",
+      "zip": "3001"
+    },
+    "model": "user.service",
+    "pk": 20239
+  },
+  {
+    "fields": {
+      "address": "Molkereistrasse 25",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "wald.mittelland@vol.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "031 636 12 70",
+      "service_group": 1,
+      "service_parent": 20048,
+      "sort": 0,
+      "website": "Keine",
+      "zip": "3052"
+    },
+    "model": "user.service",
+    "pk": 20240
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "Lines.BE@swisscom.com",
+      "name": null,
+      "notification": 1,
+      "phone": "0800 477 587 ",
+      "service_group": 2,
+      "service_parent": 2,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20241
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "info@ew-o.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20011,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20242
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 1,
+      "email": "Lines.BE@swisscom.com",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20011,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20243
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "Lines.BE@swisscom.com",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20011,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20244
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "immobilienrechte.mitte@sbb.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 20000,
+      "service_parent": 20023,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20245
+  },
+  {
+    "fields": {
+      "address": "Dorfstrasse 116",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "margaret.hodler@ruederswil.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "034 496 20 22",
+      "service_group": 2,
+      "service_parent": 20013,
+      "sort": 0,
+      "website": "",
+      "zip": "3437"
+    },
+    "model": "user.service",
+    "pk": 20246
+  },
+  {
+    "fields": {
+      "address": "Dorfstrasse 116",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "margaret.hodler@ruederswil.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "344962022",
+      "service_group": 2,
+      "service_parent": 20013,
+      "sort": 0,
+      "website": "",
+      "zip": "3437"
+    },
+    "model": "user.service",
+    "pk": 20247
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "karin.niederhauser@burgdorf.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 2,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20248
+  },
+  {
+    "fields": {
       "name": null
     },
     "model": "user.servicegroup",
@@ -157551,5 +158706,2909 @@
     },
     "model": "user.servicegroupt",
     "pk": 20003
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Leitbeh\u00f6rde Burgdorf",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Burgdorf",
+      "service": 2
+    },
+    "model": "user.servicet",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Baukontrolle Burgdorf",
+      "language": "de",
+      "name": "Baukontrolle Burgdorf",
+      "service": 3
+    },
+    "model": "user.servicet",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "description": "Leitbeh\u00f6rde Eggiwil",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Eggiwil",
+      "service": 20003
+    },
+    "model": "user.servicet",
+    "pk": 20003
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "description": "Baukontrolle Eggiwil",
+      "language": "de",
+      "name": "Baukontrolle Eggiwil",
+      "service": 20004
+    },
+    "model": "user.servicet",
+    "pk": 20004
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Leitbeh\u00f6rde Hasle b. B.",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Hasle b. B.",
+      "service": 20005
+    },
+    "model": "user.servicet",
+    "pk": 20005
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Baukontrolle Hasle b. B.",
+      "language": "de",
+      "name": "Baukontrolle Hasle b. B.",
+      "service": 20006
+    },
+    "model": "user.servicet",
+    "pk": 20006
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "description": "Leitbeh\u00f6rde Langnau",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Langnau",
+      "service": 20007
+    },
+    "model": "user.servicet",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "description": "Baukontrolle Langnau",
+      "language": "de",
+      "name": "Baukontrolle Langnau",
+      "service": 20008
+    },
+    "model": "user.servicet",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "description": "Leitbeh\u00f6rde Lyssach",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Lyssach",
+      "service": 20009
+    },
+    "model": "user.servicet",
+    "pk": 20009
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "description": "Baukontrolle Lyssach",
+      "language": "de",
+      "name": "Baukontrolle Lyssach",
+      "service": 20010
+    },
+    "model": "user.servicet",
+    "pk": 20010
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Leitbeh\u00f6rde Oberburg",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Oberburg",
+      "service": 20011
+    },
+    "model": "user.servicet",
+    "pk": 20011
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Baukontrolle Oberburg",
+      "language": "de",
+      "name": "Baukontrolle Oberburg",
+      "service": 20012
+    },
+    "model": "user.servicet",
+    "pk": 20012
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "description": "Leitbeh\u00f6rde R\u00fcderswil",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde R\u00fcderswil",
+      "service": 20013
+    },
+    "model": "user.servicet",
+    "pk": 20013
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "description": "Baukontrolle R\u00fcderswil",
+      "language": "de",
+      "name": "Baukontrolle R\u00fcderswil",
+      "service": 20014
+    },
+    "model": "user.servicet",
+    "pk": 20014
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Leitbeh\u00f6rde Utzenstorf",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Utzenstorf",
+      "service": 20015
+    },
+    "model": "user.servicet",
+    "pk": 20015
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Baukontrolle Utzenstorf",
+      "language": "de",
+      "name": "Baukontrolle Utzenstorf",
+      "service": 20016
+    },
+    "model": "user.servicet",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "description": "Leitbeh\u00f6rde Trubschachen",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Trubschachen",
+      "service": 20017
+    },
+    "model": "user.servicet",
+    "pk": 20017
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "description": "Baukontrolle Trubschachen",
+      "language": "de",
+      "name": "Baukontrolle Trubschachen",
+      "service": 20018
+    },
+    "model": "user.servicet",
+    "pk": 20018
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "description": "Leitbeh\u00f6rde Wynigen",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Wynigen",
+      "service": 20019
+    },
+    "model": "user.servicet",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "description": "Baukontrolle Wynigen",
+      "language": "de",
+      "name": "Baukontrolle Wynigen",
+      "service": 20020
+    },
+    "model": "user.servicet",
+    "pk": 20020
+  },
+  {
+    "fields": {
+      "city": "Ostermundigen",
+      "description": "Regierungsstatthalteramt Bern-Mittelland",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Bern-Mittelland",
+      "service": 20021
+    },
+    "model": "user.servicet",
+    "pk": 20021
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "Regierungsstatthalteramt Biel/Bienne",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Biel/Bienne",
+      "service": 20022
+    },
+    "model": "user.servicet",
+    "pk": 20022
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Pr\u00e9fecture de Bienne",
+      "language": "fr",
+      "name": "Pr\u00e9fecture de Bienne",
+      "service": 20022
+    },
+    "model": "user.servicet",
+    "pk": 20023
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "description": "Regierungsstatthalteramt Emmental",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Emmental",
+      "service": 20023
+    },
+    "model": "user.servicet",
+    "pk": 20024
+  },
+  {
+    "fields": {
+      "city": "Frutigen",
+      "description": "Regierungsstatthalteramt Frutigen-Niedersimmental",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Frutigen-Niedersimmental",
+      "service": 20024
+    },
+    "model": "user.servicet",
+    "pk": 20025
+  },
+  {
+    "fields": {
+      "city": "Interlaken",
+      "description": "Regierungsstatthalteramt Interlaken-Oberhasli",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Interlaken-Oberhasli",
+      "service": 20025
+    },
+    "model": "user.servicet",
+    "pk": 20026
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Pr\u00e9fecture du Jura bernois",
+      "language": "fr",
+      "name": "Pr\u00e9fecture du Jura bernois",
+      "service": 20025
+    },
+    "model": "user.servicet",
+    "pk": 20027
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Regierungsstatthalteramt Jura bernois",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Jura bernois",
+      "service": 20026
+    },
+    "model": "user.servicet",
+    "pk": 20028
+  },
+  {
+    "fields": {
+      "city": "Wangen a.A.",
+      "description": "Regierungsstatthalteramt Oberaargau",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Oberaargau",
+      "service": 20027
+    },
+    "model": "user.servicet",
+    "pk": 20029
+  },
+  {
+    "fields": {
+      "city": "Saanen",
+      "description": "Regierungsstatthalteramt Obersimmental-Saanen",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Obersimmental-Saanen",
+      "service": 20028
+    },
+    "model": "user.servicet",
+    "pk": 20030
+  },
+  {
+    "fields": {
+      "city": "Aarberg",
+      "description": "Regierungsstatthalteramt Seeland",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Seeland",
+      "service": 20029
+    },
+    "model": "user.servicet",
+    "pk": 20031
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "description": "Regierungsstatthalteramt Thun",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Thun",
+      "service": 20030
+    },
+    "model": "user.servicet",
+    "pk": 20032
+  },
+  {
+    "fields": {
+      "city": "Bern 22",
+      "description": "Amt f\u00fcr Bev\u00f6lkerungsschutz, Sport und Milit\u00e4r - Abteilung Zivil- und Bev\u00f6lkerungsschutz",
+      "language": "de",
+      "name": "Amt f\u00fcr Bev\u00f6lkerungsschutz, Sport und Milit\u00e4r - Abteilung Zivil- und Bev\u00f6lkerungsschutz",
+      "service": 20031
+    },
+    "model": "user.servicet",
+    "pk": 20033
+  },
+  {
+    "fields": {
+      "city": "Berne 22",
+      "description": "Office de la s\u00e9curit\u00e9 civile, du sport et des affaires militaires",
+      "language": "fr",
+      "name": "Office de la s\u00e9curit\u00e9 civile, du sport et des affaires militaires",
+      "service": 20031
+    },
+    "model": "user.servicet",
+    "pk": 20034
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen",
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen",
+      "service": 20032
+    },
+    "model": "user.servicet",
+    "pk": 20035
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unit\u00e9 francophone de l'OACOT - Service des constructions",
+      "language": "de",
+      "name": "Unit\u00e9 francophone de l'OACOT - Service des constructions",
+      "service": 20033
+    },
+    "model": "user.servicet",
+    "pk": 20036
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "Unit\u00e9 francophone de l'OACOT - Service des constructions",
+      "language": "fr",
+      "name": "Unit\u00e9 francophone de l'OACOT - Service des constructions",
+      "service": 20033
+    },
+    "model": "user.servicet",
+    "pk": 20037
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung",
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung",
+      "service": 20034
+    },
+    "model": "user.servicet",
+    "pk": 20038
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unit\u00e9 francophone de l'OACOT \u2013 Service de l'am\u00e9nagement cantonal",
+      "language": "de",
+      "name": "Unit\u00e9 francophone de l'OACOT \u2013 Service de l'am\u00e9nagement cantonal",
+      "service": 20035
+    },
+    "model": "user.servicet",
+    "pk": 20039
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "Unit\u00e9 francophone de l'OACOT \u2013 Service de l'am\u00e9nagement cantonal",
+      "language": "fr",
+      "name": "Unit\u00e9 francophone de l'OACOT \u2013 Service de l'am\u00e9nagement cantonal",
+      "service": 20035
+    },
+    "model": "user.servicet",
+    "pk": 20040
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung",
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung",
+      "service": 20036
+    },
+    "model": "user.servicet",
+    "pk": 20041
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unit\u00e9 francophone de l'OACOT - Service de l'am\u00e9nagement local et r\u00e9gional",
+      "language": "de",
+      "name": "Unit\u00e9 francophone de l'OACOT - Service de l'am\u00e9nagement local et r\u00e9gional",
+      "service": 20037
+    },
+    "model": "user.servicet",
+    "pk": 20042
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "Unit\u00e9 francophone de l'OACOT - Service de l'am\u00e9nagement local et r\u00e9gional",
+      "language": "fr",
+      "name": "Unit\u00e9 francophone de l'OACOT - Service de l'am\u00e9nagement local et r\u00e9gional",
+      "service": 20037
+    },
+    "model": "user.servicet",
+    "pk": 20043
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen",
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen",
+      "service": 20038
+    },
+    "model": "user.servicet",
+    "pk": 20044
+  },
+  {
+    "fields": {
+      "city": "Bern ",
+      "description": "Amt f\u00fcr Grundst\u00fccke und Geb\u00e4ude",
+      "language": "de",
+      "name": "Amt f\u00fcr Grundst\u00fccke und Geb\u00e4ude",
+      "service": 20039
+    },
+    "model": "user.servicet",
+    "pk": 20045
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des immeubles et des constructions",
+      "language": "fr",
+      "name": "Office des immeubles et des constructions",
+      "service": 20039
+    },
+    "model": "user.servicet",
+    "pk": 20046
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)",
+      "language": "de",
+      "name": "Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)",
+      "service": 20040
+    },
+    "model": "user.servicet",
+    "pk": 20047
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Office de l'enseignement pr\u00e9scolaire et obligatoire, du conseil et de l'orientation (OECO)",
+      "language": "de",
+      "name": "Office de l'enseignement pr\u00e9scolaire et obligatoire, du conseil et de l'orientation (OECO)",
+      "service": 20041
+    },
+    "model": "user.servicet",
+    "pk": 20048
+  },
+  {
+    "fields": {
+      "city": "Tramelan",
+      "description": "Office de l'enseignement pr\u00e9scolaire et obligatoire, du conseil et de l'orientation (OECO)",
+      "language": "fr",
+      "name": "Office de l'enseignement pr\u00e9scolaire et obligatoire, du conseil et de l'orientation (OECO)",
+      "service": 20041
+    },
+    "model": "user.servicet",
+    "pk": 20049
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Kultur - Arch\u00e4ologischer Dienst des Kantons Bern",
+      "language": "de",
+      "name": "Amt f\u00fcr Kultur - Arch\u00e4ologischer Dienst des Kantons Bern",
+      "service": 20042
+    },
+    "model": "user.servicet",
+    "pk": 20050
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office de la Culture  - Service arch\u00e9ologique du canton de Berne",
+      "language": "fr",
+      "name": "Office de la Culture  - Service arch\u00e9ologique du canton de Berne",
+      "service": 20042
+    },
+    "model": "user.servicet",
+    "pk": 20051
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "language": "de",
+      "name": "Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "service": 20043
+    },
+    "model": "user.servicet",
+    "pk": 20052
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Office de la Culture  - Service des monuments historiques du canton de Berne",
+      "language": "de",
+      "name": "Office de la Culture  - Service des monuments historiques du canton de Berne",
+      "service": 20044
+    },
+    "model": "user.servicet",
+    "pk": 20053
+  },
+  {
+    "fields": {
+      "city": "Tramelan",
+      "description": "Office de la Culture  - Service des monuments historiques du canton de Berne",
+      "language": "fr",
+      "name": "Office de la Culture  - Service des monuments historiques du canton de Berne",
+      "service": 20044
+    },
+    "model": "user.servicet",
+    "pk": 20054
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr \u00f6ffentlichen Verkehr und Verkehrskoordination",
+      "language": "de",
+      "name": "Amt f\u00fcr \u00f6ffentlichen Verkehr und Verkehrskoordination",
+      "service": 20045
+    },
+    "model": "user.servicet",
+    "pk": 20055
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des transports publics et de la coordination des transports",
+      "language": "fr",
+      "name": "Office des transports publics et de la coordination des transports",
+      "service": 20045
+    },
+    "model": "user.servicet",
+    "pk": 20056
+  },
+  {
+    "fields": {
+      "city": "Bern ",
+      "description": "Amt f\u00fcr Umweltkoordination und Energie - Energie",
+      "language": "de",
+      "name": "Amt f\u00fcr Umweltkoordination und Energie - Energie",
+      "service": 20046
+    },
+    "model": "user.servicet",
+    "pk": 20057
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office de la coordination environnementale et de l\u2019\u00e9nergie - Energie",
+      "language": "fr",
+      "name": "Office de la coordination environnementale et de l\u2019\u00e9nergie - Energie",
+      "service": 20046
+    },
+    "model": "user.servicet",
+    "pk": 20058
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Umweltkoordination und Energie - Umwelt und Nachhaltige Entwicklung (UNE)",
+      "language": "de",
+      "name": "Amt f\u00fcr Umweltkoordination und Energie - Umwelt und Nachhaltige Entwicklung (UNE)",
+      "service": 20047
+    },
+    "model": "user.servicet",
+    "pk": 20059
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office de la coordination environnementale et de l\u2019\u00e9nergie - Environnement et d\u00e9veloppement durable",
+      "language": "fr",
+      "name": "Office de la coordination environnementale et de l\u2019\u00e9nergie - Environnement et d\u00e9veloppement durable",
+      "service": 20047
+    },
+    "model": "user.servicet",
+    "pk": 20060
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Wald KAWA - Abteilung Fachdienste und Ressourcen",
+      "language": "de",
+      "name": "Amt f\u00fcr Wald KAWA - Abteilung Fachdienste und Ressourcen",
+      "service": 20048
+    },
+    "model": "user.servicet",
+    "pk": 20061
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des for\u00eats OFOR - Division Services sp\u00e9cialis\u00e9s et ressources",
+      "language": "fr",
+      "name": "Office des for\u00eats OFOR - Division Services sp\u00e9cialis\u00e9s et ressources",
+      "service": 20048
+    },
+    "model": "user.servicet",
+    "pk": 20062
+  },
+  {
+    "fields": {
+      "city": "Interlaken",
+      "description": "Amt f\u00fcr Wald KAWA - Abteilung Naturgefahren",
+      "language": "de",
+      "name": "Amt f\u00fcr Wald KAWA - Abteilung Naturgefahren",
+      "service": 20049
+    },
+    "model": "user.servicet",
+    "pk": 20063
+  },
+  {
+    "fields": {
+      "city": "Interlaken",
+      "description": "Office des for\u00eats OFOR - Division Danger naturels",
+      "language": "fr",
+      "name": "Office des for\u00eats OFOR - Division Danger naturels",
+      "service": 20049
+    },
+    "model": "user.servicet",
+    "pk": 20064
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Wasser und Abfall des Kantons Bern",
+      "language": "de",
+      "name": "Amt f\u00fcr Wasser und Abfall des Kantons Bern",
+      "service": 20050
+    },
+    "model": "user.servicet",
+    "pk": 20065
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des eaux et des d\u00e9chets - Entreprises et gestion des d\u00e9chets",
+      "language": "fr",
+      "name": "Office des eaux et des d\u00e9chets - Entreprises et gestion des d\u00e9chets",
+      "service": 20050
+    },
+    "model": "user.servicet",
+    "pk": 20066
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Wasser und Abfall des Kantons Bern - Gew\u00e4sserregulierung",
+      "language": "de",
+      "name": "Amt f\u00fcr Wasser und Abfall des Kantons Bern - Gew\u00e4sserregulierung",
+      "service": 20051
+    },
+    "model": "user.servicet",
+    "pk": 20067
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des eaux et des d\u00e9chets - R\u00e9gulation des eaux",
+      "language": "fr",
+      "name": "Office des eaux et des d\u00e9chets - R\u00e9gulation des eaux",
+      "service": 20051
+    },
+    "model": "user.servicet",
+    "pk": 20068
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Wasser und Abfall des Kantons Bern -Siedlungswasserwirtschaft",
+      "language": "de",
+      "name": "Amt f\u00fcr Wasser und Abfall des Kantons Bern -Siedlungswasserwirtschaft",
+      "service": 20052
+    },
+    "model": "user.servicet",
+    "pk": 20069
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des eaux et des d\u00e9chets - Gestion des eaux urbaines",
+      "language": "fr",
+      "name": "Office des eaux et des d\u00e9chets - Gestion des eaux urbaines",
+      "service": 20052
+    },
+    "model": "user.servicet",
+    "pk": 20070
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Wasser und Abfall des Kantons Bern - Wassernutzung",
+      "language": "de",
+      "name": "Amt f\u00fcr Wasser und Abfall des Kantons Bern - Wassernutzung",
+      "service": 20053
+    },
+    "model": "user.servicet",
+    "pk": 20071
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des eaux et des d\u00e9chets - Utilisation des eaux",
+      "language": "fr",
+      "name": "Office des eaux et des d\u00e9chets - Utilisation des eaux",
+      "service": 20053
+    },
+    "model": "user.servicet",
+    "pk": 20072
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "beco Berner Wirtschaft - Immissionsschutz",
+      "language": "de",
+      "name": "beco Berner Wirtschaft - Immissionsschutz",
+      "service": 20054
+    },
+    "model": "user.servicet",
+    "pk": 20073
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "beco Economie bernoise  - Protection contre les immissions",
+      "language": "fr",
+      "name": "beco Economie bernoise  - Protection contre les immissions",
+      "service": 20054
+    },
+    "model": "user.servicet",
+    "pk": 20074
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz",
+      "language": "de",
+      "name": "beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz",
+      "service": 20055
+    },
+    "model": "user.servicet",
+    "pk": 20075
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "beco Economie bernoise - S\u00e9curit\u00e9 & sant\u00e9 au travail",
+      "language": "de",
+      "name": "beco Economie bernoise - S\u00e9curit\u00e9 & sant\u00e9 au travail",
+      "service": 20056
+    },
+    "model": "user.servicet",
+    "pk": 20076
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "beco Economie bernoise - S\u00e9curit\u00e9 & sant\u00e9 au travail",
+      "language": "fr",
+      "name": "beco Economie bernoise - S\u00e9curit\u00e9 & sant\u00e9 au travail",
+      "service": 20056
+    },
+    "model": "user.servicet",
+    "pk": 20077
+  },
+  {
+    "fields": {
+      "city": "Ittigen",
+      "description": "Geb\u00e4udeversicherung Bern (GVB)",
+      "language": "de",
+      "name": "Geb\u00e4udeversicherung Bern (GVB)",
+      "service": 20057
+    },
+    "model": "user.servicet",
+    "pk": 20078
+  },
+  {
+    "fields": {
+      "city": "Ittigen",
+      "description": "Assurance immobili\u00e8re Berne (AIB)",
+      "language": "fr",
+      "name": "Assurance immobili\u00e8re Berne (AIB)",
+      "service": 20057
+    },
+    "model": "user.servicet",
+    "pk": 20079
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)",
+      "language": "de",
+      "name": "Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)",
+      "service": 20058
+    },
+    "model": "user.servicet",
+    "pk": 20080
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Commission cantonale pour la protection des sites et du paysage (CPS)",
+      "language": "de",
+      "name": "Commission cantonale pour la protection des sites et du paysage (CPS)",
+      "service": 20059
+    },
+    "model": "user.servicet",
+    "pk": 20081
+  },
+  {
+    "fields": {
+      "city": "Nidau",
+      "description": "Commission cantonale pour la protection des sites et du paysage (CPS)",
+      "language": "fr",
+      "name": "Commission cantonale pour la protection des sites et du paysage (CPS)",
+      "service": 20059
+    },
+    "model": "user.servicet",
+    "pk": 20082
+  },
+  {
+    "fields": {
+      "city": "Bern 9",
+      "description": "Kantonales Laboratorium",
+      "language": "de",
+      "name": "Kantonales Laboratorium",
+      "service": 20060
+    },
+    "model": "user.servicet",
+    "pk": 20083
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Laboratoire cantonal",
+      "language": "fr",
+      "name": "Laboratoire cantonal",
+      "service": 20060
+    },
+    "model": "user.servicet",
+    "pk": 20084
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Kantonsarztamt",
+      "language": "de",
+      "name": "Kantonsarztamt",
+      "service": 20061
+    },
+    "model": "user.servicet",
+    "pk": 20085
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office du m\u00e9decin cantonal",
+      "language": "fr",
+      "name": "Office du m\u00e9decin cantonal",
+      "service": 20061
+    },
+    "model": "user.servicet",
+    "pk": 20086
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Kantonspolizei Bern - Fachstelle L\u00e4rmakustik / Lasertechnik",
+      "language": "de",
+      "name": "Kantonspolizei Bern - Fachstelle L\u00e4rmakustik / Lasertechnik",
+      "service": 20062
+    },
+    "model": "user.servicet",
+    "pk": 20087
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": null,
+      "language": "fr",
+      "name": "Police cantonale - Service sp\u00e9cialis\u00e9 Acoustique du bruit / technique laser\n",
+      "service": 20062
+    },
+    "model": "user.servicet",
+    "pk": 20088
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "LANAT Amt f\u00fcr Landwirtschaft und Natur  - Fischereiinspektorat (FI)",
+      "language": "de",
+      "name": "LANAT Amt f\u00fcr Landwirtschaft und Natur  - Fischereiinspektorat (FI)",
+      "service": 20063
+    },
+    "model": "user.servicet",
+    "pk": 20089
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "OAN Office de l'agriculture et de la nature - Inspection de la p\u00eache (IP)",
+      "language": "fr",
+      "name": "OAN Office de l'agriculture et de la nature - Inspection de la p\u00eache (IP)",
+      "service": 20063
+    },
+    "model": "user.servicet",
+    "pk": 20090
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Jagdinspektorat (JI)",
+      "language": "de",
+      "name": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Jagdinspektorat (JI)",
+      "service": 20064
+    },
+    "model": "user.servicet",
+    "pk": 20091
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "OAN Office de l'agriculture et de la nature - Inspection de la chasse (IC)",
+      "language": "fr",
+      "name": "OAN Office de l'agriculture et de la nature - Inspection de la chasse (IC)",
+      "service": 20064
+    },
+    "model": "user.servicet",
+    "pk": 20092
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Naturf\u00f6rderung (ANF)",
+      "language": "de",
+      "name": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Naturf\u00f6rderung (ANF)",
+      "service": 20065
+    },
+    "model": "user.servicet",
+    "pk": 20093
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "OAN Office de l'agriculture et de la nature  - Promotion de la nature (SPN)",
+      "language": "fr",
+      "name": "OAN Office de l'agriculture et de la nature  - Promotion de la nature (SPN)",
+      "service": 20065
+    },
+    "model": "user.servicet",
+    "pk": 20094
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Abteilung Strukturverbesserungen und Produktion (ASP)",
+      "language": "de",
+      "name": "LANAT Amt f\u00fcr Landwirtschaft und Natur - Abteilung Strukturverbesserungen und Produktion (ASP)",
+      "service": 20066
+    },
+    "model": "user.servicet",
+    "pk": 20095
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "OAN Office de l'agriculture et de la nature - Service Am\u00e9liorations structurelles et Production (SASP)",
+      "language": "fr",
+      "name": "OAN Office de l'agriculture et de la nature - Service Am\u00e9liorations structurelles et Production (SASP)",
+      "service": 20066
+    },
+    "model": "user.servicet",
+    "pk": 20096
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "LANAT Amt f\u00fcr Landwirtschaft und Natur  -Veterin\u00e4rdienst (VeD)",
+      "language": "de",
+      "name": "LANAT Amt f\u00fcr Landwirtschaft und Natur  -Veterin\u00e4rdienst (VeD)",
+      "service": 20067
+    },
+    "model": "user.servicet",
+    "pk": 20097
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "OAN Office de l'agriculture et de la nature - Service v\u00e9t\u00e9rinaire (Sv\u00e9t)",
+      "language": "fr",
+      "name": "OAN Office de l'agriculture et de la nature - Service v\u00e9t\u00e9rinaire (Sv\u00e9t)",
+      "service": 20067
+    },
+    "model": "user.servicet",
+    "pk": 20098
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Fachstelle Hindernisfreies Bauen",
+      "language": "de",
+      "name": "Fachstelle Hindernisfreies Bauen",
+      "service": 20068
+    },
+    "model": "user.servicet",
+    "pk": 20099
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Procap - R\u00e9gion Bienne / Jura bernois - Pierre A. Chanez",
+      "language": "de",
+      "name": "Procap - R\u00e9gion Bienne / Jura bernois - Pierre A. Chanez",
+      "service": 20069
+    },
+    "model": "user.servicet",
+    "pk": 20100
+  },
+  {
+    "fields": {
+      "city": "Bienne",
+      "description": "Procap - R\u00e9gion Bienne / Jura bernois - Pierre A. Chanez",
+      "language": "fr",
+      "name": "Procap - R\u00e9gion Bienne / Jura bernois - Pierre A. Chanez",
+      "service": 20069
+    },
+    "model": "user.servicet",
+    "pk": 20101
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Strassenverkehrs- und Schifffahrtsamt SVSA - Abteilung Schifffahrt",
+      "language": "de",
+      "name": "Strassenverkehrs- und Schifffahrtsamt SVSA - Abteilung Schifffahrt",
+      "service": 20070
+    },
+    "model": "user.servicet",
+    "pk": 20102
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office de la circulation routi\u00e8re et de la navigation OCRN - Navigation",
+      "language": "fr",
+      "name": "Office de la circulation routi\u00e8re et de la navigation OCRN - Navigation",
+      "service": 20070
+    },
+    "model": "user.servicet",
+    "pk": 20103
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Strassenverkehrs- und Schifffahrtsamt SVSA - Sonderbewilligungen",
+      "language": "de",
+      "name": "Strassenverkehrs- und Schifffahrtsamt SVSA - Sonderbewilligungen",
+      "service": 20071
+    },
+    "model": "user.servicet",
+    "pk": 20104
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office de la circulation routi\u00e8re et de la navigation OCRN - Autorisations sp\u00e9ciales",
+      "language": "fr",
+      "name": "Office de la circulation routi\u00e8re et de la navigation OCRN - Autorisations sp\u00e9ciales",
+      "service": 20071
+    },
+    "model": "user.servicet",
+    "pk": 20105
+  },
+  {
+    "fields": {
+      "city": "Spiez",
+      "description": "Tiefbauamt des Kantons Bern -  Abteilung Nationalstrassen Betrieb",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern -  Abteilung Nationalstrassen Betrieb",
+      "service": 20072
+    },
+    "model": "user.servicet",
+    "pk": 20106
+  },
+  {
+    "fields": {
+      "city": "Spiez",
+      "description": "Office des ponts et chauss\u00e9es  du canton de Berne -  Routes nationales exploitation",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es  du canton de Berne -  Routes nationales exploitation",
+      "service": 20072
+    },
+    "model": "user.servicet",
+    "pk": 20107
+  },
+  {
+    "fields": {
+      "city": "Bern ",
+      "description": "Tiefbauamt des Kantons Bern - Abteilung Nationalstrassen Bau",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern - Abteilung Nationalstrassen Bau",
+      "service": 20073
+    },
+    "model": "user.servicet",
+    "pk": 20108
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des ponts et chauss\u00e9es du canton de Berne -  Routes nationales construction",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es du canton de Berne -  Routes nationales construction",
+      "service": 20073
+    },
+    "model": "user.servicet",
+    "pk": 20109
+  },
+  {
+    "fields": {
+      "city": "Bern ",
+      "description": "Tiefbauamt des Kantons Bern - Fachstelle L\u00e4rmschutz",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern - Fachstelle L\u00e4rmschutz",
+      "service": 20074
+    },
+    "model": "user.servicet",
+    "pk": 20110
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des ponts et chauss\u00e9es - Centre de prestations Protection contre le bruit",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es - Centre de prestations Protection contre le bruit",
+      "service": 20074
+    },
+    "model": "user.servicet",
+    "pk": 20111
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "description": "Tiefbauamt des Kantons Bern -  Oberingenieurkreis I - Oberland",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern -  Oberingenieurkreis I - Oberland",
+      "service": 20075
+    },
+    "model": "user.servicet",
+    "pk": 20112
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Office des ponts et chauss\u00e9es  du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef I - Oberland",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es  du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef I - Oberland",
+      "service": 20075
+    },
+    "model": "user.servicet",
+    "pk": 20113
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Tiefbauamt des Kantons Bern - Oberingenieurkreis II - Bern Mittelland",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern - Oberingenieurkreis II - Bern Mittelland",
+      "service": 20076
+    },
+    "model": "user.servicet",
+    "pk": 20114
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Office des ponts et chauss\u00e9es  du canton de Berne - Arrondissements d'ing\u00e9nieur en chef II - Berne Mittelland",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es  du canton de Berne - Arrondissements d'ing\u00e9nieur en chef II - Berne Mittelland",
+      "service": 20076
+    },
+    "model": "user.servicet",
+    "pk": 20115
+  },
+  {
+    "fields": {
+      "city": "Biel",
+      "description": "Tiefbauamt des Kantons Bern -  Oberingenieurkreis III - Seeland / Berner Jura",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern -  Oberingenieurkreis III - Seeland / Berner Jura",
+      "service": 20077
+    },
+    "model": "user.servicet",
+    "pk": 20116
+  },
+  {
+    "fields": {
+      "city": "Bienne",
+      "description": "Office des ponts et chauss\u00e9es du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef III - Seeland / Jura",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef III - Seeland / Jura",
+      "service": 20077
+    },
+    "model": "user.servicet",
+    "pk": 20117
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Tiefbauamt des Kantons Bern - Oberingenieurkreis IV - Oberaargau / Emmental",
+      "language": "de",
+      "name": "Tiefbauamt des Kantons Bern - Oberingenieurkreis IV - Oberaargau / Emmental",
+      "service": 20078
+    },
+    "model": "user.servicet",
+    "pk": 20118
+  },
+  {
+    "fields": {
+      "city": "Berthoud",
+      "description": "Office des ponts et chauss\u00e9es  du canton de Berne - Arrondissements d'ing\u00e9nieur en chef IV - Haute-Argovie / Emmental",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es  du canton de Berne - Arrondissements d'ing\u00e9nieur en chef IV - Haute-Argovie / Emmental",
+      "service": 20078
+    },
+    "model": "user.servicet",
+    "pk": 20119
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SUVA - Fachstelle Planvorlagen/Meldestelle DGVV",
+      "language": "de",
+      "name": "Unterfachstelle SUVA - Fachstelle Planvorlagen/Meldestelle DGVV",
+      "service": 20133
+    },
+    "model": "user.servicet",
+    "pk": 20209
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SUVA - Fachstelle Planvorlagen/Meldestelle DGVV",
+      "language": "fr",
+      "name": "Unterfachstelle SUVA - Fachstelle Planvorlagen/Meldestelle DGVV",
+      "service": 20133
+    },
+    "model": "user.servicet",
+    "pk": 20210
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brandschutzexperten",
+      "language": "de",
+      "name": "Unterfachstelle Brandschutzexperten",
+      "service": 20134
+    },
+    "model": "user.servicet",
+    "pk": 20211
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brandschutzexperten",
+      "language": "fr",
+      "name": "Unterfachstelle Brandschutzexperten",
+      "service": 20134
+    },
+    "model": "user.servicet",
+    "pk": 20212
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Support P+I",
+      "language": "de",
+      "name": "Unterfachstelle Support P+I",
+      "service": 20135
+    },
+    "model": "user.servicet",
+    "pk": 20213
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Support P+I",
+      "language": "fr",
+      "name": "Unterfachstelle Support P+I",
+      "service": 20135
+    },
+    "model": "user.servicet",
+    "pk": 20214
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Strasseninspektorat Emmental, Tiebauamt",
+      "language": "de",
+      "name": "Unterfachstelle Strasseninspektorat Emmental, Tiebauamt",
+      "service": 20136
+    },
+    "model": "user.servicet",
+    "pk": 20215
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Strasseninspektorat Emmental, Tiebauamt",
+      "language": "fr",
+      "name": "Unterfachstelle Strasseninspektorat Emmental, Tiebauamt",
+      "service": 20136
+    },
+    "model": "user.servicet",
+    "pk": 20216
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BLS AG (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle BLS AG (Burgdorf)",
+      "service": 20137
+    },
+    "model": "user.servicet",
+    "pk": 20217
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle eicher + pauli Bern AG (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle eicher + pauli Bern AG (Burgdorf)",
+      "service": 20138
+    },
+    "model": "user.servicet",
+    "pk": 20218
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feuerwehr und Zivilschutz",
+      "language": "de",
+      "name": "Unterfachstelle Feuerwehr und Zivilschutz",
+      "service": 20139
+    },
+    "model": "user.servicet",
+    "pk": 20219
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ordnung und Sicherheit",
+      "language": "de",
+      "name": "Unterfachstelle Ordnung und Sicherheit",
+      "service": 20140
+    },
+    "model": "user.servicet",
+    "pk": 20220
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet AG (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Localnet AG (Lyssach)",
+      "service": 20141
+    },
+    "model": "user.servicet",
+    "pk": 20221
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Berner Heimatschutz (Lyssach)",
+      "service": 20142
+    },
+    "model": "user.servicet",
+    "pk": 20222
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Baukontrolle Hasle b. B.",
+      "language": "de",
+      "name": "Baukontrolle Hasle b. B.",
+      "service": 20143
+    },
+    "model": "user.servicet",
+    "pk": 20223
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Leitbeh\u00f6rde Hasle b. B.",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Hasle b. B.",
+      "service": 20144
+    },
+    "model": "user.servicet",
+    "pk": 20224
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Kaminfeger Hiltbrunner GmbH (Feueraufseher)",
+      "language": "de",
+      "name": "Unterfachstelle Kaminfeger Hiltbrunner GmbH (Feueraufseher)",
+      "service": 20145
+    },
+    "model": "user.servicet",
+    "pk": 20225
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Stefan Schwarz AG (Pr\u00fcfstelle ENM) (Langnau i.E.)",
+      "language": "de",
+      "name": "Unterfachstelle Stefan Schwarz AG (Pr\u00fcfstelle ENM) (Langnau i.E.)",
+      "service": 20146
+    },
+    "model": "user.servicet",
+    "pk": 20226
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle GLB Emmental (Pr\u00fcfstelle ENM)",
+      "language": "de",
+      "name": "Unterfachstelle GLB Emmental (Pr\u00fcfstelle ENM)",
+      "service": 20147
+    },
+    "model": "user.servicet",
+    "pk": 20227
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Gastgewerbe) (Langnau i.E.)",
+      "language": "de",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Gastgewerbe) (Langnau i.E.)",
+      "service": 20148
+    },
+    "model": "user.servicet",
+    "pk": 20228
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Feuerwehr) (Langnau i.E.)",
+      "language": "de",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Feuerwehr) (Langnau i.E.)",
+      "service": 20149
+    },
+    "model": "user.servicet",
+    "pk": 20229
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Gemeinde)",
+      "language": "de",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Gemeinde)",
+      "service": 20150
+    },
+    "model": "user.servicet",
+    "pk": 20230
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Kanton - Mitbericht)",
+      "language": "de",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Kanton - Mitbericht)",
+      "service": 20151
+    },
+    "model": "user.servicet",
+    "pk": 20231
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Strassenbaupolizei)",
+      "language": "de",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Strassenbaupolizei)",
+      "service": 20152
+    },
+    "model": "user.servicet",
+    "pk": 20232
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung (Ben\u00fctzung von \u00f6ffentlichem Terrain)",
+      "language": "de",
+      "name": "Unterfachstelle Bauverwaltung (Ben\u00fctzung von \u00f6ffentlichem Terrain)",
+      "service": 20153
+    },
+    "model": "user.servicet",
+    "pk": 20233
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Wasserversorgung Langnau (Wasseranschluss)",
+      "language": "de",
+      "name": "Unterfachstelle Wasserversorgung Langnau (Wasseranschluss)",
+      "service": 20154
+    },
+    "model": "user.servicet",
+    "pk": 20234
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL (Genossenschaft Elektra Baselland) (Gemeinschaftsantenne)",
+      "language": "de",
+      "name": "Unterfachstelle EBL (Genossenschaft Elektra Baselland) (Gemeinschaftsantenne)",
+      "service": 20155
+    },
+    "model": "user.servicet",
+    "pk": 20235
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Langnau)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Langnau)",
+      "service": 20156
+    },
+    "model": "user.servicet",
+    "pk": 20236
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Trubschachen)",
+      "language": "de",
+      "name": "Unterfachstelle BKW Energie AG (Trubschachen)",
+      "service": 20157
+    },
+    "model": "user.servicet",
+    "pk": 20237
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SBB AG (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle SBB AG (Lyssach)",
+      "service": 20158
+    },
+    "model": "user.servicet",
+    "pk": 20238
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Wynigen",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher Wynigen",
+      "service": 20159
+    },
+    "model": "user.servicet",
+    "pk": 20239
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feuerwehr  (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Feuerwehr  (Lyssach)",
+      "service": 20160
+    },
+    "model": "user.servicet",
+    "pk": 20240
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle OSTAG Ingenieure AG (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Lyssach)",
+      "service": 20161
+    },
+    "model": "user.servicet",
+    "pk": 20241
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energiefachmann (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Energiefachmann (Lyssach)",
+      "service": 20162
+    },
+    "model": "user.servicet",
+    "pk": 20242
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Genossenschaft Elektra Jegenstorf (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Genossenschaft Elektra Jegenstorf (Lyssach)",
+      "service": 20163
+    },
+    "model": "user.servicet",
+    "pk": 20243
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Emmental Trinkwasser (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Emmental Trinkwasser (Lyssach)",
+      "service": 20164
+    },
+    "model": "user.servicet",
+    "pk": 20244
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Grunder Ingenieure AG (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Grunder Ingenieure AG (Lyssach)",
+      "service": 20165
+    },
+    "model": "user.servicet",
+    "pk": 20245
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Lyssach)",
+      "service": 20166
+    },
+    "model": "user.servicet",
+    "pk": 20246
+  },
+  {
+    "fields": {
+      "city": "Krauchthal",
+      "description": "Unterfachstelle Brandschutz (Oberburg)",
+      "language": "de",
+      "name": "Unterfachstelle Brandschutz (Oberburg)",
+      "service": 20167
+    },
+    "model": "user.servicet",
+    "pk": 20247
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ostag Gew\u00e4sserschutz (Oberburg)",
+      "language": "de",
+      "name": "Unterfachstelle Ostag Gew\u00e4sserschutz (Oberburg)",
+      "service": 20168
+    },
+    "model": "user.servicet",
+    "pk": 20248
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ostag Energieberatung (Oberburg)",
+      "language": "de",
+      "name": "Unterfachstelle Ostag Energieberatung (Oberburg)",
+      "service": 20169
+    },
+    "model": "user.servicet",
+    "pk": 20249
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Unterfachstelle Energie- und Wasserversorgung Oberburg (Oberburg)",
+      "language": "de",
+      "name": "Unterfachstelle Energie- und Wasserversorgung Oberburg (Oberburg)",
+      "service": 20170
+    },
+    "model": "user.servicet",
+    "pk": 20250
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (R\u00fcderswil)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (R\u00fcderswil)",
+      "service": 20171
+    },
+    "model": "user.servicet",
+    "pk": 20251
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energieberatung Stefan Schwarz AG (R\u00fcderswil)",
+      "language": "de",
+      "name": "Unterfachstelle Energieberatung Stefan Schwarz AG (R\u00fcderswil)",
+      "service": 20172
+    },
+    "model": "user.servicet",
+    "pk": 20252
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle ARA mittleres Emmental",
+      "language": "de",
+      "name": "Unterfachstelle ARA mittleres Emmental",
+      "service": 20173
+    },
+    "model": "user.servicet",
+    "pk": 20253
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Wasserversorgung Zollbr\u00fcck (R\u00fcderswil)",
+      "language": "de",
+      "name": "Unterfachstelle Wasserversorgung Zollbr\u00fcck (R\u00fcderswil)",
+      "service": 20174
+    },
+    "model": "user.servicet",
+    "pk": 20254
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ruefer Ingenieure AG",
+      "language": "de",
+      "name": "Unterfachstelle Ruefer Ingenieure AG",
+      "service": 20175
+    },
+    "model": "user.servicet",
+    "pk": 20255
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG (Trubschachen)",
+      "language": "de",
+      "name": "Unterfachstelle EBL Telecom Media AG (Trubschachen)",
+      "service": 20176
+    },
+    "model": "user.servicet",
+    "pk": 20256
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Elektra R\u00fcderswil",
+      "language": "de",
+      "name": "Unterfachstelle Elektra R\u00fcderswil",
+      "service": 20177
+    },
+    "model": "user.servicet",
+    "pk": 20257
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Elektra Schwanden",
+      "language": "de",
+      "name": "Unterfachstelle Elektra Schwanden",
+      "service": 20178
+    },
+    "model": "user.servicet",
+    "pk": 20258
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brunnenmeister Martin Schifferli",
+      "language": "de",
+      "name": "Unterfachstelle Brunnenmeister Martin Schifferli",
+      "service": 20179
+    },
+    "model": "user.servicet",
+    "pk": 20259
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Baukontrolle Utzenstorf",
+      "language": "de",
+      "name": "Baukontrolle Utzenstorf",
+      "service": 20180
+    },
+    "model": "user.servicet",
+    "pk": 20260
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Leitbeh\u00f6rde Utzenstorf",
+      "language": "de",
+      "name": "Leitbeh\u00f6rde Utzenstorf",
+      "service": 20181
+    },
+    "model": "user.servicet",
+    "pk": 20261
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gew\u00e4sserschutzbewilligung",
+      "language": "de",
+      "name": "Unterfachstelle Gew\u00e4sserschutzbewilligung",
+      "service": 20182
+    },
+    "model": "user.servicet",
+    "pk": 20262
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energietechnischer Massnahmennachweis (Utzenstorf)",
+      "language": "de",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Utzenstorf)",
+      "service": 20183
+    },
+    "model": "user.servicet",
+    "pk": 20263
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Wasser",
+      "language": "de",
+      "name": "Unterfachstelle Anschluss Wasser",
+      "service": 20184
+    },
+    "model": "user.servicet",
+    "pk": 20264
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Elektrizit\u00e4t",
+      "language": "de",
+      "name": "Unterfachstelle Anschluss Elektrizit\u00e4t",
+      "service": 20185
+    },
+    "model": "user.servicet",
+    "pk": 20265
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Gas",
+      "language": "de",
+      "name": "Unterfachstelle Anschluss Gas",
+      "service": 20186
+    },
+    "model": "user.servicet",
+    "pk": 20266
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Gemeinschaftsantenne",
+      "language": "de",
+      "name": "Unterfachstelle Anschluss Gemeinschaftsantenne",
+      "service": 20187
+    },
+    "model": "user.servicet",
+    "pk": 20267
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Fernmeldenetz",
+      "language": "de",
+      "name": "Unterfachstelle Anschluss Fernmeldenetz",
+      "service": 20188
+    },
+    "model": "user.servicet",
+    "pk": 20268
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Heimatschutz",
+      "language": "de",
+      "name": "Unterfachstelle Heimatschutz",
+      "service": 20189
+    },
+    "model": "user.servicet",
+    "pk": 20269
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energiekontrolleur (Trubschachen)",
+      "language": "de",
+      "name": "Unterfachstelle Energiekontrolleur (Trubschachen)",
+      "service": 20190
+    },
+    "model": "user.servicet",
+    "pk": 20270
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Kanalisationskontrolleur",
+      "language": "de",
+      "name": "Unterfachstelle Kanalisationskontrolleur",
+      "service": 20191
+    },
+    "model": "user.servicet",
+    "pk": 20271
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Liegenschaftskommission",
+      "language": "de",
+      "name": "Unterfachstelle Liegenschaftskommission",
+      "service": 20192
+    },
+    "model": "user.servicet",
+    "pk": 20272
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brunnenmeister",
+      "language": "de",
+      "name": "Unterfachstelle Brunnenmeister",
+      "service": 20193
+    },
+    "model": "user.servicet",
+    "pk": 20273
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Wynigen)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Wynigen)",
+      "service": 20194
+    },
+    "model": "user.servicet",
+    "pk": 20274
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle onyx",
+      "language": "de",
+      "name": "Unterfachstelle onyx",
+      "service": 20195
+    },
+    "model": "user.servicet",
+    "pk": 20275
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energieberater (Wynigen)",
+      "language": "de",
+      "name": "Unterfachstelle Energieberater (Wynigen)",
+      "service": 20196
+    },
+    "model": "user.servicet",
+    "pk": 20276
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet",
+      "language": "de",
+      "name": "Unterfachstelle Localnet",
+      "service": 20197
+    },
+    "model": "user.servicet",
+    "pk": 20277
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "Unterfachstelle LANAT - Abteilung Strukturverbesserungen und Produktion (ASP)",
+      "language": "de",
+      "name": "Unterfachstelle LANAT - Abteilung Strukturverbesserungen und Produktion (ASP)",
+      "service": 20198
+    },
+    "model": "user.servicet",
+    "pk": 20278
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "Unterfachstelle OAN - Service Am\u00e9liorations structurelles et Production (SASP)",
+      "language": "fr",
+      "name": "Unterfachstelle OAN - Service Am\u00e9liorations structurelles et Production (SASP)",
+      "service": 20198
+    },
+    "model": "user.servicet",
+    "pk": 20279
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Unterfachstelle AGR \u2013 Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "language": "de",
+      "name": "Unterfachstelle AGR \u2013 Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "service": 20199
+    },
+    "model": "user.servicet",
+    "pk": 20280
+  },
+  {
+    "fields": {
+      "city": "Berne 22",
+      "description": "Office de la s\u00e9curit\u00e9 civile, du sport et des affaires militaires",
+      "language": "fr",
+      "name": "Office de la s\u00e9curit\u00e9 civile, du sport et des affaires militaires",
+      "service": 20031
+    },
+    "model": "user.servicet",
+    "pk": 20281
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "description": "Police cantonale - Service sp\u00e9cialis\u00e9 Acoustique du bruit / technique laser",
+      "language": "fr",
+      "name": "Police cantonale - Service sp\u00e9cialis\u00e9 Acoustique du bruit / technique laser",
+      "service": 20062
+    },
+    "model": "user.servicet",
+    "pk": 20282
+  },
+  {
+    "fields": {
+      "city": "Bienne",
+      "description": "Office des ponts et chauss\u00e9es du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef III - Seeland / Jura",
+      "language": "fr",
+      "name": "Office des ponts et chauss\u00e9es du canton de Berne -  Arrondissements d'ing\u00e9nieur en chef III - Seeland / Jura",
+      "service": 20077
+    },
+    "model": "user.servicet",
+    "pk": 20283
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle Localnet AG (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle Localnet AG (Burgdorf)",
+      "service": 20200
+    },
+    "model": "user.servicet",
+    "pk": 20284
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle Berner Heimatschutz (Burgdorf)",
+      "service": 20201
+    },
+    "model": "user.servicet",
+    "pk": 20285
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Langnau)",
+      "language": "de",
+      "name": "Unterfachstelle BKW Energie AG (Langnau)",
+      "service": 20202
+    },
+    "model": "user.servicet",
+    "pk": 20286
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SBB AG (Langnau)",
+      "language": "de",
+      "name": "Unterfachstelle SBB AG (Langnau)",
+      "service": 20203
+    },
+    "model": "user.servicet",
+    "pk": 20287
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Langnau)",
+      "language": "de",
+      "name": "Unterfachstelle Berner Heimatschutz (Langnau)",
+      "service": 20204
+    },
+    "model": "user.servicet",
+    "pk": 20288
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher (Lyssach)",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher (Lyssach)",
+      "service": 20205
+    },
+    "model": "user.servicet",
+    "pk": 20289
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher R\u00fcderswil",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher R\u00fcderswil",
+      "service": 20206
+    },
+    "model": "user.servicet",
+    "pk": 20290
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG (R\u00fcderswil)",
+      "language": "de",
+      "name": "Unterfachstelle EBL Telecom Media AG (R\u00fcderswil)",
+      "service": 20207
+    },
+    "model": "user.servicet",
+    "pk": 20291
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (R\u00fcderswil)",
+      "language": "de",
+      "name": "Unterfachstelle BKW Energie AG (R\u00fcderswil)",
+      "service": 20208
+    },
+    "model": "user.servicet",
+    "pk": 20292
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Utzenstorf",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher Utzenstorf",
+      "service": 20209
+    },
+    "model": "user.servicet",
+    "pk": 20293
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Trubschachen",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher Trubschachen",
+      "service": 20210
+    },
+    "model": "user.servicet",
+    "pk": 20294
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Trubschachen)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Trubschachen)",
+      "service": 20211
+    },
+    "model": "user.servicet",
+    "pk": 20295
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet AG (Wynigen)",
+      "language": "de",
+      "name": "Unterfachstelle Localnet AG (Wynigen)",
+      "service": 20212
+    },
+    "model": "user.servicet",
+    "pk": 20296
+  },
+  {
+    "fields": {
+      "city": "Oberdiessbach",
+      "description": "Unterfachstelle Kaminfeger Joost AG (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle Kaminfeger Joost AG (Eggiwil)",
+      "service": 20213
+    },
+    "model": "user.servicet",
+    "pk": 20297
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energienachweis (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle Energienachweis (Eggiwil)",
+      "service": 20214
+    },
+    "model": "user.servicet",
+    "pk": 20298
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle GLB, Energienachweis (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle GLB, Energienachweis (Eggiwil)",
+      "service": 20215
+    },
+    "model": "user.servicet",
+    "pk": 20299
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Werner und Partner AG (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle Werner und Partner AG (Eggiwil)",
+      "service": 20216
+    },
+    "model": "user.servicet",
+    "pk": 20300
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Eggiwil)",
+      "service": 20217
+    },
+    "model": "user.servicet",
+    "pk": 20301
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Unterfachstelle BKW Energie AG (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle BKW Energie AG (Eggiwil)",
+      "service": 20218
+    },
+    "model": "user.servicet",
+    "pk": 20302
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BLS Netz AG",
+      "language": "de",
+      "name": "Unterfachstelle BLS Netz AG",
+      "service": 20219
+    },
+    "model": "user.servicet",
+    "pk": 20303
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Hasle b. B.",
+      "language": "de",
+      "name": "Unterfachstelle Feueraufseher Hasle b. B.",
+      "service": 20220
+    },
+    "model": "user.servicet",
+    "pk": 20304
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energietechnischer Massnahmennachweis (Hasle b. B.)",
+      "language": "de",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Hasle b. B.)",
+      "service": 20221
+    },
+    "model": "user.servicet",
+    "pk": 20305
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Hasle b. B.)",
+      "language": "de",
+      "name": "Unterfachstelle Swisscom AG (Hasle b. B.)",
+      "service": 20222
+    },
+    "model": "user.servicet",
+    "pk": 20306
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Hasle b. B.)",
+      "language": "de",
+      "name": "Unterfachstelle BKW Energie AG (Hasle b. B.)",
+      "service": 20223
+    },
+    "model": "user.servicet",
+    "pk": 20307
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG",
+      "language": "de",
+      "name": "Unterfachstelle EBL Telecom Media AG",
+      "service": 20224
+    },
+    "model": "user.servicet",
+    "pk": 20308
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Nachf\u00fchrungsgeometer",
+      "language": "de",
+      "name": "Unterfachstelle Nachf\u00fchrungsgeometer",
+      "service": 20225
+    },
+    "model": "user.servicet",
+    "pk": 20309
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gemeindeingenieur",
+      "language": "de",
+      "name": "Unterfachstelle Gemeindeingenieur",
+      "service": 20226
+    },
+    "model": "user.servicet",
+    "pk": 20310
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Schwellenkoorporation",
+      "language": "de",
+      "name": "Unterfachstelle Schwellenkoorporation",
+      "service": 20227
+    },
+    "model": "user.servicet",
+    "pk": 20311
+  },
+  {
+    "fields": {
+      "city": "Langnau",
+      "description": "Regierungsstatthalteramt Emmental (Oberburg)",
+      "language": "de",
+      "name": "Regierungsstatthalteramt Emmental (Oberburg)",
+      "service": 20228
+    },
+    "model": "user.servicet",
+    "pk": 20312
+  },
+  {
+    "fields": {
+      "city": "Langnau",
+      "description": "Regierungsstatthalteramt Emmental (Oberburg)",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Emmental (Oberburg)",
+      "service": 20228
+    },
+    "model": "user.servicet",
+    "pk": 20313
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "description": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)",
+      "language": "de",
+      "name": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)",
+      "service": 20229
+    },
+    "model": "user.servicet",
+    "pk": 20314
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "description": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)",
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutz intern (Hasle b. B.)",
+      "service": 20229
+    },
+    "model": "user.servicet",
+    "pk": 20315
+  },
+  {
+    "fields": {
+      "city": "Lauperswil",
+      "description": "Lauperswil (Langnau i.E.)",
+      "language": "de",
+      "name": "Lauperswil (Langnau i.E.)",
+      "service": 20230
+    },
+    "model": "user.servicet",
+    "pk": 20316
+  },
+  {
+    "fields": {
+      "city": "Lauperswil",
+      "description": "Lauperswil (Langnau i.E.)",
+      "language": "fr",
+      "name": "Lauperswil (Langnau i.E.)",
+      "service": 20230
+    },
+    "model": "user.servicet",
+    "pk": 20317
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)",
+      "service": 20231
+    },
+    "model": "user.servicet",
+    "pk": 20318
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutz/Tiefbau Baudirektion (Burgdorf)",
+      "service": 20231
+    },
+    "model": "user.servicet",
+    "pk": 20319
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)",
+      "service": 20232
+    },
+    "model": "user.servicet",
+    "pk": 20320
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Brandschutz Baudirektion (Burgdorf)",
+      "service": 20232
+    },
+    "model": "user.servicet",
+    "pk": 20321
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)",
+      "language": "de",
+      "name": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)",
+      "service": 20233
+    },
+    "model": "user.servicet",
+    "pk": 20322
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)",
+      "language": "fr",
+      "name": "BLS, Infrastruktur Immobilien (Langnau i.E.) (Regierungsstatthalteramt Emmental)",
+      "service": 20233
+    },
+    "model": "user.servicet",
+    "pk": 20323
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW-Energie AG (Eggiwil)",
+      "language": "de",
+      "name": "Unterfachstelle BKW-Energie AG (Eggiwil)",
+      "service": 20234
+    },
+    "model": "user.servicet",
+    "pk": 20324
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW-Energie AG (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW-Energie AG (Eggiwil)",
+      "service": 20234
+    },
+    "model": "user.servicet",
+    "pk": 20325
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)",
+      "language": "de",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)",
+      "service": 20235
+    },
+    "model": "user.servicet",
+    "pk": 20326
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)",
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Zivilschutz) (Langnau i.E.)",
+      "service": 20235
+    },
+    "model": "user.servicet",
+    "pk": 20327
+  },
+  {
+    "fields": {
+      "city": "Worblaufen",
+      "description": "Swisscom1 (Oberburg)",
+      "language": "de",
+      "name": "Swisscom1 (Oberburg)",
+      "service": 20236
+    },
+    "model": "user.servicet",
+    "pk": 20328
+  },
+  {
+    "fields": {
+      "city": "Worblaufen",
+      "description": "Swisscom1 (Oberburg)",
+      "language": "fr",
+      "name": "Swisscom1 (Oberburg)",
+      "service": 20236
+    },
+    "model": "user.servicet",
+    "pk": 20329
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Baukontrolle (R\u00fcderswil)",
+      "language": "de",
+      "name": "Baukontrolle (R\u00fcderswil)",
+      "service": 20237
+    },
+    "model": "user.servicet",
+    "pk": 20330
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Baukontrolle (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Baukontrolle (R\u00fcderswil)",
+      "service": 20237
+    },
+    "model": "user.servicet",
+    "pk": 20331
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)",
+      "language": "de",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)",
+      "service": 20238
+    },
+    "model": "user.servicet",
+    "pk": 20332
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)",
+      "language": "fr",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Wynigen)",
+      "service": 20238
+    },
+    "model": "user.servicet",
+    "pk": 20333
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)",
+      "language": "de",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)",
+      "service": 20239
+    },
+    "model": "user.servicet",
+    "pk": 20334
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)",
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung (Bern)",
+      "service": 20239
+    },
+    "model": "user.servicet",
+    "pk": 20335
+  },
+  {
+    "fields": {
+      "city": "Zollikofen",
+      "description": "Waldabteilung Mittelland (Bern)",
+      "language": "de",
+      "name": "Waldabteilung Mittelland (Bern)",
+      "service": 20240
+    },
+    "model": "user.servicet",
+    "pk": 20336
+  },
+  {
+    "fields": {
+      "city": "Zollikofen",
+      "description": "Waldabteilung Mittelland (Bern)",
+      "language": "fr",
+      "name": "Waldabteilung Mittelland (Bern)",
+      "service": 20240
+    },
+    "model": "user.servicet",
+    "pk": 20337
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Swisscom AG (Burgdorf)",
+      "language": "de",
+      "name": "Swisscom AG (Burgdorf)",
+      "service": 20241
+    },
+    "model": "user.servicet",
+    "pk": 20338
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Swisscom AG (Burgdorf)",
+      "language": "fr",
+      "name": "Swisscom AG (Burgdorf)",
+      "service": 20241
+    },
+    "model": "user.servicet",
+    "pk": 20339
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EWO (Oberburg)",
+      "language": "de",
+      "name": "Unterfachstelle EWO (Oberburg)",
+      "service": 20242
+    },
+    "model": "user.servicet",
+    "pk": 20340
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EWO (Oberburg)",
+      "language": "fr",
+      "name": "Unterfachstelle EWO (Oberburg)",
+      "service": 20242
+    },
+    "model": "user.servicet",
+    "pk": 20341
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Swisscom (Oberburg)",
+      "language": "de",
+      "name": "Swisscom (Oberburg)",
+      "service": 20243
+    },
+    "model": "user.servicet",
+    "pk": 20342
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Swisscom (Oberburg)",
+      "language": "fr",
+      "name": "Swisscom (Oberburg)",
+      "service": 20243
+    },
+    "model": "user.servicet",
+    "pk": 20343
+  },
+  {
+    "fields": {
+      "city": "Worblaufen",
+      "description": "Swisscom Schweiz AG (Oberburg)",
+      "language": "de",
+      "name": "Swisscom Schweiz AG (Oberburg)",
+      "service": 20244
+    },
+    "model": "user.servicet",
+    "pk": 20344
+  },
+  {
+    "fields": {
+      "city": "Worblaufen",
+      "description": "Swisscom Schweiz AG (Oberburg)",
+      "language": "fr",
+      "name": "Swisscom Schweiz AG (Oberburg)",
+      "service": 20244
+    },
+    "model": "user.servicet",
+    "pk": 20345
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "SBB AG (Regierungsstatthalteramt Emmental)",
+      "language": "de",
+      "name": "SBB AG (Regierungsstatthalteramt Emmental)",
+      "service": 20245
+    },
+    "model": "user.servicet",
+    "pk": 20346
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "SBB AG (Regierungsstatthalteramt Emmental)",
+      "language": "fr",
+      "name": "SBB AG (Regierungsstatthalteramt Emmental)",
+      "service": 20245
+    },
+    "model": "user.servicet",
+    "pk": 20347
+  },
+  {
+    "fields": {
+      "city": "Ruederswil",
+      "description": "Wasserversorgung (R\u00fcderswil)",
+      "language": "de",
+      "name": "Wasserversorgung (R\u00fcderswil)",
+      "service": 20246
+    },
+    "model": "user.servicet",
+    "pk": 20348
+  },
+  {
+    "fields": {
+      "city": "Ruederswil",
+      "description": "Wasserversorgung (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Wasserversorgung (R\u00fcderswil)",
+      "service": 20246
+    },
+    "model": "user.servicet",
+    "pk": 20349
+  },
+  {
+    "fields": {
+      "city": "Ruederswil",
+      "description": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)",
+      "language": "de",
+      "name": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)",
+      "service": 20247
+    },
+    "model": "user.servicet",
+    "pk": 20350
+  },
+  {
+    "fields": {
+      "city": "Ruederswil",
+      "description": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Gemeinderat  (Strassen, \u00f6ffentliches Terrain) (R\u00fcderswil)",
+      "service": 20247
+    },
+    "model": "user.servicet",
+    "pk": 20351
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gastgewerbe (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle Gastgewerbe (Burgdorf)",
+      "service": 20248
+    },
+    "model": "user.servicet",
+    "pk": 20352
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gastgewerbe (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Gastgewerbe (Burgdorf)",
+      "service": 20248
+    },
+    "model": "user.servicet",
+    "pk": 20353
   }
 ]
