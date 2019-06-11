@@ -57,6 +57,30 @@
   },
   {
     "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 2
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1422
+  },
+  {
+    "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 41
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1428
+  },
+  {
+    "fields": {
+      "current_circulation_state": 41,
+      "next_circulation_state": 1
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1432
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 2,
       "description": "",
@@ -4915,6 +4939,216 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 939,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich"
+    },
+    "model": "core.action",
+    "pk": 1420
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 940,
+      "description": null,
+      "error_message": "Antwort konnte nicht gesendet werden!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Antwort erfolgreich gesendet"
+    },
+    "model": "core.action",
+    "pk": 1421
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 940,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation auf OK setzen",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1422
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 940,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1423
+  },
+  {
+    "fields": {
+      "available_action": "email",
+      "button": 940,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "E-Mail an Gesuchsteller schicken",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1424
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 940,
+      "description": null,
+      "error_message": null,
+      "execute_always": 1,
+      "name": "Weiterleitung zu Pendenzenliste",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1425
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 941,
+      "description": null,
+      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
+      "execute_always": 0,
+      "name": "CheckIfNFDPossible",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1426
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 941,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Save the Form",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1427
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 941,
+      "description": "Zirkulation in Nachforderung versetzen",
+      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
+      "execute_always": 0,
+      "name": "RUN - NFD",
+      "sort": 2,
+      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
+    },
+    "model": "core.action",
+    "pk": 1428
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 941,
+      "description": "Setzt das Datum vom NFD",
+      "error_message": null,
+      "execute_always": 0,
+      "name": "NFD Datum setzen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1429
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 941,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Im Workflow Datum Nachforderung setzen",
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1430
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 942,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1431
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 942,
+      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
+      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
+      "execute_always": 0,
+      "name": "NFD - RUN",
+      "sort": 1,
+      "success_message": "Dossier als vollst\u00e4ndig markiert!"
+    },
+    "model": "core.action",
+    "pk": 1432
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 942,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Dossier vollst\u00e4ndig Datum setzen",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1433
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 942,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Im Workflow Datum Dossier vollst\u00e4ndig setzen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1434
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -5363,6 +5597,17 @@
     },
     "model": "core.aemail",
     "pk": 1417
+  },
+  {
+    "fields": {
+      "query": "select * from \"PROJECT_SUBMITTER_DATA\" WHERE \"INSTANCE_ID\" = [INSTANCE_ID]",
+      "sender_email": "camac@ur.ch",
+      "sender_name": "Camac Kanton Uri",
+      "text": "CAMAC Info (automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nZIRKULATION ABGESCHLOSSEN\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDie Pr\u00fcfung Ihres Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) durch die kantonalen Fachstellen ist abgeschlossen. Die verbleidende Bearbeitungszeit bis zum Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde betr\u00e4gt voraussichtlich 14 Tage.\r\n\r\nAmt f\u00fcr Raumentwicklung\r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
+      "title": "Zirkulation abgeschlossen"
+    },
+    "model": "core.aemail",
+    "pk": 1424
   },
   {
     "fields": {
@@ -9426,6 +9671,15 @@
   },
   {
     "fields": {
+      "air_action_name": null,
+      "instance_resource": null,
+      "resource": 302
+    },
+    "model": "core.apageredirect",
+    "pk": 1425
+  },
+  {
+    "fields": {
       "php_class": "DossierNR"
     },
     "model": "core.aphp",
@@ -9829,6 +10083,34 @@
     },
     "model": "core.aphp",
     "pk": 1418
+  },
+  {
+    "fields": {
+      "php_class": "CircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1423
+  },
+  {
+    "fields": {
+      "php_class": "CheckIfNFDPossible"
+    },
+    "model": "core.aphp",
+    "pk": 1426
+  },
+  {
+    "fields": {
+      "php_class": "SetNFD"
+    },
+    "model": "core.aphp",
+    "pk": 1429
+  },
+  {
+    "fields": {
+      "php_class": "SetNFDComplete"
+    },
+    "model": "core.aphp",
+    "pk": 1433
   },
   {
     "fields": {
@@ -16696,6 +16978,87 @@
   },
   {
     "fields": {
+      "button": 939,
+      "instance_state": 23,
+      "role": 1102
+    },
+    "model": "core.broleacl",
+    "pk": 546
+  },
+  {
+    "fields": {
+      "button": 939,
+      "instance_state": 23,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 547
+  },
+  {
+    "fields": {
+      "button": 939,
+      "instance_state": 23,
+      "role": 1021
+    },
+    "model": "core.broleacl",
+    "pk": 548
+  },
+  {
+    "fields": {
+      "button": 940,
+      "instance_state": 23,
+      "role": 1102
+    },
+    "model": "core.broleacl",
+    "pk": 549
+  },
+  {
+    "fields": {
+      "button": 940,
+      "instance_state": 23,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 550
+  },
+  {
+    "fields": {
+      "button": 941,
+      "instance_state": 23,
+      "role": 1102
+    },
+    "model": "core.broleacl",
+    "pk": 551
+  },
+  {
+    "fields": {
+      "button": 941,
+      "instance_state": 23,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 552
+  },
+  {
+    "fields": {
+      "button": 942,
+      "instance_state": 23,
+      "role": 1102
+    },
+    "model": "core.broleacl",
+    "pk": 553
+  },
+  {
+    "fields": {
+      "button": 942,
+      "instance_state": 23,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 554
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -18952,6 +19315,54 @@
     },
     "model": "core.button",
     "pk": 938
+  },
+  {
+    "fields": {
+      "class_field": "circ_save_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 764,
+      "name": "Antwort Speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 939
+  },
+  {
+    "fields": {
+      "class_field": "circ_send_button no-animation",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 764,
+      "name": "Antwort Senden",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 940
+  },
+  {
+    "fields": {
+      "class_field": "circ_nfd_button",
+      "description": "Button, der die Zirkulation in Nachforderung setzt f\u00fcr diese Vernehmlassungsstelle",
+      "hidden": 0,
+      "instance_resource": 764,
+      "name": "Nachforderung",
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 941
+  },
+  {
+    "fields": {
+      "class_field": "circ_complete_button",
+      "description": "Button, wenn die Nachforderung erledigt ist",
+      "hidden": 0,
+      "instance_resource": 764,
+      "name": "Dossier vollst\u00e4ndig",
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 942
   },
   {
     "fields": {
@@ -24939,7 +25350,7 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "class_field": null,
-      "description": null,
+      "description": "R\u00fcckmeldung von Dossier Gemeinde",
       "form_group": 161,
       "hidden": 0,
       "name": "R\u00fcckmeldung",
@@ -25029,10 +25440,10 @@
     "fields": {
       "available_instance_resource": "editnotice",
       "class_field": null,
-      "description": "Stellungnahme Dossiers von der Bundesstelle",
+      "description": "R\u00fcckmeldung Dossiers der Bundesstelle",
       "form_group": 256,
       "hidden": 0,
-      "name": "Stellungnahme",
+      "name": "R\u00fcckmeldung Bundesstelle",
       "resource": 302,
       "sort": 10,
       "template": null
@@ -43214,6 +43625,22 @@
     },
     "model": "core.workflowaction",
     "pk": 1419
+  },
+  {
+    "fields": {
+      "multi_value": 2,
+      "workflow_item": 42
+    },
+    "model": "core.workflowaction",
+    "pk": 1430
+  },
+  {
+    "fields": {
+      "multi_value": 2,
+      "workflow_item": 14
+    },
+    "model": "core.workflowaction",
+    "pk": 1434
   },
   {
     "fields": {
