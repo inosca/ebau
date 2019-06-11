@@ -24,10 +24,5 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       component: "be-documents-form",
       type: "FormQuestion"
     });
-    this.calumaOptions.registerComponentOverride({
-      label: "Freigabequittung: Zu unterzeichnende Dokumente",
-      component: "be-documents-to-sign",
-      type: "StaticQuestion"
-    });
   }
 });
