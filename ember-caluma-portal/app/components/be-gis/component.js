@@ -39,13 +39,14 @@ const KEYS_SIMPLE = [
 const KEYS_SIMPLE_HASH = {
   [KEY_SIMPLE_COORD_NORTH]: KEY_TABLE_COORD_NORTH,
   [KEY_SIMPLE_COORD_EAST]: KEY_TABLE_COORD_EAST
-}
+};
 
 const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
 const FIELD_MAP = {
   ARCHINV_FUNDST: {
-    path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
+    path:
+      "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
     values: {
       true: "gebiet-mit-archaeologischen-objekten-ja",
       false: "gebiet-mit-archaeologischen-objekten-nein"
@@ -59,7 +60,8 @@ const FIELD_MAP = {
     }
   },
   BAUINV_BAUINV_VW: {
-    path: "parent.zonenvorschriften-schutzzonen.handelt-es-sich-um-ein-baudenkmal",
+    path:
+      "parent.zonenvorschriften-schutzzonen.handelt-es-sich-um-ein-baudenkmal",
     values: {
       true: "handelt-es-sich-um-ein-baudenkmal-ja",
       false: "handelt-es-sich-um-ein-baudenkmal-nein"
@@ -94,14 +96,16 @@ const FIELD_MAP = {
     path: "parent.zonenvorschriften-baurechtliche-grundordnung.nutzungszone"
   },
   UZP_LSG_VW: {
-    path: "parent.zonenvorschriften-schutzzonen.objekt-des-besonderen-landschaftsschutzes",
+    path:
+      "parent.zonenvorschriften-schutzzonen.objekt-des-besonderen-landschaftsschutzes",
     values: {
       true: "objekt-des-besonderen-landschaftsschutzes-ja",
       false: "objekt-des-besonderen-landschaftsschutzes-nein"
     }
   },
   UZP_UEO_VW: {
-    path: "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
+    path:
+      "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
   }
 };
 
@@ -175,9 +179,9 @@ export default Component.extend({
       );
       // Find the E-Grid field of the first parcel.
       const rows = table && table.answer.rowDocuments;
-      const field = rows && rows[0].fields.find(
-        field => field.question.slug === KEY_TABLE_EGRID
-      );
+      const field =
+        rows &&
+        rows[0].fields.find(field => field.question.slug === KEY_TABLE_EGRID);
       // Set the selection and egrid variables.
       const selection = field && field.answer.value;
       const egrid = selection ? selection : "EGRID";
@@ -242,7 +246,7 @@ export default Component.extend({
       return;
     }
 
-    const [action,,features] = event.data;
+    const [action, , features] = event.data;
 
     switch (action) {
       case "ADDREMOVE":
@@ -323,9 +327,9 @@ export default Component.extend({
             parcel[KEY_TABLE_BAURECHT] = oldParcel[KEY_TABLE_BAURECHT];
           } else {
             // Take all the other values and overwrite the "Baurecht" ones
-            parcel[KEY_TABLE_PARCEL]      = oldParcel[KEY_TABLE_PARCEL];
-            parcel[KEY_TABLE_EGRID]       = oldParcel[KEY_TABLE_EGRID];
-            parcel[KEY_TABLE_COORD_EAST]  = oldParcel[KEY_TABLE_COORD_EAST];
+            parcel[KEY_TABLE_PARCEL] = oldParcel[KEY_TABLE_PARCEL];
+            parcel[KEY_TABLE_EGRID] = oldParcel[KEY_TABLE_EGRID];
+            parcel[KEY_TABLE_COORD_EAST] = oldParcel[KEY_TABLE_COORD_EAST];
             parcel[KEY_TABLE_COORD_NORTH] = oldParcel[KEY_TABLE_COORD_NORTH];
           }
         }
@@ -345,21 +349,24 @@ export default Component.extend({
    * @method populateFields
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  populateFields: task(function* (parcels) {
+  populateFields: task(function*(parcels) {
     const [parcel] = parcels;
-    const fields = this.field.document.fields.filter(
-      field => KEYS_SIMPLE.includes(field.question.slug)
+    const fields = this.field.document.fields.filter(field =>
+      KEYS_SIMPLE.includes(field.question.slug)
     );
 
-    yield all(fields.map(async field => {
-      const slug = KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
-      const value = String(parcel[slug]);
+    yield all(
+      fields.map(async field => {
+        const slug =
+          KEYS_SIMPLE_HASH[field.question.slug] || field.question.slug;
+        const value = String(parcel[slug]);
 
-      if (value !== null && value.length > 0) {
-        field.answer.set("value", value);
-        return field.save.perform();
-      }
-    }));
+        if (value !== null && value.length > 0) {
+          field.answer.set("value", value);
+          return field.save.perform();
+        }
+      })
+    );
   }),
 
   /**
@@ -370,7 +377,7 @@ export default Component.extend({
    * @method populateTable
    * @param {Array} parcels The parcels prepared by `addremoveResult`.
    */
-  populateTable: task(function* (parcels) {
+  populateTable: task(function*(parcels) {
     // Locate the target table for the parcel data.
     const table = this.field.document.fields.find(
       field => field.question.slug === KEY_TABLE_QUESTION
@@ -386,48 +393,55 @@ export default Component.extend({
     const rows = [];
 
     // Create, populate, and add a new row for each parcel.
-    yield all(parcels.map(async parcel => {
-      const newDocumentRaw = await this.apollo.mutate(
-        mutation,
-        "saveDocument.document"
-      );
-      const newDocument = this.documentStore.find(newDocumentRaw);
+    yield all(
+      parcels.map(async parcel => {
+        const newDocumentRaw = await this.apollo.mutate(
+          mutation,
+          "saveDocument.document"
+        );
+        const newDocument = this.documentStore.find(newDocumentRaw);
 
-      const fields = newDocument.fields.filter(
-        field => KEYS_TABLE.includes(field.question.slug)
-      );
+        const fields = newDocument.fields.filter(field =>
+          KEYS_TABLE.includes(field.question.slug)
+        );
 
-      await all(fields.map(async field => {
-        const slug = field.question.slug;
-        const value = String(parcel[slug]);
+        await all(
+          fields.map(async field => {
+            const slug = field.question.slug;
+            const value = String(parcel[slug]);
 
-        if (value !== null && value.length > 0) {
-          field.answer.set("value", value);
-          return field.save.perform();
-        }
-      }));
+            if (value !== null && value.length > 0) {
+              field.answer.set("value", value);
+              return field.save.perform();
+            }
+          })
+        );
 
-      rows.push(newDocument);
-    }));
+        rows.push(newDocument);
+      })
+    );
 
     table.answer.set("rowDocuments", rows);
     table.answer.set("value", rows.map(doc => doc.id));
     table.save.perform();
   }),
 
-  fetchAdditionalData: task(function* (parcels) {
+  fetchAdditionalData: task(function*(parcels) {
     this.set("gisData", A());
 
-    const responses = yield all(parcels.map(async parcel =>
-      await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
-    ));
+    const responses = yield all(
+      parcels.map(
+        async parcel =>
+          await this.fetch.fetch(`/api/v1/egrid/${parcel[KEY_TABLE_EGRID]}`)
+      )
+    );
 
     const success = responses.every(response => response.ok);
 
     if (success) {
-      const data_raw = (
-        yield all(responses.map(response => response.json()))
-      ).map(json => json.data);
+      const data_raw = (yield all(
+        responses.map(response => response.json())
+      )).map(json => json.data);
 
       const data_gis = reduceArrayValues(data_raw);
 
@@ -450,9 +464,9 @@ export default Component.extend({
         } else if (type === "MultipleChoiceQuestion") {
           value = Array.isArray(value) ? value : [value];
           value = value.map(val => values_map[val]);
-          value_pretty = field.question.multipleChoiceOptions.edges.filter(
-            edge => edge.node.slug.includes(value)
-          ).map(edge => edge.node.label);
+          value_pretty = field.question.multipleChoiceOptions.edges
+            .filter(edge => edge.node.slug.includes(value))
+            .map(edge => edge.node.label);
         } else if (Array.isArray(value)) {
           value = value.join(", ");
           value_pretty = value;
@@ -488,9 +502,7 @@ export default Component.extend({
       if (this.parcels && this.parcels.length) {
         if (this.field.question.slug === KEY_SIMPLE_MAP) {
           if (this.parcels.length > 1) {
-            this.notification.danger(
-              this.intl.t("gis.notifications.max-one")
-            );
+            this.notification.danger(this.intl.t("gis.notifications.max-one"));
           } else {
             this.populateFields.perform(this.parcels);
           }
@@ -505,9 +517,7 @@ export default Component.extend({
           }
         }
       } else {
-        this.notification.danger(
-          this.intl.t("gis.notifications.min-one")
-        );
+        this.notification.danger(this.intl.t("gis.notifications.min-one"));
       }
     },
     saveAdditionalData() {
