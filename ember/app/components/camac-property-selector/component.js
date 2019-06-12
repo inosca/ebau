@@ -73,20 +73,19 @@ const PARCEL_LAYER =
   "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon";
 
 const CENTER = [47.020714, 8.652988];
-const BOUNDS = [[47.486735, 8.21091], [46.77421, 9.20474]];
 
 const LatLngToEPSG3857 = (lat, lng) =>
   L.CRS.EPSG3857.project(L.latLng(lat, lng));
 const EPSG2056toLatLng = (x, y) => L.CRS.EPSG2056.unproject(new L.point(x, y));
 
 export default Component.extend({
+  crs: L.CRS.EPSG2056,
   lat: CENTER[0],
   lng: CENTER[1],
-  zoom: 11,
-  opacity: 0.9,
-  minZoom: 10,
+  zoom: 0,
+  minZoom: 0,
+  maxZoom: 11,
   layers: LAYERS.join(","),
-  maxBounds: BOUNDS,
   points: A(),
   parcels: A(),
   affectedLayers: null,
@@ -101,7 +100,6 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-
     this.initSelection.perform();
   },
 
