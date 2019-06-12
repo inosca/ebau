@@ -1137,6 +1137,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "02e4cf5b-e831-4ae2-a263-aa5cb2bfa1cf",
+    "fields": {
+      "created_at": "2019-06-12T14:57:04.557Z",
+      "modified_at": "2019-06-12T14:57:04.557Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bauvorhaben-separator",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0316b91f-15d4-426c-9ce4-64b4cbd90488",
     "fields": {
       "created_at": "2019-05-13T12:45:45.286Z",
@@ -1302,6 +1315,19 @@
       "form": "vertreterin-mit-vollmacht",
       "question": "e-mail-vertreterin",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "07b607b0-3409-405f-9781-fb5190acb77e",
+    "fields": {
+      "created_at": "2019-06-12T13:10:01.264Z",
+      "modified_at": "2019-06-12T13:10:01.264Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dach-farbe",
+      "sort": 6
     }
   },
   {
@@ -1566,6 +1592,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "10422480-c901-465e-ad4c-e2e4cc254e6c",
+    "fields": {
+      "created_at": "2019-06-12T13:08:00.626Z",
+      "modified_at": "2019-06-12T13:08:00.626Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fassaden-material",
+      "sort": 12
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "10c1ff1b-bd71-4629-8cc8-929184eca9d2",
     "fields": {
       "created_at": "2019-04-02T09:09:51.879Z",
@@ -1614,6 +1653,19 @@
       "form": "art-der-emmission-tabelle",
       "question": "feuerwaermleistung-in-kw",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "115fa9f8-b9af-4fd9-9f4e-1a608f9ecf67",
+    "fields": {
+      "created_at": "2019-06-12T13:09:28.993Z",
+      "modified_at": "2019-06-12T13:09:28.993Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dach-neigung",
+      "sort": 8
     }
   },
   {
@@ -3191,6 +3243,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "39e85c8d-5359-4284-b56d-9ebe63b0236f",
+    "fields": {
+      "created_at": "2019-06-12T12:53:17.120Z",
+      "modified_at": "2019-06-12T12:53:17.120Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "bisherige-nutzung",
+      "sort": 19
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "3a557ec4-3270-4222-af42-48a5538785ae",
     "fields": {
       "created_at": "2019-04-04T11:02:34.111Z",
@@ -3316,7 +3381,7 @@
       "created_by_group": null,
       "form": "bauvorhaben",
       "question": "beschreibung-bauvorhaben",
-      "sort": 5
+      "sort": 20
     }
   },
   {
@@ -3945,6 +4010,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "50e6aff2-a643-4b67-a7fe-ca32ba56124b",
+    "fields": {
+      "created_at": "2019-06-12T13:02:50.079Z",
+      "modified_at": "2019-06-12T13:02:50.079Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "tragkonstruktion",
+      "sort": 18
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "51930c42-9dda-4ab2-96fd-30ee4e34f42c",
     "fields": {
       "created_at": "2019-04-17T07:49:46.409Z",
@@ -4188,6 +4266,19 @@
       "form": "gewaesserschutz-grundstueckentwaesserung",
       "question": "platz-und-verkehrsflaechen",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "56dc59ab-aaae-4d0b-b85a-028e9774082e",
+    "fields": {
+      "created_at": "2019-06-12T13:03:22.968Z",
+      "modified_at": "2019-06-12T13:03:22.968Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "tragkonstruktion-stuetzen",
+      "sort": 16
     }
   },
   {
@@ -6597,6 +6688,32 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "9cd56455-e390-4461-a052-8a8a6fd5d89f",
+    "fields": {
+      "created_at": "2019-06-12T13:04:38.408Z",
+      "modified_at": "2019-06-12T13:04:38.408Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "tragkonstruktion-waende",
+      "sort": 15
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "9d34fc56-b887-4184-bf24-4094d4fd44ba",
+    "fields": {
+      "created_at": "2019-06-12T13:07:47.520Z",
+      "modified_at": "2019-06-12T13:07:47.520Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fassaden",
+      "sort": 13
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "9d6a1c82-60db-431f-b021-0f2927c2b9b1",
     "fields": {
       "created_at": "2019-05-03T16:46:38.100Z",
@@ -7065,6 +7182,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "ad4aa1d0-02c9-46d9-8adb-b808ff7dd34b",
+    "fields": {
+      "created_at": "2019-06-12T12:55:59.734Z",
+      "modified_at": "2019-06-12T12:55:59.734Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fundation-system",
+      "sort": 17
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "ad583b3b-93a8-457f-850a-3cdacd3e1e75",
     "fields": {
       "created_at": "2019-05-13T12:46:09.192Z",
@@ -7217,6 +7347,19 @@
       "form": "waermepumpen",
       "question": "kaelteleistung-luft",
       "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "b1864004-8097-4cbe-b72a-735de5097c85",
+    "fields": {
+      "created_at": "2019-06-12T13:09:45.561Z",
+      "modified_at": "2019-06-12T13:09:45.561Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dach-material",
+      "sort": 7
     }
   },
   {
@@ -9145,6 +9288,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "e776815d-41b0-420a-8bd3-64303c2c09ac",
+    "fields": {
+      "created_at": "2019-06-12T13:08:12.611Z",
+      "modified_at": "2019-06-12T13:08:12.611Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "fassaden-farbe",
+      "sort": 11
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "e7772b92-2f70-4ba5-a92a-b05a61bbb4bc",
     "fields": {
       "created_at": "2019-05-13T12:45:20.901Z",
@@ -9444,6 +9600,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "eddba5ea-9354-4a0c-98af-1f94d9f476a7",
+    "fields": {
+      "created_at": "2019-06-12T13:08:51.890Z",
+      "modified_at": "2019-06-12T13:08:51.890Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dach",
+      "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "ee252db7-8d2b-4829-9154-7e8849391677",
     "fields": {
       "created_at": "2019-04-03T11:59:51.704Z",
@@ -9569,7 +9738,7 @@
       "created_by_group": null,
       "form": "bauvorhaben",
       "question": "baubeschrieb",
-      "sort": 6
+      "sort": 21
     }
   },
   {
@@ -9622,6 +9791,19 @@
       "form": "grundeigentumerin",
       "question": "plz-grundeigentuemerin",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "f3150e54-cfe1-49bd-8417-10dba50da927",
+    "fields": {
+      "created_at": "2019-06-12T13:07:02.439Z",
+      "modified_at": "2019-06-12T13:07:02.439Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "tragkonstruktion-decken",
+      "sort": 14
     }
   },
   {
@@ -10012,6 +10194,19 @@
       "form": "bauvorhaben",
       "question": "vorbereitende-massnahmen",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "fca5781b-2ee0-489a-9f7f-ce4bc5a8b849",
+    "fields": {
+      "created_at": "2019-06-12T13:09:14.362Z",
+      "modified_at": "2019-06-12T13:09:14.362Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "bauvorhaben",
+      "question": "dach-form",
+      "sort": 9
     }
   },
   {
@@ -12639,6 +12834,31 @@
   },
   {
     "model": "form.question",
+    "pk": "bauvorhaben-separator",
+    "fields": {
+      "created_at": "2019-06-12T14:57:04.486Z",
+      "modified_at": "2019-06-12T14:57:04.486Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"bauvorhaben-separator\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"***\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "be-gid",
     "fields": {
       "created_at": "2019-03-28T14:56:01.542Z",
@@ -13963,6 +14183,31 @@
   },
   {
     "model": "form.question",
+    "pk": "bisherige-nutzung",
+    "fields": {
+      "created_at": "2019-06-12T12:53:17.047Z",
+      "modified_at": "2019-06-12T12:53:17.047Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Bisherige Nutzung\"}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "bodenschutz",
     "fields": {
       "created_at": "2019-04-02T07:46:40.801Z",
@@ -14366,6 +14611,131 @@
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": null },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dach",
+    "fields": {
+      "created_at": "2019-06-12T13:08:51.799Z",
+      "modified_at": "2019-06-12T13:08:51.799Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Dach\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"***\\n**Dach**\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dach-farbe",
+    "fields": {
+      "created_at": "2019-06-12T13:10:01.179Z",
+      "modified_at": "2019-06-12T13:10:01.179Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Farbe\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dach-form",
+    "fields": {
+      "created_at": "2019-06-12T13:09:14.284Z",
+      "modified_at": "2019-06-12T13:09:14.284Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Form\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dach-material",
+    "fields": {
+      "created_at": "2019-06-12T13:09:45.474Z",
+      "modified_at": "2019-06-12T13:09:45.474Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Material\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dach-neigung",
+    "fields": {
+      "created_at": "2019-06-12T13:09:28.922Z",
+      "modified_at": "2019-06-12T13:09:28.922Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Neigung\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -15932,6 +16302,31 @@
   },
   {
     "model": "form.question",
+    "pk": "fassaden",
+    "fields": {
+      "created_at": "2019-06-12T13:07:47.442Z",
+      "modified_at": "2019-06-12T13:07:47.442Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Fassaden\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"***\\n**Fassaden**\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "fassaden-ansichten-dokument",
     "fields": {
       "created_at": "2019-05-13T11:50:03.751Z",
@@ -15952,6 +16347,56 @@
         "widgetOverride": null,
         "documentCategory": "plaene"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "fassaden-farbe",
+    "fields": {
+      "created_at": "2019-06-12T13:08:12.522Z",
+      "modified_at": "2019-06-12T13:08:12.522Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Farbe\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "fassaden-material",
+    "fields": {
+      "created_at": "2019-06-12T13:08:00.539Z",
+      "modified_at": "2019-06-12T13:08:00.539Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Material\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -16509,6 +16954,31 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "fundation-system",
+    "fields": {
+      "created_at": "2019-06-12T12:55:59.636Z",
+      "modified_at": "2019-06-12T12:55:59.636Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"System der Fundation\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
       "meta": {},
       "data_source": null,
       "row_form": null,
@@ -27279,6 +27749,106 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"***\\n**Total**\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "tragkonstruktion",
+    "fields": {
+      "created_at": "2019-06-12T13:02:49.965Z",
+      "modified_at": "2019-06-12T13:05:36.286Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Tragkonstruktion\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"***\\n**Tragkonstruktion**\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "tragkonstruktion-decken",
+    "fields": {
+      "created_at": "2019-06-12T13:07:02.372Z",
+      "modified_at": "2019-06-12T13:07:02.372Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Decken\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "tragkonstruktion-stuetzen",
+    "fields": {
+      "created_at": "2019-06-12T13:03:22.873Z",
+      "modified_at": "2019-06-12T13:03:22.874Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"St\\u00fctzen\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "tragkonstruktion-waende",
+    "fields": {
+      "created_at": "2019-06-12T13:04:38.332Z",
+      "modified_at": "2019-06-12T13:04:38.332Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"W\\u00e4nde\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
       "meta": {},
       "data_source": null,
       "row_form": null,
