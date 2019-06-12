@@ -47486,16 +47486,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Wasserbau - Pendenzen Baudirektion",
-      "phone": "",
+      "email": null,
+      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Infrastruktur - Pendenzen Baudirektion",
+      "phone": null,
       "role": 1021,
       "service": 41,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 173
@@ -48270,32 +48270,32 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Wasserbau - Direkt zugewiesene Pendenzen",
-      "phone": "",
+      "email": null,
+      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Infrastruktur - Direkt zugewiesene Pendenzen",
+      "phone": null,
       "role": 4,
       "service": 303,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 422
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Strassen - Pendenzen Baudirektion",
-      "phone": "",
+      "email": null,
+      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Projekte - Pendenzen Baudirektion",
+      "phone": null,
       "role": 1021,
       "service": 41,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 442
@@ -48718,16 +48718,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Strassen - Direkt zugewiesene Pendenzen",
-      "phone": "",
+      "email": null,
+      "name": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Projekte - Direkt zugewiesene Pendenzen",
+      "phone": null,
       "role": 4,
       "service": 304,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 544
@@ -52346,38 +52346,38 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
-      "description": "Baudirektion Abteilung Wasserbau",
+      "address": null,
+      "city": null,
+      "description": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Infrastruktur",
       "disabled": 0,
-      "email": "",
-      "name": "WB",
+      "email": null,
+      "name": "AfT Abteilung Infrastruktur",
       "notification": 1,
-      "phone": "",
+      "phone": null,
       "service_group": 2,
       "service_parent": null,
       "sort": 122,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.service",
     "pk": 303
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
-      "description": "Baudirektion Abteilung Strassen",
+      "address": null,
+      "city": null,
+      "description": "Baudirektion Amt f\u00fcr Tiefbau Abteilung Projekte",
       "disabled": 0,
-      "email": "",
-      "name": "AS",
+      "email": null,
+      "name": "AfT Abteilung Projekte",
       "notification": 1,
-      "phone": "",
+      "phone": null,
       "service_group": 2,
       "service_parent": null,
       "sort": 127,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.service",
     "pk": 304
