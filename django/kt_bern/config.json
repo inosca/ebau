@@ -3429,10 +3429,10 @@
     "fields": {
       "action": 10036,
       "description": null,
-      "error_message": null,
+      "error_message": "Beim Senden der E-Mail Notifikation an die Gesuchstellenden ist ein Fehler aufgetreten",
       "language": "de",
       "name": "Email: Zur\u00fcckgewiesen",
-      "success_message": null
+      "success_message": "E-Mail an Gesuchstellende gesendet"
     },
     "model": "core.actiont",
     "pk": 10036
@@ -3957,9 +3957,9 @@
     "fields": {
       "action": 20041,
       "description": null,
-      "error_message": "Beim Zur\u00fcckweisen ist ein Fehler aufgetreten",
+      "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
       "language": "de",
-      "name": "Go to state B (rejected)",
+      "name": "Reset State to New",
       "success_message": "Dossier erfolgreich zur\u00fcckgewiesen"
     },
     "model": "core.actiont",
@@ -4425,7 +4425,7 @@
     "fields": {
       "action": 20081,
       "description": null,
-      "error_message": null,
+      "error_message": "Beim Erfassen vom Journal-Eintrag ist ein Fehler aufgetreten",
       "language": "de",
       "name": "Dossier zur\u00fcckgewiesen",
       "success_message": null
@@ -5864,7 +5864,7 @@
   {
     "fields": {
       "current_instance_state": null,
-      "next_instance_state": 10000
+      "next_instance_state": 20000
     },
     "model": "core.aformtransition",
     "pk": 20041
@@ -43408,7 +43408,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 33,
+      "sort": 34,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43423,7 +43423,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 34,
+      "sort": 35,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43753,7 +43753,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 32,
+      "sort": 33,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43828,7 +43828,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 36,
+      "sort": 37,
       "template": "/responsible/index.phtml"
     },
     "model": "core.instanceresource",
@@ -43858,7 +43858,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 38,
+      "sort": 39,
       "template": null
     },
     "model": "core.instanceresource",
@@ -43975,10 +43975,10 @@
       "class_field": null,
       "description": null,
       "form_group": 40000,
-      "hidden": 1,
+      "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 22,
+      "sort": 23,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44008,7 +44008,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 27,
+      "sort": 28,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44023,7 +44023,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 28,
+      "sort": 29,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -44038,7 +44038,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 29,
+      "sort": 30,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44053,7 +44053,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 30,
+      "sort": 31,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44068,7 +44068,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 31,
+      "sort": 32,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -44128,7 +44128,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 23,
+      "sort": 24,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -44143,7 +44143,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 25,
+      "sort": 26,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -44158,7 +44158,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 24,
+      "sort": 25,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44173,7 +44173,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 26,
+      "sort": 27,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -44646,6 +44646,21 @@
   },
   {
     "fields": {
+      "available_instance_resource": "page",
+      "class_field": null,
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 2,
+      "sort": 22,
+      "template": "/reject/reject-instance.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 20074
+  },
+  {
+    "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
       "description": null,
@@ -44968,7 +44983,7 @@
       "hidden": 0,
       "name": null,
       "resource": 2,
-      "sort": 37,
+      "sort": 38,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -45178,7 +45193,7 @@
       "hidden": 1,
       "name": null,
       "resource": 2,
-      "sort": 35,
+      "sort": 36,
       "template": "/file/add-complement-request.phtml"
     },
     "model": "core.instanceresource",
@@ -48935,6 +48950,16 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_resource": 20074,
+      "language": "de",
+      "name": "Dossier zur\u00fcckweisen"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20074
+  },
+  {
+    "fields": {
       "description": "Nutzung Bauvorhaben",
       "instance_resource": 40000,
       "language": "de",
@@ -50056,6 +50081,13 @@
     },
     "model": "core.irpage",
     "pk": 20072
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 20074
   },
   {
     "fields": {
@@ -64099,6 +64131,33 @@
     },
     "model": "core.irroleacl",
     "pk": 21655
+  },
+  {
+    "fields": {
+      "instance_resource": 20074,
+      "instance_state": 20000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21656
+  },
+  {
+    "fields": {
+      "instance_resource": 20074,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21657
+  },
+  {
+    "fields": {
+      "instance_resource": 20074,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 21658
   },
   {
     "fields": {
@@ -142842,7 +142901,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag \r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) gepr\u00fcft. Die Verf\u00fcgung finden Sie in den eBau-Dokumenten:\r\n\r\n{{BASE_URL}}/file/index/list/instance-resource-id/10015/instance-id/{{INSTANCE_ID}}\r\n\r\nFreundliche Gr\u00fcsse\r\n",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Gesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Gesuch kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{BASE_URL_PORTAL}}/instances/{{INSTANCE_ID}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:",
       "language": "de",
       "purpose": "02 Baugesuch aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
       "subject": "Baugesuch aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}})",
