@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+      <style>
+        .stamp-document {
+          fill: none;
+          stroke: #999;
+          stroke-width: 0.5px;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+      </style>
+  </defs>
+  <line class="stamp-document" x1="56.47" y1="72.38" x2="45.26" y2="72.38" />
+  <path class="stamp-document" d="M44.05,32.12V28.83a1.21,1.21,0,0,1,1.21-1.21H70.67a1.21,1.21,0,0,1,.5.1,1,1,0,0,1,.36.25l5.34,5.34a1.17,1.17,0,0,1,.35.85v37A1.21,1.21,0,0,1,76,72.38H60.16" />
+  <path class="stamp-document" d="M63,64.53a6.06,6.06,0,1,0-.81-3.18" />
+  <polyline class="stamp-document" points="65.23 61.49 67.65 63.91 71.58 59.38" />
+  <line class="stamp-document" x1="70.67" y1="42.13" x2="52.14" y2="42.13" />
+  <line class="stamp-document" x1="53.63" y1="38.5" x2="61.66" y2="38.5" />
+  <line class="stamp-document" x1="51.92" y1="45.76" x2="70.67" y2="45.76" />
+  <line class="stamp-document" x1="51.92" y1="49.39" x2="70.67" y2="49.39" />
+  <path class="stamp-document" d="M71.17,32.56a1.1,1.1,0,0,0,1.1,1.1h4.84a1.21,1.21,0,0,0-.24-.35L71.53,28a1.08,1.08,0,0,0-.36-.24Z" />
+  <path class="stamp-document" d="M60.28,67.65a1.09,1.09,0,0,1-1.09,1.1H23.87a1.09,1.09,0,0,1-1.09-1.1v-3a4.39,4.39,0,0,1,4.39-4.4H55.88a4.39,4.39,0,0,1,4.4,4.4Z" />
+  <path class="stamp-document" d="M47.2,44.55H35.86a2.19,2.19,0,0,1-.77-.14c.59,1.23,2.21,5.54,2.21,15.87h8.46C45.76,50,47.38,45.64,48,44.41A2.19,2.19,0,0,1,47.2,44.55Z" />
+  <path class="stamp-document" d="M57.51,71.63a1.1,1.1,0,0,1-1,.75H26.59a1.1,1.1,0,0,1-1-.75l-1-2.88H58.47Z" />
+  <line class="stamp-document" x1="37.22" y1="56.65" x2="45.83" y2="56.65" />
+  <rect class="stamp-document" x="33.66" y="34.87" width="15.73" height="9.68" rx="2.2" ry="2.2" />
+</svg>
