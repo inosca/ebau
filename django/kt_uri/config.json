@@ -51001,6 +51001,30 @@
   },
   {
     "fields": {
+      "group": 812,
+      "location": 2
+    },
+    "model": "user.grouplocation",
+    "pk": 177
+  },
+  {
+    "fields": {
+      "group": 812,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 178
+  },
+  {
+    "fields": {
+      "group": 812,
+      "location": 8
+    },
+    "model": "user.grouplocation",
+    "pk": 179
+  },
+  {
+    "fields": {
       "communal_cantonal_number": 1,
       "communal_federal_number": "1201",
       "commune_name": "Altdorf (UR)",
