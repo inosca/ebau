@@ -22819,14 +22819,6 @@
   },
   {
     "fields": {
-      "form": 261,
-      "form_group": 31
-    },
-    "model": "core.formgroupform",
-    "pk": 248
-  },
-  {
-    "fields": {
       "form": 61,
       "form_group": 253
     },
