@@ -1,6 +1,6 @@
 {{#let data.lastSuccessful.value.firstObject.node as |case|}}
   {{#cf-content
-    documentId=(atob case.document.id)
+    documentId=(decode-id case.document.id)
     disabled=(or (eq case.status "COMPLETED") isEmbedded)
     context=(hash
       caseId=case.id
