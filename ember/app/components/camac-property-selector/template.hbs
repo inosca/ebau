@@ -62,16 +62,17 @@
     <div class="uk-width-1-1 uk-height-large uk-margin"></div>
   {{else}}
     {{#leaflet-map
+      crs       = crs
       lat       = lat
       lng       = lng
       zoom      = zoom
       minZoom   = minZoom
-      maxBounds = maxBounds
+      maxZoom   = maxZoom
       onClick   = (perform addPoint)
       onLoad    = (perform handleLoad)
       class     = 'uk-width-1-1 uk-height-large uk-margin'
     as |map|}}
-      {{map.tile url='https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-farbe/default/current/3857/{z}/{x}/{y}.jpeg'}}
+      {{map.tile url='https://tile0.map.geo.sz.ch/main/tiles/1.0.0/ch_sz_avg_ortsplan_farbig/default/201610/swissgrid_2056/{z}/{y}/{x}.png' zoomOffset=3}}
 
       {{map.wms-tile
         transparent = true
