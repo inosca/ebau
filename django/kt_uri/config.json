@@ -45141,6 +45141,16 @@
   },
   {
     "fields": {
+      "name": "Interne Dokumente ARE NP (nur f\u00fcr Fachstelle ARE NP sichtbar)",
+      "notification_template": null,
+      "recipient_types": null,
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 102
+  },
+  {
+    "fields": {
       "attachment_section": 21,
       "mode": "read",
       "role": 7
@@ -46056,6 +46066,15 @@
     },
     "model": "document.attachmentsectionserviceacl",
     "pk": 120
+  },
+  {
+    "fields": {
+      "attachment_section": 102,
+      "mode": "write",
+      "service": 90
+    },
+    "model": "document.attachmentsectionserviceacl",
+    "pk": 121
   },
   {
     "fields": {
