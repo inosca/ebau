@@ -37,6 +37,8 @@ test-ember-caluma-portal:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
         - eval $COMPOSE build --pull ember-caluma-portal
+        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn lint:js
+        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn lint:hbs
         - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test
 
 test-django:
