@@ -1170,7 +1170,7 @@
     },
     "kategorie-des-vorhabens": {
       "label": "Handelt es sich beim Vorhaben um eine Baute oder / und Anlage?",
-      "hint": "**Vorbemerkung:** Wenn Ihr Vorhaben *Baute(n)* und *Anlage(n)* beinhaltet, müssen Sie beides ankreuzen. Nur so werden jene Fragen ausgelöst, welche für die Eingabe Ihres Vorhabens beantwortet werden müssen.\nBeispiel: Falls Sie ein Baugesuch für ein Einfamilienhaus eingeben möchten und Sie eine Wärmepumpe oder eine Photovoltaikanlage vorgesehen haben, müssen Sie *Baute(n)* __und__ *Anlage(n)* ankreuzen.\n\n**Baute(n):** Als Baute wird ein Gebäude oder eine überdachte bauliche Einrichtung qualifiziert, welche Menschen, Tieren oder Sachen gegen äussere Einflüsse zu schützen vermag und mehr oder weniger abgeschlossen ist. Wände sind nicht Voraussetzung, doch muss in jedem Fall zumindest ein schutzbietendes Dach vorhanden sein, selbst wenn es nur auf Pfosten steht. So gilt eine Pergola mit festem Dach als Baute. \n\n**Anlage(n):** Als Anlagen gelten demgegenüber befestigte Flächen, offene Materiallagerplätze, Geländeveränderungen, Stützmauern, klassische Pergolen, Leitungen, offene Schwimmbäder, Silos, ortsfeste Krananlagen und auch technische Geräte wie Wärmepumpen. Diese Aufzählung ist nicht abschliessend.",
+      "hint": "**Vorbemerkung:** Wenn Ihr Vorhaben *Baute(n)* und *Anlage(n)* beinhaltet, müssen Sie beides ankreuzen. Nur so werden jene Fragen ausgelöst, welche für die Eingabe Ihres Vorhabens beantwortet werden müssen.\nBeispiel: Falls Sie ein Baugesuch für ein Einfamilienhaus eingeben möchten und Sie eine Wärmepumpe oder eine Photovoltaikanlage vorgesehen haben, müssen Sie *Baute(n)* __und__ *Anlage(n)* ankreuzen.\n\n**Baute(n):** Als Baute wird ein Gebäude oder eine überdachte bauliche Einrichtung qualifiziert, welche Menschen, Tieren oder Sachen gegen äussere Einflüsse zu schützen vermag und mehr oder weniger abgeschlossen ist. Wände sind nicht Voraussetzung, doch muss in jedem Fall zumindest ein schutzbietendes Dach vorhanden sein, selbst wenn es nur auf Pfosten steht. So gilt eine Pergola mit festem Dach als Baute.\n\n**Anlage(n):** Als Anlagen gelten demgegenüber befestigte Flächen, offene Materiallagerplätze, Geländeveränderungen, Stützmauern, klassische Pergolen, Leitungen, offene Schwimmbäder, Silos, ortsfeste Krananlagen und auch technische Geräte wie Wärmepumpen. Diese Aufzählung ist nicht abschliessend.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -1182,7 +1182,7 @@
     },
     "art-der-nutzung": {
       "label": "Welchem Zweck dient das Vorhaben?",
-      "hint": "Wählen Sie den Zweck aus, der am ehesten auf Ihr Vorhaben zutrifft. Es ist möglich, mehrere Zwecke anzuwählen. \nFalls das Vorhaben beispielsweise der Bau einer Strasse ist, kann der Zweck ganz unterschiedlich ausfallen, je nachdem, welcher Nutzung die Strasse in erster Linie dient.",
+      "hint": "Wählen Sie den Zweck aus, der am ehesten auf Ihr Vorhaben zutrifft. Es ist möglich, mehrere Zwecke anzuwählen.\nFalls das Vorhaben beispielsweise der Bau einer Strasse ist, kann der Zweck ganz unterschiedlich ausfallen, je nachdem, welcher Nutzung die Strasse in erster Linie dient.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -1200,7 +1200,7 @@
     },
     "vorhaben-mit-anlage": {
       "label": "Vorhaben mit Anlage(n): Welche Tätigkeitsarten sind geplant?",
-      "hint": "**Rückbau:** \n\n**Neubau:** \n\n**Erweiterung:**\n\n**Umbau / Erneuerung / Sanierung:** \n\n**Nutzungsänderung:** ",
+      "hint": "**Rückbau:** Mit Rückbau ist die Zerstörung und Entfernung einer Anlage gemeint.\n\n**Neubau:** Mit Neubau ist die vollständige Neuerstellung einer Anlage gemeint.\n\n**Erweiterung:** Eine Erweiterung ist so zu verstehen, dass eine bestehende Anlage mit einem zusätzlichen Teil vergrössert wird.\n\n**Umbau / Erneuerung / Sanierung:** Unter diese Begriffe fallen Vorhaben, welche eine bestehende Anlage nicht vergrössern, sondern \"nur\" verändern.\n\n**Nutzungsänderung:** Im Zusammenhang mit Nutzungsänderungen von Anlagen kann es sein, dass keine bewilligungspflichtigen, baulichen Massnahmen einhergehen. Aber auch reine Nutzungsänderungen sind bewilligungspflichtig (z. B. Nutzungsänderung eines Lagerplatzes in einen Parkplatz). ",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -1232,7 +1232,7 @@
     },
     "vorhaben-mit-baute": {
       "label": "Vorhaben mit Baute(n): Welche Tätigkeitsarten sind geplant?",
-      "hint": "**Abbruch / Rückbau:** \n\n**Neubau:** \n\n**Anbau / Erweiterung:**\n\n**Umbau / Erneuerung / Sanierung:** \n\n**Nutzungsänderung:** Oft vollziehen sich Nutzungsänderungen ohne bewilligungspflichtige, bauliche Massnahmen. Häufige Beispiele sind: Änderung von landwirtschaftlicher in nichtlandwirtschaftliche Wohnnutzung; Nutzungsänderung eines Stalles in ein stilles Lager; Änderung von Wohnnutzung in gewerbliche Nutzung. ",
+      "hint": "**Abbruch / Rückbau:** Damit ist der Abriss und die Entfernung einer Baute gemeint.\n\n**Neubau:** Mit Neubau ist die vollständige Neuerstellung einer Baute gemeint.\n\n**Anbau / Erweiterung:** Mit Anbau / Erweiterung ist gemeint, dass eine bestehende Baute mit einem zusätzlichen Teil vergrössert wird.\n\n**Umbau / Erneuerung / Sanierung:** Unter diese Begriffe fallen Vorhaben, welche eine bestehende Baute nicht vergrössern, sondern \"nur\" verändern.\n\n**Nutzungsänderung:** Oft vollziehen sich Nutzungsänderungen ohne bewilligungspflichtige, bauliche Massnahmen. Häufige Beispiele sind: Änderung von landwirtschaftlicher in nichtlandwirtschaftliche Wohnnutzung; Nutzungsänderung eines Stalles in ein stilles Lager; Änderung von Wohnnutzung in gewerbliche Nutzung. ",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
@@ -1264,7 +1264,7 @@
     },
     "art-der-anlage": {
       "label": "Welche Anlagearten sind geplant?",
-      "hint": "**Befestigte Fläche:** Als befestigte oder versiegelte Flächen sind jene Flächen gemeint, die durch menschliches Einwirken so verändert oder verdichtet werden, dass die natürliche Versickerungsfähigkeit des Bodens beeinträchtigt wird. (z. B. Verkehrsflächen, Plätze).\n\n**Ver- / Entsorungsleitung:** Leitungen können dem Transport verschiedener Medien dienen und je nachdem sind es zu- oder wegführende Leitungen (z. B. Trinkwasserleitung oder Abwasserleitung). \n\n**Reklame:** Unter dem Begriff der *Reklamen* lassen sich diverse Ausprägungen von Werbeformen und anderen Ankündigungen subsumieren. Verfahrenstechnisch wird ein reines Reklamegesuch auch als Baugesuch behandelt.\n\n**Terrainveränderung:** Mit Terrainveränderungen sind der Abtrag oder die Aufschüttung von Erdreich gemeint.\n\n**Wärmepumpe:** Dies ist ein Überbegriff für Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur (in der Regel ist das die Umgebung) aufnimmt und – zusammen mit der Antriebsenergie – als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur (Raumheizung) überträgt.\n\n**Sondierbohrung:** Damit sind Probebohrungen (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe gemeint.\n\n**Solaranlage:** Mit Solaranlagen sind technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform gemeint. \n\n**Abfallanlage, Deponie:** Damit sind stationäre Anlagen gemeint, in der Abfälle gemäss Abfallverordnung behandelt werden.\n\n**Antennen:** Damit sind stationäre Anlagen gemeint, die Signale empfangen oder senden können.\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten von Anlagen passen, wählen Sie bitte *\"Andere\"*.",
+      "hint": "**Befestigte Fläche:** Als befestigte oder versiegelte Flächen sind jene Flächen gemeint, die durch menschliches Einwirken so verändert oder verdichtet werden, dass die natürliche Versickerungsfähigkeit des Bodens beeinträchtigt wird. (z. B. Verkehrsflächen, Plätze).\n\n**Ver- / Entsorungsleitung:** Leitungen können dem Transport verschiedener Medien dienen und je nachdem sind es zu- oder wegführende Leitungen (z. B. Trinkwasserleitung oder Abwasserleitung).\n\n**Reklame:** Unter dem Begriff der *Reklamen* lassen sich diverse Ausprägungen von Werbeformen und anderen Ankündigungen subsumieren. Verfahrenstechnisch wird ein reines Reklamegesuch auch als Baugesuch behandelt.\n\n**Terrainveränderung:** Mit Terrainveränderungen sind der Abtrag oder die Aufschüttung von Erdreich gemeint.\n\n**Wärmepumpe:** Dies ist ein Überbegriff für Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur (in der Regel ist das die Umgebung) aufnimmt und – zusammen mit der Antriebsenergie – als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur (Raumheizung) überträgt.\n\n**Sondierbohrung:** Damit sind Probebohrungen (in der Regel als Kernbohrung ausgeführt) für Baugrunduntersuchungen oder zur Abklärung der Verfügbarkeit von Grundwasser für eine Grundwasserwärmepumpe gemeint.\n\n**Solaranlage:** Mit Solaranlagen sind technische Anlagen zur Umwandlung von Sonnenenergie in eine andere Energieform gemeint.\n\n**Abfallanlage, Deponie:** Damit sind stationäre Anlagen gemeint, in der Abfälle gemäss Abfallverordnung behandelt werden.\n\n**Antennen:** Damit sind stationäre Anlagen gemeint, die Signale empfangen oder senden können.\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten von Anlagen passen, wählen Sie bitte *\"Andere\"*.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -1293,7 +1293,7 @@
     },
     "art-der-befestigten-flache": {
       "label": "Um welche Art handelt es sich bei der befestigten Fläche?",
-      "hint": "**Verkehrsfläche:** Verkehrsflächen sind zweckgebundene Landflächen für den fliessenden und ruhenden Verkehr (z. B. Wege, Strassen, (Park)Plätze). \n\n**Lagerplatz:** Damit sind Flächen zur Lagerung von Gegenständen gemeint. \n\n**Vorplatz:** Damit sind freie Plätze vor Gebäuden gemeint. \n\n**Terrasse, Sitzplatz:** Eine Terrasse ist eine grössere Fläche (Plattform) an einem Haus, die für den Aufenthalt von Personen im Freien vorgesehen ist. Während die Terrasse in der Regel einen engen Bezug zu einem Gebäude hat, kann der Sitzplatz räumlich getrennt sein (z. B. bei Gartensitzplätzen).\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten befestigter Flächen passen, wählen Sie bitte *\"Andere\"*.",
+      "hint": "**Verkehrsfläche:** Verkehrsflächen sind zweckgebundene Landflächen für den fliessenden und ruhenden Verkehr (z. B. Wege, Strassen, (Park)Plätze).\n\n**Lagerplatz:** Damit sind Flächen zur Lagerung von Gegenständen gemeint.\n\n**Vorplatz:** Damit sind freie Plätze vor Gebäuden gemeint.\n\n**Terrasse, Sitzplatz:** Eine Terrasse ist eine grössere Fläche (Plattform) an einem Haus, die für den Aufenthalt von Personen im Freien vorgesehen ist. Während die Terrasse in der Regel einen engen Bezug zu einem Gebäude hat, kann der Sitzplatz räumlich getrennt sein (z. B. bei Gartensitzplätzen).\n\n**Andere:** Sollte für Ihr Vorhaben keine der vorgeschlagenen Arten befestigter Flächen passen, wählen Sie bitte *\"Andere\"*.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Befestigte Fläche' in 'art-der-anlage'|value",
@@ -1317,7 +1317,7 @@
     },
     "zweck-der-leitungen": {
       "label": "Welchem Zweck dienen die Leitungen?",
-      "hint": "**Abwasserentsorgung:** *\"Abwasser\"* ist ein Sammelbegriff, welcher nicht zwischen Schmutz-, Misch- und Regenabwasser unterscheidet. Schmutzwasser ist das durch häuslichen, gewerblichen, landwirtschaftlichen oder sonstigen Gebrauch in seinen Eigenschaften veränderte Wasser. Dem gegenüber bezeichnet das Regenabwasser das von Niederschlägen aus dem Bereich von bebauten oder befestigten Flächen abfließende und zum Fortleiten gesammelte Wasser.\n\n**Wasserversorgung:** Mit der Wasserversorgung ist die Erschließung und Bereitstellung von Trinkwasser und Betriebswasser gemeint, welche diese Aufgaben übernimmt.\n\n**Energieversorgung:** Damit sind jene Leitungen gemeint, die der Versorgung mit Elektrizität dienen.\n\n**Datenversorgung:** Damit sind die Telekommunikationsleitungen gemeint (Telefon- und Datenleitungen wie z. B. Glasfaserkabel).\n\n**Andere:** Lässt sich Ihr Vorhaben keinem der konkreten Leitungszwecke zuordnen, wählen Sie bitte den untersten Auswahlpunkt.",
+      "hint": "**Abwasserentsorgung:** *\"Abwasser\"* ist ein Sammelbegriff, welcher nicht zwischen Schmutz-, Misch- und Regenabwasser unterscheidet. Schmutzwasser ist das durch häuslichen, gewerblichen, landwirtschaftlichen oder sonstigen Gebrauch in seinen Eigenschaften veränderte Wasser. Dem gegenüber bezeichnet das Regenabwasser das von Niederschlägen aus dem Bereich von bebauten oder befestigten Flächen abfließende und zum Fortleiten gesammelte Wasser.\n\n**Wasserversorgung:** Mit der Wasserversorgung ist die Erschliessung und Bereitstellung von Trinkwasser und Betriebswasser gemeint, welche diese Aufgaben übernimmt.\n\n**Energieversorgung:** Damit sind jene Leitungen gemeint, die der Versorgung mit Elektrizität dienen.\n\n**Datenversorgung:** Damit sind die Telekommunikationsleitungen gemeint (Telefon- und Datenleitungen wie z. B. Glasfaserkabel).\n\n**Andere:** Lässt sich Ihr Vorhaben keinem der konkreten Leitungszwecke zuordnen, wählen Sie bitte *\"Andere\"*.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Ver- / Entsorgungsleitung' in 'art-der-anlage'|value",
@@ -1355,7 +1355,7 @@
     },
     "tangiert-vorhaben-strasse": {
       "label": "Tangiert das Vorhaben direkt oder indirekt eine Strasse?",
-      "hint": "Für Bauvorhaben, welche nicht direkt an einer Hauptstrasse liegen aber auf der Erschliessungsstrasse im Bereich der Einmündung in die Hauptstrasse einen erheblichen Mehrverkehr erzeugen, muss eine Einfahrtsbewilligung beantragt werden.",
+      "hint": "Für Bauvorhaben, welche nicht direkt an einer Hauptstrasse liegen, aber auf der Erschliessungsstrasse im Bereich der Einmündung in die Hauptstrasse einen erheblichen Mehrverkehr erzeugen, muss eine Einfahrtsbewilligung beantragt werden. Bei einer Zunahme von 25 % oder mehr spricht man von erheblichem Mehrverkehr.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1430,7 +1430,7 @@
     },
     "anlagen-mit-erheblichen-strahlungsemissionen": {
       "label": "Beinhaltet Ihr Vorhaben Anlagen mit erheblichen Strahlungs-Emissionen (Sendeantennen, Trafostationen, Hochspannungsleitungen)?",
-      "hint": "**Platzhalter**: *anlagen-mit-erheblichen-strahlungsemissionen*",
+      "hint": "Falls Sie sich nicht sicher sind, ob diese Frage für Ihr Vorhaben mit \"Ja\" oder \"Nein\" zu beantworten ist, können Sie sich beim Amt für Umweltschutz erkundigen (Tel. 041/819 20 35 oder afu@sz.ch). ",
       "type": "radio",
       "required": true,
       "config": {
@@ -1442,7 +1442,7 @@
     },
     "anlagen-mit-erheblichen-strahlungsemissionen-welche": {
       "label": "Welche?",
-      "hint": "Kataster von Sendeantennen, Trafostationen, Hochspannungsleitungen ist im WebGIS ersichtlich.",
+      "hint": "Ein Kataster von Sendeantennen, Trafostationen, Hochspannungsleitungen ist im WebGIS des Kantons SZ ersichtlich.",
       "type": "text",
       "required": true,
       "active-expression": "'anlagen-mit-erheblichen-strahlungsemissionen'|value == 'Ja'",
@@ -1474,7 +1474,7 @@
     },
     "aussenbeleuchtung": {
       "label": "Ist bei Ihrem Vorhaben eine Aussenbeleuchtung vorgesehen?",
-      "hint": "Beleuchtungsanlagen, die unter freiem Himmel oder im Aussenbereich betrieben werden, gehören zur Aussenbeleuchtung",
+      "hint": "Beleuchtungsanlagen, die unter freiem Himmel oder im Aussenbereich betrieben werden, gehören zur Aussenbeleuchtung.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1524,7 +1524,7 @@
     },
     "boden-5000m2": {
       "label": "Sind mit dem Vorhaben 5‘000m² Boden (oder mehr) betroffen?",
-      "hint": "Bei grösseren Vorhaben ist eine bodenkundliche Baubegleitung (BBB) einzusetzen. Der Schwellwert liegt bei einer Fläche von 5‘000m². Eine Liste der BBB befindet sich unter: www.soil.ch > Bodenkundliche Baubegleitung. ",
+      "hint": "Bei grösseren Vorhaben ist eine bodenkundliche Baubegleitung (BBB) einzusetzen. Der Schwellwert liegt bei einer Fläche von 5‘000 m². Auf der Homepage der [Bodenkundlichen Gesellschaft der Schweiz] (http://www.soil.ch/cms/bodenkundliche-baubegleitung/) ist eine Liste der BBB aufgeschaltet.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1548,7 +1548,7 @@
     },
     "auswirkungen-auf-arbeitnehmer": {
       "label": "Ergeben sich durch das Vorhaben Auswirkungen auf Arbeitnehmer eines Betriebes?",
-      "hint": "Umsetzung baulicher Massnahmen oder Einsatz von Persönlicher Schutzausrüstung (PSA)",
+      "hint": "Diese Angabe dient dazu, Ihr Vorhaben bezüglich Umsetzung baulicher Massnahmen oder Einsatz von Persönlicher Schutzausrüstung (PSA) zu prüfen.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1573,7 +1573,7 @@
     },
     "alarmierungseinrichtung-tangiert": {
       "label": "Wird eine bestehende Alarmierungseinrichtung durch das Vorhaben tangiert?",
-      "hint": "Alarmierungseinrichtungen dienen zur Warnung der Bevölkerung. Es sind festmontierte Sirenen (Zivilschutz) auf dem Gebäude.",
+      "hint": "Alarmierungseinrichtungen sind festmontierte Sirenen (Zivilschutz) auf Gebäuden und dienen zur Warnung der Bevölkerung.",
       "type": "radio",
       "active-expression": "true == false",
       "required": true,
@@ -1586,7 +1586,7 @@
     },
     "lebensmittel-umgehen": {
       "label": "Wird mit Lebensmitteln oder Trinkwasser umgegangen (Herstellung, Verarbeitung, Behandlung, Lagerung, Transport, Abgabe)?",
-      "hint": "**Platzhalter**: *lebensmittel-umgehen*",
+      "hint": "Lebensmittel sind alle Stoffe oder Erzeugnisse, die dazu bestimmt sind oder von denen nach vernünftigem Ermessen erwartet werden kann, dass sie in verarbeitetem, teilweise verarbeitetem oder unverarbeitetem Zustand von Menschen aufgenommen werden. Zu Lebensmitteln zählen auch Getränke, Kaugummi sowie alle Stoffe, einschließlich Wasser, die dem Lebensmittel bei seiner Herstellung oder Be- oder Verarbeitung absichtlich zugesetzt werden.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1598,7 +1598,7 @@
     },
     "trinkwasser-abgeben": {
       "label": "Dient die Anlage/das Vorhaben dazu, Trinkwasser (zum Trinken, zum Kochen, zur Zubereitung von Lebensmitteln) an Zwischen- oder Endabnehmer abzugeben (Abgabe an Dritte)?",
-      "hint": "**Platzhalter**: *trinkwasser-abgeben*",
+      "hint": "Als Trinkwasser gilt Wasser, das zum Trinken, zum Kochen, zur Zubereitung von Speisen und Getränken oder insbesondere zu den folgenden häuslichen Zwecken bestimmt ist:\n- Körperpflege und -reinigung\n- Reinigung von Gegenständen, die bestimmungsgemäss mit Lebensmitteln in Berührung kommen (Gläser, Geschirr, Bestecke)\n- Reinigung von Gegenständen, die bestimmungsgemäss nicht nur vorübergehend mit dem menschlichen Körper in Kontakt kommen (Kleidung, Wäsche).\n",
       "type": "radio",
       "required": true,
       "active-expression": "'lebensmittel-umgehen'|value == 'Ja'",
@@ -1611,7 +1611,7 @@
     },
     "offentlich-duschanlage-oder-bad": {
       "label": "Beinhaltet das Vorhaben öffentlich zugängliche Duschanlagen oder ist ein öffentlich (z. B. Hotel) zugängliches Bad (Schwimm-, Sprudel-, Sole-, Therapiebad, Whirlpool oder Kinderplanschbecken) vorgesehen?",
-      "hint": "**Platzhalter**: *offentlich-duschanlage-oder-bad*",
+      "hint": "Falls Sie sich nicht sicher sind, ob diese Frage für Ihr Vorhaben mit \"Ja\" oder \"Nein\" zu beantworten ist, können Sie sich über die [Homepage des Laboratoriums der Urkantone] (https://www.laburk.ch/) informieren. ",
       "type": "radio",
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value",
@@ -1624,7 +1624,7 @@
     },
     "gewerbliche-nutzflachen": {
       "label": "Sind im Zusammenhang mit dem vorliegenden Gesuch neue gewerbliche Nutzflächen resp. Verkaufsflächen vorgesehen?",
-      "hint": "**Platzhalter**: *gewerbliche-nutzflachen*",
+      "hint": "Bestehende Nutz- und Verkaufsflächen werden als bekannt vorausgesetzt. Bei dieser Frage sind jene Nutz-/Verkaufsflächen angesprochen, welche zusätzlich geschaffen werden sollen.",
       "type": "radio",
       "required": true,
       "active-expression": "('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value) || ('Baute(n)' in 'kategorie-des-vorhabens'|value && 'Tourismus' in 'art-der-nutzung'|value)",
@@ -1637,7 +1637,7 @@
     },
     "gewerbliche-nutzflachen-grosse": {
       "label": "Wie gross ist / sind diese in m²?",
-      "hint": "**Platzhalter**: *gewerbliche-nutzflachen-grosse*",
+      "hint": "Bitte geben Sie in m2 an, wie gross die geplanten gewerblichen Nutz- resp. Verkaufsflächen sind.",
       "type": "number",
       "required": true,
       "active-expression": "'gewerbliche-nutzflachen'|value == 'Ja'",
@@ -1660,7 +1660,7 @@
     },
     "geometer": {
       "label": "Bitte wählen Sie zur Nachführung der amtlichen Vermessung einen Geometer aus.",
-      "hint": "Bauherrschaft bestimmt wer (ev. Preisanfrage); Gde löst aus",
+      "hint": "Die Kosten für die Nachführung der amtlichen Vermessung infolge Umsetzung eines Bauvorhabens trägt die Bauherrschaft. Deshalb kann die Bauherrschaft bestimmen, welches Geometerbüro die besagten Arbeiten ausführen soll.",
       "type": "radio",
       "required": true,
       "config": {
@@ -1711,7 +1711,7 @@
     },
     "baukosten": {
       "label": "Baukosten in CHF (Summe der BKP-Positionen 1, 2 und 4):",
-      "hint": "Im Falle grosser Bauvorhaben sollen die Baukosten aus der Summe der BKP-Positionen 1, 2 und 4 berechnet werden (BKP-Pos. 1: Vorbereitung, BKP-Pos. 2: Gebäude, BKP-Pos. 4: Umgebung). \nBei kleinen Bauvorhaben genügt eine Kostenschätzung.",
+      "hint": "Im Falle grosser Bauvorhaben sollen die Baukosten aus der Summe der BKP-Positionen 1, 2 und 4 berechnet werden (BKP-Pos. 1: Vorbereitung, BKP-Pos. 2: Gebäude, BKP-Pos. 4: Umgebung).\nBei kleinen Bauvorhaben genügt eine Kostenschätzung.",
       "type": "number",
       "required": true,
       "config": {
@@ -1740,7 +1740,7 @@
     },
     "ausnahmen": {
       "label": "Folgende Ausnahmen werden beansprucht:",
-      "hint": "Zur Unterschreitung ordentlicher Mindestabstände sind Ausnahmebewilligungen erforderlich. Die ordentlichen Mindestabstände gehen aus den jeweiligen Rechtsgrundlagen hervor (eidgenössische und kantonale Gesetze und Verordnungen sowie Baureglemente).\n**Unterschreitung Grenzabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) regelt den Grenzabstand. Falls kommunal strengere Vorschriften gelten, gehen diese aus dem Baureglement der Gemeinde hervor.\n\n**Unterschreitung Gebäudeabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) regelt den Gebäudeabstand. Falls kommunal strengere Vorschriften gelten, gehen diese aus dem Baureglement der Gemeinde hervor.\n\n**Unterschreitung Gewässerabstand:** \n\n**Unterschreitung Gewässerraum:** \n\n**Unterschreitung Waldabstand:** \n\n**Unterschreitung Strassenabstand oder Verletzung Strassenbaulinie:** \n\n**Andere:**",
+      "hint": "Zur Unterschreitung ordentlicher Mindestabstände sind Ausnahmebewilligungen erforderlich. Die ordentlichen Mindestabstände gehen aus den jeweiligen Rechtsgrundlagen hervor (eidgenössische und kantonale Gesetze und Verordnungen sowie Baureglemente).\n**Unterschreitung Grenzabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) regelt den Grenzabstand. Falls kommunal strengere Vorschriften gelten, gehen diese aus dem Baureglement der Gemeinde hervor.\n\n**Unterschreitung Gebäudeabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) regelt den Gebäudeabstand. Falls kommunal strengere Vorschriften gelten, gehen diese aus dem Baureglement der Gemeinde hervor.\n\n**Unterschreitung Gewässerabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) sowie das kantonale Wasserrechtsgesetz (SRSZ 451.100; ) regeln den Gewässerabstand. Der Gewässerabstand ist nicht zu verwechseln mit dem Gewässerraum.\n\n**Unterschreitung Gewässerraum:** Im Kanton Schwyz sind die Gewässerräume in behördenverbindlichen Gewässerrauminventaren flächendeckend ausgeschieden. Viele Gemeinden haben innerhalb der Bauzonen in der Nutzungsplanung bereits eine grundeigentümerverbindliche Festlegung vorgenommen ([WebGIS SZ] (https://map.geo.sz.ch/) → Geokategorie *Gewässer* → Fachthema *Gewässerraum*).\n\n**Unterschreitung Waldabstand:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) sowie die kantonale Waldgesetzgebung (SRSZ 313.110 und SRSZ 313.111) regeln den Waldabstand.\n\n**Unterschreitung Strassenabstand oder Verletzung Strassenbaulinie:** Das Planungs- und Baugesetz des Kantons Schwyz (SRSZ 400.100, PBG) sowie die kantonale Strassengesetzgebung (SRSZ 442.110; StraG und SRSZ 442.111; StraV) regeln den Strassenabstand.\n\n**Andere:** Falls andere als die obgenannten Mindestabstände unterschritten werden sollen, ist *Andere* anzuwählen.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
@@ -1758,7 +1758,7 @@
     },
     "ausnahmen-andere": {
       "label": "Welche?",
-      "hint": "**Platzhalter**: *ausnahmen-andere*",
+      "hint": "Beschreiben Sie bitte knapp die beantragte Mindestabstandsunterschreitung.",
       "type": "text",
       "required": true,
       "active-expression": "'Andere' in 'ausnahmen'|value",
@@ -1766,7 +1766,7 @@
     },
     "ausnahmen-begrundung": {
       "label": "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
-      "hint": "**Platzhalter**: *ausnahmen-begrundung*",
+      "hint": "Es werden hohe Anforderungen an die Gründe zur Unterschreitung ordentlicher Mindestabstände gestellt. ",
       "type": "text",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
@@ -1858,7 +1858,7 @@
     },
     "bauherrschaft": {
       "label": "Bauherrschaft:",
-      "hint": "Die Bauherrschaft (BH) ist eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\nFalls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.",
+      "hint": "Die Bauherrschaft (BH) bezeichnet eine oder mehrere natürliche oder juristische Person(en). Die BH ist für die Finanzierung und Umsetzung des Vorhabens verantwortlich. Die Bewilligung wird auf den Namen der BH ausgestellt. Die BH ist oft, aber nicht immer, identisch mit der Grundeigentümerschaft.\n**Hinweis:** Falls die Bauherrschaft aus mehreren natürlichen oder juristischen Personen besteht, sind diese einzeln zu erfassen.",
       "type": "table",
       "required": true,
       "config": {
@@ -2194,7 +2194,7 @@
     },
     "bewilligungsnehmer": {
       "label": "Bewilligungsnehmer:",
-      "hint": "**Platzhalter**: *bewilligungsnehmer*",
+      "hint": "Der Bewilligungsnehmer ist die natürliche oder juristische Person, welcher die Bewilligung erteilt wird.",
       "type": "table",
       "required": true,
       "config": {
@@ -2296,7 +2296,7 @@
     },
     "landwirtschaft-einstufung": {
       "label": "Wie ist Ihr Betrieb einzustufen",
-      "hint": "**Haupterwerbsbetrieb:** Dies ist ein Landwirtschaftsbetrieb, dessen Bewirtschafter überwiegend im Betrieb tätig ist, bzw. dessen Erwerbseinkommen überwiegend aus dem landwirtschaftlichen Betrieb stammt.\n\n**Nebenerwerbsbetrieb:** Dies ist ein Landwirtschaftsbetrieb, dessen Bewirtschafter einen grossen Teil seines Erwerbseinkommens ausserhalb des Landwirtschaftsbetriebes erzielt (> 0.2 SAK).\n\n**Freizeitlandwirtschaft:** Dazu gehört ein Landwirtschaftsbetrieb, der vom Bewirtschafter in der Freizeit neben einer vollen ausserbetrieblichen Beschäftigung betrieben wird, mit unbedeutendem landwirtschaftlichem Einkommen, bzw. Landwirtschaftsbetrieb welcher aufgrund der Betriebsgrösse nicht direktzahlungsberechtigt ist (< 0.2 SAK).",
+      "hint": "**Haupterwerbsbetrieb:** Dies ist ein Landwirtschaftsbetrieb, dessen Bewirtschafter überwiegend im Betrieb tätig ist, bzw. dessen Erwerbseinkommen überwiegend aus dem landwirtschaftlichen Betrieb stammt.\n\n**Nebenerwerbsbetrieb:** Dies ist ein Landwirtschaftsbetrieb, dessen Bewirtschafter einen grossen Teil seines Erwerbseinkommens ausserhalb des Landwirtschaftsbetriebes erzielt (> 0.2 SAK).\n\n**Freizeitlandwirtschaft:** Dazu gehört ein Landwirtschaftsbetrieb, der vom Bewirtschafter in der Freizeit neben einer vollen ausserbetrieblichen Beschäftigung betrieben wird, mit unbedeutendem landwirtschaftlichem Einkommen, bzw. ein Landwirtschaftsbetrieb, welcher aufgrund der Betriebsgrösse nicht direktzahlungsberechtigt ist (< 0.2 SAK).",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value",
@@ -2320,7 +2320,7 @@
     },
     "landwirtschaft-bereiche-baute": {
       "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben (Baute)?",
-      "hint": "Wohnbauten: Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\nStallgebäude: Bauten oder Bauteile, welche der Nutztierhaltung dienen.\nÜbrige Ökonomiegebäude: Remisen, Lagergebäude ohne Tierhaltung.\nHofdüngerlager: Jauchegruben, Mistplatten, usw.\n\nNur wenn das zusätzliche Feld \"Anlagen\" eingefügt wir:\nAnlagen: Futtersilo, Einzäunungen, Hagelschutznetze, Aussenausläufe, Terrainveränderungen, Güter-/Bewirtschaftungswege usw.",
+      "hint": "**Wohnbauten:** Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\n\n**Stallgebäude:** Bauten oder Bauteile, welche der Nutztierhaltung dienen.\n\n**Übrige Ökonomiegebäude:** Remisen, Lagergebäude ohne Tierhaltung.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Baute(n)' in 'kategorie-des-vorhabens'|value",
@@ -2334,7 +2334,7 @@
     },
     "landwirtschaft-bereiche-anlage": {
       "label": "Welche Bereiche umfasst resp. tangiert Ihr Vorhaben (Anlage)?",
-      "hint": "Wohnbauten: Bauten oder Bauteile, die einer Wohnnutzung dienen, inkl. Wohnnebenbauten.\nStallgebäude: Bauten oder Bauteile, welche der Nutztierhaltung dienen.\nÜbrige Ökonomiegebäude: Remisen, Lagergebäude ohne Tierhaltung.\nHofdüngerlager: Jauchegruben, Mistplatten, usw.\n\nNur wenn das zusätzliche Feld \"Anlagen\" eingefügt wir:\nAnlagen: Futtersilo, Einzäunungen, Hagelschutznetze, Aussenausläufe, Terrainveränderungen, Güter-/Bewirtschaftungswege usw.",
+      "hint": "**Hofdüngerlager:** Jauchegruben, Mistplatten usw.\n\n**Futtersilo:** Hierbei sind alle möglichen Arten und Materialisierungen von Futtersilos gemeint.\n\n**Einzäunungen:** Einzäunungen können bezüglich Bauart und Erscheinung sehr unterschiedlich sein. Laden Sie deshalb bitte zusammen mit den übrigen Gesuchsunterlagen eine Beschreibung der Einzäunung hoch (bauliche Ausführung, Materialisierung, u. ä.).\n\n**Hagelschutznetze:** Es gibt eine Vielzahl unterschiedlicher Hagelschutznetze. Laden Sie deshalb bitte zusammen mit den übrigen Gesuchsunterlagen eine Beschreibung des vorgesehenen Produktes hoch (bauliche Ausführung/Montage, Materialisierung, u. ä.).\n\n**Aussenausläufe:** Hierbei sind alle möglichen Arten von Aussenausläufen gemeint, egal für welche Tiere oder welche Ausführungen.\n\n**Terrainveränderung:** Hinweis aufs kantonale Merkblatt [Landwirtschaftliche Terrainveränderungen ausserhalb von Bauzonen] (https://www.sz.ch/public/upload/assets/9650/Merkblatt_Terrainveraenderungen.pdf)\n\n**Güter-/Bewirtschaftungsweg:** Für die Planung sind die Ausführungen auf Seite 34 der Planungshilfe [Bauen in der Landschaft] (https://www.sz.ch/public/upload/assets/28160/bauen_in_der_landschaft_planungshilfe.pdf) zu berücksichtigen.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Anlage(n)' in 'kategorie-des-vorhabens'|value",
@@ -2352,7 +2352,7 @@
     },
     "landwirtschaft-gebietskategorie": {
       "label": "Welcher Gebietskategorie ist Ihr Betrieb zugeordnet",
-      "hint": "**Talgebiet:** Das Talgebiet umfasst die Hügelzone und die Talzone. \n\n**Berggebiet:** Das Berggebiet umfasst die Bergzone I bis IV.",
+      "hint": "**Talgebiet:** Das Talgebiet umfasst die Hügelzone und die Talzone.\n\n**Berggebiet:** Das Berggebiet umfasst die Bergzone I bis IV.",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value",
@@ -2365,7 +2365,7 @@
     },
     "landwirtschaft-wohnbauten": {
       "label": "Geben Sie sämtliche zum landwirtschaftlichen Gewerbe gehörenden Wohnbauten an, auch solche, die in der Bauzone liegen:",
-      "hint": "In der unten stehenden Auflistung sind sämtliche zum Landwirtschaftsbetrieb gehörenden Wohnbauten aufzulisten.",
+      "hint": "In der unten stehenden Auflistung sind sämtliche zum Landwirtschaftsbetrieb gehörenden Wohnbauten aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske für jeweils eine Wohnbaute öffnen.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1)))",
@@ -2455,7 +2455,7 @@
     },
     "landwirtschaft-stallgebaude": {
       "label": "Geben Sie sämtliche Stallgebäude auf dem Eigen- und Pachtland an:",
-      "hint": "In der unten stehenden Auflistung sind sämtliche für die Tierhaltung genutzten, eigenen und gepachteten Stallgebäude aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
+      "hint": "In der unten stehenden Auflistung sind sämtliche für die Tierhaltung genutzten, eigenen und gepachteten Stallgebäude aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske für jeweils ein Stallgebäude öffnen.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value",
@@ -2500,7 +2500,7 @@
     },
     "landwirtschaft-veranderung-tierbestand": {
       "label": "Führt das Vorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
-      "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und die Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft in der Tabelle auszufüllen und bei den Gesuchsunterlagen anzufügen.",
+      "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und die Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft anzugeben. Für die Angabe des Tierbestandes ist vorerst noch die Seite 3 des alten [Formulars Z11] (https://www.sz.ch/public/upload/assets/9824/Z11_Landw_Bauvorhaben.pdf) auszufüllen und bei den Gesuchsunterlagen hochzuladen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value",
@@ -2513,7 +2513,7 @@
     },
     "landwirtschaft-okonomiebauten": {
       "label": "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
-      "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Remisen- und Lagergebäude  aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.",
+      "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Remisen und Lagergebäude aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske für jeweils eine Remise resp. ein Lagergebäude öffnen.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Übrige Ökonomiegebäude' in 'landwirtschaft-bereiche-baute'|value",
@@ -2576,7 +2576,7 @@
     },
     "landwirtschaft-gullenlager": {
       "label": "Geben Sie die nötigen Informationen zum Güllenlager an:",
-      "hint": "In der unten stehenden Auflistung sind sämtliche, eigene und gepachtete Güllenlager aufzulisten. ",
+      "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Güllenlager aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske öffnen.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
@@ -2650,7 +2650,7 @@
     },
     "landwirtschaft-mistplatte": {
       "label": "Geben Sie die nötigen Informationen zur Mistplatte an",
-      "hint": "In der unten stehenden Auflistung sind sämtliche, eigenen und gepachteten Mistplatten aufzulisten. ",
+      "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Mistplatten aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske öffnen.",
       "type": "table",
       "required": true,
       "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
@@ -2713,7 +2713,7 @@
     },
     "nlbuaab-anlagen": {
       "label": "Bitte geben Sie die nötigen Informationen zu den bestehenden Anlagen an:",
-      "hint": "Anlagen wie offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen usw. keine Gebäude.",
+      "hint": "Unter den Begriff der Anlagen fallen beispielsweise offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen. Gebäude/Bauten sind hingegen keine Anlagen.",
       "type": "table",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2740,7 +2740,7 @@
     },
     "nlbuaab-erweiterungen": {
       "label": "Sind seit dem 1. Juli 1972 Erweiterungen oder Umnutzungen der Bauten und Anlagen erfolgt?",
-      "hint": "**Platzhalter**: *nlbuaab-erweiterungen*",
+      "hint": "Der 1. Juli 1972 gilt als massgebender Stichtag, weil dannzumal das Bauen ausserhalb der Bauzonen erstmals einer einschränkenden bundesrechtlichen Regelung unterworfen wurde.",
       "type": "radio",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2753,7 +2753,7 @@
     },
     "nlbuaab-erweiterungen-wann-welche": {
       "label": "Wann wurden welche Änderungen vorgenommen?",
-      "hint": "Diese Infobox wurde bisher nicht gefunden.",
+      "hint": "Beschreiben Sie bitte genau, zu welchem Zeitpunkt welche Änderungen vorgenommen wurden.",
       "type": "text",
       "required": true,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
@@ -2761,7 +2761,7 @@
     },
     "nlbuaab-nutzflachen-bestehend-1972": {
       "label": "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
-      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend-1972*",
+      "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2806,7 +2806,7 @@
     },
     "nlbuaab-nutzflachen-bestehend": {
       "label": "Es sind Angaben zu den am Erstellungszeitpunkt bestehenden Nutzflächen erforderlich:",
-      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bestehend*",
+      "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2851,7 +2851,7 @@
     },
     "nlbuaab-nutzflachen-bisherige-erweiterungen": {
       "label": "Es sind Angaben zu den bisherigen Erweiterungen erforderlich:",
-      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-bisherige-erweiterungen*",
+      "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2896,7 +2896,7 @@
     },
     "nlbuaab-nutzflachen-geplante-erweiterungen": {
       "label": "Es sind Angaben zu den geplanten Erweiterungen erforderlich:",
-      "hint": "**Platzhalter**: *nlbuaab-nutzflachen-geplante-erweiterungen*",
+      "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
@@ -2992,7 +2992,7 @@
     },
     "datenverschnitt-reptilien": {
       "label": "Ihr Vorhaben tangiert ein Reptiliengebiet. Auf allfällige Reptilienlebensräume ist Rücksicht zu nehmen. Zu konkreten Reptilienvorkommen und planerischen Massnahmen gibt das Amt für Natur, Jagd und Fischerei Auskunft.",
-      "hint": "Sogenannte Reptilienvorranggebiete umfassen Kern- und Fördergebiete. \n**Kerngebiete:** Reptiliengebiete von überregionaler Bedeutung mit Vorkommen von mindestens vier einheimischen Reptilienarten. In diesen Gebieten sind ein dauerhafter Schutz der Vorkommen und eine grossräumige Vernetzung anzustreben. \n**Fördergebiete:** Reptiliengebiete von regionaler Bedeutung mit Vorkommen von mindestens drei einheimischen Reptilienarten oder besonders bedeutsamen Vorkommen einer Art. In diesen Gebieten sind der Erhalt oder die gezielte Neuschaffung geeigneter Lebensräume anzustreben.",
+      "hint": "Sogenannte Reptilienvorranggebiete umfassen Kern- und Fördergebiete.\n**Kerngebiete:** Reptiliengebiete von überregionaler Bedeutung mit Vorkommen von mindestens vier einheimischen Reptilienarten. In diesen Gebieten sind ein dauerhafter Schutz der Vorkommen und eine grossräumige Vernetzung anzustreben.\n**Fördergebiete:** Reptiliengebiete von regionaler Bedeutung mit Vorkommen von mindestens drei einheimischen Reptilienarten oder besonders bedeutsamen Vorkommen einer Art. In diesen Gebieten sind der Erhalt oder die gezielte Neuschaffung geeigneter Lebensräume anzustreben.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.anjf_reptiliengebiete.reptiliengebiet' in 'layer'|value|mapby('name')",
@@ -3182,7 +3182,7 @@
     },
     "datenverschnitt-eisenbahn": {
       "label": "Ihr Vorhaben tangiert ein Bahntrasse. Die eisenbahnrechtlichen Vorschriften sind einzuhalten.",
-      "hint": "**Platzhalter**: *datenverschnitt-eisenbahn*",
+      "hint": "Gemäss Art. 21 Abs. 1 des Eisenbahngesetzes (SR 742.101; EBG) können die Eisenbahnunternehmen im Interesse der Sicherheit Bauvorhaben beschränken. ",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a006.swisstlm3d.oev.eisenbahn' in 'layer'|value|mapby('name')",
@@ -3194,7 +3194,7 @@
     },
     "datenverschnitt-wanderweg": {
       "label": "Gemäss Lokalisierung ergibt sich, dass Ihr Vorhaben im Bereich von Wanderwegen liegt. Falls es direkte Auswirkungen auf die Wanderwege gibt, und allenfalls Belagsänderungen vorgesehen sind, muss dies in einem Beschrieb dargelegt werden.",
-      "hint": "**Platzhalter**: *datenverschnitt-wanderweg*",
+      "hint": "Dieser Hinweis soll Sie darauf aufmerksam machen, dass die Auswirkungen Ihres Vorhabens auf Wanderwege zu prüfen sind. Bei Fragen können Sie sich an die zuständige Bauverwaltung oder ans Amt für Wald und Naturgefahren (Fachbereich Langsamverkehr) wenden.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a078.wanderwege' in 'layer'|value|mapby('name')",
@@ -3284,7 +3284,7 @@
     },
     "energie-thermisch-kollektorenart": {
       "label": "Welche Kollektorenart ist vorgesehen?",
-      "hint": "**Platzhalter**: *energie-thermisch-kollektorenart*",
+      "hint": "**Flachkollektoren:** Als Flachkollektor wird ein bestimmter Bautyp von Sonnenkollektoren bezeichnet. Hauptmerkmal ist die Ausrichtung einer flachen, ebenen Absorberfläche zur Sonne (keine Krümmung, keine Konzentration). Flachkollektoren werden zur Erwärmung von Schwimmbadwasser, Gemischen aus Wasser und Frostschutz sowie Luft verwendet.\n\n**Röhrenkollektoren:** Der Vakuumröhrenkollektor ist eine Bauweise von Sonnenkollektoren und Bestandteil einer thermischen Solaranlage. Er wird zur Erwärmung von Wasser und/oder Wasser-Frostschutz-Gemischen eingesetzt. Das Wärmemedium wird gegen die Aussenumgebung durch ein Vakuum isoliert.",
       "type": "checkbox",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
@@ -3297,7 +3297,7 @@
     },
     "energie-thermisch-aufbereitung": {
       "label": "Die Anlage ist vorgesehen für die Aufbereitung von:",
-      "hint": "**Platzhalter**: *energie-thermisch-aufbereitung*",
+      "hint": "**(Brauch)Warmwasser:** Warmwasser ist erwärmtes Trink- oder Brauchwasser im Temperaturbereich von üblicherweise 30 °C bis 60 °C, darüber hinaus spricht man von Heißwasser. Brauchwasser ist Wasser, das einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient.\n\n**Warmwasser mit Heizungsunterstützung:** Dies bezeichnet eine Solarthermieanlage zur kombinierten Warmwasser- und Heizungsunterstützung, im Gegensatz zur reinen Erwärmung von Brauch- und Trinkwasser.",
       "type": "radio",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
@@ -3310,7 +3310,7 @@
     },
     "energie-thermisch-grosse": {
       "label": "Wie gross ist die vorgesehen Absorberfläche in m²?",
-      "hint": "**Platzhalter**: *energie-thermisch-grosse*",
+      "hint": "Geben Sie bitte die Absorberfläche in m2 an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern , die gesamte Fläche des schwarzen Zylindermantels.",
       "type": "number",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
@@ -3320,7 +3320,7 @@
     },
     "energie-photovoltaik-technologie": {
       "label": "Welche Technologie ist vorgesehen?",
-      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
+      "hint": "Geben Sie bitte an, welche Technologie hinsichtlich der Zellen zum Einsatz kommen soll (mono- oder polykristalline Zellen).",
       "type": "radio",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3333,7 +3333,7 @@
     },
     "energie-photovoltaik-gesamtleistung": {
       "label": "Gesamtleistung in kWpeak:",
-      "hint": "keine Erklärung vom AMFZ notwendig, da keine Brandschutzthema",
+      "hint": "Kilowatt Peak ist eine im Bereich Photovoltaik gebräuchliche, aber nicht normgerechte Bezeichnung für die elektrische Leistung von Solarzellen.  Die Einheit dient dazu, unterschiedliche Solarzellen und Solarmodule unter genormten Testbedingungen vergleichen zu können. ",
       "type": "number",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3343,7 +3343,7 @@
     },
     "energie-photovoltaik-jahresertrag": {
       "label": "Erwarteter Jahresertrag in kWh / Jahr:",
-      "hint": "**Platzhalter**: *energie-photovoltaik-jahresertrag*",
+      "hint": "Geben Sie bitte den erwarteten Jahresertrag in Kilowattstunden pro Jahr an.",
       "type": "number",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3353,7 +3353,7 @@
     },
     "energie-photovoltaik-flache": {
       "label": "Gesamtflache der Anlage in m² (ohne Blindfläche):",
-      "hint": "**Platzhalter**: *energie-photovoltaik-flache*",
+      "hint": "Geben Sie bitte die Gesamtfläche der Anlage ohne Blindfläche an, wobei mit Blindflächen inaktive Elementflächen gemeint sind.",
       "type": "number",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Photovolatische Solaranlage (Stromproduktion)' in 'energie-art'|value",
@@ -3363,7 +3363,7 @@
     },
     "energie-inbetriebnahme": {
       "label": "Voraussichtliche Inbetriebnahme:",
-      "hint": "Die Angabe zur voraussichtlichen Inbetriebnahme dient statistischen Zwecken.",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja'",
@@ -3383,7 +3383,7 @@
     },
     "arbeitssicherheit-planbesprechung": {
       "label": "Wünschen Sie eine Planbesprechung mit dem Arbeitsinspektorat?",
-      "hint": "Falls Sie vor der Gesuchseinreichung eine Besprechung wünschen, können Sie das Arbeitsinspektrorat wie folgt kontaktieren: \n- E-Mail allgemein: arbeitsinspektorat@sz.ch;\n- Gewerbe & Dienstleistung Region Einsiedeln & Ausserschwyz, Erich Steinauer, 041 819 16 31; \n- Gewerbe & Dienstleistung Region Innerschwyz, Stephan Schlegel, 041 819 16 33; \n- Industrielle Betriebe, Werner Scherrer, 041 819 16 30.",
+      "hint": "Falls Sie vor der Gesuchseinreichung eine Besprechung wünschen, können Sie das Arbeitsinspektrorat wie folgt kontaktieren:\n- E-Mail allgemein: arbeitsinspektorat@sz.ch;\n- Gewerbe & Dienstleistung Region Einsiedeln & Ausserschwyz, Erich Steinauer, 041 819 16 31;\n- Gewerbe & Dienstleistung Region Innerschwyz, Stephan Schlegel, 041 819 16 33;\n- Industrielle Betriebe, Werner Scherrer, 041 819 16 30.",
       "type": "radio",
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
@@ -3396,7 +3396,7 @@
     },
     "arbeitssicherheit-tangiert": {
       "label": "Welche Themenbereiche werden durch Ihr Vorhaben tangiert?",
-      "hint": "**Platzhalter**: *arbeitssicherheit-tangiert*",
+      "hint": "Im Bereich der Arbeitssicherheit und des Gesundheitsschutzes gibt es viele verschiedene Themen, welche für ein (Bau)Vorhaben relevant sein können. Bei Unklarheiten empfiehlt es sich, mit dem Arbeitsinspektorat Kontakt aufzunehmen.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja'",
@@ -3522,7 +3522,7 @@
     },
     "arbeitssicherheit-ausgange-schliessystem": {
       "label": "Schliesssystem der Ausgänge:",
-      "hint": "Notausgänge und Fluchtwege müssen stets ungehindert begehbar sein.\nIst ein Abschliessen dieser Ausgangstüren möglich, so muss die Notentriegelung ohne Schlüssel (z. B. Panikentriegelung, von innen mit einem Drücker zu öffnendes Schloss, usw.) möglich sein.",
+      "hint": "Notausgänge und Fluchtwege müssen stets ungehindert begehbar sein.\nIst ein Abschliessen dieser Ausgangstüren möglich, so muss die Notentriegelung ohne Schlüssel (z. B. Panikentriegelung, von innen mit einem Drücker zu öffnendes Schloss usw.) möglich sein.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Ausgänge' in 'arbeitssicherheit-tangiert'|value)",
@@ -3556,7 +3556,7 @@
     },
     "arbeitssicherheit-luftung-verunreinigte-luft": {
       "label": "Gibt es verunreinigte Luft?",
-      "hint": "Hinweis zum Nichtraucherschutz am Arbeitsplatz: \nDer Nichtraucherschutz am Arbeitsplatz ist auf Bundesebene grundsätzlich im Bundesgesetz und in der Verordnung zum Schutz vor Passivrauchen geregelt. Weitergehende Informationen sind auf der Homepage des Bundesamtes für Gesundheit (BAG) enthalten.\n",
+      "hint": "Hinweis zum Nichtraucherschutz am Arbeitsplatz:\nDer Nichtraucherschutz am Arbeitsplatz ist auf Bundesebene grundsätzlich im Bundesgesetz und in der Verordnung zum Schutz vor Passivrauchen geregelt. Weitergehende Informationen sind auf der Homepage des Bundesamtes für Gesundheit (BAG) enthalten.\n",
       "type": "radio",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Lüftung' in 'arbeitssicherheit-tangiert'|value)",
@@ -3633,7 +3633,7 @@
     },
     "arbeitssicherheit-betriebseinrichtungen-aufstellungsplan": {
       "label": "Aufstellungsplan:",
-      "hint": "Aus den Plänen soll ersichtlich sein, wo sich ständige Arbeitsplätze befinden. Dies ist nötig im Hinblick auf die Beurteilung der Arbeitsplätze bezüglich: \n- Licht\n- Sicht ins Freie\n- räumliche Anordnung der Arbeitsplätze",
+      "hint": "Aus den Plänen soll ersichtlich sein, wo sich ständige Arbeitsplätze befinden. Dies ist nötig im Hinblick auf die Beurteilung der Arbeitsplätze bezüglich:\n- Licht\n- Sicht ins Freie\n- räumliche Anordnung der Arbeitsplätze",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Betriebseinrichtungen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3793,7 +3793,7 @@
     },
     "arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln": {
       "label": "Vorbehandeln:",
-      "hint": "**Platzhalter**: *arbeitssicherheit-oberflachenbehandlungsanlagen-vorbehandeln*",
+      "hint": "Im Zusammenhang mit Oberflächenbehandlungsanlagen ist zur Klärung der Anforderungen bezüglich Vorbehandlung mit dem Arbeitsinspektorat Kontakt aufzunehmen.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Oberflächenbehandlungsanlagen' in 'arbeitssicherheit-tangiert'|value)",
@@ -3835,7 +3835,7 @@
     },
     "arbeitssicherheit-sozialraume-waschanlagen": {
       "label": "Waschanlagen:",
-      "hint": "In der Regel sind nach Geschlechtern getrennte Garderoben, Waschanlagen und Toiletten vorzusehen. \nEine getrennte Benutzung der gleichen Einrichtungen (die abgeschlossen werden können) ist nur ausnahmsweise zulässig, z. B. in Betrieben mit einer kleinen Anzahl gleichzeitig beschäftigter Arbeitnehmerinnen und Arbeitnehmer (bis zu 10 Personen) mit wenig verschmutzender Tätigkeit, wie Bürobetriebe, oder auf Baustellen mit erschwerten Bedingungen, z. B. kurzzeitige oder Kleinbaustellen mit Sozialräumen in Baucontainern.",
+      "hint": "In der Regel sind nach Geschlechtern getrennte Garderoben, Waschanlagen und Toiletten vorzusehen.\nEine getrennte Benutzung der gleichen Einrichtungen (die abgeschlossen werden können) ist nur ausnahmsweise zulässig, z. B. in Betrieben mit einer kleinen Anzahl gleichzeitig beschäftigter Arbeitnehmerinnen und Arbeitnehmer (bis zu 10 Personen) mit wenig verschmutzender Tätigkeit, wie Bürobetriebe, oder auf Baustellen mit erschwerten Bedingungen, z. B. kurzzeitige oder Kleinbaustellen mit Sozialräumen in Baucontainern.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3843,7 +3843,7 @@
     },
     "arbeitssicherheit-sozialraume-garderoben": {
       "label": "Garderoben:",
-      "hint": "Den Arbeitnehmenden sind ausreichende und den Verhältnissen angemessene Garderoben zum Wechseln und zur Aufbewahrung der Kleider zur Verfügung zu stellen, die wenn möglich in ausreichend belüftbaren, keinem andern Zwecke dienenden Räumen unterzubringen sind.\nJedem Arbeitnehmenden ist ein genügend grosser und lüftbarer Kleiderkasten oder eine offene Einrichtung zum Aufbewahren der Kleider und ein abschliessbares Fach zur Verfügung zu stellen. \nNötigenfalls muss die Arbeitskleidung getrocknet und getrennt von der Strassenkleidung aufbewahrt werden können.",
+      "hint": "Den Arbeitnehmenden sind ausreichende und den Verhältnissen angemessene Garderoben zum Wechseln und zur Aufbewahrung der Kleider zur Verfügung zu stellen, die wenn möglich in ausreichend belüftbaren, keinem andern Zwecke dienenden Räumen unterzubringen sind.\nJedem Arbeitnehmenden ist ein genügend grosser und lüftbarer Kleiderkasten oder eine offene Einrichtung zum Aufbewahren der Kleider und ein abschliessbares Fach zur Verfügung zu stellen.\nNötigenfalls muss die Arbeitskleidung getrocknet und getrennt von der Strassenkleidung aufbewahrt werden können.",
       "type": "text",
       "required": true,
       "active-expression": "('Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value || 'auswirkungen-auf-arbeitnehmer'|value == 'Ja') && ('Sozialräume' in 'arbeitssicherheit-tangiert'|value)",
@@ -3883,7 +3883,7 @@
     },
     "zivilschutz-schutzraum": {
       "label": "Ist im Vorhaben ein der Pflicht entsprechender Schutzraum eingeplant?",
-      "hint": "Liegt das Bauobjekt in einem Defizitgebiet und hat mehr als 38 Zimmer, ist ein Schutzraum mit einem Fassungsvermögen das der Baupflicht entspricht einzuplanen. Unter 38 Zimmern kann das Gesuch um Befreiung von der Schutzraumbaupflicht mit Leistung eines Ersatzbeitrages gestellt werden. Die Baupflicht ergibt sich aus der Anzahl Zimmer und davon 2/3.",
+      "hint": "Liegt das Bauobjekt in einem Defizitgebiet und hat mehr als 38 Zimmer, ist ein Schutzraum mit einem Fassungsvermögen, das der Baupflicht entspricht, einzuplanen. Unter 38 Zimmern kann das Gesuch um Befreiung von der Schutzraumbaupflicht mit Leistung eines Ersatzbeitrages gestellt werden. Die Baupflicht ergibt sich aus der Anzahl Zimmer und davon 2/3.",
       "type": "radio",
       "required": false,
       "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value) && 'Neubau' in 'vorhaben-mit-baute'|value",
@@ -3922,7 +3922,7 @@
     },
     "brandschutz-gefahrengut": {
       "label": "Um welche Art von brandschutztechnischem Gefahrengut handelt es sich?",
-      "hint": "keine Erklärung notwendig, da selbsterklärend",
+      "hint": "Geben Sie bitte die Stoffe an, welche aus Sicht des Brandschutzes als gefährlich einzustufen sind.",
       "type": "checkbox",
       "required": true,
       "active-expression": "'brandschutztechnisch-gefahrliche-stoffe'|value == 'Ja'",
@@ -3964,7 +3964,7 @@
     },
     "datenverschnitt-gewasserschutz": {
       "label": "Die Einhaltung von Gewässerraum und -abstand ist im Bauvorhaben zu berücksichtigen. Falls eine Unterschreitung unumgänglich ist, muss um eine Ausnahmebewilligung ersucht werden (ebenfalls in diesem Formular). Gewässerraum und -abstand sind in den Plänen darzustellen.",
-      "hint": "**Platzhalter**: *datenverschnitt-gewasserschutz*",
+      "hint": "Dies ist ein Hinweis, welcher sich aus der Lokalisierung Ihres Vorhabens ergibt. Bei Fragen wenden Sie sich bitte an die zuständige Bauverwaltung.\n**Wichtig:** In den Plänen müssen Gewässerraum und -abstand eingetragen sein, um Ihr Vorhaben materiell beurteilen zu können.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a006.swisstlm3d.gewaesser.stehendesgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a006.swisstlm3d.gewaesser.fliessgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.awb.grp.awb_gewaesserraum' in 'layer'|value|mapby('name')",
@@ -3976,7 +3976,7 @@
     },
     "datenverschnitt-grundwasserschutz-zone": {
       "label": "Ihr Vorhaben tangiert eine Grundwasserschutzzone. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzzonenreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
-      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-zone*",
+      "hint": "Der ÖREB-Kataster kann über das WebGIS des Kantons SZ aufgerufen werden ([https://map.geo.sz.ch/] (https://map.geo.sz.ch/) → Geokategorie *ÖREB-Kataster*).",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.status.gwszone' in 'layer'|value|mapby('name')",
@@ -3988,7 +3988,7 @@
     },
     "datenverschnitt-grundwasserschutz-areal": {
       "label": "Ihr Vorhaben tangiert ein Grundwasserschutzareal. Die entsprechenden gesetzlichen Vorgaben sowie das Schutzarealreglement sind mittels ÖREB-Kataster-Auszug abrufbar und zwingend einzuhalten.",
-      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-areal*",
+      "hint": "Der ÖREB-Kataster kann über das WebGIS des Kantons SZ aufgerufen werden ([https://map.geo.sz.ch/] (https://map.geo.sz.ch/) → Geokategorie *ÖREB-Kataster*).",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gwszonen.gwsareal' in 'layer'|value|mapby('name')",
@@ -4000,7 +4000,7 @@
     },
     "datenverschnitt-grundwasserschutz-bereich-au": {
       "label": "Ihr Vorhaben tangiert den Gewässerschutzbereich Au. Falls der Baukörper oder Teile davon unter den mittleren Grundwasserspiegel reichen, muss ein Durchflussnachweis eingereicht werden.",
-      "hint": "**Platzhalter**: *datenverschnitt-grundwasserschutz-bereich-au*",
+      "hint": "Dies ist ein Hinweis, welcher sich aus der Lokalisierung Ihres Vorhabens ergibt. Bei Fragen wenden Sie sich bitte ans Amt für Umweltschutz (Tel. 041/819 20 35 oder afu@sz.ch).\n**Wichtig:** Der Durchflussnachweis muss mit den restlichen Gesuchsunterlagen beim Einreichen hochgeladen werden.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a013a.planerischergewaesserschutz.gsbereiche.bereich.au' in 'layer'|value|mapby('name')",
@@ -4012,7 +4012,7 @@
     },
     "grundwasser-warmeentnahme-art": {
       "label": "Welche Art von Wärmeentnahme-Einrichtung ist vorgesehen?",
-      "hint": "**Platzhalter**: *grundwasser-warmeentnahme-art*",
+      "hint": "Geben Sie bitte an, welche Art von Wärmeentnahme-Einrichtung vorgesehen ist.",
       "type": "radio",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)'",
@@ -4086,7 +4086,7 @@
     },
     "grundwasser-bohrverfahren": {
       "label": "Bohrverfahren:",
-      "hint": "Geben Sie bitte das gewählte Bohrverfahren an (z. B. Kernbohrung, Spülbohrung usw.).",
+      "hint": "Geben Sie bitte das gewählte Bohrverfahren an (z. B. Kernbohrung oder Spülbohrung).",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdwärmesonden'",
@@ -4180,7 +4180,7 @@
     },
     "grundwasser-material-der-anlage": {
       "label": "Material der Anlage:",
-      "hint": "Geben Sie bitte das Material an.",
+      "hint": "Geben Sie bitte das Material der Anlage an.",
       "type": "text",
       "required": true,
       "active-expression": "'art-der-warmepumpe'|value == 'Erd-Wärmepumpe bzw. Sole / Wasser-Wärmepumpe (Erdwärmesonden, Energiepfähle u. dgl.)' && 'grundwasser-warmeentnahme-art'|value == 'Erdkollektoren / Erdwärmekörbe'",
@@ -4206,7 +4206,7 @@
     },
     "grundwasser-sondierbohrung-zweck": {
       "label": "Zweck der Bohrungen:",
-      "hint": "**Baugrunduntersuchung:** Eine Baugrunduntersuchung soll dazu dienen, bereits im Frühstadium Aufschluss über die örtlichen Bodenverhältnisse zu geben. \n\n**Altlastenuntersuchung:** Hierbei handelt es sich um eine Voruntersuchung nach Art. 7 der Altlasten-Verordnung (AltlV, SR 814.680), die in der Regel aus einer historischen und einer technischen Untersuchung besteht. Damit werden die für die Beurteilung der Überwachungs- und Sanierungsbedürftigkeit erforderlichen Angaben ermittelt und im Hinblick auf die Gefährdung der Umwelt bewertet. Diese Untersuchungen sind ferner notwendig, um ein Entsorgungskonzept erstellen zu können. \n\n**Grundwasserwärmenutzung:** Eine Grundwasserwärmenutzung (GWWN) ist ein Wärmesystem, bei welchem Wärme aus dem Grundwasser für den Betrieb eines Wärmepumpensystems genutzt wird. Das Grundwasser wird aus einem Entnahmeschacht mittels Tauchpumpe gefördert und nach dem Wärmeentzug über einen Rückgabeschacht dem Grundwasserleiter zurückgespiesen.",
+      "hint": "**Baugrunduntersuchung:** Eine Baugrunduntersuchung soll dazu dienen, bereits im Frühstadium Aufschluss über die örtlichen Bodenverhältnisse zu geben.\n\n**Altlastenuntersuchung:** Hierbei handelt es sich um eine Voruntersuchung nach Art. 7 der Altlasten-Verordnung (AltlV, SR 814.680), die in der Regel aus einer historischen und einer technischen Untersuchung besteht. Damit werden die für die Beurteilung der Überwachungs- und Sanierungsbedürftigkeit erforderlichen Angaben ermittelt und im Hinblick auf die Gefährdung der Umwelt bewertet. Diese Untersuchungen sind ferner notwendig, um ein Entsorgungskonzept erstellen zu können.\n\n**Grundwasserwärmenutzung:** Eine Grundwasserwärmenutzung (GWWN) ist ein Wärmesystem, bei welchem Wärme aus dem Grundwasser für den Betrieb eines Wärmepumpensystems genutzt wird. Das Grundwasser wird aus einem Entnahmeschacht mittels Tauchpumpe gefördert und nach dem Wärmeentzug über einen Rückgabeschacht dem Grundwasserleiter zurückgespiesen.",
       "type": "radio",
       "required": true,
       "active-expression": "'Sondierbohrung' in 'art-der-anlage'|value",
@@ -4421,35 +4421,35 @@
     },
     "dokument-grundstucksangaben": {
       "label": "Grundstücksangaben",
-      "hint": "Unter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.",
+      "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein. Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Grundstücksangaben* fallen Gesuchsunterlagen wie z. B. Katasterplan, Grundbuchauszug, Dienstbarkeiten.",
       "type": "document",
       "required": true,
       "config": {}
     },
     "dokument-gutachten-nachweise-begrundungen": {
       "label": "Gutachten, Nachweise, Begründungen",
-      "hint": "Unter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise.",
+      "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Gutachten, Nachweise, Begründungen* fallen Gesuchsunterlagen wie z. B. Vollmachten, Einverständnis Nachbarn, Nutzungsberechnungen, energetische Nachweise, Lärmschutznachweise, Brandschutznachweise, Durchflussnachweise.",
       "type": "document",
       "required": false,
       "config": {}
     },
     "dokument-projektplane-projektbeschrieb": {
       "label": "Projektpläne und Projektbeschrieb",
-      "hint": "Unter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.",
+      "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter die Begriffe *Projektpläne und Projektbeschrieb* fallen Gesuchsunterlagen wie z. B. Situationspläne, Grundrisse, Schnitt- und Fassadenpläne, Kanalisationspläne, Siedlungsentwässerungspläne, Umgebungspläne, Projektbeschrieb, Planverzeichnis.",
       "type": "document",
       "required": false,
       "config": {}
     },
     "dokument-weitere-gesuchsunterlagen": {
       "label": "Weitere Gesuchsunterlagen",
-      "hint": "Unter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.",
+      "hint": "Die Unterlagen sind als pdf-Dokumente hochzuladen. Der Dateiname soll kurz und aussagekräftig sein.  Lassen Sie Projektnummern resp. -bezeichnungen, welche Sie für Ihre interne Dokumentablage benötigen, bitte weg.\n\nUnter den Begriff *Weitere Gesuchsunterlagen* fallen Gesuchsunterlagen wie z. B. Anschlussgesuch Elektrizitätswerk, Anschlussgesuch Gas, Anschlussgesuch Wasser, andere Gesuchsunterlagen.",
       "type": "document",
       "required": false,
       "config": {}
     },
     "dokument-freigegeben": {
       "label": "Freigegebene Unterlagen",
-      "hint": "**Platzhalter**: *dokument-freigegeben*",
+      "hint": "Unter dem Titel *Freigegebene Unterlagen* finden Sie alle Dokumente, welche Ihnen durch die zuständige Behörde elektronisch zugestellt worden sind. Durch Klicken auf das \"Wolken-Symbol\" können Sie das jeweilige Dokument herunterladen.",
       "type": "document",
       "required": false,
       "active-expression": "state != 'new'",
@@ -4457,7 +4457,7 @@
     },
     "av-art": {
       "label": "Welche Art von Bewilligung hat Ihr Gesuch zum Inhalt?",
-      "hint": "**Grossveranstaltung im Wald:** Über die Bewilligungspflicht für Veranstaltungen im Wald gibt § 7 der Vollzugsverordnung zum Kantonalen Waldgesetz (VVzKWaG, SRSZ 313.111) Auskunft.\n\n**Anlassbewilligung:** Erkundigen Sie sich zuerst in der jeweiligen Gemeinde, ob eine Bewilligung nötig ist und ob es ein separates, kommunales Formular für Anlassbewilligungen gibt. \n\n**Verkehrsbewilligung:** Verkehrsbewilligungen sind erforderlich für Umzüge, Veranstaltungen und dergleichen, die Verkehrsbeschränkungen oder Verkehrsumleitungen erfordern sowie für motor- und radsportliche Veranstaltungen.",
+      "hint": "**Grossveranstaltung im Wald:** Über die Bewilligungspflicht für Veranstaltungen im Wald gibt § 7 der Vollzugsverordnung zum Kantonalen Waldgesetz (VVzKWaG, SRSZ 313.111) Auskunft.\n\n**Anlassbewilligung:** Erkundigen Sie sich zuerst in der jeweiligen Gemeinde, ob eine Bewilligung nötig ist und ob es ein separates, kommunales Formular für Anlassbewilligungen gibt.\n\n**Verkehrsbewilligung:** Verkehrsbewilligungen sind erforderlich für Umzüge, Veranstaltungen und dergleichen, welche Verkehrsbeschränkungen oder Verkehrsumleitungen erfordern sowie für motor- und radsportliche Veranstaltungen.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -4470,7 +4470,7 @@
     },
     "bm-solaranlage": {
       "label": "Handelt es sich bei Ihrem geringfügigen (Bau)Vorhaben um eine Solaranlage?",
-      "hint": "noch pendent",
+      "hint": "Diese Frage dient dazu, um Ihr Vorhaben dem richtigen Verfahren zuweisen zu können.",
       "type": "radio",
       "required": true,
       "config": {
@@ -4482,7 +4482,7 @@
     },
     "kw-ort": {
       "label": "Von wo ist geplant, Wasser zu entnehmen?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, von wo Sie Wasser entnehmen möchten. Falls der Entnahmeort nicht exakt zur Auswahl steht, wählen Sie die am ehesten zutreffende Art (z. B. können Sie anstelle *Weiher* den vorhandenen Entnahmeort *See* anwählen).  ",
       "type": "radio",
       "required": true,
       "config": {
@@ -4496,7 +4496,7 @@
     },
     "kw-1-1-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "noch pendent",
+      "hint": "**Wärmepumpe:** Als Wärmepumpen bezeichnet man Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur aufnimmt und - zusammen mit der Antriebsenergie - als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur überträgt.\n\n**Kühlung:** Dies meint ein Kühlsystem, bei dem das primär wärmeabführende Kühlmittel Wasser ist.\n\n**Wärmepumpe und Kühlung:** Kombination aus beiden Nutzungsarten.\n\n**Trinkwasser:** Dieser Punkt ist auszuwählen, wenn das entnommene Wasser als Trinkwasser verwendet werden soll.\n\n**Brauchwasser:** Andere Begriffe dafür sind Betriebs- oder Nutzwasser. Es handelt sich dabei um Wasser, welches einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient. Es ist nicht für den menschlichen Genuss vorgesehen.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser'",
@@ -4512,7 +4512,7 @@
     },
     "kw-1-1-1-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "noch pendent",
+      "hint": "Voraussetzung für die Erteilung einer Konzession um Wasserentnahme ist eine Bewilligung der Sondierbohrung und allfälliger baulicher Massnahmen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4520,7 +4520,7 @@
     },
     "kw-1-1-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4528,7 +4528,7 @@
     },
     "kw-1-1-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4538,7 +4538,7 @@
     },
     "kw-1-1-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Bei Grundwasserentnahmen sind die Koordinaten des Entnahmebrunnens anzugeben. Bei Seewasserentnahmen sind die Koordinaten des Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Grundwasserentnahmen sind die Koordinaten des Entnahmebrunnens anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4546,7 +4546,7 @@
     },
     "kw-1-1-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation, usw.)",
-      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an.",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4557,7 +4557,7 @@
     },
     "kw-1-1-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
+      "hint": "Beschreiben Sie bitte kurz, wie und wohin die Rückführung des genutzten Wassers erfolgt (z. B. Rückversickerung, Einleitung in Oberflächengewässer usw.).",
       "type": "textarea",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4568,7 +4568,7 @@
     },
     "kw-1-1-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4578,7 +4578,7 @@
     },
     "kw-1-1-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Temperatur der Wärmequelle so genau wie möglich in Grad Celsius an. Mit Wärmequelle ist das Entnahmewasser gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4588,7 +4588,7 @@
     },
     "kw-1-1-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "noch pendent",
+      "hint": "Damit ist der Wärmegewinn in Grad Celsius gemeint. ",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4598,7 +4598,7 @@
     },
     "kw-1-1-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Austrittstemperatur so genau wie möglich in Grad Celsius an. Damit ist die Temperatur des Rückgabewassers gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4608,7 +4608,7 @@
     },
     "kw-1-1-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "noch pendent",
+      "hint": "\nGeben Sie bitte die am ehesten zutreffende Art der beheizten Baute an. Dabei betrifft eine Information die Frage, ob es eine bestehende oder neue Baute ist. Die andere Frage betrifft die Nutzung. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4624,7 +4624,7 @@
     },
     "kw-1-1-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
+      "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value == 'Andere'",
@@ -4632,7 +4632,7 @@
     },
     "kw-1-1-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -4642,7 +4642,7 @@
     },
     "kw-1-1-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4652,7 +4652,7 @@
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
+      "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümergemeinschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümergemeinschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4665,7 +4665,7 @@
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "z.B. STWEG Muster",
+      "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-1-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -4673,7 +4673,7 @@
     },
     "kw-1-1-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4681,7 +4681,7 @@
     },
     "kw-1-1-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte das vorgesehene Kältemittel an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4689,7 +4689,7 @@
     },
     "kw-1-1-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4699,7 +4699,7 @@
     },
     "kw-1-1-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4709,7 +4709,7 @@
     },
     "kw-1-1-2-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "noch pendent",
+      "hint": "Voraussetzung für die Erteilung einer Konzession um Wasserentnahme ist eine Bewilligung der Sondierbohrung und allfälliger baulicher Massnahmen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4717,7 +4717,7 @@
     },
     "kw-1-1-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4725,7 +4725,7 @@
     },
     "kw-1-1-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4735,7 +4735,7 @@
     },
     "kw-1-1-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Grundwasserentnahmen sind die Koordinaten des Entnahmebrunnens anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4743,7 +4743,7 @@
     },
     "kw-1-1-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4751,7 +4751,7 @@
     },
     "kw-1-1-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4761,7 +4761,7 @@
     },
     "kw-1-1-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Trinkwasser'",
@@ -4769,7 +4769,7 @@
     },
     "kw-1-1-3-datum-bewilligung": {
       "label": "Bitte geben Sie die Nummer und das Datum der Bewilligung für die Sondierbohrung und allfällige bauliche Massnahmen an:",
-      "hint": "noch pendent",
+      "hint": "Voraussetzung für die Erteilung einer Konzession um Wasserentnahme ist eine Bewilligung der Sondierbohrung und allfälliger baulicher Massnahmen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4777,7 +4777,7 @@
     },
     "kw-1-1-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "noch pendent",
+      "hint": "Beschreiben Sie bitte kurz, zu welchem Zweck Sie das Brauchwasser verwenden.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4785,7 +4785,7 @@
     },
     "kw-1-1-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4793,7 +4793,7 @@
     },
     "kw-1-1-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4803,7 +4803,7 @@
     },
     "kw-1-1-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Grundwasserentnahmen sind die Koordinaten des Entnahmebrunnens anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4811,7 +4811,7 @@
     },
     "kw-1-1-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4819,7 +4819,7 @@
     },
     "kw-1-1-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4829,7 +4829,7 @@
     },
     "kw-1-1-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Grundwasser' && 'kw-1-1-nutzungsart'|value == 'Brauchwasser'",
@@ -4837,7 +4837,7 @@
     },
     "kw-1-2-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "noch pendent",
+      "hint": "**Wärmepumpe:** Als Wärmepumpen bezeichnet man Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur aufnimmt und - zusammen mit der Antriebsenergie - als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur überträgt.\n\n**Kühlung:** Dies meint ein Kühlsystem, bei dem das primär wärmeabführende Kühlmittel Wasser ist.\n\n**Wärmepumpe und Kühlung:** Kombination aus beiden Nutzungsarten.\n\n**Brauchwasser:** Andere Begriffe dafür sind Betriebs- oder Nutzwasser. Es handelt sich dabei um Wasser, welches einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient. Es ist nicht für den menschlichen Genuss vorgesehen.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss'",
@@ -4852,7 +4852,7 @@
     },
     "kw-1-2-1-name-gewasser": {
       "label": "Name des Gewässers:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Namen des Fliessgewässers an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4860,7 +4860,7 @@
     },
     "kw-1-2-1-bach-fuhrt-wasser": {
       "label": "Führt der Bach / Fluss ständig Wasser?",
-      "hint": "noch pendent",
+      "hint": "Falls das Gewässer nur schon an einzelnen Tagen versiegt, ist die Frage mit *Nein* zu beantworten.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4873,7 +4873,7 @@
     },
     "kw-1-2-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4881,7 +4881,7 @@
     },
     "kw-1-2-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4891,7 +4891,7 @@
     },
     "kw-1-2-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Wasserentnahmen aus Fliessgewässern sind die Koordinaten des Standorts des Seihers im Fliessgewässer, wie auch der Pumpstation an Land anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4899,7 +4899,7 @@
     },
     "kw-1-2-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4907,7 +4907,7 @@
     },
     "kw-1-2-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
+      "hint": "Geben Sie bitte eine kurze Beschreibung an, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z. B. Rückversickerung, Einleitung in Oberflächengewässer usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4915,7 +4915,7 @@
     },
     "kw-1-2-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4925,7 +4925,7 @@
     },
     "kw-1-2-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Temperatur der Wärmequelle so genau wie möglich in Grad Celsius an. Mit Wärmequelle ist das Entnahmewasser gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4935,7 +4935,7 @@
     },
     "kw-1-2-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "noch pendent",
+      "hint": "Damit ist der Wärmegewinn in Grad Celsius gemeint. ",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4945,7 +4945,7 @@
     },
     "kw-1-2-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Austrittstemperatur so genau wie möglich in Grad Celsius an. Damit ist die Temperatur des Rückgabewassers gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4955,7 +4955,7 @@
     },
     "kw-1-2-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "noch pendent",
+      "hint": "\nGeben Sie bitte die am ehesten zutreffende Art der beheizten Baute an. Dabei betrifft eine Information die Frage, ob es eine bestehende oder neue Baute ist. Die andere Frage betrifft die Nutzung. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4968,7 +4968,7 @@
     },
     "kw-1-2-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4978,7 +4978,7 @@
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
+      "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -4991,7 +4991,7 @@
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "z.B. STWEG Muster",
+      "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-2-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -4999,7 +4999,7 @@
     },
     "kw-1-2-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5007,7 +5007,7 @@
     },
     "kw-1-2-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte das vorgesehene Kältemittel an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5015,7 +5015,7 @@
     },
     "kw-1-2-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5025,7 +5025,7 @@
     },
     "kw-1-2-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5035,7 +5035,7 @@
     },
     "kw-1-2-2-name-gewasser": {
       "label": "Name des Gewässers:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Namen des Fliessgewässers an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5043,7 +5043,7 @@
     },
     "kw-1-2-2-bach-fuhrt-wasser": {
       "label": "Führt der Bach / Fluss ständig Wasser?",
-      "hint": "noch pendent",
+      "hint": "Falls das Gewässer nur schon an einzelnen Tagen versiegt, ist die Frage mit *Nein* zu beantworten.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5056,7 +5056,7 @@
     },
     "kw-1-2-2-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "noch pendent",
+      "hint": "Beschreiben Sie bitte kurz, zu welchem Zweck Sie das Brauchwasser verwenden.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5064,7 +5064,7 @@
     },
     "kw-1-2-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5072,7 +5072,7 @@
     },
     "kw-1-2-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5082,7 +5082,7 @@
     },
     "kw-1-2-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Wasserentnahmen aus Fliessgewässern sind die Koordinaten des Standorts des Seihers im Fliessgewässer wie auch der Pumpstation an Land anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5090,7 +5090,7 @@
     },
     "kw-1-2-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5098,7 +5098,7 @@
     },
     "kw-1-2-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5108,7 +5108,7 @@
     },
     "kw-1-2-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Bach / Fluss' && 'kw-1-2-nutzungsart'|value == 'Brauchwasser'",
@@ -5116,7 +5116,7 @@
     },
     "kw-1-3-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "noch pendent",
+      "hint": "**Wärmepumpe:** Als Wärmepumpen bezeichnet man Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur aufnimmt und - zusammen mit der Antriebsenergie - als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur überträgt.\n\n**Kühlung:** Dies meint ein Kühlsystem, bei dem das primär wärmeabführende Kühlmittel Wasser ist.\n\n**Wärmepumpe und Kühlung:** Kombination aus beiden Nutzungsarten.\n\n**Trinkwasser:** Dieser Punkt ist auszuwählen, wenn das entnommene Wasser als Trinkwasser verwendet werden soll.\n\n**Brauchwasser:** Andere Begriffe dafür sind Betriebs- oder Nutzwasser. Es handelt sich dabei um Wasser, welches einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient. Es ist nicht für den menschlichen Genuss vorgesehen.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See'",
@@ -5132,7 +5132,7 @@
     },
     "kw-1-3-1-name-see": {
       "label": "Name des Sees:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Namen des Sees an, aus dem Wasser entnommen werden soll.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5140,7 +5140,7 @@
     },
     "kw-1-3-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5148,7 +5148,7 @@
     },
     "kw-1-3-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5158,7 +5158,7 @@
     },
     "kw-1-3-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Seewasserentnahmen sind die Koordinaten des Standorts des Seihers im See wie auch der Pumpstation an Land anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5166,7 +5166,7 @@
     },
     "kw-1-3-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5174,7 +5174,7 @@
     },
     "kw-1-3-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
+      "hint": "Geben Sie bitte eine kurze Beschreibung an, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z. B. Rückversickerung, Einleitung in Oberflächengewässer usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5182,7 +5182,7 @@
     },
     "kw-1-3-1-entnahmestandort-tiefe": {
       "label": "Auf welcher Seetiefe erfolgt die Rückführung des Wassers in m?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte in Metern an, auf welcher Seetiefe die Rückführung erfolgen soll.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5192,7 +5192,7 @@
     },
     "kw-1-3-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5202,7 +5202,7 @@
     },
     "kw-1-3-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Temperatur der Wärmequelle so genau wie möglich in Grad Celsius an. Mit Wärmequelle ist das Entnahmewasser gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5212,7 +5212,7 @@
     },
     "kw-1-3-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "noch pendent",
+      "hint": "Damit ist der Wärmegewinn in Grad Celsius gemeint. ",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5222,7 +5222,7 @@
     },
     "kw-1-3-1-entnahmegewasser-ges-austritt-temp": {
       "label": "Geschätzte Austrittstemperatur in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die geschätzte Austrittstemperatur in Grad Celsius an. Damit ist die Temperatur des Rückgabewassers gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5232,7 +5232,7 @@
     },
     "kw-1-3-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "noch pendent",
+      "hint": "\nGeben Sie bitte die am ehesten zutreffende Art der beheizten Baute an. Dabei betrifft eine Information die Frage, ob es eine bestehende oder neue Baute ist. Die andere Frage betrifft die Nutzung. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5248,7 +5248,7 @@
     },
     "kw-1-3-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
+      "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value == 'Andere'",
@@ -5256,7 +5256,7 @@
     },
     "kw-1-3-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -5266,7 +5266,7 @@
     },
     "kw-1-3-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5276,7 +5276,7 @@
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
+      "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5289,7 +5289,7 @@
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "z.B. STWEG Muster",
+      "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-3-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -5297,7 +5297,7 @@
     },
     "kw-1-3-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5305,7 +5305,7 @@
     },
     "kw-1-3-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte das vorgesehene Kältemittel an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5313,7 +5313,7 @@
     },
     "kw-1-3-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5323,7 +5323,7 @@
     },
     "kw-1-3-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5333,7 +5333,7 @@
     },
     "kw-1-3-2-name-see": {
       "label": "Name des Sees:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Namen des Sees an, aus dem Wasser entnommen werden soll.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5341,7 +5341,7 @@
     },
     "kw-1-3-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5349,7 +5349,7 @@
     },
     "kw-1-3-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5359,7 +5359,7 @@
     },
     "kw-1-3-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Seewasserentnahmen sind die Koordinaten des Standorts des Seihers im See wie auch der Pumpstation an Land anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5367,7 +5367,7 @@
     },
     "kw-1-3-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5375,7 +5375,7 @@
     },
     "kw-1-3-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5385,7 +5385,7 @@
     },
     "kw-1-3-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Trinkwasser'",
@@ -5393,7 +5393,7 @@
     },
     "kw-1-3-3-name-see": {
       "label": "Name des Sees:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Namen des Sees an, aus dem Wasser entnommen werden soll.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5401,7 +5401,7 @@
     },
     "kw-1-3-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "noch pendent",
+      "hint": "Beschreiben Sie bitte kurz, zu welchem Zweck Sie das Brauchwasser verwenden.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5409,7 +5409,7 @@
     },
     "kw-1-3-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5417,7 +5417,7 @@
     },
     "kw-1-3-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5427,7 +5427,7 @@
     },
     "kw-1-3-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Seewasserentnahmen sind die Koordinaten des Standorts des Seihers im See wie auch der Pumpstation an Land anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5435,7 +5435,7 @@
     },
     "kw-1-3-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5443,7 +5443,7 @@
     },
     "kw-1-3-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5453,7 +5453,7 @@
     },
     "kw-1-3-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'See' && 'kw-1-3-nutzungsart'|value == 'Brauchwasser'",
@@ -5461,7 +5461,7 @@
     },
     "kw-1-4-privat-offentlich": {
       "label": "Handelt es sich um eine private oder öffentliche Quelle?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, ob es sich um eine private oder öffentliche Quelle handelt.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle'",
@@ -5474,7 +5474,7 @@
     },
     "kw-1-4-nutzungsart": {
       "label": "Welche Nutzungsart liegt vor?",
-      "hint": "noch pendent",
+      "hint": "**Wärmepumpe:** Als Wärmepumpen bezeichnet man Maschinen, die unter Aufwendung von technischer Arbeit thermische Energie aus einem Reservoir mit niedrigerer Temperatur aufnimmt und - zusammen mit der Antriebsenergie - als Nutzwärme auf ein zu beheizendes System mit höherer Temperatur überträgt.\n\n**Kühlung:** Dies meint ein Kühlsystem, bei dem das primär wärmeabführende Kühlmittel Wasser ist.\n\n**Wärmepumpe und Kühlung:** Kombination aus beiden Nutzungsarten.\n\n**Trinkwasser:** Dieser Punkt ist auszuwählen, wenn das entnommene Wasser als Trinkwasser verwendet werden soll.\n\n**Brauchwasser:** Andere Begriffe dafür sind Betriebs- oder Nutzwasser. Es handelt sich dabei um Wasser, welches einer spezifischen technischen, gewerblichen, landwirtschaftlichen oder hauswirtschaftlichen Anwendung dient. Es ist nicht für den menschlichen Genuss vorgesehen.",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle'",
@@ -5490,7 +5490,7 @@
     },
     "kw-1-4-1-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5498,7 +5498,7 @@
     },
     "kw-1-4-1-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5508,7 +5508,7 @@
     },
     "kw-1-4-1-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5516,7 +5516,7 @@
     },
     "kw-1-4-1-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5524,7 +5524,7 @@
     },
     "kw-1-4-1-entnahmestandort-ruckfuhrung": {
       "label": "Wie und wohin erfolgt die Rückführung des gebrauchten Wassers?",
-      "hint": "Kurzer Beschrieb, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z.B. Rückversickerung, Einleitung in Oberflächengewässer usw.)",
+      "hint": "Geben Sie bitte eine kurze Beschreibung an, wie und wohin die Rückführung des genutzten Gewässers erfolgt (z. B. Rückversickerung, Einleitung in Oberflächengewässer usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5532,7 +5532,7 @@
     },
     "kw-1-4-1-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5542,7 +5542,7 @@
     },
     "kw-1-4-1-entnahmegewasser-min-temp": {
       "label": "Minimale Temperatur der Wärmequelle in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Temperatur der Wärmequelle so genau wie möglich in Grad Celsius an. Mit Wärmequelle ist das Entnahmewasser gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5552,7 +5552,7 @@
     },
     "kw-1-4-1-entnahmegewasser-abkuhlung": {
       "label": "Abkühlung der Wärmequelle im Wärmetauscher in °C",
-      "hint": "noch pendent",
+      "hint": "Damit ist der Wärmegewinn in Grad Celsius gemeint. ",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5562,7 +5562,7 @@
     },
     "kw-1-4-1-entnahmegewasser-min-austritt-temp": {
       "label": "Minimale Austrittstemperatur in °C",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die minimale Austrittstemperatur so genau wie möglich in Grad Celsius an. Damit ist die Temperatur des Rückgabewassers gemeint.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5572,7 +5572,7 @@
     },
     "kw-1-4-1-baute-art": {
       "label": "Um was handelt es sich bei der beheizten Baute?",
-      "hint": "noch pendent",
+      "hint": "\nGeben Sie bitte die am ehesten zutreffende Art der beheizten Baute an. Dabei betrifft eine Information die Frage, ob es eine bestehende oder neue Baute ist. Die andere Frage betrifft die Nutzung. Falls es kein reines Wohnhaus ist, können Sie mit *Andere* eine spezifische Angabe machen (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5588,7 +5588,7 @@
     },
     "kw-1-4-1-baute-art-andere": {
       "label": "Welche?",
-      "hint": "z.B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.",
+      "hint": "Geben Sie bitte mit einer knappen Bezeichnung die Art der beheizten Baute an (z. B. Wohn- und Gewerbehaus, Hotel, Fabrikationsbetrieb usw.).",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value == 'Andere'",
@@ -5596,7 +5596,7 @@
     },
     "kw-1-4-1-baute-wohneinheiten": {
       "label": "Wie viele Wohneinheiten sind vorgesehen?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Anzahl der vorhandenen resp. geplanten Wohneinheiten an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-art'|value in ['Einfamilienhaus', 'Mehrfamilienhaus']",
@@ -5606,7 +5606,7 @@
     },
     "kw-1-4-1-baute-warmebedarf": {
       "label": "Wie hoch ist der Wärmebedarf in Watt?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte den Wärmebedarf in Watt an, allenfalls als Schätzung.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5616,7 +5616,7 @@
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft": {
       "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
-      "hint": "Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümerschaft (oder auch andere Eigentümerschaft), wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG).",
+      "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5629,7 +5629,7 @@
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
       "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
-      "hint": "z.B. STWEG Muster",
+      "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung'] && 'kw-1-4-1-baute-stockwerkeigentumerschaft'|value == 'Ja'",
@@ -5637,7 +5637,7 @@
     },
     "kw-1-4-1-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5645,7 +5645,7 @@
     },
     "kw-1-4-1-baute-kaltemittel": {
       "label": "Kältemittel:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte das vorgesehene Kältemittel an.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5653,7 +5653,7 @@
     },
     "kw-1-4-1-baute-kaltemitteleinfullungen": {
       "label": "Kältemitteleinfüllung(en) in kg:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Menge des Kältemittels in Kilogramm an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5663,7 +5663,7 @@
     },
     "kw-1-4-1-baute-leistung-verdampfer": {
       "label": "Leistung Verdampfer in Watt:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Leistung des Verdampfers in Watt an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value in ['Wärmepumpe', 'Kühlung', 'Wärmepumpe und Kühlung']",
@@ -5673,7 +5673,7 @@
     },
     "kw-1-4-2-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5681,7 +5681,7 @@
     },
     "kw-1-4-2-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5691,7 +5691,7 @@
     },
     "kw-1-4-2-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5699,7 +5699,7 @@
     },
     "kw-1-4-2-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5707,7 +5707,7 @@
     },
     "kw-1-4-2-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5717,7 +5717,7 @@
     },
     "kw-1-4-2-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Trinkwasser'",
@@ -5725,7 +5725,7 @@
     },
     "kw-1-4-3-zweck-brauchwasser": {
       "label": "Für welchen Zweck wird das Brauchwasser verwendet?",
-      "hint": "noch pendent",
+      "hint": "Beschreiben Sie bitte kurz, zu welchem Zweck Sie das Brauchwasser verwenden.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5733,7 +5733,7 @@
     },
     "kw-1-4-3-entnahmestandort-gemeinde": {
       "label": "Gemeinde:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, in welcher Gemeinde der Entnahme- und der Rückgabestandort liegen. Falls Entnahme und Rückgabe des Wassers nicht in derselben Gemeinde erfolgen, sind beide Gemeinden anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5741,7 +5741,7 @@
     },
     "kw-1-4-3-entnahmestandort-grundstuck": {
       "label": "Grundstück-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die Grundstücksnummer(n) an, auf denen der Entnahme- resp. der Rückgabestandort liegen. Sie können diese dem kantonalen WebGIS entnehmen, falls sie Ihnen nicht bekannt ist.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5751,7 +5751,7 @@
     },
     "kw-1-4-3-entnahmestandort-koordinaten": {
       "label": "Koordinaten:",
-      "hint": "Koordinaten des Entnahmebrunnens bei Grundwasserentnahmen. Bei Seewasserentnahmen sind die Koordinaten der Standorts des Seihers im See, wie auch der Pumpstation an Land anzugeben (gilt analog auch für Entnahmen aus Fliessgewässern). Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
+      "hint": "Bei Quellen ist deren Standort mit Koordinaten anzugeben.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5759,7 +5759,7 @@
     },
     "kw-1-4-3-entnahmestandort-beschreibung": {
       "label": "Kurze Beschreibung der Anlagen (Wasserfassung, Pumpstation usw.)",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte eine kurze Beschreibung der Anlagen an. Allenfalls können Sie bei den Gesuchsunterlagen ein separates Dokument hochladen.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5767,7 +5767,7 @@
     },
     "kw-1-4-3-entnahmegewasser-max": {
       "label": "Vorgesehene maximale Wasserentnahme in l/min",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte die maximale Menge der vorgesehenen Wasserentnahme in Litern pro Minute an.",
       "type": "number",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5777,7 +5777,7 @@
     },
     "kw-1-4-3-inbetriebnahme": {
       "label": "Wann soll die Anlage voraussichtlich in Betrieb genommen werden?",
-      "hint": "noch pendent",
+      "hint": "Falls kein genaues Datum angegeben werden kann, sind auch Angaben wie *Anfang Juli 2019* möglich.",
       "type": "text",
       "required": true,
       "active-expression": "'kw-ort'|value == 'Quelle' && 'kw-1-4-nutzungsart'|value == 'Brauchwasser'",
@@ -5785,21 +5785,21 @@
     },
     "pa-gesuchsnr": {
       "label": "Gesuchs-Nr. des rechtskräftig bewilligten Projektes:",
-      "hint": "noch pendent",
+      "hint": "Eine Projektänderung setzt ein rechtskräftig bewilligtes Projekt voraus. Zur Bearbeitung der Projektänderung sind die Gesuchs-Nr. und das Bewilligungsdatum des bewilligten Projektes notwendig.",
       "type": "text",
       "required": true,
       "config": {}
     },
     "pa-datum": {
       "label": "Datum der Bewilligung:",
-      "hint": "noch pendent",
+      "hint": "Eine Projektänderung setzt ein rechtskräftig bewilligtes Projekt voraus. Zur Bearbeitung der Projektänderung sind die Gesuchs-Nr. und das Bewilligungsdatum des bewilligten Projektes notwendig.",
       "type": "text",
       "required": true,
       "config": {}
     },
     "pgv-bewilligungsbehorde": {
       "label": "Zuständige Bewilligungsbehörde:",
-      "hint": "noch pendent",
+      "hint": "Eine der vier aufgeführten Stellen ist die zuständige Bewilligungsbehörde und damit die Leitbehörde in diesem Plangenehmigungsverfahren.",
       "type": "radio",
       "required": true,
       "config": {
@@ -5813,21 +5813,21 @@
     },
     "tb-gesuchsnr": {
       "label": "Gesuchs-Nr.:",
-      "hint": "noch pendent",
+      "hint": "Technische Bewilligungen sind ergänzende Konkretisierungen von Baubewilligungen, welche Erschliessung, Lage, Dimension und Erscheinungsbild eines Bauvorhabens nicht verändern. Einer technischen Bewilligung muss demnach immer ein Baugesuch vorausgegangen sein, in dem die Konkretisierungen vorbehalten wurden. Die Gesuchs-Nr. und das Datum dieser Baubewilligung sind anzugeben.",
       "type": "text",
       "required": true,
       "config": {}
     },
     "tb-datum": {
       "label": "Datum der Baubewilligung:",
-      "hint": "noch pendent",
+      "hint": "Technische Bewilligungen sind ergänzende Konkretisierungen von Baubewilligungen, welche Erschliessung, Lage, Dimension und Erscheinungsbild eines Bauvorhabens nicht verändern. Einer technischen Bewilligung muss demnach immer ein Baugesuch vorausgegangen sein, in dem die Konkretisierungen vorbehalten wurden. Die Gesuchs-Nr. und das Datum dieser Baubewilligung sind anzugeben.",
       "type": "date",
       "required": true,
       "config": {}
     },
     "tb-zweck": {
       "label": "Für was wird um eine technische Bewilligung ersucht?",
-      "hint": "noch pendent",
+      "hint": "Geben Sie bitte an, um welche technische Bewilligung Sie mit vorliegendem Gesuch ersuchen. Zwingende Voraussetzung ist, dass diese technische Bewilligung als Vorbehalt im Stammbaugesuch aufgeführt ist.",
       "type": "checkbox",
       "required": true,
       "config": {
@@ -5840,7 +5840,7 @@
     },
     "tb-zweck-andere": {
       "label": "Welche?",
-      "hint": "noch pendent",
+      "hint": "Falls Sie um eine technische Bewilligung ersuchen wollen, die nicht zur Auswahl steht, umschreiben Sie diese bitte in knappen Worten.",
       "type": "textarea",
       "required": true,
       "active-expression": "'Andere' in 'tb-zweck'|value",
@@ -5851,7 +5851,7 @@
     },
     "ve-verbindlich": {
       "label": "Soll der Vorentscheid gegenüber Dritten verbindlich sein?",
-      "hint": "noch pendent",
+      "hint": "Bei Vorentscheidgesuchen stellt sich häufig die Frage, was der Gesuchsteller damit bezweckt. Falls es darum geht, eine materielle Beurteilung des Vorhabens zu erhalten und somit die fachliche Bewilligungsfähigkeit in Erfahrung zu bringen, muss das Gesuch nicht publiziert werden (gegenüber Dritten nicht verbindlich). Soll hingegen zusätzlich ausgelotet werden, wie sich Schutzorganisationen und andere einspracheberechtigte Institutionen zu einem Vorhaben stellen, ist die Publikation des Gesuches angezeigt (gegenüber Dritten verbindlich).",
       "type": "radio",
       "required": true,
       "config": {
@@ -5867,7 +5867,7 @@
         "municipality"
       ],
       "label": "Einsprecher:",
-      "hint": "**Platzhalter**: *einsprecher*",
+      "hint": "Natürliche oder juristische Person, die während der öffentlichen Planauflage eines Vorhabens Einsprache erhebt.",
       "type": "table",
       "required": true,
       "config": {
