@@ -4,6 +4,7 @@ query GetCase($caseId: GenericScalar!) {
       node {
         id
         status
+        meta
         document {
           id
         }
