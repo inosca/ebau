@@ -132,7 +132,39 @@ services:
             - POSTGRES_DATABASE=${APPLICATION}
             - KEYCLOAK_USER=admin
 
+    document-merge-service:
+        image: adfinissygroup/document-merge-service
+        depends_on:
+            - db
+            - unoconv
+        volumes:
+            - ./document-merge-service/templatefiles:/var/lib/document-merge-service/media
+            - ./document-merge-service/dump.json:/tmp/document-merge-service/dump.json
+        environment:
+            - DATABASE_ENGINE=django.db.backends.postgresql
+            - DATABASE_HOST=db
+            - DATABASE_NAME=kt_bern
+            - DATABASE_USER=camac
+            - DATABASE_PASSWORD=camac
+            - UNOCONV_URL=http://unoconv:3000
+            - REQUIRE_AUTHENTICATION=True
+            - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
+            - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+        command:
+          [
+            "/bin/sh",
+            "-c",
+            "./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && ./manage.py runserver 0.0.0.0:8000",
+          ]
+
+    unoconv:
+        image: zrrrzzt/docker-unoconv-webservice
+        environment:
+            - SERVER_PORT=3000
+
+
 volumes:
     pgdata:
     djangomedia:
     phpsessions:
+    templatefiles:

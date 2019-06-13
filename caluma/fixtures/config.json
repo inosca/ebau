@@ -3048,6 +3048,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "36d84a85-1d8f-4786-92f6-1c6cbe5b8a2b",
+    "fields": {
+      "created_at": "2019-06-12T08:11:34.051Z",
+      "modified_at": "2019-06-12T08:11:34.051Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "8-freigabequittung",
+      "question": "formulardownload-pdf",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "36d9ef75-43c5-4949-b083-177c7d555992",
     "fields": {
       "created_at": "2019-04-03T11:56:06.499Z",
@@ -16285,6 +16298,31 @@
         "widgetOverride": null,
         "documentCategory": "spezialformulare-waermepumpen"
       },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "formulardownload-pdf",
+    "fields": {
+      "created_at": "2019-06-12T08:11:33.972Z",
+      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Formulardownload (PDF)\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": { "widgetOverride": "be-download-pdf" },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

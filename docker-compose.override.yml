@@ -161,6 +161,15 @@ services:
         networks:
             - camac-ng.local
 
+    document-merge-service:
+        networks:
+            - camac-ng.local
+        environment:
+            - ENV=dev
+
+    unoconv:
+        networks:
+            - camac-ng.local
 
 networks:
     camac-ng.local:
