@@ -2,9 +2,9 @@ import EmberObject, { computed, getWithDefault } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { reads } from "@ember/object/computed";
 import filesize from "filesize";
-import download from "downloadjs";
 import moment from "moment";
 import { task } from "ember-concurrency";
+import { saveAs } from "file-saver";
 
 const GROUP = 6;
 
@@ -45,7 +45,7 @@ export default EmberObject.extend({
 
       let file = yield response.blob();
 
-      download(file, this.name, file.type);
+      saveAs(file, this.name, { type: file.type });
 
       this.notification.success(this.intl.t("documents.downloadSuccess"));
     } catch (e) {
