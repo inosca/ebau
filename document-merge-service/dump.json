@@ -1,0 +1,12 @@
+[
+  {
+    "model": "api.template",
+    "pk": "export-1",
+    "fields": {
+      "description": "",
+      "template": "export-1.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  }
+]

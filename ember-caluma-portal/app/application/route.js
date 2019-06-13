@@ -24,5 +24,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       component: "be-documents-form",
       type: "FormQuestion"
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Download (PDF)",
+      component: "be-download-pdf",
+      type: "StaticQuestion"
+    });
   }
 });
