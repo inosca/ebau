@@ -5,7 +5,6 @@ import { computed } from "@ember/object";
 import { filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
-import { isBlank } from "@ember/utils";
 import { getOwner } from "@ember/application";
 import Attachment from "ember-caluma-portal/lib/attachment";
 
@@ -204,24 +203,6 @@ export default Component.extend({
   actions: {
     reset() {
       this._reset();
-    },
-
-    createCustomTag(select, e) {
-      if (
-        e.keyCode === 13 &&
-        select.isOpen &&
-        !select.highlighted &&
-        !isBlank(select.searchText)
-      ) {
-        const fields = this.allSelectedTags;
-
-        if (!fields.map(f => f.question.slug).includes(select.searchText)) {
-          this.set("selectedOptionalTags", [
-            ...this.selectedOptionalTags,
-            { question: { label: select.searchText } }
-          ]);
-        }
-      }
     },
 
     updateSelectedRequiredTags(tag) {
