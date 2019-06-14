@@ -68,6 +68,15 @@ export default Component.extend({
         }
       );
 
+      this.field.set(
+        "answer.value",
+        this.field.get(
+          "question.multipleChoiceOptions.edges.firstObject.node.slug"
+        )
+      );
+
+      yield this.field.save.perform();
+
       this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
       yield this.router.transitionTo("instances");
