@@ -25300,7 +25300,7 @@
       "description": "Gemeindezirkulation Dossiers",
       "form_group": 161,
       "hidden": 0,
-      "name": "Gemeindezirkulation",
+      "name": "Zirkulation Gemeindeservice",
       "resource": 301,
       "sort": 6,
       "template": null
