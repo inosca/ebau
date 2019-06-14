@@ -1,3 +1,10 @@
+nav:
+  form: "Formular"
+  feedback: "Rückmeldungen"
+
+feedback:
+  info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
+
 instance:
   status:
     RUNNING: Neu
