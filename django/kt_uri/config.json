@@ -4657,20 +4657,6 @@
   },
   {
     "fields": {
-      "available_action": "formtransition",
-      "button": 935,
-      "description": null,
-      "error_message": "Zirkulation konnte nicht gestartet werden!",
-      "execute_always": 1,
-      "name": "Zirkulation starten",
-      "sort": 1,
-      "success_message": "Zirkulation erfolgreich gestartet."
-    },
-    "model": "core.action",
-    "pk": 1410
-  },
-  {
-    "fields": {
       "available_action": "documentemail",
       "button": 935,
       "description": "Versendet eine E-Mail an alle zum Start der Zirkulation involvierten Stellen.",
@@ -6010,14 +5996,6 @@
     },
     "model": "core.aformtransition",
     "pk": 1407
-  },
-  {
-    "fields": {
-      "current_instance_state": null,
-      "next_instance_state": 23
-    },
-    "model": "core.aformtransition",
-    "pk": 1410
   },
   {
     "fields": {
@@ -9433,7 +9411,7 @@
   },
   {
     "fields": {
-      "name": "Gemeinden (ohne Diverse/Alle Gemeinden)",
+      "name": "Gemeinden (ohne Diverse/Alle Gemeinden/Bundesamt*)",
       "query": "SELECT\r\n  \"COMMUNAL_FEDERAL_NUMBER\", \"NAME\"\r\nFROM\r\n  \"LOCATION\"\r\n\r\nWHERE\r\n  \"LOCATION_ID\" IN (\r\n    SELECT\r\n      \"LOCATION_ID\"\r\n    FROM\r\n      \"GROUP_LOCATION\"\r\n    WHERE\r\n      \"GROUP_ID\" = [GROUP_ID]\r\n    )\r\n    OR\r\n    [ROLE_ID] NOT IN (6, 7, 1105)\r\nAND \"LOCATION_ID\" NOT IN (\r\n    21,\r\n    22)\r\nORDER BY \"NAME\""
     },
     "model": "core.answerquery",
@@ -25264,7 +25242,7 @@
       "description": "Erstellung durch Bundesstelle",
       "form_group": 256,
       "hidden": 1,
-      "name": "Neues Dossier erstellen",
+      "name": "Dossier erstellen",
       "resource": 22,
       "sort": 9,
       "template": null
@@ -48368,7 +48346,7 @@
       "email": null,
       "name": "Bundesamt f\u00fcr Verkehr",
       "phone": null,
-      "role": 1130,
+      "role": 4,
       "service": 141,
       "website": null,
       "zip": null
@@ -49879,6 +49857,22 @@
     },
     "model": "user.group",
     "pk": 1027
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bundesstelle",
+      "phone": null,
+      "role": 1130,
+      "service": 141,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1028
   },
   {
     "fields": {
