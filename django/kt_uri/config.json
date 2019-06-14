@@ -42,22 +42,6 @@
   {
     "fields": {
       "current_circulation_state": null,
-      "next_circulation_state": 41
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "current_circulation_state": 41,
-      "next_circulation_state": 1
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1400
-  },
-  {
-    "fields": {
-      "current_circulation_state": null,
       "next_circulation_state": 2
     },
     "model": "core.acirculationtransition",
@@ -4435,20 +4419,6 @@
   },
   {
     "fields": {
-      "available_action": "pageredirect",
-      "button": 923,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Auf Zirkulation bleiben",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1384
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 924,
       "description": null,
@@ -4558,118 +4528,6 @@
     },
     "model": "core.action",
     "pk": 1392
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Zirkulation Ende",
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Weiterleitung zu Pendenzenliste",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1394
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": null,
-      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
-      "execute_always": 0,
-      "name": "CheckIfNFDPossible",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 928,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen.",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 1,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1396
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 928,
-      "description": "Zirkulation in Nachforderung versetzen",
-      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
-      "execute_always": 0,
-      "name": "RUN - NFD",
-      "sort": 2,
-      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
-    },
-    "model": "core.action",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": "Setzt das Datum vom NFD",
-      "error_message": null,
-      "execute_always": 0,
-      "name": "NFD Datum setzen",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1398
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 929,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 0,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1399
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 929,
-      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
-      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
-      "execute_always": 0,
-      "name": "NFD - RUN",
-      "sort": 1,
-      "success_message": "Dossier als vollst\u00e4ndig markiert!"
-    },
-    "model": "core.action",
-    "pk": 1400
   },
   {
     "fields": {
@@ -5146,6 +5004,20 @@
     },
     "model": "core.action",
     "pk": 1434
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Gemeindezirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1435
   },
   {
     "fields": {
@@ -10037,27 +9909,6 @@
   },
   {
     "fields": {
-      "php_class": "CircEnd"
-    },
-    "model": "core.aphp",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "php_class": "CheckIfNFDPossible"
-    },
-    "model": "core.aphp",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "php_class": "SetNFD"
-    },
-    "model": "core.aphp",
-    "pk": 1398
-  },
-  {
-    "fields": {
       "php_class": "DossierNR"
     },
     "model": "core.aphp",
@@ -10111,6 +9962,13 @@
     },
     "model": "core.aphp",
     "pk": 1433
+  },
+  {
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1435
   },
   {
     "fields": {
@@ -10786,6 +10644,24 @@
     },
     "model": "core.attachmentextensionrole",
     "pk": 182
+  },
+  {
+    "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1104
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "attachment_extension": 42,
+      "mode": null,
+      "role": 1104
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 184
   },
   {
     "fields": {
@@ -16618,114 +16494,6 @@
   },
   {
     "fields": {
-      "button": 928,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 492
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 493
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 494
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 495
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 496
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 497
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 498
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 499
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 500
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 501
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 502
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 503
-  },
-  {
-    "fields": {
       "button": 926,
       "instance_state": 21,
       "role": 1104
@@ -19198,30 +18966,6 @@
   },
   {
     "fields": {
-      "class_field": "circ_nfd_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Nachforderung",
-      "sort": 2
-    },
-    "model": "core.button",
-    "pk": 928
-  },
-  {
-    "fields": {
-      "class_field": "circ_complete_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Dossier vollst\u00e4ndig",
-      "sort": 3
-    },
-    "model": "core.button",
-    "pk": 929
-  },
-  {
-    "fields": {
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -19453,6 +19197,24 @@
     },
     "model": "core.chapter",
     "pk": 104
+  },
+  {
+    "fields": {
+      "description": null,
+      "javascript": null,
+      "name": "Stellungsnahme f\u00fcr Gemeindeservicestellen"
+    },
+    "model": "core.chapter",
+    "pk": 105
+  },
+  {
+    "fields": {
+      "description": null,
+      "javascript": null,
+      "name": "Stellungsnahme (Gemeinde)"
+    },
+    "model": "core.chapter",
+    "pk": 106
   },
   {
     "fields": {
@@ -23817,7 +23579,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 11,
+      "sort": 12,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24492,7 +24254,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25300,7 +25062,7 @@
       "description": "Gemeindezirkulation Dossiers",
       "form_group": 161,
       "hidden": 0,
-      "name": "Gemeindezirkulation",
+      "name": "Zirkulation Gemeindeservice",
       "resource": 301,
       "sort": 6,
       "template": null
@@ -25442,6 +25204,21 @@
     },
     "model": "core.instanceresource",
     "pk": 764
+  },
+  {
+    "fields": {
+      "available_instance_resource": "circulation",
+      "class_field": null,
+      "description": "Einsehen von Resultaten der Gemeindezirkulation",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "R\u00fcckmeldungen Gemeindeservice",
+      "resource": 301,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 765
   },
   {
     "fields": {
@@ -27249,6 +27026,21 @@
     },
     "model": "core.ircirculation",
     "pk": 760
+  },
+  {
+    "fields": {
+      "circulation_type": 61,
+      "draft_circulation_answer": null,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "service": 301,
+      "service_to_be_interpreted": null,
+      "show_all_children": 1,
+      "show_history": 0,
+      "show_notice": 2
+    },
+    "model": "core.ircirculation",
+    "pk": 765
   },
   {
     "fields": {
@@ -36290,6 +36082,123 @@
   },
   {
     "fields": {
+      "instance_resource": 765,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 901
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 902
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 903
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 904
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 905
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 906
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 907
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 908
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 909
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 28,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 910
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 911
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 912
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 913
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -44203,6 +44112,19 @@
   },
   {
     "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 0,
+      "is_workflow": 1,
+      "name": "Gemeindezirkulation beendet",
+      "position": 46,
+      "workflow_section": 1
+    },
+    "model": "core.workflowitem",
+    "pk": 82
+  },
+  {
+    "fields": {
       "role": 1061,
       "workflow_item": 1
     },
@@ -44959,7 +44881,7 @@
       "workflow_item": 81
     },
     "model": "core.workflowrole",
-    "pk": 95
+    "pk": 97
   },
   {
     "fields": {
@@ -44967,7 +44889,23 @@
       "workflow_item": 81
     },
     "model": "core.workflowrole",
-    "pk": 96
+    "pk": 98
+  },
+  {
+    "fields": {
+      "role": 6,
+      "workflow_item": 82
+    },
+    "model": "core.workflowrole",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "role": 1104,
+      "workflow_item": 82
+    },
+    "model": "core.workflowrole",
+    "pk": 100
   },
   {
     "fields": {
@@ -45140,6 +45078,16 @@
     },
     "model": "document.attachmentsection",
     "pk": 102
+  },
+  {
+    "fields": {
+      "name": "Dokumente Gemeindeservice",
+      "notification_template": null,
+      "recipient_types": null,
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 103
   },
   {
     "fields": {
@@ -45905,6 +45853,24 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 320
+  },
+  {
+    "fields": {
+      "attachment_section": 103,
+      "mode": "admin",
+      "role": 1104
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 321
+  },
+  {
+    "fields": {
+      "attachment_section": 103,
+      "mode": "admin",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 322
   },
   {
     "fields": {
