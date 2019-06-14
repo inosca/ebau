@@ -15615,11 +15615,11 @@
     "pk": "einreichen-button",
     "fields": {
       "created_at": "2019-05-08T13:38:35.424Z",
-      "modified_at": "2019-05-08T13:38:35.424Z",
+      "modified_at": "2019-06-14T14:30:33.229Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Einreichen Button\"}",
-      "type": "static",
+      "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -15627,7 +15627,7 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"-\"}",
       "configuration": {},
-      "meta": { "widgetOverride": "be-submit-instance" },
+      "meta": { "hideLabel": true, "widgetOverride": "be-submit-instance" },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -32830,6 +32830,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "einreichen-button.einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2019-06-14T14:30:33.233Z",
+      "modified_at": "2019-06-14T14:30:33.233Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "einreichen-button",
+      "option": "einreichen-button-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "einverstaendniserklaerung-wald-dokument.einverstaendniserklaerung-wald-dokument-ja",
     "fields": {
       "created_at": "2019-05-13T10:41:13.495Z",
@@ -42145,6 +42158,19 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in ist verantwortlich f\\u00fcr die Einhaltung der Radonvorgaben gem\\u00e4ss Strahlenschutzverordnung des Bundes.\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "einreichen-button-eingereicht",
+    "fields": {
+      "created_at": "2019-06-14T14:30:32.966Z",
+      "modified_at": "2019-06-14T14:30:32.966Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Eingereicht\"}",
       "meta": {},
       "source": null
     }
