@@ -17,7 +17,7 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     this.calumaOptions.registerComponentOverride({
       label: "Einreichen Button",
       component: "be-submit-instance",
-      type: "StaticQuestion"
+      type: "CheckboxQuestion"
     });
     this.calumaOptions.registerComponentOverride({
       label: "Dokument Formular",
