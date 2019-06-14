@@ -87,12 +87,13 @@ export default Component.extend({
    * @method export
    */
   export: task(function*() {
+    const { instanceId } = this.context;
+
     const data = prepareReceiptPage({
+      caseId: instanceId,
       caseType: getCaseType(this.doc),
       sections: parseFields(this.doc)
     });
-
-    const { instanceId } = this.context;
 
     const template = "export-1";
     const filename = `${instanceId}-${getCaseTypeSlug(this.doc)}.pdf`;
