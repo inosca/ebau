@@ -42,22 +42,6 @@
   {
     "fields": {
       "current_circulation_state": null,
-      "next_circulation_state": 41
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "current_circulation_state": 41,
-      "next_circulation_state": 1
-    },
-    "model": "core.acirculationtransition",
-    "pk": 1400
-  },
-  {
-    "fields": {
-      "current_circulation_state": null,
       "next_circulation_state": 2
     },
     "model": "core.acirculationtransition",
@@ -4544,104 +4528,6 @@
     },
     "model": "core.action",
     "pk": 1392
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": "Zirkulation Ende",
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": null,
-      "error_message": "Da die Frist dieses Dossiers in weniger als einer Woche endet oder das Dossier bereits seit 2 Wochen vollst\u00e4ndig ist, ist es nicht mehr m\u00f6glich Nachforderungen zu stellen.",
-      "execute_always": 0,
-      "name": "CheckIfNFDPossible",
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 928,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen.",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 1,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1396
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 928,
-      "description": "Zirkulation in Nachforderung versetzen",
-      "error_message": "Dossier konnte nicht in Nachforderung versetzt werden",
-      "execute_always": 0,
-      "name": "RUN - NFD",
-      "sort": 2,
-      "success_message": "Dossier erfolgreich in den Zustand Nachforderung versetzt"
-    },
-    "model": "core.action",
-    "pk": 1397
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 928,
-      "description": "Setzt das Datum vom NFD",
-      "error_message": null,
-      "execute_always": 0,
-      "name": "NFD Datum setzen",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1398
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 929,
-      "description": null,
-      "error_message": "Speichern fehlgeschlagen!",
-      "execute_always": 0,
-      "name": "Speichern",
-      "sort": 0,
-      "success_message": "Speichern erfolgreich."
-    },
-    "model": "core.action",
-    "pk": 1399
-  },
-  {
-    "fields": {
-      "available_action": "circulationtransition",
-      "button": 929,
-      "description": "Setzt die Zirkulation wieder in den Zustand RUN (Dossier vollst\u00e4ndig)",
-      "error_message": "Dossier konnte nicht als vollst\u00e4ndig markiert werden!",
-      "execute_always": 0,
-      "name": "NFD - RUN",
-      "sort": 1,
-      "success_message": "Dossier als vollst\u00e4ndig markiert!"
-    },
-    "model": "core.action",
-    "pk": 1400
   },
   {
     "fields": {
@@ -10006,27 +9892,6 @@
     },
     "model": "core.aphp",
     "pk": 1388
-  },
-  {
-    "fields": {
-      "php_class": "CircEnd"
-    },
-    "model": "core.aphp",
-    "pk": 1393
-  },
-  {
-    "fields": {
-      "php_class": "CheckIfNFDPossible"
-    },
-    "model": "core.aphp",
-    "pk": 1395
-  },
-  {
-    "fields": {
-      "php_class": "SetNFD"
-    },
-    "model": "core.aphp",
-    "pk": 1398
   },
   {
     "fields": {
@@ -16590,114 +16455,6 @@
   },
   {
     "fields": {
-      "button": 928,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 492
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 493
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 494
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 495
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 496
-  },
-  {
-    "fields": {
-      "button": 928,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 497
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 498
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 499
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 500
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 501
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 502
-  },
-  {
-    "fields": {
-      "button": 929,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.broleacl",
-    "pk": 503
-  },
-  {
-    "fields": {
       "button": 926,
       "instance_state": 21,
       "role": 1104
@@ -19170,30 +18927,6 @@
   },
   {
     "fields": {
-      "class_field": "circ_nfd_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Nachforderung",
-      "sort": 2
-    },
-    "model": "core.button",
-    "pk": 928
-  },
-  {
-    "fields": {
-      "class_field": "circ_complete_button",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 757,
-      "name": "Dossier vollst\u00e4ndig",
-      "sort": 3
-    },
-    "model": "core.button",
-    "pk": 929
-  },
-  {
-    "fields": {
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -19425,6 +19158,24 @@
     },
     "model": "core.chapter",
     "pk": 104
+  },
+  {
+    "fields": {
+      "description": null,
+      "javascript": null,
+      "name": "Stellungsnahme f\u00fcr Gemeindeservicestellen"
+    },
+    "model": "core.chapter",
+    "pk": 105
+  },
+  {
+    "fields": {
+      "description": null,
+      "javascript": null,
+      "name": "Stellungsnahme (Gemeinde)"
+    },
+    "model": "core.chapter",
+    "pk": 106
   },
   {
     "fields": {
