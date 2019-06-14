@@ -23789,7 +23789,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 11,
+      "sort": 12,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24464,7 +24464,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25414,6 +25414,21 @@
     },
     "model": "core.instanceresource",
     "pk": 764
+  },
+  {
+    "fields": {
+      "available_instance_resource": "circulation",
+      "class_field": null,
+      "description": "Einsehen von Resultaten der Gemeindezirkulation",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "R\u00fcckmeldungen Gemeindeservice",
+      "resource": 301,
+      "sort": 7,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 765
   },
   {
     "fields": {
@@ -27221,6 +27236,21 @@
     },
     "model": "core.ircirculation",
     "pk": 760
+  },
+  {
+    "fields": {
+      "circulation_type": 61,
+      "draft_circulation_answer": null,
+      "pdf_class": null,
+      "read_notice_template": null,
+      "service": 301,
+      "service_to_be_interpreted": null,
+      "show_all_children": 1,
+      "show_history": 0,
+      "show_notice": 2
+    },
+    "model": "core.ircirculation",
+    "pk": 765
   },
   {
     "fields": {
@@ -36259,6 +36289,123 @@
     },
     "model": "core.irroleacl",
     "pk": 900
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 901
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 902
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 22,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 903
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 32,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 904
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 23,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 905
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 24,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 906
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 907
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 26,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 908
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 27,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 909
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 28,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 910
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 29,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 911
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 30,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 912
+  },
+  {
+    "fields": {
+      "instance_resource": 765,
+      "instance_state": 31,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 913
   },
   {
     "fields": {
