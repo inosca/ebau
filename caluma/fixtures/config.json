@@ -1067,7 +1067,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-grundeigentumerin",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -8945,7 +8945,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-gebaudeeigentumerin",
-      "sort": 2
+      "sort": 1
     }
   },
   {
@@ -10245,7 +10245,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-projektverfasserin",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -12750,10 +12750,10 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten",
     "fields": {
       "created_at": "2019-03-28T09:46:55.992Z",
-      "modified_at": "2019-05-03T15:07:20.415Z",
+      "modified_at": "2019-06-14T07:48:10.552Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Sind Neubauten oder bauliche Ver\\u00e4nderungen, mit mehr als 30 Grossvieheinheiten (GVE) betroffen?\"}",
+      "label": "{\"de\": \"Sind Neubauten oder bauliche Ver\\u00e4nderungen mit mehr als 30 Grossvieheinheiten (GVE) betroffen?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
@@ -31896,8 +31896,8 @@
     "model": "form.questionoption",
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten.bauten-mit-mehr-als-30-grossvieheinheiten-ja",
     "fields": {
-      "created_at": "2019-05-10T16:46:00.986Z",
-      "modified_at": "2019-05-10T16:46:00.986Z",
+      "created_at": "2019-06-14T07:48:10.559Z",
+      "modified_at": "2019-06-14T07:48:10.559Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
@@ -31909,8 +31909,8 @@
     "model": "form.questionoption",
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten.bauten-mit-mehr-als-30-grossvieheinheiten-nein",
     "fields": {
-      "created_at": "2019-05-10T16:46:01.168Z",
-      "modified_at": "2019-05-10T16:46:01.168Z",
+      "created_at": "2019-06-14T07:48:10.557Z",
+      "modified_at": "2019-06-14T07:48:10.557Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
@@ -41179,7 +41179,7 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten-ja",
     "fields": {
       "created_at": "2019-03-28T09:46:55.832Z",
-      "modified_at": "2019-05-03T15:07:20.213Z",
+      "modified_at": "2019-06-14T07:48:10.386Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -41192,7 +41192,7 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten-nein",
     "fields": {
       "created_at": "2019-03-28T09:46:55.831Z",
-      "modified_at": "2019-05-03T15:07:20.221Z",
+      "modified_at": "2019-06-14T07:48:10.390Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
