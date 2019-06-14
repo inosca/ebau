@@ -5007,6 +5007,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 927,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Gemeindezirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1435
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -9948,6 +9962,13 @@
     },
     "model": "core.aphp",
     "pk": 1433
+  },
+  {
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1435
   },
   {
     "fields": {
@@ -44073,6 +44094,19 @@
   },
   {
     "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 0,
+      "is_workflow": 1,
+      "name": "Gemeindezirkulation beendet",
+      "position": 46,
+      "workflow_section": 1
+    },
+    "model": "core.workflowitem",
+    "pk": 82
+  },
+  {
+    "fields": {
       "role": 1061,
       "workflow_item": 1
     },
@@ -44829,7 +44863,7 @@
       "workflow_item": 81
     },
     "model": "core.workflowrole",
-    "pk": 95
+    "pk": 97
   },
   {
     "fields": {
@@ -44837,7 +44871,23 @@
       "workflow_item": 81
     },
     "model": "core.workflowrole",
-    "pk": 96
+    "pk": 98
+  },
+  {
+    "fields": {
+      "role": 6,
+      "workflow_item": 82
+    },
+    "model": "core.workflowrole",
+    "pk": 99
+  },
+  {
+    "fields": {
+      "role": 1104,
+      "workflow_item": 82
+    },
+    "model": "core.workflowrole",
+    "pk": 100
   },
   {
     "fields": {
