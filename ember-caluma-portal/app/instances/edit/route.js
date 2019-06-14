@@ -9,6 +9,8 @@ export default Route.extend({
 
   setupController(controller, model) {
     this._super(controller, model);
+
     controller.data.perform(model.caseId);
+    controller.feedbackData.perform(model.caseId);
   }
 });
