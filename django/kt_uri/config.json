@@ -4435,20 +4435,6 @@
   },
   {
     "fields": {
-      "available_action": "pageredirect",
-      "button": 923,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Auf Zirkulation bleiben",
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1384
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 924,
       "description": null,
@@ -4572,20 +4558,6 @@
     },
     "model": "core.action",
     "pk": 1393
-  },
-  {
-    "fields": {
-      "available_action": "pageredirect",
-      "button": 927,
-      "description": null,
-      "error_message": null,
-      "execute_always": 1,
-      "name": "Weiterleitung zu Pendenzenliste",
-      "sort": 3,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 1394
   },
   {
     "fields": {
