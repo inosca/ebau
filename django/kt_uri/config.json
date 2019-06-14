@@ -10647,6 +10647,24 @@
   },
   {
     "fields": {
+      "attachment_extension": 41,
+      "mode": null,
+      "role": 1104
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "attachment_extension": 42,
+      "mode": null,
+      "role": 1104
+    },
+    "model": "core.attachmentextensionrole",
+    "pk": 184
+  },
+  {
+    "fields": {
       "attachment_extension": 43,
       "mode": "",
       "service": 201
@@ -45063,6 +45081,16 @@
   },
   {
     "fields": {
+      "name": "Dokumente Gemeindeservice",
+      "notification_template": null,
+      "recipient_types": null,
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 103
+  },
+  {
+    "fields": {
       "attachment_section": 21,
       "mode": "read",
       "role": 7
@@ -45825,6 +45853,24 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 320
+  },
+  {
+    "fields": {
+      "attachment_section": 103,
+      "mode": "admin",
+      "role": 1104
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 321
+  },
+  {
+    "fields": {
+      "attachment_section": 103,
+      "mode": "admin",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 322
   },
   {
     "fields": {
