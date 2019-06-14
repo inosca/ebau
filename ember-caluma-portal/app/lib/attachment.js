@@ -23,14 +23,9 @@ export default EmberObject.extend({
   }),
 
   tags: computed("attributes.context.tags", function() {
-    return getWithDefault(this, "attributes.context.tags", []).map(slug => {
-      try {
-        const field = this.document.findField(`root.6-dokumente.${slug}`);
-        return field.question.label;
-      } catch (e) {
-        return slug;
-      }
-    });
+    return getWithDefault(this, "attributes.context.tags", []).map(
+      slug => this.document.findField(`root.6-dokumente.${slug}`).question.label
+    );
   }),
 
   download: task(function*() {
