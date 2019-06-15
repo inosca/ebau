@@ -727,10 +727,10 @@ class Answer(models.Model):
         unique_together = (("instance", "question", "chapter", "item"),)
 
 
-class AnswerList(models.Model):
+class AnswerList(MultilingualModel, models.Model):
     answer_list_id = models.AutoField(db_column="ANSWER_LIST_ID", primary_key=True)
     question = models.ForeignKey(
-        "Question", models.CASCADE, db_column="QUESTION_ID", related_name="+"
+        "Question", models.CASCADE, db_column="QUESTION_ID", related_name="answerlist"
     )
     value = models.CharField(db_column="VALUE", max_length=20)
     name = models.CharField(db_column="NAME", max_length=1000, blank=True, null=True)
@@ -743,7 +743,7 @@ class AnswerList(models.Model):
 
 class AnswerListT(models.Model):
     answer_list = models.ForeignKey(
-        AnswerList, models.CASCADE, db_column="ANSWER_LIST_ID", related_name="+"
+        AnswerList, models.CASCADE, db_column="ANSWER_LIST_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=1000, blank=True, null=True)
@@ -1316,7 +1316,7 @@ class ButtonT(models.Model):
         db_table = "BUTTON_T"
 
 
-class Chapter(models.Model):
+class Chapter(MultilingualModel, models.Model):
     chapter_id = models.AutoField(db_column="CHAPTER_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
@@ -1445,7 +1445,7 @@ class ChapterPageUserAcl(models.Model):
 
 class ChapterT(models.Model):
     chapter = models.ForeignKey(
-        Chapter, models.CASCADE, db_column="CHAPTER_ID", related_name="+"
+        Chapter, models.CASCADE, db_column="CHAPTER_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
@@ -2875,7 +2875,7 @@ class NoticeTypeT(models.Model):
         db_table = "NOTICE_TYPE_T"
 
 
-class Page(models.Model):
+class Page(MultilingualModel, models.Model):
     page_id = models.AutoField(db_column="PAGE_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
@@ -2892,7 +2892,7 @@ class Page(models.Model):
 
 class PageT(models.Model):
     page = models.ForeignKey(
-        Page, models.CASCADE, db_column="PAGE_ID", related_name="+"
+        Page, models.CASCADE, db_column="PAGE_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
@@ -3162,7 +3162,7 @@ class PublicationSetting(models.Model):
         db_table = "PUBLICATION_SETTING"
 
 
-class Question(models.Model):
+class Question(MultilingualModel, models.Model):
     question_id = models.AutoField(db_column="QUESTION_ID", primary_key=True)
     question_type = models.ForeignKey(
         "QuestionType", models.CASCADE, db_column="QUESTION_TYPE_ID", related_name="+"
@@ -3323,7 +3323,7 @@ class QuestionChapterUserAcl(models.Model):
 
 class QuestionT(models.Model):
     question = models.ForeignKey(
-        Question, models.CASCADE, db_column="QUESTION_ID", related_name="+"
+        Question, models.CASCADE, db_column="QUESTION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
