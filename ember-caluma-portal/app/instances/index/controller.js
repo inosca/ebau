@@ -1,24 +1,105 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
+import EmberObject, { computed } from "@ember/object";
 import { task } from "ember-concurrency";
 import allCasesQuery from "ember-caluma-portal/gql/queries/all-cases";
 import QueryParams from "ember-parachute";
+import { reads } from "@ember/object/computed";
+import { getOwner } from "@ember/application";
+import gql from "graphql-tag";
 
-const SLUG_MUNICIPALITY = "gemeinde";
-const SLUG_DESCRIPTION = "beschreibung-bauvorhaben";
-const SLUG_ADDRESS_STREET = "strasse-flurname";
-const SLUG_ADDRESS_NR = "nr";
-const SLUG_ADDRESS_LOCALITY = "ort-grundstueck";
+const findAnswer = (answers, path) => {
+  try {
+    let slugs = path.split(".");
+
+    let answer = getValue(
+      answers.edges.find(({ node }) => node.question.slug === slugs[0])
+    );
+
+    if (answer.answers && slugs.length > 1) {
+      return findAnswer(answer.answers, slugs.slice(1).join("."));
+    }
+
+    return answer;
+  } catch (e) {
+    return null;
+  }
+};
+
+const getValue = answerNode => {
+  if (!answerNode) return null;
+
+  let key = Object.keys(answerNode.node).find(key => /^.*Value$/.test(key));
+
+  return answerNode.node[key];
+};
+
+const Case = EmberObject.extend({
+  intl: service(),
+
+  _answers: reads("raw.document.answers"),
+  _type: reads("raw.document.form.slug"),
+
+  ebauNr: reads("raw.meta.camac-instance-id"),
+  type: reads("raw.document.form.name"),
+  municipality: computed(function() {
+    const slug = findAnswer(
+      this._answers,
+      this._type === "baugesuch"
+        ? "3-grundstueck.allgemeine-angaben.gemeinde"
+        : "gemeinde"
+    );
+
+    const municipality = this.municipalities.find(m => m.node.slug === slug);
+
+    return municipality && municipality.node.label;
+  }),
+  address: computed(function() {
+    const street = findAnswer(
+      this._answers,
+      "3-grundstueck.allgemeine-angaben.strasse-flurname"
+    );
+    const nr = findAnswer(this._answers, "3-grundstueck.allgemeine-angaben.nr");
+    const locality = findAnswer(
+      this._answers,
+      "3-grundstueck.allgemeine-angaben.ort-grundstueck"
+    );
+
+    let value;
+
+    if (street && nr) {
+      value = `${street} ${nr}`;
+    } else if (street || nr) {
+      value = street || nr;
+    }
+
+    if (locality && (street || nr)) {
+      value += `, ${locality}`;
+    } else if (locality) {
+      value = locality;
+    }
+
+    return value;
+  }),
+  createdAt: computed("raw.createdAt", function() {
+    return new Date(this.raw.createdAt);
+  }),
+  status: computed("intl.locale", "raw.status", function() {
+    return this.intl.t(`instance.status.${this.raw.status}`);
+  }),
+  description: computed(function() {
+    return findAnswer(
+      this._answers,
+      this._type === "baugesuch"
+        ? "1-allgemeine-informationen.bauvorhaben.beschreibung-bauvorhaben"
+        : "anfrage-zur-vorabklaerung"
+    );
+  })
+});
 
 export const queryParams = new QueryParams({
   sort: {
     defaultValue: "-creation_date",
-    refresh: true,
-    replace: true
-  },
-  identifier: {
-    defaultValue: "",
     refresh: true,
     replace: true
   }
@@ -33,8 +114,38 @@ export default Controller.extend(queryParams.Mixin, {
     this.data.perform();
   },
 
+  municipalities: task(function*() {
+    return yield this.apollo.query(
+      {
+        query: gql`
+          query {
+            allQuestions(slug: "gemeinde") {
+              edges {
+                node {
+                  ... on DynamicChoiceQuestion {
+                    options {
+                      edges {
+                        node {
+                          label
+                          slug
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `
+      },
+      "allQuestions.edges.firstObject.node.options.edges"
+    );
+  }),
+
   data: task(function*() {
     try {
+      yield this.municipalities.perform();
+
       return yield this.get("apollo").watchQuery(
         {
           query: allCasesQuery,
@@ -51,89 +162,12 @@ export default Controller.extend(queryParams.Mixin, {
     }
   }).restartable(),
 
-  municipalities: computed("data.lastSuccessful.value", function() {
-    return this.getWithDefault("data.lastSuccessful.value", []).map(
-      edge =>
-        edge.node.document.answers.edges
-          .filter(edge => edge.node.__typename === "FormAnswer")
-          .map(
-            edge =>
-              edge.node.formValue.answers.edges
-                .map(edge => {
-                  const answer = edge.node.formValue.answers.edges.find(
-                    edge => edge.node.question.slug === SLUG_MUNICIPALITY
-                  );
-                  return answer && answer.node.stringValue;
-                })
-                .filter(answer => answer !== undefined)[0]
-          )
-          .filter(answer => answer !== undefined)[0]
-    );
-  }),
-
-  descriptions: computed("data.lastSuccessful.value", function() {
-    return this.getWithDefault("data.lastSuccessful.value", []).map(
-      edge =>
-        edge.node.document.answers.edges
-          .filter(edge => edge.node.__typename === "FormAnswer")
-          .map(
-            edge =>
-              edge.node.formValue.answers.edges
-                .map(edge => {
-                  const answer = edge.node.formValue.answers.edges.find(
-                    edge => edge.node.question.slug === SLUG_DESCRIPTION
-                  );
-                  return answer && answer.node.stringValue;
-                })
-                .filter(answer => answer !== undefined)[0]
-          )
-          .filter(answer => answer !== undefined)[0]
-    );
-  }),
-
-  addresses: computed("data.lastSuccessful.value", function() {
-    return this.getWithDefault("data.lastSuccessful.value", []).map(
-      edge =>
-        edge.node.document.answers.edges
-          .filter(edge => edge.node.__typename === "FormAnswer")
-          .map(
-            edge =>
-              edge.node.formValue.answers.edges
-                .map(edge => {
-                  const answer_street = edge.node.formValue.answers.edges.find(
-                    edge => edge.node.question.slug === SLUG_ADDRESS_STREET
-                  );
-                  const answer_nr = edge.node.formValue.answers.edges.find(
-                    edge => edge.node.question.slug === SLUG_ADDRESS_NR
-                  );
-                  const answer_locality = edge.node.formValue.answers.edges.find(
-                    edge => edge.node.question.slug === SLUG_ADDRESS_LOCALITY
-                  );
-
-                  const value_street =
-                    answer_street && answer_street.node.stringValue;
-                  const value_nr = answer_nr && answer_nr.node.stringValue;
-                  const value_locality =
-                    answer_locality && answer_locality.node.stringValue;
-
-                  let value_concatenated;
-                  if (value_street && value_nr) {
-                    value_concatenated = `${value_street} ${value_nr}`;
-                  } else if (answer_street || answer_nr) {
-                    value_concatenated = value_street || value_nr;
-                  }
-
-                  if (value_locality && (value_street || value_nr)) {
-                    value_concatenated += `, ${value_locality}`;
-                  } else if (value_locality) {
-                    value_concatenated = value_locality;
-                  }
-
-                  return value_concatenated;
-                })
-                .filter(answer => answer !== undefined)[0]
-          )
-          .filter(answer => answer !== undefined)[0]
+  cases: computed("data.lastSuccessful.value.[]", function() {
+    return this.data.lastSuccessful.value.map(({ node: raw }) =>
+      Case.create(getOwner(this).ownerInjection(), {
+        raw,
+        municipalities: this.municipalities.lastSuccessful.value
+      })
     );
   })
 });
