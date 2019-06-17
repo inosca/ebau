@@ -89,7 +89,7 @@ class FilterViaCamacAPIMixin:
                     case__document__family__in=self._accessible_doc_families(info)
                 ),
                 "_default": lambda: {
-                    "meta__camac-instance-id__in": self._all_visible_instances(info)
+                    "case__meta__camac-instance-id__in": self._all_visible_instances(info)
                 },
             },
         }
