@@ -561,7 +561,7 @@
       "error_message": "",
       "execute_always": 0,
       "name": "Workflow Datum setzen Dossier erfasst",
-      "sort": 3,
+      "sort": 4,
       "success_message": ""
     },
     "model": "core.action",
@@ -575,7 +575,7 @@
       "error_message": "",
       "execute_always": 0,
       "name": "Workflow Datum setzen Dossier erfasst",
-      "sort": 3,
+      "sort": 4,
       "success_message": ""
     },
     "model": "core.action",
@@ -5018,6 +5018,34 @@
     },
     "model": "core.action",
     "pk": 1435
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 64,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Archivdossier erstellen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1436
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 2,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Archivdossier erstellen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1437
   },
   {
     "fields": {
@@ -9969,6 +9997,20 @@
     },
     "model": "core.aphp",
     "pk": 1435
+  },
+  {
+    "fields": {
+      "php_class": "SetOLD"
+    },
+    "model": "core.aphp",
+    "pk": 1436
+  },
+  {
+    "fields": {
+      "php_class": "SetOLD"
+    },
+    "model": "core.aphp",
+    "pk": 1437
   },
   {
     "fields": {
@@ -22882,6 +22924,46 @@
     },
     "model": "core.formgroupform",
     "pk": 288
+  },
+  {
+    "fields": {
+      "form": 293,
+      "form_group": 161
+    },
+    "model": "core.formgroupform",
+    "pk": 289
+  },
+  {
+    "fields": {
+      "form": 292,
+      "form_group": 161
+    },
+    "model": "core.formgroupform",
+    "pk": 290
+  },
+  {
+    "fields": {
+      "form": 293,
+      "form_group": 32
+    },
+    "model": "core.formgroupform",
+    "pk": 292
+  },
+  {
+    "fields": {
+      "form": 293,
+      "form_group": 30
+    },
+    "model": "core.formgroupform",
+    "pk": 301
+  },
+  {
+    "fields": {
+      "form": 293,
+      "form_group": 61
+    },
+    "model": "core.formgroupform",
+    "pk": 302
   },
   {
     "fields": {
@@ -36222,6 +36304,69 @@
   },
   {
     "fields": {
+      "instance_resource": 107,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 914
+  },
+  {
+    "fields": {
+      "instance_resource": 145,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 915
+  },
+  {
+    "fields": {
+      "instance_resource": 145,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 916
+  },
+  {
+    "fields": {
+      "instance_resource": 245,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 917
+  },
+  {
+    "fields": {
+      "instance_resource": 46,
+      "instance_state": 33,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 918
+  },
+  {
+    "fields": {
+      "instance_resource": 46,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 919
+  },
+  {
+    "fields": {
+      "instance_resource": 46,
+      "instance_state": 33,
+      "role": 4
+    },
+    "model": "core.irroleacl",
+    "pk": 920
+  },
+  {
+    "fields": {
       "instance_resource": 766,
       "instance_state": 25,
       "role": 6
@@ -37914,6 +38059,17 @@
   },
   {
     "fields": {
+      "form": 293,
+      "page": 1,
+      "page_form_group": 1,
+      "page_form_mode": 3,
+      "sort": 0
+    },
+    "model": "core.pageform",
+    "pk": 130
+  },
+  {
+    "fields": {
       "name": "Group 1"
     },
     "model": "core.pageformgroup",
@@ -39436,6 +39592,38 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": "if ($('form').attr('action').split('/')[8] != 293) {\r\n\t$('#element-[QUESTION]i1').hide();\r\n}",
+      "mapping": 1,
+      "name": "Dossier Erfassungsjahr",
+      "question_type": 1,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 271
+  },
+  {
+    "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": "Alte Dossier NR",
+      "question_type": 1,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 272
+  },
+  {
+    "fields": {
       "chapter": 2,
       "item": 1,
       "question": 1,
@@ -40566,6 +40754,28 @@
     },
     "model": "core.questionchapter",
     "pk": 103
+  },
+  {
+    "fields": {
+      "chapter": 3,
+      "item": 1,
+      "question": 271,
+      "required": 0,
+      "sort": 2
+    },
+    "model": "core.questionchapter",
+    "pk": 104
+  },
+  {
+    "fields": {
+      "chapter": 2,
+      "item": 1,
+      "question": 272,
+      "required": 0,
+      "sort": 10
+    },
+    "model": "core.questionchapter",
+    "pk": 105
   },
   {
     "fields": {
@@ -42991,7 +43201,7 @@
   },
   {
     "fields": {
-      "instance_states": "24"
+      "instance_states": "24,33"
     },
     "model": "core.rsimplelist",
     "pk": 266
@@ -46599,6 +46809,15 @@
   },
   {
     "fields": {
+      "description": null,
+      "form_state": 1,
+      "name": "Archivdossier"
+    },
+    "model": "instance.form",
+    "pk": 293
+  },
+  {
+    "fields": {
       "name": "Published"
     },
     "model": "instance.formstate",
@@ -46633,7 +46852,7 @@
     "fields": {
       "description": "",
       "name": "ext",
-      "sort": 3
+      "sort": 2
     },
     "model": "instance.instancestate",
     "pk": 22
@@ -46642,7 +46861,7 @@
     "fields": {
       "description": "",
       "name": "circ",
-      "sort": 5
+      "sort": 4
     },
     "model": "instance.instancestate",
     "pk": 23
@@ -46651,7 +46870,7 @@
     "fields": {
       "description": "",
       "name": "redac",
-      "sort": 6
+      "sort": 5
     },
     "model": "instance.instancestate",
     "pk": 24
@@ -46660,7 +46879,7 @@
     "fields": {
       "description": "",
       "name": "done",
-      "sort": 7
+      "sort": 6
     },
     "model": "instance.instancestate",
     "pk": 25
@@ -46669,7 +46888,7 @@
     "fields": {
       "description": "",
       "name": "arch",
-      "sort": 8
+      "sort": 7
     },
     "model": "instance.instancestate",
     "pk": 26
@@ -46678,7 +46897,7 @@
     "fields": {
       "description": "",
       "name": "del",
-      "sort": 9
+      "sort": 8
     },
     "model": "instance.instancestate",
     "pk": 27
@@ -46687,7 +46906,7 @@
     "fields": {
       "description": "",
       "name": "new_portal",
-      "sort": 10
+      "sort": 9
     },
     "model": "instance.instancestate",
     "pk": 28
@@ -46696,7 +46915,7 @@
     "fields": {
       "description": "",
       "name": "nfd",
-      "sort": 11
+      "sort": 10
     },
     "model": "instance.instancestate",
     "pk": 29
@@ -46705,7 +46924,7 @@
     "fields": {
       "description": "",
       "name": "subm",
-      "sort": 12
+      "sort": 11
     },
     "model": "instance.instancestate",
     "pk": 30
@@ -46714,7 +46933,7 @@
     "fields": {
       "description": "",
       "name": "rej",
-      "sort": 13
+      "sort": 12
     },
     "model": "instance.instancestate",
     "pk": 31
@@ -46723,10 +46942,19 @@
     "fields": {
       "description": null,
       "name": "ext_gem",
-      "sort": 4
+      "sort": 3
     },
     "model": "instance.instancestate",
     "pk": 32
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "old",
+      "sort": 13
+    },
+    "model": "instance.instancestate",
+    "pk": 33
   },
   {
     "fields": {
