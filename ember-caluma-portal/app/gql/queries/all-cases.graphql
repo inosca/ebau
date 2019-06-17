@@ -5,25 +5,30 @@ query AllCases {
         id
         meta
         createdAt
-        modifiedAt
-        createdByUser
-        createdByGroup
         status
         document {
-          id
           form {
-            slug
             name
           }
-          answers(questions: ["formulartyp", "1-allgemeine-informationen", "3-grundstueck"]) {
+          answers(
+            questions: [
+              "formulartyp"
+              "1-allgemeine-informationen"
+              "3-grundstueck"
+              "gemeinde"
+              "strasse-gesuchstellerin"
+              "nummer-gesuchstellerin"
+              "ort-gesuchstellerin"
+              "anfrage-zur-vorabklaerung"
+            ]
+          ) {
             edges {
               node {
                 id
-
                 ... on FormAnswer {
                   formValue: value {
                     id
-                    answers(questions: ["personalien", "bauvorhaben", "allgemeine-angaben"]) {
+                    answers(questions: ["bauvorhaben", "allgemeine-angaben"]) {
                       edges {
                         node {
                           id
@@ -31,51 +36,20 @@ query AllCases {
                           ... on FormAnswer {
                             formValue: value {
                               id
-                              answers(questions: ["personalien-gesuchstellerin", "beschreibung-bauvorhaben", "gemeinde", "strasse-flurname", "nr", "ort-grundstueck"]) {
+                              answers(
+                                questions: [
+                                  "beschreibung-bauvorhaben"
+                                  "gemeinde"
+                                  "strasse-flurname"
+                                  "nr"
+                                  "ort-grundstueck"
+                                ]
+                              ) {
                                 edges {
                                   node {
-                                    id
-
-#                                    ... on FormAnswer {
-#                                      formValue: value {
-#                                        id
-#                                        answers {
-#                                          edges {
-#                                            node {
-#                                              id
-#
-#                                              ... on TableAnswer {
-#                                                tableValue: value {
-#                                                  id
-#                                                  answers {
-#                                                    edges {
-#                                                      node {
-#                                                        question {
-#                                                          slug
-#                                                        }
-#                                                      }
-#                                                    }
-#                                                  }
-#                                                }
-#                                              }
-#
-#                                              ... on StringAnswer {
-#                                                stringValue: value
-#                                              }
-#
-#                                              question {
-#                                                slug
-#                                              }
-#                                            }
-#                                          }
-#                                        }
-#                                      }
-#                                    }
-
                                     ... on StringAnswer {
                                       stringValue: value
                                     }
-
                                     question {
                                       slug
                                     }
@@ -93,11 +67,9 @@ query AllCases {
                     }
                   }
                 }
-
                 ... on StringAnswer {
                   stringValue: value
                 }
-
                 question {
                   slug
                 }
