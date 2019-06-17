@@ -2,16 +2,17 @@ from django.conf import settings
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
-from .views import bern as be_views, schwyz as sz_views
+from .views import bern as be_views, common as common_views, schwyz as sz_views
 
 r = SimpleRouter(trailing_slash=False)
 urlpatterns = []
+
+r.register(r"instance-states", common_views.InstanceStateView, "instance-state")
 
 if settings.APPLICATION_NAME == "kt_schwyz":  # pragma: no cover
     r.register(r"forms", sz_views.FormView, "form")
     r.register(r"instances", sz_views.InstanceView, "instance")
     r.register(r"form-fields", sz_views.FormFieldView, "form-field")
-    r.register(r"instance-states", sz_views.InstanceStateView, "instance-state")
     r.register(
         r"instance-responsibilities",
         sz_views.InstanceResponsibilityView,
@@ -36,11 +37,9 @@ elif settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
 
 elif settings.APPLICATION_NAME == "demo":
     # Demo uses a bunch of views from SZ
-
     r.register(r"forms", sz_views.FormView, "form")
     r.register(r"instances", sz_views.InstanceView, "instance")
     r.register(r"form-fields", sz_views.FormFieldView, "form-field")
-    r.register(r"instance-states", sz_views.InstanceStateView, "instance-state")
     r.register(
         r"instance-responsibilities",
         sz_views.InstanceResponsibilityView,
