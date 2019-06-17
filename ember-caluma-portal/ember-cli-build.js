@@ -8,10 +8,7 @@ module.exports = function(defaults) {
       includePolyfill: true
     },
     babel: {
-      plugins: [
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
-        "@babel/plugin-proposal-object-rest-spread"
-      ]
+      plugins: ["@babel/plugin-proposal-object-rest-spread"]
     },
     SRI: { enabled: false }
   });
