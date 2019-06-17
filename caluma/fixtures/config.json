@@ -1067,7 +1067,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-grundeigentumerin",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3334,6 +3334,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "3d4e96d5-556d-4660-899e-3dd78f5e6382",
+    "fields": {
+      "created_at": "2019-06-14T12:57:51.577Z",
+      "modified_at": "2019-06-14T12:57:51.577Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "e-mail-waermepumpen",
+      "sort": 39
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "3f0b088d-1bcf-45cf-b5e5-06d3c2daacb4",
     "fields": {
       "created_at": "2019-04-02T10:46:02.444Z",
@@ -3421,6 +3434,19 @@
       "form": "gastgewerbe-allgemein",
       "question": "in-quadratmeter",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "4100029b-f10f-4dd6-86b3-30b8a9981d24",
+    "fields": {
+      "created_at": "2019-06-14T12:51:06.257Z",
+      "modified_at": "2019-06-14T12:51:06.257Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "ort-waermepumpen",
+      "sort": 41
     }
   },
   {
@@ -6506,6 +6532,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "9707591a-f077-4eb9-b8ec-a7a3857a43f7",
+    "fields": {
+      "created_at": "2019-06-14T12:29:21.774Z",
+      "modified_at": "2019-06-14T12:29:21.774Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "kontaktperson-vorname-waermepumpen",
+      "sort": 45
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "978c8cc0-53b7-4dfd-918e-5da5816545dd",
     "fields": {
       "created_at": "2019-04-04T07:42:30.660Z",
@@ -6987,6 +7026,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "a3fc3d5d-8566-45a2-8679-5b8f8d05ab8e",
+    "fields": {
+      "created_at": "2019-06-14T12:35:54.814Z",
+      "modified_at": "2019-06-14T12:35:54.815Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "strasse-waermepumpen",
+      "sort": 44
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "a4a2b75b-574a-4e95-b207-ec4e09aecda7",
     "fields": {
       "created_at": "2019-04-03T11:32:54.924Z",
@@ -6996,6 +7048,19 @@
       "form": "gewaesserschutz-gewerbe-industrie",
       "question": "wird-kuehlwasser-im-betrieb-verwendet",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "a4ccd843-786f-4ad8-afda-129e0044cb51",
+    "fields": {
+      "created_at": "2019-06-14T12:31:28.476Z",
+      "modified_at": "2019-06-14T12:31:28.476Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "kontaktperson-name-waermepumpen",
+      "sort": 46
     }
   },
   {
@@ -7126,6 +7191,19 @@
       "form": "allgemeine-angaben",
       "question": "geschossflaeche-in-quadratmeter",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "a95d0573-9a60-4cd6-ada9-6f396afa8c5d",
+    "fields": {
+      "created_at": "2019-06-14T12:05:54.310Z",
+      "modified_at": "2019-06-14T12:05:54.310Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "personalien-projektverfasserin-waermepumpe-titel",
+      "sort": 49
     }
   },
   {
@@ -8131,6 +8209,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "c6c11742-b660-4dc1-b31a-90205e051c4b",
+    "fields": {
+      "created_at": "2019-06-14T12:23:29.655Z",
+      "modified_at": "2019-06-14T12:23:29.655Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "projektverfasserin-identisch-waermepumpen",
+      "sort": 48
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "c6dd5419-e1a5-4038-a60b-5c5b795ab6ba",
     "fields": {
       "created_at": "2019-04-03T11:29:24.359Z",
@@ -8365,6 +8456,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "cbd16f9b-7a7d-4af7-b65e-eecb116031f9",
+    "fields": {
+      "created_at": "2019-06-14T12:26:45.300Z",
+      "modified_at": "2019-06-14T12:26:45.300Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "name-betrieb-waermepumpen",
+      "sort": 47
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "cbdc8a37-9cc3-4251-860c-322939e1dde9",
     "fields": {
       "created_at": "2019-05-13T11:53:52.881Z",
@@ -8374,6 +8478,19 @@
       "form": "6-dokumente",
       "question": "plaene-unterdruck-dokument",
       "sort": 42
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "cc059464-026a-4f08-9065-fedaf7cf596a",
+    "fields": {
+      "created_at": "2019-06-14T12:41:47.232Z",
+      "modified_at": "2019-06-14T12:41:47.232Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "nummer-waermepumpen",
+      "sort": 43
     }
   },
   {
@@ -8742,6 +8859,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "d76e9fde-98da-488f-a54f-43a6142c8bee",
+    "fields": {
+      "created_at": "2019-06-14T12:44:41.202Z",
+      "modified_at": "2019-06-14T12:44:41.202Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "plz-waermepumpen",
+      "sort": 42
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "d8104d8b-ed0a-447b-ae59-af403bd24154",
     "fields": {
       "created_at": "2019-04-09T07:40:23.995Z",
@@ -8945,7 +9075,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-gebaudeeigentumerin",
-      "sort": 1
+      "sort": 2
     }
   },
   {
@@ -10029,6 +10159,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "f88448c2-6205-4429-bec1-3a0e712da1e6",
+    "fields": {
+      "created_at": "2019-06-14T12:54:54.726Z",
+      "modified_at": "2019-06-14T12:54:54.726Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "waermepumpen",
+      "question": "telefon-oder-mobile-waermepumpen",
+      "sort": 40
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "f8cd98d2-c3c1-4e3f-8273-0bf67d8ef191",
     "fields": {
       "created_at": "2019-04-03T15:10:15.577Z",
@@ -10245,7 +10388,7 @@
       "created_by_group": null,
       "form": "personalien",
       "question": "personalien-projektverfasserin",
-      "sort": 3
+      "sort": 1
     }
   },
   {
@@ -12750,10 +12893,10 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten",
     "fields": {
       "created_at": "2019-03-28T09:46:55.992Z",
-      "modified_at": "2019-06-14T07:48:10.552Z",
+      "modified_at": "2019-05-03T15:07:20.415Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Sind Neubauten oder bauliche Ver\\u00e4nderungen mit mehr als 30 Grossvieheinheiten (GVE) betroffen?\"}",
+      "label": "{\"de\": \"Sind Neubauten oder bauliche Ver\\u00e4nderungen, mit mehr als 30 Grossvieheinheiten (GVE) betroffen?\"}",
       "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
@@ -14615,7 +14758,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Brennstoff\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "!(\n  'feuerung-ja' == 'feuerung'|answer\n)",
       "is_archived": false,
@@ -15422,6 +15565,31 @@
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "e-mail-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:57:51.428Z",
+      "modified_at": "2019-06-14T12:57:51.429Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"E-Mail\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": null}",
@@ -16655,7 +16823,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Flammpunkt\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "!(\n  'brennbare-fluessigkeit-gas-ja' == 'brennbare-fluessigkeit-gas'|answer\n)",
       "is_archived": false,
@@ -18549,7 +18717,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Hauptprozessart\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -20233,6 +20401,31 @@
   },
   {
     "model": "form.question",
+    "pk": "kontaktperson-name-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:31:28.345Z",
+      "modified_at": "2019-06-14T12:31:28.345Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Kontaktperson - Name\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "kontaktperson-titel",
     "fields": {
       "created_at": "2019-05-04T12:27:27.702Z",
@@ -20449,6 +20642,31 @@
       "static_content": "{\"de\": \"\"}",
       "configuration": { "max_length": null },
       "meta": { "widgetOverride": null },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "kontaktperson-vorname-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:29:21.677Z",
+      "modified_at": "2019-06-14T12:29:21.677Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Kontaktperson \\u2013 Vorname\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -22086,6 +22304,31 @@
   },
   {
     "model": "form.question",
+    "pk": "name-betrieb-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:26:45.171Z",
+      "modified_at": "2019-06-14T12:27:54.795Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Name Betrieb\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\"}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "name-des-gewaessers",
     "fields": {
       "created_at": "2019-04-04T06:17:34.360Z",
@@ -23061,6 +23304,31 @@
   },
   {
     "model": "form.question",
+    "pk": "nummer-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:41:47.069Z",
+      "modified_at": "2019-06-14T12:41:47.069Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Nummer\"}",
+      "type": "text",
+      "is_required": "false",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "nutzungsart",
     "fields": {
       "created_at": "2019-03-15T13:15:44.560Z",
@@ -23661,6 +23929,31 @@
   },
   {
     "model": "form.question",
+    "pk": "ort-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:51:06.080Z",
+      "modified_at": "2019-06-14T12:51:06.080Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ort\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "ort-wald-eigentuemer",
     "fields": {
       "created_at": "2019-04-08T13:40:04.766Z",
@@ -24057,6 +24350,31 @@
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"**Personalien - Projektverfasser/in Energie**\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "personalien-projektverfasserin-waermepumpe-titel",
+    "fields": {
+      "created_at": "2019-06-14T12:05:54.153Z",
+      "modified_at": "2019-06-14T12:35:16.965Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Personalien - Projektverfasser/in W\\u00e4rmepumpe\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "'juristische-person-projektverfasserin-ja' in 'root.1-allgemeine-informationen.personalien.personalien-projektverfasserin'|answer|mapby('juristische-person-projektverfasserin')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"**Personalien - Projektverfasser/in W\\u00e4rmepumpe**\"}",
       "configuration": {},
       "meta": {},
       "data_source": null,
@@ -24621,6 +24939,31 @@
   },
   {
     "model": "form.question",
+    "pk": "plz-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:44:41.103Z",
+      "modified_at": "2019-06-14T12:44:41.103Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"PLZ\"}",
+      "type": "integer",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_value": null, "min_value": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "plz-wald-eigentuemer",
     "fields": {
       "created_at": "2019-04-08T13:38:49.137Z",
@@ -24696,6 +25039,31 @@
   },
   {
     "model": "form.question",
+    "pk": "projektverfasserin-identisch-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:23:29.507Z",
+      "modified_at": "2019-06-14T12:23:56.530Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ist der/die Projektverfasser/in identisch mit dem/der Gesamtprojektverfasser/in?\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "'juristische-person-projektverfasserin-ja' in 'root.1-allgemeine-informationen.personalien.personalien-projektverfasserin'|answer|mapby('juristische-person-projektverfasserin')",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "prostitution",
     "fields": {
       "created_at": "2019-04-05T09:04:53.761Z",
@@ -24728,7 +25096,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Prozessart\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -26922,6 +27290,31 @@
   },
   {
     "model": "form.question",
+    "pk": "strasse-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:35:54.679Z",
+      "modified_at": "2019-06-14T12:35:54.679Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Strasse\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "strasse-wald-eigentuemer",
     "fields": {
       "created_at": "2019-04-08T13:35:55.032Z",
@@ -27607,6 +28000,31 @@
       "type": "text",
       "is_required": "true",
       "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "telefon-oder-mobile-waermepumpen",
+    "fields": {
+      "created_at": "2019-06-14T12:54:54.419Z",
+      "modified_at": "2019-06-14T12:54:54.421Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Telefon oder Mobile\"}",
+      "type": "text",
+      "is_required": "true",
+      "is_hidden": "!(\n  'projektverfasserin-identisch-waermepumpen-nein' == 'projektverfasserin-identisch-waermepumpen'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
       "info_text": "{\"de\": null}",
@@ -30210,7 +30628,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wochentag\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
@@ -30235,7 +30653,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Wochentag\"}",
-      "type": "multiple_choice",
+      "type": "choice",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -31896,8 +32314,8 @@
     "model": "form.questionoption",
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten.bauten-mit-mehr-als-30-grossvieheinheiten-ja",
     "fields": {
-      "created_at": "2019-06-14T07:48:10.559Z",
-      "modified_at": "2019-06-14T07:48:10.559Z",
+      "created_at": "2019-05-10T16:46:00.986Z",
+      "modified_at": "2019-05-10T16:46:00.986Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
@@ -31909,8 +32327,8 @@
     "model": "form.questionoption",
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten.bauten-mit-mehr-als-30-grossvieheinheiten-nein",
     "fields": {
-      "created_at": "2019-06-14T07:48:10.557Z",
-      "modified_at": "2019-06-14T07:48:10.557Z",
+      "created_at": "2019-05-10T16:46:01.168Z",
+      "modified_at": "2019-05-10T16:46:01.168Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "question": "bauten-mit-mehr-als-30-grossvieheinheiten",
@@ -36440,6 +36858,32 @@
       "question": "produkteleitung",
       "option": "produkteleitung-vakuum-magnetventil",
       "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "projektverfasserin-identisch-waermepumpen.projektverfasserin-identisch-waermepumpen-ja",
+    "fields": {
+      "created_at": "2019-06-14T12:23:56.542Z",
+      "modified_at": "2019-06-14T12:23:56.542Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "projektverfasserin-identisch-waermepumpen",
+      "option": "projektverfasserin-identisch-waermepumpen-ja",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "projektverfasserin-identisch-waermepumpen.projektverfasserin-identisch-waermepumpen-nein",
+    "fields": {
+      "created_at": "2019-06-14T12:23:56.535Z",
+      "modified_at": "2019-06-14T12:23:56.535Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "question": "projektverfasserin-identisch-waermepumpen",
+      "option": "projektverfasserin-identisch-waermepumpen-nein",
+      "sort": 1
     }
   },
   {
@@ -41192,7 +41636,7 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten-ja",
     "fields": {
       "created_at": "2019-03-28T09:46:55.832Z",
-      "modified_at": "2019-06-14T07:48:10.386Z",
+      "modified_at": "2019-05-03T15:07:20.213Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Ja\"}",
@@ -41205,7 +41649,7 @@
     "pk": "bauten-mit-mehr-als-30-grossvieheinheiten-nein",
     "fields": {
       "created_at": "2019-03-28T09:46:55.831Z",
-      "modified_at": "2019-06-14T07:48:10.390Z",
+      "modified_at": "2019-05-03T15:07:20.221Z",
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\"}",
@@ -45875,6 +46319,32 @@
       "modified_at": "2019-04-04T06:40:26.498Z",
       "created_by_user": null,
       "created_by_group": null,
+      "label": "{\"de\": \"Nein\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "projektverfasserin-identisch-waermepumpen-ja",
+    "fields": {
+      "created_at": "2019-06-14T12:23:29.258Z",
+      "modified_at": "2019-06-14T12:23:56.350Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Ja\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "projektverfasserin-identisch-waermepumpen-nein",
+    "fields": {
+      "created_at": "2019-06-14T12:23:29.263Z",
+      "modified_at": "2019-06-14T12:23:56.386Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
       "label": "{\"de\": \"Nein\"}",
       "meta": {},
       "source": null

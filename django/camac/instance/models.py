@@ -14,7 +14,7 @@ class FormState(models.Model):
         db_table = "FORM_STATE"
 
 
-class Form(models.Model):
+class Form(core_models.MultilingualModel, models.Model):
     """Represents type of a form."""
 
     form_id = models.AutoField(db_column="FORM_ID", primary_key=True)
@@ -33,7 +33,7 @@ class Form(models.Model):
 
 class FormT(models.Model):
     form = models.ForeignKey(
-        Form, models.CASCADE, db_column="FORM_ID", related_name="+"
+        Form, models.CASCADE, db_column="FORM_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
