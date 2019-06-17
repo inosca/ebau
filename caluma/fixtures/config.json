@@ -5695,19 +5695,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "76a0fbea-ea4f-4b60-b7ad-dbc6eba3bf20",
-    "fields": {
-      "created_at": "2019-06-17T11:00:37.121Z",
-      "modified_at": "2019-06-17T11:00:37.121Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "sb2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "77209110-d164-478e-a7bb-d19df2b0488f",
     "fields": {
       "created_at": "2019-05-03T16:02:35.337Z",
