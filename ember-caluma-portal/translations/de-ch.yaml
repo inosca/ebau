@@ -7,8 +7,8 @@ feedback:
 
 instance:
   status:
-    RUNNING: Neu
-    COMPLETED: Eingereicht
+    RUNNING: "Neu"
+    COMPLETED: "Eingereicht"
 
 documents:
   contents: "Was ist in diesem Dokument enthalten?"
