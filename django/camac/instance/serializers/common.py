@@ -9,6 +9,7 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.core.models import InstanceLocation
+from camac.core.serializers import MultilingualSerializer
 from camac.user.models import Group
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -28,7 +29,7 @@ class NewInstanceStateDefault(object):
         return models.InstanceState.objects.get(name="new")
 
 
-class InstanceStateSerializer(serializers.ModelSerializer):
+class InstanceStateSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.InstanceState
         fields = ("name", "description")

@@ -36,14 +36,6 @@ class FormConfigDownloadView(RetrieveAPIView):
             return response
 
 
-class InstanceStateView(viewsets.ReadOnlyModelViewSet):
-    serializer_class = serializers.InstanceStateSerializer
-    ordering = ("sort", "name")
-
-    def get_queryset(self):
-        return models.InstanceState.objects.all()
-
-
 class InstanceView(
     mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
 ):
