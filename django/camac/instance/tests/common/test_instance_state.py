@@ -1,11 +1,6 @@
 from django.urls import reverse
 from rest_framework import status
 
-from camac.markers import only_schwyz
-
-# module-level skip if we're not testing Schwyz variant
-pytestmark = only_schwyz
-
 
 def test_instance_state_list(admin_client, instance_state):
     url = reverse("instance-state-list")
