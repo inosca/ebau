@@ -5864,7 +5864,7 @@
   {
     "fields": {
       "current_instance_state": null,
-      "next_instance_state": 20000
+      "next_instance_state": 1
     },
     "model": "core.aformtransition",
     "pk": 20041
@@ -44646,21 +44646,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "page",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 2,
-      "sort": 22,
-      "template": "/reject/reject-instance.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20074
-  },
-  {
-    "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
       "description": null,
@@ -48950,16 +48935,6 @@
   },
   {
     "fields": {
-      "description": null,
-      "instance_resource": 20074,
-      "language": "de",
-      "name": "Dossier zur\u00fcckweisen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 20074
-  },
-  {
-    "fields": {
       "description": "Nutzung Bauvorhaben",
       "instance_resource": 40000,
       "language": "de",
@@ -50081,13 +50056,6 @@
     },
     "model": "core.irpage",
     "pk": 20072
-  },
-  {
-    "fields": {
-      "pdf_class": null
-    },
-    "model": "core.irpage",
-    "pk": 20074
   },
   {
     "fields": {
@@ -64131,33 +64099,6 @@
     },
     "model": "core.irroleacl",
     "pk": 21655
-  },
-  {
-    "fields": {
-      "instance_resource": 20074,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21656
-  },
-  {
-    "fields": {
-      "instance_resource": 20074,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21657
-  },
-  {
-    "fields": {
-      "instance_resource": 20074,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21658
   },
   {
     "fields": {
