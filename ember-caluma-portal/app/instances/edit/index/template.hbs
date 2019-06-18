@@ -1,0 +1,41 @@
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}
+        {{t "nav.form"}}
+        {{#if instanceState.lastSuccessful.value}}
+          <span class="uk-text-meta">({{instanceState.lastSuccessful.value.attributes.name}})</span>
+        {{/if}}
+      {{/tab.item}}
+      {{#tab.item}}
+        {{t "nav.feedback"}}
+        {{#if (and feedbackData.lastSuccessful.value.length feedbackData.isIdle)}}
+          {{uk-badge label=feedbackData.lastSuccessful.value.length class="uk-margin-small-left"}}
+        {{/if}}
+      {{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      {{#let data.lastSuccessful.value as |case|}}
+        {{cf-content
+          documentId=(decode-id case.document.id)
+          disabled=disabled
+          context=(hash
+            caseId=case.id
+            headers=headers
+            instanceId=case.meta.camac-instance-id
+          )
+        }}
+      {{/let}}
+    {{/content.item}}
+    {{#content.item}}
+      {{#if feedbackData.lastSuccessful.value.length}}
+        {{be-attachment-list loading=feedbackData.isRunning attachments=feedbackData.lastSuccessful.value}}
+      {{else}}
+        <div class="uk-alert">{{t "feedback.info"}}</div>
+      {{/if}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}
