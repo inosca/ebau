@@ -16,7 +16,7 @@
       {{#let data.lastSuccessful.value.firstObject.node as |case|}}
         {{#cf-content
           documentId=(decode-id case.document.id)
-          disabled=(or (eq case.status "COMPLETED") isEmbedded)
+          disabled=disabled
           context=(hash
             caseId=case.id
             headers=headers
