@@ -55,31 +55,40 @@ const Case = EmberObject.extend({
     return municipality && municipality.node.label;
   }),
   address: computed(function() {
-    const street = findAnswer(
-      this._answers,
-      "3-grundstueck.allgemeine-angaben.strasse-flurname"
-    );
-    const nr = findAnswer(this._answers, "3-grundstueck.allgemeine-angaben.nr");
-    const locality = findAnswer(
-      this._answers,
-      "3-grundstueck.allgemeine-angaben.ort-grundstueck"
-    );
-
-    let value;
-
-    if (street && nr) {
-      value = `${street} ${nr}`;
-    } else if (street || nr) {
-      value = street || nr;
-    }
-
-    if (locality && (street || nr)) {
-      value += `, ${locality}`;
-    } else if (locality) {
-      value = locality;
-    }
-
-    return value;
+    return [
+      [
+        findAnswer(
+          this._answers,
+          this._type === "baugesuch"
+            ? "3-grundstueck.allgemeine-angaben.strasse-flurname"
+            : "strasse-gesuchstellerin"
+        ),
+        findAnswer(
+          this._answers,
+          this._type === "baugesuch"
+            ? "3-grundstueck.allgemeine-angaben.nr"
+            : "nummer-gesuchstellerin"
+        )
+      ]
+        .filter(Boolean)
+        .join(" "),
+      [
+        findAnswer(
+          this._answers,
+          this._type === "baugesuch" ? null : "plz-gesuchstellerin"
+        ),
+        findAnswer(
+          this._answers,
+          this._type === "baugesuch"
+            ? "3-grundstueck.allgemeine-angaben.ort-grundstueck"
+            : "ort-gesuchstellerin"
+        )
+      ]
+        .filter(Boolean)
+        .join(" ")
+    ]
+      .filter(Boolean)
+      .join(", ");
   }),
   createdAt: computed("raw.createdAt", function() {
     return new Date(this.raw.createdAt);
