@@ -15,9 +15,20 @@ before_script:
     - echo "$RUNNER_DOCKER_KEYPEM" > /root/.docker/key.pem
 
 stages:
+    - lint
     - test
     - build
     - deploy
+
+lint-ember-caluma-portal:
+  stage: lint
+  image: node:lts
+  before_script:
+    - cd ember-caluma-portal
+    - yarn
+  script:
+    - yarn lint:js
+    - yarn lint:hbs
 
 test-ember:
     stage: test
@@ -37,8 +48,6 @@ test-ember-caluma-portal:
         - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
         - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-caluma-portal"
         - eval $COMPOSE build --pull ember-caluma-portal
-        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn lint:js
-        - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn lint:hbs
         - eval $COMPOSE run --rm --no-deps ember-caluma-portal yarn test
 
 test-django:
