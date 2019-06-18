@@ -262,6 +262,38 @@
   },
   {
     "model": "form.form",
+    "pk": "baugesuch-generell",
+    "fields": {
+      "created_at": "2019-06-18T07:19:42.781Z",
+      "modified_at": "2019-06-18T07:19:42.781Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "name": "{\"de\": \"Generelles Baugesuch\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
+    "pk": "baugesuch-mit-uvp",
+    "fields": {
+      "created_at": "2019-06-18T07:19:59.155Z",
+      "modified_at": "2019-06-18T07:19:59.155Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "name": "{\"de\": \"Baugesuch mit UVP\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "bauvorhaben",
     "fields": {
       "created_at": "2019-03-11T09:21:12.560Z",
@@ -1782,6 +1814,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "1177a1ae-24ba-4fd2-84b6-25be772dfa27",
+    "fields": {
+      "created_at": "2019-06-18T07:24:14.953Z",
+      "modified_at": "2019-06-18T07:24:14.953Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "6-dokumente",
+      "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "11b47291-f226-413a-9961-5c7ea6ebd974",
     "fields": {
       "created_at": "2019-04-11T12:35:41.903Z",
@@ -1951,6 +1996,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "14aa683f-f34c-4554-aeb5-a48a038a954f",
+    "fields": {
+      "created_at": "2019-06-18T07:25:26.867Z",
+      "modified_at": "2019-06-18T07:25:26.867Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "4-bauwerk",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "14d28255-9d5a-43ee-8edf-1be2eb6c2033",
     "fields": {
       "created_at": "2019-04-09T14:03:57.013Z",
@@ -2051,6 +2109,19 @@
       "form": "abschluss-sb2",
       "question": "sicherheitsvorschriften-eingehalten",
       "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "169100cc-a903-4e33-9259-cc65355f5b52",
+    "fields": {
+      "created_at": "2019-06-18T07:25:23.507Z",
+      "modified_at": "2019-06-18T07:25:23.507Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "3-grundstueck",
+      "sort": 6
     }
   },
   {
@@ -2194,6 +2265,19 @@
       "form": "gewaesserschutz-bauten-im-grundwasser",
       "question": "beschreibung-andere",
       "sort": 13
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "1a58e0d9-d647-4b4b-9f3d-1ed710f77b6d",
+    "fields": {
+      "created_at": "2019-06-18T07:24:02.154Z",
+      "modified_at": "2019-06-18T07:24:02.155Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "3-grundstueck",
+      "sort": 6
     }
   },
   {
@@ -2354,6 +2438,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "1dcc97c0-0e8c-4278-9be3-2ad75ecd6f7e",
+    "fields": {
+      "created_at": "2019-06-18T07:24:06.048Z",
+      "modified_at": "2019-06-18T07:24:06.048Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "4-bauwerk",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "1dcfd658-ffa7-45b3-b7d3-fbcacec2b585",
     "fields": {
       "created_at": "2019-05-13T11:13:46.238Z",
@@ -2375,6 +2472,19 @@
       "created_by_group": null,
       "form": "allgemeine-angaben",
       "question": "be-gid",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "1e52cd87-2232-41aa-aa30-79a9dea9f02b",
+    "fields": {
+      "created_at": "2019-06-18T07:25:19.298Z",
+      "modified_at": "2019-06-18T07:25:19.298Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "2-nutzung-bauvorhaben",
       "sort": 7
     }
   },
@@ -3468,6 +3578,19 @@
       "form": "zonenvorschriften-schutzzonen",
       "question": "bezeichnung-baugruppe",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "3b9f29f7-6202-45aa-ada4-0b6a716ceeec",
+    "fields": {
+      "created_at": "2019-06-18T07:23:57.487Z",
+      "modified_at": "2019-06-18T07:23:57.487Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "2-nutzung-bauvorhaben",
+      "sort": 7
     }
   },
   {
@@ -4720,6 +4843,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "5ced550e-163d-4713-bb67-0582fd7540ce",
+    "fields": {
+      "created_at": "2019-06-18T07:28:41.017Z",
+      "modified_at": "2019-06-18T07:28:41.017Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "4-bauwerk",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "5d4c0bbd-12ad-40e6-8542-95c7bc846e60",
     "fields": {
       "created_at": "2019-05-13T11:48:50.244Z",
@@ -4833,6 +4969,19 @@
       "form": "bodenschutz",
       "question": "mehr-als-1500-m3-bodenmaterial",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "6123efbc-5b2b-4b78-8dcc-0178f05456e0",
+    "fields": {
+      "created_at": "2019-06-18T07:25:15.803Z",
+      "modified_at": "2019-06-18T07:25:15.803Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "1-allgemeine-informationen",
+      "sort": 8
     }
   },
   {
@@ -5383,6 +5532,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "6e917a48-4ed3-44a3-99c8-d6bf120a9ac1",
+    "fields": {
+      "created_at": "2019-06-18T07:28:54.006Z",
+      "modified_at": "2019-06-18T07:28:54.006Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "7-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "6ee985fa-7a61-493f-903a-d05af3100a06",
     "fields": {
       "created_at": "2019-04-04T08:30:42.118Z",
@@ -5496,6 +5658,19 @@
       "form": "brandschutz",
       "question": "brandschutzrisiken",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "727b0a77-bafb-4e31-ad6a-06ea7face0b3",
+    "fields": {
+      "created_at": "2019-06-18T07:28:57.133Z",
+      "modified_at": "2019-06-18T07:28:57.133Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "8-freigabequittung",
+      "sort": 1
     }
   },
   {
@@ -5721,6 +5896,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "7760a568-7b89-4f2d-8756-3caec674dbc1",
+    "fields": {
+      "created_at": "2019-06-18T07:25:31.072Z",
+      "modified_at": "2019-06-18T07:25:31.072Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "5-spezialformulare",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "77b66686-cf90-4f25-84bc-37d2b6855abd",
     "fields": {
       "created_at": "2019-04-02T08:23:03.882Z",
@@ -5860,6 +6048,19 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
       "question": "auskleidung",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "7f661ca7-2258-4c7a-a392-decc7d8da603",
+    "fields": {
+      "created_at": "2019-06-18T07:28:30.635Z",
+      "modified_at": "2019-06-18T07:28:30.635Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "1-allgemeine-informationen",
+      "sort": 8
     }
   },
   {
@@ -6345,19 +6546,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "8aa4701c-46ed-4b61-95e5-c76ce48d821a",
-    "fields": {
-      "created_at": "2019-05-05T14:48:27.731Z",
-      "modified_at": "2019-05-05T14:48:27.731Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "formulartyp",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "8ab9a906-e6c7-4e2f-aa55-76fd7d16fd8b",
     "fields": {
       "created_at": "2019-04-08T13:17:01.456Z",
@@ -6800,6 +6988,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "95e3b2ef-b87c-4564-9c18-e87c02ee19d5",
+    "fields": {
+      "created_at": "2019-06-18T07:25:39.167Z",
+      "modified_at": "2019-06-18T07:25:39.167Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "7-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "961b96d0-a366-4b24-b953-717bb9195bf6",
     "fields": {
       "created_at": "2019-04-01T12:19:18.827Z",
@@ -7229,19 +7430,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "a180249b-3091-4e85-be71-02118bf61bba",
-    "fields": {
-      "created_at": "2019-04-18T13:13:41.206Z",
-      "modified_at": "2019-04-18T13:13:41.206Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "wurden-vorabklaerungen-durchgefuehrt",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "a1b323c8-7a25-4d77-bec9-50b9e76614f0",
     "fields": {
       "created_at": "2019-05-13T10:52:35.581Z",
@@ -7290,6 +7478,19 @@
       "form": "art-der-emmission-tabelle",
       "question": "art-der-emmission",
       "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "a26e849f-7d3c-4165-9b23-79af9d6e0621",
+    "fields": {
+      "created_at": "2019-06-18T07:28:51.106Z",
+      "modified_at": "2019-06-18T07:28:51.106Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "6-dokumente",
+      "sort": 3
     }
   },
   {
@@ -7420,6 +7621,19 @@
       "form": "waermepumpen",
       "question": "kontaktperson-name-waermepumpen",
       "sort": 46
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "a5b4141a-f40d-4b5c-9a01-f459fc8d9cbb",
+    "fields": {
+      "created_at": "2019-06-18T07:28:37.209Z",
+      "modified_at": "2019-06-18T07:28:37.209Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "3-grundstueck",
+      "sort": 6
     }
   },
   {
@@ -7671,6 +7885,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "adbbe505-2070-4fa4-97ee-b23d3e64bca7",
+    "fields": {
+      "created_at": "2019-06-18T07:22:59.939Z",
+      "modified_at": "2019-06-18T07:22:59.939Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "1-allgemeine-informationen",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "adfbc334-c956-448b-b821-ee939db6bf59",
     "fields": {
       "created_at": "2019-04-04T09:32:38.227Z",
@@ -7706,6 +7933,19 @@
       "form": "gewaesserschutz-wassergefaehrdende-fluessigkeiten",
       "question": "druckausgleichsleitung-rohrlaenge-in-meter",
       "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "ae523e91-c258-48db-be17-8ce225550ed6",
+    "fields": {
+      "created_at": "2019-06-18T07:25:35.988Z",
+      "modified_at": "2019-06-18T07:25:35.988Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "6-dokumente",
+      "sort": 3
     }
   },
   {
@@ -7966,6 +8206,19 @@
       "form": "gebaudeeigentumerin",
       "question": "juristische-person-gebaeudeeigentuemerin",
       "sort": 12
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "b5f031d4-16e5-443c-9cd2-9c7ccd8eccb9",
+    "fields": {
+      "created_at": "2019-06-18T07:24:10.711Z",
+      "modified_at": "2019-06-18T07:24:10.711Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "5-spezialformulare",
+      "sort": 4
     }
   },
   {
@@ -8334,6 +8587,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "be640af7-2216-4f5a-82d2-0f10b9f553b0",
+    "fields": {
+      "created_at": "2019-06-18T07:28:34.129Z",
+      "modified_at": "2019-06-18T07:28:34.129Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "2-nutzung-bauvorhaben",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "be717818-0ad9-4b09-aed6-28c3bbf1cb2a",
     "fields": {
       "created_at": "2019-05-13T11:32:45.429Z",
@@ -8581,6 +8847,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "c6472519-322d-4d1b-ab1a-9bff4456b7ff",
+    "fields": {
+      "created_at": "2019-06-18T07:24:21.858Z",
+      "modified_at": "2019-06-18T07:24:21.858Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "8-freigabequittung",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "c6874d8b-186b-44ea-abfc-1f141318b0ab",
     "fields": {
       "created_at": "2019-05-13T12:42:36.278Z",
@@ -8798,6 +9077,19 @@
       "form": "allgemeine-angaben-zum-betrieb",
       "question": "ort",
       "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "cbaa15ea-2419-40f6-a6a9-caf68d56d170",
+    "fields": {
+      "created_at": "2019-06-18T07:25:43.032Z",
+      "modified_at": "2019-06-18T07:25:43.032Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "8-freigabequittung",
+      "sort": 1
     }
   },
   {
@@ -9543,6 +9835,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "de1d0f97-ebe5-4192-8097-0680901d728a",
+    "fields": {
+      "created_at": "2019-06-18T07:24:18.494Z",
+      "modified_at": "2019-06-18T07:24:18.494Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "7-bestaetigung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "df8ce190-2062-452f-aa71-0778d805c6d2",
     "fields": {
       "created_at": "2019-05-03T16:39:48.541Z",
@@ -9890,6 +10195,19 @@
       "form": "energie",
       "question": "ort-energie",
       "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "e80f3882-1704-437c-8298-a04161622e95",
+    "fields": {
+      "created_at": "2019-06-18T07:28:47.825Z",
+      "modified_at": "2019-06-18T07:28:47.825Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "5-spezialformulare",
+      "sort": 4
     }
   },
   {
@@ -17711,31 +18029,6 @@
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
       "meta": { "widgetOverride": "be-download-pdf" },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "formulartyp",
-    "fields": {
-      "created_at": "2019-04-18T08:03:52.023Z",
-      "modified_at": "2019-04-18T08:05:25.843Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Formulartyp\"}",
-      "type": "text",
-      "is_required": "false",
-      "is_hidden": "true",
-      "is_archived": false,
-      "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
-      "static_content": "{\"de\": \"\"}",
-      "configuration": { "max_length": null },
-      "meta": {},
       "data_source": null,
       "row_form": null,
       "sub_form": null,
