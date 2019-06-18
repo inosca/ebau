@@ -5,6 +5,11 @@
     {{uk-button
       label=(t "gis.apply-button")
       on-click=(action "applySelection")
+      loading=(or
+        populateFields.isRunning
+        populateTable.isRunning
+        fetchAdditionalData.isRunning
+      )
       size="small"
     }}
 
