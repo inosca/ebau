@@ -62,9 +62,13 @@ class FilterViaCamacAPIMixin:
                     family__in=self._accessible_doc_families(info)
                 ),
                 "_default": lambda: {
-                    "case__meta__camac-instance-id__in": self._all_visible_instances(
-                        info
-                    )
+                    "family__in": form_models.Document.objects.filter(
+                        **{
+                            "case__meta__camac-instance-id__in": self._all_visible_instances(
+                                info
+                            )
+                        }
+                    ).values("pk")
                 },
             },
             "Answer": {
@@ -80,7 +84,7 @@ class FilterViaCamacAPIMixin:
                                 info
                             )
                         }
-                    )
+                    ).values("pk")
                 ),
             },
             "WorkItem": {
@@ -89,7 +93,9 @@ class FilterViaCamacAPIMixin:
                     case__document__family__in=self._accessible_doc_families(info)
                 ),
                 "_default": lambda: {
-                    "case__meta__camac-instance-id__in": self._all_visible_instances(info)
+                    "case__meta__camac-instance-id__in": self._all_visible_instances(
+                        info
+                    )
                 },
             },
         }
