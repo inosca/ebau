@@ -24,6 +24,8 @@ Router.map(function() {
       path: "/form-builder",
       resetNamespace: true
     });
+
+    this.route("support", { resetNamespace });
   });
 });
 
