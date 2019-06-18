@@ -1,0 +1,24 @@
+{{#let data.lastSuccessful.value as |case|}}
+  {{#cf-content
+    documentId=(decode-id case.document.id)
+    disabled=disabled
+    context=(hash
+      caseId=case.id
+      headers=headers
+      instanceId=case.meta.camac-instance-id
+    )
+  as |content|}}
+    {{#if content.rootDocument.childDocuments.length}}
+      <div uk-grid>
+        <div class="uk-width-1-1 uk-width-1-3@s">{{content.navigation}}</div>
+        <div class="uk-width-1-1 uk-width-2-3@s">
+          {{content.form}}
+          <hr>
+          {{content.pagination}}
+        </div>
+      </div>
+    {{else}}
+      {{content.form}}
+    {{/if}}
+  {{/cf-content}}
+{{/let}}
