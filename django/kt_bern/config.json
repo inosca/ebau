@@ -119530,6 +119530,16 @@
   },
   {
     "fields": {
+      "name": "Intern",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 4
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "read",
       "role": 3
@@ -119725,6 +119735,15 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 22
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "mode": "read",
+      "role": 10000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 23
   },
   {
     "fields": {
