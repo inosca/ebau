@@ -65,6 +65,20 @@ export default Controller.extend({
     }
   }).restartable(),
 
+  instanceState: task(function*(caseId) {
+    const response = yield this.fetch.fetch(
+      `/api/v1/instances/${caseId}?include=instance_state`
+    );
+
+    const { included, data: instance } = yield response.json();
+
+    return included.find(
+      obj =>
+        obj.type === "instance-states" &&
+        obj.id === instance.relationships["instance-state"].data.id
+    );
+  }).restartable(),
+
   feedbackData: task(function*(caseId) {
     const response = yield this.fetch.fetch(
       `/api/v1/attachments?attachment_sections=${SECTION}&instance=${caseId}`
@@ -92,5 +106,16 @@ export default Controller.extend({
         })
       )
     );
-  }).restartable()
+  }).restartable(),
+
+  disabled: computed(
+    "isEmbedded",
+    "instanceState.lastSuccessful.value.attributes.name",
+    function() {
+      return (
+        this.isEmbedded ||
+        this.get("instanceState.lastSuccessful.value.attributes.name") !== "Neu"
+      );
+    }
+  )
 });
