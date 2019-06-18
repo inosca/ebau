@@ -1,0 +1,19 @@
+query {
+  allForms(
+    orderBy: NAME_ASC
+    slugs: [
+      "vorabklaerung-vollstaendig"
+      "vorabklaerung-einfach"
+      "baugesuch"
+      "baugesuch-generell"
+      "baugesuch-mit-uvp"
+    ]
+  ) {
+    edges {
+      node {
+        slug
+        name
+      }
+    }
+  }
+}
