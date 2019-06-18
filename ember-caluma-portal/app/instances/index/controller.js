@@ -93,8 +93,12 @@ const Case = EmberObject.extend({
   createdAt: computed("raw.createdAt", function() {
     return new Date(this.raw.createdAt);
   }),
-  status: computed("intl.locale", "raw.status", function() {
-    return this.intl.t(`instance.status.${this.raw.status}`);
+  status: computed("raw.meta.camac-instance-id", "instances.[]", function() {
+    const instance = this.instances.find(
+      ({ id }) => parseInt(id) === parseInt(this.raw.meta["camac-instance-id"])
+    );
+
+    return instance.instanceState.attributes.name;
   }),
   description: computed(function() {
     return findAnswer(
@@ -118,12 +122,13 @@ export default Controller.extend(queryParams.Mixin, {
   apollo: service(),
   notification: service(),
   intl: service(),
+  fetch: service(),
 
   setup() {
     this.data.perform();
   },
 
-  municipalities: task(function*() {
+  getAllMunicipalities: task(function*() {
     return yield this.apollo.query(
       {
         query: gql`
@@ -151,17 +156,41 @@ export default Controller.extend(queryParams.Mixin, {
     );
   }),
 
+  getInstances: task(function*(ids) {
+    const response = yield this.fetch.fetch(
+      `/api/v1/instances?include=instance_state&ids=${ids.join(",")}`
+    );
+
+    const { data, included } = yield response.json();
+
+    return data.map(instance =>
+      Object.assign(instance, {
+        instanceState: included.find(
+          obj =>
+            obj.type === "instance-states" &&
+            obj.id === instance.relationships["instance-state"].data.id
+        )
+      })
+    );
+  }),
+
   data: task(function*() {
     try {
-      yield this.municipalities.perform();
+      yield this.getAllMunicipalities.perform();
 
-      return yield this.apollo.watchQuery(
+      const cases = yield this.apollo.watchQuery(
         {
           query: allCasesQuery,
           fetchPolicy: "network-only"
         },
         "allCases.edges"
       );
+
+      yield this.getInstances.perform(
+        cases.map(({ node }) => node.meta["camac-instance-id"])
+      );
+
+      return cases;
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
@@ -172,10 +201,13 @@ export default Controller.extend(queryParams.Mixin, {
   }).restartable(),
 
   cases: computed("data.lastSuccessful.value.@each.node", function() {
+    if (!this.get("data.lastSuccessful.value")) return [];
+
     return this.data.lastSuccessful.value.map(({ node: raw }) =>
       Case.create(getOwner(this).ownerInjection(), {
         raw,
-        municipalities: this.municipalities.lastSuccessful.value
+        municipalities: this.getAllMunicipalities.lastSuccessful.value,
+        instances: this.getInstances.lastSuccessful.value
       })
     );
   })
