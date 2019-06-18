@@ -16169,6 +16169,206 @@
   },
   {
     "model": "form.question",
+    "pk": "doc-bauentscheid",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.382Z",
+      "modified_at": "2019-06-18T12:53:52.382Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Bauentscheid\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-beilagen-vorabklaerung",
+    "fields": {
+      "created_at": "2019-06-18T12:54:01.905Z",
+      "modified_at": "2019-06-18T12:54:01.905Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Beilagen Vorabkl\\u00e4rung\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-einsprache",
+    "fields": {
+      "created_at": "2019-06-18T12:56:19.974Z",
+      "modified_at": "2019-06-18T12:56:19.974Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Einsprache\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-entwuerfe",
+    "fields": {
+      "created_at": "2019-06-18T12:56:36.914Z",
+      "modified_at": "2019-06-18T12:56:36.914Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Entw\\u00fcrfe\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-ges-bew-hydrogeologisches-gutachten-nachw",
+    "fields": {
+      "created_at": "2019-06-18T12:55:14.236Z",
+      "modified_at": "2019-06-18T12:55:14.236Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Gesuch f\\u00fcr eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazit\\u00e4t  des Grundwassers gegen\\u00fcber dem unbeinflussten Zustand um h\\u00f6chstens 10% vemindert wird.\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-notizen",
+    "fields": {
+      "created_at": "2019-06-18T12:54:22.198Z",
+      "modified_at": "2019-06-18T12:54:22.198Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Notizen\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-stellungnahme",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.366Z",
+      "modified_at": "2019-06-18T12:53:52.366Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Stellungnahme\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "doc-verfahrensprogramm",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.346Z",
+      "modified_at": "2019-06-18T12:53:52.346Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verfahrensprogramm\"}",
+      "type": "choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "dokumente-der-bauausfuehrung-dokument",
     "fields": {
       "created_at": "2019-05-13T12:50:44.824Z",
@@ -34678,6 +34878,110 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "doc-bauentscheid.doc-bauentscheid-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.384Z",
+      "modified_at": "2019-06-18T12:53:52.384Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-bauentscheid",
+      "option": "doc-bauentscheid-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-beilagen-vorabklaerung.doc-beilagen-vorabklaerung-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:54:01.908Z",
+      "modified_at": "2019-06-18T12:54:01.908Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-beilagen-vorabklaerung",
+      "option": "doc-beilagen-vorabklaerung-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-einsprache.doc-einsprache-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:56:19.976Z",
+      "modified_at": "2019-06-18T12:56:19.976Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-einsprache",
+      "option": "doc-einsprache-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-entwuerfe.doc-entwuerfe-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:56:36.916Z",
+      "modified_at": "2019-06-18T12:56:36.916Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-entwuerfe",
+      "option": "doc-entwuerfe-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-ges-bew-hydrogeologisches-gutachten-nachw.doc-ges-bew-hydrogeologisches-gutachten-nachw-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:55:14.239Z",
+      "modified_at": "2019-06-18T12:55:14.239Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-ges-bew-hydrogeologisches-gutachten-nachw",
+      "option": "doc-ges-bew-hydrogeologisches-gutachten-nachw-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-notizen.doc-notizen-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:54:22.202Z",
+      "modified_at": "2019-06-18T12:54:22.202Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-notizen",
+      "option": "doc-notizen-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-stellungnahme.doc-stellungnahme-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.368Z",
+      "modified_at": "2019-06-18T12:53:52.368Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-stellungnahme",
+      "option": "doc-stellungnahme-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "doc-verfahrensprogramm.doc-verfahrensprogramm-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.348Z",
+      "modified_at": "2019-06-18T12:53:52.348Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "question": "doc-verfahrensprogramm",
+      "option": "doc-verfahrensprogramm-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "dokumente-der-bauausfuehrung-dokument.dokumente-der-bauausfuehrung-dokument-ja",
     "fields": {
       "created_at": "2019-05-13T10:41:13.495Z",
@@ -44266,6 +44570,110 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Berechnungsverfahren f\\u00fcr komplexe Anlagen\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-bauentscheid-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.384Z",
+      "modified_at": "2019-06-18T12:53:52.384Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Bauentscheid\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-beilagen-vorabklaerung-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:54:01.907Z",
+      "modified_at": "2019-06-18T12:54:01.907Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Beilagen Vorabkl\\u00e4rung\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-einsprache-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:56:19.975Z",
+      "modified_at": "2019-06-18T12:56:19.975Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Einsprache\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-entwuerfe-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:56:36.915Z",
+      "modified_at": "2019-06-18T12:56:36.916Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Entw\\u00fcrfe\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-ges-bew-hydrogeologisches-gutachten-nachw-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:55:14.238Z",
+      "modified_at": "2019-06-18T12:55:14.238Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Gesuch f\\u00fcr eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazit\\u00e4t  des Grundwassers gegen\\u00fcber dem unbeinflussten Zustand um h\\u00f6chstens 10% vemindert wird.\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-notizen-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:54:22.200Z",
+      "modified_at": "2019-06-18T12:54:22.201Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Notizen\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-stellungnahme-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.367Z",
+      "modified_at": "2019-06-18T12:53:52.367Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Stellungnahme\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "doc-verfahrensprogramm-ja",
+    "fields": {
+      "created_at": "2019-06-18T12:53:52.347Z",
+      "modified_at": "2019-06-18T12:53:52.347Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Verfahrensprogramm\"}",
       "meta": {},
       "source": null
     }
