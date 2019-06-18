@@ -178,7 +178,7 @@ export default Component.extend({
         field => field.question.slug === KEY_TABLE_QUESTION
       );
       // Find the E-Grid field of the first parcel.
-      const rows = table && table.answer.rowDocuments;
+      const rows = table && table.answer.value;
       const field =
         rows &&
         rows[0].fields.find(field => field.question.slug === KEY_TABLE_EGRID);
@@ -421,7 +421,6 @@ export default Component.extend({
       })
     );
 
-    table.answer.set("rowDocuments", rows);
     table.answer.set("value", rows.map(doc => doc.id));
     table.save.perform();
   }),

@@ -78,7 +78,7 @@ export default Component.extend({
   intl: service(),
   fetch: service(),
 
-  doc: reads("field.document.parentDocument"),
+  doc: reads("field.document.rootDocument"),
 
   /**
    * Submits the data (as JSON) to a service and gets a PDF back.
