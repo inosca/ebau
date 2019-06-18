@@ -3,7 +3,8 @@ import { task } from "ember-concurrency";
 import { info1, info2 } from "ember-caluma-portal/instances/new/info";
 import { inject as service } from "@ember/service";
 import startCase from "ember-caluma-portal/gql/mutations/start-case";
-import saveDocumentStringAnswer from "ember-caluma-portal/gql/mutations/save-document-string-answer";
+
+import allRootFormsQuery from "ember-caluma-portal/gql/queries/all-root-forms";
 
 export default Controller.extend({
   apollo: service(),
@@ -14,39 +15,42 @@ export default Controller.extend({
 
   selectedForm: null,
 
-  save: task(function*() {
-    // we always create a baugesuch, except for "vorabklaerung-einfach"
-    const isVorabklaerungEinfach =
-      this.selectedForm === "vorabklaerung-einfach";
-    const formToCreate = isVorabklaerungEinfach
-      ? this.selectedForm
-      : "baugesuch";
+  forms: task(function*() {
+    const forms = yield this.apollo.query(
+      {
+        query: allRootFormsQuery
+      },
+      "allForms.edges"
+    );
 
+    return forms.reduce(
+      (grouped, { node: form }) => {
+        const column = /^vorabklaerung/.test(form.slug) ? "column1" : "column2";
+
+        grouped[column].push(form);
+
+        return grouped;
+      },
+      {
+        column1: [],
+        column2: []
+      }
+    );
+  }),
+
+  save: task(function*() {
     const caseObj = yield this.get("apollo").mutate(
       {
         mutation: startCase,
         variables: {
           input: {
             workflow: "building-permit",
-            form: formToCreate
+            form: this.selectedForm
           }
         }
       },
       "startCase.case"
     );
-
-    if (!isVorabklaerungEinfach) {
-      yield this.get("apollo").mutate({
-        mutation: saveDocumentStringAnswer,
-        variables: {
-          input: {
-            question: "formulartyp",
-            document: caseObj.document.id,
-            value: this.selectedForm
-          }
-        }
-      });
-    }
 
     // create instance in CAMAC
     const response = yield this.fetch.fetch(`/api/v1/instances`, {

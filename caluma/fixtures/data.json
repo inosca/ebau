@@ -667,23 +667,6 @@
   },
   {
     "model": "form.answer",
-    "pk": "09daa78e-6cd0-4699-aee4-9b7bc560c89b",
-    "fields": {
-      "created_at": "2019-06-08T19:09:17.323Z",
-      "modified_at": "2019-06-08T19:09:17.323Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "question": "formulartyp",
-      "value": "baugesuch",
-      "meta": {},
-      "document": "dedcb026-d5a8-492d-9685-f48f7dc42e4b",
-      "value_document": null,
-      "date": null,
-      "file": null
-    }
-  },
-  {
-    "model": "form.answer",
     "pk": "0bbf663b-2724-4e5f-9da8-1bef423b1c67",
     "fields": {
       "created_at": "2019-06-08T19:15:19.469Z",

@@ -1,20 +1,15 @@
 import { warn } from "@ember/debug";
 
-const TYPES = {
-  "vorabklaerung-einfach": "Einfache Vorabklärung",
-  "vorabklaerung-vollstaendig": "Vollständige Vorabklärung",
-  baugesuch: "Baugesuch",
-  "generelles-baugesuch": "Generelles Baugesuch",
-  "baugesuch-mit-uvp": "Baugesuch mit UVP"
-};
-
 export function getCaseTypeSlug(doc) {
-  const field = doc.fields.find(edge => edge.question.slug === "formulartyp");
-  return field.answer.value;
+  const rootDocument = doc.rootDocument || doc;
+
+  return rootDocument.raw.form.slug;
 }
 
 export function getCaseType(doc) {
-  return TYPES[getCaseTypeSlug(doc)];
+  const rootDocument = doc.rootDocument || doc;
+
+  return rootDocument.raw.form.name;
 }
 
 export function parseFields(doc) {
