@@ -18,6 +18,7 @@ query AllCases {
               "gemeinde"
               "strasse-gesuchstellerin"
               "nummer-gesuchstellerin"
+              "plz-gesuchstellerin"
               "ort-gesuchstellerin"
               "anfrage-zur-vorabklaerung"
             ]
@@ -69,6 +70,9 @@ query AllCases {
                 }
                 ... on StringAnswer {
                   stringValue: value
+                }
+                ... on IntegerAnswer {
+                  integerValue: value
                 }
                 question {
                   slug
