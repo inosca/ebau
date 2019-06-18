@@ -155,10 +155,10 @@ export default Controller.extend(queryParams.Mixin, {
     try {
       yield this.municipalities.perform();
 
-      return yield this.get("apollo").watchQuery(
+      return yield this.apollo.watchQuery(
         {
           query: allCasesQuery,
-          fetchPolicy: "cache-and-network"
+          fetchPolicy: "network-only"
         },
         "allCases.edges"
       );
@@ -171,7 +171,7 @@ export default Controller.extend(queryParams.Mixin, {
     }
   }).restartable(),
 
-  cases: computed("data.lastSuccessful.value.[]", function() {
+  cases: computed("data.lastSuccessful.value.@each.node", function() {
     return this.data.lastSuccessful.value.map(({ node: raw }) =>
       Case.create(getOwner(this).ownerInjection(), {
         raw,

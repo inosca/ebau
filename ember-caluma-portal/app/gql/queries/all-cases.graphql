@@ -7,7 +7,9 @@ query AllCases {
         createdAt
         status
         document {
+          id
           form {
+            id
             name
           }
           answers(
@@ -48,18 +50,20 @@ query AllCases {
                               ) {
                                 edges {
                                   node {
+                                    id
                                     ... on StringAnswer {
                                       stringValue: value
                                     }
                                     question {
+                                      id
                                       slug
                                     }
                                   }
                                 }
                               }
                             }
-
                             question {
+                              id
                               slug
                             }
                           }
@@ -75,6 +79,7 @@ query AllCases {
                   integerValue: value
                 }
                 question {
+                  id
                   slug
                 }
               }
