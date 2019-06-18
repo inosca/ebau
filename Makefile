@@ -145,11 +145,11 @@ makemigrations: ## Create schema migrations
 
 .PHONY: flush-camac
 flush-camac:
-	@docker-compose exec django /app/manage.py flush
+	@docker-compose exec django /app/manage.py flush --no-input
 
 .PHONY: flush-caluma
 flush-caluma:
-	@docker-compose exec caluma python manage.py flush
+	@docker-compose exec caluma python manage.py flush --no-input
 
 .PHONY: flush
 flush: flush-caluma flush-camac
