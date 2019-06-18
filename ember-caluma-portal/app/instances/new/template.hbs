@@ -3,39 +3,25 @@
 <div uk-grid class="uk-grid-small">
   <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
     <h4 class="uk-text-center">Vorabklärung {{camac-hint-dialog infoCol1}}</h4>
-    {{new-form-grid-entry
-      form="vorabklaerung-einfach"
-      label="Einfache Vorabklärung"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
-    {{new-form-grid-entry
-      form="vorabklaerung-vollstaendig"
-      label="Vollständige Vorabklärung"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
+    {{#each forms.lastSuccessful.value.column1 as |form|}}
+      {{new-form-grid-entry
+        form=form.slug
+        label=form.name
+        onSetForm=(action (mut selectedForm))
+        selectedForm=selectedForm
+      }}
+    {{/each}}
   </div>
   <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
     <h4 class="uk-text-center">Gesuche {{camac-hint-dialog infoCol2}}</h4>
-    {{new-form-grid-entry
-      form="baugesuch"
-      label="Baugesuch"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
-    {{new-form-grid-entry
-      form="generelles-baugesuch"
-      label="Generelles Baugesuch"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
-    {{new-form-grid-entry
-      form="baugesuch-mit-uvp"
-      label="Baugesuch mit UVP"
-      onSetForm=(action (mut selectedForm))
-      selectedForm=selectedForm
-    }}
+    {{#each forms.lastSuccessful.value.column2 as |form|}}
+      {{new-form-grid-entry
+        form=form.slug
+        label=form.name
+        onSetForm=(action (mut selectedForm))
+        selectedForm=selectedForm
+      }}
+    {{/each}}
   </div>
 </div>
 
