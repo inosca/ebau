@@ -45,9 +45,9 @@ const Case = EmberObject.extend({
   municipality: computed(function() {
     const slug = findAnswer(
       this._answers,
-      this._type === "baugesuch"
-        ? "3-grundstueck.allgemeine-angaben.gemeinde"
-        : "gemeinde"
+      this._type === "vorabklaerung-einfach"
+        ? "gemeinde"
+        : "3-grundstueck.allgemeine-angaben.gemeinde"
     );
 
     const municipality = this.municipalities.find(m => m.node.slug === slug);
@@ -59,15 +59,15 @@ const Case = EmberObject.extend({
       [
         findAnswer(
           this._answers,
-          this._type === "baugesuch"
-            ? "3-grundstueck.allgemeine-angaben.strasse-flurname"
-            : "strasse-gesuchstellerin"
+          this._type === "vorabklaerung-einfach"
+            ? "strasse-gesuchstellerin"
+            : "3-grundstueck.allgemeine-angaben.strasse-flurname"
         ),
         findAnswer(
           this._answers,
-          this._type === "baugesuch"
-            ? "3-grundstueck.allgemeine-angaben.nr"
-            : "nummer-gesuchstellerin"
+          this._type === "vorabklaerung-einfach"
+            ? "nummer-gesuchstellerin"
+            : "3-grundstueck.allgemeine-angaben.nr"
         )
       ]
         .filter(Boolean)
@@ -75,13 +75,13 @@ const Case = EmberObject.extend({
       [
         findAnswer(
           this._answers,
-          this._type === "baugesuch" ? null : "plz-gesuchstellerin"
+          this._type === "vorabklaerung-einfach" ? "plz-gesuchstellerin" : null
         ),
         findAnswer(
           this._answers,
-          this._type === "baugesuch"
-            ? "3-grundstueck.allgemeine-angaben.ort-grundstueck"
-            : "ort-gesuchstellerin"
+          this._type === "vorabklaerung-einfach"
+            ? "ort-gesuchstellerin"
+            : "3-grundstueck.allgemeine-angaben.ort-grundstueck"
         )
       ]
         .filter(Boolean)
@@ -99,7 +99,7 @@ const Case = EmberObject.extend({
   description: computed(function() {
     return findAnswer(
       this._answers,
-      this._type === "baugesuch"
+      this._type === "vorabklaerung-einfach"
         ? "1-allgemeine-informationen.bauvorhaben.beschreibung-bauvorhaben"
         : "anfrage-zur-vorabklaerung"
     );
