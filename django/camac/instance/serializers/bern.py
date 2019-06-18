@@ -242,7 +242,7 @@ class BernInstanceSerializer(InstanceSerializer):
             request_logger.error("!!!Municipality not found!!!")
             service_id = 2  # default to Burgdorf
 
-        core_models.InstanceService.objects.create(
+        core_models.InstanceService.objects.get_or_create(
             instance=self.instance, service_id=service_id, active=1
         )
 

@@ -43,26 +43,33 @@ export default Component.extend({
         );
       }
       // submit instance in CAMAC
-      yield this.fetch.fetch(`/api/v1/instances/${instanceId}`, {
-        method: "PATCH",
-        body: JSON.stringify({
-          data: {
-            type: "instances",
-            id: instanceId,
-            attributes: {
-              "caluma-case-id": caseId
-            },
-            relationships: {
-              "instance-state": {
-                data: {
-                  id: INSTANCE_STATE_SUBMITTED,
-                  type: "instance-states"
+      const camacResponse = yield this.fetch.fetch(
+        `/api/v1/instances/${instanceId}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify({
+            data: {
+              type: "instances",
+              id: instanceId,
+              attributes: {
+                "caluma-case-id": caseId
+              },
+              relationships: {
+                "instance-state": {
+                  data: {
+                    id: INSTANCE_STATE_SUBMITTED,
+                    type: "instance-states"
+                  }
                 }
               }
             }
-          }
-        })
-      });
+          })
+        }
+      );
+
+      if (!camacResponse.ok) {
+        throw new Error("NG API call failed");
+      }
 
       this.field.set(
         "answer.value",
