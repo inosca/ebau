@@ -43,5 +43,4 @@ class InstanceView(
         return (
             instance.user == self.request.user
             and instance.instance_state.get_name() == "Neu"
-            and instance.previous_instance_state.get_name() == "Neu"
         )
