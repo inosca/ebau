@@ -12,7 +12,6 @@ query AllCases {
           }
           answers(
             questions: [
-              "formulartyp"
               "1-allgemeine-informationen"
               "3-grundstueck"
               "gemeinde"
