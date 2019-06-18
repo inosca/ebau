@@ -11,6 +11,7 @@ export default Route.extend({
     this._super(controller, model);
 
     controller.data.perform(model.caseId);
+    controller.instanceState.perform(model.caseId);
     controller.feedbackData.perform(model.caseId);
   }
 });
