@@ -36386,7 +36386,7 @@
   {
     "fields": {
       "circulation_type": 61,
-      "name": "Mitteilungen an die Koordinationsstelle"
+      "name": "R\u00fcckmeldung an Bausekretariat"
     },
     "model": "core.noticetype",
     "pk": 24
@@ -41094,7 +41094,7 @@
   },
   {
     "fields": {
-      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"   AS \"INSTANCE_ID\",\r\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"              AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"          AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  \"ANSWER_STREET_BG\".\"ANSWER\"     AS \"STREET\",\r\n  'circ'      AS \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"('circ')    AS \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nJOIN \"ANSWER_DOK_NR\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nWHERE\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('circ')\r\nORDER BY \"DOSSIER_NR\""
+      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"   AS \"INSTANCE_ID\",\r\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"              AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"          AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  \"ANSWER_STREET_BG\".\"ANSWER\"     AS \"STREET\",\r\n  'circ'      AS \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"('circ')    AS \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nJOIN \"ANSWER_DOK_NR\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nWHERE\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('circ') AND\r\n  \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \r\n  \t(SELECT \"LOCATION_ID\" FROM \"GROUP_LOCATION\" WHERE \"GROUP_ID\" = \"INSTANCE\".\"GROUP_ID\")\r\nORDER BY \"DOSSIER_NR\""
     },
     "model": "core.rlist",
     "pk": 254
