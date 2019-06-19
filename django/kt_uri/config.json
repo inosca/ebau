@@ -11408,7 +11408,7 @@
   {
     "fields": {
       "authority": 75,
-      "authority_type": 1
+      "authority_type": 2
     },
     "model": "core.authorityauthoritytype",
     "pk": 38
@@ -11932,6 +11932,14 @@
     },
     "model": "core.authoritylocation",
     "pk": 33
+  },
+  {
+    "fields": {
+      "authority": 75,
+      "location": 23
+    },
+    "model": "core.authoritylocation",
+    "pk": 34
   },
   {
     "fields": {
