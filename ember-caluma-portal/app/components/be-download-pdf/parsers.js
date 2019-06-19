@@ -87,32 +87,9 @@ function parseTableQuestion(field) {
     columns: field.question.rowForm.questions.edges.map(edge => ({
       label: edge.node.label
     })),
-    rows: (field.answer.value || []).map(row => {
-      return row.form.questions.edges
-        .map(edge => {
-          // Fetching from answers is needed because the fields on questions
-          // point to the same object which has the wrong answer in all but
-          // one case.
-          // https://github.com/projectcaluma/ember-caluma/issues/306
-          const field_answer = row.answers.edges.find(
-            e2 => e2.node.question.slug === edge.node.field.question.slug
-          );
-          return field_answer
-            ? parseQuestion(field_answer.node.field)
-            : { hidden: true, value: null };
-        })
-        .map(question => {
-          if (
-            question &&
-            ["MultipleChoiceQuestion", "ChoiceQuestion"].includes(question.type)
-          ) {
-            const value = question.choices.find(choice => choice.checked);
-            question.value = value !== undefined ? value.label : undefined;
-            delete question.choices;
-          }
-          return question;
-        });
-    })
+    rows: (field.answer.value || []).map(doc =>
+      doc.fields.map(field => parseQuestion(field))
+    )
   };
 }
 
