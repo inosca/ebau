@@ -84,7 +84,7 @@ function parseTableQuestion(field) {
     hidden: field.hidden,
     slug: field.question.slug,
     label: field.question.label,
-    columns: field.rowForm.questions.edges.map(edge => ({
+    columns: field.question.rowForm.questions.edges.map(edge => ({
       label: edge.node.label
     })),
     rows: (field.answer.value || []).map(doc =>
