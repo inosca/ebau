@@ -42,8 +42,11 @@ class InstanceQuerysetMixin(object):  # pragma: no cover
     @permission_aware
     def get_queryset(self):
         queryset = self.get_base_queryset()
-        user_field = self._get_instance_filter_expr("user")
-        return queryset.filter(**{user_field: self.request.user})
+        # An applicant needs to be invited on the instance to access it
+        involved_applicants_expr = self._get_instance_filter_expr(
+            "involved_applicants__invitee"
+        )
+        return queryset.filter(**{involved_applicants_expr: self.request.user})
 
     def get_queryset_for_municipality(self):
         queryset = self.get_base_queryset()
@@ -60,14 +63,6 @@ class InstanceQuerysetMixin(object):  # pragma: no cover
 
     def get_queryset_for_support(self):
         return self.get_base_queryset()
-
-    def get_queryset_for_applicant(self):
-        queryset = self.get_base_queryset()
-        # An applicant needs to be invited on the instance to access it
-        involved_applicants_expr = self._get_instance_filter_expr(
-            "involved_applicants__user"
-        )
-        return queryset.filter(**{involved_applicants_expr: self.request.user})
 
     def _instances_with_activation(self):
         return Circulation.objects.filter(
@@ -105,7 +100,10 @@ class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
 
     @permission_aware
     def get_editable(self, instance):
-        return set()
+        if instance.instance_state.name == "Neu":
+            return {"instance", "form", "document"}
+        else:
+            return set()
 
     def get_editable_for_municipality(self, instance):
         return {"form", "document"}
@@ -115,12 +113,6 @@ class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
 
     def get_editable_for_support(self, instance):
         return {"form", "document"}
-
-    def get_editable_for_applicant(self, instance):
-        if instance.instance_state.name == "Neu":
-            return {"instance", "form", "document"}
-        else:
-            return {"document"}
 
     def has_object_update_permission(self, obj):
         instance = self.get_instance(obj)

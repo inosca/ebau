@@ -235,11 +235,11 @@ class BernInstanceSerializer(InstanceSerializer):
                 service_id = first_answer["formValue"]["answers"]["edges"][0]["node"][
                     "formValue"
                 ]["answers"]["edges"][0]["node"]["stringValue"]
-        except KeyError:  # pragma: no cover
+        except (KeyError, IndexError):  # pragma: no cover
             pass
 
         if not service_id:  # pragma: no cover
-            request_logger.error("Municipality not found")
+            request_logger.error("!!!Municipality not found!!!")
             service_id = 2  # default to Burgdorf
 
         core_models.InstanceService.objects.create(
