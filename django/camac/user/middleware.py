@@ -29,12 +29,12 @@ def get_group(request):
         # it is allowed that user may not be in this group
         group = None
         if request.auth:
-            filter_expr = "name"
-            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
-                filter_expr = "trans__name"
             client = request.auth["aud"]
+            filters = {"name": client.title()}
+            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                filters = {"trans__name": client.title(), "trans__language": "de"}
             group = (
-                models.Group.objects.filter(**{filter_expr: client.title()})
+                models.Group.objects.filter(**filters)
                 .select_related("role", "service")
                 .first()
             )
