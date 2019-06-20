@@ -243,7 +243,10 @@ class BernInstanceSerializer(InstanceSerializer):
             service_id = 2  # default to Burgdorf
 
         core_models.InstanceService.objects.get_or_create(
-            instance=self.instance, service_id=service_id, active=1
+            instance=self.instance,
+            service_id=service_id,
+            active=1,
+            defaults={"activation_date": None},
         )
 
         self.instance.save()
