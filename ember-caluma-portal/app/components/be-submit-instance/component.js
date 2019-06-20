@@ -3,14 +3,81 @@ import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 import workItemsQuery from "ember-caluma-portal/gql/queries/case-work-items";
 import completeWorkItem from "ember-caluma-portal/gql/mutations/complete-work-item";
+import { computed } from "@ember/object";
+import { all } from "rsvp";
+import { later } from "@ember/runloop";
 
 const INSTANCE_STATE_SUBMITTED = 20000;
+
+const getAllFields = rootDocument => {
+  if (rootDocument.childDocuments) {
+    return [
+      ...rootDocument.fields,
+      ...rootDocument.childDocuments.reduce((childFields, childDocument) => {
+        return [...childFields, ...getAllFields(childDocument)];
+      }, [])
+    ];
+  }
+
+  return rootDocument.fields;
+};
+
 export default Component.extend({
   notification: service(),
   apollo: service(),
   ajax: service(),
   router: service(),
   fetch: service(),
+
+  init() {
+    this._super(...arguments);
+
+    this.set("invalidFields", []);
+  },
+
+  didInsertElement() {
+    this._super(...arguments);
+
+    later(this, () => this.validate.perform());
+  },
+
+  allFields: computed("field.document.rootDocument", function() {
+    if (!this.get("field.document.rootDocument")) return [];
+
+    return getAllFields(this.get("field.document.rootDocument"));
+  }),
+
+  requiredFields: computed("allFields.@each.{optional,hidden}", function() {
+    return this.allFields.filter(
+      field =>
+        field.questionType !== "FormQuestion" && // TODO: remove this as soon as the form question validation is shipped in ember-caluma
+        !field.hidden &&
+        !field.optional
+    );
+  }),
+
+  validate: task(function*() {
+    yield all(this.requiredFields.map(field => field.validate.perform()));
+
+    this.set(
+      "invalidFields",
+      this.requiredFields.filter(field => field.isInvalid)
+    );
+  }).restartable(),
+
+  buttonDisabled: computed(
+    "disabled",
+    "validate.{performCount,isRunning}",
+    "invalidFields.length",
+    function() {
+      return (
+        this.disabled ||
+        this.validate.performCount === 0 ||
+        this.validate.isRunning ||
+        this.invalidFields.length > 0
+      );
+    }
+  ),
 
   submit: task(function*() {
     try {
