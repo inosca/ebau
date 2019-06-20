@@ -43537,7 +43537,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 34,
       "template": null
     },
@@ -43552,7 +43552,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 35,
       "template": null
     },
@@ -43582,7 +43582,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 17,
       "template": null
     },
@@ -43612,7 +43612,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 9,
       "template": "/file/file-readonly.phtml"
     },
@@ -43627,7 +43627,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 8,
       "template": "/file/file-readonly.phtml"
     },
@@ -43642,7 +43642,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 10,
       "template": "/file/upload.phtml"
     },
@@ -43657,7 +43657,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 9,
       "template": "/file/upload.phtml"
     },
@@ -43672,7 +43672,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 11,
       "template": "/file/upload.phtml"
     },
@@ -43687,7 +43687,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 10,
       "template": "/file/upload.phtml"
     },
@@ -43702,7 +43702,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 11,
       "template": "/file/upload.phtml"
     },
@@ -43717,7 +43717,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 12,
       "template": "/file/upload.phtml"
     },
@@ -43792,7 +43792,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 20,
       "template": "/circulation/edit-circulation.phtml"
     },
@@ -43807,7 +43807,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 21,
       "template": "/circulation/index.phtml"
     },
@@ -43822,7 +43822,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 12,
       "template": "/circulation/list-notice.phtml"
     },
@@ -43837,7 +43837,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 14,
       "template": "/circulation/edit-circulation.phtml"
     },
@@ -43852,7 +43852,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 15,
       "template": "/circulation/index.phtml"
     },
@@ -43867,7 +43867,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 18,
       "template": "/service/index.phtml"
     },
@@ -43882,7 +43882,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 33,
       "template": null
     },
@@ -43912,7 +43912,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 15,
       "template": "/form/edit-page.phtml"
     },
@@ -43927,7 +43927,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 16,
       "template": null
     },
@@ -43942,7 +43942,7 @@
       "form_group": 1,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 7,
       "template": "/form/read-page.phtml"
     },
@@ -43957,7 +43957,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 37,
       "template": "/responsible/index.phtml"
     },
@@ -43972,7 +43972,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 20,
       "template": "/responsible/index.phtml"
     },
@@ -43987,7 +43987,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 39,
       "template": null
     },
@@ -44002,7 +44002,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 21,
       "template": null
     },
@@ -44017,7 +44017,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 22,
       "template": null
     },
@@ -44032,7 +44032,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 5,
       "template": "/form/read-pages.phtml"
     },
@@ -44047,7 +44047,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 6,
       "template": "/form/read-pages.phtml"
     },
@@ -44062,7 +44062,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 4,
       "template": "/form/read-pages.phtml"
     },
@@ -44077,7 +44077,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 5,
       "template": "/form/read-pages.phtml"
     },
@@ -44092,7 +44092,7 @@
       "form_group": 20001,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 17,
       "template": "/form/read-pages.phtml"
     },
@@ -44107,7 +44107,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 23,
       "template": "/form/edit-page.phtml"
     },
@@ -44137,7 +44137,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 28,
       "template": "/form/edit-pages.phtml"
     },
@@ -44152,7 +44152,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 29,
       "template": "/form/edit-page.phtml"
     },
@@ -44167,7 +44167,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 30,
       "template": "/form/edit-pages.phtml"
     },
@@ -44182,7 +44182,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 31,
       "template": "/form/edit-pages.phtml"
     },
@@ -44197,7 +44197,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 32,
       "template": "/form/edit-pages.phtml"
     },
@@ -44212,7 +44212,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 13,
       "template": "/circulation/index.phtml"
     },
@@ -44227,7 +44227,7 @@
       "form_group": 1,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 6,
       "template": "/form/read-page.phtml"
     },
@@ -44242,7 +44242,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 18,
       "template": "/file/add-complement-request.phtml"
     },
@@ -44257,7 +44257,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 24,
       "template": "/circulation/list-notice.phtml"
     },
@@ -44272,7 +44272,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 26,
       "template": "/circulation/edit-circulation.phtml"
     },
@@ -44287,7 +44287,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 25,
       "template": "/circulation/index.phtml"
     },
@@ -44302,7 +44302,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 27,
       "template": "/circulation/index.phtml"
     },
@@ -44407,7 +44407,7 @@
       "form_group": 1,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 19,
       "template": "/file/add-complement-request.phtml"
     },
@@ -44437,7 +44437,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 19,
       "template": "/service/index.phtml"
     },
@@ -44632,7 +44632,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 13,
       "template": "/form/read-page.phtml"
     },
@@ -44647,7 +44647,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 14,
       "template": "/form/read-page.phtml"
     },
@@ -44677,7 +44677,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 0,
       "template": "/ember/instance.phtml"
     },
@@ -44692,7 +44692,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 8,
       "template": null
     },
@@ -44707,7 +44707,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 7,
       "template": null
     },
@@ -44782,7 +44782,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 1,
       "template": "/ember/instance.phtml"
     },
@@ -44887,7 +44887,7 @@
       "form_group": 20001,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 16,
       "template": "/form/edit-pages.phtml"
     },
@@ -45112,7 +45112,7 @@
       "form_group": 1,
       "hidden": 0,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 38,
       "template": "/file/add-complement-request.phtml"
     },
@@ -45172,7 +45172,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 2,
       "template": "/form/read-pages.phtml"
     },
@@ -45187,7 +45187,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 3,
       "template": "/form/read-page.phtml"
     },
@@ -45202,7 +45202,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 4,
       "template": "/form/read-pages.phtml"
     },
@@ -45262,7 +45262,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 1,
       "template": "/form/read-pages.phtml"
     },
@@ -45277,7 +45277,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 2,
       "template": "/form/read-page.phtml"
     },
@@ -45292,7 +45292,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 4,
+      "resource": 20007,
       "sort": 3,
       "template": "/form/read-pages.phtml"
     },
@@ -45322,7 +45322,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 2,
+      "resource": 20006,
       "sort": 36,
       "template": "/file/add-complement-request.phtml"
     },
@@ -113841,6 +113841,20 @@
   },
   {
     "fields": {
+      "instance_states": "20004,20005,20010,20011,40001,20013,40003,40002,20014,10000,20008,20009"
+    },
+    "model": "core.rcalumalist",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "instance_states": "20010,20011,40001,20013,40003,40002,20014,10000,20009,120000"
+    },
+    "model": "core.rcalumalist",
+    "pk": 20008
+  },
+  {
+    "fields": {
       "available_resource": "search",
       "class_field": null,
       "description": null,
@@ -113857,7 +113871,7 @@
       "available_resource": "simplelist",
       "class_field": null,
       "description": null,
-      "hidden": 0,
+      "hidden": 1,
       "name": null,
       "sort": 3,
       "template": null
@@ -113870,7 +113884,7 @@
       "available_resource": "simplelist",
       "class_field": null,
       "description": null,
-      "hidden": 0,
+      "hidden": 1,
       "name": null,
       "sort": 5,
       "template": null
@@ -113883,9 +113897,9 @@
       "available_resource": "simplelist",
       "class_field": null,
       "description": null,
-      "hidden": 0,
+      "hidden": 1,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -113898,7 +113912,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -113911,7 +113925,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 11,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -113937,7 +113951,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 10,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -113963,7 +113977,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 8,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -113976,7 +113990,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 9,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -113987,13 +114001,39 @@
       "available_resource": "calumalist",
       "class_field": null,
       "description": null,
-      "hidden": 1,
+      "hidden": 0,
       "name": null,
       "sort": 4,
       "template": null
     },
     "model": "core.resource",
     "pk": 20006
+  },
+  {
+    "fields": {
+      "available_resource": "calumalist",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 8,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "available_resource": "calumalist",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 6,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 20008
   },
   {
     "fields": {
@@ -114109,11 +114149,31 @@
     "fields": {
       "description": "Dossier list for Leitbeh\u00f6rde (Caluma)",
       "language": "de",
-      "name": "Meine Dossiers (Caluma)",
+      "name": "Meine Dossiers",
       "resource": 20006
     },
     "model": "core.resourcet",
     "pk": 20006
+  },
+  {
+    "fields": {
+      "description": "Dossier list for Services (Caluma)",
+      "language": "de",
+      "name": "Meine Dossiers",
+      "resource": 20007
+    },
+    "model": "core.resourcet",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "description": "Dossier list for Baukontrolle (Caluma)",
+      "language": "de",
+      "name": "Meine Dossiers",
+      "resource": 20008
+    },
+    "model": "core.resourcet",
+    "pk": 20008
   },
   {
     "fields": {
@@ -114265,6 +114325,54 @@
     },
     "model": "core.rroleacl",
     "pk": 20015
+  },
+  {
+    "fields": {
+      "resource": 20007,
+      "role": 4
+    },
+    "model": "core.rroleacl",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "resource": 20007,
+      "role": 20000
+    },
+    "model": "core.rroleacl",
+    "pk": 20017
+  },
+  {
+    "fields": {
+      "resource": 20007,
+      "role": 20002
+    },
+    "model": "core.rroleacl",
+    "pk": 20018
+  },
+  {
+    "fields": {
+      "resource": 20006,
+      "role": 20003
+    },
+    "model": "core.rroleacl",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "resource": 20008,
+      "role": 20006
+    },
+    "model": "core.rroleacl",
+    "pk": 20020
+  },
+  {
+    "fields": {
+      "resource": 20008,
+      "role": 5
+    },
+    "model": "core.rroleacl",
+    "pk": 20021
   },
   {
     "fields": {
