@@ -82,3 +82,6 @@ gis:
     max-one: "Bei einer einfachen Vorabklärung kann maximal eine Parzelle ausgewählt werden."
     max-twenty: "Sie müssen Ihre Auswahl auf 20 Parzellen beschränken."
     error-additional: "Bei der Abfrage der zusätzlichen Information ist ein Fehler aufgetreten. Bitte versuchen Sie erneut die Daten zu übernehmen."
+
+submit:
+  warning: "Folgende Fragen sind noch nicht korrekt ausgefüllt:"

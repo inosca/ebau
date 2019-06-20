@@ -1,4 +1,22 @@
-{{uk-button disabled=disabled label="Einreichen" loading=submit.isRunning on-click=(perform submit)}}
+{{#if buttonDisabled}}
+  <div class="uk-alert uk-alert-warning">
+    <strong>{{t "submit.warning"}}</strong>
+    <br>
+    <ul class="uk-list uk-list-bullet">
+      {{#each invalidFields as |field|}}
+        {{#let (get-field-path field) as |path|}}
+          <li>
+            {{#link-to (query-params section=path.link.section subSection=path.link.subSection)}}
+              {{path.label}}
+            {{/link-to}}
+          </li>
+        {{/let}}
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}
+
+{{uk-button disabled=buttonDisabled label="Einreichen" loading=submit.isRunning on-click=(perform submit)}}
 
 {{#if submit.isRunning}}
   <span class="uk-text-muted uk-margin-small-left uk-animation-fade">Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld.</span>
