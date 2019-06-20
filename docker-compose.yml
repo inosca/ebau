@@ -154,7 +154,7 @@ services:
           [
             "/bin/sh",
             "-c",
-            "./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && ./manage.py runserver 0.0.0.0:8000",
+            "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && ./manage.py runserver 0.0.0.0:8000",
           ]
 
     unoconv:
