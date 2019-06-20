@@ -54,7 +54,8 @@
     {{uk-button
       label=(t "gis.additional.yes")
       color="primary"
-      on-click=(action "saveAdditionalData")
+      loading=saveAdditionalData.isRunning
+      on-click=(perform saveAdditionalData)
     }}
   </div>
 {{/uk-modal}}
