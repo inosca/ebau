@@ -36,7 +36,7 @@ export default Controller.extend({
 
   instanceState: task(function*() {
     const response = yield this.fetch.fetch(
-      `/api/v1/instances/${this.model}?include=instance_state`
+      `/api/v1/instances/${this.model}?include=instance_state&group=6`
     );
 
     const { included, data: instance } = yield response.json();
