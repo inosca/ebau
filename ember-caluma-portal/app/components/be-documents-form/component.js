@@ -11,7 +11,6 @@ import Attachment from "ember-caluma-portal/lib/attachment";
 import gql from "graphql-tag";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
-const GROUP = 6;
 const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
 export default Component.extend({
@@ -50,7 +49,7 @@ export default Component.extend({
     this.set("instanceId", instanceId);
 
     const response = yield this.fetch.fetch(
-      `/api/v1/attachments?group=${GROUP}&instance=${instanceId}`
+      `/api/v1/attachments?instance=${instanceId}`
     );
 
     const { data } = yield response.json();
@@ -136,16 +135,13 @@ export default Component.extend({
     );
     formData.append("path", this.file.blob, this.file.name);
 
-    const response = yield this.fetch.fetch(
-      `/api/v1/attachments?group=${GROUP}`,
-      {
-        method: "post",
-        body: formData,
-        headers: {
-          "content-type": undefined
-        }
+    const response = yield this.fetch.fetch("/api/v1/attachments", {
+      method: "post",
+      body: formData,
+      headers: {
+        "content-type": undefined
       }
-    );
+    });
 
     if (!response.ok) {
       const {

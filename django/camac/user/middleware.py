@@ -1,5 +1,6 @@
 import logging
 
+from django.conf import settings
 from django.utils.functional import SimpleLazyObject
 
 from . import models
@@ -29,8 +30,11 @@ def get_group(request):
         group = None
         if request.auth:
             client = request.auth["aud"]
+            filters = {"name": client.title()}
+            if settings.APPLICATION.get("IS_MULTILINGUAL", False):
+                filters = {"trans__name": client.title(), "trans__language": "de"}
             group = (
-                models.Group.objects.filter(name=client.title())
+                models.Group.objects.filter(**filters)
                 .select_related("role", "service")
                 .first()
             )

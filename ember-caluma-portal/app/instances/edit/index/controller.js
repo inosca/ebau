@@ -31,6 +31,7 @@ export default Controller.extend({
   editController: controller("instances.edit"),
   data: reads("editController.data"),
   instanceState: reads("editController.instanceState"),
+  headers: reads("editController.headers"),
 
   disabled: computed("instanceState.lastSuccessful.value", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(
