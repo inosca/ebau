@@ -35,8 +35,9 @@ export default Controller.extend({
   }).restartable(),
 
   instanceState: task(function*() {
+    const groupParam = this.group ? "&group=" + this.group : "";
     const response = yield this.fetch.fetch(
-      `/api/v1/instances/${this.model}?include=instance_state&group=6`
+      `/api/v1/instances/${this.model}?include=instance_state${groupParam}`
     );
 
     const { included, data: instance } = yield response.json();
