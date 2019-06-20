@@ -94,11 +94,11 @@ const Case = EmberObject.extend({
     return new Date(this.raw.createdAt);
   }),
   status: computed("raw.meta.camac-instance-id", "instances.[]", function() {
-    const instance = this.instances.find(
+    const instance = (this.instances || []).find(
       ({ id }) => parseInt(id) === parseInt(this.raw.meta["camac-instance-id"])
     );
 
-    return instance.instanceState.attributes.name;
+    return instance && instance.instanceState.attributes.name;
   }),
   description: computed(function() {
     return findAnswer(
@@ -158,7 +158,7 @@ export default Controller.extend(queryParams.Mixin, {
 
   getInstances: task(function*(ids) {
     const response = yield this.fetch.fetch(
-      `/api/v1/instances?include=instance_state&ids=${ids.join(",")}`
+      `/api/v1/instances?include=instance_state&ids=${ids.join(",")}&group=6`
     );
 
     const { data, included } = yield response.json();
