@@ -363,7 +363,9 @@ export default Component.extend({
 
         if (value !== null && value.length > 0) {
           field.answer.set("value", value);
-          return field.save.perform();
+
+          await field.save.perform();
+          await field.validate.perform();
         }
       })
     );
@@ -412,7 +414,9 @@ export default Component.extend({
 
             if (value !== null && value.length > 0) {
               field.answer.set("value", value);
-              return field.save.perform();
+
+              await field.save.perform();
+              await field.validate.perform();
             }
           })
         );
@@ -422,7 +426,9 @@ export default Component.extend({
     );
 
     table.answer.set("value", rows.map(doc => doc.id));
-    table.save.perform();
+
+    yield table.save.perform();
+    yield table.validate.perform();
   }),
 
   fetchAdditionalData: task(function*(parcels) {
@@ -496,6 +502,19 @@ export default Component.extend({
     this._super(...arguments);
   },
 
+  saveAdditionalData: task(function*() {
+    yield all(
+      this.gisData.map(async ({ field, value }) => {
+        field.answer.set("value", value);
+
+        await field.save.perform();
+        await field.validate.perform();
+      })
+    );
+
+    this.set("confirmationGis", false);
+  }),
+
   actions: {
     applySelection() {
       if (this.parcels && this.parcels.length) {
@@ -518,13 +537,6 @@ export default Component.extend({
       } else {
         this.notification.danger(this.intl.t("gis.notifications.min-one"));
       }
-    },
-    saveAdditionalData() {
-      this.set("confirmationGis", false);
-      this.gisData.forEach(({ field, value }) => {
-        field.answer.set("value", value);
-        field.save.perform();
-      });
     }
   }
 });
