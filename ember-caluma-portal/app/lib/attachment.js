@@ -6,8 +6,6 @@ import moment from "moment";
 import { task } from "ember-concurrency";
 import { saveAs } from "file-saver";
 
-const GROUP = 6;
-
 export default EmberObject.extend({
   fetch: service(),
   notification: service(),
@@ -30,7 +28,7 @@ export default EmberObject.extend({
 
   download: task(function*() {
     try {
-      let response = yield this.fetch.fetch(`${this.path}?group=${GROUP}`, {
+      let response = yield this.fetch.fetch(`${this.path}`, {
         mode: "cors",
         headers: {
           accept: undefined,

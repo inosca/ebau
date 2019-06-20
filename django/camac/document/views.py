@@ -34,10 +34,6 @@ class AttachmentView(
     prefetch_for_includes = {"instance": ["instance__circulations"]}
     ordering_fields = ("name", "date", "size")
 
-    def get_base_queryset(self):
-        queryset = super().get_base_queryset()
-        return queryset.filter_group(self.request.group).distinct()
-
     def has_object_destroy_permission(self, obj):
         attachment_permission = all(
             [
