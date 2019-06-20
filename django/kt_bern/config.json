@@ -142820,7 +142820,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Gesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Gesuch kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{BASE_URL_PORTAL}}/instances/{{INSTANCE_ID}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:",
+      "body": "Guten Tag\r\n\r\nDie Baubewilligungsbeh\u00f6rde {{LEITBEHOERDE_NAME}} hat das Gesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur\u00fcckgewiesen. Das Gesuch kann nun angepasst und erneut eingereicht werden.\r\n\r\n{{DOSSIER_LINK_PORTAL}}\r\n\r\nMitteilung der Baubewilligungsbeh\u00f6rde:",
       "language": "de",
       "purpose": "02 Baugesuch aufgrund M\u00e4ngel abweisen oder nicht eintreten (Art. 18 BewD)",
       "subject": "Baugesuch aufgrund von M\u00e4ngeln abgewiesen oder nicht darauf eingetreten (eBau Nr. {{EBAU_NUMBER}})",
