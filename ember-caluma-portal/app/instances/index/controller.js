@@ -158,7 +158,7 @@ export default Controller.extend(queryParams.Mixin, {
 
   getInstances: task(function*(ids) {
     const response = yield this.fetch.fetch(
-      `/api/v1/instances?include=instance_state&ids=${ids.join(",")}&group=6`
+      `/api/v1/instances?include=instance_state&ids=${ids.join(",")}`
     );
 
     const { data, included } = yield response.json();

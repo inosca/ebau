@@ -1,6 +1,7 @@
 import logging
-from django.utils.functional import SimpleLazyObject
+
 from django.conf import settings
+from django.utils.functional import SimpleLazyObject
 
 from . import models
 
