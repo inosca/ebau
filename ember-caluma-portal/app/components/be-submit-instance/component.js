@@ -1,8 +1,6 @@
 import Component from "@ember/component";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
 import { inject as service } from "@ember/service";
-import workItemsQuery from "ember-caluma-portal/gql/queries/case-work-items";
-import completeWorkItem from "ember-caluma-portal/gql/mutations/complete-work-item";
 import { computed } from "@ember/object";
 import { all } from "rsvp";
 import { later } from "@ember/runloop";
@@ -82,33 +80,11 @@ export default Component.extend({
   submit: task(function*() {
     try {
       const caseId = this.get("context.caseId");
-      const apollo = this.get("apollo");
+      const instanceId = this.get("context.instanceId");
 
-      let workItems = yield apollo.watchQuery(
-        {
-          query: workItemsQuery,
-          variables: { caseId },
-          fetchPolicy: "cache-and-network"
-        },
-        "allWorkItems.edges"
-      );
+      // simulate waiting, until actual backend implementation has landed
+      yield timeout(8000 + Math.random() * 4000);
 
-      const fillFormWorkItem = workItems.find(
-        item => item.node.task.slug === "fill-form"
-      ).node;
-
-      const instanceId = fillFormWorkItem.case.meta["camac-instance-id"];
-
-      if (fillFormWorkItem.status !== "COMPLETED") {
-        // Only complete if not yet completed
-        yield apollo.mutate(
-          {
-            mutation: completeWorkItem,
-            variables: { input: { id: fillFormWorkItem.id } }
-          },
-          "allWorkItems.edges"
-        );
-      }
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
         `/api/v1/instances/${instanceId}`,
