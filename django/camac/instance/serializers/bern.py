@@ -15,9 +15,6 @@ from .common import InstanceSerializer
 
 request_logger = getLogger("django.request")
 
-INSTANCE_STATE_SUBMITTED = 20000
-INSTANCE_STATE_NEW = 1
-
 
 class BernInstanceSerializer(InstanceSerializer):
 
@@ -39,7 +36,7 @@ class BernInstanceSerializer(InstanceSerializer):
     def validate_instance_state(self, value):
         if not self.instance:  # pragma: no cover
             request_logger.info("Creating new instance, overriding %s" % value)
-            return models.InstanceState.objects.get(pk=INSTANCE_STATE_NEW)
+            return models.InstanceState.objects.get(trans__name="Neu")
         return value
 
     def _is_submit(self, data):
@@ -47,7 +44,8 @@ class BernInstanceSerializer(InstanceSerializer):
             old_version = models.Instance.objects.get(pk=self.instance.pk)
             return (
                 old_version.instance_state_id != data.get("instance_state").pk
-                and data.get("instance_state").pk == INSTANCE_STATE_SUBMITTED
+                and old_version.instance_state.get_name() in ["Neu", "Zurückgewiesen"]
+                and data.get("instance_state").get_name() == "eBau-Nummer zu vergeben"
             )
 
     def validate(self, data):
@@ -202,9 +200,13 @@ class BernInstanceSerializer(InstanceSerializer):
             raise ValidationError(f"Updating cases is only allowed for submitting")
 
         validated_data["modification_date"] = timezone.now()
-        self.instance.instance_state = models.InstanceState.objects.get(
-            pk=INSTANCE_STATE_SUBMITTED
-        )
+
+        if instance.instance_state.get_name() == "Zurückgewiesen":
+            self.instance.instance_state = instance.previous_instance_state
+        else:
+            self.instance.instance_state = models.InstanceState.objects.get(
+                trans__name="eBau-Nummer zu vergeben"
+            )
         form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
         first_answer = validated_data.get("caluma_case_data")["document"]["answers"][
             "edges"

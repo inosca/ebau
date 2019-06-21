@@ -40,7 +40,7 @@ class InstanceView(
     ]
 
     def has_object_update_permission(self, instance):
-        return (
-            instance.user == self.request.user
-            and instance.instance_state.get_name() == "Neu"
-        )
+        return instance.user == self.request.user and instance.instance_state.get_name() in [
+            "Neu",
+            "Zurückgewiesen",
+        ]
