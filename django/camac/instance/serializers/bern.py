@@ -70,16 +70,6 @@ class BernInstanceSerializer(InstanceSerializer):
                           workflow {
                             id
                           }
-                          workItems {
-                            edges {
-                              node {
-                                status
-                                task {
-                                  slug
-                                }
-                              }
-                            }
-                          }
                           document {
                             id
                             form {
@@ -153,15 +143,8 @@ class BernInstanceSerializer(InstanceSerializer):
                     f"assigned: {case_meta['camac-instance-id']}"
                 )
         else:
-            work_items = data["caluma_case_data"]["workItems"]["edges"]
-            # Ensure case is actually completely filled
-            for item in work_items:
-                task_slug = item["node"]["task"]["slug"]
-                item_status = item["node"]["status"]
-                if task_slug == "fill-form" and item_status != "COMPLETED":
-                    raise ValidationError(
-                        "Cannot create instance before form is filled correctly"
-                    )
+            # TODO ask caluma if case is actually valid
+            pass
 
         return data
 

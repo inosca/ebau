@@ -13,27 +13,8 @@
       "is_published": false,
       "is_archived": false,
       "allow_all_forms": true,
-      "start_tasks": ["fill-form"],
+      "start_tasks": [],
       "allow_forms": []
-    }
-  },
-  {
-    "model": "workflow.task",
-    "pk": "fill-form",
-    "fields": {
-      "created_at": "2019-04-08T07:16:41.561Z",
-      "modified_at": "2019-04-08T07:16:41.561Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "name": "{\"de\": \"Formular ausf\\u00fcllen\"}",
-      "description": "{\"de\": null}",
-      "type": "complete_workflow_form",
-      "meta": {},
-      "address_groups": null,
-      "is_archived": false,
-      "form": null,
-      "lead_time": null,
-      "is_multiple_instance": false
     }
   },
   {

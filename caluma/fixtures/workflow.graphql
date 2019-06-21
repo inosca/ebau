@@ -1,17 +1,9 @@
-mutation CreateFillFormTask {
-  saveCompleteWorkflowFormTask(
-    input: { slug: "fill-form", name: "Formular ausfüllen" }
-  ) {
-    clientMutationId
-  }
-}
-
 mutation CreateBuildingPermitWorkflow {
   saveWorkflow(
     input: {
       slug: "building-permit"
       name: "Baugesuch"
-      startTasks: ["fill-form"]
+      startTasks: []
       allowForms: ["baugesuch"]
     }
   ) {
