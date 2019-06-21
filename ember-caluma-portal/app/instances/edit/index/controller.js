@@ -8,7 +8,7 @@ import { getOwner } from "@ember/application";
 
 import Attachment from "ember-caluma-portal/lib/attachment";
 
-const EDITABLE_INSTANCE_STATE_NAMES = ["Neu"];
+const EDITABLE_INSTANCE_STATE_NAMES = ["Neu", "Zurückgewiesen"];
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
 const FeedbackAttachment = Attachment.extend({
