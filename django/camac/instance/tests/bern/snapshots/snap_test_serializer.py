@@ -26,16 +26,6 @@ snapshots['test_create_instance[work_item_resp0-201] 1'] = [
                           workflow {
                             id
                           }
-                          workItems {
-                            edges {
-                              node {
-                                status
-                                task {
-                                  slug
-                                }
-                              }
-                            }
-                          }
                           document {
                             id
                             form {

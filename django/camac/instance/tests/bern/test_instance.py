@@ -153,12 +153,8 @@ def test_instance_destroy(
     "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "work_item_status,new_instance_state,response_status",
-    [
-        ("COMPLETED", 20000, status.HTTP_200_OK),
-        ("READY", 20000, status.HTTP_400_BAD_REQUEST),
-        ("COMPLETED", 1, status.HTTP_400_BAD_REQUEST),
-    ],
+    "new_instance_state,response_status",
+    [(20000, status.HTTP_200_OK), (1, status.HTTP_400_BAD_REQUEST)],
 )
 def test_instance_submit(
     requests_mock,
@@ -168,7 +164,6 @@ def test_instance_submit(
     bern_instance_states,
     service,
     admin_user,
-    work_item_status,
     response_status,
     new_instance_state,
 ):
@@ -179,16 +174,6 @@ def test_instance_submit(
                 "data": {
                     "node": {
                         "meta": {},
-                        "workItems": {
-                            "edges": [
-                                {
-                                    "node": {
-                                        "task": {"slug": "fill-form"},
-                                        "status": work_item_status,
-                                    }
-                                }
-                            ]
-                        },
                         "document": {
                             "form": {"slug": "vorabklaerung-einfach"},
                             "answers": {
