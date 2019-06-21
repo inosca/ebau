@@ -3987,7 +3987,7 @@
       "description": null,
       "error_message": "Bei der \u00c4nderung vom Dossierstatus ist ein Fehler aufgetreten",
       "language": "de",
-      "name": "Reset State to New",
+      "name": "Reset State to \"Zur\u00fcckgewiesen\"",
       "success_message": "Dossier erfolgreich zur\u00fcckgewiesen"
     },
     "model": "core.actiont",
@@ -5916,7 +5916,7 @@
   {
     "fields": {
       "current_instance_state": null,
-      "next_instance_state": 1
+      "next_instance_state": 10000
     },
     "model": "core.aformtransition",
     "pk": 20041
@@ -51796,15 +51796,6 @@
   {
     "fields": {
       "instance_resource": 20029,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20143
-  },
-  {
-    "fields": {
-      "instance_resource": 20029,
       "instance_state": 20006,
       "role": 3
     },
@@ -51819,24 +51810,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20146
-  },
-  {
-    "fields": {
-      "instance_resource": 20029,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20147
-  },
-  {
-    "fields": {
-      "instance_resource": 20029,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20148
   },
   {
     "fields": {

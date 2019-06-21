@@ -100,7 +100,7 @@ class InstanceEditableMixin(AttributeMixin):  # pragma: no cover
 
     @permission_aware
     def get_editable(self, instance):
-        if instance.instance_state.name == "Neu":
+        if instance.instance_state.name in ["Neu", "Zurückgewiesen"]:
             return {"instance", "form", "document"}
         else:
             return set()
