@@ -148,7 +148,7 @@ def test_instance_destroy(
     assert response.status_code == status_code
 
 
-@pytest.mark.parametrize("instance_state__name", ["Neu"])
+@pytest.mark.parametrize("instance_state__name", ["Neu", "Zurückgewiesen"])
 @pytest.mark.parametrize(
     "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
