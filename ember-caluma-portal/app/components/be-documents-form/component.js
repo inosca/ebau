@@ -8,8 +8,6 @@ import { all } from "rsvp";
 import { getOwner } from "@ember/application";
 import Attachment from "ember-caluma-portal/lib/attachment";
 
-import gql from "graphql-tag";
-
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
@@ -26,30 +24,8 @@ export default Component.extend({
   },
 
   data: task(function*() {
-    const instanceId = yield this.apollo.query(
-      {
-        query: gql`
-          query($caseId: ID!) {
-            allWorkItems(case: $caseId, task: "fill-form") {
-              edges {
-                node {
-                  case {
-                    meta
-                  }
-                }
-              }
-            }
-          }
-        `,
-        variables: { caseId: this.context.caseId }
-      },
-      "allWorkItems.edges.firstObject.node.case.meta.camac-instance-id"
-    );
-
-    this.set("instanceId", instanceId);
-
     const response = yield this.fetch.fetch(
-      `/api/v1/attachments?instance=${instanceId}`
+      `/api/v1/attachments?instance=${this.context.instanceId}`
     );
 
     const { data } = yield response.json();
@@ -124,7 +100,7 @@ export default Component.extend({
 
     const formData = new FormData();
 
-    formData.append("instance", this.instanceId);
+    formData.append("instance", this.context.instanceId);
     formData.append(
       "context",
       JSON.stringify({
