@@ -78,6 +78,15 @@ export default Component.extend({
   ),
 
   submit: task(function*() {
+    // mark instance as submitted (optimistic) because after submitting, answer cannot be saved anymore
+    this.field.set(
+      "answer.value",
+      this.field.get(
+        "question.multipleChoiceOptions.edges.firstObject.node.slug"
+      )
+    );
+    yield this.field.save.perform();
+
     try {
       const caseId = this.get("context.caseId");
       const instanceId = this.get("context.instanceId");
@@ -114,15 +123,6 @@ export default Component.extend({
         throw new Error("NG API call failed");
       }
 
-      this.field.set(
-        "answer.value",
-        this.field.get(
-          "question.multipleChoiceOptions.edges.firstObject.node.slug"
-        )
-      );
-
-      yield this.field.save.perform();
-
       this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
 
       yield this.router.transitionTo("instances");
@@ -133,6 +133,9 @@ export default Component.extend({
       this.notification.danger(
         `Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. ${reasons}`
       );
+      // un-mark as submitted
+      this.field.set("answer.value", null);
+      yield this.field.save.perform();
     }
   }).drop()
 });
