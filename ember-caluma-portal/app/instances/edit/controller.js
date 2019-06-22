@@ -1,5 +1,4 @@
 import Controller from "@ember/controller";
-import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 
@@ -14,13 +13,6 @@ export default Controller.extend({
   subSection: null,
   group: null,
   role: null,
-
-  headers: computed("group", "role", function() {
-    return {
-      ...(this.group ? { "X-CAMAC-GROUP": this.group } : {}),
-      ...(this.role ? { "X-CAMAC-ROLE": this.role } : {})
-    };
-  }),
 
   data: task(function*() {
     return yield this.apollo.watchQuery(
