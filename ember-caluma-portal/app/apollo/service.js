@@ -15,7 +15,7 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
 
   link: computed(
     "session.data.authenticated.access_token",
-    "router.currentRoute.queryParams.group",
+    "router.currentRoute.queryParams.{group,role}",
     function() {
       const httpLink = this._super(...arguments);
 

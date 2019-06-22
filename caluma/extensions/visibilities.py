@@ -13,6 +13,57 @@ log = getLogger()
 """Caluma visibilities for Kanton Bern"""
 
 
+def role(info):
+    """Extract role name from request."""
+    return info.context.META.get("HTTP_X_CAMAC_ROLE", "gesuchsteller")
+
+
+def group(info):
+    """Extract group name from request."""
+    return info.context.META.get("HTTP_X_CAMAC_GROUP", None)
+
+
+def accessible_doc_families(info):
+    """Return all accessible form family IDs for the current user.
+
+    Note, this only works for role "gesuchsteller". It will find all
+    document family IDs that contain an answer with the request user in the
+    "gesuchsteller" list.
+    """
+
+    user_identifier = info.context.user.userinfo.get("sub")
+    user_email = info.context.user.userinfo.get("email")
+
+    """
+    Warning: This feature has been temporarily disabled, because it caused
+    "lock-out" issues during testing. The "invite" feature still needs to be
+    clearly specified and implemented accordingly.
+    """
+    # Find documents where I'm registered as a requester ("gesuchsteller").
+    docs_requester = form_models.Document.objects.filter(
+        family__in=form_models.Answer.objects.filter(
+            question_id="e-mail-gesuchstellerin____disabled", value=user_email
+        ).values("document__family")
+    )
+
+    # Find documents that I've created, but exclude all documents that have
+    # at least one requester email configured.  Those MUST be matched via
+    # user email, it is not relevant anymore if the current user has once
+    # created it.
+    docs_creator = form_models.Document.objects.filter(
+        created_by_user=user_identifier
+    ).exclude(
+        family__in=form_models.Answer.objects.filter(
+            question_id="e-mail-gesuchstellerin____disabled"
+        ).values("document__family")
+    )
+
+    # combine the result sets, and extract the family. From here on, we
+    # use the family IDs instead of document IDs, so we don't have to worry
+    # about nesting when calculating access.
+    return (docs_creator | docs_requester).values("family")
+
+
 class FilterViaCamacAPIMixin:
     """Mixin to make the actual visibility class more readable."""
 
@@ -50,7 +101,7 @@ class FilterViaCamacAPIMixin:
                     # by checking the user's email against the "gesuchsteller"
                     # list. Note that the question is in a subform, so we have
                     # to search "down the tree" via family ID instead.
-                    document__family__in=self._accessible_doc_families(info)
+                    document__family__in=accessible_doc_families(info)
                 ),
                 "_default": lambda: {
                     "meta__camac-instance-id__in": self._all_visible_instances(info)
@@ -59,7 +110,7 @@ class FilterViaCamacAPIMixin:
             "Document": {
                 "gesuchsteller": lambda: dict(
                     # Same special case again
-                    family__in=self._accessible_doc_families(info)
+                    family__in=accessible_doc_families(info)
                 ),
                 "_default": lambda: {
                     "family__in": form_models.Document.objects.filter(
@@ -74,7 +125,7 @@ class FilterViaCamacAPIMixin:
             "Answer": {
                 "gesuchsteller": lambda: dict(
                     # Same special case again, this time indirectly via document
-                    document__family__in=self._accessible_doc_families(info)
+                    document__family__in=accessible_doc_families(info)
                 ),
                 "_default": lambda: dict(
                     # Instance question is in top-level document
@@ -90,7 +141,7 @@ class FilterViaCamacAPIMixin:
             "WorkItem": {
                 "gesuchsteller": lambda: dict(
                     # Same special case again, this time indirectly via document
-                    case__document__family__in=self._accessible_doc_families(info)
+                    case__document__family__in=accessible_doc_families(info)
                 ),
                 "_default": lambda: {
                     "case__meta__camac-instance-id__in": self._all_visible_instances(
@@ -104,59 +155,12 @@ class FilterViaCamacAPIMixin:
             raise RuntimeError(
                 "Requested model %s has no configured visibility" % qs_model
             )
-        role = self.role(info)
         default_filter = filters_by_model_and_role[qs_model]["_default"]
 
-        filter_func = filters_by_model_and_role[qs_model].get(role, default_filter)
+        filter_func = filters_by_model_and_role[qs_model].get(
+            role(info), default_filter
+        )
         return filter_func()
-
-    def _accessible_doc_families(self, info):
-        """Return all accessible form family IDs for the current user.
-
-        Note, this only works for role "gesuchsteller". It will find all
-        document family IDs that contain an answer with the request user in the
-        "gesuchsteller" list.
-        """
-
-        user_identifier = info.context.user.userinfo.get("sub")
-        user_email = info.context.user.userinfo.get("email")
-
-        """
-        Warning: This feature has been temporarily disabled, because it caused
-        "lock-out" issues during testing. The "invite" feature still needs to be
-        clearly specified and implemented accordingly.
-        """
-        # Find documents where I'm registered as a requester ("gesuchsteller").
-        docs_requester = form_models.Document.objects.filter(
-            family__in=form_models.Answer.objects.filter(
-                question_id="e-mail-gesuchstellerin____disabled", value=user_email
-            ).values("document__family")
-        )
-
-        # Find documents that I've created, but exclude all documents that have
-        # at least one requester email configured.  Those MUST be matched via
-        # user email, it is not relevant anymore if the current user has once
-        # created it.
-        docs_creator = form_models.Document.objects.filter(
-            created_by_user=user_identifier
-        ).exclude(
-            family__in=form_models.Answer.objects.filter(
-                question_id="e-mail-gesuchstellerin____disabled"
-            ).values("document__family")
-        )
-
-        # combine the result sets, and extract the family. From here on, we
-        # use the family IDs instead of document IDs, so we don't have to worry
-        # about nesting when calculating access.
-        return (docs_creator | docs_requester).values("family")
-
-    def role(self, info):
-        """Extract role name from request."""
-        return info.context.META.get("HTTP_X_CAMAC_ROLE", "gesuchsteller")
-
-    def group(self, info):
-        """Extract group name from request."""
-        return info.context.META.get("HTTP_X_CAMAC_GROUP", None)
 
     def _all_visible_instances(self, info):
         """Fetch visible camac instances from NG API, caches the result.
@@ -178,7 +182,7 @@ class FilterViaCamacAPIMixin:
         resp = requests.get(
             f"{camac_api}/api/v1/instances",
             # forward role as filter
-            {"role": self.role(info), "group": self.group(info)},
+            {"role": role(info), "group": group(info)},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
