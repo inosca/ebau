@@ -23279,7 +23279,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 301,
-      "sort": 5,
+      "sort": 6,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23429,7 +23429,7 @@
       "hidden": 0,
       "name": "Verfahren \u00e4ndern",
       "resource": 301,
-      "sort": 9,
+      "sort": 10,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -23444,7 +23444,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23459,7 +23459,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 8,
+      "sort": 9,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -23579,7 +23579,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 12,
+      "sort": 13,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24254,7 +24254,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -24299,7 +24299,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 301,
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25064,7 +25064,7 @@
       "hidden": 0,
       "name": "Zirkulation Gemeindeservice",
       "resource": 301,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25214,11 +25214,26 @@
       "hidden": 0,
       "name": "R\u00fcckmeldungen Gemeindeservice",
       "resource": 301,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
     "pk": 765
+  },
+  {
+    "fields": {
+      "available_instance_resource": "formpage",
+      "class_field": null,
+      "description": "Personen- und Projektdaten f\u00fcr Gemeinde Interne Dossiers",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Personen- und Projektdaten",
+      "resource": 301,
+      "sort": 5,
+      "template": "/form/form-read.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 766
   },
   {
     "fields": {
@@ -28208,6 +28223,14 @@
     },
     "model": "core.irformpage",
     "pk": 755
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.irformpage",
+    "pk": 766
   },
   {
     "fields": {
@@ -36196,6 +36219,15 @@
     },
     "model": "core.irroleacl",
     "pk": 913
+  },
+  {
+    "fields": {
+      "instance_resource": 766,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 914
   },
   {
     "fields": {
