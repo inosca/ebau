@@ -9,7 +9,7 @@ query AllCases {
         document {
           id
           form {
-            id
+            slug
             name
           }
           answers(
@@ -34,7 +34,6 @@ query AllCases {
                       edges {
                         node {
                           id
-
                           ... on FormAnswer {
                             formValue: value {
                               id
@@ -54,7 +53,6 @@ query AllCases {
                                       stringValue: value
                                     }
                                     question {
-                                      id
                                       slug
                                     }
                                   }
@@ -62,7 +60,6 @@ query AllCases {
                               }
                             }
                             question {
-                              id
                               slug
                             }
                           }
@@ -78,7 +75,6 @@ query AllCases {
                   integerValue: value
                 }
                 question {
-                  id
                   slug
                 }
               }
