@@ -23213,11 +23213,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
+      "class_field": null,
+      "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden, die an die Koordinationsstelle weiter geschickt werden.",
       "form_group": 31,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 0,
       "template": "/form/form-edit.phtml"
@@ -23408,11 +23408,11 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": "",
-      "description": "Dossiers die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
+      "class_field": null,
+      "description": "Personen- und Projektdaten bearbeiten die von der Gemeinde erstellt werden und bei der Gemeinde bleiben",
       "form_group": 61,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 2,
       "template": "/form/form-edit.phtml"
@@ -23757,7 +23757,7 @@
       "description": "Dossiers NP die von der Gemeinde erstellt werden und an die Koordinationsstelle weiter geschickt werden.",
       "form_group": 141,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 301,
       "sort": 1,
       "template": "/form/form-edit.phtml"
@@ -25119,10 +25119,10 @@
     "fields": {
       "available_instance_resource": "editformpage",
       "class_field": null,
-      "description": "Dossiers von der Bundesstelle",
+      "description": "Personen- und Projektdaten bearbeiten von der Bundesstelle",
       "form_group": 256,
       "hidden": 0,
-      "name": "Dossier bearbeiten",
+      "name": "Personen- und Projektdaten bearbeiten",
       "resource": 316,
       "sort": 0,
       "template": "/form/form-edit.phtml"
@@ -27852,7 +27852,7 @@
   {
     "fields": {
       "page": 1,
-      "pdf_class": ""
+      "pdf_class": null
     },
     "model": "core.ireditformpage",
     "pk": 245
