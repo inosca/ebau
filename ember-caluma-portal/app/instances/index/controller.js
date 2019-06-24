@@ -104,8 +104,8 @@ const Case = EmberObject.extend({
     return findAnswer(
       this._answers,
       this._type === "vorabklaerung-einfach"
-        ? "1-allgemeine-informationen.bauvorhaben.beschreibung-bauvorhaben"
-        : "anfrage-zur-vorabklaerung"
+        ? "anfrage-zur-vorabklaerung"
+        : "1-allgemeine-informationen.bauvorhaben.beschreibung-bauvorhaben"
     );
   })
 });
