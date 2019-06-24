@@ -23279,7 +23279,7 @@
       "hidden": 0,
       "name": "Dokumente",
       "resource": 301,
-      "sort": 5,
+      "sort": 6,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23429,7 +23429,7 @@
       "hidden": 0,
       "name": "Verfahren \u00e4ndern",
       "resource": 301,
-      "sort": 9,
+      "sort": 10,
       "template": "/change/gem.phtml"
     },
     "model": "core.instanceresource",
@@ -23444,7 +23444,7 @@
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
-      "sort": 10,
+      "sort": 11,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -23459,7 +23459,7 @@
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
       "resource": 301,
-      "sort": 8,
+      "sort": 9,
       "template": "/global/involved-department.phtml"
     },
     "model": "core.instanceresource",
@@ -23579,7 +23579,7 @@
       "hidden": 0,
       "name": "Workflow",
       "resource": 301,
-      "sort": 12,
+      "sort": 13,
       "template": ""
     },
     "model": "core.instanceresource",
@@ -24254,7 +24254,7 @@
       "hidden": 0,
       "name": "Auflagen bewirtschaften",
       "resource": 301,
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.instanceresource",
@@ -24299,7 +24299,7 @@
       "hidden": 0,
       "name": "Bauverwaltung",
       "resource": 301,
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25064,7 +25064,7 @@
       "hidden": 0,
       "name": "Zirkulation Gemeindeservice",
       "resource": 301,
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.instanceresource",
@@ -25214,11 +25214,26 @@
       "hidden": 0,
       "name": "R\u00fcckmeldungen Gemeindeservice",
       "resource": 301,
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.instanceresource",
     "pk": 765
+  },
+  {
+    "fields": {
+      "available_instance_resource": "formpage",
+      "class_field": null,
+      "description": "Personen- und Projektdaten f\u00fcr Gemeinde Interne Dossiers",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Personen- und Projektdaten",
+      "resource": 301,
+      "sort": 5,
+      "template": "/form/form-read.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 766
   },
   {
     "fields": {
@@ -28208,6 +28223,14 @@
     },
     "model": "core.irformpage",
     "pk": 755
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.irformpage",
+    "pk": 766
   },
   {
     "fields": {
@@ -36199,6 +36222,15 @@
   },
   {
     "fields": {
+      "instance_resource": 766,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.irroleacl",
+    "pk": 914
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -36386,7 +36418,7 @@
   {
     "fields": {
       "circulation_type": 61,
-      "name": "Mitteilungen an die Koordinationsstelle"
+      "name": "R\u00fcckmeldung an Bausekretariat"
     },
     "model": "core.noticetype",
     "pk": 24
@@ -41094,7 +41126,7 @@
   },
   {
     "fields": {
-      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"   AS \"INSTANCE_ID\",\r\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"              AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"          AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  \"ANSWER_STREET_BG\".\"ANSWER\"     AS \"STREET\",\r\n  'circ'      AS \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"('circ')    AS \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nJOIN \"ANSWER_DOK_NR\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nWHERE\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('circ')\r\nORDER BY \"DOSSIER_NR\""
+      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"   AS \"INSTANCE_ID\",\r\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"              AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"          AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  \"ANSWER_STREET_BG\".\"ANSWER\"     AS \"STREET\",\r\n  'circ'      AS \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"('circ')    AS \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nJOIN \"ANSWER_DOK_NR\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nWHERE\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('circ') AND\r\n  \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \r\n  \t(SELECT \"LOCATION_ID\" FROM \"GROUP_LOCATION\" WHERE \"GROUP_ID\" = \"INSTANCE\".\"GROUP_ID\")\r\nORDER BY \"DOSSIER_NR\""
     },
     "model": "core.rlist",
     "pk": 254
