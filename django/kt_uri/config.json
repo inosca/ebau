@@ -5049,6 +5049,62 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 943,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1439
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 943,
+      "description": null,
+      "error_message": "Beim Freigeben des Dossiers ist ein Fehler aufgetreten!",
+      "execute_always": 0,
+      "name": "Freigeben an KOOR COMM - EXT",
+      "sort": 1,
+      "success_message": "Dossier erfolgreich freigegeben."
+    },
+    "model": "core.action",
+    "pk": 1440
+  },
+  {
+    "fields": {
+      "available_action": "email",
+      "button": 943,
+      "description": null,
+      "error_message": "Das E-Mail an die Koordinationsstelle konnte nicht versandt werden.",
+      "execute_always": 0,
+      "name": "E-Mail an Koor wenn Dossier von Bundesstelle",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1441
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 943,
+      "description": "COMM zu EXT",
+      "error_message": "Workflow Datum konnte nicht gesetzt werden",
+      "execute_always": 1,
+      "name": "\"Weiterleitung an Koord\" Datum setzen",
+      "sort": 3,
+      "success_message": "Workflow Datum gesetzt"
+    },
+    "model": "core.action",
+    "pk": 1442
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -5508,6 +5564,17 @@
     },
     "model": "core.aemail",
     "pk": 1424
+  },
+  {
+    "fields": {
+      "query": "SELECT\r\n  \"USER\".\"EMAIL\",\r\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\r\n\r\nFROM \"USER\"\r\n\r\nLEFT JOIN \"USER_GROUP\" ON (\r\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n  AND\r\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\r\n)\r\n\r\nLEFT JOIN \"GROUP\" ON (\r\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\r\n)\r\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\r\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\r\n)\r\n\r\n\r\nWHERE \"ROLE_ID\" = 3\r\nAND\r\n\"USER\".\"EMAIL\" IS NOT NULL\r\nAND\r\n\"USER\".\"DISABLED\" = 0\r\nAND\r\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
+      "sender_email": "camac-info@ur.ch",
+      "sender_name": "Camac Info",
+      "text": "CAMAC Info (automatisch generierte E-Mail von Camac, bitte nicht darauf  antworten)\r\n\r\nNEUES DOSSIER\r\nDie zust\u00e4ndige Bundesstelle hat das Dossier-ID [INSTANCE_ID] mit der Dossier Nr. [@c2q6i1] im CAMAC erfasst und zur Bearbeitung durch die kantonalen Fachstellen freigegeben.",
+      "title": "Dossier [ID] von Bundesstelle frei geschalten"
+    },
+    "model": "core.aemail",
+    "pk": 1438
   },
   {
     "fields": {
@@ -5996,6 +6063,14 @@
     },
     "model": "core.aformtransition",
     "pk": 1407
+  },
+  {
+    "fields": {
+      "current_instance_state": 21,
+      "next_instance_state": 22
+    },
+    "model": "core.aformtransition",
+    "pk": 1437
   },
   {
     "fields": {
@@ -16876,6 +16951,15 @@
   },
   {
     "fields": {
+      "button": 943,
+      "instance_state": 21,
+      "role": 1130
+    },
+    "model": "core.broleacl",
+    "pk": 555
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -19032,7 +19116,7 @@
       "hidden": 0,
       "instance_resource": 758,
       "name": "Speichern",
-      "sort": 0
+      "sort": 1
     },
     "model": "core.button",
     "pk": 931
@@ -19044,7 +19128,7 @@
       "hidden": 0,
       "instance_resource": 758,
       "name": "L\u00f6schen",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.button",
     "pk": 932
@@ -19056,7 +19140,7 @@
       "hidden": 0,
       "instance_resource": 758,
       "name": "Archivieren",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 933
@@ -19156,6 +19240,18 @@
     },
     "model": "core.button",
     "pk": 942
+  },
+  {
+    "fields": {
+      "class_field": "release_koor",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 758,
+      "name": "Freigeben f\u00fcr Koordinationsstelle",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 943
   },
   {
     "fields": {
@@ -43815,6 +43911,14 @@
     },
     "model": "core.workflowaction",
     "pk": 1434
+  },
+  {
+    "fields": {
+      "multi_value": 0,
+      "workflow_item": 16
+    },
+    "model": "core.workflowaction",
+    "pk": 1439
   },
   {
     "fields": {
