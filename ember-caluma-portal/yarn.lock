@@ -4576,10 +4576,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-1.2.1.tgz#bacceba2f0bbb522296245e42bd555252fa351a8"
-  integrity sha512-T/iUEBqgT4HR6l9RdQu2ghv+8XeF5dh6p+CTQ+xdNFlqUBoqNjNwrUAm5gRb16/usV2tT3Rn711Xhoi6HsFDxQ==
+ember-caluma@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-1.2.2.tgz#bb748c3c7670952516a3971c9a2003da7054f2f2"
+  integrity sha512-cgHtzJJDljhYHOR4NqTBl/IjHaiudRnraVdF2ykVlZ0uQ0784UupKNUv0sbt4Wi+eDTfUzxZ0dhAxM1BAqmTyA==
   dependencies:
     apollo-link-context "^1.0.17"
     broccoli-funnel "^2.0.2"
@@ -4592,7 +4592,7 @@ ember-caluma@^1.2.0:
     ember-cli-htmlbars "^3.0.1"
     ember-cli-sass "^10.0.0"
     ember-cli-showdown "^4.4.4"
-    ember-cli-string-helpers "^2.0.0"
+    ember-cli-string-helpers "^3.0.0"
     ember-composable-helpers "^2.2.0"
     ember-concurrency "^1.0.0"
     ember-fetch "^6.5.0"
@@ -4996,10 +4996,10 @@ ember-cli-sri@^2.1.1:
   dependencies:
     broccoli-sri-hash "^2.1.0"
 
-ember-cli-string-helpers@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-string-helpers/-/ember-cli-string-helpers-2.1.0.tgz#c16951a1b12474f99640c3363db03248195fa13f"
-  integrity sha512-O9+7Axm9dyRJohNsGrWxXHS56VFhokdaZOvnJ1NgP9rcUTnJHD6mC+lA6R7lHXkfedpVHrcJqYRaJxzwiS8GWQ==
+ember-cli-string-helpers@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-string-helpers/-/ember-cli-string-helpers-3.0.0.tgz#b548a37786e79ea48cc6d77ae0b5e3d687a4a6f7"
+  integrity sha512-pd9YPiAwvL70oer/qT5GEfZXWF/b1FHAYrIg+isOMNtSS/pehGEdQlChkB223xs4rmyGO6UncJLQ33sbbnpm5A==
   dependencies:
     broccoli-funnel "^2.0.2"
     ember-cli-babel "^7.7.3"
