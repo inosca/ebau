@@ -1,22 +1,32 @@
 import { warn } from "@ember/debug";
 
-export function getCaseTypeSlug(doc) {
-  const rootDocument = doc.rootDocument || doc;
+export const parseDocument = (document, navigation) => {
+  const fieldsets = document.fieldsets;
 
-  return rootDocument.raw.form.slug;
-}
+  if (!fieldsets.length === 1) {
+    return fieldsets[0].fields.map(parseQuestion).filter(visible);
+  }
 
-export function getCaseType(doc) {
-  const rootDocument = doc.rootDocument || doc;
+  return navigation.items
+    .filter(item => !item.parent)
+    .map(parseNavigationItem)
+    .filter(visible);
+};
 
-  return rootDocument.raw.form.name;
-}
+const parseNavigationItem = item => {
+  return {
+    type: "FormQuestion",
+    hidden: !item.visible,
+    slug: item.slug,
+    label: item.label,
+    children: [
+      ...item.fieldset.fields.map(parseQuestion),
+      ...item.children.map(parseNavigationItem)
+    ].filter(visible)
+  };
+};
 
-export function parseFields(doc) {
-  return doc.fields
-    .map(parseQuestion)
-    .filter(question => question && !question.hidden);
-}
+const visible = section => section && !section.hidden;
 
 /**
  * This is the wrapper function that invokes the right parser function
@@ -27,7 +37,7 @@ export function parseFields(doc) {
 function parseQuestion(field) {
   switch (field.question.__typename) {
     case "FormQuestion":
-      return parseFormQuestion(field);
+      return null;
 
     case "TextQuestion":
     case "TextareaQuestion":
@@ -155,14 +165,4 @@ function parseMultipleChoiceQuestion(field, flatten = false, limit) {
   }
 
   return mapped;
-}
-
-function parseFormQuestion(field) {
-  return {
-    type: field.question.__typename,
-    hidden: field.hidden,
-    slug: field.question.slug,
-    label: field.question.label,
-    children: parseFields(field.childDocument)
-  };
 }

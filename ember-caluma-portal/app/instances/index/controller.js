@@ -8,87 +8,52 @@ import { reads } from "@ember/object/computed";
 import { getOwner } from "@ember/application";
 import gql from "graphql-tag";
 
-const findAnswer = (answers, path) => {
-  try {
-    let slugs = path.split(".");
-
-    let answer = getValue(
-      answers.edges.find(({ node }) => node.question.slug === slugs[0])
-    );
-
-    if (answer.answers && slugs.length > 1) {
-      return findAnswer(answer.answers, slugs.slice(1).join("."));
-    }
-
-    return answer;
-  } catch (e) {
-    return null;
-  }
-};
-
-const getValue = answerNode => {
-  if (!answerNode) return null;
-
-  let key = Object.keys(answerNode.node).find(key => /^.*Value$/.test(key));
-
-  return answerNode.node[key];
-};
-
 const Case = EmberObject.extend({
   intl: service(),
 
-  _answers: reads("raw.document.answers"),
-  _type: reads("raw.document.form.slug"),
+  findAnswer(slug) {
+    const answer =
+      this.raw.document.answers.edges
+        .map(({ node }) => node)
+        .find(answer => answer.question.slug === slug) || {};
+
+    const key = Object.keys(answer).find(key => /Value$/.test(key));
+
+    return answer && key ? answer[key] : null;
+  },
 
   ebauNr: reads("raw.meta.camac-instance-id"),
   type: reads("raw.document.form.name"),
   municipality: computed(function() {
-    const slug = findAnswer(
-      this._answers,
-      this._type === "vorabklaerung-einfach"
-        ? "gemeinde"
-        : "3-grundstueck.allgemeine-angaben.gemeinde"
-    );
+    const slug = this.findAnswer("gemeinde");
+    const node = this.municipalities
+      .map(({ node }) => node)
+      .find(m => m.slug === slug);
 
-    const municipality = this.municipalities.find(m => m.node.slug === slug);
-
-    return municipality && municipality.node.label;
+    return node && node.label;
   }),
   address: computed(function() {
     return [
       [
-        findAnswer(
-          this._answers,
-          this._type === "vorabklaerung-einfach"
-            ? "strasse-gesuchstellerin"
-            : "3-grundstueck.allgemeine-angaben.strasse-flurname"
-        ),
-        findAnswer(
-          this._answers,
-          this._type === "vorabklaerung-einfach"
-            ? "nummer-gesuchstellerin"
-            : "3-grundstueck.allgemeine-angaben.nr"
-        )
-      ]
-        .filter(Boolean)
-        .join(" "),
-      [
-        findAnswer(
-          this._answers,
-          this._type === "vorabklaerung-einfach" ? "plz-gesuchstellerin" : null
-        ),
-        findAnswer(
-          this._answers,
-          this._type === "vorabklaerung-einfach"
-            ? "ort-gesuchstellerin"
-            : "3-grundstueck.allgemeine-angaben.ort-grundstueck"
-        )
+        this.findAnswer("strasse-gesuchstellerin") ||
+          this.findAnswer("strasse-flurname"),
+        this.findAnswer("nummer-gesuchstellerin") || this.findAnswer("nr")
       ]
         .filter(Boolean)
         .join(" ")
+        .trim(),
+      [
+        this.findAnswer("plz-gesuchstellerin") || null,
+        this.findAnswer("ort-gesuchstellerin") ||
+          this.findAnswer("ort-grundstueck")
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .trim()
     ]
       .filter(Boolean)
-      .join(", ");
+      .join(", ")
+      .trim();
   }),
   createdAt: computed("raw.createdAt", function() {
     return new Date(this.raw.createdAt);
@@ -101,11 +66,9 @@ const Case = EmberObject.extend({
     return instance && instance.attributes["public-status"];
   }),
   description: computed(function() {
-    return findAnswer(
-      this._answers,
-      this._type === "vorabklaerung-einfach"
-        ? "anfrage-zur-vorabklaerung"
-        : "1-allgemeine-informationen.bauvorhaben.beschreibung-bauvorhaben"
+    return (
+      this.findAnswer("anfrage-zur-vorabklaerung") ||
+      this.findAnswer("beschreibung-bauvorhaben")
     );
   })
 });
@@ -170,16 +133,16 @@ export default Controller.extend(queryParams.Mixin, {
     try {
       yield this.getAllMunicipalities.perform();
 
-      const cases = yield this.apollo.watchQuery(
+      const cases = (yield this.apollo.watchQuery(
         {
           query: allCasesQuery,
           fetchPolicy: "network-only"
         },
         "allCases.edges"
-      );
+      )).map(({ node }) => node);
 
       yield this.getInstances.perform(
-        cases.map(({ node }) => node.meta["camac-instance-id"])
+        cases.map(({ meta }) => meta["camac-instance-id"])
       );
 
       return cases;
@@ -195,7 +158,7 @@ export default Controller.extend(queryParams.Mixin, {
   cases: computed("data.lastSuccessful.value.@each.node", function() {
     if (!this.get("data.lastSuccessful.value")) return [];
 
-    return this.data.lastSuccessful.value.map(({ node: raw }) =>
+    return this.data.lastSuccessful.value.map(raw =>
       Case.create(getOwner(this).ownerInjection(), {
         raw,
         municipalities: this.getAllMunicipalities.lastSuccessful.value,

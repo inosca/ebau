@@ -2,13 +2,8 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { saveAs } from "file-saver";
 import { task } from "ember-concurrency";
-import { reads } from "@ember/object/computed";
 
-import {
-  getCaseTypeSlug,
-  getCaseType,
-  parseFields
-} from "ember-caluma-portal/components/be-download-pdf/parsers";
+import { parseDocument } from "ember-caluma-portal/components/be-download-pdf/parsers";
 
 const PEOPLE_SOURCES = {
   "personalien-gesuchstellerin": {
@@ -74,11 +69,9 @@ function prepareReceiptPage(data) {
 
 export default Component.extend({
   notification: service(),
-  documentStore: service(),
   intl: service(),
   fetch: service(),
-
-  doc: reads("field.document.rootDocument"),
+  calumaStore: service(),
 
   /**
    * Submits the data (as JSON) to a service and gets a PDF back.
@@ -88,15 +81,19 @@ export default Component.extend({
    */
   export: task(function*() {
     const { instanceId } = this.context;
+    const document = this.field.document;
+    const navigation = this.calumaStore.find(
+      `Navigation:${this.field.document.pk}`
+    );
 
     const data = prepareReceiptPage({
       caseId: instanceId,
-      caseType: getCaseType(this.doc),
-      sections: parseFields(this.doc)
+      caseType: document.rootForm.name,
+      sections: parseDocument(document, navigation)
     });
 
     const template = "export-1";
-    const filename = `${instanceId}-${getCaseTypeSlug(this.doc)}.pdf`;
+    const filename = `${instanceId}-${document.rootForm.slug}.pdf`;
 
     try {
       const response = yield this.fetch.fetch(

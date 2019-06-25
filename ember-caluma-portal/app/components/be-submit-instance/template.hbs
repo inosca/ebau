@@ -4,13 +4,9 @@
     <br>
     <ul class="uk-list uk-list-bullet">
       {{#each invalidFields as |field|}}
-        {{#let (get-field-path field) as |path|}}
-          <li>
-            {{#link-to (query-params section=path.link.section subSection=path.link.subSection)}}
-              {{path.label}}
-            {{/link-to}}
-          </li>
-        {{/let}}
+        <li>
+          {{#link-to (query-params displayedForm=field.fieldset.form.slug)}}{{field.question.label}}{{/link-to}}
+        </li>
       {{/each}}
     </ul>
   </div>

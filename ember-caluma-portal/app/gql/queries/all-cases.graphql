@@ -1,3 +1,5 @@
+#import 'ember-caluma/gql/fragments/field-answer'
+
 query AllCases {
   allCases(workflow: "building-permit", orderBy: META_CAMAC_INSTANCE_ID_ASC) {
     edges {
@@ -14,69 +16,22 @@ query AllCases {
           }
           answers(
             questions: [
-              "1-allgemeine-informationen"
-              "3-grundstueck"
               "gemeinde"
               "strasse-gesuchstellerin"
               "nummer-gesuchstellerin"
               "plz-gesuchstellerin"
               "ort-gesuchstellerin"
               "anfrage-zur-vorabklaerung"
+              "beschreibung-bauvorhaben"
+              "gemeinde"
+              "strasse-flurname"
+              "nr"
+              "ort-grundstueck"
             ]
           ) {
             edges {
               node {
-                id
-                ... on FormAnswer {
-                  formValue: value {
-                    id
-                    answers(questions: ["bauvorhaben", "allgemeine-angaben"]) {
-                      edges {
-                        node {
-                          id
-                          ... on FormAnswer {
-                            formValue: value {
-                              id
-                              answers(
-                                questions: [
-                                  "beschreibung-bauvorhaben"
-                                  "gemeinde"
-                                  "strasse-flurname"
-                                  "nr"
-                                  "ort-grundstueck"
-                                ]
-                              ) {
-                                edges {
-                                  node {
-                                    id
-                                    ... on StringAnswer {
-                                      stringValue: value
-                                    }
-                                    question {
-                                      slug
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                            question {
-                              slug
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                ... on StringAnswer {
-                  stringValue: value
-                }
-                ... on IntegerAnswer {
-                  integerValue: value
-                }
-                question {
-                  slug
-                }
+                ...FieldAnswer
               }
             }
           }
