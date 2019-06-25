@@ -19,7 +19,8 @@ module.exports = function(environment) {
       tokenEndpoint: "/token",
       endSessionEndpoint: "/logout",
       userinfoEndpoint: "/userinfo",
-      afterLogoutUri: "/"
+      afterLogoutUri: "/",
+      forwardParams: ["kc_idp_hint"]
     },
     apollo: {
       apiURL: "/graphql/"
