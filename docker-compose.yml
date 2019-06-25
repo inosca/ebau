@@ -27,11 +27,7 @@ services:
             - pgdata:/var/lib/postgresql/data
 
     caluma:
-        image: acr.run/camac-ng/camac-ng/caluma:${CI_COMMIT_REF_SLUG:-master}
-        build:
-            context: caluma
-            cache_from:
-                - acr.run/camac-ng/camac-ng/caluma:master
+        image: projectcaluma/caluma:maintenance-pre-505
         environment:
             - DATABASE_HOST=db
             - DATABASE_PORT=5432
