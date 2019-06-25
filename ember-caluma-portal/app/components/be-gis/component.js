@@ -5,6 +5,9 @@ import { inject as service } from "@ember/service";
 import { all } from "rsvp";
 import { task } from "ember-concurrency";
 import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
+import Document from "ember-caluma/lib/document";
+import { parseDocument } from "ember-caluma/lib/parsers";
+import { getOwner } from "@ember/application";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
 const KEY_TABLE_QUESTION = "parzelle";
@@ -45,30 +48,28 @@ const REGEXP_ORIGIN = /^(https?:\/\/[^/]+)/i;
 
 const FIELD_MAP = {
   ARCHINV_FUNDST: {
-    path:
-      "parent.zonenvorschriften-schutzzonen.gebiet-mit-archaeologischen-objekten",
+    path: "gebiet-mit-archaeologischen-objekten",
     values: {
       true: "gebiet-mit-archaeologischen-objekten-ja",
       false: "gebiet-mit-archaeologischen-objekten-nein"
     }
   },
   BALISKBS_KBS: {
-    path: "parent.zonenvorschriften-schutzzonen.belasteter-standort",
+    path: "belasteter-standort",
     values: {
       true: "belasteter-standort-ja",
       false: "belasteter-standort-nein"
     }
   },
   BAUINV_BAUINV_VW: {
-    path:
-      "parent.zonenvorschriften-schutzzonen.handelt-es-sich-um-ein-baudenkmal",
+    path: "handelt-es-sich-um-ein-baudenkmal",
     values: {
       true: "handelt-es-sich-um-ein-baudenkmal-ja",
       false: "handelt-es-sich-um-ein-baudenkmal-nein"
     }
   },
   GK5_SY: {
-    path: "parent.zonenvorschriften-schutzzonen.gebiet-mit-naturgefahren",
+    path: "gebiet-mit-naturgefahren",
     values: {
       true: "gebiet-mit-naturgefahren-ja",
       false: "gebiet-mit-naturgefahren-nein"
@@ -77,7 +78,7 @@ const FIELD_MAP = {
   // The question GSK25_GSK_VW is not present in our form.
   //GSK25_GSK_VW: {},
   GSKT_BEZEICH_DE: {
-    path: "parent.zonenvorschriften-schutzzonen.gewaesserschutzbereich",
+    path: "gewaesserschutzbereich",
     values: {
       "übriger Bereich üB": "gewaesserschutzbereich-ueb",
       "Gewässerschutzbereich Ao": "gewaesserschutzbereich-ao",
@@ -86,26 +87,24 @@ const FIELD_MAP = {
     }
   },
   NSG_NSGP: {
-    path: "parent.zonenvorschriften-schutzzonen.naturschutz",
+    path: "naturschutz",
     values: {
       true: "naturschutz-ja",
       false: "naturschutz-nein"
     }
   },
   UZP_BAU_VW: {
-    path: "parent.zonenvorschriften-baurechtliche-grundordnung.nutzungszone"
+    path: "nutzungszone"
   },
   UZP_LSG_VW: {
-    path:
-      "parent.zonenvorschriften-schutzzonen.objekt-des-besonderen-landschaftsschutzes",
+    path: "objekt-des-besonderen-landschaftsschutzes",
     values: {
       true: "objekt-des-besonderen-landschaftsschutzes-ja",
       false: "objekt-des-besonderen-landschaftsschutzes-nein"
     }
   },
   UZP_UEO_VW: {
-    path:
-      "parent.zonenvorschriften-baurechtliche-grundordnung.ueberbauungsordnung"
+    path: "ueberbauungsordnung"
   }
 };
 
@@ -155,10 +154,10 @@ function reduceArrayValues(data) {
 
 export default Component.extend({
   apollo: service(),
-  documentStore: service(),
   notification: service(),
   fetch: service(),
   intl: service(),
+  calumaStore: service(),
 
   classNames: ["gis-map"],
 
@@ -401,7 +400,12 @@ export default Component.extend({
           mutation,
           "saveDocument.document"
         );
-        const newDocument = this.documentStore.find(newDocumentRaw);
+
+        const newDocument = this.calumaStore.push(
+          Document.create(getOwner(this).ownerInjection(), {
+            raw: parseDocument(newDocumentRaw)
+          })
+        );
 
         const fields = newDocument.fields.filter(field =>
           KEYS_TABLE.includes(field.question.slug)
