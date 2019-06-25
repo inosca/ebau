@@ -425,7 +425,7 @@ export default Component.extend({
       })
     );
 
-    table.answer.set("value", rows.map(doc => doc.id));
+    table.answer.set("value", rows);
 
     yield table.save.perform();
     yield table.validate.perform();

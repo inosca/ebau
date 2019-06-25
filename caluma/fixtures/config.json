@@ -25393,7 +25393,13 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": {
+        "columnsToDisplay": [
+          "parzellennummer",
+          "lagekoordinaten-ost",
+          "lagekoordinaten-nord"
+        ]
+      },
       "data_source": null,
       "row_form": "parzelle-tabelle",
       "sub_form": "parzelle-tabelle",
