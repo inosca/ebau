@@ -31,7 +31,7 @@ snapshots['test_create_instance[work_item_resp0-201] 1'] = [
                             form {
                               slug
                             }
-                            answers(questions: ["gemeinde", "3-grundstueck"]) {
+                            answers(questions: ["gemeinde"]) {
                               edges {
                                 node {
                                   id
@@ -40,36 +40,6 @@ snapshots['test_create_instance[work_item_resp0-201] 1'] = [
                                   }
                                   ... on StringAnswer {
                                     stringValue: value
-                                  }
-                                  ...on FormAnswer {
-                                    formValue: value {
-                                      id
-                                      answers(question: "allgemeine-angaben") {
-                                        edges {
-                                          node {
-                                            id
-                                            ...on FormAnswer {
-                                              formValue: value {
-                                                id
-                                                answers(question: "gemeinde") {
-                                                  edges {
-                                                    node {
-                                                      id
-                                                      ... on StringAnswer {
-                                                        stringValue: value
-                                                      }
-                                                      question {
-                                                        slug
-                                                      }
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
                                   }
                                 }
                               }
