@@ -107,7 +107,7 @@ class CustomPermission(BasePermission):
         )
 
         if resp.status_code != requests.codes.ok:
-            log.debug(f"ACL: Got {resp.status_code} from NG API -> no access")
+            log.info(f"ACL: Got {resp.status_code} from NG API -> no access")
             return False
 
         try:
