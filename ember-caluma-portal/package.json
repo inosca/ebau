@@ -68,7 +68,7 @@
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
     "ember-router-scroll": "^1.1.0",
-    "ember-simple-auth-oidc": "^0.3.0",
+    "ember-simple-auth-oidc": "adfinis-sygroup/ember-simple-auth-oidc#forward-params",
     "ember-source": "~3.8.2",
     "ember-transition-helper": "^1.0.0",
     "ember-truth-helpers": "^2.1.0",
