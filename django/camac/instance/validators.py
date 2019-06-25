@@ -86,6 +86,9 @@ class FormDataValidator(object):
                 % {"field": question, "min_val": min_val, "max_val": max_val}
             )
 
+    def _validate_question_number_separator(self, question, question_def, value):
+        self._validate_question_number(question, question_def, value)
+
     def _validate_question_document(self, question, question_def, value):
         if not value:
             raise exceptions.ValidationError(
