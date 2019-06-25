@@ -1730,6 +1730,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "108d0490-eaaf-471e-baf6-3d9d8ff2bb63",
+    "fields": {
+      "created_at": "2019-06-25T11:24:23.450Z",
+      "modified_at": "2019-06-25T11:24:23.450Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "selbstdeklaration-2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "10c1ff1b-bd71-4629-8cc8-929184eca9d2",
     "fields": {
       "created_at": "2019-04-02T09:09:51.879Z",
@@ -1738,7 +1751,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "5-spezialformulare",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -1803,7 +1816,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "6-dokumente",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -1925,6 +1938,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "133582f5-9915-471b-9bdf-8c8900870f6c",
+    "fields": {
+      "created_at": "2019-06-25T11:19:56.511Z",
+      "modified_at": "2019-06-25T11:19:56.511Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "selbstdeklaration-2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "137ca27c-1cd2-442c-a1ff-3a0b3e6792f9",
     "fields": {
       "created_at": "2019-04-08T14:41:42.964Z",
@@ -1985,7 +2011,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "4-bauwerk",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -2102,7 +2128,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "3-grundstueck",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -2258,7 +2284,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "3-grundstueck",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -2427,7 +2453,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "4-bauwerk",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -2466,7 +2492,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -2857,6 +2883,19 @@
       "form": "immissionsschutz",
       "question": "wird-aussenlaerm-erzeugt",
       "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "26c03cf8-ef92-4491-b8a2-85614c751f98",
+    "fields": {
+      "created_at": "2019-06-25T11:21:45.306Z",
+      "modified_at": "2019-06-25T11:21:45.306Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "selbstdeklaration-2",
+      "sort": 1
     }
   },
   {
@@ -3571,7 +3610,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -4195,7 +4234,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "3-grundstueck",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -4720,6 +4759,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "59713cab-224e-4073-b399-c1f199ff0960",
+    "fields": {
+      "created_at": "2019-06-25T11:19:26.687Z",
+      "modified_at": "2019-06-25T11:19:26.688Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch",
+      "question": "selbstdeklaration-1",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "59a9ccec-5640-4848-b7f7-dbfd581cae14",
     "fields": {
       "created_at": "2019-05-13T07:55:51.010Z",
@@ -4806,7 +4858,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "8-freigabequittung",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -4832,7 +4884,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "4-bauwerk",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -4962,7 +5014,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "1-allgemeine-informationen",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -5456,7 +5508,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "7-bestaetigung",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -5521,7 +5573,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "7-bestaetigung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -5625,7 +5677,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -5651,7 +5703,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "8-freigabequittung",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -5885,7 +5937,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "5-spezialformulare",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -6041,7 +6093,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "1-allgemeine-informationen",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -6847,7 +6899,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "4-bauwerk",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -6977,7 +7029,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "7-bestaetigung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -7471,7 +7523,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "6-dokumente",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -7614,7 +7666,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "3-grundstueck",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -7874,7 +7926,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "1-allgemeine-informationen",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -7926,7 +7978,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "6-dokumente",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -8152,6 +8204,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "b3588956-e9bd-45df-9835-e364825bd568",
+    "fields": {
+      "created_at": "2019-06-25T11:21:43.461Z",
+      "modified_at": "2019-06-25T11:21:43.461Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-generell",
+      "question": "selbstdeklaration-1",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "b3a0e34f-0776-4d5c-ab2c-2e4595497d27",
     "fields": {
       "created_at": "2019-04-01T15:24:13.166Z",
@@ -8199,7 +8264,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "5-spezialformulare",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -8464,6 +8529,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "bca0a723-4d0c-42eb-b4aa-2ad87226a9fb",
+    "fields": {
+      "created_at": "2019-06-25T11:24:22.049Z",
+      "modified_at": "2019-06-25T11:24:22.049Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "baugesuch-mit-uvp",
+      "question": "selbstdeklaration-1",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "bcb03c33-94a9-4298-a0dd-07c753b3cf60",
     "fields": {
       "created_at": "2019-05-04T10:02:35.939Z",
@@ -8576,7 +8654,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -8680,7 +8758,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "6-dokumente",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -8836,7 +8914,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "8-freigabequittung",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -9070,7 +9148,7 @@
       "created_by_group": null,
       "form": "baugesuch-mit-uvp",
       "question": "8-freigabequittung",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -9478,6 +9556,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "d57a8f3d-260c-4538-a0d9-1a4ab50e2a01",
+    "fields": {
+      "created_at": "2019-06-25T11:25:24.924Z",
+      "modified_at": "2019-06-25T11:25:24.924Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "selbstdeklaration-2",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "d5c5ef13-5b18-46eb-90ae-15a5ef2ace86",
     "fields": {
       "created_at": "2019-05-03T16:42:55.854Z",
@@ -9824,7 +9915,7 @@
       "created_by_group": null,
       "form": "baugesuch-generell",
       "question": "7-bestaetigung",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -10110,7 +10201,7 @@
       "created_by_group": null,
       "form": "baugesuch",
       "question": "2-nutzung-bauvorhaben",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -10188,7 +10279,7 @@
       "created_by_group": null,
       "form": "vorabklaerung-vollstaendig",
       "question": "5-spezialformulare",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -10527,6 +10618,19 @@
       "form": "triage",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
       "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "eee2b24a-b3c4-490a-9f95-ea701fc49fec",
+    "fields": {
+      "created_at": "2019-06-25T11:25:23.024Z",
+      "modified_at": "2019-06-25T11:25:23.024Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "vorabklaerung-vollstaendig",
+      "question": "selbstdeklaration-1",
+      "sort": 2
     }
   },
   {
@@ -27757,6 +27861,56 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "selbstdeklaration-1",
+    "fields": {
+      "created_at": "2019-06-25T11:19:26.607Z",
+      "modified_at": "2019-06-25T11:19:26.607Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Selbstdeklaration 1\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "sb1",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "selbstdeklaration-2",
+    "fields": {
+      "created_at": "2019-06-25T11:19:56.430Z",
+      "modified_at": "2019-06-25T11:19:56.430Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Selbstdeklaration 2\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "true",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "sb2",
       "source": null,
       "format_validators": "[]"
     }
