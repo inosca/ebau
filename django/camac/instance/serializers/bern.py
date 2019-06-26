@@ -9,6 +9,8 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework.serializers import ValidationError
 from rest_framework_json_api import serializers
 
+from camac.constants import kt_bern as constants
+
 from .. import models
 from ...core import models as core_models
 from .common import InstanceSerializer
@@ -32,6 +34,30 @@ class BernInstanceSerializer(InstanceSerializer):
     )
 
     caluma_case_id = serializers.CharField(required=False)
+
+    public_status = serializers.SerializerMethodField()
+
+    def get_public_status(self, instance):
+        STATUS_MAP = {
+            constants.INSTANCE_STATE_NEW: constants.PUBLIC_INSTANCE_STATE_CREATING,
+            constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: constants.PUBLIC_INSTANCE_STATE_RECEIVING,
+            constants.INSTANCE_STATE_FORMELLE_PRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+            constants.INSTANCE_STATE_MATERIELLE_PRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+            constants.INSTANCE_STATE_DOSSIERPRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+            constants.INSTANCE_STATE_KOORDINATION: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
+            constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
+            constants.INSTANCE_STATE_ZIRKULATION: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
+            constants.INSTANCE_STATE_REJECTED: constants.PUBLIC_INSTANCE_STATE_REJECTED,
+            constants.INSTANCE_STATE_CORRECTED: constants.PUBLIC_INSTANCE_STATE_CORRECTED,
+            constants.INSTANCE_STATE_SELBSTDEKLARATION_AUSSTEHEND: constants.PUBLIC_INSTANCE_STATE_SELBSTDEKLARATION,
+            constants.INSTANCE_STATE_SELBSTDEKLARATION_FREIGABEQUITTUNG: constants.PUBLIC_INSTANCE_STATE_SELBSTDEKLARATION,
+            constants.INSTANCE_STATE_ABSCHLUSS_AUSSTEHEND: constants.PUBLIC_INSTANCE_STATE_ABSCHLUSS,
+            constants.INSTANCE_STATE_ABSCHLUSS_DOKUMENTE: constants.PUBLIC_INSTANCE_STATE_ABSCHLUSS,
+            constants.INSTANCE_STATE_ABSCHLUSS_FREIGABEQUITTUNG: constants.PUBLIC_INSTANCE_STATE_ABSCHLUSS,
+            constants.INSTANCE_STATE_TO_BE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
+            constants.INSTANCE_STATE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
+        }
+        return STATUS_MAP[instance.instance_state_id]
 
     def validate_instance_state(self, value):
         if not self.instance:  # pragma: no cover
@@ -239,4 +265,5 @@ class BernInstanceSerializer(InstanceSerializer):
         return instance
 
     class Meta(InstanceSerializer.Meta):
-        fields = InstanceSerializer.Meta.fields + ("caluma_case_id",)
+        fields = InstanceSerializer.Meta.fields + ("caluma_case_id", "public_status")
+        read_only_fields = InstanceSerializer.Meta.read_only_fields + ("public_status",)
