@@ -1,4 +1,4 @@
-FROM projectcaluma/caluma
+FROM projectcaluma/caluma:maintenance-pre-505
 
 ENV VISIBILITY_CLASSES caluma.extensions.visibilities.CustomVisibility
 ENV PERMISSION_CLASSES caluma.extensions.permissions.CustomPermission
