@@ -25,7 +25,7 @@
           <td class="uk-text-nowrap">{{case.municipality}}</td>
           <td>{{case.address}}</td>
           <td class="uk-text-right uk-text-nowrap">{{format-date case.createdAt}}</td>
-          <td>{{case.status}}</td>
+          <td>{{t (concat "instanceState." case.status)}}</td>
           <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
         </tr>
       {{/each}}
