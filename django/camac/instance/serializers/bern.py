@@ -286,7 +286,7 @@ class BernInstanceSerializer(InstanceSerializer):
             self.instance, mail_data
         )
 
-        if not mail_serializer.is_valid():
+        if not mail_serializer.is_valid():  # pragma: no cover
             errors = "; ".join(
                 [f"{field}: {msg}" for field, msg in mail_serializer.errors.items()]
             )
