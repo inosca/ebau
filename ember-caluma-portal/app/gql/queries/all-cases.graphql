@@ -1,5 +1,5 @@
 query AllCases {
-  allCases(workflow: "building-permit") {
+  allCases(workflow: "building-permit", orderBy: META_CAMAC_INSTANCE_ID_ASC) {
     edges {
       node {
         id
