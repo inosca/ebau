@@ -18,6 +18,15 @@ class MultilingualModel:
             return self.name
         return match.name
 
+    def get_trans_attr(self, name):
+        lang = translation.get_language()
+        match = self.trans.filter(language=lang).first()
+        if not match:
+            match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
+        if not match:
+            return getattr(self, name)
+        return getattr(match, name)
+
     def __str__(self):
         return self.get_name()
 
