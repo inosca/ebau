@@ -16,6 +16,7 @@ from camac.instance.models import Instance
 from camac.user.models import Service
 
 from . import models
+from ..core import models as core_models
 
 mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
@@ -65,6 +66,8 @@ class InstanceMergeSerializer(mixins.InstanceEditableMixin, serializers.Serializ
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
     instance_id = serializers.IntegerField()
+
+    # TODO: extend with bern attributes
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -155,10 +158,11 @@ class NotificationTemplateMergeSerializer(
         instance = data["instance"]
 
         data["subject"] = self._merge(
-            data.get("subject", notification_template.subject), instance
+            data.get("subject", notification_template.get_trans_attr("subject")),
+            instance,
         )
         data["body"] = self._merge(
-            data.get("body", notification_template.body), instance
+            data.get("body", notification_template.get_trans_attr("body")), instance
         )
         data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
 
@@ -178,11 +182,19 @@ class NotificationTemplateMergeSerializer(
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
     recipient_types = serializers.MultipleChoiceField(
-        choices=("applicant", "municipality", "service")
+        choices=("applicant", "municipality", "service", "leitbehoerde")
     )
 
     def _get_recipients_applicant(self, instance):
         return [instance.user.email]
+
+    def _get_recipients_leitbehoerde(self, instance):
+        instance_service = core_models.InstanceService.objects.filter(
+            instance=instance, active=1
+        ).first()
+        if not instance_service:
+            return []
+        return [instance_service.service.email]
 
     def _get_recipients_municipality(self, instance):
         return [instance.group.service.email]
