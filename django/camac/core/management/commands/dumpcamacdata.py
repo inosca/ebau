@@ -6,9 +6,9 @@ from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
 from .dumpconfig import (
+    models_managed_by_customer,
     models_referencing_data,
     pure_config_models,
-    sz_exclude_models_referencing_data,
 )
 
 
@@ -21,12 +21,11 @@ class Command(BaseCommand):
         exclude_models = [*pure_config_models, *models_referencing_data]
 
         # respect customer specific excludes
-        if settings.APPLICATION_NAME == "kt_schwyz":
-            exclude_models = [
-                model
-                for model in exclude_models
-                if model not in sz_exclude_models_referencing_data
-            ]
+        exclude_models = [
+            m
+            for m in [*pure_config_models, *models_referencing_data]
+            if m not in models_managed_by_customer[settings.APPLICATION_NAME]
+        ]
 
         options["exclude"] = exclude_models
 
