@@ -26,9 +26,13 @@ pytestmark = only_bern
     ],
 )
 def test_instance_list(
-    admin_client, instance, activation, group, editable, group_location_factory
+    admin_client, instance, activation, group, editable, group_location_factory, mocker
 ):
 
+    mocker.patch(
+        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
     url = reverse("instance-list")
     included = InstanceView.serializer_class.included_serializers
     response = admin_client.get(
@@ -66,9 +70,14 @@ def test_instance_list_as_applicant(
     group,
     editable,
     group_location_factory,
+    mocker,
 ):
 
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+    mocker.patch(
+        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
 
     url = reverse("instance-list")
     included = InstanceView.serializer_class.included_serializers
@@ -94,8 +103,12 @@ def test_instance_list_as_applicant(
 @pytest.mark.parametrize(
     "role_t__name,instance__user", [("Gesuchsteller", LazyFixture("admin_user"))]
 )
-def test_instance_detail(admin_client, admin_user, instance):
+def test_instance_detail(admin_client, admin_user, instance, mocker):
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+    mocker.patch(
+        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
 
     url = reverse("instance-detail", args=[instance.pk])
 
@@ -116,9 +129,15 @@ def test_instance_detail(admin_client, admin_user, instance):
         ({"key": ["l-list-d", ["b-list-d"]]}, "list"),
     ],
 )
-def test_instance_search(admin_client, admin_user, instance, form_field, search):
+def test_instance_search(
+    admin_client, admin_user, instance, form_field, search, mocker
+):
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
     url = reverse("instance-list")
+    mocker.patch(
+        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
 
     response = admin_client.get(url, {"search": search})
     assert response.status_code == status.HTTP_200_OK
@@ -166,7 +185,12 @@ def test_instance_submit(
     admin_user,
     response_status,
     new_instance_state,
+    mocker,
 ):
+    mocker.patch(
+        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
     requests_mock.post(
         "http://caluma:8000/graphql/",
         text=json.dumps(
