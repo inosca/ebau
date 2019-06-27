@@ -8,6 +8,7 @@ ENV DATA_SOURCE_CLASSES caluma.extensions.data_sources.Municipalities,caluma.ext
 ENV LANGUAGE_CODE de
 ENV LANGUAGES de
 ENV OIDC_BEARER_TOKEN_REVALIDATION_TIME 300
+ENV META_FIELDS ["camac-instance-id"]
 
 COPY extensions /app/caluma/extensions
 COPY fixtures /app/caluma/fixtures
