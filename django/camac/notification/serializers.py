@@ -188,7 +188,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     def _get_recipients_applicant(self, instance):
         return [instance.user.email]
 
-    def _get_recipients_leitbehoerde(self, instance):
+    def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
         instance_service = core_models.InstanceService.objects.filter(
             instance=instance, active=1
         ).first()

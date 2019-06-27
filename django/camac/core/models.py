@@ -25,7 +25,7 @@ class MultilingualModel:
             match = self.trans.filter(language=settings.LANGUAGE_CODE).first()
         if not match:
             return getattr(self, name)
-        return getattr(match, name)
+        return getattr(match, name)  # pragma: no cover
 
     def __str__(self):
         return self.get_name()
