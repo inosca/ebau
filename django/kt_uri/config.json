@@ -19146,7 +19146,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "archive_btn",
       "description": null,
       "hidden": 0,
       "instance_resource": 758,
