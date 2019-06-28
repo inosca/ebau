@@ -10,6 +10,7 @@ from rest_framework.serializers import ValidationError
 from rest_framework_json_api import serializers
 
 from camac.constants import kt_bern as constants
+from camac.notification.serializers import NotificationTemplateSendmailSerializer
 
 from .. import models
 from ...core import models as core_models
@@ -266,7 +267,38 @@ class BernInstanceSerializer(InstanceSerializer):
 
         self.instance.save()
 
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
+            self.notify_submit(**notification_config)
+
         return instance
+
+    def notify_submit(self, template_id, recipient_types):
+        """Send notification email."""
+
+        # fake jsonapi request for notification serializer
+        mail_data = {
+            "instance": {"type": "instances", "id": self.instance.pk},
+            "notification_template": {
+                "type": "notification-templates",
+                "id": template_id,
+            },
+            "recipient_types": recipient_types,
+        }
+
+        mail_serializer = NotificationTemplateSendmailSerializer(
+            self.instance, mail_data
+        )
+
+        if not mail_serializer.is_valid():  # pragma: no cover
+            errors = "; ".join(
+                [f"{field}: {msg}" for field, msg in mail_serializer.errors.items()]
+            )
+            message = f"Cannot send email: {errors}"
+            request_logger.error(message)
+            raise ValidationError(message)
+
+        mail_serializer.create(mail_serializer.validated_data)
 
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + ("caluma_case_id", "public_status")

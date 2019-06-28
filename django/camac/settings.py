@@ -129,6 +129,12 @@ APPLICATIONS = {
             "Unterfachstelle": "service",
             "System-Betrieb": "support",
         },
+        "NOTIFICATIONS": {
+            "SUBMIT": [
+                {"template_id": 1, "recipient_types": ["applicant"]},
+                {"template_id": 2, "recipient_types": ["leitbehoerde"]},
+            ]
+        },
         "IS_MULTILINGUAL": True,
     },
     "kt_uri": {},

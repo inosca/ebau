@@ -1,6 +1,7 @@
 import json
 
 import pytest
+from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
@@ -175,6 +176,34 @@ def test_instance_destroy(
     "new_instance_state,response_status",
     [(20000, status.HTTP_200_OK), (1, status.HTTP_400_BAD_REQUEST)],
 )
+@pytest.mark.parametrize(
+    "notification_template__body",
+    [
+        """
+    Guten Tag
+
+    Im eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.
+
+    {{DOSSIER_LINK}}
+
+    Freundliche Grüsse
+    {{LEITBEHOERDE_NAME}}
+    """,
+        """
+
+    Guten Tag
+
+    Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
+
+    {{DOSSIER_LINK}}
+
+    Gerne möchten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.
+
+    https://www.onlineumfragen.com/login.cfm?umfrage=87201
+
+    """,
+    ],
+)
 def test_instance_submit(
     requests_mock,
     admin_client,
@@ -185,12 +214,19 @@ def test_instance_submit(
     admin_user,
     response_status,
     new_instance_state,
+    notification_template,
+    settings,
     mocker,
 ):
     mocker.patch(
         "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
         lambda s, i: "creation",
     )
+
+    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = [
+        {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
+    ]
+
     requests_mock.post(
         "http://caluma:8000/graphql/",
         text=json.dumps(
@@ -224,3 +260,10 @@ def test_instance_submit(
     }
     response = admin_client.patch(url, data)
     assert response.status_code == response_status
+
+    if response_status == 200:
+        assert len(mail.outbox) == 1
+        assert instance.user.email in mail.outbox[0].recipients()
+    else:
+        # no mail if submission not accepted!
+        assert len(mail.outbox) == 0
