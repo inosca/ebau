@@ -44,6 +44,7 @@ class BernInstanceSerializer(InstanceSerializer):
             constants.INSTANCE_STATE_FORMELLE_PRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
             constants.INSTANCE_STATE_MATERIELLE_PRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
             constants.INSTANCE_STATE_DOSSIERPRUEFUNG: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
+            constants.INSTANCE_STATE_CORRECTION_IN_PROGRESS: constants.PUBLIC_INSTANCE_STATE_COMMUNAL,
             constants.INSTANCE_STATE_KOORDINATION: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
             constants.INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
             constants.INSTANCE_STATE_ZIRKULATION: constants.PUBLIC_INSTANCE_STATE_INIT_PROGRAM,
@@ -57,7 +58,10 @@ class BernInstanceSerializer(InstanceSerializer):
             constants.INSTANCE_STATE_TO_BE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
             constants.INSTANCE_STATE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
         }
-        return STATUS_MAP[instance.instance_state_id]
+
+        return STATUS_MAP.get(
+            instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
+        )
 
     def validate_instance_state(self, value):
         if not self.instance:  # pragma: no cover
