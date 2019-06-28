@@ -234,13 +234,25 @@ models_referencing_data = (
     "user.ServiceGroupT",
 )
 
-sz_exclude_models_referencing_data = [
-    "user.Group",
-    "user.GroupT",
-    "user.GroupLocation",
-    "user.Service",
-    "user.ServiceT",
-]
+# exclude models which are managed by the customer alone from sync
+models_managed_by_customer = {
+    "kt_schwyz": [
+        "user.Group",
+        "user.GroupT",
+        "user.GroupLocation",
+        "user.Service",
+        "user.ServiceT",
+    ],
+    "kt_bern": [
+        "user.Group",
+        "user.GroupT",
+        "user.GroupLocation",
+        "user.Service",
+        "user.ServiceT",
+    ],
+    "kt_uri": [],
+    "demo": [],
+}
 
 
 class Command(BaseCommand):
@@ -252,16 +264,11 @@ class Command(BaseCommand):
     def handle(self, *app_labels, **options):
         options["indent"] = 2
 
-        export_models = [*pure_config_models, *models_referencing_data]
-
-        # kt_schwyz only: Since Schwyz manages groups and services on their own,
-        # do not export them otherwise they will be overwritten in production!
-        if settings.APPLICATION_NAME == "kt_schwyz":
-            export_models = [
-                model
-                for model in export_models
-                if model not in sz_exclude_models_referencing_data
-            ]
+        export_models = [
+            m
+            for m in [*pure_config_models, *models_referencing_data]
+            if m not in models_managed_by_customer[settings.APPLICATION_NAME]
+        ]
 
         try:
             output = options.pop("output")
