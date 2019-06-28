@@ -3,8 +3,8 @@ import os
 from logging import getLogger
 
 import requests
-
 from django.core.exceptions import ObjectDoesNotExist
+
 from caluma.core.mutation import Mutation
 from caluma.core.permissions import (
     BasePermission,
@@ -103,7 +103,12 @@ class CustomPermission(BasePermission):
             return True
 
         camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
-        instance_id = case.meta["camac-instance-id"]
+        instance_id = case.meta.get("camac-instance-id", None)
+        if instance_id is None and only_meta:
+            # this is a fresh case that needs to be extended with metadata
+            # for the permission to work. so for now, allow full access
+            return True
+
         resp = requests.get(
             f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
             # forward role as filter
