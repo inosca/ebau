@@ -17,28 +17,6 @@
     }
   },
   {
-    "model": "workflow.workitem",
-    "pk": "6d7aeda7-1e4f-48d4-b4ff-e2563f9f39b2",
-    "fields": {
-      "created_at": "2019-06-08T19:09:17.214Z",
-      "modified_at": "2019-06-08T19:09:17.214Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "closed_at": null,
-      "closed_by_user": null,
-      "closed_by_group": null,
-      "deadline": null,
-      "task": "fill-form",
-      "status": "ready",
-      "meta": {},
-      "addressed_groups": "[]",
-      "assigned_users": "[]",
-      "case": "661ba62b-72cc-4383-8612-9bbe971e6798",
-      "child_case": null,
-      "document": null
-    }
-  },
-  {
     "model": "form.document",
     "pk": "0ca886be-b921-44e0-a1f1-d3bd30fa25b2",
     "fields": {
