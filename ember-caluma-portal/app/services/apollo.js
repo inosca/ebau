@@ -19,23 +19,18 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
     function() {
       const httpLink = this._super(...arguments);
 
-      const authMiddleware = setContext(async (request, context) => {
+      const middleware = setContext(async (request, context) => {
         const token = this.get("session.data.authenticated.access_token");
-        context.headers = Object.assign({}, context.headers, {
-          authorization: `Bearer ${token}`
-        });
-        return context;
-      });
 
-      const camacMiddleware = setContext(async (request, context) => {
         context.headers = Object.assign({}, context.headers, {
+          authorization: `Bearer ${token}`,
           ...(this.group ? { "X-CAMAC-GROUP": this.group } : {}),
           ...(this.role ? { "X-CAMAC-ROLE": this.role } : {})
         });
         return context;
       });
 
-      const authAfterware = onError(error => {
+      const afterware = onError(error => {
         const { networkError, graphQLErrors } = error;
 
         if (
@@ -49,9 +44,7 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
         }
       });
 
-      return authMiddleware
-        .concat(camacMiddleware, authAfterware)
-        .concat(httpLink);
+      return middleware.concat(afterware).concat(httpLink);
     }
   )
 });
