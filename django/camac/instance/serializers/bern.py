@@ -58,9 +58,9 @@ class BernInstanceSerializer(InstanceSerializer):
             constants.INSTANCE_STATE_TO_BE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
             constants.INSTANCE_STATE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
         }
-        return (
-            STATUS_MAP[instance.instance_state_id]
-            or constants.PUBLIC_INSTANCE_STATE_CREATING
+
+        return STATUS_MAP.get(
+            instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
         )
 
     def validate_instance_state(self, value):
