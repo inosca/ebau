@@ -132673,10 +132673,10 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nIhr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber Status\u00e4nderungen informiert.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{instance_id}} wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber Status\u00e4nderungen informiert.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
-      "subject": "Erfolgreiche Einreichung - {{FORM_NAME}}",
+      "subject": "Erfolgreiche Einreichung",
       "template": 1
     },
     "model": "notification.notificationtemplatet",
@@ -132695,10 +132695,10 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{instance_id}}.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch - (Beh\u00f6rden)",
-      "subject": "Neu eingegangen: {{FORM_NAME}}",
+      "subject": "Neu eingegangen",
       "template": 2
     },
     "model": "notification.notificationtemplatet",
