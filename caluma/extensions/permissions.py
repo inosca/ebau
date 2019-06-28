@@ -25,6 +25,10 @@ INSTANCE_STATES = {
     "gesuchsteller": ["1", "10000"],  # Neu, Zurückgewiesen
     "_default": ["20007"],  # In Korrektur
 }
+INSTANCE_STATES_META = {
+    "internal": ["20000"],  # eBau-Nummer zu vergeben
+    "_default": [],
+}
 
 
 class CustomPermission(BasePermission):
@@ -54,7 +58,9 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(SaveCase)
     def has_object_permission_for_save_case(self, mutation, info, instance):
-        return instance.created_by_user == info.context.user.username
+        return self.has_camac_edit_permission(
+            instance.document.pk, info, only_meta=True
+        )
 
     # Document
     @permission_for(SaveDocument)
@@ -87,7 +93,7 @@ class CustomPermission(BasePermission):
     def _can_change_answer(self, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
-    def has_camac_edit_permission(self, document_family, info):
+    def has_camac_edit_permission(self, document_family, info, only_meta=False):
         # find corresponding case
         try:
             case = Case.objects.get(document_id=document_family)
@@ -121,6 +127,12 @@ class CustomPermission(BasePermission):
             log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
             return instance_state_id in INSTANCE_STATES.get(
                 role(info), INSTANCE_STATES["_default"]
+            ) or (
+                only_meta
+                and instance_state_id
+                in INSTANCE_STATES_META.get(
+                    role(info), INSTANCE_STATES_META["_default"]
+                )
             )
 
         except json.decoder.JSONDecodeError:
