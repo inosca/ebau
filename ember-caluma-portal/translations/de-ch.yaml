@@ -85,3 +85,14 @@ gis:
 
 submit:
   warning: "Folgende Fragen sind noch nicht korrekt ausgefüllt:"
+
+instanceState:
+  creation: "Neu"
+  receiving: "Empfang Gemeinde"
+  communal: "Bearbeitung Gemeinde"
+  init_program: "Verfahrensprogramm"
+  self-certification: "Selbstdeklaration"
+  conclusion: "Abschluss"
+  finished: "Abgeschlossen"
+  rejected: "Zurückgewiesen"
+  corrected: "Korrigiert von Leitbehörde"
