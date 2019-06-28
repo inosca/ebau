@@ -147,6 +147,9 @@ class NotificationTemplateMergeSerializer(
         try:
             value_template = jinja2.Template(value)
             data = InstanceMergeSerializer(instance).data
+
+            # some cantons use uppercase placeholders. be as compatible as possible
+            data.update({k.upper(): v for k, v in data.items()})
             return value_template.render(data)
         except jinja2.TemplateError as e:
             raise exceptions.ValidationError(str(e))
