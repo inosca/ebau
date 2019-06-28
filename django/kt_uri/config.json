@@ -11841,14 +11841,6 @@
   },
   {
     "fields": {
-      "authority": 75,
-      "location": 23
-    },
-    "model": "core.authoritylocation",
-    "pk": 34
-  },
-  {
-    "fields": {
       "name": "Andere",
       "tag": "O"
     },
@@ -24505,36 +24497,6 @@
     "fields": {
       "available_instance_resource": "formpage",
       "class_field": "",
-      "description": "",
-      "form_group": 161,
-      "hidden": 0,
-      "name": "Personen- und Projektdaten",
-      "resource": 254,
-      "sort": 0,
-      "template": "/form/form-read.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 693
-  },
-  {
-    "fields": {
-      "available_instance_resource": "documents",
-      "class_field": "",
-      "description": "Dokumentenauflistung f\u00fcr NGOs",
-      "form_group": 161,
-      "hidden": 0,
-      "name": "Dokumente",
-      "resource": 254,
-      "sort": 1,
-      "template": ""
-    },
-    "model": "core.instanceresource",
-    "pk": 694
-  },
-  {
-    "fields": {
-      "available_instance_resource": "formpage",
-      "class_field": "",
       "description": "Personen- und Projektdaten f\u00fcr Organisation mit Leserechten",
       "form_group": 253,
       "hidden": 0,
@@ -28338,14 +28300,6 @@
     },
     "model": "core.irformpage",
     "pk": 682
-  },
-  {
-    "fields": {
-      "page": 1,
-      "pdf_class": ""
-    },
-    "model": "core.irformpage",
-    "pk": 693
   },
   {
     "fields": {
@@ -33039,15 +32993,6 @@
   },
   {
     "fields": {
-      "instance_resource": 694,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 493
-  },
-  {
-    "fields": {
       "instance_resource": 724,
       "instance_state": 21,
       "role": 1127
@@ -33408,15 +33353,6 @@
   },
   {
     "fields": {
-      "instance_resource": 694,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 534
-  },
-  {
-    "fields": {
       "instance_resource": 714,
       "instance_state": 24,
       "role": 1107
@@ -33630,15 +33566,6 @@
     },
     "model": "core.irroleacl",
     "pk": 558
-  },
-  {
-    "fields": {
-      "instance_resource": 694,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 559
   },
   {
     "fields": {
@@ -34371,24 +34298,6 @@
   },
   {
     "fields": {
-      "instance_resource": 694,
-      "instance_state": 26,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 641
-  },
-  {
-    "fields": {
-      "instance_resource": 693,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 642
-  },
-  {
-    "fields": {
       "instance_resource": 720,
       "instance_state": 26,
       "role": 1107
@@ -34404,15 +34313,6 @@
     },
     "model": "core.irroleacl",
     "pk": 644
-  },
-  {
-    "fields": {
-      "instance_resource": 694,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 645
   },
   {
     "fields": {
@@ -34494,15 +34394,6 @@
     },
     "model": "core.irroleacl",
     "pk": 654
-  },
-  {
-    "fields": {
-      "instance_resource": 694,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 655
   },
   {
     "fields": {
@@ -34611,15 +34502,6 @@
     },
     "model": "core.irroleacl",
     "pk": 667
-  },
-  {
-    "fields": {
-      "instance_resource": 693,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 668
   },
   {
     "fields": {
@@ -34773,15 +34655,6 @@
     },
     "model": "core.irroleacl",
     "pk": 685
-  },
-  {
-    "fields": {
-      "instance_resource": 693,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 686
   },
   {
     "fields": {
@@ -41383,19 +41256,6 @@
   },
   {
     "fields": {
-      "available_resource": "list",
-      "class_field": "show_list_count",
-      "description": "Dossier in Zirkulation f\u00fcr NGOs",
-      "hidden": 0,
-      "name": "Dossiers in Zirkulation",
-      "sort": 24,
-      "template": "/list/circ-list.phtml"
-    },
-    "model": "core.resource",
-    "pk": 254
-  },
-  {
-    "fields": {
       "available_resource": "simplelist",
       "class_field": null,
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
@@ -41761,13 +41621,6 @@
   },
   {
     "fields": {
-      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"   AS \"INSTANCE_ID\",\r\n  \"ANSWER_DOK_NR\".\"ANSWER\"   AS \"DOSSIER_NR\",\r\n  \"FORM\".\"NAME\"              AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"          AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"          AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  \"ANSWER_STREET_BG\".\"ANSWER\"     AS \"STREET\",\r\n  'circ'      AS \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"('circ')    AS \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nJOIN \"ANSWER_DOK_NR\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_DOK_NR\".\"INSTANCE_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nWHERE\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('circ') AND\r\n  \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \r\n  \t(SELECT \"LOCATION_ID\" FROM \"GROUP_LOCATION\" WHERE \"GROUP_ID\" = \"INSTANCE\".\"GROUP_ID\")\r\nORDER BY \"DOSSIER_NR\""
-    },
-    "model": "core.rlist",
-    "pk": 254
-  },
-  {
-    "fields": {
       "alias": "INSTANCE_ID",
       "column_name": "INSTANCE_ID",
       "resource": 122,
@@ -41945,106 +41798,6 @@
     },
     "model": "core.rlistcolumn",
     "pk": 664
-  },
-  {
-    "fields": {
-      "alias": "ID",
-      "column_name": "INSTANCE_ID",
-      "resource": 254,
-      "sort": 0
-    },
-    "model": "core.rlistcolumn",
-    "pk": 676
-  },
-  {
-    "fields": {
-      "alias": "Dossier-Nr.",
-      "column_name": "DOSSIER_NR",
-      "resource": 254,
-      "sort": 1
-    },
-    "model": "core.rlistcolumn",
-    "pk": 677
-  },
-  {
-    "fields": {
-      "alias": "Verfahren",
-      "column_name": "FORM",
-      "resource": 254,
-      "sort": 2
-    },
-    "model": "core.rlistcolumn",
-    "pk": 678
-  },
-  {
-    "fields": {
-      "alias": "Gemeinde",
-      "column_name": "COMMUNITY",
-      "resource": 254,
-      "sort": 3
-    },
-    "model": "core.rlistcolumn",
-    "pk": 679
-  },
-  {
-    "fields": {
-      "alias": "Ersteller",
-      "column_name": "USER",
-      "resource": 254,
-      "sort": 4
-    },
-    "model": "core.rlistcolumn",
-    "pk": 680
-  },
-  {
-    "fields": {
-      "alias": "Gesuchsteller",
-      "column_name": "APPLICANT",
-      "resource": 254,
-      "sort": 5
-    },
-    "model": "core.rlistcolumn",
-    "pk": 681
-  },
-  {
-    "fields": {
-      "alias": "Vorhaben",
-      "column_name": "INTENT",
-      "resource": 254,
-      "sort": 6
-    },
-    "model": "core.rlistcolumn",
-    "pk": 682
-  },
-  {
-    "fields": {
-      "alias": "Strasse/Flurname",
-      "column_name": "STREET",
-      "resource": 254,
-      "sort": 7
-    },
-    "model": "core.rlistcolumn",
-    "pk": 683
-  },
-  {
-    "fields": {
-      "alias": "Status",
-      "column_name": "STATE",
-      "resource": 254,
-      "sort": 8
-    },
-    "model": "core.rlistcolumn",
-    "pk": 684
-  },
-  {
-    "fields": {
-      "alias": "Statusbeschreibung",
-      "column_name": "STATE_DESCRIPTION",
-      "resource": 254,
-      "sort": 9
-    },
-    "model": "core.rlistcolumn",
-    "pk": 685
   },
   {
     "fields": {
@@ -42499,14 +42252,6 @@
     },
     "model": "core.rroleacl",
     "pk": 55
-  },
-  {
-    "fields": {
-      "resource": 254,
-      "role": 1104
-    },
-    "model": "core.rroleacl",
-    "pk": 56
   },
   {
     "fields": {
