@@ -24,6 +24,13 @@ mapping_t = {
 
 
 class ImportCommand(BaseCommand):
+    skip_update = False
+
+    def __init__(self):
+        self.created = {"Service": [], "Group": []}
+        self.updated = {"Service": [], "Group": []}
+        self.skipped = {"Service": [], "Group": []}
+
     def add_arguments(self, parser):
         parser.add_argument("--path")
 
@@ -49,14 +56,54 @@ class ImportCommand(BaseCommand):
         print("Duplicate check OK, importing data...")
         self.import_data(data)
         print("Done!")
+        for model, entries in self.created.items():
+            print(f"Created {len(entries)} {model}s")
+        for model, entries in self.updated.items():
+            print(f"Updated {len(entries)} {model}s")
+        for model, entries in self.skipped.items():
+            print(f"Skipped {len(entries)} {model}s")
 
+    def create_or_update_group(self, row, prefix, defaults):
+        return self.create_or_update_model(row, Group, GroupT, prefix, defaults)
 
-def create_or_update_group(row, prefix, defaults):
-    return create_or_update_model(row, Group, GroupT, prefix, defaults)
+    def create_or_update_service(self, row, prefix, defaults):
+        return self.create_or_update_model(row, Service, ServiceT, prefix, defaults)
 
+    def create_or_update_model(self, row, model, model_t, prefix="", defaults={}):
+        name = get_name(prefix, row.get("Name [DE]")).strip()
+        model_name = model.__name__
 
-def create_or_update_service(row, prefix, defaults):
-    return create_or_update_model(row, Service, ServiceT, prefix, defaults)
+        pk = get_model_id_by_name(name, model_t, model_name)
+        if row.get("old_name"):
+            pk = get_model_id_by_name(
+                get_name(prefix, row.get("old_name")).strip(), model_t, model_name
+            )
+            if not pk:
+                print(
+                    "Old name '{0}' specified, but no corresponding entry found".format(
+                        row.get("old_name")
+                    )
+                )
+                sys.exit(1)
+        if pk:
+            obj = model.objects.get(pk=pk)
+        else:
+            obj = model()
+
+        if self.skip_update and pk:
+            print("skip ({0}) {1}".format(model_name, name))
+            self.skipped[model_name].append(name)
+        else:
+            if pk:
+                print("~ ({0}) {1}".format(model_name, name))
+                self.updated[model_name].append(name)
+            else:
+                print("+ ({0}) {1}".format(model_name, name))
+                self.created[model_name].append(name)
+
+            update_model(obj, row, model_name, defaults)
+            create_or_update_model_t(row, obj, prefix, model, model_t)
+        return obj
 
 
 def get_model_id_by_name(name, model_t, model_name):
@@ -64,33 +111,6 @@ def get_model_id_by_name(name, model_t, model_name):
     if len(filtered) > 0:
         return getattr(filtered[0], model_name.lower()).pk
     return None
-
-
-def create_or_update_model(row, model, model_t, prefix="", defaults={}):
-    name = get_name(prefix, row.get("Name [DE]")).strip()
-    model_name = model.__name__
-
-    pk = get_model_id_by_name(name, model_t, model_name)
-    if row.get("old_name"):
-        pk = get_model_id_by_name(
-            get_name(prefix, row.get("old_name")).strip(), model_t, model_name
-        )
-        if not pk:
-            print(
-                "Old name '{0}' specified, but no corresponding entry found".format(
-                    row.get("old_name")
-                )
-            )
-            sys.exit(1)
-    if pk:
-        print("~ ({0}) {1}".format(model_name, name))
-        obj = model.objects.get(pk=pk)
-    else:
-        print("+ ({0}) {1}".format(model_name, name))
-        obj = model()
-    update_model(obj, row, model_name, defaults)
-    create_or_update_model_t(row, obj, prefix, model, model_t)
-    return obj
 
 
 def create_or_update_model_t(row, obj, prefix, model, model_t):
