@@ -243,13 +243,7 @@ models_managed_by_customer = {
         "user.Service",
         "user.ServiceT",
     ],
-    "kt_bern": [
-        "user.Group",
-        "user.GroupT",
-        "user.GroupLocation",
-        "user.Service",
-        "user.ServiceT",
-    ],
+    "kt_bern": [],
     "kt_uri": [],
     "demo": [],
 }
