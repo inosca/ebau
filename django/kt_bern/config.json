@@ -132673,10 +132673,10 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nIhr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber Status\u00e4nderungen informiert.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n",
+      "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{instance_id}} wurde erfolgreich \u00fcbermittelt. Das Verfahren wird nun ausgel\u00f6st. Sie werden \u00fcber Status\u00e4nderungen informiert.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
-      "subject": "Erfolgreiche Einreichung - {{FORM_NAME}}",
+      "subject": "Erfolgreiche Einreichung",
       "template": 1
     },
     "model": "notification.notificationtemplatet",
@@ -132695,10 +132695,10 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}",
+      "body": "Guten Tag\r\n\r\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. {{instance_id}}.\r\n\r\n{{DOSSIER_LINK}}\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch - (Beh\u00f6rden)",
-      "subject": "Neu eingegangen: {{FORM_NAME}}",
+      "subject": "Neu eingegangen",
       "template": 2
     },
     "model": "notification.notificationtemplatet",
@@ -139529,6 +139529,86 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20249,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20415
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20250,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20416
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20251,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20417
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20252,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20418
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": null,
+      "phone": null,
+      "role": 20000,
+      "service": 20253,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 20419
+  },
+  {
+    "fields": {
       "city": null,
       "group": 1,
       "language": "de",
@@ -144729,6 +144809,106 @@
   },
   {
     "fields": {
+      "city": null,
+      "group": 20415,
+      "language": "de",
+      "name": "Neuenschwander Laura (Trubschachen)"
+    },
+    "model": "user.groupt",
+    "pk": 20608
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20415,
+      "language": "fr",
+      "name": "Neuenschwander Laura (Trubschachen)"
+    },
+    "model": "user.groupt",
+    "pk": 20609
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20416,
+      "language": "de",
+      "name": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20610
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20416,
+      "language": "fr",
+      "name": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20611
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20417,
+      "language": "de",
+      "name": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20612
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20417,
+      "language": "fr",
+      "name": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20613
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20418,
+      "language": "de",
+      "name": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20614
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20418,
+      "language": "fr",
+      "name": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)"
+    },
+    "model": "user.groupt",
+    "pk": 20615
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20419,
+      "language": "de",
+      "name": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20616
+  },
+  {
+    "fields": {
+      "city": null,
+      "group": 20419,
+      "language": "fr",
+      "name": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 20617
+  },
+  {
+    "fields": {
       "name": null,
       "role_parent": null
     },
@@ -148671,6 +148851,101 @@
   },
   {
     "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 1,
+      "email": "ln@trubschachen.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 2,
+      "service_parent": 20017,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20249
+  },
+  {
+    "fields": {
+      "address": "Schwand 2",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "wald.voralpen@vol.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "031 636 04 50",
+      "service_group": 1,
+      "service_parent": 20048,
+      "sort": 0,
+      "website": "https://www.vol.be.ch/vol/de/index/wald/wald/ueber_uns/waldabteilungen.html",
+      "zip": "3110"
+    },
+    "model": "user.service",
+    "pk": 20250
+  },
+  {
+    "fields": {
+      "address": "Schlossgasse 6",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "wald.alpen@vol.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "031 636 12 40",
+      "service_group": 1,
+      "service_parent": 20048,
+      "sort": 0,
+      "website": "https://www.vol.be.ch/vol/de/index/wald/wald/ueber_uns/waldabteilungen.html",
+      "zip": "3752"
+    },
+    "model": "user.service",
+    "pk": 20251
+  },
+  {
+    "fields": {
+      "address": "rue Pierre-Pertuis 7",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "foret.jurabernois@vol.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "031 636 12 80",
+      "service_group": 1,
+      "service_parent": 20048,
+      "sort": 0,
+      "website": "https://www.vol.be.ch/vol/fr/index/wald/wald/ueber_uns/waldabteilungen.html",
+      "zip": "2710"
+    },
+    "model": "user.service",
+    "pk": 20252
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": null,
+      "description": null,
+      "disabled": 0,
+      "email": "maya.buetikofer@bve.be.ch",
+      "name": null,
+      "notification": 1,
+      "phone": "",
+      "service_group": 1,
+      "service_parent": 20078,
+      "sort": 0,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.service",
+    "pk": 20253
+  },
+  {
+    "fields": {
       "name": null
     },
     "model": "user.servicegroup",
@@ -151636,5 +151911,115 @@
     },
     "model": "user.servicet",
     "pk": 20353
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Neuenschwander Laura (Trubschachen)",
+      "language": "de",
+      "name": "Neuenschwander Laura (Trubschachen)",
+      "service": 20249
+    },
+    "model": "user.servicet",
+    "pk": 20354
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Neuenschwander Laura (Trubschachen)",
+      "language": "fr",
+      "name": "Neuenschwander Laura (Trubschachen)",
+      "service": 20249
+    },
+    "model": "user.servicet",
+    "pk": 20355
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)",
+      "language": "de",
+      "name": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)",
+      "service": 20250
+    },
+    "model": "user.servicet",
+    "pk": 20356
+  },
+  {
+    "fields": {
+      "city": "M\u00fcnsingen",
+      "description": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)",
+      "language": "fr",
+      "name": "Unterfachstelle KAWA - Waldabteilung Voralpen (Bern)",
+      "service": 20250
+    },
+    "model": "user.servicet",
+    "pk": 20357
+  },
+  {
+    "fields": {
+      "city": "Wimmis",
+      "description": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)",
+      "language": "de",
+      "name": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)",
+      "service": 20251
+    },
+    "model": "user.servicet",
+    "pk": 20358
+  },
+  {
+    "fields": {
+      "city": "Wimmis",
+      "description": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)",
+      "language": "fr",
+      "name": "Unterfachstelle KAWA - Waldabteilung Alpen (Bern)",
+      "service": 20251
+    },
+    "model": "user.servicet",
+    "pk": 20359
+  },
+  {
+    "fields": {
+      "city": "Tavannes",
+      "description": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)",
+      "language": "de",
+      "name": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)",
+      "service": 20252
+    },
+    "model": "user.servicet",
+    "pk": 20360
+  },
+  {
+    "fields": {
+      "city": "Tavannes",
+      "description": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)",
+      "language": "fr",
+      "name": "Service sp\u00e9cialis\u00e9 OFOR - Division foresti\u00e8re Jura bernois (Bern)",
+      "service": 20252
+    },
+    "model": "user.servicet",
+    "pk": 20361
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)",
+      "language": "de",
+      "name": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)",
+      "service": 20253
+    },
+    "model": "user.servicet",
+    "pk": 20362
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle, Wasserbau oberes Emmental (Burgdorf)",
+      "service": 20253
+    },
+    "model": "user.servicet",
+    "pk": 20363
   }
 ]
