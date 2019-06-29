@@ -147065,7 +147065,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20015,
       "language": "de",
       "name": "Leitung Leitbeh\u00f6rde Hasle bei Burgdorf"
@@ -147075,7 +147075,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20016,
       "language": "de",
       "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle bei Burgdorf"
@@ -147085,7 +147085,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20017,
       "language": "de",
       "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle bei Burgdorf"
@@ -147095,7 +147095,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20018,
       "language": "de",
       "name": "Leitung Baukontrolle Hasle bei Burgdorf"
@@ -147105,7 +147105,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20019,
       "language": "de",
       "name": "Sachbearbeiter Baukontrolle Hasle bei Burgdorf"
@@ -147115,7 +147115,7 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
+      "city": "Hasle b.B.",
       "group": 20020,
       "language": "de",
       "name": "Einsichtsberechtigte Baukontrolle Hasle bei Burgdorf"
@@ -147125,7 +147125,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20021,
       "language": "de",
       "name": "Leitung Leitbeh\u00f6rde Langnau im Emmental"
@@ -147135,7 +147135,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20022,
       "language": "de",
       "name": "Sachbearbeiter Leitbeh\u00f6rde Langnau im Emmental"
@@ -147145,7 +147145,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20023,
       "language": "de",
       "name": "Einsichtsberechtigte Leitbeh\u00f6rde Langnau im Emmental"
@@ -147155,7 +147155,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20024,
       "language": "de",
       "name": "Leitung Baukontrolle Langnau im Emmental"
@@ -147165,7 +147165,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20025,
       "language": "de",
       "name": "Sachbearbeiter Baukontrolle Langnau im Emmental"
@@ -147175,7 +147175,7 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
+      "city": "Langnau i. E.",
       "group": 20026,
       "language": "de",
       "name": "Einsichtsberechtigte Baukontrolle Langnau im Emmental"
@@ -161325,6 +161325,606 @@
   },
   {
     "fields": {
+      "city": "Burgdorf",
+      "group": 20006,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21530
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "group": 20007,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21531
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "group": 20008,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21532
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "group": 20003,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21533
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "group": 20004,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21534
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "group": 20005,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21535
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20012,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21536
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20013,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21537
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20014,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21538
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20009,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21539
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20010,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21540
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "group": 20011,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Eggiwil"
+    },
+    "model": "user.groupt",
+    "pk": 21541
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20018,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21542
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20019,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21543
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20020,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21544
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20015,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21545
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20016,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21546
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "group": 20017,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 21547
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20024,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21548
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20025,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21549
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20026,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21550
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20021,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21551
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20022,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21552
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "group": 20023,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Langnau im Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 21553
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20030,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21554
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20031,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21555
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20032,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21556
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20027,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21557
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20028,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21558
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "group": 20029,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 21559
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20036,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21560
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20037,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21561
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20038,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21562
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20033,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21563
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20034,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21564
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "group": 20035,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 21565
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20042,
+      "language": "fr",
+      "name": "Leitung Baukontrolle R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21566
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20043,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21567
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20044,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21568
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20039,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21569
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20040,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21570
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "group": 20041,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 21571
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20054,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21572
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20055,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21573
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20056,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21574
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20051,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21575
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20052,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21576
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "group": 20053,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 21577
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20048,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21578
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20049,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21579
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20050,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21580
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20045,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21581
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20046,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21582
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20047,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 21583
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20060,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21584
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20061,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21585
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20062,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21586
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20057,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21587
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20058,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21588
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "group": 20059,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 21589
+  },
+  {
+    "fields": {
       "name": null,
       "role_parent": null
     },
@@ -161581,14 +162181,14 @@
   },
   {
     "fields": {
-      "address": "Lyssachstrasse 92  Postfach 1540",
+      "address": "Kirchb\u00fchl 19, Rathaus, Postfach 1570",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "baudirektion@burgdorf.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 429 42 11",
+      "phone": "+41 34 429 91 11",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161600,14 +162200,14 @@
   },
   {
     "fields": {
-      "address": "Lyssachstrasse 92  Postfach 1540",
+      "address": "Kirchb\u00fchl 19, Rathaus, Postfach 1570",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "baudirektion@burgdorf.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 429 42 11",
+      "phone": "+41 34 429 91 11",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161626,7 +162226,7 @@
       "email": "info@eggiwil.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 491 93 90",
+      "phone": "+41 34 491 93 93",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161645,7 +162245,7 @@
       "email": "info@eggiwil.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 491 93 90",
+      "phone": "+41 34 491 93 93",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161657,18 +162257,18 @@
   },
   {
     "fields": {
-      "address": "Bahnhofplatz 5",
+      "address": "Bahnhofplatz 5, Postfach 244",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "info@hasle.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 460 45 45",
+      "phone": "+41 34 460 45 45",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
-      "website": "https://www.hasle.ch/de/home/",
+      "website": "www.hasle.ch",
       "zip": "3415"
     },
     "model": "user.service",
@@ -161676,18 +162276,18 @@
   },
   {
     "fields": {
-      "address": "Bahnhofplatz 5",
+      "address": "Bahnhofplatz 5, Postfach 244",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "info@hasle.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 460 45 45",
+      "phone": "+41 34 460 45 45",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
-      "website": "https://www.hasle.ch/de/home/",
+      "website": "www.hasle.ch",
       "zip": "3415"
     },
     "model": "user.service",
@@ -161695,14 +162295,14 @@
   },
   {
     "fields": {
-      "address": "Alleestrasse 8",
+      "address": "Haldenstrasse 5",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "bauverwaltung@langnau-ie.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 409 31 31",
+      "phone": "+41 34 409 31 11",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161714,14 +162314,14 @@
   },
   {
     "fields": {
-      "address": "Alleestrasse 8",
+      "address": "Haldenstrasse 5",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "bauverwaltung@langnau-ie.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 409 31 31",
+      "phone": "+41 34 409 31 11",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161740,7 +162340,7 @@
       "email": "info@lyssach.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 445 25 15",
+      "phone": "+41 34 445 25 15",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161759,7 +162359,7 @@
       "email": "info@lyssach.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 445 25 15",
+      "phone": "+41 34 445 25 15",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161778,7 +162378,7 @@
       "email": "bauverwaltung@oberburg.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 420 12 14",
+      "phone": "+41 34 420 12 12",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161797,7 +162397,7 @@
       "email": "bauverwaltung@oberburg.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 420 12 14",
+      "phone": "+41 34 420 12 12",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161816,7 +162416,7 @@
       "email": "ebau@ruederswil.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 496 20 20",
+      "phone": "+41 34 496 20 20",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161835,7 +162435,7 @@
       "email": "ebau@ruederswil.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 496 20 20",
+      "phone": "+41 34 496 20 20",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161847,14 +162447,14 @@
   },
   {
     "fields": {
-      "address": "Postfach 139",
+      "address": "Hauptstrasse 28, Postfach 139",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "abteilung.bau@utzenstorf.ch",
       "name": null,
       "notification": 1,
-      "phone": "032 666 41 42",
+      "phone": "+41 32 666 41 41",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161866,14 +162466,14 @@
   },
   {
     "fields": {
-      "address": "Postfach 139",
+      "address": "Hauptstrasse 28, Postfach 139",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "abteilung.bau@utzenstorf.ch",
       "name": null,
       "notification": 1,
-      "phone": "032 666 41 42",
+      "phone": "+41 32 666 41 41",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161892,7 +162492,7 @@
       "email": "gemeinde@trubschachen.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 495 51 55",
+      "phone": "+41 34 495 51 55",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161911,7 +162511,7 @@
       "email": "gemeinde@trubschachen.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 495 51 55",
+      "phone": "+41 34 495 51 55",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -161923,14 +162523,14 @@
   },
   {
     "fields": {
-      "address": "Dorfstrasse 3 Postfach 163",
+      "address": "Dorfstrasse 3, Postfach 163",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "gemeinde@wynigen.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 415 77 00",
+      "phone": "+41 34 415 77 00",
       "service_group": 2,
       "service_parent": null,
       "sort": 0,
@@ -161942,14 +162542,14 @@
   },
   {
     "fields": {
-      "address": "Dorfstrasse 3 Postfach 163",
+      "address": "Dorfstrasse 3, Postfach 163",
       "city": null,
       "description": null,
       "disabled": 0,
       "email": "gemeinde@wynigen.ch",
       "name": null,
       "notification": 1,
-      "phone": "034 415 77 00",
+      "phone": "+41 34 415 77 00",
       "service_group": 3,
       "service_parent": null,
       "sort": 0,
@@ -168358,8 +168958,8 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
-      "description": "Leitbeh\u00f6rde Hasle b. B.",
+      "city": "Hasle b.B.",
+      "description": "Leitbeh\u00f6rde Hasle bei Burgdorf",
       "language": "de",
       "name": "Leitbeh\u00f6rde Hasle bei Burgdorf",
       "service": 20005
@@ -168369,8 +168969,8 @@
   },
   {
     "fields": {
-      "city": "Hasle b. B.",
-      "description": "Baukontrolle Hasle b. B.",
+      "city": "Hasle b.B.",
+      "description": "Baukontrolle Hasle bei Burgdorf",
       "language": "de",
       "name": "Baukontrolle Hasle bei Burgdorf",
       "service": 20006
@@ -168380,8 +168980,8 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
-      "description": "Leitbeh\u00f6rde Langnau",
+      "city": "Langnau i. E.",
+      "description": "Leitbeh\u00f6rde Langnau im Emmental",
       "language": "de",
       "name": "Leitbeh\u00f6rde Langnau im Emmental",
       "service": 20007
@@ -168391,8 +168991,8 @@
   },
   {
     "fields": {
-      "city": "Langnau i.E.",
-      "description": "Baukontrolle Langnau",
+      "city": "Langnau i. E.",
+      "description": "Baukontrolle Langnau im Emmental",
       "language": "de",
       "name": "Baukontrolle Langnau im Emmental",
       "service": 20008
@@ -174669,5 +175269,225 @@
     },
     "model": "user.servicet",
     "pk": 20667
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Baukontrolle Burgdorf",
+      "language": "fr",
+      "name": "Baukontrolle Burgdorf",
+      "service": 3
+    },
+    "model": "user.servicet",
+    "pk": 20668
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Leitbeh\u00f6rde Burgdorf",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Burgdorf",
+      "service": 2
+    },
+    "model": "user.servicet",
+    "pk": 20669
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "description": "Baukontrolle Eggiwil",
+      "language": "fr",
+      "name": "Baukontrolle Eggiwil",
+      "service": 20004
+    },
+    "model": "user.servicet",
+    "pk": 20670
+  },
+  {
+    "fields": {
+      "city": "Eggiwil",
+      "description": "Leitbeh\u00f6rde Eggiwil",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Eggiwil",
+      "service": 20003
+    },
+    "model": "user.servicet",
+    "pk": 20671
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "description": "Baukontrolle Hasle bei Burgdorf",
+      "language": "fr",
+      "name": "Baukontrolle Hasle bei Burgdorf",
+      "service": 20006
+    },
+    "model": "user.servicet",
+    "pk": 20672
+  },
+  {
+    "fields": {
+      "city": "Hasle b.B.",
+      "description": "Leitbeh\u00f6rde Hasle bei Burgdorf",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Hasle bei Burgdorf",
+      "service": 20005
+    },
+    "model": "user.servicet",
+    "pk": 20673
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "description": "Baukontrolle Langnau im Emmental",
+      "language": "fr",
+      "name": "Baukontrolle Langnau im Emmental",
+      "service": 20008
+    },
+    "model": "user.servicet",
+    "pk": 20674
+  },
+  {
+    "fields": {
+      "city": "Langnau i. E.",
+      "description": "Leitbeh\u00f6rde Langnau im Emmental",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Langnau im Emmental",
+      "service": 20007
+    },
+    "model": "user.servicet",
+    "pk": 20675
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "description": "Baukontrolle Lyssach",
+      "language": "fr",
+      "name": "Baukontrolle Lyssach",
+      "service": 20010
+    },
+    "model": "user.servicet",
+    "pk": 20676
+  },
+  {
+    "fields": {
+      "city": "Lyssach",
+      "description": "Leitbeh\u00f6rde Lyssach",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Lyssach",
+      "service": 20009
+    },
+    "model": "user.servicet",
+    "pk": 20677
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Baukontrolle Oberburg",
+      "language": "fr",
+      "name": "Baukontrolle Oberburg",
+      "service": 20012
+    },
+    "model": "user.servicet",
+    "pk": 20678
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Leitbeh\u00f6rde Oberburg",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Oberburg",
+      "service": 20011
+    },
+    "model": "user.servicet",
+    "pk": 20679
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "description": "Baukontrolle R\u00fcderswil",
+      "language": "fr",
+      "name": "Baukontrolle R\u00fcderswil",
+      "service": 20014
+    },
+    "model": "user.servicet",
+    "pk": 20680
+  },
+  {
+    "fields": {
+      "city": "R\u00fcderswil",
+      "description": "Leitbeh\u00f6rde R\u00fcderswil",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde R\u00fcderswil",
+      "service": 20013
+    },
+    "model": "user.servicet",
+    "pk": 20681
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "description": "Baukontrolle Trubschachen",
+      "language": "fr",
+      "name": "Baukontrolle Trubschachen",
+      "service": 20018
+    },
+    "model": "user.servicet",
+    "pk": 20682
+  },
+  {
+    "fields": {
+      "city": "Trubschachen",
+      "description": "Leitbeh\u00f6rde Trubschachen",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Trubschachen",
+      "service": 20017
+    },
+    "model": "user.servicet",
+    "pk": 20683
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Baukontrolle Utzenstorf",
+      "language": "fr",
+      "name": "Baukontrolle Utzenstorf",
+      "service": 20016
+    },
+    "model": "user.servicet",
+    "pk": 20684
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Leitbeh\u00f6rde Utzenstorf",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Utzenstorf",
+      "service": 20015
+    },
+    "model": "user.servicet",
+    "pk": 20685
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "description": "Baukontrolle Wynigen",
+      "language": "fr",
+      "name": "Baukontrolle Wynigen",
+      "service": 20020
+    },
+    "model": "user.servicet",
+    "pk": 20686
+  },
+  {
+    "fields": {
+      "city": "Wynigen",
+      "description": "Leitbeh\u00f6rde Wynigen",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Wynigen",
+      "service": 20019
+    },
+    "model": "user.servicet",
+    "pk": 20687
   }
 ]
