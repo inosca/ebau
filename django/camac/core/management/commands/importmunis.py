@@ -3,7 +3,7 @@ from camac.core.dataimport import (
     create_or_update_group,
     create_or_update_service,
 )
-from camac.core.models import Role, ServiceGroup
+from camac.user.models import Role, ServiceGroup
 
 ROLE_LEITUNG_LEITBEHOERDE = 3
 ROLE_SACHBEARBEITER_LEITBEHOERDE = 20004
