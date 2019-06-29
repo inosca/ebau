@@ -139772,7 +139772,7 @@
       "city": "Hasle b. B.",
       "group": 20015,
       "language": "de",
-      "name": "Leitung Leitbeh\u00f6rde Hasle b. B."
+      "name": "Leitung Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20015
@@ -139782,7 +139782,7 @@
       "city": "Hasle b. B.",
       "group": 20016,
       "language": "de",
-      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle b. B."
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20016
@@ -139792,7 +139792,7 @@
       "city": "Hasle b. B.",
       "group": 20017,
       "language": "de",
-      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle b. B."
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20017
@@ -139802,7 +139802,7 @@
       "city": "Hasle b. B.",
       "group": 20018,
       "language": "de",
-      "name": "Leitung Baukontrolle Hasle b. B."
+      "name": "Leitung Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20018
@@ -139812,7 +139812,7 @@
       "city": "Hasle b. B.",
       "group": 20019,
       "language": "de",
-      "name": "Sachbearbeiter Baukontrolle Hasle b. B."
+      "name": "Sachbearbeiter Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20019
@@ -139822,7 +139822,7 @@
       "city": "Hasle b. B.",
       "group": 20020,
       "language": "de",
-      "name": "Einsichtsberechtigte Baukontrolle Hasle b. B."
+      "name": "Einsichtsberechtigte Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20020
@@ -139832,7 +139832,7 @@
       "city": "Langnau i.E.",
       "group": 20021,
       "language": "de",
-      "name": "Leitung Leitbeh\u00f6rde Langnau"
+      "name": "Leitung Leitbeh\u00f6rde Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20021
@@ -139842,7 +139842,7 @@
       "city": "Langnau i.E.",
       "group": 20022,
       "language": "de",
-      "name": "Sachbearbeiter Leitbeh\u00f6rde Langnau"
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20022
@@ -139852,7 +139852,7 @@
       "city": "Langnau i.E.",
       "group": 20023,
       "language": "de",
-      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Langnau"
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20023
@@ -139862,7 +139862,7 @@
       "city": "Langnau i.E.",
       "group": 20024,
       "language": "de",
-      "name": "Leitung Baukontrolle Langnau"
+      "name": "Leitung Baukontrolle Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20024
@@ -139872,7 +139872,7 @@
       "city": "Langnau i.E.",
       "group": 20025,
       "language": "de",
-      "name": "Sachbearbeiter Baukontrolle Langnau"
+      "name": "Sachbearbeiter Baukontrolle Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20025
@@ -139882,7 +139882,7 @@
       "city": "Langnau i.E.",
       "group": 20026,
       "language": "de",
-      "name": "Einsichtsberechtigte Baukontrolle Langnau"
+      "name": "Einsichtsberechtigte Baukontrolle Langnau im Emmental"
     },
     "model": "user.groupt",
     "pk": 20026
@@ -143362,7 +143362,7 @@
       "city": "Hasle b. B.",
       "group": 20301,
       "language": "de",
-      "name": "Leitung Baukontrolle Hasle b. B."
+      "name": "Leitung Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20463
@@ -143372,7 +143372,7 @@
       "city": "Hasle b. B.",
       "group": 20302,
       "language": "de",
-      "name": "Sachbearbeiter Baukontrolle Hasle b. B."
+      "name": "Sachbearbeiter Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20464
@@ -143382,7 +143382,7 @@
       "city": "Hasle b. B.",
       "group": 20303,
       "language": "de",
-      "name": "Einsichtsberechtigte Baukontrolle Hasle b. B."
+      "name": "Einsichtsberechtigte Baukontrolle Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20465
@@ -143392,7 +143392,7 @@
       "city": "Hasle b. B.",
       "group": 20304,
       "language": "de",
-      "name": "Leitung Leitbeh\u00f6rde Hasle b. B."
+      "name": "Leitung Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20466
@@ -143402,7 +143402,7 @@
       "city": "Hasle b. B.",
       "group": 20305,
       "language": "de",
-      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle b. B."
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20467
@@ -143412,7 +143412,7 @@
       "city": "Hasle b. B.",
       "group": 20306,
       "language": "de",
-      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle b. B."
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle bei Burgdorf"
     },
     "model": "user.groupt",
     "pk": 20468
@@ -149057,7 +149057,7 @@
       "city": "Hasle b. B.",
       "description": "Leitbeh\u00f6rde Hasle b. B.",
       "language": "de",
-      "name": "Leitbeh\u00f6rde Hasle b. B.",
+      "name": "Leitbeh\u00f6rde Hasle bei Burgdorf",
       "service": 20005
     },
     "model": "user.servicet",
@@ -149068,7 +149068,7 @@
       "city": "Hasle b. B.",
       "description": "Baukontrolle Hasle b. B.",
       "language": "de",
-      "name": "Baukontrolle Hasle b. B.",
+      "name": "Baukontrolle Hasle bei Burgdorf",
       "service": 20006
     },
     "model": "user.servicet",
@@ -149079,7 +149079,7 @@
       "city": "Langnau i.E.",
       "description": "Leitbeh\u00f6rde Langnau",
       "language": "de",
-      "name": "Leitbeh\u00f6rde Langnau",
+      "name": "Leitbeh\u00f6rde Langnau im Emmental",
       "service": 20007
     },
     "model": "user.servicet",
@@ -149090,7 +149090,7 @@
       "city": "Langnau i.E.",
       "description": "Baukontrolle Langnau",
       "language": "de",
-      "name": "Baukontrolle Langnau",
+      "name": "Baukontrolle Langnau im Emmental",
       "service": 20008
     },
     "model": "user.servicet",
@@ -150476,7 +150476,7 @@
       "city": "Hasle b. B.",
       "description": "Baukontrolle Hasle b. B.",
       "language": "de",
-      "name": "Baukontrolle Hasle b. B.",
+      "name": "Baukontrolle Hasle bei Burgdorf",
       "service": 20143
     },
     "model": "user.servicet",
@@ -150487,7 +150487,7 @@
       "city": "Hasle b. B.",
       "description": "Leitbeh\u00f6rde Hasle b. B.",
       "language": "de",
-      "name": "Leitbeh\u00f6rde Hasle b. B.",
+      "name": "Leitbeh\u00f6rde Hasle bei Burgdorf",
       "service": 20144
     },
     "model": "user.servicet",
