@@ -247,7 +247,7 @@ class RoleT(models.Model):
         db_table = "ROLE_T"
 
 
-class ServiceGroup(models.Model):
+class ServiceGroup(core_models.MultilingualModel, models.Model):
     service_group_id = models.AutoField(db_column="SERVICE_GROUP_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
 
@@ -258,7 +258,7 @@ class ServiceGroup(models.Model):
 
 class ServiceGroupT(models.Model):
     service_group = models.ForeignKey(
-        ServiceGroup, models.CASCADE, db_column="SERVICE_GROUP_ID", related_name="+"
+        ServiceGroup, models.CASCADE, db_column="SERVICE_GROUP_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
