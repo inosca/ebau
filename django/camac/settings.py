@@ -159,6 +159,11 @@ APPLICATIONS = {
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
+INSTANCE_URL_TEMPLATE = env.str(
+    "INSTANCE_URL_TEMPLATE",
+    default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
+)
+
 # Logging
 
 LOGGING = {
