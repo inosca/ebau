@@ -2,12 +2,15 @@ import itertools
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
+from logging import getLogger
 
 import inflection
 import jinja2
+import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.core.models import Activation
@@ -17,6 +20,11 @@ from camac.user.models import Service
 
 from ..core import models as core_models
 from . import models
+
+request_logger = getLogger("django.request")
+
+
+mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
 
 
 class NoticeMergeSerializer(serializers.Serializer):
@@ -64,6 +72,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
     instance_id = serializers.IntegerField()
+    dossier_link = serializers.SerializerMethodField()
+    leitbehoerde_name = serializers.SerializerMethodField()
+    form_name = serializers.SerializerMethodField()
 
     # TODO: extend with bern attributes
 
@@ -96,6 +107,63 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
+    def get_leitbehoerde_name(self, instance):
+        instance_service = core_models.InstanceService.objects.filter(
+            instance=instance, active=1
+        ).first()
+        if not instance_service:
+            return "-"
+        return instance_service.service.name
+
+    def get_form_name(self, instance):
+        if settings.CALUMA_URL is None:
+            return instance.form.get_name()
+        caluma_resp = requests.post(
+            settings.CALUMA_URL,
+            json={
+                "query": """,
+                    query {
+                      allCases (metaValue: { key: "camac-instance-id", value: $instance_id}) {
+                        edges {
+                          node {
+                            id
+                          }
+                          document {
+                            form {
+                              name
+                            }
+                          }
+                        }
+                      }
+                    }
+                """,
+                "variables": {"instance_id": instance.pk},
+            },
+            headers={
+                "Authorization": get_authorization_header(self.context["request"])
+            },
+        )
+        try:
+            return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"][
+                "document"
+            ]["form"]["name"]
+        except (KeyError, IndexError):  # pragma: no cover
+            request_logger.error(
+                "get_form_name(): Caluma did not respond with a valid response"
+            )
+            return "-"
+
+    def get_dossier_link(self, instance):
+        rq = self.context["request"]._request
+
+        template = settings.INSTANCE_URL_TEMPLATE
+        base_url = f"{rq.scheme}://{rq.get_host()}"
+
+        path = template.replace("{base_url}", base_url).replace(
+            "{instance_id}", str(instance.pk)
+        )
+        return path
+
     def to_representation(self, instance):
         ret = super().to_representation(instance)
 
@@ -117,7 +185,7 @@ class IssueMergeSerializer(serializers.Serializer):
         ret = super().to_representation(issue)
 
         # include instance merge fields
-        ret.update(InstanceMergeSerializer(issue.instance).data)
+        ret.update(InstanceMergeSerializer(issue.instance, context=self.context).data)
 
         return ret
 
@@ -146,7 +214,7 @@ class NotificationTemplateMergeSerializer(
     def _merge(self, value, instance):
         try:
             value_template = jinja2.Template(value)
-            data = InstanceMergeSerializer(instance).data
+            data = InstanceMergeSerializer(instance, context=self.context).data
 
             # some cantons use uppercase placeholders. be as compatible as possible
             data.update({k.upper(): v for k, v in data.items()})
