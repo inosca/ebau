@@ -159,10 +159,22 @@ APPLICATIONS = {
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
-INSTANCE_URL_TEMPLATE = env.str(
-    "INSTANCE_URL_TEMPLATE",
-    default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
-)
+# Instance URL templates. Allows to use the following placeholders
+# which will be substituted on the fly:
+# * {base_url} - base URL of the installation. Note if you
+#                intend to send out notifications from cron
+#                jobs or similar, you cannot use this placeholder
+# * {instance_id} - Identifier of the instance in question
+INSTANCE_URL_TEMPLATE = {
+    "PUBLIC": env.str(
+        "PUBLIC_INSTANCE_URL_TEMPLATE",
+        default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
+    ),
+    "INTERNAL": env.str(
+        "INTERNAL_INSTANCE_URL_TEMPLATE",
+        default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
+    ),
+}
 
 # Logging
 
