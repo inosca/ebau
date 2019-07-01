@@ -72,7 +72,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
     instance_id = serializers.IntegerField()
-    dossier_link = serializers.SerializerMethodField()
+    public_dossier_link = serializers.SerializerMethodField()
+    internal_dossier_link = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
 
@@ -118,6 +119,59 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_form_name(self, instance):
         if settings.CALUMA_URL is None:
             return instance.form.get_name()
+        try:
+            caluma_resp = requests.post(
+                settings.CALUMA_URL,
+                json={
+                    "query": """,
+                        query {
+                          allCases (metaValue: { key: "camac-instance-id", value: $instance_id}) {
+                            edges {
+                              node {
+                                id
+                              }
+                              document {
+                                form {
+                                  name
+                                }
+                              }
+                            }
+                          }
+                        }
+                    """,
+                    "variables": {"instance_id": instance.pk},
+                },
+                headers={
+                    "Authorization": get_authorization_header(self.context["request"])
+                },
+            )
+            return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"][
+                "document"
+            ]["form"]["name"]
+        except (KeyError, IndexError):  # pragma: no cover
+            request_logger.error(
+                "get_form_name(): Caluma did not respond with a valid response"
+            )
+            return "-"
+
+    def get_internal_dossier_link(self, instance):
+        return self._get_dossier_link(instance, "INTERNAL")
+
+    def get_public_dossier_link(self, instance):
+        return self._get_dossier_link(instance, "PUBLIC")
+
+    def _get_dossier_link(self, instance, mode):
+        template = settings.INSTANCE_URL_TEMPLATE[mode]
+
+        path = self._str_replace_cb("{base_url}", self._make_base_url, template)
+        path = self._str_replace_cb(
+            "{case_id}", lambda: self._get_caluma_id(instance), template
+        )
+        path = path.replace("{instance_id}", str(instance.pk))
+
+        return path
+
+    def _get_caluma_id(self, instance):
         caluma_resp = requests.post(
             settings.CALUMA_URL,
             json={
@@ -127,11 +181,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                         edges {
                           node {
                             id
-                          }
-                          document {
-                            form {
-                              name
-                            }
                           }
                         }
                       }
@@ -143,26 +192,21 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 "Authorization": get_authorization_header(self.context["request"])
             },
         )
+        return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"]["id"]
+
+    def _make_base_url(self):
         try:
-            return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"][
-                "document"
-            ]["form"]["name"]
-        except (KeyError, IndexError):  # pragma: no cover
-            request_logger.error(
-                "get_form_name(): Caluma did not respond with a valid response"
-            )
-            return "-"
+            rq = self.context["request"]._request
+            return f"{rq.scheme}://{rq.get_host()}"
+        except KeyError:
+            request_logger.error("get_dossier_link(): Cannot get base URL from request")
+            return "??"
 
-    def get_dossier_link(self, instance):
-        rq = self.context["request"]._request
-
-        template = settings.INSTANCE_URL_TEMPLATE
-        base_url = f"{rq.scheme}://{rq.get_host()}"
-
-        path = template.replace("{base_url}", base_url).replace(
-            "{instance_id}", str(instance.pk)
-        )
-        return path
+    def _str_replace_cb(self, pattern, callback, string):
+        if pattern not in string:
+            return string
+        value = callback()
+        return string.replace(pattern, value)
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
