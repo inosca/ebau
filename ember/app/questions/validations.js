@@ -56,6 +56,29 @@ const validateNumber = ({ min, max }, value) => {
   return true;
 };
 
+const validateNumberSeparator = ({ min, max }, value) => {
+  if (isBlank(value)) {
+    return "";
+  }
+
+  max = parseFloat(max);
+  min = parseFloat(min);
+
+  if (!value.match(/^-?[\d’]+[.,]?\d*$/)) {
+    return "Der Wert muss eine Zahl sein";
+  }
+
+  if (!isNaN(min) && Number(value) < min) {
+    return `Der Wert muss grösser als ${min - 1} sein`;
+  }
+
+  if (!isNaN(max) && Number(value) > max) {
+    return `Der Wert muss kleiner als ${max + 1} sein`;
+  }
+
+  return "";
+};
+
 const validateCheckbox = ({ options }, value) => {
   if (isBlank(value)) {
     return true;
@@ -108,6 +131,7 @@ export default {
   validateRequired,
   validateText,
   validateNumber,
+  validateNumberSeparator,
   validateCheckbox,
   validateRadio,
 

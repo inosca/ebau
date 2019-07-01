@@ -1,4 +1,5 @@
 import Component from "@ember/component";
+import validations from "citizen-portal/questions/validations";
 
 // The component to display numbers with thousands separators
 export default Component.extend({
@@ -48,20 +49,11 @@ export default Component.extend({
   },
 
   validateValue(value) {
-    if (value === "") {
-      this.set("title", "");
-      return true;
-    } else if (!value.match(/^-?[\d’]+[.,]?\d*$/)) {
-      this.set("title", "Eingabe ist keine Zahl");
-      return false;
-    } else if (Number(value) > this.get("config.max")) {
-      this.set("title", "Eingabe ist zu gross");
-      return false;
-    } else if (Number(value) < this.get("config.min")) {
-      this.set("title", "Eingabe ist zu klein");
-      return false;
-    }
-    this.set("title", "");
-    return true;
+    let result = validations.validateNumberSeparator(
+      { min: this.get("config.min"), max: this.get("config.max") },
+      value
+    );
+    this.set("title", result);
+    return !result;
   }
 });
