@@ -168,7 +168,7 @@ APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 INSTANCE_URL_TEMPLATE = {
     "PUBLIC": env.str(
         "PUBLIC_INSTANCE_URL_TEMPLATE",
-        default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
+        default="http://caluma-portal.local/instances/{case_id}",
     ),
     "INTERNAL": env.str(
         "INTERNAL_INSTANCE_URL_TEMPLATE",

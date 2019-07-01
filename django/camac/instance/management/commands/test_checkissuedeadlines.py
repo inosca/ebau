@@ -8,8 +8,11 @@ from camac.instance.models import Issue
 
 
 def test_checkissuedeadlines(
-    db, issue_factory, service, user, mailoutbox, notification_template
+    db, issue_factory, service, user, mailoutbox, notification_template, settings
 ):
+    # Caluma is not used in Demo (yet), so make sure it's not set
+    settings.CALUMA_URL = None
+
     delayed_issue = issue_factory(
         service=service, user=user, deadline_date=date.today() - timedelta(1)
     )
