@@ -1,9 +1,5 @@
-from camac.core.dataimport import (
-    ImportCommand,
-    create_or_update_group,
-    create_or_update_service,
-)
-from camac.core.models import Role, ServiceGroup
+from camac.core.dataimport import ImportCommand
+from camac.user.models import Role, ServiceGroup
 
 ROLE_LEITUNG_LEITBEHOERDE = 3
 ROLE_SACHBEARBEITER_LEITBEHOERDE = 20004
@@ -48,19 +44,14 @@ class Command(ImportCommand):
     """
 
     def import_data(self, reader):
-        _import_data(reader)
-
-
-def _import_data(data):
-    service = None
-    for row in data:
-        if row.get("Gemeinde"):
+        service = None
+        for row in reader:
             for sg in [SERVICE_GROUP_BAUKONTROLLE, SERVICE_GROUP_LEITBEHOERDE_GEMEINDE]:
-                service = create_or_update_service(
+                service = self.create_or_update_service(
                     row, sg["name"], defaults={"service_group": sg["service_group"]}
                 )
                 for role in sg["groups"]:
-                    create_or_update_group(
+                    self.create_or_update_group(
                         row,
                         "{0} {1}".format(role[0], sg["name"]),
                         defaults={
@@ -68,22 +59,3 @@ def _import_data(data):
                             "service": service,
                         },
                     )
-        else:
-            subservice = create_or_update_service(
-                row,
-                "Unterfachstelle",
-                defaults={
-                    "service_group": SERVICE_GROUP_LEITBEHOERDE_GEMEINDE[
-                        "service_group"
-                    ],
-                    "service_parent": service,
-                },
-            )
-            create_or_update_group(
-                row,
-                "Unterfachstelle",
-                defaults={
-                    "role": Role.objects.get(pk=ROLE_UNTERFACHSTELLE),
-                    "service": subservice,
-                },
-            )
