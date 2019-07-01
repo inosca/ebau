@@ -24,9 +24,6 @@ from . import models
 request_logger = getLogger("django.request")
 
 
-mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
-
-
 class NoticeMergeSerializer(serializers.Serializer):
     service = serializers.StringRelatedField(source="activation.service")
     notice_type = serializers.StringRelatedField()
@@ -76,8 +73,6 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     internal_dossier_link = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
-
-    # TODO: extend with bern attributes
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -165,13 +160,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         path = self._str_replace_cb("{base_url}", self._make_base_url, template)
         path = self._str_replace_cb(
-            "{case_id}", lambda: self._get_caluma_id(instance), template
+            "{case_id}", lambda: self._get_caluma_id(instance), path
         )
         path = path.replace("{instance_id}", str(instance.pk))
 
         return path
 
     def _get_caluma_id(self, instance):
+        if not settings.CALUMA_URL:
+            return "-"
         caluma_resp = requests.post(
             settings.CALUMA_URL,
             json={

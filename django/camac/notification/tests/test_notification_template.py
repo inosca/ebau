@@ -50,6 +50,9 @@ def test_notification_template_merge(
 ):
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
+    # Caluma is not used in SZ (yet), so make sure it's not set
+    settings.CALUMA_URL = None
+
     response = admin_client.get(url, data={"instance": instance.pk})
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
@@ -93,6 +96,8 @@ def test_notification_template_sendmail(
     activation,
     settings,
 ):
+    # Caluma is not used in SZ (yet), so make sure it's not set
+    settings.CALUMA_URL = None
 
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
 
