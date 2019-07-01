@@ -2346,7 +2346,7 @@
           "Hagelschutznetze",
           "Aussenausläufe",
           "Terrainveränderung",
-          "Güter-/Bewirtschaftung"
+          "Güter-/Bewirtschaftungsweg"
         ]
       }
     },
@@ -2355,7 +2355,7 @@
       "hint": "**Talgebiet:** Das Talgebiet umfasst die Hügelzone und die Talzone.\n\n**Berggebiet:** Das Berggebiet umfasst die Bergzone I bis IV.",
       "type": "radio",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value)",
       "config": {
         "options": [
           "Berggebiet",
@@ -2368,7 +2368,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche zum Landwirtschaftsbetrieb gehörenden Wohnbauten aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske für jeweils eine Wohnbaute öffnen.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1)))",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value || 'Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value >= 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value >= 1)))",
       "config": {
         "columns": [
           {
@@ -2579,7 +2579,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Güllenlager aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske öffnen.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value)",
       "config": {
         "columns": [
           {
@@ -2653,7 +2653,7 @@
       "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Mistplatten aufzulisten.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske öffnen.",
       "type": "table",
       "required": true,
-      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value)",
+      "active-expression": "'Landwirtschaft' in 'art-der-nutzung'|value && ('Stallgebäude' in 'landwirtschaft-bereiche-baute'|value || 'Hofdüngerlager' in 'landwirtschaft-bereiche-anlage'|value || 'Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value)",
       "config": {
         "columns": [
           {
@@ -2680,7 +2680,7 @@
       "hint": "Gebäude sind ortsfeste Bauten, die zum Schutz von Menschen, Tieren oder Sachen eine feste Überdachung und in der Regel weitere Abschlüsse aufweisen.",
       "type": "table",
       "required": true,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2716,7 +2716,7 @@
       "hint": "Unter den Begriff der Anlagen fallen beispielsweise offene Schwimmbäder, Stützmauern, Geländeveränderungen, Leitungen. Gebäude/Bauten sind hingegen keine Anlagen.",
       "type": "table",
       "required": true,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2743,7 +2743,7 @@
       "hint": "Der 1. Juli 1972 gilt als massgebender Stichtag, weil dannzumal das Bauen ausserhalb der Bauzonen erstmals einer einschränkenden bundesrechtlichen Regelung unterworfen wurde.",
       "type": "radio",
       "required": true,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "options": [
           "Ja",
@@ -2756,7 +2756,7 @@
       "hint": "Beschreiben Sie bitte genau, zu welchem Zeitpunkt welche Änderungen vorgenommen wurden.",
       "type": "text",
       "required": true,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && ((('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1)) && 'nlbuaab-erweiterungen'|value == 'Ja')",
       "config": {}
     },
     "nlbuaab-nutzflachen-bestehend-1972": {
@@ -2764,7 +2764,7 @@
       "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2809,7 +2809,7 @@
       "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2854,7 +2854,7 @@
       "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
@@ -2899,7 +2899,7 @@
       "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
-      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) && (('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
+      "active-expression": "('Wohnen' in 'art-der-nutzung'|value || 'Gewerbe / Dienstleistung' in 'art-der-nutzung'|value || 'Industrie' in 'art-der-nutzung'|value || 'Öffentliche Nutzung' in 'art-der-nutzung'|value || 'Forstwirtschaft' in 'art-der-nutzung'|value || 'Tourismus' in 'art-der-nutzung'|value) || ('Wohnbaute(n)' in 'landwirtschaft-bereiche-baute'|value && ('landwirtschaft-gebietskategorie'|value == 'Berggebiet' && 'landwirtschaft-sak-wert'|value < 0.75) || ('landwirtschaft-gebietskategorie'|value == 'Talgebiet' && 'landwirtschaft-sak-wert'|value < 1))",
       "config": {
         "columns": [
           {
