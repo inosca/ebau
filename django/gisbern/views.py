@@ -75,7 +75,7 @@ def get_gis_data(multisurface):
     ]
     print(boolean_layers)
 
-    query = list(
+    query = "".join(
         map(
             lambda x: """<Query typeName="a42geo_ebau_kt_wfs_d_fk:{0}" srsName="EPSG:2056">
         <ogc:Filter>
@@ -84,7 +84,7 @@ def get_gis_data(multisurface):
             {1}
           </ogc:Intersects>
         </ogc:Filter>
-      </Query>)""".format(
+      </Query>""".format(
                 x, multisurface
             ),
             boolean_layers + special_layers,
