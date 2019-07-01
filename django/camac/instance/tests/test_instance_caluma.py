@@ -26,7 +26,8 @@ MAIN_FORMS = [
 
 @pytest.fixture
 def submit_date_question(db):
-    chap, _ = Chapter.objects.get_or_create(pk=SUBMIT_DATE_CHAPTER, name="Hidden")
+    chap, _ = Chapter.objects.get_or_create(
+        pk=SUBMIT_DATE_CHAPTER, name="Hidden")
     qtype, _ = QuestionType.objects.get_or_create(name="Date")
     question, _ = Question.objects.get_or_create(
         pk=SUBMIT_DATE_QUESTION_ID, question_type=qtype
@@ -351,7 +352,8 @@ def test_instance_submit(
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
-        {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
+        {"template_id": notification_template.pk,
+            "recipient_types": ["applicant"]}
     ]
 
     requests_mock.post(
@@ -378,11 +380,37 @@ def test_instance_submit(
                                                 }
                                             }
                                         ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "node": {
+                        "id": 1234,
+                        "meta": {},
+                        "workflow": {"id": 99999},
+                        "document": {
+                            "form": {"slug": "vorabklaerung-einfach"},
+                            "answers": {
+                                "edges": [{"node": {"stringValue": service.pk}}]
+                            },
+                        },
+                    },
+                    "allCases": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "Q2FzZTpkMzBjMjM3ZS0yNmNmLTRkM2ItYWFmYi02Mjk4MzU3NDUzZWY=",
+                                    "document": {
+                                        "form": {
+                                            "id": "Rm9ybTpiYXVnZXN1Y2g=",
+                                            "name": "Baugesuch",
+                                        }
                                     },
                                 }
                             }
                         ]
-                    }
+                    },
                 }
             }
         ),
@@ -391,7 +419,8 @@ def test_instance_submit(
     instance_state_factory(name=new_instance_state_name)
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
 
-    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
+    response = admin_client.post(
+        reverse("instance-submit", args=[instance.pk]))
 
     assert response.status_code == status.HTTP_200_OK
 
@@ -416,13 +445,15 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
     assert len(resp.json()["data"]) == 1
 
     # "nobody" filter should return nothing if all instances have a responsible user
-    resp = admin_client.get(reverse("instance-list"), {"responsible_user": "NOBODY"})
+    resp = admin_client.get(reverse("instance-list"),
+                            {"responsible_user": "NOBODY"})
     assert resp.status_code == status.HTTP_200_OK, resp.content
     assert len(resp.json()["data"]) == 0
 
     # "nobody" filter should return instance where there is no responsible user
     instance.responsibilities.all().delete()
-    resp = admin_client.get(reverse("instance-list"), {"responsible_user": "NOBODY"})
+    resp = admin_client.get(reverse("instance-list"),
+                            {"responsible_user": "NOBODY"})
     assert resp.status_code == status.HTTP_200_OK, resp.content
     assert len(resp.json()["data"]) == 1
 
