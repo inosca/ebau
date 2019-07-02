@@ -239,12 +239,13 @@ class BernInstanceSerializer(InstanceSerializer):
                 trans__name="eBau-Nummer zu vergeben"
             )
         form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
-        first_answer = validated_data.get("caluma_case_data")["document"]["answers"][
-            "edges"
-        ][0]["node"]
 
         service_id = None
         try:
+            first_answer = validated_data.get("caluma_case_data")["document"][
+                "answers"
+            ]["edges"][0]["node"]
+
             if form == "vorabklaerung-einfach":
                 service_id = int(first_answer["stringValue"])
             else:  # pragma: no cover
