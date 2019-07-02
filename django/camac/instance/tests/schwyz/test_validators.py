@@ -1,3 +1,4 @@
+import inflection
 import pytest
 from rest_framework import exceptions
 
@@ -23,12 +24,14 @@ def validator(db, instance):
         ("hohe-der-anlage", -1),
         ("dokument-parzellen", None),
         ("baugeruest-errichtet-am", 0),
+        ("baukosten", -1),
     ],
 )
 def test_form_data_validator_validate_question_type(validator, question, value):
     question_def = validator.forms_def["questions"][question]
     validate_method = getattr(
-        validator, "_validate_question_{0}".format(question_def["type"])
+        validator,
+        "_validate_question_{0}".format(inflection.underscore(question_def["type"])),
     )
 
     with pytest.raises(exceptions.ValidationError):
