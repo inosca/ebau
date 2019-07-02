@@ -96,6 +96,20 @@ def test_attachment_list(
             models.ADMIN_PERMISSION,
             status.HTTP_201_CREATED,
         ),
+        # user with role Service creates valid jpg attachment on an
+        # instance which is assigned to user in an activation in
+        # an attachment section with service admin permissions
+        (
+            "test-thumbnail.jpg",
+            "image/jpeg",
+            "Fachstelle",
+            LazyFixture("user"),
+            LazyFixture(lambda location_factory: location_factory()),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            models.ADMINSERVICE_PERMISSION,
+            status.HTTP_201_CREATED,
+        ),
         # user with role Canton creates valid jpg attachment on any
         # instance with attachment section with admin permissions
         (
@@ -349,43 +363,63 @@ def test_attachment_detail(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment_section_group_acl__mode,status_code",
+    "instance_state__name,attachment__path,attachment__service,attachment_section_group_acl__mode,status_code",
     [
         (
             "new",
             django_file("multiple-pages.pdf"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("test-thumbnail.jpg"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
             django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
         (
             "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
+            models.ADMINSERVICE_PERMISSION,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "new",
             django_file("test-thumbnail.jpg"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.WRITE_PERMISSION,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "subm",
             django_file("test-thumbnail.jpg"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.WRITE_PERMISSION,
             status.HTTP_403_FORBIDDEN,
         ),
         (
             "subm",
             django_file("test-thumbnail.jpg"),
+            LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
             status.HTTP_403_FORBIDDEN,
+        ),
+        (
+            "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
+            models.ADMINSERVICE_PERMISSION,
+            status.HTTP_404_NOT_FOUND,
         ),
     ],
 )
