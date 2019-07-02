@@ -5438,7 +5438,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 22,
+      "current_instance_state": null,
       "next_instance_state": 27
     },
     "model": "core.aformtransition",
@@ -5478,7 +5478,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 21,
+      "current_instance_state": null,
       "next_instance_state": 27
     },
     "model": "core.aformtransition",
@@ -11410,7 +11410,7 @@
   {
     "fields": {
       "authority": 87,
-      "authority_type": 3
+      "authority_type": 2
     },
     "model": "core.authorityauthoritytype",
     "pk": 50
@@ -16960,6 +16960,51 @@
     },
     "model": "core.broleacl",
     "pk": 579
+  },
+  {
+    "fields": {
+      "button": 65,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 580
+  },
+  {
+    "fields": {
+      "button": 144,
+      "instance_state": 33,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 581
+  },
+  {
+    "fields": {
+      "button": 150,
+      "instance_state": 33,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 582
+  },
+  {
+    "fields": {
+      "button": 151,
+      "instance_state": 21,
+      "role": 1
+    },
+    "model": "core.broleacl",
+    "pk": 584
+  },
+  {
+    "fields": {
+      "button": 151,
+      "instance_state": 33,
+      "role": 1
+    },
+    "model": "core.broleacl",
+    "pk": 585
   },
   {
     "fields": {
@@ -25398,12 +25443,12 @@
       "available_instance_resource": "formpage",
       "class_field": null,
       "description": "Dossier von Bundestelle ansehen",
-      "form_group": 161,
+      "form_group": 256,
       "hidden": 0,
       "name": "Personen- und Projektdaten",
       "resource": 302,
       "sort": 7,
-      "template": null
+      "template": "/form/form-read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 767
@@ -39894,7 +39939,7 @@
       "class_field": null,
       "default_answer": null,
       "description": null,
-      "javascript": "if ($('form').attr('action').split('/')[8] != 293) {\r\n\t$('#element-[QUESTION]i1').hide();\r\n}",
+      "javascript": "if ($('form').attr('action') && $('form').attr('action').split('/')[8] != 293) {\r\n\t$('#element-[QUESTION]i1').hide();\r\n}",
       "mapping": 1,
       "name": "Dossier Erfassungsjahr",
       "question_type": 1,
@@ -43371,7 +43416,7 @@
   },
   {
     "fields": {
-      "instance_states": "24,33"
+      "instance_states": "24"
     },
     "model": "core.rsimplelist",
     "pk": 266
@@ -47145,7 +47190,7 @@
   },
   {
     "fields": {
-      "description": null,
+      "description": "Archivdossier",
       "name": "old",
       "sort": 13
     },
@@ -47228,6 +47273,20 @@
     },
     "model": "instance.instancestatedescription",
     "pk": 31
+  },
+  {
+    "fields": {
+     "description": "Dossiers bleibt bei Gemeindebaubehörde"
+    },
+    "model": "instance.instancestatedescription",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "description": "Archivdossier"
+    },
+    "model": "instance.instancestatedescription",
+    "pk": 33
   },
   {
     "fields": {
