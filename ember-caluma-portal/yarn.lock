@@ -4576,10 +4576,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-1.2.3.tgz#0077857c818978b943e6d00ef4af632be6b2d9a3"
-  integrity sha512-IIqL7d7TxcDF7zOiO3os5Otk8AYW9rOhOO3Vd4YIRX8WJZOTD+waVmYy+Z0dXeYyXmI/pCjdn7QPsPC5vpJ1BA==
+ember-caluma@1.2.4:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-1.2.4.tgz#6541f1c262eb893eb49cd30faadbc26e30bfdb3a"
+  integrity sha512-FY6OFCrXlxHlQLOEk69E1YgrtKxbkFsSwpGUJmm+J3bGEuYjiBxhI/aUJ7Ikz4O5u+awh8nzeqeeXsL7suWlEw==
   dependencies:
     apollo-link-context "^1.0.17"
     broccoli-funnel "^2.0.2"
