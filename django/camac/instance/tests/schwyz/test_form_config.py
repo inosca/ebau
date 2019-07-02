@@ -32,7 +32,7 @@ def test_form_config_expressions(application):
             return "Test"
         elif question["type"] in ["checkbox", "table", "gwr"]:
             return ["Test"]
-        elif question["type"] == "number":
+        elif question["type"] in ["number", "number-separator"]:
             return 10
 
     jexl = JEXL()

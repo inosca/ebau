@@ -6,6 +6,7 @@ const {
   validateRequired,
   validateText,
   validateNumber,
+  validateNumberSeparator,
   validateRadio,
   validateCheckbox
 } = validations;
@@ -54,6 +55,25 @@ module("Unit | Validations | questions", function(hooks) {
     );
     assert.equal(
       validateNumber({ max: 3 }, "4"),
+      "Der Wert muss kleiner als 4 sein"
+    );
+  });
+
+  test("it validates number separator fields correctly", function(assert) {
+    assert.expect(5);
+
+    assert.equal(validateNumberSeparator({}, ""), true);
+    assert.equal(validateNumberSeparator({}, "1"), true);
+    assert.equal(
+      validateNumberSeparator({}, "test"),
+      "Der Wert muss eine Zahl sein"
+    );
+    assert.equal(
+      validateNumberSeparator({ min: 3 }, "2"),
+      "Der Wert muss grösser als 2 sein"
+    );
+    assert.equal(
+      validateNumberSeparator({ max: 3 }, "4"),
       "Der Wert muss kleiner als 4 sein"
     );
   });

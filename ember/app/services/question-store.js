@@ -7,7 +7,7 @@ import EmberObject, {
 import { reads, equal } from "@ember/object/computed";
 import { getOwner } from "@ember/application";
 import { A } from "@ember/array";
-import { capitalize } from "@ember/string";
+import { classify } from "@ember/string";
 import { task, timeout } from "ember-concurrency";
 import _validations from "citizen-portal/questions/validations";
 import computedTask from "citizen-portal/lib/computed-task";
@@ -127,7 +127,7 @@ const Question = EmberObject.extend({
           )
         : () => true,
       this.getWithDefault(
-        `_questions._validations.validate${capitalize(type)}`,
+        `_questions._validations.validate${classify(type)}`,
         () => true
       ),
       this.getWithDefault(`_questions._validations.${name}`, () => true)
