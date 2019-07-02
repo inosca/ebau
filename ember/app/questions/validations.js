@@ -108,6 +108,7 @@ export default {
   validateRequired,
   validateText,
   validateNumber,
+  validateNumberSeparator: validateNumber,
   validateCheckbox,
   validateRadio,
 
