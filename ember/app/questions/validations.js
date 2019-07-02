@@ -56,10 +56,6 @@ const validateNumber = ({ min, max }, value) => {
   return true;
 };
 
-const validateNumberSeparator = ({ min, max }, value) => {
-  return validateNumber({ min, max }, value);
-};
-
 const validateCheckbox = ({ options }, value) => {
   if (isBlank(value)) {
     return true;
@@ -112,7 +108,7 @@ export default {
   validateRequired,
   validateText,
   validateNumber,
-  validateNumberSeparator,
+  validateNumberSeparator: validateNumber,
   validateCheckbox,
   validateRadio,
 
