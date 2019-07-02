@@ -1,5 +1,6 @@
 import json.decoder
 import os
+import urllib.parse
 from logging import getLogger
 
 import requests
@@ -16,6 +17,16 @@ log = getLogger()
 def role(info):
     """Extract role name from request."""
     return info.context.META.get("HTTP_X_CAMAC_ROLE", "gesuchsteller")
+
+
+def filters(info):
+    """Extract Camac NG filters from request.
+
+    The filters are expected to be a URLencoded string (foo=bar&baz=blah).
+    """
+    return dict(
+        urllib.parse.parse_qsl(info.context.META.get("HTTP_X_CAMAC_FILTERS", ""))
+    )
 
 
 def group(info):
@@ -181,8 +192,8 @@ class FilterViaCamacAPIMixin:
 
         resp = requests.get(
             f"{camac_api}/api/v1/instances",
-            # forward role as filter
-            {"role": role(info), "group": group(info)},
+            # forward filters, role and group via query params
+            {**filters(info), "role": role(info), "group": group(info)},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
