@@ -23,6 +23,7 @@ class AttachmentFactory(DjangoModelFactory):
     name = Faker("file_name")
     question = Faker("word")
     instance = SubFactory(InstanceFactory)
+    service = SubFactory(ServiceFactory)
     path = ImageField(width=1024, height=768)
     size = Faker("pyint")
     user = SubFactory(UserFactory)
