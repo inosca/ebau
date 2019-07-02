@@ -34,11 +34,42 @@ class AttachmentView(
     prefetch_for_includes = {"instance": ["instance__circulations"]}
     ordering_fields = ("name", "date", "size")
 
+    def get_base_queryset(self):
+        queryset = super().get_base_queryset()
+        group = self.request.group
+
+        # attachments section where user may read all attachments
+        sections_all = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=group)
+            & ~Q(group_acls__mode=models.ADMINSERVICE_PERMISSION)
+            | Q(service_acls__service=group.service)
+            & ~Q(service_acls__mode=models.ADMINSERVICE_PERMISSION)
+            | Q(role_acls__role=group.role)
+            & ~Q(role_acls__mode=models.ADMINSERVICE_PERMISSION)
+        )
+
+        # attachments section where user may only read attachments of service
+        sections_only_service = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=group)
+            & Q(group_acls__mode=models.ADMINSERVICE_PERMISSION)
+            | Q(service_acls__service=group.service)
+            & Q(service_acls__mode=models.ADMINSERVICE_PERMISSION)
+            | Q(role_acls__role=group.role)
+            & Q(role_acls__mode=models.ADMINSERVICE_PERMISSION)
+        )
+
+        queryset = queryset.filter(
+            Q(attachment_sections__in=sections_all)
+            | Q(attachment_sections__in=sections_only_service, service=group.service)
+        )
+
+        return queryset.distinct()
+
     def has_object_destroy_permission(self, obj):
         attachment_permission = all(
             [
                 attachment_section.get_mode(self.request.group)
-                == models.ADMIN_PERMISSION
+                in (models.ADMIN_PERMISSION, models.ADMINSERVICE_PERMISSION)
                 for attachment_section in obj.attachment_sections.all()
             ]
         )

@@ -165,11 +165,16 @@ class AttachmentSection(models.Model):
 WRITE_PERMISSION = "write"
 READ_PERMISSION = "read"
 ADMIN_PERMISSION = "admin"
+ADMINSERVICE_PERMISSION = "adminsvc"
 
 ATTACHMENT_MODE = (
     (READ_PERMISSION, "Read permissions"),
     (WRITE_PERMISSION, "Read and write permissions"),
     (ADMIN_PERMISSION, "Read, write and delete permissions"),
+    (
+        ADMINSERVICE_PERMISSION,
+        "Read, write and delete permission only on service attachments",
+    ),
 )
 
 
@@ -210,7 +215,7 @@ class AttachmentSectionServiceAcl(models.Model):
         AttachmentSection,
         models.CASCADE,
         db_column="ATTACHMENT_SECTION_ID",
-        related_name="+",
+        related_name="service_acls",
     )
     service = models.ForeignKey(
         "user.Service", models.CASCADE, db_column="SERVICE_ID", related_name="+"
