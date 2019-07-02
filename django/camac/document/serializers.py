@@ -64,7 +64,11 @@ class AttachmentSerializer(mixins.InstanceEditableMixin, serializers.ModelSerial
                 # it's not a violation
                 continue
             mode = attachment_section.get_mode(self.context["request"].group)
-            if mode not in [models.WRITE_PERMISSION, models.ADMIN_PERMISSION]:
+            if mode not in [
+                models.WRITE_PERMISSION,
+                models.ADMIN_PERMISSION,
+                models.ADMINSERVICE_PERMISSION,
+            ]:
                 raise exceptions.ValidationError(
                     _(
                         "Not sufficent permissions to add file to "
