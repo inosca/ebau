@@ -62,8 +62,8 @@ module("Unit | Validations | questions", function(hooks) {
   test("it validates number separator fields correctly", function(assert) {
     assert.expect(5);
 
-    assert.equal(validateNumberSeparator({}, ""), "");
-    assert.equal(validateNumberSeparator({}, "1"), "");
+    assert.equal(validateNumberSeparator({}, ""), true);
+    assert.equal(validateNumberSeparator({}, "1"), true);
     assert.equal(
       validateNumberSeparator({}, "test"),
       "Der Wert muss eine Zahl sein"
