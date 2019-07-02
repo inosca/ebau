@@ -30,6 +30,17 @@ lint-ember-caluma-portal:
     - yarn lint:js
     - yarn lint:hbs
 
+# TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
+lint-php:
+  stage: lint
+  image:
+    name: node:lts
+  script:
+    - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+    - cd php/public
+    - npm install
+    - npm run lint
+
 test-ember:
     stage: test
     services:
@@ -60,19 +71,6 @@ test-django:
         - eval $COMPOSE up -d --build db clamav unoconv
         - eval $COMPOSE build --pull django
         - eval $COMPOSE run --rm --no-deps django make install-dev test
-
-
-# TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
-lint:
-  stage: test
-  image:
-    name: node:9
-  script:
-    - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
-    - cd php/public
-    - npm install
-    - npm run lint
-
 
 symfony-security-checker:
     stage: test
