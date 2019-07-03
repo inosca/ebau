@@ -42532,14 +42532,6 @@
   },
   {
     "fields": {
-      "resource": 266,
-      "role": 6
-    },
-    "model": "core.rroleacl",
-    "pk": 87
-  },
-  {
-    "fields": {
       "resource": 102,
       "role": 1130
     },
