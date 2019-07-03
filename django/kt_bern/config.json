@@ -110257,6 +110257,33 @@
   },
   {
     "fields": {
+      "attachment_section": 2,
+      "mode": "write",
+      "role": 20000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "mode": "read",
+      "role": 20000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "attachment_section": 3,
+      "mode": "read",
+      "role": 20000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 26
+  },
+  {
+    "fields": {
       "a_filetransition_date": 3,
       "current_state": 2,
       "next_state": 3
