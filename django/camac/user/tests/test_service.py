@@ -2,8 +2,6 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.markers import only_bern
-
 
 @pytest.mark.parametrize(
     "role__name,size",
@@ -50,15 +48,13 @@ def test_service_delete(admin_client, service, status_code):
     assert response.status_code == status_code
 
 
-@only_bern
 @pytest.mark.parametrize(
     "service_t__name,service_t__language", [("je ne sais pas", "fr")]
 )
 @pytest.mark.parametrize(
-    "role_t__name,size",
-    [("Gesuchsteller", 0), ("Leitung Fachstelle", 1), ("Leitung Leitbehörde", 1)],
+    "role_t__name,size", [("Applicant", 0), ("Canton", 1), ("Service", 1)]
 )
-def test_multilingual(admin_client, monkeypatch, service_t, size):
+def test_service_list_multilingual(admin_client, service_t, size, multilang):
     url = reverse("service-list")
 
     response = admin_client.get(url, HTTP_ACCEPT_LANGUAGE=service_t.language)

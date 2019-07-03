@@ -115,6 +115,7 @@ APPLICATIONS = {
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "IS_MULTILINGUAL": False,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
