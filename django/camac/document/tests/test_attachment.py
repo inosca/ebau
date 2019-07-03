@@ -98,6 +98,20 @@ def test_attachment_list(
         ),
         # user with role Service creates valid jpg attachment on an
         # instance which is assigned to user in an activation in
+        # an attachment section with internal admin permissions
+        (
+            "test-thumbnail.jpg",
+            "image/jpeg",
+            "Fachstelle",
+            LazyFixture("user"),
+            LazyFixture(lambda location_factory: location_factory()),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            models.ADMININTERNAL_PERMISSION,
+            status.HTTP_201_CREATED,
+        ),
+        # user with role Service creates valid jpg attachment on an
+        # instance which is assigned to user in an activation in
         # an attachment section with service admin permissions
         (
             "test-thumbnail.jpg",
@@ -390,6 +404,13 @@ def test_attachment_detail(
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture("service"),
+            models.ADMININTERNAL_PERMISSION,
+            status.HTTP_204_NO_CONTENT,
+        ),
+        (
+            "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture("service"),
             models.ADMINSERVICE_PERMISSION,
             status.HTTP_204_NO_CONTENT,
         ),
@@ -418,8 +439,15 @@ def test_attachment_detail(
             "new",
             django_file("no-thumbnail.txt"),
             LazyFixture(lambda service_factory: service_factory()),
-            models.ADMINSERVICE_PERMISSION,
+            models.ADMININTERNAL_PERMISSION,
             status.HTTP_404_NOT_FOUND,
+        ),
+        (
+            "new",
+            django_file("no-thumbnail.txt"),
+            LazyFixture(lambda service_factory: service_factory()),
+            models.ADMINSERVICE_PERMISSION,
+            status.HTTP_403_FORBIDDEN,
         ),
     ],
 )
