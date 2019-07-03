@@ -50,6 +50,7 @@ def test_notification_template_merge(
     status_code,
     activation,
     billing_entry,
+    settings,
 ):
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
@@ -57,8 +58,14 @@ def test_notification_template_merge(
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
         json = response.json()
-        assert json["data"]["attributes"]["subject"] == instance.identifier
-        assert json["data"]["attributes"]["body"] == "identifier 21.01.2017"
+        assert (
+            json["data"]["attributes"]["subject"]
+            == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
+        )
+        assert (
+            json["data"]["attributes"]["body"]
+            == settings.EMAIL_PREFIX_BODY + "identifier 21.01.2017"
+        )
         assert json["data"]["id"] == "{0}-{1}".format(
             notification_template.pk, instance.pk
         )
@@ -82,7 +89,13 @@ def test_notification_template_merge(
     ],
 )
 def test_notification_template_sendmail(
-    admin_client, instance, notification_template, status_code, mailoutbox, activation
+    admin_client,
+    instance,
+    notification_template,
+    status_code,
+    mailoutbox,
+    activation,
+    settings,
 ):
 
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
@@ -111,5 +124,5 @@ def test_notification_template_sendmail(
             "service@example.com",
             "service@example.com",
         }
-        assert mail.subject == instance.identifier
-        assert mail.body == "Test body"
+        assert mail.subject == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
+        assert mail.body == settings.EMAIL_PREFIX_BODY + "Test body"
