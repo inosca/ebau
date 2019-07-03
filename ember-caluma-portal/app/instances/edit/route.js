@@ -9,6 +9,6 @@ export default Route.extend({
     this._super(...arguments);
 
     controller.data.perform();
-    controller.instanceState.perform();
+    controller.instance.perform();
   }
 });

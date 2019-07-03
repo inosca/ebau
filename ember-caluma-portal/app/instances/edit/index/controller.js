@@ -29,12 +29,12 @@ export default Controller.extend({
 
   editController: controller("instances.edit"),
   data: reads("editController.data"),
-  instanceState: reads("editController.instanceState"),
+  instance: reads("editController.instance.lastSuccessful.value"),
   case: reads("data.lastSuccessful.value"),
 
-  disabled: computed("instanceState.lastSuccessful.value", function() {
+  disabled: computed("instance.state", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(
-      this.get("instanceState.lastSuccessful.value.attributes.name")
+      this.get("instance.state.attributes.name")
     );
   }),
 
