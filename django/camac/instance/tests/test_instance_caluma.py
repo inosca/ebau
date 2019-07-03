@@ -8,12 +8,12 @@ from rest_framework import status
 
 from camac.applicants.factories import ApplicantFactory
 from camac.core.models import Chapter, Question, QuestionType
-from camac.instance.serializers.bern import SUBMIT_DATE_CHAPTER, SUBMIT_DATE_QUESTION_ID
-from camac.instance.views import InstanceView
-from camac.markers import only_bern
-
-# module-level skip if we're not testing Bern variant
-pytestmark = only_bern
+from camac.instance.models import Instance
+from camac.instance.serializers import (
+    SUBMIT_DATE_CHAPTER,
+    SUBMIT_DATE_QUESTION_ID,
+    CalumaInstanceSerializer,
+)
 
 
 @pytest.fixture
@@ -28,6 +28,147 @@ def submit_date_question(db):
     return question
 
 
+@pytest.fixture
+def mock_public_status(mocker):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSerializer.get_public_status",
+        lambda s, i: "creation",
+    )
+
+
+RESP_CASE_INCOMPLETE = {
+    "data": {
+        "node": {
+            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
+            "meta": {},
+            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
+            "workItems": {
+                "edges": [
+                    {"node": {"status": "WORKING", "task": {"slug": "fill-form"}}}
+                ]
+            },
+        }
+    }
+}
+RESP_CASE_ALREADY_ASSIGNED = {
+    "data": {
+        "node": {
+            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
+            "meta": {"camac-instance-id": 9999},
+            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
+            "workItems": {
+                "edges": [
+                    {"node": {"status": "COMPLETED", "task": {"slug": "fill-form"}}}
+                ]
+            },
+        }
+    }
+}
+RESP_CASE_COMPLETED = {
+    "data": {
+        "node": {
+            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
+            "meta": {},
+            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
+            "workItems": {
+                "edges": [
+                    {"node": {"status": "COMPLETED", "task": {"slug": "fill-form"}}}
+                ]
+            },
+        }
+    }
+}
+
+
+@pytest.mark.freeze_time("2019-05-02")
+@pytest.mark.parametrize(
+    "work_item_resp,expected_resp",
+    [
+        (RESP_CASE_COMPLETED, status.HTTP_201_CREATED),
+        (RESP_CASE_ALREADY_ASSIGNED, status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_create_instance(
+    db,
+    admin_client,
+    mocker,
+    instance_state,
+    form,
+    snapshot,
+    work_item_resp,
+    expected_resp,
+    bern_instance_states,
+    use_caluma_form,
+):
+    recorded_requests = []
+
+    def last_inst_id():
+        return Instance.objects.order_by("-instance_id").first().instance_id
+
+    mock_responses = [
+        # first response: NG asks caluma for data about our case
+        mocker.MagicMock(json=lambda: work_item_resp, status_code=status.HTTP_200_OK),
+        # second response: NG updates case with instance id
+        mocker.MagicMock(
+            json=lambda: {
+                "data": {
+                    "saveCase": {
+                        "case": {
+                            "id": "Q2FzZTphNWVlMDFjNS1kZDc0LTQ2MzQtODgzNC01NDMyNzU2MDZmYTk=",
+                            "meta": {"camac-instance-id": last_inst_id()},
+                        }
+                    }
+                }
+            },
+            status_code=status.HTTP_200_OK,
+        ),
+    ]
+
+    def mock_post(url, *args, **kwargs):
+        recorded_requests.append((url, args, kwargs))
+        resp = mock_responses.pop(0)
+
+        return resp
+
+    mocker.patch("requests.post", mock_post)
+
+    case_id = "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU="
+    create_resp = admin_client.post(
+        reverse("instance-list"),
+        {
+            "data": {
+                "type": "instances",
+                "attributes": {"caluma-case-id": case_id},
+                "relationships": {
+                    "form": {"data": {"id": form.form_id, "type": "forms"}},
+                    "instance-state": {
+                        "data": {
+                            "id": instance_state.instance_state_id,
+                            "type": "instance-states",
+                        }
+                    },
+                },
+            }
+        },
+    )
+    assert create_resp.status_code == expected_resp, create_resp.content
+
+    if expected_resp == status.HTTP_400_BAD_REQUEST:
+        # in this case, we don't need to test the rest of the procedure
+        return
+
+    # make sure meta is updated correctly
+    assert json.loads(
+        recorded_requests[1][2]["json"]["variables"]["input"]["meta"]
+    ) == {"camac-instance-id": last_inst_id()}
+
+    # to validate the rest, we need to "fix" the instance id to use snapshot
+    recorded_requests[1][2]["json"]["variables"]["input"]["meta"] = json.dumps(
+        {"camac-instance-id": "XXX"}
+    )
+    snapshot.assert_match(recorded_requests)
+
+
 @pytest.mark.parametrize(
     "instance_state__name,instance__creation_date",
     [("new", "2018-04-17T09:31:56+02:00")],
@@ -35,67 +176,24 @@ def submit_date_question(db):
 @pytest.mark.parametrize(
     "role_t__name,instance__user,editable",
     [
-        ("Leitung Fachstelle", LazyFixture("user"), {"form", "document"}),
-        ("Leitung Baukontrolle", LazyFixture("user"), {"form", "document"}),
-        ("System-Betrieb", LazyFixture("user"), {"form", "document"}),
+        ("Service", LazyFixture("user"), {"form", "document"}),
+        ("Canton", LazyFixture("user"), {"form", "document"}),
     ],
 )
 def test_instance_list(
-    admin_client, instance, activation, group, editable, group_location_factory, mocker
-):
-
-    mocker.patch(
-        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
-        lambda s, i: "creation",
-    )
-    url = reverse("instance-list")
-    included = InstanceView.serializer_class.included_serializers
-    response = admin_client.get(
-        url,
-        data={
-            "include": ",".join(included.keys()),
-            "creation_date_before": "17.04.2018",
-            "creation_date_after": "17.04.2018",
-        },
-    )
-
-    assert response.status_code == status.HTTP_200_OK
-
-    json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance.pk)
-    assert set(json["data"][0]["meta"]["editable"]) == set(editable)
-    # Included previous_instance_state and instance_state are the same
-    assert len(json["included"]) == len(included) - 1
-
-
-@pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date",
-    [("Neu", "2018-04-17T09:31:56+02:00")],
-)
-@pytest.mark.parametrize(
-    "role_t__name,instance__user,editable",
-    [("Gesuchsteller", LazyFixture("admin_user"), {"form", "instance", "document"})],
-)
-def test_instance_list_as_applicant(
     admin_client,
-    admin_user,
     instance,
     activation,
     group,
     editable,
     group_location_factory,
-    mocker,
+    mock_public_status,
+    use_caluma_form,
+    multilang,
 ):
 
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-    mocker.patch(
-        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
-        lambda s, i: "creation",
-    )
-
     url = reverse("instance-list")
-    included = InstanceView.serializer_class.included_serializers
+    included = CalumaInstanceSerializer.included_serializers
     response = admin_client.get(
         url,
         data={
@@ -113,73 +211,6 @@ def test_instance_list_as_applicant(
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
     # Included previous_instance_state and instance_state are the same
     assert len(json["included"]) == len(included) - 1
-
-
-@pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Gesuchsteller", LazyFixture("admin_user"))]
-)
-def test_instance_detail(admin_client, admin_user, instance, mocker):
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-    mocker.patch(
-        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
-        lambda s, i: "creation",
-    )
-
-    url = reverse("instance-detail", args=[instance.pk])
-
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
-
-
-@pytest.mark.parametrize("instance__identifier", ["00-00-000"])
-@pytest.mark.parametrize("form_field__name", ["name"])
-@pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Gesuchsteller", LazyFixture("admin_user"))]
-)
-@pytest.mark.parametrize(
-    "form_field__value,search",
-    [
-        ("simpletext", "simple"),
-        (["list", "value"], "list"),
-        ({"key": ["l-list-d", ["b-list-d"]]}, "list"),
-    ],
-)
-def test_instance_search(
-    admin_client, admin_user, instance, form_field, search, mocker
-):
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-    url = reverse("instance-list")
-    mocker.patch(
-        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
-        lambda s, i: "creation",
-    )
-
-    response = admin_client.get(url, {"search": search})
-    assert response.status_code == status.HTTP_200_OK
-    json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(instance.pk)
-
-
-@pytest.mark.parametrize("instance_state__name", ["Neu"])
-@pytest.mark.parametrize(
-    "role_t__name,instance__user,status_code",
-    [
-        ("Applicant", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-        ("Service", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        ("Fachstelle", LazyFixture("user"), status.HTTP_403_FORBIDDEN),
-        # Support has access to dossier, and can also delete in this test because the instance
-        # is owned by the same user
-        ("Support", LazyFixture("admin_user"), status.HTTP_204_NO_CONTENT),
-    ],
-)
-def test_instance_destroy(
-    admin_client, role, admin_user, instance, status_code, location_factory
-):
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-    url = reverse("instance-detail", args=[instance.pk])
-    response = admin_client.delete(url)
-    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize("instance_state__name", ["Neu", "Zurückgewiesen"])
@@ -231,12 +262,10 @@ def test_instance_submit(
     notification_template,
     submit_date_question,
     settings,
-    mocker,
+    mock_public_status,
+    use_caluma_form,
+    multilang,
 ):
-    mocker.patch(
-        "camac.instance.serializers.bern.BernInstanceSerializer.get_public_status",
-        lambda s, i: "creation",
-    )
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
@@ -289,9 +318,9 @@ def test_instance_submit(
 
 
 @pytest.mark.parametrize(
-    "role_t__name,instance__user", [("System-Betrieb", LazyFixture("user"))]
+    "role_t__name,instance__user", [("Canton", LazyFixture("user"))]
 )
-def test_responsible_user(admin_client, instance, user, service):
+def test_responsible_user(admin_client, instance, user, service, multilang):
 
     instance.responsibilities.create(user=user, service=service)
 

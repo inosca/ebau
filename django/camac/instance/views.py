@@ -52,7 +52,6 @@ class InstanceView(
     """
     instance_editable_permission = "instance"
 
-    serializer_class = serializers.InstanceSerializer
     filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
     prefetch_for_includes = {"circulations": ["circulations__activations"]}
@@ -75,6 +74,15 @@ class InstanceView(
     filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
         filters.InstanceFormFieldFilterBackend
     ]
+
+    def get_serializer_class(self):
+        if settings.APPLICATION["USE_CALUMA_FORM"]:
+            return serializers.CalumaInstanceSerializer
+
+        if self.action == "submit":
+            return serializers.InstanceSubmitSerializer
+
+        return serializers.InstanceSerializer
 
     def has_object_destroy_permission(self, instance):
         return (
@@ -132,11 +140,7 @@ class InstanceView(
             sheet, file_type="xlsx", file_name="list.xlsx"
         )
 
-    @action(
-        methods=["post"],
-        detail=True,
-        serializer_class=serializers.InstanceSubmitSerializer,
-    )
+    @action(methods=["post"], detail=True)
     @transaction.atomic
     def submit(self, request, pk=None):
         instance = self.get_object()
