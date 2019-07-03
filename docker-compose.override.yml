@@ -167,9 +167,5 @@ services:
         environment:
             - ENV=dev
 
-    unoconv:
-        networks:
-            - camac-ng.local
-
 networks:
     camac-ng.local:
