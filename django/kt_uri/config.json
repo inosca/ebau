@@ -28044,19 +28044,10 @@
     "fields": {
       "instance_resource": 763,
       "localized": 0,
-      "service_group": 1
+      "service_group": 70
     },
     "model": "core.ireditcirculationsg",
-    "pk": 251
-  },
-  {
-    "fields": {
-      "instance_resource": 763,
-      "localized": 0,
-      "service_group": 21
-    },
-    "model": "core.ireditcirculationsg",
-    "pk": 252
+    "pk": 253
   },
   {
     "fields": {
@@ -52708,9 +52699,9 @@
       "name": "BAV",
       "notification": 1,
       "phone": "",
-      "service_group": 21,
+      "service_group": 70,
       "service_parent": null,
-      "sort": 49,
+      "sort": 0,
       "website": "",
       "zip": ""
     },
@@ -53031,9 +53022,9 @@
       "name": "ASTRA",
       "notification": 1,
       "phone": "",
-      "service_group": 21,
+      "service_group": 70,
       "service_parent": null,
-      "sort": 53,
+      "sort": 4,
       "website": "",
       "zip": ""
     },
@@ -54247,9 +54238,9 @@
       "name": "BAFU (Service noch nicht in Betrieb)",
       "notification": 1,
       "phone": "",
-      "service_group": 21,
+      "service_group": 70,
       "service_parent": null,
-      "sort": 50,
+      "sort": 1,
       "website": "",
       "zip": ""
     },
@@ -54266,9 +54257,9 @@
       "name": "ARE Bern (Service noch nicht in Betrieb)",
       "notification": 1,
       "phone": "",
-      "service_group": 21,
+      "service_group": 70,
       "service_parent": null,
-      "sort": 51,
+      "sort": 3,
       "website": "",
       "zip": ""
     },
@@ -54684,9 +54675,9 @@
       "name": "VBS Schiesswesen",
       "notification": 1,
       "phone": null,
-      "service_group": 21,
+      "service_group": 70,
       "service_parent": null,
-      "sort": 59,
+      "sort": 2,
       "website": null,
       "zip": null
     },
@@ -54840,5 +54831,12 @@
     },
     "model": "user.servicegroup",
     "pk": 69
+  },
+  {
+    "fields": {
+      "name": "Bundesstellen"
+    },
+    "model": "user.servicegroup",
+    "pk": 70
   }
 ]
