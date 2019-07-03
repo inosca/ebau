@@ -2,10 +2,6 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.document import models
-from camac.markers import only_schwyz
-
-# module-level skip if we're not testing Schwyz variant
-pytestmark = only_schwyz
 
 
 def test_attachment_section_list(

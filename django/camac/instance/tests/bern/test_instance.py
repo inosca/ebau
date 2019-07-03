@@ -9,7 +9,7 @@ from rest_framework import status
 from camac.applicants.factories import ApplicantFactory
 from camac.core.models import Chapter, Question, QuestionType
 from camac.instance.serializers.bern import SUBMIT_DATE_CHAPTER, SUBMIT_DATE_QUESTION_ID
-from camac.instance.views.bern import InstanceView
+from camac.instance.views import InstanceView
 from camac.markers import only_bern
 
 # module-level skip if we're not testing Bern variant

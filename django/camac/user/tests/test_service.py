@@ -2,13 +2,12 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.markers import only_bern, only_schwyz
+from camac.markers import only_bern
 
 
-@only_schwyz
 @pytest.mark.parametrize(
     "role__name,size",
-    [("Applicant", 0), ("Fachstelle", 1), ("Kanton", 1), ("Gemeinde", 1)],
+    [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
 )
 def test_service_list(admin_client, service, size):
     url = reverse("service-list")
@@ -21,14 +20,13 @@ def test_service_list(admin_client, service, size):
         assert json["data"][0]["attributes"]["name"] == service.name
 
 
-@only_schwyz
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_404_NOT_FOUND),
-        ("Gemeinde", status.HTTP_200_OK),
-        ("Kanton", status.HTTP_200_OK),
-        ("Fachstelle", status.HTTP_200_OK),
+        ("Municipality", status.HTTP_200_OK),
+        ("Canton", status.HTTP_200_OK),
+        ("Service", status.HTTP_200_OK),
     ],
 )
 def test_service_update(admin_client, service, status_code):
@@ -37,14 +35,13 @@ def test_service_update(admin_client, service, status_code):
     assert response.status_code == status_code
 
 
-@only_schwyz
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Gemeinde", status.HTTP_403_FORBIDDEN),
-        ("Kanton", status.HTTP_403_FORBIDDEN),
-        ("Fachstelle", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
     ],
 )
 def test_service_delete(admin_client, service, status_code):

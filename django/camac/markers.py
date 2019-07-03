@@ -15,6 +15,4 @@ def only_in(*cantons):
     )
 
 
-only_schwyz = only_in("kt_schwyz")
 only_bern = only_in("kt_bern")
-only_demo = only_in("demo")
