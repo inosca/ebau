@@ -3,22 +3,9 @@ import { task, timeout } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { all } from "rsvp";
-import { later } from "@ember/runloop";
+import { next } from "@ember/runloop";
 
 const INSTANCE_STATE_SUBMITTED = 20000;
-
-const getAllFields = rootDocument => {
-  if (rootDocument.childDocuments) {
-    return [
-      ...rootDocument.fields,
-      ...rootDocument.childDocuments.reduce((childFields, childDocument) => {
-        return [...childFields, ...getAllFields(childDocument)];
-      }, [])
-    ];
-  }
-
-  return rootDocument.fields;
-};
 
 export default Component.extend({
   notification: service(),
@@ -27,39 +14,24 @@ export default Component.extend({
   router: service(),
   fetch: service(),
 
-  init() {
-    this._super(...arguments);
-
-    this.set("invalidFields", []);
-  },
-
   didInsertElement() {
     this._super(...arguments);
 
-    later(this, () => this.validate.perform());
+    next(this, () => this.validate.perform());
   },
 
-  allFields: computed("field.document.rootDocument", function() {
-    if (!this.get("field.document.rootDocument")) return [];
-
-    return getAllFields(this.get("field.document.rootDocument"));
-  }),
-
-  requiredFields: computed("allFields.@each.{optional,hidden}", function() {
-    return this.allFields.filter(
-      field =>
-        field.questionType !== "FormQuestion" && // TODO: remove this as soon as the form question validation is shipped in ember-caluma
-        !field.hidden &&
-        !field.optional
-    );
-  }),
+  invalidFields: computed(
+    "field.document.fields.@each.{optional,hidden,isInvalid}",
+    function() {
+      return this.field.document.fields.filter(
+        field => !field.hidden && !field.optional && field.isInvalid
+      );
+    }
+  ),
 
   validate: task(function*() {
-    yield all(this.requiredFields.map(field => field.validate.perform()));
-
-    this.set(
-      "invalidFields",
-      this.requiredFields.filter(field => field.isInvalid)
+    yield all(
+      this.field.document.fields.map(field => field.validate.perform())
     );
   }).restartable(),
 

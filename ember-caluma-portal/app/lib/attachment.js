@@ -22,7 +22,7 @@ export default EmberObject.extend({
 
   tags: computed("attributes.context.tags", function() {
     return getWithDefault(this, "attributes.context.tags", []).map(
-      slug => this.document.findField(`root.6-dokumente.${slug}`).question.label
+      slug => this.document.findField(slug).question.label
     );
   }),
 
