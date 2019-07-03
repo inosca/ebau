@@ -41,21 +41,21 @@ class AttachmentView(
         # attachments section where user may read all attachments
         sections_all = models.AttachmentSection.objects.filter(
             Q(group_acls__group=group)
-            & ~Q(group_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & ~Q(group_acls__mode=models.ADMININTERNAL_PERMISSION)
             | Q(service_acls__service=group.service)
-            & ~Q(service_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & ~Q(service_acls__mode=models.ADMININTERNAL_PERMISSION)
             | Q(role_acls__role=group.role)
-            & ~Q(role_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & ~Q(role_acls__mode=models.ADMININTERNAL_PERMISSION)
         )
 
         # attachments section where user may only read attachments of service
         sections_only_service = models.AttachmentSection.objects.filter(
             Q(group_acls__group=group)
-            & Q(group_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & Q(group_acls__mode=models.ADMININTERNAL_PERMISSION)
             | Q(service_acls__service=group.service)
-            & Q(service_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & Q(service_acls__mode=models.ADMININTERNAL_PERMISSION)
             | Q(role_acls__role=group.role)
-            & Q(role_acls__mode=models.ADMINSERVICE_PERMISSION)
+            & Q(role_acls__mode=models.ADMININTERNAL_PERMISSION)
         )
 
         queryset = queryset.filter(
@@ -66,19 +66,24 @@ class AttachmentView(
         return queryset.distinct()
 
     def has_object_destroy_permission(self, obj):
-        attachment_permission = all(
-            [
-                attachment_section.get_mode(self.request.group)
-                in (models.ADMIN_PERMISSION, models.ADMINSERVICE_PERMISSION)
-                for attachment_section in obj.attachment_sections.all()
-            ]
-        )
-        if (
-            obj.instance.instance_state.name == "new"
-            and obj.instance.previous_instance_state.name == "new"
-        ):
-            return attachment_permission
-        return attachment_permission and super().has_object_destroy_permission(obj)
+        section_modes = {
+            attachment_section.get_mode(self.request.group)
+            for attachment_section in obj.attachment_sections.all()
+        }
+
+        attachment_admin_permissions = section_modes - {
+            models.READ_PERMISSION,
+            models.WRITE_PERMISSION,
+        }
+
+        if models.ADMINSERVICE_PERMISSION in attachment_admin_permissions:
+            return obj.service == self.request.group.service and super().has_object_destroy_permission(
+                obj
+            )
+
+        return bool(
+            attachment_admin_permissions
+        ) and super().has_object_destroy_permission(obj)
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""
