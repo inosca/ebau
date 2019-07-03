@@ -67,6 +67,7 @@ class AttachmentSerializer(mixins.InstanceEditableMixin, serializers.ModelSerial
             if mode not in [
                 models.WRITE_PERMISSION,
                 models.ADMIN_PERMISSION,
+                models.ADMININTERNAL_PERMISSION,
                 models.ADMINSERVICE_PERMISSION,
             ]:
                 raise exceptions.ValidationError(
