@@ -16,8 +16,15 @@ from camac.core.models import WorkflowEntry
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.user.permissions import permission_aware
 
-from .. import filters, models, serializers
-from ..mixins import kt_schwyz as mixins
+from . import filters, mixins, models, serializers
+
+
+class InstanceStateView(viewsets.ReadOnlyModelViewSet):
+    serializer_class = serializers.InstanceStateSerializer
+    ordering = ("sort", "name")
+
+    def get_queryset(self):
+        return models.InstanceState.objects.all()
 
 
 class FormView(viewsets.ReadOnlyModelViewSet):

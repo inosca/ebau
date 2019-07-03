@@ -1,5 +1,3 @@
-import importlib
-
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Max
@@ -10,6 +8,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.core.models import InstanceLocation
 from camac.core.serializers import MultilingualSerializer
+from camac.instance.mixins import InstanceEditableMixin
 from camac.user.models import Group
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -19,9 +18,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from .. import models, validators
-
-mixins = importlib.import_module("camac.instance.mixins.%s" % settings.APPLICATION_NAME)
+from . import models, validators
 
 
 class NewInstanceStateDefault(object):
@@ -41,7 +38,7 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     editable = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
@@ -141,7 +138,7 @@ class InstanceSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializ
 
 
 class InstanceResponsibilitySerializer(
-    mixins.InstanceEditableMixin, serializers.ModelSerializer
+    InstanceEditableMixin, serializers.ModelSerializer
 ):
     instance_editable_permission = None
     service = ServiceResourceRelatedField(default=CurrentServiceDefault())
@@ -236,7 +233,7 @@ class InstanceSubmitSerializer(InstanceSerializer):
         return data
 
 
-class FormFieldSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+class FormFieldSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
     included_serializers = {"instance": InstanceSerializer}
 
@@ -268,7 +265,7 @@ class FormFieldSerializer(mixins.InstanceEditableMixin, serializers.ModelSeriali
         fields = ("name", "value", "instance")
 
 
-class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+class JournalEntrySerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {
         "instance": InstanceSerializer,
         "user": "camac.user.serializers.UserSerializer",
@@ -307,7 +304,7 @@ class JournalEntrySerializer(mixins.InstanceEditableMixin, serializers.ModelSeri
         )
 
 
-class IssueSerializer(mixins.InstanceEditableMixin, serializers.ModelSerializer):
+class IssueSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     included_serializers = {
         "instance": InstanceSerializer,
         "user": "camac.user.serializers.UserSerializer",
@@ -360,9 +357,7 @@ class IssueTemplateSetSerializer(serializers.ModelSerializer):
         read_only_fields = ("group", "service")
 
 
-class IssueTemplateSetApplySerializer(
-    mixins.InstanceEditableMixin, serializers.Serializer
-):
+class IssueTemplateSetApplySerializer(InstanceEditableMixin, serializers.Serializer):
     instance = relations.ResourceRelatedField(queryset=models.Instance.objects)
 
     class Meta:
