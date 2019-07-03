@@ -47,8 +47,9 @@ class InstanceQuerysetMixin(object):
     @permission_aware
     def get_queryset(self):
         queryset = self.get_base_queryset()
-        user_field = self._get_instance_filter_expr("user")
-
+        user_field = self._get_instance_filter_expr(
+            settings.APPLICATION["INSTANCE_USER_FIELD"]
+        )
         return queryset.filter(**{user_field: self.request.user})
 
     def get_queryset_for_public_reader(self):
