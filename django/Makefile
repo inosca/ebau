@@ -25,7 +25,6 @@ start: ## Start the development server
 test: ## Test the project
 	@touch .env
 	@black --check .
-	@isort --recursive --check
 	@flake8
 	@APPLICATION=demo      pytest -vv --cov              --no-cov-on-fail --vcr-record=none --cov-fail-under=80
 	@APPLICATION=kt_bern   pytest -vv --cov --cov-append --no-cov-on-fail --vcr-record=none --cov-fail-under=80
