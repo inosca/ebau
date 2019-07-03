@@ -1,10 +1,16 @@
 import json
 import os
 
+import pytest
+from django.conf import settings
 from django.core.management import call_command
 
 
-def test_loadconfig(db, settings, tmpdir):
+@pytest.mark.parametrize("application", settings.APPLICATIONS.keys())
+def test_loadconfig(db, settings, application, tmpdir):
+    settings.APPLICATION_DIR = settings.ROOT_DIR.path(application)
+    settings.APPLICATION_NAME = application
+
     # load data including test data
     call_command("loadconfig", stdout=open(os.devnull, "w"))
 
