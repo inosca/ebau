@@ -47259,7 +47259,7 @@
   },
   {
     "fields": {
-     "description": "Dossiers bleibt bei Gemeindebaubehörde"
+      "description": "Dossiers bleibt bei Gemeindebaubeh\u00f6rde"
     },
     "model": "instance.instancestatedescription",
     "pk": 32
@@ -51505,14 +51505,6 @@
   },
   {
     "fields": {
-      "group": 222,
-      "location": 23
-    },
-    "model": "user.grouplocation",
-    "pk": 180
-  },
-  {
-    "fields": {
       "communal_cantonal_number": 1,
       "communal_federal_number": "1201",
       "commune_name": "Altdorf (UR)",
@@ -51840,21 +51832,6 @@
     },
     "model": "user.location",
     "pk": 22
-  },
-  {
-    "fields": {
-      "communal_cantonal_number": 23,
-      "communal_federal_number": null,
-      "commune_name": "Bundesamt f\u00fcr Verkehr",
-      "district_name": null,
-      "district_number": null,
-      "name": "Bundesamt f\u00fcr Verkehr",
-      "section_name": null,
-      "section_number": null,
-      "zip": null
-    },
-    "model": "user.location",
-    "pk": 23
   },
   {
     "fields": {
