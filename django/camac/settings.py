@@ -98,6 +98,7 @@ APPLICATIONS = {
             "Service": "service",
             "Reader": "reader",
             "Canton": "canton",
+            "PublicReader": "public_reader",
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},

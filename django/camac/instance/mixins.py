@@ -10,7 +10,7 @@ from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
 
-from .. import models
+from . import models
 
 
 class InstanceQuerysetMixin(object):
