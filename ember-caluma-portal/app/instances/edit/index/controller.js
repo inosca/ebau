@@ -2,9 +2,10 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
-import { computed, defineProperty } from "@ember/object";
+import { computed } from "@ember/object";
 import { task } from "ember-concurrency";
 import { getOwner } from "@ember/application";
+import { decodeId } from "ember-caluma/helpers/decode-id";
 
 import Attachment from "ember-caluma-portal/lib/attachment";
 
@@ -12,17 +13,15 @@ const EDITABLE_INSTANCE_STATE_NAMES = ["Neu", "Zurückgewiesen"];
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
 const FeedbackAttachment = Attachment.extend({
-  documentStore: service(),
+  calumaStore: service(),
 
-  init() {
-    this._super(...arguments);
-
-    defineProperty(
-      this,
-      "document",
-      reads(`documentStore.documents.${this.documentUuid}`)
-    );
-  }
+  document: computed(
+    "calumaStore.hash.document.[]",
+    "documentUuid",
+    function() {
+      return this.calumaStore.find(`Document:${this.documentUuid}`);
+    }
+  )
 });
 
 export default Controller.extend({
@@ -31,7 +30,7 @@ export default Controller.extend({
   editController: controller("instances.edit"),
   data: reads("editController.data"),
   instanceState: reads("editController.instanceState"),
-  headers: reads("editController.headers"),
+  case: reads("data.lastSuccessful.value"),
 
   disabled: computed("instanceState.lastSuccessful.value", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(
@@ -54,7 +53,7 @@ export default Controller.extend({
       FeedbackAttachment.create(
         getOwner(this).ownerInjection(),
         Object.assign(attachment, {
-          documentUuid: atob(documentId).split(":")[1]
+          documentUuid: decodeId(documentId)
         })
       )
     );

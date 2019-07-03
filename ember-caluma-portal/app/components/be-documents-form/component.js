@@ -38,8 +38,8 @@ export default Component.extend({
     );
   }),
 
-  allVisibleTags: computed("document.fields.@each.{hidden,isNew}", function() {
-    return this.document.fields.filter(f => !f.hidden).filter(f => f.isNew);
+  allVisibleTags: computed("fieldset.fields.@each.{hidden,isNew}", function() {
+    return this.fieldset.fields.filter(f => !f.hidden).filter(f => f.isNew);
   }),
 
   allRequiredTags: filterBy("allVisibleTags", "optional", false),

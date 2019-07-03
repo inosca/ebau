@@ -8,9 +8,8 @@ export default Controller.extend({
   apollo: service(),
   fetch: service(),
 
-  queryParams: ["section", "subSection", "group", "role"],
-  section: null,
-  subSection: null,
+  queryParams: ["displayedForm", "group", "role"],
+  displayedForm: null,
   group: null,
   role: null,
 
@@ -19,8 +18,7 @@ export default Controller.extend({
       {
         query: getCaseQuery,
         fetchPolicy: "cache-and-network",
-        variables: { caseId: this.model },
-        context: { headers: this.headers }
+        variables: { caseId: this.model }
       },
       "allCases.edges.firstObject.node"
     );

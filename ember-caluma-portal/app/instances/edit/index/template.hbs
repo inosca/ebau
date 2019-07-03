@@ -18,7 +18,7 @@
 
   {{#switcher.content as |content|}}
     {{#content.item}}
-      {{#let data.lastSuccessful.value as |case|}}
+      {{#if case}}
         {{cf-content
           documentId=(decode-id case.document.id)
           disabled=disabled
@@ -27,7 +27,7 @@
             instanceId=case.meta.camac-instance-id
           )
         }}
-      {{/let}}
+      {{/if}}
     {{/content.item}}
     {{#content.item}}
       {{#if feedbackData.lastSuccessful.value.length}}
