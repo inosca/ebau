@@ -157,11 +157,14 @@ class NotificationTemplateMergeSerializer(
         notification_template = data["notification_template"]
         instance = data["instance"]
 
-        data["subject"] = self._merge(
+        subj_prefix = settings.EMAIL_PREFIX_SUBJECT
+        body_prefix = settings.EMAIL_PREFIX_BODY
+
+        data["subject"] = subj_prefix + self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
             instance,
         )
-        data["body"] = self._merge(
+        data["body"] = body_prefix + self._merge(
             data.get("body", notification_template.get_trans_attr("body")), instance
         )
         data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
