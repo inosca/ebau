@@ -28097,7 +28097,7 @@
   {
     "fields": {
       "instance_resource": 753,
-      "localized": 0,
+      "localized": 1,
       "service_group": 69
     },
     "model": "core.ireditcirculationsg",
@@ -28114,21 +28114,75 @@
   },
   {
     "fields": {
-      "instance_resource": 763,
-      "localized": 0,
-      "service_group": 70
-    },
-    "model": "core.ireditcirculationsg",
-    "pk": 253
-  },
-  {
-    "fields": {
       "instance_resource": 753,
       "localized": 0,
       "service_group": 41
     },
     "model": "core.ireditcirculationsg",
     "pk": 253
+  },
+  {
+    "fields": {
+      "instance_resource": 315,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 254
+  },
+  {
+    "fields": {
+      "instance_resource": 625,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 255
+  },
+  {
+    "fields": {
+      "instance_resource": 467,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 256
+  },
+  {
+    "fields": {
+      "instance_resource": 702,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 257
+  },
+  {
+    "fields": {
+      "instance_resource": 717,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 258
+  },
+  {
+    "fields": {
+      "instance_resource": 726,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 259
+  },
+  {
+    "fields": {
+      "instance_resource": 738,
+      "localized": 0,
+      "service_group": 70
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 260
   },
   {
     "fields": {
@@ -48506,16 +48560,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
+      "email": null,
       "name": "Alpiq",
-      "phone": "",
-      "role": 1021,
+      "phone": null,
+      "role": 4,
       "service": 97,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 202
@@ -48926,10 +48980,10 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Wasserkommission Erstfeld",
+      "name": "Testservice",
       "phone": null,
       "role": 1104,
-      "service": 261,
+      "service": 88,
       "website": null,
       "zip": null
     },
@@ -50110,7 +50164,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Gemeindewerke Altdorf",
+      "name": "Gemeindewerke Erstfeld",
       "phone": null,
       "role": 1104,
       "service": 593,
@@ -50151,6 +50205,22 @@
     },
     "model": "user.group",
     "pk": 1028
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Wasserversorgung Altdorf",
+      "phone": null,
+      "role": 1104,
+      "service": 595,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1029
   },
   {
     "fields": {
@@ -51538,30 +51608,6 @@
   },
   {
     "fields": {
-      "group": 482,
-      "location": 6
-    },
-    "model": "user.grouplocation",
-    "pk": 174
-  },
-  {
-    "fields": {
-      "group": 482,
-      "location": 22
-    },
-    "model": "user.grouplocation",
-    "pk": 175
-  },
-  {
-    "fields": {
-      "group": 482,
-      "location": 21
-    },
-    "model": "user.grouplocation",
-    "pk": 176
-  },
-  {
-    "fields": {
       "group": 812,
       "location": 2
     },
@@ -51583,6 +51629,22 @@
     },
     "model": "user.grouplocation",
     "pk": 179
+  },
+  {
+    "fields": {
+      "group": 1026,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 180
+  },
+  {
+    "fields": {
+      "group": 1029,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 181
   },
   {
     "fields": {
@@ -52094,7 +52156,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 94,
+      "sort": 104,
       "website": "",
       "zip": ""
     },
@@ -52113,7 +52175,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 1,
+      "sort": 7,
       "website": "",
       "zip": ""
     },
@@ -52132,7 +52194,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 96,
+      "sort": 106,
       "website": "",
       "zip": ""
     },
@@ -52151,7 +52213,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 98,
+      "sort": 108,
       "website": "",
       "zip": ""
     },
@@ -52170,7 +52232,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 0,
+      "sort": 3,
       "website": "",
       "zip": ""
     },
@@ -52189,7 +52251,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 37,
+      "sort": 52,
       "website": "",
       "zip": ""
     },
@@ -52208,7 +52270,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 36,
+      "sort": 51,
       "website": "",
       "zip": ""
     },
@@ -52227,7 +52289,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 58,
+      "sort": 69,
       "website": "",
       "zip": ""
     },
@@ -52246,7 +52308,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 62,
+      "sort": 72,
       "website": "",
       "zip": ""
     },
@@ -52265,7 +52327,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 64,
+      "sort": 74,
       "website": null,
       "zip": null
     },
@@ -52284,7 +52346,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 67,
+      "sort": 77,
       "website": null,
       "zip": null
     },
@@ -52303,7 +52365,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 69,
+      "sort": 79,
       "website": null,
       "zip": null
     },
@@ -52322,7 +52384,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 124,
+      "sort": 133,
       "website": "",
       "zip": ""
     },
@@ -52341,7 +52403,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 10,
+      "sort": 25,
       "website": "",
       "zip": ""
     },
@@ -52360,7 +52422,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 21,
+      "sort": 36,
       "website": "",
       "zip": ""
     },
@@ -52379,7 +52441,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 16,
+      "sort": 31,
       "website": "",
       "zip": ""
     },
@@ -52398,7 +52460,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 22,
+      "sort": 37,
       "website": "",
       "zip": ""
     },
@@ -52417,7 +52479,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 7,
+      "sort": 21,
       "website": "",
       "zip": ""
     },
@@ -52436,7 +52498,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 44,
+      "sort": 59,
       "website": "",
       "zip": ""
     },
@@ -52455,7 +52517,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 6,
+      "sort": 18,
       "website": "",
       "zip": ""
     },
@@ -52474,7 +52536,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 123,
+      "sort": 132,
       "website": "",
       "zip": ""
     },
@@ -52493,7 +52555,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 125,
+      "sort": 134,
       "website": "",
       "zip": ""
     },
@@ -52512,7 +52574,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 73,
+      "sort": 83,
       "website": "",
       "zip": ""
     },
@@ -52531,7 +52593,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 24,
+      "sort": 39,
       "website": "",
       "zip": ""
     },
@@ -52550,7 +52612,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 17,
+      "sort": 32,
       "website": "",
       "zip": ""
     },
@@ -52569,7 +52631,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 20,
+      "sort": 35,
       "website": "",
       "zip": ""
     },
@@ -52588,7 +52650,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 43,
+      "sort": 58,
       "website": "",
       "zip": ""
     },
@@ -52607,7 +52669,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 136,
+      "sort": 143,
       "website": "",
       "zip": ""
     },
@@ -52626,7 +52688,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 75,
+      "sort": 85,
       "website": "",
       "zip": ""
     },
@@ -52645,7 +52707,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 31,
+      "sort": 46,
       "website": "",
       "zip": ""
     },
@@ -52664,7 +52726,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 30,
+      "sort": 45,
       "website": "",
       "zip": ""
     },
@@ -52683,7 +52745,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 2,
+      "sort": 10,
       "website": "",
       "zip": ""
     },
@@ -52702,7 +52764,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 28,
+      "sort": 43,
       "website": "",
       "zip": ""
     },
@@ -52721,7 +52783,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 79,
+      "sort": 89,
       "website": null,
       "zip": null
     },
@@ -52740,7 +52802,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 135,
+      "sort": 142,
       "website": "",
       "zip": ""
     },
@@ -52759,7 +52821,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 0,
+      "sort": 4,
       "website": "",
       "zip": ""
     },
@@ -52778,7 +52840,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 46,
+      "sort": 61,
       "website": "",
       "zip": ""
     },
@@ -52797,7 +52859,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 56,
+      "sort": 67,
       "website": null,
       "zip": null
     },
@@ -52816,7 +52878,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 40,
+      "sort": 55,
       "website": "",
       "zip": ""
     },
@@ -52835,7 +52897,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 42,
+      "sort": 57,
       "website": "",
       "zip": ""
     },
@@ -52854,7 +52916,7 @@
       "phone": null,
       "service_group": 61,
       "service_parent": null,
-      "sort": 27,
+      "sort": 42,
       "website": null,
       "zip": null
     },
@@ -52873,7 +52935,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 13,
+      "sort": 28,
       "website": "",
       "zip": ""
     },
@@ -52892,7 +52954,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 14,
+      "sort": 29,
       "website": "",
       "zip": ""
     },
@@ -52911,7 +52973,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 103,
+      "sort": 113,
       "website": "",
       "zip": ""
     },
@@ -52930,7 +52992,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 93,
+      "sort": 103,
       "website": "",
       "zip": ""
     },
@@ -52949,7 +53011,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 128,
+      "sort": 136,
       "website": "",
       "zip": ""
     },
@@ -52968,7 +53030,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 2,
+      "sort": 8,
       "website": null,
       "zip": null
     },
@@ -52987,7 +53049,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 3,
+      "sort": 12,
       "website": null,
       "zip": null
     },
@@ -53006,7 +53068,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 4,
+      "sort": 14,
       "website": "",
       "zip": ""
     },
@@ -53025,7 +53087,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 5,
+      "sort": 17,
       "website": "",
       "zip": ""
     },
@@ -53044,7 +53106,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 6,
+      "sort": 19,
       "website": "",
       "zip": ""
     },
@@ -53063,7 +53125,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 8,
+      "sort": 23,
       "website": "",
       "zip": ""
     },
@@ -53082,7 +53144,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 4,
+      "sort": 16,
       "website": "",
       "zip": ""
     },
@@ -53101,7 +53163,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 19,
+      "sort": 34,
       "website": "",
       "zip": ""
     },
@@ -53120,7 +53182,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 126,
+      "sort": 135,
       "website": "",
       "zip": ""
     },
@@ -53139,7 +53201,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 104,
+      "sort": 114,
       "website": "",
       "zip": ""
     },
@@ -53158,7 +53220,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 105,
+      "sort": 115,
       "website": "",
       "zip": ""
     },
@@ -53177,7 +53239,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 106,
+      "sort": 116,
       "website": "",
       "zip": ""
     },
@@ -53196,7 +53258,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 107,
+      "sort": 117,
       "website": "",
       "zip": ""
     },
@@ -53215,7 +53277,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 108,
+      "sort": 118,
       "website": "",
       "zip": ""
     },
@@ -53234,7 +53296,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 109,
+      "sort": 119,
       "website": "",
       "zip": ""
     },
@@ -53253,7 +53315,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 110,
+      "sort": 120,
       "website": "",
       "zip": ""
     },
@@ -53272,7 +53334,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 111,
+      "sort": 121,
       "website": "",
       "zip": ""
     },
@@ -53291,7 +53353,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 112,
+      "sort": 122,
       "website": "",
       "zip": ""
     },
@@ -53310,7 +53372,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 113,
+      "sort": 123,
       "website": "",
       "zip": ""
     },
@@ -53329,7 +53391,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 114,
+      "sort": 124,
       "website": "",
       "zip": ""
     },
@@ -53348,7 +53410,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 115,
+      "sort": 125,
       "website": "",
       "zip": ""
     },
@@ -53367,7 +53429,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 116,
+      "sort": 126,
       "website": "",
       "zip": ""
     },
@@ -53386,7 +53448,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 117,
+      "sort": 127,
       "website": "",
       "zip": ""
     },
@@ -53405,7 +53467,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 118,
+      "sort": 128,
       "website": "",
       "zip": ""
     },
@@ -53424,7 +53486,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 119,
+      "sort": 129,
       "website": "",
       "zip": ""
     },
@@ -53443,7 +53505,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 120,
+      "sort": 130,
       "website": "",
       "zip": ""
     },
@@ -53462,7 +53524,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 121,
+      "sort": 131,
       "website": "",
       "zip": ""
     },
@@ -53481,7 +53543,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 34,
+      "sort": 49,
       "website": "",
       "zip": ""
     },
@@ -53500,7 +53562,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 29,
+      "sort": 44,
       "website": "",
       "zip": ""
     },
@@ -53519,7 +53581,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 11,
+      "sort": 26,
       "website": "",
       "zip": ""
     },
@@ -53538,7 +53600,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 48,
+      "sort": 63,
       "website": "",
       "zip": ""
     },
@@ -53557,7 +53619,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 18,
+      "sort": 33,
       "website": "",
       "zip": ""
     },
@@ -53576,7 +53638,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 26,
+      "sort": 41,
       "website": "",
       "zip": ""
     },
@@ -53595,7 +53657,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 25,
+      "sort": 40,
       "website": "",
       "zip": ""
     },
@@ -53614,7 +53676,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 38,
+      "sort": 53,
       "website": "",
       "zip": ""
     },
@@ -53633,7 +53695,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 47,
+      "sort": 62,
       "website": "",
       "zip": ""
     },
@@ -53652,7 +53714,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 54,
+      "sort": 65,
       "website": "",
       "zip": ""
     },
@@ -53671,7 +53733,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 74,
+      "sort": 84,
       "website": "",
       "zip": ""
     },
@@ -53690,7 +53752,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 77,
+      "sort": 87,
       "website": "",
       "zip": ""
     },
@@ -53709,7 +53771,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 81,
+      "sort": 91,
       "website": "",
       "zip": ""
     },
@@ -53728,7 +53790,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 82,
+      "sort": 92,
       "website": "",
       "zip": ""
     },
@@ -53747,7 +53809,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 83,
+      "sort": 93,
       "website": "",
       "zip": ""
     },
@@ -53766,7 +53828,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 84,
+      "sort": 94,
       "website": "",
       "zip": ""
     },
@@ -53785,7 +53847,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 85,
+      "sort": 95,
       "website": "",
       "zip": ""
     },
@@ -53804,7 +53866,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 86,
+      "sort": 96,
       "website": "",
       "zip": ""
     },
@@ -53823,7 +53885,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 87,
+      "sort": 97,
       "website": "",
       "zip": ""
     },
@@ -53842,7 +53904,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 88,
+      "sort": 98,
       "website": "",
       "zip": ""
     },
@@ -53861,7 +53923,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 89,
+      "sort": 99,
       "website": "",
       "zip": ""
     },
@@ -53880,7 +53942,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 90,
+      "sort": 100,
       "website": "",
       "zip": ""
     },
@@ -53899,7 +53961,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 91,
+      "sort": 101,
       "website": "",
       "zip": ""
     },
@@ -53918,7 +53980,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 92,
+      "sort": 102,
       "website": "",
       "zip": ""
     },
@@ -53937,7 +53999,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 41,
+      "sort": 56,
       "website": "",
       "zip": ""
     },
@@ -53956,7 +54018,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 63,
+      "sort": 73,
       "website": "",
       "zip": ""
     },
@@ -53975,7 +54037,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 15,
+      "sort": 30,
       "website": null,
       "zip": null
     },
@@ -53994,7 +54056,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 32,
+      "sort": 47,
       "website": "",
       "zip": ""
     },
@@ -54013,7 +54075,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 39,
+      "sort": 54,
       "website": "",
       "zip": ""
     },
@@ -54032,7 +54094,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 45,
+      "sort": 60,
       "website": "",
       "zip": ""
     },
@@ -54051,7 +54113,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 65,
+      "sort": 75,
       "website": "",
       "zip": ""
     },
@@ -54070,7 +54132,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 66,
+      "sort": 76,
       "website": "",
       "zip": ""
     },
@@ -54089,7 +54151,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 71,
+      "sort": 81,
       "website": "",
       "zip": ""
     },
@@ -54108,7 +54170,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 72,
+      "sort": 82,
       "website": "",
       "zip": ""
     },
@@ -54127,7 +54189,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 57,
+      "sort": 68,
       "website": "",
       "zip": ""
     },
@@ -54146,7 +54208,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 52,
+      "sort": 64,
       "website": "",
       "zip": ""
     },
@@ -54165,7 +54227,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 55,
+      "sort": 66,
       "website": "",
       "zip": ""
     },
@@ -54184,7 +54246,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 78,
+      "sort": 88,
       "website": "",
       "zip": ""
     },
@@ -54203,7 +54265,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 80,
+      "sort": 90,
       "website": "",
       "zip": ""
     },
@@ -54222,7 +54284,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 12,
+      "sort": 27,
       "website": "",
       "zip": ""
     },
@@ -54241,7 +54303,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 33,
+      "sort": 48,
       "website": "",
       "zip": ""
     },
@@ -54260,7 +54322,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 23,
+      "sort": 38,
       "website": "",
       "zip": ""
     },
@@ -54279,7 +54341,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 8,
+      "sort": 22,
       "website": "",
       "zip": ""
     },
@@ -54298,7 +54360,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 1,
+      "sort": 6,
       "website": "",
       "zip": ""
     },
@@ -54317,7 +54379,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 3,
+      "sort": 13,
       "website": "",
       "zip": ""
     },
@@ -54336,7 +54398,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 35,
+      "sort": 50,
       "website": "",
       "zip": ""
     },
@@ -54355,7 +54417,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 3,
+      "sort": 11,
       "website": "",
       "zip": ""
     },
@@ -54374,7 +54436,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 9,
+      "sort": 24,
       "website": "",
       "zip": ""
     },
@@ -54393,7 +54455,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 4,
+      "sort": 15,
       "website": "",
       "zip": ""
     },
@@ -54412,7 +54474,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 102,
+      "sort": 112,
       "website": "",
       "zip": ""
     },
@@ -54431,7 +54493,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 97,
+      "sort": 107,
       "website": "",
       "zip": ""
     },
@@ -54469,7 +54531,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 95,
+      "sort": 105,
       "website": "",
       "zip": ""
     },
@@ -54488,7 +54550,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 129,
+      "sort": 137,
       "website": "",
       "zip": ""
     },
@@ -54507,7 +54569,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 130,
+      "sort": 138,
       "website": "",
       "zip": ""
     },
@@ -54526,7 +54588,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 131,
+      "sort": 139,
       "website": "",
       "zip": ""
     },
@@ -54545,7 +54607,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 132,
+      "sort": 140,
       "website": "",
       "zip": ""
     },
@@ -54564,7 +54626,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 68,
+      "sort": 78,
       "website": null,
       "zip": null
     },
@@ -54583,7 +54645,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 60,
+      "sort": 70,
       "website": "",
       "zip": ""
     },
@@ -54602,7 +54664,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 61,
+      "sort": 71,
       "website": "",
       "zip": ""
     },
@@ -54621,7 +54683,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 99,
+      "sort": 109,
       "website": "",
       "zip": ""
     },
@@ -54640,7 +54702,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 101,
+      "sort": 111,
       "website": "",
       "zip": ""
     },
@@ -54659,7 +54721,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 7,
+      "sort": 20,
       "website": "",
       "zip": ""
     },
@@ -54678,7 +54740,7 @@
       "phone": null,
       "service_group": 62,
       "service_parent": null,
-      "sort": 100,
+      "sort": 110,
       "website": null,
       "zip": null
     },
@@ -54697,7 +54759,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 70,
+      "sort": 80,
       "website": null,
       "zip": null
     },
@@ -54716,7 +54778,7 @@
       "phone": null,
       "service_group": 1,
       "service_parent": null,
-      "sort": 133,
+      "sort": 141,
       "website": null,
       "zip": null
     },
@@ -54735,7 +54797,7 @@
       "phone": null,
       "service_group": 70,
       "service_parent": null,
-      "sort": 2,
+      "sort": 9,
       "website": null,
       "zip": null
     },
@@ -54754,7 +54816,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 76,
+      "sort": 86,
       "website": null,
       "zip": null
     },
@@ -54765,15 +54827,15 @@
     "fields": {
       "address": null,
       "city": null,
-      "description": "Test Gruppe zum testen der Gemeinde Zirkulation",
+      "description": "Gemeindewerke Erstfeld",
       "disabled": 0,
       "email": null,
-      "name": "Gemeindewerke Altdorf",
+      "name": "Gemeindewerke Erstfeld",
       "notification": 1,
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 0,
+      "sort": 1,
       "website": null,
       "zip": null
     },
@@ -54792,12 +54854,31 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 1,
+      "sort": 5,
       "website": null,
       "zip": null
     },
     "model": "user.service",
     "pk": 594
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Wasserversorgung Altdorf",
+      "disabled": 0,
+      "email": null,
+      "name": "Wasserversorgung Altdorf",
+      "notification": 1,
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 2,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 595
   },
   {
     "fields": {
