@@ -334,6 +334,19 @@ EMAIL_HOST_USER = env.str("DJANGO_EMAIL_HOST_USER", "")
 EMAIL_HOST_PASSWORD = env.str("DJANGO_EMAIL_HOST_PASSWORD", "")
 EMAIL_USE_TLS = env.str("DJANGO_EMAIL_USE_TLS", False)
 
+EMAIL_PREFIX_SUBJECT = env.str("EMAIL_PREFIX_SUBJECT", default("[eBau Test]: ", ""))
+EMAIL_PREFIX_BODY = env.str(
+    "EMAIL_PREFIX_BODY",
+    default(
+        (
+            "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\n"
+            "Es dient nur zu Testzwecken und kann ignoriert werden\n\n"
+        ),
+        "",
+    ),
+)
+
+
 # Merge definition
 MERGE_DATE_FORMAT = env.str("DJANGO_MERGE_DATE_FORMAT", "%d.%m.%Y")
 MERGE_ANSWER_PERIOD = env.int("DJANGO_MERGE_ANSWER_PERIOD", 20)

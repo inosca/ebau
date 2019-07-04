@@ -264,6 +264,8 @@ def test_instance_submit(
     if response_status == 200:
         assert len(mail.outbox) == 1
         assert instance.user.email in mail.outbox[0].recipients()
+
+        assert mail.outbox[0].subject.startswith("[eBau Test]: ")
     else:
         # no mail if submission not accepted!
         assert len(mail.outbox) == 0
