@@ -1,6 +1,11 @@
 import re
 
-from django_filters.rest_framework import DateFilter, FilterSet, NumberFilter
+from django_filters.rest_framework import (
+    CharFilter,
+    DateFilter,
+    FilterSet,
+    NumberFilter,
+)
 from rest_framework.filters import BaseFilterBackend
 
 from camac.filters import (
@@ -10,6 +15,13 @@ from camac.filters import (
 )
 
 from . import models
+
+
+class ResponsibleUserFilter(CharFilter):
+    def filter(self, qs, value):
+        if value.lower() == "nobody":
+            return qs.filter(**{f"{self.field_name}__isnull": True})
+        return super().filter(qs, value)
 
 
 class InstanceFilterSet(FilterSet):
@@ -22,7 +34,7 @@ class InstanceFilterSet(FilterSet):
         field_name="creation_date__date", lookup_expr="lte"
     )
     instance_state = NumberMultiValueFilter()
-    responsible_user = NumberFilter(field_name="responsibilities__user")
+    responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
 
     class Meta:
         model = models.Instance

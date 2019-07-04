@@ -269,3 +269,29 @@ def test_instance_submit(
     else:
         # no mail if submission not accepted!
         assert len(mail.outbox) == 0
+
+
+@pytest.mark.parametrize(
+    "role_t__name,instance__user", [("System-Betrieb", LazyFixture("user"))]
+)
+def test_responsible_user(admin_client, instance, user, service):
+
+    instance.responsibilities.create(user=user, service=service)
+
+    # First make sure we can find instances with given responsible user
+    resp = admin_client.get(
+        reverse("instance-list"), {"responsible_user": str(user.pk)}
+    )
+    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert len(resp.json()["data"]) == 1
+
+    # "nobody" filter should return nothing if all instances have a responsible user
+    resp = admin_client.get(reverse("instance-list"), {"responsible_user": "NOBODY"})
+    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert len(resp.json()["data"]) == 0
+
+    # "nobody" filter should return instance where there is no responsible user
+    instance.responsibilities.all().delete()
+    resp = admin_client.get(reverse("instance-list"), {"responsible_user": "NOBODY"})
+    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert len(resp.json()["data"]) == 1
