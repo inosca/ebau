@@ -28115,7 +28115,7 @@
   {
     "fields": {
       "instance_resource": 753,
-      "localized": 1,
+      "localized": 0,
       "service_group": 41
     },
     "model": "core.ireditcirculationsg",
