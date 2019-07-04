@@ -3,8 +3,8 @@
     {{#nav.component as |tab|}}
       {{#tab.item}}
         {{t "nav.form"}}
-        {{#if instanceState.lastSuccessful.value}}
-          <span class="uk-text-meta">({{instanceState.lastSuccessful.value.attributes.name}})</span>
+        {{#if instance}}
+          <span class="uk-text-meta">({{t (concat "instanceState." instance.public-status)}})</span>
         {{/if}}
       {{/tab.item}}
       {{#tab.item}}
