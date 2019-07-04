@@ -1,5 +1,5 @@
 query GetCase($caseId: GenericScalar!) {
-  allCases(metaValue: { key: "camac-instance-id", value: $caseId }) {
+  allCases(metaValue: [{ key: "camac-instance-id", value: $caseId }]) {
     edges {
       node {
         id
