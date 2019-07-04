@@ -59,6 +59,7 @@ services:
             - clamav
             - keycloak
             - mailcatcher
+            - unoconv
         environment:
             - DJANGO_DATABASE_HOST=db
             - DJANGO_DATABASE_NAME=${APPLICATION}
