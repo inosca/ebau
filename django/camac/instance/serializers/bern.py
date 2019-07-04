@@ -16,6 +16,9 @@ from .. import models
 from ...core import models as core_models
 from .common import InstanceSerializer
 
+SUBMIT_DATE_CHAPTER = 100001
+SUBMIT_DATE_QUESTION_ID = 20036
+
 request_logger = getLogger("django.request")
 
 
@@ -163,6 +166,13 @@ class BernInstanceSerializer(InstanceSerializer):
         # Now, add instance id to case
         case_meta["camac-instance-id"] = created.pk
 
+        caluma_resp = self._save_case(case_id, case_meta, case_data["workflow"]["id"])
+        if caluma_resp.status_code not in (200, 201):  # pragma: no cover
+            raise ValidationError("Error while linking case and instance")
+
+        return created
+
+    def _save_case(self, case_id, case_meta, workflow_id):
         caluma_resp = requests.post(
             settings.CALUMA_URL,
             json={
@@ -180,7 +190,7 @@ class BernInstanceSerializer(InstanceSerializer):
                     "input": {
                         "id": case_id,
                         "meta": json.dumps(case_meta),
-                        "workflow": case_data["workflow"]["id"],
+                        "workflow": workflow_id,
                     }
                 },
             },
@@ -188,10 +198,7 @@ class BernInstanceSerializer(InstanceSerializer):
                 "Authorization": get_authorization_header(self.context["request"])
             },
         )
-        if caluma_resp.status_code not in (200, 201):  # pragma: no cover
-            raise ValidationError("Error while linking case and instance")
-
-        return created
+        return caluma_resp
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -238,11 +245,38 @@ class BernInstanceSerializer(InstanceSerializer):
 
         self.instance.save()
 
+        self._set_submit_date(validated_data)
+
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
             self.notify_submit(**notification_config)
 
         return instance
+
+    def _set_submit_date(self, validated_data):
+        case_data = validated_data["caluma_case_data"]
+
+        if "submit-date" in case_data["meta"]:  # pragma: no cover
+            # instance was already submitted, this is probably a re-submit
+            # after correction.
+            return
+
+        # Set submit date in Camac first...
+        subm_question = core_models.Question.objects.get(pk=SUBMIT_DATE_QUESTION_ID)
+        subm_ans, _ = core_models.Answer.objects.get_or_create(
+            instance=self.instance,
+            question=subm_question,
+            item=1,
+            chapter_id=SUBMIT_DATE_CHAPTER,
+            # CAMAC date is formatted in "dd.mm.yyyy"
+            defaults={"answer": timezone.now().strftime("%d.%m.%Y")},
+        )
+        new_meta = {
+            **case_data["meta"],
+            # Caluma date is formatted yyyy-mm-dd so it can be sorted
+            "submit-date": timezone.now().strftime("%Y-%m-%d"),
+        }
+        self._save_case(case_data["id"], new_meta, case_data["workflow"]["id"])
 
     def notify_submit(self, template_id, recipient_types):
         """Send notification email."""
