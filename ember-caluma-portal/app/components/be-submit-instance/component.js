@@ -17,7 +17,25 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    next(this, () => this.validate.perform());
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(({ isIntersecting }) => {
+        if (isIntersecting) {
+          next(this, () => this.validate.perform());
+        }
+      });
+    }, {});
+
+    // this is not an ember observer but an introspection observer
+    // eslint-disable-next-line ember/no-observers
+    observer.observe(this.element);
+
+    this.set("_observer", observer);
+  },
+
+  willDestroyElement() {
+    this._super(...arguments);
+
+    this._observer.disconnect();
   },
 
   invalidFields: computed(
