@@ -7,11 +7,25 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.applicants.factories import ApplicantFactory
+from camac.core.models import Chapter, Question, QuestionType
+from camac.instance.serializers.bern import SUBMIT_DATE_CHAPTER, SUBMIT_DATE_QUESTION_ID
 from camac.instance.views.bern import InstanceView
 from camac.markers import only_bern
 
 # module-level skip if we're not testing Bern variant
 pytestmark = only_bern
+
+
+@pytest.fixture
+def submit_date_question(db):
+    chap, _ = Chapter.objects.get_or_create(pk=SUBMIT_DATE_CHAPTER, name="Hidden")
+    qtype, _ = QuestionType.objects.get_or_create(name="Date")
+    question, _ = Question.objects.get_or_create(
+        pk=SUBMIT_DATE_QUESTION_ID, question_type=qtype
+    )
+    question.trans.create(language="de", name="Einreichedatum")
+
+    return question
 
 
 @pytest.mark.parametrize(
@@ -215,6 +229,7 @@ def test_instance_submit(
     response_status,
     new_instance_state,
     notification_template,
+    submit_date_question,
     settings,
     mocker,
 ):
@@ -233,7 +248,9 @@ def test_instance_submit(
             {
                 "data": {
                     "node": {
+                        "id": 1234,
                         "meta": {},
+                        "workflow": {"id": 99999},
                         "document": {
                             "form": {"slug": "vorabklaerung-einfach"},
                             "answers": {
