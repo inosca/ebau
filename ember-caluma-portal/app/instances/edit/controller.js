@@ -24,7 +24,7 @@ export default Controller.extend({
     );
   }).restartable(),
 
-  instanceState: task(function*() {
+  instance: task(function*() {
     const groupParam = this.group ? "&group=" + this.group : "";
     const response = yield this.fetch.fetch(
       `/api/v1/instances/${this.model}?include=instance_state${groupParam}`
@@ -32,10 +32,13 @@ export default Controller.extend({
 
     const { included, data: instance } = yield response.json();
 
-    return included.find(
-      obj =>
-        obj.type === "instance-states" &&
-        obj.id === instance.relationships["instance-state"].data.id
-    );
+    return {
+      ...instance.attributes,
+      state: included.find(
+        obj =>
+          obj.type === "instance-states" &&
+          obj.id === instance.relationships["instance-state"].data.id
+      )
+    };
   }).restartable()
 });

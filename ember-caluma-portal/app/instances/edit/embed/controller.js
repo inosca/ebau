@@ -8,12 +8,12 @@ const EDITABLE_INSTANCE_STATE_NAMES = ["In Korrektur"];
 export default Controller.extend({
   editController: controller("instances.edit"),
 
-  instanceState: reads("editController.instanceState"),
+  instanceState: reads("editController.instance.lastSuccessful.value.state"),
   case: reads("editController.data.lastSuccessful.value"),
 
-  disabled: computed("instanceState.lastSuccessful.value", function() {
+  disabled: computed("instanceState.attributes.name", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(
-      this.get("instanceState.lastSuccessful.value.attributes.name")
+      this.get("instanceState.attributes.name")
     );
   })
 });
