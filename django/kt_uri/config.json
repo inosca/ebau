@@ -4949,6 +4949,34 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 944,
+      "description": "ANY (Gemeinde) zu ARCH",
+      "error_message": "Das Dossier konnte nich archiviert werden, da ein Fehler aufgetreten ist!",
+      "execute_always": 0,
+      "name": "Archivieren",
+      "sort": 0,
+      "success_message": "Das Dossier wurde archiviert."
+    },
+    "model": "core.action",
+    "pk": 1446
+  },
+  {
+    "fields": {
+      "available_action": "workflow",
+      "button": 944,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Archivieren",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1447
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -5923,6 +5951,14 @@
     },
     "model": "core.aformtransition",
     "pk": 1443
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 26
+    },
+    "model": "core.aformtransition",
+    "pk": 1446
   },
   {
     "fields": {
@@ -17080,6 +17116,15 @@
   },
   {
     "fields": {
+      "button": 944,
+      "instance_state": 25,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 595
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -19348,6 +19393,18 @@
     },
     "model": "core.button",
     "pk": 943
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 766,
+      "name": "Archivieren",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 944
   },
   {
     "fields": {
@@ -44108,6 +44165,14 @@
     },
     "model": "core.workflowaction",
     "pk": 1444
+  },
+  {
+    "fields": {
+      "multi_value": 0,
+      "workflow_item": 62
+    },
+    "model": "core.workflowaction",
+    "pk": 1447
   },
   {
     "fields": {
