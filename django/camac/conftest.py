@@ -61,19 +61,22 @@ def admin_client(db, admin_user):
 
 
 @pytest.fixture
-def multilang(settings):
-    old_multilang = settings.APPLICATION["IS_MULTILINGUAL"]
-    settings.APPLICATION["IS_MULTILINGUAL"] = True
-    yield
-    settings.APPLICATION["IS_MULTILINGUAL"] = old_multilang
+def application_settings(settings):
+    application_dict = dict(settings.APPLICATION)
+    # settings fixture only restores per attribute
+    # so need to set copy of dict
+    settings.APPLICATION = application_dict
+    return application_dict
 
 
 @pytest.fixture
-def use_caluma_form(settings):
-    old_caluma_form = settings.APPLICATION["USE_CALUMA_FORM"]
-    settings.APPLICATION["USE_CALUMA_FORM"] = True
-    yield
-    settings.APPLICATION["USE_CALUMA_FORM"] = old_caluma_form
+def multilang(application_settings):
+    application_settings["IS_MULTILINGUAL"] = True
+
+
+@pytest.fixture
+def use_caluma_form(application_settings):
+    application_settings["USE_CALUMA_FORM"] = True
 
 
 @pytest.fixture
