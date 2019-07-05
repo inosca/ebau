@@ -4,19 +4,15 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.circulation import serializers
-from camac.markers import only_schwyz
-
-# module-level skip if we're not testing Schwyz variant
-pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
         ("Applicant", LazyFixture("admin_user"), 5),
-        ("Kanton", LazyFixture("user"), 5),
-        ("Gemeinde", LazyFixture("user"), 5),
-        ("Fachstelle", LazyFixture("user"), 5),
+        ("Canton", LazyFixture("user"), 5),
+        ("Municipality", LazyFixture("user"), 5),
+        ("Service", LazyFixture("user"), 5),
     ],
 )
 def test_circulation_list(

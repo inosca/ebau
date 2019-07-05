@@ -1,16 +1,17 @@
 from django.conf import settings
+from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
-from camac.core.models import Circulation
+from camac.core.models import Circulation, InstanceService
 from camac.mixins import AttributeMixin
 from camac.request import get_request
 from camac.user.permissions import permission_aware
 
-from .. import models
+from . import models
 
 
 class InstanceQuerysetMixin(object):
@@ -47,8 +48,9 @@ class InstanceQuerysetMixin(object):
     @permission_aware
     def get_queryset(self):
         queryset = self.get_base_queryset()
-        user_field = self._get_instance_filter_expr("user")
-
+        user_field = self._get_instance_filter_expr(
+            settings.APPLICATION["INSTANCE_USER_FIELD"]
+        )
         return queryset.filter(**{user_field: self.request.user})
 
     def get_queryset_for_public_reader(self):
@@ -72,23 +74,36 @@ class InstanceQuerysetMixin(object):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
-        instances = models.Instance.objects.filter(
+        instances_for_location = models.Instance.objects.filter(
             location__in=self.request.group.locations.all()
         )
-        return queryset.filter(**{instance_field: instances})
+
+        instances_for_service = InstanceService.objects.filter(
+            service=self.request.group.service
+        ).values("instance")
+
+        instances_for_activation = self._instances_with_activation()
+
+        return queryset.filter(
+            Q(**{instance_field: instances_for_location})
+            | Q(**{instance_field: instances_for_service})
+            | Q(**{instance_field: instances_for_activation})
+        )
 
     def get_queryset_for_service(self):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-
-        instances = Circulation.objects.filter(
-            activations__service=self.request.group.service
-        ).values("instance")
+        instances = self._instances_with_activation()
         # use subquery to avoid duplicates
         return queryset.filter(**{instance_field: instances})
 
     def get_queryset_for_canton(self):
         return self.get_base_queryset()
+
+    def _instances_with_activation(self):
+        return Circulation.objects.filter(
+            activations__service=self.request.group.service
+        ).values("instance")
 
 
 class InstanceEditableMixin(AttributeMixin):
@@ -120,11 +135,11 @@ class InstanceEditableMixin(AttributeMixin):
 
         editable = set()
 
-        if instance.instance_state.name == "new":
-            editable.update(["instance", "form", "document"])
+        if instance.instance_state.name in ["Neu", "Zurückgewiesen", "new"]:
+            return {"instance", "form", "document"}
 
         if instance.instance_state.name == "nfd":
-            editable.update(["document"])
+            return {"document"}
 
         return editable
 

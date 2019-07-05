@@ -2,14 +2,10 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.markers import only_schwyz
-
-pytestmark = only_schwyz
-
 
 @pytest.mark.parametrize(
     "role__name,num_queries,size",
-    [("Applicant", 1, 0), ("Fachstelle", 2, 1), ("Gemeinde", 2, 1), ("Kanton", 2, 1)],
+    [("Applicant", 1, 0), ("Service", 2, 1), ("Municipality", 2, 1), ("Canton", 2, 1)],
 )
 def test_notification_template_list(
     admin_client, notification_template, num_queries, django_assert_num_queries, size
@@ -24,7 +20,7 @@ def test_notification_template_list(
         assert json["data"][0]["id"] == str(notification_template.pk)
 
 
-@pytest.mark.parametrize("role__name", ["Kanton"])
+@pytest.mark.parametrize("role__name", ["Canton"])
 def test_notification_template_detail(admin_client, notification_template):
     url = reverse("notificationtemplate-detail", args=[notification_template.pk])
 
@@ -38,8 +34,8 @@ def test_notification_template_detail(admin_client, notification_template):
 @pytest.mark.parametrize(
     "role__name,instance__identifier,notification_template__subject,status_code",
     [
-        ("Kanton", "identifier", "{{identifier}}", status.HTTP_200_OK),
-        ("Kanton", "identifier", "{{$invalid}}", status.HTTP_400_BAD_REQUEST),
+        ("Canton", "identifier", "{{identifier}}", status.HTTP_200_OK),
+        ("Canton", "identifier", "{{$invalid}}", status.HTTP_400_BAD_REQUEST),
     ],
 )
 @pytest.mark.freeze_time("2017-1-1")
@@ -82,9 +78,9 @@ def test_notification_template_merge(
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
-        ("Kanton", status.HTTP_204_NO_CONTENT),
-        ("Gemeinde", status.HTTP_204_NO_CONTENT),
-        ("Fachstelle", status.HTTP_204_NO_CONTENT),
+        ("Canton", status.HTTP_204_NO_CONTENT),
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Service", status.HTTP_204_NO_CONTENT),
         ("Applicant", status.HTTP_400_BAD_REQUEST),
     ],
 )

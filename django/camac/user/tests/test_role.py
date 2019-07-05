@@ -3,8 +3,6 @@ from django.conf import settings
 from django.urls import reverse
 from rest_framework import status
 
-from camac.markers import only_bern
-
 
 def test_role_list(admin_client, role, role_factory):
     role_factory()  # new role which may not appear in result
@@ -18,12 +16,25 @@ def test_role_list(admin_client, role, role_factory):
     assert json["data"][0]["id"] == str(role.pk)
 
 
-@only_bern
+@pytest.mark.parametrize(
+    "role__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
+)
+def test_role_detail(admin_client, role, permission):
+    url = reverse("role-detail", args=[role.pk])
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert json["data"]["attributes"]["permission"] == permission
+    assert json["data"]["attributes"]["name"] == role.name
+
+
 @pytest.mark.parametrize(
     "role_t__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
 )
-def test_role_detail(admin_client, role, role_t, permission):
-    url = reverse("role-detail", args=[role_t.pk])
+def test_role_detail_multilang(admin_client, role, role_t, permission, multilang):
+    url = reverse("role-detail", args=[role.pk])
 
     response = admin_client.get(url)
 
