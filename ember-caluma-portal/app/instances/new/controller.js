@@ -4,7 +4,7 @@ import { info1, info2 } from "ember-caluma-portal/instances/new/info";
 import { inject as service } from "@ember/service";
 import startCase from "ember-caluma-portal/gql/mutations/start-case";
 
-import allRootFormsQuery from "ember-caluma-portal/gql/queries/all-root-forms";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
 export default Controller.extend({
   apollo: service(),
@@ -18,7 +18,7 @@ export default Controller.extend({
   forms: task(function*() {
     const forms = yield this.apollo.query(
       {
-        query: allRootFormsQuery
+        query: getRootFormsQuery
       },
       "allForms.edges"
     );
