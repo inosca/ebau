@@ -64,3 +64,4 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.Service
         fields = ("name", "email", "notification")
+        read_only_fields = ("name",)

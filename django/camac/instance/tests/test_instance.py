@@ -10,52 +10,26 @@ from rest_framework import status
 
 from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
-from camac.markers import only_demo, only_schwyz
 
 
-# module-level skip if we're not testing Schwyz variant
-@only_schwyz
+@pytest.fixture(params=["user", "involved_applicants__invitee"])
+def instance_user_field(settings, request):
+    old_user_field = settings.APPLICATION["INSTANCE_USER_FIELD"]
+    settings.APPLICATION["INSTANCE_USER_FIELD"] = request.param
+    yield
+    settings.APPLICATION["INSTANCE_USER_FIELD"] = old_user_field
+
+
 @pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date",
-    [("new", "2018-04-17T09:31:56+02:00")],
-)
-@pytest.mark.parametrize(
-    "role__name,instance__user,num_queries,editable",
+    "instance_state__name,instance__creation_date,applicant__user,applicant__invitee",
     [
-        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
-        # reader should see instances from other users but has no editables
-        ("Lesezugriff", LazyFixture("user"), 9, set()),
-        ("Kanton", LazyFixture("user"), 9, {"form", "document"}),
-        ("Gemeinde", LazyFixture("user"), 9, {"form", "document"}),
-        ("Fachstelle", LazyFixture("user"), 9, {"form", "document"}),
+        (
+            "new",
+            "2018-04-17T09:31:56+02:00",
+            LazyFixture("admin_user"),
+            LazyFixture("admin_user"),
+        )
     ],
-)
-def test_instance_list_sz(
-    admin_client,
-    instance,
-    activation,
-    num_queries,
-    group,
-    django_assert_num_queries,
-    editable,
-    group_location_factory,
-):
-    return do_test_instance_list(
-        admin_client,
-        instance,
-        activation,
-        num_queries,
-        group,
-        django_assert_num_queries,
-        editable,
-        group_location_factory,
-    )
-
-
-@only_demo
-@pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date",
-    [("new", "2018-04-17T09:31:56+02:00")],
 )
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
@@ -68,7 +42,7 @@ def test_instance_list_sz(
         ("Service", LazyFixture("user"), 9, {"form", "document"}),
     ],
 )
-def test_instance_list_demo(
+def test_instance_list(
     admin_client,
     instance,
     activation,
@@ -77,28 +51,8 @@ def test_instance_list_demo(
     django_assert_num_queries,
     editable,
     group_location_factory,
-):
-    return do_test_instance_list(
-        admin_client,
-        instance,
-        activation,
-        num_queries,
-        group,
-        django_assert_num_queries,
-        editable,
-        group_location_factory,
-    )
-
-
-def do_test_instance_list(
-    admin_client,
-    instance,
-    activation,
-    num_queries,
-    group,
-    django_assert_num_queries,
-    editable,
-    group_location_factory,
+    applicant,
+    instance_user_field,
 ):
     url = reverse("instance-list")
 
@@ -125,7 +79,6 @@ def do_test_instance_list(
     assert len(json["included"]) == len(included) - 1
 
 
-@only_schwyz
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -136,7 +89,6 @@ def test_instance_detail(admin_client, instance):
     assert response.status_code == status.HTTP_200_OK
 
 
-@only_schwyz
 @pytest.mark.parametrize("instance__identifier", ["00-00-000"])
 @pytest.mark.parametrize("form_field__name", ["name"])
 @pytest.mark.parametrize(
@@ -160,7 +112,6 @@ def test_instance_search(admin_client, instance, form_field, search):
     assert json["data"][0]["id"] == str(instance.pk)
 
 
-@only_schwyz
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
@@ -181,7 +132,6 @@ def test_instance_filter_fields(admin_client, instance, form_field_factory):
     assert len(json["data"]) == 1
 
 
-@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__identifier", [("new", "00-00-000")]
 )
@@ -220,7 +170,6 @@ def test_instance_update(
     assert response.status_code == status_code
 
 
-@only_demo
 @pytest.mark.parametrize(
     "role__name,instance__user,instance_state__name",
     [("Applicant", LazyFixture("admin_user"), "new")],
@@ -248,7 +197,6 @@ def test_instance_update_location(admin_client, instance, location_factory):
     ).exists()
 
 
-@only_demo
 @pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "role__name,instance__user,status_code",
@@ -281,7 +229,6 @@ def test_instance_destroy(admin_client, instance, status_code, location_factory)
         assert not InstanceLocation.objects.filter(id=instance_location.pk).exists()
 
 
-@only_demo
 @pytest.mark.parametrize(
     "instance_state__name,instance__location",
     [("new", None), ("new", LazyFixture("location"))],
@@ -323,7 +270,6 @@ def test_instance_create(admin_client, admin_user, form, instance_state, instanc
         ).exists()
 
 
-@only_demo
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "instance__user,location__communal_federal_number,instance_state__name",
@@ -413,8 +359,7 @@ def test_instance_submit(
         ).exists()
 
 
-@only_schwyz
-@pytest.mark.parametrize("role__name", ["Kanton"])
+@pytest.mark.parametrize("role__name", ["Canton"])
 def test_instance_export(
     admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
 ):
@@ -452,34 +397,33 @@ def test_instance_generate_identifier(db, instance, instance_factory):
     assert identifier == "11-17-011"
 
 
-@only_schwyz
 @pytest.mark.freeze_time("2017-7-27")
 @pytest.mark.parametrize(
     "role__name,instance__user,publication_entry__publication_date,publication_entry__is_published,status_code",
     [
         (
-            "Gemeinde",
+            "Municipality",
             LazyFixture("admin_user"),
             datetime.datetime(2016, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "Publikation",
+            "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             True,
             status.HTTP_200_OK,
         ),
         (
-            "Publikation",
+            "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 26, tzinfo=pytz.UTC),
             True,
             status.HTTP_404_NOT_FOUND,
         ),
         (
-            "Publikation",
+            "PublicReader",
             LazyFixture("admin_user"),
             datetime.datetime(2017, 6, 28, tzinfo=pytz.UTC),
             False,

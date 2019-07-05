@@ -98,10 +98,14 @@ APPLICATIONS = {
             "Service": "service",
             "Reader": "reader",
             "Canton": "canton",
+            "PublicReader": "public_reader",
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
+        "NOTIFICATIONS": {"SUBMIT": None},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "INSTANCE_USER_FIELD": "user",
+        "USE_CALUMA_FORM": False,
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -114,6 +118,9 @@ APPLICATIONS = {
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "IS_MULTILINGUAL": False,
+        "INSTANCE_USER_FIELD": "user",
+        "USE_CALUMA_FORM": False,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -127,7 +134,7 @@ APPLICATIONS = {
             "Sachbearbeiter Baukontrolle": "municipality",
             "Einsichtsberechtigte Baukontrolle": "municipality",
             "Unterfachstelle": "service",
-            "System-Betrieb": "support",
+            "System-Betrieb": "canton",
         },
         "NOTIFICATIONS": {
             "SUBMIT": [
@@ -136,6 +143,8 @@ APPLICATIONS = {
             ]
         },
         "IS_MULTILINGUAL": True,
+        "USE_CALUMA_FORM": True,
+        "INSTANCE_USER_FIELD": "involved_applicants__invitee",
     },
     "kt_uri": {},
 }
