@@ -1,7 +1,25 @@
 #import 'ember-caluma/gql/fragments/field-answer'
 
-query AllCases {
-  allCases(workflow: "building-permit", orderBy: META_CAMAC_INSTANCE_ID_ASC) {
+query GetCases(
+  $cursor: String
+  $documentFormFilter: String
+  $metaValueFilters: [MetaValueFilterType]
+  $hasAnswerFilters: [HasAnswerFilterType]
+) {
+  allCases(
+    first: 15
+    after: $cursor
+    documentForm: $documentFormFilter
+    metaValue: $metaValueFilters
+    hasAnswer: $hasAnswerFilters
+    workflow: "building-permit"
+    orderBy: META_CAMAC_INSTANCE_ID_DESC
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
     edges {
       node {
         id

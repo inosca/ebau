@@ -5,11 +5,6 @@ nav:
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
-instance:
-  status:
-    RUNNING: "Neu"
-    COMPLETED: "Eingereicht"
-
 documents:
   contents: "Was ist in diesem Dokument enthalten?"
   requiredContent: "Pflichtinhalte"
@@ -86,13 +81,32 @@ gis:
 submit:
   warning: "Folgende Fragen sind noch nicht korrekt ausgefüllt:"
 
-instanceState:
-  creation: "Neu"
-  receiving: "Empfang Gemeinde"
-  communal: "Bearbeitung Gemeinde"
-  init_program: "Verfahrensprogramm"
-  self-certification: "Selbstdeklaration"
-  conclusion: "Abschluss"
-  finished: "Abgeschlossen"
-  rejected: "Zurückgewiesen"
-  corrected: "Korrigiert von Leitbehörde"
+instances:
+  title: "Meine Dossiers"
+  instanceId: "Dossier-Nr."
+  ebau: "eBau-Nr."
+  type: "Gesuchstyp"
+  submitDate: "Einreichedatum"
+  description: "Bauvorhaben"
+  municipality: "Gemeinde"
+  address: "Adresse"
+  parcel: "Parzellennummer / Liegenschaftsnummer"
+  new: "Neues Dossier"
+  filter: "Filtern"
+  reset: "Zurücksetzen"
+  pageInfo: "Dossiers <strong>1 - {length}</strong> von {total}"
+  emptyTitle: "Sie haben noch keine Gesuche!"
+  emptyText: "Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein andermal weiter ausfüllen."
+
+  status:
+    title: "Status"
+
+    creation: "Neu"
+    receiving: "Empfang Gemeinde"
+    communal: "Bearbeitung Gemeinde"
+    init_program: "Verfahrensprogramm"
+    self-certification: "Selbstdeklaration"
+    conclusion: "Abschluss"
+    finished: "Abgeschlossen"
+    rejected: "Zurückgewiesen"
+    corrected: "Korrigiert von Leitbehörde"

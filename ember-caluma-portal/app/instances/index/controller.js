@@ -1,122 +1,126 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import EmberObject, { computed } from "@ember/object";
 import { task } from "ember-concurrency";
-import allCasesQuery from "ember-caluma-portal/gql/queries/all-cases";
 import QueryParams from "ember-parachute";
-import { reads } from "@ember/object/computed";
+import Case from "ember-caluma-portal/lib/case";
 import { getOwner } from "@ember/application";
-import gql from "graphql-tag";
+import { reads } from "@ember/object/computed";
+import moment from "moment";
+import { isEmpty } from "@ember/utils";
 
-const Case = EmberObject.extend({
-  intl: service(),
+import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
+import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
-  findAnswer(slug) {
-    const answer =
-      this.raw.document.answers.edges
-        .map(({ node }) => node)
-        .find(answer => answer.question.slug === slug) || {};
+const getHasAnswerFilters = ({ parcel: value }) =>
+  [
+    {
+      question: "parzellennummer",
+      lookup: "CONTAINS",
+      value
+    }
+  ].filter(({ value }) => !isEmpty(value));
 
-    const key = Object.keys(answer).find(key => /Value$/.test(key));
+const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
+  [
+    { key: "camac-instance-id", value: instanceId },
+    { key: "ebau-number", value: ebau },
+    { key: "submit-date", value: submitFrom, lookup: "GTE" },
+    { key: "submit-date", value: submitTo, lookup: "LTE" }
+  ].filter(({ value }) => !isEmpty(value));
 
-    return answer && key ? answer[key] : null;
+const DATE_URL_FORMAT = "YYYY-MM-DD";
+const DATE_FORMAT = "DD.MM.YYYY";
+
+const dateQueryParam = {
+  serialize(value) {
+    const date = moment(value, DATE_FORMAT);
+
+    return date.isValid() ? date.format(DATE_URL_FORMAT) : this.defaultValue;
   },
+  deserialize(value) {
+    const date = moment(value, DATE_URL_FORMAT);
 
-  ebauNr: reads("raw.meta.camac-instance-id"),
-  type: reads("raw.document.form.name"),
-  municipality: computed(function() {
-    const slug = this.findAnswer("gemeinde");
-    const node = this.municipalities
-      .map(({ node }) => node)
-      .find(m => m.slug === slug);
+    return date.isValid() ? date.format(DATE_URL_FORMAT) : this.defaultValue;
+  }
+};
 
-    return node && node.label;
-  }),
-  address: computed(function() {
-    return [
-      [
-        this.findAnswer("strasse-gesuchstellerin") ||
-          this.findAnswer("strasse-flurname"),
-        this.findAnswer("nummer-gesuchstellerin") || this.findAnswer("nr")
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim(),
-      [
-        this.findAnswer("plz-gesuchstellerin") || null,
-        this.findAnswer("ort-gesuchstellerin") ||
-          this.findAnswer("ort-grundstueck")
-      ]
-        .filter(Boolean)
-        .join(" ")
-        .trim()
-    ]
-      .filter(Boolean)
-      .join(", ")
-      .trim();
-  }),
-  createdAt: computed("raw.createdAt", function() {
-    return new Date(this.raw.createdAt);
-  }),
-  status: computed("raw.meta.camac-instance-id", "instances.[]", function() {
-    const instance = (this.instances || []).find(
-      ({ id }) => parseInt(id) === parseInt(this.raw.meta["camac-instance-id"])
-    );
-
-    return instance && instance.attributes["public-status"];
-  }),
-  description: computed(function() {
-    return (
-      this.findAnswer("anfrage-zur-vorabklaerung") ||
-      this.findAnswer("beschreibung-bauvorhaben")
-    );
-  })
-});
-
-export const queryParams = new QueryParams({
-  sort: {
-    defaultValue: "-creation_date",
+const queryParams = new QueryParams({
+  type: {
+    defaultValue: "",
+    refresh: true
+  },
+  instanceId: {
+    defaultValue: "",
     refresh: true,
-    replace: true
+    serialize(value) {
+      const int = parseInt(value);
+
+      return !isNaN(int) ? int : this.defaultValue;
+    },
+    deserialize(value) {
+      const int = parseInt(value);
+
+      return !isNaN(int) ? int : this.defaultValue;
+    }
+  },
+  ebau: {
+    defaultValue: "",
+    refresh: true
+  },
+  parcel: {
+    defaultValue: "",
+    refresh: true
+  },
+  submitFrom: {
+    defaultValue: "",
+    refresh: true,
+    ...dateQueryParam
+  },
+  submitTo: {
+    defaultValue: "",
+    refresh: true,
+    ...dateQueryParam
   }
 });
 
 export default Controller.extend(queryParams.Mixin, {
   apollo: service(),
-  notification: service(),
-  intl: service(),
   fetch: service(),
 
   setup() {
-    this.data.perform();
+    this.getMunicipalities.perform();
+    this.getRootForms.perform();
+
+    this.set("cases", []);
+    this.fetchData.perform();
   },
 
-  getAllMunicipalities: task(function*() {
-    return yield this.apollo.query(
-      {
-        query: gql`
-          query {
-            allQuestions(slug: "gemeinde") {
-              edges {
-                node {
-                  ... on DynamicChoiceQuestion {
-                    options {
-                      edges {
-                        node {
-                          label
-                          slug
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `
-      },
+  queryParamsDidChange({ shouldRefresh }) {
+    if (shouldRefresh) {
+      this.set("cases", []);
+      this.fetchData.perform();
+    }
+  },
+
+  reset(_, isExiting) {
+    if (isExiting) {
+      this.resetQueryParams();
+    }
+  },
+
+  getRootForms: task(function*() {
+    return (yield this.apollo.query(
+      { query: getRootFormsQuery },
+      "allForms.edges"
+    )).map(({ node }) => node);
+  }),
+
+  getMunicipalities: task(function*() {
+    return (yield this.apollo.query(
+      { query: getMunicipalitiesQuery },
       "allQuestions.edges.firstObject.node.options.edges"
-    );
+    )).map(({ node }) => node);
   }),
 
   getInstances: task(function*(ids) {
@@ -129,41 +133,58 @@ export default Controller.extend(queryParams.Mixin, {
     return data;
   }),
 
-  data: task(function*() {
+  pageInfo: reads("fetchData.lastSuccessful.value.pageInfo"),
+  fetchData: task(function*(cursor = null) {
     try {
-      yield this.getAllMunicipalities.perform();
-
-      const cases = (yield this.apollo.watchQuery(
+      const raw = yield this.apollo.watchQuery(
         {
-          query: allCasesQuery,
-          fetchPolicy: "network-only"
+          query: getCasesQuery,
+          variables: {
+            cursor,
+            documentFormFilter: this.type,
+            metaValueFilters: getMetaValueFilters(this.allQueryParams),
+            hasAnswerFilters: getHasAnswerFilters(this.allQueryParams)
+          }
         },
-        "allCases.edges"
-      )).map(({ node }) => node);
+        "allCases"
+      );
+      const rawCases = raw.edges.map(({ node }) => node);
 
-      yield this.getInstances.perform(
-        cases.map(({ meta }) => meta["camac-instance-id"])
+      const municipalities = yield this.getMunicipalities.last;
+      const instances = yield this.getInstances.perform(
+        rawCases.map(({ meta }) => meta["camac-instance-id"])
       );
 
-      return cases;
+      const cases = rawCases.map(raw => {
+        return Case.create(getOwner(this).ownerInjection(), {
+          raw,
+          instance: instances.find(
+            ({ id }) => parseInt(id) === parseInt(raw.meta["camac-instance-id"])
+          ),
+          municipalities
+        });
+      });
+
+      this.set("cases", [...this.cases, ...cases]);
+
+      Object.assign(raw.pageInfo, { totalCount: raw.totalCount });
+
+      return raw;
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e);
-      this.get("notification").danger(
-        this.get("intl").t("global.loadingError")
-      );
     }
   }).restartable(),
 
-  cases: computed("data.lastSuccessful.value.@each.node", function() {
-    if (!this.get("data.lastSuccessful.value")) return [];
+  applyFilters: task(function*(e) {
+    e.preventDefault();
 
-    return this.data.lastSuccessful.value.map(raw =>
-      Case.create(getOwner(this).ownerInjection(), {
-        raw,
-        municipalities: this.getAllMunicipalities.lastSuccessful.value,
-        instances: this.getInstances.lastSuccessful.value
-      })
-    );
+    const data = Object.fromEntries(new FormData(e.srcElement));
+
+    yield this.setProperties(data);
+  }).drop(),
+
+  resetFilters: task(function*() {
+    yield this.resetQueryParams();
   })
 });
