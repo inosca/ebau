@@ -265,9 +265,10 @@ def test_instance_submit(
     mock_public_status,
     use_caluma_form,
     multilang,
+    application_settings,
 ):
 
-    settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = [
+    application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
     ]
 
