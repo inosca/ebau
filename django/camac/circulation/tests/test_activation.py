@@ -7,19 +7,15 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.circulation import serializers
-from camac.markers import only_schwyz
-
-# module-level skip if we're not testing Schwyz variant
-pytestmark = only_schwyz
 
 
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries",
     [
-        ("Gesuchsteller", LazyFixture("admin_user"), 3),
-        ("Kanton", LazyFixture("user"), 3),
-        ("Gemeinde", LazyFixture("user"), 3),
-        ("Fachstelle", LazyFixture("user"), 3),
+        ("Applicant", LazyFixture("admin_user"), 3),
+        ("Canton", LazyFixture("user"), 3),
+        ("Municipality", LazyFixture("user"), 3),
+        ("Service", LazyFixture("user"), 3),
     ],
 )
 def test_activation_list(
@@ -48,7 +44,7 @@ def test_activation_detail(admin_client, activation):
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.parametrize("role__name", ["Kanton"])
+@pytest.mark.parametrize("role__name", ["Canton"])
 def test_activation_export(
     admin_client,
     user,

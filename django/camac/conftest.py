@@ -61,6 +61,25 @@ def admin_client(db, admin_user):
 
 
 @pytest.fixture
+def application_settings(settings):
+    application_dict = dict(settings.APPLICATION)
+    # settings fixture only restores per attribute
+    # so need to set copy of dict
+    settings.APPLICATION = application_dict
+    return application_dict
+
+
+@pytest.fixture
+def multilang(application_settings):
+    application_settings["IS_MULTILINGUAL"] = True
+
+
+@pytest.fixture
+def use_caluma_form(application_settings):
+    application_settings["USE_CALUMA_FORM"] = True
+
+
+@pytest.fixture
 def bern_instance_states(db, instance_state_factory):
     new, _ = instance_models.InstanceState.objects.get_or_create(pk=1)
     new.trans.create(name="Neu", language="de")

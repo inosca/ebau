@@ -1,3 +1,4 @@
+import pytz
 from factory import Faker, SubFactory
 from factory.django import DjangoModelFactory
 
@@ -11,7 +12,7 @@ class ApplicantFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     user = SubFactory(UserFactory)
     invitee = SubFactory(UserFactory)
-    created = Faker("future_date")
+    created = Faker("future_datetime", tzinfo=pytz.UTC)
 
     class Meta:
         model = models.Applicant
