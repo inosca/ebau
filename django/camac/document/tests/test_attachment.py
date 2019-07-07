@@ -182,10 +182,24 @@ def test_attachment_list(
             "Municipality",
             LazyFixture("user"),
             LazyFixture(lambda location_factory: location_factory()),
-            LazyFixture("service"),
+            LazyFixture(lambda service_factory: service_factory()),
             LazyFixture("group"),
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
+        ),
+        # user with role Municipality tries to create valid jpg attachment
+        # on instance of a different location but with circulation activation
+        # on attachment section with admin rights
+        (
+            "test-thumbnail.jpg",
+            "image/jpeg",
+            "Municipality",
+            LazyFixture("user"),
+            LazyFixture(lambda location_factory: location_factory()),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            models.ADMIN_PERMISSION,
+            status.HTTP_201_CREATED,
         ),
         # user with role Municipality creates valid jpg attachment on an
         # instance of its location in a attachment section with admin
