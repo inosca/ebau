@@ -247,26 +247,33 @@ export default Component.extend({
 
     const [action, , features] = event.data;
 
-    switch (action) {
-      case "ADDREMOVE":
-        return this.addremoveResult(features);
-    }
+    return this.parseResult(action, features);
   },
 
   /**
-   * The add/remove handler filters and parses the event response
-   * and updates the `parcels` property.
+   * Filter and parses the event response
+   * and update the `parcels` property.
    *
    * @method addremoveResult
    * @param {Object} features The features sent by the iframe/map.
    */
-  addremoveResult(features) {
+  parseResult(action, features) {
+    if (!["ADDREMOVE", "FTS"].includes(action)) {
+      return;
+    }
+    const isSearchResult = action === "FTS";
+    const prop = isSearchResult ? "FEATURES" : "COORDS";
     // Return if there aren't values
     if (
       features == null ||
-      features.COORDS == null ||
-      features.COORDS.length === 0
+      features[prop] == null ||
+      features[prop].length === 0
     ) {
+      return;
+    }
+
+    // Return if search result doesn't contain parcel information
+    if (!features.keyname.includes("EGRID")) {
       return;
     }
 
@@ -292,7 +299,7 @@ export default Component.extend({
     // Temporary object to store results, will be converted to an array at the end
     let parcels = {};
 
-    features.COORDS.forEach(coords => {
+    features[prop].forEach(coords => {
       let projectStatus = coords.keyvalue[project_status_index];
 
       // Keep the value only if the status is "valid"
@@ -307,16 +314,19 @@ export default Component.extend({
           parcel_number = coords.keyvalue[parcel_feature_index];
         }
 
+        const xProp = isSearchResult ? "coord_x" : "xgeo";
+        const yProp = isSearchResult ? "coord_y" : "ygeo";
+
         // Create the parcel object
         let parcel = {
           [KEY_TABLE_PARCEL]: parcel_number,
           [KEY_TABLE_BAURECHT]: baurecht_number,
           [KEY_TABLE_EGRID]: coords.keyvalue[egrid_feature_index],
-          [KEY_TABLE_COORD_EAST]: parseInt(coords.xgeo),
-          [KEY_TABLE_COORD_NORTH]: parseInt(coords.ygeo)
+          [KEY_TABLE_COORD_EAST]: parseInt(coords[xProp]),
+          [KEY_TABLE_COORD_NORTH]: parseInt(coords[yProp])
         };
 
-        let parcel_key = `${coords.x}.${coords.y}`;
+        let parcel_key = `${coords[xProp]}.${coords[yProp]}`;
 
         if (parcel_key in parcels) {
           let oldParcel = parcels[parcel_key];
