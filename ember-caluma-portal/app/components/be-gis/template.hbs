@@ -15,8 +15,8 @@
 
     <button
       type="button"
-      class="uk-icon-button"
       uk-icon="warning"
+      class="uk-margin-small-left"
       {{action (mut informationOverride) true}}>
     </button>
   </div>
@@ -29,11 +29,11 @@
   </div>
 </div>
 
-{{#uk-modal visible=informationOverride}}
+{{#uk-modal visible=informationOverride on-hide=(action (mut informationOverride) false)}}
   {{t "gis.info-override"}}
 {{/uk-modal}}
 
-{{#uk-modal visible=confirmationGis}}
+{{#uk-modal visible=confirmationGis on-hide=(action (mut confirmationGis) false)}}
   <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
 
   <ul class="uk-list uk-list-divider">

@@ -1,9 +1,13 @@
-main.embedded {
-  > .uk-container {
+body.embedded {
+  main.uk-container {
     padding: 0;
 
     > header {
       display: none;
+    }
+
+    .embedded-content {
+      margin-left: 25px;
     }
   }
 }

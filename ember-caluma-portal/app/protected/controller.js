@@ -6,8 +6,5 @@ const { environment } = config;
 
 export default Controller.extend({
   session: service(),
-
-  environment,
-
-  isEmbedded: window !== window.top
+  environment
 });

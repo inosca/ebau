@@ -1,1 +1,30 @@
-{{focusing-outlet}}
+<main class="uk-container">
+  <header class="uk-padding uk-flex uk-flex-center uk-flex-middle uk-flex-column">
+    <div>
+      {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
+        <div class="uk-width-1-1">
+          <img src="/assets/images/logo-ebau-bern-1.svg" alt={{t "global.title"}} class="uk-image-responsive">
+        </div>
+      {{/link-to}}
+      {{#if (not-eq environment "production")}}
+        <div class="uk-width-1-1">
+          <span>{{t "global.versionPrefix"}}{{app-version hideSha=true}}</span>
+          {{uk-label label=environment}}
+        </div>
+      {{/if}}
+    </div>
+    <div uk-grid class="uk-margin uk-grid-small">
+      {{#link-to "index" title=(t "nav.index") class="uk-link-reset"}}
+        {{uk-icon "home" tagName="a" class="uk-icon-button"}}
+      {{/link-to}}
+      {{#link-to "support" title=(t "nav.support") class="uk-link-reset"}}
+        {{uk-icon "receiver" tagName="a" class="uk-icon-button"}}
+      {{/link-to}}
+      {{#link-to "logout" title=(t "nav.logout") class="uk-link-reset"}}
+        {{uk-icon "sign-out" tagName="a" class="uk-icon-button"}}
+      {{/link-to}}
+    </div>
+  </header>
+
+  {{outlet}}
+</main>
