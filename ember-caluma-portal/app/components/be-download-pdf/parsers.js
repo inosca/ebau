@@ -3,8 +3,24 @@ import { warn } from "@ember/debug";
 export const parseDocument = (document, navigation) => {
   const fieldsets = document.fieldsets;
 
-  if (!fieldsets.length === 1) {
-    return fieldsets[0].fields.map(parseQuestion).filter(visible);
+  if (fieldsets.length === 1) {
+    return [
+      {
+        type: "FormQuestion",
+        hidden: false,
+        slug: document.rootForm.slug,
+        label: document.rootForm.label,
+        children: [
+          {
+            type: "FormQuestion",
+            hidden: false,
+            slug: document.rootForm.slug,
+            label: document.rootForm.label,
+            children: fieldsets[0].fields.map(parseQuestion).filter(visible)
+          }
+        ]
+      }
+    ];
   }
 
   return navigation.items
@@ -53,7 +69,10 @@ function parseQuestion(field) {
       return parseChoiceQuestion(field, true);
 
     case "MultipleChoiceQuestion":
-      return parseMultipleChoiceQuestion(field);
+      return {
+        ...parseMultipleChoiceQuestion(field),
+        ...(field.question.slug === "einreichen-button" ? { hidden: true } : {})
+      };
 
     case "DynamicMultipleChoiceQuestion":
       return parseMultipleChoiceQuestion(field, true);

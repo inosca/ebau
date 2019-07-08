@@ -2,6 +2,7 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { saveAs } from "file-saver";
 import { task } from "ember-concurrency";
+import { warn } from "@ember/debug";
 
 import { parseDocument } from "ember-caluma-portal/components/be-download-pdf/parsers";
 
@@ -60,8 +61,9 @@ function prepareReceiptPage(data) {
       }))
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
+    warn("Failed to prepare receipt page", {
+      id: "be-download-pdf.receipt-page-failed"
+    });
   }
 
   return data;
@@ -86,11 +88,15 @@ export default Component.extend({
       `Navigation:${this.field.document.pk}`
     );
 
-    const data = prepareReceiptPage({
+    let data = {
       caseId: instanceId,
       caseType: document.rootForm.name,
       sections: parseDocument(document, navigation)
-    });
+    };
+
+    if (document.findField("personalien")) {
+      data = prepareReceiptPage(data);
+    }
 
     const template = "export-1";
     const filename = `${instanceId}-${document.rootForm.slug}.pdf`;

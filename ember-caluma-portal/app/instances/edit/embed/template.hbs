@@ -7,6 +7,17 @@
       instanceId=case.meta.camac-instance-id
     )
   as |content|}}
+    <div class="uk-text-center">
+      {{be-download-pdf
+        size="small"
+        field=(hash
+          question=(hash label="Druckansicht")
+          document=content.document
+        )
+        context=(hash instanceId=case.meta.camac-instance-id)
+      }}
+    </div>
+    <hr>
     {{#if (gt content.document.fieldsets.length 1)}}
       <div uk-grid>
         <div class="uk-width-1-1 uk-width-1-3@s">{{content.navigation}}</div>
@@ -17,7 +28,9 @@
         </div>
       </div>
     {{else}}
-      {{content.form}}
+      <div class="uk-margin-large-left">
+        {{content.form}}
+      </div>
     {{/if}}
   {{/cf-content}}
 {{/if}}
