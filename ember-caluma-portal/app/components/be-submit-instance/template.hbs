@@ -12,7 +12,7 @@
   </div>
 {{/if}}
 
-{{uk-button disabled=buttonDisabled label="Einreichen" loading=submit.isRunning on-click=(perform submit)}}
+{{uk-button disabled=buttonDisabled label=field.question.label loading=submit.isRunning on-click=(perform submit)}}
 
 {{#if submit.isRunning}}
   <span class="uk-text-muted uk-margin-small-left uk-animation-fade">Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld.</span>
