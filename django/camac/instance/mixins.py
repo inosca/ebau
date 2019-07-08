@@ -185,8 +185,16 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_municipality(self, instance):
         group = get_request(self).group
+        service = group.service
+        circulations = instance.circulations.all()
+
         return self._validate_instance_editablity(
-            instance, lambda: group.locations.filter(pk=instance.location_id).exists()
+            instance,
+            lambda: group.locations.filter(pk=instance.location_id).exists()
+            or circulations.filter(activations__service=service).exists()
+            or InstanceService.objects.filter(
+                service=service, instance=instance
+            ).exists(),
         )
 
     def validate_instance_for_service(self, instance):
