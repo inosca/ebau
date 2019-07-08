@@ -47391,7 +47391,7 @@
   },
   {
     "fields": {
-      "description": "Bearbeitung Gemeinde"
+      "description": "Bearbeitung Leitbeh\u00f6rde"
     },
     "model": "instance.instancestatedescription",
     "pk": 21
