@@ -17164,7 +17164,7 @@
       "modified_at": "2019-06-14T14:30:33.229Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Einreichen Button\"}",
+      "label": "{\"de\": \"Einreichen\"}",
       "type": "multiple_choice",
       "is_required": "false",
       "is_hidden": "false",
