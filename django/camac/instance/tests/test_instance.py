@@ -312,9 +312,6 @@ def test_instance_submit(
     settings.APPLICATION["SUBMIT"]["NOTIFICATION_TEMPLATE"] = notification_template.pk
     settings.APPLICATION["SUBMIT"]["WORKFLOW_ITEM"] = workflow_item.pk
 
-    # Caluma is not used in SZ (yet), so make sure it's not set
-    settings.CALUMA_URL = None
-
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
         role = role_factory(name="Municipality")
