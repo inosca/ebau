@@ -1,4 +1,4 @@
-import Component from "@ember/component";
+import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
 import { task, timeout } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
@@ -7,35 +7,15 @@ import { next } from "@ember/runloop";
 
 const INSTANCE_STATE_SUBMITTED = 20000;
 
-export default Component.extend({
+export default InViewportComponent.extend({
   notification: service(),
   apollo: service(),
   ajax: service(),
   router: service(),
   fetch: service(),
 
-  didInsertElement() {
-    this._super(...arguments);
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(({ isIntersecting }) => {
-        if (isIntersecting) {
-          next(this, () => this.validate.perform());
-        }
-      });
-    }, {});
-
-    // this is not an ember observer but an introspection observer
-    // eslint-disable-next-line ember/no-observers
-    observer.observe(this.element);
-
-    this.set("_observer", observer);
-  },
-
-  willDestroyElement() {
-    this._super(...arguments);
-
-    this._observer.disconnect();
+  onEnter() {
+    next(this, () => this.validate.perform());
   },
 
   invalidFields: computed(

@@ -1,4 +1,4 @@
-query {
+query GetRootForms {
   allForms(
     orderBy: NAME_ASC
     slugs: [
