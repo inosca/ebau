@@ -1,0 +1,18 @@
+query GetMunicipalities {
+  allQuestions(slug: "gemeinde") {
+    edges {
+      node {
+        ... on DynamicChoiceQuestion {
+          options {
+            edges {
+              node {
+                label
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
