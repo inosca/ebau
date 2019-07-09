@@ -161,9 +161,6 @@ def test_template_merge(
     notice_type_application = notice_type_factory(name="Antrag")
     notice_type_terms = notice_type_factory(name="Auflagen")
 
-    # Caluma is not used in SZ (yet), so make sure it's not set
-    settings.CALUMA_URL = None
-
     notice_factory(
         activation=activation,
         notice_type=notice_type_application,

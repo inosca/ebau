@@ -112,7 +112,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance_service.service.name
 
     def get_form_name(self, instance):
-        if settings.CALUMA_URL is None:
+        if not settings.APPLICATION["USE_CALUMA_FORM"]:
             return instance.form.get_name()
         try:
             caluma_resp = requests.post(
@@ -167,7 +167,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return path
 
     def _get_caluma_id(self, instance):
-        if not settings.CALUMA_URL:
+        if not settings.APPLICATION["USE_CALUMA_FORM"]:
             return "-"
         caluma_resp = requests.post(
             settings.CALUMA_URL,
