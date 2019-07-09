@@ -28,9 +28,6 @@ snapshots['test_create_instance[work_item_resp0-201] 1'] = [
                           }
                           document {
                             id
-                            form {
-                              slug
-                            }
                             answers(questions: ["gemeinde"]) {
                               edges {
                                 node {
