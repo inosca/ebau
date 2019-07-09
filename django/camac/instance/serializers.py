@@ -233,9 +233,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
                           }
                           document {
                             id
-                            form {
-                              slug
-                            }
                             answers(questions: ["gemeinde"]) {
                               edges {
                                 node {
@@ -346,26 +343,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
             self.instance.instance_state = models.InstanceState.objects.get(
                 trans__name="eBau-Nummer zu vergeben"
             )
-        form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
 
         service_id = None
-        try:
-            first_answer = validated_data.get("caluma_case_data")["document"][
-                "answers"
-            ]["edges"][0]["node"]
+        first_answer = validated_data.get("caluma_case_data")["document"]["answers"][
+            "edges"
+        ][0]["node"]
 
-            if form == "vorabklaerung-einfach":
-                service_id = int(first_answer["stringValue"])
-            else:  # pragma: no cover
-                service_id = first_answer["formValue"]["answers"]["edges"][0]["node"][
-                    "formValue"
-                ]["answers"]["edges"][0]["node"]["stringValue"]
-        except (KeyError, IndexError):  # pragma: no cover
-            pass
-
-        if not service_id:  # pragma: no cover
-            request_logger.error("!!!Municipality not found!!!")
-            service_id = 2  # default to Burgdorf
+        service_id = int(first_answer["stringValue"])
 
         InstanceService.objects.get_or_create(
             instance=self.instance,
