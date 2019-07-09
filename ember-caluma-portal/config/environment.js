@@ -8,7 +8,7 @@ module.exports = function(environment) {
     modulePrefix: "ember-caluma-portal",
     environment,
     rootURL: "/",
-    locationType: "router-scroll",
+    locationType: "auto",
     historySupportMiddleware: true,
     oidcHost,
     "ember-simple-auth-oidc": {

@@ -1,8 +1,10 @@
-<h4 class="uk-text-center uk-margin-large-bottom">Um welche Art von Dossier handelt es sich?</h4>
+<h4 class="uk-text-center">
+  {{t "instances.new.kind"}}
+</h4>
 
-<div uk-grid class="uk-grid-small">
-  <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
-    <h4 class="uk-text-center">Vorabklärung {{camac-hint-dialog infoCol1}}</h4>
+<div uk-grid class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-margin uk-margin-large-top">
+  <div uk-margin>
+    <h4 class="uk-text-center uk-flex uk-flex-middle uk-flex-center">{{t "instances.new.preClarification"}} {{cf-field/info text=(t "instances.new.preClarificationInfo")}}</h4>
     {{#each forms.lastSuccessful.value.column1 as |form|}}
       {{new-form-grid-entry
         form=form.slug
@@ -12,8 +14,8 @@
       }}
     {{/each}}
   </div>
-  <div uk-margin class="uk-width-1-1 uk-width-1-2@s uk-flex-column">
-    <h4 class="uk-text-center">Gesuche {{camac-hint-dialog infoCol2}}</h4>
+  <div uk-margin>
+    <h4 class="uk-text-center uk-flex uk-flex-middle uk-flex-center">{{t "instances.new.application"}} {{cf-field/info text=(t "instances.new.applicationInfo")}}</h4>
     {{#each forms.lastSuccessful.value.column2 as |form|}}
       {{new-form-grid-entry
         form=form.slug
@@ -25,8 +27,8 @@
   </div>
 </div>
 
-{{#uk-flex horizontal="right" class="uk-margin-top"}}
+<div class="uk-text-right">
   {{#uk-button disabled=(or (not selectedForm) save.isRunning) loading=save.isRunning color="primary" on-click=(perform save)}}
-    Weiter
+    {{t "global.continue"}}
   {{/uk-button}}
-{{/uk-flex}}
+</div>

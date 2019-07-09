@@ -1,8 +1,8 @@
-<h2 class="uk-text-center">
-  Willkommen im eBau-Portal des Kantons Bern
-</h2>
+<h1 class="uk-text-center">
+  {{t "index.welcome"}}
+</h1>
 <h4 class="uk-text-center uk-margin-remove-top uk-margin-large">
-  Was möchten Sie als Nächstes machen?
+  {{t "index.nextStep"}}
 </h4>
 
 <div uk-grid class="uk-child-width-1-1 uk-child-width-1-2@s">
@@ -10,7 +10,7 @@
     {{#link-to "instances.new" class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"}}
       {{uk-icon "plus" ratio=3}}
       <br>
-      Neues Dossier
+      {{t "instances.new.title"}}
     {{/link-to}}
   {{/uk-flex}}
 
@@ -18,7 +18,7 @@
     {{#link-to "instances.index" class="uk-button uk-button-default uk-width-medium uk-height-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column"}}
       {{uk-icon "pencil" ratio=3}}
       <br>
-      Dossier bearbeiten
+      {{t "instances.edit"}}
     {{/link-to}}
   {{/uk-flex}}
 </div>

@@ -1,7 +1,7 @@
 <h1 class="uk-flex uk-flex-between">
   {{t "instances.title"}}
   <span>
-    {{#link-to "instances.new" class="uk-button uk-button-secondary"}}{{t "instances.new"}}{{/link-to}}
+    {{#link-to "instances.new" class="uk-button uk-button-secondary"}}{{t "instances.new.title"}}{{/link-to}}
   </span>
 </h1>
 
@@ -57,9 +57,9 @@
 <hr>
 
 {{#if (and fetchData.isRunning (eq cases.length 0))}}
-  {{#uk-flex horizontal="center" class="uk-padding uk-animation-fade"}}
-    {{uk-spinner ratio=3}}
-  {{/uk-flex}}
+  <div class="uk-text-center uk-padding">
+    {{uk-spinner ratio=2}}
+  </div>
 {{else if cases.length}}
   <div class="uk-text-meta">
     {{t "instances.pageInfo" length=cases.length total=pageInfo.totalCount htmlSafe=true}}
@@ -111,7 +111,7 @@
       <object data="/assets/images/stamp-document.svg" class="uk-width-medium"></object>
       <h4 class="uk-margin-remove-top">{{t "instances.emptyTitle"}}</h4>
       <p>{{t "instances.emptyText"}}</p>
-      {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new"}}{{/link-to}}
+      {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}
     </div>
   {{/uk-flex}}
 {{/if}}
