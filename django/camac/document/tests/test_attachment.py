@@ -257,9 +257,6 @@ def test_attachment_create(
 ):
     url = reverse("attachment-list")
 
-    # Caluma is not used in SZ (yet), so make sure it's not set
-    settings.CALUMA_URL = None
-
     path = django_file(filename)
     data = {"instance": instance.pk, "path": path.file, "group": instance.group.pk}
     response = admin_client.post(url, data=data, format="multipart")
