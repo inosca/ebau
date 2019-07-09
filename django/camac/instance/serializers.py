@@ -150,7 +150,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 
 class CalumaInstanceSerializer(InstanceSerializer):
-    # TODO once more than Camac-NG project uses Caluma as a form
+    # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
     instance_state = serializers.ResourceRelatedField(

@@ -135,10 +135,10 @@ class InstanceEditableMixin(AttributeMixin):
 
         editable = set()
 
-        if instance.instance_state.name in ["Neu", "Zurückgewiesen", "new"]:
+        if instance.instance_state.get_name() in ["Neu", "Zurückgewiesen", "new"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name == "nfd":
+        if instance.instance_state.get_name() == "nfd":
             return {"document"}
 
         return editable
