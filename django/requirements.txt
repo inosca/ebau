@@ -18,3 +18,4 @@ sorl-thumbnail==12.5.0
 uwsgi==2.0.18
 django-reversion==3.0.3
 pyjexl==0.2.3
+pydocstyle==3.0.0
