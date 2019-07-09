@@ -200,6 +200,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return "??"
 
     def _str_replace_cb(self, pattern, callback, string):
+        """str.replace(), but with a callback.
+
+        This is here so we can do "lazy" string replacing, so the replacement
+        value only needs to be calculated if really needed.
+        """
         if pattern not in string:
             return string
         value = callback()
