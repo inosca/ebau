@@ -7,6 +7,7 @@ import { getOwner } from "@ember/application";
 import { reads } from "@ember/object/computed";
 import moment from "moment";
 import { isEmpty } from "@ember/utils";
+import formDataEntries from "form-data-entries";
 
 import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
@@ -179,7 +180,10 @@ export default Controller.extend(queryParams.Mixin, {
   applyFilters: task(function*(e) {
     e.preventDefault();
 
-    const data = Object.fromEntries(new FormData(e.srcElement));
+    const data = formDataEntries(e.srcElement).reduce(
+      (obj, [k, v]) => ({ ...obj, [k]: v }),
+      {}
+    );
 
     yield this.setProperties(data);
   }).drop(),
