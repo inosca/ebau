@@ -11,7 +11,7 @@ from camac.applicants import factories as applicant_factories
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
 from camac.faker import FreezegunAwareDatetimeProvider
-from camac.instance import factories as instance_factories, models as instance_models
+from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
 from camac.user import factories as user_factories
 
@@ -77,11 +77,3 @@ def multilang(application_settings):
 @pytest.fixture
 def use_caluma_form(application_settings):
     application_settings["USE_CALUMA_FORM"] = True
-
-
-@pytest.fixture
-def bern_instance_states(db, instance_state_factory):
-    new, _ = instance_models.InstanceState.objects.get_or_create(pk=1)
-    new.trans.create(name="Neu", language="de")
-    subm, _ = instance_models.InstanceState.objects.get_or_create(pk=20000)
-    subm.trans.create(name="eBau-Nummer zu vergeben", language="de")

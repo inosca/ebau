@@ -131936,7 +131936,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "new",
       "sort": 0
     },
     "model": "instance.instancestate",
@@ -131945,7 +131945,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "rejected",
       "sort": 22
     },
     "model": "instance.instancestate",
@@ -131954,7 +131954,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "subm",
       "sort": 10
     },
     "model": "instance.instancestate",
