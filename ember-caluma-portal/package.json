@@ -74,6 +74,7 @@
     "faker": "^4.1.0",
     "file-saver": "^2.0.2",
     "filesize": "^4.1.2",
+    "form-data-entries": "^1.0.2",
     "intersection-observer": "^0.7.0",
     "loader.js": "^4.7.0",
     "prettier": "^1.18.2",
