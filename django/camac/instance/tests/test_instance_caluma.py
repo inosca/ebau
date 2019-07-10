@@ -81,6 +81,7 @@ RESP_CASE_COMPLETED = {
 
 
 @pytest.mark.freeze_time("2019-05-02")
+@pytest.mark.parametrize("instance_state__name", ["new"])
 @pytest.mark.parametrize(
     "work_item_resp,expected_resp",
     [
@@ -97,7 +98,6 @@ def test_create_instance(
     snapshot,
     work_item_resp,
     expected_resp,
-    bern_instance_states,
     use_caluma_form,
 ):
     recorded_requests = []
@@ -213,13 +213,13 @@ def test_instance_list(
     assert len(json["included"]) == len(included) - 1
 
 
-@pytest.mark.parametrize("instance_state__name", ["Neu", "Zurückgewiesen"])
+@pytest.mark.parametrize("instance_state__name", ["new", "rejected"])
 @pytest.mark.parametrize(
     "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize(
-    "new_instance_state,response_status",
-    [(20000, status.HTTP_200_OK), (1, status.HTTP_400_BAD_REQUEST)],
+    "new_instance_state_name,response_status",
+    [("subm", status.HTTP_200_OK), ("new", status.HTTP_400_BAD_REQUEST)],
 )
 @pytest.mark.parametrize(
     "notification_template__body",
@@ -254,11 +254,11 @@ def test_instance_submit(
     admin_client,
     role,
     instance,
-    bern_instance_states,
+    instance_state_factory,
     service,
     admin_user,
     response_status,
-    new_instance_state,
+    new_instance_state_name,
     notification_template,
     submit_date_question,
     settings,
@@ -292,6 +292,9 @@ def test_instance_submit(
             }
         ),
     )
+
+    new_state = instance_state_factory(name=new_instance_state_name)
+
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
     url = reverse("instance-detail", args=[instance.pk])
     data = {
@@ -300,7 +303,7 @@ def test_instance_submit(
             "id": instance.pk,
             "relationships": {
                 "instance-state": {
-                    "data": {"type": "instance-states", "id": new_instance_state}
+                    "data": {"type": "instance-states", "id": new_state.pk}
                 }
             },
         }
