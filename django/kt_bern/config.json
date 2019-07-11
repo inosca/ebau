@@ -37415,7 +37415,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 15,
       "template": null
     },
@@ -38180,7 +38180,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 12,
       "template": "/form/read-page.phtml"
     },
@@ -38210,7 +38210,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 1,
       "template": "/form/read-pages.phtml"
     },
@@ -38225,7 +38225,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 2,
       "template": "/form/read-pages.phtml"
     },
@@ -38240,7 +38240,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 3,
       "template": "/form/read-pages.phtml"
     },
@@ -38255,7 +38255,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 4,
       "template": "/form/read-pages.phtml"
     },
@@ -38270,7 +38270,7 @@
       "form_group": 80000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 5,
       "template": "/form/read-pages.phtml"
     },
@@ -38285,7 +38285,7 @@
       "form_group": 1,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 6,
       "template": "/form/read-page.phtml"
     },
@@ -38300,7 +38300,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 8,
       "template": "/file/file-readonly.phtml"
     },
@@ -38315,7 +38315,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 9,
       "template": "/file/upload.phtml"
     },
@@ -38330,7 +38330,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 10,
       "template": "/file/upload.phtml"
     },
@@ -38345,7 +38345,7 @@
       "form_group": 40000,
       "hidden": 1,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 11,
       "template": "/file/upload.phtml"
     },
@@ -38360,7 +38360,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 13,
       "template": "/form/read-page.phtml"
     },
@@ -38375,7 +38375,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 14,
       "template": "/service/index.phtml"
     },
@@ -38465,7 +38465,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 0,
       "template": "/ember/instance.phtml"
     },
@@ -38480,7 +38480,7 @@
       "form_group": 40000,
       "hidden": 0,
       "name": null,
-      "resource": 3,
+      "resource": 20008,
       "sort": 7,
       "template": null
     },
