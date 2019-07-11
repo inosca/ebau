@@ -110374,6 +110374,15 @@
   },
   {
     "fields": {
+      "attachment_section": 3,
+      "mode": "read",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 38
+  },
+  {
+    "fields": {
       "a_filetransition_date": 3,
       "current_state": 2,
       "next_state": 3
