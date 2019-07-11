@@ -10,5 +10,14 @@ export default Route.extend({
 
     controller.data.perform();
     controller.instance.perform();
+  },
+
+  resetController(controller, isExiting) {
+    if (isExiting) {
+      controller.data.cancelAll({ resetState: true });
+      controller.instance.cancelAll({ resetState: true });
+
+      controller.set("displayedForm", null);
+    }
   }
 });
