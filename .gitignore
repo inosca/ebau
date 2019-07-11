@@ -28,3 +28,4 @@ env
 .vscode
 .~lock*
 form-export.csv
+.directory
