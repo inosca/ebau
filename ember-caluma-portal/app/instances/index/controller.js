@@ -140,6 +140,7 @@ export default Controller.extend(queryParams.Mixin, {
       const raw = yield this.apollo.watchQuery(
         {
           query: getCasesQuery,
+          fetchPolicy: "network-only",
           variables: {
             cursor,
             documentFormFilter: this.type,
