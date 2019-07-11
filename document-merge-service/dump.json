@@ -8,5 +8,97 @@
       "engine": "docx-template",
       "group": null
     }
+  },
+
+  {
+    "model": "api.template",
+    "pk": "de-amtsbericht",
+    "fields": {
+      "description": "Amtsbericht",
+      "template": "de-amtsbericht.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-aufforderung-ergaenzung",
+    "fields": {
+      "description": "Aufforderung Ergänzung",
+      "template": "de-aufforderung-ergaenzung.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-gesamtbauentscheid",
+    "fields": {
+      "description": "Gesamtbauentscheid",
+      "template": "de-gesamtbauentscheid.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-maengelbrief-formell-materiell",
+    "fields": {
+      "description": "Mängelbrief Formell Materiell",
+      "template": "de-maengelbrief-formell-materiell.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-maengelbrief-formell",
+    "fields": {
+      "description": "Mängelbrief Formell",
+      "template": "de-maengelbrief-formell.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-maengelbrief-materiell",
+    "fields": {
+      "description": "Mängelbrief Materiell",
+      "template": "de-maengelbrief-materiell.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-verfahrensprogramm-normal",
+    "fields": {
+      "description": "Verfahrensprogramm Normal",
+      "template": "de-verfahrensprogramm-normal.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-verfahrensprogramm-voranfrage",
+    "fields": {
+      "description": "Verfahrensprogramm Voranfrage",
+      "template": "de-verfahrensprogramm-voranfrage.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+
+  {
+    "model": "api.template",
+    "pk": "fr-amtsbericht",
+    "fields": {
+      "description": "Rapport officiel",
+      "template": "fr-amtsbericht.docx",
+      "engine": "docx-template",
+      "group": null
+    }
   }
 ]
