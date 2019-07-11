@@ -150,7 +150,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
 
 
 class CalumaInstanceSerializer(InstanceSerializer):
-    # TODO once more than Camac-NG project uses Caluma as a form
+    # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
     instance_state = serializers.ResourceRelatedField(
@@ -199,7 +199,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     def validate_instance_state(self, value):
         if not self.instance:  # pragma: no cover
             request_logger.info("Creating new instance, overriding %s" % value)
-            return models.InstanceState.objects.get(trans__name="Neu")
+            return models.InstanceState.objects.get(name="new")
         return value
 
     def _is_submit(self, data):
@@ -207,8 +207,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
             old_version = models.Instance.objects.get(pk=self.instance.pk)
             return (
                 old_version.instance_state_id != data.get("instance_state").pk
-                and old_version.instance_state.get_name() in ["Neu", "Zurückgewiesen"]
-                and data.get("instance_state").get_name() == "eBau-Nummer zu vergeben"
+                and old_version.instance_state.name in ["new", "rejected"]
+                and data.get("instance_state").name == "subm"
             )
 
     def validate(self, data):
@@ -233,9 +233,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
                           }
                           document {
                             id
-                            form {
-                              slug
-                            }
                             answers(questions: ["gemeinde"]) {
                               edges {
                                 node {
@@ -260,6 +257,11 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "Authorization": get_authorization_header(self.context["request"])
             },
         )
+        if "errors" in caluma_resp.json():  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Caluma API call returned errors {caluma_resp.json()['errors']}"
+            )
+
         data["caluma_case_data"] = caluma_resp.json()["data"]["node"]
         request_logger.info("Caluma case information: %s", data["caluma_case_data"])
 
@@ -340,32 +342,19 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         validated_data["modification_date"] = timezone.now()
 
-        if instance.instance_state.get_name() == "Zurückgewiesen":
+        if instance.instance_state.name == "rejected":
             self.instance.instance_state = instance.previous_instance_state
         else:
-            self.instance.instance_state = models.InstanceState.objects.get(
-                trans__name="eBau-Nummer zu vergeben"
-            )
-        form = validated_data.get("caluma_case_data")["document"]["form"]["slug"]
+            self.instance.instance_state = models.InstanceState.objects.get(name="subm")
 
         service_id = None
         try:
             first_answer = validated_data.get("caluma_case_data")["document"][
                 "answers"
             ]["edges"][0]["node"]
-
-            if form == "vorabklaerung-einfach":
-                service_id = int(first_answer["stringValue"])
-            else:  # pragma: no cover
-                service_id = first_answer["formValue"]["answers"]["edges"][0]["node"][
-                    "formValue"
-                ]["answers"]["edges"][0]["node"]["stringValue"]
+            service_id = int(first_answer["stringValue"])
         except (KeyError, IndexError):  # pragma: no cover
-            pass
-
-        if not service_id:  # pragma: no cover
-            request_logger.error("!!!Municipality not found!!!")
-            service_id = 2  # default to Burgdorf
+            raise exceptions.ValidationError("Did not find municipality in Caluma")
 
         InstanceService.objects.get_or_create(
             instance=self.instance,
