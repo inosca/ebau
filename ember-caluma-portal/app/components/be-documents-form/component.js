@@ -39,7 +39,7 @@ export default Component.extend({
   }),
 
   allVisibleTags: computed("fieldset.fields.@each.{hidden,isNew}", function() {
-    return this.fieldset.fields.filter(f => !f.hidden).filter(f => f.isNew);
+    return this.fieldset.fields.filter(f => !f.hidden && f.isNew);
   }),
 
   allRequiredTags: filterBy("allVisibleTags", "optional", false),
@@ -128,7 +128,7 @@ export default Component.extend({
     }
   }),
 
-  saveFields: task(function*() {
+  saveFields: task(function*(clear = false) {
     const fields = this.allSelectedTags.filter(
       t => t.question.slug && t.question.__typename === "MultipleChoiceQuestion"
     );
@@ -137,12 +137,17 @@ export default Component.extend({
       fields.map(async field => {
         field.set(
           "answer.value",
-          field.get(
-            "question.multipleChoiceOptions.edges.firstObject.node.slug"
-          )
+          clear
+            ? []
+            : [
+                field.get(
+                  "question.multipleChoiceOptions.edges.firstObject.node.slug"
+                )
+              ]
         );
 
         await field.save.perform();
+        await field.validate.perform();
       })
     );
   }),
@@ -161,6 +166,8 @@ export default Component.extend({
       /* eslint-disable-next-line no-console */
       console.error(e);
       this.notification.danger(this.intl.t("documents.uploadError"));
+
+      yield this.saveFields.perform(true);
     }
   }),
 
