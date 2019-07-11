@@ -110,6 +110,7 @@ APPLICATIONS = {
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
             "Gemeinde": "municipality",
+            "Gemeinde Sachbearbeiter": "municipality",
             "Fachstelle": "service",
             "Fachstelle Sachbearbeiter": "service",
             "Kanton": "canton",
