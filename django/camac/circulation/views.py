@@ -1,6 +1,5 @@
 import django_excel
 from django.db.models import OuterRef, Subquery
-from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework_json_api import views
 
@@ -24,7 +23,7 @@ class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     }
 
 
-class ActivationView(InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
+class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     instance_field = "circulation.instance"
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related("circulation")
