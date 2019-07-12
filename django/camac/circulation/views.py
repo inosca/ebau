@@ -11,12 +11,7 @@ from camac.instance.models import FormField
 from . import filters, serializers
 
 
-class CirculationView(
-    views.AutoPrefetchMixin,
-    views.PrefetchForIncludesHelperMixin,
-    InstanceQuerysetMixin,
-    viewsets.ReadOnlyModelViewSet,
-):
+class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     queryset = Circulation.objects.select_related("instance")
     serializer_class = serializers.CirculationSerializer
     filterset_class = filters.CirculationFilterSet
@@ -29,12 +24,7 @@ class CirculationView(
     }
 
 
-class ActivationView(
-    views.AutoPrefetchMixin,
-    views.PrefetchForIncludesHelperMixin,
-    InstanceQuerysetMixin,
-    viewsets.ReadOnlyModelViewSet,
-):
+class ActivationView(InstanceQuerysetMixin, viewsets.ReadOnlyModelViewSet):
     instance_field = "circulation.instance"
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related("circulation")
