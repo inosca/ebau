@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from rest_framework.compat import unicode_to_repr
-from rest_framework_json_api import serializers
+from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualSerializer
 
@@ -31,9 +31,17 @@ class CurrentServiceDefault(object):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    service = relations.SerializerMethodResourceRelatedField(
+        source="get_service", model=models.Service, read_only=True
+    )
+
+    def get_service(self, obj):
+        request = self.context["request"]
+        return request.group and request.group.service or None
+
     class Meta:
         model = get_user_model()
-        fields = ("name", "surname", "username", "language")
+        fields = ("name", "surname", "username", "language", "service")
 
 
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
