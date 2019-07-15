@@ -25,6 +25,15 @@ def test_me(admin_client, admin_user):
     assert json["data"]["attributes"]["username"] == admin_user.username
 
 
+def test_me_group(admin_client, admin_user, service):
+    url = reverse("me")
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert json["data"]["relationships"]["service"]["data"]["id"] == str(service.pk)
+
+
 @pytest.mark.parametrize(
     "role__name,size",
     [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
