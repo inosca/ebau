@@ -74,6 +74,7 @@ export default Component.extend({
   intl: service(),
   fetch: service(),
   calumaStore: service(),
+  router: service(),
 
   /**
    * Submits the data (as JSON) to a service and gets a PDF back.
