@@ -129,7 +129,7 @@ class FilterViaCamacAPIMixin:
                     # Instance question is in top-level document
                     document__family__in=form_models.Document.objects.filter(
                         **{
-                            "case__meta__camac-instance-id__in": self._all_visible_instances(
+                            "meta__camac-instance-id__in": self._all_visible_instances(
                                 info
                             )
                         }

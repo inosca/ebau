@@ -22,11 +22,8 @@ log = getLogger()
 
 INSTANCE_STATES = {
     "gesuchsteller": ["1", "10000"],  # Neu, Zurückgewiesen
-    "_default": ["20007"],  # In Korrektur
-}
-INSTANCE_STATES_META = {
     "internal": ["20000"],  # eBau-Nummer zu vergeben
-    "_default": [],
+    "_default": ["20007"],  # In Korrektur
 }
 
 
