@@ -5,7 +5,7 @@ import moment from "moment";
 export default EmberObject.extend({
   findAnswer(slug) {
     const answer =
-      this.raw.document.answers.edges
+      this.raw.answers.edges
         .map(({ node }) => node)
         .find(answer => answer.question.slug === slug) || {};
 
@@ -14,12 +14,12 @@ export default EmberObject.extend({
     return answer && key ? answer[key] : null;
   },
 
-  id: reads("raw.meta.camac-instance-id"),
+  instanceId: reads("raw.meta.camac-instance-id"),
   ebau: reads("raw.meta.ebau-number"),
-  type: reads("raw.document.form.name"),
+  type: reads("raw.form.name"),
   municipality: computed(
     "municipalities.[]",
-    "raw.document.answers.edges.[]",
+    "raw.answers.edges.[]",
     function() {
       const slug = this.findAnswer("gemeinde");
       const node = this.municipalities.find(m => m.slug === slug);
@@ -27,7 +27,7 @@ export default EmberObject.extend({
       return node && node.label;
     }
   ),
-  address: computed("raw.document.answers.edges.[]", function() {
+  address: computed("raw.answers.edges.[]", function() {
     return [
       [
         this.findAnswer("strasse-gesuchstellerin") ||
@@ -56,7 +56,7 @@ export default EmberObject.extend({
     return raw ? moment(raw) : null;
   }),
   status: reads("instance.attributes.public-status"),
-  description: computed("raw.document.answers.edges.[]", function() {
+  description: computed("raw.answers.edges.[]", function() {
     return (
       this.findAnswer("anfrage-zur-vorabklaerung") ||
       this.findAnswer("beschreibung-bauvorhaben")
