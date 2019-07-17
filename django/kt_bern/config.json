@@ -134188,7 +134188,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "admin",
       "role_parent": null
     },
     "model": "user.role",
@@ -134196,7 +134196,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "guest",
       "role_parent": null
     },
     "model": "user.role",
@@ -134204,7 +134204,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "municipality-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -134212,7 +134212,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "service-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -134220,7 +134220,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "construction-control-lead",
       "role_parent": null
     },
     "model": "user.role",
@@ -134228,7 +134228,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "applicant",
       "role_parent": null
     },
     "model": "user.role",
@@ -134236,7 +134236,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "support",
       "role_parent": null
     },
     "model": "user.role",
@@ -134244,7 +134244,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "subservice",
       "role_parent": null
     },
     "model": "user.role",
@@ -134252,7 +134252,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "service-clerk",
       "role_parent": 4
     },
     "model": "user.role",
@@ -134260,7 +134260,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "service-readonly",
       "role_parent": null
     },
     "model": "user.role",
@@ -134268,7 +134268,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "municipality-readonly",
       "role_parent": null
     },
     "model": "user.role",
@@ -134276,7 +134276,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "municipality-clerk",
       "role_parent": 3
     },
     "model": "user.role",
@@ -134284,7 +134284,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "construction-control-clerk",
       "role_parent": 5
     },
     "model": "user.role",
@@ -134292,7 +134292,7 @@
   },
   {
     "fields": {
-      "name": null,
+      "name": "construction-control-readonly",
       "role_parent": null
     },
     "model": "user.role",
