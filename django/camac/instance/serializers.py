@@ -458,13 +458,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
 
-        previous_instance_state = instance.instance_state
+        previous_instance_state = instance.previous_instance_state
 
-        instance.previous_instance_state = previous_instance_state
+        instance.previous_instance_state = instance.instance_state
         instance.instance_state = (
             models.InstanceState.objects.get(name="subm")
             if instance.instance_state.name == "new"
-            else previous_instance_state
+            else previous_instance_state  # rejected
         )
 
         instance.save()
