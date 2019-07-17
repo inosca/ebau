@@ -9,7 +9,7 @@ export default Controller.extend({
   editController: controller("instances.edit"),
 
   instanceState: reads("editController.instance.lastSuccessful.value.state"),
-  case: reads("editController.data.lastSuccessful.value"),
+  document: reads("editController.data.lastSuccessful.value"),
 
   disabled: computed("instanceState.attributes.name", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(

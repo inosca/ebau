@@ -1,7 +1,6 @@
 import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
-import startCase from "ember-caluma-portal/gql/mutations/start-case";
 
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
@@ -35,28 +34,13 @@ export default Controller.extend({
   }),
 
   save: task(function*() {
-    const caseObj = yield this.get("apollo").mutate(
-      {
-        mutation: startCase,
-        variables: {
-          input: {
-            workflow: "building-permit",
-            form: this.selectedForm
-          }
-        }
-      },
-      "startCase.case"
-    );
-
     // create instance in CAMAC
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify({
         data: {
+          attributes: { "caluma-form": this.selectedForm },
           type: "instances",
-          attributes: {
-            "caluma-case-id": caseObj.id
-          },
           relationships: {
             form: {
               data: { id: 1, type: "forms" }
@@ -69,7 +53,10 @@ export default Controller.extend({
       })
     });
 
-    const instance = yield response.json();
-    yield this.transitionToRoute("instances.edit", instance.data.id);
+    const {
+      data: { id: instanceId }
+    } = yield response.json();
+
+    yield this.transitionToRoute("instances.edit", instanceId);
   }).drop()
 });

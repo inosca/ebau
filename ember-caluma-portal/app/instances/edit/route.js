@@ -1,8 +1,8 @@
 import Route from "@ember/routing/route";
 
 export default Route.extend({
-  model({ case_id }) {
-    return parseInt(case_id);
+  model({ instance_id }) {
+    return parseInt(instance_id);
   },
 
   setupController(controller) {
