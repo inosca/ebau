@@ -1,0 +1,6 @@
+mutation SaveDocument($input: SaveDocumentInput!) {
+  saveDocument(input: $input) {
+    id
+    meta
+  }
+}

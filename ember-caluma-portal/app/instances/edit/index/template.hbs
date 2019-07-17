@@ -18,13 +18,12 @@
 
   {{#switcher.content as |content|}}
     {{#content.item}}
-      {{#if case}}
+      {{#if document}}
         {{cf-content
-          documentId=(decode-id case.document.id)
+          documentId=(decode-id document.id)
           disabled=disabled
           context=(hash
-            caseId=case.id
-            instanceId=case.meta.camac-instance-id
+            instanceId=document.meta.camac-instance-id
           )
         }}
       {{/if}}
