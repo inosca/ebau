@@ -12,12 +12,13 @@ def get_group(request):
     """
     Get group based on request.
 
-    When a query param `group` is set group will be set on request in case
-    user is member of this group; otherwise `None`.
-    If no query param is passed on default group of user will be returned
-    if any is set.
+    Group will be determined in following order:
+    1. query param `group`
+    2. request header `X_CAMAC_GROUP`
+    3. default group of client using `aud` claim
+    4. user's default group
     """
-    group_id = request.GET.get("group")
+    group_id = request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP"))
     if group_id:
         group = (
             request.user.groups.filter(pk=group_id)
