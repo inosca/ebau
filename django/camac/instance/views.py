@@ -76,13 +76,20 @@ class InstanceView(
     ]
 
     def get_serializer_class(self):
-        if settings.APPLICATION["USE_CALUMA_FORM"]:
-            return serializers.CalumaInstanceSerializer
+        backend = settings.APPLICATION["FORM_BACKEND"]
 
-        if self.action == "submit":
-            return serializers.InstanceSubmitSerializer
+        SERIALIZER = {
+            "caluma": {
+                "submit": serializers.CalumaInstanceSubmitSerializer,
+                "default": serializers.CalumaInstanceSerializer,
+            },
+            "camac-ng": {
+                "submit": serializers.InstanceSubmitSerializer,
+                "default": serializers.InstanceSerializer,
+            },
+        }
 
-        return serializers.InstanceSerializer
+        return SERIALIZER[backend].get(self.action, SERIALIZER[backend]["default"])
 
     def has_object_destroy_permission(self, instance):
         return (
@@ -94,7 +101,8 @@ class InstanceView(
     def has_object_submit_permission(self, instance):
         return instance.user == self.request.user and instance.instance_state.name in (
             "new",
-            "nfd",
+            "nfd",  # kt. schwyz
+            "rejected",  # kt. bern
         )
 
     @action(methods=["get"], detail=False)
@@ -143,6 +151,12 @@ class InstanceView(
     @action(methods=["post"], detail=True)
     @transaction.atomic
     def submit(self, request, pk=None):
+        if settings.APPLICATION["FORM_BACKEND"] == "caluma":
+            return self._submit_caluma(request, pk)
+
+        return self._submit_camac_ng(request, pk)
+
+    def _submit_camac_ng(self, request, pk=None):
         instance = self.get_object()
 
         # change state of instance
@@ -194,6 +208,13 @@ class InstanceView(
             )
             sendmail_serializer.is_valid(raise_exception=True)
             sendmail_serializer.save()
+
+        return response.Response(data=serializer.data)
+
+    def _submit_caluma(self, request, pk=None):
+        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
 
         return response.Response(data=serializer.data)
 
