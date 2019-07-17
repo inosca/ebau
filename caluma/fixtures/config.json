@@ -235,7 +235,7 @@
       "created_by_group": null,
       "name": "{\"de\": \"Baugesuch\"}",
       "description": "{\"de\": \"\"}",
-      "meta": {},
+      "meta": { "is-main-form": true },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -251,7 +251,7 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Generelles Baugesuch\"}",
       "description": "{\"de\": \"\"}",
-      "meta": {},
+      "meta": { "is-main-form": true },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -267,7 +267,7 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Baugesuch mit UVP\"}",
       "description": "{\"de\": \"\"}",
-      "meta": {},
+      "meta": { "is-main-form": true },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -1035,7 +1035,7 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\"}",
       "description": "{\"de\": \"\"}",
-      "meta": {},
+      "meta": { "is-main-form": true },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -1051,7 +1051,7 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\"}",
       "description": "{\"de\": \"\"}",
-      "meta": {},
+      "meta": { "is-main-form": true },
       "is_published": true,
       "is_archived": false,
       "source": null
