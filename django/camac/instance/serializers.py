@@ -12,7 +12,7 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
 from camac.constants import kt_bern as constants
-from camac.core.models import Answer, InstanceLocation, InstanceService, Question
+from camac.core.models import Answer, InstanceLocation, InstanceService
 from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer

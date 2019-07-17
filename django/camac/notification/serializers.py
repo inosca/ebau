@@ -15,8 +15,8 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
 
-from ..core import models as core_models
 from . import models
+from ..core import models as core_models
 
 
 class NoticeMergeSerializer(serializers.Serializer):
