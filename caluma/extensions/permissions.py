@@ -12,8 +12,7 @@ from caluma.core.permissions import (
     permission_for,
 )
 from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
-from caluma.workflow.models import Case
-from caluma.workflow.schema import SaveCase, StartCase
+from caluma.form.models import Document
 
 from .visibilities import group, role
 
@@ -47,21 +46,6 @@ class CustomPermission(BasePermission):
         log.debug(f"fallback permission: rejecting mutation '{operation}'")
         return False
 
-    # Case
-    @permission_for(StartCase)
-    def has_permission_for_start_case(self, mutation, info):
-        return True
-
-    @permission_for(SaveCase)
-    def has_permission_for_save_case(self, mutation, info):
-        return True
-
-    @object_permission_for(SaveCase)
-    def has_object_permission_for_save_case(self, mutation, info, instance):
-        return self.has_camac_edit_permission(
-            instance.document.pk, info, only_meta=True
-        )
-
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
@@ -93,21 +77,17 @@ class CustomPermission(BasePermission):
     def _can_change_answer(self, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
-    def has_camac_edit_permission(self, document_family, info, only_meta=False):
-        # find corresponding case
+    def has_camac_edit_permission(self, document_family, info):
+        # find corresponding document
         try:
-            case = Case.objects.get(document_id=document_family)
+            document = Document.objects.get(id=document_family)
         except ObjectDoesNotExist:
             # if the document is unlinked, allow changing it
             # this is used for new table rows
             return True
 
         camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
-        instance_id = case.meta.get("camac-instance-id", None)
-        if instance_id is None and only_meta:
-            # this is a fresh case that needs to be extended with metadata
-            # for the permission to work. so for now, allow full access
-            return True
+        instance_id = document.meta.get("camac-instance-id", None)
 
         resp = requests.get(
             f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
@@ -132,12 +112,6 @@ class CustomPermission(BasePermission):
             log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
             return instance_state_id in INSTANCE_STATES.get(
                 role(info), INSTANCE_STATES["_default"]
-            ) or (
-                only_meta
-                and instance_state_id
-                in INSTANCE_STATES_META.get(
-                    role(info), INSTANCE_STATES_META["_default"]
-                )
             )
 
         except json.decoder.JSONDecodeError:
