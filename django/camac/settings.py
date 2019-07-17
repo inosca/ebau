@@ -105,7 +105,7 @@ APPLICATIONS = {
         "NOTIFICATIONS": {"SUBMIT": None},
         "PUBLICATION_DURATION": timedelta(days=30),
         "INSTANCE_USER_FIELD": "user",
-        "USE_CALUMA_FORM": False,
+        "FORM_BACKEND": "camac-ng",
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -121,7 +121,7 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=30),
         "IS_MULTILINGUAL": False,
         "INSTANCE_USER_FIELD": "user",
-        "USE_CALUMA_FORM": False,
+        "FORM_BACKEND": "camac-ng",
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -144,7 +144,7 @@ APPLICATIONS = {
             ]
         },
         "IS_MULTILINGUAL": True,
-        "USE_CALUMA_FORM": True,
+        "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
     },
     "kt_uri": {},
