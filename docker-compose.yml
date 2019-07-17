@@ -151,17 +151,15 @@ services:
             - REQUIRE_AUTHENTICATION=True
             - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
             - OIDC_BEARER_TOKEN_REVALIDATION_TIME=300
+            - OIDC_GROUPS_API=http://camac-ng.local/api/v1/me
+            - OIDC_GROUPS_API_JSONPATH=$$.data.relationships.service.data.id
+            - OIDC_GROUPS_API_HEADERS=AUTHENTICATION,X_CAMAC_GROUP
         command:
-          [
-            "/bin/sh",
-            "-c",
-            "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && ./manage.py runserver 0.0.0.0:8000",
-          ]
-
-    unoconv:
-        image: zrrrzzt/docker-unoconv-webservice
-        environment:
-            - SERVER_PORT=3000
+            [
+                "/bin/sh",
+                "-c",
+                "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && ./manage.py runserver 0.0.0.0:8000",
+            ]
 
 
 volumes:
