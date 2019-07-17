@@ -11,6 +11,7 @@ query GetDocuments(
     first: 15
     after: $cursor
     form: $form
+    forms: $forms
     metaValue: $metaValueFilters
     hasAnswer: $hasAnswerFilters
     orderBy: META_CAMAC_INSTANCE_ID_DESC
