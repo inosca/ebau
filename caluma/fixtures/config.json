@@ -1,23 +1,5 @@
 [
   {
-    "model": "workflow.workflow",
-    "pk": "building-permit",
-    "fields": {
-      "created_at": "2019-04-08T07:17:29.147Z",
-      "modified_at": "2019-04-08T07:17:29.147Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "name": "{\"de\": \"Gesuch\"}",
-      "description": "{\"de\": null}",
-      "meta": {},
-      "is_published": false,
-      "is_archived": false,
-      "allow_all_forms": true,
-      "start_tasks": [],
-      "allow_forms": []
-    }
-  },
-  {
     "model": "form.form",
     "pk": "1-allgemeine-informationen",
     "fields": {
