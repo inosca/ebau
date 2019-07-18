@@ -37,14 +37,11 @@ snapshots["test_create_instance[new] 1"] = [
             "headers": {"Authorization": b""},
             "json": {
                 "query": """
-                mutation CreateDocument($input: SaveDocumentInput!) {
-                    saveDocument(input: $input) {
-                    document {
-                        id
-                        meta
-                    }
-                    }
+            mutation CreateDocument($input: SaveDocumentInput!) {
+                saveDocument(input: $input) {
+                    clientMutationId
                 }
+            }
             """,
                 "variables": {
                     "input": {"form": "test", "meta": '{"camac-instance-id": "XXX"}'}
