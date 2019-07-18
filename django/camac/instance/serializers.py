@@ -153,24 +153,24 @@ class CalumaInstanceSerializer(InstanceSerializer):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
+
     instance_state = serializers.ResourceRelatedField(
-        queryset=models.InstanceState.objects.all(),
-        default=lambda: models.InstanceState.objects.order_by(
-            "instance_state_id"
-        ).first(),
-    )
-    previous_instance_state = serializers.ResourceRelatedField(
-        queryset=models.InstanceState.objects.all(),
-        default=lambda: models.InstanceState.objects.order_by(
-            "instance_state_id"
-        ).first(),
+        queryset=models.InstanceState.objects.filter(name="new"),
+        default=NewInstanceStateDefault(),
     )
 
-    caluma_form = serializers.CharField(required=False)
+    previous_instance_state = serializers.ResourceRelatedField(
+        queryset=models.InstanceState.objects.filter(name="new"),
+        default=NewInstanceStateDefault(),
+    )
+
+    caluma_form = serializers.CharField(required=True, write_only=True)
 
     public_status = serializers.SerializerMethodField()
 
-    def _caluma_query(self, query, variables):
+    def query_caluma(self, query, variables):
+        # TODO: move this to a more general location
+
         response = requests.post(
             settings.CALUMA_URL,
             json={"query": query, "variables": variables},
@@ -179,14 +179,17 @@ class CalumaInstanceSerializer(InstanceSerializer):
             },
         )
 
-        if response.status_code != 200 or response.json().get(
-            "errors"
-        ):  # pragma: no cover
-            raise exceptions.ValidationError("Error while querying caluma")
+        response.raise_as_status()
+        result = response.json()
+        if result.get("errors"):  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Error while querying caluma: {result.get('errors')}"
+            )
 
-        return response
+        return result
 
     def get_public_status(self, instance):
+        # TODO Instead of a new field, we should actually modify the values of instance_state
         STATUS_MAP = {
             constants.INSTANCE_STATE_NEW: constants.PUBLIC_INSTANCE_STATE_CREATING,
             constants.INSTANCE_STATE_EBAU_NUMMER_VERGEBEN: constants.PUBLIC_INSTANCE_STATE_RECEIVING,
@@ -212,12 +215,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
             instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
         )
 
-    def validate_instance_state(self, value):
-        return models.InstanceState.objects.get(name="new")
-
     def validate(self, data):
         form = data.get("caluma_form")
-        caluma_resp = self._caluma_query(
+        caluma_resp = self.query_caluma(
             """
                 query GetMainForm($slug: String!) {
                     allForms(slug: $slug, metaValue: [{key: "is-main-form", value: true}]) {
@@ -233,16 +233,14 @@ class CalumaInstanceSerializer(InstanceSerializer):
             {"slug": form},
         )
 
-        if (
-            len(caluma_resp.json()["data"]["allForms"]["edges"]) != 1
-        ):  # pragma: no cover
+        if len(caluma_resp["data"]["allForms"]["edges"]) != 1:  # pragma: no cover
             raise exceptions.ValidationError(
                 f"Passed caluma form is not a main form: {form}"
             )
 
         return data
 
-    def create(self, validated_data):  # pragma: no cover
+    def create(self, validated_data):
         form = validated_data.pop("caluma_form")
         created = super().create(validated_data)
 
@@ -252,16 +250,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
             created=timezone.now(),
         )
 
-        self._caluma_query(
+        self.query_caluma(
             """
-                mutation CreateDocument($input: SaveDocumentInput!) {
-                    saveDocument(input: $input) {
-                    document {
-                        id
-                        meta
-                    }
-                    }
+            mutation CreateDocument($input: SaveDocumentInput!) {
+                saveDocument(input: $input) {
+                    clientMutationId
                 }
+            }
             """,
             {
                 "input": {
@@ -320,6 +315,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             return
 
         # Set submit date in Camac first...
+        # TODO drop this after this is not used anymore in Camac
         Answer.objects.get_or_create(
             instance=self.instance,
             question_id=SUBMIT_DATE_QUESTION_ID,
@@ -335,7 +331,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             "submit-date": timezone.now().strftime("%Y-%m-%d"),
         }
 
-        self._caluma_query(
+        self.query_caluma(
             """
                 mutation SaveDocumentMeta($input: SaveDocumentInput!) {
                     saveDocument(input: $input) {
@@ -353,48 +349,46 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         )
 
     def validate(self, data):
-        caluma_resp = self._caluma_query(
+        caluma_resp = self.query_caluma(
             """
-                query GetDocument($instanceId: GenericScalar!) {
-                    allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
-                        edges {
-                                node {
-                                    id
-                                    meta
-                                    form {
-                                        slug
-                                        meta
-                                    }
-                                    answers(questions: ["gemeinde"]) {
-                                        edges {
-                                            node {
-                                            id
-                                            question {
-                                                slug
-                                            }
-                                            ...on StringAnswer {
-                                                value
-                                            }
-                                            }
+            query GetDocument($instanceId: GenericScalar!) {
+                allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
+                    edges {
+                        node {
+                            id
+                            meta
+                            form {
+                                slug
+                                meta
+                            }
+                            answers(questions: ["gemeinde"]) {
+                                edges {
+                                    node {
+                                        id
+                                        question {
+                                            slug
+                                        }
+                                        ...on StringAnswer {
+                                            value
                                         }
                                     }
                                 }
                             }
+                        }
                     }
                 }
+            }
             """,
             {"instanceId": self.instance.pk},
         )
 
-        documents = caluma_resp.json()["data"]["allDocuments"]["edges"]
+        documents = caluma_resp["data"]["allDocuments"]["edges"]
 
         data["caluma_document"] = next(
-            iter(
-                [
-                    document["node"]
-                    for document in (documents)
-                    if document["node"]["form"]["meta"].get("is-main-form", False)
-                ]
+            (
+                document["node"]
+                for document in documents
+                if document["node"]["form"]["meta"].get("is-main-form", False)
             ),
             None,
         )
@@ -405,12 +399,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         data["caluma_municipality"] = next(
-            iter(
-                [
-                    answer["node"]["value"]
-                    for answer in data["caluma_document"]["answers"]["edges"]
-                    if answer["node"]["question"]["slug"] == "gemeinde"
-                ]
+            (
+                answer["node"]["value"]
+                for answer in data["caluma_document"]["answers"]["edges"]
+                if answer["node"]["question"]["slug"] == "gemeinde"
             ),
             None,
         )
@@ -421,7 +413,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         # TODO: reenable this when caluma document validity is fixed
-        # validity_resp = self._caluma_query(
+        # validity = self.query_caluma(
         #     """
         #         query GetDocumentValidity($id: ID!) {
         #             documentValidity(id: $id) {
@@ -441,13 +433,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         #     {"id": document["id"]},
         # )
 
-        # validity = validity_resp.json()
-        # if validity["errors"] or not validity["edges"]["node"][0]["isValid"]:
-        #     errors = ", ".join(
-        #         map(lambda e: e["message"], validity["errors"])
-        #         or map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"])
-        #     )
-
+        # if not validity["edges"]["node"][0]["isValid"]:
+        #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
         #     raise exceptions.ValidationError(
         #         f"Error while validating caluma document: {errors}"
         #     )
@@ -464,7 +451,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance.instance_state = (
             models.InstanceState.objects.get(name="subm")
             if instance.instance_state.name == "new"
-            else previous_instance_state  # rejected
+            # BE: If a rejected instancere is resubmitted, the process continues where it left off
+            else previous_instance_state
         )
 
         instance.save()

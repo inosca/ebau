@@ -78,7 +78,7 @@ class InstanceView(
     def get_serializer_class(self):
         backend = settings.APPLICATION["FORM_BACKEND"]
 
-        SERIALIZER = {
+        SERIALIZER_CLASS = {
             "caluma": {
                 "submit": serializers.CalumaInstanceSubmitSerializer,
                 "default": serializers.CalumaInstanceSerializer,
@@ -89,7 +89,12 @@ class InstanceView(
             },
         }
 
-        return SERIALIZER[backend].get(self.action, SERIALIZER[backend]["default"])
+        return SERIALIZER_CLASS[backend].get(
+            self.action, SERIALIZER_CLASS[backend]["default"]
+        )
+
+    def has_update_permission(self):
+        return False
 
     def has_object_destroy_permission(self, instance):
         return (
@@ -102,7 +107,8 @@ class InstanceView(
         return instance.user == self.request.user and instance.instance_state.name in (
             "new",
             "nfd",  # kt. schwyz
-            "rejected",  # kt. bern
+            # kt. bern (TODO: rejected instances should be copied and resubmitted from "new" state)
+            "rejected",
         )
 
     @action(methods=["get"], detail=False)
@@ -157,6 +163,8 @@ class InstanceView(
         return self._submit_camac_ng(request, pk)
 
     def _submit_camac_ng(self, request, pk=None):
+        # TODO: move this into the serializer
+
         instance = self.get_object()
 
         # change state of instance
