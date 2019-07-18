@@ -10,6 +10,7 @@ from django.core.mail import EmailMessage
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.constants import kt_bern as constants
 from camac.core.models import Activation
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
@@ -183,7 +184,7 @@ class NotificationTemplateMergeSerializer(
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
     recipient_types = serializers.MultipleChoiceField(
-        choices=("applicant", "municipality", "service", "leitbehoerde")
+        choices=("applicant", "municipality", "service", "leitbehoerde", "baukontrolle")
     )
 
     def _get_recipients_applicant(self, instance):
@@ -206,6 +207,18 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
         return [service.email for service in services]
+
+    def _get_recipients_baukontrolle(self, instance):
+        instance_service = core_models.InstanceService.objects.filter(
+            instance=instance,
+            service__service_group=constants.SERVICE_GROUP_BAUKONTROLLE,
+            active=1,
+        ).first()
+
+        if not instance_service:
+            return []
+
+        return [instance_service.service.email]
 
     def create(self, validated_data):
         instance = validated_data["instance"]
