@@ -179,7 +179,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
             },
         )
 
-        response.raise_as_status()
+        response.raise_for_status()
         result = response.json()
         if result.get("errors"):  # pragma: no cover
             raise exceptions.ValidationError(

@@ -94,7 +94,7 @@ class InstanceView(
         )
 
     def has_update_permission(self):
-        return False
+        return settings.APPLICATION["FORM_BACKEND"] != "caluma"
 
     def has_object_destroy_permission(self, instance):
         return (
