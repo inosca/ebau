@@ -29444,6 +29444,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "documentmergeservice",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 130001
+  },
+  {
+    "fields": {
       "description": "Add a journal entry",
       "module_name": "journal"
     },
@@ -29992,6 +30001,15 @@
     },
     "model": "core.availableresource",
     "pk": "calumalist"
+  },
+  {
+    "fields": {
+      "controller_name": "documentmergeservice",
+      "description": "Module for managing document templates via the document merge service",
+      "module_name": "documentmergeservice"
+    },
+    "model": "core.availableresource",
+    "pk": "documentmergeservice"
   },
   {
     "fields": {
@@ -104698,7 +104716,7 @@
       "description": null,
       "hidden": 1,
       "name": null,
-      "sort": 3,
+      "sort": 2,
       "template": null
     },
     "model": "core.resource",
@@ -104711,7 +104729,7 @@
       "description": null,
       "hidden": 1,
       "name": null,
-      "sort": 5,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -104724,7 +104742,7 @@
       "description": null,
       "hidden": 1,
       "name": null,
-      "sort": 7,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -104737,7 +104755,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 13,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -104750,7 +104768,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 12,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -104776,7 +104794,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 10,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -104789,7 +104807,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 11,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -104802,7 +104820,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 4,
+      "sort": 3,
       "template": null
     },
     "model": "core.resource",
@@ -104815,7 +104833,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 8,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -104828,11 +104846,24 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 6,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
     "pk": 20008
+  },
+  {
+    "fields": {
+      "available_resource": "documentmergeservice",
+      "class_field": null,
+      "description": null,
+      "hidden": 1,
+      "name": null,
+      "sort": 10,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 20009
   },
   {
     "fields": {
@@ -104953,6 +104984,16 @@
     },
     "model": "core.resourcet",
     "pk": 20008
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "de",
+      "name": "Vorlagenverwaltung",
+      "resource": 20009
+    },
+    "model": "core.resourcet",
+    "pk": 20009
   },
   {
     "fields": {
@@ -105129,6 +105170,14 @@
     },
     "model": "core.rroleacl",
     "pk": 20021
+  },
+  {
+    "fields": {
+      "resource": 20009,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 20022
   },
   {
     "fields": {
@@ -132302,6 +132351,15 @@
     },
     "model": "instance.instancestate",
     "pk": 20001
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": null,
+      "sort": 12
+    },
+    "model": "instance.instancestate",
+    "pk": 20002
   },
   {
     "fields": {

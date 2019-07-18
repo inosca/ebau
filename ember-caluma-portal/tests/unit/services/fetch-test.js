@@ -21,8 +21,7 @@ module("Unit | Service | fetch", function(hooks) {
     assert.deepEqual(service.headers, {
       authorization: "Bearer opensesame",
       accept: "application/vnd.api+json",
-      "content-type": "application/vnd.api+json",
-      "cache-control": "no-cache"
+      "content-type": "application/vnd.api+json"
     });
   });
 
@@ -36,7 +35,6 @@ module("Unit | Service | fetch", function(hooks) {
         authorization: "changed",
         accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
-        "cache-control": "no-cache",
         "x-some-header": "changed"
       });
 

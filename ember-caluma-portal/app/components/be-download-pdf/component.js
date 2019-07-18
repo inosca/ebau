@@ -103,7 +103,7 @@ export default Component.extend({
 
     try {
       const response = yield this.fetch.fetch(
-        `/api/v1/template/${template}/merge/`,
+        `/document-merge-service/api/v1/template/${template}/merge/`,
         {
           mode: "cors",
           method: "POST",
