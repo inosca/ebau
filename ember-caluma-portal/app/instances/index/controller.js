@@ -106,6 +106,9 @@ export default Controller.extend(queryParams.Mixin, {
 
   reset(_, isExiting) {
     if (isExiting) {
+      this.fetchData.cancelAll({ resetState: true });
+      this.getInstances.cancelAll({ resetState: true });
+
       this.resetQueryParams();
     }
   },
