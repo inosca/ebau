@@ -166,6 +166,12 @@ services:
             - camac-ng.local
         environment:
             - ENV=dev
+        command:
+          [
+            "/bin/sh",
+            "-c",
+            "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py loaddata /tmp/document-merge-service/dump.json && uwsgi"
+          ]
 
 networks:
     camac-ng.local:
