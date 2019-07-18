@@ -22,8 +22,7 @@ log = getLogger()
 
 INSTANCE_STATES = {
     "gesuchsteller": ["1", "10000"],  # Neu, Zurückgewiesen
-    "internal": ["20000"],  # eBau-Nummer zu vergeben
-    "_default": ["20007"],  # In Korrektur
+    "internal": ["20000", "20007"],  # eBau-Nummer zu vergeben, in Korrektur
 }
 
 
@@ -61,7 +60,7 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
-        return self._can_change_answer(info, instance)
+        return self.has_camac_edit_permission(instance.document.family, info)
 
     @permission_for(RemoveAnswer)
     def has_permission_for_removeanswer(self, mutation, info):
@@ -69,9 +68,6 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(RemoveAnswer)
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
-        return self._can_change_answer(info, instance)
-
-    def _can_change_answer(self, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
     def has_camac_edit_permission(self, document_family, info):
@@ -84,7 +80,12 @@ class CustomPermission(BasePermission):
             return True
 
         camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
-        instance_id = document.meta.get("camac-instance-id", None)
+        instance_id = document.meta.get("camac-instance-id")
+
+        if not instance_id:
+            raise RuntimeError(
+                f"Tried to edit document family {document_family} without linked camac instance"
+            )
 
         resp = requests.get(
             f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
@@ -94,25 +95,19 @@ class CustomPermission(BasePermission):
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
 
-        if resp.status_code != requests.codes.ok:
-            log.info(f"ACL: Got {resp.status_code} from NG API -> no access")
-            return False
+        resp.raise_for_status()
 
         try:
             jsondata = resp.json()
             if "error" in jsondata:
-                # forward Instance API error to client
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
+
             instance_state_id = jsondata["data"]["relationships"]["instance-state"][
                 "data"
             ]["id"]
-            log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
-            return instance_state_id in INSTANCE_STATES.get(
-                role(info), INSTANCE_STATES["_default"]
-            )
 
-        except json.decoder.JSONDecodeError:
-            raise RuntimeError("NG API returned non-JSON response, check configuration")
+            log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
+            return instance_state_id in INSTANCE_STATES[role(info)]
 
         except KeyError:
             raise RuntimeError(
