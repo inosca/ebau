@@ -1,30 +1,86 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
+import { computed, getWithDefault } from "@ember/object";
+import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
+import QueryParams from "ember-parachute";
 
 import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 
-export default Controller.extend({
+const VISIBLE_MAP = {
+  internal: {
+    sb1: ["Abschluss (SB2)", "Zum Abschluss", "Abgeschlossen"],
+    sb2: ["Zum Abschluss", "Abgeschlossen"]
+  },
+  DEFAULT: {
+    sb1: [
+      "Selbstdeklaration (SB1)",
+      "Abschluss (SB2)",
+      "Zum Abschluss",
+      "Abgeschlossen"
+    ],
+    sb2: ["Abschluss (SB2)", "Zum Abschluss", "Abgeschlossen"]
+  }
+};
+
+const FEEDBACK_ATTACHMENT_SECTION = 3;
+
+const queryParams = new QueryParams({
+  group: {
+    default: null,
+    refresh: true
+  },
+  role: {
+    default: null,
+    refresh: true
+  }
+});
+
+export default Controller.extend(queryParams.Mixin, {
   apollo: service(),
   fetch: service(),
 
-  queryParams: ["displayedForm", "group", "role"],
-  displayedForm: null,
-  group: null,
-  role: null,
+  setup() {
+    this.mainFormTask.perform();
+    this.instanceTask.perform();
+    this.feedbackTask.perform();
+  },
 
-  data: task(function*() {
-    return yield this.apollo.watchQuery(
+  reset() {
+    this.mainFormTask.cancelAll({ resetState: true });
+    this.instanceTask.cancelAll({ resetState: true });
+    this.feedbackTask.cancelAll({ resetState: true });
+
+    this.resetQueryParams();
+  },
+
+  additionalForms: computed(
+    "instance.state.attributes.name",
+    "role",
+    function() {
+      const state = this.get("instance.state.attributes.name");
+      const role = this.role || "DEFAULT";
+
+      return Object.entries(VISIBLE_MAP[role])
+        .filter(([, visibleStates]) => visibleStates.includes(state))
+        .map(([form]) => form);
+    }
+  ),
+
+  mainForm: reads("mainFormTask.lastSuccessful.value"),
+  mainFormTask: task(function*() {
+    return this.apollo.query(
       {
         query: getDocumentQuery,
-        fetchPolicy: "cache-and-network",
+        fetchPolicy: "cache-first",
         variables: { instanceId: this.model }
       },
-      "allDocuments.edges.firstObject.node"
+      "allDocuments.edges.firstObject.node.form"
     );
-  }).restartable(),
+  }).drop(),
 
-  instance: task(function*() {
+  instance: reads("instanceTask.lastSuccessful.value"),
+  instanceTask: task(function*() {
     const groupParam = this.group ? "&group=" + this.group : "";
     const response = yield this.fetch.fetch(
       `/api/v1/instances/${this.model}?include=instance_state${groupParam}`
@@ -34,11 +90,23 @@ export default Controller.extend({
 
     return {
       ...instance.attributes,
+      id: instance.id,
       state: included.find(
         obj =>
           obj.type === "instance-states" &&
           obj.id === instance.relationships["instance-state"].data.id
       )
     };
-  }).restartable()
+  }).drop(),
+
+  feedback: reads("feedbackTask.lastSuccessful.value"),
+  feedbackTask: task(function*() {
+    const response = yield this.fetch.fetch(
+      `/api/v1/attachments?attachment_sections=${FEEDBACK_ATTACHMENT_SECTION}&instance=${this.model}`
+    );
+
+    const { data } = yield response.json();
+
+    return data;
+  }).drop()
 });
