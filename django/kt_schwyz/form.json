@@ -1638,7 +1638,7 @@
     "gewerbliche-nutzflachen-grosse": {
       "label": "Wie gross ist / sind diese in m²?",
       "hint": "Bitte geben Sie in m2 an, wie gross die geplanten gewerblichen Nutz- resp. Verkaufsflächen sind.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'gewerbliche-nutzflachen'|value == 'Ja'",
       "config": {
@@ -1721,7 +1721,7 @@
     "gebaudevolumen-sia-116": {
       "label": "Gebäudevolumen in m³ nach SIA 116:",
       "hint": "Die SIA-Norm 116 ist zwar veraltet, wird aber von gewissen Stellen nach wie vor benötigt.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
@@ -1731,7 +1731,7 @@
     "gebaudevolumen-sia-416": {
       "label": "Gebäudevolumen in m³ nach SIA 416:",
       "hint": "Die SIA-Norm 416 ist die aktuelle Grundlage zur Berechnung von Gebäudevolumen.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "'Baute(n)' in 'kategorie-des-vorhabens'|value",
       "config": {
@@ -3311,7 +3311,7 @@
     "energie-thermisch-grosse": {
       "label": "Wie gross ist die vorgesehen Absorberfläche in m²?",
       "hint": "Geben Sie bitte die Absorberfläche in m2 an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern , die gesamte Fläche des schwarzen Zylindermantels.",
-      "type": "number",
+      "type": "number-separator",
       "required": true,
       "active-expression": "('Solaranlage' in 'art-der-anlage'|value || 'bm-solaranlage'|value == 'Ja') && 'Thermische Solaranlage (Wärmeproduktion)' in 'energie-art'|value",
       "config": {
