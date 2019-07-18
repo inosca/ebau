@@ -12,8 +12,7 @@ from caluma.core.permissions import (
     permission_for,
 )
 from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
-from caluma.workflow.models import Case
-from caluma.workflow.schema import SaveCase, StartCase
+from caluma.form.models import Document
 
 from .visibilities import group, role
 
@@ -23,11 +22,7 @@ log = getLogger()
 
 INSTANCE_STATES = {
     "gesuchsteller": ["1", "10000"],  # Neu, Zurückgewiesen
-    "_default": ["20007"],  # In Korrektur
-}
-INSTANCE_STATES_META = {
-    "internal": ["20000"],  # eBau-Nummer zu vergeben
-    "_default": [],
+    "internal": ["20000", "20007"],  # eBau-Nummer zu vergeben, in Korrektur
 }
 
 
@@ -47,21 +42,6 @@ class CustomPermission(BasePermission):
         log.debug(f"fallback permission: rejecting mutation '{operation}'")
         return False
 
-    # Case
-    @permission_for(StartCase)
-    def has_permission_for_start_case(self, mutation, info):
-        return True
-
-    @permission_for(SaveCase)
-    def has_permission_for_save_case(self, mutation, info):
-        return True
-
-    @object_permission_for(SaveCase)
-    def has_object_permission_for_save_case(self, mutation, info, instance):
-        return self.has_camac_edit_permission(
-            instance.document.pk, info, only_meta=True
-        )
-
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
@@ -80,7 +60,7 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
-        return self._can_change_answer(info, instance)
+        return self.has_camac_edit_permission(instance.document.family, info)
 
     @permission_for(RemoveAnswer)
     def has_permission_for_removeanswer(self, mutation, info):
@@ -88,26 +68,24 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(RemoveAnswer)
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
-        return self._can_change_answer(info, instance)
-
-    def _can_change_answer(self, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
-    def has_camac_edit_permission(self, document_family, info, only_meta=False):
-        # find corresponding case
+    def has_camac_edit_permission(self, document_family, info):
+        # find corresponding document
         try:
-            case = Case.objects.get(document_id=document_family)
+            document = Document.objects.get(id=document_family)
         except ObjectDoesNotExist:
             # if the document is unlinked, allow changing it
             # this is used for new table rows
             return True
 
         camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
-        instance_id = case.meta.get("camac-instance-id", None)
-        if instance_id is None and only_meta:
-            # this is a fresh case that needs to be extended with metadata
-            # for the permission to work. so for now, allow full access
-            return True
+        instance_id = document.meta.get("camac-instance-id")
+
+        if not instance_id:
+            raise RuntimeError(
+                f"Tried to edit document family {document_family} without linked camac instance"
+            )
 
         resp = requests.get(
             f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
@@ -117,31 +95,19 @@ class CustomPermission(BasePermission):
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
 
-        if resp.status_code != requests.codes.ok:
-            log.info(f"ACL: Got {resp.status_code} from NG API -> no access")
-            return False
+        resp.raise_for_status()
 
         try:
             jsondata = resp.json()
             if "error" in jsondata:
-                # forward Instance API error to client
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
+
             instance_state_id = jsondata["data"]["relationships"]["instance-state"][
                 "data"
             ]["id"]
-            log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
-            return instance_state_id in INSTANCE_STATES.get(
-                role(info), INSTANCE_STATES["_default"]
-            ) or (
-                only_meta
-                and instance_state_id
-                in INSTANCE_STATES_META.get(
-                    role(info), INSTANCE_STATES_META["_default"]
-                )
-            )
 
-        except json.decoder.JSONDecodeError:
-            raise RuntimeError("NG API returned non-JSON response, check configuration")
+            log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
+            return instance_state_id in INSTANCE_STATES[role(info)]
 
         except KeyError:
             raise RuntimeError(

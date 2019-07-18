@@ -1,10 +1,9 @@
-{{#if case}}
+{{#if document}}
   {{#cf-content
-    documentId=(decode-id case.document.id)
+    documentId=(decode-id document.id)
     disabled=disabled
     context=(hash
-      caseId=case.id
-      instanceId=case.meta.camac-instance-id
+      instanceId=document.meta.camac-instance-id
     )
   as |content|}}
     <div class="uk-text-center">
@@ -14,7 +13,7 @@
           question=(hash label="Druckansicht")
           document=content.document
         )
-        context=(hash instanceId=case.meta.camac-instance-id)
+        context=(hash instanceId=document.meta.camac-instance-id)
       }}
     </div>
     <hr>

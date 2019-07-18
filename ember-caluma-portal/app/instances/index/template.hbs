@@ -56,13 +56,13 @@
 
 <hr>
 
-{{#if (and fetchData.isRunning (eq cases.length 0))}}
+{{#if (and fetchData.isRunning (eq documents.length 0))}}
   <div class="uk-text-center uk-padding">
     {{uk-spinner ratio=2}}
   </div>
-{{else if cases.length}}
+{{else if documents.length}}
   <div class="uk-text-meta">
-    {{t "instances.pageInfo" length=cases.length total=pageInfo.totalCount htmlSafe=true}}
+    {{t "instances.pageInfo" length=documents.length total=pageInfo.totalCount htmlSafe=true}}
   </div>
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
@@ -78,20 +78,20 @@
       </tr>
     </thead>
     <tbody>
-      {{#each cases as |case|}}
+      {{#each documents as |document|}}
         <tr>
           <td>
-            {{#link-to "instances.edit" case.id title="Klicken Sie um das Gesuch zu bearbeiten"}}
-              {{case.id}}
+            {{#link-to "instances.edit" document.instanceId title="Klicken Sie um das Gesuch zu bearbeiten"}}
+              {{document.instanceId}}
             {{/link-to}}
           </td>
-          <td>{{case.ebau}}</td>
-          <td class="uk-text-nowrap">{{case.type}}</td>
-          <td>{{case.municipality}}</td>
-          <td class="uk-text-truncate" title={{case.address}}>{{case.address}}</td>
-          <td>{{if case.submitDate (moment-format case.submitDate "DD.MM.YYYY")}}</td>
-          <td>{{t (concat "instances.status." case.status)}}</td>
-          <td class="uk-text-truncate" title={{case.description}}>{{case.description}}</td>
+          <td>{{document.ebau}}</td>
+          <td class="uk-text-nowrap">{{document.type}}</td>
+          <td>{{document.municipality}}</td>
+          <td class="uk-text-truncate" title={{document.address}}>{{document.address}}</td>
+          <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
+          <td>{{t (concat "instances.status." document.status)}}</td>
+          <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
         </tr>
       {{/each}}
       {{#if pageInfo.hasNextPage}}

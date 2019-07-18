@@ -7,7 +7,6 @@ import requests
 
 from caluma.core.visibilities import BaseVisibility, filter_queryset_for
 from caluma.form import models as form_models, schema as form_schema
-from caluma.workflow import schema as workflow_schema
 
 log = getLogger()
 
@@ -106,18 +105,6 @@ class FilterViaCamacAPIMixin:
         # We only want to generate the filter dict on-demand, as it may involve
         # calling out to the NG API or doing other calculations etc
         filters_by_model_and_role = {
-            "Case": {
-                "gesuchsteller": lambda: dict(
-                    # Special case: We can determine access rights ourselves,
-                    # by checking the user's email against the "gesuchsteller"
-                    # list. Note that the question is in a subform, so we have
-                    # to search "down the tree" via family ID instead.
-                    document__family__in=accessible_doc_families(info)
-                ),
-                "_default": lambda: {
-                    "meta__camac-instance-id__in": self._all_visible_instances(info)
-                },
-            },
             "Document": {
                 "gesuchsteller": lambda: dict(
                     # Same special case again
@@ -126,7 +113,7 @@ class FilterViaCamacAPIMixin:
                 "_default": lambda: {
                     "family__in": form_models.Document.objects.filter(
                         **{
-                            "case__meta__camac-instance-id__in": self._all_visible_instances(
+                            "meta__camac-instance-id__in": self._all_visible_instances(
                                 info
                             )
                         }
@@ -142,23 +129,12 @@ class FilterViaCamacAPIMixin:
                     # Instance question is in top-level document
                     document__family__in=form_models.Document.objects.filter(
                         **{
-                            "case__meta__camac-instance-id__in": self._all_visible_instances(
+                            "meta__camac-instance-id__in": self._all_visible_instances(
                                 info
                             )
                         }
                     ).values("pk")
                 ),
-            },
-            "WorkItem": {
-                "gesuchsteller": lambda: dict(
-                    # Same special case again, this time indirectly via document
-                    case__document__family__in=accessible_doc_families(info)
-                ),
-                "_default": lambda: {
-                    "case__meta__camac-instance-id__in": self._all_visible_instances(
-                        info
-                    )
-                },
             },
         }
 
@@ -250,9 +226,6 @@ class CustomVisibility(BaseVisibility, FilterViaCamacAPIMixin):
             return self.filter_qs(queryset, info)
 
         return method
-
-    case = make_filter_method(workflow_schema.Case)
-    work_item = make_filter_method(workflow_schema.WorkItem)
 
     document = make_filter_method(form_schema.Document)
     answer = make_filter_method(form_schema.Answer)

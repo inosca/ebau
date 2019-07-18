@@ -2,14 +2,14 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
-import Case from "ember-caluma-portal/lib/case";
+import Document from "ember-caluma-portal/lib/document";
 import { getOwner } from "@ember/application";
 import { reads } from "@ember/object/computed";
 import moment from "moment";
 import { isEmpty } from "@ember/utils";
 import formDataEntries from "form-data-entries";
 
-import getCasesQuery from "ember-caluma-portal/gql/queries/get-cases";
+import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
@@ -93,19 +93,22 @@ export default Controller.extend(queryParams.Mixin, {
     this.getMunicipalities.perform();
     this.getRootForms.perform();
 
-    this.set("cases", []);
+    this.set("documents", []);
     this.fetchData.perform();
   },
 
   queryParamsDidChange({ shouldRefresh }) {
     if (shouldRefresh) {
-      this.set("cases", []);
+      this.set("documents", []);
       this.fetchData.perform();
     }
   },
 
   reset(_, isExiting) {
     if (isExiting) {
+      this.fetchData.cancelAll({ resetState: true });
+      this.getInstances.cancelAll({ resetState: true });
+
       this.resetQueryParams();
     }
   },
@@ -125,6 +128,8 @@ export default Controller.extend(queryParams.Mixin, {
   }),
 
   getInstances: task(function*(ids) {
+    if (isEmpty(ids)) return [];
+
     const response = yield this.fetch.fetch(
       `/api/v1/instances?ids=${ids.join(",")}`
     );
@@ -137,28 +142,30 @@ export default Controller.extend(queryParams.Mixin, {
   pageInfo: reads("fetchData.lastSuccessful.value.pageInfo"),
   fetchData: task(function*(cursor = null) {
     try {
-      const raw = yield this.apollo.watchQuery(
+      const forms = yield this.getRootForms.last;
+
+      const raw = yield this.apollo.query(
         {
-          query: getCasesQuery,
-          fetchPolicy: "network-only",
+          query: getDocumentsQuery,
           variables: {
             cursor,
-            documentFormFilter: this.type,
+            form: this.type,
+            forms: forms.map(({ slug }) => slug),
             metaValueFilters: getMetaValueFilters(this.allQueryParams),
             hasAnswerFilters: getHasAnswerFilters(this.allQueryParams)
           }
         },
-        "allCases"
+        "allDocuments"
       );
-      const rawCases = raw.edges.map(({ node }) => node);
+      const rawDocuments = raw.edges.map(({ node }) => node);
 
       const municipalities = yield this.getMunicipalities.last;
       const instances = yield this.getInstances.perform(
-        rawCases.map(({ meta }) => meta["camac-instance-id"])
+        rawDocuments.map(({ meta }) => meta["camac-instance-id"])
       );
 
-      const cases = rawCases.map(raw => {
-        return Case.create(getOwner(this).ownerInjection(), {
+      const documents = rawDocuments.map(raw => {
+        return Document.create(getOwner(this).ownerInjection(), {
           raw,
           instance: instances.find(
             ({ id }) => parseInt(id) === parseInt(raw.meta["camac-instance-id"])
@@ -167,7 +174,7 @@ export default Controller.extend(queryParams.Mixin, {
         });
       });
 
-      this.set("cases", [...this.cases, ...cases]);
+      this.set("documents", [...this.documents, ...documents]);
 
       Object.assign(raw.pageInfo, { totalCount: raw.totalCount });
 
