@@ -14,7 +14,7 @@ def get_group(request):
 
     Group will be determined in following order:
     1. query param `group`
-    2. request header `X_CAMAC_GROUP`
+    2. request header `X-CAMAC-GROUP`
     3. default group of client using `aud` claim
     4. user's default group
     """
