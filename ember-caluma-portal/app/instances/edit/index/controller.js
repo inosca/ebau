@@ -30,7 +30,7 @@ export default Controller.extend({
   editController: controller("instances.edit"),
   data: reads("editController.data"),
   instance: reads("editController.instance.lastSuccessful.value"),
-  case: reads("data.lastSuccessful.value"),
+  document: reads("data.lastSuccessful.value"),
 
   disabled: computed("instance.state", function() {
     return !EDITABLE_INSTANCE_STATE_NAMES.includes(
@@ -43,9 +43,7 @@ export default Controller.extend({
       `/api/v1/attachments?attachment_sections=${FEEDBACK_ATTACHMENT_SECTION}&instance=${this.model}`
     );
 
-    const {
-      document: { id: documentId }
-    } = yield this.data.last;
+    const { id: documentId } = yield this.data.last;
 
     const { data } = yield response.json();
 

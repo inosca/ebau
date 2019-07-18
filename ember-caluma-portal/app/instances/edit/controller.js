@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 
-import getCaseQuery from "ember-caluma-portal/gql/queries/get-case";
+import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 
 export default Controller.extend({
   apollo: service(),
@@ -16,11 +16,11 @@ export default Controller.extend({
   data: task(function*() {
     return yield this.apollo.watchQuery(
       {
-        query: getCaseQuery,
+        query: getDocumentQuery,
         fetchPolicy: "cache-and-network",
-        variables: { caseId: this.model }
+        variables: { instanceId: this.model }
       },
-      "allCases.edges.firstObject.node"
+      "allDocuments.edges.firstObject.node"
     );
   }).restartable(),
 

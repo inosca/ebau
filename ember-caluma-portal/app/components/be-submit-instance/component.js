@@ -5,8 +5,6 @@ import { computed } from "@ember/object";
 import { all } from "rsvp";
 import { next } from "@ember/runloop";
 
-const INSTANCE_STATE_SUBMITTED = 20000;
-
 export default InViewportComponent.extend({
   notification: service(),
   apollo: service(),
@@ -58,7 +56,6 @@ export default InViewportComponent.extend({
     yield this.field.save.perform();
 
     try {
-      const caseId = this.get("context.caseId");
       const instanceId = this.get("context.instanceId");
 
       // simulate waiting, until actual backend implementation has landed
@@ -66,27 +63,8 @@ export default InViewportComponent.extend({
 
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
-        `/api/v1/instances/${instanceId}`,
-        {
-          method: "PATCH",
-          body: JSON.stringify({
-            data: {
-              type: "instances",
-              id: instanceId,
-              attributes: {
-                "caluma-case-id": caseId
-              },
-              relationships: {
-                "instance-state": {
-                  data: {
-                    id: INSTANCE_STATE_SUBMITTED,
-                    type: "instance-states"
-                  }
-                }
-              }
-            }
-          })
-        }
+        `/api/v1/instances/${instanceId}/submit`,
+        { method: "POST" }
       );
 
       if (!camacResponse.ok) {

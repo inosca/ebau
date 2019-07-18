@@ -76,4 +76,4 @@ def multilang(application_settings):
 
 @pytest.fixture
 def use_caluma_form(application_settings):
-    application_settings["USE_CALUMA_FORM"] = True
+    application_settings["FORM_BACKEND"] = "caluma"
