@@ -16,8 +16,9 @@ Router.map(function() {
     this.route("index", { path: "/", resetNamespace });
     this.route("instances", { resetNamespace }, function() {
       this.route("new");
-      this.route("edit", { path: "/:instance_id" }, function() {
-        this.route("embed");
+      this.route("edit", { path: "/:instance" }, function() {
+        this.route("form", { path: "/:form" });
+        this.route("feedback");
       });
     });
 

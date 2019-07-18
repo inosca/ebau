@@ -1,13 +1,8 @@
-query GetRootForms {
+query GetRootForms($slug: String) {
   allForms(
     orderBy: NAME_ASC
-    slugs: [
-      "vorabklaerung-vollstaendig"
-      "vorabklaerung-einfach"
-      "baugesuch"
-      "baugesuch-generell"
-      "baugesuch-mit-uvp"
-    ]
+    metaValue: [{ key: "is-main-form", value: true }]
+    slug: $slug
   ) {
     edges {
       node {

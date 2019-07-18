@@ -81,6 +81,8 @@ class InstanceView(
         SERIALIZER_CLASS = {
             "caluma": {
                 "submit": serializers.CalumaInstanceSubmitSerializer,
+                "report": serializers.CalumaInstanceReportSerializer,
+                "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -220,6 +222,24 @@ class InstanceView(
         return response.Response(data=serializer.data)
 
     def _submit_caluma(self, request, pk=None):
+        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(data=serializer.data)
+
+    @action(methods=["post"], detail=True)
+    @transaction.atomic
+    def report(self, request, pk=None):
+        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(data=serializer.data)
+
+    @action(methods=["post"], detail=True)
+    @transaction.atomic
+    def finalize(self, request, pk=None):
         serializer = self.get_serializer(self.get_object(), data={}, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

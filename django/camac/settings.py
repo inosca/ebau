@@ -141,7 +141,12 @@ APPLICATIONS = {
             "SUBMIT": [
                 {"template_id": 1, "recipient_types": ["applicant"]},
                 {"template_id": 2, "recipient_types": ["leitbehoerde"]},
-            ]
+            ],
+            "REPORT": [
+                {"template_id": 26, "recipient_types": ["applicant"]},
+                {"template_id": 36, "recipient_types": ["baukontrolle"]},
+            ],
+            "FINALIZE": [{"template_id": 37, "recipient_types": ["baukontrolle"]}],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",

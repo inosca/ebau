@@ -1,0 +1,54 @@
+{{#if documentTask.isRunning}}
+  <div class="uk-text-center">{{uk-spinner ratio=2}}</div>
+{{else if document}}
+  {{#if (eq role "internal")}}
+    {{#cf-content
+      documentId=(decode-id document.id)
+      disabled=disabled
+      context=(hash
+        instanceId=instance.id
+      )
+    as |content|}}
+      <div class="uk-text-center">
+        {{be-download-pdf
+          size="small"
+          field=(hash
+            question=(hash label=(t "instances.print"))
+            document=content.document
+          )
+          context=(hash instanceId=instance.id)
+        }}
+      </div>
+      <hr>
+      {{#if (gt content.document.fieldsets.length 1)}}
+        <div uk-grid>
+          <div class="uk-width-1-1 uk-width-1-3@s">{{content.navigation}}</div>
+          <div class="uk-width-1-1 uk-width-2-3@s">
+            {{content.form}}
+            <hr>
+            {{content.pagination}}
+          </div>
+        </div>
+      {{else}}
+        <div class="embedded-content">{{content.form}}</div>
+      {{/if}}
+    {{/cf-content}}
+  {{else}}
+    {{cf-content
+      documentId=(decode-id document.id)
+      disabled=disabled
+      context=(hash
+        instanceId=instance.id
+      )
+    }}
+  {{/if}}
+{{else}}
+  <div class="uk-text-center">
+    <p>
+      {{t "instances.noDocument" form=(t (concat "instances.forms." model))}}
+    </p>
+    {{#uk-button style="primary" on-click=(perform createDocument) loading=createDocument.isRunning}}
+      {{t "instances.createDocument"}}
+    {{/uk-button}}
+  </div>
+{{/if}}
