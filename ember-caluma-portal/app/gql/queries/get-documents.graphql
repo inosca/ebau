@@ -1,0 +1,56 @@
+#import 'ember-caluma/gql/fragments/field-answer'
+
+query GetDocuments(
+  $cursor: String
+  $form: ID
+  $forms: [ID]!
+  $metaValueFilters: [MetaValueFilterType]
+  $hasAnswerFilters: [HasAnswerFilterType]
+) {
+  allDocuments(
+    first: 15
+    after: $cursor
+    form: $form
+    forms: $forms
+    metaValue: $metaValueFilters
+    hasAnswer: $hasAnswerFilters
+    orderBy: META_CAMAC_INSTANCE_ID_DESC
+  ) {
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+    edges {
+      node {
+        id
+        meta
+        form {
+          slug
+          name
+        }
+        answers(
+          questions: [
+            "gemeinde"
+            "strasse-gesuchstellerin"
+            "nummer-gesuchstellerin"
+            "plz-gesuchstellerin"
+            "ort-gesuchstellerin"
+            "anfrage-zur-vorabklaerung"
+            "beschreibung-bauvorhaben"
+            "gemeinde"
+            "strasse-flurname"
+            "nr"
+            "ort-grundstueck"
+          ]
+        ) {
+          edges {
+            node {
+              ...FieldAnswer
+            }
+          }
+        }
+      }
+    }
+  }
+}

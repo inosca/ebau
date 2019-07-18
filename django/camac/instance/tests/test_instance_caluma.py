@@ -36,69 +36,10 @@ def mock_public_status(mocker):
     )
 
 
-RESP_CASE_INCOMPLETE = {
-    "data": {
-        "node": {
-            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
-            "meta": {},
-            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
-            "workItems": {
-                "edges": [
-                    {"node": {"status": "WORKING", "task": {"slug": "fill-form"}}}
-                ]
-            },
-        }
-    }
-}
-RESP_CASE_ALREADY_ASSIGNED = {
-    "data": {
-        "node": {
-            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
-            "meta": {"camac-instance-id": 9999},
-            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
-            "workItems": {
-                "edges": [
-                    {"node": {"status": "COMPLETED", "task": {"slug": "fill-form"}}}
-                ]
-            },
-        }
-    }
-}
-RESP_CASE_COMPLETED = {
-    "data": {
-        "node": {
-            "id": "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU=",
-            "meta": {},
-            "workflow": {"id": "V29ya2Zsb3c6YnVpbGRpbmctcGVybWl0"},
-            "workItems": {
-                "edges": [
-                    {"node": {"status": "COMPLETED", "task": {"slug": "fill-form"}}}
-                ]
-            },
-        }
-    }
-}
-
-
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
-@pytest.mark.parametrize(
-    "work_item_resp,expected_resp",
-    [
-        (RESP_CASE_COMPLETED, status.HTTP_201_CREATED),
-        (RESP_CASE_ALREADY_ASSIGNED, status.HTTP_400_BAD_REQUEST),
-    ],
-)
 def test_create_instance(
-    db,
-    admin_client,
-    mocker,
-    instance_state,
-    form,
-    snapshot,
-    work_item_resp,
-    expected_resp,
-    use_caluma_form,
+    db, admin_client, mocker, instance_state, form, snapshot, use_caluma_form
 ):
     recorded_requests = []
 
@@ -106,15 +47,26 @@ def test_create_instance(
         return Instance.objects.order_by("-instance_id").first().instance_id
 
     mock_responses = [
-        # first response: NG asks caluma for data about our case
-        mocker.MagicMock(json=lambda: work_item_resp, status_code=status.HTTP_200_OK),
+        # first response: NG asks caluma if the form is a main form
+        mocker.MagicMock(
+            json=lambda: {
+                "data": {
+                    "allForms": {
+                        "edges": [
+                            {"node": {"slug": "test", "meta": {"is-main-form": True}}}
+                        ]
+                    }
+                }
+            },
+            status_code=status.HTTP_200_OK,
+        ),
         # second response: NG updates case with instance id
         mocker.MagicMock(
             json=lambda: {
                 "data": {
-                    "saveCase": {
-                        "case": {
-                            "id": "Q2FzZTphNWVlMDFjNS1kZDc0LTQ2MzQtODgzNC01NDMyNzU2MDZmYTk=",
+                    "saveDocument": {
+                        "document": {
+                            "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                             "meta": {"camac-instance-id": last_inst_id()},
                         }
                     }
@@ -132,13 +84,12 @@ def test_create_instance(
 
     mocker.patch("requests.post", mock_post)
 
-    case_id = "Q2FzZToxODBlMGQxNy0zZmZkLTQ1ZDMtYTU1MC1kMjVjNGVhODIxNDU="
     create_resp = admin_client.post(
         reverse("instance-list"),
         {
             "data": {
                 "type": "instances",
-                "attributes": {"caluma-case-id": case_id},
+                "attributes": {"caluma-form": "test"},
                 "relationships": {
                     "form": {"data": {"id": form.form_id, "type": "forms"}},
                     "instance-state": {
@@ -151,11 +102,7 @@ def test_create_instance(
             }
         },
     )
-    assert create_resp.status_code == expected_resp, create_resp.content
-
-    if expected_resp == status.HTTP_400_BAD_REQUEST:
-        # in this case, we don't need to test the rest of the procedure
-        return
+    assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
 
     # make sure meta is updated correctly
     assert json.loads(
@@ -217,10 +164,7 @@ def test_instance_list(
 @pytest.mark.parametrize(
     "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-@pytest.mark.parametrize(
-    "new_instance_state_name,response_status",
-    [("subm", status.HTTP_200_OK), ("new", status.HTTP_400_BAD_REQUEST)],
-)
+@pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize(
     "notification_template__body",
     [
@@ -257,7 +201,6 @@ def test_instance_submit(
     instance_state_factory,
     service,
     admin_user,
-    response_status,
     new_instance_state_name,
     notification_template,
     submit_date_question,
@@ -277,48 +220,46 @@ def test_instance_submit(
         text=json.dumps(
             {
                 "data": {
-                    "node": {
-                        "id": 1234,
-                        "meta": {},
-                        "workflow": {"id": 99999},
-                        "document": {
-                            "form": {"slug": "vorabklaerung-einfach"},
-                            "answers": {
-                                "edges": [{"node": {"stringValue": service.pk}}]
-                            },
-                        },
+                    "allDocuments": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "meta": {"camac-instance-id": instance.pk},
+                                    "form": {
+                                        "slug": "vorabklaerung-einfach",
+                                        "meta": {"is-main-form": True},
+                                    },
+                                    "answers": {
+                                        "edges": [
+                                            {
+                                                "node": {
+                                                    "question": {"slug": "gemeinde"},
+                                                    "value": service.pk,
+                                                }
+                                            }
+                                        ]
+                                    },
+                                }
+                            }
+                        ]
                     }
                 }
             }
         ),
     )
 
-    new_state = instance_state_factory(name=new_instance_state_name)
-
+    instance_state_factory(name=new_instance_state_name)
     ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-    url = reverse("instance-detail", args=[instance.pk])
-    data = {
-        "data": {
-            "type": "instances",
-            "id": instance.pk,
-            "relationships": {
-                "instance-state": {
-                    "data": {"type": "instance-states", "id": new_state.pk}
-                }
-            },
-        }
-    }
-    response = admin_client.patch(url, data)
-    assert response.status_code == response_status
 
-    if response_status == 200:
-        assert len(mail.outbox) == 1
-        assert instance.user.email in mail.outbox[0].recipients()
+    response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
 
-        assert mail.outbox[0].subject.startswith("[eBau Test]: ")
-    else:
-        # no mail if submission not accepted!
-        assert len(mail.outbox) == 0
+    assert response.status_code == status.HTTP_200_OK
+
+    assert len(mail.outbox) == 1
+    assert instance.user.email in mail.outbox[0].recipients()
+
+    assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
 
 @pytest.mark.parametrize(
