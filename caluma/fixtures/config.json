@@ -1712,19 +1712,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "108d0490-eaaf-471e-baf6-3d9d8ff2bb63",
-    "fields": {
-      "created_at": "2019-06-25T11:24:23.450Z",
-      "modified_at": "2019-06-25T11:24:23.450Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-mit-uvp",
-      "question": "selbstdeklaration-2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "10c1ff1b-bd71-4629-8cc8-929184eca9d2",
     "fields": {
       "created_at": "2019-04-02T09:09:51.879Z",
@@ -1916,19 +1903,6 @@
       "form": "waermepumpen",
       "question": "heizleistungsbedarf-boden-untergrund",
       "sort": 31
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "133582f5-9915-471b-9bdf-8c8900870f6c",
-    "fields": {
-      "created_at": "2019-06-25T11:19:56.511Z",
-      "modified_at": "2019-06-25T11:19:56.511Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "selbstdeklaration-2",
-      "sort": 1
     }
   },
   {
@@ -2865,19 +2839,6 @@
       "form": "immissionsschutz",
       "question": "wird-aussenlaerm-erzeugt",
       "sort": 4
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "26c03cf8-ef92-4491-b8a2-85614c751f98",
-    "fields": {
-      "created_at": "2019-06-25T11:21:45.306Z",
-      "modified_at": "2019-06-25T11:21:45.306Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-generell",
-      "question": "selbstdeklaration-2",
-      "sort": 1
     }
   },
   {
@@ -4737,19 +4698,6 @@
       "form": "solar-und-sendeanlagen",
       "question": "name-sendeanlage",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "59713cab-224e-4073-b399-c1f199ff0960",
-    "fields": {
-      "created_at": "2019-06-25T11:19:26.687Z",
-      "modified_at": "2019-06-25T11:19:26.688Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
@@ -8186,19 +8134,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "b3588956-e9bd-45df-9835-e364825bd568",
-    "fields": {
-      "created_at": "2019-06-25T11:21:43.461Z",
-      "modified_at": "2019-06-25T11:21:43.461Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-generell",
-      "question": "selbstdeklaration-1",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "b3a0e34f-0776-4d5c-ab2c-2e4595497d27",
     "fields": {
       "created_at": "2019-04-01T15:24:13.166Z",
@@ -8507,19 +8442,6 @@
       "form": "zonenvorschriften-schutzzonen",
       "question": "schuetzenswert",
       "sort": 14
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "bca0a723-4d0c-42eb-b4aa-2ad87226a9fb",
-    "fields": {
-      "created_at": "2019-06-25T11:24:22.049Z",
-      "modified_at": "2019-06-25T11:24:22.049Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-mit-uvp",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
@@ -9534,19 +9456,6 @@
       "form": "parzelle-tabelle",
       "question": "lagekoordinaten-ost",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "d57a8f3d-260c-4538-a0d9-1a4ab50e2a01",
-    "fields": {
-      "created_at": "2019-06-25T11:25:24.924Z",
-      "modified_at": "2019-06-25T11:25:24.924Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "selbstdeklaration-2",
-      "sort": 1
     }
   },
   {
@@ -10600,19 +10509,6 @@
       "form": "triage",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "eee2b24a-b3c4-490a-9f95-ea701fc49fec",
-    "fields": {
-      "created_at": "2019-06-25T11:25:23.024Z",
-      "modified_at": "2019-06-25T11:25:23.024Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
