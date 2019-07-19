@@ -144,7 +144,7 @@ class InstanceEditableMixin(AttributeMixin):
         return editable
 
     def get_editable_for_service(self, instance):
-        return {"form", "document"}
+        return {"document"}
 
     def get_editable_for_municipality(self, instance):
         return {"form", "document"}
