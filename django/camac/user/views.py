@@ -35,28 +35,18 @@ class UserView(viewsets.ReadOnlyModelViewSet):
 
 
 class ServiceView(viewsets.ModelViewSet):
+    filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
+
+    def get_queryset(self):
+        return models.Service.objects.filter(disabled=False).prefetch_related("groups")
 
     def has_destroy_permission(self):
         return False
 
     def has_object_update_permission(self, obj):
         return obj == self.request.group.service
-
-    @permission_aware
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.none()
-
-    def get_queryset_for_service(self):
-        return super().get_queryset()
-
-    def get_queryset_for_canton(self):
-        return super().get_queryset()
-
-    def get_queryset_for_municipality(self):
-        return super().get_queryset()
 
 
 class MeView(generics.RetrieveAPIView):

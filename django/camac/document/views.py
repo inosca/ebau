@@ -27,7 +27,10 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
     serializer_class = serializers.AttachmentSerializer
     filterset_class = filters.AttachmentFilterSet
     instance_editable_permission = "document"
-    prefetch_for_includes = {"instance": ["instance__circulations"]}
+    prefetch_for_includes = {
+        "instance": ["instance__circulations"],
+        "service": ["service__groups"],
+    }
     ordering_fields = ("name", "date", "size")
 
     def get_base_queryset(self):
