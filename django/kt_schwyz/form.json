@@ -5919,7 +5919,8 @@
     },
     "bezeichnung-override": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Bezeichung des Vorhabens:",
       "type": "textarea",
@@ -5928,7 +5929,8 @@
     },
     "betroffene-nutzungszonen": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Betroffene Nutzungszonen:",
       "type": "textarea",
@@ -5937,7 +5939,8 @@
     },
     "ortsbezeichnung-des-vorhabens": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Ortsbezeichnung des Vorhabens (Adresse, Flurname, o. ä.):",
       "type": "textarea",
@@ -5946,7 +5949,8 @@
     },
     "lage": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Lage der Bauzone:",
       "type": "radio",
@@ -5961,7 +5965,8 @@
     },
     "verfahrensart": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Verfahrensart:",
       "type": "radio",
@@ -5976,7 +5981,8 @@
     },
     "verfahrensart-erstellt": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Bereits erstellt:",
       "type": "radio",
