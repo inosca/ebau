@@ -232,6 +232,7 @@ class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSe
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet
     queryset = models.InstanceResponsibility.objects.all()
+    prefetch_for_includes = {"service": ["service__groups"]}
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
