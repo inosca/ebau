@@ -166,6 +166,7 @@ services:
             - camac-ng.local
         environment:
             - ENV=dev
+        user: "${UID}"
         command:
           [
             "/bin/sh",
