@@ -18,8 +18,8 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
 
-from ..core import models as core_models
 from . import models
+from ..core import models as core_models
 
 request_logger = getLogger("django.request")
 
@@ -71,7 +71,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
-    leitbehoerde_name = serializers.SerializerMethodField()
+    active_municipaliyt_name = serializers.SerializerMethodField()
+    leitbehoerde_name = serializers.SerializerMethodField(
+        method_name="get_active_municipaliyt_name"
+    )
     form_name = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
@@ -103,7 +106,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
-    def get_leitbehoerde_name(self, instance):
+    def get_active_municipaliyt_name(self, instance):
         instance_service = core_models.InstanceService.objects.filter(
             instance=instance, active=1
         ).first()
