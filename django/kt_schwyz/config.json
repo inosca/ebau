@@ -655,6 +655,20 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 37,
+      "description": null,
+      "error_message": "Gesuch konnte nicht auf \"In Zirkulation\" gesetzt werden",
+      "execute_always": 0,
+      "name": "instance state to circ",
+      "sort": 0,
+      "success_message": "Gesuch erneut auf \"In Zirkulation\" gesetzt"
+    },
+    "model": "core.action",
+    "pk": 80
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -708,6 +722,14 @@
     },
     "model": "core.aformtransition",
     "pk": 75
+  },
+  {
+    "fields": {
+      "current_instance_state": 6,
+      "next_instance_state": 5
+    },
+    "model": "core.aformtransition",
+    "pk": 80
   },
   {
     "fields": {
@@ -2271,6 +2293,33 @@
   },
   {
     "fields": {
+      "button": 33,
+      "instance_state": 5,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "button": 33,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "button": 37,
+      "instance_state": 6,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 49
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
@@ -2544,7 +2593,7 @@
       "hidden": 0,
       "instance_resource": 7,
       "name": "Entscheid starten",
-      "sort": 7
+      "sort": 6
     },
     "model": "core.button",
     "pk": 34
@@ -2572,6 +2621,18 @@
     },
     "model": "core.button",
     "pk": 36
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 7,
+      "name": "Zur\u00fcck in Zirkulation",
+      "sort": 7
+    },
+    "model": "core.button",
+    "pk": 37
   },
   {
     "fields": {
