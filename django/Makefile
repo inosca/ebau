@@ -8,12 +8,10 @@ help:
 
 .PHONY: install
 install: ## Install production environment
-	@pip install --upgrade pip
 	@pip install --upgrade -r requirements.txt
 
 .PHONY: install-dev
 install-dev: ## Install development environment
-	@pip install --upgrade pip
 	@pip install --upgrade -r requirements-dev.txt
 
 .PHONY: start
