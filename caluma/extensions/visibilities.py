@@ -169,7 +169,12 @@ class FilterViaCamacAPIMixin:
         resp = requests.get(
             f"{camac_api}/api/v1/instances",
             # forward filters, role and group via query params
-            {**filters(info), "role": role(info), "group": group(info)},
+            {
+                **filters(info),
+                "role": role(info),
+                "group": group(info),
+                "fields[instances]": "id",
+            },
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )

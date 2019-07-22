@@ -83,6 +83,9 @@ class InstanceFormFieldFilterBackend(BaseFilterBackend):
     dynamic filter names.
     """
 
+    # TODO: fields query name colides with sparse fields
+    # of json api specification and needs to be renamed
+
     def filter_queryset(self, request, queryset, view):
         query_params = request.query_params
         for param in query_params.keys():
