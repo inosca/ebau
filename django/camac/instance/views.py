@@ -71,9 +71,9 @@ class InstanceView(
         "@form__description",
         "fields__value",
     )
-    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [
-        filters.InstanceFormFieldFilterBackend
-    ]
+    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS
+    if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
+        filter_backends = filter_backends + [filters.InstanceFormFieldFilterBackend]
 
     def get_serializer_class(self):
         backend = settings.APPLICATION["FORM_BACKEND"]
