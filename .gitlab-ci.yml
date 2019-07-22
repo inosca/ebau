@@ -150,17 +150,17 @@ build-kt_uri-production:
         - eval $COMPOSE up -d php django caluma ember-caluma-portal document-merge-service
         - mkdir tarball
         - cd tarball
-        - docker cp $(docker-compose ps -q php):/var/www/camac/ camac/
+        - docker cp $(eval $COMPOSE ps -q php):/var/www/camac/ camac/
         - cd camac
         - rm -rf kt_uri kt_schwyz demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore
         - cd ..
-        - docker cp $(docker-compose ps -q django):/app django/
+        - docker cp $(eval $COMPOSE ps -q django):/app django/
         - rm -rf django/kt_uri django/kt_schwyz django/demo
-        - docker cp $(docker-compose ps -q caluma):/app caluma/
+        - docker cp $(eval $COMPOSE ps -q caluma):/app caluma/
         - mkdir -p document-merge-service/fixtures
-        - docker cp $(docker-compose ps -q document-merge-service):/tmp/document-merge-service/dump.json document-merge-service/fixtures/
-        - docker cp $(docker-compose ps -q document-merge-service):/var/lib/document-merge-service/media document-merge-service/templates
-        - docker cp $(docker-compose ps -q ember-caluma-portal):/app ember-caluma-portal/
+        - docker cp $(eval $COMPOSE ps -q document-merge-service):/tmp/document-merge-service/dump.json document-merge-service/fixtures/
+        - docker cp $(eval $COMPOSE ps -q document-merge-service):/var/lib/document-merge-service/media document-merge-service/templates
+        - docker cp $(eval $COMPOSE ps -q ember-caluma-portal):/app ember-caluma-portal/
         - tar cfz "../camac-be-$(cat ../VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz" .
         - cd ..
     artifacts:
