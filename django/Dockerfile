@@ -13,9 +13,8 @@ ENV UWSGI_INI /app/uwsgi.ini
 ENV DJANGO_DATABASE_PORT 5432
 
 COPY requirements.txt /app
-COPY requirements-dev.txt /app
 
-RUN pip install --no-cache-dir --upgrade -r requirements.txt -r requirements-dev.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt --disable-pip-version-check
 
 COPY . /app
 
