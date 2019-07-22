@@ -1,6 +1,5 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from rest_framework.compat import unicode_to_repr
 from rest_framework_json_api import relations, serializers
 
 from camac.core.serializers import MultilingualSerializer
@@ -16,7 +15,7 @@ class CurrentGroupDefault(object):
         return self.group
 
     def __repr__(self):
-        return unicode_to_repr("%s()" % self.__class__.__name__)
+        return "%s()" % self.__class__.__name__
 
 
 class CurrentServiceDefault(object):
@@ -27,7 +26,7 @@ class CurrentServiceDefault(object):
         return self.service
 
     def __repr__(self):
-        return unicode_to_repr("%s()" % self.__class__.__name__)
+        return "%s()" % self.__class__.__name__
 
 
 class UserSerializer(serializers.ModelSerializer):
