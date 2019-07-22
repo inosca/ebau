@@ -39,7 +39,7 @@ def instance_user_field(settings, request):
         ("Reader", LazyFixture("user"), 9, set()),
         ("Canton", LazyFixture("user"), 9, {"form", "document"}),
         ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
-        ("Service", LazyFixture("user"), 9, {"form", "document"}),
+        ("Service", LazyFixture("user"), 9, {"document"}),
     ],
 )
 def test_instance_list(
