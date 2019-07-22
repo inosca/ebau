@@ -123,7 +123,7 @@ def test_create_instance(
 @pytest.mark.parametrize(
     "role_t__name,instance__user,editable",
     [
-        ("Service", LazyFixture("user"), {"form", "document"}),
+        ("Service", LazyFixture("user"), {"document"}),
         ("Canton", LazyFixture("user"), {"form", "document"}),
     ],
 )
