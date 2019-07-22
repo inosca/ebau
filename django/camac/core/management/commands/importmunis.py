@@ -48,7 +48,9 @@ class Command(ImportCommand):
         for row in reader:
             for sg in [SERVICE_GROUP_BAUKONTROLLE, SERVICE_GROUP_LEITBEHOERDE_GEMEINDE]:
                 service = self.create_or_update_service(
-                    row, sg["name"], defaults={"service_group": sg["service_group"]}
+                    row,
+                    sg["name"],
+                    defaults={"service_group": sg["service_group"], "disabled": True},
                 )
                 for role in sg["groups"]:
                     self.create_or_update_group(
