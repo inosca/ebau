@@ -43,10 +43,11 @@ services:
             - camac-ng.local
 
     caluma:
-      ports:
-         - "5566:5555"
-      networks:
-        - camac-ng.local
+        ports:
+            - "5566:5555"
+        networks:
+            - camac-ng.local
+        user: "${UID:?Set UID env variable to your user id}"
 
     django:
         image: acr.run/camac-ng/camac-ng/django:master
@@ -166,7 +167,7 @@ services:
             - camac-ng.local
         environment:
             - ENV=dev
-        user: "${UID}"
+        user: "${UID:?Set UID env variable to your user id}"
         command:
           [
             "/bin/sh",
