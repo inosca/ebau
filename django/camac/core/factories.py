@@ -8,6 +8,16 @@ from camac.user.factories import ServiceFactory, UserFactory
 from . import models
 
 
+class InstanceServiceFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    service = SubFactory(ServiceFactory)
+    active = 1
+    activation_date = None
+
+    class Meta:
+        model = models.InstanceService
+
+
 class CirculationTypeFactory(DjangoModelFactory):
     name = Faker("name")
     parent_specific_activations = 0
