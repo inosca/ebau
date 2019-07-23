@@ -6,6 +6,7 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
+from camac.constants import kt_bern as constants
 from camac.core.models import Circulation, InstanceService
 from camac.mixins import AttributeMixin
 from camac.request import get_request
@@ -139,6 +140,10 @@ class InstanceEditableMixin(AttributeMixin):
             return {"instance", "form", "document"}
 
         if instance.instance_state.name == "nfd":
+            return {"document"}
+
+        # Kt. Bern needs to be able to upload documents in SB2
+        if instance.instance_state.pk == constants.INSTANCE_STATE_ABSCHLUSS_AUSSTEHEND:
             return {"document"}
 
         return editable

@@ -1446,7 +1446,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "form": "freigabequittung-sb1",
-      "question": "formulardownload-pdf",
+      "question": "formulardownload-pdf-selbstdeklaration",
       "sort": 2
     }
   },
@@ -6236,6 +6236,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "842fd43a-c8f0-4fcc-9e9b-5155307593e0",
+    "fields": {
+      "created_at": "2019-07-23T12:00:35.838Z",
+      "modified_at": "2019-07-23T12:00:35.838Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dokumente-sb2",
+      "question": "andere-dokument",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "84390d4d-467c-43a7-b86a-3603a6e42171",
     "fields": {
       "created_at": "2019-05-13T11:48:09.751Z",
@@ -7699,7 +7712,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "form": "freigabequittung-sb2",
-      "question": "formulardownload-pdf",
+      "question": "formulardownload-pdf-selbstdeklaration",
       "sort": 2
     }
   },
@@ -16425,10 +16438,10 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": "be-documents-form" },
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-sb2",
@@ -18305,7 +18318,35 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": "be-download-pdf" },
+      "meta": { "widgetOverride": "be-download-pdf", "template": "export-1" },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "formulardownload-pdf-selbstdeklaration",
+    "fields": {
+      "created_at": "2019-06-12T08:11:33.972Z",
+      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Formulardownload (PDF)\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-download-pdf",
+        "template": "selbstdeklaration"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,

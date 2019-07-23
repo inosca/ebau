@@ -2,7 +2,7 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { saveAs } from "file-saver";
 import { task } from "ember-concurrency";
-import { warn } from "@ember/debug";
+import { warn, assert } from "@ember/debug";
 
 import { parseDocument } from "ember-caluma-portal/components/be-download-pdf/parsers";
 
@@ -98,8 +98,10 @@ export default Component.extend({
       data = prepareReceiptPage(data);
     }
 
-    const template = "export-1";
+    const template = this.field.question.meta.template;
     const filename = `${instanceId}-${document.rootForm.slug}.pdf`;
+
+    assert("A template must be passed to the fields meta", template);
 
     try {
       const response = yield this.fetch.fetch(
