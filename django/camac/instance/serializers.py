@@ -274,11 +274,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    instance_state = FormDataResourceRelatedField(queryset=models.InstanceState.objects)
-    previous_instance_state = FormDataResourceRelatedField(
-        queryset=models.InstanceState.objects
-    )
-
     def _notify_submit(self, template_id, recipient_types):
         """Send notification email."""
 
@@ -524,9 +519,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(
-            pk=constants.INSTANCE_STATE_ABSCHLUSS_AUSSTEHEND
-        )
+        instance.instance_state = models.InstanceState.objects.get(name="sb2")
 
         instance.save()
 
@@ -583,9 +576,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
     @transaction.atomic
     def update(self, instance, validated_data):
         instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(
-            pk=constants.INSTANCE_STATE_TO_BE_FINISHED
-        )
+        instance.instance_state = models.InstanceState.objects.get(name="conclusion")
 
         instance.save()
 

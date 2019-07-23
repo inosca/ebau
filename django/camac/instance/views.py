@@ -113,6 +113,16 @@ class InstanceView(
             "rejected",
         )
 
+    def has_object_report_permission(self, instance):
+        return (
+            instance.user == self.request.user and instance.instance_state.name == "sb1"
+        )
+
+    def has_object_finalize_permission(self, instance):
+        return (
+            instance.user == self.request.user and instance.instance_state.name == "sb2"
+        )
+
     @action(methods=["get"], detail=False)
     def export(self, request):
         """Export filtered instances to given file format."""
@@ -229,7 +239,6 @@ class InstanceView(
         return response.Response(data=serializer.data)
 
     @action(methods=["post"], detail=True)
-    @transaction.atomic
     def report(self, request, pk=None):
         serializer = self.get_serializer(self.get_object(), data={}, partial=True)
         serializer.is_valid(raise_exception=True)
@@ -238,7 +247,6 @@ class InstanceView(
         return response.Response(data=serializer.data)
 
     @action(methods=["post"], detail=True)
-    @transaction.atomic
     def finalize(self, request, pk=None):
         serializer = self.get_serializer(self.get_object(), data={}, partial=True)
         serializer.is_valid(raise_exception=True)

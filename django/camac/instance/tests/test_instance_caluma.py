@@ -36,6 +36,18 @@ def mock_public_status(mocker):
     )
 
 
+@pytest.fixture
+def instance_service_baukontrolle(
+    instance_service_factory, service_factory, service_group_factory, instance
+):
+    return instance_service_factory(
+        instance=instance,
+        service=service_factory(
+            service_group=service_group_factory(name="baukontrolle")
+        ),
+    )
+
+
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
 def test_create_instance(
@@ -286,3 +298,141 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
     resp = admin_client.get(reverse("instance-list"), {"responsible_user": "NOBODY"})
     assert resp.status_code == status.HTTP_200_OK, resp.content
     assert len(resp.json()["data"]) == 1
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,expected_status",
+    [("sb1", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+)
+@pytest.mark.parametrize("new_instance_state_name", ["sb2"])
+@pytest.mark.parametrize(
+    "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_report(
+    requests_mock,
+    admin_client,
+    role,
+    instance,
+    instance_state_factory,
+    instance_service_baukontrolle,
+    expected_status,
+    new_instance_state_name,
+    notification_template,
+    application_settings,
+    service,
+    admin_user,
+    use_caluma_form,
+    multilang,
+):
+    application_settings["NOTIFICATIONS"]["REPORT"] = [
+        {
+            "template_id": notification_template.pk,
+            "recipient_types": ["applicant", "baukontrolle"],
+        }
+    ]
+
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        text=json.dumps(
+            {
+                "data": {
+                    "allDocuments": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "meta": {"camac-instance-id": instance.pk},
+                                    "form": {"slug": "sb1"},
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
+
+    instance_state_factory(name=new_instance_state_name)
+
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+
+    response = admin_client.post(reverse("instance-report", args=[instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        assert len(mail.outbox) == 1
+
+        recipients = mail.outbox[0].recipients()
+
+        assert instance.user.email in recipients
+        assert instance_service_baukontrolle.service.email in recipients
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,expected_status",
+    [("sb2", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+)
+@pytest.mark.parametrize("new_instance_state_name", ["conclusion"])
+@pytest.mark.parametrize(
+    "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_finalize(
+    requests_mock,
+    admin_client,
+    role,
+    instance,
+    instance_state_factory,
+    instance_service_baukontrolle,
+    expected_status,
+    new_instance_state_name,
+    notification_template,
+    application_settings,
+    service,
+    admin_user,
+    use_caluma_form,
+    multilang,
+):
+    application_settings["NOTIFICATIONS"]["FINALIZE"] = [
+        {
+            "template_id": notification_template.pk,
+            "recipient_types": ["applicant", "baukontrolle"],
+        }
+    ]
+
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        text=json.dumps(
+            {
+                "data": {
+                    "allDocuments": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "meta": {"camac-instance-id": instance.pk},
+                                    "form": {"slug": "sb2"},
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
+
+    instance_state_factory(name=new_instance_state_name)
+
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+
+    response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        assert len(mail.outbox) == 1
+
+        recipients = mail.outbox[0].recipients()
+
+        assert instance.user.email in recipients
+        assert instance_service_baukontrolle.service.email in recipients

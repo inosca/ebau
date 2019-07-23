@@ -6,7 +6,6 @@ from django.utils.translation import gettext as _
 from rest_framework import exceptions
 
 from camac.attrs import nested_getattr
-from camac.constants import kt_bern as constants
 from camac.core.models import Circulation, InstanceService
 from camac.mixins import AttributeMixin
 from camac.request import get_request
@@ -139,11 +138,10 @@ class InstanceEditableMixin(AttributeMixin):
         if instance.instance_state.name in ["new", "rejected"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name == "nfd":
-            return {"document"}
-
-        # Kt. Bern needs to be able to upload documents in SB2
-        if instance.instance_state.pk == constants.INSTANCE_STATE_ABSCHLUSS_AUSSTEHEND:
+        if instance.instance_state.name in [
+            "nfd",  # Kt. Schwyz Nachforderung
+            "sb2",  # Kt. Bern SB2
+        ]:
             return {"document"}
 
         return editable
