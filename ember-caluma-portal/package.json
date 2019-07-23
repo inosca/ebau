@@ -85,6 +85,6 @@
     "node": "8.* || >= 10.*"
   },
   "resolutions": {
-    "**/uikit": "fkm/uikit#fork/focusable"
+    "**/uikit": "uikit/uikit#1fbf7db37de00da53f1190990a2cc232221b5be1"
   }
 }
