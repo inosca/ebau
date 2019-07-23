@@ -1,6 +1,6 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { computed, getWithDefault } from "@ember/object";
+import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
@@ -69,7 +69,7 @@ export default Controller.extend(queryParams.Mixin, {
 
   mainForm: reads("mainFormTask.lastSuccessful.value"),
   mainFormTask: task(function*() {
-    return this.apollo.query(
+    return yield this.apollo.query(
       {
         query: getDocumentQuery,
         fetchPolicy: "cache-first",
