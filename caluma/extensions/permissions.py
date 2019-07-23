@@ -72,20 +72,15 @@ class CustomPermission(BasePermission):
 
     def has_camac_edit_permission(self, document_family, info):
         # find corresponding document
-        try:
-            document = Document.objects.get(id=document_family)
-        except ObjectDoesNotExist:
-            # if the document is unlinked, allow changing it
-            # this is used for new table rows
-            return True
+        document = Document.objects.get(id=document_family)
 
         camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
         instance_id = document.meta.get("camac-instance-id")
 
         if not instance_id:
-            raise RuntimeError(
-                f"Tried to edit document family {document_family} without linked camac instance"
-            )
+            # if the document is unlinked, allow changing it
+            # this is used for new table rows
+            return True
 
         resp = requests.get(
             f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
