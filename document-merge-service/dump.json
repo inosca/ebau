@@ -89,16 +89,5 @@
       "engine": "docx-template",
       "group": null
     }
-  },
-
-  {
-    "model": "api.template",
-    "pk": "fr-amtsbericht",
-    "fields": {
-      "description": "Rapport officiel",
-      "template": "fr-amtsbericht.docx",
-      "engine": "docx-template",
-      "group": null
-    }
   }
 ]
