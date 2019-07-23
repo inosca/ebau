@@ -9,7 +9,16 @@
       "group": null
     }
   },
-
+  {
+    "model": "api.template",
+    "pk": "selbstdeklaration",
+    "fields": {
+      "description": "",
+      "template": "selbstdeklaration.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
   {
     "model": "api.template",
     "pk": "de-amtsbericht",
