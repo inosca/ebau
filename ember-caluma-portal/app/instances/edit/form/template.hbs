@@ -47,8 +47,10 @@
     <p>
       {{t "instances.noDocument" form=(t (concat "instances.forms." model))}}
     </p>
-    {{#uk-button style="primary" on-click=(perform createDocument) loading=createDocument.isRunning}}
-      {{t "instances.createDocument"}}
-    {{/uk-button}}
+    {{#unless disabled}}
+      {{#uk-button style="primary" on-click=(perform createDocument) loading=createDocument.isRunning}}
+        {{t "instances.createDocument"}}
+      {{/uk-button}}
+    {{/unless}}
   </div>
 {{/if}}
