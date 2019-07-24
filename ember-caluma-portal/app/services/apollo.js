@@ -1,4 +1,3 @@
-import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import ApolloService from "ember-apollo-client/services/apollo";
@@ -14,17 +13,18 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
   group: reads("router.currentRoute.queryParams.group"),
   role: reads("router.currentRoute.queryParams.role"),
 
-  link: computed("token", "group", "role", function() {
+  link() {
     const httpLink = this._super(...arguments);
 
-    const middleware = setContext(async (request, context) => {
-      context.headers = Object.assign({}, context.headers, {
+    const middleware = setContext(async (request, context) => ({
+      ...context,
+      headers: {
+        ...context.headers,
         authorization: `Bearer ${this.token}`,
         ...(this.group ? { "x-camac-group": this.group } : {}),
         ...(this.role ? { "x-camac-role": this.role } : {})
-      });
-      return context;
-    });
+      }
+    }));
 
     const afterware = onError(error => {
       const { networkError, graphQLErrors } = error;
@@ -41,5 +41,5 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
     });
 
     return middleware.concat(afterware).concat(httpLink);
-  })
+  }
 });
