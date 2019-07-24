@@ -1439,6 +1439,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "0832da94-ddb3-47fa-8b6e-47bb078e15c8",
+    "fields": {
+      "created_at": "2019-07-23T11:36:05.069Z",
+      "modified_at": "2019-07-23T11:36:05.069Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb1",
+      "question": "formulardownload-pdf-selbstdeklaration",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0891cadb-4b88-4f58-95d3-1fec81a09aab",
     "fields": {
       "created_at": "2019-04-02T14:04:52.170Z",
@@ -1712,19 +1725,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "108d0490-eaaf-471e-baf6-3d9d8ff2bb63",
-    "fields": {
-      "created_at": "2019-06-25T11:24:23.450Z",
-      "modified_at": "2019-06-25T11:24:23.450Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-mit-uvp",
-      "question": "selbstdeklaration-2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "10c1ff1b-bd71-4629-8cc8-929184eca9d2",
     "fields": {
       "created_at": "2019-04-02T09:09:51.879Z",
@@ -1916,19 +1916,6 @@
       "form": "waermepumpen",
       "question": "heizleistungsbedarf-boden-untergrund",
       "sort": 31
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "133582f5-9915-471b-9bdf-8c8900870f6c",
-    "fields": {
-      "created_at": "2019-06-25T11:19:56.511Z",
-      "modified_at": "2019-06-25T11:19:56.511Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "selbstdeklaration-2",
-      "sort": 1
     }
   },
   {
@@ -2869,19 +2856,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "26c03cf8-ef92-4491-b8a2-85614c751f98",
-    "fields": {
-      "created_at": "2019-06-25T11:21:45.306Z",
-      "modified_at": "2019-06-25T11:21:45.306Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-generell",
-      "question": "selbstdeklaration-2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "270f3f3a-aabc-409f-b7fc-8e6308d765c0",
     "fields": {
       "created_at": "2019-06-17T11:43:28.180Z",
@@ -3320,6 +3294,19 @@
       "form": "gewaesserschutz-bauten-im-grundwasser",
       "question": "beschreibung-grundwasserabsenkung",
       "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "3373eacf-8bcd-4887-a485-d2cc5ba414e1",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.230Z",
+      "modified_at": "2019-07-23T07:39:31.230Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "einreichen-button-sb2",
+      "sort": 1
     }
   },
   {
@@ -4737,19 +4724,6 @@
       "form": "solar-und-sendeanlagen",
       "question": "name-sendeanlage",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "59713cab-224e-4073-b399-c1f199ff0960",
-    "fields": {
-      "created_at": "2019-06-25T11:19:26.687Z",
-      "modified_at": "2019-06-25T11:19:26.688Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
@@ -6262,6 +6236,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "842fd43a-c8f0-4fcc-9e9b-5155307593e0",
+    "fields": {
+      "created_at": "2019-07-23T12:00:35.838Z",
+      "modified_at": "2019-07-23T12:00:35.838Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dokumente-sb2",
+      "question": "andere-dokument",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "84390d4d-467c-43a7-b86a-3603a6e42171",
     "fields": {
       "created_at": "2019-05-13T11:48:09.751Z",
@@ -7718,6 +7705,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "a8b16f25-7b29-4ae6-8c4c-b6f311fda343",
+    "fields": {
+      "created_at": "2019-07-23T11:35:45.303Z",
+      "modified_at": "2019-07-23T11:35:45.303Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb2",
+      "question": "formulardownload-pdf-selbstdeklaration",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "a8dc5736-42bf-4956-8574-2da8a0951860",
     "fields": {
       "created_at": "2019-04-02T07:31:37.691Z",
@@ -8186,19 +8186,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "b3588956-e9bd-45df-9835-e364825bd568",
-    "fields": {
-      "created_at": "2019-06-25T11:21:43.461Z",
-      "modified_at": "2019-06-25T11:21:43.461Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-generell",
-      "question": "selbstdeklaration-1",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "b3a0e34f-0776-4d5c-ab2c-2e4595497d27",
     "fields": {
       "created_at": "2019-04-01T15:24:13.166Z",
@@ -8507,19 +8494,6 @@
       "form": "zonenvorschriften-schutzzonen",
       "question": "schuetzenswert",
       "sort": 14
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "bca0a723-4d0c-42eb-b4aa-2ad87226a9fb",
-    "fields": {
-      "created_at": "2019-06-25T11:24:22.049Z",
-      "modified_at": "2019-06-25T11:24:22.049Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "baugesuch-mit-uvp",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
@@ -9044,6 +9018,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "cac5433d-2643-4db9-b8b6-44f91fea0732",
+    "fields": {
+      "created_at": "2019-07-23T07:38:50.353Z",
+      "modified_at": "2019-07-23T07:38:50.353Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-sb1",
+      "question": "einreichen-button-sb1",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "cade8ba8-bba7-46b0-8120-e72b79d637d9",
     "fields": {
       "created_at": "2019-04-08T14:11:51.293Z",
@@ -9538,19 +9525,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "d57a8f3d-260c-4538-a0d9-1a4ab50e2a01",
-    "fields": {
-      "created_at": "2019-06-25T11:25:24.924Z",
-      "modified_at": "2019-06-25T11:25:24.924Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "selbstdeklaration-2",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "d5c5ef13-5b18-46eb-90ae-15a5ef2ace86",
     "fields": {
       "created_at": "2019-05-03T16:42:55.854Z",
@@ -9585,7 +9559,7 @@
       "created_by_group": null,
       "form": "freigabequittung-sb1",
       "question": "freigabequittung-druckansicht",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -9702,7 +9676,7 @@
       "created_by_group": null,
       "form": "freigabequittung-sb2",
       "question": "freigabequittung-sb2-druckansicht",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -10600,19 +10574,6 @@
       "form": "triage",
       "question": "gentechnisch-veraenderte-pathogene-organismen",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "eee2b24a-b3c4-490a-9f95-ea701fc49fec",
-    "fields": {
-      "created_at": "2019-06-25T11:25:23.024Z",
-      "modified_at": "2019-06-25T11:25:23.024Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-vollstaendig",
-      "question": "selbstdeklaration-1",
-      "sort": 2
     }
   },
   {
@@ -16477,10 +16438,10 @@
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null}",
-      "info_text": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": {},
+      "meta": { "widgetOverride": "be-documents-form" },
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-sb2",
@@ -17155,7 +17116,69 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"-\"}",
       "configuration": {},
-      "meta": { "hideLabel": true, "widgetOverride": "be-submit-instance" },
+      "meta": {
+        "action": "submit",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "einreichen-button-sb1",
+    "fields": {
+      "created_at": "2019-07-23T07:38:50.291Z",
+      "modified_at": "2019-07-23T07:38:50.291Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Einreichen\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "report",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "einreichen-button-sb2",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.176Z",
+      "modified_at": "2019-07-23T07:39:31.176Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Einreichen\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "action": "finalize",
+        "hideLabel": true,
+        "widgetOverride": "be-submit-instance"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -18295,7 +18318,35 @@
       "info_text": "{\"de\": null}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": "be-download-pdf" },
+      "meta": { "widgetOverride": "be-download-pdf", "template": "export-1" },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "formulardownload-pdf-selbstdeklaration",
+    "fields": {
+      "created_at": "2019-06-12T08:11:33.972Z",
+      "modified_at": "2019-06-12T08:11:33.972Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Formulardownload (PDF)\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-download-pdf",
+        "template": "selbstdeklaration"
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35196,6 +35247,32 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "einreichen-button-sb1.einreichen-button-sb1-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:38:50.302Z",
+      "modified_at": "2019-07-23T07:38:50.302Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "einreichen-button-sb1",
+      "option": "einreichen-button-sb1-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "einreichen-button-sb2.einreichen-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.182Z",
+      "modified_at": "2019-07-23T07:39:31.182Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "question": "einreichen-button-sb2",
+      "option": "einreichen-eingereicht",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "einreichen-button.einreichen-button-eingereicht",
     "fields": {
       "created_at": "2019-06-14T14:30:33.233Z",
@@ -44899,6 +44976,32 @@
       "created_at": "2019-06-14T14:30:32.966Z",
       "modified_at": "2019-06-14T14:30:32.966Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Eingereicht\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "einreichen-button-sb1-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:38:50.213Z",
+      "modified_at": "2019-07-23T07:38:50.213Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Eingereicht\"}",
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "einreichen-eingereicht",
+    "fields": {
+      "created_at": "2019-07-23T07:39:31.037Z",
+      "modified_at": "2019-07-23T07:39:31.037Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "created_by_group": "[]",
       "label": "{\"de\": \"Eingereicht\"}",
       "meta": {},

@@ -1,1 +1,23 @@
+{{#uk-tab as |tab|}}
+  {{#if mainForm}}
+    {{#tab.link-item "instances.edit.form" mainForm.slug}}
+      {{mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
+    {{/tab.link-item}}
+  {{/if}}
+
+  {{#each additionalForms as |form|}}
+    {{#tab.link-item "instances.edit.form" form}}{{t (concat "instances.forms." form)}}{{/tab.link-item}}
+  {{/each}}
+
+  {{#unless role}}
+    {{#tab.link-item "instances.edit.feedback"}}
+      {{t "nav.feedback"}}
+      {{#if feedback}}
+        {{uk-badge label=feedback.length class="uk-margin-small-left"}}
+      {{/if}}
+    {{/tab.link-item}}
+  {{/unless}}
+{{/uk-tab}}
+
+
 {{outlet}}

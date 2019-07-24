@@ -183,7 +183,13 @@ class NotificationTemplateMergeSerializer(
 
 class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
     recipient_types = serializers.MultipleChoiceField(
-        choices=("applicant", "municipality", "service", "leitbehoerde")
+        choices=(
+            "applicant",
+            "municipality",
+            "service",
+            "leitbehoerde",
+            "construction_control",
+        )
     )
 
     def _get_recipients_applicant(self, instance):
@@ -191,7 +197,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
         instance_service = core_models.InstanceService.objects.filter(
-            instance=instance, active=1
+            instance=instance, service__service_group__name="municipality", active=1
         ).first()
         if not instance_service:
             return []
@@ -206,6 +212,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
         return [service.email for service in services]
+
+    def _get_recipients_construction_control(self, instance):
+        return core_models.InstanceService.objects.filter(
+            instance=instance,
+            service__service_group__name="construction-control",
+            active=1,
+        ).values_list("service__email", flat=True)
 
     def create(self, validated_data):
         instance = validated_data["instance"]

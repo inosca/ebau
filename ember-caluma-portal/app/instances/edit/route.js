@@ -1,23 +1,10 @@
 import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
 
 export default Route.extend({
-  model({ instance_id }) {
-    return parseInt(instance_id);
-  },
+  apollo: service(),
 
-  setupController(controller) {
-    this._super(...arguments);
-
-    controller.data.perform();
-    controller.instance.perform();
-  },
-
-  resetController(controller, isExiting) {
-    if (isExiting) {
-      controller.data.cancelAll({ resetState: true });
-      controller.instance.cancelAll({ resetState: true });
-
-      controller.set("displayedForm", null);
-    }
+  model({ instance }) {
+    return parseInt(instance);
   }
 });

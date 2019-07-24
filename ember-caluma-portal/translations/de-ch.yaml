@@ -115,6 +115,7 @@ instances:
   emptyTitle: "Sie haben noch keine Gesuche!"
   emptyText: "Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein andermal weiter ausfüllen."
   edit: "Dossier bearbeiten"
+  print: "Druckansicht"
 
   new:
     title: "Neues Dossier"
@@ -167,6 +168,13 @@ instances:
     finished: "Abgeschlossen"
     rejected: "Zurückgewiesen"
     corrected: "Korrigiert von Leitbehörde"
+
+  forms:
+    sb1: "Selbstdeklaration 1"
+    sb2: "Selbstdeklaration 2"
+
+  noDocument: "Das Formular \"{form}\" wurde noch nicht ausgefüllt."
+  createDocument: "Formular jetzt ausfüllen"
 
 be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
