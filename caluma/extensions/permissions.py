@@ -21,7 +21,7 @@ log = getLogger()
 """Caluma permissions for Kanton Bern"""
 
 INSTANCE_STATES = {
-    "gesuchsteller": ["1", "10000"],  # Neu, Zurückgewiesen
+    "gesuchsteller": ["1", "10000", "20011", "20013"],  # Neu, Zurückgewiesen, SB1, SB2
     "internal": ["20000", "20007"],  # eBau-Nummer zu vergeben, in Korrektur
 }
 

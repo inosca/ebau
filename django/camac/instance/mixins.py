@@ -138,7 +138,10 @@ class InstanceEditableMixin(AttributeMixin):
         if instance.instance_state.name in ["new", "rejected"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name == "nfd":
+        if instance.instance_state.name in [
+            "nfd",  # Kt. Schwyz Nachforderung
+            "sb2",  # Kt. Bern SB2
+        ]:
             return {"document"}
 
         return editable

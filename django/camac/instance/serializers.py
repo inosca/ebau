@@ -274,11 +274,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    instance_state = FormDataResourceRelatedField(queryset=models.InstanceState.objects)
-    previous_instance_state = FormDataResourceRelatedField(
-        queryset=models.InstanceState.objects
-    )
-
     def _notify_submit(self, template_id, recipient_types):
         """Send notification email."""
 
@@ -348,6 +343,36 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             },
         )
 
+    def _validate_document_validity(self, document_id):
+        # TODO: reenable this when caluma document validity is fixed
+        # validity = self.query_caluma(
+        #     """
+        #         query GetDocumentValidity($id: ID!) {
+        #             documentValidity(id: $id) {
+        #                 edges {
+        #                     node {
+        #                         id
+        #                         isValid
+        #                         errors {
+        #                             slug
+        #                             errorMsg
+        #                         }
+        #                     }
+        #                 }
+        #             }
+        #         }
+        #     """,
+        #     {"id": document_id},
+        # )
+
+        # if not validity["edges"]["node"][0]["isValid"]:
+        #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
+        #     raise exceptions.ValidationError(
+        #         f"Error while validating caluma document: {errors}"
+        #     )
+
+        pass
+
     def validate(self, data):
         caluma_resp = self.query_caluma(
             """
@@ -412,32 +437,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 f"Could not find municipality in caluma document for instance {self.instance.pk}"
             )
 
-        # TODO: reenable this when caluma document validity is fixed
-        # validity = self.query_caluma(
-        #     """
-        #         query GetDocumentValidity($id: ID!) {
-        #             documentValidity(id: $id) {
-        #                 edges {
-        #                     node {
-        #                         id
-        #                         isValid
-        #                         errors {
-        #                             slug
-        #                             errorMsg
-        #                         }
-        #                     }
-        #                 }
-        #             }
-        #         }
-        #     """,
-        #     {"id": document["id"]},
-        # )
-
-        # if not validity["edges"]["node"][0]["isValid"]:
-        #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
-        #     raise exceptions.ValidationError(
-        #         f"Error while validating caluma document: {errors}"
-        #     )
+        self._validate_document_validity(data["caluma_document"]["id"])
 
         return data
 
@@ -468,6 +468,124 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
+            self._notify_submit(**notification_config)
+
+        return instance
+
+
+class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
+    """Handle submission of "SB1" form."""
+
+    def validate(self, data):
+        caluma_resp = self.query_caluma(
+            """
+            query GetDocument($instanceId: GenericScalar!) {
+                allDocuments(
+                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
+                    form: "sb1"
+                ) {
+                    edges {
+                        node {
+                            id
+                            meta
+                            form {
+                                slug
+                                meta
+                            }
+                        }
+                    }
+                }
+            }
+            """,
+            {"instanceId": self.instance.pk},
+        )
+
+        data["caluma_document"] = next(
+            (
+                document["node"]
+                for document in caluma_resp["data"]["allDocuments"]["edges"]
+                if document["node"]["form"]["slug"] == "sb1"
+            ),
+            None,
+        )
+
+        if not data["caluma_document"]:  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Could not find caluma `sb1` document for instance {self.instance.pk}"
+            )
+
+        self._validate_document_validity(data["caluma_document"]["id"])
+
+        return data
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instance.previous_instance_state = instance.instance_state
+        instance.instance_state = models.InstanceState.objects.get(name="sb2")
+
+        instance.save()
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
+            self._notify_submit(**notification_config)
+
+        return instance
+
+
+class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
+    """Handle submission of "SB2" form."""
+
+    def validate(self, data):
+        caluma_resp = self.query_caluma(
+            """
+            query GetDocument($instanceId: GenericScalar!) {
+                allDocuments(
+                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
+                    form: "sb2"
+                ) {
+                    edges {
+                        node {
+                            id
+                            meta
+                            form {
+                                slug
+                                meta
+                            }
+                        }
+                    }
+                }
+            }
+            """,
+            {"instanceId": self.instance.pk},
+        )
+
+        data["caluma_document"] = next(
+            (
+                document["node"]
+                for document in caluma_resp["data"]["allDocuments"]["edges"]
+                if document["node"]["form"]["slug"] == "sb2"
+            ),
+            None,
+        )
+
+        if not data["caluma_document"]:  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Could not find caluma `sb2` document for instance {self.instance.pk}"
+            )
+
+        self._validate_document_validity(data["caluma_document"]["id"])
+
+        return data
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        instance.previous_instance_state = instance.instance_state
+        instance.instance_state = models.InstanceState.objects.get(name="conclusion")
+
+        instance.save()
+
+        # send out emails upon submission
+        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
             self._notify_submit(**notification_config)
 
         return instance
