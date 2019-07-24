@@ -38,6 +38,8 @@ services:
             - DATABASE_NAME=caluma
             - DATABASE_PASSWORD=camac
             - DATABASE_USER=camac
+            - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
+            - CACHE_LOCATION=cache:11211
             - ENV=development
             - OIDC_USERINFO_ENDPOINT=http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/userinfo
         volumes:
