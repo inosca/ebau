@@ -24,12 +24,13 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@ember/jquery": "^0.6.1",
     "@ember/optional-features": "^0.7.0",
+    "apollo-link-context": "^1.0.18",
     "apollo-link-error": "^1.1.11",
     "babel-eslint": "^10.0.2",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-apollo-client": "^2.0.0-beta.3",
+    "ember-apollo-client": "^2.0.0-beta.4",
     "ember-auto-import": "^1.5.2",
-    "ember-caluma": "^2.1.2",
+    "ember-caluma": "^2.2.0",
     "ember-cli": "~3.8.3",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.8.0",
@@ -75,11 +76,13 @@
     "file-saver": "^2.0.2",
     "filesize": "^4.1.2",
     "form-data-entries": "^1.0.2",
+    "graphql": "^14.4.2",
     "intersection-observer": "^0.7.0",
     "loader.js": "^4.7.0",
     "prettier": "^1.18.2",
     "qunit-dom": "^0.9.0",
-    "sass": "^1.22.3"
+    "sass": "^1.22.3",
+    "uikit": "uikit/uikit#1fbf7db37de00da53f1190990a2cc232221b5be1"
   },
   "engines": {
     "node": "8.* || >= 10.*"

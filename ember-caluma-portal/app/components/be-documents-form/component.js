@@ -6,14 +6,14 @@ import { filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
 import { getOwner } from "@ember/application";
+import { ComponentQueryManager } from "ember-apollo-client";
 import Attachment from "ember-caluma-portal/lib/attachment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
-export default Component.extend({
+export default Component.extend(ComponentQueryManager, {
   intl: service(),
-  apollo: service(),
   fetch: service(),
   notification: service(),
 

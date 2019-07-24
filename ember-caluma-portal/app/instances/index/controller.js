@@ -8,6 +8,7 @@ import { reads } from "@ember/object/computed";
 import moment from "moment";
 import { isEmpty } from "@ember/utils";
 import formDataEntries from "form-data-entries";
+import { ObjectQueryManager } from "ember-apollo-client";
 
 import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
@@ -85,8 +86,7 @@ const queryParams = new QueryParams({
   }
 });
 
-export default Controller.extend(queryParams.Mixin, {
-  apollo: service(),
+export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   fetch: service(),
 
   setup() {
