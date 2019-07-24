@@ -177,7 +177,6 @@ pure_config_models = (
     "core.WorkflowRole",
     "document.AttachmentSectionRoleAcl",
     "document.AttachmentSectionServiceAcl",
-    "document.Template",
     "notification.NotificationTemplate",
     "notification.NotificationTemplateT",
     "responsible.IrEditresponsibleuser",
@@ -212,6 +211,7 @@ models_referencing_data = (
     "core.WorkflowItem",
     "core.WorkflowSection",
     "document.AttachmentSection",
+    "document.Template",
     "file.FileComplementState",
     "file.FileContent",
     "file.FileContentCategory",
@@ -237,6 +237,7 @@ models_referencing_data = (
 # exclude models which are managed by the customer alone from sync
 models_managed_by_customer = {
     "kt_schwyz": [
+        "document.Template",
         "user.Group",
         "user.GroupT",
         "user.GroupLocation",
