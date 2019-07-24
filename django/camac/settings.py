@@ -144,9 +144,11 @@ APPLICATIONS = {
             ],
             "REPORT": [
                 {"template_id": 26, "recipient_types": ["applicant"]},
-                {"template_id": 36, "recipient_types": ["baukontrolle"]},
+                {"template_id": 36, "recipient_types": ["construction_control"]},
             ],
-            "FINALIZE": [{"template_id": 37, "recipient_types": ["baukontrolle"]}],
+            "FINALIZE": [
+                {"template_id": 37, "recipient_types": ["construction_control"]}
+            ],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",

@@ -73,8 +73,6 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
       }
     });
 
-    console.log("bla");
-
     yield this.documentTask.perform();
   }),
 

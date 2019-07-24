@@ -173,8 +173,8 @@ instances:
     sb1: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 
-  noDocument: "Die Seite \"{form}\" wurde noch nicht erstellt."
-  createDocument: "Seite erstellen"
+  noDocument: "Das Formular \"{form}\" wurde noch nicht ausgefüllt."
+  createDocument: "Formular jetzt ausfüllen"
 
 be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
