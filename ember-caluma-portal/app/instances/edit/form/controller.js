@@ -1,10 +1,13 @@
 import Controller from "@ember/controller";
 import { inject as controller } from "@ember/controller";
+import { inject as service } from "@ember/service";
+import { assert } from "@ember/debug";
 import { reads } from "@ember/object/computed";
 import { computed, getWithDefault } from "@ember/object";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 import { ObjectQueryManager } from "ember-apollo-client";
+import { decodeId } from "ember-caluma/helpers/decode-id";
 
 import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
@@ -32,6 +35,8 @@ const queryParams = new QueryParams({
 });
 
 export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
+  calumaStore: service(),
+
   editController: controller("instances.edit"),
   instanceId: reads("editController.model"),
   instance: reads("editController.instance"),
@@ -88,5 +93,26 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
         state
       );
     }
-  )
+  ),
+
+  pdfField: computed("document", function() {
+    const document = this.calumaStore.find(
+      `Document:${decodeId(this.document.id)}`
+    );
+
+    assert(
+      `Did not find document ${decodeId(this.document.id)} in calumaStore`,
+      document
+    );
+
+    const slug = ["sb1", "sb2"].includes(this.model)
+      ? "formulardownload-pdf-selbstdeklaration"
+      : "formulardownload-pdf";
+
+    const field = document.findField(slug);
+
+    assert(`Did not find field ${slug} in document ${document.uuid}`, field);
+
+    return field;
+  })
 });
