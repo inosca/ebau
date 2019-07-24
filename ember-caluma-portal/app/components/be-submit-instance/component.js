@@ -4,6 +4,10 @@ import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { all } from "rsvp";
 import { next } from "@ember/runloop";
+import config from "../../config/environment";
+import { assert } from "@ember/debug";
+
+const { environment } = config;
 
 export default InViewportComponent.extend({
   notification: service(),
@@ -57,13 +61,18 @@ export default InViewportComponent.extend({
 
     try {
       const instanceId = this.get("context.instanceId");
+      const action = this.get("field.question.meta.action");
+
+      assert("Field must have a meta property `action`", action);
 
       // simulate waiting, until actual backend implementation has landed
-      yield timeout(8000 + Math.random() * 4000);
+      if (environment === "production") {
+        yield timeout(8000 + Math.random() * 4000);
+      }
 
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
-        `/api/v1/instances/${instanceId}/submit`,
+        `/api/v1/instances/${instanceId}/${action}`,
         { method: "POST" }
       );
 

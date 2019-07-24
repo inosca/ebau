@@ -81,6 +81,8 @@ class InstanceView(
         SERIALIZER_CLASS = {
             "caluma": {
                 "submit": serializers.CalumaInstanceSubmitSerializer,
+                "report": serializers.CalumaInstanceReportSerializer,
+                "finalize": serializers.CalumaInstanceFinalizeSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -109,6 +111,16 @@ class InstanceView(
             "nfd",  # kt. schwyz
             # kt. bern (TODO: rejected instances should be copied and resubmitted from "new" state)
             "rejected",
+        )
+
+    def has_object_report_permission(self, instance):
+        return (
+            instance.user == self.request.user and instance.instance_state.name == "sb1"
+        )
+
+    def has_object_finalize_permission(self, instance):
+        return (
+            instance.user == self.request.user and instance.instance_state.name == "sb2"
         )
 
     @action(methods=["get"], detail=False)
@@ -220,6 +232,22 @@ class InstanceView(
         return response.Response(data=serializer.data)
 
     def _submit_caluma(self, request, pk=None):
+        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(data=serializer.data)
+
+    @action(methods=["post"], detail=True)
+    def report(self, request, pk=None):
+        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return response.Response(data=serializer.data)
+
+    @action(methods=["post"], detail=True)
+    def finalize(self, request, pk=None):
         serializer = self.get_serializer(self.get_object(), data={}, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()

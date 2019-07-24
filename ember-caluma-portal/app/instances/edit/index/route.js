@@ -1,9 +1,15 @@
 import Route from "@ember/routing/route";
+import { next } from "@ember/runloop";
 
 export default Route.extend({
-  setupController(controller) {
-    this._super(...arguments);
+  redirect() {
+    next(async () => {
+      const controller = this.controllerFor("instances.edit");
+      const mainForm = await controller.mainFormTask.last;
 
-    controller.feedbackData.perform();
+      if (mainForm) {
+        this.replaceWith("instances.edit.form", mainForm.slug);
+      }
+    });
   }
 });
