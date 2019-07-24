@@ -37,13 +37,13 @@ def mock_public_status(mocker):
 
 
 @pytest.fixture
-def instance_service_baukontrolle(
+def instance_service_construction_control(
     instance_service_factory, service_factory, service_group_factory, instance
 ):
     return instance_service_factory(
         instance=instance,
         service=service_factory(
-            service_group=service_group_factory(name="baukontrolle")
+            service_group=service_group_factory(name="construction-control")
         ),
     )
 
@@ -314,7 +314,7 @@ def test_instance_report(
     role,
     instance,
     instance_state_factory,
-    instance_service_baukontrolle,
+    instance_service_construction_control,
     expected_status,
     new_instance_state_name,
     notification_template,
@@ -327,7 +327,7 @@ def test_instance_report(
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
             "template_id": notification_template.pk,
-            "recipient_types": ["applicant", "baukontrolle"],
+            "recipient_types": ["applicant", "construction_control"],
         }
     ]
 
@@ -366,7 +366,7 @@ def test_instance_report(
         recipients = mail.outbox[0].recipients()
 
         assert instance.user.email in recipients
-        assert instance_service_baukontrolle.service.email in recipients
+        assert instance_service_construction_control.service.email in recipients
 
 
 @pytest.mark.parametrize(
@@ -383,7 +383,7 @@ def test_instance_finalize(
     role,
     instance,
     instance_state_factory,
-    instance_service_baukontrolle,
+    instance_service_construction_control,
     expected_status,
     new_instance_state_name,
     notification_template,
@@ -396,7 +396,7 @@ def test_instance_finalize(
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
             "template_id": notification_template.pk,
-            "recipient_types": ["applicant", "baukontrolle"],
+            "recipient_types": ["applicant", "construction_control"],
         }
     ]
 
@@ -435,4 +435,4 @@ def test_instance_finalize(
         recipients = mail.outbox[0].recipients()
 
         assert instance.user.email in recipients
-        assert instance_service_baukontrolle.service.email in recipients
+        assert instance_service_construction_control.service.email in recipients

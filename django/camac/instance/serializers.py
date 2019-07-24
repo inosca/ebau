@@ -474,6 +474,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
 
 class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
+    """Handle submission of "SB1" form."""
+
     def validate(self, data):
         caluma_resp = self.query_caluma(
             """
@@ -531,6 +533,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
 
 class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
+    """Handle submission of "SB2" form."""
+
     def validate(self, data):
         caluma_resp = self.query_caluma(
             """
