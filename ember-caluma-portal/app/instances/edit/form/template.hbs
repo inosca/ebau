@@ -12,10 +12,7 @@
       <div class="uk-text-center">
         {{be-download-pdf
           size="small"
-          field=(hash
-            question=(hash label=(t "instances.print"))
-            document=content.document
-          )
+          field=pdfField
           context=(hash instanceId=instance.id)
         }}
       </div>
