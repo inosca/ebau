@@ -38,7 +38,6 @@ const queryParams = new QueryParams({
 });
 
 export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
-  apollo: service(),
   fetch: service(),
 
   setup() {
