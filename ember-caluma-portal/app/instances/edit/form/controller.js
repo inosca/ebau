@@ -1,5 +1,4 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
 import { inject as controller } from "@ember/controller";
 import { reads } from "@ember/object/computed";
 import { computed, getWithDefault } from "@ember/object";
@@ -33,8 +32,6 @@ const queryParams = new QueryParams({
 });
 
 export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
-  apollo: service(),
-
   editController: controller("instances.edit"),
   instanceId: reads("editController.model"),
   instance: reads("editController.instance"),
