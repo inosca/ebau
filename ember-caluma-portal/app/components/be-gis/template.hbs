@@ -33,7 +33,12 @@
   {{t "gis.info-override"}}
 {{/uk-modal}}
 
-{{#uk-modal visible=confirmationGis on-hide=(action (mut confirmationGis) false)}}
+{{#uk-modal
+  visible=confirmationGis
+  on-hide=(action (mut confirmationGis) false)
+  escClose=false
+  bgClose=false
+}}
   <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
 
   <ul class="uk-list uk-list-divider">
