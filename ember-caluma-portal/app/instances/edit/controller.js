@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
+import { assert } from "@ember/debug";
+import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
@@ -69,14 +70,20 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
 
   mainForm: reads("mainFormTask.lastSuccessful.value"),
   mainFormTask: task(function*() {
-    return yield this.apollo.query(
+    const [document] = (yield this.apollo.query(
       {
         query: getDocumentQuery,
         fetchPolicy: "cache-first",
         variables: { instanceId: this.model }
       },
-      "allDocuments.edges.firstObject.node.form"
-    );
+      "allDocuments.edges"
+    ))
+      .map(edge => edge.node)
+      .filter(doc => get(doc, "form.meta.is-main-form"));
+
+    assert("Document for main form not found", document);
+
+    return document.form;
   }).drop(),
 
   instance: reads("instanceTask.lastSuccessful.value"),
