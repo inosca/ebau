@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { assert } from "@ember/debug";
-import { reads } from "@ember/object/computed";
+import { reads, equal } from "@ember/object/computed";
 import { computed, getWithDefault } from "@ember/object";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
@@ -77,6 +77,8 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
 
     yield this.documentTask.perform();
   }),
+
+  internal: equal("role", "internal"),
 
   disabled: computed(
     "document.form.{slug,meta.is-main-form}",
