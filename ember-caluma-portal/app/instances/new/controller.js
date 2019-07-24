@@ -1,11 +1,11 @@
 import Controller from "@ember/controller";
 import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
+import { ObjectQueryManager } from "ember-apollo-client";
 
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
-export default Controller.extend({
-  apollo: service(),
+export default Controller.extend(ObjectQueryManager, {
   fetch: service(),
 
   selectedForm: null,
