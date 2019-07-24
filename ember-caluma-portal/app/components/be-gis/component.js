@@ -164,8 +164,8 @@ export default Component.extend(ComponentQueryManager, {
   disabled: false,
   parcels: null,
   gisData: null,
-  informationOverride: false,
-  confirmationGis: false,
+  showInstructions: false,
+  showConfirmation: false,
 
   link: computed(function() {
     // This try/catch block is necessary as long as we don't have a mock
@@ -493,7 +493,7 @@ export default Component.extend(ComponentQueryManager, {
 
         this.gisData.pushObject({ field, value, value_pretty });
       }
-      this.set("confirmationGis", true);
+      this.set("showConfirmation", true);
     } else {
       this.notification.danger(
         this.intl.t("gis.notifications.error-additional")
@@ -526,7 +526,7 @@ export default Component.extend(ComponentQueryManager, {
       })
     );
 
-    this.set("confirmationGis", false);
+    this.set("showConfirmation", false);
   }),
 
   actions: {
