@@ -13,6 +13,20 @@
         </div>
       {{/if}}
     </div>
+    <ul class="uk-subnav uk-subnav-divider">
+      <li class="uk-active"><a href="#">Startseize</a></li>
+      <li><a href="#">Support</a></li>
+      <li><a href="#">Sprache</a>
+<div uk-drop="mode: hover;">
+            <ul>
+                <li class="uk-active"><a href="#">Deutsch</a></li>
+                <li><a href="#">Francais</a></li>
+            </ul>
+        </div>
+      </li>
+      <li><a href="#">{{uk-icon "sign-out"}}</a></li>
+    </ul>
+    {{!--
     <div uk-grid class="uk-margin uk-grid-small">
       {{#link-to "index" title=(t "nav.index") class="uk-link-reset"}}
         {{uk-icon "home" tagName="a" class="uk-icon-button"}}
@@ -24,6 +38,7 @@
         {{uk-icon "sign-out" tagName="a" class="uk-icon-button"}}
       {{/link-to}}
     </div>
+    --}}
   </header>
 
   {{outlet}}
