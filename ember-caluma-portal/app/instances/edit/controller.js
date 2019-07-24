@@ -4,6 +4,7 @@ import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
+import { ObjectQueryManager } from "ember-apollo-client";
 
 import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 
@@ -36,7 +37,7 @@ const queryParams = new QueryParams({
   }
 });
 
-export default Controller.extend(queryParams.Mixin, {
+export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   apollo: service(),
   fetch: service(),
 
