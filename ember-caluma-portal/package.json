@@ -64,7 +64,7 @@
     "ember-power-select": "^2.3.5",
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
-    "ember-simple-auth-oidc": "adfinis-sygroup/ember-simple-auth-oidc#forward-params",
+    "ember-simple-auth-oidc": "^0.4.0",
     "ember-source": "~3.8.3",
     "ember-truth-helpers": "^2.1.0",
     "ember-uikit": "^0.8.2",
