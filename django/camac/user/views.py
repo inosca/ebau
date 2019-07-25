@@ -53,7 +53,7 @@ class MeView(generics.RetrieveAPIView):
     """Me view returns current user."""
 
     model = get_user_model()
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.CurrentUserSerializer
     group_required = False
     """No group needed to read user details."""
 
