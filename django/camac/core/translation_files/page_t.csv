@@ -1,0 +1,53 @@
+NAME,NAME_FR,PAGE_ID
+***,***,5
+"eBau-Nummer vergeben","Attribution d'un numéro eBau",20000
+"Rückmeldungen für Gesuchsteller/innen","Commentaire destiné au requérant/à la requérante",20001
+Vorabklärungen,"Etudes préalables",40000
+Triage,Aiguillage,40001
+"Zonenvorschriften - Schutzzonen","Prescriptions applicables aux zones - Zones protégées",40002
+***,***,40003
+Bodenschutz,"Protection du sol",40004
+"Generelles Baugesuch","Demande de permis de construire général",40005
+Brandschutz,"Protection contre l'incendie",40006
+Wohnen,Logement,40007
+"Gewässerschutz - Lagerung wassergefährdender Flüssigkeiten","Protection des eaux - Entreposage de liquides pouvant polluer les eaux",40008
+"Gewässerschutz - Grundstückentwässerung","Protection des eaux - Evacuation des eaux des biens-fonds",40009
+"Gewässerschutz - Gewerbe / Industrie","Protection des eaux - Artisanat / industrie",40010
+"Gewässerschutz - Bauten im Grundwasser","Protection des eaux - Constructions dans les eaux souterraines",40011
+Energie,Energie,40012
+Zivilschutz,"Protection civile",40013
+Wärmepumpen,"Pompes à chaleur",40014
+"Immissionsschutz - Lärmschutz","Protection contre les immissions - Protection contre le bruit",40015
+Immissionsschutz,"Protection contre les immissions",40016
+"Personalien - Gastgewerbe","Données personnelles - Hôtellerie et restauration",40017
+"Gastgewerbe - Allgemein","Hôtellerie et restauration - Généralités",40018
+"Gastgewerbe - Fumoir","Hôtellerie et restauration - Fumoir",40019
+"Biologische Sicherheit & Störfallvorsorge","Sécurité biologique et prévention des accidents majeurs",40020
+"Solar- & Sendeanlagen","Installations solaires et stations émettrices",40021
+Wald,Forêt,40022
+Reklame,Réclame,40023
+Entsorgung,"Gestion des déchets",40024
+"Personalien - Betreiber/in der Anlage","Données personnelles - Exploitant/e de l'installation",40025
+"Allgemeine Angaben zum Betrieb","Indications générales sur l'installation",40026
+***,***,40027
+"Maschinen & Anlagen","Machines et installations",40028
+Naturgefahren,"Dangers naturels",40029
+"Hindernisfreies Bauen","Construction sans obstacles",40030
+"Vorläufige formelle Prüfung Gemeinde","Examen formel provisoire de la commune",40031
+"Vorläufige formelle Prüfung Gemeinde","Examen formel provisoire de la commune",40032
+"Vorläufige formelle Prüfung RSTA","Examen formel provisoire de la préfecture",40033
+"Materielle Prüfung","Examen matériel",40034
+"Bauen ausserhalb der Bauzone","Construction hors de la zone à bâtir",40035
+"Selbstdeklaration Baukontrolle 1","Déclaration spontanée en matière de contrôle des constructions 1",40036
+"Selbstdeklaration Baukontrolle 2","Déclaration spontanée en matière de contrôle des constructions 2",40037
+Bestätigung,Attestation,40038
+Personalien,"Données personnelles",80000
+***,***,80001
+***,***,80002
+***,***,80003
+Bauvorhaben,"Projet de construction",80004
+"Allgemeine Angaben","Indications générales",80005
+"Durchgeführte Vorabklärungen","Etudes préalables réalisées",80006
+"Generelles Baugesuch","Demande de permis de construire général",80007
+"Zonenvorschriften - Baurechtliche Grundordnung","Prescriptions applicables aux zones - Réglementation fondamentale en matière de construction",80008
+Hidden,,100000

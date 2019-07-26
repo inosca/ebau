@@ -1,0 +1,12 @@
+NAME,NAME_FR,PAGE_FORM_GROUP_ID
+"Allgemeine Informationen","Informations générales",1
+"Additional pages","Additional pages",20000
+Bauwerk,Ouvrage,40000
+Spezialformulare,"Formulaires spéciaux",40001
+Gemeinde,Commune,40002
+"Formelle Prüfung","Examen formel",40003
+Selbstdeklaration,"Déclaration spontanée",40004
+Bestätigung,Attestation,40005
+"Nutzung Bauvorhabens","Affectation visée par le projet de construction",80000
+Grundstück,Immeuble,80001
+"Vorabklärung einfach","Etude préalable simple",110000

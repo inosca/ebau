@@ -1,0 +1,973 @@
+NAME,NAME_FR,QUESTION_ID
+Gemeinde (*** da cancellare?),Commune (*** da cancellare?),20000
+"Geben Sie an, welche Rollen bei der Baugesuchseingabe zusätzlich zu den Bauenden von Ihnen verwendet werden?","Veuillez indiquer quels rôles vous utilisez, en plus de celui de requérant, dans le cas de la demande de permis de construire.",20001
+Welche Wärmepumpen sind im Bauvorhaben vorgesehen?,Quelles pompes à chaleur sont-elles prévues dans le projet de construction?,20002
+Handelt es sich um eine juristische Person?,S'agit-il d'une personne morale?,20003
+Name juristische Person,Nom de la personne morale,20004
+Kontaktperson – Vorname,Contact – Prénom,20005
+Kontaktperson – Name,Contact – Nom,20006
+Vorname,Prénom,20007
+Name,Nom,20008
+Strasse,Rue,20009
+Nummer,Numéro,20010
+PLZ,NPA,20011
+Ort,Localité,20012
+Telefon oder Mobile,Téléphone fixe ou mobile,20013
+E-Mail,Courriel,20014
+Vollmacht,Procuration,20015
+Handelt es sich um eine juristische Person?,S'agit-il d'une personne morale?,20016
+Handelt es sich um eine juristische Person?,S'agit-il d'une personne morale?,20017
+Handelt es sich um eine juristische Person?,S'agit-il d'une personne morale?,20018
+Baubeschrieb,Description de la construction,20019
+Beschreibung,Description,20020
+Sicherungsmassnahmen,Mesures de sûreté,20021
+Baukosten in CHF,Coûts de construction en francs,20022
+Geplanter Baustart,Début prévu des travaux,20023
+Dauer in Monaten,Durée en mois,20024
+Welche Aspekte des generellen Baugesuches müssen geprüft werden?,Quels aspects de la demande de permis de construire général doivent-ils être examinés?,20025
+Amts- / Fachstelle,Office ou service spécialisé,20026
+Zusätze zu Amts-/Fachstellen,Compléments relatifs aux offices ou services spécialisés,20027
+Kontaktperson,Contact,20028
+Datum,Date,20029
+Mit eBau-Nr.?,Numéro eBau?,20030
+eBau-Nummer,Numéro eBau,20031
+Bemerkungen,Remarques,20032
+Für welche Nutzungsart dient das Bauvorhaben?,A quel type d'affectation le projet de construction est-il destiné?,20033
+Besteht bereits eine eBau-Nummer?,Un numéro eBau existe-t-il déjà?,20034
+eBau-Nummer,Numéro eBau,20035
+Eingabedatum,Date de saisie,20036
+Rückmeldung,Préavis,20037
+Dossier-Nr.,N° du dossier,40000
+Name,Nom,40001
+Vorname,Prénom,40002
+Strasse,Rue,40003
+Nr.,N°,40004
+PLZ.,NPA,40005
+Ort,Localité,40006
+Karte,Carte,40007
+Daten übernehmen,Reprendre les données,40008
+Lagekoordinaten,Coordonnées planimétriques,40009
+Parzellen-Nr. / Liegenschaftsnummer,N° de parcelle / de bien-fonds,40010
+BE-GID,BE-GID,40011
+GWR-EGID-Nr.,N° RegBL-EGID,40012
+E-GRID-Nr.,N° E-GRID,40013
+Anfrage zur Vorabklärung,Question sur l'étude préalable,40014
+temporaneo,temporaneo,40015
+Um was für ein Gebäude handelt es sich?,De quel type de bâtiment s'agit-il?,40016
+Beinhaltet das Bauvorhaben Nutzungen mit Brandbelastung von über 1000 MJ/m²?,Le projet de construction comprend-il des affectations dont la charge thermique excède 1000 MJ/m²?,40017
+"Werden nach der Bauabnahme für die Herstellung, Veredelung oder Unterhalt von Produkten maschinelle Arbeitsmittel verwendet?","Des outils de travail mécaniques seront-ils utilisés, après la réception des travaux, pour la fabrication, la valorisation ou l'entretien de produits?",40018
+"Werden nach der Bauabnahme gesundheitsschädliche, giftige, brandgefährliche oder explosive Stoffe gelagert oder verwendet?","Des substances nocives, toxiques, inflammables ou explosives seront-elles entreposées ou utilisées après la réception des travaux?",40019
+"Verursacht das Vorhaben nach der Bauabnahme Abluft, welche verunreinigt ist (Schadstoffe, Gerüche)?","Le projet dégagera-t-il de l'air vicié (polluants, odeurs) après la réception des travaux?",40020
+Verursacht das Vorhaben nach der Bauabnahme Aussenlärm?,Le projet provoquera-t-il du bruit extérieur après la réception des travaux?,40021
+Umfasst das Vorhaben folgende Feuerungsanlagen?,Le projet prévoit-il l'une ou plusieurs des installations de chauffage suivantes?,40022
+Um was handelt es sich beim Vorhaben?,Sur quoi le projet porte-t-il?,40023
+"Sind Neubauten oder bauliche Veränderungen, mit mehr als 30 Grossvieheinheiten (GVE) betroffen?",De nouvelles constructions ou des transformations destinées à plus de 30 unités de gros bétail (UGB) sont-elles concernées?,40024
+Werden neue Hofdüngeranlagen erstellt?,De nouvelles installations de stockage d'engrais de ferme sont-elles prévues?,40025
+Werden Siloanlagen erstellt?,Des silos sont-ils prévus?,40026
+Handelt es sich um ein landwirtschaftliches Bauvorhaben mit Ableitung (Abwasser aus Wohn- und/oder ökonomieteil) in eine Güllegrube?,S'agit-il d'un projet de construction agricole prévoyant le déversement d'eaux usées (du logement et/ou du rural) dans une fosse à purin?,40027
+Werden nach der Bauabnahme Anlagen oder Maschinen aus den folgenden Kategorien betrieben?,Des installations ou des machines relevant des catégories suivantes seront-elles utilisées après la réception des travaux?,40028
+Um was handelt es sich beim Vorhaben?,Sur quoi le projet porte-t-il?,40029
+Dossier-Nr.,N° du dossier,40030
+Strasse/Flurname,Rue/lieu-dit,40031
+Nr.,N°,40032
+Zuständige Gemeinde,Commune compétente,40033
+Parzellen-Nr. / Liegenschaftsnummer,N° de parcelle / de bien-fonds,40034
+Baurecht-Nummer,Numéro du droit de superficie,40035
+Lagekoordinaten – Ost,Coordonnées planimétriques – Est,40036
+Lagekoordinaten – Nord,Coordonnées planimétriques – Nord,40037
+BE-GID,BE-GID,40038
+GWR-EGID,N° RegBL-EGID,40039
+E-GRID-Nr.,N° E-GRID,40040
+Ausnützung,Utilisation,40041
+Grünfläche in m²,Surface verte en m²,40042
+überbauung in %,Occupation du sol en %,40043
+Geschossfläche in m²,Surface de plancher en m²,40044
+Rechtliche Sicherung bei Inanspruchnahme fremden Bodens,Garantie juridique en cas de mise à contribution du terrain d'autrui,40045
+Nutzungszone,Zone d'affectation,40046
+überbauungsordnung,Plan de quartier,40047
+Empfindlichkeitsstufe (ES),Degré de sensibilité (DS),40048
+Höhe,Hauteur,40049
+Effektive Geschosszahl,Nombre effectif d'étages,40050
+Grundwasserschutzzonen / -areale,Zone/périmètre de protection des eaux souterraines,40051
+Gewässerschutzbereich,Secteur de protection des eaux,40052
+Belasteter Standort?,Site pollué?,40053
+Bauten oder Pfählen im Grundwasser oder Grundwasserabsenkung,Constructions / pieux dans les eaux souterraines ou abaissement de la nappe phréatique?,40054
+Gebiet mit bekannten oder vermuteten Naturgefahren,Dangers naturels connus ou supposés sur le périmètre en question?,40055
+Schützenswert [ergänzen: erhaltenswert / K-Objekt?],Objet digne de protection,40056
+Baugruppe Bauinventar,Ensemble bâti selon le recensement architectural,40057
+Bezeichnung Baugruppe,Description de l'ensemble bâti,40058
+RRB,ACE,40059
+RRB vom,ACE du,40060
+Vertrag,Contrat,40061
+Vertrag vom,Contrat du,40062
+Objekt des besonderen Landschaftsschutzes,Objet relevant de la protection particulière du paysage,40063
+Objektbezeichnung,Description de l’objet,40064
+Gebiet mit bekannten oder vermuteten archäologischen Objekten,Secteur dans lequel la présence d'objets archéologiques est connue ou supposée,40065
+Naturschutz,Protection de la nature,40066
+Wildtierschutz,Protection de la faune sauvage,40067
+Ist beim Bauvorhaben Boden (Ober- / Unterboden) betroffen?,Le projet de construction a-t-il un impact sur le sol (couches supérieure et sous-jacente)?,40068
+Ist das Bauvorhaben auf einer Höhe ≥ 1'800 m ü. M.,Le projet doit-il être réalisé à une altitude ≥ 1800 m?,40069
+Verlässt mit invasiven Neophyten belasteter Boden den Projektperimeter?,Des matériaux terreux contaminés par des plantes néophytes envahissantes sont-ils transportés hors du périmètre du projet?,40070
+Erfolgt ein Leitungsbau auf landwirtschaftlich genutztem Boden ≥ 1000 m Länge (ohne Einpflügen)?,La pose de conduites d'une longueur ≥ 1000 m dans des terrains utilisés à des fins agricoles (sans enfouissement dans une tranchée) est-elle prévue?,40071
+Gesamte beanspruchte Fläche mit Ober-/Unterboden > 5000 m²?,Total de la surface utilisée (couches supérieure et sous-jacente) > 5000 m²?,40072
+Verlassen mehr als 500 m³ Bodenmaterial den Projektperimeter?,Des matériaux terreux d'un volume > 500 m³ sont-ils transportés hors du périmètre du projet?,40073
+Verlassen mehr als 1500 m³ Bodenmaterial den Projektperimeter?,Des matériaux terreux d'un volume > 1500 m³ sont-ils transportés hors du périmètre du projet?,40074
+Gesamte beanspruchte Fläche mit Ober-/Unterboden > 2000 m²?,Total de la surface utilisée (couches supérieure et sous-jacente) > 2000 m²?,40075
+"Findet eine Terrainveränderung < 2000 m², welche zu einer Bodenaufwertung führt?",Une modification de terrain < 2000 m² aboutissant à une valorisation du sol est-elle prévue?,40076
+Ist die betroffene Fläche als Fruchtfolgefläche (FFF) ausgeschieden?,La surface concernée est-elle une surface d'assolement (SDA)?,40077
+Wurden Vorabklärungen durchgeführt?,Des études préalables ont-elles été réalisées?,40078
+Welche Aspekte des  generellen Baugesuches müssen geprüft werden?,Quels aspects de la demande de permis de construire général doivent-ils être examinés?,40079
+Sind neben den Gesuchstellenden weitere Personen beteiligt?,"Outre les requérant/e/s, d'autres personnes participent-elles à la procédure?",40080
+Zulässige Geschosszahl,Nombre d’étages admis,40081
+Ist beim Bauvorhaben Boden (Ober- / Unterboden) betroffen?,Le projet de construction a-t-il un impact sur le sol (couches supérieure et sous-jacente)?,40082
+Geplanter Baustart,Début prévu des travaux,40083
+Schützenswert,Objet digne de protection,40084
+Erhaltenswert,Objet digne de conservation,40085
+K-Objekt,Objet C,40086
+Ist das Bauvorhaben besonderen Brandrisiken ausgesetzt?,Le projet de construction est-il exposé à des risques d’incendie particuliers?,40087
+Werden Brandschutzabstände unterschritten?,Y a-t-il des distances de sécurité incendie qui ne sont pas respectées?,40088
+Besondere Brandschutzrisiken,Risques d’incendie particuliers ,40089
+"Ersatzmassnahmen, wenn Brandschutzabstände nicht eingehalten sind",Mesures compensatoires en cas de non-respect des distances de sécurité incendie,40090
+QSS-Stufe,Degré de l'assurance qualité,40091
+Wohnungsgrösse,Dimensions du logement,40092
+Anzahl Wohnungen bestehend,Nombre de logements existants,40093
+Zimmer bestehend,Pièces existantes,40094
+Zimmer neu,Nouvelles pièces,40095
+*** TO DELETE,*** TO DELETE,40096
+Anzahl Wohnungen neu,Nombre de nouveaux logements,40097
+*** TO DELETE,*** TO DELETE,40098
+*** TO DELETE,*** TO DELETE,40099
+Wohnungen bestehend,Logements existants,40100
+Wohnungen neu,Nouveaux logements,40101
+Abstellplätze für Fahrzeuge oder Fahrradabstellplätze?,Places de stationnement pour véhicules ou pour bicyclettes?,40102
+Anzahl Abstellplätze für Motorfahrzeuge,Nombre de places de stationnement pour véhicules à moteur,40103
+Davon in Garagen oder Einstellhallen,Dont places dans des garages ou parkings souterrains,40104
+Abstellplätze für Fahrräder und Motorfahrräder,Places de stationnement pour bicyclettes et cyclomoteurs,40105
+Davon überdacht,Dont places couvertes,40106
+"Werden neu wassergefährdende, explosive, gesundheitsgefährdende oder brennbare Stoffe gelagert oder verwendet?","Des substances dangereuses pour la santé, pouvant polluer les eaux, explosives ou inflammables sont-elles nouvellement stockées ou utilisées?",40107
+Lagerstoff,Substances stockées,40108
+Neu / Bestehend,Nouvelles / existantes,40109
+Menge,Quantité,40110
+Massangabe,Mesure utilisée,40111
+Lagerort,Lieu de stockage,40112
+Brennbare Flüssigkeit / Gas,Substance inflammable / gaz,40113
+Flammpunkt,Point d'éclair,40114
+Gesundheitsschädlich oder explosiv,Substances dangereuses pour la santé ou explosives,40115
+Wassergefährdend,Substances pouvant polluer les eaux,40116
+Gebindelager mit totalem Nutzvolumen > 450 l oder Tankanlagen mit > 450 l pro Tank,Entreposage de récipients d'un volume utile total > 450 l ou petits réservoirs  > 450 l par réservoir,40117
+"Ist das Gebinde / Tankanlage in einer Grundwasserschutzzone S3, Sm und / oder einem Grundwasserschutzareal?","Le récipient / réservoir est-il placé dans une zone de protection des eaux souterraines S3, Sm ou autre?",40118
+"Handelt es sich um eine Tankanlage mit Behältern, die jeweils grösser als 2000 l sind?",S'agit-il d'une citerne avec des compartiments d'une contenance > 2000 l chacun?,40119
+"Werden Tanks und Rohrleitungen in Gewässerschutzbereichen Ao, Au, Zo, Zu erdverlegt?","Des réservoirs ou des conduites sont-ils enterrés dans des secteurs de protection des eaux Ao, Au, Zo, Zu?",40120
+Werden Flüssigkeiten der Wassergefährdungsklasse A (entspricht WGK 2 und 3) gelagert?,Des liquides pouvant polluer les eaux de la classe A (correspondant aux classes 2 et 3) sont-ils stockés?,40121
+Kleintank vorhanden?,Présence d'un petit réservoir?,40122
+Kleintank,Petit réservoir,40123
+Behälterwerkstoff,Matériau du récipient,40124
+Tankfabrikant,Marque de la citerne,40125
+Fassvermögen in Liter,Contenance en litres,40126
+Total Fassvermögen in Liter,Contenance totale en litres,40127
+Mehrkammertanks vorhanden?,Présence d'une citerne à plusieurs compartiments?,40128
+Behälterwerkstoff,Matériau du récipient,40129
+Tankfabrikant,Marque de la citerne,40130
+Kammer,Compartiment,40131
+Fassvermögen in Liter,Contenance en litres,40132
+Lagergut,Matières entreposées,40133
+Total Fassvermögen Mehrkammertank in Liter,Contenance totale de la citerne à plusieurs compartiments en litres,40134
+Füllsicherung,Intercepteur de remplissage,40135
+Fabrikat,Marque,40136
+Leckwarnsystem,Système de détection des fuites,40137
+Fabrikat,Marque,40138
+Produkteleitung,Conduite de liquide,40139
+Druckausgleichsleitung Durchmesser in Zoll,Diamètre de la conduite compensatrice de pression en pouces,40140
+Druckausgleichsleitung Rohrlänge in Meter,Longueur de la conduite compensatrice de pression en mètres,40141
+Schutzbauwerk,Ouvrage de protection,40142
+Rückhaltevolumen des Schutzbauwerks in %,Volume de rétention de l'ouvrage de protection en %,40143
+Auskleidung,Revêtement ,40144
+Fabrikat,Marque,40145
+Auffangwanne,Bassin de rétention,40146
+Rückhaltevolumen der Auffangwanne in %,Volume de rétention du bassin en %,40147
+Sind Belange des Gewässerschutzes betroffen?,Des aspects de la protection des eaux sont-ils concernés?,40148
+Bauvorhaben innerhalb Kanalisationsbereich gemäss GEP,Projet de construction dans le périmètre des égouts selon le PGEE,40149
+Bauvorhaben ausserhalb Kanalisationsbereich gemäss GEP,Projet de construction hors du périmètre des égouts selon le PGEE,40150
+Abwasseranschluss,Raccordement des conduites d’eaux usées,40151
+Ableitung der häuslichen Abwässer in,Evacuation des eaux usées domestiques dans,40152
+Beschreibung,Description,40153
+"Es erfolgen änderungen an Dachflächen, Zufahrten, Plätzen, PW-Parkplätzen?","Est-il prévu d'apporter des changements aux surfaces des toitures, voies d'accès, places et places de stationnement pour véhicules?",40154
+Neue Dachflächen in m²,Nouvelles surfaces de toiture en m²,40155
+Zufahrten / Plätze in m²,"Nouvelles voies d'accès, places en m²",40156
+"Neubau von Abwasseranlagen, Grundleitungen, Grundstücksanschlussleitungen?","Construction de nouveaux équipements d'assainissement, de canalisations et de conduites de raccordement",40157
+Nur sanitärtechnische Anpassungen der Liegenschaft?,Adaptation / modification des installations sanitaires de l'immeuble uniquement?,40158
+Entwässerung der Dachflächen,Evacuation des eaux des surfaces de toiture,40159
+Versickerung?,Infiltration?,40160
+Typ,Type,40161
+Art,Nature,40162
+Platz- und Verkehrsflächen,Places et aires de circulation,40163
+Versickerung?,Infiltration?,40164
+Typ,Type,40165
+Art,Nature,40166
+"Fallen im bestehenden Betrieb industrielle / gewerbliche Abwässer (Prozess-, Reinigungs-, Spül-, Kühlwässer) an?","L’entreprise existante produit-elle des eaux usées industrielles ou artisanales (eaux utilisées dans des procédés industriels, eaux de nettoyage, eaux de rinçage, eaux de refroidissement)?",40167
+"Fallen im neuen Betriebsteil industrielle / gewerbliche Abwässer (Prozess-, Reinigungs-, Spül-, Kühlwässer) an?","La nouvelle partie de l’entreprise produit-elle des eaux usées industrielles ou artisanales (eaux utilisées dans des procédés industriels, eaux de nettoyage, eaux de rinçage, eaux de refroidissement)?",40168
+Wie gross ist der (geschätzte) Wasserverbrauch im bestehenden Betrieb (m³/a)?,Quelle est la consommation d’eau (m³/a) prévue dans l'entreprise existante (évaluation)?,40169
+Wie gross ist der (geschätzte) Wasserverbrauch im neuen Betriebsteil (m³/a)?,Quelle est la consommation d’eau (m³/a) prévue dans la nouvelle partie de l'entreprise (évaluation)?,40170
+Ist eine Behandlung / Kontrolle der Abwässer vorhanden oder geplant?,Un traitement ou un contrôle des eaux usées est-il en place ou prévu?,40171
+Wird Kühlwaasser im Betrieb verwendet?,L’entreprise produit-elle des eaux de refroidissement?,40172
+Terrain-Kote (m ü. M.),Niveau du terrain (m s. m.),40173
+"Tiefste Kote der Aushubsohle, inkl. lokaler Vertiefungen (m ü. M.)",Cote du point le plus bas de la fouille (y compris approfondissements locaux) (m s. m.),40174
+Unterkante der Baugrubenumschliessung  (m ü. M.),Cote la plus basse de l'enceinte de la fouille  (m s. m.),40175
+Höchstmöglicher Grundwasserspiegel  (m ü. M.),Niveau maximum de la nappe (m s. m.),40176
+Mittlerer Grundwasserspiegel  (m ü. M.),Niveau moyen de la nappe (m s. m.),40177
+Im Grundwasser verbleibendes Einbauvolumen in m³ (inkl. Pfähle) bei Mittelwasserstand (MW),Volume immergé en permanence dans la nappe (y compris pieux) au niveau moyen,40178
+Art der Fundationsmassnahmen,Genre de fondations,40179
+Beschreibung,Description,40180
+Art der Baugrubenumschliessung,Enceinte de la fouille,40181
+Beschreibung,Description,40182
+Art der Grundwasserabsenkung,Technique d'abaissement de la nappe,40183
+Beschreibung,Description,40184
+Menge des abzuleitenden Grundwassers (voraussichtlich) in Liter / Minute,Quantité d'eaux évacuées (estimée) en litres/minute,40185
+Versickerung,Infiltration,40186
+Oberflächengewässer direkt?,Dans un cours d'eau directement?,40187
+Name des Gewässers,Nom du cours d'eau,40188
+Oberflächengewässer via Regenabwasserleitung?,Dans un cours d'eau via la canalisation d'eaux pluviales?,40189
+Name des Gewässers,Nom du cours d'eau,40190
+Schmutz- oder Mischwasserkanalisation?,Canalisation d'eaux usées ou d'eaux mixtes?,40191
+Ist das Vorhaben energierelevant?,Le projet est-il important au plan énergétique?,40192
+Ist der/die Projektverfasser/in identisch mit dem/der Gesamtprojektverfasser/in?,L'auteur du projet est-il le même que celui du projet global?,40193
+Name Betrieb,Nom de l’établissement ,40194
+Kontaktperson – Vorname,Contact – Prénom,40195
+Kontaktperson – Name,Contact – Nom,40196
+Strasse,Rue,40197
+Nummer,Numéro,40198
+PLZ,NPA,40199
+Ort,Localité,40200
+Telefon oder Mobile,Téléphone fixe ou mobile,40201
+E-Mail,Courriel,40202
+"Ist das Bauvorhaben Teil eines Gebäudes oder Gebäudeparks, welches bereits ein Grossverbraucher ist oder ist das Bauvorhaben ein eigenständiger Grossverbraucher?","Le projet de construction porte-t-il sur une partie de bâtiment ou un ensemble de bâtiments qui a le statut de gros consommateur, ou le projet de construction constitue-t-il à lui seul un gros consommateur?",40203
+Werden Erleichterungen vom winterlichen Wärmeschutz oder eine Befreiung vom sommerlichen Wärmeschutz beantragt?,Une demande d'allégement des exigences en matière d’isolation thermique contre le froid ou de dispense du respect des exigences en matière d’isolation thermique contre la chaleur est-elle formulée?,40204
+Wird eine Ausnahme im Sinne von Artikel 64 KEnV beantragt?,Une dérogation au sens de l'article 64 OCEn est-elle demandée?,40205
+Ist ein Schutzraum für das entsprechende Baugesuch Pflicht?,La construction d'un abri est-elle obligatoire dans le cas du projet de construction en question?,40206
+Wird eine Schutzraumbefreiung beantragt?,Une dispense de l'obligation de construire un abri est-elle demandée?,40207
+Anzahl Zimmer,Nombre de pièces,40208
+Total Schutzplätze,Nombre total de places protégées,40209
+Anzahl Betten,Nombre de lits,40210
+Total Schutzplätze,Nombre total de places protégées,40211
+Wird der Schutzraum als Sammelschutzraum erstellt?,S’agit-t-il d’un abri commun?,40212
+Für welche Gebäude?,Pour quels bâtiments,40213
+"Werden in diesen Schutzraum Gebäude, die von Sicherheitsleistung befreit sind, integriert?","Cet abri est-il également destiné à des bâtiments dont les propriétaires ont été exemptés, moyennant une sûreté, de l'obligation de construire un abri?",40214
+Amts- / Verfügungsnummer,Numéro du rapport officiel ou de la décision,40215
+Anzahl Zimmer,Nombre de pièces,40216
+Total Schutzplätze,Nombre total de places protégées,40217
+Anzahl Betten,Nombre de lits,40218
+Total Schutzplätze,Nombre total de places protégées,40219
+Begründung des Befreiungsgesuches,Motivation de la demande d'exemption,40220
+Welche Wärmepumpen sind im Bauvorhaben vorgesehen?,Quelles pompes à chaleur sont-elles prévues dans le projet de construction?,40221
+Ist der/die Projektverfasser/in identisch mit dem/der Gesamtprojektverfasser/in?,Le projet et le projet global émanent-ils du/de la même auteur/e?,40222
+Name Betrieb,Nom de l’établissement ,40223
+Kontaktperson – Vorname,Contact – Prénom,40224
+Kontaktperson – Name,Contact – Nom,40225
+Strasse,Rue,40226
+Nummer,Numéro,40227
+PLZ,NPA,40228
+Ort,Localité,40229
+Telefon oder Mobile,Téléphone fixe ou mobile,40230
+E-Mail,Courriel,40231
+Fabrikat,Marque,40232
+Typ,Type,40233
+Kältemittel,Agent réfrigérant,40234
+Füllmenge in kg,Remplissage en kg,40235
+Kälteleistung in kW (B0/W35),Puissance frigorifique en kW (B0/W35),40236
+Heizleistungsbedarf in kW (falls Kälteleistung nicht bekannt),Besoins en puissance de chauffage en kW (si la puissance frigorifique n'est pas connue),40237
+Betriebsweise,Mode de fonctionnement ,40238
+Verwendungszweck,Affectation,40239
+Beschreibung,Description,40240
+Erfolgt der Entzug / Eintrag von Wärme mittels Erdwärmesonde?,Le prélèvement/rejet de chaleur a-t-il lieu au moyen d'une sonde géothermique?,40241
+*** to delete,*** to delete,40242
+Sondenmodell,Modèle de sonde,40243
+Sondendurchmesser in mm,Diamètre des sondes en mm,40244
+Anzahl Sonden,Nombre de sondes,40245
+Bohrlänge einzeln in Meter,Longueur des forages par sonde en mètres,40246
+Borhrlänge pro Sondenmodell,Longueur des forages par modèle de sonde,40247
+Total Bohrlänge,Longueur totale des forages,40248
+Spezifische Wärmeentzugsleistung in W/m,Puissance spécifique de prélèvement de chaleur en W/m,40249
+Wärmeträgerflüssigkeit,Liquide caloporteur,40250
+Füllmenge Total in Liter,Remplissage total en litres,40251
+Erfolgt eine Regeneration oder eine aktive thermische Aufladung?,Une régénération ou une alimentation thermique active a-t-elle lieu?,40252
+System,Système,40253
+Dimensionierung der Erdwärmesonde(n) nach SIA-Norm 384-6?,La ou les sondes thermiques sont-elles dimensionnées selon la norme SIA 384-6?,40254
+Verwendungszweck,Affectation,40255
+Beschreibung,Description,40256
+Kälteleistung in kW (W10/W35),Puissance frigorifique en kW (B0/W35),40257
+Heizleistungsbedarf in kW (falls Kälteleistung nicht bekannt),Besoins en puissance de chauffage en kW (si la puissance frigorifique n'est pas connue),40258
+Lage,Situation,40259
+Verwendungszweck,Affectation,40260
+Beschreibung,Description,40261
+Kälteleistung in kW,Puissance frigorifique en kW (B0/W35),40262
+Heizleistungsbedarf in kW (falls Kälteleistung nicht bekannt),Besoins en puissance de chauffage en kW (si la puissance frigorifique n'est pas connue),40263
+Schalldruckpegel (dB(A)),Niveau sonore en dB(A),40264
+Schallleistungspegel (dB(A)),Niveau de puissance acoustique en dB(A),40265
+In Abstand (Meter),Distance en mètres,40266
+Dauert die lärmige Bauphase (Bauzeit) länger als 6 Tage?,Les travaux de construction bruyants doivent-ils durer plus de six jours?,40267
+Werden lärmintensive Bauarbeiten an mehr als 6 Tagen ausgeführt und dauern diese pro Tag länger als 1 Stunde?,Des travaux de construction particulièrement bruyants doivent-ils être exécutés pendant plus de six jours et à raison de plus d'une heure par jour?,40268
+Finden Bauarbeiten in der Nacht statt?,Des travaux de construction bruyants ont-ils lieu pendant la nuit?,40269
+Wird während der akustischen Nachtzeit (19:00 – 07:00) gearbeitet?,Des travaux sont-ils prévus pendant la période acoustique nocturne (entre 19h et 7h)?,40270
+Erfolgt Güterumschlag im Freien und/oder an Anpass- oder Andockrampen etc.?,"Le matériel et les marchandises sont-ils chargés et déchargés en plein air ou sur des plateformes de chargement, etc.?",40271
+"Werden Maschinen und/oder Anlagen betrieben, welche Aussenlärmimmissionen verursachen?",Des machines ou des installations émettant du bruit extérieur sont-elles utilisées?,40272
+Wird auf dem Areal ein mobiler oder stationärer Brecher oder Holzhacker betrieben?,Un concasseur ou un broyeur à bois mobile ou stationnaire est-il utilisé sur le site?,40273
+Werden die Immissionsgrenzwerte der Empfindlichkeitsstufe auf der bebaubaren Fläche überschritten?,Les valeurs limites d'immission selon le degré de sensibilité applicable sont-elles dépassées sur la surface constructible?,40274
+Werden die Immissionsgrenzwerte der Empfindlichkeitsstufe im offenen Fenster lärmempfindlicher Räume überschritten?,Les valeurs limites d'immission selon le degré de sensibilité applicable qui sont mesurées au milieu de la fenêtre ouverte des locaux à usage sensible au bruit sont-elles dépassées?,40275
+Seit welchem Jahr besteht der Betrieb an diesem Standort?,Depuis quelle année l'exploitation est-elle présente sur ce site?,40276
+"Beinhaltet das Vorhaben Neubauten, Umbauten, Erweiterungen oder Umnutzungen, welche mit Schadstoffen oder Gerüchen belastete Luft aus Gebäuden oder Anlagen emittiert?","Le projet comporte-t-il des constructions, des transformations, des agrandissements ou des réaffectations impliquant que des bâtiments ou des installations émettent de l’air contaminé par des substances polluantes / odorantes?",40277
+"Beinhaltet das Vorhaben Neubauten, Umbauten, Erweiterungen oder Umnutzungen mit Anlagen oder Prozessen, welche Aussenlärm erzeugen?","Le projet comporte-t-il des constructions, des transformations, des agrandissements ou des réaffectations qui impliquant des installations ou des travaux produisant du bruit extérieur?",40278
+Werden Luftemissionen erzeugt?,Des émissions atmosphériques sont-elles générées?,40279
+Art der Emmission,Nature des émissions,40280
+Beschreibung,Description,40281
+Kaminmündung überragt Dachfirst / Flachdach um … (in Meter),L’orifice de la cheminée dépasse le faîte du toit / le toit plat de … mètres,40282
+Beinhaltet das Vorhaben eine Abluftentreinigungsanlage?,Le projet comprend-il une installation de purification de l’air évacué?,40283
+Typ der Abluftentreinigungsanlage,Type de l'installation de purification de l’air évacué,40284
+Feuerung?,Installations de combustion?,40285
+Brennstoff,Combustible,40286
+Feuerwärmleistung in kW,Puissance calorifique en kW,40287
+Name Betrieb,Nom de l’établissement ,40288
+Strasse,Rue,40289
+Nummer,Numéro,40290
+PLZ,NPA,40291
+Ort,Localité,40292
+Tätigkeit des Betriebs,Activité de l’entreprise,40293
+Vorname,Prénom,40294
+Name,Nom,40295
+Telefon oder Mobile,Téléphone fixe ou mobile,40296
+E-Mail,Courriel,40297
+Alkoholausschank,Débit de boissons alcooliques,40298
+öffentlichkeit,Ouverture au public,40299
+öffnungszeiten,Heures d'ouverture,40300
+Wochentag,Jour de semaine ,40301
+Schliessungszeit,Heure de fermeture,40302
+Tanzbetrieb,Danse,40303
+Striptease,Strip-tease,40304
+Prostitution,Prostitution,40305
+Wochentag,Jour de semaine ,40306
+öffnungszeit,Heures d'ouverture,40307
+Schliesszeit,Heure de fermeture,40308
+Damen,Dames,40309
+Herren,Hommes,40310
+Pissoir,Urinoir,40311
+Stockwerk,Etage,40312
+Zahl,Nombre,40313
+Fläche in m²,Surface en m²,40314
+Sitzplätze,Places assises,40315
+davon in Sälen,Dont places en salle,40316
+Zahl,Nombre,40317
+m²,m²,40318
+Sitzplätze,Places assises,40319
+Fumoir,Fumoir,40320
+Gästezimmer,Chambres d'hôtes,40321
+Gästebetten,Lits d'hôtes,40322
+Appartements,Appartements,40323
+Massenlager,Dortoir,40324
+Personalbetten,Lits pour le personnel,40325
+Betriebskonzept,Conception d'exploitation,40326
+Folgender Raum soll als Fumoir bewilligt werden,Le local suivant doit obtenir une autorisation pour être aménagé en fumoir:,40327
+Gesamtfläche aller Ausschankräume,Total des surfaces de débit de l’établissement,40328
+Fläche Fumoir,Surface du fumoir,40329
+Anzahl Sitzplätze Fumoir,Nombre de places assises dans le fumoir,40330
+Anzahl Stehplätze Fumoir,Nombre de places debout dans le fumoir,40331
+Mechanische Lüftung,Ventilation mécanique,40332
+Luftreinigung mit HEPA Filter,Epuration de l’air avec filtre HEPA,40333
+Bar/Buffet im Fumoir,Bar / buffet dans le fumoir,40334
+Handelt es sich um eine Anlage in welcher mit gentechnisch veränderten oder pathogenen Organismen (Klasse 3 oder 4) Tätigkeiten durchgeführt werden?,S'agit-il d'une entreprise dans laquelle doit être réalisée une activité impliquant des organismes génétiquement modifiés ou pathogènes des classes 3 ou 4?,40335
+Verwendungszweck der Anlage,Affectation de l'installation,40336
+Beschreibung,Description,40337
+Stichwortartige Beschreibung der geplanten Tätigkeit,Description succincte de l’activité projetée,40338
+"Organismen, mit denen in der Anlage hauptsächlich umgegangen werden soll",Principaux organismes utilisés dans l'installation:,40339
+Beschreibung,Description,40340
+Gentechnisch veränderte Organismen,Organismes génétiquement modifiés,40341
+Klassierung der Tätigkeit nach der Einschliessungsverordnung (ESV) vom 25. August 1999,Classification de l'activité selon l’ordonnance du 25 août 1999 sur l'utilisation confinée (OUC),40342
+Sicherheitsstufe der Anlage gemäss Einschliessungsverordnung (ESV),Niveau de sécurité de l'installation selon l'ordonnance sur l'utilisation confinée (OUC),40343
+Werden alle von der ESV vorgeschriebenen baulichen Sicherheitsmassnahmen der zur Tätigkeitsklasse gehörenden Sicherheitsstufe eingehalten?,Les mesures architecturales spécifiées dans l'OUC en fonction de la classe de l’activité pour ce niveau de sécurité ont-elles toutes été prises?,40344
+Zugang zum Arbeitsbereich über Schleuse?,Accès à la zone de travail à travers un sas?,40345
+Duschmöglichkeit in der Schleuse?,Sas avec douche?,40346
+Atmosphärischer Unterdruck des Arbeitsbereiches gegenüber der unmittelbaren Umgebung?,Pression atmosphérique de la zone de travail inférieure à celle de l’environnement immédiat?,40347
+Für Produktionsanlagen: Kann der gesamte Inhalt des primären Systems bei allfälligem Auslaufen zurückgehalten werden?,Installations de production: la zone de travail est-elle conçue de manière telle que tout le contenu de la zone de confinement primaire puisse être collecté et retenu en cas de déversement?,40348
+HEPA-Filter für die Zuluft (HEPA = high effciency particulate air)?,L’air entrant de la zone de travail est-il filtré par un filtre HEPA (high effciency particulate air)?,40349
+HEPA-Filter für Abluft?,L’air sortant de la zone de travail est-il filtré par un filtre HEPA?,40350
+"Ist der Arbeitsbereich so abgedichtet, dass eine Begasung möglich ist?",La zone de travail est-elle rendue étanche de manière à permettre les fumigations?,40351
+Sterilisation des Abwassers?,Stérilisation des eaux usées,40352
+Verfahren für die Sterilisation des Abwassers,Méthode de stérilisation des eaux usées,40353
+Bemerkungen,Remarques,40354
+"Neubauten oder bauliche Veränderungen in einem Betrieb, in dem die Mengenschwellen für Stoffe, Zubereitungen oder Sonderabfälle mit dem Projekt überschritten werden.","Nouvelles constructions ou modifications apportées aux ouvrages dans une entreprise dans laquelle le projet prévoit que les seuils quantitatifs s’appliquant aux substances, préparations ou déchets spéciaux sont dépassés",40355
+"Neubauten oder bauliche Veränderungen in einem Betrieb, in dem die Mengenschwelle für hochaktive Stoffe (HAS) überschritten wird.",Nouvelles constructions ou modifications apportées aux ouvrages dans une entreprise dans laquelle le seuil quantitatif s’appliquant aux substances de haute activité (SHA) est dépassé,40356
+"Wurde der aktuelle Betrieb aufgrund seines Potenzials für Bevölkerung oder Umwelt schwer schädlich oder gefährlich sein zu können, durch die Vollzugsbehörde auf der Basis von Art. 1 Abs. 3 StFV bereits der Verordnung unterstellt?","L’autorité d’exécution a-t-elle soumis l'entreprise existante à l'OPAM sur la base de l'article 1, alinéa 3 OPAM en raison du danger potentiel d'atteinte grave à la population ou à l’environnement qu'elle présente?
+",40357
+Liegt für den aktuellen Betrieb bereits ein Kurzbericht gemäss StFV vor?,Existe-t-il un rapport succinct actuel du détenteur de l'entreprise au sens de l'OPAM?,40358
+Kurzbericht-Datum,Date du rapport succinct,40359
+Liegt für den aktuellen Betrieb bereits eine Risikoermittlung gemäss StFV vor?,L'entreprise a-t-il fait l'objet d'une étude de risque actuelle au sens de l'OPAM?,40360
+Risikoermittlung-Datum,Date de l'étude de risque,40361
+Welche der folgenden Anlagen sind geplant?,Lesquelles des installations suivantes sont-elles projetées?,40362
+"Bestehen Bedenken oder Einwände hinsichtlich Lichtreflektionen (Blendungen), welche für die Nachbarschaft störend sein können?",Existe-t-il des inquiétudes ou des objections en raison d'une réverbération optique (éblouissement) qui pourraient déranger le voisinage?,40363
+Name Betrieb,Nom de l’établissement ,40364
+Strasse,Rue,40365
+Nummer,Numéro,40366
+PLZ,NPA,40367
+Ort,Localité,40368
+Tätigkeit des Betriebs,Activité de l’entreprise,40369
+Vorname,Prénom,40370
+Name,Nom,40371
+Telefon oder Mobile,Téléphone fixe ou mobile,40372
+E-Mail,Courriel,40373
+Bezeichnung,Désignation,40374
+Typ,Type,40375
+Verwendung,Utilisation,40376
+Standort,Site,40377
+Ist der Bau im Wald oder innerhalb von 30 m Abstand zum Wald?,La construction est-elle située en forêt ou distante de moins de 30 mètres de la forêt?,40378
+Handelt es sich um eine Baute im Wald?,S'agit-il d'une construction en forêt?,40379
+Ist für das Vorhaben eine Rodung notwendig (Grössere Zweckentfremdung von Waldboden)?,Le projet implique-t-il un défrichement (désaffectation d'une relativement grande surface de sol forestier)?,40380
+Nicht forstliche Kleinbaute?,Petite construction non forestière?,40381
+Forstliche Baute?,Construction forestière?,40382
+Liegt die Baute im Waldabstandsbereich?,Construction distante de moins de 30 mètres de la forêt?,40383
+"Begründung, weshalb der gesetzliche Waldabstand unterschritten werden soll",Justifi_x001F_cation de la nécessité de déroger à la distance légale par rapport à la forêt,40384
+Parzellen-Nr.,N° de parcelle,40385
+Waldabstand,Distance par rapport à la forêt,40386
+Vorname,Prénom,40387
+Name,Nom,40388
+Strasse,Rue,40389
+Nr.,N°,40390
+Ort,Localité,40391
+PLZ,NPA,40392
+Grundbuch-Nr.,N° du registre foncier,40393
+Gibt es bewilligungspflichtige Reklame?,Une réclame soumise à autorisation est-elle prévue?,40394
+Reklame,Réclame,40395
+Gesamtlänge in cm,Longueur totale en cm,40396
+Breite in cm,Largeur en cm,40397
+Text,Texte,40398
+Grundfarbe(n),Couleur/s du fond,40399
+Schriftfarbe(n) bei Tag,Couleur/s du texte de jour,40400
+Schriftfarbe(n) bei Nacht,Couleur/s du texte de nuit,40401
+Art der Beleuchtung,Type d'éclairage,40402
+Abschaltung geplant?,Extinction prévue?,40403
+von,De,40404
+bis,à,40405
+Bemerkung zur Beleuchtung,Remarques sur l’éclairage,40406
+Montageort am Gebäude (Fassadenbezeichnung),Lieu du montage sur le bâtiment (désignation des façades),40407
+A) von der Fassade bis Aussenkante der Reklame (in cm),A) Distance de la façade au bord extérieur de la réclame (en cm),40408
+B) ab Boden bis zur Unterkante der Reklame (in cm),B) Distance du sol au bord inférieur de la réclame (en cm),40409
+C) von Fahrbahnrand bis zur Aussenkante der Reklame (in cm),C) Distance du bord de la chaussée au bord extérieur de la réclame (en cm),40410
+"Beschrieb des Montageortes einer freistehenden Reklame (Situation, Umgebung usw.)","Description du lieu de montage libre (emplacement, environs, etc.)",40411
+Bemerkungen,Remarques,40412
+Ist beim Bauvorhaben mit Bauabfällen zu rechnen (inklusive Boden)?,Y a-t-il lieu de s'attendre à ce que le projet de construction produise des déchets de chantier (matériaux terreux compris)?,40413
+Ist ein belasteter Standort betroffen?,Un site pollué est-il concerné?,40414
+Werden bestehende Bauten zurückgebaut (inklusive Aushub)?,Une déconstruction est-elle prévue (production de matériaux d'excavation comprise)?,40415
+Sind Bauschadstoffe zu erwarten?,Y a-t-il lieu de s'attendre à la présence de substances nocives dans les matériaux de construction?,40416
+Umfasst die Bauabfallmenge > insgesamt 200 m³?,La quantité de déchets de chantier atteint-elle 200 m³?,40417
+Name Betrieb,Nom de l’établissement ,40418
+Strasse,Rue,40419
+Nummer,Numéro,40420
+PLZ,NPA,40421
+Ort,Localité,40422
+Tätigkeit des Betriebs,Activité de l’entreprise,40423
+Vorname,Prénom,40424
+Name,Nom,40425
+Telefon oder Mobile,Téléphone fixe ou mobile,40426
+E-Mail,Courriel,40427
+Vorname,Prénom,40428
+Name,Nom,40429
+Telefon oder Mobile,Téléphone fixe ou mobile,40430
+E-Mail,Courriel,40431
+Anzahl Arbeitsplätze aktuell,Nombre actuel de postes de travail,40432
+Anzahl Arbeitsplätze nach Umbau,Nombre de postes de travail au terme des travaux de transformation,40433
+Anzahl Mitarbeitende aktuell,Nombre actuel de collaborateurs/collaboratrices,40434
+Anzahl Mitarbeitende nach Umbau,Nombre de collaborateurs/collaboratrices au terme des travaux de transformation,40435
+Anzahl Jugendliche aktuell,Nombre actuel de jeunes collaborateurs/collaboratrices,40436
+Anzahl Jugendliche nach Umbau,Nombre de jeunes collaborateurs/collaboratrices au terme des travaux de transformation,40437
+Art der Notausgänge,Type de sorties/issues de secours,40438
+Notbeleuchtung,Eclairage de secours,40439
+Ort,Localité,40440
+Mittlerer Schallabsorptionsgrad (αs),Coefficient d'absorption acoustique moyen  (αs),40441
+Wert,Valeur,40442
+Nachhallzeiten (Tm),Temps de réverbération (Tm),40443
+Wert,Valeur,40444
+Schalldruckpegelabnahme pro Distanzverdoppelung (DL2),Taux de décroissance spatiale par doublement de la distance (DL2),40445
+Wert,Valeur,40446
+Bezeichnung,Désignation,40447
+Typ,Type,40448
+Verwendung,Utilisation,40449
+Standort,Site,40450
+Handelt es sich um ein sensibles Objekt?,S'agit-il d'un objet sensible?,40451
+Gefahrenstufe,Niveau de danger,40452
+Hauptprozessart,Type de phénomène principal,40453
+Prozessart,Type de phénomène,40454
+Beschreibung der Gefährdung,Description du danger,40455
+Gebäudeversicherungswert vor der Erneuerung in CHF,Valeur d’assurance du bâtiment avant la rénovation en francs,40456
+"Activation document ""Ausnützung""","Activation du document ""Utilisation""",40457
+"Activation document ""Grünfläche""","Activation du document ""Surface verte""",40458
+"Activation document ""Überbauung""","Activation du document ""Occupation du sol""",40459
+"Activation document ""Geschossflächen""","Activation du document ""Surfaces de plancher""",40460
+"Activation document ""QS-Verantwortlicher und Projektorganisation""","Activation du document ""Responsable du système d’assurance qualité et organisation de projet""",40461
+"Activation document ""Brandschutzplan""","Activation du document ""Plan de protection contre l'incendie""",40462
+"Activation document ""Brandschutzkonzept""","Activation du document ""Stratégie de protection contre l'incendie""",40463
+"Activation document ""Qualitätssicherungskonzept""","Activation du document ""Système d’assurance qualité""",40464
+Handelt es sich um eine juristische Person?,S'agit-il d'une personne morale?,40465
+"Activation document ""Betriebskonzept Gastgewerbe""","Activation du document ""Hôtellerie et restauration: conception d'exploitation""",40466
+"Activation page ""Betrieb - Allgemeine Angaben""","Activation de la page ""Indications générales sur l'installation""",40467
+Um welche Gesuchsbewilligungsart handelt es sich?,Quel est le genre de permis demandé?,40468
+Beschreibung,Description,40469
+Sind Profile nach den Vorschriften von Art. 16 BewD (insbesondere auch Kote EG) vorhanden?,Le gabarit est-il conforme aux prescriptions de l'article 16 DPC (en particulier la cote du rez-de chaussée)?,40474
+Bemerkungen,Remarques,40475
+Sind die Formulare vollständig ausgefüllt und unterzeichnet?,Tous les formulaires ont-ils été intégralement remplis et signés?,40476
+Bemerkungen,Remarques,40477
+Sind die verlangten Beilagen vorhanden?,Les annexes exigées ont-elles été remises?,40478
+Bemerkungen,Remarques,40479
+Liegen Begründungen für Ausnahmen vor?,Des motifs ont-ils été exposés à l'appui d'une demande de dérogation?,40480
+Bemerkungen,Remarques,40481
+Entsprechen Form und Inhalt des Situationsplanes den Vorgaben (Art. 12 und 13 BewD)?,La forme et le contenu du plan de situation sont-ils conformes aux articles 12 et 13 DPC?,40482
+Bemerkungen,Remarques,40483
+Sind Projektpläne im Sinne von Art. 14 BewD vorhanden und entsprechen die Planinhalte den Anforderungen?,Les plans requis au sens de l'article 14 DPC figurent-ils dans le dossier et leur contenu est-il conforme aux exigences?,40484
+Bemerkungen,Remarques,40485
+Offenkundige materielle Mängel,Vices matériels manifestes,40486
+Zuständige Baubewilligungsbehörde,Autorité d'octroi du permis de construire compétente,40487
+Sachbearbeiter/in,Responsable du dossier,40488
+Tel.-Nr.,N° de téléphone,40489
+Fax-Nr.,N° de télécopie,40490
+E-Mail,Courriel,40491
+Um welche Gesuchsbewilligungsart handelt es sich?,Quel est le genre de permis demandé?,40492
+Bemerkungen,Remarques,40493
+Sind Profile nach den Vorschriften von Art. 16 BewD (insbesondere auch Kote EG) vorhanden?,Le gabarit est-il conforme aux prescriptions de l'article 16 DPC (en particulier la cote du rez-de chaussée)?,40494
+Bemerkungen,Remarques,40495
+Sind die Formulare vollständig ausgefüllt und unterzeichnet?,Tous les formulaires ont-ils été intégralement remplis et signés?,40496
+Bemerkungen,Remarques,40497
+Sind die verlangten Beilagen vorhanden?,Les annexes exigées ont-elles été remises?,40498
+Bemerkungen,Remarques,40499
+Liegen Begründungen für Ausnahmen vor?,Des motifs ont-ils été exposés à l'appui d'une demande de dérogation?,40500
+Bemerkungen,Remarques,40501
+Entsprechen Form und Inhalt des Situationsplanes den Vorgaben (Art. 12 und 13 BewD)?,La forme et le contenu du plan de situation sont-ils conformes aux articles 12 et 13 DPC?,40502
+Bemerkungen,Remarques,40503
+Sind Projektpläne im Sinne von Art. 14 BewD vorhanden und entsprechen die Planinhalte den Anforderungen?,Les plans requis au sens de l'article 14 DPC figurent-ils dans le dossier et leur contenu est-il conforme aux exigences?,40504
+Bemerkungen,Remarques,40505
+Offenkundige materielle Mängel,Vices matériels manifestes,40506
+Zuständige Baubewilligungsbehörde,Autorité d'octroi du permis de construire compétente,40507
+Sachbearbeiter/in,Responsable du dossier,40508
+Tel.-Nr.,N° de téléphone,40509
+Fax-Nr.,N° de télécopie,40510
+E-Mail,Courriel,40511
+Sind die erforderlichen Beilagen zum Baugesuch vorhanden?,Les annexes devant accompagner la demande de permis de construire ont-elles été remises?,40512
+Welche Beilagen fehlen?,Quelles annexes manquent-elles?,40513
+Sachbearbeiter/in,Responsable du dossier,40514
+Tel.-Nr.,N° de téléphone,40515
+Fax-Nr.,N° de télécopie,40516
+E-Mail,Courriel,40517
+Geprüft am,Examiné le,40518
+Handelt es sich um eine Baute ausserhalb der Bauzone,S'agit-il d'une construction hors de la zone à bâtir?,40519
+Befindet sich das Bauvorhaben im Streusiedlungsgebiet?,Le projet de construction concerne-t-il un territoire à habitat dispersé?,40520
+Wann wurde das Gebäude erstellt?,Quand le bâtiment a-t-il été construit?,40521
+Dient das Gebäude noch der erwerbsmässigen Landwirtschaft?,Le bâtiment est-il encore affecté à l'agriculture professionnelle?,40522
+Wurde das Gebäude seit dem 01.07.1972 bereits um- und ausgebaut?,Le bâtiment a-t-il déjà été transformé depuis le 1er juillet 1972?,40523
+Wurde das Bauvorhaben in Zusammenarbeit mit der Abt. Strukturverbesserung und Produktion (ASP) des LANAT bereits vorgeprüft?,Le projet de construction a-t-il fait l'objet d'un examen préalable en collaboration avec le Service des améliorations structurelles et de la production (SASP) de l'OAN?,40524
+Bemerkungen,Remarques,40525
+Befindet sich das Vorhaben in einem Ortsbildschutzperimeter?,Le projet concerne-t-il un périmètre de protection du site?,40526
+Bemerkungen,Remarques,40527
+Bestehend am 01.07.1972,Existant au 1er juillet 1972,40528
+Bestehend am 01.07.1972,Existant au 1er juillet 1972,40529
+Bestehend am 01.07.1972 (in m²),Existant au 1er juillet 1972 (en m²),40530
+Heute (in m²),Actuellement (en m²),40531
+Nach Ausbau (in m²),Après la transformation (en m²),40532
+Bestehend am 01.07.1972 (in m²),Existant au 1er juillet 1972 (en m²),40533
+Heute (in m²),Actuellement (en m²),40534
+Nach Ausbau (in m²),Après la transformation (en m²),40535
+Bemerkungen,Remarques,40536
+Nutzungsart,Type d'affectation,40537
+Nutzungsart rating,Type d'affectation (rating),40538
+Nutzungsart Bemerkungen,Remarques sur le type d'affectation,40539
+Zonenkonformität,Conformité à l'affectation de la zone,40540
+Zonenkonformität rating,Conformité à l'affectation de la zone (rating),40541
+Zonenkonformität Bemerkungen,Remarques sur la conformité à l'affectation de la zone,40542
+Wohnungsanteil,Taux d'habitation,40543
+Wohnungsanteil rating,Taux d'habitation (rating),40544
+Wohnungsanteil Bemerkungen,Remarques sur le taux d'habitation,40545
+offen,Ordre des constructions non contigu,40546
+offen rating,Ordre des constructions non contigu (rating),40547
+offen Bemerkungen,Remarques sur l'ordre des constructions non contigu,40548
+geschlossen,Ordre des constructions contigu,40549
+geschlossen rating,Ordre des constructions contigu (rating),40550
+geschlossen Bemerkungen,Remarques sur l'ordre des constructions contigu,40551
+Gestaltungsfreiheit,Ordre des constructions: liberté de conception,40552
+Gestaltungsfreiheit rating,Ordre des constructions: liberté de conception (rating),40553
+Gestaltungsfreiheit Bemerkungen,Remarques sur la liberté de conception (ordre des constructions),40554
+Fixpunkt (Ausgangshöhe),Point fixe (cote du sol fini du rez-de-chaussée),40555
+Fixpunkt (Ausgangshöhe) rating,Point fixe (cote du sol fini du rez-de-chaussée) (rating),40556
+Fixpunkt (Ausgangshöhe) Bemerkungen,Remarques sur le point fixe (cote du sol fini du rez-de-chaussée),40557
+Gebäudehöhe,Hauteur du bâtiment,40558
+Gebäudehöhe rating,Hauteur du bâtiment (rating),40559
+Gebäudehöhe Bemerkungen,Remarques sur la hauteur du bâtiment,40560
+Firsthöhe,Hauteur du faîte,40561
+Firsthöhe rating,Hauteur du faîte (rating),40562
+Firsthöhe Bemerkungen,Remarques sur la hauteur du faîte,40563
+Geschosszahl,Nombre d’étages,40564
+Geschosszahl rating,Nombre d’étages (rating),40565
+Geschosszahl Bemerkungen,Remarques sur le nombre d’étages,40566
+Kniewand/Kniestockhöhe,Hauteur du mur de combles,40567
+Kniewand/Kniestockhöhe rating,Hauteur du mur de combles (rating),40568
+Kniewand/Kniestockhöhe Bemerkungen,Remarques sur la hauteur du mur de combles,40569
+Dachausbau,Aménagement des combles,40570
+Dachausbau rating,Aménagement des combles (rating),40571
+Dachausbau Bemerkungen,Remarques sur l'aménagement des combles,40572
+Dachform,Forme de la toiture,40573
+Dachform rating,Forme de la toiture (rating),40574
+Dachform Bemerkungen,Remarques sur la forme de la toiture,40575
+Dachneigung,Pente de la toiture,40576
+Dachneigung rating,Pente de la toiture (rating),40577
+Dachneigung Bemerkungen,Remarques sur la pente de la toiture,40578
+Dachvorsprünge,Avant-toits,40579
+Dachvorsprünge rating,Avant-toits (rating),40580
+Dachvorsprünge Bemerkungen,Remarques sur les avant-toits,40581
+Dachaufbauten,Superstructures du toit,40582
+Dachaufbauten rating,Superstructures du toit (rating),40583
+Dachaufbauten Bemerkungen,Remarques sur les superstructures du toit,40584
+Galerie,Galerie,40585
+Galerie rating,Galerie (rating),40586
+Galerie Bemerkungen,Remarques sur la galerie,40587
+Gebäudelänge,Longueur du bâtiment,40588
+Gebäudelänge rating,Longueur du bâtiment (rating),40589
+Gebäudelänge Bemerkungen,Remarques sur la longueur du bâtiment,40590
+Gebäudebreite,Largeur du bâtiment,40591
+Gebäudebreite rating,Largeur du bâtiment (rating),40592
+Gebäudebreite Bemerkungen,Remarques sur la largeur du bâtiment,40593
+Mehrlängen- + breitenzuschlag,Supplément de distance sur les côtés longs et étroits,40594
+Mehrlängen- + breitenzuschlag rating,Supplément de distance sur les côtés longs et étroits (rating),40595
+Mehrlängen- + breitenzuschlag Bemerkungen,Remarques sur le supplément de distance sur les côtés longs et étroits,40596
+Überbauungsprozente,Taux d'occupation du sol,40597
+Überbauungsprozente rating,Taux d'occupation du sol (rating),40598
+Überbauungsprozente Bemerkungen,Remarques sur le taux d'occupation du sol,40599
+Nutzungsübertragung,Transfert de l'affectation,40600
+Nutzungsübertragung rating,Transfert de l'affectation (rating),40601
+Nutzungsübertragung Bemerkungen,Remarques sur le transfert de l'affectation,40602
+Grünflächenziffer,Indice de surface verte,40603
+Grünflächenziffer rating,Indice de surface verte (rating),40604
+Grünflächenziffer Bemerkungen,Remarques sur l'indice de surface verte,40605
+Gebäudeproportionen (Verhältnis B zu H),Proportions du bâtiment (rapport largeur - hauteur),40606
+Gebäudeproportionen (Verhältnis B zu H) rating,Proportions du bâtiment (rapport largeur - hauteur) (rating),40607
+Gebäudeproportionen (Verhältnis B zu H) Bemerkungen,Remarques sur les proportions du bâtiment (rapport largeur - hauteur),40608
+EWAP,THP,40609
+EWAP rating,THP (rating),40610
+EWAP Bemerkungen,Remarques sur le THP,40611
+Baulinien,Alignement,40612
+Baulinien rating,Alignement (rating),40613
+Baulinien Bemerkungen,Remarques sur l'alignement,40614
+Hauptgebäude bewohnt,Bâtiment principal habité,40615
+Hauptgebäude bewohnt rating,Bâtiment principal habité (rating),40616
+Hauptgebäude bewohnt Bemerkungen,Remarques sur le bâtiment principal habité,40617
+Hauptgebäude unbewohnt,Bâtiment principal inhabité,40618
+Hauptgebäude unbewohnt rating,Bâtiment principal inhabité (rating),40619
+Hauptgebäude unbewohnt Bemerkungen,Remarques sur le bâtiment principal inhabité,40620
+Nebengebäude bewohnt,Annexe habitée,40621
+Nebengebäude bewohnt rating,Annexe habitée (rating),40622
+Nebengebäude bewohnt Bemerkungen,Remarques sur l'annexe habitée,40623
+Nebengebäude unbewohnt,Annexe inhabitée,40624
+Nebengebäude unbewohnt rating,Annexe inhabitée (rating),40625
+Nebengebäude unbewohnt Bemerkungen,Remarques sur l'annexe inhabitée,40626
+grosser Grenzabstand,Grande distance à la limite,40627
+grosser Grenzabstand rating,Grande distance à la limite (rating),40628
+grosser Grenzabstand Bemerkungen,Remarques sur la grande distance à la limite,40629
+Auskragung offener Bauteile,Empiétement de parties en saillie,40630
+Auskragung offener Bauteile rating,Empiétement de parties en saillie (rating),40631
+Auskragung offener Bauteile Bemerkungen,Remarques sur l'empiétement de parties en saillie,40632
+Grenzabstand unterirdischer Bauteile,Distance à la limite souterraine,40633
+Grenzabstand unterirdischer Bauteile rating,Distance à la limite souterraine (rating),40634
+Grenzabstand unterirdischer Bauteile Bemerkungen,Remarques sur la distance à la limite souterraine,40635
+Gebäudeabstand,Distance entre les bâtiments,40636
+Gebäudeabstand rating,Distance entre les bâtiments (rating),40637
+Gebäudeabstand Bemerkungen,Remarques sur la distance entre les bâtiments,40638
+Strassenabstand,Distance par rapport à la route,40639
+Strassenabstand rating,Distance par rapport à la route (rating),40640
+Strassenabstand Bemerkungen,Remarques sur la distance par rapport à la route,40641
+Abstand von Gewässern,Distance par rapport aux eaux,40642
+Abstand von Gewässern rating,Distance par rapport aux eaux (rating),40643
+Abstand von Gewässern Bemerkungen,Remarques sur la distance par rapport aux eaux,40644
+Abstand vom Wald,Distance par rapport à la forêt,40645
+Abstand vom Wald rating,Distance par rapport à la forêt (rating),40646
+Abstand vom Wald Bemerkungen,Remarques sur la distance par rapport à la forêt,40647
+Abstand von Zonengrenzen,Distance par rapport aux limites de zone,40648
+Abstand von Zonengrenzen rating,Distance par rapport aux limites de zone (rating),40649
+Abstand von Zonengrenzen Bemerkungen,Remarques sur la distance par rapport aux limites de zone,40650
+Bauabstände zu Leitungen,Distances par rapport aux conduites,40651
+Bauabstände zu Leitungen rating,Distances par rapport aux conduites (rating),40652
+Bauabstände zu Leitungen Bemerkungen,Remarques sur les distances par rapport aux conduites,40653
+Schutzzone,Zone de protection,40654
+Schutzzone rating,Zone de protection (rating),40655
+Schutzzone Bemerkungen,Remarques sur la zone de protection,40656
+erhaltenswert,Objet digne de conservation,40657
+erhaltenswert rating,Objet digne de conservation (rating),40658
+erhaltenswert Bemerkungen,Remarques sur l'objet digne de conservation,40659
+schützenswert,Objet digne de protection,40660
+schützenswert rating,Objet digne de protection (rating),40661
+schützenswert Bemerkungen,Remarques sur l'objet digne de protection,40662
+Baugruppe,Ensemble bâti,40663
+Baugruppe rating,Ensemble bâti (rating),40664
+Baugruppe Bemerkungen,Remarques sur l'ensemble bâti,40665
+ISOS,ISOS,40666
+ISOS rating,ISOS (rating),40667
+ISOS Bemerkungen,Remarques sur l'ISOS,40668
+Kant. Naturschutzgebiet,Réserve naturelle cantonale,40669
+Kant. Naturschutzgebiet rating,Réserve naturelle cantonale (rating),40670
+Kant. Naturschutzgebiet Bemerkungen,Remarques sur la réserve naturelle cantonale,40671
+Hecken,Haies,40672
+Hecken rating,Haies (rating),40673
+Hecken Bemerkungen,Remarques sur les haies,40674
+BLN und weitere Bundesinventare,IFP et autres inventaires fédéraux,40675
+BLN und weitere Bundesinventare rating,IFP et autres inventaires fédéraux (rating),40676
+BLN und weitere Bundesinventare Bemerkungen,Remarques sur l'IFP et les autres inventaires fédéraux,40677
+Moorlandschaft,Site marécageux,40678
+Moorlandschaft rating,Site marécageux (rating),40679
+Moorlandschaft Bemerkungen,Remarques sur le site marécageux,40680
+IVS,IVS,40681
+IVS rating,IVS (rating),40682
+IVS Bemerkungen,Remarques sur l'IVS,40683
+Besondere Verhältnisse,Circonstances particulières,40684
+Besondere Verhältnisse rating,Circonstances particulières (rating),40685
+Besondere Verhältnisse Bemerkungen,Remarques sur les circonstances particulières,40686
+Bauen in der Landwirtschaftszone,Construction en zone agricole,40687
+Bauen in der Landwirtschaftszone rating,Construction en zone agricole (rating),40688
+Bauen in der Landwirtschaftszone Bemerkungen,Remarques sur la construction en zone agricole,40689
+Kinderspielplätze,Places de jeux pour enfants,40690
+Kinderspielplätze rating,Places de jeux pour enfants (rating),40691
+Kinderspielplätze Bemerkungen,Remarques sur les places de jeux pour enfants,40692
+Aufenthaltsbereiche,Aires de loisirs,40693
+Aufenthaltsbereiche rating,Aires de loisirs (rating),40694
+Aufenthaltsbereiche Bemerkungen,Remarques sur les aires de loisirs,40695
+Abstellräume,Réduits,40696
+Abstellräume rating,Réduits (rating),40697
+Abstellräume Bemerkungen,Remarques sur les réduits,40698
+Wohnen,Habitat,40699
+Wohnen rating,Habitat (rating),40700
+Wohnen Bemerkungen,Remarques sur l'habitat,40701
+Gewerbe,Artisanat,40702
+Gewerbe rating,Artisanat (rating),40703
+Gewerbe Bemerkungen,Remarques sur l'artisanat,40704
+Anstellfläche für Kinderwagen und Velo,Places de stationnement pour voitures d'enfant ou pour bicyclettes,40705
+Anstellfläche für Kinderwagen und Velo rating,Places de stationnement pour voitures d'enfant ou pour bicyclettes (rating),40706
+Anstellfläche für Kinderwagen und Velo Bemerkungen,Remarques sur les places de stationnement pour voitures d'enfant ou pour bicyclettes,40707
+grosse Spielfläche,Grande surface de jeu,40708
+grosse Spielfläche rating,Grande surface de jeu (rating),40709
+grosse Spielfläche Bemerkungen,Remarques sur la grande surface de jeu,40710
+Bepflanzung,Plantations,40711
+Bepflanzung rating,Plantations (rating),40712
+Bepflanzung Bemerkungen,Remarques sur les plantations,40713
+Kehrichtplatz,Place pour déchets,40714
+Kehrichtplatz rating,Place pour déchets (rating),40715
+Kehrichtplatz Bemerkungen,Remarques sur la place pour déchets,40716
+Zufahrt,Accès,40717
+Zufahrt rating,Accès (rating),40718
+Zufahrt Bemerkungen,Remarques sur l'accès,40719
+"Breite, Gefälle","Largeur, déclivité",40720
+"Breite, Gefälle rating","Largeur, déclivité (rating)",40721
+"Breite, Gefälle Bemerkungen",Remarques sur la largeur ou la déclivité,40722
+Zugangsrecht,Droit d'accès,40723
+Zugangsrecht rating,Droit d'accès (rating),40724
+Zugangsrecht Bemerkungen,Remarques sur le droit d'accès,40725
+Strassenanschluss,Débouché,40726
+Strassenanschluss rating,Débouché (rating),40727
+Strassenanschluss Bemerkungen,Remarques sur le débouché,40728
+Einordnung und Gestaltung,Intégration et forme,40729
+Einordnung und Gestaltung rating,Intégration et forme (rating),40730
+Einordnung und Gestaltung Bemerkungen,Remarques sur l'intégration et la forme,40731
+Gebäudestellung im Gelände,Implantation du bâtiment,40732
+Gebäudestellung im Gelände rating,Implantation du bâtiment (rating),40733
+Gebäudestellung im Gelände Bemerkungen,Remarques sur l'implantation du bâtiment,40734
+Gebäudestellung zur Strasse,Position du bâtiment par rapport à la route,40735
+Gebäudestellung zur Strasse rating,Position du bâtiment par rapport à la route (rating),40736
+Gebäudestellung zur Strasse Bemerkungen,Remarques sur la position du bâtiment par rapport à la route,40737
+Firstrichtung,Orientation du faîte,40738
+Firstrichtung rating,Orientation du faîte (rating),40739
+Firstrichtung Bemerkungen,Remarques sur l'orientation du faîte,40740
+Gebäudeform / Proportionen,Formes et proportions du bâtiment,40741
+Gebäudeform/Proportionen rating,Formes et proportions du bâtiment (rating),40742
+Gebäudeform/Proportionen Bemerkungen,Remarques sur la forme et les proportions du bâtiment,40743
+Material- und Farbwahl,Choix des matériaux et des couleurs,40744
+Material- und Farbwahl rating,Choix des matériaux et des couleurs (rating),40745
+Material- und Farbwahl Bemerkungen,Remarques sur le choix des matériaux et des couleurs,40746
+Umgebungsgestaltung,Aménagement des abords,40747
+Umgebungsgestaltung rating,Aménagement des abords (rating),40748
+Umgebungsgestaltung Bemerkungen,Remarques sur l'aménagement des abords,40749
+"Einfriedungen, Stützmauern, Böschungen","Clôtures, murs de soutènement, talus",40750
+"Einfriedungen, Stützmauern, Böschungen rating","Clôtures, murs de soutènement, talus (rating)",40751
+"Einfriedungen, Stützmauern, Böschungen Bemerkungen","Remarques sur les clôtures, murs de soutènement, talus",40752
+Fachstellen,Services spécialisés,40753
+Fachstellen rating,Services spécialisés (rating),40754
+Fachstellen Bemerkungen,Remarques sur les services spécialisés,40755
+Antennen,Antennes,40756
+Antennen rating,Antennes (rating),40757
+Antennen Bemerkungen,Remarques sur les antennes,40758
+Energiekollektoren,Capteurs d'énergie,40759
+Energiekollektoren rating,Capteurs d'énergie (rating),40760
+Energiekollektoren Bemerkungen,Remarques sur les capteurs d'énergie,40761
+Terrainveränderungen,Modifications de terrain,40762
+Terrainveränderungen rating,Modifications de terrain (rating),40763
+Terrainveränderungen Bemerkungen,Remarques sur les modifications de terrain,40764
+Fotodokumentation,Documentation photographique,40765
+Fotodokumentation rating,Documentation photographique (rating),40766
+Fotodokumentation Bemerkungen,Remarques sur la documentation photographique,40767
+"Belichtung, Belüftung und Besonnung","Luminosité, aération et ensoleillement",40768
+"Belichtung, Belüftung und Besonnung rating","Luminosité, aération et ensoleillement (rating)",40769
+"Belichtung, Belüftung und Besonnung Bemerkungen","Remarques sur la luminosité, l'aération et l'ensoleillement",40770
+Raumhöhe,Hauteur des locaux,40771
+Raumhöhe rating,Hauteur des locaux (rating),40772
+Raumhöhe Bemerkungen,Remarques sur la hauteur des locaux,40773
+Raumhöhe abgeschrägt,Hauteur des locaux mansardés,40774
+Raumhöhe abgeschrägt rating,Hauteur des locaux mansardés (rating),40775
+Raumhöhe abgeschrägt Bemerkungen,Remarques sur la hauteur des locaux mansardés,40776
+Raumgrösse (mind. 8 m²),Dimensions des locaux (min. 8 m²),40777
+Raumgrösse (mind. 8 m²) rating,Dimensions des locaux (min. 8 m²) (rating),40778
+Raumgrösse (mind. 8 m²) Bemerkungen,Remarques sur les dimensions des locaux (min. 8 m²),40779
+Wohnräume im UG,Locaux d'habitation en sous-sol,40780
+Wohnräume im UG rating,Locaux d'habitation en sous-sol (rating),40781
+Wohnräume im UG Bemerkungen,Remarques sur les locaux d'habitation en sous-sol,40782
+Sanitäre Einrichtungen,Installations sanitaires,40783
+Sanitäre Einrichtungen rating,Installations sanitaires (rating),40784
+Sanitäre Einrichtungen Bemerkungen,Remarques sur les installations sanitaires,40785
+Radon,Radon,40786
+Radon rating,Radon (rating),40787
+Radon Bemerkungen,Remarques sur le radon,40788
+Naturgefahren / Gefahrengebiet,Dangers naturels / zone de danger,40789
+Naturgefahren/Gefahrengebiet rating,Dangers naturels / zone de danger (rating),40790
+Naturgefahren/Gefahrengebiet Bemerkungen,Remarques sur les dangers naturels et la zone de danger,40791
+Sicherheit im Allgemeinen,Sécurité en général,40792
+Sicherheit im Allgemeinen rating,Sécurité en général (rating),40793
+Sicherheit im Allgemeinen Bemerkungen,Remarques sur la sécurité en général,40794
+Schutzvorrichtungen,Dispositifs de sécurité,40795
+Schutzvorrichtungen rating,Dispositifs de sécurité (rating),40796
+Schutzvorrichtungen Bemerkungen,Remarques sur les dispositifs de sécurité,40797
+Treppenbreiten,Largeur des escaliers,40798
+Treppenbreiten rating,Largeur des escaliers (rating),40799
+Treppenbreiten Bemerkungen,Remarques sur la largeur des escaliers,40800
+Aufzüge,Ascenseurs,40801
+Aufzüge rating,Ascenseurs (rating),40802
+Aufzüge Bemerkungen,Remarques sur les ascenseurs,40803
+Bauliche Vorkehrungen für Behinderte,Mesures de construction en faveur des handicapés,40804
+Bauliche Vorkehrungen für Behinderte rating,Mesures de construction en faveur des handicapés (rating),40805
+Bauliche Vorkehrungen für Behinderte Bemerkungen,Remarques sur les mesures de construction en faveur des handicapés,40806
+ABAG/ABAV,LTEI / OTEI,40807
+ABAG/ABAV rating,LTEI / OTEI (rating),40808
+ABAG/ABAV Bemerkungen,Remarques sur la LTEI et l'OTEI,40809
+Hygiene+Unfallverhütung auf Bauplätzen,Mesures d'hygiène et prévention des accidents sur les chantiers,40810
+Hygiene+Unfallverhütung auf Bauplätzen rating,Mesures d'hygiène et prévention des accidents sur les chantiers (rating),40811
+Hygiene+Unfallverhütung auf Bauplätzen Bemerkungen,Remarques sur les mesures d'hygiène et la prévention des accidents sur les chantiers,40812
+Umweltschutz,Protection de l’environnement,40813
+Umweltschutz rating,Protection de l’environnement (rating),40814
+Umweltschutz Bemerkungen,Remarques sur la protection de l’environnement,40815
+Luftreinhalteverordnung ,Ordonnance sur la protection de l’air,40816
+Luftreinhalteverordnung rating,Ordonnance sur la protection de l’air (rating),40817
+Luftreinhalteverordnung Bemerkungen,Remarques sur l'ordonnance sur la protection de l’air,40818
+Kaminhöhe (≥ 0.5 m über First),"Hauteur de la cheminée (0,5 m au-dessus du faîte au moins)",40819
+Kaminhöhe (≥ 0.5 m über First) rating,"Hauteur de la cheminée (0,5 m au-dessus du faîte au moins) (rating)",40820
+Kaminhöhe (≥ 0.5 m über First) Bemerkungen,"Remarques sur la hauteur de la cheminée (0,5 m au-dessus du faîte au moins)",40821
+Lärmschutzverordnung,Ordonnance sur la protection contre le bruit,40822
+Lärmschutzverordnung rating,Ordonnance sur la protection contre le bruit (rating),40823
+Lärmschutzverordnung Bemerkungen,Remarques sur l'ordonnance sur la protection contre le bruit,40824
+Schalldämmung (siehe auch SIA Norm 181),Isolation acoustique (voir également la norme SIA 181),40825
+Schalldämmung (siehe auch SIA Norm 181) rating,Isolation acoustique (voir également la norme SIA 181) (rating),40826
+Schalldämmung (siehe auch SIA Norm 181) Bemerkungen,Remarques sur l'isolation acoustique (voir également la norme SIA 181),40827
+Störfallvorsorge,Prévention des accidents majeurs,40828
+Störfallvorsorge rating,Prévention des accidents majeurs (rating),40829
+Störfallvorsorge Bemerkungen,Remarques sur la prévention des accidents majeurs,40830
+Entsorgung Abfälle,Traitement des déchets,40831
+Entsorgung Abfälle rating,Traitement des déchets (rating),40832
+Entsorgung Abfälle Bemerkungen,Remarques sur le traitement des déchets,40833
+Andere Immissionen,Autres immissions,40834
+Andere Immissionen rating,Autres immissions (rating),40835
+Andere Immissionen Bemerkungen,Remarques sur les autres immissions,40836
+UVP,EIE,40837
+UVP rating,EIE (rating),40838
+UVP Bemerkungen,Remarques sur l'EIE,40839
+Energiegesetzgebung (u.a. Wärmedämmung),Législation sur l’énergie (isolation thermique notamment),40840
+Energiegesetzgebung (u.a. Wärmedämmung) rating,Législation sur l’énergie (isolation thermique notamment) (rating),40841
+Energiegesetzgebung (u.a. Wärmedämmung) Bemerkungen,Remarques sur la législation sur l’énergie (isolation thermique notamment),40842
+Eisenbahn,Voies ferrées,40843
+Eisenbahn rating,Voies ferrées (rating),40844
+Eisenbahn Bemerkungen,Remarques sur les voies ferrées,40845
+Bauten in Bahnnähe,Constructions à proximité des voies ferrées,40846
+Bauten in Bahnnähe rating,Constructions à proximité des voies ferrées (rating),40847
+Bauten in Bahnnähe Bemerkungen,Remarques sur les constructions à proximité des voies ferrées,40848
+Altlasten-/Verdachtsflächen,Sites contaminés ou potentiellement contaminés,40849
+Altlasten-/Verdachtsflächen rating,Sites contaminés ou potentiellement contaminés (rating),40850
+Altlasten-/Verdachtsflächen Bemerkungen,Remarques sur les sites contaminés ou potentiellement contaminés,40851
+Entsorgungskonzept,Plan de gestion des déchets,40852
+Entsorgungskonzept rating,Plan de gestion des déchets (rating),40853
+Entsorgungskonzept Bemerkungen,Remarques sur le plan de gestion des déchets,40854
+Gesetz über See- und Flussufer,Loi sur les rives des lacs et des rivières,40855
+Gesetz über See- und Flussufer rating,Loi sur les rives des lacs et des rivières (rating),40856
+Gesetz über See- und Flussufer Bemerkungen,Remarques sur la loi sur les rives des lacs et des rivières,40857
+Versickerung,Infiltration,40858
+Versickerung rating,Infiltration (rating),40859
+Versickerung Bemerkungen,Remarques sur l'infiltration,40860
+Kanalisationsanschluss,Raccordement aux canalisations,40861
+Kanalisationsanschluss rating,Raccordement aux canalisations (rating),40862
+Kanalisationsanschluss Bemerkungen,Remarques sur le raccordement aux canalisations,40863
+Schutzraumbau/ -befreiung,Obligation de construire un abri et dispense,40864
+Schutzraumbau/ -befreiung rating,Obligation de construire un abri et dispense (rating),40865
+Schutzraumbau/ -befreiung Bemerkungen,Remarques sur l'obligation de construire un abri et la dispense,40866
+Luftreinhaltung Baustelle,Mesures de protection de l'air sur le chantier,40867
+Luftreinhaltung Baustelle rating,Mesures de protection de l'air sur le chantier (rating),40868
+Luftreinhaltung Baustelle Bemerkungen,Remarques sur les mesures de protection de l'air sur le chantier,40869
+Wanderweg,Chemin de randonnée pédestre,40870
+Wanderweg rating,Chemin de randonnée pédestre (rating),40871
+Wanderweg Bemerkungen,Remarques sur le chemin de randonnée pédestre,40872
+Sind die Bedingungen und Auflagen der Baubewilligung (vor Baubeginn) erfüllt?,Les conditions et les charges prescrites dans le permis de construire (avant le début des travaux) sont-elles respectées?,40873
+Abweichung,Ecart constaté,40874
+Ist eine Schnurgerüstabnahme erforderlich?,Un relevé du gabarit d’implantation est-il nécessaire?,40875
+Beginn Bauarbeiten,Début des travaux de construction,40876
+Sind Schnurgerüst und die bewilligte Höhe zur Abnahme bereit?,Le gabarit d’implantation et la cote d’altitude autorisée sont-ils prêts pour leur relevé?,40877
+Ab wann ist eine Kontrolle möglich?,A partir de quand un contrôle est-il possible?,40878
+Bemerkungen,Remarques,40879
+Datum,Date,40880
+Ort,Localité,40881
+Ist das Bauvorhaben nach der Baubewilligung und evtl. Projektänderungsbewilligung ausgeführt?,"Le projet de construction est-il exécuté conformément au permis de construire et, le cas échéant, à l’autorisation de modification du projet?",40882
+Abweichung,Ecart constaté,40883
+Sind die Bedingungen und Auflagen der Baubewilligung eingehalten?,Les conditions et les charges prescrites dans le permis de construire sont-elles respectées?,40884
+Abweichung,Ecart constaté,40885
+Sind die Sicherheitsvorschriften eingehalten?,Les prescriptions de sécurité sont-elles respectées?,40886
+Abweichung,Ecart constaté,40887
+Sind die Nebengebäude fertiggestellt?,Les annexes sont-elles achevées?,40888
+Zeitpunkt der Fertigstellung,Date de l'achèvement,40889
+Sind die Umgebungsarbeiten fertiggestellt?,Les travaux d’aménagement des abords sont-ils achevés?,40890
+Zeitpunkt der Fertigstellung,Date de l'achèvement,40891
+Meldung Tankanlage,Avis concernant la citerne,40892
+Bemerkungen,Remarques,40893
+Datum,Date,40894
+Ort,Localité,40895
+Is page valid?,Is page valid?,40896
+Is page valid?,Is page valid?,40897
+Handelt es sich bei der Liegenschaft um ein Baudenkmal?,Le bien-fonds est-il un monument historique?,40898
+Strasse,Rue,40899
+Nummer,Numéro,40900
+PLZ,NPA,40901
+Ort,Localité,40902
+Ort,Localité,40903
+Zuständige Gemeinde,Commune compétente,40904
+Ist ein Fumoir betroffen/geplant?,Un fumoir est-il concerné/prévu?,40905
+Die Anforderungen sind gemäss Art. 11 – 19 BewD eingehalten.,Les exigences énoncées aux articles 11 à 19 DPC sont respectées.,40906
+"Die Bauprofile sind gemäss Art. 16 BewD gestellt. Hiermit wird bestätigt, dass die Bauprofile bis zum rechtskräftigen Bauentscheid stehen bleiben und vor diesem Entscheid mit den Bauarbeiten nicht begonnen wird.",Les gabarits sont posés conformément à l'article 16 DPC. Il est certifié ici qu'ils seront maintenus jusqu'à l'entrée en force de la décision relative à la demande de permis de construire et que les travaux ne commenceront pas avant la date de celle-ci.,40907
+"Die Bauherrschaft verzichtet für sich und ihre Rechtsnachfolger ausdrücklich auf jeden Ersatz von Schaden, der durch den Forstbetrieb oder durch Naturereignisse, wie Schneedruck, Windfall usw. an der zu erstellenden Baute, bzw. ähnlichen Anlage verursacht werden könnte. Vorbehalten bleiben jedoch die Bestimmungen der Art. 41 ff. OR.","Le maître d'ouvrage renonce expressément, pour lui-même et ses ayants cause, à toute indemnité pour des dégâts qui pourraient être provoqués par l'exploitation forestière ou par un phénomène naturel, tels que glissement de neige, coups de vent, etc., aux bâtiments ou installations analogues à construire. Les prescriptions des articles 41 ss CO sont réservées.",40908
+"Die Bauherrschaft nimmt für sich und ihre Rechtsnachfolger zur Kenntnis, dass keine Rückhiebe oder andere über das Kapprecht hinausgehenden Aushiebe an dem vom Näherbau tangierten Wald bewilligt werden; es ist verboten, auch wenn der Wald ihr gehört, solche Hiebe zwecks Verminderung des Schattenwurfes, zur Verbesserung der Aussicht oder aus anderen Gründen vorzunehmen.","Pour lui et ses ayants cause, le maître d'ouvrage prend acte qu'aucun défrichement de lisière de la forêt limitrophe ni autre coupe d'éclaircie allant au-delà du droit de couper les branches qui avancent sur le fonds voisin ne seront autorisés; si la forêt lui appartient, il lui est interdit de procéder à des coupes en vue de diminuer l'ombre projetée, de favoriser la vue ou à tout autre dessein.",40909
+"Bei einer allfälligen Handänderung verpflichten sich die Bauherrschaft und Grundeigentümerin/Grundeigentümer, bzw. Baurechtsnehmerin/Baurechtsnehmer, diese Erklärung allfälligen Rechtsnachfolgern zu überbinden.","En cas de changement de propriété, le maître d'ouvrage et propriétaire ou bénéficiaire du droit de superficie s'engage à transférer à son successeur les obligations découlant de la présente déclaration.",40910
+Der Gesuchsteller ist verantwortlich für die Einhaltung der Radonvorgaben gemäss Strahlenschutzverordnung des Bundes,Le/la requérant/e est responsable du respect des prescriptions relatives au radon au sens de l’ordonnance fédérale sur la radioprotection.,40911
+"Der Gesuchsteller ist verantwortlich für die Einhaltung der Asbestvorgaben des Bundes (Chemikalien-Risikoreduktions-Verordnung, ChemRRV)",Le/la requérant/e est responsable du respect des prescriptions relatives à l'amiante de l'ordonnance fédérale sur la réduction des risques liés aux produits chimiques (ORRChim).,40912
+"Der Gesuchsteller bestätigt, dass die Liegenschaftsentwässerung gemäss dem AWA-Merkblatt ""Entwässerung von Industrie- und Gewerbeliegenschaften"" geplant und realisiert wird. Als Beilage enthält das Gesuch einen Umgebungsplan, auf dem bei allen Teilfächen die vorgesehene Nutzung, die Befestigungsart, das Gefälle sowie die Entwässerungsart eingetragen sind.","Le/la requérant/e atteste que l'évacuation des eaux du bien-fonds est planifiée conformément au mémento «Evacuation des eaux des biens-fonds industriels ou artisanaux» de l’OED. La demande comporte en annexe un plan des environs qui mentionne, pour toutes les parties de la (des) parcelle(s), l’affectation prévue, le type de stabilisation du sol, la pente ainsi que le type d’évacuation des eaux.",40913
+"Der Gesuchsteller bestätigt, dass er keinen Tatbestand zu den Bestimmungen zum Natur-, Wild- und Vogelschutzes tangiert.","Le/la requérant/e atteste que son projet n'est pas concerné par les dispositions relatives à la protection de la nature, de la faune sauvage et des oiseaux.",40914
+"Die Bauherrschaft respektive die bevollmächtigte Vertretung bestätigt mit rechtsgültiger Unterschrift, dass die elektronisch übermittelten Daten (inklusive dem unterzeichneten Situationsplan) vollständig und wahrheitsgetreu ausgefüllt und eingereicht worden sind.","Le maître d'ouvrage ou son/sa représentant/e dûment mandaté/e confirme par sa signature légalement valable que les données transmises par la voie électronique (y c. le plan de situation signé) sont complètes et conformes à la vérité.
+",40915
+"Der/die Gesuchsteller/in bestätigt mit seiner/ihrer Unterschrift, die Generalvollmacht an Bevollmächtigte.",Le/la requérant/e confirme pas sa signature le mandat général accordé à son/sa représentant/e.,40916
+"Activation page ""Hindernisfreies Bauen""","Activation de la page ""Construction sans obstacles""",80000
+"Activation page  - ""Triage""","Activation de la page ""Aiguillage""",80001
+"Activation document ""Grundriss (Massstäblich (1:100/1:50) mit Angabe der Bodenfläche)""","Activation du document ""Plan de surface (à l'échelle (1:100 / 1:50) avec indication de la surface au sol)""",80002
+"Activation service ""BECO-SGA""","Activation du service ""BECO-SST""",80003
+"Activation document  ""Dokument ""Schadstoffermittlung / Gutachten""","Activation du document  ""Détection de polluants / expertise""",80004
+"Activation service ""Hindernisfreies Bauen"" and page ""Hindernisfreies Bauen""","Activation du service ""Construction sans obstacles"" et de la page ""Construction sans obstacles""",80005
+"Activation document """"Gefahrengutachten""","Activation du document ""Expertise sur l’exposition aux dangers naturels""",80006
+"Activation service ""GVB""","Activation du service ""AIB""",80007
+Gesuchstyp,Type de demande,100000
+Is page valid?,Is page valid?,110000
+Allgemeine Informationen,Informations générales,
+1. Allgemeine Informationen,1. Informations générales,
+2. Nutzung Bauvorhaben,2. Affectation visée par le projet de construction,
+3. Grundstück,3. Immeuble,
+4. Bauwerk ,4. Ouvrage,
+5. Spezialformulare,5. Formulaires spéciaux,
+ 6. Dokumente ,6. Documents,
+7. Bestätigung,7. Confirmation,
+8. Einreichen,8. Envoyer,
