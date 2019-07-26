@@ -1,0 +1,21 @@
+NAME,NAME_FR,INSTANCE_STATE_ID
+Neu,Nouvelle,1
+Zurückgewiesen,Renvoyée,10000
+"eBau-Nummer zu vergeben","Numéro eBau à attribuer",20000
+"Allgemeine Informationen","Informations générales",20001
+"Verfahrensprogramm zu initialisieren","Déroulement de la procédure à lancer",20003
+"In Zirkulation","En procédure de circulation",20004
+"In Koordination","En cours de coordination",20005
+Dossierprüfung,"Examen du dossier",20006
+"In Korrektur","En cours de correction",20007
+"Korrigiert von Leitbehörde","Corrigé par l'autorité directrice",20008
+Archiviert,Archivé,20009
+"Entscheid verfügt","Décision rendue",20010
+Freigabequittung,"Déclaration de validation",40000
+Bestätigung,Attestation,110002
+"Nutzung Bauvorhaben","Affectation visée par le projet de construction",80000
+Grundstück,Immeuble,80001
+Bauwerk,Ouvrage,80002
+Spezialformulare,"Formulaires spéciaux",80003
+Dokumente,Documents,110000
+"Vorabklärung einfach","Etude préalable simple",110001

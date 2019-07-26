@@ -1,0 +1,15 @@
+NAME,NAME_FR,ROLE_ID
+Admin,Admin,1
+Guest,Guest,2
+"Leitung Leitbehörde","Direction: autorité directrice",3
+"Leitung Fachstelle","Direction: service",4
+"Leitung Baukontrolle","Direction: contrôle des constructions",5
+Gesuchsteller,Requérant/e,6
+System-Betrieb,"Exploitation du système",10000
+Unterfachstelle,"Unité d'un service spécialisé",20000
+"Sachbearbeiter Fachstelle","Collaborateur/collaboratrice d'un service spécialisé",20001
+"Einsichtsberechtigte Fachstelle","Droit de consulter le dossier: service",20002
+"Einsichtsberechtigte Leitbehörde","Droit de consulter le dossier: autorité directrice",20003
+"Sachbearbeiter Leitbehörde","Collaborateur/collaboratrice de l'autorité directrice",20004
+"Sachbearbeiter Baukontrolle","Collaborateur/collaboratrice du contrôle des constructions",20005
+"Einsichtsberechtigte Baukontrolle","Droit de consulter le dossier: contrôle des constructions",20006
