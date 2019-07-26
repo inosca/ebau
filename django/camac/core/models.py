@@ -46,7 +46,7 @@ class ACheckquery(models.Model):
         db_table = "A_CHECKQUERY"
 
 
-class ACirculationEmail(models.Model):
+class ACirculationEmail(MultilingualModel, models.Model):
     action = models.OneToOneField(
         "Action",
         models.CASCADE,
@@ -59,6 +59,9 @@ class ACirculationEmail(models.Model):
     title = models.CharField(db_column="TITLE", max_length=200)
     text = models.CharField(db_column="TEXT", max_length=2000)
 
+    def __str__(self):
+        return self.get_trans_attr("title")
+
     class Meta:
         managed = True
         db_table = "A_CIRCULATION_EMAIL"
@@ -66,7 +69,7 @@ class ACirculationEmail(models.Model):
 
 class ACirculationEmailT(models.Model):
     action = models.ForeignKey(
-        ACirculationEmail, models.CASCADE, db_column="ACTION_ID", related_name="+"
+        ACirculationEmail, models.CASCADE, db_column="ACTION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
@@ -223,7 +226,7 @@ class ADeleteCirculation(models.Model):
         db_table = "A_DELETE_CIRCULATION"
 
 
-class AEmail(models.Model):
+class AEmail(MultilingualModel, models.Model):
     action = models.OneToOneField(
         "Action",
         models.CASCADE,
@@ -237,6 +240,9 @@ class AEmail(models.Model):
     title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
     text = models.CharField(db_column="TEXT", max_length=2000, blank=True, null=True)
 
+    def __str__(self):
+        return self.get_trans_attr("title")
+
     class Meta:
         managed = True
         db_table = "A_EMAIL"
@@ -244,7 +250,7 @@ class AEmail(models.Model):
 
 class AEmailT(models.Model):
     action = models.ForeignKey(
-        AEmail, models.CASCADE, db_column="ACTION_ID", related_name="+"
+        AEmail, models.CASCADE, db_column="ACTION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     title = models.CharField(db_column="TITLE", max_length=200, blank=True, null=True)
@@ -399,7 +405,7 @@ class APhp(models.Model):
         db_table = "A_PHP"
 
 
-class AProposal(models.Model):
+class AProposal(MultilingualModel, models.Model):
     action = models.OneToOneField(
         "Action",
         models.CASCADE,
@@ -423,6 +429,9 @@ class AProposal(models.Model):
     reason = models.CharField(db_column="REASON", max_length=50, blank=True, null=True)
     is_working_days = models.PositiveSmallIntegerField(db_column="IS_WORKING_DAYS")
 
+    def __str__(self):
+        return self.get_trans_attr("reason")
+
     class Meta:
         managed = True
         db_table = "A_PROPOSAL"
@@ -430,7 +439,7 @@ class AProposal(models.Model):
 
 class AProposalT(models.Model):
     action = models.ForeignKey(
-        AProposal, models.CASCADE, db_column="ACTION_ID", related_name="+"
+        AProposal, models.CASCADE, db_column="ACTION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     reason = models.CharField(db_column="REASON", max_length=50, blank=True, null=True)
@@ -503,7 +512,7 @@ class AValidate(models.Model):
         db_table = "A_VALIDATE"
 
 
-class Action(models.Model):
+class Action(MultilingualModel, models.Model):
     action_id = models.AutoField(db_column="ACTION_ID", primary_key=True)
     available_action = models.ForeignKey(
         "AvailableAction",
@@ -534,7 +543,7 @@ class Action(models.Model):
 
 class ActionT(models.Model):
     action = models.ForeignKey(
-        Action, models.CASCADE, db_column="ACTION_ID", related_name="+"
+        Action, models.CASCADE, db_column="ACTION_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1286,7 +1295,7 @@ class BuildingAuthoritySectionDis(models.Model):
         db_table = "BUILDING_AUTHORITY_SECTION_DIS"
 
 
-class Button(models.Model):
+class Button(MultilingualModel, models.Model):
     button_id = models.AutoField(db_column="BUTTON_ID", primary_key=True)
     instance_resource = models.ForeignKey(
         "InstanceResource",
@@ -1312,7 +1321,7 @@ class Button(models.Model):
 
 class ButtonT(models.Model):
     button = models.ForeignKey(
-        Button, models.CASCADE, db_column="BUTTON_ID", related_name="+"
+        Button, models.CASCADE, db_column="BUTTON_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1496,7 +1505,7 @@ class Circulation(models.Model):
         db_table = "CIRCULATION"
 
 
-class CirculationAnswer(models.Model):
+class CirculationAnswer(MultilingualModel, models.Model):
     circulation_answer_id = models.AutoField(
         db_column="CIRCULATION_ANSWER_ID", primary_key=True
     )
@@ -1515,9 +1524,6 @@ class CirculationAnswer(models.Model):
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "CIRCULATION_ANSWER"
@@ -1528,7 +1534,7 @@ class CirculationAnswerT(models.Model):
         CirculationAnswer,
         models.CASCADE,
         db_column="CIRCULATION_ANSWER_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1538,7 +1544,7 @@ class CirculationAnswerT(models.Model):
         db_table = "CIRCULATION_ANSWER_T"
 
 
-class CirculationAnswerType(models.Model):
+class CirculationAnswerType(MultilingualModel, models.Model):
     circulation_answer_type_id = models.AutoField(
         db_column="CIRCULATION_ANSWER_TYPE_ID", primary_key=True
     )
@@ -1554,7 +1560,7 @@ class CirculationAnswerTypeT(models.Model):
         CirculationAnswerType,
         models.CASCADE,
         db_column="CIRCULATION_ANSWER_TYPE_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1579,7 +1585,7 @@ class CirculationLog(models.Model):
         db_table = "CIRCULATION_LOG"
 
 
-class CirculationReason(models.Model):
+class CirculationReason(MultilingualModel, models.Model):
     circulation_reason_id = models.AutoField(
         db_column="CIRCULATION_REASON_ID", primary_key=True
     )
@@ -1602,7 +1608,7 @@ class CirculationReasonT(models.Model):
         CirculationReason,
         models.CASCADE,
         db_column="CIRCULATION_REASON_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1612,15 +1618,12 @@ class CirculationReasonT(models.Model):
         db_table = "CIRCULATION_REASON_T"
 
 
-class CirculationState(models.Model):
+class CirculationState(MultilingualModel, models.Model):
     circulation_state_id = models.AutoField(
         db_column="CIRCULATION_STATE_ID", primary_key=True
     )
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         managed = True
@@ -1632,7 +1635,7 @@ class CirculationStateT(models.Model):
         CirculationState,
         models.CASCADE,
         db_column="CIRCULATION_STATE_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
@@ -1642,7 +1645,7 @@ class CirculationStateT(models.Model):
         db_table = "CIRCULATION_STATE_T"
 
 
-class CirculationType(models.Model):
+class CirculationType(MultilingualModel, models.Model):
     circulation_type_id = models.AutoField(
         db_column="CIRCULATION_TYPE_ID", primary_key=True
     )
@@ -1785,7 +1788,7 @@ class CirculationTypeT(models.Model):
         CirculationType,
         models.CASCADE,
         db_column="CIRCULATION_TYPE_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -1845,7 +1848,7 @@ class DocgenTemplateClass(models.Model):
         db_table = "DOCGEN_TEMPLATE_CLASS"
 
 
-class FormGroup(models.Model):
+class FormGroup(MultilingualModel, models.Model):
     form_group_id = models.AutoField(db_column="FORM_GROUP_ID", primary_key=True)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
     description = models.CharField(
@@ -1874,7 +1877,7 @@ class FormGroupForm(models.Model):
 
 class FormGroupT(models.Model):
     form_group = models.ForeignKey(
-        FormGroup, models.CASCADE, db_column="FORM_GROUP_ID", related_name="+"
+        FormGroup, models.CASCADE, db_column="FORM_GROUP_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=500, blank=True, null=True)
@@ -2060,7 +2063,7 @@ class InstancePortal(models.Model):
         db_table = "INSTANCE_PORTAL"
 
 
-class InstanceResource(models.Model):
+class InstanceResource(MultilingualModel, models.Model):
     instance_resource_id = models.AutoField(
         db_column="INSTANCE_RESOURCE_ID", primary_key=True
     )
@@ -2121,7 +2124,7 @@ class InstanceResourceT(models.Model):
         InstanceResource,
         models.CASCADE,
         db_column="INSTANCE_RESOURCE_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -2210,7 +2213,7 @@ class IrCirculation(models.Model):
         db_table = "IR_CIRCULATION"
 
 
-class IrEditcirculation(models.Model):
+class IrEditcirculation(MultilingualModel, models.Model):
     instance_resource = models.OneToOneField(
         InstanceResource,
         models.CASCADE,
@@ -2264,6 +2267,9 @@ class IrEditcirculation(models.Model):
         null=True,
     )
 
+    def __str__(self):
+        return self.get_trans_attr("default_circulation_name")
+
     class Meta:
         managed = True
         db_table = "IR_EDITCIRCULATION"
@@ -2297,7 +2303,7 @@ class IrEditcirculationT(models.Model):
         IrEditcirculation,
         models.CASCADE,
         db_column="INSTANCE_RESOURCE_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     default_circulation_name = models.CharField(
@@ -2371,7 +2377,7 @@ class IrEditletter(models.Model):
         db_table = "IR_EDITLETTER"
 
 
-class IrEditletterAnswer(models.Model):
+class IrEditletterAnswer(MultilingualModel, models.Model):
     ir_editletter_answer_id = models.AutoField(
         db_column="IR_EDITLETTER_ANSWER_ID", primary_key=True
     )
@@ -2390,7 +2396,7 @@ class IrEditletterAnswerT(models.Model):
         IrEditletterAnswer,
         models.CASCADE,
         db_column="IR_EDITLETTER_ANSWER_ID",
-        related_name="+",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -2500,7 +2506,7 @@ class IrFormpages(models.Model):
         db_table = "IR_FORMPAGES"
 
 
-class IrFormwizard(models.Model):
+class IrFormwizard(MultilingualModel, models.Model):
     instance_resource = models.OneToOneField(
         InstanceResource,
         models.CASCADE,
@@ -2533,6 +2539,9 @@ class IrFormwizard(models.Model):
         db_column="HIDE_SUMMARY_QUESTIONS"
     )
 
+    def __str__(self):
+        return self.get_trans_attr("summary")
+
     class Meta:
         managed = True
         db_table = "IR_FORMWIZARD"
@@ -2540,7 +2549,10 @@ class IrFormwizard(models.Model):
 
 class IrFormwizardT(models.Model):
     instance_resource = models.ForeignKey(
-        IrFormwizard, models.CASCADE, db_column="INSTANCE_RESOURCE_ID", related_name="+"
+        IrFormwizard,
+        models.CASCADE,
+        db_column="INSTANCE_RESOURCE_ID",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     summary = models.CharField(
@@ -2854,7 +2866,7 @@ class NoticeLog(models.Model):
         db_table = "NOTICE_LOG"
 
 
-class NoticeType(models.Model):
+class NoticeType(MultilingualModel, models.Model):
     notice_type_id = models.AutoField(db_column="NOTICE_TYPE_ID", primary_key=True)
     circulation_type = models.ForeignKey(
         CirculationType,
@@ -2864,9 +2876,6 @@ class NoticeType(models.Model):
     )
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
 
-    def __str__(self):
-        return self.name
-
     class Meta:
         managed = True
         db_table = "NOTICE_TYPE"
@@ -2874,7 +2883,7 @@ class NoticeType(models.Model):
 
 class NoticeTypeT(models.Model):
     notice_type = models.ForeignKey(
-        NoticeType, models.CASCADE, db_column="NOTICE_TYPE_ID", related_name="+"
+        NoticeType, models.CASCADE, db_column="NOTICE_TYPE_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -2964,7 +2973,7 @@ class PageForm(models.Model):
         unique_together = (("page", "form"),)
 
 
-class PageFormGroup(models.Model):
+class PageFormGroup(MultilingualModel, models.Model):
     page_form_group_id = models.AutoField(
         db_column="PAGE_FORM_GROUP_ID", primary_key=True
     )
@@ -3001,7 +3010,10 @@ class PageFormGroupAcl(models.Model):
 
 class PageFormGroupT(models.Model):
     page_form_group = models.ForeignKey(
-        PageFormGroup, models.CASCADE, db_column="PAGE_FORM_GROUP_ID", related_name="+"
+        PageFormGroup,
+        models.CASCADE,
+        db_column="PAGE_FORM_GROUP_ID",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=50, blank=True, null=True)
@@ -3456,7 +3468,7 @@ class RList(models.Model):
         db_table = "R_LIST"
 
 
-class RListColumn(models.Model):
+class RListColumn(MultilingualModel, models.Model):
     r_list_column_id = models.AutoField(db_column="R_LIST_COLUMN_ID", primary_key=True)
     resource = models.ForeignKey(
         RList, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
@@ -3465,6 +3477,9 @@ class RListColumn(models.Model):
     alias = models.CharField(db_column="ALIAS", max_length=50, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
+    def __str__(self):
+        return self.get_trans_attr("alias")
+
     class Meta:
         managed = True
         db_table = "R_LIST_COLUMN"
@@ -3472,7 +3487,7 @@ class RListColumn(models.Model):
 
 class RListColumnT(models.Model):
     r_list_column = models.ForeignKey(
-        RListColumn, models.CASCADE, db_column="R_LIST_COLUMN_ID", related_name="+"
+        RListColumn, models.CASCADE, db_column="R_LIST_COLUMN_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     alias = models.CharField(db_column="ALIAS", max_length=50, blank=True, null=True)
@@ -3538,7 +3553,7 @@ class RSearch(models.Model):
         db_table = "R_SEARCH"
 
 
-class RSearchColumn(models.Model):
+class RSearchColumn(MultilingualModel, models.Model):
     r_search_column_id = models.AutoField(
         db_column="R_SEARCH_COLUMN_ID", primary_key=True
     )
@@ -3549,6 +3564,9 @@ class RSearchColumn(models.Model):
     alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
     sort = models.IntegerField(db_column="SORT")
 
+    def __str__(self):
+        return self.get_trans_attr("alias")
+
     class Meta:
         managed = True
         db_table = "R_SEARCH_COLUMN"
@@ -3556,7 +3574,10 @@ class RSearchColumn(models.Model):
 
 class RSearchColumnT(models.Model):
     r_search_column = models.ForeignKey(
-        RSearchColumn, models.CASCADE, db_column="R_SEARCH_COLUMN_ID", related_name="+"
+        RSearchColumn,
+        models.CASCADE,
+        db_column="R_SEARCH_COLUMN_ID",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     alias = models.CharField(db_column="ALIAS", max_length=30, blank=True, null=True)
@@ -3566,7 +3587,7 @@ class RSearchColumnT(models.Model):
         db_table = "R_SEARCH_COLUMN_T"
 
 
-class RSearchFilter(models.Model):
+class RSearchFilter(MultilingualModel, models.Model):
     r_search_filter_id = models.AutoField(
         db_column="R_SEARCH_FILTER_ID", primary_key=True
     )
@@ -3593,6 +3614,9 @@ class RSearchFilter(models.Model):
         db_column="CLASS", max_length=25, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.get_trans_attr("label")
+
     class Meta:
         managed = True
         db_table = "R_SEARCH_FILTER"
@@ -3600,7 +3624,10 @@ class RSearchFilter(models.Model):
 
 class RSearchFilterT(models.Model):
     r_search_filter = models.ForeignKey(
-        RSearchFilter, models.CASCADE, db_column="R_SEARCH_FILTER_ID", related_name="+"
+        RSearchFilter,
+        models.CASCADE,
+        db_column="R_SEARCH_FILTER_ID",
+        related_name="trans",
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     label = models.CharField(db_column="LABEL", max_length=1000, blank=True, null=True)
@@ -3658,7 +3685,7 @@ class RUserAcl(models.Model):
         unique_together = (("resource", "user"),)
 
 
-class Resource(models.Model):
+class Resource(MultilingualModel, models.Model):
     resource_id = models.AutoField(db_column="RESOURCE_ID", primary_key=True)
     available_resource = models.ForeignKey(
         AvailableResource,
@@ -3687,7 +3714,7 @@ class Resource(models.Model):
 
 class ResourceT(models.Model):
     resource = models.ForeignKey(
-        Resource, models.CASCADE, db_column="RESOURCE_ID", related_name="+"
+        Resource, models.CASCADE, db_column="RESOURCE_ID", related_name="trans"
     )
     language = models.CharField(db_column="LANGUAGE", max_length=2)
     name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
@@ -3924,7 +3951,7 @@ class Journal(models.Model):
         db_table = "JOURNAL"
 
 
-class JournalActionConfig(models.Model):
+class JournalActionConfig(MultilingualModel, models.Model):
     action = models.OneToOneField(
         "Action",
         models.CASCADE,
@@ -3934,6 +3961,9 @@ class JournalActionConfig(models.Model):
     )
     text = models.TextField(db_column="TEXT", blank=True, null=True)
 
+    def __str__(self):
+        return self.get_trans_attr("text")
+
     class Meta:
         managed = True
         db_table = "JOURNAL_ACTION_CONFIG"
@@ -3941,7 +3971,10 @@ class JournalActionConfig(models.Model):
 
 class JournalActionConfigT(models.Model):
     action = models.ForeignKey(
-        "JournalActionConfig", models.CASCADE, db_column="ACTION_ID", related_name="+"
+        "JournalActionConfig",
+        models.CASCADE,
+        db_column="ACTION_ID",
+        related_name="trans",
     )
 
     text = models.TextField(db_column="TEXT")
