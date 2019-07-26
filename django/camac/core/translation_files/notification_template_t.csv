@@ -1,0 +1,431 @@
+SUBJECT,SUBJECT_FR,BODY,BODY_FR,TEMPLATE_ID
+"Erfolgreiche Einreichung - {{FORM_NAME}}","Formulaire déposé avec succès - {{FORM_NAME}}","Guten Tag
+
+Ihr/e {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über Statusänderungen informiert.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+Votre {{FORM_NAME}} portant le numéro de dossier {{INSTANCE_ID}} a été déposé/e avec succès. La procédure est ouverte et tout changement de statut vous sera communiqué.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",1
+"Neu eingegangen: {{FORM_NAME}}","Nouvelle entrée: {{FORM_NAME}}","Guten Tag
+
+Im eBau gibt es einen neuen Eingang vom Typ {{FORM_NAME}} mit der Dossier-Nr. {{INSTANCE_ID}}.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+eBau a enregistré une nouvelle entrée de type {{FORM_NAME}} portant le numéro de dossier {{INSTANCE_ID}}.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",2
+"Voranfrage wurde übermittelt (eBau-Nr. {{EBAU_NUMBER}})","Demande préalable transmise (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die bearbeitete Voranfrage mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich an den / die Anfragesteller(in) /oder die Anfragestellenden übermittelt.
+
+{{DOSSIER_LINK}}","Madame, Monsieur,
+
+La demande préalable portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été traitée puis transmise avec succès à l'auteur/e de la question.
+
+{{DOSSIER_LINK}}",3
+"Empfang Baugesuch eBau-Nr. {{EBAU_NUMBER}}","Réception de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}}","Guten Tag
+
+Das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich übermittelt. Die Gemeinde {{MUNICIPALITY}} eröffnet das Baubewilligungsverfahren.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+","Madame, Monsieur,
+
+La demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été transmise avec succès. La commune de {{MUNICIPALITY}} ouvre la procédure d'octroi du permis de construire.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+",4
+"Empfangsbestätigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}})","Accusé de réception de la demande de permis de construire (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde erfolgreich übermittelt. Das Verfahren wird nun ausgelöst. Sie werden über die Statusmeldungen informiert. 
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{MUNICIPALITY}}","Madame, Monsieur,
+
+La demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été déposée avec succès. La procédure est ouverte et tout changement de statut vous sera communiqué. 
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{MUNICIPALITY}}",5
+"Aufforderung Bereinigung Baugesuch (eBau-Nr. {{EBAU_NUMBER}})","Invitation à corriger la demande de permis de construire (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde formell geprüft. Sie erhalten den Brief mit dem Prüfresultat beigefügt.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{MUNICIPALITY}}","Madame, Monsieur,
+
+La demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a fait l'objet d'un examen formel dont le résultat vous est communiqué dans le courrier ci-joint.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{MUNICIPALITY}}",6
+"Fortsetzung Baugesuch (eBau-Nr. {{EBAU_NUMBER}})","Poursuite du traitement de la demande de permis de construire (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Wir leiten Ihnen zuständigkeitshalber das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Fortsetzung des Baubewilligungsverfahrens weiter.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+","Madame, Monsieur,
+
+Veuillez trouver ci-joint la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), dont la poursuite du traitement relève de votre compétence.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+",7
+"Erklärung Zuständigkeit (eBau Nr. {{EBAU_NUMBER}})","Déclaration relative à la compétence (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baubewilligungsverfahren für das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde zuständigkeitshalber übernommen. 
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse 
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+Notre autorité se charge de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}), qui relève de sa compétence. 
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures. 
+{{LEITBEHOERDE_NAME}}
+",8
+"Baugesuch aufgrund Mängel abweisen oder nicht eintreten (eBau Nr. {{EBAU_NUMBER}})","Renvoi ou irrecevabilité d'une demande de permis de construire lacunaire (n° eBau {{EBAU_NUMBER}})","Guten Tag 
+
+Die Baubewilligungsbehörde {{LEITBEHOERDE_NAME}} hat das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) geprüft. Bitte beachten Sie die angefügte Verfügung.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+","Madame, Monsieur, 
+
+L'autorité d'octroi du permis de construire ({{LEITBEHOERDE_NAME}}) a examiné la demande de permis portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez observer la décision ci-jointe.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+",9
+"Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}})","Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das von Ihnen eingereichte Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde geprüft und das Leitverfahren ausgelöst. Entnehmen Sie die Verfahrensdaten dem beigefügten Dokument.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+La demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} déposée par vos soins a été examinée. La procédure directrice a été lancée et vous trouverez les précisions y relatives dans le document ci-joint.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",10
+"Hinweis zum Verfahrensablauf (eBau Nr. {{EBAU_NUMBER}})","Précision sur le déroulement de la procédure (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Sie erhalten das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zur Ausarbeitung einer Stellungnahme eines Amts- Fachberichtes oder einer Verfügung gemäss Verfahrensprogramm.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+Veuillez trouver ci-joint la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) au sujet de laquelle vous voudrez bien prendre position, rédiger un rapport officiel ou un rapport technique ou encore rendre une décision conformément au déroulement de la procédure.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",11
+"Meldung Fristüberschreitung (eBau Nr. {{EBAU_NUMBER}})","Avis concernant le dépassement du délai (n° eBau {{EBAU_NUMBER}})","Guten Tag 
+
+Die gesetzte Frist im Baubewilligungsverfahren für das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) ist abgelaufen. Fehlende Stellungnahmen,  Amts- und Fachberichte, Verfügungen sind bei betroffenen Stellen nachzufordern.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+eBau","Madame, Monsieur, 
+
+Le délai fixé dans la procédure d'octroi du permis de construire relative à la demande portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) est échu. Il convient donc de réclamer les prises de position, les rapports officiels ou techniques ou encore les décisions aux instances qui ne les auraient pas encore remis.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+eBau",12
+"Aufforderung zur Ergänzung des Baugesuchs (eBau Nr. {{EBAU_NUMBER}})","Prière de compléter la demande de permis de construire (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Aufgrund der eingegangenen Stellungnahmen,  Amts- und Fachberichte, Verfügungen ist das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) gemäss Anhang zu ergänzen.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+Au vu des prises de position, des rapports officiels ou techniques ou encore des décisions remis, il y a lieu de compléter la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) conformément à l'annexe.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",13
+"Baugesuch zur Auflage (eBau Nr. {{EBAU_NUMBER}})","Demande de permis de construire à déposer publiquement (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ist gemäss Anhang für die öffentliche Auflage bereitzustellen.
+
+Freundliche Grüsse
+","Madame, Monsieur,
+
+Nous vous prions de bien vouloir préparer le dépôt public de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} conformément à l'annexe.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+",14
+"Elektronischer Versand für Anzeiger/Amtsblatt (eBau Nr. {{EBAU_NUMBER}})","Envoi électronique à la Feuille officielle/feuille officielle d'avis (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ist gemäss Anhang zu publizieren.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+Nous vous prions de bien vouloir publier la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} conformément à l'annexe.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",15
+"Zusätzliche Infos notwendig (eBau Nr. {{EBAU_NUMBER}})","Complément d'information requis (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die Prüfung hat ergeben, dass für die Beurteilung des Baugesuches mit der eBau Nr. {{EBAU_NUMBER}} noch weitere Unterlagen / Dokumente gemäss beigefügtem Anhang notwendig sind. 
+
+Freundliche Grüsse
+","Madame, Monsieur,
+
+Il ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires au traitement de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}}. 
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+",16
+"Fristüberschreitung (eBau Nr. {{EBAU_NUMBER}})","Dépassement du délai (n° eBau {{EBAU_NUMBER}})","Guten Tag 
+
+Sie wurden aufgefordert, die Stellungnahmen, Amts- und Fachbericht, Verfügungen zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) zu verfassen. Die Frist ist abgelaugfen. Sie werden hiermit aufgefordert, diese umgehend zu verfassen.
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+eBau","Madame, Monsieur, 
+
+Il vous incombait de prendre position, de rédiger un rapport officiel ou un rapport technique ou encore de rendre une décision au sujet de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) dans un délai désormais échu. Nous vous prions de vous acquitter de cette obligation sans plus attendre.
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+eBau",17
+"Information über Ihre Eingabe (eBau Nr. {{EBAU_NUMBER}})","Information relative à votre envoi (n° eBau {{EBAU_NUMBER}})","Guten Tag 
+
+Ihre Eingabe (Einsprache, Rechtsverwahrung, Lastenausgleich) wurde erfolgreich übermittelt. 
+
+Freundliche Grüsse
+{{MUNICIPALITY}}
+","Madame, Monsieur, 
+
+Votre opposition, réserve de droit ou demande de compensation des charges a été déposée avec succès. 
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{MUNICIPALITY}}
+",18
+"Information über eingegangene Eingaben (eBau Nr. {{EBAU_NUMBER}})","Information sur la réception d'envois (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Während der öffentlichen Auflage sind Eingaben (Einsprache, Rechtsverwahrung, Lastenausgleich) gemäss Anhang eingegangen. 
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+Des oppositions, réserves de droit ou demandes de compensation des charges ont été émises pendant le dépôt public. Elles sont mentionnées dans l'annexe. 
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",19
+"Protokoll Einigungsverhandlung (eBau Nr. {{EBAU_NUMBER}})","Procès-verbal des pourparlers de conciliation (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Sie erhalten das Protokoll der Einigungsverhandlung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}}.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+Veuillez trouver ci-joint le procès-verbal des pourparlers de conciliation relatifs à la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}}.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",20
+"Information über Entscheid (eBau Nr. {{EBAU_NUMBER}})","Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Der Bauentscheid zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde gefällt. Bitte entnehmen Sie dem Anhang den Entscheid mit den Rechtsmitteln.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+La décision relative à la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} a été rendue. Elle est jointe en annexe, accompagnée de l'indication des voies de droit.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",21
+"Aufforderung Nachführung Situationsplan (eBau Nr. {{EBAU_NUMBER}})","Demande de mise à jour du plan de situation (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}}  wurde bewilligt. Sie wurden für dieses Baugesuch auf eBau unter folgendem Link freigeschaltet. Bitte entnehmen Sie dort den Bauentscheid und den Situationsplan für die Nachführung.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+La demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} a été acceptée. Le lien suivant vous donne accès aux données eBau y relatives. Vous y trouverez la décision relative à la demande de permis de construire ainsi que le plan de situation que vous voudrez bien mettre à jour.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",22
+"Zugriffsanfrage (eBau Nr. {{EBAU_NUMBER}})","Question relative à l'accès (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Wir haben Ihre Anfrage für den Zugriff auf das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} erhalten.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+Votre demande relative à l'accès à la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} nous est bien parvenue.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",23
+"Zugriffsmeldung (eBau Nr. {{EBAU_NUMBER}})","Avis concernant l'accès (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Ihre Anfrage für den Zugriff auf das Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurde bearbeitet. Der Zugriff auf das Baugesuchsdossier ist freigeschaltet.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+Votre demande concernant l'accès à la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} a été traitée et le dossier vous est désormais accessible.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",24
+"Information über Entscheid (eBau Nr. {{EBAU_NUMBER}})","Information sur le prononcé de la décision (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Der Entscheid im Rechtsgeschäft mit der eBau Nr. {{EBAU_NUMBER}} wurde gefällt. Bitte entnehmen Sie dem Anhang den Entscheid.
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}
+","Madame, Monsieur,
+
+La décision relative à l'affaire portant le numéro eBau {{EBAU_NUMBER}} a été rendue et vous la trouverez en annexe.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}
+",25
+"Meldung Selbstdeklaration (eBau Nr. {{EBAU_NUMBER}})","Avis concernant la déclaration spontanée (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die Meldung der Selbstdeklariation Baukontrolle wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird die notwendigen Schritte einleiten.
+
+Freundliche Grüsse 
+{{MUNICIPALITY}}
+","Madame, Monsieur,
+
+L'avis relatif à la déclaration spontanée en matière de contrôle des constructions a été envoyé avec succès. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures. 
+{{MUNICIPALITY}}
+",26
+"Meldung der Baukontrolle eingetroffen (eBau Nr. {{EBAU_NUMBER}})","Avis de réception du contrôle des constructions (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die Meldungen der Baukontrolle Selbstdeklaration Baukontrolle 1 (SB1), Selbstdeklaration Baukontrolle 2 (SB2) sind eingetroffen.
+
+Freundliche Grüsse
+eBau
+","Madame, Monsieur,
+
+L'avis faisant suite aux déclarations spontanées en matière de contrôle des constructions DC1 et DC2 a été envoyé.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+eBau
+",27
+"Pendenzen aus Baukontrolle (eBau Nr. {{EBAU_NUMBER}})","Points en suspens selon le contrôle des constructions (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Aufgrund der erfolgten Baukontrolle sind die im Anhang aufgeführten Pendenzen erfasst worden. Bitte entnehmen Sie das weitere Vorgehen dem Anhang.
+
+Freundliche Grüsse
+{{MUNICIPALITY}}","Madame, Monsieur,
+
+Le contrôle des constructions a révélé que certains points sont encore en suspens. Veuillez consulter l'annexe pour connaître la suite de la procédure.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{MUNICIPALITY}}",28
+"Termine Pflichtkontrollen (eBau Nr. {{EBAU_NUMBER}})","Dates des contrôles obligatoires (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die Meldung der Selbsdeklariation Baukontrolle wurde erfolgreich versendet. Die zuständige Baupolizeibehörde wird die notwendigen Schritte einleiten.
+
+Freundliche Grüsse 
+{{MUNICIPALITY}}","Madame, Monsieur,
+
+L'avis faisant suite à la déclaration spontanée en matière de contrôle des constructions a été envoyé. L'autorité de police des constructions compétente va entreprendre les démarches nécessaires.
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures. 
+{{MUNICIPALITY}}",29
+"Dossierkorrektur (eBau Nr. {{EBAU_NUMBER}})","Correction du dossier (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Zu dem von Ihnen eingereichten Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} wurden von der Leitbehörde Korrekturen erfasst. Sie können das korrigierte Gesuch unter folgendem Link einsehen:
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+L'autorité directrice a apporté des corrections à la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} que vous avez déposée. Le lien suivant vous donne accès à la version corrigée:
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",30
+"Zusätzliche Unterlagen notwendig (eBau Nr. {{EBAU_NUMBER}})","Documents complémentaires requis (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Die Prüfung hat ergeben, dass für die Beurteilung des Baugesuches mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) noch weitere Unterlagen / Dokumente notwendig sind. Bitte öffnen Sie das Menü ""Nachforderungen"" unter folgendem Link:
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse
+{{LEITBEHOERDE_NAME}}","Madame, Monsieur,
+
+Il ressort d'un premier examen que d'autres documents / indications (selon le document annexé) sont nécessaires à l'appréciation de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}). Veuillez ouvrir le menu ""Demande de complément d'information"" au moyen du lien suivant:
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.
+{{LEITBEHOERDE_NAME}}",31
+"Nachforderung beantwortet (eBau Nr. {{EBAU_NUMBER}})","Complément d'information fourni (n° eBau {{EBAU_NUMBER}})","Guten Tag
+
+Eine Nachforderung zum Baugesuch mit der eBau Nr. {{EBAU_NUMBER}} ({{INSTANCE_ID}}) wurde beantwortet. 
+
+{{DOSSIER_LINK}}
+
+Freundliche Grüsse","Madame, Monsieur,
+
+Le complément d'information sollicité au sujet de la demande de permis de construire portant le numéro eBau {{EBAU_NUMBER}} ({{INSTANCE_ID}}) a été fourni. 
+
+{{DOSSIER_LINK}}
+
+Veuillez agréer, Madame, Monsieur, nos salutations les meilleures.",32
