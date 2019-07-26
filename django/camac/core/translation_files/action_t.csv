@@ -1,0 +1,184 @@
+SUCCESS_MESSAGE,SUCCESS_MESSAGE_FR,ERROR_MESSAGE,ERROR_MESSAGE_FR,ACTION_ID
+,,,,10005
+,,,,10008
+,,,,10009
+,,,,10010
+,,,,10011
+,,,,10012
+,,,,10013
+"Das Dokument wurde erfolgreich gespeichert.","Le document a été enregistré avec succès.","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",10015
+"Das Dokument wurde erfolgreich gespeichert.","Le document a été enregistré avec succès.","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",10016
+"Dokument gespeichert","Document enregistré","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",10017
+"Das Dokument wurde erfolgreich gespeichert.","Le document a été enregistré avec succès.","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",10018
+"Das Dokument wurde erfolgreich gespeichert.","Le document a été enregistré avec succès.","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",10019
+,,,,10020
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Korrekturen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les corrections nécessaires puis la soumettre à nouveau.","Beim Erstellen der Dossierkopie ist ein Fehler aufgetreten.","Une erreur s'est produite lors de la création d'une copie du dossier.",10021
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10026
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10027
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10028
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10029
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10030
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10031
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10032
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10033
+"Das Gesuch wurde erfolgreich kopiert. Sie können notwendigen Änderungen vornehmen und das Gesuch dann neu einreichen.","La requête a été copiée avec succès. Vous pouvez y apporter les modifications nécessaires puis la soumettre à nouveau.",,,10034
+,,,,10035
+,,,,20000
+,,,,20001
+,,,,20006
+,,,,20007
+,,,,20008
+,,,,20009
+"Die Stellungnahme wurde gesendet.","La prise de position a été envoyée.","Beim Senden der Stellungnahme ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'envoi de la prise de position.",20010
+,,,,20011
+,,,,20012
+,,,,20014
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20015
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20016
+,,"Bei der Vergabe der eBau-Nummer ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'attribution du numéro eBau.",20017
+,,"Die angegebene eBau-Nummer existiert nicht","Le numéro eBau saisi n'existe pas.",20018
+,,,,20019
+,,,,20020
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20021
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20022
+,,"Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",20023
+"Zirkulation erfolgreich abgeschlossen","La procédure de circulation a été close avec succès.","Beim Abschliessen der Zirkulation ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de la procédure de circulation.",20024
+,,"Beim Speichern des Eingabedatums ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement de la date de saisie.",20025
+"Das Dokument wurde erfolgreich gespeichert.","Le document a été enregistré avec succès.","Beim Speichern ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'enregistrement.",20026
+"Die Zirkulation wurde erfolgreich wiedereröffnet.","La procédure de circulation a été rouverte avec succès.","Beim Wiedereröffnen der Zirkulation ist ein Fehler aufgetreten.","Une erreur s'est produite lors de la réouverture de la procédure de circulation.",20027
+,,,,20028
+,,,,20029
+,,,,20030
+,,,,20031
+,,,,20033
+,,,,20034
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20035
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",20036
+,,,,20037
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20039
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20040
+"Dossier erfolgreich zurückgewiesen","Dossier renvoyé avec succès","Beim Zurückweisen ist ein Fehler aufgetreten","Une erreur s'est produite lors du renvoi.",20041
+,,,,20042
+,,,,20043
+,,,,20044
+,,,,20045
+,,,,20047
+,,,,20048
+,,,,20049
+,,,,20050
+,,,,20051
+,,,,20052
+,,,,20053
+,,,,20054
+,,,,20055
+,,,,20056
+,,,,20057
+,,,,20058
+,,,,20059
+,,,,20060
+,,,,20061
+,,,,20062
+,,,,20063
+,,,,20064
+,,,,20065
+,,,,20066
+,,,,20067
+"Der Gesuchsteller wurde per E-Mail über die Korrektur informiert.","Le/la requérant/e a été informé/e par courriel de la correction.","Beim Senden der Notifikation an den Gesuchsteller ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'envoi de la notification au/à la requérant/e.",20068
+,,,,20069
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20070
+,,,,20071
+,,,,20072
+"Die Stellungnahme wurde gesendet.","La prise de position a été envoyée.","Beim Senden der Stellungnahme ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'envoi de la prise de position.",20073
+,,,,20074
+,,,,20075
+,,,,20076
+"E-Mail Benachrichtigung an Gesuchsteller versendet","Courriel d'information envoyé au/à la requérant/e","Beim Senden der E-Mail Benachrichtigung an den Gesuchsteller ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'envoi du courriel d'information au/à la requérant/e.",20077
+,,,,20078
+,,,,20079
+,,,,20080
+,,,,20081
+,,,,20082
+,,,,20083
+,,,,20084
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",20085
+,,,,20086
+,,,,20087
+"E-Mail Benachrichtigung an Gesuchsteller versendet","Courriel d'information envoyé au/à la requérant/e","Beim Senden der E-Mail Benachrichtigung an den Gesuchsteller ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'envoi du courriel d'information au/à la requérant/e.",20088
+"E-Mail Benachrichtigung an Gesuchsteller versendet","Courriel d'information envoyé au/à la requérant/e","Beim Senden der E-Mail Benachrichtigung an den Gesuchsteller ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'envoi du courriel d'information au/à la requérant/e.",20089
+,,,,20090
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40000
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40001
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40002
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40003
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40004
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40005
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40006
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40007
+,,NOK,"Pas en ordre",40008
+"Dossier erfolgreich eingereicht","Dossier déposé avec succès","Beim Einreichen des Dossiers ist ein Fehler aufgetreten","Une erreur s'est produite lors du dépôt du dossier.",40009
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40010
+,,"Beim Speichern der Leitbehörde ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement de l'autorité directrice.",40011
+"Dossier erfolgreich eingereicht","Dossier déposé avec succès","Beim Einreichen des Dossiers ist ein Fehler aufgetreten","Une erreur s'est produite lors du dépôt du dossier.",40013
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40014
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40015
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40016
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40017
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40018
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40019
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40020
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40021
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40022
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40023
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40024
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40025
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40026
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40027
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40028
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40029
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40030
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40031
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40032
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40033
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40034
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40035
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40036
+"Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40037
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40038
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40039
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40040
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",40041
+"Dokument gespeichert","Document enregistré","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",40042
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",80000
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",80001
+,,,,80002
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",80003
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80004
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80005
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80006
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80007
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80008
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",80009
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de la clôture de l'étape.",80012
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",80013
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",80014
+,,"Bitte laden Sie alle obligatorischen Anhänge hoch um fortzufahren","Veuillez déposer toutes les annexes obligatoires pour continuer.",80015
+,,"Beim Speichern der Leitbehörde ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement de l'autorité directrice.",80016
+"Dossier erfolgreich eingereicht","Dossier déposé avec succès","Beim Einreichen des Dossiers ist ein Fehler aufgetretend","Une erreur s'est produite lors du dépôt du dossier.",80017
+,,,,80018
+,,,,80019
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",110000
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",110001
+,,"Die angegebene eBau-Nummer existiert nicht","Le numéro eBau saisi n'existe pas.",110003
+,,"Die angegebene eBau-Nummer existiert nicht","Le numéro eBau saisi n'existe pas.",110004
+,,"Die angegebene eBau-Nummer existiert nicht.","Le numéro eBau saisi n'existe pas..",110005
+"Dokument gespeichert","Document enregistré","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110006
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110007
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110008
+"Ihre Antwort wurde gesendet.","Votre réponse a été envoyée.","Beim Senden der Antwort ist ein Fehler aufgetreten.","Une erreur s'est produite lors de l'envoi de la réponse.",110009
+"Speichern erfolgreich","Enregistrement réussi","Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110010
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110011
+"Schritt abgeschlossen","Etape close","Beim Abschluss des Schrittes ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110012
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",110013
+,,"Formular unvollständig. Um fortzufahren, stellen Sie sicher dass sämtliche Seiten vollständig ausgefüllt (grün hinterlegt) sind.","Formulaire incomplet. Pour continuer, assurez-vous que toutes les pages soient intégralement remplies (fond vert).",110014
+,,"Beim Speichern ist ein Fehler aufgetreten","Une erreur s'est produite lors de l'enregistrement.",110015
+,,,,110016

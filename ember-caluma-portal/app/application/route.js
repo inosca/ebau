@@ -3,12 +3,24 @@ import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-applic
 import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
 
+const DEFAULT_LANG = "de";
+const SUPPORTED_LANGUAGES = ["de", "fr"];
+
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
   calumaOptions: service(),
 
+  chooseLanguage() {
+    const preferred = (navigator.languages || [navigator.language]).map(
+      locale => locale.split("-")[0]
+    );
+    return (
+      preferred.find(lang => SUPPORTED_LANGUAGES.includes(lang)) || DEFAULT_LANG
+    );
+  },
+
   beforeModel() {
-    this.intl.setLocale(["de-ch", "de-de"]);
+    this.intl.setLocale(`${this.chooseLanguage()}-ch`);
 
     if (window.top !== window) {
       getOwner(this)
