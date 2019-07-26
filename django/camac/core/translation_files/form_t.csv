@@ -1,0 +1,6 @@
+NAME,NAME_FR,FORM_ID
+Baugesuch,Demande de permis de construire,1
+Einfache Vorabklärung,Etudes préalables simples,40000
+Generelles Baugesuch,Demande de permis de construire général,40001
+Vollständige Vorabklärung,Etudes préalables complètes,40002
+Baugesuch mit UVP,Demande de permis de construire avec EIE,110001

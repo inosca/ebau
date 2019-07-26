@@ -1,0 +1,99 @@
+NAME,NAME_FR,URL,URL_FR,TOOLTIP,TOOLTIP_FR,FILE_CONTENT_ID
+"Beilagen Vorabklärung","Annexes à l'étude préalable",,,,,1
+Vollmacht,Procuration,,,,,2
+Sicherungsmassnahme,"Mesure de sûreté",,,"Die gewählten Sicherungsmassnahmen sind auszuweisen.","Les mesures de sûreté choisies doivent être indiquées.",3
+Ausnützung,Utilisation,,,,,4
+Grünfläche,"Surface verte",,,"""Art. 92 Mass der Nutzung BauV 1. Im allgemeinen  - Das Mass der zulässigen baulichen Nutzung wird, wenn besondere Vorschriften im Sinne von Absatz 21) fehlen, durch die für das Baugrundstück geltenden baupolizeilichen Masse (Bauabstände, Gebäudedimensionen) festgelegt. Vorbehalten bleiben dieser Nutzung allenfalls entgegenstehende Bestimmungen, insbesondere Artikel 10b des Baugesetzes2).  2. Die Gemeinden können das Mass der zulässigen baulichen Nutzung bestimmen mit - der Geschossflächenziffer, - der Baumassenziffer, - der Überbauungsziffer, - der Grünflächenziffer.""","""Art. 92 OC - Degré de l'affectation 1. Généralités - Le degré de l'affectation autorisée en matière de construction est déterminé, à défaut de prescriptions spéciales au sens du 2e alinéa, par les mesures de police des constructions (distances,  dimensions des bâtiments) en vigueur pour le terrain à bâtir. Les  dispositions s'opposant dans tous les cas à cette affectation, en  particulier l’article 10b de la loi sur les constructions, sont  réservées.  2. Les communes peuvent définir le degré de l’affectation autorisée en matière de construction par - l’indice brut d’utilisation du sol, - l’indice de masse, - l’indice d’occupation du sol, - l’indice de surface verte.""",5
+Überbauung,"Occupation du sol",,,"""Art. 92 Mass der Nutzung BauV 1. Im allgemeinen  - Das Mass der zulässigen baulichen Nutzung wird, wenn besondere Vorschriften im Sinne von Absatz 21) fehlen, durch die für das Baugrundstück geltenden baupolizeilichen Masse (Bauabstände, Gebäudedimensionen) festgelegt. Vorbehalten bleiben dieser Nutzung allenfalls entgegenstehende Bestimmungen, insbesondere Artikel 10b des Baugesetzes2).  2. Die Gemeinden können das Mass der zulässigen baulichen Nutzung bestimmen mit - der Geschossflächenziffer, - der Baumassenziffer, - der Überbauungsziffer, - der Grünflächenziffer.""","""Art. 92 OC - Degré de l'affectation 1. Généralités - Le degré de l'affectation autorisée en matière de construction est déterminé, à défaut de prescriptions spéciales au sens du 2e alinéa, par les mesures de police des constructions (distances,  dimensions des bâtiments) en vigueur pour le terrain à bâtir. Les  dispositions s'opposant dans tous les cas à cette affectation, en  particulier l’article 10b de la loi sur les constructions, sont  réservées.  2. Les communes peuvent définir le degré de l’affectation autorisée en matière de construction par - l’indice brut d’utilisation du sol, - l’indice de masse, - l’indice d’occupation du sol, - l’indice de surface verte.""",6
+Geschossflächen,"Surfaces de plancher",,,"""Art. 92 Mass der Nutzung BauV 1. Im allgemeinen  - Das Mass der zulässigen baulichen Nutzung wird, wenn besondere Vorschriften im Sinne von Absatz 21) fehlen, durch die für das Baugrundstück geltenden baupolizeilichen Masse (Bauabstände, Gebäudedimensionen) festgelegt. Vorbehalten bleiben dieser Nutzung allenfalls entgegenstehende Bestimmungen, insbesondere Artikel 10b des Baugesetzes2).  2. Die Gemeinden können das Mass der zulässigen baulichen Nutzung bestimmen mit - der Geschossflächenziffer, - der Baumassenziffer, - der Überbauungsziffer, - der Grünflächenziffer.""","""Art. 92 OC - Degré de l'affectation 1. Généralités - Le degré de l'affectation autorisée en matière de construction est déterminé, à défaut de prescriptions spéciales au sens du 2e alinéa, par les mesures de police des constructions (distances,  dimensions des bâtiments) en vigueur pour le terrain à bâtir. Les  dispositions s'opposant dans tous les cas à cette affectation, en  particulier l’article 10b de la loi sur les constructions, sont  réservées.  2. Les communes peuvent définir le degré de l’affectation autorisée en matière de construction par - l’indice brut d’utilisation du sol, - l’indice de masse, - l’indice d’occupation du sol, - l’indice de surface verte.""",7
+"Inanspruchnahme Boden","Utilisation de terrain",,,,,8
+"Berechnungen Abstellplätze","Calcul du nombre de places de stationnement",http://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.html,https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen/baugesuchsformulare/Hilfsformulare.html,,,9
+"Regierungsratsbeschluss zum Bauinventar","Arrêté du Conseil-exécutif concernant le recensement architectural",,,,,10
+"Vertrag zum Bauinventar","Contrat relatif au recensement architectural",,,,,11
+"QS-Verantwortlicher und Projektorganisation","Responsable du système d’assurance qualité et organisation de projet",,,,,12
+Brandschutzkonzept,"Stratégie de protection contre l'incendie",,,,,13
+Brandschutzplan,"Plan de protection contre l'incendie",,,,,14
+Qualitätssicherungskonzept,"Système d’assurance qualité",,,,,15
+"Formular für andere thermoaktive Elemente","Formulaire pour autres éléments thermoactifs",http://www.bve.be.ch/bve/de/index/energie/energie/waermepumpen/Erdwaerme/erdregister_waermekoerbeenergiepfaehle.html,https://www.bve.be.ch/bve/fr/index/energie/energie/waermepumpen/Erdwaerme/erdregister_waermekoerbeenergiepfaehle.html,,,16
+"Sondenmodell mit Datenblatt","Modèle de sonde avec fiche informative",,,,,17
+Erdwärmensondendimensionierung,"Dimensionnement des sondes géothermiques",,,,,18
+"Auftragsbestätigung für Hydrogeologische Begleitung","Confirmation du mandat donné à un/e expert/e en hydrogéologie",,,,,19
+"Konzessionsgesuch für den Betrieb einer Wärmepumpe","Demande de concession pour l'exploitation d'une pompe à chaleur",http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/de/WN_Gesuchsformulare/WN-WP_Konzessionsgesuch_W%C3%A4rmepumpen_04_2011.pdf,https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/fr/WN_WK/DOCP-%23241275-v1-WN-WP_Vorlage_Konzessionsgesuch_W%C3%A4rmepumpen_franz%C3%B6sisch_2.pdf,,,20
+"Hydrogeologisches Gutachten bei Grundwassernutzung oder Bericht über die ökologischen Auswirkungen auf das Oberflächengewässer","Expertise hydrogéologique en cas d'utilisation d'eaux souterraines ou rapport concernant l'impact écologique sur les eaux de surface",,,,,21
+Vorabklärung,"Etude préalable",,,,,22
+"Vertrag - mit Sicherungsleistung befreite Gebäude","Contrat - bâtiment/s dont les propriétaires ont été exemptés, moyennant une sûreté, de l'obligation de construire un abri",,,,,23
+"Schutzraum (1:50)","Abri (1:50)",,,,,24
+"Bewehrungsplan und Bewehrungsliste","Plans de coffrage et d’armature avec liste des aciers",,,,,25
+"Betriebskonzept Gastgewerbe","Hôtellerie et restauration: conception d'exploitation",,,,,26
+"Grundriss (Massstäblich (1:100 / 1:50) mit Angabe der Bodenfläche)","Plan de surface (à l'échelle (1:100 / 1:50) avec indication de la surface au sol)",,,,,27
+"Pläne Gastgewerbebetrieb","Plans de l'établissement d'hôtellerie ou de restauration",,,,,28
+"Pläne Fumoir","Plans du fumoir",,,,,29
+"Beschrieb der Lüftung/Bestätigung des Lüftungsbauers, dass die Lüftung keinen Rauch in die übrigen Räume des Betriebs gelangen lässt","Description de la ventilation / Confirmation par le fabricant de la ventilation que celle-ci empêche toute fumée de parvenir dans les autres locaux de l’établissement",,,,,30
+"Pläne - Zugang zum Arbeitsbereich über Schleusen","Plans - Accès à la zone de travail à travers un sas",,,,,31
+"Pläne - Atmosphärischer Unterdruck","Plans - Pression atmosphérique",,,,,32
+"Sterilisation Abwasser","Stérilisation des eaux usées",,,,,33
+"Kurzbericht gemäss StFV","Rapport succinct selon l'OPAM",,,,,34
+"Risikoermittlung gemäss StFV","Etude de risque selon l'OPAM",,,,,35
+"Stoffliste Störfallvorsorge","Liste des substances (prévention des accidents majeurs)",http://www.gef.be.ch/gef/de/index/direktion/organisation/kl/formulare.html,https://www.gef.be.ch/gef/fr/index/direktion/organisation/kl/formulare.html,,,36
+"Sicherheitsdatenblätter Störfallvorsorge","Fiches de données de sécurité (prévention des accidents majeurs)",,,,,37
+"Entwässerung über Regenwasserkanal","Evacuation par le canal des eaux pluviales",,,,,38
+"Entwässerung über Oberflächengewässer","Evacuation par les eaux superficielles",,,,,39
+"Entwässerung über Mischwasserkanal","Evacuation par le canal des eaux mixtes",,,,,40
+Kanalisationskatasterplan,"Plan des canalisations",,,,,41
+"Grundstücksentwässerungsplan SN 592 000","Plan d'évacuation des eaux du bien-fonds conforme à la norme SN 592 000",,,,,42
+"Zustimmung des Eigentümers für den Anschluss an die Sammelkanäle bzw. zur Einleitung in einen Vorfluter wenn die Gemeinde nicht Eigentümerin ist","Consentement du propriétaire pour le raccordement aux collecteurs ou au cours d'eau (si la commune n'est pas propriétaire)",,,,,43
+"Zustimmung der Anstösser falls die Versickerung nicht publiziert wurde","Consentement des voisins si l'infiltration n'a pas fait l'objet d'une publication",,,,,44
+"Pläne, Berichte und Berechnungen über neue und bestehende Versickerungsanlagen","Plans, rapports et notes de calcul relatifs aux installations d'infiltration",,,,,45
+"Gewässerschutz Landwirtschaft","Protection des eaux dans l'agriculture",http://www.jgk.be.ch/jgk/de/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.assetref/dam/documents/BVE/AWA/de/SWW_GE/Formular_4_4_2014_d.XLS,,,,46
+"Auftragsbestätigung des Fachbüro für die hydrogeologische Begleitung","Confirmation du mandat d'expertise hydrogéologique",,,,,47
+"Schnittplan mit Untergeschoss und Baugrubenumschliessung, eingezeichneter Wasserhaltung sowie mittlerem Grundwasserspiegel (mit den entsprechenden Koten in m ü.M.)","Coupe des sous-sols avec indication de l'enceinte de la fouille, description du système d'épuisement et du niveau moyen de la nappe phréatique (cotes en m s. m.)",,,,,48
+"Pfahl-, Injektions- oder Ankerpläne, Situation und Schnittpläne mit Koten in m ü.M. (falls geplant)","Plans de situation et coupes des installations: pieux, palplanches, injections, ancrages (m s. m.), le cas échéant",,,,,49
+"Baugrunduntersuchung / Hydrogeologisches Gutachten","Etudes géotechniques ou expertises hydrogéologiques",,,,,50
+"Gesuch für eine Ausnahmebewilligung mit hydrogeologisches Gutachten und Nachweis, dass die Durchflusskapazität  des Grundwassers gegenüber dem unbeinflussten Zustand um höchstens 10% vemindert wird.","Demande de dérogation accompagnée d'une expertise hydrogéologique et de la preuve que la capacité d’écoulement des eaux souterraines est réduite de 10 % au plus par rapport à l’état non influencé par les installations en question.",,,,,51
+Energiedokumente,"Document relatifs à l'énergie",http://www.bve.be.ch/bve/de/index/energie/energie/energievorschriften_bau/energieordner.html,https://www.bve.be.ch/bve/fr/index/energie/energie/energievorschriften_bau/energieordner.html,,,52
+"Gesuch um Erleichterung oder Befreiung Wärmeschutz","Demande d'allégement ou de dispense en matière d’isolation thermique",,,,,53
+"Ausnahmegesuch Energie","Demande de dérogation (énergie)",,,,,54
+"Gesuch zur Ausnahme gemäss Art 31 Abs. 2 LSV","Demande de dérogation en vertu de l'article 31, alinéa 2 OPB",,,,,55
+"Nachweis Anforderungen gemäss Art 31 LSV","Preuve du respect des exigences énoncées à l'article 31 OPB",,,,,56
+"Rückbau Checkliste / Selbstdeklaration","Liste de contrôle pour le démantèlement / Déclaration spontanée",http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/BodenSchiessanlagen.html,https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/BodenSchiessanlagen.html,,,57
+Entsorgungskonzept,"Plan de gestion des déchets",,,,,58
+"Schadstoffermittlung / Gutachten","Détection de polluants / expertise",,,,,59
+Bodenschutzkonzept,"Plan de protection du sol",,,,,60
+"Meldeblatt zur Fruchtfolgefläche","Avis concernant une surface d'assolement",,,,,61
+"Meldeblatt für Terrainveränderungen zur Bodenaufwertung","Avis concernant le remodelage de terrain pour la valorisation du sol",,,,,62
+"Deklaration zur Verwertung von abgetragenem Boden","Déclaration concernant la valorisation de matériaux terreux décapés",,,,,63
+Rodungsgesuchformular,"Formulaire de demande de défrichement",http://www.vol.be.ch/vol/de/index/wald/wald/formulare_bewilligungen.html,https://www.vol.be.ch/vol/fr/index/wald/wald/formulare_bewilligungen.html,,,64
+"Übersichtsplan Rodung (1:25'000)","Plan d'ensemble du défrichement (1:25 000)",,,,,65
+"Detailpläne Rodung und Aufforstung (1:200 – 1:1'000)","Plans détaillés de défrichement et de reboisement (1:200 – 1:1000)",,,,,66
+Gefahrengutachten,"Expertise sur l’exposition aux dangers naturels",,,,,67
+"Generelles Baugesuch","Demande de permis de construire général",,,,,68
+Voruntersuchung,"Investigation préalable",,,,,69
+Umweltverträglichkeitsbericht,"Rapport relatif à l’impact sur l’environnement",,,,,70
+"Zustimmung der Nachbarn nach 27 / 4 BewD","Accord des voisins selon l'article 27, alinéa 4 DPC",,,,,71
+"Näherbau- / Grenzbaurecht","Droit de construire en deçà de la limite légale / distance à la limite",,,,,72
+"Berechnung Kinderspielplätze / Aufenthaltsbereiche","Calcul relatif aux places de jeux pour enfants et aux aires de loisirs",,,,,73
+Situationsplan,"Plan de situation",,,,,74
+Grundriss,"Vue en plan",,,,,75
+Schnitt,Coupe,,,,,76
+"Fassaden / Ansichten (inklusive Angaben zu Fensterflächen)","Façades (indications sur les surfaces vitrées comprises)",,,,,77
+Umgebungsplan,"Plan d’aménagement des abords",,,,,78
+Werkleitungsplan,"Plan des conduites",,,,,79
+"Fassadenplan mit eingezeichnetem Reklamestandort","Plan des façades avec indication de l’emplacement de la réclame",,,,,80
+"Skizze der Reklame mit Farbangaben","Croquis de la réclame (avec l’indication des couleurs)",,,,,81
+"Dossiers von Um- und Ausbauprojekten","Dossiers concernant des projets de transformation",,,,,82
+Baubewilligungsakte,"Dossier du permis de construire",,,,,83
+Ausnahmebegründung,"Motivation de la dérogation",,,,,84
+"Dokumente der Bauausführung","Documents relatifs à l’exécution des travaux",,,,,85
+"… Kann durch den Gesuchsteller / Behörde selber betitelt werden","… Titre laissé à la libre appréciation des requérants ou de l'autorité",,,,,86
+Notizen,Notes,,,,,88
+Entwürfe,Brouillons,,,,,89
+Einsprache,Opposition,,,,,90
+Bauentscheid,"Décision relative à la demande de permis de construire",,,,,91
+Verfahrensprogramm,"Déroulement de la procédure",,,,,92
+Stellungnahme,"Prise de position",,,,,93
+"Andere Dokumente","Autres documents",,,,,94
+Einsprache,Opposition,,,,,95
+Notizen,Notes,,,,,96
+Entwürfe,Brouillons,,,,,97
+"Andere Dokumente","Autres documents",,,,,98
+"Konzessionsgesuch für den Betrieb einer Kühlwasseranlage","Demande de concession pour eau de refroidissement",http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/de/WN_WK/wwa-konzessionsgesuchsformular_fuer_eine_kuehlwassernutzung.doc,https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.html,,,99
