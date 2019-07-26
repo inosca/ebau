@@ -135,7 +135,7 @@
       "modified_at": "2019-06-17T11:03:07.357Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "name": "{\"de\": \"Abschluss (SB2)\"}",
+      "name": "{\"de\": \"Abschluss\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -343,7 +343,23 @@
       "modified_at": "2019-06-17T11:03:05.906Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "name": "{\"de\": \"Dokumente (SB2)\"}",
+      "name": "{\"de\": \"Dokumente\"}",
+      "description": "{\"de\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
+    "pk": "dokumente-sb1",
+    "fields": {
+      "created_at": "2019-06-17T10:54:16.160Z",
+      "modified_at": "2019-06-17T11:03:05.906Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "name": "{\"de\": \"Dokumente\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -439,7 +455,7 @@
       "modified_at": "2019-06-17T10:47:14.190Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "name": "{\"de\": \"Freigabequittung (SB1)\"}",
+      "name": "{\"de\": \"Freigabequittung\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -455,7 +471,7 @@
       "modified_at": "2019-06-17T11:03:04.401Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "name": "{\"de\": \"Freigabequittung (SB2)\"}",
+      "name": "{\"de\": \"Freigabequittung\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -935,7 +951,7 @@
       "modified_at": "2019-06-17T10:47:11.508Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "name": "{\"de\": \"Selbstdeklaration (SB1)\"}",
+      "name": "{\"de\": \"Selbstdeklaration\"}",
       "description": "{\"de\": \"\"}",
       "meta": {},
       "is_published": true,
@@ -4039,6 +4055,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "9e98993f-a6b6-43de-b267-d74041c5e73b",
+    "fields": {
+      "created_at": "2019-06-17T10:57:29.526Z",
+      "modified_at": "2019-06-17T10:57:29.526Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "sb1",
+      "question": "dokumente-sb1",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "463f1022-b643-47e5-a7f7-b5b8b58bce91",
     "fields": {
       "created_at": "2019-04-08T15:12:12.349Z",
@@ -5048,7 +5077,7 @@
       "created_by_group": null,
       "form": "sb1",
       "question": "selbstdeklaration-sb1",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -5491,6 +5520,32 @@
       "form": "immissionsschutz-laermschutz",
       "question": "finden-bauarbeiten-in-der-nacht-statt",
       "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "6d6abaa0-2c8a-4034-aa4b-4b9e29c545ab",
+    "fields": {
+      "created_at": "2019-07-25T12:08:14.119Z",
+      "modified_at": "2019-07-25T12:08:14.119Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dokumente-sb2",
+      "question": "dokumente-platzhalter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "db060b3f-f7ac-4c7f-931f-bd6385d39295",
+    "fields": {
+      "created_at": "2019-07-25T12:08:14.119Z",
+      "modified_at": "2019-07-25T12:08:14.119Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dokumente-sb1",
+      "question": "dokumente-platzhalter",
+      "sort": 1
     }
   },
   {
@@ -6232,19 +6287,6 @@
       "form": "vorabklaerung-einfach",
       "question": "name-gesuchstellerin-vorabklaerung",
       "sort": 17
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "842fd43a-c8f0-4fcc-9e9b-5155307593e0",
-    "fields": {
-      "created_at": "2019-07-23T12:00:35.838Z",
-      "modified_at": "2019-07-23T12:00:35.838Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "dokumente-sb2",
-      "question": "andere-dokument",
-      "sort": 1
     }
   },
   {
@@ -11498,7 +11540,10 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": "be-documents-form" },
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": 1
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": "6-dokumente",
@@ -11789,7 +11834,7 @@
       "modified_at": "2019-06-17T10:56:40.701Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Abschluss (SB2)\"}",
+      "label": "{\"de\": \"Abschluss\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -16426,13 +16471,38 @@
   },
   {
     "model": "form.question",
-    "pk": "dokumente-sb2",
+    "pk": "dokumente-platzhalter",
+    "fields": {
+      "created_at": "2019-07-25T12:08:13.977Z",
+      "modified_at": "2019-07-25T12:08:13.977Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Dokumente Platzhalter\"}",
+      "type": "static",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": null}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dokumente-sb1",
     "fields": {
       "created_at": "2019-06-17T10:57:29.422Z",
       "modified_at": "2019-06-17T10:57:29.422Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Dokumente (SB2)\"}",
+      "label": "{\"de\": \"Dokumente\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -16441,7 +16511,38 @@
       "info_text": "{\"de\": \"\"}",
       "static_content": "{\"de\": \"\"}",
       "configuration": {},
-      "meta": { "widgetOverride": "be-documents-form" },
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": 6
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-sb1",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dokumente-sb2",
+    "fields": {
+      "created_at": "2019-06-17T10:57:29.422Z",
+      "modified_at": "2019-06-17T10:57:29.422Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": "[]",
+      "label": "{\"de\": \"Dokumente\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": 5
+      },
       "data_source": null,
       "row_form": null,
       "sub_form": "dokumente-sb2",
@@ -18412,7 +18513,7 @@
       "modified_at": "2019-06-17T10:25:04.417Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Freigabequittung (SB1)\"}",
+      "label": "{\"de\": \"Freigabequittung\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -18437,7 +18538,7 @@
       "modified_at": "2019-06-17T10:59:56.054Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Freigabequittung (SB2)\"}",
+      "label": "{\"de\": \"Freigabequittung\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
@@ -27956,7 +28057,7 @@
       "modified_at": "2019-06-17T10:02:09.512Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
-      "label": "{\"de\": \"Selbstdeklaration (SB1)\"}",
+      "label": "{\"de\": \"Selbstdeklaration\"}",
       "type": "form",
       "is_required": "false",
       "is_hidden": "false",
