@@ -43,6 +43,12 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ("name", "surname", "username", "language", "service")
 
 
+class CurrentUserSerializer(UserSerializer):
+    class Meta(UserSerializer.Meta):
+        fields = UserSerializer.Meta.fields + ("groups",)
+        read_only_fields = ("groups",)
+
+
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     class Meta:
         model = models.Group
