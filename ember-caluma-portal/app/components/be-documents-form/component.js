@@ -2,12 +2,13 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
-import { filterBy } from "@ember/object/computed";
+import { reads, filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
 import { getOwner } from "@ember/application";
 import { ComponentQueryManager } from "ember-apollo-client";
 import Attachment from "ember-caluma-portal/lib/attachment";
+import { assert } from "@ember/debug";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
@@ -23,9 +24,16 @@ export default Component.extend(ComponentQueryManager, {
     this.data.perform();
   },
 
+  section: reads("fieldset.field.question.meta.attachment-section"),
+
   data: task(function*() {
+    assert(
+      "An attachment section must be passed to the question's meta",
+      this.section
+    );
+
     const response = yield this.fetch.fetch(
-      `/api/v1/attachments?instance=${this.context.instanceId}`
+      `/api/v1/attachments?instance=${this.context.instanceId}&attachment_sections=${this.section}`
     );
 
     const { data } = yield response.json();
@@ -38,9 +46,14 @@ export default Component.extend(ComponentQueryManager, {
     );
   }),
 
-  allVisibleTags: computed("fieldset.fields.@each.{hidden,isNew}", function() {
-    return this.fieldset.fields.filter(f => !f.hidden && f.isNew);
-  }),
+  allVisibleTags: computed(
+    "fieldset.fields.@each.{hidden,isNew,questionType}",
+    function() {
+      return this.fieldset.fields.filter(
+        f => !f.hidden && f.isNew && f.questionType === "MultipleChoiceQuestion"
+      );
+    }
+  ),
 
   allRequiredTags: filterBy("allVisibleTags", "optional", false),
   allOptionalTags: filterBy("allVisibleTags", "optional", true),
@@ -91,6 +104,14 @@ export default Component.extend(ComponentQueryManager, {
     }
   ),
 
+  selectFile: task(function*(file) {
+    this.set("file", file);
+
+    if (!this.allVisibleTags.length) {
+      yield this.save.perform();
+    }
+  }),
+
   saveFile: task(function*() {
     if (!ALLOWED_MIMETYPES.includes(this.file.blob.type)) {
       this.notification.danger(this.intl.t("documents.wrongMimeType"));
@@ -101,6 +122,7 @@ export default Component.extend(ComponentQueryManager, {
     const formData = new FormData();
 
     formData.append("instance", this.context.instanceId);
+    formData.append("attachment_sections", this.section);
     formData.append(
       "context",
       JSON.stringify({

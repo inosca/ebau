@@ -4,45 +4,49 @@
       {{uk-spinner ratio=2}}
     </div>
   {{else}}
-    <h3>{{t "documents.contents"}}</h3>
-
-    <div class="uk-margin">
-      {{#if allRequiredTags.length}}
-        <label class="uk-text-bold uk-margin">{{t "documents.requiredContent"}}</label>
-        {{#each-in requiredTags as |title fields|}}
-          <div class="uk-margin">
-            <label>{{t (concat "documents.tags." title)}}</label>
-            <div class="uk-margin-left">
-              {{#each fields as |field|}}
-                <label>
-                  <input
-                    type="checkbox"
-                    class="uk-checkbox"
-                    checked={{if (contains field selectedRequiredTags) "checked"}}
-                    onchange={{action "updateSelectedRequiredTags" field}}
-                  >
-                  {{field.question.label}}
-                </label>
-                <br>
-              {{/each}}
-            </div>
-          </div>
-        {{/each-in}}
-      {{/if}}
+    {{#if allVisibleTags.length}}
+      <h3>{{t "documents.contents"}}</h3>
 
       <div class="uk-margin">
-        <label class="uk-text-bold">{{t "documents.optionalContent"}}</label>
-        {{#power-select-multiple
-          multiple=true
-          selected=selectedOptionalTags
-          options=optionalTags
-          searchField="question.label"
-          onchange=(action (mut selectedOptionalTags))
-        as |field|}}
-          {{field.question.label}}
-        {{/power-select-multiple}}
+        {{#if allRequiredTags.length}}
+          <label class="uk-text-bold uk-margin">{{t "documents.requiredContent"}}</label>
+          {{#each-in requiredTags as |title fields|}}
+            <div class="uk-margin">
+              <label>{{t (concat "documents.tags." title)}}</label>
+              <div class="uk-margin-left">
+                {{#each fields as |field|}}
+                  <label>
+                    <input
+                      type="checkbox"
+                      class="uk-checkbox"
+                      checked={{if (contains field selectedRequiredTags) "checked"}}
+                      onchange={{action "updateSelectedRequiredTags" field}}
+                    >
+                    {{field.question.label}}
+                  </label>
+                  <br>
+                {{/each}}
+              </div>
+            </div>
+          {{/each-in}}
+        {{/if}}
+
+        {{#if allOptionalTags.length}}
+          <div class="uk-margin">
+            <label class="uk-text-bold">{{t "documents.optionalContent"}}</label>
+            {{#power-select-multiple
+              multiple=true
+              selected=selectedOptionalTags
+              options=optionalTags
+              searchField="question.label"
+              onchange=(action (mut selectedOptionalTags))
+            as |field|}}
+              {{field.question.label}}
+            {{/power-select-multiple}}
+          </div>
+        {{/if}}
       </div>
-    </div>
+    {{/if}}
     <div class="uk-margin uk-text-right">
       <button class="uk-button uk-button-default" {{action "reset"}}>{{t "documents.cancel"}}</button>
       <button class="uk-button uk-button-primary" {{action (perform save)}}>{{t "documents.upload"}}</button>
@@ -57,7 +61,7 @@
         {{#if dropzone.supported}}
           {{t "documents.drag"}}
         {{/if}}
-        {{#file-upload name="documents" onfileadd=(action (mut file))}}
+        {{#file-upload name="documents" onfileadd=(perform selectFile)}}
           <span class="uk-link">{{t "documents.click"}}</span>
         {{/file-upload}}
       </div>

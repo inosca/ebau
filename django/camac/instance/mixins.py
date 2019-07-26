@@ -140,6 +140,7 @@ class InstanceEditableMixin(AttributeMixin):
 
         if instance.instance_state.name in [
             "nfd",  # Kt. Schwyz Nachforderung
+            "sb1",  # Kt. Bern SB1
             "sb2",  # Kt. Bern SB2
         ]:
             return {"document"}
