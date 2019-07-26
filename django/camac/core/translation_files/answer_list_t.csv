@@ -1,0 +1,1312 @@
+NAME,NAME_FR,ANSWER_LIST_ID
+"Vertreter/in mit Vollmacht","Représentant/e disposant d'une procuration",1
+Projektverfasser/in,"Auteur/e du projet",2
+"Grundeigentümer/in, Gebäudeeigentümer/in","Propriétaire foncier/foncière / Propriétaire immobilier/immobilière",3
+"Boden / Untergrund","Sol / sous-sol",4
+Wasser,Eau,5
+Luft,Air,6
+Ja,Oui,7
+Nein,Non,8
+"Beizulegende Vollmacht mit beschriebenen Handlungsspielraum an Bevollmächtigte","Procuration à joindre, décrivant la marge de manœuvre du/de la mandataire",9
+"Der/die Gesuchsteller/in bestätigt mit Unterschrift, die Generalvollmacht an Bevollmächtigte","Par sa signature, le requérant/la requérante confirme la procuration générale donnée au/à la mandataire.",10
+Ja,Oui,11
+Nein,Non,12
+Ja,Oui,13
+Nein,Non,14
+Ja,Oui,15
+Nein,Non,16
+Neubau,"Nouvelle construction",17
+"Um- / Ausbau",Transformation,18
+Umnutzung,"Changement d'affectation",19
+"Erweiterung / Anbau","Agrandissement / annexe",20
+Abbruch,Démolition,21
+"Technische Anlage","Installation technique",22
+Reklame,Réclame,23
+Tiefbauanlage,"Installation de génie civil",24
+Andere,Autre,25
+Rammen,Damage,26
+Pfählen,"Pose de pieux",27
+Sprengen,Minage,28
+Ja,Oui,32
+Nein,Non,33
+Ja,Oui,20000
+Nein,Non,20001
+Güllegrube,"Fosse à purin",20002
+Wohnen,Logement,40000
+Industrie,Industrie,40001
+Gewerbe,Artisanat,40002
+Dienstleistung,Services,40003
+Verkauf,Vente,40004
+Lager,Entreposage,40005
+Landwirtschaft,Agriculture,40006
+Gastgewerbe,"Hôtellerie et restauration",40007
+Andere,Autre,40008
+"Wohnen<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Dies sind Bauten und Anlagen, welche zum Wohnen geeignet sind und die Anforderungen nach Art. 63 1 BauV erfüllen. Als Wohnräume gelten alle dauernd zum Aufenthalt von Menschen bestimmten Zimmer, wie Wohn- und Esszimmer, Schlafzimmer, Kinderzimmer, Zimmer für häusliche Arbeiten.<a class='extern' target='_blank' href='https://www.belex.sites.be.ch/frontend/versions/1333'>Bauverordnung (BauV)</a>""></a>","Logement<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Constructions et installations habitables qui répondent aux exigences de l'article 63, alinéa 1 OC. Sont réputés locaux d'habitation toutes les pièces destinées en permanence au séjour des personnes, tels que les salons et les salles à manger, les chambres à coucher, les salles de jeu pour les enfants, les pièces destinées aux travaux ménagers.<a class='extern' target='_blank' href='https://www.belex.sites.be.ch/frontend/versions/1333'>Ordonnance sur les constructions (OC)</a>""></a>",40009
+"Industrie<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Dies sind grosse Produktions- und Reparaturnutzungen, bei welchen in grossem Umfang Maschinen zum Einsatz kommen. Die Abgrenzung zu Gewerbenutzung kann schwierig sein. Generell gilt, je lauter und grösser ein Betrieb ist und je mehr Maschinen zum Einsatz kommen, desto eher ist er der Industrienutzung zuzuordnen.""></a>","Industrie<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Grandes installations de production ou de réparation destinées à des utilisations faisant un large usage de machines. La délimitation par rapport à l'artisanat n'est pas toujours aisée. D'une manière générale, plus l'exploitation est grande et bruyante, plus elle recourt à des machines, et plus l'affectation doit être considérée comme industrielle.""></a>",40010
+"Gewerbe<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Dies sind  kleine bis mittlere Produktions- und Reparaturnutzungen, welche grösstenteils Handarbeit anwenden. Die Abgrenzung zur Industrienutzung kann schwierig sein. Eine Bäckerei, welche in Handarbeit Waren herstellt, ist ein Gewerbebetrieb, während die automatisierte Fertigung mit Maschinen eine industrielle Produktion darstellt. ""></a>","Artisanat<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Petites et moyennes installations de production ou de réparation dans lesquelles prédomine le travail manuel. La délimitation par rapport à l'industrie n'est pas toujours aisée. Une boulangerie est une entreprise artisanale si sa production est manuelle, et une entreprise industrielle si sa production est automatisée. ""></a>",40011
+"Dienstleistung<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Dies sind Nutzungen, bei welchen nicht Güter, sondern in erster Linie Leistungen erbracht und angeboten werden. Büros, Praxen, Versicherungen, Banken, etc. ""></a>","Services<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Constructions et installations affectées non pas à la production de biens, mais en premier lieu à la fourniture de prestations. Bureaux (de compagnies d'assurance p. ex.), cabinets, études, banques, etc. ""></a>",40012
+"Verkauf<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Dies sind Verkaufsnutzungen, unabhängig davon, ob es sich um Güter des täglichen Bedarfs oder andere Produkte handelt. Die Waren sind grösstenteils vor Ort vorhanden und das Lokal ist für Kundschaft zugänglich.""></a>","Vente<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Locaux destinés à la vente, qu'il s'agisse de produits satisfaisant des besoins quotidiens ou d'autres produits. Les marchandises sont en grande partie disponibles sur place et les locaux sont accessibles à la clientèle.""></a>",40013
+"Lager<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Damit sind unabhängige Lagerräume und -flächen gemeint, welche nicht im Zusammenhang mit einer anderen Nutzung (z.B. Gewerbe) stehen.""></a>","Entreposage<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Locaux et surfaces d'entreposage en rapport avec une autre affectation (p. ex. artisanat).""></a>",40014
+"Landwirtschaft<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Als Landwirtschaft werden wirtschaftliche Aktivitäten, bei denen Boden und Nutztiere neben Arbeit, Kapital und Wissen als Produktionsfaktoren beteiligt sind und landwirtschaftliche Proudukte zentral sind.""></a>","Agriculture<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Activité économique pour laquelle le sol et les animaux de rente interviennent en sus des autres facteurs de production que sont le travail, le capital et le savoir et qui génère essentiellement des produits agricoles.""></a>",40015
+"Gastgewerbe<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Das sind Restaurants, Hotels, Aussenbewirtungsflächen, Take-Aways, Imbissstände, Showküchen etc. Nicht jede dieser Nutzungen benötigt auch eine gastgewerbliche Betriebsbewilligung. Betriebsbewilligungen sind nötig, wenn mehr als 6 Sitzplätze vorhanden sind und/oder Alkohol angeboten wird.""></a>","Hôtellerie et restauration<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Restaurants, hôtels, terrasses, magasins de vente à l’emporter, points de vente servant des boissons et des en-cas, cuisines de démonstration, etc. Ces affectations ne requièrent pas toutes une patente d'hôtellerie et de restauration. Une telle patente n'est nécessaire que si le nombre de places excède six ou que des boissons alcoolisées soient servies.""></a>",40016
+"Andere<a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Wählen Sie diese Option, wenn Ihre geplante Nutzung keiner der oben erwähnten Nutzungen zugeordnet werden kann.""></a>","Autre<a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""Choisissez cette option si votre projet ne correspond à aucune des autres options proposées.""></a>",40017
+"EFH (Einfamilienhaus)","MI (maison individuelle)",40018
+"MFH (Mehrfamilienhaus)","IPL (immeuble à plusieurs logements)",40019
+Ja,Oui,40020
+Nein,Non,40021
+Ja,Oui,40022
+Nein,Non,40023
+Ja,Oui,40024
+Nein,Non,40025
+Ja,Oui,40026
+Nein,Non,40027
+Ja,Oui,40028
+Nein,Non,40029
+"Öl- oder Gasfeuerungen mit einer Feuerungswärmeleistung  ≥ 350 kW","Installations de combustion d’une puissance calorique ≥ 350 kW (gaz ou mazout)",40030
+"Holzfeuerungen mit einer Feuerungswärmeleistung ≥ 70 kW","Installations de combustion d’une puissance calorique  ≥ 70 kW (bois)",40031
+"Pellet-, Späne- oder Schnitzelfeuerungsanlagen","Installations de chauffage au bois (copeaux ou pellets)",40032
+"Verkehrsintensives Vorhaben","Projet générant une importante fréquentation",40033
+Verwaltungsgebäude,"Bâtiment/s administratif/s",40034
+"Verkaufsgeschäfte / Geschäftshäuser / Einkaufszentren","Magasins / immeubles commerciaux / centres d'achat",40035
+"Gastgewerbe (Restaurant)",Restauration,40036
+"Grossraumbüros  > 400 m² oder mehr als 20 Arbeitsplätze im gleichen Raum","Bureaux paysagers dès 400 m² ou de plus de 20 postes de travail dans le même espace",40037
+"Spitäler, Kliniken, Heime, Schwimmbäder, Sportplätze / Sportanlagen, Eishallen, Kinos, Theater, Museen, Kirchen und Schulhäuser mit mech. Werkstätten, Lagerhallen","Hôpitaux, cliniques, foyers, piscines, places et installations sportives, patinoires, cinémas, théâtres, musées, églises, écoles avec ateliers mécaniques, entrepôts",40038
+"Beherbergungsbetriebe (Hotel, Ferienheim, ...)","Etablissements d’hébergement (hôtels, foyers de vacances, ...)",40039
+Ja,Oui,40040
+Nein,Non,40041
+Ja,Oui,40042
+Nein,Non,40043
+Ja,Oui,40044
+Nein,Non,40045
+Ja,Oui,40046
+Nein,Non,40047
+"Für die Reinigung-, Aufbereitung- und Beschichtung     <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""<ul><li>Abluftreinigungsanlagen</li><li>Abwasserreinigungsanlagen</li><li>Anlagen zur Reinigung oder Beschichtung von Material</li><li>Anlagen zur Vorbereitung von Oberflächen mit flüchtigen Kohlenwasserstoffen, Laugen und Säuren</li> <li>Beschichtung oder Bedruckungsanlagen für Oberflächen mit organischen Stoffen wie Farben, Lacken und Kunststoffen</li><li>Galvanotechnische Anlagen</li></ul>""></a>","Pour le nettoyage, le prétraitement et le revêtement	    <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""<ul><li>Installations d’épuration des effluents gazeux</li><li>Stations d'épuration des eaux usées</li><li>Installations de nettoyage et de revêtement de matériaux</li><li>Installations pour prétraitement de surface avec des hydrocarbures volatils, des caustiques et des acides</li> <li>Revêtement et impression de surfaces au moyen de matières organiques comme peintures, vernis et matières plastiques</li><li>Installations galvanotechniques</li></ul>""></a>",40048
+"Für den Transport und das Verpacken von Materialien  <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""<ul><li>Automatisch oder zentral gesteuert Produktions- und Fertigungsgsanlagen sowie Verpackungs- und Abfüllstrassen</li><li>Rüst-, Wasch- und Verpackungsanlagen von Nahrungs- oder Genussmitteln</li></ul>""></a>","Pour le transport et le conditionnement de matériaux  <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""<ul><li>Installations de production et de fabrication automatiques ou à commande centrale ainsi que chaînes d’emballage ou de conditionnement</li><li>Préparation, nettoyage et conditionnement de denrées alimentaires, de boissons et de stimulants</li></ul>""></a>",40049
+"Für die industrielle / gewerbliche Erzeugung von Lebens- oder Futtermittel    <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""<ul><li>Trocknungsanlagen für Grünfutter oder andere landwirtschaftliche Erzeugnisse</li><li>Produktionsanlagen z.B. in Bäckereien, Metzgereien, Mühlen, Kaffeeröstereien</li></ul>""></a>","Pour la production industrielle / artisanale de denrées alimentaires et d'aliments pour animaux    <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""<ul><li>Séchoirs pour fourrage vert ou autres produits agricoles</li><li>Installations de production, p. ex. dans des boulangeries, boucheries, moulins, sites de torréfaction de café</li></ul>""></a>",40050
+"Für die Erzegung, Speicherung oder Lagerung von Strom, Wärme oder Brennstoffen  <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""<ul><li>Windkraft-, Biogas-, Notstrom-, Wärme-Kraft-Kopplungsanlagen, Blockheizkraftwerke</li><li>Pump- und Speicherwerke</li><li>Benzin-, Diesel-, Elektro-, Gas- und Biogastankanlagen</li></ul>""></a>","Pour la production ou le stockage d'énergie, de chaleur ou de combustible  <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""<ul><li>Installations éoliennes, de méthanisation, d'alimentation électrique de secours, de couplage chaleur-force et centrales de cogénération</li><li>Usines de pompage et d’emmagasinage </li><li>Installations de ravitaillement à carburant, à diesel, électro, à gaz et à biogaz</li></ul>""></a>",40051
+"Für Deponien, Werkhöfe, Betriebsgebäude oder auf Betriebsarealen <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""<ul><li>Steinbrecher, Schredder oder Häcksler</li><li>Maschinen wie Stapler, Pneulader oder Bagger mit einer Leistung > 18 kW</li></ul>""></a>","Pour les décharges, centres d'entretien, bâtiments d'exploitation ou aires d’entreprise <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""<ul><li>Concasseur de pierres, déchiqueteuse ou hacheur</li><li>Machines telles que chariots élévateurs, chargeuses sur pneus ou excavatrices d'une puissance > 18 kW</li></ul>""></a>",40052
+"Gebäude geringer Abmessungen","Bâtiment/s de dimensions réduites",40053
+"Schule / Kindergarten","Ecole / école enfantine",40054
+Parking,Parking,40055
+"Räume mit grosser Personenbelegung ((über 300 Personen)","Locaux pouvant accueillir un grand nombre de personnes (plus de 300)",40056
+"Erschliessungsanlagen (z.B. Alpwege, Waldstrassen, ...)","Installations d'équipement (p. ex. chemin alpestre, route forestière ...)",40057
+"Erstellung / Erneuerung von Aussenraum (Strasse, Fussweg, Trottoirs, Haltestellen, etc.)","Aménagement / réfection d'espaces extérieurs (route, chemin piétonnier, trottoir, arrêt de bus, etc.)",40058
+"Bauten unbekannter Nutzung","Bâtiment à affectation inconnue",40059
+Ferienhaus,"Maison de vacances",40060
+"Umnutzungen (z.B. Zivile Nutzung militärischer Bauten)","Changements d'affectation (p. ex. réaffectation de bâtiments militaires à des fins civiles)",40061
+"Tourismus (z.B. Bikestrecke, Spielplatz, Wanderwege)","Tourisme (p. ex. itinéraire VTT, place de jeux, chemin de randonnée pédestre)",40062
+"Planungen (z.B. UeO mit Baubewilligung)","Plans (p. ex. plan de quartier assorti du permis de construire)",40063
+"Fischhaltung / Aquakulturanlage <br><a class=""pdf"" href=""https://www.vol.be.ch/vol/de/index/natur/fischerei/formulare_merkblaetter.assetref/dam/documents/VOL/LANAT/de/Natur/Fischerei/Merkblatt_Bewilligungsverfahren_zum_Betreiben_einer_Fischzuchtanlage.pdf"" target=""_blank"">Merkblatt Bewilligungsverfahren zum Erstellen und Betreiben einer Fischhaltung, Fischzuchtresp. Aquakulturanlage</a>","Installation de pisciculture ou d’aquaculture <br><a class=""pdf"" href=""https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/fr/BA_IG/BA_ig030_Merkblatt_Bewilligungsverfahrenzum_Betreiben_einer_Fischzuchtanlage_f_2.pdf"" target=""_blank"">Notice concernant la procédure d’autorisation relative à l’établissement et à l’exploitation d’installations de pisciculture ou d’aquaculture</a>",40064
+Ja,Oui,40066
+Nein,Non,40067
+"Geringe Höhe bis 11 m","Bâtiment de faible hauteur (jusqu'à 11 m)",40068
+"Mittlere Höhe zwischen 11 m und 30 m","Bâtiment de moyenne hauteur (entre 11 et 30 m)",40069
+"Grosse Höhe ab 30 m","Bâtiment élevé (plus de 30 m)",40070
+S1,S1,40071
+"S2 / Sh","S2 / Sh",40072
+"S3 / Sm","S3 / Sm",40073
+üB,"Autre secteur",40074
+Ao,Ao,40075
+Au,Au,40076
+Zu,Zu,40077
+Ja,Oui,40078
+Nein,Non,40079
+Ja,Oui,40080
+Nein,Non,40081
+Ja,Oui,40082
+Nein,Non,40083
+Ja,Oui,40084
+Nein,Non,40085
+Ja,Oui,40086
+Nein,Non,40087
+Ja,Oui,40088
+Nein,Non,40089
+Ja,Oui,40090
+Nein,Non,40091
+Ja,Oui,40092
+Nein,Non,40093
+Ja,Oui,40094
+Nein,Non,40095
+Ja,Oui,40096
+Nein,Non,40097
+Ja,Oui,40098
+Nein,Non,40099
+Ja,Oui,40100
+Nein,Non,40101
+Ja,Oui,40102
+Nein,Non,40103
+Ja,Oui,40104
+Nein,Non,40105
+Ja,Oui,40106
+Nein,Non,40107
+Ja,Oui,40108
+Nein,Non,40109
+Ja,Oui,40110
+Nein,Non,40111
+Ja,Oui,40112
+Nein,Non,40113
+Ja,Oui,40114
+Nein,Non,40115
+Ja,Oui,40116
+Nein,Non,40117
+Ja,Oui,40118
+Nein,Non,40119
+"Vertreter/in mit Vollmacht","Représentant/e disposant d'une procuration",40120
+Projektverfasser/in,"Auteur/e du projet",40121
+"Grundeigentümer/in, Gebäudeeigentümer/in","Propriétaire foncier/foncière / Propriétaire immobilier/immobilière",40122
+Ja,Oui,40123
+Nein,Non,40124
+Ja,Oui,40125
+Nein,Non,40126
+Ja,Oui,40127
+Nein,Non,40128
+Ja,Oui,40129
+Nein,Non,40130
+Ja,Oui,40131
+Nein,Non,40132
+Ja,Oui,40133
+Nein,Non,40134
+"Aussenwand: Bekleidung / Wärmedämmung mit brennbaren Bauprodukten","Mur extérieur: revêtement / isolation thermique au moyen de produits de construction inflammables",40135
+"Tragwerk brennbar oder mit Kapselung","Structures porteuses inflammables ou avec encapsulage",40136
+"Tragwerke mit dämmschichtbildenden Systemen","Structures porteuses avec systèmes formant une couche isolante",40137
+"brennbare Gase bis 1000kg","Gaz inflammables (jusqu'à 1000 kg)",40138
+"brennbare Gase über 1000kg","Gaz inflammables (plus de 1000 kg)",40139
+"bis 2000kg leichtbrennbare Flüssigkeiten mit Flammpunkt","Jusqu'à 2000 kg de liquides facilement inflammables avec un point d’éclair",40140
+"über 2000kg leichtbrennbare Flüssigkeiten mit Flammpunkt","Plus de 2000 kg de liquides facilement inflammables avec un point d’éclair",40141
+"Pneulager bis 60t","Dépôt de pneus jusqu'à 60 t",40142
+"Pneulager über 60t","Dépôt de pneus de plus de 60 t",40143
+"Feuerwerkskörper bis 300kg","Pièce d'artifice jusqu'à 300 kg",40144
+"Feuerwerkskörper über 300kg","Pièce d'artifice de plus de 300 kg",40145
+"übrige Mensch und Umwelt gefährdende Stoffe über Störfallgrenze","Autres substances dangereuses pour l'homme et l'environnement au-delà de la limite prévue par l'ordonnance sur les accidents majeurs",40146
+"Explosionsgefährdete Räume oder Zonen","Locaux ou zones comportant un danger d’explosion",40148
+"Bauten mit Atrien oder Doppelfassaden","Construction avec atrium ou façades doubles",40149
+"Brandabschnittsfläche über 7200 m²","Compartiment coupe-feu d'une surface supérieure à 7200 m²",40150
+"Bruttogeschossfläche über 12'000 m²","Surface brute de plancher supérieure à 12 000 m²",40151
+"Anwendung von Nachweisverfahren","Application de procédures de justification",40152
+"Hoher Anteil an technischen und/oder betrieblichen Brandschutzmassnahmen","Nombre élevé de mesures de protection contre l'incendie prises sur les plans technique et/ou de l'exploitation",40153
+"Feststoff-Feuerung und/oder Lagerung feste Brennstoffe > 5m³","Installations à combustible solide et/ou stockage de combustibles solides > 5m³",40154
+1,1,40155
+2,2,40156
+3,3,40157
+4,4,40158
+5,5,40159
+6,6,40160
+7,7,40161
+8,8,40162
+9,9,40163
+10,10,40164
+11,11,40165
+12,12,40166
+13,13,40167
+14,14,40168
+15,15,40169
+16,16,40170
+17,17,40171
+18,18,40172
+19,19,40173
+20,20,40174
+21,21,40175
+22,22,40176
+23,23,40177
+24,24,40178
+25,25,40179
+26,26,40180
+27,27,40181
+28,28,40182
+29,29,40183
+30,30,40184
+1,1,40185
+2,2,40186
+3,3,40187
+4,4,40188
+5,5,40189
+6,6,40190
+7,7,40191
+8,8,40192
+9,9,40193
+10,10,40194
+11,11,40195
+12,12,40196
+13,13,40197
+14,14,40198
+15,15,40199
+16,16,40200
+17,17,40201
+18,18,40202
+19,19,40203
+20,20,40204
+21,21,40205
+22,22,40206
+23,23,40207
+24,24,40208
+25,25,40209
+26,26,40210
+27,27,40211
+28,28,40212
+29,29,40213
+30,30,40214
+Ja,Oui,40215
+Nein,Non,40216
+Ja,Oui,40217
+Nein,Non,40218
+Neu,Nouveau/Nouvelle,40219
+Bestehend,Existant/e,40220
+Liter,litres,40221
+Kg,kg,40222
+Ja,Oui,40223
+Nein,Non,40224
+"Leichtbrennbare Flüssigkeit mit Flammpunkt < 30 Grad","Liquides facilement inflammables dont le point d’éclair < 30°C",40225
+"Brennbare Flüssigkeit mit Flammpunkt < 60 Grad","Liquides in_x001E_ammables dont le point d’éclair < 60°C",40226
+"Brennbare Flüssigkeit mit Flammpunkt > 60 Grad","Liquides in_x001E_ammables dont le point d’éclair > 60°C",40227
+Flüssiggas,"Gaz liquide",40228
+Ja,Oui,40229
+Nein,Non,40230
+Ja,Oui,40231
+Nein,Non,40232
+Ja,Oui,40233
+Nein,Non,40234
+Ja,Oui,40235
+Nein,Non,40236
+Ja,Oui,40237
+Nein,Non,40238
+Ja,Oui,40239
+Nein,Non,40240
+Ja,Oui,40241
+Nein,Non,40242
+Ja,Oui,40243
+Nein,Non,40244
+Ja,Oui,40245
+Nein,Non,40246
+"Elektrooptische Sonde","Sonde électro-optique",40247
+Spezialfüllsicherung,"Intercepteur spécial",40248
+"Mechanische Füllsicherung","Intercepteur mécanique",40249
+Metall,Métal,40250
+Kunststoff,"Matière plastique",40251
+Beton,Béton,40252
+Metall,Métal,40253
+Kunststoff,"Matière plastique",40254
+Beton,Béton,40255
+"Mit Unterdruck (Vakuum)","Avec sous-pression",40256
+"Mit Flüssigkeitsfühler","Avec sonde",40257
+"Mit überdruck","Avec surpression",40258
+Sichtbar,Visible,40259
+"Im Leckerkennungsrohr","Dans gaine étanche",40260
+1-Strang,Monotube,40261
+"Mit Rücklauf","Avec conduite de retour",40262
+Saugbetrieb,Aspiration,40263
+Druckpumpe,"Pompe de transfert",40264
+Doppelmantel,"Double manteau",40265
+Leckwarngerät,"Système détection des fuites",40266
+"Vakuum- / Magnetventil","Vanne anti-siphonnage",40267
+Eigensicher,"Auto sécurisées",40268
+"Beton nach SIA Norm 262 und SN-EN 206-1","Béton selon les normes SIA 162 et SN-EN 206-1",40269
+"Mit Auskleidung","Avec revêtement",40270
+"Ohne Auskleidung","Sans revêtement",40271
+"Dichtigkeitsprüfung mit Wasserflutung","Epreuve d'étanchéité à l'eau",40272
+Beschichtung,Enduit,40273
+Folie,Feuille,40274
+Stahl,Acier,40275
+Kunststoff,"Matière plastique",40276
+Ja,Oui,40277
+Nein,Non,40278
+Neu,Nouveau/Nouvelle,40279
+Bestehend,Existant/e,40280
+Kein,Aucun/e,40281
+Neu,Nouveau/Nouvelle,40282
+Bestehend,Existant/e,40283
+Kein,Aucun/e,40284
+Neu,Nouveau/Nouvelle,40285
+Bestehend,Existant/e,40286
+ARA,STEP,40287
+KLARA,pSTEP,40288
+"Provisorische Klärgrube ","Fosse de décantation provisoire",40289
+"Abflusslose Grube","Fosse étanche sans trop-plein",40290
+"Andere Einrichtung","Autre installation",40291
+Ja,Oui,40292
+Nein,Non,40293
+Ja,Oui,40294
+Nein,Non,40295
+Ja,Oui,40296
+Nein,Non,40297
+Bestehend,Existant/e,40298
+Neu,Nouveau/Nouvelle,40299
+Ja,Oui,40300
+Nein,Non,40301
+"Typ A","Type A",40302
+"Typ B","Type B",40303
+"Regenwasserkanal (öffentliche Leitung)","Eaux pluviales (canalisation publique)",40304
+"Oberflächengewässer (Private Leitung)","Eaux superficielles (canalisation privée)",40305
+"Mischwasserkanal (öffentliche Leitung)","Eaux mélangées (canalisation publique)",40306
+Bestehend,Existant/e,40307
+Neu,Nouveau/Nouvelle,40308
+Ja,Oui,40309
+Nein,Non,40310
+"Typ A","Type A",40311
+"Über Schulter","Par l'accotement",40312
+"Regenwasserkanal (öffentliche Leitung)","Eaux pluviales (canalisation publique)",40313
+"Oberflächengewässer (Private Leitung)","Eaux superficielles (canalisation privée)",40314
+"Mischwasserkanal (öffentliche Leitung)","Eaux mélangées (canalisation publique)",40315
+Ja,Oui,40316
+Nein,Non,40317
+Ja,Oui,40318
+Nein,Non,40319
+Ja,Oui,40320
+Nein,Non,40321
+Ja,Oui,40322
+Nein,Non,40323
+Flachfundation,"Fondations superficielles",40324
+"Tiefenfundation, Pfahlsystem","Fondations profondes, système de pieux",40325
+Andere,Autres,40326
+Böschung,Talus,40327
+Spundwand,Palplanches,40328
+Rühlwand,"Parois berlinoises",40329
+Nagelwand,"Parois clouées",40330
+Anker/Bodennägel,"Tirants, clous",40331
+Schlitzwand,"Parois moulées",40332
+Andere,Autres,40333
+Filterbrunnen,"Puits filtrant",40334
+"Offene Wasserhaltung","Epuisement de surface",40335
+Vakuumverfahren,"Aspiration sous vide",40336
+Andere,Autre,40337
+Ja,Oui,40338
+Nein,Non,40339
+Ja,Oui,40340
+Nein,Non,40341
+Ja,Oui,40342
+Nein,Non,40343
+Ja,Oui,40344
+Nein,Non,40345
+Ja,Oui,40346
+Nein,Non,40347
+Ja,Oui,40348
+Nein,Non,40349
+Ja,Oui,40350
+Nein,Non,40351
+Ja,Oui,40352
+Nein,Non,40353
+Ja,Oui,40354
+Nein,Non,40355
+Ja,Oui,40356
+Nein,Non,40357
+Ja,Oui,40358
+Nein,Non,40359
+Ja,Oui,40360
+Nein,Non,40361
+Ja,Oui,40362
+Nein,Non,40363
+"Boden / Untergrund","Sol / sous-sol",40364
+Wasser,Eau,40365
+Luft,Air,40366
+Ja,Oui,40367
+Nein,Non,40368
+Monovalent,Monovalent,40369
+Bivalent,Bivalent,40370
+Raumheizung,"Chauffage de locaux",40371
+Warmwasser,"Eau chaude",40372
+Kühlen,Refroidissement,40373
+Andere,Autre,40374
+Ja,Oui,40375
+"Nein <a class=""btn-info"" href=""javascript:void(0)"" data-dialog=""Beispielsweise Erdregister, Energiepfähle, Wärmekörbe""></a>","Non <a class=""btn-info"" href=""Ouivascript:void(0)"" data-dialog=""P. ex. circuits enterrés, pieux énergétiques, corbeilles géothermiques""></a>",40376
+1,1,40377
+2,2,40378
+3,3,40379
+4,4,40380
+5,5,40381
+6,6,40382
+7,7,40383
+8,8,40384
+9,9,40385
+10,10,40387
+Doppel-U-Sonde,"Sonde en double U",40388
+"Anderes Sondenmodell","Autre modèle de sonde",40389
+Wasser,Eau,40390
+Propylenglykol,"Propylène glycol",40391
+Ethylenglykol,"Ethylène glycol",40392
+Polyethylenglykol,"Polyéthylène glycol",40393
+"Ethylalkohol (Ethanol)","Alcool éthylique (éthanol)",40394
+"Methylalkohol (Methanol)","Alcool méthylique (méthanol)",40395
+Calciumchlorid,"Chlorure de calcium",40396
+Magnesiumchlorid,"Chlorure de magnésium",40397
+Kaliumchlorid,"Chlorure de potassium",40398
+Kaliumcarbonat,"Carbonate de potassium",40399
+Kaliumacetat,"Acétate de potassium",40400
+Kaliumformiat,"Formiate de potassium",40401
+Natriumchlorid,"Chlorure de sodium",40402
+Natriumcarbonat,"Carbonate de sodium",40403
+Ja,Oui,40404
+Nein,Non,40405
+"Vereinfachtes Berechnungsverfahren für einfache Anlagen","Méthode de calcul simplifiée pour installations simples",40406
+"Berechnungsverfahren für komplexe Anlagen","Méthode de calcul pour installations complexes",40407
+"Andere Grundlage","Autre base",40408
+Raumheizung,"Chauffage de locaux",40409
+Warmwasser,"Eau chaude",40410
+Kühlen,Refroidissement,40411
+Andere,Autre,40412
+Innen,Intérieur,40413
+Aussen,Extérieur,40414
+Raumheizung,"Chauffage de locaux",40415
+Warmwasser,"Eau chaude",40416
+Kühlen,Refroidissement,40417
+Andere,Autre,40418
+Ja,Oui,40419
+Nein,Non,40420
+Ja,Oui,40421
+Nein,Non,40422
+Ja,Oui,40423
+Nein,Non,40424
+Ja,Oui,40425
+Nein,Non,40426
+Ja,Oui,40427
+Ja,Oui,40428
+Nein,Non,40429
+Ja,Oui,40430
+Nein,Non,40431
+Ja,Oui,40432
+Nein,Non,40433
+"Nicht überprüft","Non vérifié",40434
+Ja,Oui,40435
+Nein,Non,40436
+Ja,Oui,40437
+Nein,Non,40438
+Ja,Oui,40439
+Nein,Non,40440
+Ja,Oui,40441
+Nein,Non,40442
+"Staubförmige Stoffe","Substances sous forme de poussières",40443
+"Gas- und Dampfförmige Stoffe","Substances sous forme de gaz ou de vapeur",40444
+Geruchsstoffe,"Substances odorantes",40445
+Andere,Autres,40446
+Ja,Oui,40447
+Nein,Non,40448
+Ja,Oui,40449
+Nein,Non,40450
+Holz,Bois,40451
+Öl,Mazout,40452
+Gas,Gaz,40453
+Ja,Oui,40454
+Nein,Non,40455
+öffentlich,Public,40456
+"nicht öffentlich","Non public",40457
+normal,"Normales ",40458
+"generelle Überzeit","Dépassement permanent",40459
+Montag,Lundi,40460
+Dienstag,Mardi,40461
+Mittwoch,Mercredi,40462
+Donnerstag,Jeudi,40463
+Freitag,Vendredi,40464
+Samstag,Samedi,40465
+Sonntag,Dimanche,40466
+Ja,Oui,40467
+Nein,Non,40468
+Ja,Oui,40469
+Nein,Non,40470
+Ja,Oui,40471
+Nein,Non,40472
+Montag,Lundi,40473
+Dienstag,Mardi,40474
+Mittwoch,Mercredi,40475
+Donnerstag,Jeudi,40476
+Freitag,Vendredi,40477
+Samstag,Samedi,40478
+Sonntag,Dimanche,40479
+Neu,Nouveau,40480
+Bestehend,Existant,40481
+Erweiterung,Agrandissement,40482
+Ja,Oui,40483
+Nein,Non,40484
+Ja,Oui,40485
+Nein,Non,40486
+Ja,Oui,40487
+Nein,Non,40488
+Ja,Oui,40489
+Nein,Non,40490
+Forschung,Recherche,40491
+Produktion,Production,40492
+Diagnostik,"Diagnostic ",40493
+Unterricht,Enseignement,40494
+Tieranlage,"Unité réservée aux animaux",40495
+Gewächshaus,"Serre                       ",40496
+andere,Autre,40497
+Prionen,Prions,40498
+Viren,"Virus                       ",40499
+Bakterien,"Bactéries                        ",40500
+Pilze,Champignons,40501
+Parasiten,"Parasites                           ",40502
+Tiere,"Animaux                     ",40503
+Pflanzen,"Plantes                          ",40504
+andere,Autres,40505
+Ja,Oui,40506
+Nein,Non,40507
+"Klasse 1","Classe 1",40508
+"Klasse 2","Classe 2",40509
+"Klasse 3","Classe 3",40510
+"Klasse 4","Classe 4",40511
+"Stufe 1","Niveau 1",40512
+"Stufe 2","Niveau 2",40513
+"Stufe 3","Niveau 3",40514
+"Stufe 4","Niveau 4",40515
+Ja,Oui,40516
+Nein,Non,40517
+Ja,Oui,40518
+Ja,Oui,40519
+Nein,Non,40520
+Ja,Oui,40521
+Nein,Non,40522
+Ja,Oui,40523
+Nein,Non,40524
+Ja,Oui,40525
+Nein,Non,40526
+Ja,Oui,40527
+Nein,Non,40528
+Ja,Oui,40529
+Nein,Non,40530
+Ja,Oui,40531
+Nein,Non,40532
+Ja,Oui,40533
+Nein,Non,40534
+Ja,Oui,40535
+Nein,Non,40536
+Ja,Oui,40537
+Nein,Non,40538
+Ja,Oui,40539
+Nein,Non,40540
+Ja,Oui,40541
+Nein,Non,40542
+"Solar- oder Photovoltaik-Anlage","Installation solaire ou photovoltaïque",40543
+"Sendeanlage (Mobilfunk, Rundfunk, Kurzwellenamateurfunk, ...)","Station émettrice (téléphonie mobile, radio, service de radioamateur à ondes courtes, ...)",40544
+Ja,Oui,40545
+Nein,Non,40546
+Ja,Oui,40547
+Nein,Non,40548
+Ja,Oui,40549
+Nein,Non,40550
+Ja,Oui,40551
+Nein,Non,40552
+Ja,Oui,40553
+Nein,Non,40554
+Ja,Oui,40555
+Nein,Non,40556
+Ja,Oui,40557
+Nein,Non,40558
+Ja,Oui,40559
+Nein,Non,40560
+Neu,Nouveau/Nouvelle,40561
+Ersatz,Remplacement,40562
+Keine,Aucun/e,40563
+Leuchtkasten,"Enseigne lumineuse",40564
+"einzelne Buchstaben",Lettres,40565
+blinkend,Clignotant,40566
+Bildschirm,Ecran,40567
+"von oben","D'en haut",40568
+"von unten","D'en bas",40569
+Ja,Oui,40570
+Nein,Non,40571
+Ja,Oui,40572
+Nein,Non,40573
+Ja,Oui,40574
+Nein,Non,40575
+Ja,Oui,40576
+Nein,Non,40577
+Ja,Oui,40578
+Nein,Non,40579
+Ja,Oui,40580
+Nein,Non,40581
+Drehflügeltüren,"Portes à battant(s)",40582
+Schiebetüren,"Portes coulissantes automatiques",40583
+"Roll-, Fall- oder Klapptore","Portes à enroulement, tournantes",40584
+Ja,Oui,40585
+Nein,Non,40586
+Ja,Oui,40587
+Nein,Non,40588
+Ja,Oui,40589
+Nein,Non,40590
+Ja,Oui,40591
+Nein,Non,40592
+Ja,Oui,40593
+Nein,Non,40594
+Unbestimmt,Indéterminé,40595
+Rot,Rouge,40596
+Blau,Bleu,40597
+Gelb,Jaune,40598
+Gelb-Weiss,"Jaune et blanc",40599
+Wasser,Eau,40600
+Rutschung,"Glissement de terrain",40601
+Sturz,Chute,40602
+Lawinen,Avalanche,40603
+Einsturz/Dolinen,Effondrement/doline,40604
+"Absenkung, Einsturz",Affaissement/effondrement,40605
+Felssturz,Eboulement,40606
+Fliesslawine,"Avalanche coulante",40607
+Hangmure,"Coulée de boue",40608
+Murgang,"Lave torrentielle",40609
+Staublawine,"Avalanche poudreuse",40610
+"Permanente Rutschung","Glissement de terrain permanent",40613
+Steinschlag,"Chute de pierres",40614
+Schneegleiten,"Neige en reptation",40615
+überschwemmung,Inondation,40617
+Ufererosion,"Erosion des rives",40618
+Uferrutschung,"Glissement de berges",40619
+Andere,Autre,40620
+Ja,Oui,40621
+Nein,Non,40622
+"Ordentliche Baubewilligung Art. 32a BauG","Permis de construire ordinaire selon l'article 32a LC",40623
+"Teilbaubewilligung nach Art. 32c BauG","Permis de construire général selon l'article 32c LC",40624
+"Generelle Baubewilligung nach Art. 32d BauG","Permis de construire général selon l'article 32d LC",40625
+"Vorzeitige Baubewilligung nach Art. 37 BauG","Octroi anticipé du permis de construire selon l'article 37 LC",40626
+"Vorzeitiger Baubeginn nach Art. 39 BewD","Début anticipé des travaux selon l'article 39 DPC",40627
+Andere,Autre,40628
+Ja,Oui,40629
+Nein,Non,40630
+Ja,Oui,40631
+Nein,Non,40632
+Ja,Oui,40633
+Nein,Non,40634
+Ja,Oui,40635
+Nein,Non,40636
+Ja,Oui,40637
+Nein,Non,40638
+Ja,Oui,40639
+Nein,Non,40640
+Gemeinde,Commune,40641
+Regierungsstatthalteramt,Préfecture,40642
+"Zuständigkeit unklar, Entscheid Regierungsstatthalteramt erbeten","Compétence incertaine; demander une décision préfectorale",40643
+"Ordentliche Baubewilligung Art. 32a BauG Kleine Baubewilligung nach Art. 32b BauG","Permis de construire ordinaire selon l'article 32a LC 
+Petit permis de construire selon l’article 32b LC",40644
+"Teilbaubewilligung nach Art. 32c BauG","Permis de construire partiel selon l’article 32c LC",40645
+"Generelle Baubewilligung nach Art. 32d BauG","Permis de construire général selon l'article 32d LC",40646
+"Vorzeitige Baubewilligung nach Art. 37 BauG","Octroi anticipé du permis de construire selon l'article 37 LC",40647
+"Vorzeitiger Baubeginn nach Art. 39 BewD","Début anticipé des travaux selon l'article 39 DPC",40648
+Andere,Autre,40649
+Ja,Oui,40650
+Nein,Non,40651
+Ja,Oui,40652
+Nein,Non,40653
+Ja,Oui,40654
+Nein,Non,40655
+Ja,Oui,40656
+Nein,Non,40657
+Ja,Oui,40658
+Nein,Non,40659
+Ja,Oui,40660
+Nein,Non,40661
+Gemeinde,Commune,40662
+Regierungsstatthalteramt,Préfecture,40663
+"Zuständigkeit unklar, Entscheid Regierungsstatthalteramt erbeten","Compétence incertaine; demander une décision préfectorale",40664
+Ja,Oui,40665
+Nein,Non,40666
+Ja,Oui,40667
+Nein,Non,40668
+Ja,Oui,40669
+Nein,Non,40670
+"Vor dem 01.07.1972","Avant le 1er juillet 1972",40671
+"Nach dem 30.06.1972","Après le 30 juin 1972",40672
+Ja,Oui,40673
+Nein,Non,40674
+Ja,Oui,40675
+Nein,Non,40676
+Ja,Oui,40677
+Nein,Non,40678
+Ja,Oui,40679
+Wohnen,Logement,40680
+Industrie,Industrie,40681
+Gewerbe,Artisanat,40682
+Dienstleistung,Services,40683
+Verkauf,Vente,40684
+Lager,Entreposage,40685
+Landwirtschaft,Agriculture,40686
+Gastgewerbe,"Hôtellerie et restauration",40687
+Andere,Autre,40688
+0,0,40689
+Nein,Non,40690
+Ja,Oui,40691
+Nein,Non,40692
+eingehalten,"En ordre",40693
+Mangel,Défaut,40694
+"Mangel behoben","Défaut corrigé",40695
+Ja,Oui,40696
+Nein,Non,40697
+eingehalten,"En ordre",40698
+Mangel,Défaut,40699
+"Mangel behoben","Défaut corrigé",40700
+Ja,Oui,40701
+Nein,Non,40702
+eingehalten,"En ordre",40703
+Mangel,Défaut,40704
+"Mangel behoben","Défaut corrigé",40705
+Ja,Oui,40706
+Nein,Non,40707
+eingehalten,"En ordre",40708
+Mangel,Défaut,40709
+"Mangel behoben","Défaut corrigé",40710
+Ja,Oui,40711
+Nein,Non,40712
+eingehalten,"En ordre",40713
+Mangel,Défaut,40714
+"Mangel behoben","Défaut corrigé",40715
+Ja,Oui,40716
+Nein,Non,40717
+eingehalten,"En ordre",40718
+Mangel,Défaut,40719
+"Mangel behoben","Défaut corrigé",40720
+Ja,Oui,40721
+Nein,Non,40722
+eingehalten,"En ordre",40723
+Mangel,Défaut,40724
+"Mangel behoben","Défaut corrigé",40725
+Ja,Oui,40726
+Nein,Non,40727
+eingehalten,"En ordre",40728
+Mangel,Défaut,40729
+"Mangel behoben","Défaut corrigé",40730
+Ja,Oui,40731
+Nein,Non,40732
+eingehalten,"En ordre",40733
+Mangel,Défaut,40734
+"Mangel behoben","Défaut corrigé",40735
+Ja,Oui,40736
+Nein,Non,40737
+eingehalten,"En ordre",40738
+Mangel,Défaut,40739
+"Mangel behoben","Défaut corrigé",40740
+Ja,Oui,40741
+Nein,Non,40742
+eingehalten,"En ordre",40743
+Mangel,Défaut,40744
+"Mangel behoben","Défaut corrigé",40745
+Ja,Oui,40746
+Nein,Non,40747
+eingehalten,"En ordre",40748
+Mangel,Défaut,40749
+"Mangel behoben","Défaut corrigé",40750
+Ja,Oui,40751
+Nein,Non,40752
+eingehalten,"En ordre",40753
+Mangel,Défaut,40754
+"Mangel behoben","Défaut corrigé",40755
+Ja,Oui,40756
+Nein,Non,40757
+eingehalten,"En ordre",40758
+Mangel,Défaut,40759
+"Mangel behoben","Défaut corrigé",40760
+Ja,Oui,40761
+Nein,Non,40762
+eingehalten,"En ordre",40763
+Mangel,Défaut,40764
+"Mangel behoben","Défaut corrigé",40765
+Ja,Oui,40766
+Nein,Non,40767
+eingehalten,"En ordre",40768
+Mangel,Défaut,40769
+"Mangel behoben","Défaut corrigé",40770
+Ja,Oui,40771
+Nein,Non,40772
+eingehalten,"En ordre",40773
+Mangel,Défaut,40774
+"Mangel behoben","Défaut corrigé",40775
+Ja,Oui,40776
+Nein,Non,40777
+eingehalten,"En ordre",40778
+Mangel,Défaut,40779
+"Mangel behoben","Défaut corrigé",40780
+Ja,Oui,40781
+Nein,Non,40782
+eingehalten,"En ordre",40783
+Mangel,Défaut,40784
+"Mangel behoben","Défaut corrigé",40785
+Ja,Oui,40786
+Nein,Non,40787
+eingehalten,"En ordre",40788
+Mangel,Défaut,40789
+"Mangel behoben","Défaut corrigé",40790
+Ja,Oui,40791
+Nein,Non,40792
+eingehalten,"En ordre",40793
+Mangel,Défaut,40794
+"Mangel behoben","Défaut corrigé",40795
+Ja,Oui,40796
+Nein,Non,40797
+eingehalten,"En ordre",40798
+Mangel,Défaut,40799
+"Mangel behoben","Défaut corrigé",40800
+Ja,Oui,40801
+Nein,Non,40802
+eingehalten,"En ordre",40803
+Mangel,Défaut,40804
+"Mangel behoben","Défaut corrigé",40805
+Ja,Oui,40806
+Nein,Non,40807
+eingehalten,"En ordre",40808
+Mangel,Défaut,40809
+"Mangel behoben","Défaut corrigé",40810
+Ja,Oui,40811
+Nein,Non,40812
+eingehalten,"En ordre",40813
+Mangel,Défaut,40814
+"Mangel behoben","Défaut corrigé",40815
+Ja,Oui,40816
+Nein,Non,40817
+eingehalten,"En ordre",40818
+Mangel,Défaut,40819
+"Mangel behoben","Défaut corrigé",40820
+Ja,Oui,40821
+Nein,Non,40822
+eingehalten,"En ordre",40823
+Mangel,Défaut,40824
+"Mangel behoben","Défaut corrigé",40825
+Ja,Oui,40826
+Nein,Non,40827
+eingehalten,"En ordre",40828
+Mangel,Défaut,40829
+"Mangel behoben","Défaut corrigé",40830
+Ja,Oui,40831
+Nein,Non,40832
+eingehalten,"En ordre",40833
+Mangel,Défaut,40834
+"Mangel behoben","Défaut corrigé",40835
+Ja,Oui,40836
+Nein,Non,40837
+eingehalten,"En ordre",40838
+Mangel,Défaut,40839
+"Mangel behoben","Défaut corrigé",40840
+Ja,Oui,40841
+Nein,Non,40842
+eingehalten,"En ordre",40843
+Mangel,Défaut,40844
+"Mangel behoben","Défaut corrigé",40845
+Ja,Oui,40846
+Nein,Non,40847
+eingehalten,"En ordre",40848
+Mangel,Défaut,40849
+"Mangel behoben","Défaut corrigé",40850
+Ja,Oui,40851
+Nein,Non,40852
+eingehalten,"En ordre",40853
+Mangel,Défaut,40854
+"Mangel behoben","Défaut corrigé",40855
+Ja,Oui,40856
+Nein,Non,40857
+eingehalten,"En ordre",40858
+Mangel,Défaut,40859
+"Mangel behoben","Défaut corrigé",40860
+Ja,Oui,40861
+Nein,Non,40862
+eingehalten,"En ordre",40863
+Mangel,Défaut,40864
+"Mangel behoben","Défaut corrigé",40865
+Ja,Oui,40866
+Nein,Non,40867
+eingehalten,"En ordre",40868
+Mangel,Défaut,40869
+"Mangel behoben","Défaut corrigé",40870
+Ja,Oui,40871
+Nein,Non,40872
+eingehalten,"En ordre",40873
+Mangel,Défaut,40874
+"Mangel behoben","Défaut corrigé",40875
+Ja,Oui,40876
+Nein,Non,40877
+eingehalten,"En ordre",40878
+Mangel,Défaut,40879
+"Mangel behoben","Défaut corrigé",40880
+Ja,Oui,40881
+Nein,Non,40882
+eingehalten,"En ordre",40883
+Mangel,Défaut,40884
+"Mangel behoben","Défaut corrigé",40885
+Ja,Oui,40886
+Nein,Non,40887
+eingehalten,"En ordre",40888
+Mangel,Défaut,40889
+"Mangel behoben","Défaut corrigé",40890
+Ja,Oui,40891
+Nein,Non,40892
+eingehalten,"En ordre",40893
+Mangel,Défaut,40894
+"Mangel behoben","Défaut corrigé",40895
+Ja,Oui,40896
+Nein,Non,40897
+eingehalten,"En ordre",40898
+Mangel,Défaut,40899
+"Mangel behoben","Défaut corrigé",40900
+Ja,Oui,40901
+Nein,Non,40902
+eingehalten,"En ordre",40903
+Mangel,Défaut,40904
+"Mangel behoben","Défaut corrigé",40905
+Ja,Oui,40906
+Nein,Non,40907
+eingehalten,"En ordre",40908
+Mangel,Défaut,40909
+"Mangel behoben","Défaut corrigé",40910
+Ja,Oui,40911
+Nein,Non,40912
+eingehalten,"En ordre",40913
+Mangel,Défaut,40914
+"Mangel behoben","Défaut corrigé",40915
+Ja,Oui,40916
+Nein,Non,40917
+eingehalten,"En ordre",40918
+Mangel,Défaut,40919
+"Mangel behoben","Défaut corrigé",40920
+Ja,Oui,40921
+Nein,Non,40922
+eingehalten,"En ordre",40923
+Mangel,Défaut,40924
+"Mangel behoben","Défaut corrigé",40925
+Ja,Oui,40926
+Nein,Non,40927
+eingehalten,"En ordre",40928
+Mangel,Défaut,40929
+"Mangel behoben","Défaut corrigé",40930
+Ja,Oui,40931
+Nein,Non,40932
+eingehalten,"En ordre",40933
+Mangel,Défaut,40934
+"Mangel behoben","Défaut corrigé",40935
+Ja,Oui,40936
+Nein,Non,40937
+eingehalten,"En ordre",40938
+Mangel,Défaut,40939
+"Mangel behoben","Défaut corrigé",40940
+Ja,Oui,40941
+Nein,Non,40942
+eingehalten,"En ordre",40943
+Mangel,Défaut,40944
+"Mangel behoben","Défaut corrigé",40945
+Ja,Oui,40946
+Nein,Non,40947
+eingehalten,"En ordre",40948
+Mangel,Défaut,40949
+"Mangel behoben","Défaut corrigé",40950
+Ja,Oui,40951
+Nein,Non,40952
+eingehalten,"En ordre",40953
+Mangel,Défaut,40954
+"Mangel behoben","Défaut corrigé",40955
+Ja,Oui,40956
+Nein,Non,40957
+eingehalten,"En ordre",40958
+Mangel,Défaut,40959
+"Mangel behoben","Défaut corrigé",40960
+Ja,Oui,40961
+Nein,Non,40962
+eingehalten,"En ordre",40963
+Mangel,Défaut,40964
+"Mangel behoben","Défaut corrigé",40965
+Ja,Oui,40966
+Nein,Non,40967
+eingehalten,"En ordre",40968
+Mangel,Défaut,40969
+"Mangel behoben","Défaut corrigé",40970
+Ja,Oui,40971
+Nein,Non,40972
+eingehalten,"En ordre",40973
+Mangel,Défaut,40974
+"Mangel behoben","Défaut corrigé",40975
+Ja,Oui,40976
+Nein,Non,40977
+eingehalten,"En ordre",40978
+Mangel,Défaut,40979
+"Mangel behoben","Défaut corrigé",40980
+Ja,Oui,40981
+Nein,Non,40982
+eingehalten,"En ordre",40983
+Mangel,Défaut,40984
+"Mangel behoben","Défaut corrigé",40985
+Ja,Oui,40986
+Nein,Non,40987
+eingehalten,"En ordre",40988
+Mangel,Défaut,40989
+"Mangel behoben","Défaut corrigé",40990
+Ja,Oui,40991
+Nein,Non,40992
+eingehalten,"En ordre",40993
+Mangel,Défaut,40994
+"Mangel behoben","Défaut corrigé",40995
+Ja,Oui,40996
+Nein,Non,40997
+eingehalten,"En ordre",40998
+Mangel,Défaut,40999
+"Mangel behoben","Défaut corrigé",41000
+Ja,Oui,41001
+Nein,Non,41002
+eingehalten,"En ordre",41003
+Mangel,Défaut,41004
+"Mangel behoben","Défaut corrigé",41005
+Ja,Oui,41006
+Nein,Non,41007
+eingehalten,"En ordre",41008
+Mangel,Défaut,41009
+"Mangel behoben","Défaut corrigé",41010
+Ja,Oui,41011
+Nein,Non,41012
+eingehalten,"En ordre",41013
+Mangel,Défaut,41014
+"Mangel behoben","Défaut corrigé",41015
+Ja,Oui,41016
+Nein,Non,41017
+eingehalten,"En ordre",41018
+Mangel,Défaut,41019
+"Mangel behoben","Défaut corrigé",41020
+Ja,Oui,41021
+Nein,Non,41022
+eingehalten,"En ordre",41023
+Mangel,Défaut,41024
+"Mangel behoben","Défaut corrigé",41025
+Ja,Oui,41026
+Nein,Non,41027
+eingehalten,"En ordre",41028
+Mangel,Défaut,41029
+"Mangel behoben","Défaut corrigé",41030
+Ja,Oui,41031
+Nein,Non,41032
+eingehalten,"En ordre",41033
+Mangel,Défaut,41034
+"Mangel behoben","Défaut corrigé",41035
+Ja,Oui,41036
+Nein,Non,41037
+eingehalten,"En ordre",41038
+Mangel,Défaut,41039
+"Mangel behoben","Défaut corrigé",41040
+Ja,Oui,41041
+Nein,Non,41042
+eingehalten,"En ordre",41043
+Mangel,Défaut,41044
+"Mangel behoben","Défaut corrigé",41045
+Ja,Oui,41046
+Nein,Non,41047
+eingehalten,"En ordre",41048
+Mangel,Défaut,41049
+"Mangel behoben","Défaut corrigé",41050
+Ja,Oui,41051
+Nein,Non,41052
+eingehalten,"En ordre",41053
+Mangel,Défaut,41054
+"Mangel behoben","Défaut corrigé",41055
+Ja,Oui,41056
+Nein,Non,41057
+eingehalten,"En ordre",41058
+Mangel,Défaut,41059
+"Mangel behoben","Défaut corrigé",41060
+Ja,Oui,41061
+Nein,Non,41062
+eingehalten,"En ordre",41063
+Mangel,Défaut,41064
+"Mangel behoben","Défaut corrigé",41065
+Ja,Oui,41066
+Nein,Non,41067
+eingehalten,"En ordre",41068
+Mangel,Défaut,41069
+"Mangel behoben","Défaut corrigé",41070
+Ja,Oui,41071
+Nein,Non,41072
+eingehalten,"En ordre",41073
+Mangel,Défaut,41074
+"Mangel behoben","Défaut corrigé",41075
+Ja,Oui,41076
+Nein,Non,41077
+eingehalten,"En ordre",41078
+Mangel,Défaut,41079
+"Mangel behoben","Défaut corrigé",41080
+Ja,Oui,41081
+Nein,Non,41082
+eingehalten,"En ordre",41083
+Mangel,Défaut,41084
+"Mangel behoben","Défaut corrigé",41085
+Ja,Oui,41086
+Nein,Non,41087
+eingehalten,"En ordre",41088
+Mangel,Défaut,41089
+"Mangel behoben","Défaut corrigé",41090
+Ja,Oui,41091
+Nein,Non,41092
+eingehalten,"En ordre",41093
+Mangel,Défaut,41094
+"Mangel behoben","Défaut corrigé",41095
+Ja,Oui,41096
+Nein,Non,41097
+eingehalten,"En ordre",41098
+Mangel,Défaut,41099
+"Mangel behoben","Défaut corrigé",41100
+Ja,Oui,41101
+Nein,Non,41102
+eingehalten,"En ordre",41103
+Mangel,Défaut,41104
+"Mangel behoben","Défaut corrigé",41105
+Ja,Oui,41106
+Nein,Non,41107
+eingehalten,"En ordre",41108
+Mangel,Défaut,41109
+"Mangel behoben","Défaut corrigé",41110
+Ja,Oui,41111
+Nein,Non,41112
+eingehalten,"En ordre",41113
+Mangel,Défaut,41114
+"Mangel behoben","Défaut corrigé",41115
+Ja,Oui,41116
+Nein,Non,41117
+eingehalten,"En ordre",41118
+Mangel,Défaut,41119
+"Mangel behoben","Défaut corrigé",41120
+Ja,Oui,41121
+Nein,Non,41122
+eingehalten,"En ordre",41123
+Mangel,Défaut,41124
+"Mangel behoben","Défaut corrigé",41125
+Ja,Oui,41126
+Nein,Non,41127
+eingehalten,"En ordre",41128
+Mangel,Défaut,41129
+"Mangel behoben","Défaut corrigé",41130
+Ja,Oui,41131
+Nein,Non,41132
+eingehalten,"En ordre",41133
+Mangel,Défaut,41134
+"Mangel behoben","Défaut corrigé",41135
+Ja,Oui,41136
+Nein,Non,41137
+eingehalten,"En ordre",41138
+Mangel,Défaut,41139
+"Mangel behoben","Défaut corrigé",41140
+Ja,Oui,41141
+Nein,Non,41142
+eingehalten,"En ordre",41143
+Mangel,Défaut,41144
+"Mangel behoben","Défaut corrigé",41145
+Ja,Oui,41146
+Nein,Non,41147
+eingehalten,"En ordre",41148
+Mangel,Défaut,41149
+"Mangel behoben","Défaut corrigé",41150
+Ja,Oui,41151
+Nein,Non,41152
+eingehalten,"En ordre",41153
+Mangel,Défaut,41154
+"Mangel behoben","Défaut corrigé",41155
+Ja,Oui,41156
+Nein,Non,41157
+eingehalten,"En ordre",41158
+Mangel,Défaut,41159
+"Mangel behoben","Défaut corrigé",41160
+Ja,Oui,41161
+Nein,Non,41162
+eingehalten,"En ordre",41163
+Mangel,Défaut,41164
+"Mangel behoben","Défaut corrigé",41165
+Ja,Oui,41166
+Nein,Non,41167
+eingehalten,"En ordre",41168
+Mangel,Défaut,41169
+"Mangel behoben","Défaut corrigé",41170
+Ja,Oui,41171
+Nein,Non,41172
+eingehalten,"En ordre",41173
+Mangel,Défaut,41174
+"Mangel behoben","Défaut corrigé",41175
+Ja,Oui,41176
+Nein,Non,41177
+eingehalten,"En ordre",41178
+Mangel,Défaut,41179
+"Mangel behoben","Défaut corrigé",41180
+Ja,Oui,41181
+Nein,Non,41182
+eingehalten,"En ordre",41183
+Mangel,Défaut,41184
+"Mangel behoben","Défaut corrigé",41185
+Ja,Oui,41186
+Nein,Non,41187
+eingehalten,"En ordre",41188
+Mangel,Défaut,41189
+"Mangel behoben","Défaut corrigé",41190
+Ja,Oui,41191
+Nein,Non,41192
+eingehalten,"En ordre",41193
+Mangel,Défaut,41194
+"Mangel behoben","Défaut corrigé",41195
+Ja,Oui,41196
+Nein,Non,41197
+eingehalten,"En ordre",41198
+Mangel,Défaut,41199
+"Mangel behoben","Défaut corrigé",41200
+Ja,Oui,41201
+Nein,Non,41202
+eingehalten,"En ordre",41203
+Mangel,Défaut,41204
+"Mangel behoben","Défaut corrigé",41205
+Ja,Oui,41206
+Nein,Non,41207
+eingehalten,"En ordre",41208
+Mangel,Défaut,41209
+"Mangel behoben","Défaut corrigé",41210
+Ja,Oui,41211
+Nein,Non,41212
+eingehalten,"En ordre",41213
+Mangel,Défaut,41214
+"Mangel behoben","Défaut corrigé",41215
+Ja,Oui,41216
+Nein,Non,41217
+eingehalten,"En ordre",41218
+Mangel,Défaut,41219
+"Mangel behoben","Défaut corrigé",41220
+Ja,Oui,41221
+Nein,Non,41222
+eingehalten,"En ordre",41223
+Mangel,Défaut,41224
+"Mangel behoben","Défaut corrigé",41225
+Ja,Oui,41226
+Nein,Non,41227
+eingehalten,"En ordre",41228
+Mangel,Défaut,41229
+"Mangel behoben","Défaut corrigé",41230
+Ja,Oui,41231
+Nein,Non,41232
+eingehalten,"En ordre",41233
+Mangel,Défaut,41234
+"Mangel behoben","Défaut corrigé",41235
+Ja,Oui,41236
+Nein,Non,41237
+eingehalten,"En ordre",41238
+Mangel,Défaut,41239
+"Mangel behoben","Défaut corrigé",41240
+Ja,Oui,41241
+Nein,Non,41242
+eingehalten,"En ordre",41243
+Mangel,Défaut,41244
+"Mangel behoben","Défaut corrigé",41245
+Ja,Oui,41246
+Nein,Non,41247
+eingehalten,"En ordre",41248
+Mangel,Défaut,41249
+"Mangel behoben","Défaut corrigé",41250
+Ja,Oui,41251
+Nein,Non,41252
+Ja,Oui,41253
+Nein,Non,41254
+Ja,Oui,41255
+Nein,Non,41256
+Ja,Oui,41257
+Nein,Non,41258
+Ja,Oui,41259
+Nein,Non,41260
+Ja,Oui,41261
+Nein,Non,41262
+Ja,Oui,41263
+Nein,Non,41264
+Ja,Oui,41265
+Nein,Non,41266
+Ja,Oui,41267
+Nein,Non,41268
+Beides,"Les deux",41269
+Ja,Oui,41271
+Nein,Non,41272
+X,X,41273
+1,1,41274
+2,2,41275
+3,3,41276
+Reklamevorhaben,"Projet de réclame",41277
+Ja,Oui,41278
+Nein,Non,41279
+"Kleine Baubewilligung nach Art. 32b BauG","Petit permis de construire selon l’article 32b LC",41280
+Nein,Non,80000
+Nein,Non,80001
+YES,YES,110000

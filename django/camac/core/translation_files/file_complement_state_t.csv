@@ -1,0 +1,6 @@
+NAME,NAME_FR,FILE_COMPLEMENT_STATE_ID
+"Entwurf Behörde","Brouillon de l'autorité",1
+"In Bearbeitung bei Gesuchsteller","En cours de traitement auprès du/de la requérant/e",2
+"Beantwortet von Gesuchsteller","Réponse donnée par le/la requérant/e",3
+Abgeschlossen,"Dossier clos",4
+Zurückgezogen,Retrait,5

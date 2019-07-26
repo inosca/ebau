@@ -1,0 +1,107 @@
+NAME,NAME_FR,BUTTON_ID
+Hochladen,Déposer,10002
+Hochladen,Déposer,10003
+Hochladen,Déposer,10004
+Hochladen,Déposer,10005
+Hochladen,Déposer,10006
+"Dossier korrigieren","Corriger le dossier",10007
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10014
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10015
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10016
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10017
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10018
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10019
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10020
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10021
+"Kopieren für Neueinreichung","Copier en vue d'un nouveau dépôt",10022
+Erstellen,Créer,20000
+Einreichen,Envoyer,20001
+Weiter,Suivante,20002
+"Zirkulation starten","Lancer la procédure de circulation",20005
+Speichern,Enregistrer,20006
+"Antwort senden","Envoyer la réponse",20007
+Speichern,Enregistrer,20008
+Speichern,Enregistrer,20009
+Speichern,Enregistrer,20010
+Weiter,Suivante,20011
+Weiter,Suivante,20012
+Speichern,Enregistrer,20013
+Speichern,Enregistrer,20014
+"Zirkulation abschliessen","Clore la procédure de circulation",20016
+Hochladen,Déposer,20017
+"Zirkulation wiedereröffnen","Rouvrir la procédure de circulation",20018
+"Prüfung abschliessen","Clore l'examen",20019
+Speichern,Enregistrer,20021
+"Dossier zurückweisen","Renvoyer le dossier",20022
+"Dossier korrigieren","Corriger le dossier",20023
+Speichern,Enregistrer,20024
+"Korrektur abschliessen","Clore la correction",20025
+"Korrektur verwerfen","Refuser la correction",20026
+Speichern,Enregistrer,20027
+Speichern,Enregistrer,20028
+Speichern,Enregistrer,20029
+"Korrektur abschliessen","Clore la correction",20030
+"Korrektur verwerfen","Refuser la correction",20031
+"Korrektur abschliessen","Clore la correction",20032
+"Korrektur verwerfen","Refuser la correction",20033
+"Korrektur abschliessen","Clore la correction",20034
+"Korrektur verwerfen","Refuser la correction",20035
+Speichern,Enregistrer,20036
+Speichern,Enregistrer,20037
+"Antwort senden","Envoyer la réponse",20038
+Speichern,Enregistrer,20039
+"Entscheid verfügen","Rendre la décision",20040
+Speichern,Enregistrer,20041
+Grundstück,Immeuble,40000
+Speichern,Enregistrer,40001
+Speichern,Enregistrer,40002
+Bauwerk,Ouvrage,40004
+Speichern,Enregistrer,40005
+Einreichen,Envoyer,40006
+"Allgemeine Informationen","Informations générales",40007
+Einreichen,Envoyer,40008
+"Nutzung Bauvorhaben","Affectation visée par le projet de construction",40009
+Speichern,Enregistrer,40010
+Spezialformulare,"Formulaires spéciaux",40011
+Speichern,Enregistrer,40012
+Grundstück,Immeuble,40013
+Bauwerk,Ouvrage,40014
+"Allgemeine Informationen","Informations générales",40015
+"Nutzung Bauvorhabens","Affectation visée par le projet de construction",40016
+"Allgemeine Informationen","Informations générales",40017
+Grundstück,Immeuble,40018
+"Nutzung Bauvorhabens","Affectation visée par le projet de construction",40019
+"Allgemeine Informationen","Informations générales",40020
+Bestätigung,Confirmation,40021
+Dokumente,Documents,40022
+"Auswahl Spezialformulare","Sélection de formulaires spéciaux",40023
+Bauwerk,Ouvrage,40025
+Grundstück,Immeuble,40026
+"Nutzung Bauvorhabens","Affectation visée par le projet de construction",40027
+"Allgemeine Informationen","Informations générales",40028
+Speichern,Enregistrer,40029
+"Allgemeine Informationen","Informations générales",40030
+"Nutzung Bauvorhaben","Affectation visée par le projet de construction",40031
+Grundstück,Immeuble,40032
+Bauwerk,Ouvrage,40033
+Spezialformulare,"Formulaires spéciaux",40034
+Dokumente,Documents,40035
+Freigabequittung,"Déclaration de validation",40036
+Bestätigung,Confirmation,40037
+Speichern,Enregistrer,40038
+Speichern,Enregistrer,80000
+"Nutzung Bauvorhaben","Affectation visée par le projet de construction",80001
+"Dokument hochladen","Déposer le document",80002
+Spezialformulare,"Formulaires spéciaux",80003
+Bauwerk,Ouvrage,80004
+Grundstück,Immeuble,80005
+"Nutzung Bauvorhabens","Affectation visée par le projet de construction",80006
+"Allgemeine Informationen","Informations générales",80007
+Speichern,Enregistrer,80008
+Grundstück,Immeuble,80011
+Einreichen,Envoyer,80012
+Speichern,Enregistrer,110000
+Speichern,Enregistrer,110001
+"Antwort senden","Envoyer la réponse",110002
+"Create the instance","Create the instance",110003
+Dokumente,Documents,110004
