@@ -154,7 +154,7 @@ APPLICATIONS = {
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
     },
-    "kt_uri": {},
+    "kt_uri": {"FORM_BACKEND": "camac"},
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
