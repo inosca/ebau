@@ -12,6 +12,9 @@ nav:
   support: "Support"
   logout: "Ausloggen"
   applicants: "Berechtigungen"
+  language: "Sprache"
+  de: "Deutsch"
+  fr: "Français"
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
