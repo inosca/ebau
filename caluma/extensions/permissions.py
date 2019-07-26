@@ -25,22 +25,28 @@ INSTANCE_STATES = {
     "internal": ["20000", "20007"],  # eBau-Nummer zu vergeben, in Korrektur
 }
 
+CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
+
+CAMAC_ADMIN_GROUPS = ["1"]  # Admin
+
 
 class CustomPermission(BasePermission):
     @object_permission_for(Mutation)
     def has_object_permission_default(self, mutation, info, instance):
-        operation = mutation.__name__
         log.debug(
-            f"ACL: fallback object permission: rejecting "
-            f"mutation '{operation}' on {instance}"
+            f"ACL: fallback object permission: allowing "
+            f"mutation '{mutation.__name__}' on {instance} for admin users"
         )
-        return False
+
+        return self.has_camac_admin_permission(info)
 
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
-        operation = mutation.__name__
-        log.debug(f"fallback permission: rejecting mutation '{operation}'")
-        return False
+        log.debug(
+            f"ACL: fallback permission: allow mutation '{mutation.__name__}' for admins"
+        )
+
+        return self.has_camac_admin_permission(info)
 
     # Document
     @permission_for(SaveDocument)
@@ -70,11 +76,26 @@ class CustomPermission(BasePermission):
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
+    def has_camac_admin_permission(self, info):
+        response = requests.get(
+            f"{CAMAC_NG_URL}/api/v1/me",
+            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+        )
+
+        response.raise_for_status()
+
+        admin_groups = [
+            group
+            for group in response.json()["data"]["relationships"]["groups"]
+            if group["id"] in CAMAC_ADMIN_GROUPS
+        ]
+
+        return len(admin_groups) > 0
+
     def has_camac_edit_permission(self, document_family, info):
         # find corresponding document
         document = Document.objects.get(id=document_family)
 
-        camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
         instance_id = document.meta.get("camac-instance-id")
 
         if not instance_id:
@@ -83,7 +104,7 @@ class CustomPermission(BasePermission):
             return True
 
         resp = requests.get(
-            f"{camac_api}/api/v1/instances/{instance_id}?include=instance-state",
+            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}?include=instance-state",
             # forward role as filter
             {"role": role(info), "group": group(info)},
             # Forward authorization header
