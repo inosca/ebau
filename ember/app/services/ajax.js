@@ -7,6 +7,8 @@ import { UnauthorizedError } from "ember-ajax/errors";
 export default AjaxService.extend({
   session: service(),
 
+  router: service(),
+
   token: reads("session.data.authenticated.access_token"),
 
   headers: computed("token", function() {
@@ -18,11 +20,8 @@ export default AjaxService.extend({
   handleResponse() {
     let res = this._super(...arguments);
 
-    if (
-      res instanceof UnauthorizedError &&
-      this.get("session.isAuthenticated")
-    ) {
-      this.session.invalidate();
+    if (res instanceof UnauthorizedError) {
+      this.get("router").transitionTo("logout");
     }
 
     return res;
