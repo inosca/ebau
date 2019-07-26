@@ -11,8 +11,7 @@ class NotificationTemplate(core_models.MultilingualModel, models.Model):
     body = models.TextField(db_column="BODY", blank=True, null=True)
 
     def __str__(self):
-        subj = self.get_trans_attr("subject")
-        return f"NotificationTemplate <{self.pk} - {subj}>"
+        return self.get_trans_attr("subject")
 
     class Meta:
         managed = True
