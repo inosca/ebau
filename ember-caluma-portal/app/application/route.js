@@ -2,36 +2,19 @@ import Route from "@ember/routing/route";
 import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
-import config from "../config/environment";
-
-const { environment } = config;
 
 const DEFAULT_LANG = "de";
-const SUPPORTED_LANGUAGES = ["de", "fr"];
 
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
   calumaOptions: service(),
 
-  guessLanguage() {
-    const preferred = (navigator.languages || [navigator.language]).map(
-      locale => locale.split("-")[0]
-    );
-    return (
-      preferred.find(lang => SUPPORTED_LANGUAGES.includes(lang)) || DEFAULT_LANG
-    );
+  chooseLanguage() {
+    return localStorage.getItem("language") || DEFAULT_LANG;
   },
 
   beforeModel() {
-    // remove the conditional once french support is stable
-    if (environment === "development") {
-      this.intl.setLocale([
-        this.guessLanguage(),
-        "de" // fallback language
-      ]);
-    } else {
-      this.intl.setLocale(["de"]);
-    }
+    this.intl.setLocale([this.chooseLanguage()]);
 
     if (window.top !== window) {
       getOwner(this)
