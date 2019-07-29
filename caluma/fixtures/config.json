@@ -6168,7 +6168,7 @@
       "created_by_user": null,
       "created_by_group": null,
       "form": "personalien-tabelle",
-      "question": "juristische-person-personalien",
+      "question": "juristische-person-gesuchstellerin",
       "sort": 12
     }
   },
@@ -21209,7 +21209,7 @@
   },
   {
     "model": "form.question",
-    "pk": "juristische-person-personalien",
+    "pk": "juristische-person-gesuchstellerin",
     "fields": {
       "created_at": "2019-04-01T07:07:21.499Z",
       "modified_at": "2019-04-01T07:49:55.012Z",
@@ -21922,7 +21922,7 @@
       "label": "{\"de\": \"Kontaktperson - Name\"}",
       "type": "text",
       "is_required": "!('vorabklaerung' in form)",
-      "is_hidden": "!(\n  'juristische-person-personalien-ja' == 'juristische-person-personalien'|answer\n)",
+      "is_hidden": "!(\n  'juristische-person-gesuchstellerin-ja' == 'juristische-person-gesuchstellerin'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -22172,7 +22172,7 @@
       "label": "{\"de\": \"Kontaktperson - Vorname\"}",
       "type": "text",
       "is_required": "!('vorabklaerung' in form)",
-      "is_hidden": "!(\n  'juristische-person-personalien-ja' == 'juristische-person-personalien'|answer\n)",
+      "is_hidden": "!(\n  'juristische-person-gesuchstellerin-ja' == 'juristische-person-gesuchstellerin'|answer\n)",
       "is_archived": false,
       "placeholder": "{\"de\": \"\"}",
       "info_text": "{\"de\": \"\"}",
@@ -37233,27 +37233,27 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "juristische-person-personalien.juristische-person-personalien-ja",
+    "pk": "juristische-person-gesuchstellerin.juristische-person-gesuchstellerin-ja",
     "fields": {
       "created_at": "2019-05-10T16:46:00.295Z",
       "modified_at": "2019-05-10T16:46:00.295Z",
       "created_by_user": null,
       "created_by_group": null,
-      "question": "juristische-person-personalien",
-      "option": "juristische-person-personalien-ja",
+      "question": "juristische-person-gesuchstellerin",
+      "option": "juristische-person-gesuchstellerin-ja",
       "sort": 2
     }
   },
   {
     "model": "form.questionoption",
-    "pk": "juristische-person-personalien.juristische-person-personalien-nein",
+    "pk": "juristische-person-gesuchstellerin.juristische-person-gesuchstellerin-nein",
     "fields": {
       "created_at": "2019-05-10T16:46:02.125Z",
       "modified_at": "2019-05-10T16:46:02.126Z",
       "created_by_user": null,
       "created_by_group": null,
-      "question": "juristische-person-personalien",
-      "option": "juristische-person-personalien-nein",
+      "question": "juristische-person-gesuchstellerin",
+      "option": "juristische-person-gesuchstellerin-nein",
       "sort": 1
     }
   },
@@ -46996,7 +46996,7 @@
   },
   {
     "model": "form.option",
-    "pk": "juristische-person-personalien-ja",
+    "pk": "juristische-person-gesuchstellerin-ja",
     "fields": {
       "created_at": "2019-04-01T07:07:21.368Z",
       "modified_at": "2019-04-01T07:49:54.868Z",
@@ -47009,7 +47009,7 @@
   },
   {
     "model": "form.option",
-    "pk": "juristische-person-personalien-nein",
+    "pk": "juristische-person-gesuchstellerin-nein",
     "fields": {
       "created_at": "2019-04-01T07:07:21.381Z",
       "modified_at": "2019-04-01T07:49:54.869Z",
