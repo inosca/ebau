@@ -4,6 +4,7 @@ from django.conf.urls import include, url
 # settings.APPLICATION_NAME
 
 urlpatterns = [
+    url(r"^api/v1/", include("camac.applicants.urls")),
     url(r"^api/v1/", include("camac.user.urls")),
     url(r"^api/v1/", include("camac.instance.urls")),
     url(r"^api/v1/", include("camac.document.urls")),
