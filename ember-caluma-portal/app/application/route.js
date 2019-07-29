@@ -20,7 +20,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
   },
 
   beforeModel() {
-    this.intl.setLocale(`${this.chooseLanguage()}-ch`);
+    this.intl.setLocale([
+      `${this.chooseLanguage()}-ch`,
+      "de-de" // fallback language
+    ]);
 
     if (window.top !== window) {
       getOwner(this)
