@@ -1,22 +1,28 @@
+import config from "../config/environment";
+import graphqlHandler from "ember-caluma/mirage-graphql";
+
 export default function() {
-  // These comments are here to help you get started. Feel free to delete them.
-  /*
-    Config (with defaults).
+  this.urlPrefix = "";
+  this.namespace = "";
+  this.timing = 400;
 
-    Note: these only affect routes defined *after* them!
-  */
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
-  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
-  /*
-    Shorthand cheatsheet:
+  this.get("/api/v1/attachments");
 
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
+  this.get("/api/v1/instances");
+  this.get("/api/v1/instances/:id");
 
-    http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
-  */
+  this.get("/api/v1/applicants");
+  this.del("/api/v1/applicants/:id");
+
+  this.post("/api/v1/applicants", function({ applicants, users }) {
+    const { email, ...attrs } = this.normalizedRequestAttrs();
+
+    return applicants.create({
+      ...attrs,
+      userId: parseInt(users.create().id),
+      inviteeId: parseInt(users.create({ email }).id)
+    });
+  });
+
+  this.post(config.apollo.apiURL, graphqlHandler(this), 200);
 }
