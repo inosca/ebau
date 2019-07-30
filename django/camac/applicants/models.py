@@ -16,7 +16,7 @@ class Applicant(models.Model):
     invitee = models.ForeignKey(
         "user.User", models.DO_NOTHING, db_column="APPLICANT_USER_ID", related_name="+"
     )
-    created = models.DateTimeField(db_column="CREATED")
+    created = models.DateTimeField(db_column="CREATED", auto_now=True)
 
     class Meta:
         managed = True
