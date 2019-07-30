@@ -19,6 +19,7 @@ Router.map(function() {
       this.route("edit", { path: "/:instance" }, function() {
         this.route("form", { path: "/:form" });
         this.route("feedback");
+        this.route("applicants");
       });
     });
 
