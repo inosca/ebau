@@ -184,7 +184,9 @@ class InstanceEditableMixin(AttributeMixin):
     def validate_instance(self, instance):
         user = get_request(self).user
         return self._validate_instance_editablity(
-            instance, lambda: instance.user == user
+            instance,
+            lambda: instance.user == user
+            or instance.involved_applicants.filter(invitee=user).exists(),
         )
 
     def validate_instance_for_municipality(self, instance):
