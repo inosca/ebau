@@ -4474,10 +4474,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-2.2.0.tgz#217cacc03fa04194d6a134fa89dc8ca74f3a3c57"
-  integrity sha512-Yy84EU5jX+Qzgh34Osm9B/M5JjEm6zxhAAIDki576YV6LmAZwQgr3K0qeNozD1fB1jGq/zFJURSgbAol0UhDjw==
+ember-caluma@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-2.2.1.tgz#4f510479f87f063fb62e1f81ed1980333319beb4"
+  integrity sha512-/lmZyORptr8KaYoM7G/J8blre/50wvFkvNFIy3w9avZXid+7/fv6fC5ziQOcxgAwM8yP8jdeXtOYzlfOmUm2GQ==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-link-context "^1.0.18"
