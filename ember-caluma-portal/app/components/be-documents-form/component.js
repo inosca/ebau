@@ -25,6 +25,7 @@ export default Component.extend(ComponentQueryManager, {
   },
 
   section: reads("fieldset.field.question.meta.attachment-section"),
+  deletable: reads("fieldset.field.question.meta.deletable"),
 
   data: task(function*() {
     assert(
@@ -190,6 +191,54 @@ export default Component.extend(ComponentQueryManager, {
       this.notification.danger(this.intl.t("documents.uploadError"));
 
       yield this.saveFields.perform(true);
+    }
+  }),
+
+  delete: task(function*(confirmed = false, attachment) {
+    try {
+      if (!this.deletable || this.disabled) return;
+
+      if (!confirmed) {
+        this.set("attachmentToDelete", attachment);
+
+        return;
+      }
+
+      yield all(
+        attachment.attributes.context.tags
+          .map(slug => this.fieldset.document.findField(slug))
+          .map(async field => {
+            field.set("answer.value", null);
+
+            await field.save.perform();
+
+            // something with the isNew property of the field isn't quite right
+            // yet so we need to trigger it's update manually for now
+            // See https://github.com/projectcaluma/ember-caluma/issues/459
+            field.notifyPropertyChange("isNew");
+          })
+      );
+
+      const response = yield this.fetch.fetch(
+        `/api/v1/attachments/${attachment.id}`,
+        {
+          method: "delete"
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+      yield this.data.perform();
+
+      this.notification.success(this.intl.t("documents.deleteSuccess"));
+
+      this.set("attachmentToDelete", null);
+    } catch (e) {
+      /* eslint-disable-next-line no-console */
+      console.error(e);
+      this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }),
 

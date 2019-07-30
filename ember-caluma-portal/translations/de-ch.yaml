@@ -2,6 +2,8 @@ global:
   title: "eBau Bern"
   versionPrefix: "v"
   continue: "Weiter"
+  delete: "Löschen"
+  cancel: "Abbrechen"
 
 nav:
   form: "Formular"
@@ -38,6 +40,10 @@ documents:
 
   downloadSuccess: "Die Datei wurde erfolgreich heruntergeladen"
   downloadError: "Beim Herunterladen der Datei ist etwas schief gelaufen"
+
+  deleteInfo: "Wollen Sie die Datei \"{filename}\" wirklich löschen?"
+  deleteSuccess: "Die Datei wurde erfolgreich gelöscht"
+  deleteError: "Beim Löschen der Datei ist etwas schief gelaufen"
 
   tags:
     beilagen-vorabklaerung: "Beilagen Vorabklärung"
