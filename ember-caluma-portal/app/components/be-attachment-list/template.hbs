@@ -40,6 +40,11 @@
               {{t "documents.noTags"}}
             {{/if}}
           </div>
+          {{#if deletable}}
+            <div class="uk-flex uk-flex-middle">
+              <button class="uk-icon-button" uk-icon="trash" title={{t "global.delete"}} {{action "delete" attachment}}></button>
+            </div>
+          {{/if}}
         </div>
       </li>
     {{/each}}

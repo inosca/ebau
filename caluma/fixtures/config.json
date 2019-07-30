@@ -11542,7 +11542,8 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "be-documents-form",
-        "attachment-section": 1
+        "attachment-section": 1,
+        "deletable": true
       },
       "data_source": null,
       "row_form": null,
@@ -16513,7 +16514,8 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "be-documents-form",
-        "attachment-section": 6
+        "attachment-section": 6,
+        "deletable": false
       },
       "data_source": null,
       "row_form": null,
@@ -16541,7 +16543,8 @@
       "configuration": {},
       "meta": {
         "widgetOverride": "be-documents-form",
-        "attachment-section": 5
+        "attachment-section": 5,
+        "deletable": false
       },
       "data_source": null,
       "row_form": null,
