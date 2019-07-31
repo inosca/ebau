@@ -1,7 +1,7 @@
 {{#if documentTask.isRunning}}
   <div class="uk-text-center">{{uk-spinner ratio=2}}</div>
 {{else if document}}
-  {{#if (eq role "internal")}}
+  {{#if embedded}}
     {{#cf-content
       documentId=(decode-id document.id)
       disabled=disabled

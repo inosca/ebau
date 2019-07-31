@@ -15,6 +15,14 @@ from camac.instance.serializers import (
     CalumaInstanceSerializer,
 )
 
+MAIN_FORMS = [
+    "baugesuch",
+    "baugesuch-generell",
+    "baugesuch-mit-uvp",
+    "vorabklaerung-einfach",
+    "vorabklaerung-vollstaendig",
+]
+
 
 @pytest.fixture
 def submit_date_question(db):
@@ -37,6 +45,14 @@ def mock_public_status(mocker):
 
 
 @pytest.fixture
+def mock_caluma_forms(mocker):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSerializer._get_caluma_main_forms",
+        lambda s: MAIN_FORMS,
+    )
+
+
+@pytest.fixture
 def instance_service_construction_control(
     instance_service_factory, service_factory, service_group_factory, instance
 ):
@@ -51,7 +67,14 @@ def instance_service_construction_control(
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
 def test_create_instance(
-    db, admin_client, mocker, instance_state, form, snapshot, use_caluma_form
+    db,
+    admin_client,
+    mocker,
+    instance_state,
+    form,
+    snapshot,
+    use_caluma_form,
+    mock_caluma_forms,
 ):
     recorded_requests = []
 
@@ -149,6 +172,7 @@ def test_instance_list(
     mock_public_status,
     use_caluma_form,
     multilang,
+    mock_caluma_forms,
 ):
 
     url = reverse("instance-list")
@@ -170,6 +194,108 @@ def test_instance_list(
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
     # Included previous_instance_state and instance_state are the same
     assert len(json["included"]) == len(included) - 1
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,instance_state__name,readable,editable",
+    [
+        ("Applicant", LazyFixture("admin_user"), "new", MAIN_FORMS, MAIN_FORMS),
+        ("Applicant", LazyFixture("admin_user"), "rejected", MAIN_FORMS, MAIN_FORMS),
+        ("Applicant", LazyFixture("admin_user"), "correction", MAIN_FORMS, []),
+        ("Applicant", LazyFixture("admin_user"), "sb1", MAIN_FORMS + ["sb1"], ["sb1"]),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "sb2",
+            MAIN_FORMS + ["sb1", "sb2"],
+            ["sb2"],
+        ),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "conclusion",
+            MAIN_FORMS + ["sb1", "sb2"],
+            [],
+        ),
+        ("Service", LazyFixture("admin_user"), "new", MAIN_FORMS, []),
+        ("Service", LazyFixture("admin_user"), "rejected", MAIN_FORMS, []),
+        ("Service", LazyFixture("admin_user"), "correction", MAIN_FORMS, []),
+        ("Service", LazyFixture("admin_user"), "sb1", MAIN_FORMS, []),
+        ("Service", LazyFixture("admin_user"), "sb2", MAIN_FORMS + ["sb1"], []),
+        (
+            "Service",
+            LazyFixture("admin_user"),
+            "conclusion",
+            MAIN_FORMS + ["sb1", "sb2"],
+            [],
+        ),
+        ("Municipality", LazyFixture("admin_user"), "new", MAIN_FORMS, []),
+        ("Municipality", LazyFixture("admin_user"), "rejected", MAIN_FORMS, []),
+        (
+            "Municipality",
+            LazyFixture("admin_user"),
+            "correction",
+            MAIN_FORMS,
+            MAIN_FORMS,
+        ),
+        ("Municipality", LazyFixture("admin_user"), "sb1", MAIN_FORMS, []),
+        ("Municipality", LazyFixture("admin_user"), "sb2", MAIN_FORMS + ["sb1"], []),
+        (
+            "Municipality",
+            LazyFixture("admin_user"),
+            "conclusion",
+            MAIN_FORMS + ["sb1", "sb2"],
+            [],
+        ),
+        ("Canton", LazyFixture("admin_user"), "new", MAIN_FORMS, []),
+        ("Canton", LazyFixture("admin_user"), "rejected", MAIN_FORMS, []),
+        ("Canton", LazyFixture("admin_user"), "correction", MAIN_FORMS, []),
+        ("Canton", LazyFixture("admin_user"), "sb1", MAIN_FORMS, []),
+        ("Canton", LazyFixture("admin_user"), "sb2", MAIN_FORMS + ["sb1"], []),
+        (
+            "Canton",
+            LazyFixture("admin_user"),
+            "conclusion",
+            MAIN_FORMS + ["sb1", "sb2"],
+            [],
+        ),
+    ],
+)
+def test_instance_permissions(
+    admin_client,
+    activation,
+    applicant_factory,
+    instance,
+    readable,
+    editable,
+    use_caluma_form,
+    requests_mock,
+):
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        text=json.dumps(
+            {
+                "data": {
+                    "allForms": {
+                        "edges": [{"node": {"slug": slug}} for slug in MAIN_FORMS]
+                    }
+                }
+            }
+        ),
+    )
+
+    applicant_factory(invitee=instance.user, instance=instance)
+
+    url = reverse("instance-detail", args=[instance.pk])
+
+    response = admin_client.get(url)
+
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+
+    assert set(data["meta"]["readable-forms"]) == set(readable)
+    assert set(data["meta"]["editable-forms"]) == set(editable)
 
 
 @pytest.mark.parametrize("instance_state__name", ["new", "rejected"])
@@ -221,6 +347,7 @@ def test_instance_submit(
     use_caluma_form,
     multilang,
     application_settings,
+    mock_caluma_forms,
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -323,6 +450,7 @@ def test_instance_report(
     admin_user,
     use_caluma_form,
     multilang,
+    mock_caluma_forms,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -392,6 +520,7 @@ def test_instance_finalize(
     admin_user,
     use_caluma_form,
     multilang,
+    mock_caluma_forms,
 ):
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
