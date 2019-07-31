@@ -61,8 +61,21 @@
     {{uk-spinner ratio=2}}
   </div>
 {{else if documents.length}}
-  <div class="uk-text-meta">
-    {{t "instances.pageInfo" length=documents.length total=pageInfo.totalCount htmlSafe=true}}
+  <div uk-grid>
+    <div class="uk-width-expand uk-flex uk-flex-middle uk-text-meta">
+      <span>{{t "instances.pageInfo" length=documents.length total=pageInfo.totalCount htmlSafe=true}}</span>
+    </div>
+
+    <div class="uk-width-auto uk-flex uk-flex-middle">
+      <label class="uk-text-meta uk-text-nowrap">
+        {{t "instances.orderBy"}}:
+      </label>
+      <select class="uk-select uk-form-small uk-margin-small-left" onchange={{action (mut order) value="target.value"}}>
+        {{#each orderOptions as |o|}}
+          <option value={{o.value}} selected={{eq order o.value}}>{{t o.label}} ({{t o.direction}})</option>
+        {{/each}}
+      </select>
+    </div>
   </div>
   <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
     <thead>
