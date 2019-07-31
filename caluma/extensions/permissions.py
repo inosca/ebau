@@ -14,16 +14,9 @@ from caluma.core.permissions import (
 from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 from caluma.form.models import Document
 
-from .visibilities import group, role
+from .visibilities import group
 
 log = getLogger()
-
-"""Caluma permissions for Kanton Bern"""
-
-INSTANCE_STATES = {
-    "gesuchsteller": ["1", "10000", "20011", "20013"],  # Neu, Zurückgewiesen, SB1, SB2
-    "internal": ["20000", "20007"],  # eBau-Nummer zu vergeben, in Korrektur
-}
 
 CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
 
@@ -51,18 +44,20 @@ class CustomPermission(BasePermission):
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
-        log.debug("ACL: SaveDocument permission")
         return True
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
-        log.debug("ACL: SaveDocument object permission")
         return self.has_camac_edit_permission(instance.family, info)
 
     # Answer
     @permission_for(SaveDocumentAnswer)
     def has_permission_for_savedocumentanswer(self, mutation, info):
-        return True
+        document = Document.objects.get(
+            pk=json.loads(info.context.body)["variables"]["input"]["document"]
+        )
+
+        return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
@@ -70,7 +65,10 @@ class CustomPermission(BasePermission):
 
     @permission_for(RemoveAnswer)
     def has_permission_for_removeanswer(self, mutation, info):
-        return True
+        answer = json.loads(info.context.body)["variables"]["input"]["answer"]
+        document = Document.objects.get(answers__pk=answer)
+
+        return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(RemoveAnswer)
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
@@ -95,7 +93,6 @@ class CustomPermission(BasePermission):
     def has_camac_edit_permission(self, document_family, info):
         # find corresponding document
         document = Document.objects.get(id=document_family)
-
         instance_id = document.meta.get("camac-instance-id")
 
         if not instance_id:
@@ -105,8 +102,8 @@ class CustomPermission(BasePermission):
 
         resp = requests.get(
             f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}?include=instance-state",
-            # forward role as filter
-            {"role": role(info), "group": group(info)},
+            # forward group as filter
+            {"group": group(info)},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
@@ -118,12 +115,7 @@ class CustomPermission(BasePermission):
             if "error" in jsondata:
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
-            instance_state_id = jsondata["data"]["relationships"]["instance-state"][
-                "data"
-            ]["id"]
-
-            log.debug(f"ACL: Camac NG instance state: {instance_state_id}")
-            return instance_state_id in INSTANCE_STATES[role(info)]
+            return document.form.slug in jsondata["data"]["meta"]["editable-forms"]
 
         except KeyError:
             raise RuntimeError(
