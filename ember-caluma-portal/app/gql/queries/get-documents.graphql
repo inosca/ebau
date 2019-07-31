@@ -2,6 +2,7 @@
 
 query GetDocuments(
   $cursor: String
+  $order: DocumentOrdering!
   $form: ID
   $forms: [ID]!
   $metaValueFilters: [MetaValueFilterType]
@@ -14,7 +15,7 @@ query GetDocuments(
     forms: $forms
     metaValue: $metaValueFilters
     hasAnswer: $hasAnswerFilters
-    orderBy: META_CAMAC_INSTANCE_ID_DESC
+    orderBy: [$order]
   ) {
     pageInfo {
       hasNextPage

@@ -123,6 +123,9 @@ instances:
   emptyText: "Erstellen Sie jetzt schnell und bequem Ihr erstes Gesuch. Sie können es jederzeit schliessen und problemlos ein andermal weiter ausfüllen."
   edit: "Dossier bearbeiten"
   print: "Druckansicht"
+  orderBy: "Sortieren nach"
+  desc: "absteigend"
+  asc: "aufsteigend"
 
   new:
     title: "Neues Dossier"

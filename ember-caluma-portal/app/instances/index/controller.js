@@ -4,6 +4,7 @@ import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 import Document from "ember-caluma-portal/lib/document";
 import { getOwner } from "@ember/application";
+import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import moment from "moment";
 import { isEmpty } from "@ember/utils";
@@ -83,11 +84,48 @@ const queryParams = new QueryParams({
     defaultValue: "",
     refresh: true,
     ...dateQueryParam
+  },
+  order: {
+    defaultValue: "META_CAMAC_INSTANCE_ID_DESC",
+    refresh: true
   }
 });
 
 export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   fetch: service(),
+
+  orderOptions: computed(() => [
+    {
+      value: "META_CAMAC_INSTANCE_ID_DESC",
+      label: "instances.instanceId",
+      direction: "instances.desc"
+    },
+    {
+      value: "META_CAMAC_INSTANCE_ID_ASC",
+      label: "instances.instanceId",
+      direction: "instances.asc"
+    },
+    {
+      value: "META_EBAU_NUMBER_DESC",
+      label: "instances.ebau",
+      direction: "instances.desc"
+    },
+    {
+      value: "META_EBAU_NUMBER_ASC",
+      label: "instances.ebau",
+      direction: "instances.asc"
+    },
+    {
+      value: "META_SUBMIT_DATE_DESC",
+      label: "instances.submitDate",
+      direction: "instances.desc"
+    },
+    {
+      value: "META_SUBMIT_DATE_ASC",
+      label: "instances.submitDate",
+      direction: "instances.asc"
+    }
+  ]),
 
   setup() {
     this.getMunicipalities.perform();
@@ -104,13 +142,11 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
     }
   },
 
-  reset(_, isExiting) {
-    if (isExiting) {
-      this.fetchData.cancelAll({ resetState: true });
-      this.getInstances.cancelAll({ resetState: true });
+  reset() {
+    this.fetchData.cancelAll({ resetState: true });
+    this.getInstances.cancelAll({ resetState: true });
 
-      this.resetQueryParams();
-    }
+    this.resetQueryParams();
   },
 
   getRootForms: task(function*() {
@@ -149,11 +185,13 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
           query: getDocumentsQuery,
           variables: {
             cursor,
+            order: this.order,
             form: this.type,
             forms: forms.map(({ slug }) => slug),
             metaValueFilters: getMetaValueFilters(this.allQueryParams),
             hasAnswerFilters: getHasAnswerFilters(this.allQueryParams)
-          }
+          },
+          fetchPolicy: "network-only"
         },
         "allDocuments"
       );
