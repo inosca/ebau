@@ -11,7 +11,6 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
 
   token: reads("session.data.authenticated.access_token"),
   group: reads("router.currentRoute.queryParams.group"),
-  role: reads("router.currentRoute.queryParams.role"),
 
   link() {
     const httpLink = this._super(...arguments);
@@ -21,8 +20,7 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
       headers: {
         ...context.headers,
         authorization: `Bearer ${this.token}`,
-        ...(this.group ? { "x-camac-group": this.group } : {}),
-        ...(this.role ? { "x-camac-role": this.role } : {})
+        ...(this.group ? { "x-camac-group": this.group } : {})
       }
     }));
 
