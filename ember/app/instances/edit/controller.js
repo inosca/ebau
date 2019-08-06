@@ -139,12 +139,13 @@ export default Controller.extend({
     "modules.lastSuccessful.value.[]",
     "questionStore._store.@each.{value,isNew,hidden}",
     function() {
+      const editableTypes = ["form", "document"];
       return [
         "instances.edit.index",
         ...this.getWithDefault("modules.lastSuccessful.value", [])
           .filter(({ state }) => Boolean(state))
           .mapBy("link"),
-        ...(this.get("model.meta.editable").includes("form")
+        ...(this.get("model.meta.editable").some(e => editableTypes.includes(e))
           ? ["instances.edit.submit"]
           : [])
       ];
