@@ -11,6 +11,7 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     oidcHost,
+    profileURL: oidcHost.replace("protocol/openid-connect", "account"),
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
