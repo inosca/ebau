@@ -35,6 +35,12 @@ class InstanceFilterSet(FilterSet):
     )
     instance_state = NumberMultiValueFilter()
     responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
+    responsible_service = ResponsibleUserFilter(
+        field_name="responsible_services__service"
+    )
+    responsible_service_user = ResponsibleUserFilter(
+        field_name="responsible_services__responsible_user"
+    )
 
     class Meta:
         model = models.Instance
@@ -48,6 +54,8 @@ class InstanceFilterSet(FilterSet):
             "service",
             "user",
             "responsible_user",
+            "responsible_service",
+            "responsible_service_user",
         )
 
 

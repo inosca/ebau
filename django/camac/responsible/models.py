@@ -84,7 +84,7 @@ class ResponsibleService(models.Model):
         "instance.Instance",
         models.DO_NOTHING,
         db_column="INSTANCE_ID",
-        related_name="+",
+        related_name="responsible_services",
     )
     service = models.ForeignKey(
         "user.Service", models.DO_NOTHING, db_column="SERVICE_ID", related_name="+"
