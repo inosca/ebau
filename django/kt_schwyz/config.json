@@ -2320,6 +2320,15 @@
   },
   {
     "fields": {
+      "button": 33,
+      "instance_state": 3,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 50
+  },
+  {
+    "fields": {
       "name": "Ordentliches Verfahren"
     },
     "model": "core.buildingauthoritysection",
