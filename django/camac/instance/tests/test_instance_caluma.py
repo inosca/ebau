@@ -367,6 +367,7 @@ def test_instance_submit(
                                     "meta": {"camac-instance-id": instance.pk},
                                     "form": {
                                         "slug": "vorabklaerung-einfach",
+                                        "name": "Baugesuch",
                                         "meta": {"is-main-form": True},
                                     },
                                     "answers": {
@@ -382,33 +383,7 @@ def test_instance_submit(
                                 }
                             }
                         ]
-                    },
-                    "node": {
-                        "id": 1234,
-                        "meta": {},
-                        "workflow": {"id": 99999},
-                        "document": {
-                            "form": {"slug": "vorabklaerung-einfach"},
-                            "answers": {
-                                "edges": [{"node": {"stringValue": service.pk}}]
-                            },
-                        },
-                    },
-                    "allCases": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "Q2FzZTpkMzBjMjM3ZS0yNmNmLTRkM2ItYWFmYi02Mjk4MzU3NDUzZWY=",
-                                    "document": {
-                                        "form": {
-                                            "id": "Rm9ybTpiYXVnZXN1Y2g=",
-                                            "name": "Baugesuch",
-                                        }
-                                    },
-                                }
-                            }
-                        ]
-                    },
+                    }
                 }
             }
         ),
@@ -496,7 +471,7 @@ def test_instance_report(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb1"},
+                                    "form": {"slug": "sb1", "name": "Baugesuch"},
                                 }
                             }
                         ]
@@ -566,7 +541,7 @@ def test_instance_finalize(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb2"},
+                                    "form": {"slug": "sb2", "name": "Baugesuch"},
                                 }
                             }
                         ]

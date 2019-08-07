@@ -18,8 +18,8 @@ from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
 
-from . import models
 from ..core import models as core_models
+from . import models
 
 request_logger = getLogger("django.request")
 
@@ -71,11 +71,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
-    active_municipaliyt_name = serializers.SerializerMethodField()
+    active_municipality_name = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField(
-        method_name="get_active_municipaliyt_name"
+        method_name="get_active_municipality_name"
     )
-    form_name = serializers.SerializerMethodField()
+    form_name = serializers.SerializerMethodField(method_name="get_form_name")
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -106,7 +106,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
-    def get_active_municipaliyt_name(self, instance):
+    def get_active_municipality_name(self, instance):
         instance_service = core_models.InstanceService.objects.filter(
             instance=instance, active=1
         ).first()
@@ -115,7 +115,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return instance_service.service.name
 
     def get_form_name(self, instance):
-        if not settings.APPLICATION["USE_CALUMA_FORM"]:
+        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
             return instance.form.get_name()
         try:
             caluma_resp = requests.post(
@@ -123,14 +123,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 json={
                     "query": """,
                         query {
-                          allCases (metaValue: { key: "camac-instance-id", value: $instance_id}) {
+                          allDocuments(metaValue: [{ key: "camac-instance-id", value: $instance_id}]) {
                             edges {
                               node {
                                 id
-                              }
-                              document {
                                 form {
                                   name
+                                  meta
                                 }
                               }
                             }
@@ -143,9 +142,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                     "Authorization": get_authorization_header(self.context["request"])
                 },
             )
-            return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"][
-                "document"
-            ]["form"]["name"]
+            documents = caluma_resp.json()["data"]["allDocuments"]["edges"]
+            form_names = [
+                doc["node"]["form"]["name"]
+                for doc in documents
+                if doc["node"]["form"]["meta"]["is-main-form"] is True
+            ]
+            return form_names[0]
         except (KeyError, IndexError):  # pragma: no cover
             request_logger.error(
                 "get_form_name(): Caluma did not respond with a valid response"
@@ -162,37 +165,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         template = settings.INSTANCE_URL_TEMPLATE[mode]
 
         path = self._str_replace_cb("{base_url}", self._make_base_url, template)
-        path = self._str_replace_cb(
-            "{case_id}", lambda: self._get_caluma_id(instance), path
-        )
         path = path.replace("{instance_id}", str(instance.pk))
 
         return path
-
-    def _get_caluma_id(self, instance):
-        if not settings.APPLICATION["USE_CALUMA_FORM"]:
-            return "-"
-        caluma_resp = requests.post(
-            settings.CALUMA_URL,
-            json={
-                "query": """,
-                    query {
-                      allCases (metaValue: { key: "camac-instance-id", value: $instance_id}) {
-                        edges {
-                          node {
-                            id
-                          }
-                        }
-                      }
-                    }
-                """,
-                "variables": {"instance_id": instance.pk},
-            },
-            headers={
-                "Authorization": get_authorization_header(self.context["request"])
-            },
-        )
-        return caluma_resp.json()["data"]["allCases"]["edges"][0]["node"]["id"]
 
     def _make_base_url(self):
         try:
