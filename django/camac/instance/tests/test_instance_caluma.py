@@ -47,7 +47,7 @@ def mock_public_status(mocker):
 @pytest.fixture
 def mock_caluma_forms(mocker):
     mocker.patch(
-        "camac.instance.serializers.CalumaInstanceSerializer._get_caluma_main_forms",
+        "camac.instance.mixins.InstanceEditableMixin._get_caluma_main_forms",
         lambda s: MAIN_FORMS,
     )
 
