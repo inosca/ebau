@@ -106,7 +106,6 @@ APPLICATIONS = {
         "PUBLICATION_DURATION": timedelta(days=30),
         "INSTANCE_USER_FIELD": "user",
         "FORM_BACKEND": "camac-ng",
-        "USE_CALUMA_FORM": False,
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -123,7 +122,6 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "INSTANCE_USER_FIELD": "user",
         "FORM_BACKEND": "camac-ng",
-        "USE_CALUMA_FORM": False,
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -155,7 +153,6 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
-        "USE_CALUMA_FORM": True,
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
@@ -171,7 +168,7 @@ APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 INSTANCE_URL_TEMPLATE = {
     "PUBLIC": env.str(
         "PUBLIC_INSTANCE_URL_TEMPLATE",
-        default="http://caluma-portal.local/instances/{case_id}",
+        default="http://caluma-portal.local/instances/{instance_id}",
     ),
     "INTERNAL": env.str(
         "INTERNAL_INSTANCE_URL_TEMPLATE",
