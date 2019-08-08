@@ -11,11 +11,6 @@ from caluma.form import models as form_models, schema as form_schema
 CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
 
 
-def role(info):
-    """Extract role name from request."""
-    return info.context.META.get("HTTP_X_CAMAC_ROLE", "gesuchsteller")
-
-
 def filters(info):
     """Extract Camac NG filters from request.
 
@@ -72,10 +67,8 @@ class CustomVisibility(BaseVisibility):
     def _all_visible_instances(self, info):
         """Fetch visible camac instances from NG API, caches the result.
 
-        Take user's role from a custom HTTP header named `X-CAMAC-ROLE`. If
-        it's not given, defaults to "gesuchsteller".
-
-        The role is then forwarded as a filter to the NG API to retrieve all
+        Take user's group from a custom HTTP header named `X-CAMAC-GROUP`
+        which is then forwarded as a filter to the NG API to retrieve all
         Camac instance IDs that are accessible.
 
         Return a list of instance identifiers.
@@ -86,13 +79,8 @@ class CustomVisibility(BaseVisibility):
 
         resp = requests.get(
             f"{CAMAC_NG_URL}/api/v1/instances",
-            # forward filters, role and group via query params
-            {
-                **filters(info),
-                "role": role(info),
-                "group": group(info),
-                "fields[instances]": "id",
-            },
+            # forward filters and group via query params
+            {**filters(info), "group": group(info), "fields[instances]": "id"},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
