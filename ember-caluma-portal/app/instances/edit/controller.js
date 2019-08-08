@@ -9,30 +9,10 @@ import { ObjectQueryManager } from "ember-apollo-client";
 
 import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 
-const VISIBLE_MAP = {
-  internal: {
-    sb1: ["Abschluss (SB2)", "Zum Abschluss", "Abgeschlossen"],
-    sb2: ["Zum Abschluss", "Abgeschlossen"]
-  },
-  DEFAULT: {
-    sb1: [
-      "Selbstdeklaration (SB1)",
-      "Abschluss (SB2)",
-      "Zum Abschluss",
-      "Abgeschlossen"
-    ],
-    sb2: ["Abschluss (SB2)", "Zum Abschluss", "Abgeschlossen"]
-  }
-};
-
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
 const queryParams = new QueryParams({
   group: {
-    default: null,
-    refresh: true
-  },
-  role: {
     default: null,
     refresh: true
   }
@@ -55,18 +35,13 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
     this.resetQueryParams();
   },
 
-  additionalForms: computed(
-    "instance.state.attributes.name",
-    "role",
-    function() {
-      const state = this.get("instance.state.attributes.name");
-      const role = this.role || "DEFAULT";
+  embedded: computed(() => window !== window.top),
 
-      return Object.entries(VISIBLE_MAP[role])
-        .filter(([, visibleStates]) => visibleStates.includes(state))
-        .map(([form]) => form);
-    }
-  ),
+  additionalForms: computed("instance.meta.readable-forms", function() {
+    const readable = this.getWithDefault("instance.meta.readable-forms", []);
+
+    return ["sb1", "sb2"].filter(form => readable.includes(form));
+  }),
 
   mainForm: reads("mainFormTask.lastSuccessful.value"),
   mainFormTask: task(function*() {
@@ -98,6 +73,7 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
     return {
       ...instance.attributes,
       id: instance.id,
+      meta: instance.meta,
       state: included.find(
         obj =>
           obj.type === "instance-states" &&

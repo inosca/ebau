@@ -9,7 +9,7 @@
     {{#tab.link-item "instances.edit.form" form}}{{t (concat "instances.forms." form)}}{{/tab.link-item}}
   {{/each}}
 
-  {{#unless role}}
+  {{#unless embedded}}
     {{#tab.link-item "instances.edit.feedback"}}
       {{t "nav.feedback"}}
       {{#if feedback}}
