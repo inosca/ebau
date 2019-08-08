@@ -1,9 +1,12 @@
+import requests
 from django.conf import settings
+from django.core.cache import cache
 from django.db.models import Q
 from django.db.models.constants import LOOKUP_SEP
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 
 from camac.attrs import nested_getattr
 from camac.core.models import Circulation, InstanceService
@@ -124,9 +127,28 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_editable_permission(self, instance):
         editable_permission = self.serializer_getattr("instance_editable_permission")
+        form_backend = settings.APPLICATION.get("FORM_BACKEND")
+
+        if form_backend == "caluma" and editable_permission == "document":
+            # only the document permission is being handled different for the
+            # caluma form backend, everything else stays the same
+            return self.has_editable_permission_caluma(instance)
+
         return editable_permission is None or editable_permission in self.get_editable(
             instance
         )
+
+    def has_editable_permission_caluma(self, instance):
+        state = instance.instance_state.name
+        editable_forms = self.get_editable_forms(instance)
+
+        if state in editable_forms:
+            return True
+
+        if state in ["new", "rejected", "correction"]:
+            return set(editable_forms) == set(self._get_caluma_main_forms())
+
+        return False
 
     @permission_aware
     def get_editable(self, instance):
@@ -138,11 +160,7 @@ class InstanceEditableMixin(AttributeMixin):
         if instance.instance_state.name in ["new", "rejected"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name in [
-            "nfd",  # Kt. Schwyz Nachforderung
-            "sb1",  # Kt. Bern SB1
-            "sb2",  # Kt. Bern SB2
-        ]:
+        if instance.instance_state.name in ["nfd"]:
             return {"document"}
 
         return editable
@@ -213,3 +231,114 @@ class InstanceEditableMixin(AttributeMixin):
 
     def validate_instance_for_canton(self, instance):
         return self._validate_instance_editablity(instance)
+
+    @permission_aware
+    def get_editable_forms(self, instance):
+        state = instance.instance_state.name
+
+        if state in ["new", "rejected"]:
+            return self._get_caluma_main_forms()
+
+        if state in ["sb1", "sb2"]:
+            return [state]
+
+        return []
+
+    def get_editable_forms_for_municipality(self, instance):
+        if instance.instance_state.name == "correction":
+            return self._get_caluma_main_forms()
+
+        return []
+
+    def get_editable_forms_for_service(self, instance):
+        return []
+
+    def get_editable_forms_for_canton(self, instance):
+        return []
+
+    def get_editable_forms_reader(self, instance):  # pragma: no cover
+        return []
+
+    def get_editable_forms_public_reader(self, instance):  # pragma: no cover
+        return []
+
+    @permission_aware
+    def get_readable_forms(self, instance):
+        state = instance.instance_state.name
+        forms = self._get_caluma_main_forms()
+
+        if state == "sb1":
+            return forms + ["sb1"]
+
+        if state in ["sb2", "conclusion"]:
+            return forms + ["sb1", "sb2"]
+
+        return forms
+
+    def get_readable_forms_for_municipality(self, instance):
+        state = instance.instance_state.name
+        forms = self._get_caluma_main_forms()
+
+        if state == "sb2":
+            return forms + ["sb1"]
+
+        if state == "conclusion":
+            return forms + ["sb1", "sb2"]
+
+        return forms
+
+    def get_readable_forms_for_service(self, instance):
+        return self.get_readable_forms_for_municipality(instance)
+
+    def get_readable_forms_for_canton(self, instance):
+        return self.get_readable_forms_for_municipality(instance)
+
+    def get_readable_forms_reader(self, instance):  # pragma: no cover
+        return []
+
+    def get_readable_forms_public_reader(self, instance):  # pragma: no cover
+        return []
+
+    def _get_caluma_main_forms(self):
+        cache_key = "caluma_main_forms"
+        resp = cache.get(cache_key)
+
+        if resp is None:
+            raw = self.query_caluma(
+                """
+                query {
+                    allForms(metaValue: [{key: "is-main-form", value: true}]) {
+                        edges {
+                            node {
+                                slug
+                            }
+                        }
+                    }
+                }
+            """
+            )
+
+            resp = [edge["node"]["slug"] for edge in raw["data"]["allForms"]["edges"]]
+            cache.set(cache_key, resp, 3600)
+
+        return resp
+
+    def query_caluma(self, query, variables={}):
+        request = getattr(self, "request", None) or getattr(self, "context", {}).get(
+            "request"
+        )
+
+        response = requests.post(
+            settings.CALUMA_URL,
+            json={"query": query, "variables": variables},
+            headers={"Authorization": get_authorization_header(request)},
+        )
+
+        response.raise_for_status()
+        result = response.json()
+        if result.get("errors"):  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Error while querying caluma: {result.get('errors')}"
+            )
+
+        return result

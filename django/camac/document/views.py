@@ -65,6 +65,15 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return queryset.distinct()
 
     def has_object_destroy_permission(self, obj):
+        form_backend = settings.APPLICATION.get("FORM_BACKEND")
+        state = obj.instance.instance_state.name
+
+        if form_backend == "caluma" and state in ["rejected", "correction"]:
+            # for the states "rejected" and "correction" the permission layer
+            # may allow creating and updating, however we don't want to allow
+            # deleting in those states
+            return False
+
         section_modes = {
             attachment_section.get_mode(self.request.group)
             for attachment_section in obj.attachment_sections.all()

@@ -1,15 +1,12 @@
 import json
 from logging import getLogger
 
-import requests
 from django.conf import settings
-from django.core.cache import cache
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
 from camac.constants import kt_bern as constants
@@ -18,7 +15,6 @@ from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.user.models import Group
-from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     FormDataResourceRelatedField,
@@ -171,105 +167,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
     caluma_form = serializers.CharField(required=True, write_only=True)
 
     public_status = serializers.SerializerMethodField()
-
-    @permission_aware
-    def get_editable_forms(self, instance):
-        state = instance.instance_state.name
-
-        if state in ["new", "rejected"]:
-            return self._get_caluma_main_forms()
-
-        if state in ["sb1", "sb2"]:
-            return [state]
-
-        return []
-
-    def get_editable_forms_for_municipality(self, instance):
-        if instance.instance_state.name == "correction":
-            return self._get_caluma_main_forms()
-
-        return []
-
-    def get_editable_forms_for_service(self, instance):
-        return []
-
-    def get_editable_forms_for_canton(self, instance):
-        return []
-
-    @permission_aware
-    def get_readable_forms(self, instance):
-        state = instance.instance_state.name
-        forms = self._get_caluma_main_forms()
-
-        if state == "sb1":
-            return forms + ["sb1"]
-
-        if state in ["sb2", "conclusion"]:
-            return forms + ["sb1", "sb2"]
-
-        return forms
-
-    def get_readable_forms_for_municipality(self, instance):
-        state = instance.instance_state.name
-        forms = self._get_caluma_main_forms()
-
-        if state == "sb2":
-            return forms + ["sb1"]
-
-        if state == "conclusion":
-            return forms + ["sb1", "sb2"]
-
-        return forms
-
-    def get_readable_forms_for_service(self, instance):
-        return self.get_readable_forms_for_municipality(instance)
-
-    def get_readable_forms_for_canton(self, instance):
-        return self.get_readable_forms_for_municipality(instance)
-
-    def _get_caluma_main_forms(self):
-        cache_key = "caluma_main_forms"
-        resp = cache.get(cache_key)
-
-        if resp is None:
-            raw = self.query_caluma(
-                """
-                query {
-                    allForms(metaValue: [{key: "is-main-form", value: true}]) {
-                        edges {
-                            node {
-                                slug
-                            }
-                        }
-                    }
-                }
-            """
-            )
-
-            resp = [edge["node"]["slug"] for edge in raw["data"]["allForms"]["edges"]]
-            cache.set(cache_key, resp, 3600)
-
-        return resp
-
-    def query_caluma(self, query, variables={}):
-        # TODO: move this to a more general location
-
-        response = requests.post(
-            settings.CALUMA_URL,
-            json={"query": query, "variables": variables},
-            headers={
-                "Authorization": get_authorization_header(self.context["request"])
-            },
-        )
-
-        response.raise_for_status()
-        result = response.json()
-        if result.get("errors"):  # pragma: no cover
-            raise exceptions.ValidationError(
-                f"Error while querying caluma: {result.get('errors')}"
-            )
-
-        return result
 
     def get_public_status(self, instance):
         # TODO Instead of a new field, we should actually modify the values of instance_state
