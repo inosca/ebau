@@ -5,7 +5,7 @@ query GetDocuments(
   $order: DocumentOrdering!
   $form: ID
   $forms: [ID]!
-  $metaValueFilters: [MetaValueFilterType]
+  $metaValueFilters: [JSONValueFilterType]
   $hasAnswerFilters: [HasAnswerFilterType]
 ) {
   allDocuments(
