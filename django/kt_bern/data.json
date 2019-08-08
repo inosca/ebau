@@ -228,6 +228,15 @@
   },
   {
     "fields": {
+      "default_group": 0,
+      "group": 1,
+      "user": 8
+    },
+    "model": "user.usergroup",
+    "pk": 20110
+  },
+  {
+    "fields": {
       "city": "Geneva",
       "language": "en",
       "user": 2
