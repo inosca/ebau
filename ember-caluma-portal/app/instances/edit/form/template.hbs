@@ -6,6 +6,7 @@
       documentId=(decode-id document.id)
       disabled=disabled
       context=(hash
+        instance=instance
         instanceId=instance.id
       )
     as |content|}}
@@ -13,7 +14,10 @@
         {{be-download-pdf
           size="small"
           field=pdfField
-          context=(hash instanceId=instance.id)
+          context=(hash
+            instance=instance
+            instanceId=instance.id
+          )
         }}
       </div>
       <hr>
@@ -35,6 +39,7 @@
       documentId=(decode-id document.id)
       disabled=disabled
       context=(hash
+        instance=instance
         instanceId=instance.id
       )
     }}
