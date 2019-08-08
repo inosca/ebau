@@ -48,6 +48,32 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
+        instance_id = Document.objects.get(id=instance.family).meta.get(
+            "camac-instance-id"
+        )
+
+        resp = requests.get(
+            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}?include=instance_state",
+            # forward group as filter
+            {"group": group(info)},
+            # Forward authorization header
+            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+        )
+
+        data = resp.json()
+        state = [
+            state["attributes"]["name"]
+            for state in data["included"]
+            if state["type"] == "instance-states"
+            and int(state["id"])
+            == int(data["data"]["relationships"]["instance-state"]["data"]["id"])
+        ][0]
+
+        if state == "eBau-Nummer zu vergeben":
+            # This is a hack to get assigning of ebau numbers working. We'll
+            # refactor this to a proper permission soon
+            return True
+
         return self.has_camac_edit_permission(instance.family, info)
 
     # Answer
@@ -101,7 +127,7 @@ class CustomPermission(BasePermission):
             return True
 
         resp = requests.get(
-            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}?include=instance-state",
+            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}",
             # forward group as filter
             {"group": group(info)},
             # Forward authorization header
