@@ -5,7 +5,7 @@ from os import path
 from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
-from django.utils.encoding import escape_uri_path, smart_str
+from django.utils.encoding import escape_uri_path, smart_bytes
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
@@ -127,7 +127,7 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
         response["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
             attachment.name
         )
-        response["X-Sendfile"] = smart_str(
+        response["X-Sendfile"] = smart_bytes(
             path.join(settings.MEDIA_ROOT, download_path)
         )
         response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
