@@ -25,7 +25,18 @@ export default Component.extend(ComponentQueryManager, {
   },
 
   section: reads("fieldset.field.question.meta.attachment-section"),
-  deletable: reads("fieldset.field.question.meta.deletable"),
+  deletable: computed(
+    "disabled",
+    "context.instance.state.attributes.name",
+    function() {
+      const state = this.get("context.instance.state.attributes.name");
+
+      return (
+        // in certain states the form will be editable but deleting is disallowed
+        !this.disabled && !["Zurückgewiesen", "In Korrektur"].includes(state)
+      );
+    }
+  ),
 
   data: task(function*() {
     assert(
@@ -196,7 +207,7 @@ export default Component.extend(ComponentQueryManager, {
 
   delete: task(function*(confirmed = false, attachment) {
     try {
-      if (!this.deletable || this.disabled) return;
+      if (!this.deletable) return;
 
       if (!confirmed) {
         this.set("attachmentToDelete", attachment);

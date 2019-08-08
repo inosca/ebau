@@ -91,7 +91,7 @@
 {{be-attachment-list
   loading=data.isRunning
   attachments=data.lastSuccessful.value
-  deletable=(and deletable (not disabled))
+  deletable=deletable
   onDelete=(perform delete false)
 }}
 
