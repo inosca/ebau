@@ -9,15 +9,13 @@ export default Service.extend({
 
   token: reads("session.data.authenticated.access_token"),
   group: reads("router.currentRoute.queryParams.group"),
-  role: reads("router.currentRoute.queryParams.role"),
 
-  headers: computed("token", "group", "role", function() {
+  headers: computed("token", "group", function() {
     return {
       authorization: `Bearer ${this.token}`,
       accept: "application/vnd.api+json",
       "content-type": "application/vnd.api+json",
-      ...(this.group ? { "x-camac-group": this.group } : {}),
-      ...(this.role ? { "x-camac-role": this.role } : {})
+      ...(this.group ? { "x-camac-group": this.group } : {})
     };
   }),
 

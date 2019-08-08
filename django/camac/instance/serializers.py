@@ -3,6 +3,7 @@ from logging import getLogger
 
 import requests
 from django.conf import settings
+from django.core.cache import cache
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -17,6 +18,7 @@ from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.user.models import Group
+from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     FormDataResourceRelatedField,
@@ -153,6 +155,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
+    readable_forms = serializers.SerializerMethodField()
+    editable_forms = serializers.SerializerMethodField()
 
     instance_state = serializers.ResourceRelatedField(
         queryset=models.InstanceState.objects.filter(name="new"),
@@ -168,7 +172,86 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     public_status = serializers.SerializerMethodField()
 
-    def query_caluma(self, query, variables):
+    @permission_aware
+    def get_editable_forms(self, instance):
+        state = instance.instance_state.name
+
+        if state in ["new", "rejected"]:
+            return self._get_caluma_main_forms()
+
+        if state in ["sb1", "sb2"]:
+            return [state]
+
+        return []
+
+    def get_editable_forms_for_municipality(self, instance):
+        if instance.instance_state.name == "correction":
+            return self._get_caluma_main_forms()
+
+        return []
+
+    def get_editable_forms_for_service(self, instance):
+        return []
+
+    def get_editable_forms_for_canton(self, instance):
+        return []
+
+    @permission_aware
+    def get_readable_forms(self, instance):
+        state = instance.instance_state.name
+        forms = self._get_caluma_main_forms()
+
+        if state == "sb1":
+            return forms + ["sb1"]
+
+        if state in ["sb2", "conclusion"]:
+            return forms + ["sb1", "sb2"]
+
+        return forms
+
+    def get_readable_forms_for_municipality(self, instance):
+        state = instance.instance_state.name
+        forms = self._get_caluma_main_forms()
+
+        if state == "sb2":
+            return forms + ["sb1"]
+
+        if state == "conclusion":
+            return forms + ["sb1", "sb2"]
+
+        return forms
+
+    def get_readable_forms_for_service(self, instance):
+        return self.get_readable_forms_for_municipality(instance)
+
+    def get_readable_forms_for_canton(self, instance):
+        return self.get_readable_forms_for_municipality(instance)
+
+    def _get_caluma_main_forms(self):
+        cache_key = "caluma_main_forms"
+        resp = cache.get(cache_key)
+
+        if resp is None:
+            raw = self.query_caluma(
+                """
+                query {
+                    allForms(metaValue: [{key: "is-main-form", value: true}]) {
+                        edges {
+                            node {
+                                slug
+                            }
+                        }
+                    }
+                }
+            """
+            )
+
+            resp = [edge["node"]["slug"] for edge in raw["data"]["allForms"]["edges"]]
+            cache.set(cache_key, resp, 3600)
+
+        return resp
+
+    def query_caluma(self, query, variables={}):
         # TODO: move this to a more general location
 
         response = requests.post(
@@ -271,6 +354,10 @@ class CalumaInstanceSerializer(InstanceSerializer):
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + ("caluma_form", "public_status")
         read_only_fields = InstanceSerializer.Meta.read_only_fields + ("public_status",)
+        meta_fields = InstanceSerializer.Meta.meta_fields + (
+            "readable_forms",
+            "editable_forms",
+        )
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
