@@ -27,10 +27,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     if (environment === "development") {
       this.intl.setLocale([
         `${this.guessLanguage()}-ch`,
-        "de-ch" // fallback language
+        "de-de" // fallback language
       ]);
     } else {
-      this.intl.setLocale("de-ch");
+      this.intl.setLocale(["de-ch", "de-de"]);
     }
 
     if (window.top !== window) {
