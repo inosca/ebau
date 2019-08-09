@@ -2448,7 +2448,9 @@
             "table-label": "Andere",
             "type": "text",
             "required": false,
-            "config": {}
+            "config": {
+              "otherField": true
+            }
           }
         ]
       }
@@ -2596,11 +2598,13 @@
           },
           {
             "name": "baujahr",
-            "label": "Baujahr",
+            "label": "Baujahr (falls Bestehend ausgewählt wurde)",
+            "table-label": "Baujahr",
             "type": "number",
             "required": false,
             "config": {
-              "min": 0
+              "min": 0,
+              "otherField": true
             }
           },
           {
