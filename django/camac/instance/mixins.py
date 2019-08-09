@@ -127,28 +127,10 @@ class InstanceEditableMixin(AttributeMixin):
 
     def has_editable_permission(self, instance):
         editable_permission = self.serializer_getattr("instance_editable_permission")
-        form_backend = settings.APPLICATION.get("FORM_BACKEND")
-
-        if form_backend == "caluma" and editable_permission == "document":
-            # only the document permission is being handled different for the
-            # caluma form backend, everything else stays the same
-            return self.has_editable_permission_caluma(instance)
 
         return editable_permission is None or editable_permission in self.get_editable(
             instance
         )
-
-    def has_editable_permission_caluma(self, instance):
-        state = instance.instance_state.name
-        editable_forms = self.get_editable_forms(instance)
-
-        if state in editable_forms:
-            return True
-
-        if state in ["new", "rejected", "correction"]:
-            return set(editable_forms) == set(self._get_caluma_main_forms())
-
-        return False
 
     @permission_aware
     def get_editable(self, instance):
@@ -160,7 +142,7 @@ class InstanceEditableMixin(AttributeMixin):
         if instance.instance_state.name in ["new", "rejected"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name in ["nfd"]:
+        if instance.instance_state.name in ["nfd", "sb1", "sb2"]:
             return {"document"}
 
         return editable
