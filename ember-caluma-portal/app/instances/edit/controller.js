@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { assert } from "@ember/debug";
-import { computed, get } from "@ember/object";
+import { computed, get, getWithDefault } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
@@ -37,10 +37,12 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
 
   embedded: computed(() => window !== window.top),
 
-  additionalForms: computed("instance.meta.readable-forms", function() {
-    const readable = this.getWithDefault("instance.meta.readable-forms", []);
+  additionalForms: computed("instance.meta.permissions", function() {
+    const permissions = this.getWithDefault("instance.meta.permissions", {});
 
-    return ["sb1", "sb2"].filter(form => readable.includes(form));
+    return ["sb1", "sb2"].filter(form =>
+      getWithDefault(permissions, form, []).includes("read")
+    );
   }),
 
   mainForm: reads("mainFormTask.lastSuccessful.value"),
