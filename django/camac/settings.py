@@ -99,6 +99,7 @@ APPLICATIONS = {
             "Reader": "reader",
             "Canton": "canton",
             "PublicReader": "public_reader",
+            "Support": "support",
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
@@ -135,7 +136,7 @@ APPLICATIONS = {
             "Sachbearbeiter Baukontrolle": "municipality",
             "Einsichtsberechtigte Baukontrolle": "municipality",
             "Unterfachstelle": "service",
-            "System-Betrieb": "canton",
+            "System-Betrieb": "support",
         },
         "NOTIFICATIONS": {
             "SUBMIT": [
@@ -153,6 +154,7 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
+        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2"]},
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }

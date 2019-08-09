@@ -59,18 +59,12 @@ from .data import django_file
     ],
 )
 def test_attachment_delete(
-    mocker,
     admin_client,
     attachment_attachment_sections,
     attachment_section_group_acl,
     status_code,
     use_caluma_form,
 ):
-    mocker.patch(
-        "camac.instance.mixins.InstanceEditableMixin._get_caluma_main_forms",
-        lambda s: [],
-    )
-
     url = reverse(
         "attachment-detail", args=[attachment_attachment_sections.attachment.pk]
     )
