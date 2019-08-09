@@ -3,7 +3,7 @@ import { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { assert } from "@ember/debug";
 import { reads } from "@ember/object/computed";
-import { computed } from "@ember/object";
+import { computed, getWithDefault } from "@ember/object";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 import { ObjectQueryManager } from "ember-apollo-client";
@@ -65,13 +65,15 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   }),
 
   disabled: computed(
-    "document.form.slug",
-    "instance.meta.editable-forms",
+    "document.form.{slug,meta.is-main-form}",
+    "instance.meta.permissions",
     function() {
-      const form = this.get("document.form.slug");
-      const editable = this.getWithDefault("instance.meta.editable-forms", []);
+      const form = this.get("document.form.meta.is-main-form")
+        ? "main"
+        : this.get("document.form.slug");
+      const permissions = this.getWithDefault("instance.meta.permissions", {});
 
-      return !editable.includes(form);
+      return !getWithDefault(permissions, form, []).includes("write");
     }
   ),
 
