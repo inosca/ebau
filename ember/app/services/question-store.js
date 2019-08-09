@@ -112,7 +112,11 @@ const Question = EmberObject.extend({
   ),
 
   _relatedHidden: computed("_relatedQuestions.@each.hidden", function() {
-    return this._relatedQuestions.some(q => q.hidden);
+    if (!this._relatedQuestions.length) {
+      return false;
+    }
+
+    return this._relatedQuestions.every(q => q.hidden);
   }),
 
   validate() {
