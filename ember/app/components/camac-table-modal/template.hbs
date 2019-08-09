@@ -7,7 +7,7 @@
         <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
 
         {{#each columns as |column|}}
-          <div class="uk-margin">
+          <div class={{if column.config.otherField "uk-margin uk-margin-left" "uk-margin"}}>
             <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
               {{column.label}}
               {{#if column.required}}
