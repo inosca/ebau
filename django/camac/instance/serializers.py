@@ -1,12 +1,14 @@
 import json
 from logging import getLogger
 
+import requests
 from django.conf import settings
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
 from camac.constants import kt_bern as constants
@@ -15,6 +17,7 @@ from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.user.models import Group
+from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
     FormDataResourceRelatedField,
@@ -151,8 +154,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     # TODO once more than one Camac-NG project uses Caluma as a form
     # this serializer needs to be split up into what is actually
     # Caluma and what is project specific
-    readable_forms = serializers.SerializerMethodField()
-    editable_forms = serializers.SerializerMethodField()
+    permissions = serializers.SerializerMethodField()
 
     instance_state = serializers.ResourceRelatedField(
         queryset=models.InstanceState.objects.filter(name="new"),
@@ -194,6 +196,123 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return STATUS_MAP.get(
             instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
         )
+
+    @permission_aware
+    def _get_main_form_permissions(self, instance):
+        permissions = ["read"]
+
+        if instance.instance_state.name in ["new", "rejected"]:
+            permissions += ["write", "write-meta"]
+
+        return permissions
+
+    def _get_main_form_permissions_for_service(self, instance):
+        if instance.instance_state.name == "new":
+            return []
+
+        return ["read"]
+
+    def _get_main_form_permissions_for_municipality(self, instance):
+        state = instance.instance_state.name
+        permissions = []
+
+        if state != "new":
+            permissions += ["read"]
+
+        if state == "subm":
+            permissions += ["write-meta"]
+
+        if state == "correction":
+            permissions += ["write"]
+
+        return permissions
+
+    def _get_main_form_permissions_for_support(self, instance):
+        return ["read", "write", "write-meta"]
+
+    @permission_aware
+    def _get_sb1_form_permissions(self, instance):
+        state = instance.instance_state.name
+        permissions = []
+
+        if state in ["sb1", "sb2", "conclusion"]:
+            permissions += ["read"]
+
+        if state == "sb1":
+            permissions += ["write", "write-meta"]
+
+        return permissions
+
+    def _get_sb1_form_permissions_for_service(self, instance):
+        if instance.instance_state.name in ["sb2", "conclusion"]:
+            return ["read"]
+
+        return []
+
+    def _get_sb1_form_permissions_for_municipality(self, instance):
+        if instance.instance_state.name in ["sb2", "conclusion"]:
+            return ["read"]
+
+        return []
+
+    def _get_sb1_form_permissions_for_support(self, instance):
+        return ["read", "write", "write-meta"]
+
+    @permission_aware
+    def _get_sb2_form_permissions(self, instance):
+        state = instance.instance_state.name
+        permissions = []
+
+        if state in ["sb2", "conclusion"]:
+            permissions += ["read"]
+
+        if state == "sb2":
+            permissions += ["write", "write-meta"]
+
+        return permissions
+
+    def _get_sb2_form_permissions_for_service(self, instance):
+        if instance.instance_state.name == "conclusion":
+            return ["read"]
+
+        return []
+
+    def _get_sb2_form_permissions_for_municipality(self, instance):
+        if instance.instance_state.name == "conclusion":
+            return ["read"]
+
+        return []
+
+    def _get_sb2_form_permissions_for_support(self, instance):
+        return ["read", "write", "write-meta"]
+
+    def get_permissions(self, instance):
+        return {
+            form: getattr(self, f"_get_{form}_form_permissions")(instance)
+            for form in settings.APPLICATION.get("CALUMA", {}).get(
+                "FORM_PERMISSIONS", []
+            )
+        }
+
+    def query_caluma(self, query, variables={}):
+        # TODO: move this to a more general location
+
+        response = requests.post(
+            settings.CALUMA_URL,
+            json={"query": query, "variables": variables},
+            headers={
+                "Authorization": get_authorization_header(self.context["request"])
+            },
+        )
+
+        response.raise_for_status()
+        result = response.json()
+        if result.get("errors"):  # pragma: no cover
+            raise exceptions.ValidationError(
+                f"Error while querying caluma: {result.get('errors')}"
+            )
+
+        return result
 
     def validate(self, data):
         form = data.get("caluma_form")
@@ -251,10 +370,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + ("caluma_form", "public_status")
         read_only_fields = InstanceSerializer.Meta.read_only_fields + ("public_status",)
-        meta_fields = InstanceSerializer.Meta.meta_fields + (
-            "readable_forms",
-            "editable_forms",
-        )
+        meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
