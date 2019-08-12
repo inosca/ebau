@@ -1,5 +1,7 @@
 "use strict";
 
+const LOCALES = ["de", "fr"];
+
 module.exports = function(/* environment */) {
   return {
     /**
@@ -15,7 +17,7 @@ module.exports = function(/* environment */) {
      * @type {Array?}
      * @default "null"
      */
-    locales: null,
+    locales: LOCALES,
 
     /**
      * Merges the fallback locale's translations into all other locales as a
@@ -109,8 +111,8 @@ module.exports = function(/* environment */) {
      * @type {Function}
      * @default "function(key,locale){return true}"
      */
-    requiresTranslation(/* key, locale */) {
-      return true;
+    requiresTranslation(_, locale) {
+      return LOCALES.includes(locale);
     }
   };
 };
