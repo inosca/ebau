@@ -26,11 +26,11 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     // remove the conditional once french support is stable
     if (environment === "development") {
       this.intl.setLocale([
-        `${this.guessLanguage()}-ch`,
-        "de-de" // fallback language
+        this.guessLanguage(),
+        "de" // fallback language
       ]);
     } else {
-      this.intl.setLocale(["de-ch", "de-de"]);
+      this.intl.setLocale(["de"]);
     }
 
     if (window.top !== window) {
