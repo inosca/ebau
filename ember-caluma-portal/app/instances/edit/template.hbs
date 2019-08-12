@@ -1,24 +1,34 @@
-{{#uk-tab as |tab|}}
+<ul class="uk-tab">
   {{#if mainForm}}
-    {{#tab.link-item "instances.edit.form" mainForm.slug}}
-      {{mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
-    {{/tab.link-item}}
+    {{#link-to "instances.edit.form" mainForm.slug tagName="li" activeClass="uk-active"}}
+      <a href="#">
+        {{mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
+      </a>
+    {{/link-to}}
   {{/if}}
 
   {{#each additionalForms as |form|}}
-    {{#tab.link-item "instances.edit.form" form}}{{t (concat "instances.forms." form)}}{{/tab.link-item}}
+    {{#link-to "instances.edit.form" form tagName="li" activeClass="uk-active"}}
+      <a href="#">
+        {{t (concat "instances.forms." form)}}
+      </a>
+    {{/link-to}}
   {{/each}}
 
   {{#unless embedded}}
-    {{#tab.link-item "instances.edit.feedback"}}
-      {{t "nav.feedback"}}
-      {{#if feedback}}
-        {{uk-badge label=feedback.length class="uk-margin-small-left"}}
-      {{/if}}
-    {{/tab.link-item}}
-    {{#tab.link-item "instances.edit.applicants"}}{{t "nav.applicants"}}{{/tab.link-item}}
+    {{#link-to "instances.edit.feedback" tagName="li" activeClass="uk-active"}}
+      <a href="#">
+        {{t "nav.feedback"}}
+        {{#if feedback}}{{uk-badge label=feedback.length class="uk-margin-small-left"}}{{/if}}
+      </a>
+    {{/link-to}}
+    {{#link-to "instances.edit.applicants" tagName="li" activeClass="uk-active"}}
+      <a href="#">
+        {{t "nav.applicants"}}
+      </a>
+    {{/link-to}}
   {{/unless}}
-{{/uk-tab}}
+</ul>
 
 
 {{outlet}}
