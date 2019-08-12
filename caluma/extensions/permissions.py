@@ -48,33 +48,7 @@ class CustomPermission(BasePermission):
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
-        instance_id = Document.objects.get(id=instance.family).meta.get(
-            "camac-instance-id"
-        )
-
-        resp = requests.get(
-            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}?include=instance_state",
-            # forward group as filter
-            {"group": group(info)},
-            # Forward authorization header
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
-        )
-
-        data = resp.json()
-        state = [
-            state["attributes"]["name"]
-            for state in data["included"]
-            if state["type"] == "instance-states"
-            and int(state["id"])
-            == int(data["data"]["relationships"]["instance-state"]["data"]["id"])
-        ][0]
-
-        if state == "eBau-Nummer zu vergeben":
-            # This is a hack to get assigning of ebau numbers working. We'll
-            # refactor this to a proper permission soon
-            return True
-
-        return self.has_camac_edit_permission(instance.family, info)
+        return self.has_camac_edit_permission(instance.family, info, "write-meta")
 
     # Answer
     @permission_for(SaveDocumentAnswer)
@@ -116,7 +90,9 @@ class CustomPermission(BasePermission):
 
         return len(admin_groups) > 0
 
-    def has_camac_edit_permission(self, document_family, info):
+    def has_camac_edit_permission(
+        self, document_family, info, required_permission="write"
+    ):
         # find corresponding document
         document = Document.objects.get(id=document_family)
         instance_id = document.meta.get("camac-instance-id")
@@ -141,7 +117,11 @@ class CustomPermission(BasePermission):
             if "error" in jsondata:
                 raise RuntimeError("Error from NG API: %s" % jsondata["error"])
 
-            return document.form.slug in jsondata["data"]["meta"]["editable-forms"]
+            is_main_form = document.form.meta.get("is-main-form", False)
+
+            return required_permission in jsondata["data"]["meta"]["permissions"].get(
+                "main" if is_main_form else document.form.slug, []
+            )
 
         except KeyError:
             raise RuntimeError(
