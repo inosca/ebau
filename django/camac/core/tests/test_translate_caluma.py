@@ -5,12 +5,10 @@ from django.core.management import call_command
 
 def test_translate(db):
 
-    with open("camac/core/management/tests/untranslated_config.json", "r") as file:
+    with open("camac/core/tests/untranslated_config.json", "r") as file:
         data = json.load(file)
 
-        call_command(
-            "translate_caluma", "camac/core/management/tests/untranslated_config.json"
-        )
+        call_command("translate_caluma", "camac/core/tests/untranslated_config.json")
 
         item = next(
             (item for item in data if item["pk"] == "werden-siloanlagen-erstellt")
