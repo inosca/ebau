@@ -2603,7 +2603,9 @@
             "type": "number",
             "required": false,
             "config": {
-              "min": 0,
+              "min": 1900,
+              "max": 2100,
+              "step": 1,
               "otherField": true
             }
           },
