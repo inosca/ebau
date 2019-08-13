@@ -49,6 +49,7 @@ coverage.xml
 # Translations
 *.mo
 *.pot
+# camac/core/tests/untranslated_config.json
 
 # Django stuff:
 *.log

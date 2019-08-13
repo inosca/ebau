@@ -96,10 +96,3 @@ class Command(BaseCommand):
                 json.dump(data, file, ensure_ascii=False)
 
         self.stdout.write(f"Missing {len(set(misses))} translations: {set(misses)}")
-
-        with open("missing_translations.csv", mode="w") as csv_file:
-            writer = csv.writer(
-                csv_file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
-            )
-            for translation in set(misses):
-                writer.writerow([translation])
