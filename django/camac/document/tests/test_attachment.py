@@ -241,6 +241,18 @@ def test_attachment_list(
             models.ADMIN_PERMISSION,
             status.HTTP_400_BAD_REQUEST,
         ),
+        # support can upload attachments
+        (
+            "multiple-pages.pdf",
+            "application/pdf",
+            "Support",
+            LazyFixture("admin_user"),
+            LazyFixture("location"),
+            LazyFixture("service"),
+            LazyFixture("group"),
+            models.ADMIN_PERMISSION,
+            status.HTTP_201_CREATED,
+        ),
     ],
 )
 def test_attachment_create(
