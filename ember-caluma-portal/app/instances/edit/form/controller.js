@@ -4,13 +4,7 @@ import { inject as service } from "@ember/service";
 import { assert } from "@ember/debug";
 import { reads } from "@ember/object/computed";
 import { computed, getWithDefault } from "@ember/object";
-import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
-import { ObjectQueryManager } from "ember-apollo-client";
-import { decodeId } from "ember-caluma/helpers/decode-id";
-
-import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
-import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
 
 const queryParams = new QueryParams({
   displayedForm: {
@@ -19,49 +13,24 @@ const queryParams = new QueryParams({
   }
 });
 
-export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
+export default Controller.extend(queryParams.Mixin, {
   calumaStore: service(),
 
   editController: controller("instances.edit"),
   instanceId: reads("editController.model"),
   instance: reads("editController.instance"),
-
-  setup() {
-    this.documentTask.perform();
-  },
-
-  reset() {
-    this.documentTask.cancelAll({ resetState: true });
-
-    this.resetQueryParams();
-  },
+  instanceTask: reads("editController.instanceTask"),
 
   embedded: computed(() => window !== window.top),
 
-  document: reads("documentTask.lastSuccessful.value"),
-  documentTask: task(function*() {
-    return yield this.apollo.query(
-      {
-        query: getDocumentQuery,
-        fetchPolicy: "network-only",
-        variables: { form: this.model, instanceId: this.instanceId }
-      },
-      "allDocuments.edges.firstObject.node"
+  reset() {
+    this.resetQueryParams();
+  },
+
+  document: computed("model", "instance.documents.[]", function() {
+    return this.getWithDefault("instance.documents", []).find(
+      document => document.form.slug === this.model
     );
-  }).drop(),
-
-  createDocument: task(function*() {
-    yield this.apollo.mutate({
-      mutation: saveDocumentMutation,
-      variables: {
-        input: {
-          form: this.model,
-          meta: JSON.stringify({ "camac-instance-id": this.instanceId })
-        }
-      }
-    });
-
-    yield this.documentTask.perform();
   }),
 
   disabled: computed(
@@ -77,23 +46,14 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
     }
   ),
 
-  pdfField: computed("document", function() {
-    const document = this.calumaStore.find(
-      `Document:${decodeId(this.document.id)}`
-    );
-
-    assert(
-      `Did not find document ${decodeId(this.document.id)} in calumaStore`,
-      document
-    );
-
+  pdfField: computed("model", "instance.documents.[]", function() {
     const slug = ["sb1", "sb2"].includes(this.model)
       ? "formulardownload-pdf-selbstdeklaration"
       : "formulardownload-pdf";
 
-    const field = document.findField(slug);
+    const field = this.instance.findCalumaField(slug, this.model);
 
-    assert(`Did not find field ${slug} in document ${document.uuid}`, field);
+    assert(`Did not find field ${slug} in form ${this.model}`, field);
 
     return field;
   })

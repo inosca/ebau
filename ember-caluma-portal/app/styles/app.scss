@@ -18,3 +18,14 @@ button.uk-icon[uk-icon="info"] {
     color: $global-primary-background;
   }
 }
+
+$badge-in-tab-ratio: 0.85;
+
+.uk-tab > li > a .uk-badge {
+  min-width: $badge-size * $badge-in-tab-ratio;
+  height: $badge-size * $badge-in-tab-ratio;
+  padding: $badge-padding-vertical * $badge-in-tab-ratio
+    $badge-padding-horizontal * $badge-in-tab-ratio;
+  border-radius: $badge-border-radius * $badge-in-tab-ratio;
+  font-size: $badge-font-size * $badge-in-tab-ratio;
+}

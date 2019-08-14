@@ -5,9 +5,7 @@ import { computed } from "@ember/object";
 import { reads, filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
-import { getOwner } from "@ember/application";
 import { ComponentQueryManager } from "ember-apollo-client";
-import Attachment from "ember-caluma-portal/lib/attachment";
 import { assert } from "@ember/debug";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
@@ -17,6 +15,7 @@ export default Component.extend(ComponentQueryManager, {
   intl: service(),
   fetch: service(),
   notification: service(),
+  store: service(),
 
   didReceiveAttrs() {
     this._super(...arguments);
@@ -44,18 +43,10 @@ export default Component.extend(ComponentQueryManager, {
       this.section
     );
 
-    const response = yield this.fetch.fetch(
-      `/api/v1/attachments?instance=${this.context.instanceId}&attachment_sections=${this.section}`
-    );
-
-    const { data } = yield response.json();
-
-    return data.map(a =>
-      Attachment.create(
-        getOwner(this).ownerInjection(),
-        Object.assign(a, { document: this.document })
-      )
-    );
+    return yield this.store.query("attachment", {
+      instance: this.context.instanceId,
+      attachment_sections: this.section
+    });
   }),
 
   allVisibleTags: computed(
@@ -230,17 +221,7 @@ export default Component.extend(ComponentQueryManager, {
           })
       );
 
-      const response = yield this.fetch.fetch(
-        `/api/v1/attachments/${attachment.id}`,
-        {
-          method: "delete"
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error();
-      }
-
+      yield attachment.destroyRecord();
       yield this.data.perform();
 
       this.notification.success(this.intl.t("documents.deleteSuccess"));

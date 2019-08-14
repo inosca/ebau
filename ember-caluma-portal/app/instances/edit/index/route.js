@@ -5,10 +5,12 @@ export default Route.extend({
   redirect() {
     next(async () => {
       const controller = this.controllerFor("instances.edit");
-      const mainForm = await controller.mainFormTask.last;
+      const instance = await controller.instanceTask.last;
 
-      if (mainForm) {
-        this.replaceWith("instances.edit.form", mainForm.slug);
+      await instance.getDocuments.last;
+
+      if (instance.mainForm) {
+        this.replaceWith("instances.edit.form", instance.mainForm.slug);
       }
     });
   }
