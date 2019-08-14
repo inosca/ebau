@@ -3,6 +3,7 @@ import os
 import urllib.parse
 
 import requests
+from django.db.models import F, Q
 
 from caluma.core.visibilities import BaseVisibility, filter_queryset_for
 from caluma.form import models as form_models, schema as form_schema
@@ -41,13 +42,33 @@ class CustomVisibility(BaseVisibility):
     not done but might become a future optimisation.
     """
 
+    def get_unlinked_table_documents_filter(self, info, prefix=""):
+        """Get filterset for unlinked table documents.
+
+        An document can be identified as unlinked table document if it is a
+        root level document (pk is the same as the family) and if if doesn't
+        have a camac-instance-id assigned. For those documents to be visible,
+        they also need to be created by the requester.
+        """
+        return {
+            f"{prefix}meta__camac-instance-id__isnull": True,
+            f"{prefix}family": F("pk"),
+            f"{prefix}created_by_user": info.context.user.userinfo["sub"],
+        }
+
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
-        return queryset.filter(family__in=self._all_visible_documents(info))
+        return queryset.filter(
+            Q(family__in=self._all_visible_documents(info))
+            | Q(**self.get_unlinked_table_documents_filter(info))
+        )
 
     @filter_queryset_for(form_schema.Answer)
     def filter_queryset_for_answer(self, node, queryset, info):
-        return queryset.filter(document__family__in=self._all_visible_documents(info))
+        return queryset.filter(
+            Q(document__family__in=self._all_visible_documents(info))
+            | Q(**self.get_unlinked_table_documents_filter(info, prefix="document__"))
+        )
 
     def _all_visible_documents(self, info):
         """Fetch all visible caluma documents and cache the result. """
