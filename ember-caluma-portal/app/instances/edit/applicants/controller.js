@@ -3,28 +3,15 @@ import { inject as service } from "@ember/service";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
+import parseError from "ember-caluma-portal/utils/parse-error";
 
 const queryParams = new QueryParams({});
-
-const findUser = (data, id) =>
-  data.find(obj => obj.type === "users" && parseInt(obj.id) === parseInt(id));
-
-const parse = obj => ({ ...obj.attributes, id: parseInt(obj.id) });
-
-class User {
-  constructor(raw) {
-    Object.assign(this, raw);
-  }
-
-  get fullName() {
-    return `${this.name} ${this.surname}`;
-  }
-}
 
 export default Controller.extend(queryParams.Mixin, {
   fetch: service(),
   intl: service(),
   notification: service(),
+  store: service(),
 
   editController: controller("instances.edit"),
   instanceId: reads("editController.model"),
@@ -39,21 +26,12 @@ export default Controller.extend(queryParams.Mixin, {
 
   applicants: reads("applicantsTask.lastSuccessful.value"),
   applicantsTask: task(function*() {
-    const response = yield this.fetch.fetch(
-      `/api/v1/applicants?instance=${this.instanceId}&include=invitee,user`
-    );
-    const { data, included } = yield response.json();
-
-    return data.map(obj => {
-      const user = findUser(included, obj.relationships.user.data.id);
-      const invitee = findUser(included, obj.relationships.invitee.data.id);
-
-      return {
-        ...parse(obj),
-        user: new User(parse(user)),
-        invitee: new User(parse(invitee))
-      };
+    yield this.store.query("applicant", {
+      instance: this.instanceId,
+      include: "invitee,user"
     });
+
+    return this.store.peekAll("applicant");
   }).drop(),
 
   add: task(function*(event) {
@@ -62,51 +40,12 @@ export default Controller.extend(queryParams.Mixin, {
     const email = event.srcElement.querySelector("input[name=email]").value;
 
     try {
-      const response = yield this.fetch.fetch("/api/v1/applicants", {
-        method: "post",
-        body: JSON.stringify({
-          data: {
-            type: "applicants",
-            attributes: { email },
-            relationships: {
-              instance: {
-                data: {
-                  id: this.instanceId,
-                  type: "instances"
-                }
-              }
-            }
-          }
+      yield this.store
+        .createRecord("applicant", {
+          email,
+          instance: this.store.peekRecord("instance", this.instanceId)
         })
-      });
-
-      if (!response.ok) {
-        const { errors } = yield response.json();
-
-        if (
-          errors.some(({ detail }) => /User.*could not be found/.test(detail))
-        ) {
-          this.notification.danger(
-            this.intl.t("instances.applicants.addDoesNotExist", { email })
-          );
-
-          return;
-        }
-
-        if (
-          errors.some(({ detail }) => /User.*already has access/.test(detail))
-        ) {
-          this.notification.danger(
-            this.intl.t("instances.applicants.addHasAccess", { email })
-          );
-
-          return;
-        }
-
-        throw new Error();
-      }
-
-      yield this.applicantsTask.perform();
+        .save({ adapterOptions: { include: "invitee,user" } });
 
       event.srcElement.querySelector("input[name=email]").value = "";
 
@@ -114,7 +53,9 @@ export default Controller.extend(queryParams.Mixin, {
     } catch (error) {
       // eslint-ignore-next-line no-console
       console.error(error);
-      this.notification.danger(this.intl.t("instances.applicants.addError"));
+      this.notification.danger(
+        parseError(error) || this.intl.t("instances.applicants.addError")
+      );
     }
   }).drop(),
 
@@ -122,11 +63,7 @@ export default Controller.extend(queryParams.Mixin, {
     if (this.applicants.length < 2) return;
 
     try {
-      yield this.fetch.fetch(`/api/v1/applicants/${applicant.id}`, {
-        method: "delete"
-      });
-
-      yield this.applicantsTask.perform();
+      yield applicant.destroyRecord();
 
       this.notification.success(
         this.intl.t("instances.applicants.deleteSuccess")
@@ -134,7 +71,9 @@ export default Controller.extend(queryParams.Mixin, {
     } catch (error) {
       // eslint-ignore-next-line no-console
       console.error(error);
-      this.notification.danger(this.intl.t("instances.applicants.deleteError"));
+      this.notification.danger(
+        parseError(error) || this.intl.t("instances.applicants.deleteError")
+      );
     }
   }).drop()
 });

@@ -55,7 +55,7 @@ export default EmberObject.extend({
 
     return raw ? moment(raw) : null;
   }),
-  status: reads("instance.attributes.public-status"),
+  status: reads("instance.status"),
   description: computed("raw.answers.edges.[]", function() {
     return (
       this.findAnswer("anfrage-zur-vorabklaerung") ||
