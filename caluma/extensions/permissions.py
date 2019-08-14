@@ -84,7 +84,7 @@ class CustomPermission(BasePermission):
 
         admin_groups = [
             group
-            for group in response.json()["data"]["relationships"]["groups"]
+            for group in response.json()["data"]["relationships"]["groups"]["data"]
             if group["id"] in CAMAC_ADMIN_GROUPS
         ]
 
