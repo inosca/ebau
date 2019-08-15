@@ -123,6 +123,8 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": False,
         "INSTANCE_USER_FIELD": "user",
         "FORM_BACKEND": "camac-ng",
+        # circulation state filter mapping: name -> state ids
+        "CIRCULATION_STATES": {"pending": [1, 3, 4, 6], "done": [2, 5]},
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
@@ -155,6 +157,8 @@ APPLICATIONS = {
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2"]},
+        # circulation state filter mapping: name -> state ids
+        "CIRCULATION_STATES": {"done": [2], "pending": [1]},
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
