@@ -38884,6 +38884,96 @@
   },
   {
     "fields": {
+      "key": "duration",
+      "value": "30 Tage",
+      "type": 2
+    },
+    "model": "core.publicationsetting",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "key": "fromEmail",
+      "value": "camac@ur.ch",
+      "type": 2
+    },
+    "model": "core.publicationsetting",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "key": "text",
+      "value": "TBD",
+      "type": 2
+    },
+    "model": "core.publicationsetting",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
+      "type": 2
+    },
+    "model": "core.publicationsetting",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "key": "stopText",
+      "value": "TBD",
+      "type": 2
+    },
+    "model": "core.publicationsetting",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "key": "duration",
+      "value": "30 Tage",
+      "type": 3
+    },
+    "model": "core.publicationsetting",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "key": "fromEmail",
+      "value": "camac@ur.ch",
+      "type": 3
+    },
+    "model": "core.publicationsetting",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "key": "text",
+      "value": "TBD",
+      "type": 3
+    },
+    "model": "core.publicationsetting",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "key": "toEmail",
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
+      "type": 3
+    },
+    "model": "core.publicationsetting",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "key": "stopText",
+      "value": "TBD",
+      "type": 3
+    },
+    "model": "core.publicationsetting",
+    "pk": 16
+  },
+  {
+    "fields": {
       "name": "Baubewilligung"
     },
     "model": "core.publicationtype",
