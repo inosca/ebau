@@ -3151,6 +3151,14 @@ class ProposalActivation(models.Model):
         db_table = "PROPOSAL_ACTIVATION"
 
 
+
+class PublicationType(models.Model):
+    name = models.TextField(db_column="NAME")
+
+    class Meta:
+        managed = True
+        db_table = "PUBLICATION_TYPE"
+
 class PublicationEntry(models.Model):
     publication_entry_id = models.AutoField(
         db_column="PUBLICATION_ENTRY_ID", primary_key=True
@@ -3161,10 +3169,17 @@ class PublicationEntry(models.Model):
         db_column="INSTANCE_ID",
         related_name="publication_entries",
     )
-    note = models.FloatField(db_column="NOTE")
+    note = models.FloatField(db_column="NOTE", null=True)
     publication_date = models.DateTimeField(db_column="PUBLICATION_DATE")
     is_published = models.PositiveSmallIntegerField(db_column="IS_PUBLISHED")
     text = models.TextField(db_column="TEXT", blank=True, null=True)
+    type = models.ForeignKey(
+        PublicationType,
+        models.DO_NOTHING,
+        db_column="PUBLICATION_TYPE_ID",
+        related_name="+",
+        null=True
+    )
 
     class Meta:
         managed = True
@@ -3177,10 +3192,32 @@ class PublicationSetting(models.Model):
     )
     key = models.CharField(db_column="KEY", max_length=64)
     value = models.CharField(db_column="VALUE", max_length=4000, blank=True, null=True)
+    type = models.ForeignKey(
+        PublicationType,
+        models.DO_NOTHING,
+        db_column="PUBLICATION_TYPE_ID",
+        related_name="+",
+        null=True
+    )
 
     class Meta:
         managed = True
         db_table = "PUBLICATION_SETTING"
+
+
+# This table is only used in kt. bern
+class Publication(models.Model):
+    instance = models.AutoField(
+        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
+    )
+    start = models.DateField(db_column="START_DATE")
+    end = models.DateField(db_column="END_DATE")
+    text = models.TextField(db_column="TEXT")
+
+    class Meta:
+        managed = True
+        db_table = "PUBLICATION"
+
 
 
 class Question(MultilingualModel, models.Model):
@@ -3804,19 +3841,6 @@ class InstanceService(models.Model):
     class Meta:
         managed = True
         db_table = "INSTANCE_SERVICE"
-
-
-class Publication(models.Model):
-    instance = models.AutoField(
-        "instance.Instance", db_column="INSTANCE_ID", primary_key=True
-    )
-    start = models.DateField(db_column="START_DATE")
-    end = models.DateField(db_column="END_DATE")
-    text = models.TextField(db_column="TEXT")
-
-    class Meta:
-        managed = True
-        db_table = "PUBLICATION"
 
 
 class InstanceParent(models.Model):
