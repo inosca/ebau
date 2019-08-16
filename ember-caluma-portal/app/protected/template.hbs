@@ -25,7 +25,7 @@
         </a>
       {{/link-to}}
       <li>
-        <a>
+        <a href="#">
           {{t "nav.language"}}
         </a>
         <div uk-drop="mode: hover;">
@@ -40,11 +40,11 @@
           </ul>
         </div>
       </li>
-      <li>
+      {{#link-to "logout" tagName="li" activeClass="uk-active"}}
         <a href="#">
           {{uk-icon "sign-out"}}
         </a>
-      </li>
+      {{/link-to}}
     </ul>
   </header>
   {{outlet}}

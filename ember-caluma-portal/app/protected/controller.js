@@ -2,7 +2,7 @@ import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import config from "../config/environment";
 
-const { environment } = config;
+const { environment, languages } = config;
 
 export default Controller.extend({
   init() {
@@ -15,9 +15,11 @@ export default Controller.extend({
   environment,
   actions: {
     setLanguage(language) {
-      localStorage.setItem("language", language);
-      this.intl.setLocale(localStorage.getItem("language"));
-      window.location.reload(true);
+      if (languages.includes(language)) {
+        localStorage.setItem("language", language);
+        this.intl.setLocale(localStorage.getItem("language"));
+        window.location.reload(true);
+      }
     }
   }
 });

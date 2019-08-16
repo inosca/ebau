@@ -1,7 +1,6 @@
-import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import Controller from "@ember/controller";
 
 export default Controller.extend({
-  queryParams: ['language'],
-  language: null,
+  queryParams: ["language"],
+  language: null
 });
