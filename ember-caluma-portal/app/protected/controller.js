@@ -16,7 +16,7 @@ export default Controller.extend({
   actions: {
     setLanguage(language) {
       localStorage.setItem("language", language);
-      this.intl.setLocale(localStorage.getItem("lagnuage"));
+      this.intl.setLocale(localStorage.getItem("language"));
       window.location.reload(true);
     }
   }
