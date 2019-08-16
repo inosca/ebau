@@ -6666,6 +6666,24 @@
     "pk": 75
   },
   {
+    "fields": {
+      "action_name": "copy-decision-document",
+      "available_instance_resource": "documents",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "action_name": "delete-decision-document",
+      "available_instance_resource": "documents",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 77
+  },
+  {
     "fields": {},
     "model": "core.alocation",
     "pk": 6
@@ -46894,6 +46912,15 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 323
+  },
+  {
+    "fields": {
+      "attachment_section": 104,
+      "mode": "read",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 324
   },
   {
     "fields": {
