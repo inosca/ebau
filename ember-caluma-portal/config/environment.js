@@ -42,7 +42,8 @@ module.exports = function(environment) {
     },
     moment: {
       includeLocales: ["de-ch"]
-    }
+    },
+    languages: ["de", "fr"]
   };
 
   if (environment === "development") {

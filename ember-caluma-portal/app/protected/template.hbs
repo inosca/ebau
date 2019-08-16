@@ -13,18 +13,39 @@
         </div>
       {{/if}}
     </div>
-    <div uk-grid class="uk-margin uk-grid-small">
-      {{#link-to "index" title=(t "nav.index") class="uk-link-reset"}}
-        {{uk-icon "home" tagName="a" class="uk-icon-button"}}
+    <ul class="uk-subnav uk-subnav-divider">
+      {{#link-to "index" tagName="li" activeClass="uk-active"}}
+        <a href="#">
+          {{t "nav.index"}}
+        </a>
       {{/link-to}}
-      {{#link-to "support" title=(t "nav.support") class="uk-link-reset"}}
-        {{uk-icon "receiver" tagName="a" class="uk-icon-button"}}
+      {{#link-to "support" tagName="li" activeClass="uk-active"}}
+        <a href="#">
+          {{t "nav.support"}}
+        </a>
       {{/link-to}}
-      {{#link-to "logout" title=(t "nav.logout") class="uk-link-reset"}}
-        {{uk-icon "sign-out" tagName="a" class="uk-icon-button"}}
+      <li>
+        <a href="#">
+          {{t "nav.language"}}
+        </a>
+        <div uk-drop="mode: hover;">
+          <ul class="uk-list">
+            {{#each languages as |language|}}
+              <li>
+                <a href="#" class="uk-link-muted" {{action "setLanguage" language}}>
+                  {{t (concat "nav." language)}}
+                </a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </li>
+      {{#link-to "logout" tagName="li" activeClass="uk-active"}}
+        <a href="#">
+          {{uk-icon "sign-out"}}
+        </a>
       {{/link-to}}
-    </div>
+    </ul>
   </header>
-
   {{outlet}}
 </main>

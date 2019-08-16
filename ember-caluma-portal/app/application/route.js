@@ -4,34 +4,42 @@ import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
 import config from "../config/environment";
 
-const { environment } = config;
-
-const DEFAULT_LANG = "de";
-const SUPPORTED_LANGUAGES = ["de", "fr"];
+const DEFAULT_LANGUAGE = "de";
+const { languages } = config;
 
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
+  session: service(),
   calumaOptions: service(),
 
-  guessLanguage() {
+  getBrowserLanguage() {
     const preferred = (navigator.languages || [navigator.language]).map(
       locale => locale.split("-")[0]
     );
+
+    return preferred.find(lang => languages.includes(lang));
+  },
+
+  getLocalStorageLanguage() {
+    if (languages.includes(localStorage.getItem("language"))) {
+      return localStorage.getItem("language");
+    }
+  },
+
+  getLanguage(queryParamLanguage) {
+    if (languages.includes(queryParamLanguage)) {
+      return queryParamLanguage;
+    }
+
     return (
-      preferred.find(lang => SUPPORTED_LANGUAGES.includes(lang)) || DEFAULT_LANG
+      this.getLocalStorageLanguage() ||
+      this.getBrowserLanguage() ||
+      DEFAULT_LANGUAGE
     );
   },
 
-  beforeModel() {
-    // remove the conditional once french support is stable
-    if (environment === "development") {
-      this.intl.setLocale([
-        this.guessLanguage(),
-        "de" // fallback language
-      ]);
-    } else {
-      this.intl.setLocale(["de"]);
-    }
+  beforeModel(transition) {
+    this.intl.setLocale(this.getLanguage(transition.to.queryParams.language));
 
     if (window.top !== window) {
       getOwner(this)
