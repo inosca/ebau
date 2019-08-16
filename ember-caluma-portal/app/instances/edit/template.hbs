@@ -1,8 +1,8 @@
 <ul class="uk-tab">
-  {{#if mainForm}}
-    {{#link-to "instances.edit.form" mainForm.slug tagName="li" activeClass="uk-active"}}
+  {{#if instance.mainForm}}
+    {{#link-to "instances.edit.form" instance.mainForm.slug tagName="li" activeClass="uk-active"}}
       <a href="#">
-        {{mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
+        {{instance.mainForm.name}} <span class="uk-text-meta">({{t "instances.instanceId"}} {{model}})</span>
       </a>
     {{/link-to}}
   {{/if}}
@@ -18,8 +18,7 @@
   {{#unless embedded}}
     {{#link-to "instances.edit.feedback" tagName="li" activeClass="uk-active"}}
       <a href="#">
-        {{t "nav.feedback"}}
-        {{#if feedback}}{{uk-badge label=feedback.length class="uk-margin-small-left"}}{{/if}}
+        {{t "nav.feedback"}} {{#if feedback}}{{uk-badge label=feedback.length class="uk-margin-small-left"}}{{/if}}
       </a>
     {{/link-to}}
     {{#link-to "instances.edit.applicants" tagName="li" activeClass="uk-active"}}
@@ -29,6 +28,5 @@
     {{/link-to}}
   {{/unless}}
 </ul>
-
 
 {{outlet}}

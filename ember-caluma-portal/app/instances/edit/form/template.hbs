@@ -1,4 +1,4 @@
-{{#if documentTask.isRunning}}
+{{#if instanceTask.isRunning}}
   <div class="uk-text-center">{{uk-spinner ratio=2}}</div>
 {{else if document}}
   {{#if embedded}}
@@ -50,7 +50,7 @@
       {{t "instances.noDocument" form=(t (concat "instances.forms." model))}}
     </p>
     {{#unless internal}}
-      {{#uk-button style="primary" on-click=(perform createDocument) loading=createDocument.isRunning}}
+      {{#uk-button style="primary" on-click=(perform instance.createDocument model) loading=instance.createDocument.isRunning}}
         {{t "instances.createDocument"}}
       {{/uk-button}}
     {{/unless}}
