@@ -196,8 +196,6 @@ instances:
 
     addSuccess: "Der Benutzer wurde erfolgreich hinzugefügt"
     addError: "Beim Hinzufügen des Benutzers ist etwas schief gelaufen"
-    addDoesNotExist: "Es existiert kein Benutzer mit der E-Mail '{email}'"
-    addHasAccess: "Der Benutzer mit der E-Mail '{email}' hat bereits Zugriff"
     deleteSuccess: "Der Benutzer wurde erfolgreich gelöscht"
     deleteError: "Beim Löschen des Benutzers ist etwas schief gelaufen"
 
