@@ -4,17 +4,32 @@ import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
 
 const DEFAULT_LANG = "de";
+const SUPPORTED_LANGUAGES = ["de", "fr"];
 
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
+  session: service(),
   calumaOptions: service(),
 
-  chooseLanguage() {
-    return localStorage.getItem("language") || DEFAULT_LANG;
+  guessLanguage() {
+    const preferred = (navigator.languages || [navigator.language]).map(
+      locale => locale.split("-")[0]
+    );
+    return (
+      preferred.find(lang => SUPPORTED_LANGUAGES.includes(lang)) || DEFAULT_LANG
+    );
   },
 
-  beforeModel() {
-    this.intl.setLocale([this.chooseLanguage()]);
+  chooseLanguage() {
+    return localStorage.getItem("language");
+  },
+
+  beforeModel(transition) {
+    this.intl.setLocale(
+      transition.to.queryParams.language ||
+      [this.chooseLanguage()] ||
+      guessLanguage()
+    );
 
     if (window.top !== window) {
       getOwner(this)
