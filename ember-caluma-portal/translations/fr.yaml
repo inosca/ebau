@@ -2,6 +2,8 @@ global:
   title: "eBau Berne"
   versionPrefix: "v"
   continue: "Suivante"
+  delete: "Effacer"
+  cancel: "Casser"
 
 nav:
   form: "Formulaire"
@@ -9,6 +11,10 @@ nav:
   index: "Page principale"
   support: "Support"
   logout: "Déconnexion"
+  applicants: "Autorisation"
+  language: "Langue"
+  de: "Allemand"
+  fr: "Français"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
