@@ -7,15 +7,16 @@ FULL_PERMISSIONS = {
     "main": ["read", "write", "write-meta"],
     "sb1": ["read", "write", "write-meta"],
     "sb2": ["read", "write", "write-meta"],
+    "nfd": ["read", "write", "write-meta"],
 }
 
 
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
 @pytest.mark.parametrize(
-    "role__name,instance__user,instance_state__name,expected_permissions",
+    "role__name,instance_state__name,expected_permissions",
     [
         (
             "Applicant",
-            LazyFixture("admin_user"),
             "new",
             {
                 "main": [
@@ -25,151 +26,135 @@ FULL_PERMISSIONS = {
                 ],
                 "sb1": [],
                 "sb2": [],
+                "nfd": [],
             },
         ),
+        ("Applicant", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
         (
             "Applicant",
-            LazyFixture("admin_user"),
-            "subm",
-            {"main": ["read"], "sb1": [], "sb2": []},
-        ),
-        (
-            "Applicant",
-            LazyFixture("admin_user"),
             "correction",
-            {"main": ["read"], "sb1": [], "sb2": []},
+            {"main": ["read"], "sb1": [], "sb2": [], "nfd": []},
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
             "rejected",
             {
                 "main": ["read", "write", "write-meta"],  # write-meta: submit-date
                 "sb1": [],
                 "sb2": [],
+                "nfd": [],
             },
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
             "sb1",
             {
                 "main": ["read"],
                 "sb1": ["read", "write", "write-meta"],  # write-meta: submit-date
                 "sb2": [],
+                "nfd": [],
             },
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
             "sb2",
             {
                 "main": ["read"],
                 "sb1": ["read"],
                 "sb2": ["read", "write", "write-meta"],  # write-meta: submit-date
+                "nfd": [],
             },
         ),
         (
             "Applicant",
-            LazyFixture("admin_user"),
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"]},
+            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
         ),
         (
+            "Applicant",
+            "nfd",
+            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["read", "write"]},
+        ),
+        ("Service", "new", {"main": [], "sb1": [], "sb2": [], "nfd": []}),
+        ("Service", "subm", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        ("Service", "correction", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        ("Service", "rejected", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        ("Service", "sb1", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        ("Service", "sb2", {"main": ["read"], "sb1": ["read"], "sb2": [], "nfd": []}),
+        (
             "Service",
-            LazyFixture("admin_user"),
+            "conclusion",
+            {"main": ["read"], "sb1": ["read"], "sb2": ["read"], "nfd": []},
+        ),
+        ("Service", "nfd", {"main": ["read"], "sb1": [], "sb2": [], "nfd": []}),
+        (
+            "Municipality",
             "new",
-            {"main": [], "sb1": [], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "subm",
-            {"main": ["read"], "sb1": [], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "correction",
-            {"main": ["read"], "sb1": [], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "rejected",
-            {"main": ["read"], "sb1": [], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "sb1",
-            {"main": ["read"], "sb1": [], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "sb2",
-            {"main": ["read"], "sb1": ["read"], "sb2": []},
-        ),
-        (
-            "Service",
-            LazyFixture("admin_user"),
-            "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"]},
+            {"main": [], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
-            "new",
-            {"main": [], "sb1": [], "sb2": []},
-        ),
-        (
-            "Municipality",
-            LazyFixture("admin_user"),
             "subm",
             {
                 "main": ["read", "write-meta"],  # write-meta: ebau-number
                 "sb1": [],
                 "sb2": [],
+                "nfd": ["write", "write-meta"],
             },
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
             "correction",
-            {"main": ["read", "write"], "sb1": [], "sb2": []},
+            {
+                "main": ["read", "write"],
+                "sb1": [],
+                "sb2": [],
+                "nfd": ["write", "write-meta"],
+            },
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
             "rejected",
-            {"main": ["read"], "sb1": [], "sb2": []},
+            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
             "sb1",
-            {"main": ["read"], "sb1": [], "sb2": []},
+            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
             "sb2",
-            {"main": ["read"], "sb1": ["read"], "sb2": []},
+            {
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": [],
+                "nfd": ["write", "write-meta"],
+            },
         ),
         (
             "Municipality",
-            LazyFixture("admin_user"),
             "conclusion",
-            {"main": ["read"], "sb1": ["read"], "sb2": ["read"]},
+            {
+                "main": ["read"],
+                "sb1": ["read"],
+                "sb2": ["read"],
+                "nfd": ["write", "write-meta"],
+            },
         ),
-        ("Support", LazyFixture("admin_user"), "new", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "subm", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "correction", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "rejected", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "sb1", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "sb2", FULL_PERMISSIONS),
-        ("Support", LazyFixture("admin_user"), "conclusion", FULL_PERMISSIONS),
+        (
+            "Municipality",
+            "nfd",
+            {"main": ["read"], "sb1": [], "sb2": [], "nfd": ["write", "write-meta"]},
+        ),
+        ("Support", "new", FULL_PERMISSIONS),
+        ("Support", "subm", FULL_PERMISSIONS),
+        ("Support", "correction", FULL_PERMISSIONS),
+        ("Support", "rejected", FULL_PERMISSIONS),
+        ("Support", "sb1", FULL_PERMISSIONS),
+        ("Support", "sb2", FULL_PERMISSIONS),
+        ("Support", "conclusion", FULL_PERMISSIONS),
+        ("Support", "nfd", FULL_PERMISSIONS),
     ],
 )
 def test_instance_permissions(
