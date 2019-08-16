@@ -464,35 +464,35 @@ export default Component.extend(ComponentQueryManager, {
 
       const data_gis = reduceArrayValues(data_raw);
 
-      for (const key in FIELD_MAP) {
+      FIELD_MAP.forEach(key => {
         const field = this.field.document.findField(FIELD_MAP[key].path);
         const type = field.question.__typename;
         const values_map = FIELD_MAP[key].values;
         let value = data_gis[key];
-        let value_pretty = value;
+        let valuePretty = value;
 
         if (value === undefined) {
-          continue;
+          return;
         }
 
         if (type === "ChoiceQuestion") {
           value = values_map[value];
-          value_pretty = field.question.choiceOptions.edges.find(
+          valuePretty = field.question.choiceOptions.edges.find(
             edge => edge.node.slug === value
           ).node.label;
         } else if (type === "MultipleChoiceQuestion") {
           value = Array.isArray(value) ? value : [value];
           value = value.map(val => values_map[val]);
-          value_pretty = field.question.multipleChoiceOptions.edges
+          valuePretty = field.question.multipleChoiceOptions.edges
             .filter(edge => edge.node.slug.includes(value))
             .map(edge => edge.node.label);
         } else if (Array.isArray(value)) {
           value = value.join(", ");
-          value_pretty = value;
+          valuePretty = value;
         }
 
-        this.gisData.pushObject({ field, value, value_pretty });
-      }
+        this.gisData.pushObject({ field, value, valuePretty });
+      });
       this.set("showConfirmation", true);
     } else {
       this.notification.danger(

@@ -67,5 +67,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       component: "be-download-pdf",
       type: "StaticQuestion"
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Nachforderungen Tabelle",
+      component: "be-claims",
+      type: "TableQuestion"
+    });
   }
 });

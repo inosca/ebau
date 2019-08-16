@@ -152,11 +152,13 @@ APPLICATIONS = {
             "FINALIZE": [
                 {"template_id": 37, "recipient_types": ["construction_control"]}
             ],
+            "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
+            "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
-        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2"]},
+        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
         # circulation state filter mapping: name -> state ids
         "CIRCULATION_STATES": {"done": [2], "pending": [1]},
     },

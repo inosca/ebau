@@ -35,7 +35,7 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   additionalForms: computed("instance.meta.permissions", function() {
     const permissions = this.getWithDefault("instance.meta.permissions", {});
 
-    return ["sb1", "sb2"].filter(form =>
+    return ["nfd", "sb1", "sb2"].filter(form =>
       getWithDefault(permissions, form, []).includes("read")
     );
   }),
