@@ -8,7 +8,7 @@ from camac.instance.models import Issue
 
 
 def test_checkissuedeadlines(
-    db, issue_factory, service, user, mailoutbox, notification_template
+    db, issue_factory, service, user, mailoutbox, notification_template, settings
 ):
     delayed_issue = issue_factory(
         service=service, user=user, deadline_date=date.today() - timedelta(1)

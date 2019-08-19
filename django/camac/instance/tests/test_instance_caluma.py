@@ -248,6 +248,7 @@ def test_instance_submit(
                                     "meta": {"camac-instance-id": instance.pk},
                                     "form": {
                                         "slug": "vorabklaerung-einfach",
+                                        "name": "Baugesuch",
                                         "meta": {"is-main-form": True},
                                     },
                                     "answers": {
@@ -350,7 +351,7 @@ def test_instance_report(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb1"},
+                                    "form": {"slug": "sb1", "name": "Baugesuch"},
                                 }
                             }
                         ]
@@ -419,7 +420,7 @@ def test_instance_finalize(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb2"},
+                                    "form": {"slug": "sb2", "name": "Baugesuch"},
                                 }
                             }
                         ]
