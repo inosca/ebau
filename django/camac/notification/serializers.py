@@ -2,12 +2,15 @@ import itertools
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
+from logging import getLogger
 
 import inflection
 import jinja2
+import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.core.models import Activation
@@ -17,6 +20,8 @@ from camac.user.models import Service
 
 from ..core import models as core_models
 from . import models
+
+request_logger = getLogger("django.request")
 
 
 class NoticeMergeSerializer(serializers.Serializer):
@@ -64,8 +69,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     answer_period_date = serializers.SerializerMethodField()
     publication_date = serializers.SerializerMethodField()
     instance_id = serializers.IntegerField()
-
-    # TODO: extend with bern attributes
+    public_dossier_link = serializers.SerializerMethodField()
+    internal_dossier_link = serializers.SerializerMethodField()
+    active_municipality_name = serializers.SerializerMethodField()
+    leitbehoerde_name = serializers.SerializerMethodField(
+        method_name="get_active_municipality_name"
+    )
+    form_name = serializers.SerializerMethodField(method_name="get_form_name")
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -96,6 +106,88 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
+    def get_active_municipality_name(self, instance):
+        instance_service = core_models.InstanceService.objects.filter(
+            instance=instance, active=1
+        ).first()
+        if not instance_service:
+            return "-"
+        return instance_service.service.name
+
+    def get_form_name(self, instance):
+        if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
+            return instance.form.get_name()
+        try:
+            caluma_resp = requests.post(
+                settings.CALUMA_URL,
+                json={
+                    "query": """,
+                        query {
+                          allDocuments(metaValue: [{ key: "camac-instance-id", value: $instance_id}]) {
+                            edges {
+                              node {
+                                id
+                                form {
+                                  name
+                                  meta
+                                }
+                              }
+                            }
+                          }
+                        }
+                    """,
+                    "variables": {"instance_id": instance.pk},
+                },
+                headers={
+                    "Authorization": get_authorization_header(self.context["request"])
+                },
+            )
+            documents = caluma_resp.json()["data"]["allDocuments"]["edges"]
+            form_names = [
+                doc["node"]["form"]["name"]
+                for doc in documents
+                if doc["node"]["form"]["meta"]["is-main-form"] is True
+            ]
+            return form_names[0]
+        except (KeyError, IndexError):  # pragma: no cover
+            request_logger.error(
+                "get_form_name(): Caluma did not respond with a valid response"
+            )
+            return "-"
+
+    def get_internal_dossier_link(self, instance):
+        return self._get_dossier_link(instance, "INTERNAL")
+
+    def get_public_dossier_link(self, instance):
+        return self._get_dossier_link(instance, "PUBLIC")
+
+    def _get_dossier_link(self, instance, mode):
+        template = settings.INSTANCE_URL_TEMPLATE[mode]
+
+        path = self._str_replace_cb("{base_url}", self._make_base_url, template)
+        path = path.replace("{instance_id}", str(instance.pk))
+
+        return path
+
+    def _make_base_url(self):
+        try:
+            rq = self.context["request"]._request
+            return f"{rq.scheme}://{rq.get_host()}"
+        except KeyError:
+            request_logger.error("get_dossier_link(): Cannot get base URL from request")
+            return "??"
+
+    def _str_replace_cb(self, pattern, callback, string):
+        """str.replace(), but with a callback.
+
+        This is here so we can do "lazy" string replacing, so the replacement
+        value only needs to be calculated if really needed.
+        """
+        if pattern not in string:
+            return string
+        value = callback()
+        return string.replace(pattern, value)
+
     def to_representation(self, instance):
         ret = super().to_representation(instance)
 
@@ -117,7 +209,7 @@ class IssueMergeSerializer(serializers.Serializer):
         ret = super().to_representation(issue)
 
         # include instance merge fields
-        ret.update(InstanceMergeSerializer(issue.instance).data)
+        ret.update(InstanceMergeSerializer(issue.instance, context=self.context).data)
 
         return ret
 
@@ -146,7 +238,10 @@ class NotificationTemplateMergeSerializer(
     def _merge(self, value, instance):
         try:
             value_template = jinja2.Template(value)
-            data = InstanceMergeSerializer(instance).data
+            data = InstanceMergeSerializer(instance, context=self.context).data
+
+            # some cantons use uppercase placeholders. be as compatible as possible
+            data.update({k.upper(): v for k, v in data.items()})
             return value_template.render(data)
         except jinja2.TemplateError as e:
             raise exceptions.ValidationError(str(e))
