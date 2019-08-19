@@ -75,7 +75,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     leitbehoerde_name = serializers.SerializerMethodField(
         method_name="get_active_municipality_name"
     )
-    form_name = serializers.SerializerMethodField(method_name="get_form_name")
+    form_name = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
