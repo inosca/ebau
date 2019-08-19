@@ -10,5 +10,6 @@ urlpatterns = [
     url(r"^api/v1/", include("camac.document.urls")),
     url(r"^api/v1/", include("camac.circulation.urls")),
     url(r"^api/v1/", include("camac.notification.urls")),
+    url(r"^ech/v1/", include("camac.echbern.urls")),
     url(r"^api/v1/", include("gisbern.urls")),
 ]

@@ -51,6 +51,9 @@ services:
 
     django:
         image: acr.run/camac-ng/camac-ng/django:master
+        build:
+          args:
+            REQUIREMENTS: requirements-dev.txt
         ports:
             - "5555:5555"
         volumes:
