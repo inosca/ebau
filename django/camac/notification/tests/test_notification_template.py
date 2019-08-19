@@ -93,7 +93,6 @@ def test_notification_template_sendmail(
     activation,
     settings,
 ):
-
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
 
     data = {

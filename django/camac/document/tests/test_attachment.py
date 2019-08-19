@@ -252,6 +252,7 @@ def test_attachment_create(
     mime_type,
     filename,
     status_code,
+    settings,
     mailoutbox,
 ):
     url = reverse("attachment-list")
