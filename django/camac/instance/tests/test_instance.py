@@ -438,3 +438,35 @@ def test_instance_detail_publication(
 
     response = admin_client.get(url)
     assert response.status_code == status_code
+
+
+@pytest.mark.parametrize("role__name,", [("Applicant")])
+def test_tags_filter(admin_client, admin_user, instance_factory):
+
+    inst_a, inst_b, inst_c = instance_factory.create_batch(3, user=admin_user)
+    tag_args = dict(service=admin_user.groups.first().service)
+
+    inst_a.tags.create(name="foo", **tag_args)
+    inst_a.tags.create(name="bar", **tag_args)
+    inst_b.tags.create(name="bar", **tag_args)
+    inst_b.tags.create(name="baz", **tag_args)
+    inst_c.tags.create(name="bla", **tag_args)
+
+    url = reverse("instance-list")
+
+    search_expectations = {
+        "": [inst_a, inst_b, inst_c],  # "empty" search should list all
+        "foo": [inst_a],
+        "bar": [inst_a, inst_b],
+        "foo,bar": [inst_a],
+        "baz,bar": [inst_b],
+    }
+
+    for search, expectation in search_expectations.items():
+        response = admin_client.get(url, {"tags": search})
+        assert response.status_code == status.HTTP_200_OK
+
+        data = response.json()["data"]
+        got_ids = set([row["id"] for row in data])
+        expect_ids = set([str(inst.pk) for inst in expectation])
+        assert got_ids == expect_ids
