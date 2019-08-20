@@ -34,6 +34,39 @@ def test_authenticate_disabled_user(rf, admin_user, mocker):
         JSONWebTokenKeycloakAuthentication().authenticate(request)
 
 
+@pytest.mark.parametrize("demo_mode", [True, False])
+def test_authenticate_new_user(rf, admin_user, mocker, demo_mode):
+    if demo_mode:
+        admin_group = admin_user.groups.first()
+        inexistent_group = 2138242342
+        settings.DEMO_MODE = True
+        settings.APPLICATION["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
+    else:
+        settings.DEMO_MODE = False
+
+    username = "new-here"
+
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = {
+        "sub": username,
+        "email": "new-guy@example.com",
+        "family_name": "New",
+        "given_name": "Guy",
+    }
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+    user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert user.username == username
+    if demo_mode:
+        assert user.groups.count() == 1
+        assert user.groups.first() == admin_group
+    else:
+        assert user.groups.count() == 0
+    assert decode_token.return_value == token
+
+
 def test_authenticate_ok(rf, admin_user, mocker):
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = {
