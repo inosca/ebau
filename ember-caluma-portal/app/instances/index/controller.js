@@ -187,7 +187,7 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
       const municipalities = yield this.getMunicipalities.last;
 
       yield this.store.query("instance", {
-        ids: rawDocuments.map(({ meta }) => meta["camac-instance-id"])
+        instance_id: rawDocuments.map(({ meta }) => meta["camac-instance-id"])
       });
 
       const documents = rawDocuments.map(raw => {
