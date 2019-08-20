@@ -30,6 +30,7 @@ class InstanceFilterSet(FilterSet):
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
     )
+    tags = CharMultiValueFilter(field_name="tags__name", lookup_expr="all")
     creation_date_before = DateFilter(
         field_name="creation_date__date", lookup_expr="lte"
     )
