@@ -13,12 +13,6 @@ export default class Instance extends Model.extend(ObjectQueryManager) {
   @service intl;
   @service calumaStore;
 
-  init() {
-    this._super(...arguments);
-
-    this.getDocuments.perform();
-  }
-
   @attr() meta;
   @attr("date") creationDate;
   @attr("date") modificationDate;
