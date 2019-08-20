@@ -1,5 +1,4 @@
 import pytest
-from django.conf import settings
 from django.core.cache import cache
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from rest_framework.exceptions import AuthenticationFailed
@@ -35,14 +34,14 @@ def test_authenticate_disabled_user(rf, admin_user, mocker):
 
 
 @pytest.mark.parametrize("demo_mode", [True, False])
-def test_authenticate_new_user(rf, admin_user, mocker, demo_mode):
+def test_authenticate_new_user(
+    rf, admin_user, mocker, demo_mode, settings, application_settings
+):
     if demo_mode:
         admin_group = admin_user.groups.first()
         inexistent_group = 2138242342
         settings.DEMO_MODE = True
-        settings.APPLICATION["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
-    else:
-        settings.DEMO_MODE = False
+        application_settings["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
 
     username = "new-here"
 
@@ -102,7 +101,7 @@ def test_get_jwt_value_invalid_authorization(rf, authorization):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)
 
 
-def test_authenticate_header(rf):
+def test_authenticate_header(rf, settings):
     request = rf.request()
     header = JSONWebTokenKeycloakAuthentication().authenticate_header(request)
     assert settings.KEYCLOAK_REALM in header

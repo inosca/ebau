@@ -12,6 +12,7 @@ from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
+
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
