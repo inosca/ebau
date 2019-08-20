@@ -46,7 +46,7 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
       include: "instance_state"
     });
 
-    yield instance.getDocuments.last;
+    yield instance.getDocuments.perform();
 
     return instance;
   }).drop(),

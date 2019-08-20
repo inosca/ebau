@@ -7,8 +7,6 @@ export default Route.extend({
       const controller = this.controllerFor("instances.edit");
       const instance = await controller.instanceTask.last;
 
-      await instance.getDocuments.last;
-
       if (instance.mainForm) {
         this.replaceWith("instances.edit.form", instance.mainForm.slug);
       }
