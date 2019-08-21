@@ -24,6 +24,22 @@ const getHasAnswerFilters = ({ parcel: value }) =>
     }
   ].filter(({ value }) => !isEmpty(value));
 
+const getSearchAnswersFilters = ({ address: value }) =>
+  [
+    {
+      questions: [
+        "strasse-flurname",
+        "strasse-gesuchstellerin",
+        "nr",
+        "nummer-gesuchstellerin",
+        "plz-gesuchstellerin",
+        "ort-grundstueck",
+        "ort-gesuchstellerin"
+      ],
+      value
+    }
+  ].filter(({ value }) => !isEmpty(value));
+
 const getMetaValueFilters = ({ instanceId, ebau, submitFrom, submitTo }) =>
   [
     { key: "camac-instance-id", value: instanceId },
@@ -72,6 +88,10 @@ const queryParams = new QueryParams({
     refresh: true
   },
   parcel: {
+    defaultValue: "",
+    refresh: true
+  },
+  address: {
     defaultValue: "",
     refresh: true
   },
@@ -176,7 +196,8 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
             form: this.type,
             forms: forms.map(({ slug }) => slug),
             metaValueFilters: getMetaValueFilters(this.allQueryParams),
-            hasAnswerFilters: getHasAnswerFilters(this.allQueryParams)
+            hasAnswerFilters: getHasAnswerFilters(this.allQueryParams),
+            searchAnswersFilters: getSearchAnswersFilters(this.allQueryParams)
           },
           fetchPolicy: "network-only"
         },

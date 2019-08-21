@@ -37,6 +37,12 @@
       </div>
     </div>
     <div>
+      <label class="uk-form-label">{{t "instances.address"}}</label>
+      <div class="uk-form-controls">
+        <input type="text" class="uk-input" name="address" value={{parcel}}>
+      </div>
+    </div>
+    <div>
       <label class="uk-form-label">{{t "instances.submitDate"}}</label>
       <div class="uk-form-controls uk-grid-small uk-child-width-1-2" uk-grid>
         <div>
@@ -47,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="uk-flex uk-flex-right uk-flex-bottom">
+    <div class="uk-width-1-1 uk-flex uk-flex-right uk-flex-bottom">
       {{uk-button color="default" type="reset" disabled=fetchData.isRunning label=(t "instances.reset") on-click=(perform resetFilters) class="uk-margin-small-right"}}
       {{uk-button color="primary" type="submit" disabled=fetchData.isRunning label=(t "instances.filter")}}
     </div>
