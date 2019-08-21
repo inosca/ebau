@@ -1,5 +1,4 @@
 import pytest
-from django.conf import settings
 from django.core.cache import cache
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from rest_framework.exceptions import AuthenticationFailed
@@ -32,6 +31,39 @@ def test_authenticate_disabled_user(rf, admin_user, mocker):
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     with pytest.raises(AuthenticationFailed):
         JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+
+@pytest.mark.parametrize("demo_mode", [True, False])
+def test_authenticate_new_user(
+    rf, admin_user, mocker, demo_mode, settings, application_settings
+):
+    if demo_mode:
+        admin_group = admin_user.groups.first()
+        inexistent_group = 2138242342
+        settings.DEMO_MODE = True
+        application_settings["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
+
+    username = "new-here"
+
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = {
+        "sub": username,
+        "email": "new-guy@example.com",
+        "family_name": "New",
+        "given_name": "Guy",
+    }
+    mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
+    user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
+
+    assert user.username == username
+    if demo_mode:
+        assert user.groups.count() == 1
+        assert user.groups.first() == admin_group
+    else:
+        assert user.groups.count() == 0
+    assert decode_token.return_value == token
 
 
 def test_authenticate_ok(rf, admin_user, mocker):
@@ -69,7 +101,7 @@ def test_get_jwt_value_invalid_authorization(rf, authorization):
         JSONWebTokenKeycloakAuthentication().get_jwt_value(request)
 
 
-def test_authenticate_header(rf):
+def test_authenticate_header(rf, settings):
     request = rf.request()
     header = JSONWebTokenKeycloakAuthentication().authenticate_header(request)
     assert settings.KEYCLOAK_REALM in header
