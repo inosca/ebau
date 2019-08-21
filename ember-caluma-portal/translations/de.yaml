@@ -181,8 +181,10 @@ instances:
     finished: "Abgeschlossen"
     rejected: "Zurückgewiesen"
     corrected: "Korrigiert von Leitbehörde"
+    claim: "Nachforderungen"
 
   forms:
+    nfd: "Nachforderungen"
     sb1: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 

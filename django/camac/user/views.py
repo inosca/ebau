@@ -13,6 +13,7 @@ class LocationView(viewsets.ReadOnlyModelViewSet):
 
 
 class UserView(viewsets.ReadOnlyModelViewSet):
+    filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
     queryset = models.User.objects.all()
 
