@@ -27,6 +27,8 @@ SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
 DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
 
+DEMO_MODE = env.bool("DEMO_MODE", default=False)
+
 # Apache swallows info about HTTPS request, leading to issues with FileFields
 # See https://docs.djangoproject.com/en/2.2/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -161,6 +163,7 @@ APPLICATIONS = {
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
         # circulation state filter mapping: name -> state ids
         "CIRCULATION_STATES": {"done": [2], "pending": [1]},
+        "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
