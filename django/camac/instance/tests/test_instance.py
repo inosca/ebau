@@ -443,7 +443,6 @@ def test_instance_detail_publication(
 @pytest.mark.parametrize(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
-@pytest.mark.parametrize("has_circ_state_config", [True, False])
 def test_circulation_state_filter(
     application_settings,
     admin_client,
@@ -451,19 +450,11 @@ def test_circulation_state_filter(
     circulation,
     activation,
     circulation_state,
-    has_circ_state_config,
 ):
 
     url = reverse("instance-list")
 
-    if has_circ_state_config:
-        application_settings["CIRCULATION_STATES"] = {
-            "foo": [circulation_state.pk],
-            "bar": [circulation_state.pk + 1],
-        }
-        state_search = "foo"
-    else:
-        state_search = circulation_state.pk
+    state_search = circulation_state.pk
 
     # first, ensure the instance is found with the correct instance state id
     response = admin_client.get(url, {"circulation_state": state_search})
@@ -474,12 +465,6 @@ def test_circulation_state_filter(
     response = admin_client.get(url, {"circulation_state": circulation_state.pk + 1})
     assert response.status_code == status.HTTP_200_OK
     assert len(response.json()["data"]) == 0
-
-    if has_circ_state_config:
-        # Same, but using a "non-existing" named filter
-        response = admin_client.get(url, {"circulation_state": "bar"})
-        assert response.status_code == status.HTTP_200_OK
-        assert len(response.json()["data"]) == 0
 
 
 @pytest.mark.parametrize("role__name,", [("Applicant")])

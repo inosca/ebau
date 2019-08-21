@@ -1,7 +1,5 @@
 import re
 
-from django.conf import settings
-from django_filters.constants import EMPTY_VALUES
 from django_filters.rest_framework import (
     CharFilter,
     DateFilter,
@@ -26,21 +24,6 @@ class ResponsibleUserFilter(CharFilter):
         return super().filter(qs, value)
 
 
-class CirculationStateFilter(CharFilter):
-    def filter(self, qs, value):
-        if value in EMPTY_VALUES:
-            return qs
-        filter_vals = settings.APPLICATION.get("CIRCULATION_STATES", {})
-
-        if value in filter_vals:
-            return qs.filter(
-                circulations__activations__circulation_state_id__in=filter_vals[value]
-            )
-        else:
-            # fall back to numeric filtering (ie. just assume circ state id)
-            return qs.filter(circulations__activations__circulation_state_id=value)
-
-
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     service = NumberFilter(field_name="circulations__activations__service")
@@ -59,7 +42,9 @@ class InstanceFilterSet(FilterSet):
     responsible_service_user = ResponsibleUserFilter(
         field_name="responsible_services__responsible_user"
     )
-    circulation_state = CirculationStateFilter()
+    circulation_state = NumberFilter(
+        field_name="circulations__activations__circulation_state_id"
+    )
 
     class Meta:
         model = models.Instance
