@@ -984,20 +984,6 @@
   {
     "fields": {
       "available_action": "save",
-      "button": 20036,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20070
-  },
-  {
-    "fields": {
-      "available_action": "save",
       "button": 20037,
       "description": null,
       "error_message": null,
@@ -1053,34 +1039,6 @@
   },
   {
     "fields": {
-      "available_action": "php",
-      "button": 110000,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20076
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "button": 110000,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20077
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 20040,
       "description": null,
@@ -1120,76 +1078,6 @@
     },
     "model": "core.action",
     "pk": 20081
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 20041,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20085
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20036,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20086
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20041,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 1,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20087
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "button": 20036,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20088
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "button": 20041,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20089
   },
   {
     "fields": {
@@ -1333,20 +1221,6 @@
   },
   {
     "fields": {
-      "available_action": "save",
-      "button": 80008,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 80009
-  },
-  {
-    "fields": {
       "available_action": "php",
       "button": 20010,
       "description": null,
@@ -1372,20 +1246,6 @@
     },
     "model": "core.action",
     "pk": 110004
-  },
-  {
-    "fields": {
-      "available_action": "save",
-      "button": 110000,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 0,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 110007
   },
   {
     "fields": {
@@ -2273,18 +2133,6 @@
   },
   {
     "fields": {
-      "action": 20070,
-      "description": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Save",
-      "success_message": "Speichern erfolgreich"
-    },
-    "model": "core.actiont",
-    "pk": 20070
-  },
-  {
-    "fields": {
       "action": 20071,
       "description": null,
       "error_message": null,
@@ -2333,30 +2181,6 @@
   },
   {
     "fields": {
-      "action": 20076,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Check state for notification",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 20076
-  },
-  {
-    "fields": {
-      "action": 20077,
-      "description": null,
-      "error_message": "Beim Senden der E-Mail Benachrichtigung an den/die Gesuchsteller/in ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Benachrichtigung Nachforderung Gesuchsteller",
-      "success_message": "E-Mail Benachrichtigung an Gesuchsteller/in versendet"
-    },
-    "model": "core.actiont",
-    "pk": 20077
-  },
-  {
-    "fields": {
       "action": 20079,
       "description": null,
       "error_message": null,
@@ -2390,66 +2214,6 @@
     },
     "model": "core.actiont",
     "pk": 20081
-  },
-  {
-    "fields": {
-      "action": 20085,
-      "description": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Save",
-      "success_message": "Speichern erfolgreich"
-    },
-    "model": "core.actiont",
-    "pk": 20085
-  },
-  {
-    "fields": {
-      "action": 20086,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Check state for notification",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 20086
-  },
-  {
-    "fields": {
-      "action": 20087,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Check state for notification",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 20087
-  },
-  {
-    "fields": {
-      "action": 20088,
-      "description": null,
-      "error_message": "Beim Senden der E-Mail Benachrichtigung an den/die Gesuchsteller/in ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Benachrichtigung Nachforderung Gesuchsteller",
-      "success_message": "E-Mail Benachrichtigung an Gesuchsteller/in versendet"
-    },
-    "model": "core.actiont",
-    "pk": 20088
-  },
-  {
-    "fields": {
-      "action": 20089,
-      "description": null,
-      "error_message": "Beim Senden der E-Mail Benachrichtigung an den/die Gesuchsteller/in ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Benachrichtigung Nachforderung Gesuchsteller",
-      "success_message": "E-Mail Benachrichtigung an Gesuchsteller/in versendet"
-    },
-    "model": "core.actiont",
-    "pk": 20089
   },
   {
     "fields": {
@@ -2573,18 +2337,6 @@
   },
   {
     "fields": {
-      "action": 80009,
-      "description": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Speichern",
-      "success_message": "Speichern erfolgreich"
-    },
-    "model": "core.actiont",
-    "pk": 80009
-  },
-  {
-    "fields": {
       "action": 110003,
       "description": null,
       "error_message": "Die angegebene eBau-Nummer existiert nicht",
@@ -2606,18 +2358,6 @@
     },
     "model": "core.actiont",
     "pk": 110004
-  },
-  {
-    "fields": {
-      "action": 110007,
-      "description": null,
-      "error_message": "Beim Speichern ist ein Fehler aufgetreten",
-      "language": "de",
-      "name": "Speichern",
-      "success_message": "Speichern erfolgreich"
-    },
-    "model": "core.actiont",
-    "pk": 110007
   },
   {
     "fields": {
@@ -3882,6 +3622,24 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_instance_resource": "claim",
+      "hidden": 0
+    },
+    "model": "core.airaction",
+    "pk": 150000
+  },
+  {
+    "fields": {
+      "action_name": "edit",
+      "available_instance_resource": "claim",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 150003
+  },
+  {
+    "fields": {
       "processor": "Notification_Processor_SendEmail",
       "recipient_type": "Custom_Plugin_Notification_Recipient_CirculationServices",
       "template": 11
@@ -3960,33 +3718,6 @@
     },
     "model": "core.anotification",
     "pk": 20068
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
-      "template": 31
-    },
-    "model": "core.anotification",
-    "pk": 20077
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
-      "template": 31
-    },
-    "model": "core.anotification",
-    "pk": 20088
-  },
-  {
-    "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
-      "template": 31
-    },
-    "model": "core.anotification",
-    "pk": 20089
   },
   {
     "fields": {
@@ -29129,31 +28860,10 @@
   },
   {
     "fields": {
-      "php_class": "ComplementNotificationInProgress"
-    },
-    "model": "core.aphp",
-    "pk": 20076
-  },
-  {
-    "fields": {
       "php_class": "SetSubmissionDate"
     },
     "model": "core.aphp",
     "pk": 20081
-  },
-  {
-    "fields": {
-      "php_class": "ComplementNotificationInProgress"
-    },
-    "model": "core.aphp",
-    "pk": 20086
-  },
-  {
-    "fields": {
-      "php_class": "ComplementNotificationInProgress"
-    },
-    "model": "core.aphp",
-    "pk": 20087
   },
   {
     "fields": {
@@ -29707,6 +29417,15 @@
   },
   {
     "fields": {
+      "controller_name": "claim",
+      "description": "Claim management",
+      "module_name": "claim"
+    },
+    "model": "core.availableinstanceresource",
+    "pk": "claim"
+  },
+  {
+    "fields": {
       "controller_name": "index",
       "description": "Read decision",
       "module_name": "decision"
@@ -30089,51 +29808,6 @@
     },
     "model": "core.avalidate",
     "pk": 20036
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 10000
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 10001
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 10003
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 10004
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 10005
   },
   {
     "fields": {
@@ -30785,51 +30459,6 @@
   },
   {
     "fields": {
-      "button": 110000,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 110000
-  },
-  {
-    "fields": {
-      "button": 110000,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 110001
-  },
-  {
-    "fields": {
-      "button": 110000,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 110003
-  },
-  {
-    "fields": {
-      "button": 110000,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 110004
-  },
-  {
-    "fields": {
-      "button": 110000,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.broleacl",
-    "pk": 110005
-  },
-  {
-    "fields": {
       "button": 120000,
       "instance_state": 20014,
       "role": 5
@@ -31259,18 +30888,6 @@
   },
   {
     "fields": {
-      "class_field": "success check-document",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 20038,
-      "name": null,
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 20036
-  },
-  {
-    "fields": {
       "class_field": null,
       "description": null,
       "hidden": 0,
@@ -31316,18 +30933,6 @@
     },
     "model": "core.button",
     "pk": 20040
-  },
-  {
-    "fields": {
-      "class_field": "success check-document",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 20049,
-      "name": null,
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 20041
   },
   {
     "fields": {
@@ -31388,30 +30993,6 @@
     },
     "model": "core.button",
     "pk": 40029
-  },
-  {
-    "fields": {
-      "class_field": "success check-document",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 80006,
-      "name": null,
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 80008
-  },
-  {
-    "fields": {
-      "class_field": "success check-document",
-      "description": null,
-      "hidden": 0,
-      "instance_resource": 110013,
-      "name": null,
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 110000
   },
   {
     "fields": {
@@ -31777,16 +31358,6 @@
   },
   {
     "fields": {
-      "button": 20036,
-      "description": null,
-      "language": "de",
-      "name": "Speichern"
-    },
-    "model": "core.buttont",
-    "pk": 20036
-  },
-  {
-    "fields": {
       "button": 20037,
       "description": null,
       "language": "de",
@@ -31824,16 +31395,6 @@
     },
     "model": "core.buttont",
     "pk": 20040
-  },
-  {
-    "fields": {
-      "button": 20041,
-      "description": null,
-      "language": "de",
-      "name": "Speichern"
-    },
-    "model": "core.buttont",
-    "pk": 20041
   },
   {
     "fields": {
@@ -31884,26 +31445,6 @@
     },
     "model": "core.buttont",
     "pk": 40029
-  },
-  {
-    "fields": {
-      "button": 80008,
-      "description": null,
-      "language": "de",
-      "name": "Speichern"
-    },
-    "model": "core.buttont",
-    "pk": 80008
-  },
-  {
-    "fields": {
-      "button": 110000,
-      "description": null,
-      "language": "de",
-      "name": "Speichern"
-    },
-    "model": "core.buttont",
-    "pk": 110000
   },
   {
     "fields": {
@@ -37404,7 +36945,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 33,
+      "sort": 31,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37419,7 +36960,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 34,
+      "sort": 32,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37599,7 +37140,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 19,
+      "sort": 17,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -37614,7 +37155,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 20,
+      "sort": 18,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -37674,7 +37215,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 17,
+      "sort": 15,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -37689,7 +37230,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 32,
+      "sort": 30,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37704,7 +37245,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 14,
+      "sort": 12,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -37749,7 +37290,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 36,
+      "sort": 34,
       "template": "/responsible/index.phtml"
     },
     "model": "core.instanceresource",
@@ -37779,7 +37320,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 38,
+      "sort": 36,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37809,7 +37350,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 21,
+      "sort": 19,
       "template": null
     },
     "model": "core.instanceresource",
@@ -37884,7 +37425,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 16,
+      "sort": 14,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -37899,7 +37440,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 22,
+      "sort": 20,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -37914,7 +37455,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 27,
+      "sort": 25,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -37929,7 +37470,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 28,
+      "sort": 26,
       "template": "/form/edit-page.phtml"
     },
     "model": "core.instanceresource",
@@ -37944,7 +37485,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 29,
+      "sort": 27,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -37959,7 +37500,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 30,
+      "sort": 28,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -37974,7 +37515,7 @@
       "hidden": 1,
       "name": null,
       "resource": 20006,
-      "sort": 31,
+      "sort": 29,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -38012,21 +37553,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "filecomplementrequest",
-      "class_field": null,
-      "description": null,
-      "form_group": 80000,
-      "hidden": 1,
-      "name": null,
-      "resource": 20007,
-      "sort": 18,
-      "template": "/file/add-complement-request.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20038
-  },
-  {
-    "fields": {
       "available_instance_resource": "editnotice",
       "class_field": null,
       "description": null,
@@ -38034,7 +37560,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 23,
+      "sort": 21,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -38049,7 +37575,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 25,
+      "sort": 23,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -38064,7 +37590,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 24,
+      "sort": 22,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -38079,7 +37605,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 26,
+      "sort": 24,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -38177,21 +37703,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "filecomplementrequest",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 1,
-      "name": null,
-      "resource": 20007,
-      "sort": 19,
-      "template": "/file/add-complement-request.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20049
-  },
-  {
-    "fields": {
       "available_instance_resource": "service",
       "class_field": null,
       "description": null,
@@ -38199,7 +37710,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 18,
+      "sort": 16,
       "template": "/service/index.phtml"
     },
     "model": "core.instanceresource",
@@ -38499,7 +38010,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 39,
+      "sort": 37,
       "template": "/document-merge/document-merge.phtml"
     },
     "model": "core.instanceresource",
@@ -38529,26 +38040,11 @@
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 15,
+      "sort": 13,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
     "pk": 40008
-  },
-  {
-    "fields": {
-      "available_instance_resource": "filecomplementrequest",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": null,
-      "resource": 20006,
-      "sort": 37,
-      "template": "/file/add-complement-request.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 80006
   },
   {
     "fields": {
@@ -38642,18 +38138,18 @@
   },
   {
     "fields": {
-      "available_instance_resource": "filecomplementrequest",
+      "available_instance_resource": "claim",
       "class_field": null,
       "description": null,
-      "form_group": 80000,
-      "hidden": 1,
+      "form_group": 40000,
+      "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 35,
-      "template": "/file/add-complement-request.phtml"
+      "sort": 38,
+      "template": null
     },
     "model": "core.instanceresource",
-    "pk": 110013
+    "pk": 150000
   },
   {
     "fields": {
@@ -41941,16 +41437,6 @@
   },
   {
     "fields": {
-      "description": "Nachforderungen - Baugesuch",
-      "instance_resource": 20038,
-      "language": "de",
-      "name": "Nachforderungen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 20038
-  },
-  {
-    "fields": {
       "description": null,
       "instance_resource": 20039,
       "language": "de",
@@ -42048,16 +41534,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20048
-  },
-  {
-    "fields": {
-      "description": "Nachforderungen - Vorabkl\u00e4rung Einfach",
-      "instance_resource": 20049,
-      "language": "de",
-      "name": "Nachforderungen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 20049
   },
   {
     "fields": {
@@ -42291,16 +41767,6 @@
   },
   {
     "fields": {
-      "description": "Nachforderungen - Vorabkl\u00e4rung Einfach",
-      "instance_resource": 80006,
-      "language": "de",
-      "name": "Nachforderungen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 80006
-  },
-  {
-    "fields": {
       "description": null,
       "instance_resource": 110002,
       "language": "de",
@@ -42358,16 +41824,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 110010
-  },
-  {
-    "fields": {
-      "description": "Nachforderungen - Baugesuch",
-      "instance_resource": 110013,
-      "language": "de",
-      "name": "Nachforderungen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 110013
   },
   {
     "fields": {
@@ -42782,16 +42238,6 @@
   {
     "fields": {
       "description": null,
-      "instance_resource": 20038,
-      "language": "fr",
-      "name": "Demandes de compl\u00e9ment d'information"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120041
-  },
-  {
-    "fields": {
-      "description": null,
       "instance_resource": 20039,
       "language": "fr",
       "name": "R\u00e9diger une prise de position"
@@ -42888,16 +42334,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 120051
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 20049,
-      "language": "fr",
-      "name": "Demandes de compl\u00e9ment d'information"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120052
   },
   {
     "fields": {
@@ -43112,16 +42548,6 @@
   {
     "fields": {
       "description": null,
-      "instance_resource": 80006,
-      "language": "fr",
-      "name": "Demandes de compl\u00e9ment d'information"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120074
-  },
-  {
-    "fields": {
-      "description": null,
       "instance_resource": 110002,
       "language": "fr",
       "name": "Informations g\u00e9n\u00e9rales"
@@ -43182,12 +42608,12 @@
   {
     "fields": {
       "description": null,
-      "instance_resource": 110013,
-      "language": "fr",
-      "name": "Demandes de compl\u00e9ment d'information"
+      "instance_resource": 150000,
+      "language": "de",
+      "name": "Nachforderungen"
     },
     "model": "core.instanceresourcet",
-    "pk": 120081
+    "pk": 150000
   },
   {
     "fields": {
@@ -43826,51 +43252,6 @@
     },
     "model": "core.irroleacl",
     "pk": 10053
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 10060
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 10061
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 10063
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 10064
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 10065
   },
   {
     "fields": {
@@ -47555,24 +46936,6 @@
   },
   {
     "fields": {
-      "instance_resource": 20038,
-      "instance_state": 20004,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20466
-  },
-  {
-    "fields": {
-      "instance_resource": 20038,
-      "instance_state": 20005,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20467
-  },
-  {
-    "fields": {
       "instance_resource": 20039,
       "instance_state": 20004,
       "role": 3
@@ -47933,15 +47296,6 @@
   },
   {
     "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20010,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20508
-  },
-  {
-    "fields": {
       "instance_resource": 20019,
       "instance_state": 20010,
       "role": 20003
@@ -47957,15 +47311,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20510
-  },
-  {
-    "fields": {
-      "instance_resource": 80006,
-      "instance_state": 20010,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20511
   },
   {
     "fields": {
@@ -49058,24 +48403,6 @@
   },
   {
     "fields": {
-      "instance_resource": 20038,
-      "instance_state": 20004,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20660
-  },
-  {
-    "fields": {
-      "instance_resource": 20038,
-      "instance_state": 20005,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20661
-  },
-  {
-    "fields": {
       "instance_resource": 10003,
       "instance_state": 20004,
       "role": 20000
@@ -49181,42 +48508,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20673
-  },
-  {
-    "fields": {
-      "instance_resource": 20049,
-      "instance_state": 20004,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20674
-  },
-  {
-    "fields": {
-      "instance_resource": 20049,
-      "instance_state": 20005,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20675
-  },
-  {
-    "fields": {
-      "instance_resource": 20049,
-      "instance_state": 20004,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20676
-  },
-  {
-    "fields": {
-      "instance_resource": 20049,
-      "instance_state": 20005,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20677
   },
   {
     "fields": {
@@ -56573,51 +55864,6 @@
   },
   {
     "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 110134
-  },
-  {
-    "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 110135
-  },
-  {
-    "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 110137
-  },
-  {
-    "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 110138
-  },
-  {
-    "fields": {
-      "instance_resource": 110013,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 110139
-  },
-  {
-    "fields": {
       "instance_resource": 20052,
       "instance_state": 120000,
       "role": 5
@@ -56813,6 +56059,123 @@
     },
     "model": "core.irroleacl",
     "pk": 120026
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150009
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150010
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150011
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20005,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150012
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20000,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150013
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20007,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 20008,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "instance_resource": 150000,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "instance_resource": 20074,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "instance_resource": 20068,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "instance_resource": 10001,
+      "instance_state": 120001,
+      "role": 20003
+    },
+    "model": "core.irroleacl",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "instance_resource": 10001,
+      "instance_state": 120001,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 150021
   },
   {
     "fields": {
@@ -105041,7 +104404,7 @@
   },
   {
     "fields": {
-      "instance_states": "20000,20006,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000"
+      "instance_states": "20000,20006,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001"
     },
     "model": "core.rcalumalist",
     "pk": 20006
@@ -110936,6 +110299,16 @@
   },
   {
     "fields": {
+      "name": "Nachforderungen",
+      "notification_template": null,
+      "recipient_types": "[]",
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 7
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "read",
       "role": 3
@@ -111437,6 +110810,114 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 57
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "admin",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "admin",
+      "role": 10000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20006
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20002
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20003
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 5
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 4
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 3
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20005
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 66
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20001
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20004
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "mode": "read",
+      "role": 20000
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 70
   },
   {
     "fields": {
@@ -132191,458 +131672,6 @@
   },
   {
     "fields": {
-      "file_content_category": 1,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "file_content_category": 2,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "file_content_category": 3,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "file_content_category": 4,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "file_content_category": 5,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "file_content_category": 6,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "file_content_category": 7,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "file_content_category": 8,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "file_content_category": 9,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 9
-  },
-  {
-    "fields": {
-      "file_content_category": 10,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 10
-  },
-  {
-    "fields": {
-      "file_content_category": 11,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 11
-  },
-  {
-    "fields": {
-      "file_content_category": 12,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 12
-  },
-  {
-    "fields": {
-      "file_content_category": 13,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 13
-  },
-  {
-    "fields": {
-      "file_content_category": 14,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 14
-  },
-  {
-    "fields": {
-      "file_content_category": 15,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 15
-  },
-  {
-    "fields": {
-      "file_content_category": 16,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 16
-  },
-  {
-    "fields": {
-      "file_content_category": 17,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 17
-  },
-  {
-    "fields": {
-      "file_content_category": 18,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 18
-  },
-  {
-    "fields": {
-      "file_content_category": 19,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 19
-  },
-  {
-    "fields": {
-      "file_content_category": 20,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 20
-  },
-  {
-    "fields": {
-      "file_content_category": 21,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 21
-  },
-  {
-    "fields": {
-      "file_content_category": 22,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 22
-  },
-  {
-    "fields": {
-      "file_content_category": 23,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 23
-  },
-  {
-    "fields": {
-      "file_content_category": 24,
-      "instance_resource": 110013
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 24
-  },
-  {
-    "fields": {
-      "file_content_category": 1,
-      "instance_resource": 80006
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 25
-  },
-  {
-    "fields": {
-      "file_content_category": 2,
-      "instance_resource": 80006
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 26
-  },
-  {
-    "fields": {
-      "file_content_category": 2,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 27
-  },
-  {
-    "fields": {
-      "file_content_category": 22,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 28
-  },
-  {
-    "fields": {
-      "file_content_category": 20,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 29
-  },
-  {
-    "fields": {
-      "file_content_category": 3,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 30
-  },
-  {
-    "fields": {
-      "file_content_category": 6,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 31
-  },
-  {
-    "fields": {
-      "file_content_category": 14,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 32
-  },
-  {
-    "fields": {
-      "file_content_category": 13,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 33
-  },
-  {
-    "fields": {
-      "file_content_category": 1,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 34
-  },
-  {
-    "fields": {
-      "file_content_category": 19,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 35
-  },
-  {
-    "fields": {
-      "file_content_category": 4,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 36
-  },
-  {
-    "fields": {
-      "file_content_category": 10,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 37
-  },
-  {
-    "fields": {
-      "file_content_category": 23,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 38
-  },
-  {
-    "fields": {
-      "file_content_category": 11,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 39
-  },
-  {
-    "fields": {
-      "file_content_category": 16,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 40
-  },
-  {
-    "fields": {
-      "file_content_category": 9,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 41
-  },
-  {
-    "fields": {
-      "file_content_category": 15,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 42
-  },
-  {
-    "fields": {
-      "file_content_category": 18,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 43
-  },
-  {
-    "fields": {
-      "file_content_category": 21,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 44
-  },
-  {
-    "fields": {
-      "file_content_category": 12,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 45
-  },
-  {
-    "fields": {
-      "file_content_category": 17,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 46
-  },
-  {
-    "fields": {
-      "file_content_category": 7,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 47
-  },
-  {
-    "fields": {
-      "file_content_category": 8,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 48
-  },
-  {
-    "fields": {
-      "file_content_category": 24,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 49
-  },
-  {
-    "fields": {
-      "file_content_category": 5,
-      "instance_resource": 20038
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 50
-  },
-  {
-    "fields": {
-      "file_content_category": 2,
-      "instance_resource": 20049
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 51
-  },
-  {
-    "fields": {
-      "file_content_category": 1,
-      "instance_resource": 20049
-    },
-    "model": "file.irfilecomplementreqcc",
-    "pk": 52
-  },
-  {
-    "fields": {
-      "enable_expiring_date": 1,
-      "ir_file_access_type": 8,
-      "pdf_class": null
-    },
-    "model": "file.irfilecomplementrequest",
-    "pk": 20038
-  },
-  {
-    "fields": {
-      "enable_expiring_date": 1,
-      "ir_file_access_type": 8,
-      "pdf_class": null
-    },
-    "model": "file.irfilecomplementrequest",
-    "pk": 20049
-  },
-  {
-    "fields": {
-      "enable_expiring_date": 1,
-      "ir_file_access_type": 4,
-      "pdf_class": null
-    },
-    "model": "file.irfilecomplementrequest",
-    "pk": 80006
-  },
-  {
-    "fields": {
-      "enable_expiring_date": 1,
-      "ir_file_access_type": 4,
-      "pdf_class": null
-    },
-    "model": "file.irfilecomplementrequest",
-    "pk": 110013
-  },
-  {
-    "fields": {
       "access_foreign_id": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24",
       "file_validation_type": null,
       "ir_file_access_type": 9
@@ -133012,7 +132041,7 @@
     "fields": {
       "description": null,
       "name": "rejected",
-      "sort": 22
+      "sort": 23
     },
     "model": "instance.instancestate",
     "pk": 10000
@@ -133048,7 +132077,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 12
+      "sort": 13
     },
     "model": "instance.instancestate",
     "pk": 20003
@@ -133057,7 +132086,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 13
+      "sort": 14
     },
     "model": "instance.instancestate",
     "pk": 20004
@@ -133066,7 +132095,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 14
+      "sort": 15
     },
     "model": "instance.instancestate",
     "pk": 20005
@@ -133084,7 +132113,7 @@
     "fields": {
       "description": null,
       "name": "correction",
-      "sort": 23
+      "sort": 24
     },
     "model": "instance.instancestate",
     "pk": 20007
@@ -133093,7 +132122,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 24
+      "sort": 26
     },
     "model": "instance.instancestate",
     "pk": 20008
@@ -133102,7 +132131,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 25
+      "sort": 27
     },
     "model": "instance.instancestate",
     "pk": 20009
@@ -133111,7 +132140,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 15
+      "sort": 16
     },
     "model": "instance.instancestate",
     "pk": 20010
@@ -133120,7 +132149,7 @@
     "fields": {
       "description": null,
       "name": "sb1",
-      "sort": 16
+      "sort": 17
     },
     "model": "instance.instancestate",
     "pk": 20011
@@ -133129,7 +132158,7 @@
     "fields": {
       "description": null,
       "name": "sb2",
-      "sort": 18
+      "sort": 19
     },
     "model": "instance.instancestate",
     "pk": 20013
@@ -133138,7 +132167,7 @@
     "fields": {
       "description": null,
       "name": "conclusion",
-      "sort": 21
+      "sort": 22
     },
     "model": "instance.instancestate",
     "pk": 20014
@@ -133156,7 +132185,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 17
+      "sort": 18
     },
     "model": "instance.instancestate",
     "pk": 40001
@@ -133165,7 +132194,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 20
+      "sort": 21
     },
     "model": "instance.instancestate",
     "pk": 40002
@@ -133174,7 +132203,7 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 19
+      "sort": 20
     },
     "model": "instance.instancestate",
     "pk": 40003
@@ -133246,10 +132275,19 @@
     "fields": {
       "description": null,
       "name": null,
-      "sort": 26
+      "sort": 28
     },
     "model": "instance.instancestate",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "description": null,
+      "name": "nfd",
+      "sort": 29
+    },
+    "model": "instance.instancestate",
+    "pk": 120001
   },
   {
     "fields": {
@@ -133520,6 +132558,16 @@
     },
     "model": "instance.instancestatet",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 120001,
+      "language": "de",
+      "name": "Nachforderungen"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120001
   },
   {
     "fields": {
