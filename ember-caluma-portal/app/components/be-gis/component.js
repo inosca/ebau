@@ -8,7 +8,7 @@ import saveDocumentMutation from "ember-caluma/gql/mutations/save-document";
 import Document from "ember-caluma/lib/document";
 import { parseDocument } from "ember-caluma/lib/parsers";
 import { getOwner } from "@ember/application";
-import { ComponentQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 
 const KEY_TABLE_FORM = "parzelle-tabelle";
 const KEY_TABLE_QUESTION = "parzelle";
@@ -153,7 +153,9 @@ function reduceArrayValues(data) {
 // Tools
 // Tools- Add/Remove
 
-export default Component.extend(ComponentQueryManager, {
+export default Component.extend({
+  apollo: queryManager(),
+
   notification: service(),
   fetch: service(),
   intl: service(),
