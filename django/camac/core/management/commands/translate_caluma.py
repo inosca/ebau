@@ -23,6 +23,7 @@ sources = [
     "camac/core/translation_files/page_form_group_t.csv",
     "camac/core/translation_files/page_t.csv",
     "camac/core/translation_files/role_t.csv",
+    "camac/core/translation_files/missing_translations.csv",
 ]
 properties = [("question", "label"), ("form", "name"), ("option", "label")]
 
