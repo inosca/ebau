@@ -4977,6 +4977,34 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 945,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "REDAC - DONE",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1448
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 946,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "REDAC - DONE",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1449
+  },
+  {
+    "fields": {
       "query": "SELECT\n  \"USER\".\"EMAIL\",\n  \"USER\".\"NAME\" || ' ' || \"SURNAME\" \"NAME\"\n\nFROM \"USER\"\n\nLEFT JOIN \"USER_GROUP\" ON (\n  \"USER_GROUP\".\"USER_ID\" = \"USER\".\"USER_ID\"\n  AND\n  \"USER_GROUP\".\"DEFAULT_GROUP\" = 1\n)\n\nLEFT JOIN \"GROUP\" ON (\n  \"GROUP\".\"GROUP_ID\" = \"USER_GROUP\".\"GROUP_ID\"\n)\nLEFT JOIN \"PROJECT_SUBMITTER_VIEW\" ON (\n  \"PROJECT_SUBMITTER_VIEW\".\"INSTANCE_ID\" = [INSTANCE_ID]\n)\n\n\nWHERE \"ROLE_ID\" = 3\nAND\n\"USER\".\"EMAIL\" IS NOT NULL\nAND\n\"USER\".\"DISABLED\" = 0\nAND\n\"PROJECT_SUBMITTER_VIEW\".\"ANSWER\" IS NULL",
       "sender_email": "camac-info@ur.ch",
       "sender_name": "Camac Info",
@@ -5770,8 +5798,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 32,
-      "next_instance_state": 21
+      "current_instance_state": 27,
+      "next_instance_state": 26
     },
     "model": "core.aformtransition",
     "pk": 1131
@@ -5810,8 +5838,8 @@
   },
   {
     "fields": {
-      "current_instance_state": 32,
-      "next_instance_state": 21
+      "current_instance_state": 27,
+      "next_instance_state": 26
     },
     "model": "core.aformtransition",
     "pk": 1185
@@ -5959,6 +5987,22 @@
     },
     "model": "core.aformtransition",
     "pk": 1446
+  },
+  {
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 25
+    },
+    "model": "core.aformtransition",
+    "pk": 1448
+  },
+  {
+    "fields": {
+      "current_instance_state": 24,
+      "next_instance_state": 25
+    },
+    "model": "core.aformtransition",
+    "pk": 1449
   },
   {
     "fields": {
@@ -17125,6 +17169,42 @@
   },
   {
     "fields": {
+      "button": 945,
+      "instance_state": 24,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 596
+  },
+  {
+    "fields": {
+      "button": 946,
+      "instance_state": 24,
+      "role": 1
+    },
+    "model": "core.broleacl",
+    "pk": 598
+  },
+  {
+    "fields": {
+      "button": 762,
+      "instance_state": 27,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 599
+  },
+  {
+    "fields": {
+      "button": 785,
+      "instance_state": 27,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 600
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -17469,7 +17549,7 @@
       "hidden": 0,
       "instance_resource": 107,
       "name": "L\u00f6schen",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.button",
     "pk": 144
@@ -17505,7 +17585,7 @@
       "hidden": 0,
       "instance_resource": 107,
       "name": "Archivieren",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 148
@@ -18117,7 +18197,7 @@
       "hidden": 0,
       "instance_resource": 605,
       "name": "L\u00f6schen",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.button",
     "pk": 710
@@ -18129,7 +18209,7 @@
       "hidden": 0,
       "instance_resource": 605,
       "name": "Archivieren",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.button",
     "pk": 711
@@ -18189,7 +18269,7 @@
       "hidden": 0,
       "instance_resource": 107,
       "name": "Wiederer\u00f6ffnen (EXT)",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.button",
     "pk": 718
@@ -18201,7 +18281,7 @@
       "hidden": 0,
       "instance_resource": 605,
       "name": "Wiederer\u00f6ffnen (COMM)",
-      "sort": 3
+      "sort": 4
     },
     "model": "core.button",
     "pk": 719
@@ -18417,7 +18497,7 @@
       "hidden": 0,
       "instance_resource": 605,
       "name": "Wiederer\u00f6ffnen (EXT)",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.button",
     "pk": 758
@@ -18453,7 +18533,7 @@
       "hidden": 0,
       "instance_resource": 107,
       "name": "Wiederer\u00f6ffnen (COMM)",
-      "sort": 3
+      "sort": 4
     },
     "model": "core.button",
     "pk": 761
@@ -18633,7 +18713,7 @@
       "hidden": 0,
       "instance_resource": 107,
       "name": "Status\u00e4nderung",
-      "sort": 5
+      "sort": 6
     },
     "model": "core.button",
     "pk": 785
@@ -19149,7 +19229,7 @@
       "hidden": 0,
       "instance_resource": 605,
       "name": "\u00d6REB Meldung",
-      "sort": 5
+      "sort": 6
     },
     "model": "core.button",
     "pk": 917
@@ -19405,6 +19485,30 @@
     },
     "model": "core.button",
     "pk": 944
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 107,
+      "name": "Zur\u00fcck an Leitbeh\u00f6rde",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 945
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 605,
+      "name": "Zur\u00fcck an Leitbeh\u00f6rde",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 946
   },
   {
     "fields": {
@@ -23255,6 +23359,14 @@
   },
   {
     "fields": {
+      "form": 292,
+      "form_group": 32
+    },
+    "model": "core.formgroupform",
+    "pk": 308
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -23853,14 +23965,14 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "",
+      "class_field": null,
       "description": "Zirkulation BG Dossiers",
       "form_group": 30,
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 267,
       "sort": 5,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 315
@@ -23868,8 +23980,8 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": "",
-      "description": "",
+      "class_field": null,
+      "description": null,
       "form_group": 161,
       "hidden": 0,
       "name": "Beteiligte Fachstellen",
@@ -24033,14 +24145,14 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "",
+      "class_field": null,
       "description": "Zirkulation der Dossiers Nutzungsplanung",
       "form_group": 141,
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 288,
       "sort": 3,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 467
@@ -24333,14 +24445,14 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "",
+      "class_field": null,
       "description": "Zirkulation machen f\u00fcr die Dossiers BD",
       "form_group": 241,
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 264,
       "sort": 4,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 625
@@ -24768,14 +24880,14 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "",
+      "class_field": null,
       "description": "Zirkulation Dossiers von der Koordinationsstelle AfU",
       "form_group": 249,
       "hidden": 0,
       "name": "Zirkulation",
       "resource": 289,
       "sort": 3,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 702
@@ -27414,16 +27526,16 @@
   },
   {
     "fields": {
-      "add_activation_template": "",
-      "add_template": "",
+      "add_activation_template": null,
+      "add_template": null,
       "circulation_email_action_id": null,
       "circulation_type": 41,
       "default_circulation_name": "Erste Zirkulation",
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
-      "pdf_class": "",
-      "read_notice_template": "",
+      "pdf_class": null,
+      "read_notice_template": null,
       "show_notice": 1,
       "single_circulation": 1
     },
@@ -27450,16 +27562,16 @@
   },
   {
     "fields": {
-      "add_activation_template": "",
-      "add_template": "",
+      "add_activation_template": null,
+      "add_template": null,
       "circulation_email_action_id": null,
       "circulation_type": 41,
-      "default_circulation_name": "",
+      "default_circulation_name": null,
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
-      "pdf_class": "",
-      "read_notice_template": "",
+      "pdf_class": null,
+      "read_notice_template": null,
       "show_notice": 1,
       "single_circulation": 1
     },
@@ -27468,16 +27580,16 @@
   },
   {
     "fields": {
-      "add_activation_template": "",
-      "add_template": "",
+      "add_activation_template": null,
+      "add_template": null,
       "circulation_email_action_id": null,
       "circulation_type": 41,
-      "default_circulation_name": "",
+      "default_circulation_name": null,
       "display_first_circulation": 1,
       "draft_circulation_answer": null,
       "inherit_notices": 0,
-      "pdf_class": "",
-      "read_notice_template": "",
+      "pdf_class": null,
+      "read_notice_template": null,
       "show_notice": 1,
       "single_circulation": 1
     },
@@ -28257,6 +28369,78 @@
     },
     "model": "core.ireditcirculationsg",
     "pk": 261
+  },
+  {
+    "fields": {
+      "instance_resource": 315,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 262
+  },
+  {
+    "fields": {
+      "instance_resource": 625,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 263
+  },
+  {
+    "fields": {
+      "instance_resource": 738,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 264
+  },
+  {
+    "fields": {
+      "instance_resource": 726,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 265
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 266
+  },
+  {
+    "fields": {
+      "instance_resource": 467,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 267
+  },
+  {
+    "fields": {
+      "instance_resource": 702,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 268
+  },
+  {
+    "fields": {
+      "instance_resource": 763,
+      "localized": 0,
+      "service_group": 71
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 269
   },
   {
     "fields": {
@@ -41859,7 +42043,7 @@
   },
   {
     "fields": {
-      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"     AS \"INSTANCE_ID\",\r\n  \"FORM\".\"NAME\"                AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"            AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"            AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  CASE\r\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\r\n  END AS \"STREET\",\r\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\")   \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"(\"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\"))    \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"GROUP_LOCATION\" ON (\r\n    \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nJOIN\r\n  \"GROUP\" ON (\r\n    \"GROUP\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\n\r\nWHERE\r\n  (\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('subm')\r\n  OR\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('nfd')\r\n  )\r\n  AND\r\n  \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\"\r\n  AND\r\n  \"LOCATION\".\"NAME\" = \"GROUP\".\"CITY\""
+      "query": "SELECT\r\n  \"INSTANCE\".\"INSTANCE_ID\"     AS \"INSTANCE_ID\",\r\n  \"FORM\".\"NAME\"                AS \"FORM\",\r\n  \"LOCATION\".\"NAME\"            AS \"COMMUNITY\",\r\n  \"USER\".\"USERNAME\"            AS \"USER\",\r\n  \"APPLICANT_VIEW\".\"APPLICANT\",\r\n  (SELECT STRING_AGG(\"NAME\", ', ' ORDER BY \"NAME\")\r\n    FROM \"INTENTIONS\" WHERE \"INSTANCE_ID\" = \"INSTANCE\".\"INSTANCE_ID\") AS \"INTENT\",\r\n  CASE\r\n    WHEN \"ANSWER_STREET_BG\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_BG\".\"ANSWER\"\r\n    WHEN \"ANSWER_STREET_NP\".\"ANSWER\" IS NOT NULL THEN \"ANSWER_STREET_NP\".\"ANSWER\"\r\n  END AS \"STREET\",\r\n  \"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\")   \"STATE\",\r\n  \"GET_INST_STATE_DESCRIPTION\"(\"GET_INST_STATE_NAME_BY_ID\"(\"INSTANCE\".\"INSTANCE_STATE_ID\"))    \"STATE_DESCRIPTION\"\r\nFROM\r\n  \"INSTANCE\"\r\nJOIN\r\n  \"INSTANCE_LOCATION\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"INSTANCE_LOCATION\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"LOCATION\" ON (\r\n   \"INSTANCE_LOCATION\".\"LOCATION_ID\" = \"LOCATION\".\"LOCATION_ID\"\r\n  )\r\nJOIN\r\n  \"FORM\" ON (\r\n    \"INSTANCE\".\"FORM_ID\" = \"FORM\".\"FORM_ID\"\r\n)\r\nJOIN\r\n  \"USER\" ON (\r\n    \"INSTANCE\".\"USER_ID\" = \"USER\".\"USER_ID\"\r\n)\r\nLEFT JOIN \"ANSWER_STREET_BG\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_BG\".\"INSTANCE_ID\"\r\n  )\r\nLEFT JOIN \"ANSWER_STREET_NP\" ON (\r\n    \"INSTANCE\".\"INSTANCE_ID\" = \"ANSWER_STREET_NP\".\"INSTANCE_ID\"\r\n  )\r\nJOIN\r\n  \"GROUP_LOCATION\" ON (\r\n    \"GROUP_LOCATION\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nJOIN\r\n  \"GROUP\" ON (\r\n    \"GROUP\".\"GROUP_ID\" = [GROUP_ID]\r\n  )\r\nLEFT JOIN \"APPLICANT_VIEW\" ON (\r\n  \"INSTANCE\".\"INSTANCE_ID\" = \"APPLICANT_VIEW\".\"INSTANCE_ID\"\r\n)\r\n\r\nWHERE\r\n  (\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('subm')\r\n  OR\r\n  \"INSTANCE\".\"INSTANCE_STATE_ID\" = \"GET_INST_STATE_ID_BY_NAME\"('nfd')\r\n  )\r\n  AND\r\n  \"GROUP_LOCATION\".\"LOCATION_ID\" = \"INSTANCE_LOCATION\".\"LOCATION_ID\""
     },
     "model": "core.rlist",
     "pk": 250
@@ -42748,14 +42932,6 @@
   },
   {
     "fields": {
-      "resource": 266,
-      "role": 1130
-    },
-    "model": "core.rroleacl",
-    "pk": 90
-  },
-  {
-    "fields": {
       "resource": 42,
       "role": 1130
     },
@@ -42769,6 +42945,14 @@
     },
     "model": "core.rroleacl",
     "pk": 92
+  },
+  {
+    "fields": {
+      "resource": 306,
+      "role": 1130
+    },
+    "model": "core.rroleacl",
+    "pk": 93
   },
   {
     "fields": {
@@ -46557,6 +46741,15 @@
   },
   {
     "fields": {
+      "attachment_section": 21,
+      "mode": "read",
+      "role": 1104
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 323
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "write",
       "service": 88
@@ -49634,16 +49827,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Gemeindewerke Erstfeld",
-      "phone": "",
+      "email": null,
+      "name": "Erstfeld Testgruppe",
+      "phone": null,
       "role": 7,
       "service": 325,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 746
@@ -49778,16 +49971,16 @@
   },
   {
     "fields": {
-      "address": "",
-      "city": "",
+      "address": null,
+      "city": null,
       "disabled": 0,
-      "email": "",
-      "name": "Gemeindewerke Erstfeld",
-      "phone": "",
+      "email": null,
+      "name": "Gemeindewerke Erstfeld als Organisation mit Leserechten",
+      "phone": null,
       "role": 1105,
       "service": null,
-      "website": "",
-      "zip": ""
+      "website": null,
+      "zip": null
     },
     "model": "user.group",
     "pk": 810
@@ -50246,7 +50439,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Gemeindewerke Erstfeld",
+      "name": "Gemeindewerke Erstfeld als Vernehmlassungsstelle",
       "phone": null,
       "role": 1104,
       "service": 593,
@@ -50294,7 +50487,7 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "Wasserversorgung Altdorf",
+      "name": "Wasserkommission Altdorf",
       "phone": null,
       "role": 1104,
       "service": 595,
@@ -50303,6 +50496,102 @@
     },
     "model": "user.group",
     "pk": 1029
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "MGB",
+      "phone": null,
+      "role": 4,
+      "service": 596,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1030
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Ortsplanung",
+      "phone": null,
+      "role": 1104,
+      "service": 597,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1031
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Tiefbau",
+      "phone": null,
+      "role": 1104,
+      "service": 598,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1032
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Feuerwehr Altdorf",
+      "phone": null,
+      "role": 1104,
+      "service": 599,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1033
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Liegenschaften",
+      "phone": null,
+      "role": 1104,
+      "service": 600,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1034
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "Armasuisse Immobilien",
+      "phone": null,
+      "role": 4,
+      "service": 601,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1035
   },
   {
     "fields": {
@@ -51730,6 +52019,70 @@
   },
   {
     "fields": {
+      "group": 1030,
+      "location": 2
+    },
+    "model": "user.grouplocation",
+    "pk": 182
+  },
+  {
+    "fields": {
+      "group": 1030,
+      "location": 8
+    },
+    "model": "user.grouplocation",
+    "pk": 183
+  },
+  {
+    "fields": {
+      "group": 1030,
+      "location": 10
+    },
+    "model": "user.grouplocation",
+    "pk": 184
+  },
+  {
+    "fields": {
+      "group": 1030,
+      "location": 12
+    },
+    "model": "user.grouplocation",
+    "pk": 185
+  },
+  {
+    "fields": {
+      "group": 1031,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 186
+  },
+  {
+    "fields": {
+      "group": 1032,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 187
+  },
+  {
+    "fields": {
+      "group": 1033,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 188
+  },
+  {
+    "fields": {
+      "group": 1034,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 189
+  },
+  {
+    "fields": {
       "communal_cantonal_number": 1,
       "communal_federal_number": "1201",
       "commune_name": "Altdorf (UR)",
@@ -52238,7 +52591,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 104,
+      "sort": 110,
       "website": "",
       "zip": ""
     },
@@ -52257,7 +52610,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 7,
+      "sort": 18,
       "website": "",
       "zip": ""
     },
@@ -52276,7 +52629,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 106,
+      "sort": 112,
       "website": "",
       "zip": ""
     },
@@ -52295,7 +52648,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 108,
+      "sort": 114,
       "website": "",
       "zip": ""
     },
@@ -52314,7 +52667,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 3,
+      "sort": 16,
       "website": "",
       "zip": ""
     },
@@ -52333,7 +52686,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 52,
+      "sort": 60,
       "website": "",
       "zip": ""
     },
@@ -52352,7 +52705,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 51,
+      "sort": 59,
       "website": "",
       "zip": ""
     },
@@ -52371,7 +52724,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 69,
+      "sort": 77,
       "website": "",
       "zip": ""
     },
@@ -52390,7 +52743,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 72,
+      "sort": 80,
       "website": "",
       "zip": ""
     },
@@ -52409,7 +52762,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 74,
+      "sort": 82,
       "website": null,
       "zip": null
     },
@@ -52428,7 +52781,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 77,
+      "sort": 85,
       "website": null,
       "zip": null
     },
@@ -52447,7 +52800,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 79,
+      "sort": 87,
       "website": null,
       "zip": null
     },
@@ -52466,7 +52819,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 133,
+      "sort": 139,
       "website": "",
       "zip": ""
     },
@@ -52485,7 +52838,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 25,
+      "sort": 33,
       "website": "",
       "zip": ""
     },
@@ -52504,7 +52857,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 36,
+      "sort": 44,
       "website": "",
       "zip": ""
     },
@@ -52523,7 +52876,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 31,
+      "sort": 39,
       "website": "",
       "zip": ""
     },
@@ -52542,7 +52895,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 37,
+      "sort": 45,
       "website": "",
       "zip": ""
     },
@@ -52561,7 +52914,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 21,
+      "sort": 29,
       "website": "",
       "zip": ""
     },
@@ -52580,7 +52933,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 59,
+      "sort": 67,
       "website": "",
       "zip": ""
     },
@@ -52599,7 +52952,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 18,
+      "sort": 26,
       "website": "",
       "zip": ""
     },
@@ -52618,7 +52971,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 132,
+      "sort": 138,
       "website": "",
       "zip": ""
     },
@@ -52637,7 +52990,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 134,
+      "sort": 140,
       "website": "",
       "zip": ""
     },
@@ -52656,7 +53009,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 83,
+      "sort": 91,
       "website": "",
       "zip": ""
     },
@@ -52675,7 +53028,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 39,
+      "sort": 47,
       "website": "",
       "zip": ""
     },
@@ -52694,7 +53047,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 32,
+      "sort": 40,
       "website": "",
       "zip": ""
     },
@@ -52713,7 +53066,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 35,
+      "sort": 43,
       "website": "",
       "zip": ""
     },
@@ -52732,7 +53085,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 58,
+      "sort": 66,
       "website": "",
       "zip": ""
     },
@@ -52751,7 +53104,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 143,
+      "sort": 149,
       "website": "",
       "zip": ""
     },
@@ -52768,9 +53121,9 @@
       "name": "SBB",
       "notification": 1,
       "phone": "",
-      "service_group": 21,
+      "service_group": 71,
       "service_parent": null,
-      "sort": 85,
+      "sort": 1,
       "website": "",
       "zip": ""
     },
@@ -52789,7 +53142,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 46,
+      "sort": 54,
       "website": "",
       "zip": ""
     },
@@ -52808,7 +53161,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 45,
+      "sort": 53,
       "website": "",
       "zip": ""
     },
@@ -52827,7 +53180,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 10,
+      "sort": 20,
       "website": "",
       "zip": ""
     },
@@ -52846,7 +53199,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 43,
+      "sort": 51,
       "website": "",
       "zip": ""
     },
@@ -52865,7 +53218,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 89,
+      "sort": 95,
       "website": null,
       "zip": null
     },
@@ -52884,7 +53237,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 142,
+      "sort": 148,
       "website": "",
       "zip": ""
     },
@@ -52903,7 +53256,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 4,
+      "sort": 2,
       "website": "",
       "zip": ""
     },
@@ -52922,7 +53275,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 61,
+      "sort": 69,
       "website": "",
       "zip": ""
     },
@@ -52941,7 +53294,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 67,
+      "sort": 75,
       "website": null,
       "zip": null
     },
@@ -52960,7 +53313,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 55,
+      "sort": 63,
       "website": "",
       "zip": ""
     },
@@ -52979,7 +53332,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 57,
+      "sort": 65,
       "website": "",
       "zip": ""
     },
@@ -52998,7 +53351,7 @@
       "phone": null,
       "service_group": 61,
       "service_parent": null,
-      "sort": 42,
+      "sort": 50,
       "website": null,
       "zip": null
     },
@@ -53017,7 +53370,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 28,
+      "sort": 36,
       "website": "",
       "zip": ""
     },
@@ -53036,7 +53389,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 29,
+      "sort": 37,
       "website": "",
       "zip": ""
     },
@@ -53055,7 +53408,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 113,
+      "sort": 119,
       "website": "",
       "zip": ""
     },
@@ -53074,7 +53427,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 103,
+      "sort": 109,
       "website": "",
       "zip": ""
     },
@@ -53093,7 +53446,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 136,
+      "sort": 142,
       "website": "",
       "zip": ""
     },
@@ -53112,7 +53465,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 8,
+      "sort": 19,
       "website": null,
       "zip": null
     },
@@ -53131,7 +53484,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 12,
+      "sort": 22,
       "website": null,
       "zip": null
     },
@@ -53150,7 +53503,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 14,
+      "sort": 23,
       "website": "",
       "zip": ""
     },
@@ -53169,7 +53522,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 17,
+      "sort": 25,
       "website": "",
       "zip": ""
     },
@@ -53188,7 +53541,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 19,
+      "sort": 27,
       "website": "",
       "zip": ""
     },
@@ -53207,7 +53560,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 23,
+      "sort": 31,
       "website": "",
       "zip": ""
     },
@@ -53226,7 +53579,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 16,
+      "sort": 0,
       "website": "",
       "zip": ""
     },
@@ -53245,7 +53598,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 34,
+      "sort": 42,
       "website": "",
       "zip": ""
     },
@@ -53264,7 +53617,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 135,
+      "sort": 141,
       "website": "",
       "zip": ""
     },
@@ -53283,7 +53636,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 114,
+      "sort": 120,
       "website": "",
       "zip": ""
     },
@@ -53302,7 +53655,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 115,
+      "sort": 121,
       "website": "",
       "zip": ""
     },
@@ -53321,7 +53674,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 116,
+      "sort": 122,
       "website": "",
       "zip": ""
     },
@@ -53340,7 +53693,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 117,
+      "sort": 123,
       "website": "",
       "zip": ""
     },
@@ -53359,7 +53712,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 118,
+      "sort": 124,
       "website": "",
       "zip": ""
     },
@@ -53378,7 +53731,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 119,
+      "sort": 125,
       "website": "",
       "zip": ""
     },
@@ -53397,7 +53750,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 120,
+      "sort": 126,
       "website": "",
       "zip": ""
     },
@@ -53416,7 +53769,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 121,
+      "sort": 127,
       "website": "",
       "zip": ""
     },
@@ -53435,7 +53788,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 122,
+      "sort": 128,
       "website": "",
       "zip": ""
     },
@@ -53454,7 +53807,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 123,
+      "sort": 129,
       "website": "",
       "zip": ""
     },
@@ -53473,7 +53826,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 124,
+      "sort": 130,
       "website": "",
       "zip": ""
     },
@@ -53492,7 +53845,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 125,
+      "sort": 131,
       "website": "",
       "zip": ""
     },
@@ -53511,7 +53864,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 126,
+      "sort": 132,
       "website": "",
       "zip": ""
     },
@@ -53530,7 +53883,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 127,
+      "sort": 133,
       "website": "",
       "zip": ""
     },
@@ -53549,7 +53902,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 128,
+      "sort": 134,
       "website": "",
       "zip": ""
     },
@@ -53568,7 +53921,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 129,
+      "sort": 135,
       "website": "",
       "zip": ""
     },
@@ -53587,7 +53940,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 130,
+      "sort": 136,
       "website": "",
       "zip": ""
     },
@@ -53606,7 +53959,7 @@
       "phone": "",
       "service_group": 41,
       "service_parent": null,
-      "sort": 131,
+      "sort": 137,
       "website": "",
       "zip": ""
     },
@@ -53625,7 +53978,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 49,
+      "sort": 57,
       "website": "",
       "zip": ""
     },
@@ -53644,7 +53997,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 44,
+      "sort": 52,
       "website": "",
       "zip": ""
     },
@@ -53663,7 +54016,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 26,
+      "sort": 34,
       "website": "",
       "zip": ""
     },
@@ -53682,7 +54035,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 63,
+      "sort": 71,
       "website": "",
       "zip": ""
     },
@@ -53701,7 +54054,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 33,
+      "sort": 41,
       "website": "",
       "zip": ""
     },
@@ -53720,7 +54073,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 41,
+      "sort": 49,
       "website": "",
       "zip": ""
     },
@@ -53739,7 +54092,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 40,
+      "sort": 48,
       "website": "",
       "zip": ""
     },
@@ -53758,7 +54111,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 53,
+      "sort": 61,
       "website": "",
       "zip": ""
     },
@@ -53777,7 +54130,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 62,
+      "sort": 70,
       "website": "",
       "zip": ""
     },
@@ -53796,7 +54149,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 65,
+      "sort": 73,
       "website": "",
       "zip": ""
     },
@@ -53815,7 +54168,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 84,
+      "sort": 92,
       "website": "",
       "zip": ""
     },
@@ -53834,7 +54187,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 87,
+      "sort": 93,
       "website": "",
       "zip": ""
     },
@@ -53853,7 +54206,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 91,
+      "sort": 97,
       "website": "",
       "zip": ""
     },
@@ -53872,7 +54225,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 92,
+      "sort": 98,
       "website": "",
       "zip": ""
     },
@@ -53891,7 +54244,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 93,
+      "sort": 99,
       "website": "",
       "zip": ""
     },
@@ -53910,7 +54263,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 94,
+      "sort": 100,
       "website": "",
       "zip": ""
     },
@@ -53929,7 +54282,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 95,
+      "sort": 101,
       "website": "",
       "zip": ""
     },
@@ -53948,7 +54301,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 96,
+      "sort": 102,
       "website": "",
       "zip": ""
     },
@@ -53967,7 +54320,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 97,
+      "sort": 103,
       "website": "",
       "zip": ""
     },
@@ -53986,7 +54339,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 98,
+      "sort": 104,
       "website": "",
       "zip": ""
     },
@@ -54005,7 +54358,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 99,
+      "sort": 105,
       "website": "",
       "zip": ""
     },
@@ -54024,7 +54377,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 100,
+      "sort": 106,
       "website": "",
       "zip": ""
     },
@@ -54043,7 +54396,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 101,
+      "sort": 107,
       "website": "",
       "zip": ""
     },
@@ -54062,7 +54415,7 @@
       "phone": "",
       "service_group": 68,
       "service_parent": null,
-      "sort": 102,
+      "sort": 108,
       "website": "",
       "zip": ""
     },
@@ -54081,7 +54434,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 56,
+      "sort": 64,
       "website": "",
       "zip": ""
     },
@@ -54100,7 +54453,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 73,
+      "sort": 81,
       "website": "",
       "zip": ""
     },
@@ -54119,7 +54472,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 30,
+      "sort": 38,
       "website": null,
       "zip": null
     },
@@ -54138,7 +54491,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 47,
+      "sort": 55,
       "website": "",
       "zip": ""
     },
@@ -54157,7 +54510,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 54,
+      "sort": 62,
       "website": "",
       "zip": ""
     },
@@ -54176,7 +54529,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 60,
+      "sort": 68,
       "website": "",
       "zip": ""
     },
@@ -54195,7 +54548,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 75,
+      "sort": 83,
       "website": "",
       "zip": ""
     },
@@ -54214,7 +54567,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 76,
+      "sort": 84,
       "website": "",
       "zip": ""
     },
@@ -54233,7 +54586,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 81,
+      "sort": 89,
       "website": "",
       "zip": ""
     },
@@ -54252,7 +54605,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 82,
+      "sort": 90,
       "website": "",
       "zip": ""
     },
@@ -54271,7 +54624,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 68,
+      "sort": 76,
       "website": "",
       "zip": ""
     },
@@ -54290,7 +54643,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 64,
+      "sort": 72,
       "website": "",
       "zip": ""
     },
@@ -54309,7 +54662,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 66,
+      "sort": 74,
       "website": "",
       "zip": ""
     },
@@ -54328,7 +54681,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 88,
+      "sort": 94,
       "website": "",
       "zip": ""
     },
@@ -54347,7 +54700,7 @@
       "phone": "",
       "service_group": 67,
       "service_parent": null,
-      "sort": 90,
+      "sort": 96,
       "website": "",
       "zip": ""
     },
@@ -54366,7 +54719,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 27,
+      "sort": 35,
       "website": "",
       "zip": ""
     },
@@ -54385,7 +54738,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 48,
+      "sort": 56,
       "website": "",
       "zip": ""
     },
@@ -54404,7 +54757,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 38,
+      "sort": 46,
       "website": "",
       "zip": ""
     },
@@ -54423,7 +54776,7 @@
       "phone": "",
       "service_group": 61,
       "service_parent": null,
-      "sort": 22,
+      "sort": 30,
       "website": "",
       "zip": ""
     },
@@ -54442,7 +54795,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 6,
+      "sort": 11,
       "website": "",
       "zip": ""
     },
@@ -54461,7 +54814,7 @@
       "phone": "",
       "service_group": 70,
       "service_parent": null,
-      "sort": 13,
+      "sort": 14,
       "website": "",
       "zip": ""
     },
@@ -54480,7 +54833,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 50,
+      "sort": 58,
       "website": "",
       "zip": ""
     },
@@ -54499,7 +54852,7 @@
       "phone": "",
       "service_group": 65,
       "service_parent": null,
-      "sort": 11,
+      "sort": 21,
       "website": "",
       "zip": ""
     },
@@ -54518,7 +54871,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 24,
+      "sort": 32,
       "website": "",
       "zip": ""
     },
@@ -54537,7 +54890,7 @@
       "phone": "",
       "service_group": 66,
       "service_parent": null,
-      "sort": 15,
+      "sort": 24,
       "website": "",
       "zip": ""
     },
@@ -54556,7 +54909,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 112,
+      "sort": 118,
       "website": "",
       "zip": ""
     },
@@ -54575,7 +54928,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 107,
+      "sort": 113,
       "website": "",
       "zip": ""
     },
@@ -54594,7 +54947,7 @@
       "phone": "",
       "service_group": 63,
       "service_parent": null,
-      "sort": 0,
+      "sort": 9,
       "website": "",
       "zip": ""
     },
@@ -54613,7 +54966,7 @@
       "phone": "",
       "service_group": 64,
       "service_parent": null,
-      "sort": 105,
+      "sort": 111,
       "website": "",
       "zip": ""
     },
@@ -54632,7 +54985,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 137,
+      "sort": 143,
       "website": "",
       "zip": ""
     },
@@ -54651,7 +55004,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 138,
+      "sort": 144,
       "website": "",
       "zip": ""
     },
@@ -54670,7 +55023,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 139,
+      "sort": 145,
       "website": "",
       "zip": ""
     },
@@ -54689,7 +55042,7 @@
       "phone": "",
       "service_group": 1,
       "service_parent": null,
-      "sort": 140,
+      "sort": 146,
       "website": "",
       "zip": ""
     },
@@ -54708,7 +55061,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 78,
+      "sort": 86,
       "website": null,
       "zip": null
     },
@@ -54727,7 +55080,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 70,
+      "sort": 78,
       "website": "",
       "zip": ""
     },
@@ -54746,7 +55099,7 @@
       "phone": "",
       "service_group": 21,
       "service_parent": null,
-      "sort": 71,
+      "sort": 79,
       "website": "",
       "zip": ""
     },
@@ -54765,7 +55118,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 109,
+      "sort": 115,
       "website": "",
       "zip": ""
     },
@@ -54784,7 +55137,7 @@
       "phone": "",
       "service_group": 62,
       "service_parent": null,
-      "sort": 111,
+      "sort": 117,
       "website": "",
       "zip": ""
     },
@@ -54803,7 +55156,7 @@
       "phone": "",
       "service_group": 2,
       "service_parent": null,
-      "sort": 20,
+      "sort": 28,
       "website": "",
       "zip": ""
     },
@@ -54822,7 +55175,7 @@
       "phone": null,
       "service_group": 62,
       "service_parent": null,
-      "sort": 110,
+      "sort": 116,
       "website": null,
       "zip": null
     },
@@ -54841,7 +55194,7 @@
       "phone": null,
       "service_group": 21,
       "service_parent": null,
-      "sort": 80,
+      "sort": 88,
       "website": null,
       "zip": null
     },
@@ -54860,7 +55213,7 @@
       "phone": null,
       "service_group": 1,
       "service_parent": null,
-      "sort": 141,
+      "sort": 147,
       "website": null,
       "zip": null
     },
@@ -54879,7 +55232,7 @@
       "phone": null,
       "service_group": 70,
       "service_parent": null,
-      "sort": 9,
+      "sort": 12,
       "website": null,
       "zip": null
     },
@@ -54896,9 +55249,9 @@
       "name": "Swissgrid",
       "notification": 1,
       "phone": null,
-      "service_group": 21,
+      "service_group": 71,
       "service_parent": null,
-      "sort": 86,
+      "sort": 15,
       "website": null,
       "zip": null
     },
@@ -54917,7 +55270,7 @@
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 1,
+      "sort": 10,
       "website": null,
       "zip": null
     },
@@ -54936,7 +55289,7 @@
       "phone": null,
       "service_group": 2,
       "service_parent": null,
-      "sort": 5,
+      "sort": 17,
       "website": null,
       "zip": null
     },
@@ -54950,17 +55303,131 @@
       "description": "Wasserversorgung Altdorf",
       "disabled": 0,
       "email": null,
-      "name": "Wasserversorgung Altdorf",
+      "name": "Wasserkommission Altdorf",
       "notification": 1,
       "phone": null,
       "service_group": 69,
       "service_parent": null,
-      "sort": 2,
+      "sort": 4,
       "website": null,
       "zip": null
     },
     "model": "user.service",
     "pk": 595
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Matterhorn Gothard Bahn",
+      "disabled": 0,
+      "email": null,
+      "name": "MGB",
+      "notification": 1,
+      "phone": null,
+      "service_group": 71,
+      "service_parent": null,
+      "sort": 3,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 596
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Bauabteilung",
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Ortsplanung",
+      "notification": 1,
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 5,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 597
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Bauabteilung Altdorf",
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Tiefbau",
+      "notification": 1,
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 6,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 598
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Feuerwehr Altdorf",
+      "disabled": 0,
+      "email": null,
+      "name": "Feuerwehr Altdorf",
+      "notification": 1,
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 7,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 599
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Bauabteilung Liegenschaften",
+      "disabled": 0,
+      "email": null,
+      "name": "Bauabteilung Altdorf Liegenschaften",
+      "notification": 1,
+      "phone": null,
+      "service_group": 69,
+      "service_parent": null,
+      "sort": 8,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 600
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Immobilienbewirtschaftung Armasuisse",
+      "disabled": 0,
+      "email": null,
+      "name": "Armasuisse Immobilien",
+      "notification": 1,
+      "phone": null,
+      "service_group": 70,
+      "service_parent": null,
+      "sort": 13,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 601
   },
   {
     "fields": {
@@ -55059,5 +55526,12 @@
     },
     "model": "user.servicegroup",
     "pk": 70
+  },
+  {
+    "fields": {
+      "name": "Infrastrukturanlagen"
+    },
+    "model": "user.servicegroup",
+    "pk": 71
   }
 ]
