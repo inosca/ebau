@@ -35,9 +35,11 @@ export default class Instance extends Model.extend(ObjectQueryManager) {
 
   @computed("documents.@each.id")
   get calumaDocuments() {
-    return this.documents.map(({ id }) => {
-      return this.calumaStore.find(`Document:${decodeId(id)}`);
-    });
+    return this.getWithDefault("documents", [])
+      .map(({ id }) => {
+        return this.calumaStore.find(`Document:${decodeId(id)}`);
+      })
+      .filter(Boolean);
   }
 
   @reads("getDocuments.lastSuccessful.value") documents;
