@@ -121,6 +121,10 @@ instances:
   emptyTitle: "Vous n'avez pas encore de demandes!"
   emptyText: "Créez votre première demande rapidement et facilement dès maintenant. Vous pouvez le fermer à tout moment et continuer à le remplir une autre fois sans aucun problème."
   edit: "Modifier le dossier"
+  print: "aperçu avant impression"
+  orderBy: "Trier par"
+  desc: "ascendant"
+  asc: "descendant"
 
   new:
     title: "Nouveau dossier"
