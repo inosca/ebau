@@ -3151,13 +3151,13 @@ class ProposalActivation(models.Model):
         db_table = "PROPOSAL_ACTIVATION"
 
 
-
 class PublicationType(models.Model):
     name = models.TextField(db_column="NAME")
 
     class Meta:
         managed = True
         db_table = "PUBLICATION_TYPE"
+
 
 class PublicationEntry(models.Model):
     publication_entry_id = models.AutoField(
@@ -3178,7 +3178,7 @@ class PublicationEntry(models.Model):
         models.DO_NOTHING,
         db_column="PUBLICATION_TYPE_ID",
         related_name="+",
-        null=True
+        null=True,
     )
 
     class Meta:
@@ -3197,7 +3197,7 @@ class PublicationSetting(models.Model):
         models.DO_NOTHING,
         db_column="PUBLICATION_TYPE_ID",
         related_name="+",
-        null=True
+        null=True,
     )
 
     class Meta:
@@ -3217,7 +3217,6 @@ class Publication(models.Model):
     class Meta:
         managed = True
         db_table = "PUBLICATION"
-
 
 
 class Question(MultilingualModel, models.Model):
