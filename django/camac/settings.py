@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "camac.officeexporter.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
+    "camac.echbern",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
