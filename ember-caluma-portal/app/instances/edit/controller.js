@@ -1,13 +1,10 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { assert } from "@ember/debug";
-import { computed, get, getWithDefault } from "@ember/object";
+import { computed, getWithDefault } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 import { ObjectQueryManager } from "ember-apollo-client";
-
-import getDocumentQuery from "ember-caluma-portal/gql/queries/get-document";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
@@ -22,13 +19,11 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   fetch: service(),
 
   setup() {
-    this.mainFormTask.perform();
     this.instanceTask.perform();
     this.feedbackTask.perform();
   },
 
   reset() {
-    this.mainFormTask.cancelAll({ resetState: true });
     this.instanceTask.cancelAll({ resetState: true });
     this.feedbackTask.cancelAll({ resetState: true });
 
@@ -40,58 +35,28 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   additionalForms: computed("instance.meta.permissions", function() {
     const permissions = this.getWithDefault("instance.meta.permissions", {});
 
-    return ["sb1", "sb2"].filter(form =>
+    return ["nfd", "sb1", "sb2"].filter(form =>
       getWithDefault(permissions, form, []).includes("read")
     );
   }),
 
-  mainForm: reads("mainFormTask.lastSuccessful.value"),
-  mainFormTask: task(function*() {
-    const [document] = (yield this.apollo.query(
-      {
-        query: getDocumentQuery,
-        fetchPolicy: "cache-first",
-        variables: { instanceId: this.model }
-      },
-      "allDocuments.edges"
-    ))
-      .map(edge => edge.node)
-      .filter(doc => get(doc, "form.meta.is-main-form"));
-
-    assert("Document for main form not found", document);
-
-    return document.form;
-  }).drop(),
-
   instance: reads("instanceTask.lastSuccessful.value"),
   instanceTask: task(function*() {
-    const groupParam = this.group ? "&group=" + this.group : "";
-    const response = yield this.fetch.fetch(
-      `/api/v1/instances/${this.model}?include=instance_state${groupParam}`
-    );
+    const instance = yield this.store.findRecord("instance", this.model, {
+      include: "instance_state"
+    });
 
-    const { included, data: instance } = yield response.json();
+    yield instance.getDocuments.perform();
 
-    return {
-      ...instance.attributes,
-      id: instance.id,
-      meta: instance.meta,
-      state: included.find(
-        obj =>
-          obj.type === "instance-states" &&
-          obj.id === instance.relationships["instance-state"].data.id
-      )
-    };
+    return instance;
   }).drop(),
 
   feedback: reads("feedbackTask.lastSuccessful.value"),
   feedbackTask: task(function*() {
-    const response = yield this.fetch.fetch(
-      `/api/v1/attachments?attachment_sections=${FEEDBACK_ATTACHMENT_SECTION}&instance=${this.model}`
-    );
-
-    const { data } = yield response.json();
-
-    return data;
+    return yield this.store.query("attachment", {
+      instance: this.model,
+      attachment_sections: FEEDBACK_ATTACHMENT_SECTION,
+      include: "attachment_sections"
+    });
   }).drop()
 });

@@ -248,6 +248,7 @@ def test_instance_submit(
                                     "meta": {"camac-instance-id": instance.pk},
                                     "form": {
                                         "slug": "vorabklaerung-einfach",
+                                        "name": "Baugesuch",
                                         "meta": {"is-main-form": True},
                                     },
                                     "answers": {
@@ -350,7 +351,7 @@ def test_instance_report(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb1"},
+                                    "form": {"slug": "sb1", "name": "Baugesuch"},
                                 }
                             }
                         ]
@@ -419,7 +420,7 @@ def test_instance_finalize(
                                 "node": {
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb2"},
+                                    "form": {"slug": "sb2", "name": "Baugesuch"},
                                 }
                             }
                         ]
@@ -444,3 +445,160 @@ def test_instance_finalize(
 
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
+
+
+@pytest.mark.parametrize(
+    "instance_state__name,instance__user,new_instance_state_name",
+    [("subm", LazyFixture("admin_user"), "nfd")],
+)
+@pytest.mark.parametrize(
+    "role_t__name,graphql_response,expected_status",
+    [
+        ("Applicant", json.dumps({}), status.HTTP_403_FORBIDDEN),
+        (
+            "Municipality",
+            json.dumps(
+                {
+                    "data": {
+                        "allDocuments": {
+                            "edges": [
+                                {
+                                    "node": {
+                                        "id": "somedocid",
+                                        "form": {"slug": "nfd"},
+                                        "answers": {
+                                            "edges": [
+                                                {
+                                                    "node": {
+                                                        "id": "someanswerid",
+                                                        "question": {
+                                                            "slug": "nfd-tabelle-table"
+                                                        },
+                                                        "value": [
+                                                            {"id": "sometabledocid"}
+                                                        ],
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ),
+            status.HTTP_200_OK,
+        ),
+        (
+            "Municipality",
+            json.dumps({"data": {"allDocuments": {"edges": []}}}),
+            status.HTTP_400_BAD_REQUEST,
+        ),
+        (
+            "Municipality",
+            json.dumps(
+                {
+                    "data": {
+                        "allDocuments": {
+                            "edges": [
+                                {
+                                    "node": {
+                                        "id": "somedocid",
+                                        "form": {"slug": "nfd"},
+                                        "answers": {
+                                            "edges": [
+                                                {
+                                                    "node": {
+                                                        "id": "someanswerid",
+                                                        "question": {
+                                                            "slug": "nfd-tabelle-table"
+                                                        },
+                                                        "value": [],
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ),
+            status.HTTP_400_BAD_REQUEST,
+        ),
+    ],
+)
+def test_instance_start_claim(
+    requests_mock,
+    admin_client,
+    instance,
+    instance_state_factory,
+    graphql_response,
+    expected_status,
+    new_instance_state_name,
+    notification_template,
+    application_settings,
+    admin_user,
+    use_caluma_form,
+    multilang,
+):
+    application_settings["NOTIFICATIONS"]["START_CLAIM"] = [
+        {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
+    ]
+
+    requests_mock.post("http://caluma:8000/graphql/", text=graphql_response)
+
+    instance_state_factory(name=new_instance_state_name)
+
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+
+    response = admin_client.post(reverse("instance-start-claim", args=[instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        assert len(mail.outbox) == 1
+
+
+@pytest.mark.parametrize(
+    "graphql_response", [(json.dumps({"data": {"allForms": {"edges": []}}}))]
+)
+@pytest.mark.parametrize(
+    "instance_state__name,instance__user,expected_status",
+    [
+        ("nfd", LazyFixture("admin_user"), status.HTTP_200_OK),
+        ("subm", LazyFixture("admin_user"), status.HTTP_403_FORBIDDEN),
+    ],
+)
+@pytest.mark.parametrize(
+    "role_t__name,expected_notification_count", [("Applicant", 1), ("Municipality", 0)]
+)
+def test_instance_end_claim(
+    admin_client,
+    instance,
+    requests_mock,
+    graphql_response,
+    expected_status,
+    expected_notification_count,
+    notification_template,
+    application_settings,
+    admin_user,
+    use_caluma_form,
+    multilang,
+):
+    application_settings["NOTIFICATIONS"]["END_CLAIM"] = [
+        {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
+    ]
+
+    requests_mock.post("http://caluma:8000/graphql/", text=graphql_response)
+
+    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
+
+    response = admin_client.post(reverse("instance-end-claim", args=[instance.pk]))
+
+    assert response.status_code == expected_status
+
+    if expected_status == status.HTTP_200_OK:
+        assert len(mail.outbox) == expected_notification_count

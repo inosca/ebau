@@ -27,6 +27,8 @@ SECRET_KEY = env.str("DJANGO_SECRET_KEY", default=default("uuuuuuuuuu"))
 DEBUG = env.bool("DJANGO_DEBUG", default=default(True, False))
 ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=default(["*"]))
 
+DEMO_MODE = env.bool("DEMO_MODE", default=False)
+
 # Apache swallows info about HTTPS request, leading to issues with FileFields
 # See https://docs.djangoproject.com/en/2.2/ref/settings/#secure-proxy-ssl-header
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -150,16 +152,36 @@ APPLICATIONS = {
             "FINALIZE": [
                 {"template_id": 37, "recipient_types": ["construction_control"]}
             ],
+            "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
+            "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "INSTANCE_USER_FIELD": "involved_applicants__invitee",
-        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2"]},
+        "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
+        "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
+
+# Instance URL templates. Allows to use the following placeholders
+# which will be substituted on the fly:
+# * {base_url} - base URL of the installation. Note if you
+#                intend to send out notifications from cron
+#                jobs or similar, you cannot use this placeholder
+# * {instance_id} - Identifier of the instance in question
+INSTANCE_URL_TEMPLATE = {
+    "PUBLIC": env.str(
+        "PUBLIC_INSTANCE_URL_TEMPLATE",
+        default="http://caluma-portal.local/instances/{instance_id}",
+    ),
+    "INTERNAL": env.str(
+        "INTERNAL_INSTANCE_URL_TEMPLATE",
+        default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
+    ),
+}
 
 # Logging
 

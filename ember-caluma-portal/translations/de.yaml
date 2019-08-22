@@ -12,6 +12,9 @@ nav:
   support: "Support"
   logout: "Ausloggen"
   applicants: "Berechtigungen"
+  language: "Sprache"
+  de: "Deutsch"
+  fr: "Französisch"
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
@@ -178,8 +181,10 @@ instances:
     finished: "Abgeschlossen"
     rejected: "Zurückgewiesen"
     corrected: "Korrigiert von Leitbehörde"
+    claim: "Nachforderungen"
 
   forms:
+    nfd: "Nachforderungen"
     sb1: "Selbstdeklaration 1"
     sb2: "Selbstdeklaration 2"
 
@@ -196,8 +201,6 @@ instances:
 
     addSuccess: "Der Benutzer wurde erfolgreich hinzugefügt"
     addError: "Beim Hinzufügen des Benutzers ist etwas schief gelaufen"
-    addDoesNotExist: "Es existiert kein Benutzer mit der E-Mail '{email}'"
-    addHasAccess: "Der Benutzer mit der E-Mail '{email}' hat bereits Zugriff"
     deleteSuccess: "Der Benutzer wurde erfolgreich gelöscht"
     deleteError: "Beim Löschen des Benutzers ist etwas schief gelaufen"
 

@@ -144,7 +144,6 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
 
   reset() {
     this.fetchData.cancelAll({ resetState: true });
-    this.getInstances.cancelAll({ resetState: true });
 
     this.resetQueryParams();
   },
@@ -161,18 +160,6 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
       { query: getMunicipalitiesQuery },
       "allQuestions.edges.firstObject.node.options.edges"
     )).map(({ node }) => node);
-  }),
-
-  getInstances: task(function*(ids) {
-    if (isEmpty(ids)) return [];
-
-    const response = yield this.fetch.fetch(
-      `/api/v1/instances?ids=${ids.join(",")}`
-    );
-
-    const { data } = yield response.json();
-
-    return data;
   }),
 
   pageInfo: reads("fetchData.lastSuccessful.value.pageInfo"),
@@ -198,15 +185,17 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
       const rawDocuments = raw.edges.map(({ node }) => node);
 
       const municipalities = yield this.getMunicipalities.last;
-      const instances = yield this.getInstances.perform(
-        rawDocuments.map(({ meta }) => meta["camac-instance-id"])
-      );
+
+      yield this.store.query("instance", {
+        instance_id: rawDocuments.map(({ meta }) => meta["camac-instance-id"])
+      });
 
       const documents = rawDocuments.map(raw => {
         return Document.create(getOwner(this).ownerInjection(), {
           raw,
-          instance: instances.find(
-            ({ id }) => parseInt(id) === parseInt(raw.meta["camac-instance-id"])
+          instance: this.store.peekRecord(
+            "instance",
+            raw.meta["camac-instance-id"]
           ),
           municipalities
         });
