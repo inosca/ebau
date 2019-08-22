@@ -1,0 +1,15 @@
+query GetDocument($instanceId: GenericScalar!) {
+  allDocuments(metaValue: [{ key: "camac-instance-id", value: $instanceId }]) {
+    edges {
+      node {
+        id
+        meta
+        form {
+          slug
+          name
+          meta
+        }
+      }
+    }
+  }
+}

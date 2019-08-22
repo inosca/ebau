@@ -9,53 +9,31 @@ from .data import django_file
 
 
 @pytest.mark.parametrize(
-    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
-)
-@pytest.mark.parametrize(
-    "instance_state__name,attachment__path,attachment__service,attachment_section_group_acl__mode,status_code",
+    "instance__user,attachment__path,attachment__service,attachment_section_group_acl__mode",
     [
         (
-            "new",
+            LazyFixture("admin_user"),
             django_file("test-thumbnail.jpg"),
             LazyFixture(lambda service_factory: service_factory()),
             models.ADMIN_PERMISSION,
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "rejected",
-            django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "correction",
-            django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_403_FORBIDDEN,
-        ),
-        (
-            "sb1",
-            django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "sb2",
-            django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_204_NO_CONTENT,
-        ),
-        (
-            "conclusion",
-            django_file("test-thumbnail.jpg"),
-            LazyFixture(lambda service_factory: service_factory()),
-            models.ADMIN_PERMISSION,
-            status.HTTP_403_FORBIDDEN,
-        ),
+        )
+    ],
+)
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,status_code",
+    [
+        ("Applicant", "new", status.HTTP_204_NO_CONTENT),
+        ("Applicant", "rejected", status.HTTP_403_FORBIDDEN),
+        ("Applicant", "correction", status.HTTP_403_FORBIDDEN),
+        ("Applicant", "sb1", status.HTTP_204_NO_CONTENT),
+        ("Applicant", "sb2", status.HTTP_204_NO_CONTENT),
+        ("Applicant", "conclusion", status.HTTP_403_FORBIDDEN),
+        ("Support", "new", status.HTTP_204_NO_CONTENT),
+        ("Support", "rejected", status.HTTP_204_NO_CONTENT),
+        ("Support", "correction", status.HTTP_204_NO_CONTENT),
+        ("Support", "sb1", status.HTTP_204_NO_CONTENT),
+        ("Support", "sb2", status.HTTP_204_NO_CONTENT),
+        ("Support", "conclusion", status.HTTP_204_NO_CONTENT),
     ],
 )
 def test_attachment_delete(

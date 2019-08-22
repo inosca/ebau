@@ -30,6 +30,7 @@ class InstanceFilterSet(FilterSet):
     creation_date_after = DateFilter(
         field_name="creation_date__date", lookup_expr="gte"
     )
+    tags = CharMultiValueFilter(field_name="tags__name", lookup_expr="all")
     creation_date_before = DateFilter(
         field_name="creation_date__date", lookup_expr="lte"
     )
@@ -40,6 +41,9 @@ class InstanceFilterSet(FilterSet):
     )
     responsible_service_user = ResponsibleUserFilter(
         field_name="responsible_services__responsible_user"
+    )
+    circulation_state = NumberFilter(
+        field_name="circulations__activations__circulation_state_id"
     )
 
     class Meta:
