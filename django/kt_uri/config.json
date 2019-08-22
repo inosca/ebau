@@ -21007,6 +21007,14 @@
   },
   {
     "fields": {
+      "description": "Alle Dossiers bei welchen eine Form von Publikation m\u00f6glich ist",
+      "name": "Alle Dossiers mit Publikation"
+    },
+    "model": "core.formgroup",
+    "pk": 257
+  },
+  {
+    "fields": {
       "form": 41,
       "form_group": 244
     },
@@ -23367,6 +23375,54 @@
   },
   {
     "fields": {
+      "form": 104,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 309
+  },
+  {
+    "fields": {
+      "form": 106,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 310
+  },
+  {
+    "fields": {
+      "form": 108,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 311
+  },
+  {
+    "fields": {
+      "form": 101,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 312
+  },
+  {
+    "fields": {
+      "form": 44,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 313
+  },
+  {
+    "fields": {
+      "form": 47,
+      "form_group": 257
+    },
+    "model": "core.formgroupform",
+    "pk": 314
+  },
+  {
+    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -23920,14 +23976,14 @@
   {
     "fields": {
       "available_instance_resource": "publication",
-      "class_field": "",
-      "description": "",
-      "form_group": 182,
+      "class_field": null,
+      "description": null,
+      "form_group": 257,
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
       "sort": 11,
-      "template": ""
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 265
