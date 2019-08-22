@@ -1305,6 +1305,20 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 120001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 130002
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -2409,6 +2423,18 @@
   },
   {
     "fields": {
+      "action": 130002,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Go to state 5 (circulation initialization)",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 130002
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20004
     },
@@ -2566,6 +2592,14 @@
     },
     "model": "core.aformtransition",
     "pk": 120002
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20003
+    },
+    "model": "core.aformtransition",
+    "pk": 130002
   },
   {
     "fields": {
@@ -30468,6 +30502,15 @@
   },
   {
     "fields": {
+      "button": 120001,
+      "instance_state": 20006,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 120001
+  },
+  {
+    "fields": {
       "class_field": "success",
       "description": null,
       "hidden": 0,
@@ -30540,7 +30583,7 @@
   },
   {
     "fields": {
-      "class_field": "btn buttonstyle leitung_only",
+      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
@@ -30576,7 +30619,7 @@
   },
   {
     "fields": {
-      "class_field": "btn buttonstyle success",
+      "class_field": "btn buttonstyle success active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
@@ -30936,7 +30979,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "leitung_only active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
@@ -31005,6 +31048,18 @@
     },
     "model": "core.button",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "class_field": "active_leitbehoerde_only no-validation vorabklaerung_only",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 40008,
+      "name": null,
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 120001
   },
   {
     "fields": {
@@ -31455,6 +31510,16 @@
     },
     "model": "core.buttont",
     "pk": 120000
+  },
+  {
+    "fields": {
+      "button": 120001,
+      "description": null,
+      "language": "de",
+      "name": "Pr\u00fcfung \u00fcberspringen"
+    },
+    "model": "core.buttont",
+    "pk": 120001
   },
   {
     "fields": {
