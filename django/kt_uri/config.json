@@ -38896,8 +38896,8 @@
   {
     "fields": {
       "key": "duration",
-      "value": "20 Tage",
-      "type": 1
+      "type": 1,
+      "value": "20 Tage"
     },
     "model": "core.publicationsetting",
     "pk": 2
@@ -38905,8 +38905,8 @@
   {
     "fields": {
       "key": "fromEmail",
-      "value": "camac@ur.ch",
-      "type": 1
+      "type": 1,
+      "value": "camac@ur.ch"
     },
     "model": "core.publicationsetting",
     "pk": 3
@@ -38914,8 +38914,8 @@
   {
     "fields": {
       "key": "text",
-	"value": "Gemeindebaubeh\u00f6rde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nMeldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\"\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]\r\nzu publizieren:\r\n\r\n[@community]\r\n\r\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@c21q93i1]\r\nParzelle: [@c21q91i1]\r\nBemerkungen: [@note]\r\n\r\n\r\n\r\n\r\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\nGemeindebaubeh\u00f6rde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n",
-      "type": 1
+      "type": 1,
+      "value": "Gemeindebaubeh\u00f6rde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nMeldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\"\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]\r\nzu publizieren:\r\n\r\n[@community]\r\n\r\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@c21q93i1]\r\nParzelle: [@c21q91i1]\r\nBemerkungen: [@note]\r\n\r\n\r\n\r\n\r\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\nGemeindebaubeh\u00f6rde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n"
     },
     "model": "core.publicationsetting",
     "pk": 4
@@ -38923,8 +38923,8 @@
   {
     "fields": {
       "key": "toEmail",
-      "value": "amtsblatt@ur.ch",
-      "type": 1
+      "type": 1,
+      "value": "amtsblatt@ur.ch"
     },
     "model": "core.publicationsetting",
     "pk": 5
@@ -38932,8 +38932,8 @@
   {
     "fields": {
       "key": "stopText",
-      "value": "Gemeindebaubeh\u00f6rde [@authority]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung einer Bauplanauflage\n\nSehr geehrte Damen und Herren\n\nVia CAMAC haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\n\n[@community]\n\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\nBauvorhaben: [@intent]\nBauplatz: [@c21q93i1]\nParzelle: [@c21q91i1]\nBemerkungen: [@note]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\nGemeindebaubeh\u00f6rde [@authority]\n\n\n[@zip] [@location], [@date]\n",
-      "type": 1
+      "type": 1,
+      "value": "Gemeindebaubeh\u00f6rde [@authority]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung einer Bauplanauflage\n\nSehr geehrte Damen und Herren\n\nVia CAMAC haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\n\n[@community]\n\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\nBauvorhaben: [@intent]\nBauplatz: [@c21q93i1]\nParzelle: [@c21q91i1]\nBemerkungen: [@note]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\nGemeindebaubeh\u00f6rde [@authority]\n\n\n[@zip] [@location], [@date]\n"
     },
     "model": "core.publicationsetting",
     "pk": 6
@@ -38941,8 +38941,8 @@
   {
     "fields": {
       "key": "duration",
-      "value": "30 Tage",
-      "type": 2
+      "type": 2,
+      "value": "30 Tage"
     },
     "model": "core.publicationsetting",
     "pk": 7
@@ -38950,8 +38950,8 @@
   {
     "fields": {
       "key": "fromEmail",
-      "value": "camac@ur.ch",
-      "type": 2
+      "type": 2,
+      "value": "camac@ur.ch"
     },
     "model": "core.publicationsetting",
     "pk": 8
@@ -38959,8 +38959,8 @@
   {
     "fields": {
       "key": "text",
-      "value": "TBD",
-      "type": 2
+      "type": 2,
+      "value": "TBD"
     },
     "model": "core.publicationsetting",
     "pk": 9
@@ -38968,8 +38968,8 @@
   {
     "fields": {
       "key": "toEmail",
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
-      "type": 2
+      "type": 2,
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch"
     },
     "model": "core.publicationsetting",
     "pk": 10
@@ -38977,8 +38977,8 @@
   {
     "fields": {
       "key": "stopText",
-      "value": "TBD",
-      "type": 2
+      "type": 2,
+      "value": "TBD"
     },
     "model": "core.publicationsetting",
     "pk": 11
@@ -38986,8 +38986,8 @@
   {
     "fields": {
       "key": "duration",
-      "value": "30 Tage",
-      "type": 3
+      "type": 3,
+      "value": "30 Tage"
     },
     "model": "core.publicationsetting",
     "pk": 12
@@ -38995,8 +38995,8 @@
   {
     "fields": {
       "key": "fromEmail",
-      "value": "camac@ur.ch",
-      "type": 3
+      "type": 3,
+      "value": "camac@ur.ch"
     },
     "model": "core.publicationsetting",
     "pk": 13
@@ -39004,8 +39004,8 @@
   {
     "fields": {
       "key": "text",
-      "value": "TBD",
-      "type": 3
+      "type": 3,
+      "value": "TBD"
     },
     "model": "core.publicationsetting",
     "pk": 14
@@ -39013,8 +39013,8 @@
   {
     "fields": {
       "key": "toEmail",
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch",
-      "type": 3
+      "type": 3,
+      "value": "amtsblatt@ur.ch,oereb@lisag.ch"
     },
     "model": "core.publicationsetting",
     "pk": 15
@@ -39022,8 +39022,8 @@
   {
     "fields": {
       "key": "stopText",
-      "value": "TBD",
-      "type": 3
+      "type": 3,
+      "value": "TBD"
     },
     "model": "core.publicationsetting",
     "pk": 16
@@ -46127,6 +46127,16 @@
     },
     "model": "document.attachmentsection",
     "pk": 103
+  },
+  {
+    "fields": {
+      "name": "Bau- und Einsprache - Entscheid (Bewilligungsdokumente)",
+      "notification_template": null,
+      "recipient_types": null,
+      "sort": 0
+    },
+    "model": "document.attachmentsection",
+    "pk": 104
   },
   {
     "fields": {
