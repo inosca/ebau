@@ -16,6 +16,7 @@ def test_translate(db):
         item = next(
             (item for item in data if item["pk"] == "werden-siloanlagen-erstellt")
         )
+        untranslated_item = next((item for item in data if item["pk"] == "Test"))
 
         # reset file content
         file.seek(0)
@@ -25,3 +26,4 @@ def test_translate(db):
             json.loads(item["fields"]["label"])["de"] == "Werden Siloanlagen erstellt?"
         )
         assert json.loads(item["fields"]["label"])["fr"] == "Des silos sont-ils prévus?"
+        assert json.loads(untranslated_item["fields"]["label"])["de"] == "Test abc"
