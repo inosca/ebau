@@ -25,5 +25,32 @@
       "source": null,
       "format_validators": "[]"
     }
+  },
+  {
+    "model": "form.question",
+    "pk": "Test",
+    "fields": {
+      "created_at": "2019-03-28T09:48:48.699Z",
+      "modified_at": "2019-05-03T15:07:40.707Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "label": "{\"de\": \"Test abc\"}",
+      "type": "choice",
+      "is_required": "!('vorabklaerung' in form)",
+      "is_hidden": "!(\n  'nutzungsart-landwirtschaft' in 'nutzungsart'|answer\n)",
+      "is_archived": false,
+      "placeholder": "{\"de\": null}",
+      "info_text": "{\"de\": \"[Merkblatt Erstellung von Silanlagen und Lagerung von Silagen](http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/liegenschaftsentwaesserung.assetref/dam/documents/BVE/AWA/de/SWW_GE/Landwirtschaft/Merkblatt_Erstellung%20von%20Siloanlagen%20und%20Lagerung%20von%20Siloanlagen_d_2013_ae036.pdf)\"}",
+      "static_content": "{\"de\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": null
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
   }
 ]
