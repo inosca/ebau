@@ -5,10 +5,15 @@ from django.core.management.base import BaseCommand
 from camac.core.models import InstanceResourceT, ResourceT
 
 config = [
-    (ResourceT, "camac/core/csv_files/resource_t.csv", "resource_id", "Resources"),
+    (
+        ResourceT,
+        "camac/core/translation_files/resource_t.csv",
+        "resource_id",
+        "Resources",
+    ),
     (
         InstanceResourceT,
-        "camac/core/csv_files/instance_resource_t.csv",
+        "camac/core/translation_files/instance_resource_t.csv",
         "instance_resource_id",
         "Instance Resources",
     ),
