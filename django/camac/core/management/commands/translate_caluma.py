@@ -23,6 +23,7 @@ sources = [
     "camac/core/translation_files/page_form_group_t.csv",
     "camac/core/translation_files/page_t.csv",
     "camac/core/translation_files/role_t.csv",
+    "camac/core/translation_files/missing_translations.csv",
 ]
 properties = [("question", "label"), ("form", "name"), ("option", "label")]
 
@@ -96,10 +97,3 @@ class Command(BaseCommand):
                 json.dump(data, file, ensure_ascii=False)
 
         self.stdout.write(f"Missing {len(set(misses))} translations: {set(misses)}")
-
-        with open("missing_translations.csv", mode="w") as csv_file:
-            writer = csv.writer(
-                csv_file, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL
-            )
-            for translation in set(misses):
-                writer.writerow([translation])
