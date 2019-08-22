@@ -8816,6 +8816,22 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": "Sachbearbeiter",
+      "question_type": 1,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 5
+  },
+  {
+    "fields": {
       "chapter": 1,
       "item": 1,
       "question": 2,
@@ -8846,6 +8862,17 @@
     },
     "model": "core.questionchapter",
     "pk": 3
+  },
+  {
+    "fields": {
+      "chapter": 1,
+      "item": 1,
+      "question": 5,
+      "required": 0,
+      "sort": 3
+    },
+    "model": "core.questionchapter",
+    "pk": 4
   },
   {
     "fields": {
