@@ -5,13 +5,15 @@ import { computed } from "@ember/object";
 import { reads, filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
 import { all } from "rsvp";
-import { ComponentQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 import { assert } from "@ember/debug";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
-export default Component.extend(ComponentQueryManager, {
+export default Component.extend({
+  apollo: queryManager(),
+
   intl: service(),
   fetch: service(),
   notification: service(),
