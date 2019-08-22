@@ -103,7 +103,7 @@
           <td>{{document.municipality}}</td>
           <td class="uk-text-truncate" title={{document.address}}>{{document.address}}</td>
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
-          <td>{{t (concat "instances.status." document.status)}}</td>
+          <td>{{document.status}}</td>
           <td class="uk-text-truncate" title={{document.description}}>{{document.description}}</td>
         </tr>
       {{/each}}

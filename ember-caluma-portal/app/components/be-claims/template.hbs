@@ -1,0 +1,20 @@
+<table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+  <thead>
+    <tr>
+      {{#each columns as |node|}}
+        <th>{{node.label}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each field.answer.value as |document|}}
+      <tr>
+        {{#each document.fields as |answerField|}}
+          {{#if (contains answerField.answer.question.slug displayedColumns)}}
+            <td>{{cf-field-value field=answerField}}</td>
+          {{/if}}
+        {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

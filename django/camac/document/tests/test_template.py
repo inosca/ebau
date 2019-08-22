@@ -156,6 +156,7 @@ def test_template_merge(
     notice_factory,
     notice_type_factory,
     snapshot,
+    settings,
 ):
     notice_type_application = notice_type_factory(name="Antrag")
     notice_type_terms = notice_type_factory(name="Auflagen")

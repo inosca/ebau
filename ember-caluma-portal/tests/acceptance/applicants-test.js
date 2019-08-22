@@ -3,10 +3,12 @@ import { visit, fillIn, click } from "@ember/test-helpers";
 import { setupApplicationTest } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
+import { setupIntl } from "ember-intl/test-support";
 
 module("Acceptance | applicants", function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
+  setupIntl(hooks);
 
   hooks.beforeEach(async function() {
     // camac data

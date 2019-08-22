@@ -64,16 +64,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
 
         return queryset.distinct()
 
-    def has_object_destroy_permission(self, obj):
-        form_backend = settings.APPLICATION.get("FORM_BACKEND")
-        state = obj.instance.instance_state.name
-
-        if form_backend == "caluma" and state in ["rejected", "correction"]:
-            # for the states "rejected" and "correction" the permission layer
-            # may allow creating and updating, however we don't want to allow
-            # deleting in those states
-            return False
-
+    def has_object_destroy_base_permission(self, obj):
         section_modes = {
             attachment_section.get_mode(self.request.group)
             for attachment_section in obj.attachment_sections.all()
@@ -92,6 +83,22 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return bool(
             attachment_admin_permissions
         ) and super().has_object_destroy_permission(obj)
+
+    @permission_aware
+    def has_object_destroy_permission(self, obj):
+        form_backend = settings.APPLICATION.get("FORM_BACKEND")
+        state = obj.instance.instance_state.name
+
+        if form_backend == "caluma" and state in ["rejected", "correction"]:
+            # for the states "rejected" and "correction" the permission layer
+            # may allow creating and updating, however we don't want to allow
+            # deleting in those states
+            return False
+
+        return self.has_object_destroy_base_permission(obj)
+
+    def has_object_destroy_permission_for_support(self, obj):
+        return self.has_object_destroy_base_permission(obj)
 
     def perform_destroy(self, instance):
         """Delete image cache before deleting attachment."""

@@ -83,6 +83,8 @@ class InstanceView(
                 "submit": serializers.CalumaInstanceSubmitSerializer,
                 "report": serializers.CalumaInstanceReportSerializer,
                 "finalize": serializers.CalumaInstanceFinalizeSerializer,
+                "start_claim": serializers.CalumaInstanceStartClaimSerializer,
+                "end_claim": serializers.CalumaInstanceEndClaimSerializer,
                 "default": serializers.CalumaInstanceSerializer,
             },
             "camac-ng": {
@@ -122,6 +124,16 @@ class InstanceView(
         return (
             instance.user == self.request.user and instance.instance_state.name == "sb2"
         )
+
+    @permission_aware
+    def has_object_start_claim_permission(self, instance):
+        return False
+
+    def has_object_start_claim_permission_for_municipality(self, instance):
+        return True
+
+    def has_object_end_claim_permission(self, instance):
+        return instance.instance_state.name == "nfd"
 
     @action(methods=["get"], detail=False)
     def export(self, request):
@@ -231,28 +243,31 @@ class InstanceView(
 
         return response.Response(data=serializer.data)
 
-    def _submit_caluma(self, request, pk=None):
+    def _custom_serializer_action(self, request, pk=None):
         serializer = self.get_serializer(self.get_object(), data={}, partial=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
         return response.Response(data=serializer.data)
+
+    def _submit_caluma(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
 
     @action(methods=["post"], detail=True)
     def report(self, request, pk=None):
-        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return response.Response(data=serializer.data)
+        return self._custom_serializer_action(request, pk)
 
     @action(methods=["post"], detail=True)
     def finalize(self, request, pk=None):
-        serializer = self.get_serializer(self.get_object(), data={}, partial=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
+        return self._custom_serializer_action(request, pk)
 
-        return response.Response(data=serializer.data)
+    @action(methods=["post"], detail=True, url_path="start-claim")
+    def start_claim(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
+
+    @action(methods=["post"], detail=True, url_path="end-claim")
+    def end_claim(self, request, pk=None):
+        return self._custom_serializer_action(request, pk)
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
