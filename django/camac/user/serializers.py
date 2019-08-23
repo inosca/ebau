@@ -73,6 +73,13 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ("name", "communal_federal_number")
 
 
+class SchwyzServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Service
+        fields = ("name", "email", "notification")
+        read_only_fields = ("name",)
+
+
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
     email = serializers.SerializerMethodField()
     notification = serializers.SerializerMethodField()
