@@ -609,20 +609,6 @@
   },
   {
     "fields": {
-      "available_action": "docx",
-      "button": 293,
-      "description": "",
-      "error_message": "",
-      "execute_always": 0,
-      "name": "Publikation generieren",
-      "sort": 0,
-      "success_message": ""
-    },
-    "model": "core.action",
-    "pk": 481
-  },
-  {
-    "fields": {
       "available_action": "save",
       "button": 304,
       "description": "Etwas speichern",
@@ -12984,24 +12970,6 @@
   },
   {
     "fields": {
-      "button": 293,
-      "instance_state": 1,
-      "role": 6
-    },
-    "model": "core.broleacl",
-    "pk": 63
-  },
-  {
-    "fields": {
-      "button": 293,
-      "instance_state": 21,
-      "role": 6
-    },
-    "model": "core.broleacl",
-    "pk": 64
-  },
-  {
-    "fields": {
       "button": 304,
       "instance_state": 23,
       "role": 4
@@ -17724,18 +17692,6 @@
   },
   {
     "fields": {
-      "class_field": "downloady",
-      "description": "",
-      "hidden": 1,
-      "instance_resource": 265,
-      "name": "Drucken",
-      "sort": 0
-    },
-    "model": "core.button",
-    "pk": 293
-  },
-  {
-    "fields": {
       "class_field": "circ_save_button",
       "description": "Antwort speichern Button",
       "hidden": 0,
@@ -20232,15 +20188,6 @@
   },
   {
     "fields": {
-      "action": 481,
-      "docgen_template": 141,
-      "docgen_template_class": 142
-    },
-    "model": "core.docgendocxaction",
-    "pk": 1295
-  },
-  {
-    "fields": {
       "action": 998,
       "docgen_template": 204,
       "docgen_template_class": 208
@@ -20511,8 +20458,8 @@
   },
   {
     "fields": {
-      "name": "Publikation",
-      "path": "publish_print.docx",
+      "name": "Publikation BG",
+      "path": "publish_print_bg.docx",
       "type": 1.0
     },
     "model": "core.docgentemplate",
@@ -20706,6 +20653,24 @@
     },
     "model": "core.docgentemplate",
     "pk": 220
+  },
+  {
+    "fields": {
+      "name": "Publikation NP",
+      "path": "publish_print_np.docx",
+      "type": 1.0
+    },
+    "model": "core.docgentemplate",
+    "pk": 221
+  },
+  {
+    "fields": {
+      "name": "Publikation SNP",
+      "path": "publish_print_snp.docx",
+      "type": 1.0
+    },
+    "model": "core.docgentemplate",
+    "pk": 222
   },
   {
     "fields": {
