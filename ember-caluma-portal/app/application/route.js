@@ -4,8 +4,7 @@ import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
 import config from "../config/environment";
 
-const DEFAULT_LANGUAGE = "de";
-const { languages } = config;
+const { languages, fallbackLanguage } = config;
 
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
@@ -34,12 +33,15 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     return (
       this.getLocalStorageLanguage() ||
       this.getBrowserLanguage() ||
-      DEFAULT_LANGUAGE
+      fallbackLanguage
     );
   },
 
   beforeModel(transition) {
-    this.intl.setLocale(this.getLanguage(transition.to.queryParams.language));
+    this.intl.setLocale([
+      this.getLanguage(transition.to.queryParams.language),
+      fallbackLanguage
+    ]);
 
     if (window.top !== window) {
       getOwner(this)
