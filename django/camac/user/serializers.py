@@ -73,40 +73,15 @@ class LocationSerializer(serializers.ModelSerializer):
         fields = ("name", "communal_federal_number")
 
 
-class SchwyzServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = models.Service
-        fields = ("name", "email", "notification")
-        read_only_fields = ("name",)
-
-
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    email = serializers.SerializerMethodField()
-    notification = serializers.SerializerMethodField()
-
-    def _has_full_read_permission(self, service):
-        """
-        Check whether the user of the request is allowed to read all properties.
-
-        The user should only be able to read all properties if he belongs to
-        a group which has access to the requested service.
-        """
-        request = self.context["request"]
-
-        if not hasattr(request, "user_services"):
-            request.user_services = request.user.groups.values_list(
-                "service", flat=True
-            )
-
-        return service.pk in request.user_services
-
-    def get_email(self, service):
-        return service.email if self._has_full_read_permission(service) else None
-
-    def get_notification(self, service):
-        return service.notification if self._has_full_read_permission(service) else None
-
     class Meta:
         model = models.Service
         fields = ("name", "email", "notification")
         read_only_fields = ("name",)
+
+
+class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Service
+        fields = ("name",)
+        resource_name = "public-service"
