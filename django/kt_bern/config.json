@@ -38207,7 +38207,7 @@
       "class_field": null,
       "description": null,
       "form_group": 40000,
-      "hidden": 0,
+      "hidden": 1,
       "name": null,
       "resource": 20006,
       "sort": 38,
