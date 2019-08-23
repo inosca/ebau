@@ -3,7 +3,7 @@
     <div>
       {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
         <div class="uk-width-1-1">
-          <img src="/assets/images/logo-ebau-bern-1.svg" alt={{t "global.title"}} class="uk-image-responsive">
+          <img src="/assets/images/logo-ebau-bern-1-{{intl.primaryLocale}}.svg" alt={{t "global.title"}} class="uk-image-responsive">
         </div>
       {{/link-to}}
       {{#if (not-eq environment "production")}}
@@ -32,7 +32,7 @@
           <ul class="uk-list">
             {{#each languages as |language|}}
               <li>
-                <a href="#" class="uk-link-muted" {{action "setLanguage" language}}>
+                <a href="#" class="uk-link-muted {{eq language intl.primaryLocale "uk-active"}}" {{action "setLanguage" language}}>
                   {{t (concat "nav." language)}}
                 </a>
               </li>
