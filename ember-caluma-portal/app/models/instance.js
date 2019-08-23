@@ -4,12 +4,14 @@ import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { dropTask } from "ember-concurrency-decorators";
 import { decodeId } from "ember-caluma/helpers/decode-id";
-import { ObjectQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 
 import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
 import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
 
-export default class Instance extends Model.extend(ObjectQueryManager) {
+export default class Instance extends Model {
+  @queryManager apollo;
+
   @service intl;
   @service calumaStore;
 
