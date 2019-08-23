@@ -2,7 +2,18 @@ import csv
 
 from django.core.management.base import BaseCommand
 
-from camac.core.models import InstanceResourceT, ResourceT
+from camac.core.models import (
+    AnswerListT,
+    ButtonT,
+    ChapterT,
+    CirculationAnswerT,
+    InstanceResourceT,
+    NoticeTypeT,
+    PageFormGroupT,
+    PageT,
+    QuestionT,
+    ResourceT,
+)
 
 config = [
     (
@@ -16,6 +27,39 @@ config = [
         "camac/core/translation_files/instance_resource_t.csv",
         "instance_resource_id",
         "Instance Resources",
+    ),
+    (
+        QuestionT,
+        "camac/core/translation_files/question_t.csv",
+        "question_id",
+        "Questions",
+    ),
+    (
+        AnswerListT,
+        "camac/core/translation_files/answer_list_t.csv",
+        "answer_list_id",
+        "Answers",
+    ),
+    (PageT, "camac/core/translation_files/page_t.csv", "page_id", "Pages"),
+    (ButtonT, "camac/core/translation_files/button_t.csv", "button_id", "Buttons"),
+    (ChapterT, "camac/core/translation_files/chapter_t.csv", "chapter_id", "Chapters"),
+    (
+        CirculationAnswerT,
+        "camac/core/translation_files/circulation_answer_t.csv",
+        "circulation_answer_id",
+        "Circulation answers",
+    ),
+    (
+        NoticeTypeT,
+        "camac/core/translation_files/notice_type_t.csv",
+        "notice_type_id",
+        "Notice types",
+    ),
+    (
+        PageFormGroupT,
+        "camac/core/translation_files/page_form_group_t.csv",
+        "page_form_group_id",
+        "Page form groups",
     ),
 ]
 
