@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from rest_framework import generics, viewsets
 
@@ -39,6 +40,14 @@ class ServiceView(viewsets.ModelViewSet):
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
+
+    def get_serializer_class(self):
+        application_name = settings.APPLICATION_NAME
+
+        if application_name == "kt_schwyz":
+            return serializers.SchwyzServiceSerializer
+
+        return serializers.ServiceSerializer
 
     def get_queryset(self):
         return models.Service.objects.filter(disabled=False).prefetch_related("groups")

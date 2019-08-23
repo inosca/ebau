@@ -39,6 +39,21 @@ def test_service_update(admin_client, service, service_factory):
     assert response_foreign.status_code == status.HTTP_403_FORBIDDEN
 
 
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Municipality", status.HTTP_200_OK),
+        ("Canton", status.HTTP_200_OK),
+        ("Service", status.HTTP_200_OK),
+    ],
+)
+def test_schwyz_service_update(admin_client, settings, service, status_code):
+    settings.APPLICATION_NAME = "kt_schwyz"
+    url = reverse("service-detail", args=[service.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == status_code
+
+
 def test_service_delete(admin_client, service):
     url = reverse("service-detail", args=[service.pk])
     response = admin_client.delete(url)
