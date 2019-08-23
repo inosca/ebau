@@ -16,7 +16,7 @@ class Municipalities(BaseDataSource):
     @data_source_cache(timeout=3600)
     def get_data(self, info):
         response = requests.get(
-            f"{camac_api}/api/v1/services?has_parent=0&service_group={SERVICE_GROUP_MUNICIPALITY}",
+            f"{camac_api}/api/v1/public-services?has_parent=0&service_group={SERVICE_GROUP_MUNICIPALITY}",
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
 
@@ -37,7 +37,7 @@ class Services(BaseDataSource):
     @data_source_cache(timeout=3600)
     def get_data(self, info):
         response = requests.get(
-            f"{camac_api}/api/v1/services?service_group={SERVICE_GROUP_SERVICE}",
+            f"{camac_api}/api/v1/public-services?service_group={SERVICE_GROUP_SERVICE}",
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
 
