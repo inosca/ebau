@@ -136,3 +136,28 @@ def test_applicant_create(
 
     if response.status_code == status.HTTP_201_CREATED:
         assert response.json()["data"]["relationships"]["user"]
+
+
+@pytest.mark.parametrize("applicant__invitee", [LazyFixture("admin_user")])
+def test_applicant_create_multiple_users(admin_client, applicant, user_factory):
+    url = reverse("applicant-list")
+
+    user_factory(email="test@example.com")
+    user_factory(email="test@example.com")
+
+    response = admin_client.post(
+        url,
+        data={
+            "data": {
+                "type": "applicants",
+                "attributes": {"email": "test@example.com"},
+                "relationships": {
+                    "instance": {
+                        "data": {"id": applicant.instance.pk, "type": "instances"}
+                    }
+                },
+            }
+        },
+    )
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
