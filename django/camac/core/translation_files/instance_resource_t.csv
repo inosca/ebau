@@ -3,6 +3,7 @@ NAME,NAME_FR,INSTANCE_RESOURCE_ID
 "Allgemeine Informationen","Informations générales",20031
 "Allgemeine Informationen","Informations générales",20043
 "Allgemeine Informationen","Informations générales",110002
+"Allgemeine Informationen","Informations générales",110005
 "Allgemeine Informationen","Informations générales",110008
 Audit-Log,Audit-Log,10016
 Bauentscheid,"Décision de construction",20023
@@ -10,25 +11,43 @@ Bauwerk,Ouvrage,20024
 Bauwerk,Ouvrage,20026
 Bauwerk,Ouvrage,20034
 Bauwerk,Ouvrage,20046
+Bauwerk,Ouvrage,80010
 "Beilagen zum Gesuch","Annexes à la requête",10005
 "Beilagen zum Gesuch","Annexes à la requête",10006
+"Beilagen zum Gesuch","Annexes à la requête",80005
+Bestätigung,Attestation,40010
 "Beteiligte Behörden","Autorités concernées",10011
 "Beteiligte Behörden","Autorités concernées",10012
+"Create the instance","Create the instance",110015
+Dokumente,Documents,110012
 "Dossier ansehen","Consulter le dossier",1
+"Dossier erstellen","Créer le dossier",20000
 "Dossier zurückweisen","Renvoyer le dossier",20029
 Dossierprüfung,"Examen du dossier",20028
 Dossierprüfung,"Examen du dossier",40008
 "eBau-Nummer vergeben","Attribution d'un numéro eBau",20014
 "Eingegangene Stellungnahmen","Prises de position reçues",20010
 "Eingegangene Stellungnahmen","Prises de position reçues",20042
+Formular,Formulaire,20001
 Formular,Formulaire,20017
 Formular,Formulaire,20037
 Formular,Formulaire,20048
+Formular,Formulaire,40000
+Formular,Formulaire,40001
+Formular,Formulaire,40004
+Formular,Formulaire,40005
+Formular,Formulaire,80000
+Formular,Formulaire,80001
+"Formular (Änderungen)","Formulaire (modifications)",20013
+Freigabequittung,"Déclaration de validation",40006
+Freigabequittung,"Déclaration de validation",40007
 Gebühren,Emoluments,10000
 Gebühren,Emoluments,20016
+Gesuchsteller,Requérant/e/s,10004
 Grundstück,Immeuble,20033
 Grundstück,Immeuble,20045
 Grundstück,Immeuble,110004
+Grundstück,Immeuble,110007
 Grundstück,Immeuble,110010
 Intern,"Usage interne",10009
 Intern,"Usage interne",10010
@@ -40,15 +59,24 @@ Nachforderungen,"Demandes de complément d'information",20038
 Nachforderungen,"Demandes de complément d'information",20049
 Nachforderungen,"Demandes de complément d'information",80006
 Nachforderungen,"Demandes de complément d'information",110013
+Nachforderungen,"Demandes de complément d'information",110014
 "Nutzung Bauvorhaben","Affectation visée par le projet de construction",20032
 "Nutzung Bauvorhaben","Affectation visée par le projet de construction",20044
 "Nutzung Bauvorhaben","Affectation visée par le projet de construction",110003
+"Nutzung Bauvorhaben","Affectation visée par le projet de construction",110006
 "Nutzung Bauvorhaben","Affectation visée par le projet de construction",110009
+"Pdf Formular (Baugesuch and similar)","Formulaire au format pdf (demande de permis de construire et autres)",80003
+"Pdf Formular (Vorabklaerung Einfach)","Formulaire au format pdf (étude préalable simple)",110000
 Publikation,Publication,20012
+"Rückmeldung der Leitbehörde","Réponse de l'autorité directrice",20030
+Rückmeldungen,Préavis,10015
+"Rückmeldungen für Gesuchsteller","Commentaire destiné au requérant/à la requérante",10013
+Selbstdeklaration,"Déclaration spontanée",40009
 Spezialformulare,"Formulaires spéciaux",20025
 Spezialformulare,"Formulaires spéciaux",20027
 Spezialformulare,"Formulaires spéciaux",20035
 Spezialformulare,"Formulaires spéciaux",20047
+Spezialformulare,"Formulaires spéciaux",80011
 "Stellungnahme verfassen","Rédiger une prise de position",20008
 "Stellungnahme verfassen","Rédiger une prise de position",20039
 Stellungnahmen,"Prises de position",20006
@@ -61,6 +89,3 @@ Vorlagen,Modèles,20022
 Zirkulation,"Procédure de circulation",20004
 Zuständigkeit,Compétence,20019
 Zuständigkeit,Compétence,20020
-Vorlagen,Modèles,20075
-Dokumente,Documents,20068
-Formular,Formulaire,20074
