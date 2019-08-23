@@ -3178,6 +3178,7 @@ class PublicationEntry(models.Model):
         models.DO_NOTHING,
         db_column="PUBLICATION_TYPE_ID",
         related_name="+",
+        blank=True,
         null=True,
     )
 
@@ -3197,6 +3198,7 @@ class PublicationSetting(models.Model):
         models.DO_NOTHING,
         db_column="PUBLICATION_TYPE_ID",
         related_name="+",
+        blank=True,
         null=True,
     )
 
