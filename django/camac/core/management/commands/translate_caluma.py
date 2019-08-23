@@ -9,7 +9,7 @@ sources = [
     "camac/core/translation_files/file_content_t.csv",
     "camac/core/translation_files/form_t.csv",
     "camac/core/translation_files/answer_list_t.csv",
-    "camac/core/translation_files/instance_resources_t.csv",
+    "camac/core/translation_files/instance_resource_t.csv",
     "camac/core/translation_files/resource_t.csv",
     "camac/core/translation_files/file_complement_state_t.csv",
     "camac/core/translation_files/circulation_answer_t.csv",
