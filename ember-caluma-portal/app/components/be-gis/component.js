@@ -458,17 +458,14 @@ export default Component.extend(ComponentQueryManager, {
     const success = responses.every(response => response.ok);
 
     if (success) {
-      const data_raw = (yield all(
-        responses.map(response => response.json())
-      )).map(json => json.data);
+      const raw = yield all(
+        responses.map(res => res.json().then(({ data }) => data))
+      );
 
-      const data_gis = reduceArrayValues(data_raw);
-
-      FIELD_MAP.forEach(key => {
-        const field = this.field.document.findField(FIELD_MAP[key].path);
+      Object.entries(FIELD_MAP).forEach(([key, { path, values }]) => {
+        const field = this.field.document.findField(path);
         const type = field.question.__typename;
-        const values_map = FIELD_MAP[key].values;
-        let value = data_gis[key];
+        let value = reduceArrayValues(raw)[key];
         let valuePretty = value;
 
         if (value === undefined) {
@@ -476,13 +473,13 @@ export default Component.extend(ComponentQueryManager, {
         }
 
         if (type === "ChoiceQuestion") {
-          value = values_map[value];
+          value = values[value];
           valuePretty = field.question.choiceOptions.edges.find(
             edge => edge.node.slug === value
           ).node.label;
         } else if (type === "MultipleChoiceQuestion") {
           value = Array.isArray(value) ? value : [value];
-          value = value.map(val => values_map[val]);
+          value = value.map(val => values[val]);
           valuePretty = field.question.multipleChoiceOptions.edges
             .filter(edge => edge.node.slug.includes(value))
             .map(edge => edge.node.label);
