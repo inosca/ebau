@@ -24,22 +24,24 @@
           {{t "nav.support"}}
         </a>
       {{/link-to}}
-      <li>
-        <a href="#">
-          {{t "nav.language"}}
-        </a>
-        <div uk-drop="mode: hover;">
-          <ul class="uk-list">
-            {{#each languages as |language|}}
-              <li>
-                <a href="#" class="uk-link-muted {{eq language intl.primaryLocale "uk-active"}}" {{action "setLanguage" language}}>
-                  {{t (concat "nav." language)}}
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-      </li>
+      {{#if enableMultilang}}
+        <li>
+          <a href="#">
+            {{t "nav.language"}}
+          </a>
+          <div uk-drop="mode: hover;">
+            <ul class="uk-list">
+              {{#each languages as |language|}}
+                <li>
+                  <a href="#" class="uk-link-muted {{eq language intl.primaryLocale "uk-active"}}" {{action "setLanguage" language}}>
+                    {{t (concat "nav." language)}}
+                  </a>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      {{/if}}
       {{#link-to "logout" tagName="li" activeClass="uk-active"}}
         <a href="#">
           {{uk-icon "sign-out"}}
