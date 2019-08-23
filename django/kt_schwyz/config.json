@@ -2665,7 +2665,7 @@
     "fields": {
       "circulation_answer_type": 1,
       "circulation_type": 1,
-      "name": "Fachbereich nicht betroffen",
+      "name": "Fachbereich nicht betroffen / keine Bemerkungen",
       "sort": 0
     },
     "model": "core.circulationanswer",
