@@ -4,7 +4,7 @@ import { computed, getWithDefault } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
-import { ObjectQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
@@ -15,7 +15,9 @@ const queryParams = new QueryParams({
   }
 });
 
-export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
+export default Controller.extend(queryParams.Mixin, {
+  apollo: queryManager(),
+
   fetch: service(),
 
   setup() {
