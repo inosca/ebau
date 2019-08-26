@@ -3,54 +3,63 @@ from django.urls import reverse
 from rest_framework import status
 
 
-def find_service(id, data):
-    return next(filter(lambda i: int(i["id"]) == int(id), data))
+@pytest.mark.parametrize(
+    "role__name,size",
+    [("Applicant", 0), ("Service", 1), ("Canton", 1), ("Municipality", 1)],
+)
+def test_service_list(admin_client, service, size):
+    url = reverse("service-list")
 
-
-def test_service_list(admin_client, service, service_factory):
-    foreign_service = service_factory()
-
-    response = admin_client.get(reverse("service-list"))
-
+    response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
-
-    data = response.json()["data"]
-    assert len(data) == 2
-
-    assert find_service(service.pk, data)["attributes"]["email"] == service.email
-    assert find_service(foreign_service.pk, data)["attributes"]["email"] is None
-
-    assert find_service(foreign_service.pk, data)["attributes"]["notification"] is None
-    assert (
-        find_service(service.pk, data)["attributes"]["notification"]
-        == service.notification
-    )
+    json = response.json()
+    assert len(json["data"]) == size
+    if size > 0:
+        assert json["data"][0]["attributes"]["name"] == service.name
 
 
-def test_service_update(admin_client, service, service_factory):
-    foreign_service = service_factory()
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_404_NOT_FOUND),
+        ("Municipality", status.HTTP_200_OK),
+        ("Canton", status.HTTP_200_OK),
+        ("Service", status.HTTP_200_OK),
+    ],
+)
+def test_service_update(admin_client, service, status_code):
+    url = reverse("service-detail", args=[service.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == status_code
 
-    response = admin_client.patch(reverse("service-detail", args=[service.pk]))
-    response_foreign = admin_client.patch(
-        reverse("service-detail", args=[foreign_service.pk])
-    )
 
-    assert response.status_code == status.HTTP_200_OK
-    assert response_foreign.status_code == status.HTTP_403_FORBIDDEN
-
-
-def test_service_delete(admin_client, service):
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Municipality", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_403_FORBIDDEN),
+        ("Service", status.HTTP_403_FORBIDDEN),
+    ],
+)
+def test_service_delete(admin_client, service, status_code):
     url = reverse("service-detail", args=[service.pk])
     response = admin_client.delete(url)
-    assert response.status_code == status.HTTP_403_FORBIDDEN
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(
     "service_t__name,service_t__language", [("je ne sais pas", "fr")]
 )
-def test_service_list_multilingual(admin_client, service_t, multilang):
+@pytest.mark.parametrize(
+    "role_t__name,size", [("Applicant", 0), ("Canton", 1), ("Service", 1)]
+)
+def test_service_list_multilingual(admin_client, service_t, size, multilang):
     url = reverse("service-list")
 
     response = admin_client.get(url, HTTP_ACCEPT_LANGUAGE=service_t.language)
     assert response.status_code == status.HTTP_200_OK
-    assert response.json()["data"][0]["attributes"]["name"] == service_t.name
+    json = response.json()
+    assert len(json["data"]) == size
+    if size > 0:
+        assert json["data"][0]["attributes"]["name"] == service_t.name
