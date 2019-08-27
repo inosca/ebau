@@ -1,4 +1,4 @@
-<table class="uk-table uk-table-divider uk-table-small uk-table-justify">
+<table class="uk-table uk-table-divider">
   <thead>
     <tr>
       {{#each columns as |node|}}
@@ -7,9 +7,9 @@
     </tr>
   </thead>
   <tbody>
-    {{#each field.answer.value as |document|}}
+    {{#each rows as |row|}}
       <tr>
-        {{#each document.fields as |answerField|}}
+        {{#each row.fields as |answerField|}}
           {{#if (contains answerField.answer.question.slug displayedColumns)}}
             <td>{{cf-field-value field=answerField}}</td>
           {{/if}}

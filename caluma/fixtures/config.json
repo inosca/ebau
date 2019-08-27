@@ -785,54 +785,6 @@
   },
   {
     "model": "form.form",
-    "pk": "nfd-dokumente",
-    "fields": {
-      "created_at": "2019-08-16T07:52:54.944Z",
-      "modified_at": "2019-08-16T08:06:53.756Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "name": "{\"de\": \"Dokumente (NFD)\", \"fr\": \"Documents (NFD)\"}",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "form.form",
-    "pk": "nfd-einreichen",
-    "fields": {
-      "created_at": "2019-08-19T12:28:24.895Z",
-      "modified_at": "2019-08-19T12:29:01.007Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "name": "{\"de\": \"Einreichen (NFD)\", \"fr\": \"Soumettre (NFD)\"}",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "form.form",
-    "pk": "nfd-nachforderungen",
-    "fields": {
-      "created_at": "2019-08-16T07:53:36.946Z",
-      "modified_at": "2019-08-16T08:07:05.494Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "name": "{\"de\": \"Nachforderungen (NFD)\", \"fr\": \"Demandes suppl\\u00e9mentaires (NFD)\"}",
-      "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
-      "is_published": true,
-      "is_archived": false,
-      "source": null
-    }
-  },
-  {
-    "model": "form.form",
     "pk": "nfd-tabelle",
     "fields": {
       "created_at": "2019-08-14T10:18:40.584Z",
@@ -1626,6 +1578,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "0a372ef8-e231-4310-8d23-508a6c573225",
+    "fields": {
+      "created_at": "2019-08-26T08:12:17.363Z",
+      "modified_at": "2019-08-26T08:12:17.363Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "nfd-tabelle",
+      "question": "nfd-tabelle-datum-antwort",
+      "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "0a6d61e2-8eba-4ef8-8cb2-7934b8fd535e",
     "fields": {
       "created_at": "2019-04-08T15:34:15.071Z",
@@ -1700,19 +1665,6 @@
       "form": "gewaesserschutz-gewerbe-industrie",
       "question": "kontrolle-der-abwaesser-vorhanden-geplant",
       "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "0d4d0942-40ca-43ee-b882-aa2fbeed8e80",
-    "fields": {
-      "created_at": "2019-08-16T07:59:44.253Z",
-      "modified_at": "2019-08-16T07:59:44.253Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd-dokumente",
-      "question": "dokumente-platzhalter",
-      "sort": 1
     }
   },
   {
@@ -3142,7 +3094,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-beschreibung",
-      "sort": 3
+      "sort": 2
     }
   },
   {
@@ -4239,6 +4191,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "4815de06-5aca-4961-9ac6-4b62ffee9e50",
+    "fields": {
+      "created_at": "2019-08-26T11:54:49.695Z",
+      "modified_at": "2019-08-26T11:54:49.695Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "nfd",
+      "question": "nfd-tabelle-table",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "48ac2b31-72ce-493a-8ef9-5fab0066d9df",
     "fields": {
       "created_at": "2019-04-01T14:00:53.142Z",
@@ -4785,19 +4750,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "55b6cedf-51a0-42b2-a137-0cebe1f8c3ef",
-    "fields": {
-      "created_at": "2019-08-19T12:30:53.569Z",
-      "modified_at": "2019-08-19T12:30:53.569Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd-einreichen",
-      "question": "nfd-einreichen-button",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "5623ddf9-8167-4e2f-9472-875546b90160",
     "fields": {
       "created_at": "2019-05-13T12:42:57.003Z",
@@ -4941,19 +4893,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "5a3e87f0-4632-4205-a347-7b8a8666dfd5",
-    "fields": {
-      "created_at": "2019-08-15T13:50:21.057Z",
-      "modified_at": "2019-08-15T13:50:21.057Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd-tabelle",
-      "question": "nfd-tabelle-erledigt",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "5a5565b7-e55b-4e36-b1ce-9dd2a7d87c7f",
     "fields": {
       "created_at": "2019-08-15T08:19:58.272Z",
@@ -4976,19 +4915,6 @@
       "form": "biologische-sicherheit-und-stoerfallvorsorge",
       "question": "bemerkungen",
       "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "5a7342bc-666c-4379-b9e4-60e811b8478e",
-    "fields": {
-      "created_at": "2019-08-16T07:55:19.236Z",
-      "modified_at": "2019-08-16T07:55:19.236Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd-nachforderungen",
-      "question": "nfd-tabelle-table",
-      "sort": 1
     }
   },
   {
@@ -5860,6 +5786,19 @@
       "form": "baugesuch",
       "question": "1-allgemeine-informationen",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "724a8d7f-2a26-420b-b206-14c8d70ad18f",
+    "fields": {
+      "created_at": "2019-08-26T08:14:40.012Z",
+      "modified_at": "2019-08-26T08:14:40.012Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "nfd-tabelle",
+      "question": "nfd-tabelle-status",
+      "sort": 1
     }
   },
   {
@@ -7424,19 +7363,6 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "9a4afd83-c200-430b-ab72-37e5390858c9",
-    "fields": {
-      "created_at": "2019-08-16T07:57:32.500Z",
-      "modified_at": "2019-08-16T07:57:32.500Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd",
-      "question": "nfd-dokumente-form",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
     "pk": "9b2d375b-ac57-4710-99af-3bd70fa15b70",
     "fields": {
       "created_at": "2019-04-02T11:12:05.164Z",
@@ -8542,6 +8468,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "b72669af-71d8-4271-abfb-c8d44232e20a",
+    "fields": {
+      "created_at": "2019-08-27T08:10:04.001Z",
+      "modified_at": "2019-08-27T08:10:04.001Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "nfd",
+      "question": "nfd-dokumente",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "b78db7ed-b5cb-48d6-8f8c-c2c38589e750",
     "fields": {
       "created_at": "2019-04-11T08:00:53.992Z",
@@ -9096,19 +9035,6 @@
       "created_by_group": null,
       "form": "vertreterin-mit-vollmacht",
       "question": "telefon-oder-mobile-vertreterin",
-      "sort": 3
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "c6358f78-a86f-4dc3-80ff-72dc728f3408",
-    "fields": {
-      "created_at": "2019-08-16T07:56:52.392Z",
-      "modified_at": "2019-08-16T07:56:52.392Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd",
-      "question": "nfd-nachforderungen-form",
       "sort": 3
     }
   },
@@ -10176,19 +10102,6 @@
       "form": "allgemeine-angaben",
       "question": "strasse-flurname",
       "sort": 12
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "df9d8efe-125d-4bcf-875d-b5bc69f4a7ae",
-    "fields": {
-      "created_at": "2019-08-19T12:29:40.123Z",
-      "modified_at": "2019-08-19T12:29:40.123Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd",
-      "question": "nfd-einreichen-form",
-      "sort": 1
     }
   },
   {
@@ -24815,114 +24728,14 @@
   },
   {
     "model": "form.question",
-    "pk": "nfd-autorin",
+    "pk": "nfd-dokumente",
     "fields": {
-      "created_at": "2019-08-15T13:49:06.013Z",
-      "modified_at": "2019-08-15T13:49:06.013Z",
+      "created_at": "2019-08-27T08:10:03.810Z",
+      "modified_at": "2019-08-27T08:10:03.810Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Autor/in\", \"fr\": \"Cr\\u00e9ateur/Cr\\u00e9atrice\"}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-behoerde",
-    "fields": {
-      "created_at": "2019-08-15T13:48:43.393Z",
-      "modified_at": "2019-08-15T13:48:43.393Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Beh\\u00f6rde\", \"fr\": \"Organisme gouvernemental\"}",
-      "type": "integer",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": { "max_value": null, "min_value": null },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-beschreibung",
-    "fields": {
-      "created_at": "2019-08-14T10:19:49.337Z",
-      "modified_at": "2019-08-14T10:19:49.337Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Beschreibung\", \"fr\": \"Description\"}",
-      "type": "textarea",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": { "max_length": null },
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-datum-anfrage",
-    "fields": {
-      "created_at": "2019-08-15T08:19:58.067Z",
-      "modified_at": "2019-08-15T08:19:58.067Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Datum Anfrage\", \"fr\": \"Date de la demande\"}",
-      "type": "date",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-dokumente-form",
-    "fields": {
-      "created_at": "2019-08-16T07:57:32.343Z",
-      "modified_at": "2019-08-16T07:57:32.343Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
+      "created_by_group": null,
       "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
-      "type": "form",
+      "type": "static",
       "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
@@ -24930,92 +24743,10 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
-      "meta": {
-        "widgetOverride": "be-documents-form",
-        "attachment-section": 7
-      },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "nfd-dokumente",
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-einreichen-button",
-    "fields": {
-      "created_at": "2019-08-19T12:30:53.437Z",
-      "modified_at": "2019-08-19T12:31:24.734Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
-      "type": "multiple_choice",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {
-        "action": "end-claim",
-        "hideLabel": true,
-        "widgetOverride": "be-submit-instance"
-      },
+      "meta": { "widgetOverride": "be-claims-documents" },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-einreichen-form",
-    "fields": {
-      "created_at": "2019-08-19T12:29:39.962Z",
-      "modified_at": "2019-08-19T12:29:39.962Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "nfd-einreichen",
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
-    "pk": "nfd-nachforderungen-form",
-    "fields": {
-      "created_at": "2019-08-16T07:56:52.264Z",
-      "modified_at": "2019-08-16T07:56:52.264Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
-      "type": "form",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": {},
-      "data_source": null,
-      "row_form": null,
-      "sub_form": "nfd-nachforderungen",
       "source": null,
       "format_validators": "[]"
     }
@@ -25122,19 +24853,19 @@
   },
   {
     "model": "form.question",
-    "pk": "nfd-tabelle-erledigt",
+    "pk": "nfd-tabelle-datum-antwort",
     "fields": {
-      "created_at": "2019-08-15T13:50:20.924Z",
-      "modified_at": "2019-08-20T11:59:35.727Z",
+      "created_at": "2019-08-26T08:12:17.226Z",
+      "modified_at": "2019-08-26T08:12:17.226Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Erledigt\", \"fr\": \"r\\u00e9gl\\u00e9\"}",
-      "type": "choice",
-      "is_required": "true",
+      "created_by_group": null,
+      "label": "{\"de\": \"Datum Antwort\", \"fr\": \"Date de r\\u00e9ponse\"}",
+      "type": "date",
+      "is_required": "false",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": {},
@@ -25172,6 +24903,31 @@
   },
   {
     "model": "form.question",
+    "pk": "nfd-tabelle-status",
+    "fields": {
+      "created_at": "2019-08-26T08:14:39.867Z",
+      "modified_at": "2019-08-26T08:14:39.867Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Status\", \"fr\": \"\\u00c9tat\"}",
+      "type": "choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "nfd-tabelle-table",
     "fields": {
       "created_at": "2019-08-14T10:22:24.369Z",
@@ -25189,12 +24945,11 @@
       "configuration": {},
       "meta": {
         "hideLabel": true,
-        "widgetOverride": "be-claims",
+        "widgetOverride": "be-claims-table",
         "columnsToDisplay": [
           "nfd-tabelle-datum-anfrage",
           "nfd-tabelle-frist",
-          "nfd-tabelle-beschreibung",
-          "nfd-tabelle-erledigt"
+          "nfd-tabelle-beschreibung"
         ]
       },
       "data_source": null,
@@ -39043,41 +38798,54 @@
   },
   {
     "model": "form.questionoption",
-    "pk": "nfd-einreichen-button.nfd-einreichen-button-eingereicht",
+    "pk": "nfd-tabelle-status.nfd-tabelle-status-beantwortet",
     "fields": {
-      "created_at": "2019-08-19T12:31:24.741Z",
-      "modified_at": "2019-08-19T12:31:24.741Z",
+      "created_at": "2019-08-26T08:14:39.878Z",
+      "modified_at": "2019-08-26T08:14:39.878Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "nfd-einreichen-button",
-      "option": "nfd-einreichen-button-eingereicht",
-      "sort": 1
-    }
-  },
-  {
-    "model": "form.questionoption",
-    "pk": "nfd-tabelle-erledigt.nfd-tabelle-erledigt-ja",
-    "fields": {
-      "created_at": "2019-08-20T11:59:35.738Z",
-      "modified_at": "2019-08-20T11:59:35.738Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "question": "nfd-tabelle-erledigt",
-      "option": "nfd-tabelle-erledigt-ja",
+      "question": "nfd-tabelle-status",
+      "option": "nfd-tabelle-status-beantwortet",
       "sort": 2
     }
   },
   {
     "model": "form.questionoption",
-    "pk": "nfd-tabelle-erledigt.nfd-tabelle-erledigt-nein",
+    "pk": "nfd-tabelle-status.nfd-tabelle-status-entwurf",
     "fields": {
-      "created_at": "2019-08-20T11:59:35.734Z",
-      "modified_at": "2019-08-20T11:59:35.734Z",
+      "created_at": "2019-08-26T08:14:39.883Z",
+      "modified_at": "2019-08-26T08:14:39.883Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "question": "nfd-tabelle-erledigt",
-      "option": "nfd-tabelle-erledigt-nein",
+      "question": "nfd-tabelle-status",
+      "option": "nfd-tabelle-status-entwurf",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "nfd-tabelle-status.nfd-tabelle-status-erledigt",
+    "fields": {
+      "created_at": "2019-08-26T08:14:39.873Z",
+      "modified_at": "2019-08-26T08:14:39.873Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "nfd-tabelle-status",
+      "option": "nfd-tabelle-status-erledigt",
       "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "nfd-tabelle-status.nfd-tabelle-status-in-bearbeitung",
+    "fields": {
+      "created_at": "2019-08-26T08:14:39.880Z",
+      "modified_at": "2019-08-26T08:14:39.880Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "nfd-tabelle-status",
+      "option": "nfd-tabelle-status-in-bearbeitung",
+      "sort": 3
     }
   },
   {
@@ -49298,13 +49066,13 @@
   },
   {
     "model": "form.option",
-    "pk": "nfd-einreichen-button-eingereicht",
+    "pk": "nfd-tabelle-status-beantwortet",
     "fields": {
-      "created_at": "2019-08-19T12:30:53.305Z",
-      "modified_at": "2019-08-19T12:31:24.511Z",
+      "created_at": "2019-08-26T08:14:39.731Z",
+      "modified_at": "2019-08-26T08:14:39.731Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Eingereicht\", \"fr\": \"soumis/transmis\"}",
+      "label": "{\"de\": \"Beantwortet\", \"fr\": \"R\\u00e9pondu\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -49312,13 +49080,13 @@
   },
   {
     "model": "form.option",
-    "pk": "nfd-tabelle-erledigt-ja",
+    "pk": "nfd-tabelle-status-entwurf",
     "fields": {
-      "created_at": "2019-08-15T13:50:20.734Z",
-      "modified_at": "2019-08-20T11:59:35.582Z",
+      "created_at": "2019-08-26T08:14:39.725Z",
+      "modified_at": "2019-08-26T08:14:39.725Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
+      "created_by_group": null,
+      "label": "{\"de\": \"Entwurf\", \"fr\": \"Dessein\"}",
       "is_archived": false,
       "meta": {},
       "source": null
@@ -49326,13 +49094,27 @@
   },
   {
     "model": "form.option",
-    "pk": "nfd-tabelle-erledigt-nein",
+    "pk": "nfd-tabelle-status-erledigt",
     "fields": {
-      "created_at": "2019-08-15T13:50:20.740Z",
-      "modified_at": "2019-08-20T11:59:35.580Z",
+      "created_at": "2019-08-26T08:14:39.755Z",
+      "modified_at": "2019-08-26T08:14:39.755Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": "[]",
-      "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "created_by_group": null,
+      "label": "{\"de\": \"Erledigt\", \"fr\": \"R\\u00e9gl\\u00e9\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "nfd-tabelle-status-in-bearbeitung",
+    "fields": {
+      "created_at": "2019-08-26T08:14:39.744Z",
+      "modified_at": "2019-08-26T08:14:39.744Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"In Bearbeitung\", \"fr\": \"En cours\"}",
       "is_archived": false,
       "meta": {},
       "source": null

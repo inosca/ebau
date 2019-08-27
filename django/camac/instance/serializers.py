@@ -191,7 +191,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
             constants.INSTANCE_STATE_ABSCHLUSS_FREIGABEQUITTUNG: constants.PUBLIC_INSTANCE_STATE_ABSCHLUSS,
             constants.INSTANCE_STATE_TO_BE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
             constants.INSTANCE_STATE_FINISHED: constants.PUBLIC_INSTANCE_STATE_FINISHED,
-            constants.INSTANCE_STATE_NACHFORDERUNGEN: constants.PUBLIC_INSTANCE_STATE_NACHFORDERUNGEN,
         }
 
         return STATUS_MAP.get(
@@ -289,8 +288,58 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
-        if instance.instance_state.name == "nfd":
-            return ["read", "write"]
+        resp = self.query_caluma(
+            """
+                query GetNfdDocument($instanceId: GenericScalar!) {
+                    allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}], form: "nfd") {
+                        edges {
+                            node {
+                                id
+                                answers {
+                                    edges {
+                                        node {
+                                            id
+                                            ...on TableAnswer {
+                                                value {
+                                                    id
+                                                    answers(question: "nfd-tabelle-status") {
+                                                        edges {
+                                                            node {
+                                                                ...on StringAnswer {
+                                                                    value
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            """,
+            {"instanceId": instance.pk},
+        )
+
+        try:
+            rows = resp["data"]["allDocuments"]["edges"][0]["node"]["answers"]["edges"][
+                0
+            ]["node"]["value"]
+
+            if len(
+                [
+                    row
+                    for row in rows
+                    if row["answers"]["edges"][0]["node"]["value"]
+                    == "nfd-tabelle-status-in-bearbeitung"
+                ]
+            ):
+                return ["read", "write"]
+        except (KeyError, IndexError):
+            return []
 
         return []
 
@@ -704,112 +753,6 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
             self._notify_submit(**notification_config)
-
-        return instance
-
-
-class CalumaInstanceStartClaimSerializer(CalumaInstanceSubmitSerializer):
-    def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(
-                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
-                    form: "nfd"
-                ) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                            }
-                            answers(questions: ["nfd-tabelle-table"]) {
-                                edges {
-                                    node {
-                                        id
-                                        question {
-                                            slug
-                                        }
-                                        ...on TableAnswer {
-                                            value {
-                                                id
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in caluma_resp["data"]["allDocuments"]["edges"]
-                if document["node"]["form"]["slug"] == "nfd"
-            ),
-            None,
-        )
-
-        if not data["caluma_document"]:
-            raise exceptions.ValidationError(
-                f"Could not find caluma `nfd` document for instance {self.instance.pk}"
-            )
-
-        nfd_answer = next(
-            (
-                answer["node"]
-                for answer in data["caluma_document"]["answers"]["edges"]
-                if answer["node"]["question"]["slug"] == "nfd-tabelle-table"
-            ),
-            None,
-        )
-
-        if not nfd_answer or len(nfd_answer["value"]) == 0:
-            raise exceptions.ValidationError("Can't start claim without any claims")
-
-        return data
-
-    @transaction.atomic
-    def update(self, instance, validated_data):
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = models.InstanceState.objects.get(name="nfd")
-
-        instance.save()
-
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["START_CLAIM"]:
-            self._notify_submit(**notification_config)
-
-        return instance
-
-
-class CalumaInstanceEndClaimSerializer(CalumaInstanceSubmitSerializer):
-    def validate(self, data):
-        return data
-
-    @permission_aware
-    def _notify(self):
-        for notification_config in settings.APPLICATION["NOTIFICATIONS"]["END_CLAIM"]:
-            self._notify_submit(**notification_config)
-
-    def _notify_for_municipality(self):
-        pass
-
-    @transaction.atomic
-    def update(self, instance, validated_data):
-        previous_instance_state = instance.previous_instance_state
-
-        instance.previous_instance_state = instance.instance_state
-        instance.instance_state = previous_instance_state
-
-        instance.save()
-
-        self._notify()
 
         return instance
 

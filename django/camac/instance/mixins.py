@@ -136,16 +136,30 @@ class InstanceEditableMixin(AttributeMixin):
     def get_editable(self, instance):
         # TODO: should be replaced with can-read and can-edit permissions
         # in form config. Difficulty is that documents are no real questions.
+        form_backend = settings.APPLICATION.get("FORM_BACKEND")
+        state = instance.instance_state.name
 
-        editable = set()
-
-        if instance.instance_state.name in ["new", "rejected"]:
+        if state in ["new", "rejected"]:
             return {"instance", "form", "document"}
 
-        if instance.instance_state.name in ["nfd", "sb1", "sb2"]:
+        if state == "nfd":
             return {"document"}
 
-        return editable
+        # Kt. Bern
+        if form_backend == "caluma" and state in [
+            "subm",  # eBau-Nummer zu vergeben
+            "circulation_init",  # Zirkulation initialisieren
+            "circulation",  # In Zirkulation
+            "coordination",  # In Koordination
+            "audit",  # Dossierprüfung
+            "correction",  # In Korrektur
+            "corrected",  # Korrigiert von Leitbehörde
+            "sb1",  # Selbstdeklaration 1
+            "sb2",  # Selbstdeklaration 2
+        ]:
+            return {"document"}
+
+        return set()
 
     def get_editable_for_service(self, instance):
         return {"document"}

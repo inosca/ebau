@@ -181,5 +181,10 @@ instances:
     rejected: "Repoussé"
     corrected: "Corrigé par l'autorité directrice"
 
+  forms:
+    sb1: "Déclaration spontanée 1"
+    sb2: "Déclaration spontanée 2"
+    nfd: "Demandes de complément d'information"
+
 be-submit-instance:
   loading: "Votre dossier sera examiné. Veuillez patienter un instant."
