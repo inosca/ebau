@@ -40363,7 +40363,7 @@
       "class_field": null,
       "description": null,
       "form_group": 40000,
-      "hidden": 1,
+      "hidden": 0,
       "name": null,
       "resource": 20006,
       "sort": 38,
@@ -44055,16 +44055,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 120000
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 10000,
-      "language": "fr",
-      "name": "Emoluments"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120001
   },
   {
     "fields": {
@@ -58357,56 +58347,11 @@
   {
     "fields": {
       "instance_resource": 150000,
-      "instance_state": 120001,
+      "instance_state": 10000,
       "role": 3
     },
     "model": "core.irroleacl",
     "pk": 150016
-  },
-  {
-    "fields": {
-      "instance_resource": 20074,
-      "instance_state": 120001,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150017
-  },
-  {
-    "fields": {
-      "instance_resource": 20068,
-      "instance_state": 120001,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150018
-  },
-  {
-    "fields": {
-      "instance_resource": 20068,
-      "instance_state": 120001,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 150019
-  },
-  {
-    "fields": {
-      "instance_resource": 10001,
-      "instance_state": 120001,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 150020
-  },
-  {
-    "fields": {
-      "instance_resource": 10001,
-      "instance_state": 120001,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 150021
   },
   {
     "fields": {
@@ -117614,7 +117559,7 @@
   },
   {
     "fields": {
-      "instance_states": "20000,20006,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000,120001"
+      "instance_states": "20000,20006,20003,20004,20005,20010,20011,20013,20014,10000,20007,20008,20009,120000"
     },
     "model": "core.rcalumalist",
     "pk": 20006
@@ -145286,7 +145231,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "circulation_init",
       "sort": 13
     },
     "model": "instance.instancestate",
@@ -145295,7 +145240,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "circulation",
       "sort": 14
     },
     "model": "instance.instancestate",
@@ -145304,7 +145249,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "coordination",
       "sort": 15
     },
     "model": "instance.instancestate",
@@ -145313,7 +145258,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "audit",
       "sort": 11
     },
     "model": "instance.instancestate",
@@ -145331,7 +145276,7 @@
   {
     "fields": {
       "description": null,
-      "name": null,
+      "name": "corrected",
       "sort": 26
     },
     "model": "instance.instancestate",
@@ -145489,15 +145434,6 @@
     },
     "model": "instance.instancestate",
     "pk": 120000
-  },
-  {
-    "fields": {
-      "description": null,
-      "name": "nfd",
-      "sort": 29
-    },
-    "model": "instance.instancestate",
-    "pk": 120001
   },
   {
     "fields": {
@@ -145768,16 +145704,6 @@
     },
     "model": "instance.instancestatet",
     "pk": 120000
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_state": 120001,
-      "language": "de",
-      "name": "Nachforderungen"
-    },
-    "model": "instance.instancestatet",
-    "pk": 120001
   },
   {
     "fields": {
