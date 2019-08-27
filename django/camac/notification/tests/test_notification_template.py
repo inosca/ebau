@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from django.urls import reverse
 from rest_framework import status
@@ -121,3 +123,77 @@ def test_notification_template_sendmail(
         }
         assert mail.subject == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
         assert mail.body == settings.EMAIL_PREFIX_BODY + "Test body"
+
+
+@pytest.mark.parametrize(
+    "user__email,role__name,notification_template__subject",
+    [
+        (
+            "user@example.com",
+            "Municipality",
+            "{{FORM_NAME}} {{EBAU_NUMBER}} ({{INSTANCE_ID}})",
+        )
+    ],
+)
+def test_notification_caluma_placeholders(
+    admin_client,
+    instance,
+    notification_template,
+    mailoutbox,
+    activation,
+    settings,
+    requests_mock,
+    use_caluma_form,
+):
+    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        text=json.dumps(
+            {
+                "data": {
+                    "allDocuments": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "meta": {
+                                        "camac-instance-id": instance.pk,
+                                        "ebau-number": "2019-01",
+                                    },
+                                    "form": {
+                                        "slug": "baugesuch",
+                                        "name": "Baugesuch",
+                                        "meta": {"is-main-form": True},
+                                    },
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "attributes": {"recipient-types": ["applicant"]},
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    assert len(mailoutbox) == 1
+
+    mail = mailoutbox[0]
+
+    assert (
+        mail.subject
+        == f"{settings.EMAIL_PREFIX_SUBJECT}Baugesuch 2019-01 ({instance.pk})"
+    )
