@@ -81,8 +81,13 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     });
     this.calumaOptions.registerComponentOverride({
       label: "Nachforderungen Tabelle",
-      component: "be-claims",
+      component: "be-claims-table",
       type: "TableQuestion"
+    });
+    this.calumaOptions.registerComponentOverride({
+      label: "Nachforderungen Dokumente",
+      component: "be-claims-documents",
+      type: "StaticQuestion"
     });
   }
 });

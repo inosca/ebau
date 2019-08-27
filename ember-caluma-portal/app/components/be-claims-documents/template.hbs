@@ -1,0 +1,13 @@
+{{#file-dropzone name="documents" as |dropzone|}}
+  <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+    {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
+    <div>
+      {{#if dropzone.supported}}
+        {{t "documents.drag"}}
+      {{/if}}
+      {{#file-upload name="documents" onfileadd=(perform upload)}}
+        <span class="uk-link">{{t "documents.click"}}</span>
+      {{/file-upload}}
+    </div>
+  </div>
+{{/file-dropzone}}
