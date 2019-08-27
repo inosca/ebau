@@ -6,7 +6,6 @@ from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
-from camac.applicants.factories import ApplicantFactory
 from camac.core.models import Chapter, Question, QuestionType
 from camac.instance.models import Instance
 from camac.instance.serializers import (
@@ -288,7 +287,6 @@ def test_instance_submit(
     )
 
     instance_state_factory(name=new_instance_state_name)
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
 
     response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
 
@@ -381,8 +379,6 @@ def test_instance_report(
 
     instance_state_factory(name=new_instance_state_name)
 
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
-
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
 
     assert response.status_code == expected_status
@@ -450,8 +446,6 @@ def test_instance_finalize(
     )
 
     instance_state_factory(name=new_instance_state_name)
-
-    ApplicantFactory(instance=instance, user=admin_user, invitee=admin_user)
 
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
 

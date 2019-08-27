@@ -96,6 +96,12 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
         validated_data["creation_date"] = timezone.now()
         instance = super().create(validated_data)
 
+        instance.involved_applicants.create(
+            user=self.context["request"].user,
+            invitee=self.context["request"].user,
+            created=timezone.now(),
+        )
+
         if instance.location_id is not None:
             self._update_instance_location(instance)
 
@@ -407,13 +413,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def create(self, validated_data):
         form = validated_data.pop("caluma_form")
-        created = super().create(validated_data)
-
-        created.involved_applicants.create(
-            user=self.context["request"].user,
-            invitee=self.context["request"].user,
-            created=timezone.now(),
-        )
+        instance = super().create(validated_data)
 
         self.query_caluma(
             """
@@ -426,12 +426,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
             {
                 "input": {
                     "form": form,
-                    "meta": json.dumps({"camac-instance-id": created.instance_id}),
+                    "meta": json.dumps({"camac-instance-id": instance.pk}),
                 }
             },
         )
 
-        return created
+        return instance
 
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + ("caluma_form", "public_status")
