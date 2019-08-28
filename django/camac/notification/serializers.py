@@ -76,6 +76,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         method_name="get_active_municipality_name"
     )
     form_name = serializers.SerializerMethodField()
+    ebau_number = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -112,7 +113,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         ).first()
         if not instance_service:
             return "-"
-        return instance_service.service.name
+        return instance_service.service.get_name()
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
@@ -122,8 +123,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                 settings.CALUMA_URL,
                 json={
                     "query": """,
-                        query {
-                          allDocuments(metaValue: [{ key: "camac-instance-id", value: $instance_id}]) {
+                        query GetMainFormName($instanceId: GenericScalar!) {
+                          allDocuments(metaValue: [{ key: "camac-instance-id", value: $instanceId}]) {
                             edges {
                               node {
                                 id
@@ -136,7 +137,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
                           }
                         }
                     """,
-                    "variables": {"instance_id": instance.pk},
+                    "variables": {"instanceId": instance.pk},
                 },
                 headers={
                     "Authorization": get_authorization_header(self.context["request"])
@@ -153,6 +154,46 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             request_logger.error(
                 "get_form_name(): Caluma did not respond with a valid response"
             )
+            return "-"
+
+    def get_ebau_number(self, instance):
+        if settings.APPLICATION["FORM_BACKEND"] != "caluma":
+            return "-"
+
+        try:
+            resp = requests.post(
+                settings.CALUMA_URL,
+                json={
+                    "query": """,
+                        query GetEbauNumber($instanceId: GenericScalar!) {
+                          allDocuments(
+                            metaHasKey: "ebau-number"
+                            metaValue: [{ key: "camac-instance-id", value: $instanceId}]
+                          ) {
+                            edges {
+                              node {
+                                id
+                                form {
+                                  name
+                                  meta
+                                }
+                                meta
+                              }
+                            }
+                          }
+                        }
+                    """,
+                    "variables": {"instanceId": instance.pk},
+                },
+                headers={
+                    "Authorization": get_authorization_header(self.context["request"])
+                },
+            )
+
+            return resp.json()["data"]["allDocuments"]["edges"][0]["node"]["meta"][
+                "ebau-number"
+            ]
+        except (KeyError, IndexError):  # pragma: no cover
             return "-"
 
     def get_internal_dossier_link(self, instance):
