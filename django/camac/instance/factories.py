@@ -2,9 +2,10 @@ from datetime import timedelta
 from random import randrange
 
 import pytz
-from factory import Faker, SubFactory
+from factory import Faker, SubFactory, post_generation
 from factory.django import DjangoModelFactory
 
+from camac.applicants.factories import ApplicantFactory
 from camac.user.factories import (
     GroupFactory,
     LocationFactory,
@@ -49,6 +50,12 @@ class InstanceFactory(DjangoModelFactory):
     location = SubFactory(LocationFactory)
     creation_date = Faker("past_datetime", tzinfo=pytz.UTC)
     modification_date = Faker("past_datetime", tzinfo=pytz.UTC)
+
+    @post_generation
+    def involved_applicants(self, create, extracted):
+        return ApplicantFactory.create_batch(
+            1, instance=self, user=self.user, invitee=self.user
+        )
 
     class Meta:
         model = models.Instance
