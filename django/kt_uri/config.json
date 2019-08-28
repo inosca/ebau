@@ -24671,7 +24671,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 251,
       "sort": 0,
-      "template": "/portal/form-read.phtml"
+      "template": "/portal/read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 677
