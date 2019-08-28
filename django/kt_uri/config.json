@@ -38943,7 +38943,7 @@
     "fields": {
       "key": "stopText",
       "type": 2,
-      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahren\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie am [@publishDate] die Meldung zu einem Auflage- und Einspracheverfahren\r\nerhalten.\r\n\r\nWir bitten Sie, die Publikation zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu\r\ngegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
+      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\nLisag AG\r\nNeuland 11\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\r\n\r\n[@community]\r\n\r\n\r\nVorhaben: [@intent]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
     },
     "model": "core.publicationsetting",
     "pk": 11
@@ -38988,7 +38988,7 @@
     "fields": {
       "key": "stopText",
       "type": 3,
-      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahren\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie am [@publishDate] die Meldung zu einem Auflage- und Einspracheverfahren\r\nerhalten.\r\n\r\nWir bitten Sie, die Publikation zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu\r\ngegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
+      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\nLisag AG\r\nNeuland 11\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\r\n\r\n[@community]\r\n\r\n\r\nVorhaben: [@intent]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
     },
     "model": "core.publicationsetting",
     "pk": 16
