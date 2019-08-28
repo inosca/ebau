@@ -23,4 +23,24 @@ export default class ApplicationAdapter extends JSONAPIAdapter.extend(
       request.setRequestHeader("x-camac-group", this.group);
     }
   }
+
+  _appendInclude(url, adapterOptions) {
+    if (adapterOptions && adapterOptions.include) {
+      return `${url}?include=${adapterOptions.include}`;
+    }
+  }
+
+  urlForUpdateRecord(_, { adapterOptions }) {
+    return this._appendInclude(
+      super.urlForUpdateRecord(...arguments),
+      adapterOptions
+    );
+  }
+
+  urlForCreateRecord(_, { adapterOptions }) {
+    return this._appendInclude(
+      super.urlForCreateRecord(...arguments),
+      adapterOptions
+    );
+  }
 }
