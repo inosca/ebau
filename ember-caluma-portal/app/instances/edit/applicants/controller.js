@@ -37,22 +37,20 @@ export default Controller.extend(queryParams.Mixin, {
   add: task(function*(event) {
     event.preventDefault();
 
-    const email = event.srcElement.querySelector("input[name=email]").value;
+    const user = this.store.createRecord("applicant", {
+      email: event.srcElement.querySelector("input[name=email]").value,
+      instance: this.store.peekRecord("instance", this.instanceId)
+    });
 
     try {
-      yield this.store
-        .createRecord("applicant", {
-          email,
-          instance: this.store.peekRecord("instance", this.instanceId)
-        })
-        .save({ adapterOptions: { include: "invitee,user" } });
+      yield user.save({ adapterOptions: { include: "invitee,user" } });
 
       event.srcElement.querySelector("input[name=email]").value = "";
 
       this.notification.success(this.intl.t("instances.applicants.addSuccess"));
     } catch (error) {
       // eslint-ignore-next-line no-console
-      console.error(error);
+      yield user.destroyRecord();
       this.notification.danger(
         parseError(error) || this.intl.t("instances.applicants.addError")
       );
@@ -70,7 +68,6 @@ export default Controller.extend(queryParams.Mixin, {
       );
     } catch (error) {
       // eslint-ignore-next-line no-console
-      console.error(error);
       this.notification.danger(
         parseError(error) || this.intl.t("instances.applicants.deleteError")
       );
