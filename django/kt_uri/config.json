@@ -46924,6 +46924,15 @@
   },
   {
     "fields": {
+      "attachment_section": 104,
+      "mode": "read",
+      "role": 1103
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 325
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "mode": "write",
       "service": 88
