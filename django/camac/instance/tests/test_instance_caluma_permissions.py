@@ -157,15 +157,12 @@ def mock_nfd_permissions(requests_mock):
 )
 def test_instance_permissions(
     admin_client,
-    applicant_factory,
     activation,
     instance,
     expected_permissions,
     use_caluma_form,
     mock_nfd_permissions,
 ):
-    applicant_factory(invitee=instance.user, instance=instance)
-
     url = reverse("instance-detail", args=[instance.pk])
 
     response = admin_client.get(url)
@@ -326,7 +323,6 @@ def test_instance_permissions(
 )
 def test_instance_nfd_permissions(
     admin_client,
-    applicant_factory,
     activation,
     instance,
     caluma_response,
@@ -335,8 +331,6 @@ def test_instance_nfd_permissions(
     requests_mock,
 ):
     requests_mock.post("http://caluma:8000/graphql/", text=json.dumps(caluma_response))
-
-    applicant_factory(invitee=instance.user, instance=instance)
 
     url = reverse("instance-detail", args=[instance.pk])
 
