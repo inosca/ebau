@@ -301,10 +301,66 @@ def test_attachment_create(
         assert len(mailoutbox) == 1
 
 
-def test_attachment_download(admin_client, attachment):
+def test_attachment_download_404(admin_client, attachment):
     url = reverse("attachment-download", args=[attachment.path])
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,instance_state__name,attachment_section_group_acl__mode",
+    [("Applicant", LazyFixture("admin_user"), "new", models.ADMIN_PERMISSION)],
+)
+@pytest.mark.parametrize(
+    "multi,expected_name", [(False, "multiple-pages.pdf"), (True, "attachments.zip")]
+)
+def test_attachment_download(
+    admin_client,
+    service,
+    instance,
+    attachment_factory,
+    attachment_section,
+    attachment_section_group_acl,
+    multi,
+    expected_name,
+):
+    attachment1 = attachment_factory(
+        instance=instance, service=service, path=django_file("multiple-pages.pdf")
+    )
+    test_path = "/" + "/".join(str(attachment1.path).split("/")[3:])
+    attachment1.path = test_path
+    attachment1.name = "multiple-pages.pdf"
+    attachment1.save()
+    attachments = [attachment1]
+
+    attachment2 = attachment_factory(
+        instance=instance, service=service, path=django_file("multiple-pages.pdf")
+    )
+    attachment2.path = test_path
+    attachment2.name = "multiple-pages.pdf"
+    attachment2.save()
+
+    if multi:
+        attachments.append(attachment2)
+
+    attachment_section.attachments.set(attachments)
+
+    filter = ",".join([str(a.pk) for a in attachments])
+
+    url = f"{reverse('multi-attachment-download')}?attachments={filter}"
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        response._headers["content-disposition"][1]
+        == f'attachment; filename="{expected_name}"'
+    )
+
+
+@pytest.mark.parametrize("filter", ["?attachment=", "?attachment=,", ""])
+def test_invalid_attachment_download(admin_client, filter):
+    url = f"{reverse('multi-attachment-download')}{filter}"
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
 @pytest.mark.parametrize(
