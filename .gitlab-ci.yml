@@ -150,6 +150,11 @@ build-kt_uri-production:
         - eval $COMPOSE build --pull
         - eval $COMPOSE up -d php django caluma ember-caluma-portal document-merge-service
         - mkdir tarball
+        - mkdir tarball/camac
+        - mkdir tarball/django
+        - mkdir tarball/caluma
+        - mkdir tarball/ember-caluma-portal
+        - mkdir tarball/document-merge-service
         - docker cp $(eval $COMPOSE ps -q php):/var/www/camac/ tarball/camac/
         - cd tarball/camac
         - rm -rf kt_uri kt_schwyz demo media configuration php.* sessions 000-default.conf .prettier* .eslintrc.js .dockerignore Dockerfile docker-compose* .git .gitignore
