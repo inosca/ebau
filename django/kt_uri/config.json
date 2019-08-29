@@ -44723,7 +44723,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Gemeinderat",
-      "position": 18,
+      "position": 20,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44736,7 +44736,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Regierungsrat",
-      "position": 20,
+      "position": 22,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44749,7 +44749,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Regierungsrat",
-      "position": 21,
+      "position": 23,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44762,7 +44762,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Gemeinderat",
-      "position": 19,
+      "position": 21,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44775,7 +44775,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Obergericht",
-      "position": 22,
+      "position": 24,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44788,7 +44788,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Obergericht",
-      "position": 23,
+      "position": 25,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44801,7 +44801,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entsch. rechtskr\u00e4ftig",
-      "position": 26,
+      "position": 28,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44814,7 +44814,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Baubeginn erfolgt",
-      "position": 27,
+      "position": 29,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44827,7 +44827,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Abnahme Schnurger\u00fcst",
-      "position": 28,
+      "position": 30,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44840,7 +44840,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bau beendet Info an Abwasser Uri",
-      "position": 35,
+      "position": 37,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44853,7 +44853,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Abnahme Rohbau",
-      "position": 29,
+      "position": 31,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44866,7 +44866,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Endabnahme erfolgt",
-      "position": 31,
+      "position": 33,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44879,7 +44879,7 @@
       "is_building_authority": 0,
       "is_workflow": 0,
       "name": "Meldung Grundbuchvermessung",
-      "position": 34,
+      "position": 36,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44892,7 +44892,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Verfahren abgeschlossen",
-      "position": 38,
+      "position": 40,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44905,7 +44905,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Dossier archiviert",
-      "position": 39,
+      "position": 41,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44918,7 +44918,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Bundesgericht",
-      "position": 24,
+      "position": 26,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44931,7 +44931,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Bundesgericht",
-      "position": 25,
+      "position": 27,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44957,7 +44957,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Meldung Baubewilligung an Geometer",
-      "position": 40,
+      "position": 42,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -44970,7 +44970,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet",
-      "position": 30,
+      "position": 32,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44983,7 +44983,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet Info an Geometer",
-      "position": 32,
+      "position": 34,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44996,7 +44996,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
-      "position": 33,
+      "position": 35,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45009,7 +45009,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Grundbuchanmeldung",
-      "position": 36,
+      "position": 38,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45022,7 +45022,7 @@
       "is_building_authority": 1,
       "is_workflow": 0,
       "name": "Baubewilligung g\u00fcltig bis",
-      "position": 41,
+      "position": 43,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45033,8 +45033,8 @@
       "automatical": 0,
       "different_color": 0,
       "is_building_authority": 1,
-      "is_workflow": 0,
-      "name": "Versand Baubewilligung",
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Post",
       "position": 17,
       "workflow_section": 3
     },
@@ -45048,7 +45048,7 @@
       "is_building_authority": 1,
       "is_workflow": 0,
       "name": "Verl\u00e4ngerung Baubewilligung bis",
-      "position": 42,
+      "position": 44,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45061,7 +45061,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "AC gestartet",
-      "position": 43,
+      "position": 45,
       "workflow_section": 4
     },
     "model": "core.workflowitem",
@@ -45074,7 +45074,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "AC beendet",
-      "position": 44,
+      "position": 46,
       "workflow_section": 4
     },
     "model": "core.workflowitem",
@@ -45087,7 +45087,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "\u00d6REB Meldung",
-      "position": 37,
+      "position": 39,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45100,7 +45100,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Gemeindezirkulation gestartet",
-      "position": 45,
+      "position": 47,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45113,7 +45113,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Gemeindezirkulation beendet",
-      "position": 46,
+      "position": 48,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45126,7 +45126,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bundesstellezirkulation beendet",
-      "position": 47,
+      "position": 49,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45139,11 +45139,37 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bundesstellezirkulation gestartet",
-      "position": 48,
+      "position": 50,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 84
+  },
+  {
+    "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 1,
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Portal",
+      "position": 18,
+      "workflow_section": 3
+    },
+    "model": "core.workflowitem",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 1,
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Mail",
+      "position": 19,
+      "workflow_section": 3
+    },
+    "model": "core.workflowitem",
+    "pk": 86
   },
   {
     "fields": {
