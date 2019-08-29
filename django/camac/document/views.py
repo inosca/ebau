@@ -1,6 +1,8 @@
 import io
 import mimetypes
-from os import path
+import os
+import zipfile
+from uuid import uuid4
 
 from django.conf import settings
 from django.db.models import Q
@@ -9,7 +11,8 @@ from django.utils.encoding import escape_uri_path, smart_bytes
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.exceptions import ValidationError
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
 
@@ -118,7 +121,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
 
-class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
+class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
     """Attachment view to download attachment."""
 
     queryset = models.Attachment.objects
@@ -144,9 +147,53 @@ class AttachmentPathView(InstanceQuerysetMixin, RetrieveAPIView):
             attachment.name
         )
         response["X-Sendfile"] = smart_bytes(
-            path.join(settings.MEDIA_ROOT, download_path)
+            os.path.join(settings.MEDIA_ROOT, download_path)
         )
         response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
+        return response
+
+    def list(self, request, **kwargs):
+        if not request.query_params.get("attachments"):
+            raise ValidationError('Specifying an "attachment" filter is mandatory!')
+
+        fs = filters.AttachmentDownloadFilterSet(
+            data=request.GET, queryset=self.get_queryset()
+        )
+        filtered_qs = fs.qs
+
+        for attachment in filtered_qs:
+            models.AttachmentDownloadHistory.objects.create(
+                keycloak_id=request.user.username,
+                name="{0} {1}".format(request.user.name, request.user.surname),
+                attachment=attachment,
+                group=request.group,
+            )
+
+        attachment = filtered_qs.first()
+        response = HttpResponse(content_type=attachment.mime_type)
+        response["Content-Disposition"] = 'attachment; filename="%s"' % escape_uri_path(
+            attachment.name
+        )
+        download_path = str(attachment.path)
+        response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
+
+        if filtered_qs.count() > 1:
+            response = HttpResponse(content_type="application/zip")
+            temp_path = "/tmp/camac/tmpfiles"
+            if not os.path.exists(temp_path):
+                os.makedirs(temp_path)
+            download_path = f"/tmp/camac/tmpfiles/attachments-{str(uuid4())[:7]}.zip"
+            with zipfile.ZipFile(download_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+                for attachment in filtered_qs:
+                    zipf.write(str(attachment.path), arcname=attachment.name)
+            response[
+                "Content-Disposition"
+            ] = 'attachment; filename="%s"' % escape_uri_path("attachments.zip")
+            response["X-Accel-Redirect"] = "%s" % escape_uri_path(download_path)
+
+        response["X-Sendfile"] = smart_bytes(
+            os.path.join(settings.MEDIA_ROOT, download_path)
+        )
         return response
 
 
