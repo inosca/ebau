@@ -13,14 +13,21 @@ class LocationFilterSet(FilterSet):
 
 
 class PublicServiceFilterSet(FilterSet):
-    service_id = NumberMultiValueFilter()
     has_parent = BooleanFilter(
         field_name="service_parent", lookup_expr="isnull", exclude=True
     )
 
     class Meta:
         model = models.Service
-        fields = ("service_group", "has_parent", "service_id")
+        fields = ("service_group", "has_parent")
+
+
+class ServiceFilterSet(FilterSet):
+    service_id = NumberMultiValueFilter()
+
+    class Meta:
+        model = models.Service
+        fields = ("service_id",)
 
 
 class UserFilterSet(FilterSet):

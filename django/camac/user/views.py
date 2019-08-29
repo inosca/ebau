@@ -36,6 +36,7 @@ class UserView(viewsets.ReadOnlyModelViewSet):
 
 
 class ServiceView(viewsets.ModelViewSet):
+    filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
 
