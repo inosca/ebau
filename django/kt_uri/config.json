@@ -17279,10 +17279,24 @@
   },
   {
     "fields": {
-      "label": "Versand Baubewilligung"
+      "label": "Versand Baubewilligung per Post"
     },
     "model": "core.buildingauthoritybutton",
     "pk": 12
+  },
+  {
+    "fields": {
+      "label": "Versand Baubewilligung per Portal"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "label": "Versand Baubewilligung per Mail"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 14
   },
   {
     "fields": {
@@ -17415,6 +17429,30 @@
     },
     "model": "core.buildingauthorityemail",
     "pk": 66
+  },
+  {
+    "fields": {
+      "building_authority_button": 14,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]"
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "building_authority_button": 13,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]"
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 68
   },
   {
     "fields": {
