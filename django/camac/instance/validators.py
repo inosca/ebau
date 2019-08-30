@@ -168,13 +168,7 @@ class FormDataValidator(object):
         validate_method(question, question_def, value)
 
     def validate(self):
-        form_def = self.forms_def["forms"].get(self.instance.form.name)
-
-        if form_def is None:
-            raise exceptions.ValidationError(
-                _("Invalid form type %(form)s.") % {"form": self.instance.form.name}
-            )
-
+        form_def = self.get_form_def(self.instance.form.name)
         questions = itertools.chain(
             *[self.forms_def["modules"][module]["questions"] for module in form_def]
         )
@@ -184,3 +178,62 @@ class FormDataValidator(object):
             self._validate_question(
                 question, self.forms_def["questions"][question], value
             )
+
+    def get_form_def(self, form_name):
+        form_def = self.forms_def["forms"].get(form_name)
+
+        if form_def is None:
+            raise exceptions.ValidationError(
+                _("Invalid form type %(form)s.") % {"form": form_name}
+            )
+
+        return form_def
+
+    def get_active_modules_questions(self):
+        form_def = self.get_form_def(self.instance.form.name)
+        relevant_data = []
+
+        for module_name in form_def:
+            active_questions = []
+            module = self.forms_def["modules"][module_name]
+
+            for question_name in module["questions"]:
+                if question_name not in [
+                    "punkte",
+                    "layer",
+                    "dokument-grundstucksangaben",
+                ]:
+                    question = self.forms_def["questions"][question_name]
+                    if self._check_question_active(question_name, question):
+                        active_questions.append(
+                            {
+                                "label": question["label"],
+                                "type": question["type"],
+                                "value": self.fields.get(question_name),
+                                "config": question["config"],
+                            }
+                        )
+
+            if module["parent"] is None:
+                relevant_data.append(
+                    {
+                        "slug": module_name,
+                        "title": module["title"],
+                        "subModules": [],
+                        "questions": active_questions,
+                    }
+                )
+            else:
+                parent = next(
+                    item for item in relevant_data if item["slug"] == module["parent"]
+                )
+
+                parent["subModules"].append(
+                    {
+                        "slug": module_name,
+                        "title": module["title"],
+                        "questions": active_questions,
+                    }
+                )
+
+        return relevant_data

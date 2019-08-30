@@ -1,3 +1,5 @@
+import io
+import mimetypes
 from datetime import timedelta
 
 import django_excel
@@ -6,7 +8,8 @@ from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from django.http import HttpResponse
 from django.utils import timezone
-from rest_framework import response, viewsets
+from docxtpl import DocxTemplate
+from rest_framework import exceptions, response, viewsets
 from rest_framework.decorators import action
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
@@ -14,9 +17,11 @@ from rest_framework_json_api import views
 
 from camac.core.models import WorkflowEntry
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
+from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
-from . import filters, mixins, models, serializers
+from ..jinja import get_jinja_env
+from . import filters, mixins, models, serializers, validators
 
 
 class InstanceStateView(viewsets.ReadOnlyModelViewSet):
@@ -136,7 +141,7 @@ class InstanceView(
         return instance.instance_state.name == "nfd"
 
     @action(methods=["get"], detail=False)
-    def export(self, request):
+    def export_list(self, request):
         """Export filtered instances to given file format."""
         fields_queryset = models.FormField.objects.filter(instance=OuterRef("pk"))
         queryset = (
@@ -177,6 +182,38 @@ class InstanceView(
         return django_excel.make_response(
             sheet, file_type="xlsx", file_name="list.xlsx"
         )
+
+    @action(methods=["get"], detail=True)
+    def export_detail(self, request, pk=None):
+        to_type = self.request.query_params.get("type", "docx")
+        instance = self.get_object()
+        validator = validators.FormDataValidator(instance)
+
+        data = {
+            "formName": instance.form.description,
+            "instanceIdentifier": instance.identifier,
+            "modules": validator.get_active_modules_questions(),
+        }
+
+        response = HttpResponse()
+        filename = "{0}.{1}".format(instance.form.description, to_type)
+        response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
+        response["Content-Type"] = mimetypes.guess_type(filename)[0]
+
+        buf = io.BytesIO()
+        doc = DocxTemplate("camac/instance/templates/form-export.docx")
+        doc.render(data, get_jinja_env())
+        doc.save(buf)
+
+        buf.seek(0)
+        if to_type != "docx":
+            content = convert(buf, to_type)
+            if content is None:
+                raise exceptions.ParseError()
+            buf = io.BytesIO(content)
+
+        response.write(buf.read())
+        return response
 
     @action(methods=["post"], detail=True)
     @transaction.atomic
