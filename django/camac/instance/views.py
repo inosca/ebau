@@ -95,18 +95,18 @@ class InstanceView(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
 
-    def has_update_permission(self):
-        return settings.APPLICATION["FORM_BACKEND"] != "caluma"
+    def has_base_permission(self, instance):
+        return instance.involved_applicants.filter(invitee=self.request.user).exists()
 
     def has_object_destroy_permission(self, instance):
         return (
-            instance.user == self.request.user
+            self.has_base_permission(instance)
             and instance.instance_state.name == "new"
             and instance.previous_instance_state.name == "new"
         )
 
     def has_object_submit_permission(self, instance):
-        return instance.user == self.request.user and instance.instance_state.name in (
+        return self.has_base_permission(instance) and instance.instance_state.name in (
             "new",
             "nfd",  # kt. schwyz
             # kt. bern (TODO: rejected instances should be copied and resubmitted from "new" state)
@@ -115,12 +115,12 @@ class InstanceView(
 
     def has_object_report_permission(self, instance):
         return (
-            instance.user == self.request.user and instance.instance_state.name == "sb1"
+            self.has_base_permission(instance) and instance.instance_state.name == "sb1"
         )
 
     def has_object_finalize_permission(self, instance):
         return (
-            instance.user == self.request.user and instance.instance_state.name == "sb2"
+            self.has_base_permission(instance) and instance.instance_state.name == "sb2"
         )
 
     @action(methods=["get"], detail=False)
