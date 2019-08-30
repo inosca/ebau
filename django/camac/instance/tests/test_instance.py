@@ -12,24 +12,9 @@ from camac.core.models import InstanceLocation, WorkflowEntry
 from camac.instance import serializers
 
 
-@pytest.fixture(params=["user", "involved_applicants__invitee"])
-def instance_user_field(settings, request):
-    old_user_field = settings.APPLICATION["INSTANCE_USER_FIELD"]
-    settings.APPLICATION["INSTANCE_USER_FIELD"] = request.param
-    yield
-    settings.APPLICATION["INSTANCE_USER_FIELD"] = old_user_field
-
-
 @pytest.mark.parametrize(
-    "instance_state__name,instance__creation_date,applicant__user,applicant__invitee",
-    [
-        (
-            "new",
-            "2018-04-17T09:31:56+02:00",
-            LazyFixture("admin_user"),
-            LazyFixture("admin_user"),
-        )
-    ],
+    "instance_state__name,instance__creation_date",
+    [("new", "2018-04-17T09:31:56+02:00")],
 )
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
@@ -51,8 +36,6 @@ def test_instance_list(
     django_assert_num_queries,
     editable,
     group_location_factory,
-    applicant,
-    instance_user_field,
 ):
     url = reverse("instance-list")
 

@@ -669,6 +669,20 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 5,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Set superior date and name",
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 81
+  },
+  {
+    "fields": {
       "current_instance_state": 2,
       "next_instance_state": 3
     },
@@ -1419,6 +1433,13 @@
     },
     "model": "core.aphp",
     "pk": 78
+  },
+  {
+    "fields": {
+      "php_class": "SetReviewDone"
+    },
+    "model": "core.aphp",
+    "pk": 81
   },
   {
     "fields": {
@@ -8832,6 +8853,38 @@
   },
   {
     "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": "Abgeschlossen am",
+      "question_type": 10,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "answer_query": null,
+      "class_field": null,
+      "default_answer": null,
+      "description": null,
+      "javascript": null,
+      "mapping": 1,
+      "name": "Vorgesetzter",
+      "question_type": 1,
+      "regex": null,
+      "validation": null
+    },
+    "model": "core.question",
+    "pk": 7
+  },
+  {
+    "fields": {
       "chapter": 1,
       "item": 1,
       "question": 2,
@@ -8873,6 +8926,28 @@
     },
     "model": "core.questionchapter",
     "pk": 4
+  },
+  {
+    "fields": {
+      "chapter": 1,
+      "item": 1,
+      "question": 6,
+      "required": 0,
+      "sort": 4
+    },
+    "model": "core.questionchapter",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "chapter": 1,
+      "item": 1,
+      "question": 7,
+      "required": 0,
+      "sort": 5
+    },
+    "model": "core.questionchapter",
+    "pk": 6
   },
   {
     "fields": {
