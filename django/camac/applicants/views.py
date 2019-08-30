@@ -9,8 +9,8 @@ from . import filters, models, serializers
 class ApplicantsView(viewsets.ModelViewSet, InstanceQuerysetMixin):
     filterset_class = filters.ApplicantFilterSet
     serializer_class = serializers.ApplicantSerializer
-    queryset = models.Applicant.objects.all().prefetch_related(
-        "instance", "instance__involved_applicants"
+    queryset = models.Applicant.objects.all().select_related(
+        "invitee", "instance", "instance__instance_state"
     )
     prefetch_for_included = {"invitee": ["service"], "user": ["service"]}
 

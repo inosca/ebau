@@ -11,14 +11,14 @@ def test_applicant_list(admin_client, role, instance, django_assert_num_queries)
     url = reverse("applicant-list")
 
     with django_assert_num_queries(2):
-        response = admin_client.get(url, data={"include": "user,invitee"})
+        response = admin_client.get(url)
 
         assert response.status_code == status.HTTP_200_OK
-        assert len(response.json()) == 1
+        assert len(response.json()["data"]) == 1
 
 
-def test_applicant_update(admin_client, applicant):
-    url = reverse("applicant-detail", args=[applicant.pk])
+def test_applicant_update(admin_client, instance):
+    url = reverse("applicant-detail", args=[instance.involved_applicants.first().pk])
 
     response = admin_client.patch(url)
 
@@ -36,18 +36,12 @@ def test_applicant_update(admin_client, applicant):
     ],
 )
 def test_applicant_delete(
-    admin_client,
-    role,
-    instance,
-    applicant,
-    applicant_factory,
-    extra_applicants,
-    expected_status,
+    admin_client, role, instance, applicant_factory, extra_applicants, expected_status
 ):
     if extra_applicants:
-        applicant_factory.create_batch(extra_applicants, instance=applicant.instance)
+        applicant_factory.create_batch(extra_applicants, instance=instance)
 
-    url = reverse("applicant-detail", args=[applicant.pk])
+    url = reverse("applicant-detail", args=[instance.involved_applicants.first().pk])
 
     response = admin_client.delete(url)
 
@@ -138,8 +132,8 @@ def test_applicant_create(
         assert response.json()["data"]["relationships"]["user"]
 
 
-@pytest.mark.parametrize("applicant__invitee", [LazyFixture("admin_user")])
-def test_applicant_create_multiple_users(admin_client, applicant, user_factory):
+@pytest.mark.parametrize("instance__user", [LazyFixture("admin_user")])
+def test_applicant_create_multiple_users(admin_client, instance, user_factory):
     url = reverse("applicant-list")
 
     user_factory(email="test@example.com")
@@ -152,9 +146,7 @@ def test_applicant_create_multiple_users(admin_client, applicant, user_factory):
                 "type": "applicants",
                 "attributes": {"email": "test@example.com"},
                 "relationships": {
-                    "instance": {
-                        "data": {"id": applicant.instance.pk, "type": "instances"}
-                    }
+                    "instance": {"data": {"id": instance.pk, "type": "instances"}}
                 },
             }
         },

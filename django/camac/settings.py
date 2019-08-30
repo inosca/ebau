@@ -108,7 +108,6 @@ APPLICATIONS = {
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
         "NOTIFICATIONS": {"SUBMIT": None},
         "PUBLICATION_DURATION": timedelta(days=30),
-        "INSTANCE_USER_FIELD": "user",
         "FORM_BACKEND": "camac-ng",
     },
     "kt_schwyz": {
@@ -124,7 +123,6 @@ APPLICATIONS = {
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
         "IS_MULTILINGUAL": False,
-        "INSTANCE_USER_FIELD": "user",
         "FORM_BACKEND": "camac-ng",
     },
     "kt_bern": {
@@ -158,7 +156,6 @@ APPLICATIONS = {
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
-        "INSTANCE_USER_FIELD": "involved_applicants__invitee",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
         "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],
     },
