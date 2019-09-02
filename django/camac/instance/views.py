@@ -326,7 +326,6 @@ class FormFieldView(
         return False
 
     def get_base_queryset(self):
-
         queryset = super().get_base_queryset()
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
         permission = perms.get(self.request.group.role.get_name(), "applicant")
