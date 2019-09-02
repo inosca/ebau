@@ -609,6 +609,20 @@
   },
   {
     "fields": {
+      "available_action": "docx",
+      "button": 293,
+      "description": "",
+      "error_message": "",
+      "execute_always": 0,
+      "name": "Publikation generieren",
+      "sort": 0,
+      "success_message": ""
+    },
+    "model": "core.action",
+    "pk": 481
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 304,
       "description": "Etwas speichern",
@@ -12970,6 +12984,24 @@
   },
   {
     "fields": {
+      "button": 293,
+      "instance_state": 1,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "button": 293,
+      "instance_state": 21,
+      "role": 6
+    },
+    "model": "core.broleacl",
+    "pk": 64
+  },
+  {
+    "fields": {
       "button": 304,
       "instance_state": 23,
       "role": 4
@@ -17692,6 +17724,18 @@
   },
   {
     "fields": {
+      "class_field": "downloady",
+      "description": "",
+      "hidden": 1,
+      "instance_resource": 265,
+      "name": "Drucken",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 293
+  },
+  {
+    "fields": {
       "class_field": "circ_save_button",
       "description": "Antwort speichern Button",
       "hidden": 0,
@@ -20188,6 +20232,15 @@
   },
   {
     "fields": {
+      "action": 481,
+      "docgen_template": 141,
+      "docgen_template_class": 142
+    },
+    "model": "core.docgendocxaction",
+    "pk": 1295
+  },
+  {
+    "fields": {
       "action": 998,
       "docgen_template": 204,
       "docgen_template_class": 208
@@ -20458,8 +20511,8 @@
   },
   {
     "fields": {
-      "name": "Publikation BG",
-      "path": "publish_print_bg.docx",
+      "name": "Publikation",
+      "path": "publish_print.docx",
       "type": 1.0
     },
     "model": "core.docgentemplate",
@@ -20653,24 +20706,6 @@
     },
     "model": "core.docgentemplate",
     "pk": 220
-  },
-  {
-    "fields": {
-      "name": "Publikation NP",
-      "path": "publish_print_np.docx",
-      "type": 1.0
-    },
-    "model": "core.docgentemplate",
-    "pk": 221
-  },
-  {
-    "fields": {
-      "name": "Publikation SNP",
-      "path": "publish_print_snp.docx",
-      "type": 1.0
-    },
-    "model": "core.docgentemplate",
-    "pk": 222
   },
   {
     "fields": {
@@ -20969,14 +21004,6 @@
     },
     "model": "core.formgroup",
     "pk": 256
-  },
-  {
-    "fields": {
-      "description": "Alle Dossiers bei welchen eine Form von Publikation m\u00f6glich ist",
-      "name": "Alle Dossiers mit Publikation"
-    },
-    "model": "core.formgroup",
-    "pk": 257
   },
   {
     "fields": {
@@ -23340,54 +23367,6 @@
   },
   {
     "fields": {
-      "form": 104,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 309
-  },
-  {
-    "fields": {
-      "form": 106,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 310
-  },
-  {
-    "fields": {
-      "form": 108,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 311
-  },
-  {
-    "fields": {
-      "form": 101,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 312
-  },
-  {
-    "fields": {
-      "form": 44,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 313
-  },
-  {
-    "fields": {
-      "form": 47,
-      "form_group": 257
-    },
-    "model": "core.formgroupform",
-    "pk": 314
-  },
-  {
-    "fields": {
       "group": 1,
       "permission_id": "menu_account"
     },
@@ -23941,14 +23920,14 @@
   {
     "fields": {
       "available_instance_resource": "publication",
-      "class_field": null,
-      "description": null,
-      "form_group": 257,
+      "class_field": "",
+      "description": "",
+      "form_group": 182,
       "hidden": 0,
       "name": "Publikation",
       "resource": 301,
       "sort": 11,
-      "template": null
+      "template": ""
     },
     "model": "core.instanceresource",
     "pk": 265
@@ -38861,7 +38840,6 @@
   {
     "fields": {
       "key": "duration",
-      "type": 1,
       "value": "20 Tage"
     },
     "model": "core.publicationsetting",
@@ -38870,7 +38848,6 @@
   {
     "fields": {
       "key": "fromEmail",
-      "type": 1,
       "value": "camac@ur.ch"
     },
     "model": "core.publicationsetting",
@@ -38879,7 +38856,6 @@
   {
     "fields": {
       "key": "text",
-      "type": 1,
       "value": "Gemeindebaubeh\u00f6rde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nMeldung einer Bauplanauflage zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\"\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgende Bauplanauflage im Amtsblatt vom Freitag [@publishDate]\r\nzu publizieren:\r\n\r\n[@community]\r\n\r\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\r\nBauvorhaben: [@intent]\r\nBauplatz: [@c21q93i1]\r\nParzelle: [@c21q91i1]\r\nBemerkungen: [@note]\r\n\r\n\r\n\r\n\r\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\nGemeindebaubeh\u00f6rde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]\r\n"
     },
     "model": "core.publicationsetting",
@@ -38888,7 +38864,6 @@
   {
     "fields": {
       "key": "toEmail",
-      "type": 1,
       "value": "amtsblatt@ur.ch"
     },
     "model": "core.publicationsetting",
@@ -38897,122 +38872,10 @@
   {
     "fields": {
       "key": "stopText",
-      "type": 1,
       "value": "Gemeindebaubeh\u00f6rde [@authority]\n\nStandeskanzlei Uri\nRedaktion Amtsblatt\nRathaus\n6460 Altdorf\n\n[@zip] [@location], [@date]\n\n\nSTOPP - Meldung einer Bauplanauflage\n\nSehr geehrte Damen und Herren\n\nVia CAMAC haben Sie die Meldung zur folgenden Bauplanauflage erhalten.\n\n[@community]\n\nBauherrschaft:[@c1q221i1] [@c1q23i1], [@c1q61i1], [@c1q62i1]\nBauvorhaben: [@intent]\nBauplatz: [@c21q93i1]\nParzelle: [@c21q91i1]\nBemerkungen: [@note]\nPublikationsdatum: [@publishDate]\n\n\nWir bitten Sie, die Bauplanauflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\n\nWir danken Ihnen f\u00fcr Ihre Bem\u00fchungen und stehen bei Fragen gerne zur Verf\u00fcgung\n\nFreundliche Gr\u00fcsse\n\nGemeindebaubeh\u00f6rde [@authority]\n\n\n[@zip] [@location], [@date]\n"
     },
     "model": "core.publicationsetting",
     "pk": 6
-  },
-  {
-    "fields": {
-      "key": "duration",
-      "type": 2,
-      "value": "30 Tage"
-    },
-    "model": "core.publicationsetting",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "key": "fromEmail",
-      "type": 2,
-      "value": "camac@ur.ch"
-    },
-    "model": "core.publicationsetting",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "key": "text",
-      "type": 2,
-      "value": "Gemeinde [@authority]\r\n\r\n\r\nAltdorf, [@date]\r\n\r\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik \"Bau\r\nund Planungsrecht\" und im amtlichen Publikationsorgan (APO)\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@date] bzw. ab\r\nFreitag [@date] im APO zu publizieren:\r\n\r\nÄnderung des Nutzungsplans [@authority]\r\n\r\nGestützt auf Artikel 43 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird während 30 Tagen die\r\nfolgende Änderung des Nutzungsplans ([@intent]) der Gemeinde [@authority] öffentlich aufgelegt:\r\n\r\n [@documents]\r\n\r\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der öffentlich-rechtlichen\r\nEigentumsbeschränkungen (www.apo.oereb.ur.ch).\r\n\r\nInnerhalb der Auflagefrist können schriftliche Einsprachen mit bestimmten Begehren und begründet\r\nbeim Gemeinderat eingereicht werden.\r\n\r\n[@authority], [@date] Gemeinderat [@authority]\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeinde [@authority]\r\n"
-    },
-    "model": "core.publicationsetting",
-    "pk": 9
-  },
-  {
-    "fields": {
-      "key": "toEmail",
-      "type": 2,
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch"
-    },
-    "model": "core.publicationsetting",
-    "pk": 10
-  },
-  {
-    "fields": {
-      "key": "stopText",
-      "type": 2,
-      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\nLisag AG\r\nNeuland 11\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\r\n\r\n[@community]\r\n\r\n\r\nVorhaben: [@intent]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
-    },
-    "model": "core.publicationsetting",
-    "pk": 11
-  },
-  {
-    "fields": {
-      "key": "duration",
-      "type": 3,
-      "value": "30 Tage"
-    },
-    "model": "core.publicationsetting",
-    "pk": 12
-  },
-  {
-    "fields": {
-      "key": "fromEmail",
-      "type": 3,
-      "value": "camac@ur.ch"
-    },
-    "model": "core.publicationsetting",
-    "pk": 13
-  },
-  {
-    "fields": {
-      "key": "text",
-      "type": 3,
-      "value": "Gemeinde [@authority]\r\n\r\n\r\nAltdorf, [@date]\r\n\r\n\r\nMeldung eines Auflage- und Einspracheverfahrens zur Publikation im Amtsblatt unter der Rubrik\r\n\"Bau und Planungsrecht\" und im amtlichen Publikationsorgan (APO)\r\n\r\n\r\nSehr geehrte Damen und Herren\r\n\r\n\r\nWir bitten Sie, folgendes Auflage- und Einspracheverfahren im Amtsblatt vom Freitag [@date] bzw. ab\r\nFreitag [@date] im APO zu publizieren:\r\n\r\n\r\n[@intent] [@authority]\r\n\r\nGestützt auf Artikel 55 des Planungs- und Baugesetzes (PBG; RB 40.1111) wird während 30 Tagen\r\nder [@intent] der Gemeinde [@authority] öffentlich aufgelegt:\r\n\r\nDokumente:\r\n [@documents]\r\nPlanungsperimeter:\r\n - <PARZELLENNUMMER>\r\n\r\nDie Auflage erfolgt auf der Gemeindekanzlei und im Kataster der öffentlich-rechtlichen\r\nEigentumsbeschränkungen (www.apo.oereb.ur.ch).\r\n\r\nInnerhalb der Auflagefrist können schriftliche Einsprachen mit bestimmten Begehren und begründet\r\nbeim Gemeinderat eingereicht werden.\r\n\r\n[@authority], [@date] Gemeinderat [@authority]\r\n\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\n\r\nFreundliche Grüsse\r\n\r\nGemeinde [@authority]\r\n"
-    },
-    "model": "core.publicationsetting",
-    "pk": 14
-  },
-  {
-    "fields": {
-      "key": "toEmail",
-      "type": 3,
-      "value": "amtsblatt@ur.ch,oereb@lisag.ch"
-    },
-    "model": "core.publicationsetting",
-    "pk": 15
-  },
-  {
-    "fields": {
-      "key": "stopText",
-      "type": 3,
-      "value": "Gemeindebaubehörde [@authority]\r\n\r\nStandeskanzlei Uri\r\nRedaktion Amtsblatt\r\nRathaus\r\n6460 Altdorf\r\n\r\nLisag AG\r\nNeuland 11\r\n6460 Altdorf\r\n\r\n[@zip] [@location], [@date]\r\n\r\n\r\nSTOPP - Meldung eines Auflage- und Einspracheverfahrens\r\n\r\nSehr geehrte Damen und Herren\r\n\r\nVia CAMAC haben Sie die Meldung zu folgendem Auflage- und Einspracheverfahren erhalten.\r\n\r\n[@community]\r\n\r\n\r\nVorhaben: [@intent]\r\nPublikationsdatum: [@publishDate]\r\n\r\n\r\nWir bitten Sie, die Auflage zu STOPPEN. Sofern das Vorhaben weiterverfolgt wird, erhalten Sie zu gegebener Zeit eine neue Publikationsmeldung.\r\n\r\nWir danken Ihnen für Ihre Bemühungen und stehen bei Fragen gerne zur Verfügung\r\n\r\nFreundliche Grüsse\r\n\r\nGemeindebaubehörde [@authority]\r\n\r\n\r\n[@zip] [@location], [@date]"
-    },
-    "model": "core.publicationsetting",
-    "pk": 16
-  },
-  {
-    "fields": {
-      "name": "Baubewilligung"
-    },
-    "model": "core.publicationtype",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "name": "Nutzungsplanung"
-    },
-    "model": "core.publicationtype",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "name": "Sondernutzungsplanung"
-    },
-    "model": "core.publicationtype",
-    "pk": 3
   },
   {
     "fields": {
@@ -46092,16 +45955,6 @@
     },
     "model": "document.attachmentsection",
     "pk": 103
-  },
-  {
-    "fields": {
-      "name": "Bau- und Einsprache - Entscheid (Bewilligungsdokumente)",
-      "notification_template": null,
-      "recipient_types": null,
-      "sort": 0
-    },
-    "model": "document.attachmentsection",
-    "pk": 104
   },
   {
     "fields": {
