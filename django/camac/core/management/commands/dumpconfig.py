@@ -205,6 +205,7 @@ models_referencing_data = (
     "core.IrCirculation",
     "core.Mapping",
     "core.NoticeType",
+    "core.PublicationType",
     "core.Question",
     "core.QuestionT",
     "core.QuestionType",
