@@ -8782,6 +8782,7 @@
   {
     "fields": {
       "key": "duration",
+      "type": null,
       "value": "20 Tage"
     },
     "model": "core.publicationsetting",
