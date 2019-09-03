@@ -114,38 +114,40 @@ const queryParams = new QueryParams({
 export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
   fetch: service(),
 
-  orderOptions: computed(() => [
-    {
-      value: "META_CAMAC_INSTANCE_ID_DESC",
-      label: "instances.instanceId",
-      direction: "instances.desc"
-    },
-    {
-      value: "META_CAMAC_INSTANCE_ID_ASC",
-      label: "instances.instanceId",
-      direction: "instances.asc"
-    },
-    {
-      value: "META_EBAU_NUMBER_DESC",
-      label: "instances.ebau",
-      direction: "instances.desc"
-    },
-    {
-      value: "META_EBAU_NUMBER_ASC",
-      label: "instances.ebau",
-      direction: "instances.asc"
-    },
-    {
-      value: "META_SUBMIT_DATE_DESC",
-      label: "instances.submitDate",
-      direction: "instances.desc"
-    },
-    {
-      value: "META_SUBMIT_DATE_ASC",
-      label: "instances.submitDate",
-      direction: "instances.asc"
-    }
-  ]),
+  orderOptions: computed(function() {
+    return [
+      {
+        value: "META_CAMAC_INSTANCE_ID_DESC",
+        label: "instances.instanceId",
+        direction: "instances.desc"
+      },
+      {
+        value: "META_CAMAC_INSTANCE_ID_ASC",
+        label: "instances.instanceId",
+        direction: "instances.asc"
+      },
+      {
+        value: "META_EBAU_NUMBER_DESC",
+        label: "instances.ebau",
+        direction: "instances.desc"
+      },
+      {
+        value: "META_EBAU_NUMBER_ASC",
+        label: "instances.ebau",
+        direction: "instances.asc"
+      },
+      {
+        value: "META_SUBMIT_DATE_DESC",
+        label: "instances.submitDate",
+        direction: "instances.desc"
+      },
+      {
+        value: "META_SUBMIT_DATE_ASC",
+        label: "instances.submitDate",
+        direction: "instances.asc"
+      }
+    ];
+  }),
 
   setup() {
     this.getMunicipalities.perform();
