@@ -217,9 +217,7 @@ export default Component.extend(ComponentQueryManager, {
   origin: computed("link", function() {
     // The regular expression extracts the scheme and hostname from the link.
     // We need this to check if the "message" events were sent by the iframe.
-    if (REGEXP_ORIGIN.test(this.link)) {
-      return this.link.match(REGEXP_ORIGIN)[1];
-    }
+    return REGEXP_ORIGIN.test(this.link) && this.link.match(REGEXP_ORIGIN)[1];
   }),
 
   /**

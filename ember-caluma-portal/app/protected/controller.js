@@ -12,7 +12,7 @@ export default Controller.extend({
   languages,
   environment,
 
-  enableMultilang: computed(() => {
+  enableMultilang: computed(function() {
     // TODO: remove this if the french translations are approved
     return !/ebau.apps.be.ch$/.test(window.location.host);
   }),
