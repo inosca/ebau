@@ -6,13 +6,11 @@ import { all } from "rsvp";
 import { next } from "@ember/runloop";
 import config from "../../config/environment";
 import { assert } from "@ember/debug";
-import { queryManager } from "ember-apollo-client";
+import { ComponentQueryManager } from "ember-apollo-client";
 
 const { environment } = config;
 
-export default InViewportComponent.extend({
-  apollo: queryManager(),
-
+export default InViewportComponent.extend(ComponentQueryManager, {
   notification: service(),
   ajax: service(),
   router: service(),
