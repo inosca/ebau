@@ -2697,7 +2697,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Unterlagenerg\u00e4nzung",
-      "sort": 7
+      "sort": 1
     },
     "model": "core.circulationanswer",
     "pk": 2
@@ -2707,7 +2707,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Rechtliches Geh\u00f6r",
-      "sort": 8
+      "sort": 2
     },
     "model": "core.circulationanswer",
     "pk": 3
@@ -2717,7 +2717,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
-      "sort": 9
+      "sort": 3
     },
     "model": "core.circulationanswer",
     "pk": 4
@@ -2727,7 +2727,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Abschliessend beurteilbar",
-      "sort": 10
+      "sort": 4
     },
     "model": "core.circulationanswer",
     "pk": 9
@@ -2737,10 +2737,20 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Widerspruch",
-      "sort": 11
+      "sort": 5
     },
     "model": "core.circulationanswer",
     "pk": 10
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 1,
+      "name": "Augenschein",
+      "sort": 6
+    },
+    "model": "core.circulationanswer",
+    "pk": 11
   },
   {
     "fields": {
