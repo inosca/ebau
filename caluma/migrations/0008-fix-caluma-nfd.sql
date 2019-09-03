@@ -12,6 +12,14 @@ update form_answer set question_id='nfd-tabelle-status', value='"nfd-tabelle-sta
 
 delete from form_answer where question_id='nfd-einreichen-button';
 
+delete from form_formquestion where question_id in (
+  'nfd-tabelle-erledigt',
+  'nfd-einreichen-button',
+  'nfd-nachforderungen-form',
+  'nfd-einreichen-form',
+  'nfd-dokumente-form'
+);
+
 delete from form_formquestion where form_id in (
   'nfd-dokumente',
   'nfd-einreichen',
