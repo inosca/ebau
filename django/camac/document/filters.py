@@ -1,3 +1,4 @@
+from django_filters.filters import BaseCSVFilter
 from django_filters.rest_framework import DateTimeFilter, FilterSet
 
 from camac.filters import CharMultiValueFilter, NumberFilter
@@ -11,6 +12,17 @@ class AttachmentFilterSet(FilterSet):
     class Meta:
         model = models.Attachment
         fields = ("instance", "user", "name", "attachment_sections")
+
+
+class AttachmentDownloadFilterSet(FilterSet):
+    attachments = BaseCSVFilter(field_name="pk", method="filter_attachments")
+
+    def filter_attachments(self, queryset, name, value):
+        return queryset.filter(pk__in=value)
+
+    class Meta:
+        model = models.Attachment
+        fields = ("attachments",)
 
 
 class TemplateFilterSet(FilterSet):
