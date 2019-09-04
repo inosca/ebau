@@ -2,10 +2,12 @@ import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import filesize from "filesize";
-import { dropTask } from "ember-concurrency-decorators";
+import { dropTask, lastValue } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
+import gql from "graphql-tag";
+import { ObjectQueryManager } from "ember-apollo-client";
 
-export default class Attachment extends Model {
+export default class Attachment extends Model.extend(ObjectQueryManager) {
   @service fetch;
   @service intl;
   @service notification;
@@ -24,13 +26,46 @@ export default class Attachment extends Model {
     return filesize(this.size);
   }
 
+  @lastValue("_tags") tags;
   @computed("context.tags.[]")
-  get tags() {
-    return this.getWithDefault("context.tags", []).map(slug => {
-      const field = this.instance.findCalumaField(slug);
+  get _tags() {
+    const task = this.fetchTags;
 
-      return field && field.question.label;
-    });
+    task.perform();
+
+    return task;
+  }
+
+  @dropTask
+  *fetchTags() {
+    if (!this.context.tags) return [];
+
+    const raw = yield this.apollo.query(
+      {
+        query: gql`
+          query($slugs: [String]!) {
+            allQuestions(slugs: $slugs) {
+              edges {
+                node {
+                  slug
+                  label
+                }
+              }
+            }
+          }
+        `,
+        variables: { slugs: this.context.tags }
+      },
+      "allQuestions.edges"
+    );
+
+    return this.context.tags
+      .map(slug => {
+        const tag = raw.find(({ node }) => node.slug === slug);
+
+        return tag && tag.node;
+      })
+      .filter(Boolean);
   }
 
   @dropTask
