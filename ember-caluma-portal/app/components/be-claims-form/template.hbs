@@ -1,0 +1,67 @@
+{{#each fieldset.fields as |field|}}
+  {{cf-field field=field disabled=disabled context=context}}
+{{/each}}
+
+<h3 class="uk-heading-divider">{{t "claims.uploadDocuments"}}</h3>
+{{#if hasPendingClaims}}
+  {{#if file}}
+    <strong>{{t "documents.contents"}}</strong>
+    <div class="uk-grid-small" uk-grid>
+      <div class="uk-width-expand">
+        {{#power-select-multiple
+          multiple=true
+          selected=selectedTags
+          options=tags
+          searchField="label"
+          onchange=(action (mut selectedTags))
+        as |tag|}}
+          {{tag.label}}
+        {{/power-select-multiple}}
+      </div>
+      <div>
+        {{uk-button
+          color="default"
+          loading=upload.isRunning
+          on-click=(perform upload file)
+          label=(t "claims.upload")
+        }}
+      </div>
+    </div>
+  {{else}}
+    {{#file-dropzone name="documents" as |dropzone|}}
+      <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
+        {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
+        <div>
+          {{#if dropzone.supported}}
+            {{t "documents.drag"}}
+          {{/if}}
+          {{#file-upload name="documents" onfileadd=(action (mut file))}}
+            <span class="uk-link">{{t "documents.click"}}</span>
+          {{/file-upload}}
+        </div>
+      </div>
+    {{/file-dropzone}}
+
+    {{#if didUpload}}
+      <div class="uk-text-right">
+        {{uk-button
+          color="primary"
+          loading=submit.isLoading
+          on-click=(perform submit)
+          label=(t "claims.submit")
+        }}
+      </div>
+    {{/if}}
+  {{/if}}
+{{else}}
+  <div uk-alert class="uk-alert-warning">{{t "claims.noPending"}}</div>
+{{/if}}
+
+{{#if attachments.length}}
+  <h3 class="uk-heading-divider">{{t "claims.uploadedDocuments"}}</h3>
+
+  {{be-attachment-list
+    attachments=attachments
+    loading=fetchAttachments.isRunning
+  }}
+{{/if}}
