@@ -2400,7 +2400,8 @@
       "is_published": 1,
       "note": 2.0,
       "publication_date": "2019-04-22T08:28:07Z",
-      "text": null
+      "text": null,
+      "type": null
     },
     "model": "core.publicationentry",
     "pk": 1
