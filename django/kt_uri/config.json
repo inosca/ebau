@@ -5784,7 +5784,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 27,
+      "current_instance_state": 21,
       "next_instance_state": 26
     },
     "model": "core.aformtransition",
@@ -5824,7 +5824,7 @@
   },
   {
     "fields": {
-      "current_instance_state": 27,
+      "current_instance_state": 21,
       "next_instance_state": 26
     },
     "model": "core.aformtransition",
