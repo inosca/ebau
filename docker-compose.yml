@@ -11,7 +11,7 @@ services:
             - php
             - django
             - keycloak
-            - mailcatcher
+            - mailhog
         volumes:
             - djangomedia:/var/lib/camac/media:ro
 
@@ -60,7 +60,7 @@ services:
             - cache
             - clamav
             - keycloak
-            - mailcatcher
+            - mailhog
             - unoconv
         environment:
             - DJANGO_DATABASE_HOST=db
@@ -104,7 +104,7 @@ services:
             - django
             - cache
             - keycloak
-            - mailcatcher
+            - mailhog
         environment:
             - APPLICATION=${APPLICATION}
         volumes:
@@ -116,8 +116,8 @@ services:
             - /var/www/camac/public/node_modules
             - /var/www/camac/public/bower_components
 
-    mailcatcher:
-        image: schickling/mailcatcher
+    mailhog:
+      image: mailhog/mailhog
 
     unoconv:
         image: zrrrzzt/docker-unoconv-webservice:8.9.4
