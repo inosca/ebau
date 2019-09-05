@@ -148,10 +148,10 @@ services:
         command: ["-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
 
     mailhog:
-        ports:
-            - '8025:8025'
         networks:
             - camac-ng.local
+        environment:
+          - MH_UI_WEB_PATH=mailhog
 
     iweb_mock:
         image: node:6
