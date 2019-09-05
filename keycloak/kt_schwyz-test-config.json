@@ -1129,7 +1129,7 @@
     "starttls": "",
     "auth": "",
     "port": "1025",
-    "host": "mailcatcher",
+    "host": "mailhog",
     "from": "info@camac-ng.local",
     "ssl": ""
   },
