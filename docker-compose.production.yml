@@ -88,7 +88,7 @@ services:
             - ENV_FILE=/run/secrets/keycloak.env
         restart: always
 
-    mailcatcher:
+    mailhog:
         restart: always
 
 volumes:
