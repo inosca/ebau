@@ -26,13 +26,15 @@ export default Component.extend(ComponentQueryManager, {
   section: reads("fieldset.field.question.meta.attachment-section"),
   deletable: computed(
     "disabled",
-    "context.instance.state.attributes.name",
+    "context.instance.instanceState.name",
     function() {
-      const state = this.get("context.instance.state.attributes.name");
+      const state = this.get("context.instance.instanceState.name");
 
+      // in certain states the form will be editable but deleting is disallowed
       return (
-        // in certain states the form will be editable but deleting is disallowed
-        !this.disabled && !["Zurückgewiesen", "In Korrektur"].includes(state)
+        !this.disabled &&
+        state &&
+        !["Zurückgewiesen", "In Korrektur"].includes(state)
       );
     }
   ),
@@ -207,8 +209,8 @@ export default Component.extend(ComponentQueryManager, {
       }
 
       yield all(
-        attachment.attributes.context.tags
-          .map(slug => this.fieldset.document.findField(slug))
+        attachment.tags
+          .map(({ slug }) => this.fieldset.document.findField(slug))
           .map(async field => {
             field.set("answer.value", null);
 
