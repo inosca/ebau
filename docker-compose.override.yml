@@ -61,7 +61,7 @@ services:
         environment:
             - APPLICATION_ENV=development
             - KEYCLOAK_URL=http://keycloak:8080/auth/
-            - DJANGO_EMAIL_HOST=mailcatcher
+            - DJANGO_EMAIL_HOST=mailhog
             - DJANGO_EMAIL_PORT=1025
         networks:
             - camac-ng.local
@@ -147,9 +147,9 @@ services:
         # http://www.keycloak.org/docs/3.3/server_admin/topics/export-import.html
         command: ["-Dkeycloak.migration.action=import", "-Dkeycloak.migration.provider=singleFile", "-Dkeycloak.migration.file=/etc/keycloak/test-config.json", "-b", "0.0.0.0"]
 
-    mailcatcher:
+    mailhog:
         ports:
-            - '1080:1080'
+            - '8025:8025'
         networks:
             - camac-ng.local
 
