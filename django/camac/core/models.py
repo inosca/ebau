@@ -1235,6 +1235,14 @@ class BuildingAuthorityEmail(models.Model):
     from_name = models.CharField(
         db_column="FROM_NAME", max_length=400, blank=True, null=True
     )
+    attachment_section = models.ForeignKey(
+        "document.AttachmentSection",
+        models.DO_NOTHING,
+        db_column="ATTACHMENT_SECTION_ID",
+        blank=True,
+        null=True,
+        related_name="+",
+    )
 
     class Meta:
         managed = True
