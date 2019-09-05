@@ -240,7 +240,7 @@ def test_instance_permissions(
                                                                             "question": {
                                                                                 "slug": "nfd-tabelle-status"
                                                                             },
-                                                                            "value": "nfd-tabelle-status-erledigt",
+                                                                            "value": "nfd-tabelle-status-entwurf",
                                                                         }
                                                                     }
                                                                 ]
@@ -283,7 +283,7 @@ def test_instance_permissions(
                                                                             "question": {
                                                                                 "slug": "nfd-tabelle-status"
                                                                             },
-                                                                            "value": "nfd-tabelle-status-erledigt",
+                                                                            "value": "nfd-tabelle-status-entwurf",
                                                                         }
                                                                     }
                                                                 ]
@@ -298,6 +298,20 @@ def test_instance_permissions(
                                                                                 "slug": "nfd-tabelle-status"
                                                                             },
                                                                             "value": "nfd-tabelle-status-in-bearbeitung",
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        },
+                                                        {
+                                                            "answers": {
+                                                                "edges": [
+                                                                    {
+                                                                        "node": {
+                                                                            "question": {
+                                                                                "slug": "nfd-tabelle-status"
+                                                                            },
+                                                                            "value": "nfd-tabelle-status-erledigt",
                                                                         }
                                                                     }
                                                                 ]

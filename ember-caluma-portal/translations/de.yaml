@@ -206,3 +206,10 @@ instances:
 
 be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
+
+claims:
+  upload: "Hochladen"
+  submit: "Nachforderungen abschicken"
+  noPending: "Sie haben keine unbeantworteten Nachforderungen und können somit keine Dokumente hochladen"
+  uploadDocuments: "Dokumente hochladen"
+  uploadedDocuments: "Hochgeladene Dokumente"

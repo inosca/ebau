@@ -18,9 +18,7 @@ export default class BeClaimsTableComponent extends Component {
     return this.field.answer.value.filter(document => {
       const field = document.findField("nfd-tabelle-status");
 
-      return (
-        field && field.answer.value === "nfd-tabelle-status-in-bearbeitung"
-      );
+      return field && field.answer.value !== "nfd-tabelle-status-entwurf";
     });
   }
 }

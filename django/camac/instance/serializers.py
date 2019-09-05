@@ -340,7 +340,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
                     row
                     for row in rows
                     if row["answers"]["edges"][0]["node"]["value"]
-                    == "nfd-tabelle-status-in-bearbeitung"
+                    != "nfd-tabelle-status-entwurf"
                 ]
             ):
                 return ["read", "write"]
