@@ -330,24 +330,26 @@ class CalumaInstanceSerializer(InstanceSerializer):
             {"instanceId": instance.pk},
         )
 
+        permissions = []
+
         try:
-            rows = resp["data"]["allDocuments"]["edges"][0]["node"]["answers"]["edges"][
-                0
-            ]["node"]["value"]
 
-            if len(
-                [
-                    row
-                    for row in rows
-                    if row["answers"]["edges"][0]["node"]["value"]
-                    != "nfd-tabelle-status-entwurf"
-                ]
-            ):
-                return ["read", "write"]
-        except (KeyError, IndexError):
+            status = [
+                row["answers"]["edges"][0]["node"]["value"]
+                for row in resp["data"]["allDocuments"]["edges"][0]["node"]["answers"][
+                    "edges"
+                ][0]["node"]["value"]
+            ]
+
+            if any(map(lambda s: s != "nfd-tabelle-status-entwurf", status)):
+                permissions += ["read"]
+
+            if any(map(lambda s: s == "nfd-tabelle-status-in-bearbeitung", status)):
+                permissions += ["write"]
+
+            return permissions
+        except (IndexError, KeyError):
             return []
-
-        return []
 
     def _get_nfd_form_permissions_for_service(self, instance):
         return []
