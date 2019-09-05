@@ -188,3 +188,10 @@ instances:
 
 be-submit-instance:
   loading: "Votre dossier sera examiné. Veuillez patienter un instant."
+
+claims:
+  upload: "Télécharger"
+  submit: "Envoyer les demandes de complément d'information"
+  noPending: "Vous n'avez pas des demandes de complément d'information sans réponse et ne pouvez donc pas télécharger de documents"
+  uploadDocuments: "Télécharger des documents"
+  uploadedDocuments: "Documents téléchargés"
