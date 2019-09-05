@@ -12,14 +12,14 @@ def dateformat(value, format="medium"):
     return format_date(parsed_value, format, locale=settings.LANGUAGE_CODE)
 
 
-def emptystring(value):
+def getwithdefault(value, default=""):
     if value is None:
-        return ""
+        return default
     return value
 
 
 def get_jinja_env():
     jinja_env = Environment()
     jinja_env.filters["date"] = dateformat
-    jinja_env.filters["emptystring"] = emptystring
+    jinja_env.filters["getwithdefault"] = getwithdefault
     return jinja_env
