@@ -777,7 +777,7 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
-      "meta": {},
+      "meta": { "widgetOverride": "be-claims-form" },
       "is_published": true,
       "is_archived": false,
       "source": null
@@ -8464,19 +8464,6 @@
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-frist",
       "sort": 4
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "b72669af-71d8-4271-abfb-c8d44232e20a",
-    "fields": {
-      "created_at": "2019-08-27T08:10:04.001Z",
-      "modified_at": "2019-08-27T08:10:04.001Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "nfd",
-      "question": "nfd-dokumente",
-      "sort": 1
     }
   },
   {
@@ -24728,31 +24715,6 @@
   },
   {
     "model": "form.question",
-    "pk": "nfd-dokumente",
-    "fields": {
-      "created_at": "2019-08-27T08:10:03.810Z",
-      "modified_at": "2019-08-27T08:10:03.810Z",
-      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "created_by_group": null,
-      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
-      "type": "static",
-      "is_required": "false",
-      "is_hidden": "false",
-      "is_archived": false,
-      "placeholder": "{\"de\": null, \"fr\": null}",
-      "info_text": "{\"de\": null, \"fr\": null}",
-      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
-      "configuration": {},
-      "meta": { "widgetOverride": "be-claims-documents" },
-      "data_source": null,
-      "row_form": null,
-      "sub_form": null,
-      "source": null,
-      "format_validators": "[]"
-    }
-  },
-  {
-    "model": "form.question",
     "pk": "nfd-tabelle-autorin",
     "fields": {
       "created_at": "2019-08-15T13:49:06.013Z",
@@ -24947,9 +24909,9 @@
         "hideLabel": true,
         "widgetOverride": "be-claims-table",
         "columnsToDisplay": [
-          "nfd-tabelle-datum-anfrage",
           "nfd-tabelle-frist",
-          "nfd-tabelle-beschreibung"
+          "nfd-tabelle-beschreibung",
+          "nfd-tabelle-status"
         ]
       },
       "data_source": null,
