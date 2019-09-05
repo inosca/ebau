@@ -90,5 +90,23 @@
     },
     "model": "user.usergroup",
     "pk": 3
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 22,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "default_group": 0,
+      "group": 142,
+      "user": 1
+    },
+    "model": "user.usergroup",
+    "pk": 5
   }
 ]
