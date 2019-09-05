@@ -30,7 +30,9 @@ export default Controller.extend(queryParams.Mixin, ObjectQueryManager, {
     this.resetQueryParams();
   },
 
-  embedded: computed(() => window !== window.top),
+  embedded: computed(function() {
+    return window !== window.top;
+  }),
 
   additionalForms: computed("instance.meta.permissions", function() {
     const permissions = this.getWithDefault("instance.meta.permissions", {});
