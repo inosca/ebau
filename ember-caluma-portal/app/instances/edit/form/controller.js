@@ -21,7 +21,9 @@ export default Controller.extend(queryParams.Mixin, {
   instance: reads("editController.instance"),
   instanceTask: reads("editController.instanceTask"),
 
-  embedded: computed(() => window !== window.top),
+  embedded: computed(function() {
+    return window !== window.top;
+  }),
 
   reset() {
     this.resetQueryParams();
