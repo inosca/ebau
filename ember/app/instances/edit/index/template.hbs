@@ -92,3 +92,9 @@
     sich an die Bauverwaltung der entsprechenden Gemeinde wenden.
   {{/list.item}}
 {{/uk-list}}
+
+{{#if model.instance.identifier}}
+  <div class="uk-text-center">
+    {{download-instance instance=model.instance}}
+  </div>
+{{/if}}
