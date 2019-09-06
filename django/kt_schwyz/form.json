@@ -5870,7 +5870,8 @@
     },
     "einsprecher": {
       "restrict": [
-        "municipality"
+        "municipality",
+        "service"
       ],
       "label": "Einsprecher:",
       "hint": "Natürliche oder juristische Person, die während der öffentlichen Planauflage eines Vorhabens Einsprache erhebt.",
