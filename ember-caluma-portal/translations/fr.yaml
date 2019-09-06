@@ -188,6 +188,22 @@ instances:
     sb2: "Déclaration spontanée 2"
     nfd: "Demandes de complément d'information"
 
+  noDocument: "Le formulaire \"{form}\" n'a pas encore été rempli"
+  createDocument: "Remplissez le formulaire maintenant"
+
+  applicants:
+    invitee: "Utilisateur"
+    created: "Enregistré sur"
+    user: "Ajouté par"
+    email: "e-mail"
+
+    add: "Ajouter un utilisateur"
+
+    assSuccess: "L'utilisateur a été ajouté avec succès"
+    addError: "Quelque chose a mal tourné lors de l'ajout de l'utilisateur"
+    deleteSuccess: "L'utilisateur a été supprimé avec succès"
+    deleteError: "Quelque chose a mal tourné lors de la suppression de l'utilisateur"
+
 be-submit-instance:
   loading: "Votre dossier sera examiné. Veuillez patienter un instant."
 
