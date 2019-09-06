@@ -343,10 +343,10 @@ def test_instance_submit(
 
 
 @pytest.mark.parametrize("role__name", ["Canton"])
-def test_instance_export(
+def test_instance_export_list(
     admin_client, user, instance_factory, django_assert_num_queries, form_field_factory
 ):
-    url = reverse("instance-export")
+    url = reverse("instance-export-list")
     instances = instance_factory.create_batch(2, user=user)
     instance = instances[0]
 
@@ -368,6 +368,49 @@ def test_instance_export(
     row = sheet[0]
     assert row[4] == "Muster Hans, Beispiel Jean"
     assert row[5] == "Bezeichnung"
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user,form__name,status_code,to_type",
+    [
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "baugesuch",
+            status.HTTP_200_OK,
+            "docx",
+        ),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "baugesuch",
+            status.HTTP_200_OK,
+            "pdf",
+        ),
+        (
+            "Applicant",
+            LazyFixture("admin_user"),
+            "baugesuch",
+            status.HTTP_400_BAD_REQUEST,
+            "invalid",
+        ),
+    ],
+)
+def test_instance_export_detail(
+    admin_client, form, instance, form_field_factory, status_code, to_type
+):
+    url = reverse("instance-export-detail", args=[instance.pk])
+
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(
+        name="grundeigentumerschaft",
+        value=[{"name": "Muster Hans"}, {"name": "Beispiel Jean"}],
+    )
+    add_field(name="bohrungsdaten", value="Bezeichnung")
+    add_field(name="kategorie-des-vorhabens", value=["Anlage(n)", "Baute(n)"])
+
+    response = admin_client.get(url, data={"type": to_type})
+    assert response.status_code == status_code
 
 
 @pytest.mark.freeze_time("2017-7-27")
