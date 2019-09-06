@@ -6666,6 +6666,24 @@
     "pk": 75
   },
   {
+    "fields": {
+      "action_name": "copy-decision-document",
+      "available_instance_resource": "documents",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "action_name": "delete-decision-document",
+      "available_instance_resource": "documents",
+      "hidden": 1
+    },
+    "model": "core.airaction",
+    "pk": 77
+  },
+  {
     "fields": {},
     "model": "core.alocation",
     "pk": 6
@@ -17261,10 +17279,24 @@
   },
   {
     "fields": {
-      "label": "Versand Baubewilligung"
+      "label": "Versand Baubewilligung per Post"
     },
     "model": "core.buildingauthoritybutton",
     "pk": 12
+  },
+  {
+    "fields": {
+      "label": "Versand Baubewilligung per Portal"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "label": "Versand Baubewilligung per Mail"
+    },
+    "model": "core.buildingauthoritybutton",
+    "pk": 14
   },
   {
     "fields": {
@@ -17304,6 +17336,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 3,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Baubewilligung erteilt",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der CAMAC Dossier Nr. [@c2q6i1] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im CAMAC hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17316,6 +17349,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 4,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Bau beendet",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Bau beendet\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt. Wir bitten Sie, das Bauobjekt zu vermessen und die Vermarkung zu \u00fcberpr\u00fcfen. Allf\u00e4llige Kosten gehen zu Lasten der Bauherrschaft. Die Bauherrschaft wurde im Rahmen der Baubewilligung \u00fcber die Vermessungspflicht und daraus allf\u00e4llig entstehenden Kosten in Kenntnis gesetzt.\r\n\r\nEGID Nr.   \u2026\u2026\u2026\u2026...\r\n\r\nEWID Nr.  \u2026\u2026\u2026\u2026\u2026\r\n\r\nDie EGID Nr. bzw. die EWID Nummern gem\u00e4ss GWR werden mitgeteilt sobald das Objekt im GWR erfasst wurde und die entsprechenden Nummern bekannt sind. \r\n\r\n(bitte nichtzutreffendes l\u00f6schen, entweder Angabe der Nummern oder Hinweis).\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17328,6 +17362,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 5,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Fertigstellung Bauvorhaben",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben gest\u00fctzt auf Artikel 2 Absatz 3 der Verordnung \u00fcber die steueramtliche Sch\u00e4tzung der Grundst\u00fccke.\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt.\r\n\r\nGem\u00e4ss Sch\u00e4tzungsverordnung sind Zwischensch\u00e4tzungen vorzunehmen, wenn der Bestand der Baute oder Anlage ver\u00e4ndert wird. Dies ist insbesondere dann der Fall, wenn sich der Umfang des Grundst\u00fcckes ver\u00e4ndert hat, wenn Neubauten oder wesentliche Um,- Aus- oder Anbauten verwirklicht werden, wenn Geb\u00e4ulichkeiten abgebrochen werden oder wenn andere Gr\u00fcnde zu einer wesentlichen Wertver\u00e4nderung beitragen. Weiter sind Zwischensch\u00e4tzungen notwendig bei wesentlichen \u00c4nderungen der Ben\u00fctzungsart und \u00c4nderungen der Beschaffenheit des Grundst\u00fcckes.\r\n\r\nWir bitten Sie, das Erfordernis der Zwischensch\u00e4tzung zu pr\u00fcfen und gegebenenfalls die notwendigen Schritte einzuleiten.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17340,6 +17375,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 6,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Fertigstellung Bauvorhaben",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Fertigstellung Bauvorhaben\r\n\r\nDas Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist fertiggestellt und zur Endabnahme bereit.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17352,6 +17388,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 8,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Abnahme Schnurger\u00fcst",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nMeldung Abnahme Schnurger\u00fcst\r\n\r\nBeim Bauvorhaben mit der Dossier ID [INSTANCE_ID] / CAMAC Dossier Nr. [@c2q6i1] ist die Abnahme Schnurger\u00fcst erfolgt.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17364,6 +17401,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 11,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Meldung Baubewilligung erteilt",
       "email_text": "CAMAC Info\r\n\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf  antworten)\r\n\r\nMeldung Baubewilligung erteilt\r\n\r\nDie zust\u00e4ndige Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] hat betreffend das Dossier ID [INSTANCE_ID] mit der CAMAC Dossier Nr. [@c2q6i1] die Baubewilligung erteilt. Die Baubewilligung wurde unter \u201eDokumente\u201c im CAMAC hochgeladen.\r\n\r\n[INSTANCE_LOCATION], [DATE]",
@@ -17376,6 +17414,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 12,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nBAU- UND EINSPRACHE-ENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nBetreffend das Dossier mit der ID Nr. [INSTANCE_ID] bzw. der CAMAC Nr. [@c2q6i1] wurde der Bau- und Einsprache-Entscheid von der zust\u00e4ndigen Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] erteilt und dem Gesuchsteller zugestellt.\r\n\r\nBitte kontaktieren Sie die zust\u00e4ndige Gemeindebaubeh\u00f6rde falls diese den Bauentscheid im CAMAC noch nicht hochgeladen hat.\r\n\r\nAmt f\u00fcr Raumentwicklung \r\nKoordinationsstelle f\u00fcr Baueingaben\r\nRathausplatz 5\r\n6460 Altdorf\r\n\r\nTel. 041 875 24 29\r\nE-Mail: raumplanung@ur.ch",
@@ -17388,6 +17427,7 @@
   },
   {
     "fields": {
+      "attachment_section": null,
       "building_authority_button": 12,
       "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
       "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
@@ -17397,6 +17437,32 @@
     },
     "model": "core.buildingauthorityemail",
     "pk": 66
+  },
+  {
+    "fields": {
+      "attachment_section": 104,
+      "building_authority_button": 14,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]"
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "attachment_section": null,
+      "building_authority_button": 13,
+      "email_subject": "CAMAC Dossier Nr. [@c2q6i1]: Bau- und Einsprache-Entscheid",
+      "email_text": "CAMAC Info\r\n(automatisch generierte E-Mail von CAMAC, bitte nicht darauf antworten)\r\n\r\nStatusmeldung zum Stand des Bewilligungsverfahrens\r\nBAU- UND EINSPRACHEENTSCHEID\r\n\r\nSehr geehrte Dame\r\nSehr geehrter Herr\r\n\r\nDer Bau- und Einspracheentscheid der Gemeindebaubeh\u00f6rde [INSTANCE_LOCATION] zum Dossiers mit der ID Nr. [INSTANCE_ID] (CAMAC Dossiernummer [@c2q6i1]) wurde verschickt.\r\n\r\nMit freundlichen Gr\u00fcssen\r\nGemeindebaubeh\u00f6rde [INSTANCE_LOCATION]",
+      "from_email": "camac@ur.ch",
+      "from_name": "Camac Info",
+      "receiver_query": "[gesuchsteller]"
+    },
+    "model": "core.buildingauthorityemail",
+    "pk": 68
   },
   {
     "fields": {
@@ -24653,7 +24719,7 @@
       "name": "Personen- und Projektdaten",
       "resource": 251,
       "sort": 0,
-      "template": "/portal/form-read.phtml"
+      "template": "/portal/read.phtml"
     },
     "model": "core.instanceresource",
     "pk": 677
@@ -44705,7 +44771,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Gemeinderat",
-      "position": 18,
+      "position": 20,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44718,7 +44784,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Regierungsrat",
-      "position": 20,
+      "position": 22,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44731,7 +44797,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Regierungsrat",
-      "position": 21,
+      "position": 23,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44744,7 +44810,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Gemeinderat",
-      "position": 19,
+      "position": 21,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44757,7 +44823,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Obergericht",
-      "position": 22,
+      "position": 24,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44770,7 +44836,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Obergericht",
-      "position": 23,
+      "position": 25,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44783,7 +44849,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entsch. rechtskr\u00e4ftig",
-      "position": 26,
+      "position": 28,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44796,7 +44862,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Baubeginn erfolgt",
-      "position": 27,
+      "position": 29,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44809,7 +44875,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Abnahme Schnurger\u00fcst",
-      "position": 28,
+      "position": 30,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44822,7 +44888,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bau beendet Info an Abwasser Uri",
-      "position": 35,
+      "position": 37,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44835,7 +44901,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Abnahme Rohbau",
-      "position": 29,
+      "position": 31,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44848,7 +44914,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Endabnahme erfolgt",
-      "position": 31,
+      "position": 33,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44861,7 +44927,7 @@
       "is_building_authority": 0,
       "is_workflow": 0,
       "name": "Meldung Grundbuchvermessung",
-      "position": 34,
+      "position": 36,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44874,7 +44940,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Verfahren abgeschlossen",
-      "position": 38,
+      "position": 40,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44887,7 +44953,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Dossier archiviert",
-      "position": 39,
+      "position": 41,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44900,7 +44966,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Rechtsmittel Bundesgericht",
-      "position": 24,
+      "position": 26,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44913,7 +44979,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Entscheid Bundesgericht",
-      "position": 25,
+      "position": 27,
       "workflow_section": 2
     },
     "model": "core.workflowitem",
@@ -44939,7 +45005,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Meldung Baubewilligung an Geometer",
-      "position": 40,
+      "position": 42,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -44952,7 +45018,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet",
-      "position": 30,
+      "position": 32,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44965,7 +45031,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet Info an Geometer",
-      "position": 32,
+      "position": 34,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44978,7 +45044,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Bau beendet Info an Liegenschaftssch\u00e4tzung",
-      "position": 33,
+      "position": 35,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -44991,7 +45057,7 @@
       "is_building_authority": 1,
       "is_workflow": 1,
       "name": "Grundbuchanmeldung",
-      "position": 36,
+      "position": 38,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45004,7 +45070,7 @@
       "is_building_authority": 1,
       "is_workflow": 0,
       "name": "Baubewilligung g\u00fcltig bis",
-      "position": 41,
+      "position": 43,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45015,8 +45081,8 @@
       "automatical": 0,
       "different_color": 0,
       "is_building_authority": 1,
-      "is_workflow": 0,
-      "name": "Versand Baubewilligung",
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Post",
       "position": 17,
       "workflow_section": 3
     },
@@ -45030,7 +45096,7 @@
       "is_building_authority": 1,
       "is_workflow": 0,
       "name": "Verl\u00e4ngerung Baubewilligung bis",
-      "position": 42,
+      "position": 44,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45043,7 +45109,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "AC gestartet",
-      "position": 43,
+      "position": 45,
       "workflow_section": 4
     },
     "model": "core.workflowitem",
@@ -45056,7 +45122,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "AC beendet",
-      "position": 44,
+      "position": 46,
       "workflow_section": 4
     },
     "model": "core.workflowitem",
@@ -45069,7 +45135,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "\u00d6REB Meldung",
-      "position": 37,
+      "position": 39,
       "workflow_section": 3
     },
     "model": "core.workflowitem",
@@ -45082,7 +45148,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Gemeindezirkulation gestartet",
-      "position": 45,
+      "position": 47,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45095,7 +45161,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Gemeindezirkulation beendet",
-      "position": 46,
+      "position": 48,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45108,7 +45174,7 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bundesstellezirkulation beendet",
-      "position": 47,
+      "position": 49,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
@@ -45121,11 +45187,37 @@
       "is_building_authority": 0,
       "is_workflow": 1,
       "name": "Bundesstellezirkulation gestartet",
-      "position": 48,
+      "position": 50,
       "workflow_section": 1
     },
     "model": "core.workflowitem",
     "pk": 84
+  },
+  {
+    "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 1,
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Portal",
+      "position": 18,
+      "workflow_section": 3
+    },
+    "model": "core.workflowitem",
+    "pk": 85
+  },
+  {
+    "fields": {
+      "automatical": 0,
+      "different_color": 0,
+      "is_building_authority": 1,
+      "is_workflow": 1,
+      "name": "Versand Baubewilligung per Mail",
+      "position": 19,
+      "workflow_section": 3
+    },
+    "model": "core.workflowitem",
+    "pk": 86
   },
   {
     "fields": {
@@ -46894,6 +46986,24 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 323
+  },
+  {
+    "fields": {
+      "attachment_section": 104,
+      "mode": "read",
+      "role": 6
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 324
+  },
+  {
+    "fields": {
+      "attachment_section": 104,
+      "mode": "read",
+      "role": 1103
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 325
   },
   {
     "fields": {
