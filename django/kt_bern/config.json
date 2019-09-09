@@ -157564,6 +157564,186 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_state": 1,
+      "language": "fr",
+      "name": "Nouvelle"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120001
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 10000,
+      "language": "fr",
+      "name": "Renvoy\u00e9e"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120002
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20000,
+      "language": "fr",
+      "name": "Num\u00e9ro eBau \u00e0 attribuer"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120003
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20001,
+      "language": "fr",
+      "name": "Informations g\u00e9n\u00e9rales"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120004
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20004,
+      "language": "fr",
+      "name": "En proc\u00e9dure de circulation"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120005
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20005,
+      "language": "fr",
+      "name": "En cours de coordination"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120006
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20006,
+      "language": "fr",
+      "name": "Examen du dossier"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120007
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20007,
+      "language": "fr",
+      "name": "En cours de correction"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120008
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20008,
+      "language": "fr",
+      "name": "Corrig\u00e9 par l'autorit\u00e9 directrice"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120009
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20009,
+      "language": "fr",
+      "name": "Archiv\u00e9"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120010
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 40000,
+      "language": "fr",
+      "name": "D\u00e9claration de validation"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120011
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 110002,
+      "language": "fr",
+      "name": "Attestation"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120012
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 80000,
+      "language": "fr",
+      "name": "Affectation vis\u00e9e par le projet de construction"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120013
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 80001,
+      "language": "fr",
+      "name": "Immeuble"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120014
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 80002,
+      "language": "fr",
+      "name": "Ouvrage"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120015
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 80003,
+      "language": "fr",
+      "name": "Formulaires sp\u00e9ciaux"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120016
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 110000,
+      "language": "fr",
+      "name": "Documents"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120017
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 110001,
+      "language": "fr",
+      "name": "Etude pr\u00e9alable simple"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120018
+  },
+  {
+    "fields": {
       "body": null,
       "purpose": null,
       "subject": null
