@@ -1578,6 +1578,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "textcomponentadmin",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 16
+  },
+  {
+    "fields": {
       "description": "Check with a SQL query",
       "module_name": "default"
     },
@@ -1997,6 +2006,15 @@
     },
     "model": "core.availableresource",
     "pk": "templatemanager"
+  },
+  {
+    "fields": {
+      "controller_name": "textcomponentadmin",
+      "description": "Page for managing text components",
+      "module_name": "textcomponentadmin"
+    },
+    "model": "core.availableresource",
+    "pk": "textcomponentadmin"
   },
   {
     "fields": {
@@ -9627,6 +9645,19 @@
   },
   {
     "fields": {
+      "available_resource": "textcomponentadmin",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": "Textbausteine",
+      "sort": 13,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 16
+  },
+  {
+    "fields": {
       "resource": 1,
       "role": 3
     },
@@ -9848,6 +9879,14 @@
     },
     "model": "core.rroleacl",
     "pk": 35
+  },
+  {
+    "fields": {
+      "resource": 16,
+      "role": 5
+    },
+    "model": "core.rroleacl",
+    "pk": 37
   },
   {
     "fields": {
@@ -11173,7 +11212,9 @@
     "fields": {
       "body": "Ihr Gesuch ({{identifier}}, {{location}}) weist formelle M\u00e4ngel auf. Bitte bereinigen Sie diese und reichen das Gesuch wieder ein.",
       "purpose": "R\u00fcckweisung",
-      "subject": "Gesuch {{identifier}}: R\u00fcckweisung zur Erg\u00e4nzung / Bereinigung"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: R\u00fcckweisung zur Erg\u00e4nzung / Bereinigung",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 13
@@ -11182,7 +11223,9 @@
     "fields": {
       "body": "Die bisherige materielle Pr\u00fcfung Ihres Gesuchs ({{identifier}}, {{location}}) hat ergeben, dass erg\u00e4nzende Unterlagen und/oder eine Projektanpassung n\u00f6tig sind. Details k\u00f6nnen Sie dem Schreiben in der Dokumentenablage \u00abFreigegebene Unterlagen\u00bb entnehmen. Einen Direktlink erhalten Sie mit separater E-Mail Nachricht.",
       "purpose": "Nachforderung",
-      "subject": "Gesuch {{identifier}}: Nachforderung"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: Nachforderung",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 14
@@ -11191,7 +11234,9 @@
     "fields": {
       "body": "Ihr Gesuch ({{identifier}}, {{location}}) wurde formell gepr\u00fcft und wird nun der materiellen Beurteilung zugef\u00fchrt.",
       "purpose": "Bewilligungsprozess gestartet",
-      "subject": "Gesuch {{identifier}}: Bewilligungsprozess gestartet"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: Bewilligungsprozess gestartet",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 15
@@ -11200,7 +11245,9 @@
     "fields": {
       "body": "Ein neues Gesuch ist eingegangen oder zu einem laufenden Gesuch wurden nachtr\u00e4glich Unterlagen hochgeladen ({{identifier}}, {{location}}).\r\n\r\nSie finden das Gesuch im CAMAC (https://behoerden.ebau-sz.ch) unter dem Tab \"Neue Gesuche\".",
       "purpose": "Gesuchseingang",
-      "subject": "Gesuch {{identifier}}: neues Gesuch oder Aktion in laufendem Gesuch"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: neues Gesuch oder Aktion in laufendem Gesuch",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 16
@@ -11209,7 +11256,9 @@
     "fields": {
       "body": "Geben Sie bitte zum Gesuch {{identifier}}, {{location}} eine materielle Beurteilung / Stellungnahme ab. ",
       "purpose": "Einladung zur Stellungnahme",
-      "subject": "Gesuch {{identifier}}: Einladung zur materiellen Beurteilung"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: Einladung zur materiellen Beurteilung",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 17
@@ -11218,7 +11267,9 @@
     "fields": {
       "body": "Zu Ihrem Gesuch {{identifier}}, {{location}} wurden Ihnen Dokumente freigegeben. Sie k\u00f6nnen diese \u00fcber das eBau Portal einsehen.\r\n",
       "purpose": "Bereitstellung von Dokumenten",
-      "subject": "Gesuch {{identifier}}: Dokumente zum Download bereit"
+      "service": null,
+      "subject": "Gesuch {{identifier}}: Dokumente zum Download bereit",
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 18
