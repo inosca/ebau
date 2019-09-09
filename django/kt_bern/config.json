@@ -80444,7 +80444,7 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Aiguillage",
+      "name": "Pres\u00e9lection",
       "page": 40001
     },
     "model": "core.paget",
@@ -129079,7 +129079,7 @@
       "default_answer": null,
       "description": null,
       "language": "fr",
-      "name": "Activation de la page \"Aiguillage\"",
+      "name": "Activation de la page \"Pres\u00e9lection\"",
       "question": 80001
     },
     "model": "core.questiont",
@@ -129205,6 +129205,17 @@
     },
     "model": "core.questiont",
     "pk": 120942
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Activation de la page \"Presélection\"",
+      "question": 80001
+    },
+    "model": "core.questiont",
+    "pk": 120943
   },
   {
     "fields": {
@@ -158794,6 +158805,132 @@
     },
     "model": "user.rolet",
     "pk": 20006
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Admin",
+      "role": 1
+    },
+    "model": "user.rolet",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Guest",
+      "role": 2
+    },
+    "model": "user.rolet",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Direction: autorit\u00e9 directrice",
+      "role": 3
+    },
+    "model": "user.rolet",
+    "pk": 20009
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Direction: service",
+      "role": 4
+    },
+    "model": "user.rolet",
+    "pk": 20010
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Direction: contr\u00f4le des constructions",
+      "role": 5
+    },
+    "model": "user.rolet",
+    "pk": 20011
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Requ\u00e9rant/e",
+      "role": 6
+    },
+    "model": "user.rolet",
+    "pk": 20012
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Exploitation du syst\u00e8me",
+      "role": 10000
+    },
+    "model": "user.rolet",
+    "pk": 20013
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Unit\u00e9 d'un service sp\u00e9cialis\u00e9",
+      "role": 20000
+    },
+    "model": "user.rolet",
+    "pk": 20014
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice d'un service sp\u00e9cialis\u00e9",
+      "role": 20001
+    },
+    "model": "user.rolet",
+    "pk": 20015
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Droit de consulter le dossier: service",
+      "role": 20002
+    },
+    "model": "user.rolet",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Droit de consulter le dossier: autorit\u00e9 directrice",
+      "role": 20003
+    },
+    "model": "user.rolet",
+    "pk": 20017
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice de l'autorit\u00e9 directrice",
+      "role": 20004
+    },
+    "model": "user.rolet",
+    "pk": 20018
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Collaborateur/collaboratrice du contr\u00f4le des constructions",
+      "role": 20005
+    },
+    "model": "user.rolet",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Droit de consulter le dossier: contr\u00f4le des constructions",
+      "role": 20006
+    },
+    "model": "user.rolet",
+    "pk": 20020
   },
   {
     "fields": {
