@@ -171,6 +171,8 @@ def test_instance_list(
     mock_public_status,
     use_caluma_form,
     multilang,
+    instance_service,
+    responsible_service,
     mock_nfd_permissions,
 ):
 
@@ -191,8 +193,6 @@ def test_instance_list(
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(instance.pk)
     assert set(json["data"][0]["meta"]["editable"]) == set(editable)
-    # Included previous_instance_state and instance_state are the same
-    assert len(json["included"]) == len(included) - 1
 
 
 @pytest.mark.parametrize("instance_state__name", ["new", "rejected"])
