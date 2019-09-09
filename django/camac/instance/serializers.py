@@ -3,6 +3,7 @@ from logging import getLogger
 
 import requests
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
@@ -16,7 +17,7 @@ from camac.core.models import Answer, InstanceLocation, InstanceService
 from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
-from camac.user.models import Group
+from camac.user.models import Group, Service
 from camac.user.permissions import permission_aware
 from camac.user.relations import (
     CurrentUserResourceRelatedField,
@@ -176,6 +177,27 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     public_status = serializers.SerializerMethodField()
 
+    active_service = relations.SerializerMethodResourceRelatedField(
+        source="get_active_service", model=Service, read_only=True
+    )
+
+    responsible_service_users = relations.SerializerMethodResourceRelatedField(
+        source="get_responsible_service_users",
+        model=get_user_model(),
+        many=True,
+        read_only=True,
+    )
+
+    def get_active_service(self, instance):
+        return instance.services.filter(
+            pk__in=InstanceService.objects.filter(active=1).values("service")
+        ).first()
+
+    def get_responsible_service_users(self, instance):
+        return get_user_model().objects.filter(
+            pk__in=instance.responsible_services.values("responsible_user")
+        )
+
     def get_public_status(self, instance):
         # TODO Instead of a new field, we should actually modify the values of instance_state
         STATUS_MAP = {
@@ -202,6 +224,12 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return STATUS_MAP.get(
             instance.instance_state_id, constants.PUBLIC_INSTANCE_STATE_CREATING
         )
+
+    included_serializers = {
+        **InstanceSerializer.included_serializers,
+        "active_service": "camac.user.serializers.PublicServiceSerializer",
+        "responsible_service_users": "camac.user.serializers.UserSerializer",
+    }
 
     @permission_aware
     def _get_main_form_permissions(self, instance):
@@ -436,8 +464,17 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return instance
 
     class Meta(InstanceSerializer.Meta):
-        fields = InstanceSerializer.Meta.fields + ("caluma_form", "public_status")
-        read_only_fields = InstanceSerializer.Meta.read_only_fields + ("public_status",)
+        fields = InstanceSerializer.Meta.fields + (
+            "caluma_form",
+            "public_status",
+            "active_service",
+            "responsible_service_users",
+        )
+        read_only_fields = InstanceSerializer.Meta.read_only_fields + (
+            "public_status",
+            "active_service",
+            "responsible_service_users",
+        )
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
 

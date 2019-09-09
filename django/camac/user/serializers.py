@@ -84,4 +84,4 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
     class Meta:
         model = models.Service
         fields = ("name",)
-        resource_name = "public-service"
+        resource_name = "public-services"

@@ -139,6 +139,7 @@ class Instance(models.Model):
     location = models.ForeignKey(
         "user.Location", models.PROTECT, null=True, blank=True, db_column="LOCATION_ID"
     )
+    services = models.ManyToManyField("user.Service", through="core.InstanceService")
 
     class Meta:
         managed = True
