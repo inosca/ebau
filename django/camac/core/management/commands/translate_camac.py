@@ -14,9 +14,7 @@ from camac.core.models import (
     QuestionT,
     ResourceT,
 )
-from camac.user.models import (
-    RoleT
-)
+from camac.user.models import RoleT
 
 config = [
     (
@@ -64,12 +62,7 @@ config = [
         "page_form_group_id",
         "Page form groups",
     ),
-    (
-        RoleT,
-        "camac/core/translation_files/role_t.csv",
-        "role_id",
-        "Roles",
-    )
+    (RoleT, "camac/core/translation_files/role_t.csv", "role_id", "Roles"),
 ]
 
 

@@ -41,7 +41,7 @@ module.exports = function(environment) {
       // when it is created
     },
     moment: {
-      includeLocales: ["de-ch", "fr-ch"]
+      includeLocales: ["de", "fr"]
     },
 
     languages: ["de", "fr"],

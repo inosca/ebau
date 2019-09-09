@@ -34,7 +34,7 @@ documents:
   drag: "Glisser un fichier dans cette zone, ou"
   click: "cliquez ici pour télécharger un fichier"
 
-  missingTags: "{count, plural, =0 { il n'y a plus de contenu obligatoire manquant} =1 {il manque encore un contenu obligatoire} other {# contenus obligatoires sont toujours manquants}}"
+  missingTags: "{count, plural, =0 { Il n'y a plus de contenu obligatoire manquant} =1 {Il manque encore un contenu obligatoire} other {# contenus obligatoires sont toujours manquants}}"
   noTags: "Pas de contenu"
   showTags: "Afficher le contenu"
   date: "Téléchargé le {date} à {time}"
