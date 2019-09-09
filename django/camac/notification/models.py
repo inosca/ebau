@@ -9,6 +9,15 @@ class NotificationTemplate(core_models.MultilingualModel, models.Model):
     )
     subject = models.TextField(db_column="SUBJECT", blank=True, null=True)
     body = models.TextField(db_column="BODY", blank=True, null=True)
+    service = models.ForeignKey(
+        "user.Service", models.DO_NOTHING, related_name="+", blank=True, null=True
+    )
+    EMAIL = "email"
+    TEXT = "textcomponent"
+    TYPE_CHOICES = [(EMAIL, "E-Mail"), (TEXT, "Textcomponent")]
+    type = models.CharField(
+        max_length=20, blank=True, null=True, choices=TYPE_CHOICES, default=EMAIL
+    )
 
     def __str__(self):
         return self.get_trans_attr("subject")
