@@ -31,6 +31,7 @@ from . import models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
+SUBMIT_DATE_FORMAT = "%Y-%m-%dT%H:%M:%S"
 
 request_logger = getLogger("django.request")
 
@@ -522,13 +523,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             item=1,
             chapter_id=SUBMIT_DATE_CHAPTER,
             # CAMAC date is formatted in "dd.mm.yyyy"
-            defaults={"answer": timezone.now().strftime("%d.%m.%Y")},
+            defaults={"answer": timezone.now().strftime(SUBMIT_DATE_FORMAT)},
         )
 
         new_meta = {
             **document["meta"],
             # Caluma date is formatted yyyy-mm-dd so it can be sorted
-            "submit-date": timezone.now().strftime("%Y-%m-%d"),
+            "submit-date": timezone.now().strftime(SUBMIT_DATE_FORMAT),
         }
 
         self.query_caluma(
