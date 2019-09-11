@@ -59,7 +59,14 @@ class InstanceView(
 
     filterset_class = filters.InstanceFilterSet
     queryset = models.Instance.objects.all()
-    prefetch_for_includes = {"circulations": ["circulations__activations"]}
+    prefetch_for_includes = {
+        "circulations": ["circulations__activations"],
+        "active_service": ["services"],
+        "responsible_service_users": [
+            "responsible_services",
+            "responsible_services__responsible_user",
+        ],
+    }
     ordering_fields = (
         "instance_id",
         "identifier",
