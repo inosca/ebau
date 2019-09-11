@@ -13,6 +13,7 @@ from camac.document import factories as document_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
+from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 
 
@@ -34,6 +35,7 @@ register_module(core_factories)
 register_module(document_factories)
 register_module(notification_factories)
 register_module(applicant_factories)
+register_module(responsible_factories)
 
 
 Faker.add_provider(FreezegunAwareDatetimeProvider)
