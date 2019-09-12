@@ -6,6 +6,7 @@ import inflection
 from django.conf import settings
 from django.utils.translation import gettext as _
 from pyjexl.jexl import JEXL
+from pyproj import CRS, Transformer
 from rest_framework import exceptions
 
 from camac.document.models import Attachment
@@ -198,18 +199,34 @@ class FormDataValidator(object):
             module = self.forms_def["modules"][module_name]
 
             for question_name in module["questions"]:
-                if question_name not in [
-                    "punkte",
-                    "layer",
-                    "dokument-grundstucksangaben",
-                ]:
+                if question_name not in ["layer", "dokument-grundstucksangaben"]:
                     question = self.forms_def["questions"][question_name]
+
                     if self._check_question_active(question_name, question):
+                        value = self.fields.get(question_name)
+
+                        if question_name == "punkte" and value is not None:
+                            converted_values = []
+                            transformer = Transformer.from_crs(
+                                "EPSG:4326",
+                                CRS.from_proj4(
+                                    "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
+                                ),
+                            )
+
+                            for coord in value:
+                                lat, lng = transformer.transform(
+                                    coord["lat"], coord["lng"]
+                                )
+                                converted_values.append({"lat": lat, "lng": lng})
+
+                            value = converted_values
+
                         active_questions.append(
                             {
                                 "label": question["label"],
                                 "type": question["type"],
-                                "value": self.fields.get(question_name),
+                                "value": value,
                                 "config": question["config"],
                             }
                         )
