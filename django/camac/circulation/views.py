@@ -29,6 +29,16 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     queryset = Activation.objects.select_related("circulation")
     filterset_class = filters.ActivationFilterSet
     prefetch_for_includes = {"circulation": ["circulation__activations"]}
+    ordering_fields = (
+        "circulation__instance__identifier",
+        "circulation__instance__form__description",
+        "circulation__instance__location__communal_federal_number",
+        "circulation__instance__instance_state__name",
+        "circulation__instance__instance_state__description",
+        "reason",
+        "deadline_date",
+        "circulation_state__name",
+    )
     search_fields = (
         "=circulation__instance__identifier",
         "=circulation__instance__location__name",
