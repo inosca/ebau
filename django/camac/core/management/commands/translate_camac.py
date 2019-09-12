@@ -14,6 +14,7 @@ from camac.core.models import (
     QuestionT,
     ResourceT,
 )
+from camac.instance.models import InstanceStateT
 from camac.user.models import RoleT
 
 config = [
@@ -63,6 +64,12 @@ config = [
         "Page form groups",
     ),
     (RoleT, "camac/core/translation_files/role_t.csv", "role_id", "Roles"),
+    (
+        InstanceStateT,
+        "camac/core/translation_files/instance_state_t.csv",
+        "instance_state_id",
+        "Instance States",
+    ),
 ]
 
 
