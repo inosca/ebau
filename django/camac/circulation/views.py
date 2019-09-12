@@ -32,7 +32,7 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
     ordering_fields = (
         "circulation__instance__identifier",
         "circulation__instance__form__description",
-        "circulation__instance__location__communal_federal_number",
+        "circulation__instance__location__name",
         "circulation__instance__instance_state__name",
         "circulation__instance__instance_state__description",
         "reason",
