@@ -3,6 +3,7 @@ FROM python:3.6
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	ghostscript \
 	postgresql-client \
+	gettext \
 && rm -rf /var/lib/apt/lists/* \
 && mkdir /app
 
