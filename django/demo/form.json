@@ -34,7 +34,8 @@
         "grundeigentumerschaft",
         "gwr",
         "zweck-der-warmepumpe",
-        "standort-der-warmepumpe"
+        "standort-der-warmepumpe",
+        "punkte"
       ]
     }
   },
@@ -365,6 +366,31 @@
       "required": true,
       "config": {
         "min": 0
+      }
+    },
+    "punkte": {
+      "label": "Punkte",
+      "hint": "",
+      "type": "table",
+      "required": true,
+      "active-expression": "'baugeruest-errichtet-am'|value == '2019-20-19'",
+      "config": {
+        "columns": [
+          {
+            "name": "lat",
+            "label": "Breitengrad",
+            "type": "number",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "lng",
+            "label": "Längengrad",
+            "type": "number",
+            "required": true,
+            "config": {}
+          }
+        ]
       }
     }
   }
