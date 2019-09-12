@@ -34,8 +34,24 @@ def test_authenticate_disabled_user(rf, admin_user, mocker):
 
 
 @pytest.mark.parametrize("demo_mode", [True, False])
+@pytest.mark.parametrize(
+    "token_value",
+    [
+        {
+            "sub": None,
+            "email": "new-guy@example.com",
+            "family_name": "New",
+            "given_name": "Guy",
+        },
+        {
+            "sub": None,
+            "email": "new-guy@example.com",
+            "preferred_username": "service-account-gemeinde",
+        },
+    ],
+)
 def test_authenticate_new_user(
-    rf, admin_user, mocker, demo_mode, settings, application_settings
+    rf, admin_user, mocker, demo_mode, settings, application_settings, token_value
 ):
     if demo_mode:
         admin_group = admin_user.groups.first()
@@ -44,14 +60,10 @@ def test_authenticate_new_user(
         application_settings["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
 
     username = "new-here"
+    token_value["sub"] = username
 
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
-    decode_token.return_value = {
-        "sub": username,
-        "email": "new-guy@example.com",
-        "family_name": "New",
-        "given_name": "Guy",
-    }
+    decode_token.return_value = token_value
     mocker.patch("keycloak.KeycloakOpenID.certs")
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
