@@ -412,7 +412,8 @@ class CalumaInstanceSerializer(InstanceSerializer):
         result = response.json()
         if result.get("errors"):  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Error while querying caluma: {result.get('errors')}"
+                _("Error while querying caluma: %(errors)s")
+                & {"errors": result.get("errors")}
             )
 
         return result
@@ -437,7 +438,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
         if len(caluma_resp["data"]["allForms"]["edges"]) != 1:  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Passed caluma form is not a main form: {form}"
+                _("Passed caluma form is not a main form: %(form)s") % {"form": form}
             )
 
         return data
@@ -501,7 +502,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             errors = "; ".join(
                 [f"{field}: {msg}" for field, msg in mail_serializer.errors.items()]
             )
-            message = f"Cannot send email: {errors}"
+            message = _("Cannot send email: %(errors)s") % {"errors": errors}
             request_logger.error(message)
             raise exceptions.ValidationError(message)
 
@@ -574,7 +575,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         # if not validity["edges"]["node"][0]["isValid"]:
         #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
         #     raise exceptions.ValidationError(
-        #         f"Error while validating caluma document: {errors}"
+        #         _("Error while validating caluma document: %(errors)s") % { "errors": errors }
         #     )
 
         pass
@@ -626,7 +627,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if not data["caluma_document"]:  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Could not find caluma main document for instance {self.instance.pk}"
+                _("Could not find caluma main document for instance %(instance)s")
+                % {"instance": self.instance.pk}
             )
 
         data["caluma_municipality"] = next(
@@ -640,7 +642,10 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         if not data["caluma_municipality"]:  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Could not find municipality in caluma document for instance {self.instance.pk}"
+                _(
+                    "Could not find municipality in caluma document for instance %(instance)s"
+                )
+                % {"instance": self.instance.pk}
             )
 
         self._validate_document_validity(data["caluma_document"]["id"])
@@ -717,7 +722,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         if not data["caluma_document"]:  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Could not find caluma `sb1` document for instance {self.instance.pk}"
+                _("Could not find caluma `sb1` document for instance %(instance)s")
+                % {"instance": self.instance.pk}
             )
 
         self._validate_document_validity(data["caluma_document"]["id"])
@@ -776,7 +782,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         if not data["caluma_document"]:  # pragma: no cover
             raise exceptions.ValidationError(
-                f"Could not find caluma `sb2` document for instance {self.instance.pk}"
+                _("Could not find caluma `sb2` document for instance %(instance)s")
+                % {"instance": self.instance.pk}
             )
 
         self._validate_document_validity(data["caluma_document"]["id"])

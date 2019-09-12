@@ -8,6 +8,7 @@ from django.conf import settings
 from django.db.models import Q
 from django.http import HttpResponse
 from django.utils.encoding import escape_uri_path, smart_bytes
+from django.utils.translation import gettext as _
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
@@ -154,7 +155,7 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
 
     def list(self, request, **kwargs):
         if not request.query_params.get("attachments"):
-            raise ValidationError('Specifying an "attachment" filter is mandatory!')
+            raise ValidationError(_('Specifying an "attachment" filter is mandatory!'))
 
         fs = filters.AttachmentDownloadFilterSet(
             data=request.GET, queryset=self.get_queryset()
