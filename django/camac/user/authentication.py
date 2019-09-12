@@ -76,14 +76,20 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         language = translation.get_language()
 
         # always overwrite values of users
+        defaults = {"language": language[:2], "email": jwt_decoded["email"]}
+        if "preferred_username" in jwt_decoded and jwt_decoded[
+            "preferred_username"
+        ].startswith("service-account-"):
+            defaults["name"] = jwt_decoded["preferred_username"]
+        else:
+            defaults.update(
+                {
+                    "name": jwt_decoded["family_name"],
+                    "surname": jwt_decoded["given_name"],
+                }
+            )
         user, created = get_user_model().objects.update_or_create(
-            username=jwt_decoded["sub"],
-            defaults={
-                "language": language[:2],
-                "email": jwt_decoded["email"],
-                "name": jwt_decoded["family_name"],
-                "surname": jwt_decoded["given_name"],
-            },
+            username=jwt_decoded["sub"], defaults=defaults
         )
 
         demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
