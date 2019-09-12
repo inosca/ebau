@@ -12,6 +12,6 @@ module("Integration | Component | download-instance", function(hooks) {
 
     await render(hbs`{{download-instance}}`);
 
-    assert.equal(this.element.textContent.trim(), "Dossier Herunterladen");
+    assert.equal(this.element.textContent.trim(), "PDF Generieren");
   });
 });
