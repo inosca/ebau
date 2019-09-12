@@ -56556,6 +56556,16 @@
   {
     "fields": {
       "description": null,
+      "instance_resource": 20023,
+      "language": "fr",
+      "name": "D\u00e9cision/Evaluation"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 120082
+  },
+  {
+    "fields": {
+      "description": null,
       "instance_resource": 150000,
       "language": "de",
       "name": "Nachforderungen"
