@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from rest_framework.generics import RetrieveAPIView
 
-from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 
 XML = """\
@@ -258,8 +257,9 @@ XML = """\
 """
 
 
-class GetNextView(InstanceQuerysetMixin, RetrieveAPIView):
+class GetNextView(RetrieveAPIView):
     queryset = Instance.objects
+    group_required = False
 
     def retrieve(self, request, **kwargs):
         response = HttpResponse(XML)
