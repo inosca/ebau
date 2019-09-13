@@ -9,7 +9,7 @@ global:
 
 nav:
   form: "Formulaire"
-  feedback: "Préavis"
+  feedback: "Remarques"
   index: "Page principale"
   support: "Support"
   logout: "Déconnexion"
@@ -99,7 +99,7 @@ submit:
 
 support:
   title: "Support technique"
-  info: "Pour toute question technique, veuillez contacter la municipalité responsable"
+  info: "Pour toute question concernant la procédure, veuillez contacter la municipalité responsable"
   email: "servicedesk@bedag.ch"
   phone: "+41 31 306 72 54"
 
@@ -117,7 +117,7 @@ instances:
   municipality: "Commune"
   address: "Adresse"
   parcel: "N° de parcelle / de bien-fonds"
-  filter: "Filtrant"
+  filter: "Cherche"
   reset: "Remise à l'état initial"
   pageInfo: "Dossiers <strong>1 - {length}</strong> de {total}"
   emptyTitle: "Vous n'avez pas encore de demandes!"
