@@ -74,6 +74,7 @@ class InstanceView(
         "instance_state__description",
         "form__description",
         "location__communal_federal_number",
+        "location__name",
         "creation_date",
     )
     search_fields = (
