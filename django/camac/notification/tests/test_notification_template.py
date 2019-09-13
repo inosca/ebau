@@ -2,12 +2,19 @@ import json
 
 import pytest
 from django.urls import reverse
+from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,num_queries,size",
-    [("Applicant", 1, 0), ("Service", 2, 1), ("Municipality", 2, 1), ("Canton", 2, 1)],
+    "role__name,num_queries,size,notification_template__type,notification_template__service",
+    [
+        ("Applicant", 1, 0, "email", LazyFixture("service")),
+        ("Service", 2, 1, "email", LazyFixture("service")),
+        ("Municipality", 2, 1, "email", None),
+        ("Canton", 2, 1, "textcomponent", None),
+        ("Service", 2, 1, "textcomponent", LazyFixture("service")),
+    ],
 )
 def test_notification_template_list(
     admin_client, notification_template, num_queries, django_assert_num_queries, size
@@ -22,12 +29,69 @@ def test_notification_template_list(
         assert json["data"][0]["id"] == str(notification_template.pk)
 
 
-@pytest.mark.parametrize("role__name", ["Canton"])
-def test_notification_template_detail(admin_client, notification_template):
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_404_NOT_FOUND),
+        ("Municipality", status.HTTP_200_OK),
+        ("Canton", status.HTTP_200_OK),
+        ("Service", status.HTTP_200_OK),
+    ],
+)
+def test_notification_template_update(admin_client, notification_template, status_code):
+    url = reverse("notificationtemplate-detail", args=[notification_template.pk])
+    response = admin_client.patch(url)
+    assert response.status_code == status_code
+
+
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_403_FORBIDDEN),
+        ("Canton", status.HTTP_201_CREATED),
+        ("Service", status.HTTP_201_CREATED),
+        ("Municipality", status.HTTP_201_CREATED),
+    ],
+)
+def test_notification_template_create(admin_client, notification_template, status_code):
+    url = reverse("notificationtemplate-list")
+
+    data = {
+        "data": {
+            "type": "notification-templates",
+            "id": None,
+            "attributes": {
+                "body": "Test",
+                "purpose": "Test",
+                "type": "textcomponent",
+                "subject": "Test",
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+    assert response.status_code == status_code
+    if status_code == status.HTTP_201_CREATED:
+        json = response.json()
+        assert json["data"]["attributes"]["type"] == "textcomponent"
+
+
+@pytest.mark.parametrize(
+    "role__name,status_code",
+    [
+        ("Applicant", status.HTTP_404_NOT_FOUND),
+        ("Municipality", status.HTTP_204_NO_CONTENT),
+        ("Canton", status.HTTP_204_NO_CONTENT),
+        ("Service", status.HTTP_204_NO_CONTENT),
+    ],
+)
+def test_notification_template_destroy(
+    admin_client, notification_template, status_code
+):
     url = reverse("notificationtemplate-detail", args=[notification_template.pk])
 
-    response = admin_client.get(url)
-    assert response.status_code == status.HTTP_200_OK
+    response = admin_client.delete(url)
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(

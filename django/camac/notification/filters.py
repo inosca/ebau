@@ -6,4 +6,4 @@ from . import models
 class NotificationTemplateFilterSet(FilterSet):
     class Meta:
         model = models.NotificationTemplate
-        fields = ("purpose",)
+        fields = ("purpose", "type")
