@@ -4,6 +4,7 @@ from datetime import timedelta
 
 import django_excel
 from django.conf import settings
+from django.core.files import File
 from django.db import transaction
 from django.db.models import OuterRef, Subquery
 from django.http import HttpResponse
@@ -16,6 +17,7 @@ from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
 from camac.core.models import WorkflowEntry
+from camac.document.models import Attachment, AttachmentSection
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
@@ -178,10 +180,7 @@ class InstanceView(
             sheet, file_type="xlsx", file_name="list.xlsx"
         )
 
-    @action(methods=["get"], detail=True)
-    def export_detail(self, request, pk=None):
-        to_type = self.request.query_params.get("type", "docx")
-        instance = self.get_object()
+    def get_export_detail_data(self, instance, type):
         validator = validators.FormDataValidator(instance)
 
         data = {
@@ -190,22 +189,31 @@ class InstanceView(
             "modules": validator.get_active_modules_questions(),
         }
 
-        response = HttpResponse()
-        filename = "{0}.{1}".format(instance.form.description, to_type)
-        response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
-        response["Content-Type"] = mimetypes.guess_type(filename)[0]
-
         buf = io.BytesIO()
         doc = DocxTemplate("camac/instance/templates/form-export.docx")
         doc.render(data, get_jinja_env())
         doc.save(buf)
 
         buf.seek(0)
-        if to_type != "docx":
-            content = convert(buf, to_type)
+        if type != "docx":
+            content = convert(buf, type)
             if content is None:
                 raise exceptions.ParseError()
             buf = io.BytesIO(content)
+
+        return buf
+
+    @action(methods=["get"], detail=True)
+    def export_detail(self, request, pk=None):
+        to_type = self.request.query_params.get("type", "docx")
+        instance = self.get_object()
+
+        response = HttpResponse()
+        filename = "{0}.{1}".format(instance.form.description, to_type)
+        response["Content-Disposition"] = 'attachment; filename="{0}"'.format(filename)
+        response["Content-Type"] = mimetypes.guess_type(filename)[0]
+
+        buf = self.get_export_detail_data(instance, to_type)
 
         response.write(buf.read())
         return response
@@ -272,6 +280,25 @@ class InstanceView(
             )
             sendmail_serializer.is_valid(raise_exception=True)
             sendmail_serializer.save()
+
+        filename = "{0}.pdf".format(instance.form.description)
+        file = File(self.get_export_detail_data(instance, "pdf"))
+
+        attachment = Attachment(
+            name=filename,
+            instance=instance,
+            size=0,
+            mime_type="application/pdf",
+            question="dokument-weitere-gesuchsunterlagen",
+            user=request.user,
+            group=request.group,
+        )
+        attachment.path.save(filename, file)
+        attachment.size = attachment.path.size
+        attachment.attachment_sections.add(
+            AttachmentSection.objects.filter_group(request.group)[0]
+        )
+        attachment.save()
 
         return response.Response(data=serializer.data)
 
