@@ -156124,7 +156124,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 1
@@ -156133,7 +156135,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 2
@@ -156142,7 +156146,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 3
@@ -156151,7 +156157,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 4
@@ -156160,7 +156168,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 5
@@ -156169,7 +156179,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 6
@@ -156178,7 +156190,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 7
@@ -156187,7 +156201,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 8
@@ -156196,7 +156212,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 9
@@ -156205,7 +156223,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 10
@@ -156214,7 +156234,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 11
@@ -156223,7 +156245,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 12
@@ -156232,7 +156256,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 13
@@ -156241,7 +156267,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 14
@@ -156250,7 +156278,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 15
@@ -156259,7 +156289,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 16
@@ -156268,7 +156300,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 17
@@ -156277,7 +156311,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 18
@@ -156286,7 +156322,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 19
@@ -156295,7 +156333,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 20
@@ -156304,7 +156344,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 21
@@ -156313,7 +156355,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 22
@@ -156322,7 +156366,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 23
@@ -156331,7 +156377,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 24
@@ -156340,7 +156388,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 25
@@ -156349,7 +156399,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 26
@@ -156358,7 +156410,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 27
@@ -156367,7 +156421,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 28
@@ -156376,7 +156432,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 29
@@ -156385,7 +156443,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 30
@@ -156394,7 +156454,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 31
@@ -156403,7 +156465,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 32
@@ -156412,7 +156476,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 33
@@ -156421,7 +156487,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 34
@@ -156430,7 +156498,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 35
@@ -156439,7 +156509,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 36
@@ -156448,7 +156520,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 37
@@ -156457,7 +156531,9 @@
     "fields": {
       "body": null,
       "purpose": null,
-      "subject": null
+      "service": null,
+      "subject": null,
+      "type": "email"
     },
     "model": "notification.notificationtemplate",
     "pk": 38
