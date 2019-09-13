@@ -158,6 +158,7 @@ APPLICATIONS = {
         "FORM_BACKEND": "caluma",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
         "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],
+        "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }
