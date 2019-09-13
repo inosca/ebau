@@ -290,6 +290,8 @@ def test_instance_submit(
     workflow_item,
     notification_template,
     mailoutbox,
+    attachment_section,
+    attachment_section_group_acl_factory,
 ):
 
     settings.APPLICATION["SUBMIT"]["NOTIFICATION_TEMPLATE"] = notification_template.pk
@@ -300,6 +302,9 @@ def test_instance_submit(
         role = role_factory(name="Municipality")
         group = group_factory(role=role)
         group_location_factory(group=group, location=instance.location)
+        attachment_section_group_acl_factory(
+            group=admin_user.groups.first(), attachment_section=attachment_section
+        )
 
     instance_state_factory(name="subm")
     url = reverse("instance-submit", args=[instance.pk])
