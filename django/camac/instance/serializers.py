@@ -190,9 +190,14 @@ class CalumaInstanceSerializer(InstanceSerializer):
     )
 
     def get_active_service(self, instance):
-        return instance.services.filter(
-            pk__in=InstanceService.objects.filter(active=1).values("service")
-        ).first()
+        try:
+            return InstanceService.objects.get(
+                active=1,
+                instance=instance,
+                **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+            ).service
+        except InstanceService.DoesNotExist:
+            return InstanceService.objects.none()
 
     def get_responsible_service_users(self, instance):
         return get_user_model().objects.filter(
