@@ -256,9 +256,13 @@ class IssueMergeSerializer(serializers.Serializer):
 
 
 class NotificationTemplateSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        validated_data["service"] = self.context["request"].group.service
+        return super().create(validated_data)
+
     class Meta:
         model = models.NotificationTemplate
-        fields = ("purpose", "subject", "body")
+        fields = ("purpose", "subject", "body", "type")
 
 
 class NotificationTemplateMergeSerializer(
