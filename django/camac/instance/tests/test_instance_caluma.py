@@ -155,7 +155,7 @@ def test_create_instance(
     [("new", "2018-04-17T09:31:56+02:00")],
 )
 @pytest.mark.parametrize(
-    "role_t__name,instance__user,editable",
+    "role__name,instance__user,editable",
     [
         ("Service", LazyFixture("user"), {"document"}),
         ("Canton", LazyFixture("user"), {"form", "document"}),
@@ -197,7 +197,7 @@ def test_instance_list(
 
 @pytest.mark.parametrize("instance_state__name", ["new", "rejected"])
 @pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 @pytest.mark.parametrize("new_instance_state_name", ["subm"])
 @pytest.mark.parametrize(
@@ -298,9 +298,7 @@ def test_instance_submit(
     assert mail.outbox[0].subject.startswith("[eBau Test]: ")
 
 
-@pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Canton", LazyFixture("user"))]
-)
+@pytest.mark.parametrize("role__name,instance__user", [("Canton", LazyFixture("user"))])
 def test_responsible_user(admin_client, instance, user, service, multilang):
 
     instance.responsibilities.create(user=user, service=service)
@@ -330,7 +328,7 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 )
 @pytest.mark.parametrize("new_instance_state_name", ["sb2"])
 @pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_report(
     requests_mock,
@@ -398,7 +396,7 @@ def test_instance_report(
 )
 @pytest.mark.parametrize("new_instance_state_name", ["conclusion"])
 @pytest.mark.parametrize(
-    "role_t__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_finalize(
     requests_mock,
