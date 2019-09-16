@@ -5799,7 +5799,7 @@
     "pa-datum": {
       "label": "Datum der Bewilligung:",
       "hint": "Eine Projektänderung setzt ein rechtskräftig bewilligtes Projekt voraus. Zur Bearbeitung der Projektänderung sind die Gesuchs-Nr. und das Bewilligungsdatum des bewilligten Projektes notwendig.",
-      "type": "text",
+      "type": "date",
       "required": true,
       "config": {}
     },
