@@ -52,7 +52,7 @@ def test_service_delete(admin_client, service, status_code):
     "service_t__name,service_t__language", [("je ne sais pas", "fr")]
 )
 @pytest.mark.parametrize(
-    "role_t__name,size", [("Applicant", 0), ("Canton", 1), ("Service", 1)]
+    "role__name,size", [("Applicant", 0), ("Canton", 1), ("Service", 1)]
 )
 def test_service_list_multilingual(admin_client, service_t, size, multilang):
     url = reverse("service-list")
