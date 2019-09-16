@@ -81,8 +81,17 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     def validate_path(self, path):
         if path.content_type not in settings.ALLOWED_DOCUMENT_MIMETYPES:
             raise exceptions.ParseError(
-                _("%(mime_type)s is not a valid mime type for attachment.")
-                % {"mime_type": path.content_type}
+                _(
+                    "Invalid mime type for attachment. Allowed types are: %(allowed_mime_types)s"
+                )
+                % {
+                    "allowed_mime_types": ", ".join(
+                        [
+                            mime_type.split("/")[1]
+                            for mime_type in settings.ALLOWED_DOCUMENT_MIMETYPES
+                        ]
+                    )
+                }
             )
 
         validate_file_infection(path)
@@ -169,8 +178,7 @@ class TemplateSerializer(serializers.ModelSerializer):
     def validate_path(self, path):
         if path.content_type != mimetypes.types_map[".docx"]:
             raise exceptions.ParseError(
-                _("%(mime_type)s is not a valid mime type for template.")
-                % {"mime_type": path.content_type}
+                _("Invalid mime type for template. Allowed types are: docx")
             )
 
         validate_file_infection(path)
