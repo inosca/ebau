@@ -2705,7 +2705,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Fachbereich nicht betroffen / keine Bemerkungen",
-      "sort": 0
+      "sort": 1
     },
     "model": "core.circulationanswer",
     "pk": 1
@@ -2715,7 +2715,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Unterlagenerg\u00e4nzung",
-      "sort": 1
+      "sort": 2
     },
     "model": "core.circulationanswer",
     "pk": 2
@@ -2725,7 +2725,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Rechtliches Geh\u00f6r",
-      "sort": 2
+      "sort": 3
     },
     "model": "core.circulationanswer",
     "pk": 3
@@ -2735,7 +2735,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
-      "sort": 3
+      "sort": 4
     },
     "model": "core.circulationanswer",
     "pk": 4
@@ -2745,7 +2745,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Abschliessend beurteilbar",
-      "sort": 4
+      "sort": 5
     },
     "model": "core.circulationanswer",
     "pk": 9
@@ -2755,7 +2755,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Widerspruch",
-      "sort": 5
+      "sort": 6
     },
     "model": "core.circulationanswer",
     "pk": 10
@@ -2765,10 +2765,20 @@
       "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Augenschein",
-      "sort": 6
+      "sort": 7
     },
     "model": "core.circulationanswer",
     "pk": 11
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 1,
+      "name": "Weitere Abkl\u00e4rungen",
+      "sort": 0
+    },
+    "model": "core.circulationanswer",
+    "pk": 12
   },
   {
     "fields": {

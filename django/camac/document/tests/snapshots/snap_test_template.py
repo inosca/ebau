@@ -2513,7 +2513,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         <w:b/>
         <w:bCs/>
       </w:rPr>
-      <w:t>Auflagen</w:t>
+      <w:t>Hinweis</w:t>
     </w:r>
   </w:p>
   <w:p>
@@ -2523,7 +2523,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
     </w:pPr>
     <w:r>
       <w:rPr/>
-      <w:t>Inhalt Auflagen!</w:t>
+      <w:t>Inhalt Hinweis!</w:t>
     </w:r>
   </w:p>
   <w:sectPr>
