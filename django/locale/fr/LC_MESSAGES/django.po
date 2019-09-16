@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-12 13:44+0200\n"
+"POT-Creation-Date: 2019-09-16 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,21 +38,21 @@ msgstr ""
 msgid "Not sufficent permissions to add file to section %(section)s."
 msgstr ""
 
-#: camac/document/serializers.py:84
+#: camac/document/serializers.py:85
 #, python-format
-msgid "%(mime_type)s is not a valid mime type for attachment."
+msgid ""
+"Invalid mime type for attachment. Allowed types are: %(allowed_mime_types)s"
 msgstr ""
 
-#: camac/document/serializers.py:140
+#: camac/document/serializers.py:149
 msgid "Path may not be changed."
 msgstr ""
 
-#: camac/document/serializers.py:172
-#, python-format
-msgid "%(mime_type)s is not a valid mime type for template."
+#: camac/document/serializers.py:181
+msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 
-#: camac/document/views.py:158
+#: camac/document/views.py:166
 msgid "Specifying an \"attachment\" filter is mandatory!"
 msgstr ""
 
@@ -69,94 +69,94 @@ msgstr ""
 msgid "Form may not be changed."
 msgstr ""
 
-#: camac/instance/serializers.py:415
+#: camac/instance/serializers.py:420
 #, python-format
 msgid "Error while querying caluma: %(errors)s"
 msgstr ""
 
-#: camac/instance/serializers.py:441
+#: camac/instance/serializers.py:446
 #, python-format
 msgid "Passed caluma form is not a main form: %(form)s"
 msgstr ""
 
-#: camac/instance/serializers.py:505
+#: camac/instance/serializers.py:510
 #, python-format
 msgid "Cannot send email: %(errors)s"
 msgstr ""
 
-#: camac/instance/serializers.py:630
+#: camac/instance/serializers.py:635
 #, python-format
 msgid "Could not find caluma main document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:646
+#: camac/instance/serializers.py:651
 #, python-format
 msgid ""
 "Could not find municipality in caluma document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:725
+#: camac/instance/serializers.py:730
 #, python-format
 msgid "Could not find caluma `sb1` document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:785
+#: camac/instance/serializers.py:790
 #, python-format
 msgid "Could not find caluma `sb2` document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:819
+#: camac/instance/serializers.py:824
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:875
+#: camac/instance/serializers.py:880
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:895
+#: camac/instance/serializers.py:900
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:917
+#: camac/instance/serializers.py:922
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:924
+#: camac/instance/serializers.py:929
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
 
-#: camac/instance/validators.py:40
+#: camac/instance/validators.py:41
 #, python-format
 msgid "Invalid value `%(value)s` in field `%(field)s`"
 msgstr ""
 
-#: camac/instance/validators.py:53
+#: camac/instance/validators.py:54
 #, python-format
 msgid "Invalid values `%(values)s` in field `%(field)s`"
 msgstr ""
 
-#: camac/instance/validators.py:60
+#: camac/instance/validators.py:61
 #, python-format
 msgid "Value of field `%(field)s` must be `str` and not empty"
 msgstr ""
 
-#: camac/instance/validators.py:83
+#: camac/instance/validators.py:84
 #, python-format
 msgid ""
 "Value of field `%(field)s` needs to be a number between %(min_val)s and "
 "%(max_val)s)."
 msgstr ""
 
-#: camac/instance/validators.py:95
+#: camac/instance/validators.py:96
 #, python-format
 msgid "Document missing for question `%(field)s"
 msgstr ""
 
-#: camac/instance/validators.py:187
+#: camac/instance/validators.py:188
 #, python-format
 msgid "Invalid form type %(form)s."
 msgstr ""
@@ -178,6 +178,6 @@ msgstr ""
 msgid "Invalid token."
 msgstr ""
 
-#: camac/user/authentication.py:104
+#: camac/user/authentication.py:110
 msgid "User is deactivated."
 msgstr ""
