@@ -2501,7 +2501,7 @@
       }
     },
     "landwirtschaft-veranderung-tierbestand": {
-      "label": "Führt das Vorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)",
+      "label": "Führt das Vorhaben zu einer Veränderung des Tierbestandes (Art / Menge der Tiere)?",
       "hint": "Wenn das Bauvorhaben zu einer Veränderung des Tierbestandes führt, ist die Frage mit \"Ja\" zu beantworten und die Zusammensetzung des Tierbestandes (Tierarten) und die Anzahl künftig auf dem Betrieb gehaltenen Tiere gesamthaft anzugeben. Für die Angabe des Tierbestandes ist vorerst noch die Seite 3 des alten [Formulars Z11] (https://www.sz.ch/public/upload/assets/9824/Z11_Landw_Bauvorhaben.pdf) auszufüllen und bei den Gesuchsunterlagen hochzuladen.",
       "type": "radio",
       "required": true,
@@ -2514,7 +2514,7 @@
       }
     },
     "landwirtschaft-okonomiebauten": {
-      "label": "Geben Sie sämtliche übrige Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
+      "label": "Geben Sie sämtliche übrigen Ökonomiebauten auf dem Eigen- und Pachtland an inkl. der darin vorhandenen Einstell- und Remisenflächen:",
       "hint": "In der unten stehenden Auflistung sind sämtliche eigenen und gepachteten Remisen und Lagergebäude aufzuführen. Mit der Bauausführung verbundene Nutzungsänderungen sind unter \"Bemerkungen\" anzugeben.\n**Hinweis:** Durch Mausklick aufs Plus-Symbol können Sie die Eingabemaske für jeweils eine Remise resp. ein Lagergebäude öffnen.",
       "type": "table",
       "required": true,
@@ -2766,7 +2766,7 @@
       "config": {}
     },
     "nlbuaab-nutzflachen-bestehend-1972": {
-      "label": "Es sind Angaben zu den am 1. Juli 1982 bestehenden Nutzflächen erforderlich:",
+      "label": "Es sind Angaben zu den am 1. Juli 1972 bestehenden Nutzflächen erforderlich:",
       "hint": "**Nutzung:** Geben Sie bitte die Art der Nutzung an.\n\n**aBGF (anrechenbare Bruttogeschossfläche):** Die anrechenbare Bruttogeschossfläche (aBGF) resultiert aus der Summe aller Geschossflächen einschliesslich der Mauer- und Wandquerschnitte, die dauerhaft für das Wohnen und Arbeiten genutzt werden können. Nicht angerechnet werden Flächen mit einer lichten Höhe von weniger als 1 m sowie die Nebenflächen (BNF, umfassend Funktionsflächen und Nebennutzflächen).\nZur aBGF zählen die Teile der Nutzfläche eines Gebäudes, die für das Wohnen und Arbeiten bestimmt sind bzw. genutzt werden sowie die zur Erschliessung der entsprechenden Wohn- und Arbeitsräume dienenden Verkehrsflächen (Flure, Korridore, Eingangshallen; Treppen und Rampen; Aufzugsschächte).\n\n**BNF (Bruttonebenfläche):** BNF umfassen Funktionsflächen und Nebennutzflächen.\nFunktionsflächen umfassen Räume für Haustechnikanlagen, Motorenräume für Aufzugs und Förderanlagen, Ver- und Entsorgungsschächte und -kanäle, sowie Installationsgeschosse, Heizungs- und Tankräume.\nNebennutzflächen umfassen zu Wohnungen gehörende Keller-, Estrich- und Trockenräume, Waschküchen, Abstellräume, Fahrzeugeinstellräume, Schutzräume und Kehrichträume.",
       "type": "table",
       "required": false,
@@ -2800,7 +2800,7 @@
           },
           {
             "name": "gnf",
-            "label": "GNF in m²",
+            "label": "BNF in m²",
             "type": "number",
             "required": true,
             "config": {
@@ -2845,7 +2845,7 @@
           },
           {
             "name": "gnf",
-            "label": "GNF in m²",
+            "label": "BNF in m²",
             "type": "number",
             "required": true,
             "config": {
@@ -2890,7 +2890,7 @@
           },
           {
             "name": "gnf",
-            "label": "GNF in m²",
+            "label": "BNF in m²",
             "type": "number",
             "required": true,
             "config": {
@@ -3315,7 +3315,7 @@
       }
     },
     "energie-thermisch-grosse": {
-      "label": "Wie gross ist die vorgesehen Absorberfläche in m²?",
+      "label": "Wie gross ist die vorgesehene Absorberfläche in m²?",
       "hint": "Geben Sie bitte die Absorberfläche in m2 an. Die Absorberfläche ist die nicht verschattete, vom Licht bestrahlbare gesamte Oberfläche des Absorbers. Bei ebenen Flächen (Rechtecke), die schwarze obere Fläche. Bei zylindrischen Absorbern , die gesamte Fläche des schwarzen Zylindermantels.",
       "type": "number-separator",
       "required": true,
@@ -4657,7 +4657,7 @@
       }
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft": {
-      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "label": "Ist eine Stockwerkeigentümergemeinschaft vorgesehen?",
       "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümergemeinschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümergemeinschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
@@ -4670,7 +4670,7 @@
       }
     },
     "kw-1-1-1-baute-stockwerkeigentumerschaft-bezeichung": {
-      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümergemeinschaft",
       "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
@@ -4983,7 +4983,7 @@
       }
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft": {
-      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "label": "Ist eine Stockwerkeigentümergemeinschaft vorgesehen?",
       "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
@@ -4996,7 +4996,7 @@
       }
     },
     "kw-1-2-1-baute-stockwerkeigentumerschaft-bezeichung": {
-      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümergemeinschaft",
       "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
@@ -5281,7 +5281,7 @@
       }
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft": {
-      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "label": "Ist eine Stockwerkeigentümergemeinschaft vorgesehen?",
       "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
@@ -5294,7 +5294,7 @@
       }
     },
     "kw-1-3-1-baute-stockwerkeigentumerschaft-bezeichung": {
-      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümergemeinschaft",
       "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
@@ -5621,7 +5621,7 @@
       }
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft": {
-      "label": "Ist eine Stockwerkeigentümerschaft vorgesehen?",
+      "label": "Ist eine Stockwerkeigentümergemeinschaft vorgesehen?",
       "hint": "**Hinweis:** Bei einem späteren Verkauf der Liegenschaft an eine Stockwerkeigentümergemeinschaft (oder auch andere Eigentümerschaft) wird die verliehene Konzession nicht automatisch auf die neue Eigentümerschaft übertragen. Rechtsgeschäftlich kann eine Konzession nur mit Bewilligung des Regierungsrates übertragen werden (§ 21 Abs. 2 WRG, SRSZ 451.100).",
       "type": "radio",
       "required": true,
@@ -5634,7 +5634,7 @@
       }
     },
     "kw-1-4-1-baute-stockwerkeigentumerschaft-bezeichung": {
-      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümerschaft",
+      "label": "Wie lautet die Bezeichnung der Stockwerkeigentümergemeinschaft",
       "hint": "Als Beispiel: STWEG Muster",
       "type": "text",
       "required": true,
