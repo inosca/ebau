@@ -117499,7 +117499,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "ISOS",
@@ -123516,7 +123516,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Type d'affectation",
@@ -123549,7 +123549,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Conformit\u00e9 \u00e0 l'affectation de la zone",
@@ -123582,7 +123582,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Taux d'habitation",
@@ -123615,7 +123615,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ordre des constructions non contigu",
@@ -123648,7 +123648,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ordre des constructions contigu",
@@ -123681,7 +123681,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ordre des constructions: libert\u00e9 de conception",
@@ -123714,7 +123714,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Point fixe (cote du sol fini du rez-de-chauss\u00e9e)",
@@ -123747,7 +123747,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Hauteur du b\u00e2timent",
@@ -123780,7 +123780,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Hauteur du fa\u00eete",
@@ -123813,7 +123813,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Nombre d\u2019\u00e9tages",
@@ -123846,7 +123846,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Am\u00e9nagement des combles",
@@ -123879,7 +123879,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Forme de la toiture",
@@ -123912,7 +123912,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Pente de la toiture",
@@ -123945,7 +123945,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Avant-toits",
@@ -123978,7 +123978,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Superstructures du toit",
@@ -124011,7 +124011,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Galerie",
@@ -124044,7 +124044,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Longueur du b\u00e2timent",
@@ -124077,7 +124077,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Largeur du b\u00e2timent",
@@ -124110,7 +124110,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Suppl\u00e9ment de distance sur les c\u00f4t\u00e9s longs et \u00e9troits",
@@ -124143,7 +124143,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Taux d'occupation du sol",
@@ -124176,7 +124176,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Transfert de l'affectation",
@@ -124209,7 +124209,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Indice de surface verte",
@@ -124242,7 +124242,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Proportions du b\u00e2timent (rapport largeur - hauteur)",
@@ -124275,7 +124275,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "THP",
@@ -124308,7 +124308,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Alignement",
@@ -124341,7 +124341,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "B\u00e2timent principal habit\u00e9",
@@ -124374,7 +124374,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "B\u00e2timent principal inhabit\u00e9",
@@ -124407,7 +124407,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Annexe habit\u00e9e",
@@ -124440,7 +124440,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Annexe inhabit\u00e9e",
@@ -124473,7 +124473,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Grande distance \u00e0 la limite",
@@ -124506,7 +124506,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Empi\u00e9tement de parties en saillie",
@@ -124539,7 +124539,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distance \u00e0 la limite souterraine",
@@ -124572,7 +124572,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distance entre les b\u00e2timents",
@@ -124605,7 +124605,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distance par rapport aux eaux",
@@ -124638,7 +124638,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distance par rapport \u00e0 la for\u00eat",
@@ -124671,7 +124671,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distance par rapport aux limites de zone",
@@ -124704,7 +124704,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Distances par rapport aux conduites",
@@ -124737,7 +124737,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Zone de protection",
@@ -124770,7 +124770,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Objet digne de conservation",
@@ -124803,7 +124803,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Objet digne de protection",
@@ -124836,7 +124836,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ensemble b\u00e2ti",
@@ -124891,7 +124891,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "R\u00e9serve naturelle cantonale",
@@ -124924,7 +124924,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Haies",
@@ -124957,7 +124957,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "IFP et autres inventaires f\u00e9d\u00e9raux",
@@ -124990,7 +124990,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Site mar\u00e9cageux",
@@ -125023,7 +125023,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "IVS",
@@ -125056,7 +125056,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Circonstances particuli\u00e8res",
@@ -125089,7 +125089,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Construction en zone agricole",
@@ -125122,7 +125122,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Places de jeux pour enfants",
@@ -125155,7 +125155,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Aires de loisirs",
@@ -125188,7 +125188,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "R\u00e9duits",
@@ -125221,7 +125221,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Habitat",
@@ -125254,7 +125254,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Artisanat",
@@ -125287,7 +125287,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Places de stationnement pour voitures d'enfant ou pour bicyclettes",
@@ -125320,7 +125320,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Grande surface de jeu",
@@ -125353,7 +125353,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Plantations",
@@ -125386,7 +125386,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Place pour d\u00e9chets",
@@ -125419,7 +125419,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Acc\u00e8s",
@@ -125452,7 +125452,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Largeur, d\u00e9clivit\u00e9",
@@ -125485,7 +125485,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Droit d'acc\u00e8s",
@@ -125518,7 +125518,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "D\u00e9bouch\u00e9",
@@ -125551,7 +125551,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Int\u00e9gration et forme",
@@ -125584,7 +125584,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Implantation du b\u00e2timent",
@@ -125617,7 +125617,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Position du b\u00e2timent par rapport \u00e0 la route",
@@ -125650,7 +125650,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Orientation du fa\u00eete",
@@ -125683,7 +125683,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Formes et proportions du b\u00e2timent",
@@ -125716,7 +125716,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Choix des mat\u00e9riaux et des couleurs",
@@ -125749,7 +125749,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Am\u00e9nagement des abords",
@@ -125782,7 +125782,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Cl\u00f4tures, murs de sout\u00e8nement, talus",
@@ -125815,7 +125815,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Services sp\u00e9cialis\u00e9s",
@@ -125848,7 +125848,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Antennes",
@@ -125881,7 +125881,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Capteurs d'\u00e9nergie",
@@ -125914,7 +125914,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Modifications de terrain",
@@ -125947,7 +125947,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Documentation photographique",
@@ -125980,7 +125980,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Luminosit\u00e9, a\u00e9ration et ensoleillement",
@@ -126013,7 +126013,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Hauteur des locaux",
@@ -126046,7 +126046,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Hauteur des locaux mansard\u00e9s",
@@ -126079,7 +126079,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Dimensions des locaux (min. 8 m\u00b2)",
@@ -126112,7 +126112,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Locaux d'habitation en sous-sol",
@@ -126145,7 +126145,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Installations sanitaires",
@@ -126178,7 +126178,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Radon",
@@ -126211,7 +126211,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Dangers naturels / zone de danger",
@@ -126244,7 +126244,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "S\u00e9curit\u00e9 en g\u00e9n\u00e9ral",
@@ -126277,7 +126277,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Dispositifs de s\u00e9curit\u00e9",
@@ -126310,7 +126310,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Largeur des escaliers",
@@ -126343,7 +126343,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ascenseurs",
@@ -126376,7 +126376,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Mesures de construction en faveur des handicap\u00e9s",
@@ -126409,7 +126409,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "LTEI / OTEI",
@@ -126442,7 +126442,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Mesures d'hygi\u00e8ne et pr\u00e9vention des accidents sur les chantiers",
@@ -126475,7 +126475,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Protection de l\u2019environnement",
@@ -126508,7 +126508,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Ordonnance sur la protection contre le bruit",
@@ -126541,7 +126541,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Isolation acoustique (voir \u00e9galement la norme SIA 181)",
@@ -126574,7 +126574,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Pr\u00e9vention des accidents majeurs",
@@ -126607,7 +126607,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Traitement des d\u00e9chets",
@@ -126640,7 +126640,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Autres immissions",
@@ -126673,7 +126673,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "EIE",
@@ -126706,7 +126706,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "L\u00e9gislation sur l\u2019\u00e9nergie (isolation thermique notamment)",
@@ -126739,7 +126739,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Voies ferr\u00e9es",
@@ -126772,7 +126772,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Constructions \u00e0 proximit\u00e9 des voies ferr\u00e9es",
@@ -126805,7 +126805,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Sites contamin\u00e9s ou potentiellement contamin\u00e9s",
@@ -126838,7 +126838,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Plan de gestion des d\u00e9chets",
@@ -126860,7 +126860,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Loi sur les rives des lacs et des rivi\u00e8res",
@@ -126893,7 +126893,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Infiltration",
@@ -126926,7 +126926,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Raccordement aux canalisations",
@@ -126959,7 +126959,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Obligation de construire un abri et dispense",
@@ -127190,7 +127190,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Mesures de protection de l'air sur le chantier",
@@ -127223,7 +127223,7 @@
   },
   {
     "fields": {
-      "default_answer": null,
+      "default_answer": "NEI",
       "description": null,
       "language": "fr",
       "name": "Chemin de randonn\u00e9e p\u00e9destre",
@@ -127770,6 +127770,138 @@
     },
     "model": "core.questiont",
     "pk": 120943
+  },
+  {
+    "fields": {
+      "default_answer": "NEI",
+      "description": null,
+      "language": "fr",
+      "name": "Hauteur du mur de combles",
+      "question": 40567
+    },
+    "model": "core.questiont",
+    "pk": 120944
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Hauteur du mur de combles (rating)",
+      "question": 40568
+    },
+    "model": "core.questiont",
+    "pk": 120945
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Remarques sur la hauteur du mur de combles",
+      "question": 40569
+    },
+    "model": "core.questiont",
+    "pk": 120946
+  },
+  {
+    "fields": {
+      "default_answer": "NEI",
+      "description": null,
+      "language": "fr",
+      "name": "D\u00e9cence des routes",
+      "question": 40639
+    },
+    "model": "core.questiont",
+    "pk": 120947
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "D\u00e9cence des routes (rating)",
+      "question": 40640
+    },
+    "model": "core.questiont",
+    "pk": 120948
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Remarques sur la d\u00e9cence des routes",
+      "question": 40641
+    },
+    "model": "core.questiont",
+    "pk": 120949
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Ordonnance sur la protection de l'air (rating)",
+      "question": 40817
+    },
+    "model": "core.questiont",
+    "pk": 120950
+  },
+  {
+    "fields": {
+      "default_answer": "NEI",
+      "description": null,
+      "language": "fr",
+      "name": "Ordonnance sur la protection de l'air",
+      "question": 40816
+    },
+    "model": "core.questiont",
+    "pk": 120951
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Remarques sur l'ordonnance sur la protection de l'air",
+      "question": 40818
+    },
+    "model": "core.questiont",
+    "pk": 120952
+  },
+  {
+    "fields": {
+      "default_answer": "NEI",
+      "description": null,
+      "language": "fr",
+      "name": "Hauteur de la chemin\u00e9e (0,5 m au-dessus du fa\u00eete au moins)",
+      "question": 40819
+    },
+    "model": "core.questiont",
+    "pk": 120953
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Hauteur de la chemin\u00e9e (0,5 m au-dessus du fa\u00eete au moins) (rating)",
+      "question": 40820
+    },
+    "model": "core.questiont",
+    "pk": 120954
+  },
+  {
+    "fields": {
+      "default_answer": null,
+      "description": null,
+      "language": "fr",
+      "name": "Remarques sur la hauteur de la chemin\u00e9e (0,5 m au-dessus du fa\u00eete au moins)",
+      "question": 40821
+    },
+    "model": "core.questiont",
+    "pk": 120955
   },
   {
     "fields": {
