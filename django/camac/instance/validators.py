@@ -191,6 +191,7 @@ class FormDataValidator(object):
         return form_def
 
     def get_active_modules_questions(self):
+        QUESTION_COORDINATES = "punkte"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
 
@@ -205,7 +206,11 @@ class FormDataValidator(object):
                     if self._check_question_active(question_name, question):
                         value = self.fields.get(question_name)
 
-                        if question_name == "punkte" and value is not None:
+                        if question_name == QUESTION_COORDINATES and value is not None:
+                            """
+                            This converts the coordinates of the set points on the GIS map from
+                            GPS(EPSG:4326) coordinates to the coordinate system Schwyz uses
+                            """
                             converted_values = []
                             transformer = Transformer.from_crs(
                                 "EPSG:4326",
