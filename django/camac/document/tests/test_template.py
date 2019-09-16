@@ -159,7 +159,7 @@ def test_template_merge(
     settings,
 ):
     notice_type_application = notice_type_factory(name="Antrag")
-    notice_type_terms = notice_type_factory(name="Auflagen")
+    notice_type_hint = notice_type_factory(name="Hinweis")
 
     notice_factory(
         activation=activation,
@@ -167,7 +167,7 @@ def test_template_merge(
         content="Inhalt Antrag!",
     )
     notice_factory(
-        activation=activation, notice_type=notice_type_terms, content="Inhalt Auflagen!"
+        activation=activation, notice_type=notice_type_hint, content="Inhalt Hinweis!"
     )
 
     add_field = functools.partial(form_field_factory, instance=instance)
