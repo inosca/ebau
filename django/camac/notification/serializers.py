@@ -295,14 +295,11 @@ class NotificationTemplateMergeSerializer(
         notification_template = data["notification_template"]
         instance = data["instance"]
 
-        subj_prefix = settings.EMAIL_PREFIX_SUBJECT
-        body_prefix = settings.EMAIL_PREFIX_BODY
-
-        data["subject"] = subj_prefix + self._merge(
+        data["subject"] = self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
             instance,
         )
-        data["body"] = body_prefix + self._merge(
+        data["body"] = self._merge(
             data.get("body", notification_template.get_trans_attr("body")), instance
         )
         data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
@@ -361,6 +358,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         ).values_list("service__email", flat=True)
 
     def create(self, validated_data):
+        subj_prefix = settings.EMAIL_PREFIX_SUBJECT
+        body_prefix = settings.EMAIL_PREFIX_BODY
+
         instance = validated_data["instance"]
         recipients = itertools.chain(
             *[
@@ -370,8 +370,8 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
 
         email = EmailMessage(
-            subject=validated_data["subject"],
-            body=validated_data["body"],
+            subject=subj_prefix + validated_data["subject"],
+            body=body_prefix + validated_data["body"],
             bcc=set(recipients),
         )
 
