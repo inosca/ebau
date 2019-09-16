@@ -408,6 +408,8 @@ def test_instance_export_detail(
     )
     add_field(name="bohrungsdaten", value="Bezeichnung")
     add_field(name="kategorie-des-vorhabens", value=["Anlage(n)", "Baute(n)"])
+    add_field(name="baugeruest-errichtet-am", value="2019-20-19")
+    add_field(name="punkte", value=[{"lat": 6, "lng": 40}])
 
     response = admin_client.get(url, data={"type": to_type})
     assert response.status_code == status_code
