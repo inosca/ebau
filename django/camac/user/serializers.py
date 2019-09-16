@@ -60,7 +60,7 @@ class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
 
     def get_permission(self, role):
         perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        return perms.get(role.get_name())
+        return perms.get(role.name)
 
     class Meta:
         model = models.Role

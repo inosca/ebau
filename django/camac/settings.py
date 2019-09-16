@@ -127,17 +127,17 @@ APPLICATIONS = {
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
-            "Leitung Fachstelle": "service",
-            "Sachbearbeiter Fachstelle": "service",
-            "Einsichtsberechtigte Fachstelle": "service",
-            "Leitung Leitbehörde": "municipality",
-            "Sachbearbeiter Leitbehörde": "municipality",
-            "Einsichtsberechtigte Leitbehörde": "municipality",
-            "Leitung Baukontrolle": "municipality",
-            "Sachbearbeiter Baukontrolle": "municipality",
-            "Einsichtsberechtigte Baukontrolle": "municipality",
-            "Unterfachstelle": "service",
-            "System-Betrieb": "support",
+            "service-lead": "service",
+            "service-clerk": "service",
+            "service-readonly": "service",
+            "subservice": "service",
+            "municipality-lead": "municipality",
+            "municipality-clerk": "municipality",
+            "municipality-readonly": "municipality",
+            "construction-control-lead": "municipality",
+            "construction-control-clerk": "municipality",
+            "construction-control-readonly": "municipality",
+            "support": "support",
         },
         "NOTIFICATIONS": {
             "SUBMIT": [
