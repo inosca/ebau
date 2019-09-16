@@ -25,6 +25,14 @@ from camac.user.permissions import permission_aware
 
 from . import filters, models, serializers
 
+NOTICE_TYPE_ORDER = {
+    "Antrag": 0,
+    "Nebenbestimmungen": 1,
+    "Begründung": 2,
+    "Empfehlung": 3,
+    "Hinweis": 4,
+}
+
 
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
     queryset = models.Attachment.objects.all()
@@ -273,8 +281,15 @@ class TemplateView(views.ModelViewSet):
         buf = io.BytesIO()
         serializer = self.get_serializer(instance, escape=True)
         serializer.validate_instance(instance)
+        data = serializer.data
+
+        for activation in data["activations"]:
+            activation["notices"].sort(
+                key=lambda notice: NOTICE_TYPE_ORDER[notice["notice_type"]]
+            )
+
         doc = DocxTemplate(template.path)
-        doc.render(serializer.data)
+        doc.render(data)
         doc.save(buf)
 
         buf.seek(0)
