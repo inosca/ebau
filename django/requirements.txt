@@ -20,3 +20,4 @@ sorl-thumbnail==12.5.0
 uwsgi==2.0.18
 django-reversion==3.0.4
 pyjexl==0.2.3
+pyproj==2.3.1
