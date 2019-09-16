@@ -120,14 +120,8 @@ def test_notification_template_merge(
     assert response.status_code == status_code
     if status_code == status.HTTP_200_OK:
         json = response.json()
-        assert (
-            json["data"]["attributes"]["subject"]
-            == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
-        )
-        assert (
-            json["data"]["attributes"]["body"]
-            == settings.EMAIL_PREFIX_BODY + "identifier 21.01.2017"
-        )
+        assert json["data"]["attributes"]["subject"] == instance.identifier
+        assert json["data"]["attributes"]["body"] == "identifier 21.01.2017"
         assert json["data"]["id"] == "{0}-{1}".format(
             notification_template.pk, instance.pk
         )
