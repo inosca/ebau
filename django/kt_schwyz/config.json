@@ -10682,7 +10682,7 @@
   {
     "fields": {
       "attachment_section": 2,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 5
     },
     "model": "document.attachmentsectionroleacl",
@@ -10817,7 +10817,7 @@
   {
     "fields": {
       "attachment_section": 2,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -10862,7 +10862,7 @@
   {
     "fields": {
       "attachment_section": 8,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 5
     },
     "model": "document.attachmentsectionroleacl",
@@ -10871,7 +10871,7 @@
   {
     "fields": {
       "attachment_section": 8,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -10970,7 +10970,7 @@
   {
     "fields": {
       "attachment_section": 6,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 5
     },
     "model": "document.attachmentsectionroleacl",
@@ -10979,7 +10979,7 @@
   {
     "fields": {
       "attachment_section": 6,
-      "mode": "admin",
+      "mode": "adminsvc",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
