@@ -184,18 +184,27 @@ def test_notification_template_sendmail(
 
 
 @pytest.mark.parametrize(
-    "user__email,role__name,notification_template__subject",
+    "user__email,role__name,notification_template__body",
     [
         (
             "user@example.com",
             "Municipality",
-            "{{FORM_NAME}} {{EBAU_NUMBER}} ({{INSTANCE_ID}})",
+            """
+                BASE_URL: {{BASE_URL}}
+                EBAU_NUMBER: {{EBAU_NUMBER}}
+                FORM_NAME: {{FORM_NAME}}
+                INSTANCE_ID: {{INSTANCE_ID}}
+                LEITBEHOERDE_NAME: {{LEITBEHOERDE_NAME}}
+                INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
+                PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
+            """,
         )
     ],
 )
 def test_notification_caluma_placeholders(
     admin_client,
     instance,
+    instance_service,
     notification_template,
     mailoutbox,
     activation,
@@ -251,7 +260,17 @@ def test_notification_caluma_placeholders(
 
     mail = mailoutbox[0]
 
-    assert (
-        mail.subject
-        == f"{settings.EMAIL_PREFIX_SUBJECT}Baugesuch 2019-01 ({instance.pk})"
-    )
+    assert [
+        placeholder.strip()
+        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        .strip()
+        .split("\n")
+    ] == [
+        "BASE_URL: http://camac-ng.local",
+        "EBAU_NUMBER: 2019-01",
+        "FORM_NAME: Baugesuch",
+        f"INSTANCE_ID: {instance.pk}",
+        f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
+        f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
+        f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
+    ]
