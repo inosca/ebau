@@ -43687,6 +43687,16 @@
   },
   {
     "fields": {
+      "button": 120001,
+      "description": null,
+      "language": "fr",
+      "name": "Sauter l'examen"
+    },
+    "model": "core.buttont",
+    "pk": 120044
+  },
+  {
+    "fields": {
       "description": null,
       "javascript": null,
       "name": null
