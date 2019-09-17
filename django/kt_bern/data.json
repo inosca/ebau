@@ -86961,6 +86961,1536 @@
   },
   {
     "fields": {
+      "city": "",
+      "group": 1,
+      "language": "fr",
+      "name": "Admin"
+    },
+    "model": "user.groupt",
+    "pk": 24852
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 2,
+      "language": "fr",
+      "name": "Guest"
+    },
+    "model": "user.groupt",
+    "pk": 24853
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 6,
+      "language": "fr",
+      "name": "Portal"
+    },
+    "model": "user.groupt",
+    "pk": 24854
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 10000,
+      "language": "fr",
+      "name": "System-Betrieb"
+    },
+    "model": "user.groupt",
+    "pk": 24855
+  },
+  {
+    "fields": {
+      "city": "Ostermundigen",
+      "group": 20063,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Bern-Mittelland"
+    },
+    "model": "user.groupt",
+    "pk": 24856
+  },
+  {
+    "fields": {
+      "city": "Ostermundigen",
+      "group": 20064,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Bern-Mittelland"
+    },
+    "model": "user.groupt",
+    "pk": 24857
+  },
+  {
+    "fields": {
+      "city": "Ostermundigen",
+      "group": 20065,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Bern-Mittelland"
+    },
+    "model": "user.groupt",
+    "pk": 24858
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "group": 20069,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 24859
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "group": 20070,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 24860
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "group": 20071,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 24861
+  },
+  {
+    "fields": {
+      "city": "Frutigen",
+      "group": 20072,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Frutigen-Niedersimmental"
+    },
+    "model": "user.groupt",
+    "pk": 24862
+  },
+  {
+    "fields": {
+      "city": "Frutigen",
+      "group": 20073,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Frutigen-Niedersimmental"
+    },
+    "model": "user.groupt",
+    "pk": 24863
+  },
+  {
+    "fields": {
+      "city": "Frutigen",
+      "group": 20074,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Frutigen-Niedersimmental"
+    },
+    "model": "user.groupt",
+    "pk": 24864
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20078,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Jura bernois"
+    },
+    "model": "user.groupt",
+    "pk": 24865
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20079,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Jura bernois"
+    },
+    "model": "user.groupt",
+    "pk": 24866
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20080,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Jura bernois"
+    },
+    "model": "user.groupt",
+    "pk": 24867
+  },
+  {
+    "fields": {
+      "city": "Wangen a.A.",
+      "group": 20081,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Oberaargau"
+    },
+    "model": "user.groupt",
+    "pk": 24868
+  },
+  {
+    "fields": {
+      "city": "Wangen a.A.",
+      "group": 20082,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Oberaargau"
+    },
+    "model": "user.groupt",
+    "pk": 24869
+  },
+  {
+    "fields": {
+      "city": "Wangen a.A.",
+      "group": 20083,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Oberaargau"
+    },
+    "model": "user.groupt",
+    "pk": 24870
+  },
+  {
+    "fields": {
+      "city": "Saanen",
+      "group": 20084,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Obersimmental-Saanen"
+    },
+    "model": "user.groupt",
+    "pk": 24871
+  },
+  {
+    "fields": {
+      "city": "Saanen",
+      "group": 20085,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Obersimmental-Saanen"
+    },
+    "model": "user.groupt",
+    "pk": 24872
+  },
+  {
+    "fields": {
+      "city": "Saanen",
+      "group": 20086,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Obersimmental-Saanen"
+    },
+    "model": "user.groupt",
+    "pk": 24873
+  },
+  {
+    "fields": {
+      "city": "Aarberg",
+      "group": 20087,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Seeland"
+    },
+    "model": "user.groupt",
+    "pk": 24874
+  },
+  {
+    "fields": {
+      "city": "Aarberg",
+      "group": 20088,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Seeland"
+    },
+    "model": "user.groupt",
+    "pk": 24875
+  },
+  {
+    "fields": {
+      "city": "Aarberg",
+      "group": 20089,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Seeland"
+    },
+    "model": "user.groupt",
+    "pk": 24876
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "group": 20090,
+      "language": "fr",
+      "name": "Leitung Regierungsstatthalteramt Thun"
+    },
+    "model": "user.groupt",
+    "pk": 24877
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "group": 20091,
+      "language": "fr",
+      "name": "Sachbearbeiter Regierungsstatthalteramt Thun"
+    },
+    "model": "user.groupt",
+    "pk": 24878
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "group": 20092,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Regierungsstatthalteramt Thun"
+    },
+    "model": "user.groupt",
+    "pk": 24879
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20096,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24880
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20097,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24881
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20098,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24882
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20102,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24883
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20103,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24884
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20104,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24885
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20108,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24886
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20109,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24887
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20110,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung"
+    },
+    "model": "user.groupt",
+    "pk": 24888
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20114,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen"
+    },
+    "model": "user.groupt",
+    "pk": 24889
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20115,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen"
+    },
+    "model": "user.groupt",
+    "pk": 24890
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20116,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen"
+    },
+    "model": "user.groupt",
+    "pk": 24891
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20120,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)"
+    },
+    "model": "user.groupt",
+    "pk": 24892
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20121,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)"
+    },
+    "model": "user.groupt",
+    "pk": 24893
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20122,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)"
+    },
+    "model": "user.groupt",
+    "pk": 24894
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20129,
+      "language": "fr",
+      "name": "Leitung Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern"
+    },
+    "model": "user.groupt",
+    "pk": 24895
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20130,
+      "language": "fr",
+      "name": "Sachbearbeiter Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern"
+    },
+    "model": "user.groupt",
+    "pk": 24896
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20131,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern"
+    },
+    "model": "user.groupt",
+    "pk": 24897
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20165,
+      "language": "fr",
+      "name": "Leitung beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz"
+    },
+    "model": "user.groupt",
+    "pk": 24898
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20166,
+      "language": "fr",
+      "name": "Sachbearbeiter beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz"
+    },
+    "model": "user.groupt",
+    "pk": 24899
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20167,
+      "language": "fr",
+      "name": "Einsichtsberechtigte beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz"
+    },
+    "model": "user.groupt",
+    "pk": 24900
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20174,
+      "language": "fr",
+      "name": "Leitung Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)"
+    },
+    "model": "user.groupt",
+    "pk": 24901
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20175,
+      "language": "fr",
+      "name": "Sachbearbeiter Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)"
+    },
+    "model": "user.groupt",
+    "pk": 24902
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20176,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)"
+    },
+    "model": "user.groupt",
+    "pk": 24903
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20204,
+      "language": "fr",
+      "name": "Leitung Fachstelle Hindernisfreies Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24904
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20205,
+      "language": "fr",
+      "name": "Sachbearbeiter Fachstelle Hindernisfreies Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24905
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20206,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Fachstelle Hindernisfreies Bauen"
+    },
+    "model": "user.groupt",
+    "pk": 24906
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20295,
+      "language": "fr",
+      "name": "Unterfachstelle BLS AG"
+    },
+    "model": "user.groupt",
+    "pk": 24907
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20296,
+      "language": "fr",
+      "name": "Unterfachstelle eicher + pauli Bern AG"
+    },
+    "model": "user.groupt",
+    "pk": 24908
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20297,
+      "language": "fr",
+      "name": "Unterfachstelle Feuerwehr und Zivilschutz"
+    },
+    "model": "user.groupt",
+    "pk": 24909
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20298,
+      "language": "fr",
+      "name": "Unterfachstelle Ordnung und Sicherheit"
+    },
+    "model": "user.groupt",
+    "pk": 24910
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20299,
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Lyssach)"
+    },
+    "model": "user.groupt",
+    "pk": 24911
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20300,
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Lyssach)"
+    },
+    "model": "user.groupt",
+    "pk": 24912
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20301,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24913
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20302,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24914
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20303,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24915
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20304,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24916
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20305,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24917
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "group": 20306,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Hasle bei Burgdorf"
+    },
+    "model": "user.groupt",
+    "pk": 24918
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20307,
+      "language": "fr",
+      "name": "Unterfachstelle Kaminfeger Hiltbrunner GmbH (Feueraufseher)"
+    },
+    "model": "user.groupt",
+    "pk": 24919
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20308,
+      "language": "fr",
+      "name": "Unterfachstelle Stefan Schwarz AG (Pr\u00fcfstelle ENM)"
+    },
+    "model": "user.groupt",
+    "pk": 24920
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20309,
+      "language": "fr",
+      "name": "Unterfachstelle GLB Emmental (Pr\u00fcfstelle ENM)"
+    },
+    "model": "user.groupt",
+    "pk": 24921
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20310,
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit Langnau (Gastgewerbe)"
+    },
+    "model": "user.groupt",
+    "pk": 24922
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20311,
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit Langnau (Feuerwehr)"
+    },
+    "model": "user.groupt",
+    "pk": 24923
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20312,
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Gemeinde)"
+    },
+    "model": "user.groupt",
+    "pk": 24924
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20313,
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Kanton - Mitbericht)"
+    },
+    "model": "user.groupt",
+    "pk": 24925
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20314,
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Strassenbaupolizei)"
+    },
+    "model": "user.groupt",
+    "pk": 24926
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20315,
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung (Ben\u00fctzung von \u00f6ffentlichem Terrain)"
+    },
+    "model": "user.groupt",
+    "pk": 24927
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20316,
+      "language": "fr",
+      "name": "Unterfachstelle Wasserversorgung Langnau (Wasseranschluss)"
+    },
+    "model": "user.groupt",
+    "pk": 24928
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20317,
+      "language": "fr",
+      "name": "Unterfachstelle EBL (Genossenschaft Elektra Baselland) (Gemeinschaftsantenne)"
+    },
+    "model": "user.groupt",
+    "pk": 24929
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20318,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Langnau)"
+    },
+    "model": "user.groupt",
+    "pk": 24930
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20319,
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Trubschachen)"
+    },
+    "model": "user.groupt",
+    "pk": 24931
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20320,
+      "language": "fr",
+      "name": "Unterfachstelle SBB AG (Lyssach)"
+    },
+    "model": "user.groupt",
+    "pk": 24932
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20321,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Wynigen"
+    },
+    "model": "user.groupt",
+    "pk": 24933
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20322,
+      "language": "fr",
+      "name": "Unterfachstelle Feuerwehr Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 24934
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20323,
+      "language": "fr",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Lyssach) (Lyssach)"
+    },
+    "model": "user.groupt",
+    "pk": 24935
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20324,
+      "language": "fr",
+      "name": "Unterfachstelle Energiefachmann"
+    },
+    "model": "user.groupt",
+    "pk": 24936
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20325,
+      "language": "fr",
+      "name": "Unterfachstelle Genossenschaft Elektra Jegenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24937
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20326,
+      "language": "fr",
+      "name": "Unterfachstelle Emmental Trinkwasser"
+    },
+    "model": "user.groupt",
+    "pk": 24938
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20327,
+      "language": "fr",
+      "name": "Unterfachstelle Grunder Ingenieure AG"
+    },
+    "model": "user.groupt",
+    "pk": 24939
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20328,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Lyssach)"
+    },
+    "model": "user.groupt",
+    "pk": 24940
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20329,
+      "language": "fr",
+      "name": "Unterfachstelle Brandschutz"
+    },
+    "model": "user.groupt",
+    "pk": 24941
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20330,
+      "language": "fr",
+      "name": "Unterfachstelle Ostag Gew\u00e4sserschutz"
+    },
+    "model": "user.groupt",
+    "pk": 24942
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20331,
+      "language": "fr",
+      "name": "Unterfachstelle Ostag Energieberatung"
+    },
+    "model": "user.groupt",
+    "pk": 24943
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20332,
+      "language": "fr",
+      "name": "Unterfachstelle Energie- und Wasserversorgung Oberburg"
+    },
+    "model": "user.groupt",
+    "pk": 24944
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20333,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 24945
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20334,
+      "language": "fr",
+      "name": "Unterfachstelle Energieberatung Stefan Schwarz AG"
+    },
+    "model": "user.groupt",
+    "pk": 24946
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20335,
+      "language": "fr",
+      "name": "Unterfachstelle ARA mittleres Emmental"
+    },
+    "model": "user.groupt",
+    "pk": 24947
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20336,
+      "language": "fr",
+      "name": "Unterfachstelle Wasserversorgung Zollbr\u00fcck"
+    },
+    "model": "user.groupt",
+    "pk": 24948
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20337,
+      "language": "fr",
+      "name": "Unterfachstelle Ruefer Ingenieure AG"
+    },
+    "model": "user.groupt",
+    "pk": 24949
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20338,
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG (Trubschachen)"
+    },
+    "model": "user.groupt",
+    "pk": 24950
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20339,
+      "language": "fr",
+      "name": "Unterfachstelle Elektra R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 24951
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20340,
+      "language": "fr",
+      "name": "Unterfachstelle Elektra Schwanden"
+    },
+    "model": "user.groupt",
+    "pk": 24952
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20341,
+      "language": "fr",
+      "name": "Unterfachstelle Brunnenmeister Martin Schifferli"
+    },
+    "model": "user.groupt",
+    "pk": 24953
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20342,
+      "language": "fr",
+      "name": "Leitung Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24954
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20343,
+      "language": "fr",
+      "name": "Sachbearbeiter Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24955
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20344,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Baukontrolle Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24956
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20345,
+      "language": "fr",
+      "name": "Leitung Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24957
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20346,
+      "language": "fr",
+      "name": "Sachbearbeiter Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24958
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "group": 20347,
+      "language": "fr",
+      "name": "Einsichtsberechtigte Leitbeh\u00f6rde Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24959
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20348,
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutzbewilligung"
+    },
+    "model": "user.groupt",
+    "pk": 24960
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20349,
+      "language": "fr",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Utzenstorf)"
+    },
+    "model": "user.groupt",
+    "pk": 24961
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20350,
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Wasser"
+    },
+    "model": "user.groupt",
+    "pk": 24962
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20351,
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Elektrizit\u00e4t"
+    },
+    "model": "user.groupt",
+    "pk": 24963
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20352,
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Gas"
+    },
+    "model": "user.groupt",
+    "pk": 24964
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20353,
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Gemeinschaftsantenne"
+    },
+    "model": "user.groupt",
+    "pk": 24965
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20354,
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Fernmeldenetz"
+    },
+    "model": "user.groupt",
+    "pk": 24966
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20355,
+      "language": "fr",
+      "name": "Unterfachstelle Heimatschutz"
+    },
+    "model": "user.groupt",
+    "pk": 24967
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20356,
+      "language": "fr",
+      "name": "Unterfachstelle Energiekontrolleur"
+    },
+    "model": "user.groupt",
+    "pk": 24968
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20357,
+      "language": "fr",
+      "name": "Unterfachstelle Kanalisationskontrolleur"
+    },
+    "model": "user.groupt",
+    "pk": 24969
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20358,
+      "language": "fr",
+      "name": "Unterfachstelle Liegenschaftskommission"
+    },
+    "model": "user.groupt",
+    "pk": 24970
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20359,
+      "language": "fr",
+      "name": "Unterfachstelle Brunnenmeister"
+    },
+    "model": "user.groupt",
+    "pk": 24971
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20360,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Wynigen)"
+    },
+    "model": "user.groupt",
+    "pk": 24972
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20361,
+      "language": "fr",
+      "name": "Unterfachstelle onyx"
+    },
+    "model": "user.groupt",
+    "pk": 24973
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20362,
+      "language": "fr",
+      "name": "Unterfachstelle Energieberater"
+    },
+    "model": "user.groupt",
+    "pk": 24974
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20363,
+      "language": "fr",
+      "name": "Unterfachstelle Localnet"
+    },
+    "model": "user.groupt",
+    "pk": 24975
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "group": 20365,
+      "language": "fr",
+      "name": "Unterfachstelle AGR \u2013 Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern"
+    },
+    "model": "user.groupt",
+    "pk": 24976
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20366,
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 24977
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20367,
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Burgdorf)"
+    },
+    "model": "user.groupt",
+    "pk": 24978
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20368,
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Langnau)"
+    },
+    "model": "user.groupt",
+    "pk": 24979
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20369,
+      "language": "fr",
+      "name": "Unterfachstelle SBB AG (Langnau)"
+    },
+    "model": "user.groupt",
+    "pk": 24980
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20370,
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Langnau)"
+    },
+    "model": "user.groupt",
+    "pk": 24981
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20371,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Lyssach"
+    },
+    "model": "user.groupt",
+    "pk": 24982
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20372,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher R\u00fcderswil"
+    },
+    "model": "user.groupt",
+    "pk": 24983
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20373,
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 24984
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20374,
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (R\u00fcderswil)"
+    },
+    "model": "user.groupt",
+    "pk": 24985
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20375,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Utzenstorf"
+    },
+    "model": "user.groupt",
+    "pk": 24986
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20376,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Trubschachen"
+    },
+    "model": "user.groupt",
+    "pk": 24987
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20377,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Trubschachen)"
+    },
+    "model": "user.groupt",
+    "pk": 24988
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20378,
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Wynigen)"
+    },
+    "model": "user.groupt",
+    "pk": 24989
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20379,
+      "language": "fr",
+      "name": "Unterfachstelle Kaminfeger Joost AG"
+    },
+    "model": "user.groupt",
+    "pk": 24990
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20380,
+      "language": "fr",
+      "name": "Unterfachstelle Energienachweis"
+    },
+    "model": "user.groupt",
+    "pk": 24991
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20381,
+      "language": "fr",
+      "name": "Unterfachstelle GLB, Energienachweis"
+    },
+    "model": "user.groupt",
+    "pk": 24992
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20382,
+      "language": "fr",
+      "name": "Unterfachstelle Werner und Partner AG"
+    },
+    "model": "user.groupt",
+    "pk": 24993
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20383,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Eggiwil)"
+    },
+    "model": "user.groupt",
+    "pk": 24994
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20384,
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Eggiwil)"
+    },
+    "model": "user.groupt",
+    "pk": 24995
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20385,
+      "language": "fr",
+      "name": "Unterfachstelle BLS Netz AG"
+    },
+    "model": "user.groupt",
+    "pk": 24996
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20386,
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Hasle b. B."
+    },
+    "model": "user.groupt",
+    "pk": 24997
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20387,
+      "language": "fr",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Hasle b. B.)"
+    },
+    "model": "user.groupt",
+    "pk": 24998
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20388,
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Hasle b. B.)"
+    },
+    "model": "user.groupt",
+    "pk": 24999
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20389,
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Hasle b. B.)"
+    },
+    "model": "user.groupt",
+    "pk": 25000
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20390,
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG"
+    },
+    "model": "user.groupt",
+    "pk": 25001
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20391,
+      "language": "fr",
+      "name": "Unterfachstelle Nachf\u00fchrungsgeometer"
+    },
+    "model": "user.groupt",
+    "pk": 25002
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20392,
+      "language": "fr",
+      "name": "Unterfachstelle Gemeindeingenieur"
+    },
+    "model": "user.groupt",
+    "pk": 25003
+  },
+  {
+    "fields": {
+      "city": "",
+      "group": 20393,
+      "language": "fr",
+      "name": "Unterfachstelle Schwellenkoorporation"
+    },
+    "model": "user.groupt",
+    "pk": 25004
+  },
+  {
+    "fields": {
       "address": "Kirchb\u00fchl 19, Rathaus, Postfach 1570",
       "city": null,
       "description": null,
@@ -124108,6 +125638,1183 @@
     },
     "model": "user.servicet",
     "pk": 21853
+  },
+  {
+    "fields": {
+      "city": "Ostermundigen",
+      "description": "Regierungsstatthalteramt Bern-Mittelland",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Bern-Mittelland",
+      "service": 20021
+    },
+    "model": "user.servicet",
+    "pk": 21854
+  },
+  {
+    "fields": {
+      "city": "Langnau i.E.",
+      "description": "Regierungsstatthalteramt Emmental",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Emmental",
+      "service": 20023
+    },
+    "model": "user.servicet",
+    "pk": 21855
+  },
+  {
+    "fields": {
+      "city": "Frutigen",
+      "description": "Regierungsstatthalteramt Frutigen-Niedersimmental",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Frutigen-Niedersimmental",
+      "service": 20024
+    },
+    "model": "user.servicet",
+    "pk": 21856
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Regierungsstatthalteramt Jura bernois",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Jura bernois",
+      "service": 20026
+    },
+    "model": "user.servicet",
+    "pk": 21857
+  },
+  {
+    "fields": {
+      "city": "Wangen a.A.",
+      "description": "Regierungsstatthalteramt Oberaargau",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Oberaargau",
+      "service": 20027
+    },
+    "model": "user.servicet",
+    "pk": 21858
+  },
+  {
+    "fields": {
+      "city": "Saanen",
+      "description": "Regierungsstatthalteramt Obersimmental-Saanen",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Obersimmental-Saanen",
+      "service": 20028
+    },
+    "model": "user.servicet",
+    "pk": 21859
+  },
+  {
+    "fields": {
+      "city": "Aarberg",
+      "description": "Regierungsstatthalteramt Seeland",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Seeland",
+      "service": 20029
+    },
+    "model": "user.servicet",
+    "pk": 21860
+  },
+  {
+    "fields": {
+      "city": "Thun",
+      "description": "Regierungsstatthalteramt Thun",
+      "language": "fr",
+      "name": "Regierungsstatthalteramt Thun",
+      "service": 20030
+    },
+    "model": "user.servicet",
+    "pk": 21861
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen",
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Bauen",
+      "service": 20032
+    },
+    "model": "user.servicet",
+    "pk": 21862
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung",
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Kantonsplanung",
+      "service": 20034
+    },
+    "model": "user.servicet",
+    "pk": 21863
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung",
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Abteilung Orts- und Regionalplanung",
+      "service": 20036
+    },
+    "model": "user.servicet",
+    "pk": 21864
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen",
+      "language": "fr",
+      "name": "Amt f\u00fcr Gemeinden und Raumordnung - Fachstelle Schiessl\u00e4rm, Milit\u00e4rflugl\u00e4rm, L\u00e4rm von milit\u00e4rischen Anlagen",
+      "service": 20038
+    },
+    "model": "user.servicet",
+    "pk": 21865
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)",
+      "language": "fr",
+      "name": "Amt f\u00fcr Kindergarten, Volksschule und Beratung (AKVB)",
+      "service": 20040
+    },
+    "model": "user.servicet",
+    "pk": 21866
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Gastgewerbe) (Langnau i.E.)",
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Gastgewerbe) (Langnau i.E.)",
+      "service": 20148
+    },
+    "model": "user.servicet",
+    "pk": 21867
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "language": "fr",
+      "name": "Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "service": 20043
+    },
+    "model": "user.servicet",
+    "pk": 21868
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz",
+      "language": "fr",
+      "name": "beco Berner Wirtschaft - Sicherheit und Gesundheit am Arbeitsplatz",
+      "service": 20055
+    },
+    "model": "user.servicet",
+    "pk": 21869
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)",
+      "language": "fr",
+      "name": "Kant. Kommission zur Pflege der Orts- und Landschaftsbilder (OLK)",
+      "service": 20058
+    },
+    "model": "user.servicet",
+    "pk": 21870
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Fachstelle Hindernisfreies Bauen",
+      "language": "fr",
+      "name": "Fachstelle Hindernisfreies Bauen",
+      "service": 20068
+    },
+    "model": "user.servicet",
+    "pk": 21871
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BLS AG (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle BLS AG (Burgdorf)",
+      "service": 20137
+    },
+    "model": "user.servicet",
+    "pk": 21872
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle eicher + pauli Bern AG (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle eicher + pauli Bern AG (Burgdorf)",
+      "service": 20138
+    },
+    "model": "user.servicet",
+    "pk": 21873
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feuerwehr und Zivilschutz",
+      "language": "fr",
+      "name": "Unterfachstelle Feuerwehr und Zivilschutz",
+      "service": 20139
+    },
+    "model": "user.servicet",
+    "pk": 21874
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ordnung und Sicherheit",
+      "language": "fr",
+      "name": "Unterfachstelle Ordnung und Sicherheit",
+      "service": 20140
+    },
+    "model": "user.servicet",
+    "pk": 21875
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet AG (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Lyssach)",
+      "service": 20141
+    },
+    "model": "user.servicet",
+    "pk": 21876
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Lyssach)",
+      "service": 20142
+    },
+    "model": "user.servicet",
+    "pk": 21877
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Baukontrolle Hasle b. B.",
+      "language": "fr",
+      "name": "Baukontrolle Hasle bei Burgdorf",
+      "service": 20143
+    },
+    "model": "user.servicet",
+    "pk": 21878
+  },
+  {
+    "fields": {
+      "city": "Hasle b. B.",
+      "description": "Leitbeh\u00f6rde Hasle b. B.",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Hasle bei Burgdorf",
+      "service": 20144
+    },
+    "model": "user.servicet",
+    "pk": 21879
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Kaminfeger Hiltbrunner GmbH (Feueraufseher)",
+      "language": "fr",
+      "name": "Unterfachstelle Kaminfeger Hiltbrunner GmbH (Feueraufseher)",
+      "service": 20145
+    },
+    "model": "user.servicet",
+    "pk": 21880
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Stefan Schwarz AG (Pr\u00fcfstelle ENM) (Langnau i.E.)",
+      "language": "fr",
+      "name": "Unterfachstelle Stefan Schwarz AG (Pr\u00fcfstelle ENM) (Langnau i.E.)",
+      "service": 20146
+    },
+    "model": "user.servicet",
+    "pk": 21881
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle GLB Emmental (Pr\u00fcfstelle ENM)",
+      "language": "fr",
+      "name": "Unterfachstelle GLB Emmental (Pr\u00fcfstelle ENM)",
+      "service": 20147
+    },
+    "model": "user.servicet",
+    "pk": 21882
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle \u00d6ffentliche Sicherheit (Feuerwehr) (Langnau i.E.)",
+      "language": "fr",
+      "name": "Unterfachstelle \u00d6ffentliche Sicherheit (Feuerwehr) (Langnau i.E.)",
+      "service": 20149
+    },
+    "model": "user.servicet",
+    "pk": 21883
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Gemeinde)",
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Gemeinde)",
+      "service": 20150
+    },
+    "model": "user.servicet",
+    "pk": 21884
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Kanton - Mitbericht)",
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Gew\u00e4sserschutz Kanton - Mitbericht)",
+      "service": 20151
+    },
+    "model": "user.servicet",
+    "pk": 21885
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung Langnau (Strassenbaupolizei)",
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung Langnau (Strassenbaupolizei)",
+      "service": 20152
+    },
+    "model": "user.servicet",
+    "pk": 21886
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Bauverwaltung (Ben\u00fctzung von \u00f6ffentlichem Terrain)",
+      "language": "fr",
+      "name": "Unterfachstelle Bauverwaltung (Ben\u00fctzung von \u00f6ffentlichem Terrain)",
+      "service": 20153
+    },
+    "model": "user.servicet",
+    "pk": 21887
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Wasserversorgung Langnau (Wasseranschluss)",
+      "language": "fr",
+      "name": "Unterfachstelle Wasserversorgung Langnau (Wasseranschluss)",
+      "service": 20154
+    },
+    "model": "user.servicet",
+    "pk": 21888
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL (Genossenschaft Elektra Baselland) (Gemeinschaftsantenne)",
+      "language": "fr",
+      "name": "Unterfachstelle EBL (Genossenschaft Elektra Baselland) (Gemeinschaftsantenne)",
+      "service": 20155
+    },
+    "model": "user.servicet",
+    "pk": 21889
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Langnau)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Langnau)",
+      "service": 20156
+    },
+    "model": "user.servicet",
+    "pk": 21890
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Trubschachen)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Trubschachen)",
+      "service": 20157
+    },
+    "model": "user.servicet",
+    "pk": 21891
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SBB AG (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle SBB AG (Lyssach)",
+      "service": 20158
+    },
+    "model": "user.servicet",
+    "pk": 21892
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Wynigen",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Wynigen",
+      "service": 20159
+    },
+    "model": "user.servicet",
+    "pk": 21893
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feuerwehr  (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Feuerwehr  (Lyssach)",
+      "service": 20160
+    },
+    "model": "user.servicet",
+    "pk": 21894
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle OSTAG Ingenieure AG (Lyssach) (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle OSTAG Ingenieure AG (Lyssach) (Lyssach)",
+      "service": 20161
+    },
+    "model": "user.servicet",
+    "pk": 21895
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energiefachmann (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Energiefachmann (Lyssach)",
+      "service": 20162
+    },
+    "model": "user.servicet",
+    "pk": 21896
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Genossenschaft Elektra Jegenstorf (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Genossenschaft Elektra Jegenstorf (Lyssach)",
+      "service": 20163
+    },
+    "model": "user.servicet",
+    "pk": 21897
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Emmental Trinkwasser (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Emmental Trinkwasser (Lyssach)",
+      "service": 20164
+    },
+    "model": "user.servicet",
+    "pk": 21898
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Grunder Ingenieure AG (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Grunder Ingenieure AG (Lyssach)",
+      "service": 20165
+    },
+    "model": "user.servicet",
+    "pk": 21899
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Lyssach)",
+      "service": 20166
+    },
+    "model": "user.servicet",
+    "pk": 21900
+  },
+  {
+    "fields": {
+      "city": "Krauchthal",
+      "description": "Unterfachstelle Brandschutz (Oberburg)",
+      "language": "fr",
+      "name": "Unterfachstelle Brandschutz (Oberburg)",
+      "service": 20167
+    },
+    "model": "user.servicet",
+    "pk": 21901
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ostag Gew\u00e4sserschutz (Oberburg)",
+      "language": "fr",
+      "name": "Unterfachstelle Ostag Gew\u00e4sserschutz (Oberburg)",
+      "service": 20168
+    },
+    "model": "user.servicet",
+    "pk": 21902
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ostag Energieberatung (Oberburg)",
+      "language": "fr",
+      "name": "Unterfachstelle Ostag Energieberatung (Oberburg)",
+      "service": 20169
+    },
+    "model": "user.servicet",
+    "pk": 21903
+  },
+  {
+    "fields": {
+      "city": "Oberburg",
+      "description": "Unterfachstelle Energie- und Wasserversorgung Oberburg (Oberburg)",
+      "language": "fr",
+      "name": "Unterfachstelle Energie- und Wasserversorgung Oberburg (Oberburg)",
+      "service": 20170
+    },
+    "model": "user.servicet",
+    "pk": 21904
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (R\u00fcderswil)",
+      "service": 20171
+    },
+    "model": "user.servicet",
+    "pk": 21905
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energieberatung Stefan Schwarz AG (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Unterfachstelle Energieberatung Stefan Schwarz AG (R\u00fcderswil)",
+      "service": 20172
+    },
+    "model": "user.servicet",
+    "pk": 21906
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle ARA mittleres Emmental",
+      "language": "fr",
+      "name": "Unterfachstelle ARA mittleres Emmental",
+      "service": 20173
+    },
+    "model": "user.servicet",
+    "pk": 21907
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Wasserversorgung Zollbr\u00fcck (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Unterfachstelle Wasserversorgung Zollbr\u00fcck (R\u00fcderswil)",
+      "service": 20174
+    },
+    "model": "user.servicet",
+    "pk": 21908
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Ruefer Ingenieure AG",
+      "language": "fr",
+      "name": "Unterfachstelle Ruefer Ingenieure AG",
+      "service": 20175
+    },
+    "model": "user.servicet",
+    "pk": 21909
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG (Trubschachen)",
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG (Trubschachen)",
+      "service": 20176
+    },
+    "model": "user.servicet",
+    "pk": 21910
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Elektra R\u00fcderswil",
+      "language": "fr",
+      "name": "Unterfachstelle Elektra R\u00fcderswil",
+      "service": 20177
+    },
+    "model": "user.servicet",
+    "pk": 21911
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Elektra Schwanden",
+      "language": "fr",
+      "name": "Unterfachstelle Elektra Schwanden",
+      "service": 20178
+    },
+    "model": "user.servicet",
+    "pk": 21912
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brunnenmeister Martin Schifferli",
+      "language": "fr",
+      "name": "Unterfachstelle Brunnenmeister Martin Schifferli",
+      "service": 20179
+    },
+    "model": "user.servicet",
+    "pk": 21913
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Baukontrolle Utzenstorf",
+      "language": "fr",
+      "name": "Baukontrolle Utzenstorf",
+      "service": 20180
+    },
+    "model": "user.servicet",
+    "pk": 21914
+  },
+  {
+    "fields": {
+      "city": "Utzenstorf",
+      "description": "Leitbeh\u00f6rde Utzenstorf",
+      "language": "fr",
+      "name": "Leitbeh\u00f6rde Utzenstorf",
+      "service": 20181
+    },
+    "model": "user.servicet",
+    "pk": 21915
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gew\u00e4sserschutzbewilligung",
+      "language": "fr",
+      "name": "Unterfachstelle Gew\u00e4sserschutzbewilligung",
+      "service": 20182
+    },
+    "model": "user.servicet",
+    "pk": 21916
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energietechnischer Massnahmennachweis (Utzenstorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Utzenstorf)",
+      "service": 20183
+    },
+    "model": "user.servicet",
+    "pk": 21917
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Wasser",
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Wasser",
+      "service": 20184
+    },
+    "model": "user.servicet",
+    "pk": 21918
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Elektrizit\u00e4t",
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Elektrizit\u00e4t",
+      "service": 20185
+    },
+    "model": "user.servicet",
+    "pk": 21919
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Gas",
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Gas",
+      "service": 20186
+    },
+    "model": "user.servicet",
+    "pk": 21920
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Gemeinschaftsantenne",
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Gemeinschaftsantenne",
+      "service": 20187
+    },
+    "model": "user.servicet",
+    "pk": 21921
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Anschluss Fernmeldenetz",
+      "language": "fr",
+      "name": "Unterfachstelle Anschluss Fernmeldenetz",
+      "service": 20188
+    },
+    "model": "user.servicet",
+    "pk": 21922
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Heimatschutz",
+      "language": "fr",
+      "name": "Unterfachstelle Heimatschutz",
+      "service": 20189
+    },
+    "model": "user.servicet",
+    "pk": 21923
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energiekontrolleur (Trubschachen)",
+      "language": "fr",
+      "name": "Unterfachstelle Energiekontrolleur (Trubschachen)",
+      "service": 20190
+    },
+    "model": "user.servicet",
+    "pk": 21924
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Kanalisationskontrolleur",
+      "language": "fr",
+      "name": "Unterfachstelle Kanalisationskontrolleur",
+      "service": 20191
+    },
+    "model": "user.servicet",
+    "pk": 21925
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Liegenschaftskommission",
+      "language": "fr",
+      "name": "Unterfachstelle Liegenschaftskommission",
+      "service": 20192
+    },
+    "model": "user.servicet",
+    "pk": 21926
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Brunnenmeister",
+      "language": "fr",
+      "name": "Unterfachstelle Brunnenmeister",
+      "service": 20193
+    },
+    "model": "user.servicet",
+    "pk": 21927
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Wynigen)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Wynigen)",
+      "service": 20194
+    },
+    "model": "user.servicet",
+    "pk": 21928
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle onyx",
+      "language": "fr",
+      "name": "Unterfachstelle onyx",
+      "service": 20195
+    },
+    "model": "user.servicet",
+    "pk": 21929
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energieberater (Wynigen)",
+      "language": "fr",
+      "name": "Unterfachstelle Energieberater (Wynigen)",
+      "service": 20196
+    },
+    "model": "user.servicet",
+    "pk": 21930
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet",
+      "language": "fr",
+      "name": "Unterfachstelle Localnet",
+      "service": 20197
+    },
+    "model": "user.servicet",
+    "pk": 21931
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Unterfachstelle AGR \u2013 Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "language": "fr",
+      "name": "Unterfachstelle AGR \u2013 Amt f\u00fcr Kultur - Denkmalpflege des Kantons Bern",
+      "service": 20199
+    },
+    "model": "user.servicet",
+    "pk": 21932
+  },
+  {
+    "fields": {
+      "city": "Burgdorf",
+      "description": "Unterfachstelle Localnet AG (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Burgdorf)",
+      "service": 20200
+    },
+    "model": "user.servicet",
+    "pk": 21933
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Burgdorf)",
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Burgdorf)",
+      "service": 20201
+    },
+    "model": "user.servicet",
+    "pk": 21934
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Langnau)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Langnau)",
+      "service": 20202
+    },
+    "model": "user.servicet",
+    "pk": 21935
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle SBB AG (Langnau)",
+      "language": "fr",
+      "name": "Unterfachstelle SBB AG (Langnau)",
+      "service": 20203
+    },
+    "model": "user.servicet",
+    "pk": 21936
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Berner Heimatschutz (Langnau)",
+      "language": "fr",
+      "name": "Unterfachstelle Berner Heimatschutz (Langnau)",
+      "service": 20204
+    },
+    "model": "user.servicet",
+    "pk": 21937
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher (Lyssach)",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher (Lyssach)",
+      "service": 20205
+    },
+    "model": "user.servicet",
+    "pk": 21938
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher R\u00fcderswil",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher R\u00fcderswil",
+      "service": 20206
+    },
+    "model": "user.servicet",
+    "pk": 21939
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG (R\u00fcderswil)",
+      "service": 20207
+    },
+    "model": "user.servicet",
+    "pk": 21940
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (R\u00fcderswil)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (R\u00fcderswil)",
+      "service": 20208
+    },
+    "model": "user.servicet",
+    "pk": 21941
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Utzenstorf",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Utzenstorf",
+      "service": 20209
+    },
+    "model": "user.servicet",
+    "pk": 21942
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Trubschachen",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Trubschachen",
+      "service": 20210
+    },
+    "model": "user.servicet",
+    "pk": 21943
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Trubschachen)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Trubschachen)",
+      "service": 20211
+    },
+    "model": "user.servicet",
+    "pk": 21944
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Localnet AG (Wynigen)",
+      "language": "fr",
+      "name": "Unterfachstelle Localnet AG (Wynigen)",
+      "service": 20212
+    },
+    "model": "user.servicet",
+    "pk": 21945
+  },
+  {
+    "fields": {
+      "city": "Oberdiessbach",
+      "description": "Unterfachstelle Kaminfeger Joost AG (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle Kaminfeger Joost AG (Eggiwil)",
+      "service": 20213
+    },
+    "model": "user.servicet",
+    "pk": 21946
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energienachweis (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle Energienachweis (Eggiwil)",
+      "service": 20214
+    },
+    "model": "user.servicet",
+    "pk": 21947
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle GLB, Energienachweis (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle GLB, Energienachweis (Eggiwil)",
+      "service": 20215
+    },
+    "model": "user.servicet",
+    "pk": 21948
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Werner und Partner AG (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle Werner und Partner AG (Eggiwil)",
+      "service": 20216
+    },
+    "model": "user.servicet",
+    "pk": 21949
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Eggiwil)",
+      "service": 20217
+    },
+    "model": "user.servicet",
+    "pk": 21950
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "description": "Unterfachstelle BKW Energie AG (Eggiwil)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Eggiwil)",
+      "service": 20218
+    },
+    "model": "user.servicet",
+    "pk": 21951
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BLS Netz AG",
+      "language": "fr",
+      "name": "Unterfachstelle BLS Netz AG",
+      "service": 20219
+    },
+    "model": "user.servicet",
+    "pk": 21952
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Feueraufseher Hasle b. B.",
+      "language": "fr",
+      "name": "Unterfachstelle Feueraufseher Hasle b. B.",
+      "service": 20220
+    },
+    "model": "user.servicet",
+    "pk": 21953
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Energietechnischer Massnahmennachweis (Hasle b. B.)",
+      "language": "fr",
+      "name": "Unterfachstelle Energietechnischer Massnahmennachweis (Hasle b. B.)",
+      "service": 20221
+    },
+    "model": "user.servicet",
+    "pk": 21954
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Swisscom AG (Hasle b. B.)",
+      "language": "fr",
+      "name": "Unterfachstelle Swisscom AG (Hasle b. B.)",
+      "service": 20222
+    },
+    "model": "user.servicet",
+    "pk": 21955
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle BKW Energie AG (Hasle b. B.)",
+      "language": "fr",
+      "name": "Unterfachstelle BKW Energie AG (Hasle b. B.)",
+      "service": 20223
+    },
+    "model": "user.servicet",
+    "pk": 21956
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle EBL Telecom Media AG",
+      "language": "fr",
+      "name": "Unterfachstelle EBL Telecom Media AG",
+      "service": 20224
+    },
+    "model": "user.servicet",
+    "pk": 21957
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Nachf\u00fchrungsgeometer",
+      "language": "fr",
+      "name": "Unterfachstelle Nachf\u00fchrungsgeometer",
+      "service": 20225
+    },
+    "model": "user.servicet",
+    "pk": 21958
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Gemeindeingenieur",
+      "language": "fr",
+      "name": "Unterfachstelle Gemeindeingenieur",
+      "service": 20226
+    },
+    "model": "user.servicet",
+    "pk": 21959
+  },
+  {
+    "fields": {
+      "city": "",
+      "description": "Unterfachstelle Schwellenkoorporation",
+      "language": "fr",
+      "name": "Unterfachstelle Schwellenkoorporation",
+      "service": 20227
+    },
+    "model": "user.servicet",
+    "pk": 21960
   },
   {
     "fields": {
