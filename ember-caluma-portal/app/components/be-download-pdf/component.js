@@ -3,6 +3,7 @@ import { inject as service } from "@ember/service";
 import { saveAs } from "file-saver";
 import { task } from "ember-concurrency";
 import { warn, assert } from "@ember/debug";
+import slugify from "slugify";
 
 import { parseDocument } from "ember-caluma-portal/components/be-download-pdf/parsers";
 
@@ -31,49 +32,51 @@ const PEOPLE_SOURCES = {
 
 const PEOPLE_TARGET = "8-freigabequittung";
 
-function prepareReceiptPage(data) {
-  try {
-    const sources = data.sections
-      .find(section => section.slug === "1-allgemeine-informationen")
-      .children.find(section => section.slug === "personalien")
-      .children.filter(section =>
-        Object.keys(PEOPLE_SOURCES).includes(section.slug)
-      );
-
-    const target = data.sections.find(
-      section => section.slug === PEOPLE_TARGET
-    );
-
-    Object.assign(target, {
-      slug: "8-unterschriften",
-      label: "8. Unterschriften",
-      children: sources.map(table => ({
-        type: "SignatureQuestion",
-        label: table.label.replace(/^Personalien -\s*/, ""),
-        people: table.rows.map(row => ({
-          familyName: row.find(
-            column => column.slug === PEOPLE_SOURCES[table.slug].familyName
-          ).value,
-          givenName: row.find(
-            column => column.slug === PEOPLE_SOURCES[table.slug].givenName
-          ).value
-        }))
-      }))
-    });
-  } catch (error) {
-    warn("Failed to prepare receipt page", {
-      id: "be-download-pdf.receipt-page-failed"
-    });
-  }
-
-  return data;
-}
-
 export default Component.extend({
   notification: service(),
   intl: service(),
   fetch: service(),
   calumaStore: service(),
+
+  prepareReceiptPage(data) {
+    try {
+      const sources = data.sections
+        .find(section => section.slug === "1-allgemeine-informationen")
+        .children.find(section => section.slug === "personalien")
+        .children.filter(section =>
+          Object.keys(PEOPLE_SOURCES).includes(section.slug)
+        );
+
+      const target = data.sections.find(
+        section => section.slug === PEOPLE_TARGET
+      );
+
+      Object.assign(target, {
+        slug: "8-unterschriften",
+        label: `8. ${this.intl.t("pdf.signatures")}`,
+        children: sources.map(table => ({
+          type: "SignatureQuestion",
+          label: table.label
+            .replace(new RegExp(`^${this.intl.t("pdf.personalities")} -`), "")
+            .trim(),
+          people: table.rows.map(row => ({
+            familyName: row.find(
+              column => column.slug === PEOPLE_SOURCES[table.slug].familyName
+            ).value,
+            givenName: row.find(
+              column => column.slug === PEOPLE_SOURCES[table.slug].givenName
+            ).value
+          }))
+        }))
+      });
+    } catch (error) {
+      warn("Failed to prepare receipt page", {
+        id: "be-download-pdf.receipt-page-failed"
+      });
+    }
+
+    return data;
+  },
 
   /**
    * Submits the data (as JSON) to a service and gets a PDF back.
@@ -91,15 +94,16 @@ export default Component.extend({
     let data = {
       caseId: instanceId,
       caseType: document.rootForm.name,
-      sections: parseDocument(document, navigation)
+      sections: parseDocument(document, navigation),
+      signatureMetadata: this.intl.t("pdf.signatureMetadata"),
+      signatureTitle: this.intl.t("pdf.signature")
     };
 
     if (document.findField("personalien")) {
-      data = prepareReceiptPage(data);
+      data = this.prepareReceiptPage(data);
     }
 
     const template = this.field.question.meta.template;
-    const filename = `${instanceId}-${document.rootForm.slug}.pdf`;
 
     assert("A template must be passed to the fields meta", template);
 
@@ -119,7 +123,10 @@ export default Component.extend({
 
       if (response.ok) {
         const body = yield response.blob();
-        saveAs(body, filename);
+        saveAs(
+          body,
+          slugify(`${instanceId}-${document.rootForm.name}.pdf`.toLowerCase())
+        );
       } else {
         throw new Error(response.statusText || response.status);
       }
