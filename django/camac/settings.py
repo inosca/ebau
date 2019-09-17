@@ -165,22 +165,16 @@ APPLICATIONS = {
 
 APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
-# Instance URL templates. Allows to use the following placeholders
-# which will be substituted on the fly:
-# * {base_url} - base URL of the installation. Note if you
-#                intend to send out notifications from cron
-#                jobs or similar, you cannot use this placeholder
-# * {instance_id} - Identifier of the instance in question
-INSTANCE_URL_TEMPLATE = {
-    "PUBLIC": env.str(
-        "PUBLIC_INSTANCE_URL_TEMPLATE",
-        default="http://caluma-portal.local/instances/{instance_id}",
-    ),
-    "INTERNAL": env.str(
-        "INTERNAL_INSTANCE_URL_TEMPLATE",
-        default="{base_url}/index/redirect-to-instance-resource/{instance_id}",
-    ),
-}
+PUBLIC_BASE_URL = env.str(
+    "DJANGO_PUBLIC_BASE_URL", default="http://caluma-portal.local"
+)
+
+INTERNAL_BASE_URL = env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
+
+PUBLIC_INSTANCE_URL_TEMPLATE = "{public_base_url}/instances/{instance_id}"
+INTERNAL_INSTANCE_URL_TEMPLATE = (
+    "{internal_base_url}/index/redirect-to-instance-resource/instance-id/{instance_id}"
+)
 
 # Logging
 
