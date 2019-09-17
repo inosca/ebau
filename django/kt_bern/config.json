@@ -156309,6 +156309,76 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_state": 20003,
+      "language": "fr",
+      "name": "Initialiser la circulation"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120020
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20010,
+      "language": "fr",
+      "name": "\u00c9valuation cl\u00f4tur\u00e9e"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120021
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20011,
+      "language": "fr",
+      "name": " D\u00e9claration spontan\u00e9e (SB1)"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120022
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20013,
+      "language": "fr",
+      "name": "Cl\u00f4ture (SB2)"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120023
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 20014,
+      "language": "fr",
+      "name": "Finaliser"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120024
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 40002,
+      "language": "fr",
+      "name": " D\u00e9claration de validation (SB2)"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120025
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_state": 40003,
+      "language": "fr",
+      "name": "Documents (SB2)"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120026
+  },
+  {
+    "fields": {
       "body": null,
       "purpose": null,
       "service": null,

@@ -19,4 +19,11 @@ Bauwerk,Ouvrage,80002
 Spezialformulare,"Formulaires spéciaux",80003
 Dokumente,Documents,110000
 "Vorabklärung einfach","Etude préalable simple",110001
-Zirkulation initialisieren, Initialiser la circulation, 20003
+Zirkulation initialisieren,Initialiser la circulation,20003
+Beurteilung abgeschlossen,Évaluation clôturée,20010
+Selbstdeklaration (SB1), Déclaration spontanée (SB1),20011
+Freigabequittung(SB1),Déclaration de validation (SB1),40001
+Abschluss (SB2),Clôture (SB2),20013
+Dokumente (SB2),Documents (SB2),40003
+Freigabequittung (SB2), Déclaration de validation (SB2),40002
+Zum Abschluss,Finaliser,20014
