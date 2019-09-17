@@ -22,13 +22,16 @@ class Municipalities(BaseDataSource):
 
         response.raise_for_status()
 
-        return [
+        return sorted(
             [
-                int(service["id"]),
-                service["attributes"]["name"].replace("Leitbehörde", "").strip(),
-            ]
-            for service in response.json()["data"]
-        ]
+                [
+                    int(service["id"]),
+                    service["attributes"]["name"].replace("Leitbehörde", "").strip(),
+                ]
+                for service in response.json()["data"]
+            ],
+            key=lambda entry: entry[1].casefold(),
+        )
 
 
 class Services(BaseDataSource):
@@ -43,7 +46,10 @@ class Services(BaseDataSource):
 
         response.raise_for_status()
 
-        return [
-            [str(service["id"]), service["attributes"]["name"]]
-            for service in response.json()["data"]
-        ] + [["-1", "Andere"]]
+        return sorted(
+            [
+                [str(service["id"]), service["attributes"]["name"]]
+                for service in response.json()["data"]
+            ],
+            key=lambda entry: entry[1].casefold(),
+        ) + [["-1", "Andere"]]
