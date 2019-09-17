@@ -43697,6 +43697,36 @@
   },
   {
     "fields": {
+      "button": 20044,
+      "description": null,
+      "language": "fr",
+      "name": "Sauter la proc\u00e9dure de circulation"
+    },
+    "model": "core.buttont",
+    "pk": 150000
+  },
+  {
+    "fields": {
+      "button": 20045,
+      "description": null,
+      "language": "fr",
+      "name": "Clore la \u00e9valuation"
+    },
+    "model": "core.buttont",
+    "pk": 150001
+  },
+  {
+    "fields": {
+      "button": 120000,
+      "description": null,
+      "language": "fr",
+      "name": "Clore la proc\u00e9dure de permis de construire"
+    },
+    "model": "core.buttont",
+    "pk": 150002
+  },
+  {
+    "fields": {
       "description": null,
       "javascript": null,
       "name": null
@@ -56389,6 +56419,36 @@
     },
     "model": "core.instanceresourcet",
     "pk": 150006
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20051,
+      "language": "fr",
+      "name": "Contr\u00f4le de construction"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150007
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20063,
+      "language": "fr",
+      "name": "Contr\u00f4le de construction"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150008
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 150003,
+      "language": "fr",
+      "name": "Journal d'audit"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 150009
   },
   {
     "fields": {
@@ -128383,6 +128443,16 @@
     },
     "model": "core.resourcet",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "fr",
+      "name": "Gestion des mod\u00e8les",
+      "resource": 20009
+    },
+    "model": "core.resourcet",
+    "pk": 150002
   },
   {
     "fields": {
