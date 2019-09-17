@@ -156299,6 +156299,16 @@
   },
   {
     "fields": {
+      "description": null,
+      "instance_state": 20003,
+      "language": "fr",
+      "name": " Initialiser la circulation"
+    },
+    "model": "instance.instancestatet",
+    "pk": 120019
+  },
+  {
+    "fields": {
       "body": null,
       "purpose": null,
       "service": null,
