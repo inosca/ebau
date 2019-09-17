@@ -3,46 +3,50 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-09-16 13:39+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-09-17 13:40+0200\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: camac/applicants/serializers.py:31
 #, python-format
 msgid "User with email '%(email)s' could not be found"
-msgstr ""
+msgstr "L'utilisateur avec l'email '%(email)s' n'a pas pu être trouvé"
 
 #: camac/applicants/serializers.py:35
 #, python-format
 msgid "There is more than one user with the email '%(email)s'"
-msgstr ""
+msgstr "Il y a plus d'un utilisateur avec l'email '%(email)s'"
 
 #: camac/applicants/serializers.py:46
 #, python-format
 msgid "User with email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
+"L'utilisateur avec l'email '%(email)s' a déjà accès au dossier %(instance)s"
 
 #: camac/document/serializers.py:73
 #, python-format
 msgid "Not sufficent permissions to add file to section %(section)s."
 msgstr ""
+"Autorisations insuffisantes pour ajouter un fichier à la section %(section)s"
 
 #: camac/document/serializers.py:85
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types are: %(allowed_mime_types)s"
 msgstr ""
+"Type de fichier invalide pour la document. Les types autorisés sont : "
+"%(allowed_mime_types)s"
 
 #: camac/document/serializers.py:149
 msgid "Path may not be changed."
