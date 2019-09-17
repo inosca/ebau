@@ -71,12 +71,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
-    active_municipality_name = serializers.SerializerMethodField()
-    leitbehoerde_name = serializers.SerializerMethodField(
-        method_name="get_active_municipality_name"
-    )
+    leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
+    base_url = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -107,13 +105,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             or ""
         )
 
-    def get_active_municipality_name(self, instance):
-        instance_service = core_models.InstanceService.objects.filter(
-            instance=instance, active=1
-        ).first()
-        if not instance_service:
+    def get_leitbehoerde_name(self, instance):
+        try:
+            return core_models.InstanceService.objects.get(
+                active=1,
+                instance=instance,
+                **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+            ).service.get_name()
+        except core_models.InstanceService.DoesNotExist:
             return "-"
-        return instance_service.service.get_name()
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
@@ -197,37 +197,17 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             return "-"
 
     def get_internal_dossier_link(self, instance):
-        return self._get_dossier_link(instance, "INTERNAL")
+        return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(
+            internal_base_url=settings.INTERNAL_BASE_URL, instance_id=(instance.pk)
+        )
 
     def get_public_dossier_link(self, instance):
-        return self._get_dossier_link(instance, "PUBLIC")
+        return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(
+            public_base_url=settings.PUBLIC_BASE_URL, instance_id=(instance.pk)
+        )
 
-    def _get_dossier_link(self, instance, mode):
-        template = settings.INSTANCE_URL_TEMPLATE[mode]
-
-        path = self._str_replace_cb("{base_url}", self._make_base_url, template)
-        path = path.replace("{instance_id}", str(instance.pk))
-
-        return path
-
-    def _make_base_url(self):
-        try:
-            rq = self.context["request"]._request
-            return f"{rq.scheme}://{rq.get_host()}"
-        except KeyError:
-            request_logger.error("get_dossier_link(): Cannot get base URL from request")
-            return "??"
-
-    def _str_replace_cb(self, pattern, callback, string):
-        """str.replace(), but with a callback.
-
-        This is here so we can do "lazy" string replacing, so the replacement
-        value only needs to be calculated if really needed.
-        """
-        if pattern not in string:
-            return string
-        value = callback()
-        return string.replace(pattern, value)
+    def get_base_url(self, instance):
+        return settings.INTERNAL_BASE_URL
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
