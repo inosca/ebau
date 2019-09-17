@@ -213,3 +213,9 @@ claims:
   noPending: "Vous n'avez pas des demandes de complément d'information sans réponse et ne pouvez donc pas télécharger de documents"
   uploadDocuments: "Télécharger des documents"
   uploadedDocuments: "Documents téléchargés"
+
+pdf:
+  signatures: "Signatures"
+  personalities: "Données personnelles"
+  signature: "Signature"
+  signatureMetadata: "Lieu et date"

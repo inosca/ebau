@@ -215,3 +215,9 @@ claims:
   noPending: "Sie haben keine unbeantworteten Nachforderungen und können somit keine Dokumente hochladen"
   uploadDocuments: "Dokumente hochladen"
   uploadedDocuments: "Hochgeladene Dokumente"
+
+pdf:
+  signatures: "Unterschriften"
+  personalities: "Personalien"
+  signature: "Unterschrift"
+  signatureMetadata: "Ort und Datum"
