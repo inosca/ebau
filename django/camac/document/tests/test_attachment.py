@@ -356,11 +356,20 @@ def test_attachment_download(
     )
 
 
-@pytest.mark.parametrize("filter", ["?attachment=", "?attachment=,", ""])
-def test_invalid_attachment_download(admin_client, filter):
+@pytest.mark.parametrize(
+    "filter,status_code",
+    [
+        ("?attachments=", status.HTTP_400_BAD_REQUEST),
+        ("?attachments=,", status.HTTP_400_BAD_REQUEST),
+        ("?attachments=777", status.HTTP_404_NOT_FOUND),
+        ("?attachments=somestring", status.HTTP_400_BAD_REQUEST),
+        ("", status.HTTP_400_BAD_REQUEST),
+    ],
+)
+def test_invalid_attachment_download(admin_client, filter, status_code):
     url = f"{reverse('multi-attachment-download')}{filter}"
     response = admin_client.get(url)
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.status_code == status_code
 
 
 @pytest.mark.parametrize(

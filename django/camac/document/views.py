@@ -12,7 +12,7 @@ from django.utils.translation import gettext as _
 from docxtpl import DocxTemplate
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import NotFound, ValidationError
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
@@ -163,12 +163,15 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
 
     def list(self, request, **kwargs):
         if not request.query_params.get("attachments"):
-            raise ValidationError(_('Specifying an "attachment" filter is mandatory!'))
+            raise ValidationError(_('Specifying an "attachments" filter is mandatory!'))
 
         fs = filters.AttachmentDownloadFilterSet(
             data=request.GET, queryset=self.get_queryset()
         )
         filtered_qs = fs.qs
+
+        if not filtered_qs:
+            raise NotFound()
 
         for attachment in filtered_qs:
             models.AttachmentDownloadHistory.objects.create(
@@ -194,7 +197,10 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
             download_path = f"/tmp/camac/tmpfiles/attachments-{str(uuid4())[:7]}.zip"
             with zipfile.ZipFile(download_path, "w", zipfile.ZIP_DEFLATED) as zipf:
                 for attachment in filtered_qs:
-                    zipf.write(str(attachment.path), arcname=attachment.name)
+                    zipf.write(
+                        os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
+                        arcname=attachment.name,
+                    )
             response[
                 "Content-Disposition"
             ] = 'attachment; filename="%s"' % escape_uri_path("attachments.zip")
