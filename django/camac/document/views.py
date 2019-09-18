@@ -197,7 +197,10 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
             download_path = f"/tmp/camac/tmpfiles/attachments-{str(uuid4())[:7]}.zip"
             with zipfile.ZipFile(download_path, "w", zipfile.ZIP_DEFLATED) as zipf:
                 for attachment in filtered_qs:
-                    zipf.write(str(attachment.path), arcname=attachment.name)
+                    zipf.write(
+                        os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
+                        arcname=attachment.name,
+                    )
             response[
                 "Content-Disposition"
             ] = 'attachment; filename="%s"' % escape_uri_path("attachments.zip")
