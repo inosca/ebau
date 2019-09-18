@@ -1,5 +1,7 @@
+from django.utils.translation import gettext as _
 from django_filters.filters import BaseCSVFilter
 from django_filters.rest_framework import DateTimeFilter, FilterSet
+from rest_framework.exceptions import ValidationError
 
 from camac.filters import CharMultiValueFilter, NumberFilter
 
@@ -18,7 +20,15 @@ class AttachmentDownloadFilterSet(FilterSet):
     attachments = BaseCSVFilter(field_name="pk", method="filter_attachments")
 
     def filter_attachments(self, queryset, name, value):
-        return queryset.filter(pk__in=value)
+        try:
+            queryset = queryset.filter(pk__in=value)
+        except ValueError:
+            raise ValidationError(
+                _(
+                    'The "attachments" filter must consist of a comma delimited list of attachment PKs!'
+                )
+            )
+        return queryset
 
     class Meta:
         model = models.Attachment
