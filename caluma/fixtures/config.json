@@ -6229,8 +6229,8 @@
       "created_by_user": null,
       "created_by_group": null,
       "form": "dashboard",
-      "question": "dashboard-inhalt",
-      "sort": 1
+      "question": "dashboard-inhalt-de",
+      "sort": 2
     }
   },
   {
@@ -7076,6 +7076,19 @@
       "form": "biologische-sicherheit-und-stoerfallvorsorge",
       "question": "gefaehrlich-fuer-bevoelkerung-oder-umwelt",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "9328fc91-8236-47f0-be52-8cbcbcdfb577",
+    "fields": {
+      "created_at": "2019-09-19T07:31:12.514Z",
+      "modified_at": "2019-09-19T07:31:12.514Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dashboard",
+      "question": "dashboard-inhalt-fr",
+      "sort": 1
     }
   },
   {
@@ -16207,19 +16220,44 @@
   },
   {
     "model": "form.question",
-    "pk": "dashboard-inhalt",
+    "pk": "dashboard-inhalt-de",
     "fields": {
       "created_at": "2019-09-18T11:16:56.789Z",
-      "modified_at": "2019-09-18T11:17:10.056Z",
+      "modified_at": "2019-09-19T07:31:18.230Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": null,
-      "label": "{\"de\": \"Inhalt\", \"fr\": null}",
+      "label": "{\"de\": \"Inhalt DE\", \"fr\": null}",
       "type": "textarea",
       "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "info_text": "{\"de\": \"\", \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dashboard-inhalt-fr",
+    "fields": {
+      "created_at": "2019-09-19T07:31:12.336Z",
+      "modified_at": "2019-09-19T07:31:12.336Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Inhalt FR\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": { "max_length": null },
       "meta": {},
