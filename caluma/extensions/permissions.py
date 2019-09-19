@@ -14,13 +14,14 @@ from caluma.core.permissions import (
 from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 from caluma.form.models import Document
 
-from .visibilities import group
+from .visibilities import group, DASHBOARD_FORM_SLUG
 
 log = getLogger()
 
 CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
 
-CAMAC_ADMIN_GROUPS = ["1"]  # Admin
+CAMAC_ADMIN_GROUP = 1
+CAMAC_SUPPORT_GROUP = 10000
 
 
 class CustomPermission(BasePermission):
@@ -31,7 +32,7 @@ class CustomPermission(BasePermission):
             f"mutation '{mutation.__name__}' on {instance} for admin users"
         )
 
-        return self.has_camac_admin_permission(info)
+        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
 
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
@@ -39,28 +40,45 @@ class CustomPermission(BasePermission):
             f"ACL: fallback permission: allow mutation '{mutation.__name__}' for admins"
         )
 
-        return self.has_camac_admin_permission(info)
+        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
 
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
+        if self.get_input_variables(info).get("form") == DASHBOARD_FORM_SLUG:
+            # There should only be one dashboard document which has to be
+            # created by a support user
+            return (
+                self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+                and Document.objects.all().count() == 0
+            )
+
         return True
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
+        if instance.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+
         return self.has_camac_edit_permission(instance.family, info, "write-meta")
 
     # Answer
     @permission_for(SaveDocumentAnswer)
     def has_permission_for_savedocumentanswer(self, mutation, info):
         document = Document.objects.get(
-            pk=json.loads(info.context.body)["variables"]["input"]["document"]
+            pk=self.get_input_variables(info)["input"]["document"]
         )
+
+        if document.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
+        if instance.document.form.slug == DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+
         return self.has_camac_edit_permission(instance.document.family, info)
 
     @permission_for(RemoveAnswer)
@@ -74,7 +92,12 @@ class CustomPermission(BasePermission):
     def has_object_permission_for_removeanswer(self, mutation, info, instance):
         return self.has_camac_edit_permission(instance.document.family, info)
 
-    def has_camac_admin_permission(self, info):
+    def get_input_variables(self, info):
+        body = json.loads(info.context.body)
+
+        return body.get("variables", {})
+
+    def has_camac_group_permission(self, info, required_group):
         response = requests.get(
             f"{CAMAC_NG_URL}/api/v1/me",
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
@@ -85,7 +108,7 @@ class CustomPermission(BasePermission):
         admin_groups = [
             group
             for group in response.json()["data"]["relationships"]["groups"]["data"]
-            if group["id"] in CAMAC_ADMIN_GROUPS
+            if int(group["id"]) == int(required_group)
         ]
 
         return len(admin_groups) > 0

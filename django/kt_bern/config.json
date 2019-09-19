@@ -50928,21 +50928,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "formpage",
-      "class_field": null,
-      "description": null,
-      "form_group": 1,
-      "hidden": 0,
-      "name": null,
-      "resource": 1,
-      "sort": 0,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 1
-  },
-  {
-    "fields": {
       "available_instance_resource": "billing",
       "class_field": null,
       "description": null,
@@ -54932,16 +54917,6 @@
   },
   {
     "fields": {
-      "description": null,
-      "instance_resource": 1,
-      "language": "de",
-      "name": "Dossier ansehen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 1
-  },
-  {
-    "fields": {
       "description": "billing",
       "instance_resource": 10000,
       "language": "de",
@@ -55649,16 +55624,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 110010
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 1,
-      "language": "fr",
-      "name": "Consulter le dossier"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120000
   },
   {
     "fields": {
@@ -56728,14 +56693,6 @@
     },
     "model": "core.ireditnotice",
     "pk": 20039
-  },
-  {
-    "fields": {
-      "page": 5,
-      "pdf_class": null
-    },
-    "model": "core.irformpage",
-    "pk": 1
   },
   {
     "fields": {
@@ -128126,25 +128083,12 @@
   },
   {
     "fields": {
-      "available_resource": "search",
-      "class_field": null,
-      "description": null,
-      "hidden": 0,
-      "name": null,
-      "sort": 0,
-      "template": null
-    },
-    "model": "core.resource",
-    "pk": 1
-  },
-  {
-    "fields": {
       "available_resource": "errormail",
       "class_field": null,
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 10,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -128157,24 +128101,11 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 9,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
     "pk": 20002
-  },
-  {
-    "fields": {
-      "available_resource": "search",
-      "class_field": null,
-      "description": null,
-      "hidden": 0,
-      "name": null,
-      "sort": 1,
-      "template": null
-    },
-    "model": "core.resource",
-    "pk": 20003
   },
   {
     "fields": {
@@ -128183,7 +128114,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -128196,7 +128127,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 2,
+      "sort": 1,
       "template": null
     },
     "model": "core.resource",
@@ -128209,7 +128140,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 4,
+      "sort": 3,
       "template": null
     },
     "model": "core.resource",
@@ -128222,7 +128153,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 3,
+      "sort": 2,
       "template": null
     },
     "model": "core.resource",
@@ -128235,7 +128166,7 @@
       "description": null,
       "hidden": 1,
       "name": null,
-      "sort": 8,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -128248,7 +128179,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 6,
+      "sort": 4,
       "template": null
     },
     "model": "core.resource",
@@ -128256,13 +128187,16 @@
   },
   {
     "fields": {
-      "description": "Dashboard for Leitbeh\u00f6rde",
-      "language": "de",
-      "name": "Dashboard",
-      "resource": 1
+      "available_resource": "page",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 0,
+      "template": "/dashboard/index.phtml"
     },
-    "model": "core.resourcet",
-    "pk": 1
+    "model": "core.resource",
+    "pk": 150001
   },
   {
     "fields": {
@@ -128283,16 +128217,6 @@
     },
     "model": "core.resourcet",
     "pk": 20002
-  },
-  {
-    "fields": {
-      "description": "Dashboard for Services",
-      "language": "de",
-      "name": "Dashboard",
-      "resource": 20003
-    },
-    "model": "core.resourcet",
-    "pk": 20003
   },
   {
     "fields": {
@@ -128348,16 +128272,6 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Dashboard",
-      "resource": 1
-    },
-    "model": "core.resourcet",
-    "pk": 120000
-  },
-  {
-    "fields": {
-      "description": null,
-      "language": "fr",
       "name": "Courriels d'erreur",
       "resource": 10000
     },
@@ -128373,16 +128287,6 @@
     },
     "model": "core.resourcet",
     "pk": 120005
-  },
-  {
-    "fields": {
-      "description": null,
-      "language": "fr",
-      "name": "Dashboard",
-      "resource": 20003
-    },
-    "model": "core.resourcet",
-    "pk": 120006
   },
   {
     "fields": {
@@ -128456,11 +128360,20 @@
   },
   {
     "fields": {
-      "resource": 1,
-      "role": 3
+      "description": null,
+      "language": "de",
+      "name": "Dashboard",
+      "resource": 150001
     },
-    "model": "core.rroleacl",
-    "pk": 1
+    "model": "core.resourcet",
+    "pk": 150003
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.rpage",
+    "pk": 150001
   },
   {
     "fields": {
@@ -128469,22 +128382,6 @@
     },
     "model": "core.rroleacl",
     "pk": 10000
-  },
-  {
-    "fields": {
-      "resource": 20003,
-      "role": 4
-    },
-    "model": "core.rroleacl",
-    "pk": 20006
-  },
-  {
-    "fields": {
-      "resource": 20003,
-      "role": 20000
-    },
-    "model": "core.rroleacl",
-    "pk": 20007
   },
   {
     "fields": {
@@ -128592,327 +128489,91 @@
   },
   {
     "fields": {
-      "pdf_class": null,
-      "preserve_result": 0,
-      "query": "select * from \"INSTANCE\"",
-      "result_template": null
+      "resource": 150001,
+      "role": 4
     },
-    "model": "core.rsearch",
-    "pk": 1
+    "model": "core.rroleacl",
+    "pk": 150001
   },
   {
     "fields": {
-      "pdf_class": null,
-      "preserve_result": 0,
-      "query": "select * from \"INSTANCE\"",
-      "result_template": null
+      "resource": 150001,
+      "role": 3
     },
-    "model": "core.rsearch",
-    "pk": 20003
+    "model": "core.rroleacl",
+    "pk": 150002
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "INSTANCE_ID",
-      "resource": 1,
-      "sort": 0
+      "resource": 150001,
+      "role": 20000
     },
-    "model": "core.rsearchcolumn",
-    "pk": 1
+    "model": "core.rroleacl",
+    "pk": 150003
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "CREATION_DATE",
-      "resource": 1,
-      "sort": 1
+      "resource": 150001,
+      "role": 10000
     },
-    "model": "core.rsearchcolumn",
-    "pk": 2
+    "model": "core.rroleacl",
+    "pk": 150004
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "MODIFICATION_DATE",
-      "resource": 1,
-      "sort": 2
+      "resource": 150001,
+      "role": 5
     },
-    "model": "core.rsearchcolumn",
-    "pk": 3
+    "model": "core.rroleacl",
+    "pk": 150005
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "FORM_ID",
-      "resource": 1,
-      "sort": 3
+      "resource": 150001,
+      "role": 20006
     },
-    "model": "core.rsearchcolumn",
-    "pk": 4
+    "model": "core.rroleacl",
+    "pk": 150006
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "GROUP_ID",
-      "resource": 1,
-      "sort": 4
+      "resource": 150001,
+      "role": 20002
     },
-    "model": "core.rsearchcolumn",
-    "pk": 5
+    "model": "core.rroleacl",
+    "pk": 150007
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "INSTANCE_STATE_ID",
-      "resource": 1,
-      "sort": 5
+      "resource": 150001,
+      "role": 20003
     },
-    "model": "core.rsearchcolumn",
-    "pk": 6
+    "model": "core.rroleacl",
+    "pk": 150008
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "PREVIOUS_INSTANCE_STATE_ID",
-      "resource": 1,
-      "sort": 6
+      "resource": 150001,
+      "role": 20005
     },
-    "model": "core.rsearchcolumn",
-    "pk": 7
+    "model": "core.rroleacl",
+    "pk": 150009
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "USER_ID",
-      "resource": 1,
-      "sort": 7
+      "resource": 150001,
+      "role": 20001
     },
-    "model": "core.rsearchcolumn",
-    "pk": 8
+    "model": "core.rroleacl",
+    "pk": 150010
   },
   {
     "fields": {
-      "alias": null,
-      "column_name": "INSTANCE_ID",
-      "resource": 20003,
-      "sort": 0
+      "resource": 150001,
+      "role": 20004
     },
-    "model": "core.rsearchcolumn",
-    "pk": 20000
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "CREATION_DATE",
-      "resource": 20003,
-      "sort": 1
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20001
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "MODIFICATION_DATE",
-      "resource": 20003,
-      "sort": 2
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20002
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "FORM_ID",
-      "resource": 20003,
-      "sort": 3
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20003
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "GROUP_ID",
-      "resource": 20003,
-      "sort": 4
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20004
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "INSTANCE_STATE_ID",
-      "resource": 20003,
-      "sort": 5
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20005
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "PREVIOUS_INSTANCE_STATE_ID",
-      "resource": 20003,
-      "sort": 6
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20006
-  },
-  {
-    "fields": {
-      "alias": null,
-      "column_name": "USER_ID",
-      "resource": 20003,
-      "sort": 7
-    },
-    "model": "core.rsearchcolumn",
-    "pk": 20007
-  },
-  {
-    "fields": {
-      "alias": "INSTANCE_ID",
-      "language": "de",
-      "r_search_column": 1
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "alias": "CREATION_DATE",
-      "language": "de",
-      "r_search_column": 2
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "alias": "MODIFICATION_DATE",
-      "language": "de",
-      "r_search_column": 3
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "alias": "FORM_ID",
-      "language": "de",
-      "r_search_column": 4
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "alias": "GROUP_ID",
-      "language": "de",
-      "r_search_column": 5
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "alias": "INSTANCE_STATE_ID",
-      "language": "de",
-      "r_search_column": 6
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "alias": "PREVIOUS_INSTANCE_STATE_ID",
-      "language": "de",
-      "r_search_column": 7
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "alias": "USER_ID",
-      "language": "de",
-      "r_search_column": 8
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "alias": "INSTANCE_ID",
-      "language": "de",
-      "r_search_column": 20000
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20000
-  },
-  {
-    "fields": {
-      "alias": "CREATION_DATE",
-      "language": "de",
-      "r_search_column": 20001
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20001
-  },
-  {
-    "fields": {
-      "alias": "MODIFICATION_DATE",
-      "language": "de",
-      "r_search_column": 20002
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20002
-  },
-  {
-    "fields": {
-      "alias": "FORM_ID",
-      "language": "de",
-      "r_search_column": 20003
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20003
-  },
-  {
-    "fields": {
-      "alias": "GROUP_ID",
-      "language": "de",
-      "r_search_column": 20004
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20004
-  },
-  {
-    "fields": {
-      "alias": "INSTANCE_STATE_ID",
-      "language": "de",
-      "r_search_column": 20005
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20005
-  },
-  {
-    "fields": {
-      "alias": "PREVIOUS_INSTANCE_STATE_ID",
-      "language": "de",
-      "r_search_column": 20006
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20006
-  },
-  {
-    "fields": {
-      "alias": "USER_ID",
-      "language": "de",
-      "r_search_column": 20007
-    },
-    "model": "core.rsearchcolumnt",
-    "pk": 20007
+    "model": "core.rroleacl",
+    "pk": 150011
   },
   {
     "fields": {
