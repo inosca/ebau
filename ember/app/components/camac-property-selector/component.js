@@ -273,6 +273,15 @@ export default Component.extend({
       compact: true
     });
 
+    if (
+      !Array.isArray(
+        responseObject["wfs:FeatureCollection"]["gml:featureMember"]
+      )
+    ) {
+      responseObject["wfs:FeatureCollection"]["gml:featureMember"] = [
+        responseObject["wfs:FeatureCollection"]["gml:featureMember"]
+      ];
+    }
     this._parseAffectedLayers(responseObject);
     this._parseAffectedParcels(responseObject);
   }).restartable(),
