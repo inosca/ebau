@@ -9595,7 +9595,7 @@
       "description": null,
       "hidden": 0,
       "name": "Offene Punkte",
-      "sort": 8,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -9608,7 +9608,7 @@
       "description": null,
       "hidden": 0,
       "name": "Pendenzenvorlagen",
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -9621,7 +9621,7 @@
       "description": null,
       "hidden": 0,
       "name": "Publikation",
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
@@ -9634,7 +9634,7 @@
       "description": null,
       "hidden": 0,
       "name": "Einstellungen",
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -9647,7 +9647,7 @@
       "description": "Gesuche der Leserolle",
       "hidden": 0,
       "name": "Gesuche",
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -9660,7 +9660,7 @@
       "description": null,
       "hidden": 0,
       "name": "Textbausteine",
-      "sort": 13,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -9897,6 +9897,30 @@
     },
     "model": "core.rroleacl",
     "pk": 37
+  },
+  {
+    "fields": {
+      "resource": 16,
+      "role": 7
+    },
+    "model": "core.rroleacl",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "resource": 16,
+      "role": 8
+    },
+    "model": "core.rroleacl",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "resource": 16,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 40
   },
   {
     "fields": {
