@@ -14,6 +14,7 @@ services:
             - mailhog
         volumes:
             - djangomedia:/var/lib/camac/media:ro
+            - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
     db:
         build:
@@ -72,6 +73,7 @@ services:
             - APPLICATION=${APPLICATION}
         volumes:
             - djangomedia:/var/lib/camac/media
+            - djangotmpmedia:/tmp/camac/tmpfiles
 
     ember:
         build:
@@ -163,5 +165,6 @@ services:
 volumes:
     pgdata:
     djangomedia:
+    djangotmpmedia:
     phpsessions:
     templatefiles:
