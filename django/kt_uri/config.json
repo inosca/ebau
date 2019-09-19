@@ -43691,10 +43691,10 @@
       "class_field": null,
       "field_name": "parcelnr",
       "label": "Parzellennummer",
-      "query": "\"PARCEL_NR\".\"ANSWER\" = ?",
+      "query": "\"PARCEL_NR\".\"ANSWER\" LIKE ?",
       "question": 91,
       "resource": 42,
-      "wildcard": 0
+      "wildcard": 3
     },
     "model": "core.rsearchfilter",
     "pk": 3
@@ -43925,10 +43925,10 @@
       "class_field": null,
       "field_name": "parcelnr",
       "label": "Parzellennummer",
-      "query": "\"PARCEL_NR\".\"ANSWER\" = ?",
+      "query": "\"PARCEL_NR\".\"ANSWER\" LIKE ?",
       "question": 91,
       "resource": 311,
-      "wildcard": 0
+      "wildcard": 3
     },
     "model": "core.rsearchfilter",
     "pk": 86
