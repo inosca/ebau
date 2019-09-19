@@ -56,5 +56,5 @@ export default Component.extend({
         "Hoppla, beim Herunterladen der Datei ist etwas schief gelaufen. Bitte versuchen Sie es nochmals"
       );
     }
-  })
+  }).drop()
 });
