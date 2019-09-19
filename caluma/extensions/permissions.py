@@ -50,7 +50,7 @@ class CustomPermission(BasePermission):
             # created by a support user
             return (
                 self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
-                and Document.objects.all().count() == 0
+                and Document.objects.filter(form__slug=DASHBOARD_FORM_SLUG).count() == 0
             )
 
         return True
