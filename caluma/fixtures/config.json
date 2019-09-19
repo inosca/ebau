@@ -337,6 +337,22 @@
   },
   {
     "model": "form.form",
+    "pk": "dashboard",
+    "fields": {
+      "created_at": "2019-09-18T11:12:01.100Z",
+      "modified_at": "2019-09-18T11:12:01.100Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "name": "{\"de\": \"Dashboard\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "dokumente-sb1",
     "fields": {
       "created_at": "2019-06-17T10:54:16.160Z",
@@ -6202,6 +6218,19 @@
       "form": "vorabklaerung-vollstaendig",
       "question": "1-allgemeine-informationen",
       "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "801c7967-e303-4adb-88ad-034a5c6e9f83",
+    "fields": {
+      "created_at": "2019-09-18T11:16:56.912Z",
+      "modified_at": "2019-09-18T11:16:56.912Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dashboard",
+      "question": "dashboard-inhalt",
+      "sort": 1
     }
   },
   {
@@ -16166,6 +16195,31 @@
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
       "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "dashboard-inhalt",
+    "fields": {
+      "created_at": "2019-09-18T11:16:56.789Z",
+      "modified_at": "2019-09-18T11:17:10.056Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Inhalt\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": { "max_length": null },
       "meta": {},

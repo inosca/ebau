@@ -10,6 +10,7 @@ from caluma.form import models as form_models, schema as form_schema
 
 
 CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
+DASHBOARD_FORM_SLUG = "dashboard"
 
 
 def filters(info):
@@ -59,14 +60,16 @@ class CustomVisibility(BaseVisibility):
     @filter_queryset_for(form_schema.Document)
     def filter_queryset_for_document(self, node, queryset, info):
         return queryset.filter(
-            Q(family__in=self._all_visible_documents(info))
+            Q(form__slug=DASHBOARD_FORM_SLUG)
+            | Q(family__in=self._all_visible_documents(info))
             | Q(**self.get_unlinked_table_documents_filter(info))
         )
 
     @filter_queryset_for(form_schema.Answer)
     def filter_queryset_for_answer(self, node, queryset, info):
         return queryset.filter(
-            Q(document__family__in=self._all_visible_documents(info))
+            Q(document__form__slug=DASHBOARD_FORM_SLUG)
+            | Q(document__family__in=self._all_visible_documents(info))
             | Q(**self.get_unlinked_table_documents_filter(info, prefix="document__"))
         )
 
