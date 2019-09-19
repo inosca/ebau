@@ -191,11 +191,14 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
 
         if filtered_qs.count() > 1:
             response = HttpResponse(content_type="application/zip")
-            temp_path = "/tmp/camac/tmpfiles"
+            temp_path = "/tmp/camac/tmpfiles/zips"
             if not os.path.exists(temp_path):
                 os.makedirs(temp_path)
-            download_path = f"/tmp/camac/tmpfiles/attachments-{str(uuid4())[:7]}.zip"
-            with zipfile.ZipFile(download_path, "w", zipfile.ZIP_DEFLATED) as zipf:
+            file_name = f"attachments-{str(uuid4())[:7]}.zip"
+            download_path = f"/zips/{file_name}"
+            with zipfile.ZipFile(
+                f"{temp_path}/{file_name}", "w", zipfile.ZIP_DEFLATED
+            ) as zipf:
                 for attachment in filtered_qs:
                     zipf.write(
                         os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
