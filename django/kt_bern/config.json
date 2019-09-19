@@ -128370,6 +128370,16 @@
   },
   {
     "fields": {
+      "description": null,
+      "language": "fr",
+      "name": "Dashboard",
+      "resource": 150001
+    },
+    "model": "core.resourcet",
+    "pk": 150004
+  },
+  {
+    "fields": {
       "pdf_class": null
     },
     "model": "core.rpage",
