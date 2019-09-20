@@ -51416,7 +51416,7 @@
       "name": null,
       "resource": 20006,
       "sort": 20,
-      "template": "/form/edit-page.phtml"
+      "template": "/form/rueckmeldungen.phtml"
     },
     "model": "core.instanceresource",
     "pk": 20029
