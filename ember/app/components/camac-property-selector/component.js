@@ -203,8 +203,7 @@ export default Component.extend({
       const latLngPoint = EPSG2056toLatLng(...result.geometry.coordinates);
 
       yield this.set("searchObject", latLngPoint);
-      yield this.setProperties(latLngPoint);
-      yield this.set("zoom", 18);
+      yield this._map.setView(latLngPoint, 11);
     }
 
     if (result.geometry.type === "Polygon") {
