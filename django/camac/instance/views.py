@@ -167,7 +167,10 @@ class InstanceView(
                 instance.form.description,
                 instance.location and instance.location.name,
                 ", ".join(
-                    [applicant["name"] for applicant in (instance.applicants or [])]
+                    [
+                        applicant["name"] if "name" in applicant else applicant["firma"]
+                        for applicant in (instance.applicants or [])
+                    ]
                 ),
                 instance.description,
                 instance.instance_state.name,
