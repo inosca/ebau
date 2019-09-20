@@ -8,7 +8,7 @@ def get_missing_groups():
     return groups.exclude(trans__language="fr")
 
 
-def insert_missing_groups(sql_file):
+def create_sql_file(sql_file):
     missing_groups = get_missing_groups()
     file = open(sql_file, "w+")
     for group in missing_groups:
@@ -36,4 +36,4 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **option):
-        insert_missing_groups(option["sql_file"])
+        create_sql_file(option["sql_file"])

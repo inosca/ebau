@@ -68,7 +68,7 @@ def create_test_file(tmpdir):
 
 
 def test_translate(translation_ok, translation_not_ok, tmpdir):
-    call_command("translate_camac_services", create_test_file(tmpdir))
+    call_command("create_insert_services", create_test_file(tmpdir))
     translations_ok = ServiceT.objects.filter(service_id=translation_ok.service_id)
     translations_not_ok = ServiceT.objects.filter(
         service_id=translation_not_ok.service_id
@@ -78,6 +78,6 @@ def test_translate(translation_ok, translation_not_ok, tmpdir):
     with pytest.raises(Exception) as e:
         assert translations_not_ok.name
     assert str(e.value) == "'QuerySet' object has no attribute 'name'"
-    call_command("translate_camac_services", create_test_file(tmpdir))
+    call_command("create_insert_services", create_test_file(tmpdir))
     assert translations_ok.get(language="de").name == "Test"
     assert os.path.getsize(create_test_file(tmpdir)) > 0

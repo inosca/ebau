@@ -8,7 +8,7 @@ def get_missing_services():
     return services.exclude(trans__language="fr")
 
 
-def insert_missing_services(sql_file):
+def create_sql_file(sql_file):
     missing_services = get_missing_services()
     file = open(sql_file, "w+")
     for service in missing_services:
@@ -38,4 +38,4 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **option):
-        insert_missing_services(option["sql_file"])
+        create_sql_file(option["sql_file"])
