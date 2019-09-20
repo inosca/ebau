@@ -33,7 +33,10 @@ export default Component.extend({
     try {
       const url = `/api/v1/instances/${
         this.instance.id
-      }/export_detail?type=pdf`;
+      }/export_detail?type=pdf${
+        this.get("group") ? `&group=${this.get("group")}` : ""
+      }
+      `;
 
       let response = yield fetch(url, {
         mode: "cors",
