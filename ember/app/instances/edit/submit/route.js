@@ -8,5 +8,6 @@ export default Route.extend({
     // route is not active but somehow isn't. This is why we trigger the
     // property manually here
     controller.notifyPropertyChange("canSubmit");
+    controller.set("params", this.paramsFor("instances.edit"));
   }
 });

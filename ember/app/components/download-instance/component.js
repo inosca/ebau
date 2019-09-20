@@ -31,9 +31,9 @@ export default Component.extend({
 
   download: task(function*() {
     try {
-      const url = `/api/v1/instances/${
-        this.instance.id
-      }/export_detail?type=pdf`;
+      const url = `/api/v1/instances/${this.instance.id}/export_detail?${
+        this.get("group") ? `group=${this.get("group")}` : ""
+      }&type=pdf`;
 
       let response = yield fetch(url, {
         mode: "cors",
