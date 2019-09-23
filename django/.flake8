@@ -22,5 +22,5 @@ ignore =
     # needed because of https://github.com/ambv/black/issues/144
     D202
 max-line-length = 80
-exclude = migrations snapshots
+exclude = migrations snapshots camac/echbern/schema/*.py
 max-complexity = 10

@@ -13,6 +13,7 @@ exclude = '''
   | build
   | dist
   | .*/migrations
+  | .*/echbern\/schema
   | .*/snapshots
 )/
 '''
