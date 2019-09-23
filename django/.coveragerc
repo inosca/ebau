@@ -16,6 +16,7 @@ omit=
     */migrations/*
     */apps.py
     */admin.py
+    camac/echbern/schema/*
     manage.py
     setup.py
     form_json_helper.py
