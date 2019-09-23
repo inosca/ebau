@@ -3602,24 +3602,6 @@
   {
     "fields": {
       "action_name": "index",
-      "available_instance_resource": "docxgeneration",
-      "hidden": 0
-    },
-    "model": "core.airaction",
-    "pk": 20065
-  },
-  {
-    "fields": {
-      "action_name": "generate-docx",
-      "available_instance_resource": "docxgeneration",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 20066
-  },
-  {
-    "fields": {
-      "action_name": "index",
       "available_instance_resource": "docxdecision",
       "hidden": 0
     },
@@ -41240,15 +41222,6 @@
   },
   {
     "fields": {
-      "controller_name": "index",
-      "description": "Docx generation",
-      "module_name": "officeexporter"
-    },
-    "model": "core.availableinstanceresource",
-    "pk": "docxgeneration"
-  },
-  {
-    "fields": {
       "controller_name": "circulation",
       "description": "Edit the circulation",
       "module_name": "default"
@@ -51288,36 +51261,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "docxgeneration",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 1,
-      "name": null,
-      "resource": 20006,
-      "sort": 36,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 20021
-  },
-  {
-    "fields": {
-      "available_instance_resource": "docxgeneration",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20007,
-      "sort": 21,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 20022
-  },
-  {
-    "fields": {
       "available_instance_resource": "docxdecision",
       "class_field": null,
       "description": null,
@@ -53702,14 +53645,6 @@
   {
     "fields": {
       "available_action": "notification",
-      "available_instance_resource": "docxgeneration"
-    },
-    "model": "core.instanceresourceaction",
-    "pk": 10064
-  },
-  {
-    "fields": {
-      "available_action": "notification",
       "available_instance_resource": "editresponsibleuser"
     },
     "model": "core.instanceresourceaction",
@@ -54829,14 +54764,6 @@
   },
   {
     "fields": {
-      "available_action": "save",
-      "available_instance_resource": "docxgeneration"
-    },
-    "model": "core.instanceresourceaction",
-    "pk": 20140
-  },
-  {
-    "fields": {
       "available_action": "addjournal",
       "available_instance_resource": "filelist"
     },
@@ -55154,26 +55081,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20020
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 20021,
-      "language": "de",
-      "name": "Vorlagen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 20021
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 20022,
-      "language": "de",
-      "name": "Vorlagen"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 20022
   },
   {
     "fields": {
@@ -55854,26 +55761,6 @@
     },
     "model": "core.instanceresourcet",
     "pk": 120025
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 20021,
-      "language": "fr",
-      "name": "Mod\u00e8les"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120026
-  },
-  {
-    "fields": {
-      "description": null,
-      "instance_resource": 20022,
-      "language": "fr",
-      "name": "Mod\u00e8les"
-    },
-    "model": "core.instanceresourcet",
-    "pk": 120027
   },
   {
     "fields": {
@@ -57536,69 +57423,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20065
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20080
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20006,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20081
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20003,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20083
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20004,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20084
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20005,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20085
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20004,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20100
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20005,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20101
   },
   {
     "fields": {
@@ -59924,33 +59748,6 @@
   },
   {
     "fields": {
-      "instance_resource": 20022,
-      "instance_state": 10000,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20397
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20008,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20398
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20009,
-      "role": 4
-    },
-    "model": "core.irroleacl",
-    "pk": 20399
-  },
-  {
-    "fields": {
       "instance_resource": 10006,
       "instance_state": 20005,
       "role": 4
@@ -60878,15 +60675,6 @@
   },
   {
     "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20010,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20512
-  },
-  {
-    "fields": {
       "instance_resource": 10003,
       "instance_state": 20004,
       "role": 20000
@@ -60938,60 +60726,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20667
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20004,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20668
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20005,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20669
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20010,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20670
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 10000,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20671
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20008,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20672
-  },
-  {
-    "fields": {
-      "instance_resource": 20022,
-      "instance_state": 20009,
-      "role": 20000
-    },
-    "model": "core.irroleacl",
-    "pk": 20673
   },
   {
     "fields": {
@@ -62963,60 +62697,6 @@
     },
     "model": "core.irroleacl",
     "pk": 20985
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20011,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20986
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20013,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20987
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20014,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 20988
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20011,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 20989
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20013,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 20990
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20014,
-      "role": 20003
-    },
-    "model": "core.irroleacl",
-    "pk": 20991
   },
   {
     "fields": {
@@ -65987,60 +65667,6 @@
     },
     "model": "core.irroleacl",
     "pk": 21402
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 40001,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21403
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 40003,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21404
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 40002,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21405
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 10000,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21406
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20008,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21407
-  },
-  {
-    "fields": {
-      "instance_resource": 20021,
-      "instance_state": 20009,
-      "role": 3
-    },
-    "model": "core.irroleacl",
-    "pk": 21408
   },
   {
     "fields": {
@@ -156931,214 +156557,6 @@
     },
     "model": "notification.notificationtemplatet",
     "pk": 75
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "MaengelbriefFormell"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "MaengelbriefMateriell"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "MaengelbriefFormellMateriell"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "Amtsbericht"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "AufforderungErgaenzung"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "VerfahrensprogrammNormal"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "VerfahrensprogrammVoranfrage"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "name": null,
-      "php_class": "Gesamtbauentscheid"
-    },
-    "model": "officeexporter.officeexporterdocx",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 3,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 1,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 2,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 5,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 10
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 6,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 11
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 7,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 12
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 8,
-      "role": 3
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 13
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 4,
-      "role": 4
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 14
-  },
-  {
-    "fields": {
-      "officeexporter_docx": 4,
-      "role": 20000
-    },
-    "model": "officeexporter.officeexporterdocxrole",
-    "pk": 15
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "M\u00e4ngelbrief (formell)",
-      "officeexporter_docx": 1
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 1
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "M\u00e4ngelbrief (materiell)",
-      "officeexporter_docx": 2
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 2
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "M\u00e4ngelbrief (formell und materiell)",
-      "officeexporter_docx": 3
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 3
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "Amtsbericht / Fachbericht / Stellungnahme",
-      "officeexporter_docx": 4
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 4
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "Aufforderung Erg\u00e4nzung Baugesuch",
-      "officeexporter_docx": 5
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "Verfahrensprogramm (Normal)",
-      "officeexporter_docx": 6
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "Verfahrensprogramm (Voranfrage)",
-      "officeexporter_docx": 7
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "language": "de",
-      "name": "Gesamtbauentscheid",
-      "officeexporter_docx": 8
-    },
-    "model": "officeexporter.officeexporterdocxt",
-    "pk": 8
   },
   {
     "fields": {
