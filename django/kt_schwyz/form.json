@@ -1767,7 +1767,7 @@
     "ausnahmen-begrundung": {
       "label": "Begründen Sie mit stichhaltigen Argumenten, warum der ordentliche Mindestabstand nicht eingehalten werden kann und folglich eine Ausnahmebewilligung beantragt wird:",
       "hint": "Es werden hohe Anforderungen an die Gründe zur Unterschreitung ordentlicher Mindestabstände gestellt. ",
-      "type": "text",
+      "type": "textarea",
       "required": true,
       "active-expression": "'ordendliche-mindestabstande'|value == 'Ja'",
       "config": {}
