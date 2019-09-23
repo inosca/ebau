@@ -183,10 +183,6 @@ pure_config_models = (
     "responsible.IrEditresponsiblegroup",
     "responsible.ASetresponsiblegroup",
     "responsible.ResponsibleServiceAllocation",
-    # officeexporter
-    "officeexporter.OfficeExporterDocx",
-    "officeexporter.OfficeExporterDocxT",
-    "officeexporter.OfficeExporterDocxRole",
 )
 
 # List of models that have foreign keys referencing non-config tables
