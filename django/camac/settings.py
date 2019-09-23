@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     "camac.responsible.apps.DefaultConfig",
     "camac.file.apps.DefaultConfig",
     "camac.applicants.apps.DefaultConfig",
-    "camac.officeexporter.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
     "camac.echbern",
