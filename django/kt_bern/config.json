@@ -1964,24 +1964,6 @@
   },
   {
     "fields": {
-      "action_name": "index",
-      "available_instance_resource": "applicants",
-      "hidden": 0
-    },
-    "model": "core.airaction",
-    "pk": 10009
-  },
-  {
-    "fields": {
-      "action_name": "delete",
-      "available_instance_resource": "applicants",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 10010
-  },
-  {
-    "fields": {
       "action_name": "delete",
       "available_instance_resource": "billing",
       "hidden": 1
@@ -40055,15 +40037,6 @@
   },
   {
     "fields": {
-      "controller_name": "applicants",
-      "description": "Applicants module",
-      "module_name": "applicants"
-    },
-    "model": "core.availableinstanceresource",
-    "pk": "applicants"
-  },
-  {
-    "fields": {
       "controller_name": "auditlog",
       "description": "High Level Audit Log",
       "module_name": "auditlog"
@@ -50749,14 +50722,6 @@
     },
     "model": "core.instanceresourceaction",
     "pk": 10038
-  },
-  {
-    "fields": {
-      "available_action": "notification",
-      "available_instance_resource": "applicants"
-    },
-    "model": "core.instanceresourceaction",
-    "pk": 10039
   },
   {
     "fields": {
