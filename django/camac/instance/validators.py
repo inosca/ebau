@@ -1,4 +1,5 @@
 import itertools
+import locale
 import sys
 from functools import partial
 
@@ -13,6 +14,8 @@ from camac.document.models import Attachment
 from camac.jexl import ExtractTransformSubjectAnalyzer
 
 from . import models
+
+locale.setlocale(locale.LC_ALL, f"{settings.LOCALE_NAME}.UTF-8")
 
 
 class FormDataValidator(object):
@@ -190,10 +193,11 @@ class FormDataValidator(object):
 
         return form_def
 
-    def get_active_modules_questions(self):
+    def get_active_modules_questions(self):  # noqa: C901
         QUESTION_COORDINATES = "punkte"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
+        signature = {"slug": "signature", "title": "Unterschriften", "people": {}}
 
         for module_name in form_def:
             active_questions = []
@@ -223,9 +227,13 @@ class FormDataValidator(object):
                                 lat, lng = transformer.transform(
                                     coord["lat"], coord["lng"]
                                 )
-                                converted_values.append({"lat": lat, "lng": lng})
+                                converted_values.append(
+                                    f"{int(float(lat)):n} / {int(float(lng)):n}"
+                                )
 
                             value = converted_values
+                            question["label"] = "Koordinaten"
+                            question["type"] = "coordinates"
 
                         active_questions.append(
                             {
@@ -257,5 +265,31 @@ class FormDataValidator(object):
                         "questions": active_questions,
                     }
                 )
+
+            if module["parent"] == "personalien":
+                for question in active_questions:
+                    names = []
+                    split_names = []
+
+                    if question["value"] is not None:
+                        for value in question["value"]:
+                            firma = value["firma"] + "\n" if "firma" in value else ""
+                            names.append(
+                                f"{firma}{value.get('name', '')} {value.get('vorname', '')}"
+                            )
+
+                    # split people into arrays of 3
+                    for i in range(0, len(names), 3):
+                        split_names.append(names[i : i + 3])
+
+                    signature["people"][question["label"]] = split_names
+
+        # sort signature categories alphabetically
+        sorted_signature = {}
+        for key, value in sorted(signature["people"].items()):
+            sorted_signature[key] = value
+        signature["people"] = sorted_signature
+
+        relevant_data.append(signature)
 
         return relevant_data
