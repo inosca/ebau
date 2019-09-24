@@ -11004,7 +11004,7 @@
   {
     "fields": {
       "attachment_section": 6,
-      "mode": "adminsvc",
+      "mode": "read",
       "role": 5
     },
     "model": "document.attachmentsectionroleacl",
@@ -11013,7 +11013,7 @@
   {
     "fields": {
       "attachment_section": 6,
-      "mode": "adminsvc",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
@@ -11049,7 +11049,7 @@
   {
     "fields": {
       "attachment_section": 9,
-      "mode": "adminsvc",
+      "mode": "read",
       "role": 5
     },
     "model": "document.attachmentsectionroleacl",
@@ -11058,7 +11058,7 @@
   {
     "fields": {
       "attachment_section": 9,
-      "mode": "adminsvc",
+      "mode": "read",
       "role": 7
     },
     "model": "document.attachmentsectionroleacl",
