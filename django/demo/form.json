@@ -1,6 +1,6 @@
 {
   "forms": {
-    "baugesuch": ["grundinformationen", "grundinformationen.kategorisierung"]
+    "baugesuch": ["grundinformationen", "grundinformationen.kategorisierung", "personalien", "personalien.grundeigentumerschaft"]
   },
   "modules": {
     "grundinformationen": {
@@ -31,11 +31,22 @@
         "bewilligung-bohrung",
         "bewilligung-bohrung-wiesonicht",
         "bohrungsdaten",
-        "grundeigentumerschaft",
         "gwr",
         "zweck-der-warmepumpe",
         "standort-der-warmepumpe",
         "punkte"
+      ]
+    },
+    "personalien": {
+      "title": "Personalien",
+      "parent": null,
+      "questions": []
+    },
+    "personalien.grundeigentumerschaft": {
+      "title": "grundeigentumerschaft",
+      "parent": "personalien",
+      "questions": [
+        "grundeigentumerschaft"
       ]
     }
   },
