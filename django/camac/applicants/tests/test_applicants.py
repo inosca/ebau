@@ -70,7 +70,7 @@ def test_applicant_delete(
             LazyFixture("admin_user"),
             "test@example.com",
             "doesnotexist@example.com",
-            status.HTTP_400_BAD_REQUEST,
+            status.HTTP_201_CREATED,
         ),
         (
             "Municipality",
@@ -104,11 +104,22 @@ def test_applicant_create(
     created_email,
     passed_email,
     expected_status,
+    settings,
+    notification_template,
 ):
+    settings.APPLICATION["APPLICANT"][
+        "NEW_NOTIFICATION_TEMPLATE"
+    ] = notification_template.pk
+    settings.APPLICATION["APPLICANT"][
+        "EXISTING_NOTIFICATION_TEMPLATE"
+    ] = notification_template.pk
+
     url = reverse("applicant-list")
 
     applicant_factory(
-        instance=instance, invitee=user_factory(email="exists@example.com")
+        instance=instance,
+        invitee=user_factory(email="exists@example.com"),
+        email="exists@example.com",
     )
 
     user_factory(email=created_email)
