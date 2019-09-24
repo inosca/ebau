@@ -107,6 +107,10 @@ APPLICATIONS = {
         },
         "IS_MULTILINGUAL": False,
         "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
+        "APPLICANT": {
+            "NEW_NOTIFICATION_TEMPLATE": None,
+            "EXISTING_NOTIFICATION_TEMPLATE": None,
+        },
         "NOTIFICATIONS": {"SUBMIT": None},
         "PUBLICATION_DURATION": timedelta(days=30),
         "FORM_BACKEND": "camac-ng",
@@ -122,6 +126,10 @@ APPLICATIONS = {
             "Publikation": "public_reader",
         },
         "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
+        "APPLICANT": {
+            "NEW_NOTIFICATION_TEMPLATE": 19,
+            "EXISTING_NOTIFICATION_TEMPLATE": 20,
+        },
         "PUBLICATION_DURATION": timedelta(days=30),
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
@@ -154,6 +162,10 @@ APPLICATIONS = {
             ],
             "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
             "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
+        },
+        "APPLICANT": {
+            "NEW_NOTIFICATION_TEMPLATE": 19,
+            "EXISTING_NOTIFICATION_TEMPLATE": 20,
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",

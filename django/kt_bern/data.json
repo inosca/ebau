@@ -2,6 +2,7 @@
   {
     "fields": {
       "created": "2019-06-08T19:09:17.591Z",
+      "email": "",
       "instance": 1,
       "invitee": 8,
       "user": 8

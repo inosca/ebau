@@ -13,6 +13,7 @@ from keycloak import KeycloakOpenID
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
 
+from camac.applicants.models import Applicant
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
@@ -54,7 +55,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         return userinfo
 
-    def _decode_jwt(self, jwt_value):
+    def _decode_jwt(self, jwt_value):  # noqa: C901
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
@@ -108,6 +109,12 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                     request_logger.error(
                         f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
                     )
+
+            applicants = Applicant.objects.filter(email=user.email, invitee=None)
+            if applicants:
+                for applicant in applicants:
+                    applicant.invitee = user
+                    applicant.save()
 
         if not user.is_active:
             msg = _("User is deactivated.")

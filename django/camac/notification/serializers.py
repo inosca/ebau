@@ -306,8 +306,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "service",
             "leitbehoerde",
             "construction_control",
+            "email_list",
         )
     )
+    email_list = serializers.CharField(required=False)
 
     def _get_recipients_applicant(self, instance):
         return [
@@ -338,6 +340,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             service__service_group__name="construction-control",
             active=1,
         ).values_list("service__email", flat=True)
+
+    def _get_recipients_email_list(self, instance):
+        return self.validated_data["email_list"].split(",")
 
     def create(self, validated_data):
         subj_prefix = settings.EMAIL_PREFIX_SUBJECT

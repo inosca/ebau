@@ -16,36 +16,27 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     user = CurrentUserResourceRelatedField()
     instance = relations.ResourceRelatedField(queryset=Instance.objects.all())
     invitee = relations.ResourceRelatedField(read_only=True)
-
-    email = serializers.EmailField(required=True, write_only=True)
+    email = serializers.EmailField(required=True)
 
     included_serializers = {"invitee": UserSerializer, "user": UserSerializer}
 
     def validate(self, data):
-        email = data.pop("email")
-
         try:
-            data["invitee"] = get_user_model().objects.get(disabled=False, email=email)
-        except ObjectDoesNotExist:
-            raise ValidationError(
-                _("User with email '%(email)s' could not be found") % {"email": email}
+            data["invitee"] = get_user_model().objects.get(
+                disabled=False, email=data["email"]
             )
+        except ObjectDoesNotExist:
+            data["invitee"] = None
         except MultipleObjectsReturned:
             raise ValidationError(
                 _("There is more than one user with the email '%(email)s'")
-                % {"email": email}
+                % {"email": data["email"]}
             )
 
-        if (
-            data["instance"]
-            .involved_applicants.filter(invitee=data["invitee"])
-            .exists()
-        ):
+        if data["instance"].involved_applicants.filter(email=data["email"]).exists():
             raise ValidationError(
-                _(
-                    "User with email '%(email)s' has already access to instance %(instance)s"
-                )
-                % {"email": email, "instance": data["instance"].pk}
+                _("Email '%(email)s' has already access to instance %(instance)s")
+                % {"email": data["email"], "instance": data["instance"].pk}
             )
 
         return data
@@ -53,5 +44,4 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     class Meta:
         model = models.Applicant
         fields = ("user", "instance", "invitee", "created", "email")
-        read_only_fields = ("user", "invitee", "created")
-        write_only_fields = ("email",)
+        read_only_fields = ("user", "invitee", "created", "email")

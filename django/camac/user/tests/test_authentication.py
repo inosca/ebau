@@ -66,12 +66,18 @@ def test_authenticate_new_user(
     application_settings,
     token_value,
     username,
+    applicant_factory,
 ):
+    applicant_factory(email=token_value["email"], invitee=None)
+
     if demo_mode:
         admin_group = admin_user.groups.first()
         inexistent_group = 2138242342
         settings.DEMO_MODE = True
         application_settings["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
+
+    username = "new-here"
+    token_value["sub"] = username
 
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value
