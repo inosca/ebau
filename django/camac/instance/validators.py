@@ -209,6 +209,8 @@ class FormDataValidator(object):
 
                     if self._check_question_active(question_name, question):
                         value = self.fields.get(question_name)
+                        label = question["label"]
+                        type = question["type"]
 
                         if question_name == QUESTION_COORDINATES and value is not None:
                             """
@@ -232,13 +234,13 @@ class FormDataValidator(object):
                                 )
 
                             value = converted_values
-                            question["label"] = "Koordinaten"
-                            question["type"] = "coordinates"
+                            label = "Koordinaten"
+                            type = "coordinates"
 
                         active_questions.append(
                             {
-                                "label": question["label"],
-                                "type": question["type"],
+                                "label": label,
+                                "type": type,
                                 "value": value,
                                 "config": question["config"],
                             }

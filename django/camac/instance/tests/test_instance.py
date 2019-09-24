@@ -326,6 +326,9 @@ def test_instance_submit(
     add_field(name="anlagen-mit-erheblichen-schadstoffemissionen-welche", value="Test")
     add_field(name="grundeigentumerschaft", value=[{"name": "Bund"}])
     add_field(name="gwr", value=[{"name": "Name", "wohnungen": [{"stockwerk": "1OG"}]}])
+    add_field(
+        name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
+    )
 
     response = admin_client.post(url)
     assert response.status_code == status_code, response.content
