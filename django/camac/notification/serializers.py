@@ -310,7 +310,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
     )
 
     def _get_recipients_applicant(self, instance):
-        return [instance.user.email]
+        return [
+            applicant.invitee.email for applicant in instance.involved_applicants.all()
+        ]
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
         instance_service = core_models.InstanceService.objects.filter(
