@@ -107,11 +107,9 @@ def test_applicant_create(
     settings,
     notification_template,
 ):
-    settings.APPLICATION["APPLICANT"][
-        "NEW_NOTIFICATION_TEMPLATE"
-    ] = notification_template.pk
-    settings.APPLICATION["APPLICANT"][
-        "EXISTING_NOTIFICATION_TEMPLATE"
+    settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"]["NEW"] = notification_template.pk
+    settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"][
+        "EXISTING"
     ] = notification_template.pk
 
     url = reverse("applicant-list")
