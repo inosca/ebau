@@ -5694,6 +5694,16 @@ ember-toggle@^5.3.0:
     ember-gestures "^1.1.1"
     ember-runtime-enumerable-includes-polyfill "^2.0.0"
 
+ember-toggle@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-6.0.0.tgz#17042a3880fb092cad7797d941f36ade25505932"
+  integrity sha512-czSdkt3X+dCzc3KFt3jr2GUJj2yUivFXLn+JmUcNeZjmHAyVGekdBzu8TvaNUC5dpfBWB0q/qrQDnqNW0K5P0A==
+  dependencies:
+    ember-cli-babel "^7.7.3"
+    ember-cli-htmlbars "^3.0.1"
+    ember-gestures "^1.1.1"
+    ember-runtime-enumerable-includes-polyfill "^2.0.0"
+
 ember-truth-helpers@^2.0.0, ember-truth-helpers@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ember-truth-helpers/-/ember-truth-helpers-2.1.0.tgz#d4dab4eee7945aa2388126485977baeb33ca0798"
@@ -5701,7 +5711,7 @@ ember-truth-helpers@^2.0.0, ember-truth-helpers@^2.1.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-uikit@^0.8.1, ember-uikit@^0.8.2:
+ember-uikit@^0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.8.2.tgz#7795be2d7d4764ba2125a45bd6ffaefd7fb024d7"
   integrity sha512-nQV7CKebrHpeD6RbblPe3CGth82ZNaWgfvr2pcWazd7EWP6m1SwqRU7pE7dehaQDfySUBlNjp2n5/DUSS/Zf1g==
@@ -5716,6 +5726,23 @@ ember-uikit@^0.8.1, ember-uikit@^0.8.2:
     ember-cli-htmlbars-inline-precompile "^2.1.0"
     ember-get-config "^0.2.4"
     ember-toggle "^5.3.0"
+    uikit "^3.1.5"
+
+ember-uikit@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/ember-uikit/-/ember-uikit-0.9.0.tgz#f4649b68e0a172b947c925419d4328427fa208fe"
+  integrity sha512-L1tg3OnKZe0fC2pWub8IBYjzxlpG+uGwXIzMYw9f2KQZWUr8K1xl39pxDcwR6aZORHW7peIqyt/7W7WrUpjl0w==
+  dependencies:
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.0"
+    broccoli-stew "^3.0.0"
+    chalk "^2.3.0"
+    ember-auto-import "^1.4.0"
+    ember-cli-babel "^7.8.0"
+    ember-cli-htmlbars "^3.1.0"
+    ember-cli-htmlbars-inline-precompile "^3.0.0"
+    ember-get-config "^0.2.4"
+    ember-toggle "^6.0.0"
     uikit "^3.1.5"
 
 ember-validated-form@^2.0.0-alpha.5:
