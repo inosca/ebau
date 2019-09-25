@@ -2666,8 +2666,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "template": 9
     },
     "model": "core.anotification",
@@ -2675,8 +2675,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "template": 10
     },
     "model": "core.anotification",
@@ -2684,8 +2684,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "template": 21
     },
     "model": "core.anotification",
@@ -2729,8 +2729,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "template": 38
     },
     "model": "core.anotification",
@@ -2747,8 +2747,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Applicants_Notification_ApplicantList",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Applicant",
       "template": 30
     },
     "model": "core.anotification",
