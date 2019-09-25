@@ -44,4 +44,4 @@ class ApplicantSerializer(serializers.ModelSerializer, InstanceEditableMixin):
     class Meta:
         model = models.Applicant
         fields = ("user", "instance", "invitee", "created", "email")
-        read_only_fields = ("user", "invitee", "created", "email")
+        read_only_fields = ("user", "invitee", "created")

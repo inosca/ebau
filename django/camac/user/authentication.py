@@ -110,11 +110,9 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
                         f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
                     )
 
-            applicants = Applicant.objects.filter(email=user.email, invitee=None)
-            if applicants:
-                for applicant in applicants:
-                    applicant.invitee = user
-                    applicant.save()
+            Applicant.objects.filter(email=user.email, invitee=None).update(
+                invitee=user
+            )
 
         if not user.is_active:
             msg = _("User is deactivated.")
