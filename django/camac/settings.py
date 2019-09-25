@@ -180,6 +180,10 @@ INTERNAL_INSTANCE_URL_TEMPLATE = (
     "{internal_base_url}/index/redirect-to-instance-resource/instance-id/{instance_id}"
 )
 
+REGISTRATION_URL = env.str(
+    "DJANGO_REGISTRATION_URL", default="http://camac-ng-portal.local"
+)
+
 # Logging
 
 LOGGING = {

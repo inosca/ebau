@@ -206,6 +206,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             public_base_url=settings.PUBLIC_BASE_URL, instance_id=(instance.pk)
         )
 
+    def get_registrations_link(self, instance):
+        return settings.REGISTRATION_URL
+
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
 
