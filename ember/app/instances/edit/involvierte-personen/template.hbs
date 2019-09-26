@@ -1,0 +1,72 @@
+<h2>Involvierte Personen</h2>
+
+<table class="uk-table uk-table-striped uk-margin-remove uk-table-small uk-table-responsive uk-table-middle">
+  <thead>
+    <tr>
+      {{#each columns as |column|}}
+      <th title={{column.label}}>{{column.label}}</th>
+      {{/each}}
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each applicants as |row|}}
+      <tr>
+        {{#each columns as |column|}}
+          <td>{{get row column.name}}</td>
+        {{/each}}
+        <td class="uk-text-right">
+          <button type="button" title="Eintrag Löschen" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan={{add (count-keys columns) 1}} class="uk-text-center">
+        <div uk-toggle="target: #modal-applicants">{{#uk-button size='small' on-click=(perform addRow)}}{{uk-icon 'plus'}}{{/uk-button}}</div>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+{{camac-input-error error}}
+
+<div id="modal-applicants" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+    <form {{action (perform saveRow) on='submit'}}>
+      <button type="button" class="uk-modal-close-default" uk-close {{action (toggle 'showEdit' this)}}></button>
+
+      <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
+
+      {{#each columns as |column|}}
+        <div class={{if column.config.otherField "uk-margin uk-margin-left" "uk-margin"}}>
+          <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+            {{column.label}}
+            {{#if column.required}}
+              <span class="uk-text-danger">*</span>
+            {{/if}}
+            {{#if column.hint}}
+              {{camac-hint-dialog column.hint}}
+            {{/if}}
+          </label>
+          {{component (concat 'camac-input-' column.type)
+            renderInPlace=true
+            config=column.config
+            on-change=(action 'change' column.name)
+            model=(hash value=(get _value column.name))
+          }}
+          {{#with (get this (concat '_value.error.' column.name)) as |error|}}
+            {{camac-input-error error.validation}}
+          {{/with}}
+        </div>
+      {{/each}}
+      {{camac-input-error saveErrors}}
+
+      <div class="uk-text-right">
+        {{#uk-button class="uk-modal-close" on-click=(action (mut showEdit) false)}}Abbrechen{{/uk-button}}
+        {{#uk-button loading=saveRow.isRunning disabled=(not _value.isValid) color='primary' type='submit'}}Speichern{{/uk-button}}
+      </div>
+    </form>
+  </div>
+</div>

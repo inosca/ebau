@@ -68,6 +68,7 @@ Router.map(function() {
         this.route("technische-bewilligung");
         this.route("vorentscheid");
         this.route("submit");
+        this.route("involvierte-personen");
       });
     });
   });
