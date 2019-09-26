@@ -9,6 +9,7 @@ ENV LANGUAGE_CODE de
 ENV LANGUAGES de,fr
 ENV OIDC_BEARER_TOKEN_REVALIDATION_TIME 300
 ENV META_FIELDS camac-instance-id,ebau-number,submit-date
+ENV ENABLE_HISTORICAL_API true
 
 COPY extensions /app/caluma/extensions
 COPY fixtures /app/caluma/fixtures

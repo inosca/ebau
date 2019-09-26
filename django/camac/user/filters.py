@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django_filters.rest_framework import BooleanFilter, FilterSet
 
-from camac.filters import NumberMultiValueFilter
+from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 
 from . import models
 
@@ -32,7 +32,8 @@ class ServiceFilterSet(FilterSet):
 
 class UserFilterSet(FilterSet):
     id = NumberMultiValueFilter()
+    username = CharMultiValueFilter()
 
     class Meta:
         model = get_user_model()
-        fields = ("id",)
+        fields = ("id", "username")
