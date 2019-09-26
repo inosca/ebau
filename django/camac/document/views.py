@@ -10,9 +10,14 @@ from django.http import HttpResponse
 from django.utils.encoding import escape_uri_path, smart_bytes
 from django.utils.translation import gettext as _
 from docxtpl import DocxTemplate
+from drf_yasg import openapi
+from drf_yasg.errors import SwaggerGenerationError
+from drf_yasg.inspectors import SwaggerAutoSchema
+from drf_yasg.utils import param_list_to_odict, swagger_auto_schema
 from rest_framework import exceptions, generics, viewsets
 from rest_framework.decorators import action
 from rest_framework.exceptions import NotFound, ValidationError
+from rest_framework.serializers import Serializer
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework_json_api import views
 from sorl.thumbnail import delete, get_thumbnail
@@ -34,6 +39,54 @@ NOTICE_TYPE_ORDER = {
 }
 
 
+class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
+    def get_request_body_parameters(self, consumes):
+        return []
+
+    def get_query_parameters(self):
+        """Return the query parameters accepted by this view.
+
+        :rtype: list[openapi.Parameter]
+        """
+        natural_parameters = (
+            self.get_filter_parameters() + self.get_pagination_parameters()
+        )
+
+        query_serializer = serializers.AttachmentSerializer()
+        serializer_parameters = []
+        if query_serializer is not None:
+            serializer_parameters = self.serializer_to_parameters(
+                query_serializer, in_=openapi.IN_FORM
+            )
+
+            if (
+                len(
+                    set(param_list_to_odict(natural_parameters))
+                    & set(param_list_to_odict(serializer_parameters))
+                )
+                != 0
+            ):  # pragma: no cover
+                raise SwaggerGenerationError(
+                    "your query_serializer contains fields that conflict with the "
+                    "filter_backend or paginator_class on the view - %s %s"
+                    % (self.method, self.path)
+                )
+
+        return natural_parameters + serializer_parameters
+
+
+group_param = openapi.Parameter(
+    "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
+)
+file_data_param = openapi.Parameter(
+    "path",
+    openapi.IN_BODY,
+    required=True,
+    description="File data",
+    type=openapi.TYPE_FILE,
+)
+
+
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
     queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
@@ -44,6 +97,11 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         "service": ["service__groups"],
     }
     ordering_fields = ("name", "date", "size")
+
+    def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return models.Attachment.objects.none()
+        return super().get_queryset()
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
@@ -117,7 +175,45 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         delete(instance.path)
         super().perform_destroy(instance)
 
+    @swagger_auto_schema(
+        tags=["File download service"],
+        manual_parameters=[group_param],
+        operation_summary="Get file information",
+    )
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["File download service"],
+        manual_parameters=[group_param],
+        operation_summary="Get list of file information",
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["File upload service"],
+        manual_parameters=[group_param],
+        operation_summary="Upload a file",
+        auto_schema=FileUploadSwaggerAutoSchema,
+    )
+    def create(self, request, *args, **kwargs):
+        return super().create(request, *args, **kwargs)
+
+    @swagger_auto_schema(auto_schema=None)
+    def partial_update(self, request, *args, **kwargs):
+        return super().partial_update(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["File delete service"],
+        manual_parameters=[group_param],
+        operation_summary="Delete a file",
+    )
+    def destroy(self, request, *args, **kwargs):
+        return super().destroy(request, *args, **kwargs)
+
     @action(methods=["get"], detail=True)
+    @swagger_auto_schema(auto_schema=None)
     def thumbnail(self, request, pk=None):
         attachment = self.get_object()
         path = attachment.path
@@ -130,16 +226,30 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return HttpResponse(thumbnail.read(), "image/jpeg")
 
 
+attachments_param = openapi.Parameter(
+    "attachments",
+    openapi.IN_QUERY,
+    required=True,
+    description="Comma delimited list of attachment IDs",
+    type=openapi.TYPE_STRING,
+)
+
+
 class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
     """Attachment view to download attachment."""
 
     queryset = models.Attachment.objects
     lookup_field = "path"
+    filter_backends = []
+    pagination_class = None
+    # use empty serializer to avoid an exception on schema generation
+    serializer_class = Serializer
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
         return queryset.filter_group(self.request.group).distinct()
 
+    @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
         download_path = kwargs.get(self.lookup_field)
@@ -161,6 +271,12 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
         response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
         return response
 
+    @swagger_auto_schema(
+        tags=["File download service"],
+        manual_parameters=[attachments_param, group_param],
+        operation_summary="Download one or multiple files",
+        operation_description="If multiple files are requested, they are served together in a *.zip file.",
+    )
     def list(self, request, **kwargs):
         if not request.query_params.get("attachments"):
             raise ValidationError(_('Specifying an "attachments" filter is mandatory!'))
@@ -226,8 +342,22 @@ class AttachmentSectionView(viewsets.ReadOnlyModelViewSet):
         queryset = super().get_queryset()
         return queryset.filter_group(self.request.group)
 
+    @swagger_auto_schema(
+        tags=["File-Section service"], operation_summary="Get file section information"
+    )
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["File-Section service"],
+        operation_summary="Get list of file section information",
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
 
 class TemplateView(views.ModelViewSet):
+    swagger_schema = None
     queryset = models.Template.objects
     filterset_class = filters.TemplateFilterSet
     serializer_class = serializers.TemplateSerializer
@@ -315,6 +445,7 @@ class TemplateView(views.ModelViewSet):
 
 
 class AttachmentDownloadHistoryView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     queryset = models.AttachmentDownloadHistory.objects.all()
     ordering_fields = ("date_time", "name")
     filterset_class = filters.AttachmentDownloadHistoryFilterSet

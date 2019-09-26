@@ -8,6 +8,7 @@ from . import filters, models, serializers
 
 
 class NotificationTemplateView(viewsets.ModelViewSet):
+    swagger_schema = None
     queryset = models.NotificationTemplate.objects.all()
     serializer_class = serializers.NotificationTemplateSerializer
     filterset_class = filters.NotificationTemplateFilterSet
