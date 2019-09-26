@@ -16,7 +16,9 @@
           <td>{{get row column.name}}</td>
         {{/each}}
         <td class="uk-text-right">
-          <button type="button" title="Eintrag Löschen" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+          {{#if (gt applicants.length 1)}}
+            <button type="button" title="Eintrag Löschen" data-test-delete-row class="uk-icon-button" uk-icon="trash" {{action (perform deleteRow) row}}></button>
+          {{/if}}
         </td>
       </tr>
     {{/each}}
@@ -29,8 +31,6 @@
     </tr>
   </tfoot>
 </table>
-
-{{camac-input-error error}}
 
 <div id="modal-applicants" uk-modal>
   <div class="uk-modal-dialog uk-modal-body">
@@ -50,12 +50,7 @@
               {{camac-hint-dialog column.hint}}
             {{/if}}
           </label>
-          {{component (concat 'camac-input-' column.type)
-            renderInPlace=true
-            config=column.config
-            on-change=(action 'change' column.name)
-            model=(hash value=(get _value column.name))
-          }}
+          {{input type=column.type on-change=(action 'change' column.name) value=(get _value column.name) class="uk-input"}}
           {{#with (get this (concat '_value.error.' column.name)) as |error|}}
             {{camac-input-error error.validation}}
           {{/with}}

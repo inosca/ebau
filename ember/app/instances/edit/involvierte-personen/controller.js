@@ -12,7 +12,7 @@ export default Controller.extend({
   init() {
     this._super(...arguments);
     this.columns = [
-      { label: "E-Mail", name: "email", required: true, type: "text" }
+      { label: "E-Mail", name: "email", required: true, type: "email" }
     ];
   },
 
@@ -46,32 +46,40 @@ export default Controller.extend({
 
       yield applicant.save();
 
-      this.set(
-        "applicants",
-        yield this.store
-          .peekAll("applicant")
-          .filterBy("instance.id", this.get("model.instance.id"))
-      );
+      yield this.refreshList();
 
       this.setProperties({
         editedRow: null,
-        showEdit: false
+        showEdit: false,
+        newApplicant: null
       });
       UIkit.modal("#modal-applicants").hide();
     }
   }).restartable(),
 
   deleteRow: task(function*(row) {
-    if (this.get("applicants.length") > 1) {
-      yield this.applicants.find(a => a.email === row.email).destroyRecord();
-    } else {
-      this.set("error", ["Es muss mindestens eine Person bestehen"]);
-    }
+    yield this.applicants.find(a => a.email === row.email).destroyRecord();
+    yield this.refreshList();
 
     this.setProperties({
       editedRow: null,
       showEdit: false
     });
+  }),
+
+  async refreshList() {
+    this.set(
+      "applicants",
+      await this.store
+        .peekAll("applicant")
+        .filterBy("instance.id", this.get("model.instance.id"))
+    );
+  },
+
+  saveErrors: computed("newApplicant.adapterError.errors.[]", function() {
+    return this.getWithDefault("newApplicant.adapterError.errors", []).map(
+      e => e.detail
+    );
   }),
 
   _value: computed("editedRow", "columns.[]", function() {
@@ -81,12 +89,6 @@ export default Controller.extend({
       this.columns.reduce((map, f) => {
         return { ...map, [f.name]: () => this._validate };
       }, {})
-    );
-  }),
-
-  saveErrors: computed("newApplicant.adapterError.errors.[]", function() {
-    return this.getWithDefault("newApplicant.adapterError.errors", []).map(
-      e => e.detail
     );
   }),
 
