@@ -11328,7 +11328,7 @@
   },
   {
     "fields": {
-      "body": "Sie wurden Eingeladen das Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nBevor Sie loslegen k\u00f6nne, m\u00fcssen Sie sich hier {{ registration_link }} noch registrieren.",
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "service": null,
       "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
@@ -11339,7 +11339,7 @@
   },
   {
     "fields": {
-      "body": "Sie wurden Eingeladen das Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n",
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
       "service": null,
       "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
