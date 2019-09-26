@@ -11328,7 +11328,7 @@
   },
   {
     "fields": {
-      "body": "Sie wurden Eingeladen das Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nBevor Sie loslegen k\u00f6nne mussten Sie sich hier {{ registration_link }} noch registrieren.",
+      "body": "Sie wurden Eingeladen das Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nBevor Sie loslegen k\u00f6nne, m\u00fcssen Sie sich hier {{ registration_link }} noch registrieren.",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
       "service": null,
       "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
