@@ -104,11 +104,11 @@ def test_applicant_create(
     created_email,
     passed_email,
     expected_status,
-    settings,
+    application_settings,
     notification_template,
 ):
-    settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"]["NEW"] = notification_template.pk
-    settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"][
+    application_settings["NOTIFICATIONS"]["APPLICANT"]["NEW"] = notification_template.pk
+    application_settings["NOTIFICATIONS"]["APPLICANT"][
         "EXISTING"
     ] = notification_template.pk
 
