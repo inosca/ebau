@@ -4180,3 +4180,29 @@ class AttachmentExtensionService(models.Model):
         managed = True
         db_table = "ATTACHMENT_EXTENSION_SERVICE"
         unique_together = (("attachment_extension", "service"),)
+
+
+class Archive(models.Model):
+    archive_id = models.AutoField(db_column="ARCHIVE_ID", primary_key=True)
+    identifier = models.TextField(db_column="IDENTIFIER", unique=True)
+    path = models.TextField(db_column="PATH", unique=True)
+    first_download = models.DateTimeField(
+        db_column="FIRST_DOWNLOAD", null=True, blank=True
+    )
+    created = models.DateTimeField(db_column="CREATED")
+    instance = models.ForeignKey(
+        "instance.Instance",
+        models.DO_NOTHING,
+        db_column="INSTANCE_ID",
+        related_name="+",
+    )
+    attachment_section = models.ForeignKey(
+        "document.AttachmentSection",
+        models.DO_NOTHING,
+        db_column="ATTACHMENT_SECTION_ID",
+        related_name="+",
+    )
+
+    class Meta:
+        managed = True
+        db_table = "ARCHIVE"
