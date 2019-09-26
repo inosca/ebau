@@ -217,6 +217,9 @@ REQUEST_LOGGING_CONTENT_TYPES = env.list(
 # Managing files
 
 MEDIA_ROOT = env.str("DJANGO_MEDIA_ROOT", default=default(ROOT_DIR("media")))
+ATTACHMENT_ZIP_PATH = env.str(
+    "DJANGO_ATTACHMENT_ZIP_PATH", default="/tmp/camac/tmpfiles/zips/"
+)
 
 DEFAULT_FILE_STORAGE = env.str(
     "DJANGO_DEFAULT_FILE_STORAGE", default="django.core.files.storage.FileSystemStorage"
