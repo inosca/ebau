@@ -48051,6 +48051,15 @@
   },
   {
     "fields": {
+      "circulation_answer_type": 1,
+      "language": "fr",
+      "name": "R\u00e9ponse"
+    },
+    "model": "core.circulationanswertypet",
+    "pk": 130000
+  },
+  {
+    "fields": {
       "name": "",
       "sort": 3
     },
@@ -48085,6 +48094,24 @@
   },
   {
     "fields": {
+      "circulation_state_id": 1,
+      "language": "fr",
+      "name": "En cours"
+    },
+    "model": "core.circulationstatet",
+    "pk": 130000
+  },
+  {
+    "fields": {
+      "circulation_state_id": 2,
+      "language": "fr",
+      "name": "Termin\u00e9"
+    },
+    "model": "core.circulationstatet",
+    "pk": 130001
+  },
+  {
+    "fields": {
       "name": null,
       "page_id": null,
       "parent_specific_activations": 0
@@ -48100,6 +48127,15 @@
     },
     "model": "core.circulationtypet",
     "pk": 20000
+  },
+  {
+    "fields": {
+      "circulation_type": 20000,
+      "language": "fr",
+      "name": "Standard Circulation"
+    },
+    "model": "core.circulationtypet",
+    "pk": 130000
   },
   {
     "fields": {
@@ -60123,7 +60159,7 @@
   {
     "fields": {
       "language": "fr",
-      "name": "",
+      "name": "Point de vue",
       "notice_type": 1
     },
     "model": "core.noticetypet",
@@ -60132,7 +60168,7 @@
   {
     "fields": {
       "language": "fr",
-      "name": "",
+      "name": "Dispositions accessoires",
       "notice_type": 20000
     },
     "model": "core.noticetypet",
