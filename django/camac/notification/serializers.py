@@ -71,6 +71,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
+    registration_link = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
@@ -206,7 +207,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             public_base_url=settings.PUBLIC_BASE_URL, instance_id=(instance.pk)
         )
 
-    def get_registrations_link(self, instance):
+    def get_registration_link(self, instance):
         return settings.REGISTRATION_URL
 
     def get_base_url(self, instance):
