@@ -1,5 +1,6 @@
 import reversion
 from django.contrib.postgres.fields import ArrayField, JSONField
+from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
 
@@ -39,13 +40,13 @@ class Attachment(models.Model):
         "AttachmentSection", related_name="attachments"
     )
     is_parcel_picture = models.PositiveIntegerField(
-        db_column="IS_PARCEL_PICTURE", default=0
+        db_column="IS_PARCEL_PICTURE", default=0, validators=[MaxValueValidator(1)]
     )
     digital_signature = models.PositiveSmallIntegerField(
-        db_column="DIGITAL_SIGNATURE", default=0
+        db_column="DIGITAL_SIGNATURE", default=0, validators=[MaxValueValidator(1)]
     )
     is_confidential = models.PositiveSmallIntegerField(
-        db_column="IS_CONFIDENTIAL", default=0
+        db_column="IS_CONFIDENTIAL", default=0, validators=[MaxValueValidator(1)]
     )
 
     identifier = models.CharField(

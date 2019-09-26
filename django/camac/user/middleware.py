@@ -1,6 +1,7 @@
 import logging
 
 from django.conf import settings
+from django.contrib.auth.models import AnonymousUser
 from django.utils.functional import SimpleLazyObject
 
 from . import models
@@ -29,7 +30,7 @@ def get_group(request):
         # no specific group is definied, default group of client is used
         # it is allowed that user may not be in this group
         group = None
-        if request.auth:
+        if getattr(request, "auth", False):
             client = request.auth["aud"]
             filters = {"name": client.title()}
             if settings.APPLICATION.get("IS_MULTILINGUAL", False):
@@ -42,9 +43,10 @@ def get_group(request):
 
         # fallback, default group of user
         if group is None:
-            group_qs = models.UserGroup.objects.filter(
-                user=request.user, default_group=1
-            )
+            user = getattr(request, "user", None)
+            if user is None or isinstance(user, AnonymousUser):
+                user = models.User.objects.get(username="guest").pk
+            group_qs = models.UserGroup.objects.filter(user=user, default_group=1)
             group_qs = group_qs.select_related("group", "group__role", "group__service")
             user_group = group_qs.first()
             group = user_group and user_group.group

@@ -7,6 +7,15 @@ from camac.relations import FormDataResourceRelatedField
 from camac.user.models import Group, Service
 
 
+class CurrentUserDefault(CurrentUserDefault):
+    def set_context(self, serializer_field):
+        # When generating the schema with our custom FileUploadSwaggerAutoSchema
+        # we don't have access to the request object
+        self.user = None
+        if "request" in serializer_field.context:
+            self.user = serializer_field.context["request"].user
+
+
 class CurrentUserResourceRelatedField(ResourceRelatedField):
     """User resource related field restricting user to current user."""
 
@@ -32,7 +41,7 @@ class GroupResourceRelatedField(ResourceRelatedField):
         request = self.context["request"]
 
         return Group.objects.filter(
-            Q(pk__in=request.user.groups.values("group_id")) | Q(pk=request.group.pk)
+            Q(pk__in=request.user.groups.values("pk")) | Q(pk=request.group.pk)
         )
 
 
