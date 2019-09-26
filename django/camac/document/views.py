@@ -188,30 +188,32 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
         )
         download_path = str(attachment.path)
         response["X-Accel-Redirect"] = "/%s" % escape_uri_path(download_path)
+        response["X-Sendfile"] = smart_bytes(
+            os.path.join(settings.MEDIA_ROOT, download_path)
+        )
 
         if filtered_qs.count() > 1:
             response = HttpResponse(content_type="application/zip")
-            temp_path = "/tmp/camac/tmpfiles/zips"
-            if not os.path.exists(temp_path):
-                os.makedirs(temp_path)
+
+            if not os.path.exists(settings.ATTACHMENT_ZIP_PATH):
+                os.makedirs(settings.ATTACHMENT_ZIP_PATH)
+
             file_name = f"attachments-{str(uuid4())[:7]}.zip"
-            download_path = f"/zips/{file_name}"
-            with zipfile.ZipFile(
-                f"{temp_path}/{file_name}", "w", zipfile.ZIP_DEFLATED
-            ) as zipf:
+            file_path = os.path.join(settings.ATTACHMENT_ZIP_PATH, file_name)
+
+            with zipfile.ZipFile(file_path, "w", zipfile.ZIP_DEFLATED) as zipf:
                 for attachment in filtered_qs:
                     zipf.write(
                         os.path.join(settings.MEDIA_ROOT, str(attachment.path)),
                         arcname=attachment.name,
                     )
+
             response[
                 "Content-Disposition"
             ] = 'attachment; filename="%s"' % escape_uri_path("attachments.zip")
-            response["X-Accel-Redirect"] = "%s" % escape_uri_path(download_path)
+            response["X-Accel-Redirect"] = "%s" % escape_uri_path(f"/zips/{file_name}")
+            response["X-Sendfile"] = smart_bytes(file_path)
 
-        response["X-Sendfile"] = smart_bytes(
-            os.path.join(settings.MEDIA_ROOT, download_path)
-        )
         return response
 
 
