@@ -35,7 +35,7 @@
 <div id="modal-applicants" uk-modal>
   <div class="uk-modal-dialog uk-modal-body">
     <form {{action (perform saveRow) on='submit'}}>
-      <button type="button" class="uk-modal-close-default" uk-close {{action (toggle 'showEdit' this)}}></button>
+      <button type="button" class="uk-modal-close-default" uk-close></button>
 
       <h2 class="uk-modal-title">Eintrag hinzufügen</h2>
 
@@ -59,7 +59,7 @@
       {{camac-input-error saveErrors}}
 
       <div class="uk-text-right">
-        {{#uk-button class="uk-modal-close" on-click=(action (mut showEdit) false)}}Abbrechen{{/uk-button}}
+        {{#uk-button class="uk-modal-close"}}Abbrechen{{/uk-button}}
         {{#uk-button loading=saveRow.isRunning disabled=(not _value.isValid) color='primary' type='submit'}}Speichern{{/uk-button}}
       </div>
     </form>

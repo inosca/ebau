@@ -26,7 +26,7 @@ export default Controller.extend({
 
     yield this.setProperties({
       editedRow: row,
-      showEdit: true
+      newApplicant: null
     });
   }).drop(),
 
@@ -50,7 +50,6 @@ export default Controller.extend({
 
       this.setProperties({
         editedRow: null,
-        showEdit: false,
         newApplicant: null
       });
       UIkit.modal("#modal-applicants").hide();
@@ -62,8 +61,7 @@ export default Controller.extend({
     yield this.refreshList();
 
     this.setProperties({
-      editedRow: null,
-      showEdit: false
+      editedRow: null
     });
   }),
 
@@ -72,6 +70,7 @@ export default Controller.extend({
       "applicants",
       await this.store
         .peekAll("applicant")
+        .filterBy("id")
         .filterBy("instance.id", this.get("model.instance.id"))
     );
   },
