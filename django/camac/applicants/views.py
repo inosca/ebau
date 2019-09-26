@@ -21,9 +21,9 @@ class ApplicantsView(viewsets.ModelViewSet, InstanceQuerysetMixin):
         created = super().create(request)
 
         # send notification email when configured
-        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"].get(
+        notification_template = settings.APPLICATION["NOTIFICATIONS"]["APPLICANT"][
             "EXISTING" if created.data["invitee"] else "NEW"
-        )
+        ]
         if notification_template:
             context = self.get_serializer_context()
             sendmail_data = {
