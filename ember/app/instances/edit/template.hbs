@@ -1,5 +1,5 @@
 {{#with model.instance as |instance|}}
-  <ul class="uk-width-1-1 uk-flex-center" uk-tab>
+  <ul class="uk-width-1-1" uk-tab>
     <li class={{if (eq router.currentRouteName 'instances.edit.index') 'uk-active'}}>
       {{link-to 'Gesuch' 'instances.edit.index' class='uk-text-bold'}}
     </li>
