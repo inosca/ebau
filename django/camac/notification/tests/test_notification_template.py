@@ -190,6 +190,55 @@ def test_notification_template_sendmail(
             "user@example.com",
             "Municipality",
             """
+                REGISTRATION_LINK: {{registration_link}}
+            """,
+        )
+    ],
+)
+def test_notification_placeholders(
+    admin_client,
+    instance,
+    instance_service,
+    notification_template,
+    mailoutbox,
+    activation,
+    settings,
+):
+    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "attributes": {"recipient-types": ["applicant"]},
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    response = admin_client.post(url, data=data)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    assert len(mailoutbox) == 1
+
+    mail = mailoutbox[0]
+
+    assert [
+        placeholder.strip()
+        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        .strip()
+        .split("\n")
+    ] == ["REGISTRATION_LINK: http://camac-ng-portal.local"]
+
+
+@pytest.mark.parametrize(
+    "user__email,role__name,notification_template__body",
+    [
+        (
+            "user@example.com",
+            "Municipality",
+            """
                 BASE_URL: {{BASE_URL}}
                 EBAU_NUMBER: {{EBAU_NUMBER}}
                 FORM_NAME: {{FORM_NAME}}
