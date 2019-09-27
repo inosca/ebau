@@ -126872,6 +126872,24 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": "service-account-test-gemeinde@placeholder.org",
+      "language": "de",
+      "last_login": "2018-02-23T14:27:27Z",
+      "name": "test-gemeinde",
+      "password": null,
+      "phone": null,
+      "surname": "test-gemeinde",
+      "username": "service-account-test-gemeinde",
+      "zip": null
+    },
+    "model": "user.user",
+    "pk": 9
+  },
+  {
+    "fields": {
       "default_group": 1,
       "group": 1,
       "user": 1
@@ -126998,6 +127016,15 @@
   },
   {
     "fields": {
+      "default_group": 1,
+      "group": 20003,
+      "user": 9
+    },
+    "model": "user.usergroup",
+    "pk": 20120
+  },
+  {
+    "fields": {
       "city": "Geneva",
       "language": "en",
       "user": 2
@@ -127049,5 +127076,23 @@
     },
     "model": "user.usert",
     "pk": 6
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "language": "en",
+      "user": 9
+    },
+    "model": "user.usert",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "language": "fr",
+      "user": 9
+    },
+    "model": "user.usert",
+    "pk": 8
   }
 ]

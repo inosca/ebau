@@ -7,6 +7,7 @@ from . import filters, models, serializers
 
 
 class ApplicantsView(viewsets.ModelViewSet, InstanceQuerysetMixin):
+    swagger_schema = None
     filterset_class = filters.ApplicantFilterSet
     serializer_class = serializers.ApplicantSerializer
     queryset = models.Applicant.objects.all().select_related(

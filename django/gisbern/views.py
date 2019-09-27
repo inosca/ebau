@@ -2,12 +2,14 @@ from os import path
 
 import requests
 from django.conf import settings
+from drf_yasg.utils import swagger_auto_schema
 from lxml import etree
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
 
+@swagger_auto_schema(method="get", auto_schema=None)
 @api_view(["GET"])
 @permission_classes([])
 def gis_data_view(request, egrid, format=None):

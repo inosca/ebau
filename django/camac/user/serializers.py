@@ -9,7 +9,11 @@ from . import models
 
 class CurrentGroupDefault(object):
     def set_context(self, serializer_field):
-        self.group = serializer_field.context["request"].group
+        # When generating the schema with our custom FileUploadSwaggerAutoSchema
+        # we don't have access to the request object
+        self.group = None
+        if "request" in serializer_field.context:
+            self.group = serializer_field.context["request"].group
 
     def __call__(self):
         return self.group
@@ -20,7 +24,11 @@ class CurrentGroupDefault(object):
 
 class CurrentServiceDefault(object):
     def set_context(self, serializer_field):
-        self.service = serializer_field.context["request"].group.service
+        # When generating the schema with our custom FileUploadSwaggerAutoSchema
+        # we don't have access to the request object
+        self.service = None
+        if "request" in serializer_field.context:
+            self.service = serializer_field.context["request"].group.service
 
     def __call__(self):
         return self.service
