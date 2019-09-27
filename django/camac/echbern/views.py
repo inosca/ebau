@@ -258,6 +258,7 @@ XML = """\
 
 
 class GetNextView(RetrieveAPIView):
+    swagger_schema = None
     queryset = Instance.objects
     group_required = False
 
