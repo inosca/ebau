@@ -1,0 +1,551 @@
+<xs:schema xmlns:eCH-0039="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/3" xmlns:eCH-0046="http://www.ech.ch/xmlns/eCH-0046/1" targetNamespace="http://www.ech.ch/xmlns/eCH-0039/2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
+	<xs:annotation>
+		<xs:documentation xml:lang="DE">E-Government-Schnittstelle: Version des vorliegenden Schemas: 2.0</xs:documentation>
+		<xs:documentation xml:lang="DE">Hinweis: Die Reihenfolge der Elemente der Typendefinitionen entspricht nicht immer der Reihenfolge in der Dokumentation, da die Elemente im Schema zusätzlich aufgrund ihrer Qualifikation obgligatorisch / optional geordnet werden.</xs:documentation>
+		<xs:documentation xml:lang="DE">Änderungsdokumentation: 21.05.2010: Daniel Wittwer: Anpassung des Typs von headerType:uniqueIdBusinessTransactionType</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0058/3" schemaLocation="ech_0058_3_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0046/1" schemaLocation="ech_0046_1_0.xsd"/>
+	<xs:complexType name="addressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Adresse: Basiskomponente zur Abbildung von Kontaktinformationen. Basiert auf eCH-0046 Datenstandard Kontakt.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>UUID: Universally Unique Identifier der Adresse. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transactionRole" type="eCH-0039:transactionRoleType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Transaktionsrolle: Angabe, ob es sich bei der Rolle um einen Absender, Emfpänger oder Beteiligten (Kopie an) handelt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="position" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="contact" type="eCH-0046:contactType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Kontaktinformatione: Implementiert eCH-0046 Datenstandard Kontakt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="actionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="De">Aktion für Erstmeldungen: Fachliche Austauschanweisung für den Empfänger.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="classificationType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Klassifizierungskategorie: Grad, indem das Dossier und die enthaltenen Unterlagen vor unberechtigter Einsicht geschützt werden müssen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="unclassified"/>
+			<xs:enumeration value="confidential"/>
+			<xs:enumeration value="secret"/>
+			<xs:enumeration value="in_house"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="commentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Kommentar: Enthält einen Kommentar. Die Sprache kann im Attribut angegeben werden.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:token">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="commentsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Kommentare: Enthält einen oder mehrere
+				Kommentare.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comment" type="eCH-0039:commentType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="directiveType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Anweisung: Basiskomponente zur Abbildung von Bearbeitungsanweisungen an den Empfänger.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier der Anweisung. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="instruction" type="eCH-0039:directiveInstructionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="priority" type="eCH-0039:priorityType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="titles" type="eCH-0039:titlesType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Titel: Benennung von Tätigkeit und Gegenstand des Geschäftsvorfalls.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="deadline" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Bearbeitungsfrist: Tag, an dem die Aktivität erledigt sein soll.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Leistungsidentifikation: Identifikation der Leistung gemäss eCH-0070 Leistungsinventar eGov CH.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="directiveInstructionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Instruktion: Bearbeitungsanweisung einer Anweisung.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="process"/>
+			<xs:enumeration value="external_process"/>
+			<xs:enumeration value="information"/>
+			<xs:enumeration value="comment"/>
+			<xs:enumeration value="approve"/>
+			<xs:enumeration value="sign"/>
+			<xs:enumeration value="send"/>
+			<xs:enumeration value="complete"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="documentStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Status: Zustand des Dokuments in Bezug auf Veränderbarkeit und Gültigkeit.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="undefined"/>
+			<xs:enumeration value="created"/>
+			<xs:enumeration value="in_process"/>
+			<xs:enumeration value="signed"/>
+			<xs:enumeration value="approved"/>
+			<xs:enumeration value="sent"/>
+			<xs:enumeration value="canceled"/>
+			<xs:enumeration value="invalidated"/>
+			<xs:enumeration value="archived"/>
+			<xs:enumeration value="preserved"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="documentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dokument (Unterlage): Basiskomponente zur Abbildung der Metadaten von Dokumenten und Unterlagen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier des Dokuments. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="titles" type="eCH-0039:titlesType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="status" type="eCH-0039:documentStatusType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="files" type="eCH-0039:filesType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="classification" type="eCH-0039:classificationType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="openToThePublic" type="eCH-0039:openToThePublicType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hasPrivacyProtection" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datenschutzstufe: Markierung, die angibt, ob das Dokument besonders Schützenswerte Personendaten oder Persönlichkeitsprofile gemäss Datenschutzrecht enthält.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="openingDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Eröffnungsdatum: Tag, an dem das Dokument im GEVER-System einem Dossier zugeordnet worden ist.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="owner" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Eigentümer: Name des Eigentümers des Dokuments.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="signer" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Unterzeichner: Person, welche das Dokument unterzeichnet hat oder die Verantwortung dafür übernimmt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ourRecordReference" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Unser Aktenzeichen: Referenz auf das entsprechende Dossier des Absenders.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="keywords" type="eCH-0039:keywordsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="isLeadingDocument" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hauptdokument: Angabe, ob es sich um das Hauptdokument (führendes Dokument) handelt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="sortOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Sortierfolge: Angabe zur Reihenfolge der Sortierung von Dokumenten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentKind" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Dokumenttyp: Fachliche Beschreibung des Dokuments (z.B. Vertrag, Antrag, Antwort. u.a).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:simpleType name="dossierStatusType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Status: Zustand in Bezug auf den Lebenszyklus des Dossiers.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="undefined"/>
+			<xs:enumeration value="created"/>
+			<xs:enumeration value="in_process"/>
+			<xs:enumeration value="moved"/>
+			<xs:enumeration value="canceled"/>
+			<xs:enumeration value="closed"/>
+			<xs:enumeration value="archived"/>
+			<xs:enumeration value="invalidated"/>
+			<xs:enumeration value="in_selection"/>
+			<xs:enumeration value="preserved"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="dossierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dossier: Basiskomponente zur Abbildung von Dossiers und Subdossiers.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier des Dossiers. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="eCH-0039:dossierStatusType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="titles" type="eCH-0039:titlesType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="classification" type="eCH-0039:classificationType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hasPrivacyProtection" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datenschutzstufe: Markierung, die angibt, ob das Dokument besonders Schützenswerte Personendaten oder Persönlichkeitsprofile gemäss Datenschutzrecht enthält.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="openToThePublicType" type="eCH-0039:openToThePublicType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="caseReferenceLocalId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Ordnungsmerkmal: Ordnungsmerkmal des Dossiers, welches durch den Absender vergeben wird.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="openingDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datum: Datum, an welchem das Dossier eröffnet / registriert wurde. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="keywords" type="eCH-0039:keywordsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="links" type="eCH-0039:linksType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:complexType name="fileType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Datei: Metadaten der angehängten oder referenzierten
+				Datei.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="pathFileName" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Pfad: Pfad zur Datei. Dabei kann es sich um einen lokalen Pfad oder eine URL handeln. Der Pfad bildet sich aus Pfad + Name + Extension (Dateiendung). Handelt es sich um eine lokale Referenz innehalb der ZIP-Datei, so beginnt der Pfad mit files/dateiname.extension</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mimeType" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">MIME-Type der Datei.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="internalSortOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Sortierfolge: Angabe zur Reihenfolge der Sortierung bei Dokumenten, welche aus mehreren Dateien bestehen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="version" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hashCode" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hashwert: Hashwert der Datei.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hashCodeAlgorithm" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hashalgorithmus: Abkürzung des Algorithmus welcher zur Bildung des Hashwerts verwendet wurde.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:complexType name="filesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dateien: Enthält eine oder mehrere übergebene oder referenzierte Dateien.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="file" type="eCH-0039:fileType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="headerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Header: Enthält die Headerinformationen für Erstmeldungen und implementiert eCH-0058 (Version 3.0) Meldungsrahmen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="senderId" type="eCH-0058:participantIdType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageId" type="eCH-0058:messageIdType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Nachrichten-ID: Empfehlung des Einsatzes von UUID für die eindeutige Referenz von übermittelten Nachrichten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="messageGroup" type="eCH-0039:messageGroupType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageType" type="eCH-0058:messageTypeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sendingApplication" type="eCH-0058:sendingApplicationType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="action" type="eCH-0039:actionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testDeliveryFlag" type="eCH-0058:testDeliveryFlagType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="recipientId" type="eCH-0058:participantIdType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="originalSenderId" type="eCH-0058:participantIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="declarationLocalReference" type="eCH-0058:declarationLocalReferenceType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="referenceMessageId" type="eCH-0058:messageIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="uniqueIdBusinessTransaction" type="eCH-0058:uniqueIdBusinessTransactionType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ourBusinessReferenceId" type="eCH-0058:businessReferenceIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="yourBusinessReferenceId" type="eCH-0058:businessReferenceIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="subMessageType" type="eCH-0058:subMessageTypeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="partialDelivery" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="uniqueIdBusinessCase" type="eCH-0058:uniqueIdBusinessCaseType" maxOccurs="1"/>
+						<xs:element name="totalNumberOfPackages" type="eCH-0058:totalNumberOfPackagesType" maxOccurs="1"/>
+						<xs:element name="numberOfActualPackage" type="eCH-0058:numberOfActualPackageType" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="subjects" type="eCH-0039:subjectsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="object" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="initialMessageDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="eventDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="eventPeriod" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="modificationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="testData" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reference" type="eCH-0039:referenceType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="keywordType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Schlagwort: Enthält ein Schlagwort. Die Sprache kann im Attribut angegeben werden.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:token">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="keywordsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Schlagwörter: Enthält ein oder mehrere Schlagwörter.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="keyword" type="eCH-0039:keywordType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="linkType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Verweis: Referenz auf eine Ordnungssystemposition oder ein Dossier, welches in enger Beziehung mit dem Dossier steht ohne in direkter hierarchischer Linie mit ihm verknüpft zu sein.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:token">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="linksType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Links: Enthält ein oder mehrere Referenzen / Verweise. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="link" type="eCH-0039:linkType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="messageGroupType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Nachrichtengruppe: Identifiziert die Nachrichtengruppe und den Nachrichtentyp nach eCH-0039.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="messageGroupId" type="xs:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageTypeId" type="xs:nonNegativeInteger" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="openToThePublicType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Öffentlichkeitsstatus: Angabe, ob das Dossier / Dokument gemäss BGÖ schützenswerte Informationen enthält oder nicht.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="undefined"/>
+			<xs:enumeration value="public"/>
+			<xs:enumeration value="not_public"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="priorityType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Priorität: Angabe zur Dringlichkeit der Anweisung.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="undefined"/>
+			<xs:enumeration value="medium"/>
+			<xs:enumeration value="high"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="referenceType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Referenz: Basiskomponente welche die Referenz auf übergeordnete Leistungen und Geschäftsprozesse enthält.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier der Referenz. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceInventoryId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Leistungsinventar: Identifikationsnummer des referenzierten Leistungsinventars (gemäss eCH-0070 Leistungsinventar eGov CH) Leistungen sind immer eindeutig entweder einem lokalen, re¬gionalen oder globalen Inventar zugeordnet.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Identifikationsnummer: Eindeutige Identifikationsnummer einer Leistung (gemäss eCH-0070 Leistungsinventar eGov CH).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceTitle" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Titel: Bezeichnung der Leistung (gemäss eCH-0070 Leistungsinventar eGov CH).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="serviceProvider" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Leistungserbringer: Identifikation des Leistungserbringers (federführende Behörde oder Stelle) gemäss Schweizerischem Behördenverzeichnis.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="caseId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Geschäftsfall: Identifikation des Geschäftsfalls (wird von der federführenden Stelle vergeben).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="caseTitle" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Titel: Benennung des Geschäftsvorfalls.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="caseAnnotation" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Bemerkung: Informationen zum Geschäftsvorfall.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="reportActionType">
+		<xs:annotation>
+			<xs:documentation xml:lang="De">Aktion für Antwortmeldungen: Fachliche Austauschanweisung für den Empfänger.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="reportHeaderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Report Header: Enthält die Headerinformationen einer Antwortmeldungen und implementiert eCH-0058 Meldungsrahmen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="senderId" type="eCH-0058:participantIdType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageId" type="eCH-0058:messageIdType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Nachrichten-ID: Empfehlung des Einsatzes von UUID für die eindeutige Referenz von übermittelten Nachrichten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="messageGroup" type="eCH-0039:messageGroupType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="messageType" type="eCH-0058:messageTypeType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sendingApplication" type="eCH-0058:sendingApplicationType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="action" type="eCH-0039:reportActionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testDeliveryFlag" type="eCH-0058:testDeliveryFlagType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="recipientId" type="eCH-0058:participantIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="referenceMessageId" type="eCH-0058:messageIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ourBusinessReferenceId" type="eCH-0058:businessReferenceIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="yourBusinessReferenceId" type="eCH-0058:businessReferenceIdType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="uniqueIdBusinessTransaction" type="eCH-0058:uniqueIdBusinessTransactionType" minOccurs="0"/>
+			<xs:element name="subMessageType" type="eCH-0058:subMessageTypeType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="object" type="xs:anyType" maxOccurs="unbounded" minOccurs="0"/>
+			<xs:element name="initialMessageDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="testData" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="reference" type="eCH-0039:referenceType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Report Typ: Definiert die bei der Antwort möglichen Reporttypen (positiver und negativer Report).</xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="0">
+			<xs:element name="positiveReport" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="negativeReport" type="xs:anyType" minOccurs="0" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="subjectType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Betreff: Die Sprache kann im Attribut angegeben werden.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:token">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="subjectsType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Betreff: Enthält eine oder mehrere Betreff.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="subject" type="eCH-0039:subjectType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="titleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Titel: Enthält einen Titel. Die Sprache kann im Attribut angegeben werden.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="titlesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Titel: Enthält ein oder mehrere Titel.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence maxOccurs="1">
+			<xs:element name="title" maxOccurs="unbounded" minOccurs="1" type="eCH-0039:titleType" id="lang"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="transactionRoleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Transaktionsrolle: Angabe, ob es sich bei der Rolle um einen Absender, Emfpänger oder Beteiligten (Kopie an) handelt.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="sender"/>
+			<xs:enumeration value="addressee"/>
+			<xs:enumeration value="participant"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:attribute name="lang" type="xs:language">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Sprache: Attribut zur Angabe des Sprachcodes nach ISO 639-1 (zweistelliger Sprachcode). Ursprünglich RFC 1766.</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+</xs:schema>
