@@ -1,0 +1,362 @@
+<!-- edited on 24.08.2011 by Daniel Wittwer (IBM Schweiz AG) daniel.wittwer@ch.ibm.com --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eCH-0039="http://www.ech.ch/xmlns/eCH-0039/2" xmlns:eCH-0147T0="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/3" xmlns:eCH-0046="http://www.ech.ch/xmlns/eCH-0046/1" targetNamespace="http://www.ech.ch/xmlns/eCH-0147/T0/1" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation xml:lang="DE">eCH-0147T0 Nachrichtengruppe GEVER - Enthält Typendefinitionen, welche in beiden Nachrichtentypen T1 und T2 verwendet werden.</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0058/3" schemaLocation="ech_0058_3_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0039/2" schemaLocation="ech_0039_2_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0046/1" schemaLocation="ech_0046_1_0.xsd"/>
+	<xs:complexType name="addressType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Adresse: Basiskomponente zur Abbildung von Kontaktinformationen. Basiert auf eCH-0046 Datenstandard Kontakt.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>UUID: Universally Unique Identifier der Adresse. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="transactionRole" type="eCH-0039:transactionRoleType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Transaktionsrolle: Angabe, ob es sich bei der Rolle um einen Absender, Emfpänger oder Beteiligten (Kopie an) handelt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="position" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="contact" type="eCH-0046:contactType" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Kontaktinformatione: Implementiert eCH-0046 Datenstandard Kontakt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="applicationCustom" type="eCH-0147T0:applicationCustomType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addressesType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="address" type="eCH-0147T0:addressType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="applicationCustomType">
+		<xs:annotation>
+			<xs:documentation xml:lang="de">Anwendungsspezifische Erweiterung: Zusätzliche Anwendungsspezifsiche Metadaten für den Austausch.</xs:documentation>
+			<xs:documentation xml:lang="fr">Information supplémentaire pour l'échange entre applications</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="xs:anyType"> </xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="documentType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dokument (Unterlage) zur Abbildung der Metadaten von Dokumenten und Unterlagen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="uuid" type="xs:token">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier des Dokuments. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="1" name="titles" type="eCH-0039:titlesType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="status" type="eCH-0039:documentStatusType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="files" type="eCH-0147T0:filesType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="classification" type="eCH-0039:classificationType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="openToThePublic" type="eCH-0039:openToThePublicType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="hasPrivacyProtection" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datenschutzstufe: Markierung, die angibt, ob das Dokument besonders Schützenswerte Personendaten oder Persönlichkeitsprofile gemäss Datenschutzrecht enthält.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="openingDate" type="xs:date">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Eröffnungsdatum: Tag, an dem das Dokument im GEVER-System einem Dossier zugeordnet worden ist.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="owner" type="xs:token">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Eigentümer: Name des Eigentümers des Dokuments.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="signer" type="xs:token">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Unterzeichner: Person, welche das Dokument unterzeichnet hat oder die Verantwortung dafür übernimmt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="ourRecordReference" type="xs:token">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Unser Aktenzeichen: Referenz auf das entsprechende Dossier des Absenders.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="comments" type="eCH-0039:commentsType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="keywords" type="eCH-0039:keywordsType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="isLeadingDocument" type="xs:boolean">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hauptdokument: Angabe, ob es sich um das Hauptdokument (führendes Dokument) handelt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="sortOrder" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Sortierfolge: Angabe zur Reihenfolge der Sortierung von Dokumenten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="documentKind" type="xs:token">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Dokumenttyp: Fachliche Beschreibung des Dokuments (z.B. Vertrag, Antrag, Antwort. u.a).</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="applicationCustom" type="eCH-0147T0:applicationCustomType"/>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:complexType name="documentsType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="document" type="eCH-0147T0:documentType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="dossierType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dossier: Basiskomponente zur Abbildung von Dossiers und Subdossiers.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="uuid" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">UUID: Universally Unique Identifier des Dossiers. Referenz des Objekts, nicht der Nachricht.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="eCH-0039:dossierStatusType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="titles" type="eCH-0039:titlesType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="classification" type="eCH-0039:classificationType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hasPrivacyProtection" type="xs:boolean" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datenschutzstufe: Markierung, die angibt, ob das Dokument besonders Schützenswerte Personendaten oder Persönlichkeitsprofile gemäss Datenschutzrecht enthält.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="openToThePublicType" type="eCH-0039:openToThePublicType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="caseReferenceLocalId" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Ordnungsmerkmal: Ordnungsmerkmal des Dossiers, welches durch den Absender vergeben wird.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="openingDate" type="xs:date" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Datum: Datum, an welchem das Dossier eröffnet / registriert wurde. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="keywords" type="eCH-0039:keywordsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="links" type="eCH-0039:linksType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="addresses" type="eCH-0147T0:addressesType" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="dossiers" type="eCH-0147T0:dossiersType" minOccurs="0" maxOccurs="1"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="documents" type="eCH-0147T0:documentsType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="folders" type="eCH-0147T0:foldersType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="applicationCustom" type="eCH-0147T0:applicationCustomType"/>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:complexType name="dossiersType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="dossier" type="eCH-0147T0:dossierType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="errorsType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="error" type="eCH-0147T0:errorType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="errorType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="errorKind" type="eCH-0147T0:errorKindType"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="comments" type="eCH-0039:commentsType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="errorKindType">
+		<xs:annotation>
+			<xs:documentation xml:lang="De">Fehlermeldung für negative Antwortmeldungen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="notValid"/>
+			<xs:enumeration value="fileWithoutReference"/>
+			<xs:enumeration value="referenceWithoutFile"/>
+			<xs:enumeration value="unknownRecipient"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="eventReportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Definiert das Root-Element für message.xml einer Antwortmeldung.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="reportHeader" type="eCH-0147T0:reportHeaderType"/>
+			<xs:element maxOccurs="1" minOccurs="1" name="report" type="eCH-0147T0:reportType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="fileType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Datei: Metadaten der angehängten oder referenzierten
+				Datei.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="pathFileName" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Pfad: Pfad zur Datei. Dabei kann es sich um einen lokalen Pfad oder eine URL handeln. Der Pfad bildet sich aus Pfad + Name + Extension (Dateiendung). Handelt es sich um eine lokale Referenz innehalb der ZIP-Datei, so beginnt der Pfad mit files/dateiname.extension</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="mimeType" type="xs:token" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">MIME-Type der Datei.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="internalSortOrder" type="xs:nonNegativeInteger" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Sortierfolge: Angabe zur Reihenfolge der Sortierung bei Dokumenten, welche aus mehreren Dateien bestehen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="version" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="hashCode" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hashwert: Hashwert der Datei.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="hashCodeAlgorithm" type="xs:token" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Hashalgorithmus: Abkürzung des Algorithmus welcher zur Bildung des Hashwerts verwendet wurde.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="applicationCustom" type="eCH-0147T0:applicationCustomType"/>
+		</xs:sequence>
+		<xs:attribute ref="eCH-0039:lang"/>
+	</xs:complexType>
+	<xs:complexType name="filesType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Dateien: Enthält eine oder mehrere übergebene oder referenzierte Dateien.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="file" type="eCH-0147T0:fileType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="folderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Folder: Ordner, welcher zum Gruppieren von Dokumenten innerhalb eines Dossiers / Subdossiers dient (ein Ordner wird vor der Aussonderung an ein Archiv aufgelöst).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="folderTitles" type="eCH-0147T0:folderTitlesType"/>
+			<xs:element maxOccurs="1" minOccurs="0" name="documents" type="eCH-0147T0:documentsType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" name="applicationCustom" type="eCH-0147T0:applicationCustomType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="foldersType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="folder" type="eCH-0147T0:folderType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="folderTitlesType">
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="unbounded" name="folderTitle" type="eCH-0147T0:folderTitleType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="folderTitleType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Titel des Ordners: Enthält ein Titel. Die Sprache kann im Attribut angegeben werden.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="xs:token">
+				<xs:attribute ref="eCH-0039:lang"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="headerType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Header: Enthält die Headerinformationen für
+				Erstmeldungen und implementiert eCH-0058 Meldungsrahmen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element minOccurs="1" maxOccurs="1" name="senderId" type="xs:token"/>
+			<xs:element name="recipientId" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="originalSenderId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element minOccurs="0" maxOccurs="1" name="declarationLocalReference" type="xs:token"/>
+			<xs:element name="messageId" type="xs:token" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Nachrichten-ID: Empfehlung des Einsatzes von
+						UUID für die eindeutige Referenz von übermittelten
+						Nachrichten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="referenceMessageId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="uniqueBusinessTransactionId" type="xs:token" maxOccurs="1"/>
+			<xs:element name="ourBusinessReferenceId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="yourBusinessReferenceId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageType" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="subMessageType" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageGroup" type="eCH-0039:messageGroupType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sendingApplication" type="eCH-0058:sendingApplicationType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="subjects" type="eCH-0039:subjectsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="object" type="eCH-0147T0:objectType" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageDate" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="initialMessageDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="eventDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="eventPeriod" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="modificationDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="action" type="eCH-0039:actionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testDeliveryFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="reference" type="eCH-0039:referenceType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="objectType">
+		<xs:sequence>
+			<xs:element name="applicationCustom" type="eCH-0147T0:applicationCustomType" maxOccurs="1" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="negativeReportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Negativer Bericht: Bericht, welcher einer negativen Antwortmeldung angehängt werden kann (Gebrauch ist zu spezifizieren).</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="errors" type="eCH-0147T0:errorsType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="applicationCustom" type="eCH-0147T0:applicationCustomType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="positiveReportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Positiver Bericht: Bericht, welcher einer positiven Antwortmeldung angehängt werden kann.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="comments" type="eCH-0039:commentsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="applicationCustom" type="eCH-0147T0:applicationCustomType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reportHeaderType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Implementiert den Meldungsrahmen (Header) nach eCH-0058 für Antwortmeldungen.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="senderId" type="xs:token" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="recipientId" type="xs:token" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="messageId" type="xs:token" maxOccurs="1" minOccurs="1">
+				<xs:annotation>
+					<xs:documentation xml:lang="DE">Nachrichten-ID: Empfehlung des Einsatzes von
+							UUID für die eindeutige Referenz von übermittelten
+							Nachrichten.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="referenceMessageId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="uniqueBusinessTransactionId" type="xs:token" maxOccurs="1"/>
+			<xs:element name="ourBusinessReferenceId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="yourBusinessReferenceId" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageType" type="xs:int" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="subMessageType" type="xs:token" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="messageGroup" type="eCH-0039:messageGroupType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sendingApplication" type="eCH-0058:sendingApplicationType" maxOccurs="1" minOccurs="1"/>
+			<xs:element name="object" type="eCH-0147T0:objectType" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="initialMessageDate" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="action" type="eCH-0039:reportActionType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testDeliveryFlag" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="reference" type="eCH-0039:referenceType" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="reportType">
+		<xs:annotation>
+			<xs:documentation xml:lang="DE">Bericht: Enthält einen Bericht, welcher einer Antwortmeldung angehängt werden kann.</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element minOccurs="0" name="positiveReport" type="eCH-0147T0:positiveReportType" maxOccurs="1"/>
+			<xs:element minOccurs="0" name="negativeReport" type="eCH-0147T0:negativeReportType" maxOccurs="1"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>
