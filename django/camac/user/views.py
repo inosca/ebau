@@ -7,12 +7,14 @@ from . import filters, models, serializers
 
 
 class LocationView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     filterset_class = filters.LocationFilterSet
     serializer_class = serializers.LocationSerializer
     queryset = models.Location.objects.all()
 
 
 class UserView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     filterset_class = filters.UserFilterSet
     serializer_class = serializers.UserSerializer
     queryset = models.User.objects.all()
@@ -36,6 +38,7 @@ class UserView(viewsets.ReadOnlyModelViewSet):
 
 
 class ServiceView(viewsets.ModelViewSet):
+    swagger_schema = None
     filterset_class = filters.ServiceFilterSet
     serializer_class = serializers.ServiceSerializer
     queryset = models.Service.objects.all()
@@ -62,6 +65,7 @@ class ServiceView(viewsets.ModelViewSet):
 
 
 class PublicServiceView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.all()
@@ -73,6 +77,7 @@ class PublicServiceView(viewsets.ReadOnlyModelViewSet):
 class MeView(generics.RetrieveAPIView):
     """Me view returns current user."""
 
+    swagger_schema = None
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
     group_required = False
@@ -83,6 +88,7 @@ class MeView(generics.RetrieveAPIView):
 
 
 class RoleView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     serializer_class = serializers.RoleSerializer
     queryset = models.Role.objects.all()
 

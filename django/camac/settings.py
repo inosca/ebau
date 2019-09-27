@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.postgres",
     "django.contrib.contenttypes",
+    "django.contrib.staticfiles",
+    "drf_yasg",
     "camac.core.apps.DefaultConfig",
     "camac.user.apps.DefaultConfig",
     "camac.instance.apps.DefaultConfig",
@@ -221,6 +223,51 @@ ATTACHMENT_ZIP_PATH = env.str(
     "DJANGO_ATTACHMENT_ZIP_PATH", default="/tmp/camac/tmpfiles/zips/"
 )
 
+STATIC_ROOT = ROOT_DIR("staticfiles")
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = "/static/"
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+SWAGGER_SETTINGS = {
+    "USE_SESSION_AUTH": False,
+    "SECURITY_DEFINITIONS": {
+        "oauth2": {
+            "type": "oauth2",
+            "tokenUrl": "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token",
+            "authorizationUrl": "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/auth",
+            "flow": "application",
+            "scopes": {},
+        }
+    },
+    "DEFAULT_PAGINATOR_INSPECTORS": [
+        "camac.swagger.DjangoRestJsonApiResponsePagination",
+        "drf_yasg.inspectors.CoreAPICompatInspector",
+    ],
+    "DEFAULT_FIELD_INSPECTORS": [
+        "camac.swagger.ModelSerializerInspector",
+        "drf_yasg.inspectors.CamelCaseJSONFilter",
+        "drf_yasg.inspectors.ReferencingSerializerInspector",
+        "drf_yasg.inspectors.RelatedFieldInspector",
+        "drf_yasg.inspectors.ChoiceFieldInspector",
+        "drf_yasg.inspectors.FileFieldInspector",
+        "drf_yasg.inspectors.DictFieldInspector",
+        "drf_yasg.inspectors.HiddenFieldInspector",
+        "drf_yasg.inspectors.RecursiveFieldInspector",
+        "drf_yasg.inspectors.SerializerMethodFieldInspector",
+        "drf_yasg.inspectors.SimpleFieldInspector",
+        "drf_yasg.inspectors.StringDefaultFieldInspector",
+    ],
+}
+
 DEFAULT_FILE_STORAGE = env.str(
     "DJANGO_DEFAULT_FILE_STORAGE", default="django.core.files.storage.FileSystemStorage"
 )
@@ -336,6 +383,7 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.MultiPartRenderer",
     ),
     "TEST_REQUEST_DEFAULT_FORMAT": "vnd.api+json",
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema",
 }
 
 JSON_API_FORMAT_FIELD_NAMES = "dasherize"

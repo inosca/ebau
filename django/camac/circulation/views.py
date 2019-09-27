@@ -11,6 +11,7 @@ from . import filters, serializers
 
 
 class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
+    swagger_schema = None
     queryset = Circulation.objects.select_related("instance")
     serializer_class = serializers.CirculationSerializer
     filterset_class = filters.CirculationFilterSet
@@ -24,6 +25,7 @@ class CirculationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
 
 
 class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
+    swagger_schema = None
     instance_field = "circulation.instance"
     serializer_class = serializers.ActivationSerializer
     queryset = Activation.objects.select_related("circulation")

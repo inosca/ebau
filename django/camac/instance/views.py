@@ -27,6 +27,7 @@ from . import filters, mixins, models, serializers, validators
 
 
 class InstanceStateView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     serializer_class = serializers.InstanceStateSerializer
     ordering = ("sort", "name")
 
@@ -35,6 +36,7 @@ class InstanceStateView(viewsets.ReadOnlyModelViewSet):
 
 
 class FormView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
     serializer_class = serializers.FormSerializer
 
     def get_queryset(self):
@@ -42,6 +44,7 @@ class FormView(viewsets.ReadOnlyModelViewSet):
 
 
 class FormConfigDownloadView(RetrieveAPIView):
+    swagger_schema = None
     path = settings.APPLICATION_DIR("form.json")
 
     def retrieve(self, request, **kwargs):
@@ -53,6 +56,7 @@ class FormConfigDownloadView(RetrieveAPIView):
 class InstanceView(
     mixins.InstanceQuerysetMixin, mixins.InstanceEditableMixin, views.ModelViewSet
 ):
+    swagger_schema = None
     instance_field = None
     """
     Instance field is actually model itself.
@@ -327,6 +331,7 @@ class InstanceView(
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 
+    swagger_schema = None
     serializer_class = serializers.InstanceResponsibilitySerializer
     filterset_class = filters.InstanceResponsibilityFilterSet
     queryset = models.InstanceResponsibility.objects.all()
@@ -392,6 +397,7 @@ class FormFieldView(
     is allowed to read instance may read form data as well.
     """
 
+    swagger_schema = None
     serializer_class = serializers.FormFieldSerializer
     filterset_class = filters.FormFieldFilterSet
     queryset = models.FormField.objects.all()
@@ -428,6 +434,7 @@ class FormFieldView(
 class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Journal entries used for internal use and not viewable by applicant."""
 
+    swagger_schema = None
     serializer_class = serializers.JournalEntrySerializer
     filterset_class = filters.JournalEntryFilterSet
     queryset = models.JournalEntry.objects.all()
@@ -489,6 +496,7 @@ class JournalEntryView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
     """Issues used for internal use and not viewable by applicant."""
 
+    swagger_schema = None
     serializer_class = serializers.IssueSerializer
     filterset_class = filters.InstanceIssueFilterSet
     queryset = models.Issue.objects.all()
@@ -550,6 +558,7 @@ class IssueView(mixins.InstanceQuerysetMixin, views.ModelViewSet):
 class IssueTemplateView(views.ModelViewSet):
     """Issues templates used for internal use and not viewable by applicant."""
 
+    swagger_schema = None
     serializer_class = serializers.IssueTemplateSerializer
     filterset_class = filters.IssueTemplateFilterSet
     queryset = models.IssueTemplate.objects.all()
@@ -614,6 +623,7 @@ class IssueTemplateView(views.ModelViewSet):
 class IssueTemplateSetView(views.ModelViewSet):
     """Issue sets used for internal use and not viewable by applicant."""
 
+    swagger_schema = None
     serializer_class = serializers.IssueTemplateSetSerializer
     filterset_class = filters.IssueTemplateSetFilterSet
     queryset = models.IssueTemplateSet.objects.all()
