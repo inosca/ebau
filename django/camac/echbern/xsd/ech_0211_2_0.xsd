@@ -1,0 +1,471 @@
+<!-- Mit XMLSpy v2012 sp1 (http://www.altova.com) von Martin Stingelin (Stingelin Informatik GmbH) bearbeitet --><!-- edited with XMLSpy v2012 rel. 2 sp1 (http://www.altova.com) by Martin Stingelin (Stingelin Informatik GmbH) --><xs:schema xmlns:eCH-0211="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eCH-0129="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:eCH-0058="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:eCH-0097="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:eCH-0010="http://www.ech.ch/xmlns/eCH-0010/6" xmlns:eCH-0147T0="http://www.ech.ch/xmlns/eCH-0147/T0/1" xmlns:eCH-0147T2="http://www.ech.ch/xmlns/eCH-0147/T2/1" xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/4" xmlns:eCH-0007="http://www.ech.ch/xmlns/eCH-0007/6" targetNamespace="http://www.ech.ch/xmlns/eCH-0211/2" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0">
+	<xs:annotation>
+		<xs:documentation>Ausgabedatum: 12.06.2019</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0129/5" schemaLocation="ech_0129_5_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0058/5" schemaLocation="ech_0058_5_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0010/6" schemaLocation="ech_0010_6_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0097/2" schemaLocation="ech_0097_2_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0147/T0/1" schemaLocation="ech_0147_t0_1.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0147/T2/1" schemaLocation="ech_0147_t2_1.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/4" schemaLocation="ech_0044_4_1.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0007/6" schemaLocation="ech_0007_6_0.xsd"/>
+	<xs:simpleType name="eventTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="submit"/>
+			<xs:enumeration value="file subsequently"/>
+			<xs:enumeration value="applicant request"/>
+			<xs:enumeration value="withdraw planning permission application"/>
+			<xs:enumeration value="claim"/>
+			<xs:enumeration value="task"/>
+			<xs:enumeration value="notice ruling"/>
+			<xs:enumeration value="status notification"/>
+			<xs:enumeration value="close dossier"/>
+			<xs:enumeration value="archive dossier"/>
+			<xs:enumeration value="notice involved party"/>
+			<xs:enumeration value="notice kind of proceedings"/>
+			<xs:enumeration value="change contact"/>
+			<xs:enumeration value="accompanying report"/>
+			<xs:enumeration value="change responsibility"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="remarkType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="descriptionType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1000"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="applicationTypeType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="proceedingTypeType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="intendedPurposeType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dossierIdentificationType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="judgementType">
+		<xs:restriction base="xs:nonNegativeInteger">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="natureRiskType">
+		<xs:sequence>
+			<xs:element name="riskDesignation">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="riskExists" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="constructionProjectInformationType">
+		<xs:sequence>
+			<xs:element name="constructionProject" type="eCH-0129:constructionProjectType"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="municipality" type="eCH-0007:swissMunicipalityType"/>
+				<xs:element name="canton" type="eCH-0007:cantonAbbreviationType"/>
+				<xs:element name="confederation">
+					<xs:simpleType>
+						<xs:restriction base="xs:token">
+							<xs:enumeration value="CH"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="planningPermissionApplicationStatusType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="submitted"/>
+			<xs:enumeration value="in progress"/>
+			<xs:enumeration value="withdrawn"/>
+			<xs:enumeration value="suspended"/>
+			<xs:enumeration value="appellant process"/>
+			<xs:enumeration value="objection pending"/>
+			<xs:enumeration value="decision issued"/>
+			<xs:enumeration value="decision legally binding"/>
+			<xs:enumeration value="building freeze"/>
+			<xs:enumeration value="under construction"/>
+			<xs:enumeration value="building clearance"/>
+			<xs:enumeration value="dossier closed"/>
+			<xs:enumeration value="dossier archived"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="planningPermissionApplicationIdentificationType">
+		<xs:sequence>
+			<xs:element name="localID" type="eCH-0129:namedIdType" maxOccurs="unbounded"/>
+			<xs:element name="otherID" type="eCH-0129:namedIdType" maxOccurs="unbounded"/>
+			<xs:element name="dossierIdentification" type="eCH-0211:dossierIdentificationType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="planningPermissionApplicationType">
+		<xs:sequence>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="description" type="eCH-0211:descriptionType"/>
+			<xs:element name="applicationType" type="eCH-0211:applicationTypeType" minOccurs="0"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="proceedingType" type="eCH-0211:proceedingTypeType" minOccurs="0"/>
+			<xs:element name="profilingYesNo" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="profilingDate" type="xs:date" minOccurs="0"/>
+			<xs:element name="intendedPurpose" type="eCH-0211:intendedPurposeType" minOccurs="0"/>
+			<xs:element name="parkingLotsYesNo" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="natureRisk" type="eCH-0211:natureRiskType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="constructionCost" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:totalDigits value="12"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="publication" type="eCH-0211:publicationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="namedMetaData" type="eCH-0129:namedMetaDataType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="locationAddress" type="eCH-0010:swissAddressInformationType"/>
+			<xs:element name="realestateInformation" type="eCH-0211:realestateInformationType" maxOccurs="unbounded"/>
+			<xs:element name="zone" type="eCH-0211:zoneType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="constructionProjectInformation" type="eCH-0211:constructionProjectInformationType" minOccurs="0"/>
+			<xs:element name="directive" type="eCH-0147T2:directiveType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="decisionRuling" type="eCH-0211:decisionRulingType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" maxOccurs="unbounded"/>
+			<xs:element name="referencedPlanningPermissionApplication" type="eCH-0211:planningPermissionApplicationIdentificationType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="publicationType">
+		<xs:sequence>
+			<xs:element name="officialGazette">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="publicationText" type="eCH-0211:remarkType"/>
+			<xs:element name="publicationDate" type="xs:date"/>
+			<xs:element name="publicationTill" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="zoneType">
+		<xs:sequence>
+			<xs:element name="abbreviatedDesignation" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="25"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="zoneDesignation">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="zoneType" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="decisionRulingType">
+		<xs:sequence>
+			<xs:element name="judgement" type="eCH-0211:judgementType" minOccurs="0"/>
+			<xs:element name="ruling" type="eCH-0211:remarkType"/>
+			<xs:element name="date" type="xs:date"/>
+			<xs:element name="rulingAuthority" type="eCH-0097:organisationIdentificationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="decisionAuthorityInformationType">
+		<xs:sequence>
+			<xs:element name="decisionAuthority" type="eCH-0129:buildingAuthorityType"/>
+			<xs:element name="municipality" type="eCH-0007:swissMunicipalityType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="entryOfficeType">
+		<xs:sequence>
+			<xs:element name="entryOfficeIdentification" type="eCH-0097:organisationIdentificationType"/>
+			<xs:element name="municipality" type="eCH-0007:swissMunicipalityType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="specialistDepartmentType">
+		<xs:sequence>
+			<xs:element name="specialistDepartmentIdentification" type="eCH-0097:organisationIdentificationType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="roleType">
+		<xs:restriction base="xs:token">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="relationshipToPersonType">
+		<xs:sequence>
+			<xs:element name="role" type="eCH-0211:roleType"/>
+			<xs:element name="person" type="eCH-0129:personType"/>
+			<xs:element name="deputy" type="eCH-0010:mailAddressType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="realestateInformationType">
+		<xs:sequence>
+			<xs:element name="realestate" type="eCH-0129:realestateType"/>
+			<xs:element name="municipality" type="eCH-0007:swissMunicipalityType"/>
+			<xs:element name="buildingInformation" type="eCH-0211:buildingInformationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="placeName" type="eCH-0129:placeNameType" minOccurs="0"/>
+			<xs:element name="owner" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ownerIdentification" minOccurs="0">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="personIdentification" type="eCH-0044:personIdentificationLightType"/>
+									<xs:element name="organisationIdentification" type="eCH-0097:organisationIdentificationType"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ownerAdress" type="eCH-0010:mailAddressType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="buildingInformationType">
+		<xs:sequence>
+			<xs:element name="building" type="eCH-0129:buildingType"/>
+			<xs:element name="dwelling" type="eCH-0129:dwellingType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventBaseDeliveryType">
+		<xs:sequence>
+			<xs:element name="planningPermissionApplicationInformation" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="planningPermissionApplication" type="eCH-0211:planningPermissionApplicationType"/>
+						<xs:element name="relationshipToPerson" type="eCH-0211:relationshipToPersonType" maxOccurs="unbounded"/>
+						<xs:element name="decisionAuthority" type="eCH-0211:decisionAuthorityInformationType"/>
+						<xs:element name="entryOffice" type="eCH-0211:entryOfficeType"/>
+						<xs:element name="specialistDepartment" type="eCH-0211:specialistDepartmentType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="document" type="eCH-0147T0:documentType" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventSubmitPlanningPermissionApplicationType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="submit"/>
+						<xs:enumeration value="file subsequently"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplication" type="eCH-0211:planningPermissionApplicationType"/>
+			<xs:element name="relationshipToPerson" type="eCH-0211:relationshipToPersonType" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventChangeContactType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="change contact"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="directive" type="eCH-0147T2:directiveType" minOccurs="0"/>
+			<xs:element name="relationshipToPerson" type="eCH-0211:relationshipToPersonType" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventRequestType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="applicant request"/>
+						<xs:enumeration value="withdraw planning permission application"/>
+						<xs:enumeration value="claim"/>
+						<xs:enumeration value="task"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="directive" type="eCH-0147T2:directiveType" minOccurs="0"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventAccompanyingReportType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="accompanying report"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="judgement" type="eCH-0211:judgementType" minOccurs="0"/>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="directive" type="eCH-0147T2:directiveType" minOccurs="0"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="ancillaryClauses" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventCloseArchiveDossierType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="close dossier"/>
+						<xs:enumeration value="archive dossier"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventKindOfProceedingsType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="notice kind of proceedings"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventNoticeInvolvedPartyType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="notice involved party"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="decisionAuthority" type="eCH-0211:decisionAuthorityInformationType"/>
+			<xs:element name="entryOffice" type="eCH-0211:entryOfficeType"/>
+			<xs:element name="specialistDepartment" type="eCH-0211:specialistDepartmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventNoticeType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="notice ruling"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="decisionRuling" type="eCH-0211:decisionRulingType"/>
+			<xs:element name="document" type="eCH-0147T0:documentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventChangeResponsibilityType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="change responsibility"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="entryOffice" type="eCH-0211:entryOfficeType"/>
+			<xs:element name="responsibleDecisionAuthority" type="eCH-0211:decisionAuthorityInformationType"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventStatusNotificationType">
+		<xs:sequence>
+			<xs:element name="eventType">
+				<xs:simpleType>
+					<xs:restriction base="eCH-0211:eventTypeType">
+						<xs:enumeration value="status notification"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="planningPermissionApplicationIdentification" type="eCH-0211:planningPermissionApplicationIdentificationType"/>
+			<xs:element name="status" type="eCH-0211:planningPermissionApplicationStatusType"/>
+			<xs:element name="remark" type="eCH-0211:remarkType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:anyType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="delivery">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="deliveryHeader" type="eCH-0058:headerType"/>
+				<xs:choice>
+					<xs:element name="eventBaseDelivery" type="eCH-0211:eventBaseDeliveryType"/>
+					<xs:element name="eventSubmitPlanningPermissionApplication" type="eCH-0211:eventSubmitPlanningPermissionApplicationType"/>
+					<xs:element name="eventChangeContact" type="eCH-0211:eventChangeContactType"/>
+					<xs:element name="eventRequest" type="eCH-0211:eventRequestType"/>
+					<xs:element name="eventAccompanyingReport" type="eCH-0211:eventAccompanyingReportType"/>
+					<xs:element name="eventCloseArchiveDossier" type="eCH-0211:eventCloseArchiveDossierType"/>
+					<xs:element name="eventKindOfProceedings" type="eCH-0211:eventKindOfProceedingsType"/>
+					<xs:element name="eventNoticeInvolvedParty" type="eCH-0211:eventNoticeInvolvedPartyType"/>
+					<xs:element name="eventNotice" type="eCH-0211:eventNoticeType"/>
+					<xs:element name="eventStatusNotification" type="eCH-0211:eventStatusNotificationType"/>
+					<xs:element name="eventChangeResponsibility" type="eCH-0211:eventChangeResponsibilityType"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

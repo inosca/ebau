@@ -1,0 +1,128 @@
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Martin Stingelin (Stingelin Informatik GmbH) --><!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by BITUSER (Bundesamt für Informatik und Telekommunikation) --><xs:schema xmlns:eCH-0046="http://www.ech.ch/xmlns/eCH-0046/1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:eCH-0010="http://www.ech.ch/xmlns/eCH-0010/3" xmlns:eCH-0044="http://www.ech.ch/xmlns/eCH-0044/1" targetNamespace="http://www.ech.ch/xmlns/eCH-0046/1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0">
+	<xs:annotation>
+		<xs:documentation>Ausgabedatum: 09.05.2009</xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0010/3" schemaLocation="ech_0010_3_0.xsd"/>
+	<xs:import namespace="http://www.ech.ch/xmlns/eCH-0044/1" schemaLocation="ech_0044_1_0.xsd"/>
+	<xs:complexType name="contactType">
+		<xs:sequence>
+			<xs:element name="localID" type="eCH-0044:namedPersonIdType" minOccurs="0"/>
+			<xs:element name="address" type="eCH-0046:addressType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="email" type="eCH-0046:emailType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="phone" type="eCH-0046:phoneType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="internet" type="eCH-0046:internetType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addressType">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="addressCategory" type="eCH-0046:addressCategoryType"/>
+				<xs:element name="otherAddressCategory" type="eCH-0046:freeKategoryTextType"/>
+			</xs:choice>
+			<xs:element name="postalAddress" type="eCH-0010:mailAddressType"/>
+			<xs:element name="validity" type="eCH-0046:dateRangeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="emailType">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="emailCategory" type="eCH-0046:emailCategoryType"/>
+				<xs:element name="otherEmailCategory" type="eCH-0046:freeKategoryTextType"/>
+			</xs:choice>
+			<xs:element name="emailAddress" type="eCH-0046:emailAddressType"/>
+			<xs:element name="validity" type="eCH-0046:dateRangeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="phoneType">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="phoneCategory" type="eCH-0046:phoneCategoryType"/>
+				<xs:element name="otherPhoneCategory" type="eCH-0046:freeKategoryTextType"/>
+			</xs:choice>
+			<xs:element name="phoneNumber" type="eCH-0046:phoneNumberType"/>
+			<xs:element name="validity" type="eCH-0046:dateRangeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="internetType">
+		<xs:sequence>
+			<xs:choice minOccurs="0">
+				<xs:element name="internetCategory" type="eCH-0046:internetCategoryType"/>
+				<xs:element name="otherInternetCategory" type="eCH-0046:freeKategoryTextType"/>
+			</xs:choice>
+			<xs:element name="internetAddress" type="eCH-0046:internetAddressType"/>
+			<xs:element name="validity" type="eCH-0046:dateRangeType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="emailCategoryType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="emailAddressType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*@[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="addressCategoryType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="phoneCategoryType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="phoneNumberType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="\d{10,20}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="internetCategoryType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="internetAddressType">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="100"/>
+			<xs:whiteSpace value="collapse"/>
+			<xs:pattern value="http://.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="freeKategoryTextType">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="100"/>
+			<xs:whiteSpace value="collapse"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="dateRangeType">
+		<xs:sequence>
+			<xs:element name="dateFrom" type="xs:date" minOccurs="0"/>
+			<xs:element name="dateTo" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="contactRoot">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="contact" type="eCH-0046:contactType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
