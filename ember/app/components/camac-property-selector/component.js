@@ -91,9 +91,8 @@ export default Component.extend({
   minZoom: 0,
   maxZoom: 11,
   layers: LAYERS.join(","),
-  points: A(),
   parcels: A(),
-  affectedLayers: null,
+  affectedLayers: A(),
   searchObject: null,
   selectedSearchResult: null,
   selectedMunicipality: null,
@@ -105,6 +104,7 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
+    this.points = [[]];
     this.initSelection.perform();
   },
 
@@ -138,13 +138,21 @@ export default Component.extend({
       this.set("selected.parcels", parcels);
     }
 
+    if (this.selected.points && "lat" in this.selected.points[0]) {
+      this.selected.points = [this.selected.points];
+    } else if (this.selected.points && 0 in this.selected.points[0]) {
+      this.selected.points.forEach(
+        (ps, i) => (this.selected.points[i] = Object.values(ps))
+      );
+    }
+
     this.setProperties({
       parcels: this.selected.parcels || A(),
-      points: this.selected.points || A()
+      points: this.selected.points || [[]]
     });
 
     if (this.selected.municipality) {
-      this.selectedMunicipality = this.selected.municipality;
+      this.set("selectedMunicipality", this.selected.municipality);
     }
   }).restartable(),
 
@@ -160,8 +168,18 @@ export default Component.extend({
    * The selection needs to be a plain js array because
    * ember-leaflet can not handle EmberArrays
    */
+  /*
   selection: computed("points.@each.{lat,lng}", function() {
     return this.get("points").toArray();
+  }),
+  */
+
+  pointsFlat: computed("points.@each.length", function() {
+    return this.points.flat();
+  }),
+
+  coordinates: computed("pointsFlat.@each.{lat,lng}", function() {
+    return this.points;
   }),
 
   municipalities: computed("parcels.[]", function() {
@@ -230,64 +248,66 @@ export default Component.extend({
       return;
     }
 
-    yield this.points.pushObject({ ...e.latlng });
+    yield this.get("points.lastObject").pushObject({ ...e.latlng });
   }).enqueue(),
 
   getLayers: task(function*() {
-    const coordinates = this.get("points")
-      .map(p => {
-        const coor = LatLngToEPSG3857(p.lat, p.lng);
-        return `${coor.x},${coor.y}`;
-      })
-      .join(" ");
+    yield this.points.forEach(async pointSet => {
+      const coordinates = pointSet
+        .map(p => {
+          const coor = LatLngToEPSG3857(p.lat, p.lng);
+          return `${coor.x},${coor.y}`;
+        })
+        .join(" ");
 
-    let type = "Polygon";
-    let geometryFilter = `<gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs>`;
+      let type = "Polygon";
+      let geometryFilter = `<gml:outerBoundaryIs><gml:LinearRing><gml:coordinates>${coordinates}</gml:coordinates></gml:LinearRing></gml:outerBoundaryIs>`;
 
-    if (this.get("points").length === 1) {
-      type = "Point";
-      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
-    } else if (this.get("points").length === 2) {
-      type = "LineString";
-      geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
-    }
-
-    const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:DWithin></ogc:Filter>`;
-
-    const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
-
-    const layers = QUERY_LAYERS.map(layer => {
-      const exact = layer === PARCEL_LAYER;
-      return `<wfs:Query typeName="${layer}">${
-        exact ? exactFilter : fuzzyFilter
-      }</wfs:Query>`;
-    }).join(",");
-
-    const response = yield this.ajax.request(
-      "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
-      {
-        method: "POST",
-        dataType: "xml",
-        contentType: "text/xml",
-        data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`
+      if (pointSet.length === 1) {
+        type = "Point";
+        geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
+      } else if (pointSet.length === 2) {
+        type = "LineString";
+        geometryFilter = `<gml:coordinates>${coordinates}</gml:coordinates>`;
       }
-    );
-    const serializer = new XMLSerializer();
-    const responseObject = xml2js(serializer.serializeToString(response), {
-      compact: true
-    });
 
-    if (
-      !Array.isArray(
-        responseObject["wfs:FeatureCollection"]["gml:featureMember"]
-      )
-    ) {
-      responseObject["wfs:FeatureCollection"]["gml:featureMember"] = [
-        responseObject["wfs:FeatureCollection"]["gml:featureMember"]
-      ];
-    }
-    this._parseAffectedLayers(responseObject);
-    this._parseAffectedParcels(responseObject);
+      const fuzzyFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:DWithin><ogc:Distance units="meter">15</ogc:Distance><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:DWithin></ogc:Filter>`;
+
+      const exactFilter = `<ogc:Filter xmlns="http://www.opengis.net/ogc"><ogc:Intersects><ogc:PropertyName>*</ogc:PropertyName><gml:${type} srsName="urn:ogc:def:crs:EPSG::3857">${geometryFilter}</gml:${type}></ogc:Intersects></ogc:Filter>`;
+
+      const layers = QUERY_LAYERS.map(layer => {
+        const exact = layer === PARCEL_LAYER;
+        return `<wfs:Query typeName="${layer}">${
+          exact ? exactFilter : fuzzyFilter
+        }</wfs:Query>`;
+      }).join(",");
+
+      const response = await this.ajax.request(
+        "https://map.geo.sz.ch/main/wsgi/mapserv_proxy",
+        {
+          method: "POST",
+          dataType: "xml",
+          contentType: "text/xml",
+          data: `<wfs:GetFeature version="1.1.0" service="wfs" srsName="EPSG:3857">${layers}</wfs:GetFeature>`
+        }
+      );
+      const serializer = new XMLSerializer();
+      const responseObject = xml2js(serializer.serializeToString(response), {
+        compact: true
+      });
+
+      if (
+        !Array.isArray(
+          responseObject["wfs:FeatureCollection"]["gml:featureMember"]
+        )
+      ) {
+        responseObject["wfs:FeatureCollection"]["gml:featureMember"] = [
+          responseObject["wfs:FeatureCollection"]["gml:featureMember"]
+        ];
+      }
+      this._parseAffectedLayers(responseObject);
+      this._parseAffectedParcels(responseObject);
+    });
   }).restartable(),
 
   _parseAffectedLayers(wfsResponse) {
@@ -296,7 +316,7 @@ export default Component.extend({
     ].map(fm => {
       return Object.getOwnPropertyNames(fm).firstObject;
     });
-    const layerSet = new Set(layers);
+    const layerSet = new Set([...this.affectedLayers, ...layers]);
     this.set("affectedLayers", [...layerSet]);
   },
 
@@ -345,7 +365,7 @@ export default Component.extend({
       });
     });
 
-    this.set("parcels", parcels);
+    this.set("parcels", [...this.parcels, ...parcels].uniqBy("egrid"));
     this.focusOnParcels.perform();
   },
 
@@ -353,11 +373,17 @@ export default Component.extend({
     yield this._map.fitBounds(this.parcelBounds);
   }).enqueue(),
 
+  addPointSet: task(function*() {
+    if (this.get("points.lastObject.length")) {
+      yield this.points.pushObject([]);
+    }
+  }),
+
   clear: task(function*() {
     yield this.setProperties({
       parcels: A(),
-      points: A(),
-      affectedLayers: null,
+      points: [[]],
+      affectedLayers: A(),
       selectedMunicipality: null,
       searchObject: null
     });
@@ -398,7 +424,10 @@ export default Component.extend({
 
   updatePoint: task(function*(point, e) {
     const location = e.target.getLatLng();
-    yield setProperties(this.points.find(p => p === point), location);
+    yield setProperties(
+      this.get("points.lastObject").find(p => p === point),
+      location
+    );
   }).enqueue(),
 
   // Temporary function to check if the selected municipality is active
