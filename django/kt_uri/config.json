@@ -10183,6 +10183,15 @@
   },
   {
     "fields": {
+      "action_name": "index",
+      "available_resource": "download",
+      "hidden": 0
+    },
+    "model": "core.araction",
+    "pk": 21
+  },
+  {
+    "fields": {
       "name": "PDF"
     },
     "model": "core.attachmentextension",
@@ -12338,6 +12347,15 @@
     },
     "model": "core.availableinstanceresource",
     "pk": "workflow"
+  },
+  {
+    "fields": {
+      "controller_name": "download",
+      "description": "Download module",
+      "module_name": "download"
+    },
+    "model": "core.availableresource",
+    "pk": "download"
   },
   {
     "fields": {
@@ -45371,6 +45389,19 @@
     },
     "model": "core.workflowitem",
     "pk": 86
+  },
+  {
+    "fields": {
+      "automatical": 1,
+      "different_color": 0,
+      "is_building_authority": 0,
+      "is_workflow": 1,
+      "name": "Empfangsbest\u00e4tigung Baubewilligung",
+      "position": 51,
+      "workflow_section": 1
+    },
+    "model": "core.workflowitem",
+    "pk": 87
   },
   {
     "fields": {
