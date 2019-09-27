@@ -47089,7 +47089,7 @@
   {
     "fields": {
       "attachment_section": 63,
-      "mode": "read",
+      "mode": "write",
       "role": 1130
     },
     "model": "document.attachmentsectionroleacl",
@@ -47098,7 +47098,7 @@
   {
     "fields": {
       "attachment_section": 23,
-      "mode": "read",
+      "mode": "write",
       "role": 1130
     },
     "model": "document.attachmentsectionroleacl",
@@ -47107,7 +47107,7 @@
   {
     "fields": {
       "attachment_section": 24,
-      "mode": "read",
+      "mode": "write",
       "role": 1130
     },
     "model": "document.attachmentsectionroleacl",
