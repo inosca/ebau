@@ -199,7 +199,7 @@ instances:
 
     add: "Ajouter un utilisateur"
 
-    assSuccess: "L'utilisateur a été ajouté avec succès"
+    addSuccess: "L'utilisateur a été ajouté avec succès"
     addError: "Quelque chose a mal tourné lors de l'ajout de l'utilisateur"
     deleteSuccess: "L'utilisateur a été supprimé avec succès"
     deleteError: "Quelque chose a mal tourné lors de la suppression de l'utilisateur"
