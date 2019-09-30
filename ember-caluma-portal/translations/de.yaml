@@ -198,8 +198,9 @@ instances:
     created: "Erfasst am"
     user: "Hinzugefügt von"
     email: "E-Mail"
+    unregistered: "noch nicht registriert"
 
-    add: "Benutzer hinzufügen"
+    add: "Einladen"
 
     addSuccess: "Der Benutzer wurde erfolgreich hinzugefügt"
     addError: "Beim Hinzufügen des Benutzers ist etwas schief gelaufen"
