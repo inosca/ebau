@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from camac.user.models import Group
+from camac.user.models import GroupT
 
 
 def set_uppercase(word):
@@ -15,13 +15,13 @@ def create_sql_file(sql_file):
         "Leitbehörde",
         "Baukontrolle",
     ]
-    groups = Group.objects.filter(trans__language="fr")
+    groups = GroupT.objects.filter(language="fr")
     file = open(sql_file, "w+")
     for group in groups:
-        if any(item in group.get_trans_attr("name") for item in german):
+        if any(item in group.name for item in german):
             file.write(
                 f"""UPDATE "GROUP_T"
-            SET "NAME" = '{set_uppercase(group.get_trans_attr("name").replace(
+            SET "NAME" = '{set_uppercase(group.name.replace(
                     "Sachbearbeiter", "collaborateur"
                 ).replace(
                     "Einsichtsberechtigte", "personne autorisée à consulter"
@@ -34,9 +34,7 @@ def create_sql_file(sql_file):
                 ).replace (
                     "'", "''"
                 ))}'
-            WHERE "NAME" = '{group.get_trans_attr("name").replace("'", "''")}'
-            AND "LANGUAGE" = 'fr';
-            \n"""
+            WHERE id = {group.pk};"""
             )
     file.close()
 
