@@ -102,6 +102,7 @@ class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             user=self.context["request"].user,
             invitee=self.context["request"].user,
             created=timezone.now(),
+            email=self.context["request"].user.email,
         )
 
         if instance.location_id is not None:

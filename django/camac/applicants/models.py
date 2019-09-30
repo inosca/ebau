@@ -14,9 +14,15 @@ class Applicant(models.Model):
         "user.User", models.DO_NOTHING, db_column="USER_ID", related_name="+"
     )
     invitee = models.ForeignKey(
-        "user.User", models.DO_NOTHING, db_column="APPLICANT_USER_ID", related_name="+"
+        "user.User",
+        models.DO_NOTHING,
+        db_column="APPLICANT_USER_ID",
+        related_name="+",
+        blank=True,
+        null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
+    email = models.EmailField()
 
     class Meta:
         managed = True

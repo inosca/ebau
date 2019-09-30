@@ -71,6 +71,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     instance_id = serializers.IntegerField()
     public_dossier_link = serializers.SerializerMethodField()
     internal_dossier_link = serializers.SerializerMethodField()
+    registration_link = serializers.SerializerMethodField()
     leitbehoerde_name = serializers.SerializerMethodField()
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
@@ -206,6 +207,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             public_base_url=settings.PUBLIC_BASE_URL, instance_id=(instance.pk)
         )
 
+    def get_registration_link(self, instance):
+        return settings.REGISTRATION_URL
+
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
 
@@ -306,8 +310,10 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "service",
             "leitbehoerde",
             "construction_control",
+            "email_list",
         )
     )
+    email_list = serializers.CharField(required=False)
 
     def _get_recipients_applicant(self, instance):
         return [
@@ -338,6 +344,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             service__service_group__name="construction-control",
             active=1,
         ).values_list("service__email", flat=True)
+
+    def _get_recipients_email_list(self, instance):
+        return self.validated_data["email_list"].split(",")
 
     def create(self, validated_data):
         subj_prefix = settings.EMAIL_PREFIX_SUBJECT
