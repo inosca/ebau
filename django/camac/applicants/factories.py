@@ -12,6 +12,7 @@ class ApplicantFactory(DjangoModelFactory):
     user = SubFactory(UserFactory)
     invitee = SubFactory(UserFactory)
     created = Faker("future_datetime", tzinfo=pytz.UTC)
+    email = Faker("email")
 
     class Meta:
         model = models.Applicant
