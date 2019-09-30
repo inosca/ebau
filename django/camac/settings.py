@@ -237,37 +237,6 @@ STATICFILES_FINDERS = (
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
-SWAGGER_SETTINGS = {
-    "USE_SESSION_AUTH": False,
-    "SECURITY_DEFINITIONS": {
-        "oauth2": {
-            "type": "oauth2",
-            "tokenUrl": "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token",
-            "authorizationUrl": "http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/auth",
-            "flow": "application",
-            "scopes": {},
-        }
-    },
-    "DEFAULT_PAGINATOR_INSPECTORS": [
-        "camac.swagger.DjangoRestJsonApiResponsePagination",
-        "drf_yasg.inspectors.CoreAPICompatInspector",
-    ],
-    "DEFAULT_FIELD_INSPECTORS": [
-        "camac.swagger.ModelSerializerInspector",
-        "drf_yasg.inspectors.CamelCaseJSONFilter",
-        "drf_yasg.inspectors.ReferencingSerializerInspector",
-        "drf_yasg.inspectors.RelatedFieldInspector",
-        "drf_yasg.inspectors.ChoiceFieldInspector",
-        "drf_yasg.inspectors.FileFieldInspector",
-        "drf_yasg.inspectors.DictFieldInspector",
-        "drf_yasg.inspectors.HiddenFieldInspector",
-        "drf_yasg.inspectors.RecursiveFieldInspector",
-        "drf_yasg.inspectors.SerializerMethodFieldInspector",
-        "drf_yasg.inspectors.SimpleFieldInspector",
-        "drf_yasg.inspectors.StringDefaultFieldInspector",
-    ],
-}
-
 DEFAULT_FILE_STORAGE = env.str(
     "DJANGO_DEFAULT_FILE_STORAGE", default="django.core.files.storage.FileSystemStorage"
 )
@@ -472,3 +441,35 @@ GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 CALUMA_URL = env.str("CALUMA_URL", "http://caluma:8000/graphql/")
 
 ECH_API = env.bool("ECH_API", default=ENV != "production")
+
+# Swagger settings
+SWAGGER_SETTINGS = {
+    "USE_SESSION_AUTH": False,
+    "SECURITY_DEFINITIONS": {
+        "oauth2": {
+            "type": "oauth2",
+            "tokenUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
+            "authorizationUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
+            "flow": "application",
+            "scopes": {},
+        }
+    },
+    "DEFAULT_PAGINATOR_INSPECTORS": [
+        "camac.swagger.DjangoRestJsonApiResponsePagination",
+        "drf_yasg.inspectors.CoreAPICompatInspector",
+    ],
+    "DEFAULT_FIELD_INSPECTORS": [
+        "camac.swagger.ModelSerializerInspector",
+        "drf_yasg.inspectors.CamelCaseJSONFilter",
+        "drf_yasg.inspectors.ReferencingSerializerInspector",
+        "drf_yasg.inspectors.RelatedFieldInspector",
+        "drf_yasg.inspectors.ChoiceFieldInspector",
+        "drf_yasg.inspectors.FileFieldInspector",
+        "drf_yasg.inspectors.DictFieldInspector",
+        "drf_yasg.inspectors.HiddenFieldInspector",
+        "drf_yasg.inspectors.RecursiveFieldInspector",
+        "drf_yasg.inspectors.SerializerMethodFieldInspector",
+        "drf_yasg.inspectors.SimpleFieldInspector",
+        "drf_yasg.inspectors.StringDefaultFieldInspector",
+    ],
+}

@@ -78,13 +78,6 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
 group_param = openapi.Parameter(
     "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
 )
-file_data_param = openapi.Parameter(
-    "path",
-    openapi.IN_BODY,
-    required=True,
-    description="File data",
-    type=openapi.TYPE_FILE,
-)
 
 
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
