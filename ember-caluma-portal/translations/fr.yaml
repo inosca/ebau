@@ -196,8 +196,9 @@ instances:
     created: "Enregistré sur"
     user: "Ajouté par"
     email: "e-mail"
+    unregistered: "pas encore enregistré"
 
-    add: "Ajouter un utilisateur"
+    add: "Inviter"
 
     addSuccess: "L'utilisateur a été ajouté avec succès"
     addError: "Quelque chose a mal tourné lors de l'ajout de l'utilisateur"
