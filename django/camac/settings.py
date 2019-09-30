@@ -180,10 +180,6 @@ INTERNAL_INSTANCE_URL_TEMPLATE = (
     "{internal_base_url}/index/redirect-to-instance-resource/instance-id/{instance_id}"
 )
 
-REGISTRATION_URL = env.str(
-    "DJANGO_REGISTRATION_URL", default="http://camac-ng-portal.local"
-)
-
 # Logging
 
 LOGGING = {
@@ -410,6 +406,10 @@ KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
     "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=120
+)
+REGISTRATION_URL = env.str(
+    "DJANGO_REGISTRATION_URL",
+    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
 )
 
 # Email definition
