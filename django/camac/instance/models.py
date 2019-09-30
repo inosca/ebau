@@ -1,4 +1,5 @@
 import reversion
+from django.conf import settings
 from django.contrib.postgres.fields import JSONField
 from django.db import models
 
@@ -140,6 +141,16 @@ class Instance(models.Model):
         "user.Location", models.PROTECT, null=True, blank=True, db_column="LOCATION_ID"
     )
     services = models.ManyToManyField("user.Service", through="core.InstanceService")
+
+    @property
+    def active_service(self):
+        instance_service = core_models.InstanceService.objects.filter(
+            active=1,
+            instance=self,
+            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+        ).first()
+
+        return instance_service.service if instance_service else None
 
     class Meta:
         managed = True
