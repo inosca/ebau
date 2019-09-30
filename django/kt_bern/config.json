@@ -145736,6 +145736,28 @@
   },
   {
     "fields": {
+      "body": null,
+      "purpose": null,
+      "service": null,
+      "subject": null,
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "body": null,
+      "purpose": null,
+      "service": null,
+      "subject": null,
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 40
+  },
+  {
+    "fields": {
       "body": "Guten Tag\r\n\r\nIhr Dossier mit der Dossier-Nr. {{INSTANCE_ID}} wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\r\n\r\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nVotre dossier portant le num\u00e9ro de dossier {{INSTANCE_ID}} a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\r\n\r\n{{PUBLIC_DOSSIER_LINK}}\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n",
       "language": "de",
       "purpose": "00 Empfang Anfrage/Baugesuch (Gesuchsteller)",
@@ -146140,6 +146162,28 @@
     },
     "model": "notification.notificationtemplatet",
     "pk": 75
+  },
+  {
+    "fields": {
+      "body": "Sie wurden eingeladen am Baugesuch {{ PUBLIC_DOSSIER_LINK }} mitzuarbeiten.",
+      "language": "de",
+      "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
+      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "template": 39
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 76
+  },
+  {
+    "fields": {
+      "body": "Sie wurden eingeladen am Baugesuch {{ PUBLIC_DOSSIER_LINK }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Bern erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ REGISTRATION_LINK }}",
+      "language": "de",
+      "purpose": "Gesuchsbearbeitungs Einladung, Neu",
+      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "template": 40
+    },
+    "model": "notification.notificationtemplatet",
+    "pk": 78
   },
   {
     "fields": {
