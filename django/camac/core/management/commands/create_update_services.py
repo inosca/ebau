@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from camac.user.models import Service
+from camac.user.models import ServiceT
 
 
 def set_uppercase(word):
@@ -15,13 +15,13 @@ def create_sql_file(sql_file):
         "Leitbehörde",
         "Baukontrolle",
     ]
-    services = Service.objects.filter(trans__language="fr")
+    services = ServiceT.objects.filter(language="fr")
     file = open(sql_file, "w+")
     for service in services:
-        if any(item in service.get_trans_attr("name") for item in german):
+        if any(item in service.name for item in german):
             file.write(
                 f"""UPDATE "SERVICE_T"
-            SET "NAME" = '{set_uppercase(service.get_trans_attr("name").replace(
+            SET "NAME" = '{set_uppercase(service.name.replace(
                     "Sachbearbeiter", "collaborateur"
                 ).replace(
                     "Einsichtsberechtigte", "personne autorisée à consulter"
@@ -34,9 +34,7 @@ def create_sql_file(sql_file):
                 ).replace (
                     "'", "''"
                 ))}'
-            WHERE "NAME" = '{service.get_trans_attr("name").replace("'", "''")}'
-            AND "LANGUAGE" = 'fr';
-            \n"""
+            WHERE id = {service.pk};"""
             )
     file.close()
 
