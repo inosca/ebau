@@ -224,14 +224,10 @@ def test_notification_placeholders(
 
     mail = mailoutbox[0]
 
-    assert [
-        placeholder.strip()
-        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
-        .strip()
-        .split("\n")
-    ] == [
-        f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac"
-    ]
+    assert (
+        mail.body.replace(settings.EMAIL_PREFIX_BODY, "").strip()
+        == f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac"
+    )
 
 
 @pytest.mark.parametrize(
