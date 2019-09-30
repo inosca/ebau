@@ -66,7 +66,10 @@ def test_authenticate_new_user(
     application_settings,
     token_value,
     username,
+    applicant_factory,
 ):
+    applicant_factory(email=token_value["email"], invitee=None)
+
     if demo_mode:
         admin_group = admin_user.groups.first()
         inexistent_group = 2138242342

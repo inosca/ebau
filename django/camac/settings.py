@@ -106,8 +106,8 @@ APPLICATIONS = {
             "Support": "support",
         },
         "IS_MULTILINGUAL": False,
-        "SUBMIT": {"NOTIFICATION_TEMPLATE": None, "WORKFLOW_ITEM": None},
-        "NOTIFICATIONS": {"SUBMIT": None},
+        "SUBMIT": {"WORKFLOW_ITEM": None},
+        "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
         "FORM_BACKEND": "camac-ng",
     },
@@ -121,7 +121,8 @@ APPLICATIONS = {
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
         },
-        "SUBMIT": {"NOTIFICATION_TEMPLATE": 16, "WORKFLOW_ITEM": 10},
+        "NOTIFICATIONS": {"SUBMIT": 16, "APPLICANT": {"NEW": 19, "EXISTING": 20}},
+        "SUBMIT": {"WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
@@ -154,6 +155,7 @@ APPLICATIONS = {
             ],
             "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
             "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
+            "APPLICANT": {"NEW": None, "EXISTING": None},
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
@@ -373,6 +375,10 @@ KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
     "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=120
+)
+REGISTRATION_URL = env.str(
+    "DJANGO_REGISTRATION_URL",
+    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
 )
 
 # Email definition

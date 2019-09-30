@@ -270,9 +270,7 @@ class InstanceView(
             )
 
         # send notification email when configured
-        notification_template = settings.APPLICATION["SUBMIT"].get(
-            "NOTIFICATION_TEMPLATE"
-        )
+        notification_template = settings.APPLICATION["NOTIFICATIONS"].get("SUBMIT")
         if notification_template and instance.group.service.notification:
             context = self.get_serializer_context()
             sendmail_data = {

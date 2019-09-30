@@ -13,6 +13,7 @@ from keycloak import KeycloakOpenID
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
 
+from camac.applicants.models import Applicant
 from camac.user.models import Group, UserGroup
 
 request_logger = logging.getLogger("django.request")
@@ -54,7 +55,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         return userinfo
 
-    def _decode_jwt(self, jwt_value):
+    def _decode_jwt(self, jwt_value):  # noqa: C901
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
@@ -96,18 +97,22 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         )
 
         demo_groups = settings.APPLICATION.get("DEMO_MODE_GROUPS")
-        if created and settings.DEMO_MODE and demo_groups:
-            for i, group_id in enumerate(demo_groups):
-                default_group = 1 if i == 0 else 0
-                try:
-                    group = Group.objects.get(pk=group_id)
-                    UserGroup.objects.create(
-                        user=user, group=group, default_group=default_group
-                    )
-                except ObjectDoesNotExist:
-                    request_logger.error(
-                        f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
-                    )
+        if created:
+            Applicant.objects.filter(email=user.email, invitee=None).update(
+                invitee=user
+            )
+            if settings.DEMO_MODE and demo_groups:
+                for i, group_id in enumerate(demo_groups):
+                    default_group = 1 if i == 0 else 0
+                    try:
+                        group = Group.objects.get(pk=group_id)
+                        UserGroup.objects.create(
+                            user=user, group=group, default_group=default_group
+                        )
+                    except ObjectDoesNotExist:
+                        request_logger.error(
+                            f"Got invalid DEMO_MODE_GROUP ID ({group_id}), skipping"
+                        )
 
         if not user.is_active:
             msg = _("User is deactivated.")

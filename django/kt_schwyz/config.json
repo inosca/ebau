@@ -11328,6 +11328,28 @@
   },
   {
     "fields": {
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Schwyz erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ registration_link }}",
+      "purpose": "Gesuchsbearbeitungs Einladung, Neu",
+      "service": null,
+      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "body": "Sie wurden eingeladen am Baugesuch {{ public_dossier_link }} mitzuarbeiten.\r\n",
+      "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
+      "service": null,
+      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 20
+  },
+  {
+    "fields": {
       "communal_cantonal_number": null,
       "communal_federal_number": "1311",
       "commune_name": "Gersau",
