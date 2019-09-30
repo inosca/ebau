@@ -76,9 +76,6 @@ def test_authenticate_new_user(
         settings.DEMO_MODE = True
         application_settings["DEMO_MODE_GROUPS"] = [admin_group.pk, inexistent_group]
 
-    username = "new-here"
-    token_value["sub"] = username
-
     decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
     decode_token.return_value = token_value
     mocker.patch("keycloak.KeycloakOpenID.certs")
