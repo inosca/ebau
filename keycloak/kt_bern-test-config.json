@@ -2799,7 +2799,7 @@
     "clientAuthenticatorType": "client-secret",
     "secret": "5a68ce3f-e98a-4cec-9e2d-abed5e570501",
     "redirectUris": [],
-    "webOrigins": [],
+    "webOrigins": ["http://camac-ng.local"],
     "notBefore": 0,
     "bearerOnly": false,
     "consentRequired": false,

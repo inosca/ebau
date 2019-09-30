@@ -60,7 +60,7 @@ services:
             - ./django:/app
         environment:
             - APPLICATION_ENV=development
-            - KEYCLOAK_URL=http://keycloak:8080/auth/
+            - KEYCLOAK_URL=http://camac-ng-keycloak.local/auth/
             - DJANGO_EMAIL_HOST=mailhog
             - DJANGO_EMAIL_PORT=1025
         networks:
