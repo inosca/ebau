@@ -454,8 +454,8 @@ SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
         "oauth2": {
             "type": "oauth2",
-            "tokenUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
-            "authorizationUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
+            "tokenUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
+            "authorizationUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
             "flow": "application",
             "scopes": {},
         }
