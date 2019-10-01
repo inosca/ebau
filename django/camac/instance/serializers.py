@@ -195,7 +195,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     def get_responsible_service_users(self, instance):
         return get_user_model().objects.filter(
-            pk__in=instance.responsible_services.values("responsible_user")
+            pk__in=instance.responsible_services.filter(
+                service=self.context["request"].group.service
+            ).values("responsible_user")
         )
 
     def get_public_status(self, instance):
