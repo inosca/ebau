@@ -191,14 +191,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     )
 
     def get_active_service(self, instance):
-        try:
-            return InstanceService.objects.get(
-                active=1,
-                instance=instance,
-                **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
-            ).service
-        except InstanceService.DoesNotExist:
-            return InstanceService.objects.none()
+        return instance.active_service
 
     def get_responsible_service_users(self, instance):
         return get_user_model().objects.filter(
@@ -674,12 +667,13 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         instance.save()
 
-        InstanceService.objects.get_or_create(
-            instance=self.instance,
-            service_id=int(validated_data.get("caluma_municipality")),
-            active=1,
-            defaults={"activation_date": None},
-        )
+        if not instance.active_service:
+            InstanceService.objects.create(
+                instance=self.instance,
+                service_id=int(validated_data.get("caluma_municipality")),
+                active=1,
+                activation_date=None,
+            )
 
         self._set_submit_date(validated_data)
 
