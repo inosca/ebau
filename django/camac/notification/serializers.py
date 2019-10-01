@@ -107,14 +107,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_leitbehoerde_name(self, instance):
-        try:
-            return core_models.InstanceService.objects.get(
-                active=1,
-                instance=instance,
-                **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
-            ).service.get_name()
-        except core_models.InstanceService.DoesNotExist:
-            return "-"
+        return instance.active_service or "-"
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
