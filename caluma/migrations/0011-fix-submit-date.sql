@@ -1,33 +1,39 @@
-UPDATE
-  form_document
-SET
-  meta = jsonb_set(
-    d.meta,
-    '{submit-date}',
-    to_jsonb(to_char(hd.history_date, 'YYYY-MM-DD"T"HH24:MI:SS'))),
-    TRUE
-  )
-FROM
-  form_document d
-  INNER JOIN form_historicaldocument hd
-  ON d.id = hd.id
-  AND hd.meta->>'submit-date' IS NOT NULL
-  AND hd.meta->>'ebau-number' IS NULL
-WHERE (d.meta->>'submit-date') ~ '^(\d{4})-(\d{2})-(\d{2})T00:00:00$';
+BEGIN TRANSACTION;
 
-UPDATE
-  form_historicaldocument
+UPDATE form_document
 SET
   meta = jsonb_set(
-    hd.meta,
+    form_document.meta,
     '{submit-date}',
-    d.meta->>'submit-date',
+    to_jsonb(to_char(form_historicaldocument.history_date, 'YYYY-MM-DD"T"HH24:MI:SS')),
     TRUE
   )
-FROM
-  form_historicaldocument hd
-  INNER JOIN form_document d
-  ON hd.id = d.id
-  AND hd.meta->>'submit-date' IS NOT NULL;
+FROM form_historicaldocument
+WHERE
+  form_document.id = form_historicaldocument.id
+  AND
+  form_document.meta->>'submit-date' ~ '^(\d{4})-(\d{2})-(\d{2})T00:00:00$'
+  AND
+  form_document.meta->>'migrated_from_old_camac' IS NULL
+  AND
+  form_historicaldocument.meta->>'submit-date' IS NOT NULL
+  AND
+  form_historicaldocument.meta->>'ebau-number' IS NULL;
+
+UPDATE form_historicaldocument
+SET
+   meta = jsonb_set(
+     form_historicaldocument.meta,
+     '{submit-date}',
+     to_jsonb(form_document.meta->>'submit-date'::varchar),
+     TRUE
+   )
+FROM form_document
+WHERE
+  form_historicaldocument.id = form_document.id
+  AND
+  form_historicaldocument.meta->>'submit-date' IS NOT NULL;
 
 INSERT INTO migration_history (name) VALUES ('0011-fix-submit-date');
+
+COMMIT TRANSACTION;
