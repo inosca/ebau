@@ -24,6 +24,17 @@ class ResponsibleUserFilter(CharFilter):
         return super().filter(qs, value)
 
 
+class CirculationStateFilter(NumberFilter):
+    def filter(self, qs, value, *args, **kwargs):
+        if value:
+            return qs.filter(
+                circulations__activations__service=self.parent.request.group.service,
+                circulations__activations__circulation_state__pk=int(value),
+            )
+
+        return super().filter(qs, value)
+
+
 class InstanceFilterSet(FilterSet):
     instance_id = NumberMultiValueFilter()
     service = NumberFilter(field_name="circulations__activations__service")
@@ -42,9 +53,7 @@ class InstanceFilterSet(FilterSet):
     responsible_service_user = ResponsibleUserFilter(
         field_name="responsible_services__responsible_user"
     )
-    circulation_state = NumberFilter(
-        field_name="circulations__activations__circulation_state_id"
-    )
+    circulation_state = CirculationStateFilter()
 
     class Meta:
         model = models.Instance
