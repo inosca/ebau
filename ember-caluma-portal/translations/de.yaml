@@ -209,6 +209,10 @@ instances:
 
 be-submit-instance:
   loading: "Ihr Dossier wird geprüft. Bitte haben Sie einen Moment Geduld."
+  success: "Das Gesuch wurde erfolgreich eingereicht."
+  failed-camac: "Fehler beim Schreiben auf Schnittstelle."
+  failed-archive: "Fehler beim Ablegen des Gesuchs."
+  failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
 
 claims:
   upload: "Hochladen"
