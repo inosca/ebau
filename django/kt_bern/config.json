@@ -122891,7 +122891,7 @@
       "name": "Beteiligte Beh\u00f6rden",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 2
+      "sort": 3
     },
     "model": "document.attachmentsection",
     "pk": 2
@@ -122901,7 +122901,7 @@
       "name": "Alle Beteiligten",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 3
+      "sort": 4
     },
     "model": "document.attachmentsection",
     "pk": 3
@@ -122911,7 +122911,7 @@
       "name": "Intern",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 4
+      "sort": 5
     },
     "model": "document.attachmentsection",
     "pk": 4
@@ -122941,7 +122941,7 @@
       "name": "Nachforderungen",
       "notification_template": null,
       "recipient_types": "[]",
-      "sort": 5
+      "sort": 2
     },
     "model": "document.attachmentsection",
     "pk": 7
