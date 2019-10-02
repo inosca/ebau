@@ -1,6 +1,136 @@
-import { warn } from "@ember/debug";
+import { warn, assert } from "@ember/debug";
+import Service, { inject as service } from "@ember/service";
 
-export const parseDocument = (document, navigation) => {
+const PEOPLE_SOURCES = {
+  "personalien-gesuchstellerin": {
+    familyName: "name-gesuchstellerin",
+    givenName: "vorname-gesuchstellerin"
+  },
+  "personalien-vertreterin-mit-vollmacht": {
+    familyName: "name-vertreterin",
+    givenName: "vorname-vertreterin"
+  },
+  "personalien-grundeigentumerin": {
+    familyName: "name-grundeigentuemerin",
+    givenName: "vorname-grundeigentuemerin"
+  },
+  "personalien-gebaudeeigentumerin": {
+    familyName: "name-gebaeudeeigentuemerin",
+    givenName: "vorname-gebaeudeeigentuemerin"
+  },
+  "personalien-projektverfasserin": {
+    familyName: "name-projektverfasserin",
+    givenName: "vorname-projektverfasserin"
+  }
+};
+
+const PEOPLE_TARGET = "8-freigabequittung";
+
+export default Service.extend({
+  intl: service(),
+  fetch: service(),
+  calumaStore: service(),
+
+  /**
+   * Fake an additional document for the PDF
+   * where applicants can put their signatures.
+   *
+   * @param {Object} data The parsed document data to amend.
+   * @method _prepareReceiptPage
+   * @private
+   */
+  _prepareReceiptPage(data) {
+    try {
+      const sources = data.sections
+        .find(section => section.slug === "1-allgemeine-informationen")
+        .children.find(section => section.slug === "personalien")
+        .children.filter(section =>
+          Object.keys(PEOPLE_SOURCES).includes(section.slug)
+        );
+
+      const target = data.sections.find(
+        section => section.slug === PEOPLE_TARGET
+      );
+
+      Object.assign(target, {
+        slug: "8-unterschriften",
+        label: `8. ${this.intl.t("pdf.signatures")}`,
+        children: sources.map(table => ({
+          type: "SignatureQuestion",
+          label: table.label
+            .replace(new RegExp(`^${this.intl.t("pdf.personalities")} -`), "")
+            .trim(),
+          people: table.rows.map(row => ({
+            familyName: row.find(
+              column => column.slug === PEOPLE_SOURCES[table.slug].familyName
+            ).value,
+            givenName: row.find(
+              column => column.slug === PEOPLE_SOURCES[table.slug].givenName
+            ).value
+          }))
+        }))
+      });
+    } catch (error) {
+      warn("Failed to prepare receipt page", {
+        id: "be-download-pdf.receipt-page-failed"
+      });
+    }
+
+    return data;
+  },
+
+  /**
+   * Submits the data (as JSON) to a service and gets a PDF back.
+   * @see https://github.com/adfinis-sygroup/document-merge-service/
+   *
+   * @param {String} instanceId The document's instance ID.
+   * @param {Document} document The Caluma Document to export.
+   * @param {Object} options Additional options for future-proofing.
+   * @method merge
+   */
+  async merge(instanceId, document, options = {}) {
+    const convert = options.convert || "pdf";
+    const field = document.findField("formulardownload-pdf");
+    const navigation = this.calumaStore.find(`Navigation:${document.pk}`);
+
+    let data = {
+      caseId: instanceId,
+      caseType: document.rootForm.name,
+      sections: parseDocument(document, navigation),
+      signatureMetadata: this.intl.t("pdf.signatureMetadata"),
+      signatureTitle: this.intl.t("pdf.signature")
+    };
+
+    if (document.findField("personalien")) {
+      data = this._prepareReceiptPage(data);
+    }
+
+    const template = field.question.meta.template;
+
+    assert("A template must be passed to the fields meta", template);
+
+    const response = await this.fetch.fetch(
+      `/document-merge-service/api/v1/template/${template}/merge/`,
+      {
+        mode: "cors",
+        method: "POST",
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          accept: "*/*"
+        },
+        body: JSON.stringify({ data, convert })
+      }
+    );
+
+    if (response.ok) {
+      return response.blob();
+    } else {
+      throw new Error(response.statusText || response.status);
+    }
+  }
+});
+
+function parseDocument(document, navigation) {
   const fieldsets = document.fieldsets;
 
   if (fieldsets.length === 1) {
@@ -27,9 +157,9 @@ export const parseDocument = (document, navigation) => {
     .filter(item => !item.parent)
     .map(parseNavigationItem)
     .filter(visible);
-};
+}
 
-const parseNavigationItem = item => {
+function parseNavigationItem(item) {
   return {
     type: "FormQuestion",
     hidden: !item.visible,
@@ -40,9 +170,11 @@ const parseNavigationItem = item => {
       ...item.children.map(parseNavigationItem)
     ].filter(visible)
   };
-};
+}
 
-const visible = section => section && !section.hidden;
+function visible(section) {
+  return section && !section.hidden;
+}
 
 /**
  * This is the wrapper function that invokes the right parser function
