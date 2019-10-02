@@ -155,7 +155,7 @@ APPLICATIONS = {
             ],
             "START_CLAIM": [{"template_id": 13, "recipient_types": ["applicant"]}],
             "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
-            "APPLICANT": {"NEW": 39, "EXISTING": 40},
+            "APPLICANT": {"NEW": None, "EXISTING": None},
         },
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
