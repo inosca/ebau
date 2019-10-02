@@ -4,17 +4,19 @@ import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { all } from "rsvp";
 import { next } from "@ember/runloop";
-import config from "../../config/environment";
+import config from "ember-caluma-portal/config/environment";
 import { assert } from "@ember/debug";
 import { ComponentQueryManager } from "ember-apollo-client";
+import slugify from "slugify";
 
 const { environment } = config;
 
 export default InViewportComponent.extend(ComponentQueryManager, {
+  intl: service(),
   notification: service(),
-  ajax: service(),
   router: service(),
   fetch: service(),
+  documentExport: service(),
 
   onEnter() {
     next(this, () => this.validate.perform());
@@ -77,10 +79,49 @@ export default InViewportComponent.extend(ComponentQueryManager, {
       );
 
       if (!camacResponse.ok) {
-        throw new Error("NG API call failed");
+        throw {
+          errors: [new Error(this.intl.t("be-submit-instance.failed-camac"))]
+        };
       }
 
-      this.notification.success("Das Gesuch wurde erfolgreich eingereicht");
+      // Try to save/archive a document export as attachment.
+      try {
+        // Generate the PDF and prepare a filename.
+        const blob = yield this.documentExport.merge(
+          instanceId,
+          this.field.document
+        );
+        const formName = this.field.document.rootForm.name;
+        const fileName = slugify(`${instanceId}-${formName}.pdf`.toLowerCase());
+
+        // Prepare the request data.
+        const formData = new FormData();
+        formData.append("instance", instanceId);
+        formData.append("attachment_sections", "1");
+        formData.append("path", blob, fileName);
+
+        // Send the export to the backend.
+        // The Content-Type must be `undefined` as we need multipart with
+        // the correct delimiter the browser sets automatically when missing.
+        const response = yield this.fetch.fetch("/api/v1/attachments", {
+          method: "post",
+          body: formData,
+          headers: { "content-type": undefined }
+        });
+
+        if (!response.ok) {
+          const {
+            errors: [{ detail: error }]
+          } = yield response.json();
+          throw new Error(error);
+        }
+      } catch (error) {
+        throw {
+          errors: [new Error(this.intl.t("be-submit-instance.failed-archive"))]
+        };
+      }
+
+      this.notification.success(this.intl.t("be-submit-instance.success"));
 
       yield this.router.transitionTo("instances");
     } catch (e) {
@@ -88,7 +129,7 @@ export default InViewportComponent.extend(ComponentQueryManager, {
       console.error(e);
       const reasons = (e.errors || []).map(e => e.message).join("<br>\n");
       this.notification.danger(
-        `Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. ${reasons}`
+        this.intl.t("be-submit-instance.failed-message", { reasons })
       );
       // un-mark as submitted
       this.field.set("answer.value", null);
