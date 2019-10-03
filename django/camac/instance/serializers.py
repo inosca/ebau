@@ -1,7 +1,6 @@
 import json
 from logging import getLogger
 
-import requests
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
@@ -9,7 +8,6 @@ from django.db.models import Max
 from django.utils import timezone
 from django.utils.translation import gettext as _
 from rest_framework import exceptions
-from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma import CalumaSerializerMixin
@@ -54,7 +52,9 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin):
+class InstanceSerializer(
+    InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
+):
     editable = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
