@@ -16,6 +16,7 @@ const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 const FIELD_TABLE = "nfd-tabelle-table";
 const FIELD_STATUS = "nfd-tabelle-status";
 const FIELD_ANSWERED = "nfd-tabelle-datum-antwort";
+const FIELD_COMMENT = "nfd-tabelle-bemerkung";
 
 const FIELD_STATUS_IN_PROGRESS = "nfd-tabelle-status-in-bearbeitung";
 const FIELD_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet";
@@ -30,6 +31,7 @@ export default class BeClaimsFormComponent extends CfFormComponent.extend(
 
   classNames = ["be-claims-form"];
   didUpload = false;
+  comment = "";
 
   init() {
     super.init(...arguments);
@@ -204,14 +206,18 @@ export default class BeClaimsFormComponent extends CfFormComponent.extend(
         .map(async row => {
           const status = row.findField(FIELD_STATUS);
           const answered = row.findField(FIELD_ANSWERED);
+          const comment = row.findField(FIELD_COMMENT);
 
           status.set("answer.value", FIELD_STATUS_ANSWERED);
           answered.set("answer.value", moment().format("YYYY-MM-DD"));
+          comment.set("answer.value", this.comment);
 
           await answered.validate.perform();
           await status.validate.perform();
+          await comment.validate.perform();
 
           await answered.save.perform();
+          await comment.save.perform();
           await status.save.perform();
         })
     );

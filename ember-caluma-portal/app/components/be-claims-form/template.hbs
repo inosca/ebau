@@ -43,6 +43,20 @@
     {{/file-dropzone}}
 
     {{#if didUpload}}
+      <div class="uk-margin">
+        <label class="uk-form-label uk-text-bold" for="claims-comment">
+          {{~t "claims.comment"~}}
+        </label>
+        <div class="uk-form-controls">
+          <textarea
+            class="uk-textarea"
+            id="claims-comment"
+            rows="6"
+            oninput={{action (mut comment) value="target.value"}}
+          ></textarea>
+        </div>
+      </div>
+
       <div class="uk-text-right">
         {{uk-button
           color="primary"
