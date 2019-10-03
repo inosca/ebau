@@ -13,11 +13,11 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
+from camac.caluma import CalumaSerializerMixin
 from camac.core.models import Activation
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
-from camac.caluma import CalumaSerializerMixin
 
 from ..core import models as core_models
 from . import models
@@ -296,7 +296,9 @@ class NotificationTemplateMergeSerializer(
         resource_name = "notification-template-merges"
 
 
-class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer, CalumaSerializerMixin):
+class NotificationTemplateSendmailSerializer(
+    NotificationTemplateMergeSerializer, CalumaSerializerMixin
+):
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "applicant",
@@ -333,11 +335,13 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
               }
             }
             """,
-            {"instanceId": instance.pk}
+            {"instanceId": instance.pk},
         )
 
         municipality_service_id = int(
-            resp['data']['allDocuments']['edges'][0]['node']['answers']['edges'][0]['node']['value']
+            resp["data"]["allDocuments"]["edges"][0]["node"]["answers"]["edges"][0][
+                "node"
+            ]["value"]
         )
 
         service = Service.objects.filter(pk=municipality_service_id).first()
@@ -361,7 +365,9 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         return [instance.group.service.email]
 
     def _get_recipients_unnotified_service(self, instance):
-        activations = Activation.objects.filter(circulation__instance_id=instance.pk, email_sent=0)
+        activations = Activation.objects.filter(
+            circulation__instance_id=instance.pk, email_sent=0
+        )
         services = {a.service for a in activations}
 
         return [service.email for service in services]
@@ -395,17 +401,15 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
-        subject=subj_prefix + validated_data["subject"]
-        bcc=set(recipients)
+        subject = subj_prefix + validated_data["subject"]
+        bcc = set(recipients)
 
         email = EmailMessage(
-            subject=subject,
-            body=body_prefix + validated_data["body"],
-            bcc=bcc,
+            subject=subject, body=body_prefix + validated_data["body"], bcc=bcc
         )
 
         result = email.send()
-        request_logger.info(f"Sent email \"{subject}\" to {bcc}")
+        request_logger.info(f'Sent email "{subject}" to {bcc}')
         return result
 
     class Meta:
