@@ -97,6 +97,11 @@ class NotificationTemplateView(viewsets.ModelViewSet):
         serializer.save()
         return response.Response(data=serializer.data)
 
+
+    # NOTE: The sendmail action requires access to the auth token to be able to query caluma.
+    def get_serializer_context(self):
+        return {'request': self.request}
+
     @action(
         detail=True,
         methods=["post"],
