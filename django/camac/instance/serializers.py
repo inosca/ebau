@@ -12,6 +12,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
+from camac.caluma import CalumaSerializerMixin
 from camac.constants import kt_bern as constants
 from camac.core.models import Answer, InstanceLocation, InstanceService
 from camac.core.serializers import MultilingualSerializer
@@ -53,7 +54,7 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
+class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin):
     editable = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
@@ -397,27 +398,6 @@ class CalumaInstanceSerializer(InstanceSerializer):
                 "FORM_PERMISSIONS", []
             )
         }
-
-    def query_caluma(self, query, variables={}):
-        # TODO: move this to a more general location
-
-        response = requests.post(
-            settings.CALUMA_URL,
-            json={"query": query, "variables": variables},
-            headers={
-                "Authorization": get_authorization_header(self.context["request"])
-            },
-        )
-
-        response.raise_for_status()
-        result = response.json()
-        if result.get("errors"):  # pragma: no cover
-            raise exceptions.ValidationError(
-                _("Error while querying caluma: %(errors)s")
-                & {"errors": result.get("errors")}
-            )
-
-        return result
 
     def validate(self, data):
         form = data.get("caluma_form")
