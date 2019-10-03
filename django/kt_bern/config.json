@@ -2711,8 +2711,8 @@
   },
   {
     "fields": {
-      "processor": "Notification_Processor_SendEmail",
-      "recipient_type": "Custom_Plugin_Notification_Recipient_InstanceService",
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
       "template": 33
     },
     "model": "core.anotification",
