@@ -301,6 +301,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             "applicant",
             "municipality",
             "service",
+            "unnotified_service",
             "leitbehoerde",
             "construction_control",
             "email_list",
@@ -323,6 +324,12 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
 
     def _get_recipients_municipality(self, instance):
         return [instance.group.service.email]
+
+    def _get_recipients_unnotified_service(self, instance):
+        activations = Activation.objects.filter(circulation__instance_id=instance.pk, email_sent=0)
+        services = {a.service for a in activations}
+
+        return [service.email for service in services]
 
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(

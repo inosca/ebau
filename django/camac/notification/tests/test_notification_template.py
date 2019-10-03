@@ -161,7 +161,12 @@ def test_notification_template_sendmail(
             "id": None,
             "attributes": {
                 "body": "Test body",
-                "recipient-types": ["applicant", "municipality", "service"],
+                "recipient-types": [
+                    "applicant",
+                    "municipality",
+                    "service",
+                    "unnotified_service",
+                ],
             },
             "relationships": {
                 "instance": {"data": {"type": "instances", "id": instance.pk}}
