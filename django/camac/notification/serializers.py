@@ -395,13 +395,18 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
             ]
         )
 
+        subject=subj_prefix + validated_data["subject"]
+        bcc=set(recipients)
+
         email = EmailMessage(
-            subject=subj_prefix + validated_data["subject"],
+            subject=subject,
             body=body_prefix + validated_data["body"],
-            bcc=set(recipients),
+            bcc=bcc,
         )
 
-        return email.send()
+        result = email.send()
+        request_logger.info(f"Sent email \"{subject}\" to {bcc}")
+        return result
 
     class Meta:
         resource_name = "notification-template-sendmails"
