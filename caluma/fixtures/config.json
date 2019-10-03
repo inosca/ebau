@@ -7829,7 +7829,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-autorin",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -7842,7 +7842,20 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-behoerde",
-      "sort": 7
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "nfd-tabelle.nfd-tabelle-bemerkung",
+    "fields": {
+      "created_at": "2019-10-02T14:56:25.944Z",
+      "modified_at": "2019-10-02T14:56:25.944Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "nfd-tabelle",
+      "question": "nfd-tabelle-bemerkung",
+      "sort": 2
     }
   },
   {
@@ -7855,7 +7868,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-beschreibung",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -7868,7 +7881,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-datum-anfrage",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -7881,7 +7894,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-datum-antwort",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -7894,7 +7907,7 @@
       "created_by_group": null,
       "form": "nfd-tabelle",
       "question": "nfd-tabelle-frist",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -24948,6 +24961,31 @@
   },
   {
     "model": "form.question",
+    "pk": "nfd-tabelle-bemerkung",
+    "fields": {
+      "created_at": "2019-10-02T14:56:25.827Z",
+      "modified_at": "2019-10-02T14:56:25.827Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Bemerkung\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "nfd-tabelle-beschreibung",
     "fields": {
       "created_at": "2019-08-14T10:19:49.337Z",
@@ -25076,7 +25114,7 @@
     "pk": "nfd-tabelle-table",
     "fields": {
       "created_at": "2019-08-14T10:22:24.369Z",
-      "modified_at": "2019-08-16T10:08:08.195Z",
+      "modified_at": "2019-10-02T15:55:39.340Z",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Nachforderungen\", \"fr\": \"Demandes de compl\\u00e9ment d'information\"}",
@@ -25094,7 +25132,8 @@
         "columnsToDisplay": [
           "nfd-tabelle-frist",
           "nfd-tabelle-beschreibung",
-          "nfd-tabelle-status"
+          "nfd-tabelle-status",
+          "nfd-tabelle-bemerkung"
         ]
       },
       "data_source": null,
