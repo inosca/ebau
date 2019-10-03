@@ -17,6 +17,7 @@ from camac.core.models import Activation
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
+from camac.caluma import CalumaSerializerMixin
 
 from ..core import models as core_models
 from . import models
@@ -295,11 +296,12 @@ class NotificationTemplateMergeSerializer(
         resource_name = "notification-template-merges"
 
 
-class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
+class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer, CalumaSerializerMixin):
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "applicant",
             "municipality",
+            "caluma_municipality",
             "service",
             "unnotified_service",
             "leitbehoerde",
@@ -308,6 +310,39 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         )
     )
     email_list = serializers.CharField(required=False)
+
+    def _get_recipients_caluma_municipality(self, instance):  # pragma: no cover
+
+        resp = self.query_caluma(
+            """
+            query GetMuniciaplity($instanceId: GenericScalar!) {
+              allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
+                edges {
+                  node {
+                    answers(question: "gemeinde") {
+                      edges {
+                        node {
+                          ...on StringAnswer {
+                            value
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            """,
+            {"instanceId": instance.pk}
+        )
+
+        municipality_service_id = int(
+            resp['data']['allDocuments']['edges'][0]['node']['answers']['edges'][0]['node']['value']
+        )
+
+        service = Service.objects.filter(pk=municipality_service_id).first()
+
+        return [service.email]
 
     def _get_recipients_applicant(self, instance):
         return [
