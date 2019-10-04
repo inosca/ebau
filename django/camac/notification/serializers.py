@@ -15,7 +15,7 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.caluma import CalumaSerializerMixin
-from camac.core.models import Activation, Journal
+from camac.core.models import Activation, Answer, Journal
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
@@ -78,6 +78,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     form_name = serializers.SerializerMethodField()
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
+    rejection_feedback = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -94,6 +95,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             result = {key: self._escape(value) for key, value in data.items()}
 
         return result
+
+    def get_rejection_feedback(self, instance):  # pragma: no cover
+        feedback = Answer.objects.filter(
+            instance=instance, chapter=20001, question=20037, item=1
+        ).first()
+        if feedback:
+            return feedback.answer
+        return ""
 
     def get_answer_period_date(self, instace):
         answer_period_date = date.today() + timedelta(days=settings.MERGE_ANSWER_PERIOD)
