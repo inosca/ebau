@@ -9,12 +9,13 @@ import jinja2
 import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
+from django.utils import timezone
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.caluma import CalumaSerializerMixin
-from camac.core.models import Activation
+from camac.core.models import Activation, Journal
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
@@ -402,14 +403,26 @@ class NotificationTemplateSendmailSerializer(
         )
 
         subject = subj_prefix + validated_data["subject"]
+        body = body_prefix + validated_data["body"]
         bcc = set(recipients)
 
-        email = EmailMessage(
-            subject=subject, body=body_prefix + validated_data["body"], bcc=bcc
-        )
+        email = EmailMessage(subject=subject, body=body, bcc=bcc)
 
         result = email.send()
+
         request_logger.info(f'Sent email "{subject}" to {bcc}')
+
+        if settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
+            journal_entry = Journal(
+                instance=instance,
+                mode="auto",
+                text=f"Notifikation geschickt an {', '.join(bcc)}, ({subject})",
+                additional_text=body,
+                created=timezone.now(),
+                user=self.context["request"].user,
+            )
+            journal_entry.save()
+
         return result
 
     class Meta:
