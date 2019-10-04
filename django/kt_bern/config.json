@@ -32,12 +32,12 @@
   {
     "fields": {
       "available_action": "notification",
-      "button": 20008,
+      "button": 130000,
       "description": null,
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 0,
       "success_message": null
     },
     "model": "core.action",
@@ -40692,6 +40692,15 @@
   },
   {
     "fields": {
+      "button": 130000,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 130000
+  },
+  {
+    "fields": {
       "class_field": "next-arrows",
       "description": null,
       "hidden": 0,
@@ -40805,7 +40814,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 3
+      "sort": 4
     },
     "model": "core.button",
     "pk": 20016
@@ -40817,7 +40826,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 4
+      "sort": 5
     },
     "model": "core.button",
     "pk": 20018
@@ -40977,6 +40986,18 @@
     },
     "model": "core.button",
     "pk": 120001
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20004,
+      "name": null,
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 130000
   },
   {
     "fields": {
@@ -41437,6 +41458,26 @@
     },
     "model": "core.buttont",
     "pk": 120044
+  },
+  {
+    "fields": {
+      "button": 130000,
+      "description": null,
+      "language": "de",
+      "name": "Zirkulation senden"
+    },
+    "model": "core.buttont",
+    "pk": 130000
+  },
+  {
+    "fields": {
+      "button": 130000,
+      "description": null,
+      "language": "fr",
+      "name": "Envoyer la circulation"
+    },
+    "model": "core.buttont",
+    "pk": 130001
   },
   {
     "fields": {
