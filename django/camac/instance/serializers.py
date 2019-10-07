@@ -12,7 +12,7 @@ from rest_framework_json_api import relations, serializers
 
 from camac.caluma import CalumaSerializerMixin
 from camac.constants import kt_bern as constants
-from camac.core.models import Answer, InstanceLocation, InstanceService
+from camac.core.models import Answer, InstanceLocation, InstanceService, Journal
 from camac.core.serializers import MultilingualSerializer
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
@@ -462,6 +462,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
+    def _create_journal_entry(self, text):
+        Journal.objects.create(
+            instance=self.instance,
+            mode="auto",
+            text=text,
+            created=timezone.now(),
+            user=self.context["request"].user,
+        )
+
     def _notify_submit(self, template_id, recipient_types):
         """Send notification email."""
 
@@ -658,6 +667,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         self._set_submit_date(validated_data)
+        self._create_journal_entry(_("Dossier eingereicht"))
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
@@ -719,6 +729,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
+        self._create_journal_entry(_("SB1 eingereicht"))
+
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
             self._notify_submit(**notification_config)
@@ -778,6 +790,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         instance.instance_state = models.InstanceState.objects.get(name="conclusion")
 
         instance.save()
+
+        self._create_journal_entry(_("SB2 eingereicht"))
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
