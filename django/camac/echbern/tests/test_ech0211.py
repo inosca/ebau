@@ -4,8 +4,8 @@ from decimal import Decimal
 import pytest
 import xmlschema
 
-from . import formatters
-from .schema import ech_0211_2_0 as ns_application
+from camac.echbern import formatters
+from camac.echbern.schema import ech_0211_2_0 as ns_application
 
 
 @pytest.mark.skip(
@@ -22,11 +22,13 @@ def test_parse_sample():  # pragma: no cover (because test is skipped, duh!)
     assert app.constructionCost == Decimal("99999999.25")
 
 
-def test_generate_delivery(db, instance):
+def test_generate_delivery(db, mandatory_answers, instance):
     xml_data = formatters.delivery(
-        instance, eventBaseDelivery=formatters.base_delivery(instance)
+        instance,
+        mandatory_answers,
+        eventBaseDelivery=formatters.base_delivery(instance, mandatory_answers),
     ).toxml()
 
     my_dir = os.path.dirname(__file__)
-    my_schema = xmlschema.XMLSchema(my_dir + "/xsd/ech_0211_2_0.xsd")
+    my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
     my_schema.validate(xml_data)
