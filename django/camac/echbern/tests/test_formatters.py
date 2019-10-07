@@ -2,17 +2,19 @@ import os.path
 
 import xmlschema
 
-from . import formatters
+from camac.echbern import formatters
 
 
-def test_base_delivery(db, instance):
+def test_base_delivery(db, mandatory_answers, instance):
     xml = formatters.delivery(
-        instance, eventBaseDelivery=formatters.base_delivery(instance)
+        instance,
+        mandatory_answers,
+        eventBaseDelivery=formatters.base_delivery(instance, mandatory_answers),
     )
     assert xml
 
     my_dir = os.path.dirname(__file__)
-    my_schema = xmlschema.XMLSchema(my_dir + "/xsd/ech_0211_2_0.xsd")
+    my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
 
     xml_data = xml.toxml()
     my_schema.validate(xml_data)

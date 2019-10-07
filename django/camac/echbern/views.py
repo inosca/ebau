@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from rest_framework.authentication import get_authorization_header
 from rest_framework.generics import RetrieveAPIView, get_object_or_404
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.serializers import Serializer
@@ -11,9 +12,8 @@ from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 
 from . import formatters
+from .data_preparation import get_document
 from .serializers import ApplicationsSerializer
-
-# from .data_preparation import get_document
 
 group_param = openapi.Parameter(
     "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
@@ -33,11 +33,15 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
         responses={"200": "eCH-0211 baseDelivery"},
     )
     def retrieve(self, request, instance_id=None, **kwargs):
-        # document = get_document(instance_id, request)
+        document = get_document(
+            instance_id, get_authorization_header(request), request.group.pk
+        )
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
         xml_data = formatters.delivery(
-            instance, eventBaseDelivery=formatters.base_delivery(instance)
+            instance,
+            document,
+            eventBaseDelivery=formatters.base_delivery(instance, document),
         ).toxml()
         response = HttpResponse(xml_data)
         response["Content-Type"] = "application/xml"
