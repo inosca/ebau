@@ -20,7 +20,6 @@ python-dateutil==2.8.0
 python-keycloak==0.17.4
 python-memcached==1.59
 sorl-thumbnail==12.5.0
-spyne==2.12.16
 uwsgi==2.0.18
 django-reversion==3.0.4
 pyjexl==0.2.3
