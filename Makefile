@@ -90,12 +90,16 @@ loadconfig-camac:
 loadconfig-caluma:
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
 
+.PHONY: loadconfig-dms
+loadconfig-dms:
+	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
+
 .PHONY: loaddata-caluma
 loaddata-caluma:
 	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/data.json
 
 .PHONY: loadconfig
-loadconfig: loadconfig-caluma loadconfig-camac
+loadconfig: loadconfig-caluma loadconfig-camac loadconfig-dms
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
