@@ -27242,7 +27242,7 @@
       "modified_at": "2019-04-04T06:40:26.713Z",
       "created_by_user": null,
       "created_by_group": null,
-      "label": "{\"de\": \"Ist der/die Projektverfasser/in identisch mit dem/der Gesamtprojektverfasser/in?\", \"fr\": \"L'auteur du projet est-il le m\\u00eame que celui du projet global?\"}",
+      "label": "{\"de\": \"Ist der/die Projektverfasser/in Energie identisch mit dem/der Gesamtprojektverfasser/in?\", \"fr\": \"L'auteur du projet (\\u00e9nergie) est-il le m\\u00eame que celui du projet global?\"}",
       "type": "choice",
       "is_required": "!('vorabklaerung' in form)",
       "is_hidden": "false",
