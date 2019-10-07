@@ -49188,7 +49188,7 @@
   },
   {
     "fields": {
-      "available_instance_resource": "editformpage",
+      "available_instance_resource": "page",
       "class_field": null,
       "description": null,
       "form_group": 40000,
@@ -53247,14 +53247,6 @@
   },
   {
     "fields": {
-      "page": 80006,
-      "pdf_class": null
-    },
-    "model": "core.ireditformpage",
-    "pk": 20074
-  },
-  {
-    "fields": {
       "page_form_group": 40003,
       "pdf_class": null
     },
@@ -53314,6 +53306,13 @@
     },
     "model": "core.irpage",
     "pk": 20070
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.irpage",
+    "pk": 20074
   },
   {
     "fields": {
