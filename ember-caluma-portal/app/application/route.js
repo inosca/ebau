@@ -3,7 +3,6 @@ import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-applic
 import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
 import config from "../config/environment";
-import { computed } from "@ember/object";
 
 const { languages, fallbackLanguage } = config;
 
@@ -38,20 +37,11 @@ export default Route.extend(OIDCApplicationRouteMixin, {
     );
   },
 
-  enableMultilang: computed(function() {
-    // TODO: remove this if the french translations are approved
-    return !/ebau.apps.be.ch$/.test(window.location.host);
-  }),
-
   beforeModel(transition) {
-    if (this.enableMultilang) {
-      this.intl.setLocale([
-        this.getLanguage(transition.to.queryParams.language),
-        fallbackLanguage
-      ]);
-    } else {
-      this.intl.setLocale(fallbackLanguage);
-    }
+    this.intl.setLocale([
+      this.getLanguage(transition.to.queryParams.language),
+      fallbackLanguage
+    ]);
 
     if (window.top !== window) {
       getOwner(this)
