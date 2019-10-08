@@ -3177,7 +3177,7 @@ class PublicationEntry(models.Model):
         db_column="INSTANCE_ID",
         related_name="publication_entries",
     )
-    note = models.FloatField(db_column="NOTE", null=True)
+    note = models.FloatField(db_column="NOTE", blank=True, null=True)
     publication_date = models.DateTimeField(db_column="PUBLICATION_DATE")
     is_published = models.PositiveSmallIntegerField(db_column="IS_PUBLISHED")
     text = models.TextField(db_column="TEXT", blank=True, null=True)
