@@ -48881,7 +48881,7 @@
       "name": null,
       "resource": 20006,
       "sort": 15,
-      "template": "/service/index.phtml"
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 20011
@@ -49091,7 +49091,7 @@
       "name": null,
       "resource": 20006,
       "sort": 16,
-      "template": "/service/index.phtml"
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 20051
@@ -49106,7 +49106,7 @@
       "name": null,
       "resource": 20008,
       "sort": 2,
-      "template": "/service/index.phtml"
+      "template": null
     },
     "model": "core.instanceresource",
     "pk": 20063
