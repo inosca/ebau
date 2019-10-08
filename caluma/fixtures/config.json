@@ -177,6 +177,22 @@
   },
   {
     "model": "form.form",
+    "pk": "allgemeine-informationen-vorabklaerung",
+    "fields": {
+      "created_at": "2019-10-08T12:04:03.308Z",
+      "modified_at": "2019-10-09T08:12:08.357Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Allgemeine Informationen (Vorabkl\\u00e4rung)\", \"fr\": \"Informations g\\u00e9n\\u00e9rales (Etudes pr\\u00e9alables)\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "art-der-emmission-tabelle",
     "fields": {
       "created_at": "2019-04-09T13:59:59.993Z",
@@ -385,6 +401,22 @@
   },
   {
     "model": "form.form",
+    "pk": "dokumente-vorabklaerung",
+    "fields": {
+      "created_at": "2019-10-08T12:22:59.032Z",
+      "modified_at": "2019-10-09T08:11:27.333Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Dokumente (Vorabkl\\u00e4rung)\", \"fr\": \"Documents (Etudes pr\\u00e9alables)\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
     "pk": "durchgefuehrte-vorabklaerungen",
     "fields": {
       "created_at": "2019-03-08T15:30:03.741Z",
@@ -489,6 +521,22 @@
       "created_by_group": "[]",
       "name": "{\"de\": \"Freigabequittung\", \"fr\": \"D\\u00e9claration de validation\"}",
       "description": "{\"de\": \"\", \"fr\": null}",
+      "meta": {},
+      "is_published": true,
+      "is_archived": false,
+      "source": null
+    }
+  },
+  {
+    "model": "form.form",
+    "pk": "freigabequittung-vorabklaerung",
+    "fields": {
+      "created_at": "2019-10-08T12:22:45.159Z",
+      "modified_at": "2019-10-09T08:14:00.109Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "name": "{\"de\": \"Freigabequittung (Vorabkl\\u00e4rung)\", \"fr\": \"D\\u00e9claration de validation (Etudes pr\\u00e9alables)\"}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "meta": {},
       "is_published": true,
       "is_archived": false,
@@ -3583,6 +3631,214 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.anfrage-zur-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:39.072Z",
+      "modified_at": "2019-09-25T10:19:39.072Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "anfrage-zur-vorabklaerung",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.be-gid",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.742Z",
+      "modified_at": "2019-09-25T10:19:37.742Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "be-gid",
+      "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.e-grid-nr",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.374Z",
+      "modified_at": "2019-09-25T10:19:38.374Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "e-grid-nr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.gemeinde",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.817Z",
+      "modified_at": "2019-09-25T10:19:35.817Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "gemeinde",
+      "sort": 11
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.gwr-egid",
+    "fields": {
+      "created_at": "2019-09-25T10:19:38.102Z",
+      "modified_at": "2019-09-25T10:19:38.102Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "gwr-egid",
+      "sort": 4
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.karte-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.100Z",
+      "modified_at": "2019-09-25T10:19:36.100Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "karte-einfache-vorabklaerung",
+      "sort": 10
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-nord-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.543Z",
+      "modified_at": "2019-09-25T10:19:36.543Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
+      "sort": 8
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.lagekoordinaten-ost-einfache-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.293Z",
+      "modified_at": "2019-09-25T10:19:36.293Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
+      "sort": 9
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.liegenschaftsnummer",
+    "fields": {
+      "created_at": "2019-09-25T10:19:37.134Z",
+      "modified_at": "2019-09-25T10:19:37.134Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "liegenschaftsnummer",
+      "sort": 6
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.name-gesuchstellerin-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:34.863Z",
+      "modified_at": "2019-09-25T10:19:34.863Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "name-gesuchstellerin-vorabklaerung",
+      "sort": 17
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.nummer-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.227Z",
+      "modified_at": "2019-09-25T10:19:35.227Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "nummer-gesuchstellerin",
+      "sort": 14
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.ort-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.519Z",
+      "modified_at": "2019-09-25T10:19:35.519Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "ort-gesuchstellerin",
+      "sort": 12
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.parzellennummer",
+    "fields": {
+      "created_at": "2019-09-25T10:19:36.957Z",
+      "modified_at": "2019-09-25T10:19:36.957Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "parzellennummer",
+      "sort": 7
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.plz-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.392Z",
+      "modified_at": "2019-09-25T10:19:35.392Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "plz-gesuchstellerin",
+      "sort": 13
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.strasse-gesuchstellerin",
+    "fields": {
+      "created_at": "2019-09-25T10:19:35.208Z",
+      "modified_at": "2019-09-25T10:19:35.208Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "strasse-gesuchstellerin",
+      "sort": 15
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.vorname-gesuchstellerin-vorabklaerung",
+    "fields": {
+      "created_at": "2019-09-25T10:19:34.986Z",
+      "modified_at": "2019-09-25T10:19:34.986Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "vorname-gesuchstellerin-vorabklaerung",
+      "sort": 16
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "art-der-emmission-tabelle.abluftentreinigungsanlage-beinhaltet",
     "fields": {
       "created_at": "2019-09-25T10:19:37.735Z",
@@ -5013,6 +5269,19 @@
   },
   {
     "model": "form.formquestion",
+    "pk": "dokumente-vorabklaerung.dokumente-platzhalter",
+    "fields": {
+      "created_at": "2019-10-08T12:23:20.905Z",
+      "modified_at": "2019-10-08T12:23:20.905Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dokumente-vorabklaerung",
+      "question": "dokumente-platzhalter",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
     "pk": "durchgefuehrte-vorabklaerungen-tabelle.amts-fachstelle",
     "fields": {
       "created_at": "2019-09-25T10:19:36.560Z",
@@ -5581,6 +5850,32 @@
       "form": "freigabequittung-sb2",
       "question": "freigabequittung-sb2-druckansicht",
       "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "freigabequittung-vorabklaerung.einreichen-button",
+    "fields": {
+      "created_at": "2019-10-08T12:23:57.387Z",
+      "modified_at": "2019-10-08T12:23:57.387Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-vorabklaerung",
+      "question": "einreichen-button",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "freigabequittung-vorabklaerung.formulardownload-pdf",
+    "fields": {
+      "created_at": "2019-10-08T12:23:47.541Z",
+      "modified_at": "2019-10-08T12:23:47.541Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "freigabequittung-vorabklaerung",
+      "question": "formulardownload-pdf",
+      "sort": 2
     }
   },
   {
@@ -10031,236 +10326,41 @@
   },
   {
     "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.anfrage-zur-vorabklaerung",
+    "pk": "vorabklaerung-einfach.allgemeine-informationen-vorabklaerung-form",
     "fields": {
-      "created_at": "2019-09-25T10:19:39.072Z",
-      "modified_at": "2019-09-25T10:19:39.072Z",
+      "created_at": "2019-10-08T12:08:59.343Z",
+      "modified_at": "2019-10-08T12:08:59.343Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
-      "question": "anfrage-zur-vorabklaerung",
-      "sort": 2
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.be-gid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.742Z",
-      "modified_at": "2019-09-25T10:19:37.742Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "be-gid",
-      "sort": 5
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.e-grid-nr",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.374Z",
-      "modified_at": "2019-09-25T10:19:38.374Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "e-grid-nr",
+      "question": "allgemeine-informationen-vorabklaerung-form",
       "sort": 3
     }
   },
   {
     "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.einreichen-button",
+    "pk": "vorabklaerung-einfach.dokumente-vorabklaerung-form",
     "fields": {
-      "created_at": "2019-09-25T10:19:39.855Z",
-      "modified_at": "2019-09-25T10:19:39.855Z",
+      "created_at": "2019-10-08T12:24:56.567Z",
+      "modified_at": "2019-10-08T12:24:56.567Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
-      "question": "einreichen-button",
-      "sort": 0
+      "question": "dokumente-vorabklaerung-form",
+      "sort": 2
     }
   },
   {
     "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.formulardownload-pdf",
+    "pk": "vorabklaerung-einfach.freigabequittung-vorabklaerung-form",
     "fields": {
-      "created_at": "2019-09-25T10:19:39.492Z",
-      "modified_at": "2019-09-25T10:19:39.492Z",
+      "created_at": "2019-10-08T12:25:38.353Z",
+      "modified_at": "2019-10-08T12:25:38.353Z",
       "created_by_user": null,
       "created_by_group": null,
       "form": "vorabklaerung-einfach",
-      "question": "formulardownload-pdf",
+      "question": "freigabequittung-vorabklaerung-form",
       "sort": 1
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.gemeinde",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.817Z",
-      "modified_at": "2019-09-25T10:19:35.817Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "gemeinde",
-      "sort": 11
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.gwr-egid",
-    "fields": {
-      "created_at": "2019-09-25T10:19:38.102Z",
-      "modified_at": "2019-09-25T10:19:38.102Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "gwr-egid",
-      "sort": 4
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.karte-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.100Z",
-      "modified_at": "2019-09-25T10:19:36.100Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "karte-einfache-vorabklaerung",
-      "sort": 10
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.lagekoordinaten-nord-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.543Z",
-      "modified_at": "2019-09-25T10:19:36.543Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "lagekoordinaten-nord-einfache-vorabklaerung",
-      "sort": 8
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.lagekoordinaten-ost-einfache-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.293Z",
-      "modified_at": "2019-09-25T10:19:36.293Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "lagekoordinaten-ost-einfache-vorabklaerung",
-      "sort": 9
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.liegenschaftsnummer",
-    "fields": {
-      "created_at": "2019-09-25T10:19:37.134Z",
-      "modified_at": "2019-09-25T10:19:37.134Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "liegenschaftsnummer",
-      "sort": 6
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.name-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.863Z",
-      "modified_at": "2019-09-25T10:19:34.863Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "name-gesuchstellerin-vorabklaerung",
-      "sort": 17
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.nummer-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.227Z",
-      "modified_at": "2019-09-25T10:19:35.227Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "nummer-gesuchstellerin",
-      "sort": 14
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.ort-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.519Z",
-      "modified_at": "2019-09-25T10:19:35.519Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "ort-gesuchstellerin",
-      "sort": 12
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.parzellennummer",
-    "fields": {
-      "created_at": "2019-09-25T10:19:36.957Z",
-      "modified_at": "2019-09-25T10:19:36.957Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "parzellennummer",
-      "sort": 7
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.plz-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.392Z",
-      "modified_at": "2019-09-25T10:19:35.392Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "plz-gesuchstellerin",
-      "sort": 13
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.strasse-gesuchstellerin",
-    "fields": {
-      "created_at": "2019-09-25T10:19:35.208Z",
-      "modified_at": "2019-09-25T10:19:35.208Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "strasse-gesuchstellerin",
-      "sort": 15
-    }
-  },
-  {
-    "model": "form.formquestion",
-    "pk": "vorabklaerung-einfach.vorname-gesuchstellerin-vorabklaerung",
-    "fields": {
-      "created_at": "2019-09-25T10:19:34.986Z",
-      "modified_at": "2019-09-25T10:19:34.986Z",
-      "created_by_user": null,
-      "created_by_group": null,
-      "form": "vorabklaerung-einfach",
-      "question": "vorname-gesuchstellerin-vorabklaerung",
-      "sort": 16
     }
   },
   {
@@ -12517,6 +12617,31 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "allgemeine-informationen-vorabklaerung-form",
+    "fields": {
+      "created_at": "2019-10-08T12:08:59.209Z",
+      "modified_at": "2019-10-09T08:15:30.576Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Allgemeine Informationen\", \"fr\": \"Informations g\\u00e9n\\u00e9rales\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "allgemeine-informationen-vorabklaerung",
       "source": null,
       "format_validators": "[]"
     }
@@ -16897,6 +17022,34 @@
   },
   {
     "model": "form.question",
+    "pk": "dokumente-vorabklaerung-form",
+    "fields": {
+      "created_at": "2019-10-08T12:24:56.453Z",
+      "modified_at": "2019-10-09T08:15:06.232Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Dokumente\", \"fr\": \"Documents\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {
+        "widgetOverride": "be-documents-form",
+        "attachment-section": 1
+      },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "dokumente-vorabklaerung",
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "druckausgleichsleitung-durchmesser-in-zoll",
     "fields": {
       "created_at": "2019-04-09T12:03:07.560Z",
@@ -18946,6 +19099,31 @@
       "data_source": null,
       "row_form": null,
       "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "freigabequittung-vorabklaerung-form",
+    "fields": {
+      "created_at": "2019-10-08T12:25:38.165Z",
+      "modified_at": "2019-10-09T08:16:03.459Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Einreichen\", \"fr\": \"Envoyer\"}",
+      "type": "form",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": "freigabequittung-vorabklaerung",
       "source": null,
       "format_validators": "[]"
     }
