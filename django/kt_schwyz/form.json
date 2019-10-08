@@ -6002,6 +6002,15 @@
         ]
       }
     },
+    "publikation-bemerkung": {
+      "restrict": [
+        "municipality"
+      ],
+      "label": "Bemerkung:",
+      "type": "textarea",
+      "required": false,
+      "config": {}
+    },
     "info-vorhaben-mit-baute": {
       "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",

@@ -88,7 +88,7 @@ class UserGroupFactory(DjangoModelFactory):
 
 class LocationFactory(DjangoModelFactory):
     name = Faker("city")
-    communal_federal_number = Faker("pystr", min_chars=4, max_chars=4)
+    communal_federal_number = Faker("pyint", min_value=1701, max_value=1731)
 
     class Meta:
         model = models.Location
