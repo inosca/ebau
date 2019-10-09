@@ -13,6 +13,7 @@ class DocumentParser:
     def __init__(self, document: dict):
         self.document = document
         self.answers = self.parse_answers(self.document)
+        self.answers["form-name"] = document["form"]["name"]
 
     def parse_answers(self, data):
         answers = {}
