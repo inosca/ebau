@@ -5,7 +5,7 @@ import xmlschema
 from camac.echbern import formatters
 
 
-def test_base_delivery(db, mandatory_answers, instance):
+def test_base_delivery(db, mandatory_answers, instance, attachment):
     xml = formatters.delivery(
         instance,
         mandatory_answers,

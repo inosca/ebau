@@ -36,7 +36,8 @@
       "question": null,
       "service": null,
       "size": 20597,
-      "user": 8
+      "user": 8,
+      "uuid": "61a3adb7-7ede-433e-a866-5da32f23cb12"
     },
     "model": "document.attachment",
     "pk": 1
