@@ -25,18 +25,28 @@ from .schema import (
 )
 
 
-def application(instance: Instance):
+def application(instance: Instance, answers: dict):
+    nature_risk = None
+    if "beschreibung-der-prozessart-tabelle" in answers:
+        nature_risk = [
+            ns_application.natureRiskType(
+                riskDesignation=row["prozessart"], riskExists=True
+            )
+            for row in answers["beschreibung-der-prozessart-tabelle"]
+        ]
+
     return ns_application.planningPermissionApplicationType(
-        description="TODO description from caluma",  # TODO
-        applicationType=instance.form.get_name(),
+        description=answers.get("beschreibung-bauvorhaben"),
+        applicationType=answers["form-name"],
         # remark minOccurs=0
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
         # profilingDate minOccurs=0
         # intendedPurpose minOccurs=0
-        # parkingLogsYesNo minOccurs=0
+        # parkingLotsYesNo minOccurs=0
         # natureRisk minOccurs=0
-        constructionCost=123433,
+        natureRisk=nature_risk,
+        constructionCost=answers.get("baukosten-in-chf"),
         # publication minOccurs=0
         # namedMetaData  minOccurs=0
         locationAddress=ns_address.swissAddressInformationType(
@@ -154,13 +164,13 @@ def office(instance: Instance):
     )
 
 
-def base_delivery(instance: Instance):
+def base_delivery(instance: Instance, answers: dict):
 
     return ns_application.eventBaseDeliveryType(
         planningPermissionApplicationInformation=[
             (
                 pyxb.BIND(
-                    planningPermissionApplication=application(instance),
+                    planningPermissionApplication=application(instance, answers),
                     relationshipToPerson=[
                         ns_application.relationshipToPersonType(
                             role="applicant", person=requestor(instance)
@@ -174,15 +184,15 @@ def base_delivery(instance: Instance):
     )
 
 
-def delivery(instance: Instance, **args):
+def delivery(instance: Instance, answers: dict, **args):
     """
     Generate delivery XML.
 
     General calling convention:
-    >>> delivery(instance, *delivery_type=delivery_data)
+    >>> delivery(instance, answers, *delivery_type=delivery_data)
 
     To generate a base delivery, call this:
-    >>> delivery(inst, eventBaseDelivery=base_delivery(inst))
+    >>> delivery(inst, answers, eventBaseDelivery=base_delivery(inst))
     """
     assert len(args) == 1, "Exactly one delivery param required"
 
@@ -199,7 +209,7 @@ def delivery(instance: Instance, **args):
                 product="CAMAC",
                 productVersion="2019-09-25",
             ),
-            subject="Bauvorhaben",
+            subject=answers["form-name"],
             messageDate="2019-09-25T00:00:00.00Z",
             action="1",
             testDeliveryFlag=True,
