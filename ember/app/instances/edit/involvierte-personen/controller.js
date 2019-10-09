@@ -11,23 +11,10 @@ export default Controller.extend({
 
   init() {
     this._super(...arguments);
-    this.columns = [
-      { label: "E-Mail", name: "email", required: true, type: "email" }
-    ];
   },
 
   addRow: task(function*() {
-    let row = {
-      ...this.columns.reduce(
-        (obj, { name }) => ({ ...obj, [name]: undefined }),
-        {}
-      )
-    };
-
-    yield this.setProperties({
-      editedRow: row,
-      newApplicant: null
-    });
+    yield this.set("newRow", { email: undefined });
   }).drop(),
 
   saveRow: task(function*() {
@@ -39,19 +26,20 @@ export default Controller.extend({
       changeset.execute();
 
       let applicant = this.store.createRecord("applicant", {
-        email: this.get("editedRow.email"),
+        email: this.get("newRow.email"),
         instance: this.get("model.instance")
       });
-      this.set("newApplicant", applicant);
 
-      yield applicant.save();
+      try {
+        yield applicant.save();
+      } catch (exception) {
+        this.set("saveErrors", exception.errors.map(e => e.detail));
+        return;
+      }
 
       yield this.refreshList();
 
-      this.setProperties({
-        editedRow: null,
-        newApplicant: null
-      });
+      this.set("newRow", null);
       UIkit.modal("#modal-applicants").hide();
     }
   }).restartable(),
@@ -59,10 +47,6 @@ export default Controller.extend({
   deleteRow: task(function*(row) {
     yield this.applicants.find(a => a.email === row.email).destroyRecord();
     yield this.refreshList();
-
-    this.setProperties({
-      editedRow: null
-    });
   }),
 
   async refreshList() {
@@ -75,19 +59,11 @@ export default Controller.extend({
     );
   },
 
-  saveErrors: computed("newApplicant.adapterError.errors.[]", function() {
-    return this.getWithDefault("newApplicant.adapterError.errors", []).map(
-      e => e.detail
-    );
-  }),
-
-  _value: computed("editedRow", "columns.[]", function() {
+  _value: computed("newRow", function() {
     return new Changeset(
-      this.editedRow || {},
+      this.newRow || {},
       (...args) => this._validate(...args),
-      this.columns.reduce((map, f) => {
-        return { ...map, [f.name]: () => this._validate };
-      }, {})
+      { email: () => this._validate }
     );
   }),
 
@@ -108,7 +84,7 @@ export default Controller.extend({
         isValid.filter(v => typeof v === "string")
       );
     } catch (e) {
-      return true;
+      return false;
     }
   },
 
