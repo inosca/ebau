@@ -533,3 +533,81 @@ def test_tags_filter(admin_client, admin_user, instance_factory):
         got_ids = set([row["id"] for row in data])
         expect_ids = set([str(inst.pk) for inst in expectation])
         assert got_ids == expect_ids
+
+
+@pytest.mark.parametrize(
+    "role__name,instance_state__name,responsible_service__responsible_user,responsible_service__service, instance_service__active",
+    [("Service", "new", LazyFixture("user"), LazyFixture("service"), 1)],
+)
+def test_responsible_service_filters(
+    admin_client,
+    user,
+    user_factory,
+    instance,
+    instance_factory,
+    group,
+    service,
+    service_factory,
+    instance_service,
+    instance_service_factory,
+    responsible_service,
+    responsible_service_factory,
+    circulation_factory,
+    activation,
+    activation_factory,
+):
+    url = reverse("instance-list")
+
+    response = admin_client.get(url)
+    # can see the instance
+    assert response.status_code == status.HTTP_200_OK
+
+    data = response.json()["data"]
+    assert len(data) == 1
+    assert data[0]["id"] == str(instance.pk)
+
+    # service is responsible for instance
+    other_service = service_factory()
+    response = admin_client.get(url, data={"responsible_service": service.pk})
+    data = response.json()["data"]
+    assert len(data) == 1
+    assert int(data[0]["id"]) == instance.pk
+
+    # other service has no instances responsible for
+    other_service = service_factory()
+    response = admin_client.get(url, data={"responsible_service": other_service.pk})
+    assert len(response.json()["data"]) == 0
+
+    # user is responsible for this service
+    response = admin_client.get(url, data={"responsible_service_user": user.pk})
+    data = response.json()["data"]
+    assert len(data) == 1
+    assert int(data[0]["id"]) == instance.pk
+
+    # no instance is left without responsible user
+    response = admin_client.get(url, data={"responsible_service_user": "nobody"})
+    data = response.json()["data"]
+    assert len(data) == 0
+
+    # create other_instance which is visible for "service"
+    other_instance = instance_factory(instance_state__name="subm")
+    activation_factory(
+        circulation=circulation_factory(instance=other_instance), service=service
+    )
+    instance_service_factory(instance=other_instance, service=service)
+
+    # other_instance has no responsible user
+    response = admin_client.get(url, data={"responsible_service_user": "nobody"})
+    data = response.json()["data"]
+    assert len(data) == 1
+    assert int(data[0]["id"]) == other_instance.pk
+
+    other_user = user_factory()
+    other_instance.responsible_services.create(
+        service=other_service, responsible_user=other_user
+    )
+
+    # other_user of other_service is responsible, so not visible to "service"
+    response = admin_client.get(url, data={"responsible_service_user": other_user.pk})
+    data = response.json()["data"]
+    assert len(data) == 0
