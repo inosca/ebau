@@ -162,25 +162,15 @@ export default Component.extend({
     }
   }),
 
-  /**
-   * The selection needs to be a plain js array because
-   * ember-leaflet can not handle EmberArrays
-   */
-  /*
-  selection: computed("points.@each.{lat,lng}", function() {
-    return this.get("points").toArray();
-  }),
-  */
-
-  // TODO Find way to update drawn polygons
-  // current options are either find out why the computed chain doesnt work
-  // or an action which toggles an boolean to redraw the points
   pointsFlat: computed("points.@each.length", function() {
     return this.points.flat();
   }),
 
   coordinates: computed("pointsFlat.@each.{lat,lng}", function() {
-    return this.points;
+    // This computed property is used to update the polygons when a point is moved
+    // we return a object with the flat array, because otherwise the computed property
+    // doesn't get recomputed if we only return the points.
+    return { points: this.points.map(p => p.toArray()), flat: this.pointsFlat };
   }),
 
   municipalities: computed("parcels.[]", function() {
