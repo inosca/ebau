@@ -5,6 +5,7 @@ django-environ==0.4.5
 django-filter==2.2.0
 djangorestframework==3.10.1
 djangorestframework-jsonapi==2.8.0
+djangorestframework-xml==1.4.0
 docxtpl==0.6.3
 drf-yasg==1.16.1
 packaging==19.2  # needed for drf-yasg but not included in their dependencies
