@@ -1,5 +1,7 @@
 import re
 
+from django.conf import settings
+from django.core.validators import EMPTY_VALUES
 from django_filters.rest_framework import (
     CharFilter,
     DateFilter,
@@ -14,6 +16,8 @@ from camac.filters import (
     NumberMultiValueFilter,
 )
 
+from ..core import models as core_models
+from ..responsible import models as responsible_models
 from . import models
 
 
@@ -22,6 +26,44 @@ class ResponsibleUserFilter(CharFilter):
         if value.lower() == "nobody":
             return qs.filter(**{f"{self.field_name}__isnull": True})
         return super().filter(qs, value)
+
+
+class ResponsibleServiceFilter(CharFilter):
+    def filter(self, qs, value):
+        if value in EMPTY_VALUES:
+            return qs
+
+        active_services = core_models.InstanceService.objects.filter(
+            active=1,
+            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+            service=value,
+        )
+        qs = qs.filter(pk__in=active_services.values("instance_id"))
+        return qs
+
+
+class ResponsibleServiceUserFilter(CharFilter):
+    def filter(self, qs, value):
+        if value in EMPTY_VALUES:
+            return qs
+
+        # restrict to service from request header
+        current_service = self.parent.request.group.service
+
+        if value.lower() == "nobody":
+            qs = qs.exclude(
+                # exclude all instances which have responsible services
+                pk__in=responsible_models.ResponsibleService.objects.filter(
+                    service=current_service
+                ).values("instance")
+            )
+            return qs
+
+        return qs.filter(
+            # restrict to current service
+            responsible_services__service=current_service,
+            responsible_services__responsible_user=value,
+        )
 
 
 class CirculationStateFilter(NumberFilter):
@@ -47,12 +89,8 @@ class InstanceFilterSet(FilterSet):
     )
     instance_state = NumberMultiValueFilter()
     responsible_user = ResponsibleUserFilter(field_name="responsibilities__user")
-    responsible_service = ResponsibleUserFilter(
-        field_name="responsible_services__service"
-    )
-    responsible_service_user = ResponsibleUserFilter(
-        field_name="responsible_services__responsible_user"
-    )
+    responsible_service = ResponsibleServiceFilter()
+    responsible_service_user = ResponsibleServiceUserFilter()
     circulation_state = CirculationStateFilter()
 
     class Meta:
