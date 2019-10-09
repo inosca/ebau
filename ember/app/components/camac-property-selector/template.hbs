@@ -96,9 +96,9 @@
       {{/if}}
 
 
-      {{#each coordinates as |pointSet index|}}
+      {{#each points as |pointSet index|}}
         {{#each pointSet as |point|}}
-          {{map.marker lat=point.lat lng=point.lng draggable=(eq (sub points.length 1) index) onDragend=(action (queue (perform updatePoint point) (action "rerenderPolys")))}}
+          {{map.marker lat=point.lat lng=point.lng draggable=(eq (sub points.length 1) index) onDragend=(action (queue (perform updatePoint point)))}}
         {{/each}}
 
         {{#if (eq pointSet.length 2)}}
