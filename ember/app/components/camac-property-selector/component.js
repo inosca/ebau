@@ -91,6 +91,7 @@ export default Component.extend({
   minZoom: 0,
   maxZoom: 11,
   layers: LAYERS.join(","),
+  points: null,
   parcels: A(),
   affectedLayers: A(),
   searchObject: null,
@@ -138,12 +139,9 @@ export default Component.extend({
       this.set("selected.parcels", parcels);
     }
 
+    // Backwards compatibilty check, for single polygon forms
     if (this.selected.points && "lat" in this.selected.points[0]) {
       this.selected.points = [this.selected.points];
-    } else if (this.selected.points && 0 in this.selected.points[0]) {
-      this.selected.points.forEach(
-        (ps, i) => (this.selected.points[i] = Object.values(ps))
-      );
     }
 
     this.setProperties({
@@ -174,6 +172,9 @@ export default Component.extend({
   }),
   */
 
+  // TODO Find way to update drawn polygons
+  // current options are either find out why the computed chain doesnt work
+  // or an action which toggles an boolean to redraw the points
   pointsFlat: computed("points.@each.length", function() {
     return this.points.flat();
   }),
@@ -253,6 +254,9 @@ export default Component.extend({
 
   getLayers: task(function*() {
     yield this.points.forEach(async pointSet => {
+      if (!pointSet.length) {
+        return;
+      }
       const coordinates = pointSet
         .map(p => {
           const coor = LatLngToEPSG3857(p.lat, p.lng);
