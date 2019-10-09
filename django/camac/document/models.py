@@ -1,3 +1,5 @@
+from uuid import uuid4
+
 import reversion
 from django.contrib.postgres.fields import ArrayField, JSONField
 from django.core.validators import MaxValueValidator
@@ -20,6 +22,7 @@ class Attachment(models.Model):
     objects = AttachmentQuerySet.as_manager()
 
     attachment_id = models.AutoField(db_column="ATTACHMENT_ID", primary_key=True)
+    uuid = models.UUIDField(default=uuid4, unique=True)  # needed for ECH
     name = models.CharField(db_column="NAME", max_length=255)
     instance = models.ForeignKey(
         "instance.Instance",

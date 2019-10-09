@@ -22,7 +22,7 @@ def test_parse_sample():  # pragma: no cover (because test is skipped, duh!)
     assert app.constructionCost == Decimal("99999999.25")
 
 
-def test_generate_delivery(db, mandatory_answers, instance):
+def test_generate_delivery(db, mandatory_answers, instance, attachment):
     xml_data = formatters.delivery(
         instance,
         mandatory_answers,

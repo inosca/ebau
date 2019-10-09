@@ -25,6 +25,11 @@ from .schema import (
 )
 
 
+def list_to_string(data, key, delimiter=", "):
+    if key in data:
+        return delimiter.join(data[key])
+
+
 def application(instance: Instance, answers: dict):
     nature_risk = None
     if "beschreibung-der-prozessart-tabelle" in answers:
@@ -42,26 +47,28 @@ def application(instance: Instance, answers: dict):
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
         # profilingDate minOccurs=0
-        # intendedPurpose minOccurs=0
-        # parkingLotsYesNo minOccurs=0
-        # natureRisk minOccurs=0
+        intendedPurpose=list_to_string(answers, "nutzungsart"),
+        parkingLotsYesNo=answers.get("anzahl-abstellplaetze-fur-motorfahrzeuge", 0) > 0,
         natureRisk=nature_risk,
         constructionCost=answers.get("baukosten-in-chf"),
         # publication minOccurs=0
         # namedMetaData  minOccurs=0
+        # We just use the first "parzelle" here
         locationAddress=ns_address.swissAddressInformationType(
             # addressLine1 minOccurs=0
             # addressLine2 minOccurs=0
-            town="Bern",
-            swissZipCode="3005",
+            houseNumber=answers["parzelle"][0]["nummer-parzelle"],
+            street=answers["parzelle"][0]["strasse-parzelle"],
+            town=answers["parzelle"][0]["ort-parzelle"],
+            swissZipCode=answers["parzelle"][0]["plz-parzelle"],
             country="CH",
         ),
         realestateInformation=[
             ns_application.realestateInformationType(
                 realestate=ns_person.realestateType(
                     realestateIdentification=ns_person.realestateIdentificationType(
-                        # EGRID minOccurs=0
-                        number="1234"
+                        EGRID=parzelle["e-grid-nr"],
+                        number=parzelle["parzellennummer"],
                         # numberSuffix minOccurs=0
                         # subDistrict minOccurs=0
                         # lot minOccurs=0
@@ -75,12 +82,18 @@ def application(instance: Instance, answers: dict):
                     # identDN minOccurs 0
                     # squareMeasure minOccurs 0
                     # realestateIncomplete minOccurs 0
-                    # coordinates minOccurs 0
+                    coordinates=ns_person.coordinatesType(
+                        LV95=pyxb.BIND(
+                            east=parzelle["lagekoordinaten-ost"],
+                            north=parzelle["lagekoordinaten-nord"],
+                            originOfCoordinates=904,
+                        )
+                    )
                     # namedMetaData minOccurs 0
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
                     # municipalityId minOccurs 0
-                    municipalityName="Bern",
+                    municipalityName=parzelle["ort-parzelle"],
                     cantonAbbreviation="BE",
                 ),
                 # buildingInformation minOccurs=0
@@ -90,10 +103,10 @@ def application(instance: Instance, answers: dict):
                         # ownerIdentification minOccurs=0
                         ownerAdress=ns_address.mailAddressType(
                             person=ns_address.personMailAddressInfoType(
-                                mrMrs="1",  # mapping?
-                                title="Dr Med",
-                                firstName="David",
-                                lastName="Vogt",
+                                # mrMrs="1",  # mapping?
+                                # title="Dr Med",
+                                firstName=owner["vorname-gesuchstellerin"],
+                                lastName=owner["name-gesuchstellerin"],
                             ),
                             addressInformation=ns_address.addressInformationType(
                                 # not the same as swissAddressInformationType (obv..)
@@ -102,15 +115,19 @@ def application(instance: Instance, answers: dict):
                                 # (street, houseNumber, dwellingNumber) minOccurs=0
                                 # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
                                 # locality minOccurs=0
-                                town=ns_address.townType("Bern"),
-                                swissZipCode="3007",
+                                street=owner["strasse-gesuchstellerin"],
+                                houseNumber=owner["nummer-gesuchstellerin"],
+                                town=ns_address.townType(owner["ort-gesuchstellerin"]),
+                                swissZipCode=owner["plz-gesuchstellerin"],
                                 # foreignZipCode minOccurs=0
                                 country="CH",
                             ),
                         )
                     )
+                    for owner in answers["personalien-gesuchstellerin"]
                 ],
             )
+            for parzelle in answers["parzelle"]
         ],
         # zone minOccurs=0
         # constructionProjectInformation minOccurs=0
@@ -118,14 +135,15 @@ def application(instance: Instance, answers: dict):
         # decisionRuling minOccurs=0
         document=[
             ns_document.documentType(
-                uuid="12341234-1341234-1234123",  # oder so, todo
-                titles=pyxb.BIND(title="foobar"),
+                uuid=str(attachment.uuid),  # oder so, todo
+                titles=pyxb.BIND(title=[attachment.name]),
                 status="signed",  # ech0039 documentStatusType
+                documentKind=list_to_string(attachment.context, "tags"),
                 files=pyxb.BIND(
                     file=[
                         pyxb.BIND(
-                            pathFileName="/foo/bar/asdf.pdf",
-                            mimeType="application/pdf",
+                            pathFileName=attachment.path,
+                            mimeType=attachment.mime_type,
                             # internalSortOrder minOccurs=0
                             # version minOccurs=0
                             # hashCode minOccurs=0
@@ -134,6 +152,7 @@ def application(instance: Instance, answers: dict):
                     ]
                 ),
             )
+            for attachment in instance.attachments.iterator()
         ],
         # referencedPlanningPermissionApplication minOccurs=0
         planningPermissionApplicationIdentification=ns_application.planningPermissionApplicationIdentificationType(

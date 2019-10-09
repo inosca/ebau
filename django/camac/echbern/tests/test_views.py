@@ -5,9 +5,11 @@ from .full_document_response import full_document
 
 
 def test_application_retrieve(
-    admin_client, admin_user, instance_factory, requests_mock
+    admin_client, admin_user, instance_factory, attachment, requests_mock
 ):
     i = instance_factory(user=admin_user)
+    attachment.instance = i
+    attachment.save()
     url = reverse("application", args=[i.pk])
 
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
