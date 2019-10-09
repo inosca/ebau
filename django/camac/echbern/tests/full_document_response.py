@@ -5,7 +5,11 @@ full_document = {
                 {
                     "node": {
                         "id": "RG9jdW1lbnQ6ZGYxMDA1MGMtZDRjNy00ODNkLWIzMTMtNzcxMjYyZjFkOTdj",
-                        "form": {"slug": "baugesuch", "__typename": "Form"},
+                        "form": {
+                            "slug": "baugesuch",
+                            "name": "Baugesuch",
+                            "__typename": "Form",
+                        },
                         "answers": {
                             "edges": [
                                 {

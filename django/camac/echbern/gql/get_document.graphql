@@ -5,6 +5,7 @@ query ($filter: [JSONValueFilterType]) {
         id
         form {
           slug
+          name
           __typename
         }
         answers {

@@ -37,7 +37,7 @@ def application(instance: Instance, answers: dict):
 
     return ns_application.planningPermissionApplicationType(
         description=answers.get("beschreibung-bauvorhaben"),
-        applicationType=instance.form.get_name(),
+        applicationType=answers["form-name"],
         # remark minOccurs=0
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
@@ -209,7 +209,7 @@ def delivery(instance: Instance, answers: dict, **args):
                 product="CAMAC",
                 productVersion="2019-09-25",
             ),
-            subject=instance.form.get_name(),
+            subject=answers["form-name"],
             messageDate="2019-09-25T00:00:00.00Z",
             action="1",
             testDeliveryFlag=True,

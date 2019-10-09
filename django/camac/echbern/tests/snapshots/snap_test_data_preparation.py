@@ -155,6 +155,7 @@ snapshots["test_get_document 1"] = {
     ],
     "feuerungsanlagen": ["Holzfeuerungen mit einer Feuerungswärmeleistung ≥ 70 kW"],
     "finden-bauarbeiten-in-der-nacht-statt": "Ja",
+    "form-name": "Baugesuch",
     "forstliche-baute": "Ja",
     "fruchtfolgeflaeche-ausgeschieden": "Ja",
     "fuellmenge-in-kg": 555,
