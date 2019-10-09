@@ -1,7 +1,72 @@
 from django.http import HttpResponse
-from rest_framework.generics import RetrieveAPIView
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.authentication import get_authorization_header
+from rest_framework.generics import RetrieveAPIView, get_object_or_404
+from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
+from rest_framework.serializers import Serializer
+from rest_framework.viewsets import GenericViewSet
+from rest_framework_xml.renderers import XMLRenderer
 
+from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+
+from . import formatters
+from .data_preparation import get_document
+from .serializers import ApplicationsSerializer
+
+group_param = openapi.Parameter(
+    "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
+)
+
+
+class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
+    serializer_class = Serializer
+    renderer_classes = (XMLRenderer,)
+    queryset = Instance.objects
+    instance_field = None
+
+    @swagger_auto_schema(
+        tags=["ECH"],
+        operation_summary="Get baseDelivery for instance",
+        manual_parameters=[group_param],
+        responses={"200": "eCH-0211 baseDelivery"},
+    )
+    def retrieve(self, request, instance_id=None, **kwargs):
+        document = get_document(
+            instance_id, get_authorization_header(request), request.group.pk
+        )
+        qs = self.get_queryset()
+        instance = get_object_or_404(qs, pk=instance_id)
+        xml_data = formatters.delivery(
+            instance,
+            document,
+            eventBaseDelivery=formatters.base_delivery(instance, document),
+        ).toxml()
+        response = HttpResponse(xml_data)
+        response["Content-Type"] = "application/xml"
+
+        return response
+
+
+class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
+    serializer_class = ApplicationsSerializer
+    queryset = Instance.objects
+    instance_field = None
+
+    def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):
+            return Instance.objects.none()
+        return super().get_queryset()
+
+    @swagger_auto_schema(
+        tags=["ECH"],
+        manual_parameters=[group_param],
+        operation_summary="Get list of accessible instances",
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
 
 XML = """\
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
