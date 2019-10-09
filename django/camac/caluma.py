@@ -33,7 +33,8 @@ class CalumaClient:
 
 
 class CalumaSerializerMixin:
-    def query_caluma(self, query, variables=None):
+    def query_caluma(self, query, variables=None, add_headers=None):
         variables = variables if variables is not None else {}
+        add_headers = add_headers if add_headers is not None else {}
         client = CalumaClient(get_authorization_header(self.context["request"]))
-        return client.query_caluma(query, variables)
+        return client.query_caluma(query, variables, add_headers)
