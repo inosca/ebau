@@ -418,7 +418,7 @@ export default Component.extend({
     yield resolve(
       this["on-submit"](
         this.parcels,
-        this.points,
+        this.points.filter(p => p.length),
         image,
         municipality,
         this.affectedLayers
