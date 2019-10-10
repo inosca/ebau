@@ -278,8 +278,8 @@ snapshots["test_get_document 1"] = {
         {
             "baurecht-nummer": "23",
             "e-grid-nr": "23",
-            "lagekoordinaten-nord": "2",
-            "lagekoordinaten-ost": "1",
+            "lagekoordinaten-nord": "1070500.000",
+            "lagekoordinaten-ost": "2480034.0",
             "liegenschaftsnummer": 23,
             "nummer-parzelle": "23",
             "ort-parzelle": "Burgdorf",
