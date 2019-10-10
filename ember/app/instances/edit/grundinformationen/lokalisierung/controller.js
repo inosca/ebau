@@ -74,7 +74,9 @@ export default Controller.extend({
   _savePoints: task(function*(points) {
     this.set(
       "points.model.value",
-      points.map(point => ({ ...point, layers: undefined }))
+      points.map(pointSet =>
+        pointSet.map(point => ({ ...point, layers: undefined }))
+      )
     );
 
     yield this.get("questionStore.saveQuestion").perform(this.points);

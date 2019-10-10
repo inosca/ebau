@@ -81,7 +81,6 @@
         layers      = layers
         url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
       }}
-
       {{#each parcels key='egrid' as |parcel|}}
         {{#map.polygon locations=parcel.coordinates clickable=false color='red' as |polygon|}}
           {{#tooltip-layer sticky=true}}
@@ -96,21 +95,24 @@
         {{map.circle-marker location=searchObject radius=4 color="green"}}
       {{/if}}
 
-      {{#each points as |point|}}
-        {{map.marker lat=point.lat lng=point.lng draggable=true onDragend=(action (queue (perform updatePoint point)))}}
+
+      {{#each coordinates.points as |pointSet index|}}
+        {{#each pointSet as |point|}}
+          {{map.marker lat=point.lat lng=point.lng draggable=(eq (sub points.length 1) index) onDragend=(action (queue (perform updatePoint point)))}}
+        {{/each}}
+
+        {{#if (eq pointSet.length 2)}}
+          {{map.polyline locations=pointSet color="blue"}}
+        {{/if}}
+
+        {{#if (gt pointSet.length 2)}}
+          {{#map.polygon locations=pointSet color="blue"}}
+            {{#tooltip-layer sticky=true}}
+              Grundriss
+            {{/tooltip-layer}}
+          {{/map.polygon}}
+        {{/if}}
       {{/each}}
-
-      {{#if (eq points.length 2)}}
-        {{map.polyline locations=selection color="blue"}}
-      {{/if}}
-
-      {{#if (gt points.length 2)}}
-        {{#map.polygon locations=selection color="blue"}}
-          {{#tooltip-layer sticky=true}}
-            Grundriss
-          {{/tooltip-layer}}
-        {{/map.polygon}}
-      {{/if}}
       {{#if parcels.length}}
         {{!--
           We misuse a hidden marker here to trigger the task "focusOnParcels" when
@@ -127,7 +129,8 @@
     {{#if selected.parcels.length}}
       {{#uk-button on-click=(perform reset)}}Gespeicherte Auswahl laden{{/uk-button}}
     {{/if}}
-    {{#if points.length}}
+    {{#if points.firstObject.length}}
+      {{#uk-button on-click=(perform addPointSet)}}Neue Auswahl{{/uk-button}}
       {{#uk-button on-click=(perform clear)}}Auswahl löschen{{/uk-button}}
       {{#uk-button color='secondary' on-click=(perform getLayers)}}Auswahl abfragen{{/uk-button}}
     {{/if}}
