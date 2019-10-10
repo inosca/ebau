@@ -1,16 +1,39 @@
 from django.urls import reverse
 from rest_framework import status
 
-from .full_document_response import full_document
+from camac.core.models import Answer, Chapter, Question, QuestionT, QuestionType
+
+from .caluma_responses import full_document
 
 
-def test_application_retrieve(
-    admin_client, admin_user, instance_factory, attachment, requests_mock
+def test_application_retrieve_full(
+    admin_client,
+    ech_instance,
+    instance_factory,
+    docx_decision_factory,
+    requests_mock,
+    attachment,
 ):
-    i = instance_factory(user=admin_user)
-    attachment.instance = i
+    docx_decision_factory(instance=ech_instance.pk)
+
+    i = instance_factory()
+
+    attachment.instance = ech_instance
+    attachment.context = {"tags": ["berechnung-kinderspielplaetze-dokument"]}
     attachment.save()
-    url = reverse("application", args=[i.pk])
+
+    qtype = QuestionType.objects.create(name="text")
+    q = Question.objects.create(question_type=qtype)
+    QuestionT.objects.create(question=q, name="eBau-Nummer", language="de")
+    chapter = Chapter.objects.create()
+    Answer.objects.create(
+        instance=i, question=q, answer="2019-23", item=1, chapter=chapter
+    )
+    Answer.objects.create(
+        instance=ech_instance, question=q, answer="2019-23", item=1, chapter=chapter
+    )
+
+    url = reverse("application", args=[ech_instance.pk])
 
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
 
