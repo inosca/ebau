@@ -9,8 +9,16 @@ later point in time
 """
 
 
-import pyxb
+import logging
 
+import pyxb
+from django.conf import settings
+from django.urls import reverse
+from django.utils import timezone
+from pyxb import IncompleteElementContentError, UnprocessedElementContentError
+
+from camac import camac_metadata
+from camac.core.models import Answer, DocxDecision
 from camac.instance.models import Instance
 
 from .schema import (
@@ -18,11 +26,13 @@ from .schema import (
     ech_0010_6_0 as ns_address,
     ech_0044_4_1,
     ech_0058_5_0,
-    ech_0097_2_0,
-    ech_0129_5_0 as ns_person,
+    ech_0097_2_0 as ns_company_identification,
+    ech_0129_5_0 as ns_objektwesen,
     ech_0147_t0_1 as ns_document,
     ech_0211_2_0 as ns_application,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def list_to_string(data, key, delimiter=", "):
@@ -30,8 +40,95 @@ def list_to_string(data, key, delimiter=", "):
         return delimiter.join(data[key])
 
 
+def handle_ja_nein_bool(value):
+    if value in ["Ja", "ja"]:  # pragma: todo cover
+        return True
+    elif value in ["Nein", "nein"]:
+        return False
+
+
+def resolve_document_tags(answers, context):
+    resolved_tags = []
+    for tag in context.get("tags", []):
+        resolved_tags += answers[tag]
+    return "; ".join(resolved_tags)
+
+
+def authority(instance):
+    return ns_company_identification.organisationIdentificationType(
+        uid=ns_company_identification.uidStructureType(
+            # We don't bother with UIDs
+            uidOrganisationIdCategorie="CHE",
+            uidOrganisationId="123123123",
+        ),
+        localOrganisationId=ns_company_identification.namedOrganisationIdType(
+            organisationIdCategory="CHE", organisationId="123123123"
+        ),
+        organisationName=instance.active_service.get_name(),
+        legalForm="0223",
+    )
+
+
+def get_ebau_nr(instance):
+    ebau_answer = Answer.objects.filter(
+        question__trans__name="eBau-Nummer", instance=instance
+    ).first()
+    if ebau_answer:
+        return ebau_answer.answer
+
+
+def get_related_instances_pks(instance, ebau_nr=None):
+    ebau_nr = ebau_nr if ebau_nr else get_ebau_nr(instance)
+    related_instances_pks = []
+    if ebau_nr:
+        related_instances_pks = (
+            Answer.objects.filter(question__trans__name="eBau-Nummer", answer=ebau_nr)
+            .exclude(instance__pk=instance.pk)
+            .values_list("instance__pk", flat=True)
+        )
+    return related_instances_pks
+
+
+def get_documents(instance, answers):
+    documents = [
+        ns_document.documentType(
+            uuid=str(attachment.uuid),
+            titles=pyxb.BIND(title=[attachment.name]),
+            status="signed",  # ech0039 documentStatusType
+            documentKind=resolve_document_tags(answers, attachment.context),
+            files=ns_document.filesType(
+                file=[
+                    ns_document.fileType(
+                        pathFileName=f"{settings.INTERNAL_BASE_URL}{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        mimeType=attachment.mime_type,
+                        # internalSortOrder minOccurs=0
+                        # version minOccurs=0
+                        # hashCode minOccurs=0
+                        # hashCodeAlgorithm minOccurs=0
+                    )
+                ]
+            ),
+        )
+        for attachment in instance.attachments.iterator()
+    ]
+    if not documents:
+        documents = [
+            ns_document.documentType(
+                uuid="00000000-0000-0000-0000-000000000000",
+                titles=pyxb.BIND(title=["dummy"]),
+                status="signed",
+                files=ns_document.filesType(
+                    file=[
+                        ns_document.fileType(pathFileName="unknown", mimeType="unknown")
+                    ]
+                ),
+            )
+        ]
+    return documents
+
+
 def application(instance: Instance, answers: dict):
-    nature_risk = None
+    nature_risk = []
     if "beschreibung-der-prozessart-tabelle" in answers:
         nature_risk = [
             ns_application.natureRiskType(
@@ -40,10 +137,13 @@ def application(instance: Instance, answers: dict):
             for row in answers["beschreibung-der-prozessart-tabelle"]
         ]
 
+    ebau_nr = get_ebau_nr(instance)
+    related_instances_pks = get_related_instances_pks(instance, ebau_nr)
+
     return ns_application.planningPermissionApplicationType(
-        description=answers.get("beschreibung-bauvorhaben"),
+        description=answers.get("beschreibung-bauvorhaben", "unknown"),
         applicationType=answers["form-name"],
-        # remark minOccurs=0
+        remark=[answers["bemerkungen"]] if "bemerkungen" in answers else [],
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
         # profilingDate minOccurs=0
@@ -52,22 +152,25 @@ def application(instance: Instance, answers: dict):
         natureRisk=nature_risk,
         constructionCost=answers.get("baukosten-in-chf"),
         # publication minOccurs=0
-        # namedMetaData  minOccurs=0
-        # We just use the first "parzelle" here
+        namedMetaData=[
+            ns_objektwesen.namedMetaDataType(
+                metaDataName="status", metaDataValue=instance.instance_state.name
+            )
+        ],
         locationAddress=ns_address.swissAddressInformationType(
             # addressLine1 minOccurs=0
             # addressLine2 minOccurs=0
-            houseNumber=answers["parzelle"][0]["nummer-parzelle"],
-            street=answers["parzelle"][0]["strasse-parzelle"],
-            town=answers["parzelle"][0]["ort-parzelle"],
-            swissZipCode=answers["parzelle"][0]["plz-parzelle"],
+            houseNumber=answers.get("nr", "0"),
+            street=answers.get("strasse-flurname", "unknown"),
+            town=answers.get("ort-grundstueck", "unknown"),
+            swissZipCode=answers.get("plz", 9999),
             country="CH",
         ),
         realestateInformation=[
             ns_application.realestateInformationType(
-                realestate=ns_person.realestateType(
-                    realestateIdentification=ns_person.realestateIdentificationType(
-                        EGRID=parzelle["e-grid-nr"],
+                realestate=ns_objektwesen.realestateType(
+                    realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                        EGRID=parzelle.get("e-grid-nr"),
                         number=parzelle["parzellennummer"],
                         # numberSuffix minOccurs=0
                         # subDistrict minOccurs=0
@@ -75,20 +178,25 @@ def application(instance: Instance, answers: dict):
                     ),
                     # authority minOccurs=0
                     # date minOccurs=0
-                    realestateType="5",  # mapping?
+                    realestateType="8",  # mapping?
                     # cantonalSubKind minOccurs=0
                     # status minOccurs=0
                     # mutnumber minOccurs=0
                     # identDN minOccurs 0
                     # squareMeasure minOccurs 0
                     # realestateIncomplete minOccurs 0
-                    coordinates=ns_person.coordinatesType(
+                    coordinates=ns_objektwesen.coordinatesType(
                         LV95=pyxb.BIND(
                             east=parzelle["lagekoordinaten-ost"],
                             north=parzelle["lagekoordinaten-nord"],
                             originOfCoordinates=904,
                         )
                     )
+                    if all(
+                        k in parzelle
+                        for k in ("lagekoordinaten-ost", "lagekoordinaten-nord")
+                    )
+                    else None
                     # namedMetaData minOccurs 0
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
@@ -96,7 +204,26 @@ def application(instance: Instance, answers: dict):
                     municipalityName=parzelle["ort-parzelle"],
                     cantonAbbreviation="BE",
                 ),
-                # buildingInformation minOccurs=0
+                buildingInformation=[
+                    ns_application.buildingInformationType(
+                        building=ns_objektwesen.buildingType(
+                            EGID=answers.get("gwr-egid"),
+                            numberOfFloors=answers.get("effektive-geschosszahl"),
+                            civilDefenseShelter=handle_ja_nein_bool(
+                                answers.get("sammelschutzraum")
+                            ),
+                            buildingCategory=1040,  # TODO: map category to GWR categories
+                            # We don't want to map the heatings, hence omitting
+                            # heating=[
+                            #     ns_person.heatingType(
+                            #         heatGeneratorHeating=7410,
+                            #         energySourceHeating=7511,
+                            #     )
+                            #     for heating in answers.get("feuerungsanlagen", [])[:2]
+                            # ],  # eCH only accepts 2 heatingTypes
+                        )
+                    )
+                ],
                 # placeName  minOccurs=0
                 owner=[
                     pyxb.BIND(
@@ -115,8 +242,8 @@ def application(instance: Instance, answers: dict):
                                 # (street, houseNumber, dwellingNumber) minOccurs=0
                                 # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
                                 # locality minOccurs=0
-                                street=owner["strasse-gesuchstellerin"],
-                                houseNumber=owner["nummer-gesuchstellerin"],
+                                street=owner.get("strasse-gesuchstellerin"),
+                                houseNumber=owner.get("nummer-gesuchstellerin"),
                                 town=ns_address.townType(owner["ort-gesuchstellerin"]),
                                 swissZipCode=owner["plz-gesuchstellerin"],
                                 # foreignZipCode minOccurs=0
@@ -127,57 +254,76 @@ def application(instance: Instance, answers: dict):
                     for owner in answers["personalien-gesuchstellerin"]
                 ],
             )
-            for parzelle in answers["parzelle"]
+            for parzelle in answers.get("parzelle", [])
         ],
-        # zone minOccurs=0
-        # constructionProjectInformation minOccurs=0
-        # directive  minOccurs=0
-        # decisionRuling minOccurs=0
-        document=[
-            ns_document.documentType(
-                uuid=str(attachment.uuid),  # oder so, todo
-                titles=pyxb.BIND(title=[attachment.name]),
-                status="signed",  # ech0039 documentStatusType
-                documentKind=list_to_string(attachment.context, "tags"),
-                files=pyxb.BIND(
-                    file=[
-                        pyxb.BIND(
-                            pathFileName=attachment.path,
-                            mimeType=attachment.mime_type,
-                            # internalSortOrder minOccurs=0
-                            # version minOccurs=0
-                            # hashCode minOccurs=0
-                            # hashCodeAlgorithm minOccurs=0
-                        )
-                    ]
-                ),
+        zone=[ns_application.zoneType(zoneDesignation=answers["nutzungszone"])]
+        if "nutzungszone" in answers
+        else [],
+        constructionProjectInformation=ns_application.constructionProjectInformationType(
+            constructionProject=ns_objektwesen.constructionProject(
+                status=6701,  # we always send this. The real status is in namedMetaData
+                description=answers.get("beschreibung-bauvorhaben", "None"),
+                projectStartDate=answers.get("geplanter-baustart"),
+                durationOfConstructionPhase=answers.get("dauer-in-monaten"),
+                totalCostsOfProject=answers.get("baukosten-in-chf"),
+            ),
+            municipality=ech_0007_6_0.swissMunicipalityType(
+                municipalityName=answers["parzelle"][0]["ort-parzelle"],
+                cantonAbbreviation="BE",
             )
-            for attachment in instance.attachments.iterator()
+            if "parzelle" in answers
+            else None,
+        ),
+        # directive  minOccurs=0
+        decisionRuling=[
+            ns_application.decisionRulingType(
+                judgement=1 if decision.decision == "accepted" else 4,
+                date=decision.decision_date,
+                ruling=decision.decision_type,
+                rulingAuthority=authority(instance),
+            )
+            for decision in DocxDecision.objects.filter(instance=instance.pk)
         ],
-        # referencedPlanningPermissionApplication minOccurs=0
+        document=get_documents(instance, answers),
+        referencedPlanningPermissionApplication=[
+            ns_application.planningPermissionApplicationIdentificationType(
+                localID=[
+                    ns_objektwesen.namedIdType(
+                        IdCategory="instanceID", Id=str(instance_pk)
+                    )
+                ],
+                otherID=[
+                    ns_objektwesen.namedIdType(
+                        IdCategory="instanceID", Id=str(instance_pk)
+                    )
+                ],
+                dossierIdentification=ebau_nr,
+            )
+            for instance_pk in related_instances_pks
+            if not instance_pk == instance.pk
+        ],
         planningPermissionApplicationIdentification=ns_application.planningPermissionApplicationIdentificationType(
-            localID=[pyxb.BIND(IdCategory="Category", Id="ID")],  # TODO: WHAT
-            otherID=[pyxb.BIND(IdCategory="Category", Id="ID")],  # TODO: WHAT
-            dossierIdentification=str(instance.instance_id),
+            localID=[
+                ns_objektwesen.namedIdType(
+                    IdCategory="instanceID", Id=str(instance.instance_id)
+                )
+            ],
+            otherID=[
+                ns_objektwesen.namedIdType(
+                    IdCategory="instanceID", Id=str(instance.instance_id)
+                )
+            ],
+            dossierIdentification=ebau_nr,
         ),
     )
 
 
-def office(instance: Instance):
+def office(instance: Instance, answers: dict):
     return ns_application.entryOfficeType(
-        entryOfficeIdentification=ech_0097_2_0.organisationIdentificationType(
-            # uid minOccurs=0
-            localOrganisationId=ech_0097_2_0.namedOrganisationIdType(
-                organisationIdCategory="blah", organisationId="1234"
-            ),
-            organisationName="asfdasdfasdf"
-            # organisationLegalName minOccurs=0
-            # organisationAdditionalName minOccurs=0
-            # legalForm minOccurs=0
-        ),
+        entryOfficeIdentification=authority(instance),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName="Bern",
+            municipalityName=answers["gemeinde"],
             cantonAbbreviation="BE",
         ),
     )
@@ -195,8 +341,8 @@ def base_delivery(instance: Instance, answers: dict):
                             role="applicant", person=requestor(instance)
                         )
                     ],
-                    decisionAuthority=decision_authority(instance),
-                    entryOffice=office(instance),
+                    decisionAuthority=decision_authority(instance, answers),
+                    entryOffice=office(instance, answers),
                 )
             )
         ]
@@ -211,56 +357,66 @@ def delivery(instance: Instance, answers: dict, **args):
     >>> delivery(instance, answers, *delivery_type=delivery_data)
 
     To generate a base delivery, call this:
-    >>> delivery(inst, answers, eventBaseDelivery=base_delivery(inst))
+    >>> delivery(instance, answers, eventBaseDelivery=base_delivery(instance))
     """
     assert len(args) == 1, "Exactly one delivery param required"
 
     message_types = {"eventBaseDelivery": "5100000"}
     message_type = message_types[list(args.keys())[0]]
 
-    return ns_application.delivery(
-        deliveryHeader=ech_0058_5_0.headerType(
-            senderId="https://ebau.apps.be.ch",
-            messageId=str(id(instance)),
-            messageType=message_type,
-            sendingApplication=pyxb.BIND(
-                manufacturer="Adfinis SyGroup AG",
-                product="CAMAC",
-                productVersion="2019-09-25",
-            ),
-            subject=answers["form-name"],
-            messageDate="2019-09-25T00:00:00.00Z",
-            action="1",
-            testDeliveryFlag=True,
-        ),
-        **args,
-    )
-
-
-def decision_authority(instance: Instance):
-    return ns_application.decisionAuthorityInformationType(
-        decisionAuthority=ns_person.buildingAuthorityType(
-            buildingAuthorityIdentificationType=ech_0097_2_0.organisationIdentificationType(
-                # uid minOccurs=0
-                localOrganisationId=ech_0097_2_0.namedOrganisationIdType(
-                    organisationIdCategory="blah", organisationId="1234"
+    try:
+        return ns_application.delivery(
+            deliveryHeader=ech_0058_5_0.headerType(
+                senderId="https://ebau.apps.be.ch",
+                messageId=str(id(instance)),
+                messageType=message_type,
+                sendingApplication=pyxb.BIND(
+                    manufacturer=camac_metadata.__author__,
+                    product=camac_metadata.__title__,
+                    productVersion=camac_metadata.__version__,
                 ),
-                organisationName="Gemeinde Bern",
+                subject=answers["form-name"],
+                messageDate=timezone.now(),
+                action="1",
+                testDeliveryFlag=True,
             ),
+            **args,
+        )
+    except (
+        IncompleteElementContentError,
+        UnprocessedElementContentError,
+    ) as e:  # pragma: no cover
+        logger.error(e.details())
+        raise
+
+
+def decision_authority(instance: Instance, answers: dict):
+    return ns_application.decisionAuthorityInformationType(
+        decisionAuthority=ns_objektwesen.buildingAuthorityType(
+            buildingAuthorityIdentificationType=authority(instance),
             # description minOccurs=0
             # shortDescription minOccurs=0
             # contactPerson minOccurs=0
             # contact minOccurs=0
+            address=ns_address.addressInformationType(
+                town=answers["gemeinde"],
+                swissZipCode=instance.active_service.zip,
+                street=instance.active_service.address,
+                country="CH",
+            )
             # address minOccurs=0
         )
     )
 
 
 def requestor(instance: Instance):
-    return ns_person.personType(
+    return ns_objektwesen.personType(
         identification=pyxb.BIND(
             personIdentification=ech_0044_4_1.personIdentificationLightType(
-                officialName="Vogt", firstName="David"
+                officialName=instance.user.surname
+                if instance.user.surname
+                else "unknown",
+                firstName=instance.user.name if instance.user.name else "unknown",
             )
         )
     )
