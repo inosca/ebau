@@ -301,7 +301,7 @@ export default Component.extend(ComponentQueryManager, {
       let projectStatus = coords.keyvalue[project_status_index];
 
       // Keep the value only if the status is "valid"
-      if (projectStatus === "0") {
+      if (["0", "gültig", "valable"].includes(projectStatus)) {
         let parcel_number = "";
         let baurecht_number = "";
 
