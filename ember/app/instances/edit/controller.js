@@ -167,6 +167,16 @@ export default Controller.extend({
     }
   ),
 
+  currentPage: computed("router.currentRouteName", function() {
+    if (
+      this.get("router.currentRouteName") ===
+      "instances.edit.involvierte-personen"
+    ) {
+      return "applicants";
+    }
+    return "form";
+  }),
+
   prev: task(function*() {
     yield this.get("questionStore.saveQuestion.last");
 
