@@ -6,6 +6,6 @@ export default Route.extend({
     let applicants = this.store.query("applicant", {
       instance: model.instance.get("id")
     });
-    this.controller.set("applicants", applicants);
+    controller.set("applicants", applicants);
   }
 });
