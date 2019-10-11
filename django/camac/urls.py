@@ -13,9 +13,11 @@ SWAGGER_DESCRIPTION = """\
 
 ## Authentifizierung
 
-Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/) genutzt. Pro Gemeindesoftware wird eine "client-id" und ein "client secret" vergeben, mit welchen Tokens bezogen werden können:
+Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/)
+genutzt. Pro Gemeindesoftware wird eine "client-id" und ein "client secret"
+vergeben, mit welchen Tokens bezogen werden können:
 
-```
+```bash
 curl --request POST \
 --url 'https://ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
@@ -24,10 +26,22 @@ curl --request POST \
 --data client_secret=${client-secret}
 ```
 
-Mit einem gültigen Token können API Abfragen gemacht werden:
+Mit einem gültigen Token können API-Abfragen gemacht werden. Nachfolgend
+ein paar Beispiele:
 
+
+**Sichtbare Gesuche auflisten:**
+```bash
+curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Authorization: Bearer ${TOKEN}"
+
+**Gesuch-Details abfragen (BaseDelivery)**
+```bash
+curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
 ```
-curl -X GET "https://ebau-test.sycloud.ch/ech/v1/getNext" -H "Authorization: Bearer ${TOKEN}"
+
+Die verfügbaren Gruppen sind unter dem Endpoint `/api/v1/me` verfügbar:
+```bash
+curl -X GET "https://ebau-test.sycloud.ch/api/v1/me" -H "Authorization: Bearer ${TOKEN}"
 ```
 """
 
