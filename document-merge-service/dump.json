@@ -11,6 +11,16 @@
   },
   {
     "model": "api.template",
+    "pk": "vorabklaerung",
+    "fields": {
+      "description": "",
+      "template": "vorabklaerung.docx",
+      "engine": "docx-template",
+      "group": null
+    }
+  },
+  {
+    "model": "api.template",
     "pk": "selbstdeklaration",
     "fields": {
       "description": "",
