@@ -1,5 +1,4 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
 import Changeset from "ember-changeset";
@@ -7,11 +6,7 @@ import { isBlank } from "@ember/utils";
 import UIkit from "uikit";
 
 export default Controller.extend({
-  ajax: service(),
-
-  init() {
-    this._super(...arguments);
-  },
+  applicants: null,
 
   addRow: task(function*() {
     yield this.set("newRow", { email: undefined });
@@ -74,7 +69,7 @@ export default Controller.extend({
           !isBlank(value) || "Dieses Feld darf nicht leer gelassen werden",
         value =>
           !this.applicants.filterBy("email", value).length ||
-          "Diese E-Mail wurde schon eingeladen"
+          "Die Person mit dieser E-Mailadresse wurde schon eingeladen"
       ];
 
       let isValid = validations.map(fn => fn(newValue));
