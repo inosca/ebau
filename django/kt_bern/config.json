@@ -145382,10 +145382,10 @@
   },
   {
     "fields": {
-      "body": "Sie wurden eingeladen am Baugesuch {{ PUBLIC_DOSSIER_LINK }} mitzuarbeiten.",
+      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit k\u00f6nnen Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour\r\n\r\nLe/la requ\u00e9rant(e) vous a donn\u00e9 acc\u00e8s au dossier n\u00b0 {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l\u2019\u00e9diter.\r\n\r\nMeilleures salutations",
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Bestehend",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
       "template": 39
     },
     "model": "notification.notificationtemplatet",
@@ -145393,10 +145393,10 @@
   },
   {
     "fields": {
-      "body": "Sie wurden eingeladen am Baugesuch {{ PUBLIC_DOSSIER_LINK }} mitzuarbeiten.\r\n\r\nUm das Baugesuch einsehen und bearbeiten zu k\u00f6nnen, ist eine Registration auf dem eBau Portal des Kanton Bern erforderlich.\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ REGISTRATION_LINK }}",
+      "body": "Guten Tag\r\n\r\nSie haben vom/von der Gesuchsteller/in den Zugriff auf das Dossier-Nr. {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}) erhalten. Damit k\u00f6nnen Sie dieses einsehen respektive mitbearbeiten.\r\n\r\nUm das Dossier einsehen respektive mitbearbeiten zu k\u00f6nnen, ist eine Registrierung auf dem eBau Portal des Kantons Bern erforderlich.\r\n\r\nUnter folgendem Link k\u00f6nnen Sie sich registrieren: {{ REGISTRATION_LINK }}\r\n\r\nFreundliche Gr\u00fcsse\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nBonjour\r\n\r\nLe/la requ\u00e9rant(e) vous a donn\u00e9 acc\u00e8s au dossier n\u00b0 {{ INSTANCE_ID }} ({{ PUBLIC_DOSSIER_LINK }}). Cela vous permettra de le consulter ou de l\u2019\u00e9diter.\r\n\r\nL'enregistrement sur le portail eBau du canton de Berne est n\u00e9cessaire pour consulter et \u00e9diter le dossier.\r\n\r\nVous pouvez vous inscrire en cliquant sur le lien suivant : {{ REGISTRATION_LINK }}\r\n\r\nMeilleures salutations",
       "language": "de",
       "purpose": "Gesuchsbearbeitungs Einladung, Neu",
-      "subject": "Sie wurden Eingeladen ein Baugesuch mitzubearbeiten",
+      "subject": "Einsicht respektive Mitarbeit in Dossier (Nr. {{ INSTANCE_ID }}) / Consultation du ou participation au dossier (n\u00b0 {{ INSTANCE_ID }})",
       "template": 40
     },
     "model": "notification.notificationtemplatet",
