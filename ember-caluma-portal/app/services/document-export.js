@@ -1,4 +1,5 @@
 import { warn, assert } from "@ember/debug";
+import { get } from "@ember/object";
 import Service, { inject as service } from "@ember/service";
 
 const PEOPLE_SOURCES = {
@@ -54,7 +55,7 @@ export default Service.extend({
 
       Object.assign(target, {
         slug: "8-unterschriften",
-        label: `8. ${this.intl.t("pdf.signatures")}`,
+        label: this.intl.t("pdf.signatures"),
         children: sources.map(table => ({
           type: "SignatureQuestion",
           label: table.label
@@ -90,7 +91,10 @@ export default Service.extend({
    */
   async merge(instanceId, document, options = {}) {
     const convert = options.convert || "pdf";
-    const field = document.findField("formulardownload-pdf");
+    const field =
+      document.findField("formulardownload-pdf") ||
+      document.findField("formulardownload-pdf-vorabklaerung") ||
+      document.findField("formulardownload-pdf-selbstdeklaration");
     const navigation = this.calumaStore.find(`Navigation:${document.pk}`);
 
     let data = {
@@ -162,7 +166,8 @@ function parseDocument(document, navigation) {
 function parseNavigationItem(item) {
   return {
     type: "FormQuestion",
-    hidden: !item.visible,
+    hidden:
+      !item.visible || get(item, "fieldset.field.question.meta.exportHidden"),
     slug: item.slug,
     label: item.label,
     children: [
@@ -182,7 +187,7 @@ function visible(section) {
  *
  * @param {Field} field
  */
-function parseQuestion(field) {
+function parseQuestion(field, flatten = false) {
   switch (field.question.__typename) {
     case "FormQuestion":
       return null;
@@ -195,7 +200,7 @@ function parseQuestion(field) {
       return parseSimpleQuestion(field);
 
     case "ChoiceQuestion":
-      return parseChoiceQuestion(field);
+      return parseChoiceQuestion(field, flatten);
 
     case "DynamicChoiceQuestion":
       return parseChoiceQuestion(field, true);
@@ -249,7 +254,7 @@ function parseTableQuestion(field) {
       label: edge.node.label
     })),
     rows: (field.answer.value || []).map(doc =>
-      doc.fields.map(field => parseQuestion(field))
+      doc.fields.map(field => parseQuestion(field, true))
     )
   };
 }
