@@ -37,7 +37,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 0,
+      "sort": 1,
       "success_message": null
     },
     "model": "core.action",
@@ -829,6 +829,20 @@
   },
   {
     "fields": {
+      "available_action": "save",
+      "button": 130000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150001
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -1522,6 +1536,18 @@
     },
     "model": "core.actiont",
     "pk": 150000
+  },
+  {
+    "fields": {
+      "action": 150001,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Save",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150001
   },
   {
     "fields": {
