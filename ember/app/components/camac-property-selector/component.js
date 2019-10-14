@@ -71,7 +71,7 @@ const QUERY_LAYERS = [
   "ch.sz.a049.fischgewaesser_bestehend",
   "ch.sz.a049.fischgewaesser_pot",
   "ch.sz.a049.fischregionen",
-  "ch.sz.anjf_reptiliengebiete.reptiliengebiet"
+  "ch.sz.a143a.reptiliengebiet"
 ];
 
 const PARCEL_LAYER =
