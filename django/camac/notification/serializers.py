@@ -360,7 +360,9 @@ class NotificationTemplateSendmailSerializer(
 
     def _get_recipients_applicant(self, instance):
         return [
-            applicant.invitee.email for applicant in instance.involved_applicants.all()
+            applicant.invitee.email
+            for applicant in instance.involved_applicants.all()
+            if applicant.invitee
         ]
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
