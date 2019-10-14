@@ -12,6 +12,7 @@ services:
             - django
             - keycloak
             - mailhog
+            - document-merge-service
         volumes:
             - djangomedia:/var/lib/camac/media:ro
             - djangotmpmedia:/tmp/camac/tmpfiles:ro
