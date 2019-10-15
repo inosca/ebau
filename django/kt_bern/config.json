@@ -48765,13 +48765,13 @@
   {
     "fields": {
       "available_instance_resource": "billing",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 31,
+      "sort": 16,
       "template": null
     },
     "model": "core.instanceresource",
@@ -48780,13 +48780,13 @@
   {
     "fields": {
       "available_instance_resource": "journal",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 32,
+      "sort": 21,
       "template": null
     },
     "model": "core.instanceresource",
@@ -48795,7 +48795,7 @@
   {
     "fields": {
       "available_instance_resource": "journal",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -48810,13 +48810,13 @@
   {
     "fields": {
       "available_instance_resource": "journal",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 7,
+      "sort": 10,
       "template": null
     },
     "model": "core.instanceresource",
@@ -48825,13 +48825,13 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "menu-group-circulation",
+      "class_field": "menu-category-process menu-group-circulation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 17,
+      "sort": 7,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -48840,13 +48840,13 @@
   {
     "fields": {
       "available_instance_resource": "circulation",
-      "class_field": "menu-group-circulation",
+      "class_field": "menu-category-process menu-group-circulation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 18,
+      "sort": 8,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -48855,13 +48855,13 @@
   {
     "fields": {
       "available_instance_resource": "editnotice",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 2,
+      "sort": 7,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -48870,7 +48870,7 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "menu-group-subcirculation",
+      "class_field": "menu-category-process menu-group-subcirculation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -48885,7 +48885,7 @@
   {
     "fields": {
       "available_instance_resource": "circulation",
-      "class_field": "menu-group-subcirculation",
+      "class_field": "menu-category-process menu-group-subcirculation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -48900,97 +48900,7 @@
   {
     "fields": {
       "available_instance_resource": "service",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20006,
-      "sort": 15,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 20011
-  },
-  {
-    "fields": {
-      "available_instance_resource": "publication",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20006,
-      "sort": 30,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 20012
-  },
-  {
-    "fields": {
-      "available_instance_resource": "editformpage",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20006,
-      "sort": 12,
-      "template": "/form/edit-page.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20014
-  },
-  {
-    "fields": {
-      "available_instance_resource": "billing",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20007,
-      "sort": 6,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 20016
-  },
-  {
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20006,
-      "sort": 33,
-      "template": "/responsible/index.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20019
-  },
-  {
-    "fields": {
-      "available_instance_resource": "editresponsibleuser",
-      "class_field": null,
-      "description": null,
-      "form_group": 40000,
-      "hidden": 0,
-      "name": null,
-      "resource": 20007,
-      "sort": 8,
-      "template": "/responsible/index.phtml"
-    },
-    "model": "core.instanceresource",
-    "pk": 20020
-  },
-  {
-    "fields": {
-      "available_instance_resource": "docxdecision",
-      "class_field": null,
+      "class_field": "menu-category-extraordinary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49000,18 +48910,108 @@
       "template": null
     },
     "model": "core.instanceresource",
+    "pk": 20011
+  },
+  {
+    "fields": {
+      "available_instance_resource": "publication",
+      "class_field": "menu-category-process",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20006,
+      "sort": 15,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20012
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editformpage",
+      "class_field": "menu-category-process",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20006,
+      "sort": 4,
+      "template": "/form/edit-page.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 20014
+  },
+  {
+    "fields": {
+      "available_instance_resource": "billing",
+      "class_field": "menu-category-process",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20007,
+      "sort": 9,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 20016
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editresponsibleuser",
+      "class_field": "menu-category-primary",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20006,
+      "sort": 3,
+      "template": "/responsible/index.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 20019
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editresponsibleuser",
+      "class_field": "menu-category-primary",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20007,
+      "sort": 3,
+      "template": "/responsible/index.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 20020
+  },
+  {
+    "fields": {
+      "available_instance_resource": "docxdecision",
+      "class_field": "menu-category-process",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20006,
+      "sort": 14,
+      "template": null
+    },
+    "model": "core.instanceresource",
     "pk": 20023
   },
   {
     "fields": {
       "available_instance_resource": "formparent",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 20001,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 14,
+      "sort": 6,
       "template": "/form/read-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -49020,13 +49020,13 @@
   {
     "fields": {
       "available_instance_resource": "editformpage",
-      "class_field": null,
+      "class_field": "menu-category-extraordinary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 20,
+      "sort": 18,
       "template": "/form/rueckmeldungen.phtml"
     },
     "model": "core.instanceresource",
@@ -49035,13 +49035,13 @@
   {
     "fields": {
       "available_instance_resource": "circulation",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 3,
+      "sort": 6,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -49050,13 +49050,13 @@
   {
     "fields": {
       "available_instance_resource": "editnotice",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 21,
+      "sort": 13,
       "template": "/circulation/list-notice.phtml"
     },
     "model": "core.instanceresource",
@@ -49065,13 +49065,13 @@
   {
     "fields": {
       "available_instance_resource": "editcirculation",
-      "class_field": "menu-group-subcirculation",
+      "class_field": "menu-category-process menu-group-subcirculation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 23,
+      "sort": 9,
       "template": "/circulation/edit-circulation.phtml"
     },
     "model": "core.instanceresource",
@@ -49080,13 +49080,13 @@
   {
     "fields": {
       "available_instance_resource": "circulation",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 22,
+      "sort": 12,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -49095,13 +49095,13 @@
   {
     "fields": {
       "available_instance_resource": "circulation",
-      "class_field": "menu-group-subcirculation",
+      "class_field": "menu-category-process menu-group-subcirculation",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 24,
+      "sort": 10,
       "template": "/circulation/index.phtml"
     },
     "model": "core.instanceresource",
@@ -49110,13 +49110,13 @@
   {
     "fields": {
       "available_instance_resource": "service",
-      "class_field": null,
+      "class_field": "menu-category-extraordinary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 16,
+      "sort": 20,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49125,7 +49125,7 @@
   {
     "fields": {
       "available_instance_resource": "service",
-      "class_field": null,
+      "class_field": "menu-category-extraordinary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49140,7 +49140,7 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49155,13 +49155,13 @@
   {
     "fields": {
       "available_instance_resource": "apidocuments",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 7,
+      "sort": 1,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49170,7 +49170,7 @@
   {
     "fields": {
       "available_instance_resource": "apidocuments",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49185,7 +49185,7 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49200,7 +49200,7 @@
   {
     "fields": {
       "available_instance_resource": "apidocuments",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49215,7 +49215,7 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49230,13 +49230,13 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 34,
+      "sort": 2,
       "template": "/document-merge/document-merge.phtml"
     },
     "model": "core.instanceresource",
@@ -49245,13 +49245,13 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 9,
+      "sort": 2,
       "template": "/document-merge/document-merge.phtml"
     },
     "model": "core.instanceresource",
@@ -49260,13 +49260,13 @@
   {
     "fields": {
       "available_instance_resource": "editformpages",
-      "class_field": null,
+      "class_field": "menu-category-process",
       "description": null,
       "form_group": 20001,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 13,
+      "sort": 5,
       "template": "/form/edit-pages.phtml"
     },
     "model": "core.instanceresource",
@@ -49275,13 +49275,13 @@
   {
     "fields": {
       "available_instance_resource": "claim",
-      "class_field": null,
+      "class_field": "menu-category-extraordinary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 35,
+      "sort": 17,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49290,7 +49290,7 @@
   {
     "fields": {
       "available_instance_resource": "page",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49305,7 +49305,7 @@
   {
     "fields": {
       "available_instance_resource": "apidocuments",
-      "class_field": null,
+      "class_field": "menu-category-primary",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49320,7 +49320,7 @@
   {
     "fields": {
       "available_instance_resource": "auditlog",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49335,13 +49335,13 @@
   {
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20006,
-      "sort": 36,
+      "sort": 22,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49350,7 +49350,7 @@
   {
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
@@ -49365,13 +49365,13 @@
   {
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
       "name": null,
       "resource": 20007,
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49380,7 +49380,7 @@
   {
     "fields": {
       "available_instance_resource": "revisionhistory",
-      "class_field": null,
+      "class_field": "menu-category-analysis",
       "description": null,
       "form_group": 40000,
       "hidden": 0,
