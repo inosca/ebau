@@ -115,7 +115,7 @@ def test_publication_publish(
     requests_mock, settings, admin_client, publication_entry, form_field_factory
 ):
     requests_mock.post(
-        settings.PUBLICAIION_API_URL,
+        settings.PUBLICATION_API_URL,
         text="New Baugesuch for Schwyz in Amtsblatt 41/2019 vom 11.10.2019, Redaktionsschluss 09.10.2019 11:00 Uhr created.",
     )
 

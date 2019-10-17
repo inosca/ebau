@@ -25,8 +25,7 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
         if not instance.is_published and validated_data["is_published"]:
             # remove the microseconds because this date is displayed in camac and
             # camac can't handle microseconds..
-            now = timezone.now()
-            camac_now = now - timedelta(microseconds=now.microsecond)
+            camac_now = timezone.now().replace(microsecond=0)
 
             models.WorkflowEntry.objects.create(
                 group=instance.instance.group.pk,
