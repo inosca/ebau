@@ -106,12 +106,16 @@ class FormDataValidator(object):
     def _validate_question_table(self, question, question_def, value):
         columns = question_def["config"]["columns"]
         for row in list(value or [{}]):
-            for column in columns:
-                self._validate_question(
-                    "{0}/{1}".format(question, column["name"]),
-                    column,
-                    row.get(column["name"]),
-                )
+            if not isinstance(row, list):
+                row = [row]
+
+            for row_object in row:
+                for column in columns:
+                    self._validate_question(
+                        "{0}/{1}".format(question, column["name"]),
+                        column,
+                        row_object.get(column["name"]),
+                    )
 
     def _check_questions_active(self, questions):
         for question in questions:
@@ -225,13 +229,16 @@ class FormDataValidator(object):
                                 ),
                             )
 
-                            for coord in value:
-                                lat, lng = transformer.transform(
-                                    coord["lat"], coord["lng"]
-                                )
-                                converted_values.append(
-                                    f"{int(float(lat)):n} / {int(float(lng)):n}"
-                                )
+                            for coord_set in value:
+                                if not isinstance(coord_set, list):
+                                    coord_set = [coord_set]
+                                for coord in coord_set:
+                                    lat, lng = transformer.transform(
+                                        coord["lat"], coord["lng"]
+                                    )
+                                    converted_values.append(
+                                        f"{int(float(lat)):n} / {int(float(lng)):n}"
+                                    )
 
                             value = converted_values
                             label = "Koordinaten"
