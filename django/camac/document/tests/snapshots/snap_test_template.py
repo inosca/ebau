@@ -102,7 +102,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         <w:szCs w:val="24"/>
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
-      <w:t>Publikationsdatum: 03.10.1997</w:t>
+      <w:t>Publikationsdatum: 19.06.2003</w:t>
     </w:r>
   </w:p>
   <w:p>
@@ -2015,7 +2015,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">845.98</w:t>
+            <w:t xml:space="preserve">547.61</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2041,7 +2041,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">20.11.2014</w:t>
+            <w:t xml:space="preserve">10.06.1997</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2323,7 +2323,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>02.06.2018</w:t>
+            <w:t>14.06.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2371,7 +2371,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>08.10.2005</w:t>
+            <w:t>25.05.2015</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2395,7 +2395,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>12.06.2018</w:t>
+            <w:t>10.06.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>

@@ -63,7 +63,9 @@ class PublicationEntryView(viewsets.ModelViewSet):
 
     def _clean_persons(self, persons, type=""):
         for person in persons:
-            if type == "grundeingenuemer":
+            # We only use the title of grundeigentuemer because the external Amtsblatt API
+            # only uses a title on grundeigentuemer
+            if type == "grundeigentuemer":
                 anrede_mapping = {
                     "Herr": "Grundeigentümer",
                     "Frau": "Grundeigentümerin",
@@ -83,65 +85,58 @@ class PublicationEntryView(viewsets.ModelViewSet):
 
     @action(methods=["post"], detail=True)  # noqa: C901
     def publish(self, request, pk=None):
-        try:
-            payload = {}
-            publication = self.get_object()
-            formFieldQuery = FormField.objects.filter(instance=publication.instance)
+        payload = {}
+        publication = self.get_object()
+        formFieldQuery = FormField.objects.filter(instance=publication.instance)
 
-            payload["bfs_nr"] = int(
-                publication.instance.location.communal_federal_number
+        payload["bfs_nr"] = int(publication.instance.location.communal_federal_number)
+
+        payload["publikation_datum"] = publication.publication_date.strftime("%d.%m.%Y")
+
+        bauzone = formFieldQuery.filter(name="lage").first()
+        if bauzone:
+            bauzone = bauzone.value
+            payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
+
+        bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
+        if bauherrschaften:
+            payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
+
+        projektverfasser = formFieldQuery.filter(name="projektverfasser-planer").first()
+        if projektverfasser:
+            payload["projektverfasser"] = self._clean_persons(projektverfasser.value)
+
+        grundeigentuemer = formFieldQuery.filter(name="grundeigentumerschaft").first()
+        if grundeigentuemer:
+            payload["grundeigentuemer"] = self._clean_persons(
+                grundeigentuemer.value, "grundeigentuemer"
             )
 
-            payload["publikation_datum"] = publication.publication_date.strftime(
-                "%d.%m.%Y"
-            )
+        bezeichnung = formFieldQuery.get(name="bezeichnung").value
+        bezeichnung_override = formFieldQuery.filter(
+            name="bezeichnung-override"
+        ).first()
+        if bezeichnung_override:
+            bezeichnung = bezeichnung_override.value
+        payload["bauobjekte"] = [{"bezeichnung": bezeichnung}]
 
-            bauzone = formFieldQuery.filter(name="lage").first()
-            if bauzone:
-                bauzone = bauzone.value
-                payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
+        grundstuecknummern = []
+        for parcel in formFieldQuery.get(name="parzellen").value:
+            grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
+        payload["grundstuecknummern"] = grundstuecknummern
 
-            bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
-            if bauherrschaften:
-                payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
+        koordinaten = []
+        transformer = Transformer.from_crs(
+            "EPSG:4326",
+            CRS.from_proj4(
+                "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
+            ),
+        )
 
-            projektverfasser = formFieldQuery.filter(
-                name="projektverfasser-planer"
-            ).first()
-            if projektverfasser:
-                payload["projektverfasser"] = self._clean_persons(
-                    projektverfasser.value
-                )
-
-            grundeigentuemer = formFieldQuery.filter(
-                name="grundeigentumerschaft"
-            ).first()
-            if grundeigentuemer:
-                payload["grundeigentuemer"] = self._clean_persons(
-                    grundeigentuemer.value, "grundeingenuemer"
-                )
-
-            bezeichnung = formFieldQuery.get(name="bezeichnung").value
-            bezeichnung_override = formFieldQuery.filter(
-                name="bezeichnung-override"
-            ).first()
-            if bezeichnung_override:
-                bezeichnung = bezeichnung_override.value
-            payload["bauobjekte"] = [{"bezeichnung": bezeichnung}]
-
-            grundstuecknummern = []
-            for parcel in formFieldQuery.get(name="parzellen").value:
-                grundstuecknummern.append({"type": "KTN", "nummer": parcel["number"]})
-            payload["grundstuecknummern"] = grundstuecknummern
-
-            koordinaten = []
-            transformer = Transformer.from_crs(
-                "EPSG:4326",
-                CRS.from_proj4(
-                    "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
-                ),
-            )
-            for coord in formFieldQuery.get(name="punkte").value:
+        for coordSet in formFieldQuery.get(name="punkte").value:
+            if not isinstance(coordSet, list):
+                coordSet = [coordSet]
+            for coord in coordSet:
                 lat, lng = transformer.transform(coord["lat"], coord["lng"])
                 lat = f"{int(lat)}"
                 lng = f"{int(lng)}"
@@ -153,21 +148,23 @@ class PublicationEntryView(viewsets.ModelViewSet):
                         "hinweis": "",
                     }
                 )
-            payload["koordinaten"] = koordinaten
 
-            bemerkung = formFieldQuery.filter(name="publikation-bemerkung").first()
-            if bemerkung:
-                payload["bemerkungen"] = [{"type": "", "text": bemerkung.value}]
+        payload["koordinaten"] = koordinaten
 
-            response = requests.post(
-                settings.PUBLICAIION_API_URL,
-                json=payload,
-                auth=(settings.PUBLICATION_API_USER, settings.PUBLICATION_API_PASSWORD),
-            )
+        bemerkung = formFieldQuery.filter(name="publikation-bemerkung").first()
+        if bemerkung:
+            payload["bemerkungen"] = [{"type": "", "text": bemerkung.value}]
 
+        response = requests.post(
+            settings.PUBLICATION_API_URL,
+            json=payload,
+            auth=(settings.PUBLICATION_API_USER, settings.PUBLICATION_API_PASSWORD),
+        )
+
+        try:
             response.raise_for_status()
         # This is to catch any exception that might result from the Amtsblatt api
         except requests.exceptions.RequestException as e:  # pragma: no cover
             return Response(str(e), 400)
-        else:
-            return Response([], 204)
+
+        return Response([], 204)

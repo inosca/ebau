@@ -484,7 +484,7 @@ SWAGGER_SETTINGS = {
 }
 
 # Schwyz Publication
-PUBLICAIION_API_URL = env.str(
+PUBLICATION_API_URL = env.str(
     "PUBLICATION_API_URL", "https://amtsblatt-test.webtech.ch/api/v1/baugesuch"
 )
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
