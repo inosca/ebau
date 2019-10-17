@@ -1435,7 +1435,7 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Go to previous state",
+      "name": "Go to state \"Dossierpr\u00fcfung\"",
       "success_message": null
     },
     "model": "core.actiont",
@@ -1624,7 +1624,7 @@
   {
     "fields": {
       "current_instance_state": null,
-      "next_instance_state": null
+      "next_instance_state": 20006
     },
     "model": "core.aformtransition",
     "pk": 20103
