@@ -256,8 +256,7 @@ class InstanceView(
 
         # remove the microseconds because this date is displayed in camac and
         # camac can't handle microseconds..
-        now = timezone.now()
-        camac_now = now - timedelta(microseconds=now.microsecond)
+        camac_now = timezone.now().replace(microsecond=0)
 
         # create workflow item when configured
         workflow_item = settings.APPLICATION["SUBMIT"].get("WORKFLOW_ITEM")
