@@ -22,11 +22,11 @@ def test_parse_sample():  # pragma: no cover (because test is skipped, duh!)
     assert app.constructionCost == Decimal("99999999.25")
 
 
-def test_generate_delivery(db, mandatory_answers, ech_instance):
+def test_generate_delivery(db, ech_mandatory_answers, ech_instance):
     xml_data = formatters.delivery(
         ech_instance,
-        mandatory_answers,
-        eventBaseDelivery=formatters.base_delivery(ech_instance, mandatory_answers),
+        ech_mandatory_answers,
+        eventBaseDelivery=formatters.base_delivery(ech_instance, ech_mandatory_answers),
     ).toxml()
 
     my_dir = os.path.dirname(__file__)
