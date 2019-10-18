@@ -80,3 +80,21 @@ def multilang(application_settings):
 def use_caluma_form(application_settings):
     application_settings["FORM_BACKEND"] = "caluma"
     application_settings["CALUMA"] = {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]}
+
+
+@pytest.fixture
+def ech_mandatory_answers():
+    return {
+        "beschreibung-bauvorhaben": "test beschreibung",
+        "form-name": "Baugesuch",
+        "gemeinde": "Testgemeinde",
+        "parzelle": [{"ort-parzelle": "Burgdorf", "parzellennummer": "1586"}],
+        "personalien-gesuchstellerin": [
+            {
+                "name-gesuchstellerin": "Testname",
+                "ort-gesuchstellerin": "Testort",
+                "plz-gesuchstellerin": 2323,
+                "vorname-gesuchstellerin": "Testvorname",
+            }
+        ],
+    }

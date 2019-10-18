@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     "camac.applicants.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
-    "camac.echbern",
+    "camac.echbern.apps.EchbernConfig",
     "sorl.thumbnail",
     "django_clamd",
     "reversion",
@@ -374,6 +374,14 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 KEYCLOAK_URL = env.str("KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/")
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
+KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET = env.str(
+    "KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET", default="a7d2be1b-6a7a-4f28-a978-10a63b1e9850"
+)
+KEYCLOAK_OIDC_TOKEN_URL = env.str(
+    "KEYCLOAK_OIDC_TOKEN_URL",
+    default="http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token",
+)
+
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
     "OIDC_BEARER_TOKEN_REVALIDATION_TIME", default=120
 )

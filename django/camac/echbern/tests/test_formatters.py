@@ -9,11 +9,11 @@ from camac.echbern import formatters
 logger = logging.getLogger(__name__)
 
 
-def test_base_delivery(mandatory_answers, ech_instance):
+def test_base_delivery(ech_mandatory_answers, ech_instance):
     xml = formatters.delivery(
         ech_instance,
-        mandatory_answers,
-        eventBaseDelivery=formatters.base_delivery(ech_instance, mandatory_answers),
+        ech_mandatory_answers,
+        eventBaseDelivery=formatters.base_delivery(ech_instance, ech_mandatory_answers),
     )
 
     assert xml

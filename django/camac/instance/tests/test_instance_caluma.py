@@ -7,6 +7,8 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.core.models import Chapter, Question, QuestionType
+from camac.echbern import event_handlers
+from camac.echbern.data_preparation import DocumentParser
 from camac.instance.models import Instance
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
@@ -230,6 +232,7 @@ def test_instance_list(
 )
 def test_instance_submit(
     requests_mock,
+    mocker,
     admin_client,
     role,
     instance,
@@ -245,6 +248,7 @@ def test_instance_submit(
     multilang,
     application_settings,
     mock_nfd_permissions,
+    ech_mandatory_answers,
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -285,6 +289,11 @@ def test_instance_submit(
             }
         ),
     )
+
+    ech_data_mock = mocker.patch.object(DocumentParser, "parse_answers")
+    ech_data_mock.return_value = ech_mandatory_answers
+    token = mocker.patch.object(event_handlers, "get_admin_token")
+    token.return_value = "token"
 
     instance_state_factory(name=new_instance_state_name)
 

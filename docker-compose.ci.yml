@@ -9,6 +9,7 @@ services:
         image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}
         environment:
             - KEYCLOAK_URL=http://keycloak:8080/auth/
+            - OAUTHLIB_INSECURE_TRANSPORT=1
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}
