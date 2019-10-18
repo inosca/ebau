@@ -1,0 +1,6 @@
+__title__ = "camac"
+__author__ = "Adfinis Sygroup AG"
+__version__ = "0.0.0"
+__email__ = "info@adfinis-sygroup.ch"
+__description__ = "Camac REST API"
+__url__ = "https://adfinis-sygroup.ch/"

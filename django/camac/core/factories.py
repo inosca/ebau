@@ -1,5 +1,6 @@
 import pytz
-from factory import Faker, SubFactory
+from django.utils import timezone
+from factory import Faker, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.instance.factories import InstanceFactory
@@ -41,6 +42,27 @@ class CirculationAnswerFactory(DjangoModelFactory):
 
     class Meta:
         model = models.CirculationAnswer
+
+
+class DocxDecisionFactory(DjangoModelFactory):
+    instance = fuzzy.FuzzyInteger(500)
+    decision = fuzzy.FuzzyChoice(["accepted", "denied", "writtenOff"])
+    decision_type = fuzzy.FuzzyChoice(
+        [
+            "BAUBEWILLIGUNG",
+            "GESAMT",
+            "KLEIN",
+            "GENERELL",
+            "TEILBAUBEWILLIGUNG",
+            "PROJEKTAENDERUNG",
+            "BAUABSCHLAG_OHNE_MWST",
+            "BAUABSCHLAG_MIT_MWST",
+        ]
+    )
+    decision_date = timezone.localdate()
+
+    class Meta:
+        model = models.DocxDecision
 
 
 class FormGroupFactory(DjangoModelFactory):

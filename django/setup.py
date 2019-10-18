@@ -2,12 +2,17 @@
 
 from setuptools import find_packages, setup
 
+version = {}
+with open("camac/camac_metadata.py") as fp:
+    exec(fp.read(), version)
+
+
 setup(
-    name="camac",
-    version="0.0.0",
-    author="Adfinis SyGroup AG",
-    author_email="https://adfinis-sygroup.ch/",
-    description="Camac REST API",
-    url="https://adfinis-sygroup.ch/",
+    name=version["__title__"],
+    version=version["__version__"],
+    author=version["__author__"],
+    author_email=version["__email__"],
+    description=version["__description__"],
+    url=version["__url__"],
     packages=find_packages(),
 )
