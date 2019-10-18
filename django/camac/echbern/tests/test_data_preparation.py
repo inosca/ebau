@@ -1,5 +1,5 @@
 from ..data_preparation import get_document
-from .full_document_response import full_document
+from .caluma_responses import full_document
 
 
 def test_get_document(requests_mock, snapshot):

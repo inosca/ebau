@@ -2,35 +2,29 @@ import pytest
 
 
 @pytest.fixture
-def mandatory_answers(db):
+def mandatory_answers():
     return {
         "beschreibung-bauvorhaben": "test beschreibung",
         "form-name": "Baugesuch",
-        "parzelle": [
-            {
-                "baurecht-nummer": "23",
-                "e-grid-nr": "23",
-                "lagekoordinaten-nord": "1070500.000",
-                "lagekoordinaten-ost": "2480034.0",
-                "liegenschaftsnummer": 23,
-                "nummer-parzelle": "23",
-                "ort-parzelle": "Burgdorf",
-                "parzellennummer": "1586",
-                "plz-parzelle": 2323,
-                "strasse-parzelle": "Teststrasse",
-            }
-        ],
+        "gemeinde": "Testgemeinde",
+        "parzelle": [{"ort-parzelle": "Burgdorf", "parzellennummer": "1586"}],
         "personalien-gesuchstellerin": [
             {
-                "e-mail-gesuchstellerin": "test@example.com",
-                "juristische-person-gesuchstellerin": "Nein",
                 "name-gesuchstellerin": "Testname",
-                "nummer-gesuchstellerin": "23",
-                "ort-gesuchstellerin": "Burgdorf",
+                "ort-gesuchstellerin": "Testort",
                 "plz-gesuchstellerin": 2323,
-                "strasse-gesuchstellerin": "Teststrasse",
-                "telefon-oder-mobile-gesuchstellerin": "0781234567",
                 "vorname-gesuchstellerin": "Testvorname",
             }
         ],
     }
+
+
+@pytest.fixture
+def ech_instance(db, admin_user, instance_service_factory):
+    inst_serv = instance_service_factory(
+        instance__user=admin_user,
+        service__name="Leitbehörde Burgdorf",
+        service__zip="3400",
+        service__address="Teststrasse 23",
+    )
+    return inst_serv.instance
