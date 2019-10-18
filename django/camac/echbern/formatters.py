@@ -349,6 +349,18 @@ def base_delivery(instance: Instance, answers: dict):
     )
 
 
+def submit(instance: Instance, answers: dict):
+    return ns_application.eventSubmitPlanningPermissionApplicationType(
+        eventType=ns_application.eventTypeType("submit"),
+        planningPermissionApplication=application(instance, answers),
+        relationshipToPerson=[
+            ns_application.relationshipToPersonType(
+                role="applicant", person=requestor(instance)
+            )
+        ],
+    )
+
+
 def delivery(instance: Instance, answers: dict, **args):
     """
     Generate delivery XML.
@@ -361,7 +373,10 @@ def delivery(instance: Instance, answers: dict, **args):
     """
     assert len(args) == 1, "Exactly one delivery param required"
 
-    message_types = {"eventBaseDelivery": "5100000"}
+    message_types = {
+        "eventBaseDelivery": "5100000",
+        "eventSubmitPlanningPermissionApplication": "5100000",
+    }
     message_type = message_types[list(args.keys())[0]]
 
     try:
