@@ -28411,15 +28411,6 @@
   },
   {
     "fields": {
-      "instance_resource": 753,
-      "localized": 1,
-      "service_group": 41
-    },
-    "model": "core.ireditcirculationsg",
-    "pk": 253
-  },
-  {
-    "fields": {
       "instance_resource": 315,
       "localized": 0,
       "service_group": 70
@@ -28561,6 +28552,15 @@
     },
     "model": "core.ireditcirculationsg",
     "pk": 270
+  },
+  {
+    "fields": {
+      "instance_resource": 753,
+      "localized": 1,
+      "service_group": 73
+    },
+    "model": "core.ireditcirculationsg",
+    "pk": 271
   },
   {
     "fields": {
@@ -51141,6 +51141,326 @@
   },
   {
     "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "simone.esprit@andermatt.ch",
+      "name": "Gemeinderat Andermatt interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 606,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1040
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "cornelia.gamma@altdorf.ch",
+      "name": "Gemeinderat Altdorf interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 607,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1041
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "simone.esprit@andermatt.ch",
+      "name": "Gemeinderat Hospental interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 615,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1042
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "myrta.huser@attinghausen.ch",
+      "name": "Gemeinderat Attinghausen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 608,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1043
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "rdubacher@bluewin.ch",
+      "name": "Gemeinderat Bauen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 609,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1044
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "peter.gisler@buerglen.ch",
+      "name": "Gemeinderat B\u00fcrglen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 610,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1045
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "hansruedi.marti@erstfeld.ch",
+      "name": "Gemeinderat Erstfeld interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 611,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1046
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "edi.arnold@flueelen.ch",
+      "name": "Gemeinderat Fl\u00fcelen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 612,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1047
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "Jessica.Walker@gurtnellen.ch",
+      "name": "Gemeinderat Gurtnellen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 614,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1048
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "gemeinde@goeschenen.ch",
+      "name": "Gemeinderat G\u00f6schenen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 613,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1049
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "gemeinde@isenthal.ch",
+      "name": "Gemeinderat Isenthal interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 616,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1050
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "gemeinde@realp.ch",
+      "name": "Gemeinderat Realp interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 617,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1051
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "arnold.stefan@schattdorf.ch",
+      "name": "Gemeinderat Schattdorf interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 618,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1052
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "orlando.gmuer@seedorf-uri.ch",
+      "name": "Gemeinderat Seedorf interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 619,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1053
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": "kathrin.truttmann@seelisberg.ch",
+      "name": "Gemeinderat Seelisberg interne Pendenz",
+      "phone": null,
+      "role": 1104,
+      "service": 620,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1054
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "markus.zgraggen@silenen.ch",
+      "name": "Gemeinderat Silenen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 621,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1055
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "ursula.habegger@sisikon.ch",
+      "name": "Gemeinderat Sisikon interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 622,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1056
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "rolf.baumann@spiringen.ch",
+      "name": "Gemeinderat Spiringen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 623,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1057
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "unterschaechen@bluewin.ch",
+      "name": "Gemeinderat Untersch\u00e4chen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 624,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1058
+  },
+  {
+    "fields": {
+      "address": "",
+      "city": "",
+      "disabled": 0,
+      "email": "",
+      "name": "Gemeinderat Wassen interne Pendenz",
+      "phone": "",
+      "role": 1104,
+      "service": 625,
+      "website": "",
+      "zip": ""
+    },
+    "model": "user.group",
+    "pk": 1059
+  },
+  {
+    "fields": {
       "group": 22,
       "location": 1
     },
@@ -52626,6 +52946,166 @@
     },
     "model": "user.grouplocation",
     "pk": 189
+  },
+  {
+    "fields": {
+      "group": 1040,
+      "location": 2
+    },
+    "model": "user.grouplocation",
+    "pk": 190
+  },
+  {
+    "fields": {
+      "group": 1041,
+      "location": 1
+    },
+    "model": "user.grouplocation",
+    "pk": 191
+  },
+  {
+    "fields": {
+      "group": 1042,
+      "location": 10
+    },
+    "model": "user.grouplocation",
+    "pk": 192
+  },
+  {
+    "fields": {
+      "group": 1043,
+      "location": 3
+    },
+    "model": "user.grouplocation",
+    "pk": 193
+  },
+  {
+    "fields": {
+      "group": 1044,
+      "location": 4
+    },
+    "model": "user.grouplocation",
+    "pk": 194
+  },
+  {
+    "fields": {
+      "group": 1045,
+      "location": 5
+    },
+    "model": "user.grouplocation",
+    "pk": 195
+  },
+  {
+    "fields": {
+      "group": 1046,
+      "location": 6
+    },
+    "model": "user.grouplocation",
+    "pk": 196
+  },
+  {
+    "fields": {
+      "group": 1047,
+      "location": 7
+    },
+    "model": "user.grouplocation",
+    "pk": 197
+  },
+  {
+    "fields": {
+      "group": 1048,
+      "location": 9
+    },
+    "model": "user.grouplocation",
+    "pk": 198
+  },
+  {
+    "fields": {
+      "group": 1049,
+      "location": 8
+    },
+    "model": "user.grouplocation",
+    "pk": 199
+  },
+  {
+    "fields": {
+      "group": 1050,
+      "location": 11
+    },
+    "model": "user.grouplocation",
+    "pk": 200
+  },
+  {
+    "fields": {
+      "group": 1051,
+      "location": 12
+    },
+    "model": "user.grouplocation",
+    "pk": 201
+  },
+  {
+    "fields": {
+      "group": 1052,
+      "location": 13
+    },
+    "model": "user.grouplocation",
+    "pk": 202
+  },
+  {
+    "fields": {
+      "group": 1053,
+      "location": 14
+    },
+    "model": "user.grouplocation",
+    "pk": 203
+  },
+  {
+    "fields": {
+      "group": 1054,
+      "location": 15
+    },
+    "model": "user.grouplocation",
+    "pk": 204
+  },
+  {
+    "fields": {
+      "group": 1055,
+      "location": 16
+    },
+    "model": "user.grouplocation",
+    "pk": 205
+  },
+  {
+    "fields": {
+      "group": 1056,
+      "location": 17
+    },
+    "model": "user.grouplocation",
+    "pk": 206
+  },
+  {
+    "fields": {
+      "group": 1057,
+      "location": 18
+    },
+    "model": "user.grouplocation",
+    "pk": 208
+  },
+  {
+    "fields": {
+      "group": 1058,
+      "location": 19
+    },
+    "model": "user.grouplocation",
+    "pk": 209
+  },
+  {
+    "fields": {
+      "group": 1059,
+      "location": 20
+    },
+    "model": "user.grouplocation",
+    "pk": 210
   },
   {
     "fields": {
@@ -56053,6 +56533,386 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Andermatt interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Andermatt interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 123,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 606
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Altdorf interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Altdorf interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 113,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 607
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Attinghausen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Attinghausen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 124,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 608
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Bauen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Bauen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 125,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 609
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat B\u00fcrglen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat B\u00fcrglen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 126,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 610
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Erstfeld interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Erstfeld interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 127,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 611
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Fl\u00fcelen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Fl\u00fcelen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 128,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 612
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat G\u00f6schenen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat G\u00f6schenen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 129,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 613
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Gurtnellen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Gurtnellen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 130,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 614
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Hospental interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Hospental interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 131,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 615
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Isenthal interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Isenthal interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 132,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 616
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Realp interne Pendenz",
+      "disabled": 0,
+      "email": "gemeinde@realp.ch",
+      "name": "Gemeinderat Realp interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 133,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 617
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Schattdorf interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Schattdorf interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 134,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 618
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Seedorf interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Seedorf interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 135,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 619
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Seelisberg interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Seelisberg interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 136,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 620
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Silenen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Silenen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 137,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 621
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Sisikon interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Sisikon interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 138,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 622
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Spiringen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Spiringen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 139,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 623
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Untersch\u00e4chen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Untersch\u00e4chen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 140,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 624
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "description": "Gemeinderat Wassen interne Pendenz",
+      "disabled": 0,
+      "email": null,
+      "name": "Gemeinderat Wassen interne Pendenz",
+      "notification": 1,
+      "phone": null,
+      "service_group": 73,
+      "service_parent": null,
+      "sort": 141,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 625
+  },
+  {
+    "fields": {
       "name": "Koordinationsstellen"
     },
     "model": "user.servicegroup",
@@ -56162,5 +57022,12 @@
     },
     "model": "user.servicegroup",
     "pk": 72
+  },
+  {
+    "fields": {
+      "name": "Gemeinder\u00e4te - interne Pendenzen"
+    },
+    "model": "user.servicegroup",
+    "pk": 73
   }
 ]
