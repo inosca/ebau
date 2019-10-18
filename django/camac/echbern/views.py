@@ -1,6 +1,9 @@
+import logging
+
 from django.http import HttpResponse
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
+from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework.authentication import get_authorization_header
 from rest_framework.generics import RetrieveAPIView, get_object_or_404
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
@@ -14,6 +17,9 @@ from camac.instance.models import Instance
 from . import formatters
 from .data_preparation import get_document
 from .serializers import ApplicationsSerializer
+
+logger = logging.getLogger(__name__)
+
 
 group_param = openapi.Parameter(
     "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
@@ -38,11 +44,18 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
         )
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
-        xml_data = formatters.delivery(
-            instance,
-            document,
-            eventBaseDelivery=formatters.base_delivery(instance, document),
-        ).toxml()
+        try:
+            xml_data = formatters.delivery(
+                instance,
+                document,
+                eventBaseDelivery=formatters.base_delivery(instance, document),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
         response = HttpResponse(xml_data)
         response["Content-Type"] = "application/xml"
 

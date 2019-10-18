@@ -1,36 +1,37 @@
+import logging
 import os.path
 
 import xmlschema
+from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac.echbern import formatters
 
+logger = logging.getLogger(__name__)
 
-def test_base_delivery(db, mandatory_answers, instance, attachment):
+
+def test_base_delivery(mandatory_answers, ech_instance):
     xml = formatters.delivery(
-        instance,
+        ech_instance,
         mandatory_answers,
-        eventBaseDelivery=formatters.base_delivery(instance, mandatory_answers),
+        eventBaseDelivery=formatters.base_delivery(ech_instance, mandatory_answers),
     )
+
     assert xml
 
     my_dir = os.path.dirname(__file__)
     my_schema = xmlschema.XMLSchema(my_dir + "/../xsd/ech_0211_2_0.xsd")
+    try:
+        xml_data = xml.toxml()
+    except (
+        IncompleteElementContentError,
+        UnprocessedElementContentError,
+    ) as e:  # pragma: no cover
+        logger.error(e.details())
+        raise
 
-    xml_data = xml.toxml()
     my_schema.validate(xml_data)
 
 
-def test_office(db, instance):
-    off = formatters.office(instance)
-    assert off.toxml(element_name="office") == (
-        '<?xml version="1.0" ?><office xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" '
-        'xmlns:ns2="http://www.ech.ch/xmlns/eCH-0097/2" '
-        'xmlns:ns3="http://www.ech.ch/xmlns/eCH-0007/6"><ns1:entryOfficeIdentification>'
-        "<ns2:localOrganisationId>"
-        "<ns2:organisationIdCategory>blah</ns2:organisationIdCategory>"
-        "<ns2:organisationId>1234</ns2:organisationId>"
-        "</ns2:localOrganisationId><ns2:organisationName>asfdasdfasdf</ns2:organisationName>"
-        "</ns1:entryOfficeIdentification><ns1:municipality>"
-        "<ns3:municipalityName>Bern</ns3:municipalityName><ns3:cantonAbbreviation>BE"
-        "</ns3:cantonAbbreviation></ns1:municipality></office>"
-    )
+def test_office(ech_instance, snapshot):
+    off = formatters.office(ech_instance, {"gemeinde": "Testgemeinde"})
+    snapshot.assert_match(off.toxml(element_name="office"))
