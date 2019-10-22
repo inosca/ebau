@@ -208,6 +208,7 @@ models_referencing_data = (
     "core.WorkflowItem",
     "core.WorkflowSection",
     "document.AttachmentSection",
+    "document.AttachmentSectionT",
     "document.Template",
     "file.FileComplementState",
     "file.FileContent",
