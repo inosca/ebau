@@ -25809,21 +25809,6 @@
   },
   {
     "fields": {
-      "available_instance_resource": "billing",
-      "class_field": null,
-      "description": null,
-      "form_group": 161,
-      "hidden": 0,
-      "name": "Geb\u00fchrenerfassung",
-      "resource": 314,
-      "sort": 2,
-      "template": null
-    },
-    "model": "core.instanceresource",
-    "pk": 768
-  },
-  {
-    "fields": {
       "available_action": "activation",
       "available_instance_resource": "allformpages"
     },
@@ -37373,60 +37358,6 @@
     },
     "model": "core.irroleacl",
     "pk": 975
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 21,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 976
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 22,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 977
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 32,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 978
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 23,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 979
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 24,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 980
-  },
-  {
-    "fields": {
-      "instance_resource": 768,
-      "instance_state": 25,
-      "role": 1104
-    },
-    "model": "core.irroleacl",
-    "pk": 981
   },
   {
     "fields": {
