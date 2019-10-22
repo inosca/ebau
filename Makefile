@@ -194,3 +194,13 @@ kt_bern: ## Set APPLICATION to kt_uri
 .PHONY: demo
 demo: ## Set APPLICATION to kt_uri
 	$(call set_env,demo)
+
+.PHONY: release
+release: ## Draft a new release
+	@if [ -z $(version) ]; then echo "Please pass a version: `make release version=x.x.x`"; exit 1; fi
+	@mkdir "releases/$(version)"
+	@echo "# Neu\n-\n# Korrekturen\n-" > "releases/$(version)/CHANGELOG.md"
+	@prettier --loglevel=silent --write "releases/$(version)/CHANGELOG.md" 
+	@echo $(version) > VERSION.txt
+	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
+	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
