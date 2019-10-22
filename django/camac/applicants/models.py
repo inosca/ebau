@@ -22,7 +22,7 @@ class Applicant(models.Model):
         null=True,
     )
     created = models.DateTimeField(db_column="CREATED", auto_now=True)
-    email = models.EmailField()
+    email = models.EmailField(blank=True, null=True)
 
     class Meta:
         managed = True
