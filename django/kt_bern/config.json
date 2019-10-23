@@ -717,6 +717,20 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 20048,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20104
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 40029,
       "description": null,
@@ -1443,6 +1457,18 @@
   },
   {
     "fields": {
+      "action": 20104,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Go to state \"Abgeschlossen\"",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20104
+  },
+  {
+    "fields": {
       "action": 40033,
       "description": null,
       "error_message": "Beim Speichern ist ein Fehler aufgetreten",
@@ -1628,6 +1654,14 @@
     },
     "model": "core.aformtransition",
     "pk": 20103
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 120000
+    },
+    "model": "core.aformtransition",
+    "pk": 20104
   },
   {
     "fields": {
@@ -40709,6 +40743,15 @@
   },
   {
     "fields": {
+      "button": 20048,
+      "instance_state": 20014,
+      "role": 5
+    },
+    "model": "core.broleacl",
+    "pk": 20046
+  },
+  {
+    "fields": {
       "button": 120001,
       "instance_state": 20006,
       "role": 3
@@ -40991,6 +41034,18 @@
   },
   {
     "fields": {
+      "class_field": "active_baukontrolle_only",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20070,
+      "name": null,
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 20048
+  },
+  {
+    "fields": {
       "class_field": "success active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
@@ -41244,6 +41299,26 @@
     },
     "model": "core.buttont",
     "pk": 20047
+  },
+  {
+    "fields": {
+      "button": 20048,
+      "description": null,
+      "language": "de",
+      "name": "Baugesuchsverfahren abschliessen"
+    },
+    "model": "core.buttont",
+    "pk": 20048
+  },
+  {
+    "fields": {
+      "button": 20048,
+      "description": null,
+      "language": "fr",
+      "name": "Clore la proc\u00e9dure"
+    },
+    "model": "core.buttont",
+    "pk": 20049
   },
   {
     "fields": {
