@@ -6,6 +6,8 @@ from django.core.validators import MaxValueValidator
 from django.db import models
 from django.utils import timezone
 
+from camac.core import models as core_models
+
 
 def attachment_path_directory_path(attachment, filename):
     return "attachments/files/{0}/{1}".format(attachment.instance.pk, filename)
@@ -118,7 +120,7 @@ class AttachmentSectionQuerySet(models.QuerySet):
         )
 
 
-class AttachmentSection(models.Model):
+class AttachmentSection(core_models.MultilingualModel, models.Model):
     RECIPIENT_TYPE_CHOICES = (
         ("applicant", "applicant"),
         ("municipality", "municipality"),
@@ -128,7 +130,7 @@ class AttachmentSection(models.Model):
     attachment_section_id = models.AutoField(
         db_column="ATTACHMENT_SECTION_ID", primary_key=True
     )
-    name = models.CharField(db_column="NAME", max_length=100, unique=True)
+    name = models.CharField(db_column="NAME", max_length=100)
     sort = models.IntegerField(db_column="SORT", db_index=True, default=0)
     notification_template = models.ForeignKey(
         "notification.NotificationTemplate",
@@ -164,6 +166,21 @@ class AttachmentSection(models.Model):
     class Meta:
         managed = True
         db_table = "ATTACHMENT_SECTION"
+
+
+class AttachmentSectionT(models.Model):
+    attachment_section = models.ForeignKey(
+        AttachmentSection,
+        models.CASCADE,
+        db_column="ATTACHMENT_SECTION_ID",
+        related_name="trans",
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    name = models.CharField(db_column="NAME", max_length=100, blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = "ATTACHMENT_SECTION_T"
 
 
 WRITE_PERMISSION = "write"

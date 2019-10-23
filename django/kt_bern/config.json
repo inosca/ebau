@@ -122533,7 +122533,7 @@
   },
   {
     "fields": {
-      "name": "Beilagen zum Gesuch",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 1
@@ -122543,7 +122543,7 @@
   },
   {
     "fields": {
-      "name": "Beteiligte Beh\u00f6rden",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 3
@@ -122553,7 +122553,7 @@
   },
   {
     "fields": {
-      "name": "Alle Beteiligten",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 4
@@ -122563,7 +122563,7 @@
   },
   {
     "fields": {
-      "name": "Intern",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 5
@@ -122573,7 +122573,7 @@
   },
   {
     "fields": {
-      "name": "Beilagen SB2",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 8
@@ -122583,7 +122583,7 @@
   },
   {
     "fields": {
-      "name": "Beilagen SB1",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 7
@@ -122593,7 +122593,7 @@
   },
   {
     "fields": {
-      "name": "Nachforderungen",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 2
@@ -122603,7 +122603,7 @@
   },
   {
     "fields": {
-      "name": "Entscheiddokumente",
+      "name": "",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 6
@@ -123321,6 +123321,150 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 82
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "language": "de",
+      "name": "Beilagen zum Gesuch"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "attachment_section": 2,
+      "language": "de",
+      "name": "Beteiligte Beh\u00f6rden"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "attachment_section": 3,
+      "language": "de",
+      "name": "Alle Beteiligten"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "language": "de",
+      "name": "Intern"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "language": "de",
+      "name": "Beilagen SB2"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "language": "de",
+      "name": "Beilagen SB1"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "language": "de",
+      "name": "Nachforderungen"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "language": "de",
+      "name": "Entscheiddokumente"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "language": "fr",
+      "name": "Pi\u00e8ces jointes \u00e0 la demande"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "language": "fr",
+      "name": "Demandes suppl\u00e9mentaires"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "attachment_section": 2,
+      "language": "fr",
+      "name": "Autorit\u00e9s participantes"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "attachment_section": 3,
+      "language": "fr",
+      "name": "Toutes les parties"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "language": "fr",
+      "name": "Interne"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "language": "fr",
+      "name": "Documents de d\u00e9cision"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "language": "fr",
+      "name": "Pi\u00e8ces jointes DC1"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "language": "fr",
+      "name": "Pi\u00e8ces jointes DC2"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 17
   },
   {
     "fields": {
