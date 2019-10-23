@@ -6,6 +6,7 @@ from django_clamd.validators import validate_file_infection
 from rest_framework import exceptions
 from rest_framework_json_api import serializers
 
+from camac.core import serializers as core_serializers
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.relations import FormDataResourceRelatedField
@@ -20,7 +21,9 @@ from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 from . import models
 
 
-class AttachmentSectionSerializer(serializers.ModelSerializer):
+class AttachmentSectionSerializer(
+    core_serializers.MultilingualSerializer, serializers.ModelSerializer
+):
     mode = serializers.SerializerMethodField()
 
     def get_mode(self, instance):
