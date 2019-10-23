@@ -51028,15 +51028,31 @@
       "city": null,
       "disabled": 0,
       "email": null,
-      "name": "SBB AG Immobilien (Gemeinde)",
+      "name": "VCS Sektion Uri (Bearbeitung zugewiesener Einzeldossiers)",
       "phone": null,
-      "role": 1104,
+      "role": 1081,
       "service": 603,
       "website": null,
       "zip": null
     },
     "model": "user.group",
     "pk": 1037
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": null,
+      "name": "SBB AG Immobilien (Gemeinde)",
+      "phone": null,
+      "role": 1104,
+      "service": 626,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.group",
+    "pk": 1060
   },
   {
     "fields": {
@@ -56409,6 +56425,25 @@
     "fields": {
       "address": null,
       "city": null,
+      "description": "VCS Sektion Uri (bitte keine direkte Zirkulation starten Dossierzuweisung nur via Fachstellen)",
+      "disabled": 0,
+      "email": null,
+      "name": "VCS",
+      "notification": 1,
+      "phone": null,
+      "service_group": 72,
+      "service_parent": null,
+      "sort": 1,
+      "website": null,
+      "zip": null
+    },
+    "model": "user.service",
+    "pk": 603
+  },
+  {
+    "fields": {
+      "address": null,
+      "city": null,
       "description": "SBB AG (Gemeinde)",
       "disabled": 0,
       "email": null,
@@ -56422,7 +56457,7 @@
       "zip": null
     },
     "model": "user.service",
-    "pk": 603
+    "pk": 626
   },
   {
     "fields": {
