@@ -1,5 +1,8 @@
 from django.conf import settings
 
+from camac.caluma import get_admin_token
+from camac.user.models import Role
+
 from ..caluma import CalumaClient
 
 
@@ -68,9 +71,29 @@ class DocumentParser:
         return answers
 
 
-def get_document(instance_id, auth_header, group_pk):
-    filter = {"filter": [{"key": "camac-instance-id", "value": instance_id}]}
+def get_document(instance_id, group_pk=None, auth_header=None):
+    """
+    Get a document from caluma.
+
+    To access the document from a user's context, pass both group_pk and auth_header.
+    Otherwise, the document will be retrieved using the "support" role.
+    """
+    assert bool(group_pk) == bool(
+        auth_header
+    ), "get_document should be called with group_pk and auth_header or without both"
+
+    if not auth_header:
+        auth_header = f"Bearer {get_admin_token()}"
+    if not group_pk:
+        group_pk = (
+            Role.objects.get(name="support")
+            .groups.order_by("group_id")
+            .first()
+            .group_id
+        )
+
     caluma = CalumaClient(auth_header)
+    filter = {"filter": [{"key": "camac-instance-id", "value": instance_id}]}
 
     resp = caluma.query_caluma(
         query_from_file(
