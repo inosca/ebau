@@ -93,7 +93,7 @@ class UserT(models.Model):
 class Group(core_models.MultilingualModel, models.Model):
     group_id = models.AutoField(db_column="GROUP_ID", primary_key=True)
     role = models.ForeignKey(
-        "user.Role", models.PROTECT, db_column="ROLE_ID", related_name="+"
+        "user.Role", models.PROTECT, db_column="ROLE_ID", related_name="groups"
     )
     service = models.ForeignKey(
         "user.Service",

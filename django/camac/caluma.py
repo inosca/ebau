@@ -30,7 +30,7 @@ class CalumaClient:
         if result.get("errors"):  # pragma: no cover
             raise exceptions.ValidationError(
                 _("Error while querying caluma: %(errors)s")
-                & {"errors": result.get("errors")}
+                % {"errors": result.get("errors")}
             )
 
         return result

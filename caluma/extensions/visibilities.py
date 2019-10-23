@@ -125,5 +125,5 @@ class CustomVisibility(BaseVisibility):
 
         except KeyError:
             raise RuntimeError(
-                "NG API returned unexpected data structure (no data key)"
+                f"NG API returned unexpected data structure (no data key): {jsondata}"
             )

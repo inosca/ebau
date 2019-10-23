@@ -40,7 +40,7 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
     )
     def retrieve(self, request, instance_id=None, **kwargs):
         document = get_document(
-            instance_id, get_authorization_header(request), request.group.pk
+            instance_id, request.group.pk, auth_header=get_authorization_header(request)
         )
         qs = self.get_queryset()
         instance = get_object_or_404(qs, pk=instance_id)
