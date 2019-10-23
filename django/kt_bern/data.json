@@ -126892,6 +126892,24 @@
   },
   {
     "fields": {
+      "address": null,
+      "city": null,
+      "disabled": 0,
+      "email": "service-account-camac-admin@placeholder.org",
+      "language": "de",
+      "last_login": "2018-02-23T14:27:27Z",
+      "name": "camac-admin",
+      "password": null,
+      "phone": null,
+      "surname": "camac-admin",
+      "username": "service-account-camac-admin",
+      "zip": null
+    },
+    "model": "user.user",
+    "pk": 10
+  },
+  {
+    "fields": {
       "default_group": 1,
       "group": 1,
       "user": 1
@@ -127027,6 +127045,15 @@
   },
   {
     "fields": {
+      "default_group": 1,
+      "group": 1,
+      "user": 10
+    },
+    "model": "user.usergroup",
+    "pk": 20121
+  },
+  {
+    "fields": {
       "city": "Geneva",
       "language": "en",
       "user": 2
@@ -127096,5 +127123,23 @@
     },
     "model": "user.usert",
     "pk": 8
+  },
+  {
+    "fields": {
+      "city": "Bern",
+      "language": "en",
+      "user": 10
+    },
+    "model": "user.usert",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "city": "Berne",
+      "language": "fr",
+      "user": 10
+    },
+    "model": "user.usert",
+    "pk": 10
   }
 ]

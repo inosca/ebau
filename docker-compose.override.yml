@@ -63,6 +63,7 @@ services:
             - KEYCLOAK_URL=http://camac-ng-keycloak.local/auth/
             - DJANGO_EMAIL_HOST=mailhog
             - DJANGO_EMAIL_PORT=1025
+            - OAUTHLIB_INSECURE_TRANSPORT=1
         networks:
             - camac-ng.local
         command: /bin/sh -c "./wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py collectstatic --noinput && ./manage.py runserver 0.0.0.0:80 --pythonpath /app/$APPLICATION"
