@@ -32,15 +32,16 @@ lint-ember-caluma-portal:
     - yarn lint:hbs
 
 # TODO: This needs to reconfigured so it also works with kt_uri and kt_schwyz (See package.json).
-lint-php:
-  stage: lint
-  image:
-    name: node:lts
-  script:
-    - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
-    - cd php/public
-    - npm install
-    - npm run lint
+# TODO: This needs to reenabled once the GitHub release of node-sass works again.
+# lint-php:
+#   stage: lint
+#   image:
+#     name: node:lts
+#   script:
+#     - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+#     - cd php/public
+#     - npm install
+#     - npm run lint
 
 test-ember:
     stage: test
