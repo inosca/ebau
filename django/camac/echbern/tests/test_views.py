@@ -3,11 +3,13 @@ from rest_framework import status
 
 from camac.core.models import Answer, Chapter, Question, QuestionT, QuestionType
 
+from .. import views
 from .caluma_responses import full_document
 
 
 def test_application_retrieve_full(
     admin_client,
+    mocker,
     ech_instance,
     instance_factory,
     docx_decision_factory,
@@ -35,6 +37,7 @@ def test_application_retrieve_full(
 
     url = reverse("application", args=[ech_instance.pk])
 
+    mocker.patch.object(views, "get_authorization_header", return_value="token")
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
 
     response = admin_client.get(url)

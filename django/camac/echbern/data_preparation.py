@@ -84,7 +84,6 @@ def get_document(instance_id, group_pk=None, auth_header=None):
 
     if not auth_header:
         auth_header = f"Bearer {get_admin_token()}"
-    if not group_pk:
         group_pk = (
             Role.objects.get(name="support")
             .groups.order_by("group_id")
