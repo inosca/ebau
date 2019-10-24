@@ -377,9 +377,8 @@ KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET = env.str(
     "KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET", default="a7d2be1b-6a7a-4f28-a978-10a63b1e9850"
 )
-KEYCLOAK_OIDC_TOKEN_URL = env.str(
-    "KEYCLOAK_OIDC_TOKEN_URL",
-    default="http://camac-ng-keycloak.local/auth/realms/ebau/protocol/openid-connect/token",
+KEYCLOAK_OIDC_TOKEN_URL = (
+    f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
 
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
