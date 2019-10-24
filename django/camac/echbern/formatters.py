@@ -127,6 +127,146 @@ def get_documents(instance, answers):
     return documents
 
 
+def get_realestateinformation(answers):
+    re_info = [
+        ns_application.realestateInformationType(
+            realestate=ns_objektwesen.realestateType(
+                realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                    EGRID=parzelle.get("e-grid-nr"),
+                    number=parzelle["parzellennummer"],
+                    # numberSuffix minOccurs=0
+                    # subDistrict minOccurs=0
+                    # lot minOccurs=0
+                ),
+                # authority minOccurs=0
+                # date minOccurs=0
+                realestateType="8",  # mapping?
+                # cantonalSubKind minOccurs=0
+                # status minOccurs=0
+                # mutnumber minOccurs=0
+                # identDN minOccurs 0
+                # squareMeasure minOccurs 0
+                # realestateIncomplete minOccurs 0
+                coordinates=ns_objektwesen.coordinatesType(
+                    LV95=pyxb.BIND(
+                        east=parzelle["lagekoordinaten-ost"],
+                        north=parzelle["lagekoordinaten-nord"],
+                        originOfCoordinates=904,
+                    )
+                )
+                if all(
+                    k in parzelle
+                    for k in ("lagekoordinaten-ost", "lagekoordinaten-nord")
+                )
+                else None
+                # namedMetaData minOccurs 0
+            ),
+            municipality=ech_0007_6_0.swissMunicipalityType(
+                # municipalityId minOccurs 0
+                municipalityName=parzelle["ort-parzelle"],
+                cantonAbbreviation="BE",
+            ),
+            buildingInformation=[
+                ns_application.buildingInformationType(
+                    building=ns_objektwesen.buildingType(
+                        EGID=answers.get("gwr-egid"),
+                        numberOfFloors=answers.get("effektive-geschosszahl"),
+                        civilDefenseShelter=handle_ja_nein_bool(
+                            answers.get("sammelschutzraum")
+                        ),
+                        buildingCategory=1040,  # TODO: map category to GWR categories
+                        # We don't want to map the heatings, hence omitting
+                        # heating=[
+                        #     ns_person.heatingType(
+                        #         heatGeneratorHeating=7410,
+                        #         energySourceHeating=7511,
+                        #     )
+                        #     for heating in answers.get("feuerungsanlagen", [])[:2]
+                        # ],  # eCH only accepts 2 heatingTypes
+                    )
+                )
+            ],
+            # placeName  minOccurs=0
+            owner=[
+                pyxb.BIND(
+                    # ownerIdentification minOccurs=0
+                    ownerAdress=ns_address.mailAddressType(
+                        person=ns_address.personMailAddressInfoType(
+                            # mrMrs="1",  # mapping?
+                            # title="Dr Med",
+                            firstName=owner["vorname-gesuchstellerin"],
+                            lastName=owner["name-gesuchstellerin"],
+                        ),
+                        addressInformation=ns_address.addressInformationType(
+                            # not the same as swissAddressInformationType (obv..)
+                            # addressLine1 minOccurs=0
+                            # addressLine2 minOccurs=0
+                            # (street, houseNumber, dwellingNumber) minOccurs=0
+                            # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
+                            # locality minOccurs=0
+                            street=owner.get("strasse-gesuchstellerin"),
+                            houseNumber=owner.get("nummer-gesuchstellerin"),
+                            town=ns_address.townType(owner["ort-gesuchstellerin"]),
+                            swissZipCode=owner["plz-gesuchstellerin"],
+                            # foreignZipCode minOccurs=0
+                            country="CH",
+                        ),
+                    )
+                )
+                for owner in answers.get("personalien-gesuchstellerin", [])
+            ],
+        )
+        for parzelle in answers.get("parzelle", [])
+    ]
+
+    if re_info == []:
+        # happens if form == vorabklaerung
+        re_info = [
+            ns_application.realestateInformationType(
+                realestate=ns_objektwesen.realestateType(
+                    realestateIdentification=ns_objektwesen.realestateIdentificationType(
+                        number=answers.get("parzellennummer", "0")
+                    ),
+                    realestateType="8",
+                ),
+                municipality=ech_0007_6_0.swissMunicipalityType(
+                    municipalityName=answers["ort-gesuchstellerin"],
+                    cantonAbbreviation="BE",
+                ),
+                buildingInformation=[
+                    ns_application.buildingInformationType(
+                        building=ns_objektwesen.buildingType(
+                            buildingCategory=1040  # TODO: map category to GWR categories
+                        )
+                    )
+                ],
+                owner=[
+                    pyxb.BIND(
+                        ownerAdress=ns_address.mailAddressType(
+                            person=ns_address.personMailAddressInfoType(
+                                firstName=answers[
+                                    "vorname-gesuchstellerin-vorabklaerung"
+                                ],
+                                lastName=answers["name-gesuchstellerin-vorabklaerung"],
+                            ),
+                            addressInformation=ns_address.addressInformationType(
+                                street=answers.get("strasse-gesuchstellerin"),
+                                houseNumber=answers.get("nummer-gesuchstellerin"),
+                                town=ns_address.townType(
+                                    answers["ort-gesuchstellerin"]
+                                ),
+                                swissZipCode=answers["plz-gesuchstellerin"],
+                                country="CH",
+                            ),
+                        )
+                    )
+                ],
+            )
+        ]
+
+    return re_info
+
+
 def application(instance: Instance, answers: dict):
     nature_risk = []
     if "beschreibung-der-prozessart-tabelle" in answers:
@@ -141,7 +281,10 @@ def application(instance: Instance, answers: dict):
     related_instances_pks = get_related_instances_pks(instance, ebau_nr)
 
     return ns_application.planningPermissionApplicationType(
-        description=answers.get("beschreibung-bauvorhaben", "unknown"),
+        description=answers.get(
+            "beschreibung-bauvorhaben",
+            answers.get("anfrage-zur-vorabklaerung", "unknown"),
+        ),
         applicationType=answers["form-name"],
         remark=[answers["bemerkungen"]] if "bemerkungen" in answers else [],
         # proceedingType minOccurs=0
@@ -166,96 +309,7 @@ def application(instance: Instance, answers: dict):
             swissZipCode=answers.get("plz", 9999),
             country="CH",
         ),
-        realestateInformation=[
-            ns_application.realestateInformationType(
-                realestate=ns_objektwesen.realestateType(
-                    realestateIdentification=ns_objektwesen.realestateIdentificationType(
-                        EGRID=parzelle.get("e-grid-nr"),
-                        number=parzelle["parzellennummer"],
-                        # numberSuffix minOccurs=0
-                        # subDistrict minOccurs=0
-                        # lot minOccurs=0
-                    ),
-                    # authority minOccurs=0
-                    # date minOccurs=0
-                    realestateType="8",  # mapping?
-                    # cantonalSubKind minOccurs=0
-                    # status minOccurs=0
-                    # mutnumber minOccurs=0
-                    # identDN minOccurs 0
-                    # squareMeasure minOccurs 0
-                    # realestateIncomplete minOccurs 0
-                    coordinates=ns_objektwesen.coordinatesType(
-                        LV95=pyxb.BIND(
-                            east=parzelle["lagekoordinaten-ost"],
-                            north=parzelle["lagekoordinaten-nord"],
-                            originOfCoordinates=904,
-                        )
-                    )
-                    if all(
-                        k in parzelle
-                        for k in ("lagekoordinaten-ost", "lagekoordinaten-nord")
-                    )
-                    else None
-                    # namedMetaData minOccurs 0
-                ),
-                municipality=ech_0007_6_0.swissMunicipalityType(
-                    # municipalityId minOccurs 0
-                    municipalityName=parzelle["ort-parzelle"],
-                    cantonAbbreviation="BE",
-                ),
-                buildingInformation=[
-                    ns_application.buildingInformationType(
-                        building=ns_objektwesen.buildingType(
-                            EGID=answers.get("gwr-egid"),
-                            numberOfFloors=answers.get("effektive-geschosszahl"),
-                            civilDefenseShelter=handle_ja_nein_bool(
-                                answers.get("sammelschutzraum")
-                            ),
-                            buildingCategory=1040,  # TODO: map category to GWR categories
-                            # We don't want to map the heatings, hence omitting
-                            # heating=[
-                            #     ns_person.heatingType(
-                            #         heatGeneratorHeating=7410,
-                            #         energySourceHeating=7511,
-                            #     )
-                            #     for heating in answers.get("feuerungsanlagen", [])[:2]
-                            # ],  # eCH only accepts 2 heatingTypes
-                        )
-                    )
-                ],
-                # placeName  minOccurs=0
-                owner=[
-                    pyxb.BIND(
-                        # ownerIdentification minOccurs=0
-                        ownerAdress=ns_address.mailAddressType(
-                            person=ns_address.personMailAddressInfoType(
-                                # mrMrs="1",  # mapping?
-                                # title="Dr Med",
-                                firstName=owner["vorname-gesuchstellerin"],
-                                lastName=owner["name-gesuchstellerin"],
-                            ),
-                            addressInformation=ns_address.addressInformationType(
-                                # not the same as swissAddressInformationType (obv..)
-                                # addressLine1 minOccurs=0
-                                # addressLine2 minOccurs=0
-                                # (street, houseNumber, dwellingNumber) minOccurs=0
-                                # (postOfficeBoxNumber, postOfficeBoxText) minOccurs=0
-                                # locality minOccurs=0
-                                street=owner.get("strasse-gesuchstellerin"),
-                                houseNumber=owner.get("nummer-gesuchstellerin"),
-                                town=ns_address.townType(owner["ort-gesuchstellerin"]),
-                                swissZipCode=owner["plz-gesuchstellerin"],
-                                # foreignZipCode minOccurs=0
-                                country="CH",
-                            ),
-                        )
-                    )
-                    for owner in answers["personalien-gesuchstellerin"]
-                ],
-            )
-            for parzelle in answers.get("parzelle", [])
-        ],
+        realestateInformation=get_realestateinformation(answers),
         zone=[ns_application.zoneType(zoneDesignation=answers["nutzungszone"])]
         if "nutzungszone" in answers
         else [],
