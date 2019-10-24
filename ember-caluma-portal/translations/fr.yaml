@@ -47,6 +47,10 @@ documents:
   downloadSuccess: "Le fichier a été téléchargé avec succès"
   downloadError: "Quelque chose a mal tourné lors du téléchargement du fichier"
 
+  deleteInfo: "Voulez-vous vraiment supprimer le fichier \"{filename}\" ?"
+  deleteSuccess: "Le fichier a été supprimé avec succès"
+  deleteError: "Quelque chose a mal tourné lors de la suppression du fichier"
+
   tags:
     beilagen-vorabklaerung: "Annexes à l'étude préalable"
     allgemeine-informationen: "Informations générales"
