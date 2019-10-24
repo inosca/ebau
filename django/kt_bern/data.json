@@ -127046,11 +127046,11 @@
   {
     "fields": {
       "default_group": 1,
-      "group": 1,
+      "group": 10000,
       "user": 10
     },
     "model": "user.usergroup",
-    "pk": 20121
+    "pk": 20122
   },
   {
     "fields": {
