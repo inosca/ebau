@@ -345,7 +345,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -854,6 +854,20 @@
     },
     "model": "core.action",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 20018,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150002
   },
   {
     "fields": {
@@ -1574,6 +1588,18 @@
     },
     "model": "core.actiont",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "action": 150002,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: Zirkulation wiederer\u00f6ffnet",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150002
   },
   {
     "fields": {
@@ -57873,6 +57899,13 @@
   },
   {
     "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
+    "pk": 150002
+  },
+  {
+    "fields": {
       "action": 20027,
       "language": "de",
       "text": "Dossier eingereicht"
@@ -58032,6 +58065,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 20025
+  },
+  {
+    "fields": {
+      "action": 150002,
+      "language": "de",
+      "text": "Zirkulation wiederer\u00f6ffnet"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150000
+  },
+  {
+    "fields": {
+      "action": 150002,
+      "language": "fr",
+      "text": ""
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150001
   },
   {
     "fields": {
