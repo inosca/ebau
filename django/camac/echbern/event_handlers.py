@@ -8,8 +8,6 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
-from camac.caluma import get_admin_token
-
 from .data_preparation import get_document
 from .formatters import delivery, submit
 from .models import Message
@@ -24,8 +22,7 @@ class BaseEventHandler:
         self.group_pk = group_pk
 
     def get_data(self):
-        auth_header = get_admin_token()
-        return get_document(self.instance.pk, auth_header, self.group_pk)
+        return get_document(self.instance.pk)
 
     def get_xml(self, caluma_data):  # pragma: no cover
         raise NotImplementedError()
