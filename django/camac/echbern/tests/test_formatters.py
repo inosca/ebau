@@ -1,6 +1,7 @@
 import logging
 import os.path
 
+import pytest
 import xmlschema
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
@@ -9,7 +10,17 @@ from camac.echbern import formatters
 logger = logging.getLogger(__name__)
 
 
-def test_base_delivery(ech_mandatory_answers, ech_instance):
+@pytest.mark.parametrize("is_vorabklaerung", [False, True])
+def test_base_delivery(
+    is_vorabklaerung,
+    ech_mandatory_answers_baugesuch,
+    ech_mandatory_answers_vorabklaerung,
+    ech_instance,
+):
+    ech_mandatory_answers = ech_mandatory_answers_baugesuch
+    if is_vorabklaerung:
+        ech_mandatory_answers = ech_mandatory_answers_vorabklaerung
+
     xml = formatters.delivery(
         ech_instance,
         ech_mandatory_answers,
