@@ -250,7 +250,7 @@ def test_instance_submit(
     multilang,
     application_settings,
     mock_nfd_permissions,
-    ech_mandatory_answers,
+    ech_mandatory_answers_vorabklaerung,
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
@@ -294,7 +294,7 @@ def test_instance_submit(
 
     group_factory(role=role_factory(name="support"))
     ech_data_mock = mocker.patch.object(DocumentParser, "parse_answers")
-    ech_data_mock.return_value = ech_mandatory_answers
+    ech_data_mock.return_value = ech_mandatory_answers_vorabklaerung
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     instance_state_factory(name=new_instance_state_name)
