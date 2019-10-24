@@ -10,6 +10,7 @@ from rest_framework.test import APIClient, APIRequestFactory
 from camac.applicants import factories as applicant_factories
 from camac.core import factories as core_factories
 from camac.document import factories as document_factories
+from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
@@ -36,6 +37,7 @@ register_module(document_factories)
 register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
+register_module(ech_factories)
 
 
 Faker.add_provider(FreezegunAwareDatetimeProvider)
