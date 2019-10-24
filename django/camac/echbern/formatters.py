@@ -415,7 +415,9 @@ def submit(instance: Instance, answers: dict):
     )
 
 
-def delivery(instance: Instance, answers: dict, **args):
+def delivery(
+    instance: Instance, answers: dict, message_date=None, message_id=None, **args
+):
     """
     Generate delivery XML.
 
@@ -437,7 +439,7 @@ def delivery(instance: Instance, answers: dict, **args):
         return ns_application.delivery(
             deliveryHeader=ech_0058_5_0.headerType(
                 senderId="https://ebau.apps.be.ch",
-                messageId=str(id(instance)),
+                messageId=message_id or str(id(instance)),
                 messageType=message_type,
                 sendingApplication=pyxb.BIND(
                     manufacturer=camac_metadata.__author__,
@@ -445,7 +447,7 @@ def delivery(instance: Instance, answers: dict, **args):
                     productVersion=camac_metadata.__version__,
                 ),
                 subject=answers["form-name"],
-                messageDate=timezone.now(),
+                messageDate=message_date or timezone.now(),
                 action="1",
                 testDeliveryFlag=True,
             ),
