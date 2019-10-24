@@ -1,3 +1,4 @@
+import pytest
 from django.urls import reverse
 from rest_framework import status
 
@@ -53,3 +54,37 @@ def test_applications_list(admin_client, admin_user, instance, instance_factory)
     json = response.json()
     assert len(json["data"]) == 1
     assert json["data"][0]["id"] == str(i.instance_id)
+
+
+@pytest.mark.parametrize("give_last", [False, True])
+def test_message_retrieve(
+    admin_user, admin_client, message_factory, give_last, service_factory
+):
+    receiver = admin_user.groups.first().service
+    dummy_receiver = service_factory()
+    message_factory(body="zeroth xml", receiver=dummy_receiver)
+    message_factory(body="first xml", receiver=receiver)
+    m2 = message_factory(body="second xml", receiver=receiver)
+    message_factory(body="third xml", receiver=dummy_receiver)
+    message_factory(body="fourth xml", receiver=receiver)
+
+    url = reverse("message")
+    if give_last:
+        url = f"{url}?last={m2.pk}"
+    response = admin_client.get(f"{url}")
+
+    assert response.status_code == status.HTTP_200_OK
+    expected = b"first xml"
+    if give_last:
+        expected = b"fourth xml"
+
+    assert response.content == expected
+
+
+def test_message_retrieve_404(db, service, admin_client, message_factory):
+    m = message_factory(body="first xml", receiver=service)
+
+    url = f"{reverse('message')}?last={m.pk}"
+    response = admin_client.get(f"{url}")
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
