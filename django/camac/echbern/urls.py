@@ -2,13 +2,12 @@ from django.conf import settings
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
-from .views import ApplicationsView, ApplicationView, GetNextView
+from .views import ApplicationsView, ApplicationView, MessageView
 
 urlpatterns = []
 if settings.ECH_API:
     r = SimpleRouter()
     urlpatterns = [
-        url(r"getNext", GetNextView.as_view(), name="getNext"),
         url(
             r"application/(?P<instance_id>\d+)/?$",
             ApplicationView.as_view({"get": "retrieve"}),
@@ -19,5 +18,6 @@ if settings.ECH_API:
             ApplicationsView.as_view({"get": "list"}),
             name="applications",
         ),
+        url(r"message/$", MessageView.as_view({"get": "retrieve"}), name="message"),
     ]
     urlpatterns += r.urls
