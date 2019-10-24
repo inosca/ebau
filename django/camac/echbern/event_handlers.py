@@ -1,7 +1,9 @@
 import logging
+from uuid import uuid4
 
 from django.conf import settings
 from django.dispatch import receiver
+from django.utils import timezone
 from pyxb import (
     IncompleteElementContentError,
     UnprocessedElementContentError,
@@ -21,6 +23,9 @@ class BaseEventHandler:
         self.instance = instance
         self.group_pk = group_pk
 
+        self.message_date = timezone.now()
+        self.message_id = uuid4()
+
     def get_data(self):
         return get_document(self.instance.pk)
 
@@ -29,7 +34,10 @@ class BaseEventHandler:
 
     def create_message(self, xml):
         message = Message.objects.create(
-            body=xml, receiver=self.instance.active_service
+            body=xml,
+            receiver=self.instance.active_service,
+            created_at=self.message_date,
+            id=self.message_id,
         )
         return message
 
@@ -45,6 +53,8 @@ class SubmitEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 caluma_data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, caluma_data
                 ),
