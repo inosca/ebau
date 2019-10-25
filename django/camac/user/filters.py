@@ -36,4 +36,4 @@ class UserFilterSet(FilterSet):
 
     class Meta:
         model = get_user_model()
-        fields = ("id", "username")
+        fields = ("id", "username", "disabled")
