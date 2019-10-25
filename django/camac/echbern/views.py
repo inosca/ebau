@@ -83,7 +83,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
 
 
 last_param = openapi.Parameter(
-    "group",
+    "last",
     openapi.IN_QUERY,
     description="UUID of last message",
     type=openapi.TYPE_STRING,
