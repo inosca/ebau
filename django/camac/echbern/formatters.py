@@ -163,7 +163,7 @@ def get_realestateinformation(answers):
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
                 # municipalityId minOccurs 0
-                municipalityName=parzelle["ort-parzelle"],
+                municipalityName=parzelle.get("ort-parzelle", answers["gemeinde"]),
                 cantonAbbreviation="BE",
             ),
             buildingInformation=[
@@ -230,7 +230,9 @@ def get_realestateinformation(answers):
                     realestateType="8",
                 ),
                 municipality=ech_0007_6_0.swissMunicipalityType(
-                    municipalityName=answers["ort-gesuchstellerin"],
+                    municipalityName=answers.get(
+                        "ort-gesuchstellerin", answers["gemeinde"]
+                    ),
                     cantonAbbreviation="BE",
                 ),
                 buildingInformation=[
@@ -241,6 +243,25 @@ def get_realestateinformation(answers):
                     )
                 ],
                 owner=[
+                    pyxb.BIND(
+                        ownerAdress=ns_address.mailAddressType(
+                            person=ns_address.personMailAddressInfoType(
+                                firstName=owner["vorname-gesuchstellerin"],
+                                lastName=owner["name-gesuchstellerin"],
+                            ),
+                            addressInformation=ns_address.addressInformationType(
+                                street=owner.get("strasse-gesuchstellerin"),
+                                houseNumber=owner.get("nummer-gesuchstellerin"),
+                                town=ns_address.townType(owner["ort-gesuchstellerin"]),
+                                swissZipCode=owner["plz-gesuchstellerin"],
+                                country="CH",
+                            ),
+                        )
+                    )
+                    for owner in answers.get("personalien-gesuchstellerin", [])
+                ]
+                if "personalien-gesuchstellerin" in answers
+                else [
                     pyxb.BIND(
                         ownerAdress=ns_address.mailAddressType(
                             person=ns_address.personMailAddressInfoType(
@@ -322,7 +343,9 @@ def application(instance: Instance, answers: dict):
                 totalCostsOfProject=answers.get("baukosten-in-chf"),
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
-                municipalityName=answers["parzelle"][0]["ort-parzelle"],
+                municipalityName=answers["parzelle"][0].get(
+                    "ort-parzelle", answers["gemeinde"]
+                ),
                 cantonAbbreviation="BE",
             )
             if "parzelle" in answers
