@@ -6,7 +6,7 @@
 {{/camac-form}}
 
 {{camac-property-selector
-  readonly  = model.instance.identifier
+  readonly  = (not (or (eq model.instance.instanceState.name "new") (eq model.instance.instanceState.name "rejected")))
   selected  = (hash
     points  = points.value
     parcels = parcels.value
