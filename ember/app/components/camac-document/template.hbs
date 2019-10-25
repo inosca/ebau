@@ -47,7 +47,7 @@
                   >
                 </div>
               {{/unless}}
-              {{#unless instance.identifier}}
+              {{#if (or (eq instance.instanceState.name "new") (eq instance.instanceState.name "rejected"))}}
                 <button
                   data-test-delete-document
                   class="uk-icon-button confirm-delete-{{doc.id}}"
@@ -71,7 +71,7 @@
                     uk-toggle="target: .confirm-delete-{{doc.id}}; animation: uk-animation-slide-bottom uk-animation-fast;"
                   ></button>
                 </span>
-              {{/unless}}
+              {{/if}}
             </td>
           </tr>
         {{/each}}
