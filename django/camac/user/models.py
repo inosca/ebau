@@ -218,6 +218,24 @@ class UserGroup(models.Model):
         unique_together = (("user", "group"),)
 
 
+class UserGroupLog(models.Model):
+    user_group_log_id = models.AutoField(
+        db_column="USER_GROUP_LOG_ID", primary_key=True
+    )
+    modification_date = models.DateTimeField(db_column="MODIFICATION_DATE")
+    user_id = models.IntegerField(db_column="USER_ID")
+    action = models.CharField(db_column="ACTION", max_length=500)
+    data = models.TextField(db_column="DATA", blank=True, null=True)
+    id1 = models.IntegerField(db_column="ID1")
+    field1 = models.CharField(db_column="FIELD1", max_length=30)
+    id2 = models.IntegerField(db_column="ID2")
+    field2 = models.CharField(db_column="FIELD2", max_length=30)
+
+    class Meta:
+        managed = True
+        db_table = "USER_GROUP_LOG"
+
+
 class Role(core_models.MultilingualModel, models.Model):
     role_id = models.AutoField(db_column="ROLE_ID", primary_key=True)
     role_parent = models.ForeignKey(

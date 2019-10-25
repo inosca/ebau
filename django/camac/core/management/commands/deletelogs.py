@@ -13,6 +13,7 @@ log_models = (
     "core.ActivationLog",
     "core.AnswerLog",
     "core.CirculationLog",
+    "user.UserGroupLog",
 )
 
 
