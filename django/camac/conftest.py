@@ -102,12 +102,28 @@ def ech_mandatory_answers_baugesuch():
 
 
 @pytest.fixture
-def ech_mandatory_answers_vorabklaerung():
+def ech_mandatory_answers_einfache_vorabklaerung():
     return {
-        "form-name": "Vorabklaerung",
+        "form-name": "Einfache Vorabklärung",
         "gemeinde": "Testgemeinde",
         "name-gesuchstellerin-vorabklaerung": "Testname",
         "ort-gesuchstellerin": "Testort",
         "plz-gesuchstellerin": 2323,
         "vorname-gesuchstellerin-vorabklaerung": "Testvorname",
+    }
+
+
+@pytest.fixture
+def ech_mandatory_answers_vollstaendige_vorabklaerung():
+    return {
+        "form-name": "Vollständige Vorabklärung",
+        "gemeinde": "Testgemeinde",
+        "personalien-gesuchstellerin": [
+            {
+                "name-gesuchstellerin": "Testname",
+                "ort-gesuchstellerin": "Testort",
+                "plz-gesuchstellerin": 2323,
+                "vorname-gesuchstellerin": "Testvorname",
+            }
+        ],
     }

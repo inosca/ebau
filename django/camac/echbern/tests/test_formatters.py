@@ -10,16 +10,21 @@ from camac.echbern import formatters
 logger = logging.getLogger(__name__)
 
 
-@pytest.mark.parametrize("is_vorabklaerung", [False, True])
+@pytest.mark.parametrize(
+    "form", ["baugesuch", "einfache vorabklaerung", "vollstaendige vorabklaerung"]
+)
 def test_base_delivery(
-    is_vorabklaerung,
+    form,
     ech_mandatory_answers_baugesuch,
-    ech_mandatory_answers_vorabklaerung,
+    ech_mandatory_answers_einfache_vorabklaerung,
+    ech_mandatory_answers_vollstaendige_vorabklaerung,
     ech_instance,
 ):
     ech_mandatory_answers = ech_mandatory_answers_baugesuch
-    if is_vorabklaerung:
-        ech_mandatory_answers = ech_mandatory_answers_vorabklaerung
+    if form == "einfache vorabklaerung":
+        ech_mandatory_answers = ech_mandatory_answers_einfache_vorabklaerung
+    elif form == "vollstaendige vorabklaerung":
+        ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
 
     xml = formatters.delivery(
         ech_instance,
