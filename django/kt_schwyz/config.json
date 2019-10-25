@@ -58,7 +58,7 @@
       "description": "Nachforderungen vorhanden, Dossier zur\u00fcck an den Gesuchsteller",
       "error_message": "Das Dossier konnte nicht an den Gesuchsteller zur\u00fcckgegeben werden",
       "execute_always": 0,
-      "name": "subm zu new",
+      "name": "subm zu rejected",
       "sort": 0,
       "success_message": "Das Dossier wurde erfolgreich an den Gesuchsteller zur\u00fcckgegeben"
     },
@@ -692,7 +692,7 @@
   {
     "fields": {
       "current_instance_state": 2,
-      "next_instance_state": 1
+      "next_instance_state": 12
     },
     "model": "core.aformtransition",
     "pk": 4
@@ -9486,6 +9486,14 @@
   },
   {
     "fields": {
+      "instance_state": 12,
+      "resource": 1
+    },
+    "model": "core.rapilistinstancestate",
+    "pk": 67
+  },
+  {
+    "fields": {
       "available_resource": "apilistinstance",
       "class_field": null,
       "description": "Eingereichte Dossiers f\u00fcr die Gemeinde",
@@ -11174,7 +11182,7 @@
     "fields": {
       "description": "Eingereicht",
       "name": "subm",
-      "sort": 1
+      "sort": 2
     },
     "model": "instance.instancestate",
     "pk": 2
@@ -11183,7 +11191,7 @@
     "fields": {
       "description": "Von Gemeinde angenommenen",
       "name": "comm",
-      "sort": 2
+      "sort": 3
     },
     "model": "instance.instancestate",
     "pk": 3
@@ -11192,7 +11200,7 @@
     "fields": {
       "description": null,
       "name": "ext",
-      "sort": 3
+      "sort": 4
     },
     "model": "instance.instancestate",
     "pk": 4
@@ -11201,7 +11209,7 @@
     "fields": {
       "description": "In Zirkulation",
       "name": "circ",
-      "sort": 4
+      "sort": 5
     },
     "model": "instance.instancestate",
     "pk": 5
@@ -11210,7 +11218,7 @@
     "fields": {
       "description": "Bauentscheid ausstehend",
       "name": "redac",
-      "sort": 5
+      "sort": 6
     },
     "model": "instance.instancestate",
     "pk": 6
@@ -11219,7 +11227,7 @@
     "fields": {
       "description": "Nachforderung",
       "name": "nfd",
-      "sort": 6
+      "sort": 7
     },
     "model": "instance.instancestate",
     "pk": 7
@@ -11228,7 +11236,7 @@
     "fields": {
       "description": "Bewilligt",
       "name": "done",
-      "sort": 7
+      "sort": 8
     },
     "model": "instance.instancestate",
     "pk": 8
@@ -11236,8 +11244,8 @@
   {
     "fields": {
       "description": "Abgelehnt",
-      "name": "rej",
-      "sort": 8
+      "name": "denied",
+      "sort": 9
     },
     "model": "instance.instancestate",
     "pk": 9
@@ -11246,7 +11254,7 @@
     "fields": {
       "description": "Archiviert",
       "name": "arch",
-      "sort": 9
+      "sort": 10
     },
     "model": "instance.instancestate",
     "pk": 10
@@ -11255,10 +11263,19 @@
     "fields": {
       "description": "Gel\u00f6scht",
       "name": "del",
-      "sort": 10
+      "sort": 11
     },
     "model": "instance.instancestate",
     "pk": 11
+  },
+  {
+    "fields": {
+      "description": "Zur\u00fcckgewiesen",
+      "name": "rejected",
+      "sort": 1
+    },
+    "model": "instance.instancestate",
+    "pk": 12
   },
   {
     "fields": {
