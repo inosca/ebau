@@ -89,7 +89,7 @@ def ech_mandatory_answers_baugesuch():
     return {
         "form-name": "Baugesuch",
         "gemeinde": "Testgemeinde",
-        "parzelle": [{"ort-parzelle": "Burgdorf", "parzellennummer": "1586"}],
+        "parzelle": [{"parzellennummer": "1586"}],
         "personalien-gesuchstellerin": [
             {
                 "name-gesuchstellerin": "Testname",
