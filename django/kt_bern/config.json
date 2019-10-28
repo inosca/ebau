@@ -129,6 +129,76 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 5,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10042
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20040,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 7,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10048
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20022,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10049
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20005,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10050
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20016,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10051
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 20005,
       "description": null,
@@ -1006,6 +1076,66 @@
     },
     "model": "core.actiont",
     "pk": 10041
+  },
+  {
+    "fields": {
+      "action": 10042,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10042
+  },
+  {
+    "fields": {
+      "action": 10048,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10048
+  },
+  {
+    "fields": {
+      "action": 10049,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10049
+  },
+  {
+    "fields": {
+      "action": 10050,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10050
+  },
+  {
+    "fields": {
+      "action": 10051,
+      "description": "Notify ECH0211 clients about status change",
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10051
   },
   {
     "fields": {
@@ -39697,6 +39827,41 @@
     },
     "model": "core.apageredirect",
     "pk": 20114
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10042
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10048
+  },
+{
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10049
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10050
+  },
+{
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10051
   },
   {
     "fields": {
