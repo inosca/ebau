@@ -628,14 +628,14 @@ def test_responsible_instance_user(
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
     )
-    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 1
 
     # "nobody" filter should return nothing if all instances have a responsible user
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
     )
-    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 0
 
     # "nobody" filter should return instance where there is no responsible user
@@ -643,12 +643,12 @@ def test_responsible_instance_user(
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": "NOBODY"}
     )
-    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 1
 
     # not set shouldn't do anything
     resp = admin_client.get(reverse("instance-list"), {"responsible_instance_user": ""})
-    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 1
 
     # different service shouldnt return anything
@@ -656,5 +656,5 @@ def test_responsible_instance_user(
     resp = admin_client.get(
         reverse("instance-list"), {"responsible_instance_user": str(user.pk)}
     )
-    assert resp.status_code == status.HTTP_200_OK, resp.content
+    assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 0
