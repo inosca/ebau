@@ -731,6 +731,48 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 20049,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20105
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20049,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20114
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20050,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20115
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 40029,
       "description": null,
@@ -1480,6 +1522,42 @@
     },
     "model": "core.actiont",
     "pk": 20104
+  },
+  {
+    "fields": {
+      "action": 20105,
+      "description": null,
+      "error_message": "Die neue Zirkulation konnte nicht erstellt werden",
+      "language": "de",
+      "name": "Create new circulation",
+      "success_message": "Neue Zirkulation erstellt"
+    },
+    "model": "core.actiont",
+    "pk": 20105
+  },
+  {
+    "fields": {
+      "action": 20114,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Redirect to latest circulation",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20114
+  },
+  {
+    "fields": {
+      "action": 20115,
+      "description": null,
+      "error_message": "Zirkulation konnte nicht abgeschlossen werden",
+      "language": "de",
+      "name": "circ state to DONE",
+      "success_message": "Zirkulation abgeschlossen"
+    },
+    "model": "core.actiont",
+    "pk": 20115
   },
   {
     "fields": {
@@ -39613,6 +39691,15 @@
   },
   {
     "fields": {
+      "air_action_name": "edit",
+      "instance_resource": 20004,
+      "resource": 20006
+    },
+    "model": "core.apageredirect",
+    "pk": 20114
+  },
+  {
+    "fields": {
       "php_class": "NewEbauNumber"
     },
     "model": "core.aphp",
@@ -39638,6 +39725,20 @@
     },
     "model": "core.aphp",
     "pk": 20092
+  },
+  {
+    "fields": {
+      "php_class": "CreateCirc"
+    },
+    "model": "core.aphp",
+    "pk": 20105
+  },
+  {
+    "fields": {
+      "php_class": "CircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 20115
   },
   {
     "fields": {
@@ -40778,6 +40879,33 @@
   },
   {
     "fields": {
+      "button": 20049,
+      "instance_state": 20003,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 20047
+  },
+  {
+    "fields": {
+      "button": 20049,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 20048
+  },
+  {
+    "fields": {
+      "button": 20050,
+      "instance_state": 20004,
+      "role": 3
+    },
+    "model": "core.broleacl",
+    "pk": 20049
+  },
+  {
+    "fields": {
       "button": 120001,
       "instance_state": 20006,
       "role": 3
@@ -40808,7 +40936,7 @@
   },
   {
     "fields": {
-      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only",
+      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only circ_start",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
@@ -40844,12 +40972,12 @@
   },
   {
     "fields": {
-      "class_field": "btn buttonstyle success active_leitbehoerde_only",
+      "class_field": "btn buttonstyle success active_leitbehoerde_only save",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 2
+      "sort": 4
     },
     "model": "core.button",
     "pk": 20008
@@ -40904,12 +41032,12 @@
   },
   {
     "fields": {
-      "class_field": "btn buttonstyle leitung_only",
+      "class_field": "btn buttonstyle leitung_only decision_start",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 4
+      "sort": 6
     },
     "model": "core.button",
     "pk": 20016
@@ -40921,7 +41049,7 @@
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 5
+      "sort": 7
     },
     "model": "core.button",
     "pk": 20018
@@ -41072,6 +41200,30 @@
   },
   {
     "fields": {
+      "class_field": "btn buttonstyle create_new_circ active_leitbehoerde_only leitung_only",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20004,
+      "name": null,
+      "sort": 2
+    },
+    "model": "core.button",
+    "pk": 20049
+  },
+  {
+    "fields": {
+      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only circ_end",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20004,
+      "name": null,
+      "sort": 3
+    },
+    "model": "core.button",
+    "pk": 20050
+  },
+  {
+    "fields": {
       "class_field": "success active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
@@ -41096,12 +41248,12 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "btn buttonstyle leitung_only active_leitbehoerde_only send_circ",
       "description": null,
       "hidden": 0,
       "instance_resource": 20004,
       "name": null,
-      "sort": 3
+      "sort": 5
     },
     "model": "core.button",
     "pk": 130000
@@ -41201,7 +41353,7 @@
       "button": 20016,
       "description": null,
       "language": "de",
-      "name": "Zirkulation abschliessen"
+      "name": "Entscheid starten"
     },
     "model": "core.buttont",
     "pk": 20016
@@ -41345,6 +41497,46 @@
     },
     "model": "core.buttont",
     "pk": 20049
+  },
+  {
+    "fields": {
+      "button": 20049,
+      "description": null,
+      "language": "de",
+      "name": "Neue Zirkulation erstellen"
+    },
+    "model": "core.buttont",
+    "pk": 20050
+  },
+  {
+    "fields": {
+      "button": 20050,
+      "description": null,
+      "language": "de",
+      "name": "Zirkulation abschliessen"
+    },
+    "model": "core.buttont",
+    "pk": 20051
+  },
+  {
+    "fields": {
+      "button": 20049,
+      "description": null,
+      "language": "fr",
+      "name": "Cr\u00e9er nouvelle circulation"
+    },
+    "model": "core.buttont",
+    "pk": 20052
+  },
+  {
+    "fields": {
+      "button": 20050,
+      "description": null,
+      "language": "fr",
+      "name": "Circulation compl\u00e8te"
+    },
+    "model": "core.buttont",
+    "pk": 20053
   },
   {
     "fields": {
@@ -48246,7 +48438,7 @@
   },
   {
     "fields": {
-      "name": "",
+      "name": "RUN",
       "sort": 3
     },
     "model": "core.circulationstate",
@@ -48254,7 +48446,7 @@
   },
   {
     "fields": {
-      "name": "",
+      "name": "DONE",
       "sort": 4
     },
     "model": "core.circulationstate",
@@ -53261,7 +53453,7 @@
       "pdf_class": null,
       "read_notice_template": null,
       "show_notice": 0,
-      "single_circulation": 1
+      "single_circulation": 0
     },
     "model": "core.ireditcirculation",
     "pk": 20004
