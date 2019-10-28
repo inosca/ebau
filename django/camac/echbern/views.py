@@ -85,7 +85,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
 last_param = openapi.Parameter(
     "last",
     openapi.IN_QUERY,
-    description="UUID of last message",
+    description="UUID of last message. Can be found in `headerType.messageId`.",
     type=openapi.TYPE_STRING,
 )
 
