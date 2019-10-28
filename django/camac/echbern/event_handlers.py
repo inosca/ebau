@@ -55,6 +55,7 @@ class SubmitEventHandler(BaseEventHandler):
                 caluma_data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/20014/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, caluma_data
                 ),

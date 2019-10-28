@@ -462,7 +462,12 @@ def submit(instance: Instance, answers: dict):
 
 
 def delivery(
-    instance: Instance, answers: dict, message_date=None, message_id=None, **args
+    instance: Instance,
+    answers: dict,
+    message_date=None,
+    message_id=None,
+    url=None,
+    **args,
 ):
     """
     Generate delivery XML.
@@ -497,6 +502,7 @@ def delivery(
                 messageDate=message_date or timezone.now(),
                 action="1",
                 testDeliveryFlag=True,
+                extension=url or settings.INTERNAL_BASE_URL,
             ),
             **args,
         )
