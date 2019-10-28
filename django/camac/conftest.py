@@ -87,7 +87,7 @@ def use_caluma_form(application_settings):
 @pytest.fixture
 def ech_mandatory_answers_baugesuch():
     return {
-        "form-name": "Baugesuch",
+        "ech-subject": "Baugesuch",
         "gemeinde": "Testgemeinde",
         "parzelle": [{"parzellennummer": "1586"}],
         "personalien-gesuchstellerin": [
@@ -104,7 +104,7 @@ def ech_mandatory_answers_baugesuch():
 @pytest.fixture
 def ech_mandatory_answers_einfache_vorabklaerung():
     return {
-        "form-name": "Einfache Vorabklärung",
+        "ech-subject": "Einfache Vorabklärung",
         "gemeinde": "Testgemeinde",
         "name-gesuchstellerin-vorabklaerung": "Testname",
         "ort-gesuchstellerin": "Testort",
@@ -116,7 +116,7 @@ def ech_mandatory_answers_einfache_vorabklaerung():
 @pytest.fixture
 def ech_mandatory_answers_vollstaendige_vorabklaerung():
     return {
-        "form-name": "Vollständige Vorabklärung",
+        "ech-subject": "Vollständige Vorabklärung",
         "gemeinde": "Testgemeinde",
         "personalien-gesuchstellerin": [
             {

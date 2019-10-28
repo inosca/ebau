@@ -186,6 +186,7 @@ snapshots["test_get_document 1"] = {
     "e-mail-gastgewerbe": "smith@example.com",
     "e-mail-gewaesserschutzfragen": "smith@example.com",
     "e-mail-kontaktperson": "smith@example.com",
+    "ech-subject": "Baugesuch",
     "effektive-geschosszahl": 21,
     "eigenstaendiger-grossverbraucher": "Ja",
     "eigentuemer-tabelle": [
@@ -239,7 +240,6 @@ snapshots["test_get_document 1"] = {
     "flaeche-fumoir": 3000,
     "fluessigkeiten-wassergefaehrdungsklasse-a": "Ja",
     "folgender-raum-soll-als-fumoir-bewilligt-werden": "Alles",
-    "form-name": "Baugesuch",
     "forstliche-baute": "Ja",
     "fruchtfolgeflaeche-ausgeschieden": "Ja",
     "fuellmenge-in-kg": 555,

@@ -306,7 +306,7 @@ def application(instance: Instance, answers: dict):
             "beschreibung-bauvorhaben",
             answers.get("anfrage-zur-vorabklaerung", "unknown"),
         ),
-        applicationType=answers["form-name"],
+        applicationType=answers["ech-subject"],
         remark=[answers["bemerkungen"]] if "bemerkungen" in answers else [],
         # proceedingType minOccurs=0
         # profilingYesNo minOccurs=0
@@ -408,6 +408,27 @@ def office(instance: Instance, answers: dict):
     )
 
 
+def status_notification(instance: Instance):
+    return ns_application.eventStatusNotificationType(
+        eventType="status notification",
+        planningPermissionApplicationIdentification=ns_application.planningPermissionApplicationIdentificationType(
+            localID=[
+                ns_objektwesen.namedIdType(
+                    IdCategory="instanceID", Id=str(instance.instance_id)
+                )
+            ],
+            otherID=[
+                ns_objektwesen.namedIdType(
+                    IdCategory="instanceID", Id=str(instance.instance_id)
+                )
+            ],
+            dossierIdentification=get_ebau_nr(instance) or "unknown",
+        ),
+        status="in progress",  # real status is in remark
+        remark=[str(instance.instance_state.get_name())],
+    )
+
+
 def base_delivery(instance: Instance, answers: dict):
 
     return ns_application.eventBaseDeliveryType(
@@ -457,6 +478,7 @@ def delivery(
     message_types = {
         "eventBaseDelivery": "5100000",
         "eventSubmitPlanningPermissionApplication": "5100000",
+        "eventStatusNotification": "custom",  # 😈
     }
     message_type = message_types[list(args.keys())[0]]
 
@@ -471,7 +493,7 @@ def delivery(
                     product=camac_metadata.__title__,
                     productVersion=camac_metadata.__version__,
                 ),
-                subject=answers["form-name"],
+                subject=answers["ech-subject"],
                 messageDate=message_date or timezone.now(),
                 action="1",
                 testDeliveryFlag=True,
