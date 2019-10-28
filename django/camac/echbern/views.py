@@ -136,7 +136,10 @@ class EventView(GenericViewSet):
 
     def create(self, request, instance_id, event_type, *args, **kwargs):
         instance = get_object_or_404(Instance.objects.all(), pk=instance_id)
-        EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
+        try:
+            EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
+        except AttributeError:
+            return HttpResponse(status=404)
         eh = EventHandler(instance=instance)
         eh.run()
         return HttpResponse(status=201)
