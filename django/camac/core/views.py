@@ -161,10 +161,8 @@ class PublicationEntryView(viewsets.ModelViewSet):
             auth=(settings.PUBLICATION_API_USER, settings.PUBLICATION_API_PASSWORD),
         )
 
-        try:
-            response.raise_for_status()
-        # This is to catch any exception that might result from the Amtsblatt api
-        except requests.exceptions.RequestException as e:  # pragma: no cover
-            return Response(str(e), 400)
+        # Return 400 when a error occured at the Amtsblatt API
+        if not response.ok:  # pragma: no cover
+            return Response(response.text, 400)
 
         return Response([], 204)
