@@ -14,7 +14,7 @@ from rest_framework_xml.renderers import XMLRenderer
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 
-from . import formatters
+from . import event_handlers, formatters
 from .data_preparation import get_document
 from .models import Message
 from .serializers import ApplicationsSerializer
@@ -124,3 +124,19 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         response = HttpResponse(message.body)
         response["Content-Type"] = "application/xml"
         return response
+
+
+class EventView(GenericViewSet):
+    swagger_schema = None
+
+    def has_create_permission(self):
+        if self.request.group.role.name == "support":
+            return True
+        return False
+
+    def create(self, request, instance_id, event_type, *args, **kwargs):
+        instance = get_object_or_404(Instance.objects.all(), pk=instance_id)
+        EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
+        eh = EventHandler(instance=instance)
+        eh.run()
+        return HttpResponse(status=201)

@@ -5,6 +5,7 @@ from rest_framework import status
 from camac.core.models import Answer, Chapter, Question, QuestionT, QuestionType
 
 from .. import views
+from ..models import Message
 from .caluma_responses import full_document
 
 
@@ -88,3 +89,22 @@ def test_message_retrieve_404(db, service, admin_client, message_factory):
     response = admin_client.get(f"{url}")
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("support", [True, False])
+def test_event_post(support, admin_client, admin_user, ech_instance, role_factory):
+    if support:
+        group = admin_user.groups.first()
+        group.role = role_factory(name="support")
+        group.save()
+    url = reverse("event", args=[ech_instance.pk, "StatusNotification"])
+    response = admin_client.post(url)
+
+    status_code = status.HTTP_403_FORBIDDEN
+    if support:
+        status_code = status.HTTP_201_CREATED
+
+    assert response.status_code == status_code
+
+    if support:
+        assert Message.objects.get(receiver=ech_instance.active_service)
