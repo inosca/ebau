@@ -11,7 +11,7 @@ from pyxb import (
 )
 
 from .data_preparation import get_document
-from .formatters import delivery, submit
+from .formatters import delivery, status_notification, submit
 from .models import Message
 from .signals import instance_submitted
 
@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 class BaseEventHandler:
-    def __init__(self, instance, group_pk):
+    def __init__(self, instance, group_pk=None):
         self.instance = instance
         self.group_pk = group_pk
 
@@ -58,6 +58,28 @@ class SubmitEventHandler(BaseEventHandler):
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, caluma_data
                 ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+class StatusNotificationEventHandler(BaseEventHandler):
+    def get_data(self):
+        return {"ech-subject": "status notification"}
+
+    def get_xml(self, caluma_data):
+        try:
+            return delivery(
+                self.instance,
+                caluma_data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventStatusNotification=status_notification(self.instance),
             ).toxml()
         except (
             IncompleteElementContentError,
