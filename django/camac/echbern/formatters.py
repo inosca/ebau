@@ -163,7 +163,7 @@ def get_realestateinformation(answers):
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
                 # municipalityId minOccurs 0
-                municipalityName=parzelle.get("ort-parzelle", answers["gemeinde"]),
+                municipalityName=answers["gemeinde"],
                 cantonAbbreviation="BE",
             ),
             buildingInformation=[
@@ -331,7 +331,9 @@ def application(instance: Instance, answers: dict):
             country="CH",
         ),
         realestateInformation=get_realestateinformation(answers),
-        zone=[ns_application.zoneType(zoneDesignation=answers["nutzungszone"])]
+        zone=[
+            ns_application.zoneType(zoneDesignation=answers["nutzungszone"][:25])
+        ]  # eCH allows for max 25 chars
         if "nutzungszone" in answers
         else [],
         constructionProjectInformation=ns_application.constructionProjectInformationType(
