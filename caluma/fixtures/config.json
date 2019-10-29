@@ -32190,7 +32190,7 @@
       "created_by_group": "[]",
       "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\"}",
       "type": "text",
-      "is_required": "false",
+      "is_required": "true",
       "is_hidden": "false",
       "is_archived": false,
       "placeholder": "{\"de\": null, \"fr\": null}",
