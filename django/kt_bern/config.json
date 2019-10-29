@@ -48314,7 +48314,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 20000,
       "name": null,
-      "sort": 0
+      "sort": 1
     },
     "model": "core.circulationanswer",
     "pk": 20001
@@ -48324,7 +48324,7 @@
       "circulation_answer_type": 1,
       "circulation_type": 20000,
       "name": null,
-      "sort": 1
+      "sort": 2
     },
     "model": "core.circulationanswer",
     "pk": 20003
@@ -48334,10 +48334,20 @@
       "circulation_answer_type": 1,
       "circulation_type": 20000,
       "name": null,
-      "sort": 2
+      "sort": 3
     },
     "model": "core.circulationanswer",
     "pk": 20004
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 20000,
+      "name": null,
+      "sort": 4
+    },
+    "model": "core.circulationanswer",
+    "pk": 20005
   },
   {
     "fields": {
@@ -48410,6 +48420,24 @@
     },
     "model": "core.circulationanswert",
     "pk": 20008
+  },
+  {
+    "fields": {
+      "circulation_answer": 20005,
+      "language": "de",
+      "name": "Nachforderung"
+    },
+    "model": "core.circulationanswert",
+    "pk": 20009
+  },
+  {
+    "fields": {
+      "circulation_answer": 20005,
+      "language": "fr",
+      "name": "Demande de compl\u00e9ment d'information"
+    },
+    "model": "core.circulationanswert",
+    "pk": 20010
   },
   {
     "fields": {
