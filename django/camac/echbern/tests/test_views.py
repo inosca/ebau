@@ -108,3 +108,13 @@ def test_event_post(support, admin_client, admin_user, ech_instance, role_factor
 
     if support:
         assert Message.objects.get(receiver=ech_instance.active_service)
+
+
+def test_event_post_404(admin_client, admin_user, ech_instance, role_factory):
+    group = admin_user.groups.first()
+    group.role = role_factory(name="support")
+    group.save()
+    url = reverse("event", args=[ech_instance.pk, "NotAnEvent"])
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_404_NOT_FOUND
