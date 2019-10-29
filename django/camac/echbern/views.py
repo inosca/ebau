@@ -23,7 +23,10 @@ logger = logging.getLogger(__name__)
 
 
 group_param = openapi.Parameter(
-    "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
+    "group",
+    openapi.IN_QUERY,
+    description="Group ID (defaults to user's default group if not given)",
+    type=openapi.TYPE_INTEGER,
 )
 
 
@@ -85,7 +88,10 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
 last_param = openapi.Parameter(
     "last",
     openapi.IN_QUERY,
-    description="UUID of last message. Can be found in `headerType.messageId`.",
+    description=(
+        "UUID of last message. Can be found in `headerType.messageId`. "
+        "If omitted, first message is returned"
+    ),
     type=openapi.TYPE_STRING,
 )
 
@@ -115,7 +121,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
 
     @swagger_auto_schema(
         tags=["ECH"],
-        manual_parameters=[last_param],
+        manual_parameters=[last_param, group_param],
         operation_summary="Get message",
         responses={"200": "eCH-0211 message"},
     )
