@@ -174,7 +174,7 @@ class PublicationEntryFactory(DjangoModelFactory):
     instance = SubFactory(InstanceFactory)
     note = 1
     publication_date = Faker("past_datetime", tzinfo=pytz.UTC)
-    is_published = True
+    is_published = 0
     text = Faker("text")
 
     class Meta:
