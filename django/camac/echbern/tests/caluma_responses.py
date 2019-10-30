@@ -9670,7 +9670,7 @@ full_document = {
                                                                     "slug": "vorname-gesuchstellerin",
                                                                     "__typename": "TextQuestion",
                                                                 },
-                                                                "stringValue": "Testvorname",
+                                                                "stringValue": " Testvorname ",
                                                                 "__typename": "StringAnswer",
                                                             },
                                                             "__typename": "AnswerEdge",
