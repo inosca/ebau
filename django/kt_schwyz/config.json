@@ -1098,33 +1098,6 @@
   },
   {
     "fields": {
-      "action_name": "preview",
-      "available_instance_resource": "publication",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 40
-  },
-  {
-    "fields": {
-      "action_name": "publish",
-      "available_instance_resource": "publication",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 41
-  },
-  {
-    "fields": {
-      "action_name": "save",
-      "available_instance_resource": "publication",
-      "hidden": 1
-    },
-    "model": "core.airaction",
-    "pk": 42
-  },
-  {
-    "fields": {
       "action_name": "delete",
       "available_instance_resource": "workflow",
       "hidden": 1
