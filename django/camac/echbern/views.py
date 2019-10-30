@@ -22,14 +22,6 @@ from .serializers import ApplicationsSerializer
 logger = logging.getLogger(__name__)
 
 
-group_param = openapi.Parameter(
-    "group",
-    openapi.IN_QUERY,
-    description="Group ID (defaults to user's default group if not given)",
-    type=openapi.TYPE_INTEGER,
-)
-
-
 class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet):
     serializer_class = Serializer
     renderer_classes = (XMLRenderer,)
@@ -39,7 +31,6 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
     @swagger_auto_schema(
         tags=["ECH"],
         operation_summary="Get baseDelivery for instance",
-        manual_parameters=[group_param],
         responses={"200": "eCH-0211 baseDelivery"},
     )
     def retrieve(self, request, instance_id=None, **kwargs):
@@ -77,9 +68,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
         return super().get_queryset()
 
     @swagger_auto_schema(
-        tags=["ECH"],
-        manual_parameters=[group_param],
-        operation_summary="Get list of accessible instances",
+        tags=["ECH"], operation_summary="Get list of accessible instances"
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
@@ -121,7 +110,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
 
     @swagger_auto_schema(
         tags=["ECH"],
-        manual_parameters=[last_param, group_param],
+        manual_parameters=[last_param],
         operation_summary="Get message",
         responses={"200": "eCH-0211 message"},
     )
