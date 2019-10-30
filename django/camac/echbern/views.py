@@ -61,6 +61,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
     serializer_class = ApplicationsSerializer
     queryset = Instance.objects
     instance_field = None
+    filter_backends = []
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
