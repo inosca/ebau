@@ -244,10 +244,13 @@ export default Component.extend({
   }).enqueue(),
 
   getLayers: task(function*() {
+    this.setProperties({ parcels: A(), layers: A() });
+
     yield this.points.forEach(async pointSet => {
       if (!pointSet.length) {
         return;
       }
+
       const coordinates = pointSet
         .map(p => {
           const coor = LatLngToEPSG3857(p.lat, p.lng);
@@ -300,6 +303,7 @@ export default Component.extend({
           responseObject["wfs:FeatureCollection"]["gml:featureMember"]
         ];
       }
+
       this._parseAffectedLayers(responseObject);
       this._parseAffectedParcels(responseObject);
     });
@@ -376,8 +380,8 @@ export default Component.extend({
 
   clear: task(function*() {
     yield this.setProperties({
-      parcels: A(),
       points: [[]],
+      parcels: A(),
       affectedLayers: A(),
       selectedMunicipality: null,
       searchObject: null
