@@ -49,6 +49,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     url(r"^api/v1/", include("camac.applicants.urls")),
+    url(r"^api/v1/", include("camac.core.urls")),
     url(r"^api/v1/", include("camac.user.urls")),
     url(r"^api/v1/", include("camac.instance.urls")),
     url(r"^api/v1/", include("camac.document.urls")),

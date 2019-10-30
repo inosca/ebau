@@ -110,6 +110,7 @@ APPLICATIONS = {
         "SUBMIT": {"WORKFLOW_ITEM": None},
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "PUBLICATION": {"WORKFLOW_ITEM": None},
         "FORM_BACKEND": "camac-ng",
     },
     "kt_schwyz": {
@@ -125,6 +126,7 @@ APPLICATIONS = {
         "NOTIFICATIONS": {"SUBMIT": 16, "APPLICANT": {"NEW": 19, "EXISTING": 20}},
         "SUBMIT": {"WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
+        "PUBLICATION": {"WORKFLOW_ITEM": 15},
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
     },
@@ -487,3 +489,10 @@ SWAGGER_SETTINGS = {
         "drf_yasg.inspectors.StringDefaultFieldInspector",
     ],
 }
+
+# Schwyz Publication
+PUBLICATION_API_URL = env.str(
+    "PUBLICATION_API_URL", "https://amtsblatt-test.webtech.ch/api/v1/baugesuch"
+)
+PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
+PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
