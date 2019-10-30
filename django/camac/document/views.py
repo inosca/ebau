@@ -75,11 +75,6 @@ class FileUploadSwaggerAutoSchema(SwaggerAutoSchema):
         return natural_parameters + serializer_parameters
 
 
-group_param = openapi.Parameter(
-    "group", openapi.IN_QUERY, description="Group ID", type=openapi.TYPE_INTEGER
-)
-
-
 class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelViewSet):
     queryset = models.Attachment.objects.all()
     serializer_class = serializers.AttachmentSerializer
@@ -169,24 +164,19 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         super().perform_destroy(instance)
 
     @swagger_auto_schema(
-        tags=["File download service"],
-        manual_parameters=[group_param],
-        operation_summary="Get file information",
+        tags=["File download service"], operation_summary="Get file information"
     )
     def retrieve(self, request, *args, **kwargs):
         return super().retrieve(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["File download service"],
-        manual_parameters=[group_param],
-        operation_summary="Get list of file information",
+        tags=["File download service"], operation_summary="Get list of file information"
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
 
     @swagger_auto_schema(
         tags=["File upload service"],
-        manual_parameters=[group_param],
         operation_summary="Upload a file",
         auto_schema=FileUploadSwaggerAutoSchema,
     )
@@ -198,9 +188,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         return super().partial_update(request, *args, **kwargs)
 
     @swagger_auto_schema(
-        tags=["File delete service"],
-        manual_parameters=[group_param],
-        operation_summary="Delete a file",
+        tags=["File delete service"], operation_summary="Delete a file"
     )
     def destroy(self, request, *args, **kwargs):
         return super().destroy(request, *args, **kwargs)
@@ -266,7 +254,7 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
 
     @swagger_auto_schema(
         tags=["File download service"],
-        manual_parameters=[attachments_param, group_param],
+        manual_parameters=[attachments_param],
         operation_summary="Download one or multiple files",
         operation_description="If multiple files are requested, they are served together in a *.zip file.",
     )
