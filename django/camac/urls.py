@@ -37,12 +37,6 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Aut
 ```bash
 curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
 ```
-
-Die verfügbaren Gruppen sind unter dem Endpoint `/api/v1/me` verfügbar:
-
-```bash
-curl -X GET "https://ebau-test.sycloud.ch/api/v1/me" -H "Authorization: Bearer ${TOKEN}"
-```
 """
 
 schema_view = get_schema_view(
