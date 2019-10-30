@@ -18,6 +18,12 @@ class DocumentParser:
         self.answers = self.parse_answers(self.document)
         self.answers["ech-subject"] = document["form"]["name"]
 
+    @staticmethod
+    def strip_whitespace(value):
+        if isinstance(value, str):
+            return value.strip(" ")
+        return value
+
     def parse_answers(self, data):
         answers = {}
         simple_questions = {
@@ -38,29 +44,32 @@ class DocumentParser:
             question_type_name = answer["node"]["question"]["__typename"]
 
             if question_type_name in simple_questions:
-                answers[answer["node"]["question"]["slug"]] = answer["node"][
-                    simple_questions[question_type_name]
-                ]
+                answers[answer["node"]["question"]["slug"]] = self.strip_whitespace(
+                    answer["node"][simple_questions[question_type_name]]
+                )
 
             elif question_type_name in choice_questions:
                 options = {
-                    option["node"]["slug"]: option["node"]["label"]
+                    option["node"]["slug"]: self.strip_whitespace(
+                        option["node"]["label"]
+                    )
                     for option in answer["node"]["question"][
                         choice_questions[question_type_name]
                     ]["edges"]
                 }
 
                 if question_type_name in ["ChoiceQuestion", "DynamicChoiceQuestion"]:
-                    answers[answer["node"]["question"]["slug"]] = options[
-                        answer["node"]["stringValue"]
-                    ]
+                    answers[answer["node"]["question"]["slug"]] = self.strip_whitespace(
+                        options[answer["node"]["stringValue"]]
+                    )
 
                 elif question_type_name in [
                     "MultipleChoiceQuestion",
                     "DynamicMultipleChoiceQuestion",
                 ]:
                     answers[answer["node"]["question"]["slug"]] = [
-                        options[slug] for slug in answer["node"]["listValue"]
+                        self.strip_whitespace(options[slug])
+                        for slug in answer["node"]["listValue"]
                     ]
             elif question_type_name == "TableQuestion":
                 rows = []
