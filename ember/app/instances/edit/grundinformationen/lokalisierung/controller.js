@@ -7,6 +7,7 @@ export default Controller.extend({
   questionStore: service(),
   ajax: service(),
   notification: service(),
+  store: service(),
 
   parcels: computed("model.instance.id", function() {
     return this.questionStore.peek("parzellen", this.model.instance.id);
@@ -31,6 +32,12 @@ export default Controller.extend({
     let attachment = this.attachment;
     let filename = `${attachment.get("name")}.${image.type.split("/").pop()}`;
     let formData = new FormData();
+
+    // Delete all previous images
+    this.store
+      .peekAll("attachment")
+      .filterBy("name", filename)
+      .forEach(image => image.destroyRecord());
 
     formData.append("instance", attachment.get("instanceId"));
     formData.append("question", attachment.get("name"));
