@@ -14,7 +14,7 @@ from camac.caluma import CalumaSerializerMixin
 from camac.constants import kt_bern as constants
 from camac.core.models import Answer, InstanceLocation, InstanceService, Journal
 from camac.core.serializers import MultilingualSerializer
-from camac.echbern.signals import instance_submitted
+from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.user.models import Group, Service
@@ -742,6 +742,12 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
             self._notify_submit(**notification_config)
 
+        sb1_submitted.send(
+            sender=self.__class__,
+            instance=instance,
+            group_pk=self.context["request"].group.pk,
+        )
+
         return instance
 
 
@@ -803,6 +809,12 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
             self._notify_submit(**notification_config)
+
+        sb2_submitted.send(
+            sender=self.__class__,
+            instance=instance,
+            group_pk=self.context["request"].group.pk,
+        )
 
         return instance
 

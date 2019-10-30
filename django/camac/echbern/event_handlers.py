@@ -20,7 +20,7 @@ from .formatters import (
     submit,
 )
 from .models import Message
-from .signals import instance_submitted
+from .signals import instance_submitted, sb1_submitted, sb2_submitted
 
 logger = logging.getLogger(__name__)
 
@@ -187,4 +187,12 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
 def submit_callback(sender, instance, group_pk, **kwargs):
     if settings.ECH_API:
         handler = SubmitEventHandler(instance, group_pk)
+        handler.run()
+
+
+@receiver(sb1_submitted)
+@receiver(sb2_submitted)
+def send_status_notification(sender, instance, group_pk, **kwargs):
+    if settings.ECH_API:
+        handler = StatusNotificationEventHandler(instance, group_pk)
         handler.run()
