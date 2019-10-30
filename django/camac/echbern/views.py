@@ -64,7 +64,7 @@ class ApplicationsView(InstanceQuerysetMixin, ListModelMixin, GenericViewSet):
     filter_backends = []
 
     def get_queryset(self):
-        if getattr(self, "swagger_fake_view", False):
+        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
             return Instance.objects.none()
         return super().get_queryset()
 
@@ -99,7 +99,11 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
         queryset = self.get_queryset()
         next_message = queryset.first()
         if last:
-            last_message = queryset.get(pk=last)
+            try:
+                last_message = queryset.get(pk=last)
+            except Message.DoesNotExist:
+                raise Http404
+
             next_message = queryset.filter(
                 created_at__gt=last_message.created_at
             ).first()
