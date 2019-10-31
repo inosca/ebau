@@ -449,9 +449,9 @@ def base_delivery(instance: Instance, answers: dict):
     )
 
 
-def submit(instance: Instance, answers: dict):
+def submit(instance: Instance, answers: dict, event_type: str):
     return ns_application.eventSubmitPlanningPermissionApplicationType(
-        eventType=ns_application.eventTypeType("submit"),
+        eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplication=application(instance, answers),
         relationshipToPerson=[
             ns_application.relationshipToPersonType(
