@@ -48,6 +48,8 @@ class BaseEventHandler:
 
 
 class SubmitEventHandler(BaseEventHandler):
+    event_type = "submit"
+
     def get_xml(self, caluma_data):
         try:
             return delivery(
@@ -57,7 +59,7 @@ class SubmitEventHandler(BaseEventHandler):
                 message_id=str(self.message_id),
                 url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/20014/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, caluma_data
+                    self.instance, caluma_data, self.event_type
                 ),
             ).toxml()
         except (
@@ -67,6 +69,10 @@ class SubmitEventHandler(BaseEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
+
+
+class FileSubsequentlyEventHandler(SubmitEventHandler):
+    event_type = "file subsequently"
 
 
 class StatusNotificationEventHandler(BaseEventHandler):
