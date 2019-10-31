@@ -77,16 +77,18 @@ def get_ebau_nr(instance):
         return ebau_answer.answer
 
 
-def get_related_instances_pks(instance, ebau_nr=None):
+def get_related_instances(instance, ebau_nr=None):
     ebau_nr = ebau_nr if ebau_nr else get_ebau_nr(instance)
-    related_instances_pks = []
+    related_instances = []
     if ebau_nr:
-        related_instances_pks = (
+        instance_pks = (
             Answer.objects.filter(question__trans__name="eBau-Nummer", answer=ebau_nr)
             .exclude(instance__pk=instance.pk)
-            .values_list("instance__pk", flat=True)
+            .select_related("instance")
+            .values_list("instance", flat=True)
         )
-    return related_instances_pks
+        related_instances = Instance.objects.filter(pk__in=instance_pks)
+    return related_instances
 
 
 def get_documents(instance, answers):
@@ -299,7 +301,7 @@ def application(instance: Instance, answers: dict):
         ]
 
     ebau_nr = get_ebau_nr(instance)
-    related_instances_pks = get_related_instances_pks(instance, ebau_nr)
+    related_instances = get_related_instances(instance, ebau_nr)
 
     return ns_application.planningPermissionApplicationType(
         description=answers.get(
@@ -365,34 +367,10 @@ def application(instance: Instance, answers: dict):
         ],
         document=get_documents(instance, answers),
         referencedPlanningPermissionApplication=[
-            ns_application.planningPermissionApplicationIdentificationType(
-                localID=[
-                    ns_objektwesen.namedIdType(
-                        IdCategory="instanceID", Id=str(instance_pk)
-                    )
-                ],
-                otherID=[
-                    ns_objektwesen.namedIdType(
-                        IdCategory="instanceID", Id=str(instance_pk)
-                    )
-                ],
-                dossierIdentification=ebau_nr,
-            )
-            for instance_pk in related_instances_pks
-            if not instance_pk == instance.pk
+            permission_application_identification(i) for i in related_instances
         ],
-        planningPermissionApplicationIdentification=ns_application.planningPermissionApplicationIdentificationType(
-            localID=[
-                ns_objektwesen.namedIdType(
-                    IdCategory="instanceID", Id=str(instance.instance_id)
-                )
-            ],
-            otherID=[
-                ns_objektwesen.namedIdType(
-                    IdCategory="instanceID", Id=str(instance.instance_id)
-                )
-            ],
-            dossierIdentification=ebau_nr,
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
         ),
     )
 
@@ -408,21 +386,27 @@ def office(instance: Instance, answers: dict):
     )
 
 
+def permission_application_identification(instance: Instance):
+    return ns_application.planningPermissionApplicationIdentificationType(
+        localID=[
+            ns_objektwesen.namedIdType(
+                IdCategory="instanceID", Id=str(instance.instance_id)
+            )
+        ],
+        otherID=[
+            ns_objektwesen.namedIdType(
+                IdCategory="instanceID", Id=str(instance.instance_id)
+            )
+        ],
+        dossierIdentification=get_ebau_nr(instance) or "unknown",
+    )
+
+
 def status_notification(instance: Instance):
     return ns_application.eventStatusNotificationType(
         eventType="status notification",
-        planningPermissionApplicationIdentification=ns_application.planningPermissionApplicationIdentificationType(
-            localID=[
-                ns_objektwesen.namedIdType(
-                    IdCategory="instanceID", Id=str(instance.instance_id)
-                )
-            ],
-            otherID=[
-                ns_objektwesen.namedIdType(
-                    IdCategory="instanceID", Id=str(instance.instance_id)
-                )
-            ],
-            dossierIdentification=get_ebau_nr(instance) or "unknown",
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
         ),
         status="in progress",  # real status is in remark
         remark=[str(instance.instance_state.get_name())],
@@ -461,6 +445,15 @@ def submit(instance: Instance, answers: dict, event_type: str):
     )
 
 
+def request(instance: Instance, event_type: str):
+    return ns_application.eventRequestType(
+        eventType=ns_application.eventTypeType(event_type),
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
+        ),
+    )
+
+
 def delivery(
     instance: Instance,
     answers: dict,
@@ -484,6 +477,7 @@ def delivery(
         "eventBaseDelivery": "5100000",
         "eventSubmitPlanningPermissionApplication": "5100000",
         "eventStatusNotification": "custom",  # 😈
+        "eventRequest": "custom",  # 😈
     }
     message_type = message_types[list(args.keys())[0]]
 

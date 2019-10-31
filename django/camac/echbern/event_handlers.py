@@ -11,7 +11,7 @@ from pyxb import (
 )
 
 from .data_preparation import get_document
-from .formatters import delivery, status_notification, submit
+from .formatters import delivery, request, status_notification, submit
 from .models import Message
 from .signals import instance_submitted
 
@@ -29,7 +29,7 @@ class BaseEventHandler:
     def get_data(self):
         return get_document(self.instance.pk)
 
-    def get_xml(self, caluma_data):  # pragma: no cover
+    def get_xml(self, data):  # pragma: no cover
         raise NotImplementedError()
 
     def create_message(self, xml):
@@ -42,24 +42,24 @@ class BaseEventHandler:
         return message
 
     def run(self):
-        caluma_data = self.get_data()
-        xml = self.get_xml(caluma_data)
+        data = self.get_data()
+        xml = self.get_xml(data)
         return self.create_message(xml)
 
 
 class SubmitEventHandler(BaseEventHandler):
     event_type = "submit"
 
-    def get_xml(self, caluma_data):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
-                caluma_data,
+                data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/20014/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
-                    self.instance, caluma_data, self.event_type
+                    self.instance, data, self.event_type
                 ),
             ).toxml()
         except (
@@ -79,14 +79,38 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": "status notification"}
 
-    def get_xml(self, caluma_data):
+    def get_xml(self, data):
         try:
             return delivery(
                 self.instance,
-                caluma_data,
+                data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventStatusNotification=status_notification(self.instance),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
+    event_type = "withdraw planning permission application"
+
+    def get_data(self):
+        return {"ech-subject": "withdraw planning permission application"}
+
+    def get_xml(self, data):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventRequest=request(self.instance, self.event_type),
             ).toxml()
         except (
             IncompleteElementContentError,
