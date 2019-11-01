@@ -104,7 +104,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             raise
 
 
-class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
+class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     event_type = "withdraw planning permission application"
 
     def get_data(self):
@@ -130,6 +130,31 @@ class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
 
 class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
+
+
+class ClaimEventHandler(BaseEventHandler):
+    event_type = "claim"
+
+    def get_data(self):
+        return {"ech-subject": self.event_type}
+
+    def get_xml(self, data):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                url=f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}",
+                eventRequest=request(self.instance, self.event_type),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
 
 
 class AccompanyingReportEventHandler(BaseEventHandler):
