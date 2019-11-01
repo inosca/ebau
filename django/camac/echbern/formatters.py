@@ -47,13 +47,6 @@ def handle_ja_nein_bool(value):
         return False
 
 
-def resolve_document_tags(answers, context):
-    resolved_tags = []
-    for tag in context.get("tags", []):
-        resolved_tags += answers[tag]
-    return "; ".join(resolved_tags)
-
-
 def authority(instance):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
@@ -91,13 +84,18 @@ def get_related_instances(instance, ebau_nr=None):
     return related_instances
 
 
-def get_documents(instance, answers):
+def get_document_sections(attachment):
+    sections = [s.get_name() for s in attachment.attachment_sections.all()]
+    return "; ".join(sections)
+
+
+def get_documents(attachments, sections=None):
     documents = [
         ns_document.documentType(
             uuid=str(attachment.uuid),
             titles=pyxb.BIND(title=[attachment.name]),
             status="signed",  # ech0039 documentStatusType
-            documentKind=resolve_document_tags(answers, attachment.context),
+            documentKind=sections or get_document_sections(attachment),
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
@@ -111,7 +109,7 @@ def get_documents(instance, answers):
                 ]
             ),
         )
-        for attachment in instance.attachments.iterator()
+        for attachment in attachments
     ]
     if not documents:
         documents = [
@@ -365,7 +363,7 @@ def application(instance: Instance, answers: dict):
             )
             for decision in DocxDecision.objects.filter(instance=instance.pk)
         ],
-        document=get_documents(instance, answers),
+        document=get_documents(instance.attachments.all()),
         referencedPlanningPermissionApplication=[
             permission_application_identification(i) for i in related_instances
         ],

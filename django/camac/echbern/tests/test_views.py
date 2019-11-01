@@ -17,14 +17,15 @@ def test_application_retrieve_full(
     docx_decision_factory,
     requests_mock,
     attachment,
+    attachment_section,
 ):
     docx_decision_factory(instance=ech_instance.pk)
 
     i = instance_factory()
 
     attachment.instance = ech_instance
-    attachment.context = {"tags": ["berechnung-kinderspielplaetze-dokument"]}
     attachment.save()
+    attachment.attachment_sections.add(attachment_section)
 
     qtype = QuestionType.objects.create(name="text")
     q = Question.objects.create(question_type=qtype)
