@@ -49,5 +49,5 @@ def test_base_delivery(
 
 
 def test_office(ech_instance, snapshot):
-    off = formatters.office(ech_instance, {"gemeinde": "Testgemeinde"})
+    off = formatters.office(ech_instance.active_service)
     snapshot.assert_match(off.toxml(element_name="office"))

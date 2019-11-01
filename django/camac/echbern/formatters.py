@@ -18,7 +18,7 @@ from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
-from camac.core.models import Answer, DocxDecision
+from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
 
 from .schema import (
@@ -47,7 +47,7 @@ def handle_ja_nein_bool(value):
         return False
 
 
-def authority(instance):
+def authority(service):
     return ns_company_identification.organisationIdentificationType(
         uid=ns_company_identification.uidStructureType(
             # We don't bother with UIDs
@@ -57,7 +57,7 @@ def authority(instance):
         localOrganisationId=ns_company_identification.namedOrganisationIdType(
             organisationIdCategory="CHE", organisationId="123123123"
         ),
-        organisationName=instance.active_service.get_name(),
+        organisationName=service.get_name(),
         legalForm="0223",
     )
 
@@ -359,7 +359,7 @@ def application(instance: Instance, answers: dict):
                 judgement=1 if decision.decision == "accepted" else 4,
                 date=decision.decision_date,
                 ruling=decision.decision_type,
-                rulingAuthority=authority(instance),
+                rulingAuthority=authority(instance.active_service),
             )
             for decision in DocxDecision.objects.filter(instance=instance.pk)
         ],
@@ -373,12 +373,12 @@ def application(instance: Instance, answers: dict):
     )
 
 
-def office(instance: Instance, answers: dict):
+def office(service):
     return ns_application.entryOfficeType(
-        entryOfficeIdentification=authority(instance),
+        entryOfficeIdentification=authority(service),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName=answers["gemeinde"],
+            municipalityName=service.city,
             cantonAbbreviation="BE",
         ),
     )
@@ -423,8 +423,8 @@ def base_delivery(instance: Instance, answers: dict):
                             role="applicant", person=requestor(instance)
                         )
                     ],
-                    decisionAuthority=decision_authority(instance, answers),
-                    entryOffice=office(instance, answers),
+                    decisionAuthority=decision_authority(instance.active_service),
+                    entryOffice=office(instance.active_service),
                 )
             )
         ]
@@ -462,6 +462,26 @@ def accompanying_report(instance: Instance, event_type: str, attachments):
     )
 
 
+def change_responsibility(instance: Instance):
+    prev_service = (
+        InstanceService.objects.filter(
+            active=0,
+            instance=instance,
+            **settings.APPLICATION.get("ACTIVE_SERVICE_FILTERS", {}),
+        )
+        .first()
+        .service
+    )
+    return ns_application.eventChangeResponsibilityType(
+        eventType=ns_application.eventTypeType("change responsibility"),
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
+        ),
+        entryOffice=office(prev_service),
+        responsibleDecisionAuthority=decision_authority(instance.active_service),
+    )
+
+
 def delivery(
     instance: Instance,
     answers: dict,
@@ -487,6 +507,7 @@ def delivery(
         "eventStatusNotification": "custom",  # 😈
         "eventRequest": "custom",  # 😈
         "eventAccompanyingReport": "custom",  # 😈
+        "eventChangeResponsibility": "custom",  # 😈
     }
     message_type = message_types[list(args.keys())[0]]
 
@@ -517,18 +538,18 @@ def delivery(
         raise
 
 
-def decision_authority(instance: Instance, answers: dict):
+def decision_authority(service):
     return ns_application.decisionAuthorityInformationType(
         decisionAuthority=ns_objektwesen.buildingAuthorityType(
-            buildingAuthorityIdentificationType=authority(instance),
+            buildingAuthorityIdentificationType=authority(service),
             # description minOccurs=0
             # shortDescription minOccurs=0
             # contactPerson minOccurs=0
             # contact minOccurs=0
             address=ns_address.addressInformationType(
-                town=answers["gemeinde"],
-                swissZipCode=instance.active_service.zip,
-                street=instance.active_service.address,
+                town=service.city,
+                swissZipCode=service.zip,
+                street=service.address,
                 country="CH",
             )
             # address minOccurs=0
