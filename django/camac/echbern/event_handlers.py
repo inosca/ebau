@@ -128,6 +128,10 @@ class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
             raise
 
 
+class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
+    event_type = "task"
+
+
 class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
 
