@@ -81,9 +81,29 @@ class SubmitEventHandler(BaseEventHandler):
             raise
 
 
-class FileSubsequentlyEventHandler(SubmitEventHandler):
+class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
     uri_instance_resource_id = 40008
+
+    def get_xml(self, data):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                url=f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
+                eventSubmitPlanningPermissionApplication=submit(
+                    self.instance, data, self.event_type
+                ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
 
 
 class StatusNotificationEventHandler(BaseEventHandler):
