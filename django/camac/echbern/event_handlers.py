@@ -13,6 +13,7 @@ from pyxb import (
 from .data_preparation import get_document
 from .formatters import (
     accompanying_report,
+    change_responsibility,
     delivery,
     request,
     status_notification,
@@ -144,6 +145,30 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 eventAccompanyingReport=accompanying_report(
                     self.instance, self.event_type, attachments
                 ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+class ChangeResponsibilityEventHandler(BaseEventHandler):
+    event_type = "change responsibility"
+
+    def get_data(self):
+        return {"ech-subject": self.event_type}
+
+    def get_xml(self, data):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventChangeResponsibility=change_responsibility(self.instance),
             ).toxml()
         except (
             IncompleteElementContentError,
