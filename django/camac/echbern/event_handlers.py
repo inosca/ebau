@@ -10,6 +10,8 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
+from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
+
 from .data_preparation import get_document
 from .formatters import (
     accompanying_report,
@@ -56,6 +58,7 @@ class BaseEventHandler:
 
 class SubmitEventHandler(BaseEventHandler):
     event_type = "submit"
+    uri_instance_resource_id = 20014
 
     def get_xml(self, data):
         try:
@@ -64,7 +67,7 @@ class SubmitEventHandler(BaseEventHandler):
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/20014/instance-id/{self.instance.pk}",
+                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -80,6 +83,7 @@ class SubmitEventHandler(BaseEventHandler):
 
 class FileSubsequentlyEventHandler(SubmitEventHandler):
     event_type = "file subsequently"
+    uri_instance_resource_id = 40008
 
 
 class StatusNotificationEventHandler(BaseEventHandler):
@@ -87,12 +91,22 @@ class StatusNotificationEventHandler(BaseEventHandler):
         return {"ech-subject": "status notification"}
 
     def get_xml(self, data):
+        url = None
+        if (
+            self.instance.previous_instance_state.pk
+            == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
+        ):
+            # send link to Dossierprüfung
+            url = (
+                f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
+            )
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=url,
                 eventStatusNotification=status_notification(self.instance),
             ).toxml()
         except (
