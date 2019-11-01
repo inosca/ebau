@@ -27,6 +27,7 @@ def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, 
     [
         ("FileSubsequently", "Leitbehörde Burgdorf"),
         ("WithdrawPlanningPermissionApplication", "Leitbehörde Burgdorf"),
+        ("Task", "Leitbehörde Burgdorf"),
         ("AccompanyingReport", "Leitbehörde Burgdorf"),
         ("ChangeResponsibility", "Leitbehörde Madiswil"),
     ],
