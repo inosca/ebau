@@ -21,11 +21,25 @@ def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, 
 
 
 @pytest.mark.parametrize(
-    "event_type", ["FileSubsequently", "WithdrawPlanningPermissionApplication"]
+    "event_type",
+    ["FileSubsequently", "WithdrawPlanningPermissionApplication", "AccompanyingReport"],
 )
 def test_event_handlers(
-    event_type, ech_instance, role_factory, group_factory, requests_mock, mocker
+    event_type,
+    ech_instance,
+    attachment,
+    attachment_section_factory,
+    role_factory,
+    group_factory,
+    requests_mock,
+    mocker,
 ):
+    if event_type == "AccompanyingReport":
+        attachment.instance = ech_instance
+        attachment.save()
+        attachment_section = attachment_section_factory(pk=7)
+        attachment.attachment_sections.add(attachment_section)
+
     group_factory(role=role_factory(name="support"))
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")

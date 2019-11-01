@@ -11,7 +11,13 @@ from pyxb import (
 )
 
 from .data_preparation import get_document
-from .formatters import delivery, request, status_notification, submit
+from .formatters import (
+    accompanying_report,
+    delivery,
+    request,
+    status_notification,
+    submit,
+)
 from .models import Message
 from .signals import instance_submitted
 
@@ -101,7 +107,7 @@ class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
     event_type = "withdraw planning permission application"
 
     def get_data(self):
-        return {"ech-subject": "withdraw planning permission application"}
+        return {"ech-subject": self.event_type}
 
     def get_xml(self, data):
         try:
@@ -111,6 +117,33 @@ class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 eventRequest=request(self.instance, self.event_type),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+class AccompanyingReportEventHandler(BaseEventHandler):
+    event_type = "accompanying report"
+
+    def get_data(self):
+        return {"ech-subject": self.event_type}
+
+    def get_xml(self, data):
+        attachments = self.instance.attachments.filter(attachment_sections__pk=7)
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                eventAccompanyingReport=accompanying_report(
+                    self.instance, self.event_type, attachments
+                ),
             ).toxml()
         except (
             IncompleteElementContentError,
