@@ -27,6 +27,7 @@ def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, 
     [
         ("FileSubsequently", "Leitbehörde Burgdorf"),
         ("WithdrawPlanningPermissionApplication", "Leitbehörde Burgdorf"),
+        ("StatusNotification", "Leitbehörde Burgdorf"),
         ("Task", "Leitbehörde Burgdorf"),
         ("AccompanyingReport", "Leitbehörde Burgdorf"),
         ("Claim", "Leitbehörde Burgdorf"),
@@ -41,6 +42,7 @@ def test_event_handlers(
     attachment_section_factory,
     role_factory,
     instance_service_factory,
+    instance_state_factory,
     group_factory,
     requests_mock,
     mocker,
@@ -67,6 +69,10 @@ def test_event_handlers(
             service__address="Testweg 5",
             active=1,
         )
+
+    if event_type == "StatusNotification":
+        ech_instance.previous_instance_state = instance_state_factory(pk=20000)
+        ech_instance.save()
 
     group_factory(role=role_factory(name="support"))
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
