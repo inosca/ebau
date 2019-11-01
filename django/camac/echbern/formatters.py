@@ -89,13 +89,13 @@ def get_document_sections(attachment):
     return "; ".join(sections)
 
 
-def get_documents(attachments, sections=None):
+def get_documents(attachments):
     documents = [
         ns_document.documentType(
             uuid=str(attachment.uuid),
             titles=pyxb.BIND(title=[attachment.name]),
             status="signed",  # ech0039 documentStatusType
-            documentKind=sections or get_document_sections(attachment),
+            documentKind=get_document_sections(attachment),
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
@@ -452,6 +452,16 @@ def request(instance: Instance, event_type: str):
     )
 
 
+def accompanying_report(instance: Instance, event_type: str, attachments):
+    return ns_application.eventAccompanyingReportType(
+        eventType=ns_application.eventTypeType(event_type),
+        planningPermissionApplicationIdentification=permission_application_identification(
+            instance
+        ),
+        document=get_documents(attachments),
+    )
+
+
 def delivery(
     instance: Instance,
     answers: dict,
@@ -476,6 +486,7 @@ def delivery(
         "eventSubmitPlanningPermissionApplication": "5100000",
         "eventStatusNotification": "custom",  # 😈
         "eventRequest": "custom",  # 😈
+        "eventAccompanyingReport": "custom",  # 😈
     }
     message_type = message_types[list(args.keys())[0]]
 
