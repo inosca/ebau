@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 13:39+0200\n"
-"PO-Revision-Date: 2019-09-16 13:39+0200\n"
+"POT-Creation-Date: 2019-11-04 12:46+0100\n"
+"PO-Revision-Date: 2019-11-04 12:48+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -16,33 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2.1\n"
 
-#: camac/applicants/serializers.py:31
-#, python-format
-msgid "User with email '%(email)s' could not be found"
-msgstr "Benutzer mit der Email '%(email)s' konnte nicht gefunden werden"
-
-#: camac/applicants/serializers.py:35
+#: camac/applicants/serializers.py:32
 #, python-format
 msgid "There is more than one user with the email '%(email)s'"
 msgstr "Es gibt mehr als einen Benutzer mit der Email '%(email)s'"
 
-#: camac/applicants/serializers.py:46
+#: camac/applicants/serializers.py:38
 #, python-format
-msgid "User with email '%(email)s' has already access to instance %(instance)s"
+msgid "Email '%(email)s' has already access to instance %(instance)s"
 msgstr ""
 "Der Benutzer mit der Email '%(email)s' hat bereits Zugriff auf das Dossier "
 "%(instance)s"
 
-#: camac/document/serializers.py:73
+#: camac/caluma.py:32
+#, python-format
+msgid "Error while querying caluma: %(errors)s"
+msgstr "Fehler beim Abfragen von Caluma: %(errors)s"
+
+#: camac/document/filters.py:28
+msgid ""
+"The \"attachments\" filter must consist of a comma delimited list of "
+"attachment PKs!"
+msgstr ""
+
+#: camac/document/serializers.py:76
 #, python-format
 msgid "Not sufficent permissions to add file to section %(section)s."
 msgstr ""
 "Nicht ausreichend Berechtigungen um eine Datei in den Ordner %(section)s "
 "hochzuladen."
 
-#: camac/document/serializers.py:85
+#: camac/document/serializers.py:88
 #, python-format
 msgid ""
 "Invalid mime type for attachment. Allowed types are: %(allowed_mime_types)s"
@@ -50,110 +56,117 @@ msgstr ""
 "Der aktuelle Dateityp kann nicht als Dokument hochgeladen werden. Erlaubte "
 "Dateitypen sind: %(allowed_mime_types)s"
 
-#: camac/document/serializers.py:149
+#: camac/document/serializers.py:152
 msgid "Path may not be changed."
 msgstr "Der Pfad darf nicht geändert werden."
 
-#: camac/document/serializers.py:181
+#: camac/document/serializers.py:184
 msgid "Invalid mime type for template. Allowed types are: docx"
 msgstr ""
 "Der aktuelle Dateityp kann nicht als Vorlage hochgeladen werden. Erlaubte "
 "Dateitypen sind: docx"
 
-#: camac/document/views.py:166
-msgid "Specifying an \"attachment\" filter is mandatory!"
-msgstr "Der \"attachment\" Filter ist obligatorisch!"
+#: camac/document/views.py:263
+msgid "Specifying an \"attachments\" filter is mandatory!"
+msgstr "Der \"attachments\" Filter ist obligatorisch!"
 
 #: camac/instance/mixins.py:192
 #, python-format
 msgid "Not allowed to add data to instance %(instance)s"
 msgstr "Keine Berechtigung um Daten zum Dossier %(instance)s hinzuzufügen"
 
-#: camac/instance/serializers.py:84
+#: camac/instance/serializers.py:93
 msgid "Location may not be changed."
 msgstr "Standort darf nicht geändert werden."
 
-#: camac/instance/serializers.py:91
+#: camac/instance/serializers.py:100
 msgid "Form may not be changed."
 msgstr "Formular darf nicht geändert werden."
 
-#: camac/instance/serializers.py:420
-#, python-format
-msgid "Error while querying caluma: %(errors)s"
-msgstr "Fehler beim Abfragen von Caluma: %(errors)s"
-
-#: camac/instance/serializers.py:446
+#: camac/instance/serializers.py:430
 #, python-format
 msgid "Passed caluma form is not a main form: %(form)s"
 msgstr "Mitgegebenes Caluma Formular ist kein Hauptformular: %(form)s"
 
-#: camac/instance/serializers.py:510
+#: camac/instance/serializers.py:504
 #, python-format
 msgid "Cannot send email: %(errors)s"
 msgstr "Fehler beim Senden der Email: %(errors)s"
 
-#: camac/instance/serializers.py:635
+#: camac/instance/serializers.py:629
 #, python-format
 msgid "Could not find caluma main document for instance %(instance)s"
 msgstr "Caluma Hauptdokument für Dossier %(instance)s nicht gefunden"
 
-#: camac/instance/serializers.py:651
+#: camac/instance/serializers.py:645
 #, python-format
 msgid ""
 "Could not find municipality in caluma document for instance %(instance)s"
 msgstr ""
 "Keine Gemeinde im Caluma Dokument für das Dossier %(instance)s gefunden"
 
-#: camac/instance/serializers.py:730
+#: camac/instance/serializers.py:680
+msgid "Dossier submitted"
+msgstr "Dossier eingereicht"
+
+#: camac/instance/serializers.py:733
 #, python-format
 msgid "Could not find caluma `sb1` document for instance %(instance)s"
 msgstr "Caluma SB1 Dokument für Dossier %(instance)s nicht gefunden"
 
-#: camac/instance/serializers.py:790
+#: camac/instance/serializers.py:748
+msgid "SB1 submitted"
+msgstr "SB1 eingereicht"
+
+#: camac/instance/serializers.py:795
 #, python-format
 msgid "Could not find caluma `sb2` document for instance %(instance)s"
 msgstr "Caluma SB2 Dokument für Dossier %(instance)s nicht gefunden"
 
-#: camac/instance/serializers.py:824
+#: camac/instance/serializers.py:810
+msgid "SB2 submitted"
+msgstr "SB2 eingereicht"
+
+#: camac/instance/serializers.py:831
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr "Der Benutzer %(user)s gehört nicht zum Service %(service)s."
 
-#: camac/instance/serializers.py:880
+#: camac/instance/serializers.py:887
 msgid "No location assigned."
 msgstr "Kein Standort gesetzt."
 
-#: camac/instance/serializers.py:900
+#: camac/instance/serializers.py:907
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr "Keine Gruppe für den Standort %(name)s gefunden."
 
-#: camac/instance/serializers.py:922
+#: camac/instance/serializers.py:929
 #, python-format
 msgid "invalid question %(question)s."
 msgstr "Ungültige Frage %(question)s."
 
-#: camac/instance/serializers.py:929
+#: camac/instance/serializers.py:936
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr "%(permission)s darf die Frage %(question)s nicht bearbeiten."
 
-#: camac/instance/validators.py:41
+#: camac/instance/validators.py:44
 #, python-format
 msgid "Invalid value `%(value)s` in field `%(field)s`"
 msgstr "Ungültiger Wert `%(value)s` im Feld `%(field)s`"
 
-#: camac/instance/validators.py:54
+#: camac/instance/validators.py:57
 #, python-format
 msgid "Invalid values `%(values)s` in field `%(field)s`"
 msgstr "Ungültige Werte `%(values)s` im Feld `%(field)s`"
 
-#: camac/instance/validators.py:61
+#: camac/instance/validators.py:64
 #, python-format
 msgid "Value of field `%(field)s` must be `str` and not empty"
 msgstr "Wert des Feldes `%(field)s` muss vom Typ `str` und nicht leer sein"
 
-#: camac/instance/validators.py:84
+#: camac/instance/validators.py:87
 #, python-format
 msgid ""
 "Value of field `%(field)s` needs to be a number between %(min_val)s and "
@@ -162,35 +175,43 @@ msgstr ""
 "Wert des Feldes `%(field)s` muss eine Nummer zwischen %(min_val)s und "
 "%(max_val)s) sein."
 
-#: camac/instance/validators.py:96
+#: camac/instance/validators.py:99
 #, python-format
 msgid "Document missing for question `%(field)s"
 msgstr "Dokument für die Frage `%(field)s fehlt"
 
-#: camac/instance/validators.py:188
+#: camac/instance/validators.py:195
 #, python-format
 msgid "Invalid form type %(form)s."
 msgstr "Ungültiger Formulartyp %(form)s."
 
-#: camac/user/authentication.py:30
+#: camac/notification/serializers.py:437
+#, python-format
+msgid "Notification sent to %(receiver)s (%(subject)s)"
+msgstr "Notifikation gesendet an %(receiver)s (%(subject)s)"
+
+#: camac/user/authentication.py:31
 msgid "Invalid Authorization header. No credentials provided"
 msgstr "Ungültiger Authorization Header. Keine Anmeldedaten geliefert"
 
-#: camac/user/authentication.py:34
+#: camac/user/authentication.py:35
 msgid ""
 "Invalid Authorization header. Credentials string should not contain spaces."
 msgstr ""
-"Ungültiger Authorization Header. Anmeldedaten sollten keine Leerschläge "
-"enthalten"
+"Ungültiger Authorization Header. Anmeldedaten sollten keine Leerzeichen "
+"enthalten."
 
-#: camac/user/authentication.py:70
+#: camac/user/authentication.py:71
 msgid "Signature has expired."
 msgstr "Signatur ist abgelaufen."
 
-#: camac/user/authentication.py:73
+#: camac/user/authentication.py:74
 msgid "Invalid token."
 msgstr "Ungültiges Token."
 
-#: camac/user/authentication.py:110
+#: camac/user/authentication.py:118
 msgid "User is deactivated."
 msgstr "Benutzer ist deaktiviert."
+
+#~ msgid "User with email '%(email)s' could not be found"
+#~ msgstr "Benutzer mit der Email '%(email)s' konnte nicht gefunden werden"

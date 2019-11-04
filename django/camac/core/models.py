@@ -3973,7 +3973,7 @@ class Journal(models.Model):
         null=True,
     )
 
-    text = models.TextField(db_column="TEXT")
+    text = models.TextField(db_column="TEXT", blank=True, null=True)
     additional_text = models.TextField(
         db_column="ADDITIONAL_TEXT", blank=True, null=True
     )
@@ -3982,6 +3982,21 @@ class Journal(models.Model):
     class Meta:
         managed = True
         db_table = "JOURNAL"
+
+
+class JournalT(models.Model):
+    journal = models.ForeignKey(
+        Journal, models.CASCADE, db_column="JOURNAL_ID", related_name="trans"
+    )
+    language = models.CharField(db_column="LANGUAGE", max_length=2)
+    text = models.TextField(db_column="TEXT")
+    additional_text = models.TextField(
+        db_column="ADDITIONAL_TEXT", blank=True, null=True
+    )
+
+    class Meta:
+        managed = True
+        db_table = "JOURNAL_T"
 
 
 class JournalActionConfig(MultilingualModel, models.Model):
