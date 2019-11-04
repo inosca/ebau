@@ -10,6 +10,8 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
+from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
+
 from .data_preparation import get_document
 from .formatters import (
     accompanying_report,
@@ -56,6 +58,7 @@ class BaseEventHandler:
 
 class SubmitEventHandler(BaseEventHandler):
     event_type = "submit"
+    uri_instance_resource_id = 20014
 
     def get_xml(self, data):
         try:
@@ -64,7 +67,7 @@ class SubmitEventHandler(BaseEventHandler):
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/20014/instance-id/{self.instance.pk}",
+                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -78,13 +81,9 @@ class SubmitEventHandler(BaseEventHandler):
             raise
 
 
-class FileSubsequentlyEventHandler(SubmitEventHandler):
+class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
-
-
-class StatusNotificationEventHandler(BaseEventHandler):
-    def get_data(self):
-        return {"ech-subject": "status notification"}
+    uri_instance_resource_id = 40008
 
     def get_xml(self, data):
         try:
@@ -93,6 +92,41 @@ class StatusNotificationEventHandler(BaseEventHandler):
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
+                eventSubmitPlanningPermissionApplication=submit(
+                    self.instance, data, self.event_type
+                ),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+
+class StatusNotificationEventHandler(BaseEventHandler):
+    def get_data(self):
+        return {"ech-subject": "status notification"}
+
+    def get_xml(self, data):
+        url = None
+        if (
+            self.instance.previous_instance_state.pk
+            == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
+        ):
+            # send link to Dossierprüfung
+            url = (
+                f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
+            )
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                url=url,
                 eventStatusNotification=status_notification(self.instance),
             ).toxml()
         except (
@@ -104,7 +138,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
             raise
 
 
-class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
+class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     event_type = "withdraw planning permission application"
 
     def get_data(self):
@@ -130,6 +164,31 @@ class WithdrawPlanningPermissionApplicationEventHandler(SubmitEventHandler):
 
 class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
+
+
+class ClaimEventHandler(BaseEventHandler):
+    event_type = "claim"
+
+    def get_data(self):
+        return {"ech-subject": self.event_type}
+
+    def get_xml(self, data):
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                url=f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}",
+                eventRequest=request(self.instance, self.event_type),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
 
 
 class AccompanyingReportEventHandler(BaseEventHandler):
