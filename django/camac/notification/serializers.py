@@ -10,12 +10,14 @@ import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.utils import timezone
+from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.caluma import CalumaSerializerMixin
-from camac.core.models import Activation, Answer, Journal
+from camac.core.models import Activation, Answer, Journal, JournalT
+from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
@@ -424,15 +426,22 @@ class NotificationTemplateSendmailSerializer(
         request_logger.info(f'Sent email "{subject}" to {bcc}')
 
         if settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
-            journal_entry = Journal(
+            journal_entry = Journal.objects.create(
                 instance=instance,
                 mode="auto",
-                text=f"Notifikation geschickt an {', '.join(bcc)}, ({subject})",
                 additional_text=body,
                 created=timezone.now(),
                 user=self.context["request"].user,
             )
-            journal_entry.save()
+            for (lang, text) in get_translations(
+                gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
+            ):
+                JournalT.objects.create(
+                    journal=journal_entry,
+                    text=text % {"receiver": ", ".join(bcc), "subject": subject},
+                    additional_text=body,
+                    language=lang,
+                )
 
         return result
 
