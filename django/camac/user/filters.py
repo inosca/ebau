@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django_filters.rest_framework import BooleanFilter, FilterSet
+from django_filters.rest_framework import BooleanFilter, CharFilter, FilterSet
 
 from camac.filters import CharMultiValueFilter, NumberMultiValueFilter
 
@@ -33,7 +33,12 @@ class ServiceFilterSet(FilterSet):
 class UserFilterSet(FilterSet):
     id = NumberMultiValueFilter()
     username = CharMultiValueFilter()
+    exclude_role = CharFilter(field_name="user_groups", method="filter_primary_role")
+
+    def filter_primary_role(self, queryset, name, value):
+        lookup = {f"{name}__default_group__gt": 0, f"{name}__group__role__name": value}
+        return queryset.exclude(**lookup).distinct()
 
     class Meta:
         model = get_user_model()
-        fields = ("id", "username", "disabled")
+        fields = ("id", "username", "disabled", "exclude_role")
