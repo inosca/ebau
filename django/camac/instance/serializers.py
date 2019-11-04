@@ -6,14 +6,21 @@ from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma import CalumaSerializerMixin
 from camac.constants import kt_bern as constants
-from camac.core.models import Answer, InstanceLocation, InstanceService, Journal
+from camac.core.models import (
+    Answer,
+    InstanceLocation,
+    InstanceService,
+    Journal,
+    JournalT,
+)
 from camac.core.serializers import MultilingualSerializer
+from camac.core.translations import get_translations
 from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
@@ -463,14 +470,15 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
 
 class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
-    def _create_journal_entry(self, text):
-        Journal.objects.create(
+    def _create_journal_entry(self, texts):
+        journal = Journal.objects.create(
             instance=self.instance,
             mode="auto",
-            text=text,
             created=timezone.now(),
             user=self.context["request"].user,
         )
+        for (language, text) in texts:
+            JournalT.objects.create(journal=journal, text=text, language=language)
 
     def _notify_submit(self, template_id, recipient_types):
         """Send notification email."""
@@ -668,7 +676,8 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         self._set_submit_date(validated_data)
-        self._create_journal_entry(_("Dossier eingereicht"))
+
+        self._create_journal_entry(get_translations(gettext_noop("Dossier submitted")))
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"]:
@@ -736,7 +745,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        self._create_journal_entry(_("SB1 eingereicht"))
+        self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["REPORT"]:
@@ -804,7 +813,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        self._create_journal_entry(_("SB2 eingereicht"))
+        self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
 
         # send out emails upon submission
         for notification_config in settings.APPLICATION["NOTIFICATIONS"]["FINALIZE"]:
