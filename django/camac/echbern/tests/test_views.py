@@ -2,11 +2,24 @@ import pytest
 from django.urls import reverse
 from rest_framework import status
 
-from camac.core.models import Answer, Chapter, Question, QuestionT, QuestionType
+from camac.constants.kt_bern import (
+    INSTANCE_STATE_FORMELLE_PRUEFUNG,
+    INSTANCE_STATE_KOORDINATION,
+    INSTANCE_STATE_REJECTED,
+)
+from camac.core.models import (
+    Answer,
+    Chapter,
+    DocxDecision,
+    Question,
+    QuestionT,
+    QuestionType,
+)
 
-from .. import views
+from .. import send_handlers, views
 from ..models import Message
-from .caluma_responses import full_document
+from .caluma_responses import document_form, full_document
+from .utils import xml_data
 
 
 def test_application_retrieve_full(
@@ -124,3 +137,119 @@ def test_event_post_404(admin_client, admin_user, ech_instance, role_factory):
     response = admin_client.post(url)
 
     assert response.status_code == status.HTTP_404_NOT_FOUND
+
+
+@pytest.mark.parametrize("has_permission", [True, False])
+def test_send(
+    has_permission,
+    admin_client,
+    admin_user,
+    ech_instance,
+    mocker,
+    requests_mock,
+    instance_state_factory,
+    role_factory,
+):
+    if has_permission:
+        group = admin_user.groups.first()
+        group.service = ech_instance.services.first()
+        group.role = role_factory(name="support")
+        group.save()
+
+    state = instance_state_factory(pk=INSTANCE_STATE_FORMELLE_PRUEFUNG)
+    excpected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
+    ech_instance.instance_state = state
+    ech_instance.save()
+
+    mocker.patch.object(views, "get_authorization_header", return_value="token")
+    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+
+    url = reverse("send")
+    response = admin_client.post(
+        url, data=xml_data("notice_ruling"), content_type="application/xml"
+    )
+
+    if has_permission:
+        assert response.status_code == 201
+        ech_instance.refresh_from_db()
+        assert ech_instance.instance_state == excpected_state
+        assert DocxDecision.objects.get(instance=ech_instance.pk)
+    else:
+        assert response.status_code == 404
+
+
+def test_send_400_no_data(admin_client):
+    url = reverse("send")
+    response = admin_client.post(url)
+
+    assert response.status_code == 400
+
+
+@pytest.mark.parametrize("is_vorabklaerung,judgement", [(False, 2), (True, 3)])
+def test_send_400_invalid_judgement(
+    is_vorabklaerung,
+    judgement,
+    admin_client,
+    admin_user,
+    ech_instance,
+    mocker,
+    requests_mock,
+    instance_state_factory,
+    role_factory,
+):
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.role = role_factory(name="support")
+    group.save()
+
+    state = instance_state_factory(pk=INSTANCE_STATE_KOORDINATION)
+    ech_instance.instance_state = state
+    ech_instance.save()
+
+    mocker.patch.object(views, "get_authorization_header", return_value="token")
+    requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+
+    if is_vorabklaerung:
+        mocker.patch.object(
+            send_handlers, "get_form_slug", return_value="vorabklaerung"
+        )
+
+    url = reverse("send")
+    response = admin_client.post(
+        url,
+        data=xml_data("notice_ruling").replace(
+            "<ns2:judgement>4</ns2:judgement>",
+            f"<ns2:judgement>{judgement}</ns2:judgement>",
+        ),
+        content_type="application/xml",
+    )
+
+    assert response.status_code == 400
+
+
+def test_send_403(admin_client, admin_user, ech_instance):
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.save()
+
+    url = reverse("send")
+    response = admin_client.post(
+        url, data=xml_data("notice_ruling"), content_type="application/xml"
+    )
+
+    assert response.status_code == 403
+
+
+def test_send_unknown_message_type(admin_client, admin_user, ech_instance):
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.save()
+
+    url = reverse("send")
+    response = admin_client.post(
+        url,
+        data=xml_data("notice_ruling").replace("5100010", "blablabla"),
+        content_type="application/xml",
+    )
+
+    assert response.status_code == 404

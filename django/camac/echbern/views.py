@@ -17,6 +17,8 @@ from camac.instance.models import Instance
 from . import event_handlers, formatters
 from .data_preparation import get_document
 from .models import Message
+from .parsers import ECHXMLParser
+from .send_handlers import SendHandlerException, get_send_handler
 from .serializers import ApplicationsSerializer
 
 logger = logging.getLogger(__name__)
@@ -142,4 +144,54 @@ class EventView(GenericViewSet):
             return HttpResponse(status=404)
         eh = EventHandler(instance=instance)
         eh.run()
+        return HttpResponse(status=201)
+
+
+class SendView(GenericViewSet):
+    queryset = Instance.objects
+    renderer_classes = (XMLRenderer,)
+    parser_classes = (ECHXMLParser,)
+    serializer_class = Serializer
+
+    def get_object(self):
+        instance_id = self.request.data.eventNotice.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+        instance = get_object_or_404(self.get_queryset(), pk=instance_id)
+        if not instance.active_service == self.request.group.service:
+            raise Http404
+        return instance
+
+    @swagger_auto_schema(
+        tags=["ECH"],
+        operation_summary="Send message",
+        request_body=openapi.Schema(
+            type=openapi.TYPE_STRING,
+            description="An event wrapped in a [eCH-0211-Delivery](https://www.ech.ch/standards/43552).",
+        ),
+        responses={"201": "success"},
+    )
+    def create(self, request, *args, **kwargs):
+        if not request.data:
+            return HttpResponse(status=400)
+        instance = self.get_object()
+        try:
+            send_handler = get_send_handler(
+                request.data,
+                instance,
+                request.user,
+                request.group,
+                get_authorization_header(request),
+            )
+        except KeyError:
+            return HttpResponse("Message type not implemented!", status=404)
+
+        if not send_handler.has_permission():
+            return HttpResponse(status=403)
+
+        try:
+            send_handler.apply()
+        except SendHandlerException as e:
+            return HttpResponse(str(e), status=400)
+
         return HttpResponse(status=201)

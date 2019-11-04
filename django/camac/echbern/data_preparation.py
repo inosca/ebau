@@ -112,3 +112,18 @@ def get_document(instance_id, group_pk=None, auth_header=None):
     )
     dp = DocumentParser(resp["data"]["allDocuments"]["edges"][0]["node"])
     return dp.answers
+
+
+def get_form_slug(instance, group_pk, auth_header):
+    caluma = CalumaClient(auth_header)
+    filter = {"filter": [{"key": "camac-instance-id", "value": instance.pk}]}
+
+    resp = caluma.query_caluma(
+        query_from_file(
+            str(settings.ROOT_DIR("camac/echbern/gql/get_document_form_slug.graphql"))
+        ),
+        variables=filter,
+        add_headers={"X-CAMAC-GROUP": str(group_pk)},
+    )
+
+    return resp["data"]["allDocuments"]["edges"][0]["node"]["form"]["slug"]
