@@ -1,0 +1,6 @@
+**/*.swp
+Dockerfile
+tmp
+build
+node_modules
+dist
