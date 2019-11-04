@@ -551,8 +551,7 @@ def decision_authority(service):
                 swissZipCode=service.zip,
                 street=service.address,
                 country="CH",
-            )
-            # address minOccurs=0
+            ),
         )
     )
 
