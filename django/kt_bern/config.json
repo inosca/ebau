@@ -1691,6 +1691,114 @@
   },
   {
     "fields": {
+      "action": 20030,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journaleintrag: eBau-Nr. vergeben",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20116
+  },
+  {
+    "fields": {
+      "action": 20034,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journaleintrag: Zirkulation abgeschlossen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20117
+  },
+  {
+    "fields": {
+      "action": 20031,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journaleintrag: Dossier gepr\u00fcft",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20118
+  },
+  {
+    "fields": {
+      "action": 20099,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journal: Zirkulation \u00fcbersprungen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20119
+  },
+  {
+    "fields": {
+      "action": 20033,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journaleintrag: Zirkulation gestartet",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20120
+  },
+  {
+    "fields": {
+      "action": 150002,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Journaleintrag: Zirkulation wiederer\u00f6ffnet",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20121
+  },
+  {
+    "fields": {
+      "action": 20080,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Bauentscheid verf\u00fcgt",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20122
+  },
+  {
+    "fields": {
+      "action": 20100,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Beurteilung abgeschlossen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20123
+  },
+  {
+    "fields": {
+      "action": 20081,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Dossier zur\u00fcckgewiesen",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20124
+  },
+  {
+    "fields": {
       "action": 40033,
       "description": null,
       "error_message": "Beim Speichern ist ein Fehler aufgetreten",
@@ -58320,7 +58428,7 @@
     "fields": {
       "action": 20030,
       "language": "fr",
-      "text": ""
+      "text": "Attribution d'un num\u00e9ro eBau"
     },
     "model": "core.journalactionconfigt",
     "pk": 20007
@@ -58338,7 +58446,7 @@
     "fields": {
       "action": 20031,
       "language": "fr",
-      "text": ""
+      "text": "Dossier examin\u00e9"
     },
     "model": "core.journalactionconfigt",
     "pk": 20009
@@ -58356,7 +58464,7 @@
     "fields": {
       "action": 20033,
       "language": "fr",
-      "text": ""
+      "text": "Proc\u00e9dure de circulation lanc\u00e9e"
     },
     "model": "core.journalactionconfigt",
     "pk": 20013
@@ -58374,7 +58482,7 @@
     "fields": {
       "action": 20034,
       "language": "fr",
-      "text": ""
+      "text": "Proc\u00e9dure de circulation close"
     },
     "model": "core.journalactionconfigt",
     "pk": 20015
@@ -58392,7 +58500,7 @@
     "fields": {
       "action": 20080,
       "language": "fr",
-      "text": ""
+      "text": "D\u00e9cision relative \u00e0 la demande de permis de construire rendue"
     },
     "model": "core.journalactionconfigt",
     "pk": 20019
@@ -58410,7 +58518,7 @@
     "fields": {
       "action": 20081,
       "language": "fr",
-      "text": ""
+      "text": "Dossier renvoy\u00e9"
     },
     "model": "core.journalactionconfigt",
     "pk": 20021
@@ -58428,7 +58536,7 @@
     "fields": {
       "action": 20099,
       "language": "fr",
-      "text": ""
+      "text": "Sans proc\u00e9dure de circulation"
     },
     "model": "core.journalactionconfigt",
     "pk": 20023
@@ -58446,7 +58554,7 @@
     "fields": {
       "action": 20100,
       "language": "fr",
-      "text": ""
+      "text": "Evaluation close"
     },
     "model": "core.journalactionconfigt",
     "pk": 20025
@@ -58464,7 +58572,7 @@
     "fields": {
       "action": 150002,
       "language": "fr",
-      "text": ""
+      "text": "R\u00e9ouverture de la circulation"
     },
     "model": "core.journalactionconfigt",
     "pk": 150001
