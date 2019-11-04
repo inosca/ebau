@@ -14201,3 +14201,8 @@ full_document = {
         }
     }
 }
+
+
+document_form = {
+    "data": {"allDocuments": {"edges": [{"node": {"form": {"slug": "baugesuch"}}}]}}
+}
