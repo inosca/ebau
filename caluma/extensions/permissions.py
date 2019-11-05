@@ -1,9 +1,7 @@
 import json
-import os
 from logging import getLogger
 
 import requests
-from django.core.exceptions import ObjectDoesNotExist
 
 from caluma.core.mutation import Mutation
 from caluma.core.permissions import (
@@ -11,17 +9,12 @@ from caluma.core.permissions import (
     object_permission_for,
     permission_for,
 )
-from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 from caluma.form.models import Document
+from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 
-from .visibilities import group, DASHBOARD_FORM_SLUG
+from . import common
 
 log = getLogger()
-
-CAMAC_NG_URL = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
-
-CAMAC_ADMIN_GROUP = 1
-CAMAC_SUPPORT_GROUP = 10000
 
 
 class CustomPermission(BasePermission):
@@ -32,7 +25,7 @@ class CustomPermission(BasePermission):
             f"mutation '{mutation.__name__}' on {instance} for admin users"
         )
 
-        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
+        return self.has_camac_group_permission(info, common.CAMAC_ADMIN_GROUP)
 
     @permission_for(Mutation)
     def has_permission_default(self, mutation, info):
@@ -40,25 +33,28 @@ class CustomPermission(BasePermission):
             f"ACL: fallback permission: allow mutation '{mutation.__name__}' for admins"
         )
 
-        return self.has_camac_group_permission(info, CAMAC_ADMIN_GROUP)
+        return self.has_camac_group_permission(info, common.CAMAC_ADMIN_GROUP)
 
     # Document
     @permission_for(SaveDocument)
     def has_permission_for_savedocument(self, mutation, info):
-        if self.get_input_variables(info).get("form") == DASHBOARD_FORM_SLUG:
+        if self.get_input_variables(info).get("form") == common.DASHBOARD_FORM_SLUG:
             # There should only be one dashboard document which has to be
             # created by a support user
             return (
-                self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
-                and Document.objects.filter(form__slug=DASHBOARD_FORM_SLUG).count() == 0
+                self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
+                and Document.objects.filter(
+                    form__slug=common.DASHBOARD_FORM_SLUG
+                ).count()
+                == 0
             )
 
         return True
 
     @object_permission_for(SaveDocument)
     def has_object_permission_for_savedocument(self, mutation, info, instance):
-        if instance.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+        if instance.form.slug == common.DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(instance.family, info, "write-meta")
 
@@ -69,15 +65,15 @@ class CustomPermission(BasePermission):
             pk=self.get_input_variables(info)["input"]["document"]
         )
 
-        if document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+        if document.form.slug == common.DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(document.family, info)
 
     @object_permission_for(SaveDocumentAnswer)
     def has_object_permission_for_savedocumentanswer(self, mutation, info, instance):
-        if instance.document.form.slug == DASHBOARD_FORM_SLUG:
-            return self.has_camac_group_permission(info, CAMAC_SUPPORT_GROUP)
+        if instance.document.form.slug == common.DASHBOARD_FORM_SLUG:
+            return self.has_camac_group_permission(info, common.CAMAC_SUPPORT_GROUP)
 
         return self.has_camac_edit_permission(instance.document.family, info)
 
@@ -99,7 +95,7 @@ class CustomPermission(BasePermission):
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
-            f"{CAMAC_NG_URL}/api/v1/me",
+            f"{common.CAMAC_NG_URL}/api/v1/me",
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
 
@@ -126,9 +122,9 @@ class CustomPermission(BasePermission):
             return True
 
         resp = requests.get(
-            f"{CAMAC_NG_URL}/api/v1/instances/{instance_id}",
+            f"{common.CAMAC_NG_URL}/api/v1/instances/{instance_id}",
             # forward group as filter
-            {"group": group(info)},
+            {"group": common.group(info)},
             # Forward authorization header
             headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
         )
