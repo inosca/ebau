@@ -48,6 +48,8 @@ services:
         networks:
             - camac-ng.local
         user: "${UID:?Set UID env variable to your user id}"
+        environment:
+            - OAUTHLIB_INSECURE_TRANSPORT=1
 
     django:
         image: acr.run/camac-ng/camac-ng/django:master
