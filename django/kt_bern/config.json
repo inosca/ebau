@@ -200,6 +200,34 @@
   {
     "fields": {
       "available_action": "formtransition",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10052
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10053
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
       "button": 20005,
       "description": null,
       "error_message": null,
@@ -560,20 +588,6 @@
     },
     "model": "core.action",
     "pk": 20041
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20002,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20069
   },
   {
     "fields": {
@@ -1139,6 +1153,30 @@
   },
   {
     "fields": {
+      "action": 10052,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Change State to Dossierpr\u00fcfung",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10052
+  },
+  {
+    "fields": {
+      "action": 10053,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Redirect",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10053
+  },
+  {
+    "fields": {
       "action": 20006,
       "description": null,
       "error_message": null,
@@ -1448,18 +1486,6 @@
     },
     "model": "core.actiont",
     "pk": 20041
-  },
-  {
-    "fields": {
-      "action": 20069,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "GoToNextStateAfterEbauNumber",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 20069
   },
   {
     "fields": {
@@ -1916,6 +1942,14 @@
     },
     "model": "core.actiont",
     "pk": 150002
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20006
+    },
+    "model": "core.aformtransition",
+    "pk": 10052
   },
   {
     "fields": {
@@ -39911,6 +39945,15 @@
   },
   {
     "fields": {
+      "air_action_name": "index",
+      "instance_resource": 20074,
+      "resource": 20006
+    },
+    "model": "core.apageredirect",
+    "pk": 10053
+  },
+  {
+    "fields": {
       "air_action_name": "edit",
       "instance_resource": 20004,
       "resource": 20006
@@ -39950,7 +39993,7 @@
     "model": "core.aphp",
     "pk": 10048
   },
-{
+  {
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
     },
@@ -39964,7 +40007,7 @@
     "model": "core.aphp",
     "pk": 10050
   },
-{
+  {
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
     },
@@ -39977,13 +40020,6 @@
     },
     "model": "core.aphp",
     "pk": 20017
-  },
-  {
-    "fields": {
-      "php_class": "GoToNextStateAfterEbauNumber"
-    },
-    "model": "core.aphp",
-    "pk": 20069
   },
   {
     "fields": {
