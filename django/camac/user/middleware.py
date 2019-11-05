@@ -30,6 +30,7 @@ def get_group(request):
         # no specific group is definied, default group of client is used
         # it is allowed that user may not be in this group
         group = None
+        # TODO: make this more explicit, instead of magic group matching
         if getattr(request, "auth", False):
             client = request.auth["aud"]
             filters = {"name": client.title()}
