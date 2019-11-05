@@ -39,6 +39,19 @@
     }
   },
   {
+    "model": "form.document",
+    "pk": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+    "fields": {
+      "created_at": "2019-11-05T06:59:37.680Z",
+      "modified_at": "2019-11-05T06:59:54.264Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "family": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+      "form": "vorabklaerung-einfach",
+      "meta": { "submit-date": "2019-11-05T06:59:54", "camac-instance-id": 2 }
+    }
+  },
+  {
     "model": "form.answer",
     "pk": "000e9be0-a9e4-4bf1-99ee-f9d7b2752841",
     "fields": {
@@ -232,6 +245,22 @@
   },
   {
     "model": "form.answer",
+    "pk": "1f8bc163-65bc-454d-a53d-d4c45118c308",
+    "fields": {
+      "created_at": "2019-11-05T06:59:45.939Z",
+      "modified_at": "2019-11-05T06:59:45.939Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "ort-gesuchstellerin",
+      "value": "Musterort",
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
     "pk": "2491231a-b753-49fb-ae9f-c97906538d92",
     "fields": {
       "created_at": "2019-07-04T06:46:33.062Z",
@@ -312,6 +341,22 @@
   },
   {
     "model": "form.answer",
+    "pk": "4203bae4-4043-4a06-b538-013183181e34",
+    "fields": {
+      "created_at": "2019-11-05T06:59:44.178Z",
+      "modified_at": "2019-11-05T06:59:44.178Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "plz-gesuchstellerin",
+      "value": 1234,
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
     "pk": "4280d20a-838a-4655-9d9f-cdc58efbd369",
     "fields": {
       "created_at": "2019-07-04T06:44:26.490Z",
@@ -354,6 +399,22 @@
       "value": "2",
       "meta": {},
       "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
+    "pk": "51a88c9b-71f9-4f45-a7c3-c64fee2f6f6c",
+    "fields": {
+      "created_at": "2019-11-05T06:59:41.697Z",
+      "modified_at": "2019-11-05T06:59:41.697Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "name-gesuchstellerin-vorabklaerung",
+      "value": "Muster",
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
       "date": null,
       "file": null
     }
@@ -434,6 +495,22 @@
       "value": "mit-schadstoffen-belastete-luft-aus-gebaeuden-nein",
       "meta": {},
       "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
+    "pk": "688fe6f8-a3d5-4a3a-8c4d-59d50b137a09",
+    "fields": {
+      "created_at": "2019-11-05T06:59:54.086Z",
+      "modified_at": "2019-11-05T06:59:54.086Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "einreichen-button",
+      "value": ["einreichen-button-eingereicht"],
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
       "date": null,
       "file": null
     }
@@ -728,6 +805,22 @@
   },
   {
     "model": "form.answer",
+    "pk": "9a90303a-7a7a-49eb-a49a-cd51019f4d2e",
+    "fields": {
+      "created_at": "2019-11-05T06:59:51.361Z",
+      "modified_at": "2019-11-05T06:59:51.361Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "anfrage-zur-vorabklaerung",
+      "value": "Testanfrage",
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
     "pk": "9e90cff2-ecbc-4482-b4be-b38925063c00",
     "fields": {
       "created_at": "2019-07-04T06:46:23.205Z",
@@ -786,6 +879,22 @@
       "value": "Strasse",
       "meta": {},
       "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
+    "pk": "b1c8aedb-bf40-42ad-879e-dbb78f3529fd",
+    "fields": {
+      "created_at": "2019-11-05T06:59:47.654Z",
+      "modified_at": "2019-11-05T06:59:47.654Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "gemeinde",
+      "value": "2",
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
       "date": null,
       "file": null
     }
@@ -1074,6 +1183,22 @@
       "value": 3000,
       "meta": {},
       "document": "4fa101d2-d6fb-4f29-a1ab-c89eacb4fa0b",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
+    "pk": "fdcdb931-97e9-4031-a590-d27a857298c5",
+    "fields": {
+      "created_at": "2019-11-05T06:59:42.421Z",
+      "modified_at": "2019-11-05T06:59:42.421Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "vorname-gesuchstellerin-vorabklaerung",
+      "value": "Max",
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
       "date": null,
       "file": null
     }
