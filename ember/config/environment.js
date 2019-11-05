@@ -34,7 +34,9 @@ module.exports = function(environment) {
 
       // array of active municipality names,
       // used in submit and camac-property-selector
-      municipalityNames: []
+      municipalityNames: [],
+
+      gisHost: "map-t.geo.sz.ch"
     },
 
     exportApplicationGlobal: true,
@@ -148,6 +150,8 @@ module.exports = function(environment) {
       "Steinen",
       "Steinerberg"
     ];
+
+    ENV.APP.gisHost = "map.geo.sz.ch";
   }
 
   return ENV;
