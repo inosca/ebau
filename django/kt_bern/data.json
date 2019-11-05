@@ -12,6 +12,137 @@
   },
   {
     "fields": {
+      "created": "2019-11-05T06:59:37.652Z",
+      "email": "email@example.ch",
+      "instance": 2,
+      "invitee": 8,
+      "user": 8
+    },
+    "model": "applicants.applicant",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "answer": "2019-11-05T06:59:54",
+      "chapter": 100001,
+      "instance": 2,
+      "item": 1,
+      "question": 20036
+    },
+    "model": "core.answer",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "activation_date": null,
+      "active": 1,
+      "instance": 2,
+      "service": 2
+    },
+    "model": "core.instanceservice",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "additional_text": null,
+      "created": "2019-11-05T06:59:54.272Z",
+      "instance": 2,
+      "mode": "auto",
+      "service": null,
+      "text": null,
+      "user": 8
+    },
+    "model": "core.journal",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/2\n\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nVotre dossier portant le num\u00e9ro de dossier 2 a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\n\nhttp://caluma-portal.local/instances/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf\n",
+      "created": "2019-11-05T06:59:54.439Z",
+      "instance": 2,
+      "mode": "auto",
+      "service": null,
+      "text": null,
+      "user": 8
+    },
+    "model": "core.journal",
+    "pk": 20001
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nFreundliche Gr\u00fcsse\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\neBau a enregistr\u00e9 une nouvelle entr\u00e9e de type Einfache Vorabkl\u00e4rung portant le num\u00e9ro de dossier 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.",
+      "created": "2019-11-05T06:59:54.613Z",
+      "instance": 2,
+      "mode": "auto",
+      "service": null,
+      "text": null,
+      "user": 8
+    },
+    "model": "core.journal",
+    "pk": 20002
+  },
+  {
+    "fields": {
+      "additional_text": null,
+      "journal": 20000,
+      "language": "de",
+      "text": "Dossier eingereicht"
+    },
+    "model": "core.journalt",
+    "pk": 20000
+  },
+  {
+    "fields": {
+      "additional_text": null,
+      "journal": 20000,
+      "language": "fr",
+      "text": "Dossier envoy\u00e9"
+    },
+    "model": "core.journalt",
+    "pk": 20001
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/2\n\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nVotre dossier portant le num\u00e9ro de dossier 2 a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\n\nhttp://caluma-portal.local/instances/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf\n",
+      "journal": 20001,
+      "language": "de",
+      "text": "Notifikation gesendet an email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s)"
+    },
+    "model": "core.journalt",
+    "pk": 20002
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIhr Dossier mit der Dossier-Nr. 2 wurde erfolgreich \u00fcbermittelt. Alle auf eBau hochgeladenen Pl\u00e4ne und Dokumente m\u00fcssen unterschrieben, datiert und in mindestens zweifacher Ausfertigung mit dem Gesuchsformular bei der zust\u00e4ndigen Gemeinde eingereicht werden. Das Gesuch wird erst bearbeitet, wenn die Gemeinde das Papierdossier erhalten hat.\n\nhttp://caluma-portal.local/instances/2\n\nGerne m\u00f6chten wir erfahren wie einfach die elektronische Eingabe eines Gesuches war. Wir bitten Sie daher, sich 2 - 3 Minuten Zeit zu nehmen und den folgenden Fragebogen zu beantworten. Besten Dank.\n\nhttps://www.onlineumfragen.com/login.cfm?umfrage=87201\n\nFreundliche Gr\u00fcsse\nLeitbeh\u00f6rde Burgdorf\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\nVotre dossier portant le num\u00e9ro de dossier 2 a \u00e9t\u00e9 d\u00e9pos\u00e9/e avec succ\u00e8s. Tous les plans et documents t\u00e9l\u00e9charg\u00e9s sur eBau doivent \u00eatre sign\u00e9s, dat\u00e9s et envoy\u00e9s en au moins deux exemplaires avec le formulaire de demande de permis de construire \u00e0 la commune responsable. La demande ne sera trait\u00e9e que lorsque la commune aura re\u00e7u le dossier papier.\n\nhttp://caluma-portal.local/instances/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\nLeitbeh\u00f6rde Burgdorf\n",
+      "journal": 20001,
+      "language": "fr",
+      "text": "Notification envoy\u00e9e \u00e0 email@example.ch ([eBau Test]: Erfolgreiche Einreichung / Formulaire d\u00e9pos\u00e9 avec succ\u00e8s)"
+    },
+    "model": "core.journalt",
+    "pk": 20003
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nFreundliche Gr\u00fcsse\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\neBau a enregistr\u00e9 une nouvelle entr\u00e9e de type Einfache Vorabkl\u00e4rung portant le num\u00e9ro de dossier 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.",
+      "journal": 20002,
+      "language": "de",
+      "text": "Notifikation gesendet an baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entr\u00e9e)"
+    },
+    "model": "core.journalt",
+    "pk": 20004
+  },
+  {
+    "fields": {
+      "additional_text": "Hinweis: Diese Nachricht wurde von einem Testsystem versendet.\nEs dient nur zu Testzwecken und kann ignoriert werden\n\nGuten Tag\n\nIm eBau gibt es einen neuen Eingang mit der Dossier-Nr. 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nFreundliche Gr\u00fcsse\n\n*** version fran\u00e7aise ***\n\nMadame, Monsieur,\n\neBau a enregistr\u00e9 une nouvelle entr\u00e9e de type Einfache Vorabkl\u00e4rung portant le num\u00e9ro de dossier 2.\n\nhttp://camac-ng.local/index/redirect-to-instance-resource/instance-id/2\n\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.",
+      "journal": 20002,
+      "language": "fr",
+      "text": "Notification envoy\u00e9e \u00e0 baudirektion@burgdorf.ch ([eBau Test]: Neu eingegangen / Nouvelle entr\u00e9e)"
+    },
+    "model": "core.journalt",
+    "pk": 20005
+  },
+  {
+    "fields": {
       "attachment_sections": [
         1
       ],
@@ -44,6 +175,31 @@
   },
   {
     "fields": {
+      "attachment_sections": [
+        1
+      ],
+      "context": {},
+      "date": "2019-11-05T06:59:56.089Z",
+      "digital_signature": 0,
+      "group": 6,
+      "identifier": null,
+      "instance": 2,
+      "is_confidential": 0,
+      "is_parcel_picture": 0,
+      "mime_type": "application/pdf",
+      "name": "2-einfache-vorabklarung.pdf",
+      "path": "attachments/files/2/2-einfache-vorabklarung_mtUfvJv.pdf",
+      "question": null,
+      "service": null,
+      "size": 117237,
+      "user": 8,
+      "uuid": "357a1381-ccce-4b6e-8286-c87e0771d45c"
+    },
+    "model": "document.attachment",
+    "pk": 2
+  },
+  {
+    "fields": {
       "creation_date": "2019-06-08T19:09:17.581Z",
       "form": 1,
       "group": 6,
@@ -56,6 +212,21 @@
     },
     "model": "instance.instance",
     "pk": 1
+  },
+  {
+    "fields": {
+      "creation_date": "2019-11-05T06:59:37.650Z",
+      "form": 1,
+      "group": 6,
+      "identifier": null,
+      "instance_state": 20000,
+      "location": null,
+      "modification_date": "2019-11-05T06:59:37.650Z",
+      "previous_instance_state": 1,
+      "user": 8
+    },
+    "model": "instance.instance",
+    "pk": 2
   },
   {
     "fields": {
