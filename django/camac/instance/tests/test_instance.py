@@ -374,8 +374,8 @@ def test_instance_export_list(
     sheet = book.bookdict.popitem()[1]
     assert len(sheet) == len(instances)
     row = sheet[0]
-    assert row[4] == "Muster Hans, Beispiel Jean"
-    assert row[5] == "Bezeichnung"
+    assert "Muster Hans, Beispiel Jean" in row
+    assert "Bezeichnung" in row
 
 
 @pytest.mark.parametrize(
