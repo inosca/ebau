@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls import url
 from rest_framework.routers import SimpleRouter
 
-from .views import ApplicationsView, ApplicationView, EventView, MessageView
+from .views import ApplicationsView, ApplicationView, EventView, MessageView, SendView
 
 urlpatterns = []
 if settings.ECH_API:
@@ -24,5 +24,6 @@ if settings.ECH_API:
             EventView.as_view({"post": "create"}),
             name="event",
         ),
+        url(r"send/$", SendView.as_view({"post": "create"}), name="send"),
     ]
     urlpatterns += r.urls

@@ -1,0 +1,11 @@
+query ($filter: [JSONValueFilterType]) {
+  allDocuments(metaValue: $filter) {
+    edges {
+      node {
+        form {
+          slug
+        }
+      }
+    }
+  }
+}
