@@ -10,6 +10,7 @@ from django.utils.encoding import force_bytes, smart_text
 from django.utils.translation import ugettext as _
 from jose.exceptions import ExpiredSignatureError, JOSEError
 from keycloak import KeycloakOpenID
+from keycloak.exceptions import KeycloakAuthenticationError
 from rest_framework.authentication import BaseAuthentication, get_authorization_header
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -49,13 +50,13 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
 
         userinfo = cache.get_or_set(
             "authentication.userinfo.%s" % token_hash,
-            lambda: self._decode_jwt(jwt_value),
+            lambda: self._verify_token(jwt_value),
             timeout=settings.OIDC_BEARER_TOKEN_REVALIDATION_TIME,
         )
 
         return userinfo
 
-    def _decode_jwt(self, jwt_value):  # noqa: C901
+    def _verify_token(self, jwt_value):  # noqa: C901
         keycloak = KeycloakOpenID(
             server_url=settings.KEYCLOAK_URL,
             client_id=settings.KEYCLOAK_CLIENT,
@@ -74,23 +75,30 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             msg = _("Invalid token.")
             raise AuthenticationFailed(msg)
 
+        try:
+            resp = keycloak.userinfo(jwt_value.decode())
+        except KeycloakAuthenticationError:  # pragma: no cover
+            msg = _("User session not found or doesn't have client attached on it")
+            raise AuthenticationFailed(msg)
+
+        # TODO: don't use jwt token at all, once Middleware is refactored
+        return self._build_user(resp), jwt_decoded
+
+    def _build_user(self, data):
         language = translation.get_language()
 
         # always overwrite values of users
-        defaults = {"language": language[:2], "email": jwt_decoded["email"]}
-        username = jwt_decoded["sub"]
-        if "preferred_username" in jwt_decoded and jwt_decoded[
-            "preferred_username"
-        ].startswith("service-account-"):
-            defaults["name"] = jwt_decoded["clientId"]
-            defaults["surname"] = jwt_decoded["clientId"]
-            username = jwt_decoded["preferred_username"]
+        defaults = {"language": language[:2], "email": data["email"]}
+        username = data["sub"]
+        if "preferred_username" in data and data["preferred_username"].startswith(
+            "service-account-"
+        ):
+            defaults["name"] = data["clientId"]
+            defaults["surname"] = data["clientId"]
+            username = data["preferred_username"]
         else:
             defaults.update(
-                {
-                    "name": jwt_decoded["family_name"],
-                    "surname": jwt_decoded["given_name"],
-                }
+                {"name": data["family_name"], "surname": data["given_name"]}
             )
         user, created = get_user_model().objects.update_or_create(
             username=username, defaults=defaults
@@ -118,7 +126,7 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
             msg = _("User is deactivated.")
             raise AuthenticationFailed(msg)
 
-        return user, jwt_decoded
+        return user
 
     def authenticate_header(self, request):
         return 'JWT realm="{0}"'.format(settings.KEYCLOAK_REALM)
