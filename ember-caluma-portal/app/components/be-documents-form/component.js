@@ -23,6 +23,11 @@ export default Component.extend(ComponentQueryManager, {
     this.data.perform();
   },
 
+  rootFormSlug: reads("fieldset.document.rootForm.slug"),
+  showHint: computed("rootFormSlug", function() {
+    return this.get("rootFormSlug").includes("baugesuch");
+  }),
+
   section: reads("fieldset.field.question.meta.attachment-section"),
   deletable: computed(
     "disabled",

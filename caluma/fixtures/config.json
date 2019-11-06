@@ -1689,7 +1689,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "andere-dokument",
-      "sort": 95
+      "sort": 97
     }
   },
   {
@@ -1702,7 +1702,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "anschluss-sammelkanaele-vorfluter-dokument",
-      "sort": 81
+      "sort": 83
     }
   },
   {
@@ -1715,7 +1715,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "ausnahmebegruendung-dokument",
-      "sort": 10
+      "sort": 12
     }
   },
   {
@@ -1728,7 +1728,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "ausnahmegesuch-energie-dokument",
-      "sort": 31
+      "sort": 33
     }
   },
   {
@@ -1741,7 +1741,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "ausnuetzung-dokument",
-      "sort": 88
+      "sort": 90
     }
   },
   {
@@ -1754,7 +1754,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "baubewilligung-ausbauprojekte-dokument",
-      "sort": 12
+      "sort": 14
     }
   },
   {
@@ -1767,7 +1767,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "baubewilligungsakte-dokument",
-      "sort": 11
+      "sort": 13
     }
   },
   {
@@ -1780,7 +1780,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "baugrunduntersuchung-dokument",
-      "sort": 35
+      "sort": 37
     }
   },
   {
@@ -1793,7 +1793,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "berechnung-kinderspielplaetze-dokument",
-      "sort": 89
+      "sort": 91
     }
   },
   {
@@ -1806,7 +1806,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "berechnungen-abstellplaetze-dokument",
-      "sort": 90
+      "sort": 92
     }
   },
   {
@@ -1819,7 +1819,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "beschrieb-der-lueftung-dokument",
-      "sort": 61
+      "sort": 63
     }
   },
   {
@@ -1832,7 +1832,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "bestaetigung-hydrogeo-begleitung-dokument",
-      "sort": 38
+      "sort": 40
     }
   },
   {
@@ -1845,7 +1845,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "betriebskonzept-gastgewerbe-dokument",
-      "sort": 62
+      "sort": 64
     }
   },
   {
@@ -1858,7 +1858,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "bewehrungsplan-bewehrungsliste-dokument",
-      "sort": 63
+      "sort": 65
     }
   },
   {
@@ -1871,7 +1871,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "bodenschutzkonzept-dokument",
-      "sort": 25
+      "sort": 27
     }
   },
   {
@@ -1884,7 +1884,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "brandschutzkonzept-dokument",
-      "sort": 76
+      "sort": 78
     }
   },
   {
@@ -1897,7 +1897,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "brandschutzplan-dokument",
-      "sort": 75
+      "sort": 77
     }
   },
   {
@@ -1910,7 +1910,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-bauentscheid",
-      "sort": 6
+      "sort": 8
     }
   },
   {
@@ -1923,7 +1923,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-beilagen-vorabklaerung",
-      "sort": 5
+      "sort": 7
     }
   },
   {
@@ -1936,7 +1936,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-einsprache",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -1949,7 +1949,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-entwuerfe",
-      "sort": 1
+      "sort": 3
     }
   },
   {
@@ -1962,7 +1962,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-ges-bew-hydrogeologisches-gutachten-nachw",
-      "sort": 3
+      "sort": 5
     }
   },
   {
@@ -1975,7 +1975,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-notizen",
-      "sort": 4
+      "sort": 6
     }
   },
   {
@@ -1988,7 +1988,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-stellungnahme",
-      "sort": 7
+      "sort": 9
     }
   },
   {
@@ -2001,7 +2001,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "doc-verfahrensprogramm",
-      "sort": 8
+      "sort": 10
     }
   },
   {
@@ -2014,7 +2014,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "dokumente-der-bauausfuehrung-dokument",
-      "sort": 9
+      "sort": 11
     }
   },
   {
@@ -2027,7 +2027,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "einverstaendniserklaerung-wald-dokument",
-      "sort": 21
+      "sort": 23
     }
   },
   {
@@ -2040,7 +2040,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "energiedokumente-dokument",
-      "sort": 33
+      "sort": 35
     }
   },
   {
@@ -2053,7 +2053,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "entsorgungskonzept-dokument",
-      "sort": 27
+      "sort": 29
     }
   },
   {
@@ -2066,7 +2066,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "entwaesserung-oberflaechengewaesser-dokument",
-      "sort": 43
+      "sort": 45
     }
   },
   {
@@ -2079,7 +2079,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "entwaesserung-ueber-mischwasserkanal-dokument",
-      "sort": 42
+      "sort": 44
     }
   },
   {
@@ -2092,7 +2092,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "entwaesserung-ueber-regenwasserkanal-dokument",
-      "sort": 44
+      "sort": 46
     }
   },
   {
@@ -2105,7 +2105,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "erdwaermensondendimensionierung-dokument",
-      "sort": 70
+      "sort": 72
     }
   },
   {
@@ -2118,7 +2118,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "fassaden-ansichten-dokument",
-      "sort": 54
+      "sort": 56
     }
   },
   {
@@ -2131,7 +2131,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "fassadenplan-reklamestandort-dokument",
-      "sort": 14
+      "sort": 16
     }
   },
   {
@@ -2144,7 +2144,20 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "formular-andere-thermoaktive-elemente-dokument",
-      "sort": 72
+      "sort": 74
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "6-dokumente.formular-erdbebensicherheit-ebs",
+    "fields": {
+      "created_at": "2019-11-06T07:19:47.272Z",
+      "modified_at": "2019-11-06T07:19:47.272Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "6-dokumente",
+      "question": "formular-erdbebensicherheit-ebs",
+      "sort": 2
     }
   },
   {
@@ -2157,7 +2170,20 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gefahrengutachten-dokument",
-      "sort": 17
+      "sort": 19
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "6-dokumente.gemeindespezifisches-formular",
+    "fields": {
+      "created_at": "2019-11-06T07:22:06.427Z",
+      "modified_at": "2019-11-06T07:22:06.427Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "6-dokumente",
+      "question": "gemeindespezifisches-formular",
+      "sort": 1
     }
   },
   {
@@ -2170,7 +2196,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "geschossflaechen-dokument",
-      "sort": 85
+      "sort": 87
     }
   },
   {
@@ -2183,7 +2209,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gesuch-ausnahmebewilligung-dokument",
-      "sort": 34
+      "sort": 36
     }
   },
   {
@@ -2196,7 +2222,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gesuch-erleichterung-waermeschutz-dokument",
-      "sort": 32
+      "sort": 34
     }
   },
   {
@@ -2209,7 +2235,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gesuch-zur-ausnahme-dokument",
-      "sort": 30
+      "sort": 32
     }
   },
   {
@@ -2222,7 +2248,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gewaesserschutz-landwirtschaft-dokument",
-      "sort": 39
+      "sort": 41
     }
   },
   {
@@ -2235,7 +2261,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "gruenflaeche-dokument",
-      "sort": 87
+      "sort": 89
     }
   },
   {
@@ -2248,7 +2274,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "grundriss-angabe-bodenflaeche-dokument",
-      "sort": 60
+      "sort": 62
     }
   },
   {
@@ -2261,7 +2287,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "grundriss-dokument",
-      "sort": 56
+      "sort": 58
     }
   },
   {
@@ -2274,7 +2300,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "grundstuecksentwaesserungsplan-dokument",
-      "sort": 94
+      "sort": 96
     }
   },
   {
@@ -2287,7 +2313,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "hydrogeo-gutachten-dokument",
-      "sort": 66
+      "sort": 68
     }
   },
   {
@@ -2300,7 +2326,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "hydrogeologische-begleitung-dokument",
-      "sort": 69
+      "sort": 71
     }
   },
   {
@@ -2313,7 +2339,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "inanspruchnahme-boden-dokument",
-      "sort": 82
+      "sort": 84
     }
   },
   {
@@ -2326,7 +2352,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "kanalisationskatasterplan-dokument",
-      "sort": 41
+      "sort": 43
     }
   },
   {
@@ -2339,7 +2365,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "konzessionsgesuch-kuehlwasser-dokument",
-      "sort": 67
+      "sort": 69
     }
   },
   {
@@ -2352,7 +2378,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "konzessionsgesuch-waermepumpe-dokument",
-      "sort": 68
+      "sort": 70
     }
   },
   {
@@ -2365,7 +2391,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "kurzbericht-gemaess-stfv-dokument",
-      "sort": 48
+      "sort": 50
     }
   },
   {
@@ -2378,7 +2404,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "meldeblatt-terrainveraenderungen-dokument",
-      "sort": 23
+      "sort": 25
     }
   },
   {
@@ -2391,7 +2417,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "meldeblatt-zur-fruchtfolgeflaeche-dokument",
-      "sort": 24
+      "sort": 26
     }
   },
   {
@@ -2404,7 +2430,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "nachweis-anforderungen-dokument",
-      "sort": 29
+      "sort": 31
     }
   },
   {
@@ -2417,7 +2443,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "naeherbau-grenzbaurecht-dokument",
-      "sort": 78
+      "sort": 80
     }
   },
   {
@@ -2430,7 +2456,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "plaene-fumoir-dokument",
-      "sort": 58
+      "sort": 60
     }
   },
   {
@@ -2443,7 +2469,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "plaene-gewaesserschutz-dokument",
-      "sort": 36
+      "sort": 38
     }
   },
   {
@@ -2456,7 +2482,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "plaene-schleusen-dokument",
-      "sort": 51
+      "sort": 53
     }
   },
   {
@@ -2469,7 +2495,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "plaene-unterdruck-dokument",
-      "sort": 50
+      "sort": 52
     }
   },
   {
@@ -2482,7 +2508,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "plane-gastgewerbebetrieb-dokument",
-      "sort": 59
+      "sort": 61
     }
   },
   {
@@ -2495,7 +2521,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "qs-verantwortlicher-dokument",
-      "sort": 77
+      "sort": 79
     }
   },
   {
@@ -2508,7 +2534,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "qualitaetssicherungskonzept-dokument",
-      "sort": 74
+      "sort": 76
     }
   },
   {
@@ -2521,7 +2547,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "regierungsratsbeschluss-bauinventar-dokument",
-      "sort": 84
+      "sort": 86
     }
   },
   {
@@ -2534,7 +2560,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "risikoermittlung-gemaess-stfv-dokument",
-      "sort": 47
+      "sort": 49
     }
   },
   {
@@ -2547,7 +2573,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "rodungs-und-ersatzaufforstungsplan-dokument",
-      "sort": 18
+      "sort": 20
     }
   },
   {
@@ -2560,7 +2586,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "rodungsgesuchsformular-bafu-dokument",
-      "sort": 20
+      "sort": 22
     }
   },
   {
@@ -2573,7 +2599,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "rueckbau-checkliste-selbstdeklaration-dokument",
-      "sort": 28
+      "sort": 30
     }
   },
   {
@@ -2586,7 +2612,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "schadstoffermittlung-gutachten-dokument",
-      "sort": 26
+      "sort": 28
     }
   },
   {
@@ -2599,7 +2625,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "schnitt-dokument",
-      "sort": 55
+      "sort": 57
     }
   },
   {
@@ -2612,7 +2638,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "schnittplan-gewaesserschutz-dokument",
-      "sort": 37
+      "sort": 39
     }
   },
   {
@@ -2625,7 +2651,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "schutzraum-dokument",
-      "sort": 64
+      "sort": 66
     }
   },
   {
@@ -2638,7 +2664,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "sicherheitsdaten-stoerfallvorsorge-dokument",
-      "sort": 45
+      "sort": 47
     }
   },
   {
@@ -2651,7 +2677,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "sicherungsleistung-befreit-dokument",
-      "sort": 65
+      "sort": 67
     }
   },
   {
@@ -2664,7 +2690,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "sicherungsmassnahme-dokument",
-      "sort": 91
+      "sort": 93
     }
   },
   {
@@ -2677,7 +2703,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "situationsplan-dokument",
-      "sort": 57
+      "sort": 59
     }
   },
   {
@@ -2690,7 +2716,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "skizze-der-reklame-mit-farbangaben-dokument",
-      "sort": 13
+      "sort": 15
     }
   },
   {
@@ -2703,7 +2729,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "sondenmodell-mit-datenblatt-dokument",
-      "sort": 71
+      "sort": 73
     }
   },
   {
@@ -2716,7 +2742,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "sterilisation-abwasser-dokument",
-      "sort": 49
+      "sort": 51
     }
   },
   {
@@ -2729,7 +2755,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "stoffliste-stoerfallvorsorge-dokument",
-      "sort": 46
+      "sort": 48
     }
   },
   {
@@ -2742,7 +2768,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "ueberbauung-dokument",
-      "sort": 86
+      "sort": 88
     }
   },
   {
@@ -2755,7 +2781,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "uebersichtsplan-dokument",
-      "sort": 19
+      "sort": 21
     }
   },
   {
@@ -2768,7 +2794,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "umgebungsplan-dokument",
-      "sort": 53
+      "sort": 55
     }
   },
   {
@@ -2781,7 +2807,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "umweltvertraeglichkeitsbericht-dokument",
-      "sort": 15
+      "sort": 17
     }
   },
   {
@@ -2794,7 +2820,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "versickerungsanlagen-dokument",
-      "sort": 40
+      "sort": 42
     }
   },
   {
@@ -2807,7 +2833,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "vertrag-zum-bauinventar-dokument",
-      "sort": 83
+      "sort": 85
     }
   },
   {
@@ -2820,7 +2846,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "verwertung-abgetragenem-boden-dokument",
-      "sort": 22
+      "sort": 24
     }
   },
   {
@@ -2833,7 +2859,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "vollmacht-dokument",
-      "sort": 93
+      "sort": 95
     }
   },
   {
@@ -2846,7 +2872,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "vorabklaerung-dokument",
-      "sort": 92
+      "sort": 94
     }
   },
   {
@@ -2859,7 +2885,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "voruntersuchung-dokument",
-      "sort": 16
+      "sort": 18
     }
   },
   {
@@ -2872,7 +2898,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "weitere-angaben-regeneration-ews-dokument",
-      "sort": 73
+      "sort": 75
     }
   },
   {
@@ -2885,7 +2911,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "werkleitungsplan-dokument",
-      "sort": 52
+      "sort": 54
     }
   },
   {
@@ -2898,7 +2924,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "zustimmung-der-anstoesser-dokument",
-      "sort": 80
+      "sort": 82
     }
   },
   {
@@ -2911,7 +2937,7 @@
       "created_by_group": null,
       "form": "6-dokumente",
       "question": "zustimmung-der-nachbarn-dokument",
-      "sort": 79
+      "sort": 81
     }
   },
   {
@@ -18905,6 +18931,31 @@
   },
   {
     "model": "form.question",
+    "pk": "formular-erdbebensicherheit-ebs",
+    "fields": {
+      "created_at": "2019-11-06T07:19:47.192Z",
+      "modified_at": "2019-11-06T07:22:45.942Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Formular Erdbebensicherheit (EbS)\", \"fr\": \"Formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
     "pk": "formulardownload-pdf",
     "fields": {
       "created_at": "2019-06-12T08:11:33.972Z",
@@ -19732,6 +19783,31 @@
       "configuration": {},
       "meta": { "widgetOverride": "cf-field/input/powerselect" },
       "data_source": "Municipalities",
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "gemeindespezifisches-formular",
+    "fields": {
+      "created_at": "2019-11-06T07:22:06.354Z",
+      "modified_at": "2019-11-06T07:23:10.190Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gemeindespezifisches Formular (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)\", \"fr\": \"Formulaire sp\\u00e9cifique aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)\"}",
+      "type": "multiple_choice",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": {},
+      "data_source": null,
       "row_form": null,
       "sub_form": null,
       "source": null,
@@ -36656,6 +36732,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "formular-erdbebensicherheit-ebs.formular-erdbebensicherheit-ebs-ja",
+    "fields": {
+      "created_at": "2019-11-06T07:22:45.947Z",
+      "modified_at": "2019-11-06T07:22:45.947Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "question": "formular-erdbebensicherheit-ebs",
+      "option": "formular-erdbebensicherheit-ebs-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "forstliche-baute.forstliche-baute-ja",
     "fields": {
       "created_at": "2019-05-10T16:46:00.334Z",
@@ -37016,6 +37105,19 @@
       "question": "gefahrenstufe",
       "option": "gefahrenstufe-unbestimmt",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.questionoption",
+    "pk": "gemeindespezifisches-formular.gemeindespezifisches-formular-ja",
+    "fields": {
+      "created_at": "2019-11-06T07:23:10.195Z",
+      "modified_at": "2019-11-06T07:23:10.195Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "question": "gemeindespezifisches-formular",
+      "option": "gemeindespezifisches-formular-ja",
+      "sort": 1
     }
   },
   {
@@ -46659,6 +46761,20 @@
   },
   {
     "model": "form.option",
+    "pk": "formular-erdbebensicherheit-ebs-ja",
+    "fields": {
+      "created_at": "2019-11-06T07:19:47.123Z",
+      "modified_at": "2019-11-06T07:22:45.845Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Formular Erdbebensicherheit (EbS)\", \"fr\": \"Formulaire S\\u00e9S S\\u00e9curit\\u00e9 Sismique\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
     "pk": "forstliche-baute-ja",
     "fields": {
       "created_at": "2019-04-08T13:24:40.803Z",
@@ -47072,6 +47188,20 @@
       "created_by_user": null,
       "created_by_group": null,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "gemeindespezifisches-formular-ja",
+    "fields": {
+      "created_at": "2019-11-06T07:22:06.302Z",
+      "modified_at": "2019-11-06T07:23:10.100Z",
+      "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
+      "created_by_group": null,
+      "label": "{\"de\": \"Gemeindespezifisches Formular (5.0, 5.1, 5.2, 5.3 5.4, 5.5, 5.8)\", \"fr\": \"Formulaire sp\\u00e9cifique aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)\"}",
       "is_archived": false,
       "meta": {},
       "source": null

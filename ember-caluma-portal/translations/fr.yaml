@@ -51,6 +51,14 @@ documents:
   deleteSuccess: "Le fichier a été supprimé avec succès"
   deleteError: "Quelque chose a mal tourné lors de la suppression du fichier"
 
+  hint1: "Veuillez vous assurer que le"
+  hintEarthquake: "formulaire SéS Sécurité Sismique"
+  linkEarthquake: "https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.assetref/dam/documents/JGK/AGR/fr/Baubewilligungen/Baugesuche/Baugesuchssteller/AGR_BAUEN_EbS_Erdbebensicherheit_fr.pdf"
+  hint2: "et les"
+  hintMunicipalityForms: "formulaires spécifiques aux communes (5.0, 5.1, 5.2, 5.3, 5.4, 5.5, 5.5, 5.8)"
+  linkMunicipalityForms: "https://www.jgk.be.ch/jgk/fr/index/baubewilligungen/baubewilligungen/baugesuchsformulare/formularbaugesuchsteller.html"
+  hint3: "sont remplis et téléchargés si nécessaire."
+
   tags:
     beilagen-vorabklaerung: "Annexes à l'étude préalable"
     allgemeine-informationen: "Informations générales"

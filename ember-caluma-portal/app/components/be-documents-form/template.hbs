@@ -55,6 +55,15 @@
     {{/if}}
     <hr>
   {{else}}
+    {{#if showHint}}
+      <p>
+        {{t "documents.hint1"}}
+        <a target="_blank" rel="noopener" href={{t "documents.linkEarthquake"}}>{{t "documents.hintEarthquake"}}</a>
+        {{t "documents.hint2"}}
+        <a target="_blank" rel="noopener" href={{t "documents.linkMunicipalityForms"}}>{{t "documents.hintMunicipalityForms"}}</a>
+        {{t "documents.hint3"}}
+      </p>
+    {{/if}}
     {{#file-dropzone name="documents" as |dropzone|}}
       <div class="uk-animation-fade uk-placeholder uk-text-center uk-padding-medium uk-flex uk-flex-middle uk-flex-center uk-flex-column {{if dropzone.active "uk-box-shadow-medium"}}">
         {{uk-icon "cloud-upload" ratio=3 class="uk-margin-bottom"}}
