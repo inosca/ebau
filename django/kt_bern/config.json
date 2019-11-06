@@ -227,6 +227,34 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20007,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10055
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 20005,
       "description": null,
@@ -1174,6 +1202,30 @@
     },
     "model": "core.actiont",
     "pk": 10053
+  },
+  {
+    "fields": {
+      "action": 10054,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Accompanying Report",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "action": 10055,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Accompanying Report",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10055
   },
   {
     "fields": {
@@ -40013,6 +40065,20 @@
     },
     "model": "core.aphp",
     "pk": 10051
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211AccompanyingReport"
+    },
+    "model": "core.aphp",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211AccompanyingReport"
+    },
+    "model": "core.aphp",
+    "pk": 10055
   },
   {
     "fields": {
