@@ -550,34 +550,33 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         )
 
     def _validate_document_validity(self, document_id):
-        # TODO: reenable this when caluma document validity is fixed
-        # validity = self.query_caluma(
-        #     """
-        #         query GetDocumentValidity($id: ID!) {
-        #             documentValidity(id: $id) {
-        #                 edges {
-        #                     node {
-        #                         id
-        #                         isValid
-        #                         errors {
-        #                             slug
-        #                             errorMsg
-        #                         }
-        #                     }
-        #                 }
-        #             }
-        #         }
-        #     """,
-        #     {"id": document_id},
-        # )
+        validity = self.query_caluma(
+            """
+                query GetDocumentValidity($id: ID!) {
+                    documentValidity(id: $id) {
+                        edges {
+                            node {
+                                id
+                                isValid
+                                errors {
+                                    slug
+                                    errorMsg
+                                }
+                            }
+                        }
+                    }
+                }
+            """,
+            {"id": document_id},
+        )
 
-        # if not validity["edges"]["node"][0]["isValid"]:
-        #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
-        #     raise exceptions.ValidationError(
-        #         _("Error while validating caluma document: %(errors)s") % { "errors": errors }
-        #     )
+        data = validity["data"]["documentValidity"]["edges"][0]["node"]
 
-        pass
+        if not data["isValid"]:
+            raise exceptions.ValidationError(
+                _("Error while validating caluma document: %(errors)s")
+                % {"errors": ", ".join(map(lambda e: e["errorMsg"], data["errors"]))}
+            )
 
     def validate(self, data):
         caluma_resp = self.query_caluma(
