@@ -13,7 +13,7 @@ from camac.echbern.schema import ech_0211_2_0 as ns_application
 )
 def test_parse_sample():  # pragma: no cover (because test is skipped, duh!)
     my_path = os.path.dirname(__file__)
-    with open(my_path + "/parse_test.xml", "r") as fh_xml:
+    with open(my_path + "/xml/parse_test.xml", "r") as fh_xml:
         xml_data = fh_xml.read()
     result = ns_application.CreateFromDocument(xml_data)
     app_event = result.eventSubmitPlanningPermissionApplication
