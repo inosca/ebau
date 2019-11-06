@@ -1,8 +1,17 @@
 query ($filter: [JSONValueFilterType]) {
-  allDocuments(metaValue: $filter) {
+  allDocuments(
+    forms: [
+        "baugesuch",
+        "vorabklaerung-einfach",
+        "vorabklaerung-vollstaendig",
+        "baugesuch-mit-uvp",
+        "baugesuch-generell"
+    ],
+    metaValue: $filter) {
     edges {
       node {
         id
+        meta
         form {
           slug
           name
