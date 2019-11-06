@@ -5,12 +5,14 @@ import filesize from "filesize";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import { saveAs } from "file-saver";
 import gql from "graphql-tag";
-import { ObjectQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 
-export default class Attachment extends Model.extend(ObjectQueryManager) {
+export default class Attachment extends Model {
   @service fetch;
   @service intl;
   @service notification;
+
+  @queryManager apollo;
 
   @attr("date") date;
   @attr("string") mimeType;

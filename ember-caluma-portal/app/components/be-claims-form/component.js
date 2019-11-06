@@ -6,7 +6,7 @@ import { all } from "rsvp";
 import { parseError } from "ember-caluma-portal/utils/parse-error";
 import moment from "moment";
 import gql from "graphql-tag";
-import { ComponentQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 
 const ATTACHMENT_SECTION = 7;
 const NOTIFICATION_TEMPLATE_ID = 32;
@@ -21,13 +21,13 @@ const FIELD_COMMENT = "nfd-tabelle-bemerkung";
 const FIELD_STATUS_IN_PROGRESS = "nfd-tabelle-status-in-bearbeitung";
 const FIELD_STATUS_ANSWERED = "nfd-tabelle-status-beantwortet";
 
-export default class BeClaimsFormComponent extends CfFormComponent.extend(
-  ComponentQueryManager
-) {
+export default class BeClaimsFormComponent extends CfFormComponent {
   @service fetch;
   @service notification;
   @service intl;
   @service store;
+
+  @queryManager apollo;
 
   classNames = ["be-claims-form"];
   didUpload = false;
