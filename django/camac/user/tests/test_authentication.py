@@ -17,14 +17,18 @@ def test_authenticate_no_headers(rf):
 
 
 def test_authenticate_disabled_user(rf, admin_user, mocker):
-    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
-    decode_token.return_value = {
+    token_dict = {
         "sub": admin_user.username,
         "email": admin_user.email,
         "family_name": admin_user.name,
         "given_name": admin_user.surname,
     }
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = token_dict
     mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    mocker.patch("keycloak.KeycloakOpenID.userinfo", return_value=token_dict)
+
     admin_user.disabled = True
     admin_user.save()
 
@@ -80,6 +84,9 @@ def test_authenticate_new_user(
     decode_token.return_value = token_value
     mocker.patch("keycloak.KeycloakOpenID.certs")
 
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_value
+
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
 
@@ -93,14 +100,18 @@ def test_authenticate_new_user(
 
 
 def test_authenticate_ok(rf, admin_user, mocker):
-    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
-    decode_token.return_value = {
+    token_value = {
         "sub": admin_user.username,
         "email": admin_user.email,
         "family_name": admin_user.name,
         "given_name": admin_user.surname,
     }
+    decode_token = mocker.patch("keycloak.KeycloakOpenID.decode_token")
+    decode_token.return_value = token_value
     mocker.patch("keycloak.KeycloakOpenID.certs")
+
+    userinfo = mocker.patch("keycloak.KeycloakOpenID.userinfo")
+    userinfo.return_value = token_value
 
     request = rf.request(HTTP_AUTHORIZATION="Bearer some_token")
     user, token = JSONWebTokenKeycloakAuthentication().authenticate(request)
