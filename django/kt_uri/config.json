@@ -44308,7 +44308,7 @@
   },
   {
     "fields": {
-      "instance_states": "32"
+      "instance_states": "21,22,32,23,24,25"
     },
     "model": "core.rsimplelist",
     "pk": 314
