@@ -1,7 +1,7 @@
 import { module, skip } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
+import { hbs } from "ember-cli-htmlbars";
 
 module("Integration | Component | be-claims-documents", function(hooks) {
   setupRenderingTest(hooks);

@@ -6,17 +6,19 @@ import { all } from "rsvp";
 import { next } from "@ember/runloop";
 import config from "ember-caluma-portal/config/environment";
 import { assert } from "@ember/debug";
-import { ComponentQueryManager } from "ember-apollo-client";
+import { queryManager } from "ember-apollo-client";
 import slugify from "slugify";
 
 const { environment } = config;
 
-export default InViewportComponent.extend(ComponentQueryManager, {
+export default InViewportComponent.extend({
   intl: service(),
   notification: service(),
   router: service(),
   fetch: service(),
   documentExport: service(),
+
+  apollo: queryManager(),
 
   onEnter() {
     next(this, () => this.validate.perform());
