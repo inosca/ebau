@@ -93,8 +93,8 @@ class JSONWebTokenKeycloakAuthentication(BaseAuthentication):
         if "preferred_username" in data and data["preferred_username"].startswith(
             "service-account-"
         ):
-            defaults["name"] = data["clientId"]
-            defaults["surname"] = data["clientId"]
+            defaults["name"] = data["preferred_username"]
+            defaults["surname"] = data["preferred_username"]
             username = data["preferred_username"]
         else:
             defaults.update(
