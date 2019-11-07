@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics, viewsets
 
 from camac.user.permissions import permission_aware
@@ -65,13 +66,24 @@ class ServiceView(viewsets.ModelViewSet):
 
 
 class PublicServiceView(viewsets.ReadOnlyModelViewSet):
-    swagger_schema = None
     filterset_class = filters.PublicServiceFilterSet
     serializer_class = serializers.PublicServiceSerializer
     queryset = models.Service.objects.all()
 
     def get_queryset(self):
+        if getattr(self, "swagger_fake_view", False):  # pragma: no cover
+            return models.Attachment.objects.none()
         return models.Service.objects.filter(disabled=False).prefetch_related("groups")
+
+    @swagger_auto_schema(tags=["Service"], operation_summary="Get service information")
+    def retrieve(self, request, *args, **kwargs):  # pragma: no cover
+        return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["Service"], operation_summary="Get list of service information"
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
 
 class MeView(generics.RetrieveAPIView):
