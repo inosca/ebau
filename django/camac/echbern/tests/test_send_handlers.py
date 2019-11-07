@@ -5,10 +5,15 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_KOORDINATION,
 )
+from camac.core.models import InstanceService
 from camac.echbern.tests.utils import xml_data
 
 from ..schema.ech_0211_2_0 import CreateFromDocument
-from ..send_handlers import RulingNoticeSendHandler
+from ..send_handlers import (
+    ChangeResponsibilitySendHandler,
+    RulingNoticeSendHandler,
+    SendHandlerException,
+)
 
 
 @pytest.mark.parametrize(
@@ -48,3 +53,31 @@ def test_ruling_notice_permissions(
         auth_header=None,
     )
     assert dh.has_permission() == has_permission
+
+
+@pytest.mark.parametrize("fail", [False, True])
+def test_change_responsibility_send_handler(fail, service_factory, ech_instance):
+    burgdorf = ech_instance.active_service
+
+    if not fail:
+        madiswil = service_factory(pk=20351)
+
+    data = CreateFromDocument(xml_data("change_responsibility"))
+
+    dh = ChangeResponsibilitySendHandler(
+        data=data, instance=ech_instance, user=None, group=None, auth_header=None
+    )
+    assert dh.has_permission() is True
+
+    if not fail:
+        dh.apply()
+        assert ech_instance.active_service == madiswil
+        assert InstanceService.objects.get(
+            instance=ech_instance, service=burgdorf, active=0
+        )
+        assert InstanceService.objects.get(
+            instance=ech_instance, service=madiswil, active=1
+        )
+    else:
+        with pytest.raises(SendHandlerException):
+            dh.apply()

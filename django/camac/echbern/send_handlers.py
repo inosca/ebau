@@ -8,12 +8,13 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
 )
-from camac.core.models import DocxDecision
+from camac.core.models import DocxDecision, InstanceService
 from camac.instance.models import InstanceState
+from camac.user.models import Service
 
 from .data_preparation import get_form_slug
 
-ECH_MESSAGE_MAPPING = {"5100010": "RulingNotice"}
+ECH_MESSAGE_MAPPING = {"5100010": "RulingNotice", "5100011": "ChangeResponsibility"}
 
 
 class SendHandlerException(Exception):
@@ -74,6 +75,34 @@ class RulingNoticeSendHandler(BaseSendHandler):
             instance=self.instance.pk,
             decision=decision,
             decision_date=timezone.now().date(),
+        )
+
+
+class ChangeResponsibilitySendHandler(BaseSendHandler):
+    def has_permission(self):
+        return True
+
+    def apply(self):
+        old_id = (
+            self.data.eventChangeResponsibility.entryOffice.entryOfficeIdentification.localOrganisationId.organisationId
+        )
+        new_id = (
+            self.data.eventChangeResponsibility.responsibleDecisionAuthority.decisionAuthority.buildingAuthorityIdentificationType.localOrganisationId.organisationId
+        )
+
+        try:
+            new_service = Service.objects.get(pk=new_id)
+            old_instance_service = InstanceService.objects.get(
+                instance=self.instance, service__pk=old_id
+            )
+        except (Service.DoesNotExist, InstanceService.DoesNotExist):
+            raise SendHandlerException("Unknown service!")
+
+        old_instance_service.active = 0
+        old_instance_service.save()
+
+        InstanceService.objects.create(
+            instance=self.instance, service=new_service, active=1
         )
 
 
