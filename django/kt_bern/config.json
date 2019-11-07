@@ -37,7 +37,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -177,7 +177,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -252,6 +252,34 @@
     },
     "model": "core.action",
     "pk": 10055
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20005,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 130000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10057
   },
   {
     "fields": {
@@ -359,7 +387,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -1226,6 +1254,30 @@
     },
     "model": "core.actiont",
     "pk": 10055
+  },
+  {
+    "fields": {
+      "action": 10056,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Task",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "action": 10057,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Task",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10057
   },
   {
     "fields": {
@@ -40079,6 +40131,20 @@
     },
     "model": "core.aphp",
     "pk": 10055
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211Task"
+    },
+    "model": "core.aphp",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211Task"
+    },
+    "model": "core.aphp",
+    "pk": 10057
   },
   {
     "fields": {
