@@ -1,7 +1,7 @@
+import xml.dom.minidom
 from uuid import uuid4
 
 from django.db import models
-from lxml import etree
 
 
 class Message(models.Model):
@@ -16,8 +16,8 @@ class Message(models.Model):
 
         This is a convenience method for testing.
         """
-        root = etree.fromstring(self.body)
-        print(etree.tostring(root, pretty_print=True).decode())
+        dom = xml.dom.minidom.parseString(self.body)
+        print(dom.toprettyxml())
 
     class Meta:
         managed = True
