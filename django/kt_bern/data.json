@@ -127051,10 +127051,10 @@
       "email": "service-account-test-gemeinde@placeholder.org",
       "language": "de",
       "last_login": "2018-02-23T14:27:27Z",
-      "name": "test-gemeinde",
+      "name": "service-account-test-gemeinde",
       "password": null,
       "phone": null,
-      "surname": "test-gemeinde",
+      "surname": "service-account-test-gemeinde",
       "username": "service-account-test-gemeinde",
       "zip": null
     },
