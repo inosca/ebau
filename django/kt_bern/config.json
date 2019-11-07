@@ -37,7 +37,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -177,7 +177,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 5,
       "success_message": null
     },
     "model": "core.action",
@@ -196,6 +196,90 @@
     },
     "model": "core.action",
     "pk": 10051
+  },
+  {
+    "fields": {
+      "available_action": "formtransition",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10052
+  },
+  {
+    "fields": {
+      "available_action": "pageredirect",
+      "button": 20002,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10053
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20007,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10055
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20005,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 6,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 130000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10057
   },
   {
     "fields": {
@@ -303,7 +387,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 5,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -560,20 +644,6 @@
     },
     "model": "core.action",
     "pk": 20041
-  },
-  {
-    "fields": {
-      "available_action": "php",
-      "button": 20002,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 4,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 20069
   },
   {
     "fields": {
@@ -1139,6 +1209,78 @@
   },
   {
     "fields": {
+      "action": 10052,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Change State to Dossierpr\u00fcfung",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10052
+  },
+  {
+    "fields": {
+      "action": 10053,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Redirect",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10053
+  },
+  {
+    "fields": {
+      "action": 10054,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Accompanying Report",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "action": 10055,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Accompanying Report",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10055
+  },
+  {
+    "fields": {
+      "action": 10056,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Task",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "action": 10057,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Trigger ECH0211 event: Task",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10057
+  },
+  {
+    "fields": {
       "action": 20006,
       "description": null,
       "error_message": null,
@@ -1448,18 +1590,6 @@
     },
     "model": "core.actiont",
     "pk": 20041
-  },
-  {
-    "fields": {
-      "action": 20069,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "GoToNextStateAfterEbauNumber",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 20069
   },
   {
     "fields": {
@@ -1916,6 +2046,14 @@
     },
     "model": "core.actiont",
     "pk": 150002
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20006
+    },
+    "model": "core.aformtransition",
+    "pk": 10052
   },
   {
     "fields": {
@@ -39911,6 +40049,15 @@
   },
   {
     "fields": {
+      "air_action_name": "index",
+      "instance_resource": 20074,
+      "resource": 20006
+    },
+    "model": "core.apageredirect",
+    "pk": 10053
+  },
+  {
+    "fields": {
       "air_action_name": "edit",
       "instance_resource": 20004,
       "resource": 20006
@@ -39950,7 +40097,7 @@
     "model": "core.aphp",
     "pk": 10048
   },
-{
+  {
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
     },
@@ -39964,7 +40111,7 @@
     "model": "core.aphp",
     "pk": 10050
   },
-{
+  {
     "fields": {
       "php_class": "TriggerECH0211StatusNotification"
     },
@@ -39973,17 +40120,38 @@
   },
   {
     "fields": {
+      "php_class": "TriggerECH0211AccompanyingReport"
+    },
+    "model": "core.aphp",
+    "pk": 10054
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211AccompanyingReport"
+    },
+    "model": "core.aphp",
+    "pk": 10055
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211Task"
+    },
+    "model": "core.aphp",
+    "pk": 10056
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211Task"
+    },
+    "model": "core.aphp",
+    "pk": 10057
+  },
+  {
+    "fields": {
       "php_class": "NewEbauNumber"
     },
     "model": "core.aphp",
     "pk": 20017
-  },
-  {
-    "fields": {
-      "php_class": "GoToNextStateAfterEbauNumber"
-    },
-    "model": "core.aphp",
-    "pk": 20069
   },
   {
     "fields": {

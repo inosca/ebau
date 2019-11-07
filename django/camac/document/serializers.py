@@ -45,6 +45,12 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     attachment_sections = FormDataResourceRelatedField(
         queryset=models.AttachmentSection.objects, many=True
     )
+    included_serializers = {
+        "user": "camac.user.serializers.UserSerializer",
+        "instance": "camac.instance.serializers.InstanceSerializer",
+        "attachment_sections": AttachmentSectionSerializer,
+        "service": "camac.user.serializers.ServiceSerializer",
+    }
 
     def validate_attachment_sections(self, attachment_sections):
         if not attachment_sections:
@@ -108,13 +114,6 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             data["mime_type"] = path.content_type
             data["name"] = path.name
         return data
-
-    included_serializers = {
-        "user": "camac.user.serializers.UserSerializer",
-        "instance": "camac.instance.serializers.InstanceSerializer",
-        "attachment_sections": AttachmentSectionSerializer,
-        "service": "camac.user.serializers.ServiceSerializer",
-    }
 
     def create(self, validated_data):
         attachment = super().create(validated_data)
