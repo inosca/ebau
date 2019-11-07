@@ -175,7 +175,7 @@ def test_send(
         assert ech_instance.instance_state == excpected_state
         assert DocxDecision.objects.get(instance=ech_instance.pk)
     else:
-        assert response.status_code == 404
+        assert response.status_code == 403
 
 
 def test_send_400_no_data(admin_client):
@@ -250,6 +250,15 @@ def test_send_unknown_message_type(admin_client, admin_user, ech_instance):
         url,
         data=xml_data("notice_ruling").replace("5100010", "blablabla"),
         content_type="application/xml",
+    )
+
+    assert response.status_code == 404
+
+
+def test_send_unknown_instance(admin_client, admin_user):
+    url = reverse("send")
+    response = admin_client.post(
+        url, data=xml_data("notice_ruling"), content_type="application/xml"
     )
 
     assert response.status_code == 404

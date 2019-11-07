@@ -153,15 +153,6 @@ class SendView(GenericViewSet):
     parser_classes = (ECHXMLParser,)
     serializer_class = Serializer
 
-    def get_object(self):
-        instance_id = self.request.data.eventNotice.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
-        instance = get_object_or_404(self.get_queryset(), pk=instance_id)
-        if not instance.active_service == self.request.group.service:
-            raise Http404
-        return instance
-
     @swagger_auto_schema(
         tags=["ECH"],
         operation_summary="Send message",
@@ -174,17 +165,17 @@ class SendView(GenericViewSet):
     def create(self, request, *args, **kwargs):
         if not request.data:
             return HttpResponse(status=400)
-        instance = self.get_object()
+
         try:
             send_handler = get_send_handler(
                 request.data,
-                instance,
+                self.get_queryset(),
                 request.user,
                 request.group,
                 get_authorization_header(request),
             )
-        except KeyError:
-            return HttpResponse("Message type not implemented!", status=404)
+        except SendHandlerException as e:
+            return HttpResponse(str(e), status=404)
 
         if not send_handler.has_permission():
             return HttpResponse(status=403)
