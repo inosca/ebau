@@ -3,14 +3,17 @@ import pytest
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
+    INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
 )
 from camac.core.models import InstanceService
 from camac.echbern.tests.utils import xml_data
+from camac.instance.models import Instance
 
 from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (
     ChangeResponsibilitySendHandler,
+    CloseDossierSendHandler,
     RulingNoticeSendHandler,
     SendHandlerException,
 )
@@ -47,7 +50,7 @@ def test_ruling_notice_permissions(
 
     dh = RulingNoticeSendHandler(
         data=data,
-        instance=ech_instance,
+        queryset=Instance.objects,
         user=None,
         group=admin_user.groups.first(),
         auth_header=None,
@@ -56,8 +59,14 @@ def test_ruling_notice_permissions(
 
 
 @pytest.mark.parametrize("fail", [False, True])
-def test_change_responsibility_send_handler(fail, service_factory, ech_instance):
+def test_change_responsibility_send_handler(
+    fail, admin_user, service_factory, ech_instance
+):
     burgdorf = ech_instance.active_service
+
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.save()
 
     if not fail:
         madiswil = service_factory(pk=20351)
@@ -65,7 +74,7 @@ def test_change_responsibility_send_handler(fail, service_factory, ech_instance)
     data = CreateFromDocument(xml_data("change_responsibility"))
 
     dh = ChangeResponsibilitySendHandler(
-        data=data, instance=ech_instance, user=None, group=None, auth_header=None
+        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
     assert dh.has_permission() is True
 
@@ -81,3 +90,23 @@ def test_change_responsibility_send_handler(fail, service_factory, ech_instance)
     else:
         with pytest.raises(SendHandlerException):
             dh.apply()
+
+
+def test_close_dossier_send_handler(ech_instance, admin_user, instance_state_factory):
+    instance_state_factory(pk=INSTANCE_STATE_FINISHED)
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.save()
+
+    data = CreateFromDocument(xml_data("close_dossier"))
+
+    dh = CloseDossierSendHandler(
+        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
+    )
+
+    assert dh.has_permission() is True
+
+    dh.apply()
+    ech_instance.refresh_from_db()
+
+    assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED

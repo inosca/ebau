@@ -9,12 +9,16 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_REJECTED,
 )
 from camac.core.models import DocxDecision, InstanceService
-from camac.instance.models import InstanceState
+from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
 from .data_preparation import get_form_slug
 
-ECH_MESSAGE_MAPPING = {"5100010": "RulingNotice", "5100011": "ChangeResponsibility"}
+ECH_MESSAGE_MAPPING = {
+    "5100010": "RulingNotice",
+    "5100011": "ChangeResponsibility",
+    "5100013": "CloseDossier",
+}
 
 
 class SendHandlerException(Exception):
@@ -22,15 +26,28 @@ class SendHandlerException(Exception):
 
 
 class BaseSendHandler:
-    def __init__(self, data, instance, user, group, auth_header):
+    def __init__(self, data, queryset, user, group, auth_header):
         self.data = data
-        self.instance = instance
         self.user = user
         self.group = group
         self.auth_header = auth_header
+        self.instance = self._get_instance(queryset)
 
-    def has_permission(self):  # pragma: no cover
-        raise NotImplementedError()
+    def _get_instance(self, queryset):
+        try:
+            return queryset.get(pk=self.get_instance_id())
+        except Instance.DoesNotExist:
+            raise SendHandlerException("Unknown instance")
+
+    def get_instance_id(self):
+        return self.data.eventNotice.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+
+    def has_permission(self):
+        if not self.instance.active_service == self.group.service:
+            return False
+        return True
 
     def apply(self):  # pragma: no cover
         raise NotImplementedError()
@@ -38,6 +55,8 @@ class BaseSendHandler:
 
 class RulingNoticeSendHandler(BaseSendHandler):
     def has_permission(self):
+        if not super().has_permission():
+            return False
         if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
             if self.data.eventNotice.decisionRuling.judgement == 4:
                 return True
@@ -79,8 +98,10 @@ class RulingNoticeSendHandler(BaseSendHandler):
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
-    def has_permission(self):
-        return True
+    def get_instance_id(self):
+        return self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
 
     def apply(self):
         old_id = (
@@ -106,8 +127,23 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
         )
 
 
+class CloseDossierSendHandler(BaseSendHandler):
+    def get_instance_id(self):
+        return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+
+    def apply(self):
+        state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
+        self.instance.instance_state = state
+        self.instance.save()
+
+
 def get_send_handler(data, instance, user, group, auth_header):
-    prefix = ECH_MESSAGE_MAPPING[data.deliveryHeader.messageType]
+    try:
+        prefix = ECH_MESSAGE_MAPPING[data.deliveryHeader.messageType]
+    except KeyError:
+        raise SendHandlerException("Message type not implemented!")
     sh = getattr(sys.modules[__name__], f"{prefix}SendHandler")(
         data, instance, user, group, auth_header
     )
