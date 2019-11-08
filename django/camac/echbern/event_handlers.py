@@ -11,6 +11,7 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
+from camac.core.models import Activation
 
 from .data_preparation import get_document
 from .formatters import (
@@ -164,6 +165,50 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
 
 class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
+
+    def get_xml(self, data, activation_id):
+        # send link to Stellungnahme abgeben
+        url = (
+            f"{settings.INTERNAL_BASE_URL}/circulation/edit-notice/instance-resource-id/20039/instance-id/{self.instance.pk}/activation-id/{activation_id}",
+        )
+        try:
+            return delivery(
+                self.instance,
+                data,
+                message_date=self.message_date,
+                message_id=str(self.message_id),
+                url=url,
+                eventRequest=request(self.instance, self.event_type),
+            ).toxml()
+        except (
+            IncompleteElementContentError,
+            UnprocessedElementContentError,
+            UnprocessedKeywordContentError,
+        ) as e:  # pragma: no cover
+            logger.error(e.details())
+            raise
+
+    def create_message(self, xml, receiver):
+        message = Message.objects.create(
+            body=xml,
+            receiver=receiver,
+            created_at=self.message_date,
+            id=self.message_id,
+        )
+        return message
+
+    def run(self):
+        msgs = []
+        data = self.get_data()
+        for a in Activation.objects.filter(
+            circulation__instance=self.instance, ech_msg_created=False
+        ):
+            self.message_id = uuid4()
+            xml = self.get_xml(data, a.pk)
+            msgs.append(self.create_message(xml, a.service))
+            a.ech_msg_created = True
+            a.save()
+        return msgs
 
 
 class ClaimEventHandler(BaseEventHandler):

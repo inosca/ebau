@@ -618,6 +618,7 @@ class Activation(models.Model):
         null=True,
     )
     email_sent = models.PositiveSmallIntegerField(db_column="EMAIL_SENT", default=1)
+    ech_msg_created = models.BooleanField(default=False)
 
     class Meta:
         managed = True
