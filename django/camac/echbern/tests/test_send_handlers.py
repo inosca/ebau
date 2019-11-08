@@ -14,7 +14,7 @@ from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (
     ChangeResponsibilitySendHandler,
     CloseDossierSendHandler,
-    RulingNoticeSendHandler,
+    NoticeRulingSendHandler,
     SendHandlerException,
 )
 
@@ -48,7 +48,7 @@ def test_ruling_notice_permissions(
     group.service = ech_instance.services.first()
     group.save()
 
-    dh = RulingNoticeSendHandler(
+    dh = NoticeRulingSendHandler(
         data=data,
         queryset=Instance.objects,
         user=None,

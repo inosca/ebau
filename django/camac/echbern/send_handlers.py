@@ -15,7 +15,7 @@ from camac.user.models import Service
 from .data_preparation import get_form_slug
 
 ECH_MESSAGE_MAPPING = {
-    "5100010": "RulingNotice",
+    "5100010": "NoticeRuling",
     "5100011": "ChangeResponsibility",
     "5100013": "CloseDossier",
 }
@@ -53,7 +53,7 @@ class BaseSendHandler:
         raise NotImplementedError()
 
 
-class RulingNoticeSendHandler(BaseSendHandler):
+class NoticeRulingSendHandler(BaseSendHandler):
     def has_permission(self):
         if not super().has_permission():
             return False
