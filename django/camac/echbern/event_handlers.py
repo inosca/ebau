@@ -42,10 +42,11 @@ class BaseEventHandler:
     def get_xml(self, data):  # pragma: no cover
         raise NotImplementedError()
 
-    def create_message(self, xml):
+    def create_message(self, xml, receiver=None):
+        receiver = receiver if receiver else self.instance.active_service
         message = Message.objects.create(
             body=xml,
-            receiver=self.instance.active_service,
+            receiver=receiver,
             created_at=self.message_date,
             id=self.message_id,
         )
@@ -187,15 +188,6 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
-
-    def create_message(self, xml, receiver):
-        message = Message.objects.create(
-            body=xml,
-            receiver=receiver,
-            created_at=self.message_date,
-            id=self.message_id,
-        )
-        return message
 
     def run(self):
         msgs = []
