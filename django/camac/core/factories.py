@@ -19,6 +19,48 @@ class InstanceServiceFactory(DjangoModelFactory):
         model = models.InstanceService
 
 
+class FormGroupFactory(DjangoModelFactory):
+    name = Faker("name")
+
+    class Meta:
+        model = models.FormGroup
+
+
+class AvailableResourceFactory(DjangoModelFactory):
+    available_resource_id = Faker("slug")
+
+    class Meta:
+        model = models.AvailableResource
+
+
+class AvailableInstanceResourceFactory(DjangoModelFactory):
+    available_instance_resource_id = Faker("slug")
+
+    class Meta:
+        model = models.AvailableInstanceResource
+
+
+class ResourceFactory(DjangoModelFactory):
+    hidden = 0
+    sort = 7
+    available_resource = SubFactory(AvailableResourceFactory)
+
+    class Meta:
+        model = models.Resource
+
+
+class InstanceResourceFactory(DjangoModelFactory):
+    name = Faker("name")
+    hidden = 0
+    sort = 7
+    available_instance_resource = SubFactory(AvailableInstanceResourceFactory)
+    form_group = SubFactory(FormGroupFactory)
+    resource = SubFactory(ResourceFactory)
+
+    class Meta:
+        model = models.InstanceResource
+
+
 class CirculationTypeFactory(DjangoModelFactory):
     name = Faker("name")
     parent_specific_activations = 0
@@ -63,13 +105,6 @@ class DocxDecisionFactory(DjangoModelFactory):
 
     class Meta:
         model = models.DocxDecision
-
-
-class FormGroupFactory(DjangoModelFactory):
-    name = Faker("name")
-
-    class Meta:
-        model = models.FormGroup
 
 
 class CirculationStateFactory(DjangoModelFactory):
