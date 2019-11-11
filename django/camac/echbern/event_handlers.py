@@ -23,7 +23,7 @@ from .formatters import (
     submit,
 )
 from .models import Message
-from .signals import instance_submitted, sb1_submitted, sb2_submitted
+from .signals import instance_submitted, sb1_submitted, sb2_submitted, task_send
 
 logger = logging.getLogger(__name__)
 
@@ -200,6 +200,9 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
             msgs.append(self.create_message(xml, a.service))
             a.ech_msg_created = True
             a.save()
+            # TODO: Also send a notification mail. Up until now the notification mails
+            #  have been rendered in php and then sent from django. We need to move
+            #  everything to django, in order to send the same mails.
         return msgs
 
 
@@ -291,4 +294,11 @@ def submit_callback(sender, instance, group_pk, **kwargs):
 def send_status_notification(sender, instance, group_pk, **kwargs):
     if settings.ECH_API:
         handler = StatusNotificationEventHandler(instance, group_pk)
+        handler.run()
+
+
+@receiver(task_send)
+def task_callback(sender, instance, group_pk, **kwargs):
+    if settings.ECH_API:
+        handler = TaskEventHandler(instance, group_pk)
         handler.run()
