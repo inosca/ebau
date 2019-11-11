@@ -4,3 +4,5 @@ instance_submitted = django.dispatch.Signal(providing_args=["instance", "group_p
 
 sb1_submitted = django.dispatch.Signal(providing_args=["instance", "group_pk"])
 sb2_submitted = django.dispatch.Signal(providing_args=["instance", "group_pk"])
+
+task_send = django.dispatch.Signal(providing_args=["instance", "group_pk"])

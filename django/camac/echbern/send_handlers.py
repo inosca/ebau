@@ -7,12 +7,21 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_ZIRKULATION,
 )
-from camac.core.models import DocxDecision, InstanceService
+from camac.core.models import (
+    Activation,
+    Circulation,
+    CirculationState,
+    DocxDecision,
+    InstanceResource,
+    InstanceService,
+)
 from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
 from .data_preparation import get_form_slug
+from .signals import task_send
 
 ECH_MESSAGE_MAPPING = {
     "5100010": "NoticeRuling",
@@ -137,6 +146,67 @@ class CloseDossierSendHandler(BaseSendHandler):
         state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
         self.instance.instance_state = state
         self.instance.save()
+
+
+class TaskSendHandler(BaseSendHandler):
+    def get_instance_id(self):
+        return self.data.eventRequest.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+
+    def has_permission(self):
+        if not super().has_permission():  # pragma: no cover
+            return False
+        if not self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+            return False
+        return True
+
+    def _get_circulation(self):
+        # we add the Activation to the most recent Circulation or start a new one
+        circulation = (
+            Circulation.objects.filter(instance=self.instance).order_by("-pk").first()
+        )
+        if not circulation:
+            instance_resource = InstanceResource.objects.get(
+                pk=INSTANCE_STATE_ZIRKULATION
+            )
+            circulation = Circulation.objects.create(
+                instance=self.instance, instance_resource_id=instance_resource.pk
+            )
+        return circulation
+
+    def _get_service(self):
+        try:
+            return Service.objects.get(
+                pk=int(
+                    self.data.eventRequest.extension.wildcardElements()[
+                        0
+                    ].firstChild.value
+                )
+            )
+        except (ValueError, Service.DoesNotExist):
+            raise SendHandlerException("Unknown service!")
+
+    def _create_activation(self, circulation, service):
+        circulation_state = CirculationState.objects.get(pk=1)
+        return Activation.objects.create(
+            circulation=circulation,
+            service=service,
+            start_date=timezone.now(),
+            deadline_date=timezone.now() + timezone.timedelta(weeks=4),
+            version=1,
+            circulation_state=circulation_state,
+            service_parent=self.instance.active_service,
+        )
+
+    def apply(self):
+        circulation = self._get_circulation()
+        service = self._get_service()
+        self._create_activation(circulation, service)
+
+        task_send.send(
+            sender=self.__class__, instance=self.instance, group_pk=self.group.pk
+        )
 
 
 def get_send_handler(data, instance, user, group, auth_header):
