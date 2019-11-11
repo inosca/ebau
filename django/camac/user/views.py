@@ -72,7 +72,7 @@ class PublicServiceView(viewsets.ReadOnlyModelViewSet):
 
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):  # pragma: no cover
-            return models.Attachment.objects.none()
+            return models.Service.objects.none()
         return models.Service.objects.filter(disabled=False).prefetch_related("groups")
 
     @swagger_auto_schema(tags=["Service"], operation_summary="Get service information")
