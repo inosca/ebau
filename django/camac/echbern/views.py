@@ -13,6 +13,7 @@ from rest_framework_xml.renderers import XMLRenderer
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
+from camac.swagger_params import group_param
 
 from . import event_handlers, formatters
 from .data_preparation import get_document
@@ -32,6 +33,7 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
 
     @swagger_auto_schema(
         tags=["ECH"],
+        manual_parameters=[group_param],
         operation_summary="Get baseDelivery for instance",
         responses={"200": "eCH-0211 baseDelivery"},
     )
@@ -117,7 +119,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
 
     @swagger_auto_schema(
         tags=["ECH"],
-        manual_parameters=[last_param],
+        manual_parameters=[group_param, last_param],
         operation_summary="Get message",
         responses={"200": "eCH-0211 message"},
     )
@@ -155,6 +157,7 @@ class SendView(GenericViewSet):
 
     @swagger_auto_schema(
         tags=["ECH"],
+        manual_parameters=[group_param],
         operation_summary="Send message",
         request_body=openapi.Schema(
             type=openapi.TYPE_STRING,
