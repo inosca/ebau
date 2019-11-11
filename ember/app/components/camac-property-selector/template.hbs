@@ -72,14 +72,14 @@
       onLoad    = (perform handleLoad)
       class     = 'uk-width-1-1 uk-height-large uk-margin'
     as |map|}}
-      {{map.tile url='https://tile0.map.geo.sz.ch/main/tiles/1.0.0/ch_sz_avg_ortsplan_farbig/default/201610/swissgrid_2056/{z}/{y}/{x}.png' zoomOffset=3}}
+      {{map.tile url=tileURL zoomOffset=3}}
 
       {{map.wms-tile
         transparent = true
         format      = 'image/png'
         version     = '1.1.1'
         layers      = layers
-        url         = 'https://map.geo.sz.ch/main/wsgi/mapserv_proxy'
+        url         = gisURL
       }}
       {{#each parcels key='egrid' as |parcel|}}
         {{#map.polygon locations=parcel.coordinates clickable=false color='red' as |polygon|}}
