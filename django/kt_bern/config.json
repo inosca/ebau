@@ -914,6 +914,20 @@
   {
     "fields": {
       "available_action": "save",
+      "button": 20051,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 20116
+  },
+  {
+    "fields": {
+      "available_action": "save",
       "button": 40029,
       "description": null,
       "error_message": null,
@@ -1926,6 +1940,18 @@
     },
     "model": "core.actiont",
     "pk": 20124
+  },
+  {
+    "fields": {
+      "action": 20116,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Save",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 20125
   },
   {
     "fields": {
@@ -41665,6 +41691,18 @@
   },
   {
     "fields": {
+      "class_field": "success",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 20077,
+      "name": null,
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 20051
+  },
+  {
+    "fields": {
       "class_field": "success active_leitbehoerde_only",
       "description": null,
       "hidden": 0,
@@ -41978,6 +42016,26 @@
     },
     "model": "core.buttont",
     "pk": 20053
+  },
+  {
+    "fields": {
+      "button": 20051,
+      "description": null,
+      "language": "de",
+      "name": "Speichern"
+    },
+    "model": "core.buttont",
+    "pk": 20054
+  },
+  {
+    "fields": {
+      "button": 20051,
+      "description": null,
+      "language": "fr",
+      "name": "Enregistrer"
+    },
+    "model": "core.buttont",
+    "pk": 20055
   },
   {
     "fields": {
@@ -49563,7 +49621,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20008,
-      "sort": 3,
+      "sort": 4,
       "template": null
     },
     "model": "core.instanceresource",
@@ -49893,7 +49951,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20008,
-      "sort": 2,
+      "sort": 3,
       "template": null
     },
     "model": "core.instanceresource",
@@ -50021,6 +50079,21 @@
   },
   {
     "fields": {
+      "available_instance_resource": "editresponsibleuser",
+      "class_field": "menu-category-primary",
+      "description": null,
+      "form_group": 40000,
+      "hidden": 0,
+      "name": null,
+      "resource": 20008,
+      "sort": 2,
+      "template": "/responsible/index.phtml"
+    },
+    "model": "core.instanceresource",
+    "pk": 20077
+  },
+  {
+    "fields": {
       "available_instance_resource": "editformpages",
       "class_field": "menu-category-process",
       "description": null,
@@ -50118,7 +50191,7 @@
       "hidden": 0,
       "name": null,
       "resource": 20008,
-      "sort": 4,
+      "sort": 5,
       "template": null
     },
     "model": "core.instanceresource",
@@ -53323,6 +53396,26 @@
     },
     "model": "core.instanceresourcet",
     "pk": 20076
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20077,
+      "language": "de",
+      "name": "Zust\u00e4ndigkeit"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20077
+  },
+  {
+    "fields": {
+      "description": null,
+      "instance_resource": 20077,
+      "language": "fr",
+      "name": "Comp\u00e9tence"
+    },
+    "model": "core.instanceresourcet",
+    "pk": 20078
   },
   {
     "fields": {
@@ -57101,6 +57194,123 @@
     },
     "model": "core.irroleacl",
     "pk": 21717
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20011,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21718
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20013,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21719
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20014,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21720
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20011,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21721
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20013,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21722
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20014,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21723
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20010,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21724
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 10000,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21725
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20009,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21727
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 120000,
+      "role": 5
+    },
+    "model": "core.irroleacl",
+    "pk": 21728
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 10000,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21729
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 20009,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21731
+  },
+  {
+    "fields": {
+      "instance_resource": 20077,
+      "instance_state": 120000,
+      "role": 20006
+    },
+    "model": "core.irroleacl",
+    "pk": 21732
   },
   {
     "fields": {
@@ -146378,6 +146588,16 @@
     },
     "model": "responsible.ireditresponsibleuser",
     "pk": 20020
+  },
+  {
+    "fields": {
+      "column_name": null,
+      "is_required": false,
+      "is_service_responsible": true,
+      "table_name": null
+    },
+    "model": "responsible.ireditresponsibleuser",
+    "pk": 20077
   },
   {
     "fields": {
