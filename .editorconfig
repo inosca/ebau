@@ -1,3 +1,5 @@
+# editorconfig.org
+
 root = true
 
 [*]
@@ -33,6 +35,9 @@ indent_size  = 4
 indent_style = space
 indent_size  = 2
 
-[*.phtml]
+[*.{phtml,xml,svg}]
 indent_style = tab
 indent_size = 4
+
+[*.{diff,md}]
+trim_trailing_whitespace = false
