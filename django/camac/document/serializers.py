@@ -169,8 +169,9 @@ class AttachmentSerializer(InstanceEditableMixin, serializers.ModelSerializer):
             "service",
             "question",
             "context",
+            "uuid",
         )
-        read_only_fields = ("date", "mime_type", "name", "size", "user")
+        read_only_fields = ("date", "mime_type", "name", "size", "user", "uuid")
 
 
 class TemplateSerializer(serializers.ModelSerializer):
