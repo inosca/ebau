@@ -21,7 +21,9 @@ def test_base_delivery(
     ech_instance,
 ):
     ech_mandatory_answers = ech_mandatory_answers_baugesuch
-    if form == "einfache vorabklaerung":
+    if form == "baugesuch":
+        ech_mandatory_answers_baugesuch["baukosten-in-chf"] = 999  # too cheap
+    elif form == "einfache vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_einfache_vorabklaerung
     elif form == "vollstaendige vorabklaerung":
         ech_mandatory_answers = ech_mandatory_answers_vollstaendige_vorabklaerung
