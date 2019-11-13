@@ -28,6 +28,7 @@ class AttachmentFactory(DjangoModelFactory):
     size = Faker("pyint")
     user = SubFactory(UserFactory)
     mime_type = Faker("mime_type")
+    uuid = Faker("uuid4")
 
     class Meta:
         model = models.Attachment
