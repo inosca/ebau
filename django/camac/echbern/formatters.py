@@ -89,6 +89,19 @@ def get_document_sections(attachment):
     return "; ".join(sections)
 
 
+def get_plz(value):
+    if not value or not len(str(value)) == 4:
+        # use 9999 for non swiss zips
+        return 9999
+    return value
+
+
+def get_cost(value):
+    if value and value < 1000:
+        return 1000
+    return value
+
+
 def get_documents(attachments):
     documents = [
         ns_document.documentType(
@@ -207,7 +220,7 @@ def get_realestateinformation(answers):
                             street=owner.get("strasse-gesuchstellerin"),
                             houseNumber=owner.get("nummer-gesuchstellerin"),
                             town=ns_address.townType(owner["ort-gesuchstellerin"]),
-                            swissZipCode=owner["plz-gesuchstellerin"],
+                            swissZipCode=get_plz(owner["plz-gesuchstellerin"]),
                             # foreignZipCode minOccurs=0
                             country="CH",
                         ),
@@ -219,7 +232,7 @@ def get_realestateinformation(answers):
         for parzelle in answers.get("parzelle", [])
     ]
 
-    if re_info == []:
+    if not re_info:
         # happens if form == vorabklaerung
         re_info = [
             ns_application.realestateInformationType(
@@ -253,7 +266,7 @@ def get_realestateinformation(answers):
                                 street=owner.get("strasse-gesuchstellerin"),
                                 houseNumber=owner.get("nummer-gesuchstellerin"),
                                 town=ns_address.townType(owner["ort-gesuchstellerin"]),
-                                swissZipCode=owner["plz-gesuchstellerin"],
+                                swissZipCode=get_plz(owner["plz-gesuchstellerin"]),
                                 country="CH",
                             ),
                         )
@@ -276,7 +289,7 @@ def get_realestateinformation(answers):
                                 town=ns_address.townType(
                                     answers["ort-gesuchstellerin"]
                                 ),
-                                swissZipCode=answers["plz-gesuchstellerin"],
+                                swissZipCode=get_plz(answers["plz-gesuchstellerin"]),
                                 country="CH",
                             ),
                         )
@@ -314,7 +327,7 @@ def application(instance: Instance, answers: dict):
         intendedPurpose=list_to_string(answers, "nutzungsart"),
         parkingLotsYesNo=answers.get("anzahl-abstellplaetze-fur-motorfahrzeuge", 0) > 0,
         natureRisk=nature_risk,
-        constructionCost=answers.get("baukosten-in-chf"),
+        constructionCost=get_cost(answers.get("baukosten-in-chf")),
         # publication minOccurs=0
         namedMetaData=[
             ns_objektwesen.namedMetaDataType(
@@ -327,7 +340,7 @@ def application(instance: Instance, answers: dict):
             houseNumber=answers.get("nr", "0"),
             street=answers.get("strasse-flurname", "unknown"),
             town=answers.get("ort-grundstueck", "unknown"),
-            swissZipCode=answers.get("plz", 9999),
+            swissZipCode=get_plz(answers.get("plz")),
             country="CH",
         ),
         realestateInformation=get_realestateinformation(answers),
@@ -342,7 +355,7 @@ def application(instance: Instance, answers: dict):
                 description=answers.get("beschreibung-bauvorhaben", "None"),
                 projectStartDate=answers.get("geplanter-baustart"),
                 durationOfConstructionPhase=answers.get("dauer-in-monaten"),
-                totalCostsOfProject=answers.get("baukosten-in-chf"),
+                totalCostsOfProject=get_cost(answers.get("baukosten-in-chf")),
             ),
             municipality=ech_0007_6_0.swissMunicipalityType(
                 municipalityName=answers["parzelle"][0].get(
