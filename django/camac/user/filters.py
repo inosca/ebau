@@ -13,6 +13,7 @@ class LocationFilterSet(FilterSet):
 
 
 class PublicServiceFilterSet(FilterSet):
+    service_id = NumberMultiValueFilter()
     has_parent = BooleanFilter(
         field_name="service_parent", lookup_expr="isnull", exclude=True
     )
