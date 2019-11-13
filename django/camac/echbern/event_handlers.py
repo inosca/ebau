@@ -23,7 +23,13 @@ from .formatters import (
     submit,
 )
 from .models import Message
-from .signals import instance_submitted, sb1_submitted, sb2_submitted, task_send
+from .signals import (
+    accompanying_report_send,
+    instance_submitted,
+    sb1_submitted,
+    sb2_submitted,
+    task_send,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -237,8 +243,12 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data):
-        attachments = self.instance.attachments.filter(attachment_sections__pk=7)
+    def get_xml(self, data, attachments):
+        attachments = (
+            attachments
+            if attachments
+            else self.instance.attachments.filter(attachment_sections__pk=7)
+        )
         try:
             return delivery(
                 self.instance,
@@ -256,6 +266,11 @@ class AccompanyingReportEventHandler(BaseEventHandler):
         ) as e:  # pragma: no cover
             logger.error(e.details())
             raise
+
+    def run(self, attachments=None):
+        data = self.get_data()
+        xml = self.get_xml(data, attachments)
+        return self.create_message(xml)
 
 
 class ChangeResponsibilityEventHandler(BaseEventHandler):
@@ -302,3 +317,10 @@ def task_callback(sender, instance, group_pk, **kwargs):
     if settings.ECH_API:
         handler = TaskEventHandler(instance, group_pk)
         handler.run()
+
+
+@receiver(accompanying_report_send)
+def accompanying_report_callback(sender, instance, group_pk, attachments, **kwargs):
+    if settings.ECH_API:
+        handler = AccompanyingReportEventHandler(instance, group_pk)
+        handler.run(attachments)

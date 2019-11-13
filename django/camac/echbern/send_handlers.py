@@ -17,13 +17,15 @@ from camac.core.models import (
     InstanceResource,
     InstanceService,
 )
+from camac.document.models import Attachment
 from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
 from .data_preparation import get_form_slug
-from .signals import task_send
+from .signals import accompanying_report_send, task_send
 
 ECH_MESSAGE_MAPPING = {
+    "5100004": "AccompanyingReport",
     "5100010": "NoticeRuling",
     "5100011": "ChangeResponsibility",
     "5100013": "CloseDossier",
@@ -133,6 +135,51 @@ class ChangeResponsibilitySendHandler(BaseSendHandler):
 
         InstanceService.objects.create(
             instance=self.instance, service=new_service, active=1
+        )
+
+
+class AccompanyingReportSendHandler(BaseSendHandler):
+    def __init__(self, data, queryset, user, group, auth_header):
+        super().__init__(data, queryset, user, group, auth_header)
+        self.activation = self._get_activation()
+
+    def has_permission(self):
+        return bool(self.activation)
+
+    def get_instance_id(self):
+        return self.data.eventAccompanyingReport.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+
+    def _get_documents(self):
+        uuids = [d.uuid for d in self.data.eventAccompanyingReport.document]
+        attachments = Attachment.objects.filter(uuid__in=uuids)
+        if not attachments:
+            raise SendHandlerException("Unknown document!")
+        return attachments
+
+    def _get_activation(self):
+        service = self.group.service
+        return (
+            Activation.objects.filter(
+                circulation__instance=self.instance,
+                circulation_state__name="RUN",
+                service=service,
+            )
+            .order_by("-circulation__pk")
+            .first()
+        )
+
+    def apply(self):
+        documents = self._get_documents()
+        self.activation.circulation_state = CirculationState.objects.get(name="DONE")
+        self.activation.save()
+
+        accompanying_report_send.send(
+            sender=self.__class__,
+            instance=self.instance,
+            group_pk=self.group.pk,
+            attachments=documents,
         )
 
 
