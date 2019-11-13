@@ -225,12 +225,25 @@ be-submit-instance:
   failed-message: "Oups, quelque chose s'est mal passé. Veuillez vérifier vos données d'entrée à nouveau. {reasons}"
 
 claims:
-  upload: "Télécharger"
+  deadline: "Dû"
+  answered: "Répondu le"
+  answer: "Répondre"
+  showAnswer: "Afficher la réponse"
   submit: "Envoyer les demandes de complément d'information"
-  noPending: "Vous n'avez pas des demandes de complément d'information sans réponse et ne pouvez donc pas télécharger de documents"
-  uploadDocuments: "Télécharger des documents"
-  uploadedDocuments: "Documents téléchargés"
   comment: "Remarque"
+  confirm: "Confirmer"
+  documents: "Documents"
+  contents: "Contenu"
+
+  error: "Erreur lors du répondre de demande de complément d'information"
+
+  empty:
+    pending: "Vous n'avez pas des demandes de complément d'information sans réponse"
+    answered: "Vous n'avez pas encore répondu à demandes de complément d'information"
+
+  filter:
+    pending: "Pendante"
+    answered: "Répondu"
 
 pdf:
   signatures: "Signatures"
