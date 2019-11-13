@@ -1,0 +1,57 @@
+<div uk-grid class="uk-grid-small">
+  <div class="uk-width-auto uk-flex uk-flex-top uk-flex-center">
+    {{#if @claim.isAnswered}}
+      <UkIcon @icon="check" @ratio="2" class="uk-text-success" />
+    {{else if @claim.isOverdue}}
+      <UkIcon @icon="warning" @ratio="2" class="uk-text-warning" />
+    {{else}}
+      <UkIcon @icon="question" @ratio="2" class="uk-text-muted" />
+    {{/if}}
+  </div>
+  <div class="uk-width-expand">
+    <header>
+      <h4 class="uk-margin-remove">{{or @claim.service.name "-"}}</h4>
+      <ul class="uk-subnav uk-subnav-divider uk-margin-remove-top">
+        {{#if @claim.isAnswered}}
+          <li>
+            <a
+              href="#"
+              title={{moment-format @claim.answeredDate "DD.MM.YYYY"}}
+              pos="bottom"
+              delay="200"
+              uk-tooltip
+            >
+              {{t "claims.answered"}} {{moment-format @claim.answeredDate "DD.MM.YYYY"}}
+            </a>
+          </li>
+          {{#if (or @claim.attachments.length @claim.comment.answer.value.length)}}
+            <li>
+              <a href="#" {{on "click" (fn @onEdit @claim)}}>
+                {{t "claims.showAnswer"}}
+              </a>
+            </li>
+          {{/if}}
+        {{else}}
+          <li>
+            <a
+              href="#"
+              class={{if @claim.isOverdue "uk-text-warning"}}
+              title={{moment-format @claim.deadlineDate "DD.MM.YYYY"}}
+              pos="bottom"
+              delay="200"
+              uk-tooltip
+            >
+              {{t "claims.deadline"}} {{moment-from-now @claim.deadlineDate}}
+            </a>
+          </li>
+          <li>
+            <a href="#" {{on "click" (fn @onEdit @claim)}}>
+              {{t "claims.answer"}}
+            </a>
+          </li>
+        {{/if}}
+      </ul>
+    </header>
+    <CfFieldValue @field={{@claim.description}} @tagName="p" />
+  </div>
+</div>
