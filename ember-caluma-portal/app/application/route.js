@@ -8,6 +8,7 @@ const { languages, fallbackLanguage } = config;
 
 export default Route.extend(OIDCApplicationRouteMixin, {
   intl: service(),
+  moment: service(),
   session: service(),
   calumaOptions: service(),
 
@@ -38,10 +39,10 @@ export default Route.extend(OIDCApplicationRouteMixin, {
   },
 
   beforeModel(transition) {
-    this.intl.setLocale([
-      this.getLanguage(transition.to.queryParams.language),
-      fallbackLanguage
-    ]);
+    const locale = this.getLanguage(transition.to.queryParams.language);
+
+    this.intl.setLocale([locale, fallbackLanguage]);
+    this.moment.setLocale(locale);
 
     if (window.top !== window) {
       getOwner(this)
