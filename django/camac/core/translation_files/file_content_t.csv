@@ -1,5 +1,5 @@
 NAME,NAME_FR,URL,URL_FR,TOOLTIP,TOOLTIP_FR,FILE_CONTENT_ID
-"Beilagen Vorabklärung","Annexes à l'étude préalable",,,,,1
+"Beilagen Vorabklärung","Annexes à la demande préalable",,,,,1
 Vollmacht,Procuration,,,,,2
 Sicherungsmassnahme,"Mesure de sûreté",,,"Die gewählten Sicherungsmassnahmen sind auszuweisen.","Les mesures de sûreté choisies doivent être indiquées.",3
 Ausnützung,Utilisation,,,,,4
@@ -20,7 +20,7 @@ Erdwärmensondendimensionierung,"Dimensionnement des sondes géothermiques",,,,,
 "Auftragsbestätigung für Hydrogeologische Begleitung","Confirmation du mandat donné à un/e expert/e en hydrogéologie",,,,,19
 "Konzessionsgesuch für den Betrieb einer Wärmepumpe","Demande de concession pour l'exploitation d'une pompe à chaleur",http://www.bve.be.ch/bve/de/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/de/WN_Gesuchsformulare/WN-WP_Konzessionsgesuch_W%C3%A4rmepumpen_04_2011.pdf,https://www.bve.be.ch/bve/fr/index/direktion/organisation/awa/formulare_bewilligungen/Gebrauchswassernutzung.assetref/dam/documents/BVE/AWA/fr/WN_WK/DOCP-%23241275-v1-WN-WP_Vorlage_Konzessionsgesuch_W%C3%A4rmepumpen_franz%C3%B6sisch_2.pdf,,,20
 "Hydrogeologisches Gutachten bei Grundwassernutzung oder Bericht über die ökologischen Auswirkungen auf das Oberflächengewässer","Expertise hydrogéologique en cas d'utilisation d'eaux souterraines ou rapport concernant l'impact écologique sur les eaux de surface",,,,,21
-Vorabklärung,"Etude préalable",,,,,22
+Vorabklärung,"Demande préalable",,,,,22
 "Vertrag - mit Sicherungsleistung befreite Gebäude","Contrat - bâtiment/s dont les propriétaires ont été exemptés, moyennant une sûreté, de l'obligation de construire un abri",,,,,23
 "Schutzraum (1:50)","Abri (1:50)",,,,,24
 "Bewehrungsplan und Bewehrungsliste","Plans de coffrage et d’armature avec liste des aciers",,,,,25

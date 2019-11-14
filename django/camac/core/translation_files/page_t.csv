@@ -2,7 +2,7 @@ NAME,NAME_FR,PAGE_ID
 ***,***,5
 "eBau-Nummer vergeben","Attribution d'un numéro eBau",20000
 "Rückmeldungen für Gesuchsteller/innen","Commentaire destiné au requérant/à la requérante",20001
-Vorabklärungen,"Etudes préalables",40000
+Vorabklärungen,"Demandes préalables",40000
 Triage,Presélection,40001
 "Zonenvorschriften - Schutzzonen","Prescriptions applicables aux zones - Zones protégées",40002
 ***,***,40003
@@ -47,7 +47,7 @@ Personalien,"Données personnelles",80000
 ***,***,80003
 Bauvorhaben,"Projet de construction",80004
 "Allgemeine Angaben","Indications générales",80005
-"Durchgeführte Vorabklärungen","Etudes préalables réalisées",80006
+"Durchgeführte Vorabklärungen","Demandes préalables réalisées",80006
 "Generelles Baugesuch","Demande de permis de construire général",80007
 "Zonenvorschriften - Baurechtliche Grundordnung","Prescriptions applicables aux zones - Réglementation fondamentale en matière de construction",80008
 Hidden,,100000
