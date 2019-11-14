@@ -47163,7 +47163,7 @@
       "chapter": 8,
       "description": null,
       "language": "fr",
-      "name": "Etudes pr\u00e9alables r\u00e9alis\u00e9es"
+      "name": "Demandes pr\u00e9alables r\u00e9alis\u00e9es"
     },
     "model": "core.chaptert",
     "pk": 110039
@@ -68479,7 +68479,7 @@
   {
     "fields": {
       "language": "fr",
-      "name": "Etude pr\u00e9alable simple",
+      "name": "Demandes pr\u00e9alable simple",
       "page_form_group": 110000
     },
     "model": "core.pageformgroupt",
@@ -69067,7 +69067,7 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Etudes pr\u00e9alables",
+      "name": "Demandes pr\u00e9alables",
       "page": 40000
     },
     "model": "core.paget",
@@ -69497,7 +69497,7 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Etudes pr\u00e9alables r\u00e9alis\u00e9es",
+      "name": "Demandes pr\u00e9alables r\u00e9alis\u00e9es",
       "page": 80006
     },
     "model": "core.paget",
@@ -108098,7 +108098,7 @@
       "default_answer": null,
       "description": null,
       "language": "fr",
-      "name": "Question sur l'\u00e9tude pr\u00e9alable",
+      "name": "Question sur la demande pr\u00e9alable",
       "question": 40014
     },
     "model": "core.questiont",
@@ -108747,7 +108747,7 @@
       "default_answer": null,
       "description": null,
       "language": "fr",
-      "name": "Des \u00e9tudes pr\u00e9alables ont-elles \u00e9t\u00e9 r\u00e9alis\u00e9es?",
+      "name": "Des demandes pr\u00e9alables ont-elles \u00e9t\u00e9 r\u00e9alis\u00e9es?",
       "question": 40078
     },
     "model": "core.questiont",
