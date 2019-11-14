@@ -10,6 +10,7 @@ def ech_instance(db, admin_user, instance_service_factory):
         service__city="Burgdorf",
         service__zip="3400",
         service__address="Teststrasse 23",
+        service__email="burgdorf@example.com",
         service__pk=2,
         active=1,
     )
