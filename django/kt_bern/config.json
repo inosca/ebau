@@ -53862,7 +53862,7 @@
       "description": null,
       "instance_resource": 150004,
       "language": "fr",
-      "name": "Processus de changement"
+      "name": "Historique des modifications"
     },
     "model": "core.instanceresourcet",
     "pk": 150011
@@ -53882,7 +53882,7 @@
       "description": null,
       "instance_resource": 150005,
       "language": "fr",
-      "name": "Processus de changement"
+      "name": "Historique des modifications"
     },
     "model": "core.instanceresourcet",
     "pk": 150013
@@ -53902,7 +53902,7 @@
       "description": null,
       "instance_resource": 150006,
       "language": "fr",
-      "name": "Processus de changement"
+      "name": "Historique des modifications"
     },
     "model": "core.instanceresourcet",
     "pk": 150015
@@ -53922,7 +53922,7 @@
       "description": null,
       "instance_resource": 150007,
       "language": "fr",
-      "name": "Processus de changement"
+      "name": "Historique des modifications"
     },
     "model": "core.instanceresourcet",
     "pk": 150017
