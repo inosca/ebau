@@ -71,7 +71,7 @@
           {{#if dropzone.supported}}
             {{t "documents.drag"}}
           {{/if}}
-          {{#file-upload name="documents" onfileadd=(perform selectFile)}}
+          {{#file-upload name="documents" accept=allowedMimetypes onfileadd=(perform selectFile)}}
             <span class="uk-link">{{t "documents.click"}}</span>
           {{/file-upload}}
         </div>
