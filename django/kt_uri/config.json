@@ -49,6 +49,14 @@
   },
   {
     "fields": {
+      "current_circulation_state": null,
+      "next_circulation_state": 2
+    },
+    "model": "core.acirculationtransition",
+    "pk": 1452
+  },
+  {
+    "fields": {
       "available_action": "save",
       "button": 2,
       "description": "",
@@ -4988,6 +4996,62 @@
     },
     "model": "core.action",
     "pk": 1449
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 947,
+      "description": null,
+      "error_message": "Speichern fehlgeschlagen",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Speichern erfolgreich"
+    },
+    "model": "core.action",
+    "pk": 1450
+  },
+  {
+    "fields": {
+      "available_action": "save",
+      "button": 948,
+      "description": null,
+      "error_message": "Antwort konnte nicht gesendet werden!",
+      "execute_always": 0,
+      "name": "Speichern",
+      "sort": 0,
+      "success_message": "Antwort erfolgreich gesendet"
+    },
+    "model": "core.action",
+    "pk": 1451
+  },
+  {
+    "fields": {
+      "available_action": "circulationtransition",
+      "button": 948,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Zirkulation auf OK setzen",
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1452
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 948,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Gemeindezirkulation Ende",
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 1455
   },
   {
     "fields": {
@@ -10000,6 +10064,13 @@
     },
     "model": "core.aphp",
     "pk": 1438
+  },
+  {
+    "fields": {
+      "php_class": "MunicipalityCircEnd"
+    },
+    "model": "core.aphp",
+    "pk": 1455
   },
   {
     "fields": {
@@ -17209,6 +17280,114 @@
   },
   {
     "fields": {
+      "button": 947,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 601
+  },
+  {
+    "fields": {
+      "button": 947,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 602
+  },
+  {
+    "fields": {
+      "button": 947,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 603
+  },
+  {
+    "fields": {
+      "button": 947,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 604
+  },
+  {
+    "fields": {
+      "button": 947,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 605
+  },
+  {
+    "fields": {
+      "button": 947,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 606
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 607
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 608
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 609
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 610
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 611
+  },
+  {
+    "fields": {
+      "button": 948,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.broleacl",
+    "pk": 612
+  },
+  {
+    "fields": {
       "button": 5,
       "instance_state": 22,
       "service": 1
@@ -19549,6 +19728,30 @@
     },
     "model": "core.button",
     "pk": 946
+  },
+  {
+    "fields": {
+      "class_field": "circ_save_button",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 769,
+      "name": "Antwort speichern",
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 947
+  },
+  {
+    "fields": {
+      "class_field": "circ_send_button no-animation",
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 769,
+      "name": "Antwort senden",
+      "sort": 1
+    },
+    "model": "core.button",
+    "pk": 948
   },
   {
     "fields": {
@@ -25809,6 +26012,51 @@
   },
   {
     "fields": {
+      "available_instance_resource": "formpage",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Personen- und Projektdaten bearbeiten",
+      "resource": 317,
+      "sort": 0,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 768
+  },
+  {
+    "fields": {
+      "available_instance_resource": "editnotice",
+      "class_field": null,
+      "description": "R\u00fcckmeldung an das Gemeinde Sekretariat",
+      "form_group": 161,
+      "hidden": 0,
+      "name": "R\u00fcckmeldung",
+      "resource": 317,
+      "sort": 2,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 769
+  },
+  {
+    "fields": {
+      "available_instance_resource": "documents",
+      "class_field": null,
+      "description": null,
+      "form_group": 161,
+      "hidden": 0,
+      "name": "Dokumente",
+      "resource": 317,
+      "sort": 1,
+      "template": null
+    },
+    "model": "core.instanceresource",
+    "pk": 770
+  },
+  {
+    "fields": {
       "available_action": "activation",
       "available_instance_resource": "allformpages"
     },
@@ -28717,6 +28965,18 @@
   },
   {
     "fields": {
+      "circulation_type": 61,
+      "edit_notice_template": null,
+      "editable_after_deadline": 1,
+      "hide_answered_notices": 0,
+      "is_always_editable": 1,
+      "pdf_class": null
+    },
+    "model": "core.ireditnotice",
+    "pk": 769
+  },
+  {
+    "fields": {
       "page": 1,
       "pdf_class": ""
     },
@@ -28938,6 +29198,14 @@
     },
     "model": "core.irformpage",
     "pk": 767
+  },
+  {
+    "fields": {
+      "page": 1,
+      "pdf_class": null
+    },
+    "model": "core.irformpage",
+    "pk": 768
   },
   {
     "fields": {
@@ -37361,6 +37629,168 @@
   },
   {
     "fields": {
+      "instance_resource": 769,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 976
+  },
+  {
+    "fields": {
+      "instance_resource": 769,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 977
+  },
+  {
+    "fields": {
+      "instance_resource": 769,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 978
+  },
+  {
+    "fields": {
+      "instance_resource": 769,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 979
+  },
+  {
+    "fields": {
+      "instance_resource": 769,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 980
+  },
+  {
+    "fields": {
+      "instance_resource": 769,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 981
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 982
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 983
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 984
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 985
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 986
+  },
+  {
+    "fields": {
+      "instance_resource": 770,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 987
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 21,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 988
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 22,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 989
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 32,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 990
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 23,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 991
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 24,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 992
+  },
+  {
+    "fields": {
+      "instance_resource": 768,
+      "instance_state": 25,
+      "role": 1104
+    },
+    "model": "core.irroleacl",
+    "pk": 993
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -41973,7 +42403,7 @@
       "description": "Dossier erstellen-Seite",
       "hidden": 0,
       "name": "Neues Dossier erstellen",
-      "sort": 32,
+      "sort": 31,
       "template": "/global/home.phtml"
     },
     "model": "core.resource",
@@ -41986,7 +42416,7 @@
       "description": "Allgemeine Suche",
       "hidden": 0,
       "name": "Dossier suchen",
-      "sort": 29,
+      "sort": 28,
       "template": "/global/search.phtml"
     },
     "model": "core.resource",
@@ -41999,7 +42429,7 @@
       "description": "Dossiersuche BK eingeschr\u00e4nkt auf die Gemeinde",
       "hidden": 1,
       "name": "Dossiersuche",
-      "sort": 28,
+      "sort": 27,
       "template": "/buildom/search.phtml"
     },
     "model": "core.resource",
@@ -42025,7 +42455,7 @@
       "description": "Diese Resource stellt die API f\u00fcr das i-Web Portal bereit",
       "hidden": 0,
       "name": "Portal User Resource",
-      "sort": 33,
+      "sort": 32,
       "template": ""
     },
     "model": "core.resource",
@@ -42038,7 +42468,7 @@
       "description": "Dossiers, die von den B\u00fcrgern eingereicht wurden",
       "hidden": 0,
       "name": "Eingang Online - Dossiers",
-      "sort": 8,
+      "sort": 9,
       "template": "/list/portal-list.phtml"
     },
     "model": "core.resource",
@@ -42051,7 +42481,7 @@
       "description": "Base Resource zum w\u00e4hlen, welches Dossier kreiert werden soll",
       "hidden": 0,
       "name": "Portal Resource",
-      "sort": 34,
+      "sort": 33,
       "template": "/portal/create.phtml"
     },
     "model": "core.resource",
@@ -42064,7 +42494,7 @@
       "description": "Dossierzirkulation starten f\u00fcr die Koordinationsstelle Baudirektion BD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 13,
+      "sort": 14,
       "template": null
     },
     "model": "core.resource",
@@ -42077,7 +42507,7 @@
       "description": "Dossierzirkulation bei den Fachstellen abgeschlossen",
       "hidden": 0,
       "name": "Dossierzirkulation beendet",
-      "sort": 21,
+      "sort": 22,
       "template": null
     },
     "model": "core.resource",
@@ -42090,7 +42520,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Baugesuche BG",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 11,
+      "sort": 12,
       "template": null
     },
     "model": "core.resource",
@@ -42116,7 +42546,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord NP",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 12,
+      "sort": 13,
       "template": null
     },
     "model": "core.resource",
@@ -42129,7 +42559,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Umweltschutz AfU",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 14,
+      "sort": 15,
       "template": null
     },
     "model": "core.resource",
@@ -42181,7 +42611,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Landwirtschaft ALA",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 14,
+      "sort": 16,
       "template": null
     },
     "model": "core.resource",
@@ -42194,7 +42624,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord Energie AfE",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 15,
+      "sort": 17,
       "template": null
     },
     "model": "core.resource",
@@ -42207,7 +42637,7 @@
       "description": "Dossierzirkulation starten f\u00fcr Koord AFJ SD",
       "hidden": 0,
       "name": "Dossierzirkulation starten",
-      "sort": 16,
+      "sort": 18,
       "template": null
     },
     "model": "core.resource",
@@ -42220,7 +42650,7 @@
       "description": null,
       "hidden": 0,
       "name": "Bau- und Einspracheentscheid zugestellt",
-      "sort": 25,
+      "sort": 26,
       "template": null
     },
     "model": "core.resource",
@@ -42233,7 +42663,7 @@
       "description": "Dossierbearbeitung startenf\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 9,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -42259,7 +42689,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE BG)",
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -42272,7 +42702,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR BD)",
-      "sort": 6,
+      "sort": 7,
       "template": null
     },
     "model": "core.resource",
@@ -42285,7 +42715,7 @@
       "description": null,
       "hidden": 0,
       "name": "In Zirkulation (KOOR ARE NP)",
-      "sort": 7,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
@@ -42298,7 +42728,7 @@
       "description": "Kantonale Pr\u00fcfung beendet f\u00fcr Gemeinden",
       "hidden": 0,
       "name": "Kantonale Pr\u00fcfung beendet",
-      "sort": 20,
+      "sort": 21,
       "template": null
     },
     "model": "core.resource",
@@ -42350,7 +42780,7 @@
       "description": null,
       "hidden": 0,
       "name": "Erweiterte Suche",
-      "sort": 30,
+      "sort": 29,
       "template": null
     },
     "model": "core.resource",
@@ -42363,7 +42793,7 @@
       "description": "Erlaubt das Erstellen von Dossier \u00fcbergreifenden Auswertungen",
       "hidden": 0,
       "name": "Geb\u00fchren-Statistik",
-      "sort": 31,
+      "sort": 30,
       "template": null
     },
     "model": "core.resource",
@@ -42389,11 +42819,24 @@
       "description": "Dossierbearbeitung starten Bundesstellen",
       "hidden": 0,
       "name": "Dossierbearbeitung starten",
-      "sort": 10,
+      "sort": 11,
       "template": null
     },
     "model": "core.resource",
     "pk": 316
+  },
+  {
+    "fields": {
+      "available_resource": "simplelist",
+      "class_field": null,
+      "description": "Zur Pr\u00fcfung zugewiesene Dossiers f\u00fcr Gemeindezirkulation",
+      "hidden": 0,
+      "name": "Zur Pr\u00fcfung zugewiesene Dossiers",
+      "sort": 5,
+      "template": null
+    },
+    "model": "core.resource",
+    "pk": 317
   },
   {
     "fields": {
@@ -43253,14 +43696,6 @@
   },
   {
     "fields": {
-      "resource": 314,
-      "role": 1104
-    },
-    "model": "core.rroleacl",
-    "pk": 84
-  },
-  {
-    "fields": {
       "resource": 22,
       "role": 1130
     },
@@ -43322,6 +43757,14 @@
     },
     "model": "core.rroleacl",
     "pk": 95
+  },
+  {
+    "fields": {
+      "resource": 317,
+      "role": 1104
+    },
+    "model": "core.rroleacl",
+    "pk": 96
   },
   {
     "fields": {
@@ -44308,7 +44751,7 @@
   },
   {
     "fields": {
-      "instance_states": "21,22,32,23,24,25"
+      "instance_states": "32"
     },
     "model": "core.rsimplelist",
     "pk": 314
@@ -44319,6 +44762,13 @@
     },
     "model": "core.rsimplelist",
     "pk": 316
+  },
+  {
+    "fields": {
+      "instance_states": "21,22,32,23,24,25"
+    },
+    "model": "core.rsimplelist",
+    "pk": 317
   },
   {
     "fields": {
@@ -54274,7 +54724,7 @@
       "description": "SBB AG (Koordinationstelle)",
       "disabled": 0,
       "email": null,
-      "name": "SBB AG (Koordinationstelle)",
+      "name": "SBB AG (Pendenz von Koordinationstelle)",
       "notification": 1,
       "phone": null,
       "service_group": 71,
@@ -56402,7 +56852,7 @@
       "description": "Swissgrid (Koordinationstellen)",
       "disabled": 0,
       "email": null,
-      "name": "Swissgrid (Koordinationstellen)",
+      "name": "Swissgrid (Pendenz von Koordinationstelle)",
       "notification": 1,
       "phone": null,
       "service_group": 71,
@@ -56478,7 +56928,7 @@
       "description": "MGB (Koordinationstellen)",
       "disabled": 0,
       "email": null,
-      "name": "MGB (Koordinationstellen)",
+      "name": "MGB (Pendenz von Koordinationstelle)",
       "notification": 1,
       "phone": null,
       "service_group": 71,
@@ -56630,7 +57080,7 @@
       "description": "Swissgrid (Gemeinde)",
       "disabled": 0,
       "email": null,
-      "name": "Swissgrid (Gemeinde)",
+      "name": "Swissgrid (Pendenz von Gemeinde)",
       "notification": 1,
       "phone": null,
       "service_group": 72,
@@ -56649,7 +57099,7 @@
       "description": "MGB (Gemeinde)",
       "disabled": 0,
       "email": null,
-      "name": "MGB (Gemeinde)",
+      "name": "MGB (Pendenz von Gemeinde)",
       "notification": 1,
       "phone": null,
       "service_group": 72,
@@ -57048,7 +57498,7 @@
       "description": "SBB AG (Gemeinde)",
       "disabled": 0,
       "email": null,
-      "name": "SBB AG (Gemeinde)",
+      "name": "SBB AG (Pendenz von Gemeinde)",
       "notification": 1,
       "phone": null,
       "service_group": 72,
@@ -57198,14 +57648,14 @@
   },
   {
     "fields": {
-      "name": "Infrastrukturanlagen f\u00fcr Koordinationstellen"
+      "name": "Infrastrukturanlagen Pendenzen von Koordinationstellen"
     },
     "model": "user.servicegroup",
     "pk": 71
   },
   {
     "fields": {
-      "name": "Infrastrukturanlagen f\u00fcr Gemeinden"
+      "name": "Infrastrukturanlagen Pendenzen von Gemeinden"
     },
     "model": "user.servicegroup",
     "pk": 72
