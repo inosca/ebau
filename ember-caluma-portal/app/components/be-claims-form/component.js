@@ -7,8 +7,7 @@ import { dropTask } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
 import { queryManager } from "ember-apollo-client";
 import moment from "moment";
-
-export const NFD_ATTACHMENT_SECTION = 7;
+import config from "ember-caluma-portal/config/environment";
 
 const field = fieldName =>
   computed("document", function() {
@@ -111,7 +110,7 @@ export default class BeClaimsFormComponent extends CfFormComponent {
   *fetchAttachments() {
     yield this.store.query("attachment", {
       instance: this.context.instanceId,
-      attachment_sections: NFD_ATTACHMENT_SECTION
+      attachment_sections: config.ebau.claims.attachmentSectionId
     });
   }
 
