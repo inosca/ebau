@@ -144,8 +144,13 @@ class EventView(GenericViewSet):
             EventHandler = getattr(event_handlers, f"{event_type}EventHandler")
         except AttributeError:
             return HttpResponse(status=404)
-        eh = EventHandler(instance=instance)
-        eh.run()
+        eh = EventHandler(
+            instance=instance, user_pk=request.user.pk, group_pk=request.group.pk
+        )
+        try:
+            eh.run()
+        except event_handlers.EventHandlerException as e:
+            return HttpResponse(str(e), status=400)
         return HttpResponse(status=201)
 
 

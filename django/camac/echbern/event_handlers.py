@@ -3,15 +3,18 @@ from uuid import uuid4
 
 from django.conf import settings
 from django.dispatch import receiver
+from django.urls import reverse
 from django.utils import timezone
 from pyxb import (
     IncompleteElementContentError,
     UnprocessedElementContentError,
     UnprocessedKeywordContentError,
 )
+from rest_framework.test import APIClient
 
 from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
 from camac.core.models import Activation
+from camac.user.models import User
 
 from .data_preparation import get_document
 from .formatters import (
@@ -34,9 +37,14 @@ from .signals import (
 logger = logging.getLogger(__name__)
 
 
+class EventHandlerException(BaseException):
+    pass
+
+
 class BaseEventHandler:
-    def __init__(self, instance, group_pk=None):
+    def __init__(self, instance, user_pk=None, group_pk=None):
         self.instance = instance
+        self.user_pk = user_pk
         self.group_pk = group_pk
 
         self.message_date = timezone.now()
@@ -91,7 +99,7 @@ class SubmitEventHandler(BaseEventHandler):
 
 class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
-    uri_instance_resource_id = 40008
+    uri_instance_resource_id = 20004
 
     def get_xml(self, data):
         try:
@@ -100,7 +108,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
+                url=f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}",
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -206,9 +214,33 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
             msgs.append(self.create_message(xml, a.service))
             a.ech_msg_created = True
             a.save()
-            # TODO: Also send a notification mail. Up until now the notification mails
-            #  have been rendered in php and then sent from django. We need to move
-            #  everything to django, in order to send the same mails.
+
+        mail_data = {
+            "data": {
+                "type": "notification-template-sendmails",
+                "id": None,
+                "attributes": {"recipient-types": ["unnotified_service"]},
+                "relationships": {
+                    "instance": {"data": {"type": "instances", "id": self.instance.pk}}
+                },
+            }
+        }
+        url = reverse("notificationtemplate-sendmail", args=[11])
+        client = APIClient()
+        user = User.objects.get(pk=self.user_pk)
+        client.force_authenticate(user=user)
+        resp = client.post(url, data=mail_data)
+        if not resp.status_code == 204:
+            raise EventHandlerException("Failed to send mails!")
+
+        # This doesn't happen in the NotificationTemplateSendmailSerializer but in php (ffs!). So we do it here.
+        activations = Activation.objects.filter(
+            circulation__instance_id=self.instance.pk, email_sent=0
+        )
+        for a in activations:
+            a.email_sent = 1
+            a.save()
+
         return msgs
 
 
@@ -298,29 +330,35 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
 
 
 @receiver(instance_submitted)
-def submit_callback(sender, instance, group_pk, **kwargs):
+def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
-        handler = SubmitEventHandler(instance, group_pk)
+        handler = SubmitEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
         handler.run()
 
 
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
-def send_status_notification(sender, instance, group_pk, **kwargs):
+def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
-        handler = StatusNotificationEventHandler(instance, group_pk)
+        handler = StatusNotificationEventHandler(
+            instance, user_pk=user_pk, group_pk=group_pk
+        )
         handler.run()
 
 
 @receiver(task_send)
-def task_callback(sender, instance, group_pk, **kwargs):
+def task_callback(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
-        handler = TaskEventHandler(instance, group_pk)
+        handler = TaskEventHandler(instance, user_pk=user_pk, group_pk=group_pk)
         handler.run()
 
 
 @receiver(accompanying_report_send)
-def accompanying_report_callback(sender, instance, group_pk, attachments, **kwargs):
+def accompanying_report_callback(
+    sender, instance, user_pk, group_pk, attachments, **kwargs
+):
     if settings.ECH_API:
-        handler = AccompanyingReportEventHandler(instance, group_pk)
+        handler = AccompanyingReportEventHandler(
+            instance, user_pk=user_pk, group_pk=group_pk
+        )
         handler.run(attachments)

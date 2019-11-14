@@ -686,6 +686,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         instance_submitted.send(
             sender=self.__class__,
             instance=instance,
+            user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
 
@@ -754,6 +755,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
         sb1_submitted.send(
             sender=self.__class__,
             instance=instance,
+            user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
 
@@ -822,6 +824,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         sb2_submitted.send(
             sender=self.__class__,
             instance=instance,
+            user_pk=self.context["request"].user.pk,
             group_pk=self.context["request"].group.pk,
         )
 
