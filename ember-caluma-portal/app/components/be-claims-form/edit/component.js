@@ -4,10 +4,7 @@ import { task, dropTask } from "ember-concurrency-decorators";
 import { inject as service } from "@ember/service";
 import { all } from "rsvp";
 import moment from "moment";
-import { NFD_ATTACHMENT_SECTION } from "ember-caluma-portal/components/be-claims-form/component";
-
-const NOTIFICATION_TEMPLATE_ID = 32;
-const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
+import config from "ember-caluma-portal/config/environment";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
@@ -22,7 +19,7 @@ export default class BeClaimsFormEditComponent extends Component {
       files: [],
       file: null,
       selectedTags: [],
-      allowedMimetypes: ALLOWED_MIMETYPES
+      allowedMimetypes: config.ebau.attachments.allowedMimetypes
     });
   }
 
@@ -33,7 +30,7 @@ export default class BeClaimsFormEditComponent extends Component {
 
   @action
   addFile(file) {
-    if (!ALLOWED_MIMETYPES.includes(file.blob.type)) {
+    if (!config.ebau.attachments.allowedMimetypes.includes(file.blob.type)) {
       this.notification.danger(this.intl.t("documents.wrongMimeType"));
 
       return;
@@ -82,7 +79,10 @@ export default class BeClaimsFormEditComponent extends Component {
     const formData = new FormData();
 
     formData.append("instance", this.instanceId);
-    formData.append("attachment_sections", NFD_ATTACHMENT_SECTION);
+    formData.append(
+      "attachment_sections",
+      config.ebau.claims.attachmentSectionId
+    );
     formData.append("path", file.blob, file.name);
     formData.append(
       "context",
@@ -129,7 +129,7 @@ export default class BeClaimsFormEditComponent extends Component {
   @task
   *notifyMunicipality() {
     yield this.fetch.fetch(
-      `/api/v1/notification-templates/${NOTIFICATION_TEMPLATE_ID}/sendmail`,
+      `/api/v1/notification-templates/${config.ebau.claims.notificationTemplateId}/sendmail`,
       {
         method: "post",
         body: JSON.stringify({
