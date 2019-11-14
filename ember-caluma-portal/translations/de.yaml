@@ -6,6 +6,7 @@ global:
   continue: "Weiter"
   delete: "Löschen"
   cancel: "Abbrechen"
+  back: "Zurück"
 
 nav:
   form: "Formular"
@@ -223,12 +224,25 @@ be-submit-instance:
   failed-message: "Hoppla, etwas ist schief gelaufen. Bitte überprüfen Sie Ihre Eingabedaten nochmals. {reasons}"
 
 claims:
-  upload: "Hochladen"
-  submit: "Nachforderungen abschicken"
-  noPending: "Sie haben keine unbeantworteten Nachforderungen und können somit keine Dokumente hochladen"
-  uploadDocuments: "Dokumente hochladen"
-  uploadedDocuments: "Hochgeladene Dokumente"
+  deadline: "Fällig"
+  answered: "Beantwortet am"
+  answer: "Beantworten"
+  showAnswer: "Antwort anzeigen"
+  submit: "Nachforderung abschicken"
   comment: "Bemerkung"
+  confirm: "Bestätigen"
+  documents: "Dokumente"
+  contents: "Inhalte"
+
+  error: "Beim Beantworten der Nachforderung ist ein Fehler aufgetreten"
+
+  empty:
+    pending: "Sie haben keine offene Nachforderungen mehr"
+    answered: "Sie haben noch keine Nachforderungen beantwortet"
+
+  filter:
+    pending: "Offen"
+    answered: "Beantwortet"
 
 pdf:
   signatures: "Unterschriften"
