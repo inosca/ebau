@@ -178,6 +178,7 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         accompanying_report_send.send(
             sender=self.__class__,
             instance=self.instance,
+            user_pk=self.user.pk,
             group_pk=self.group.pk,
             attachments=documents,
         )
@@ -252,7 +253,10 @@ class TaskSendHandler(BaseSendHandler):
         self._create_activation(circulation, service)
 
         task_send.send(
-            sender=self.__class__, instance=self.instance, group_pk=self.group.pk
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.user.pk,
+            group_pk=self.group.pk,
         )
 
 

@@ -17,6 +17,7 @@ from camac.core.models import (
 )
 
 from .. import send_handlers, views
+from ..event_handlers import EventHandlerException, StatusNotificationEventHandler
 from ..models import Message
 from .caluma_responses import document_form, full_document
 from .utils import xml_data
@@ -139,6 +140,20 @@ def test_event_post_404(admin_client, admin_user, ech_instance, role_factory):
     assert response.status_code == status.HTTP_404_NOT_FOUND
 
 
+def test_event_post_400(admin_client, admin_user, ech_instance, role_factory, mocker):
+    group = admin_user.groups.first()
+    group.role = role_factory(name="support")
+    group.save()
+    url = reverse("event", args=[ech_instance.pk, "StatusNotification"])
+    mocker.patch.object(
+        StatusNotificationEventHandler, "run", side_effect=EventHandlerException()
+    )
+
+    response = admin_client.post(url)
+
+    assert response.status_code == status.HTTP_400_BAD_REQUEST
+
+
 @pytest.mark.parametrize("has_permission", [True, False])
 def test_send(
     has_permission,
@@ -157,7 +172,7 @@ def test_send(
         group.save()
 
     state = instance_state_factory(pk=INSTANCE_STATE_FORMELLE_PRUEFUNG)
-    excpected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
+    expected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
     ech_instance.instance_state = state
     ech_instance.save()
 
@@ -172,7 +187,7 @@ def test_send(
     if has_permission:
         assert response.status_code == 201
         ech_instance.refresh_from_db()
-        assert ech_instance.instance_state == excpected_state
+        assert ech_instance.instance_state == expected_state
         assert DocxDecision.objects.get(instance=ech_instance.pk)
     else:
         assert response.status_code == 403

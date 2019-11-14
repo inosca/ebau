@@ -137,7 +137,10 @@ def test_task_send_handler(
     service_factory,
     circulation_state_factory,
     instance_resource_factory,
+    notification_template_factory,
 ):
+    notification_template_factory(pk=11)
+
     instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
     circulation_state_factory(pk=1, name="RUN")
     state = instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
@@ -162,7 +165,11 @@ def test_task_send_handler(
     data = CreateFromDocument(xml)
 
     dh = TaskSendHandler(
-        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
     )
     assert dh.has_permission() is True
 
