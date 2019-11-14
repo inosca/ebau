@@ -118105,7 +118105,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 8,
+      "sort": 10,
       "template": null
     },
     "model": "core.resource",
@@ -118118,7 +118118,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 7,
+      "sort": 9,
       "template": null
     },
     "model": "core.resource",
@@ -118131,7 +118131,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 5,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -118183,11 +118183,24 @@
       "description": null,
       "hidden": 1,
       "name": null,
-      "sort": 6,
+      "sort": 8,
       "template": null
     },
     "model": "core.resource",
     "pk": 20009
+  },
+  {
+    "fields": {
+      "available_resource": "page",
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "name": null,
+      "sort": 7,
+      "template": "/dashboard/help.phtml"
+    },
+    "model": "core.resource",
+    "pk": 20010
   },
   {
     "fields": {
@@ -118210,7 +118223,7 @@
       "hidden": 0,
       "name": null,
       "sort": 0,
-      "template": "/dashboard/index.phtml"
+      "template": "/dashboard/news.phtml"
     },
     "model": "core.resource",
     "pk": 150001
@@ -118284,6 +118297,26 @@
     },
     "model": "core.resourcet",
     "pk": 20009
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "de",
+      "name": "Hilfe",
+      "resource": 20010
+    },
+    "model": "core.resourcet",
+    "pk": 20010
+  },
+  {
+    "fields": {
+      "description": null,
+      "language": "fr",
+      "name": "Aide",
+      "resource": 20010
+    },
+    "model": "core.resourcet",
+    "pk": 20011
   },
   {
     "fields": {
@@ -118379,7 +118412,7 @@
     "fields": {
       "description": null,
       "language": "de",
-      "name": "Dashboard",
+      "name": "News",
       "resource": 150001
     },
     "model": "core.resourcet",
@@ -118389,11 +118422,18 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Dashboard",
+      "name": "Actualit\u00e9s",
       "resource": 150001
     },
     "model": "core.resourcet",
     "pk": 150004
+  },
+  {
+    "fields": {
+      "pdf_class": null
+    },
+    "model": "core.rpage",
+    "pk": 20010
   },
   {
     "fields": {
@@ -118505,6 +118545,62 @@
     },
     "model": "core.rroleacl",
     "pk": 20023
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 5
+    },
+    "model": "core.rroleacl",
+    "pk": 20024
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 4
+    },
+    "model": "core.rroleacl",
+    "pk": 20025
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 3
+    },
+    "model": "core.rroleacl",
+    "pk": 20026
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20006
+    },
+    "model": "core.rroleacl",
+    "pk": 20027
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20002
+    },
+    "model": "core.rroleacl",
+    "pk": 20028
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 20003
+    },
+    "model": "core.rroleacl",
+    "pk": 20029
+  },
+  {
+    "fields": {
+      "resource": 20010,
+      "role": 10000
+    },
+    "model": "core.rroleacl",
+    "pk": 20030
   },
   {
     "fields": {
