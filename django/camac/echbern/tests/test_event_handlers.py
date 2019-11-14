@@ -15,7 +15,11 @@ def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, 
     requests_mock.post("http://caluma:8000/graphql/", json=full_document)
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
     instance_submitted.send(
-        sender=None, instance=ech_instance, auth_header="auth_header", group_pk=20003
+        sender=None,
+        instance=ech_instance,
+        auth_header="auth_header",
+        user_pk=None,
+        group_pk=20003,
     )
     assert Message.objects.count() == 1
     message = Message.objects.first()
@@ -85,20 +89,42 @@ def test_event_handlers(
     assert message.receiver.name == expected_receiver
 
 
+@pytest.mark.parametrize("fail_mail", [False, True])
 def test_task_event_handler(
-    ech_instance, service_factory, circulation_factory, activation_factory
+    fail_mail,
+    ech_instance,
+    service_factory,
+    circulation_factory,
+    notification_template_factory,
+    activation_factory,
+    admin_user,
+    mailoutbox,
 ):
-    s1, s2, s3 = service_factory.create_batch(3)
+    s1 = service_factory(email="s1@example.com")
+    s2 = service_factory(email="s2@example.com")
+    s3 = service_factory(email="s3@example.com")
+    if not fail_mail:
+        notification_template_factory(pk=11)
     circulation = circulation_factory(instance=ech_instance)
-    a1 = activation_factory(circulation=circulation, service=s1)
-    a2 = activation_factory(circulation=circulation, service=s2)
+    a1 = activation_factory(circulation=circulation, service=s1, email_sent=0)
+    a2 = activation_factory(circulation=circulation, service=s2, email_sent=0)
     activation_factory(circulation=circulation, service=s3, ech_msg_created=True)
 
-    eh = event_handlers.TaskEventHandler(ech_instance)
-    assert len(eh.run()) == 2
-    assert Message.objects.count() == 2
-    assert Message.objects.filter(receiver__in=[s1, s2]).count() == 2
+    eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)
 
-    for a in [a1, a2]:
-        a.refresh_from_db()
-        assert a.ech_msg_created is True
+    if fail_mail:
+        with pytest.raises(event_handlers.EventHandlerException):
+            eh.run()
+    else:
+        assert len(eh.run()) == 2
+        assert Message.objects.count() == 2
+        assert Message.objects.filter(receiver__in=[s1, s2]).count() == 2
+
+        assert len(mailoutbox) == 1
+        assert len(mailoutbox[0].bcc) == 2
+
+        for a in [a1, a2]:
+            a.refresh_from_db()
+            assert a.ech_msg_created is True
+            assert "s1@example.com" in mailoutbox[0].bcc
+            assert "s2@example.com" in mailoutbox[0].bcc
