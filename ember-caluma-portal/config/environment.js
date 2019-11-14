@@ -45,7 +45,17 @@ module.exports = function(environment) {
     },
 
     languages: ["de", "fr"],
-    fallbackLanguage: "de"
+    fallbackLanguage: "de",
+
+    ebau: {
+      claims: {
+        notificationTemplateId: 32,
+        attachmentSectionId: 7
+      },
+      attachments: {
+        allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"]
+      }
+    }
   };
 
   if (environment === "development") {

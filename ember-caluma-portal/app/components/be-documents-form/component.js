@@ -7,9 +7,9 @@ import { A } from "@ember/array";
 import { all } from "rsvp";
 import { queryManager } from "ember-apollo-client";
 import { assert } from "@ember/debug";
+import config from "ember-caluma-portal/config/environment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
-const ALLOWED_MIMETYPES = ["image/png", "image/jpeg", "application/pdf"];
 
 export default Component.extend({
   intl: service(),
@@ -23,6 +23,15 @@ export default Component.extend({
     this._super(...arguments);
 
     this.data.perform();
+  },
+
+  init() {
+    this._super(...arguments);
+
+    this.set(
+      "allowedMimetypes",
+      config.environment.ebau.attachments.allowedMimetypes
+    );
   },
 
   rootFormSlug: reads("fieldset.document.rootForm.slug"),
@@ -125,7 +134,11 @@ export default Component.extend({
   }),
 
   saveFile: task(function*() {
-    if (!ALLOWED_MIMETYPES.includes(this.file.blob.type)) {
+    if (
+      !config.environment.ebau.attachments.allowedMimetypes.includes(
+        this.file.blob.type
+      )
+    ) {
       this.notification.danger(this.intl.t("documents.wrongMimeType"));
 
       throw new Error();
