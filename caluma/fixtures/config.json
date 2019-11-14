@@ -5251,7 +5251,7 @@
       "created_by_group": null,
       "form": "dashboard",
       "question": "dashboard-inhalt-de",
-      "sort": 2
+      "sort": 4
     }
   },
   {
@@ -5264,6 +5264,32 @@
       "created_by_group": null,
       "form": "dashboard",
       "question": "dashboard-inhalt-fr",
+      "sort": 3
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "dashboard.hilfe-inhalt-de",
+    "fields": {
+      "created_at": "2019-11-12T13:28:46.579Z",
+      "modified_at": "2019-11-12T13:28:46.579Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dashboard",
+      "question": "hilfe-inhalt-de",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "dashboard.hilfe-inhalt-fr",
+    "fields": {
+      "created_at": "2019-11-12T13:29:21.302Z",
+      "modified_at": "2019-11-12T13:29:21.302Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "dashboard",
+      "question": "hilfe-inhalt-fr",
       "sort": 1
     }
   },
@@ -21117,6 +21143,56 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "hilfe-inhalt-de",
+    "fields": {
+      "created_at": "2019-11-12T13:28:46.433Z",
+      "modified_at": "2019-11-12T13:28:46.433Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hilfe Inhalt DE\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": { "max_length": null },
+      "meta": {},
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "hilfe-inhalt-fr",
+    "fields": {
+      "created_at": "2019-11-12T13:29:21.149Z",
+      "modified_at": "2019-11-12T13:29:21.149Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Hilfe Inhalt FR\", \"fr\": null}",
+      "type": "textarea",
+      "is_required": "false",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": null, \"fr\": null}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": { "max_length": null },
       "meta": {},
       "data_source": null,
       "row_form": null,
