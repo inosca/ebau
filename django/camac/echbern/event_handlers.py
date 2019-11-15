@@ -50,10 +50,13 @@ class BaseEventHandler:
         self.message_date = timezone.now()
         self.message_id = uuid4()
 
+    def get_url(self, **kwargs):
+        return f"{settings.INTERNAL_BASE_URL}/page/index/instance-id/{self.instance.pk}/instance-resource-id/20074"
+
     def get_data(self):
         return get_document(self.instance.pk)
 
-    def get_xml(self, data):  # pragma: no cover
+    def get_xml(self, data, url, **kwargs):  # pragma: no cover
         raise NotImplementedError()
 
     def create_message(self, xml, receiver=None):
@@ -68,7 +71,7 @@ class BaseEventHandler:
 
     def run(self):
         data = self.get_data()
-        xml = self.get_xml(data)
+        xml = self.get_xml(data, self.get_url())
         return self.create_message(xml)
 
 
@@ -76,14 +79,17 @@ class SubmitEventHandler(BaseEventHandler):
     event_type = "submit"
     uri_instance_resource_id = 20014
 
-    def get_xml(self, data):
+    def get_url(self):
+        return f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
+
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}",
+                url=url,
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -101,14 +107,17 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
     uri_instance_resource_id = 20004
 
-    def get_xml(self, data):
+    def get_url(self):
+        return f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
+
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}",
+                url=url,
                 eventSubmitPlanningPermissionApplication=submit(
                     self.instance, data, self.event_type
                 ),
@@ -126,16 +135,18 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": "status notification"}
 
-    def get_xml(self, data):
-        url = None
+    def get_url(self):
+        # TODO: handle more states and corresponding urls
+        url = settings.INTERNAL_BASE_URL
         if (
             self.instance.previous_instance_state.pk
             == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
         ):
             # send link to Dossierprüfung
-            url = (
-                f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}",
-            )
+            url = f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}"
+        return url
+
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
@@ -160,13 +171,14 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data):
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=url,
                 eventRequest=request(self.instance, self.event_type),
             ).toxml()
         except (
@@ -181,11 +193,11 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
 class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
 
-    def get_xml(self, data, activation_id):
+    def get_url(self, activation_id):
         # send link to Stellungnahme abgeben
-        url = (
-            f"{settings.INTERNAL_BASE_URL}/circulation/edit-notice/instance-resource-id/20039/instance-id/{self.instance.pk}/activation-id/{activation_id}",
-        )
+        return f"{settings.INTERNAL_BASE_URL}/circulation/edit-notice/instance-resource-id/20039/instance-id/{self.instance.pk}/activation-id/{activation_id}"
+
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
@@ -210,7 +222,7 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
             circulation__instance=self.instance, ech_msg_created=False
         ):
             self.message_id = uuid4()
-            xml = self.get_xml(data, a.pk)
+            xml = self.get_xml(data, self.get_url(a.pk))
             msgs.append(self.create_message(xml, a.service))
             a.ech_msg_created = True
             a.save()
@@ -247,17 +259,20 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
 class ClaimEventHandler(BaseEventHandler):
     event_type = "claim"
 
+    def get_url(self):
+        return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}"
+
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data):
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
-                url=f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}",
+                url=url,
                 eventRequest=request(self.instance, self.event_type),
             ).toxml()
         except (
@@ -275,7 +290,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, attachments):
+    def get_xml(self, data, url, attachments):
         attachments = (
             attachments
             if attachments
@@ -287,6 +302,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=url,
                 eventAccompanyingReport=accompanying_report(
                     self.instance, self.event_type, attachments
                 ),
@@ -301,7 +317,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
 
     def run(self, attachments=None):
         data = self.get_data()
-        xml = self.get_xml(data, attachments)
+        xml = self.get_xml(data, self.get_url(), attachments)
         return self.create_message(xml)
 
 
@@ -311,13 +327,14 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data):
+    def get_xml(self, data, url):
         try:
             return delivery(
                 self.instance,
                 data,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
+                url=url,
                 eventChangeResponsibility=change_responsibility(self.instance),
             ).toxml()
         except (
