@@ -1,0 +1,59 @@
+<h1>Publikationen</h1>
+<table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
+  <thead>
+    <tr>
+      <th>Gesuchsnummer</th>
+      <th>Beschreibung</th>
+      <th>Gemeinde</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#if publications.isRunning}}
+      <tr>
+        <td class="uk-text-center" colspan="5">{{uk-spinner}}</td>
+      </tr>
+    {{else}}
+      {{#each publicationList as |publication|}}
+        <tr>
+          <td>
+            {{#if (eq publication.status "accepted")}}
+              <a
+                title="Klicken Sie um das Gesuch zu bearbeiten"
+                {{action (perform navigate) publication.instance on='click'}}
+              >{{publication.instance.identifier}}</a>
+            {{else}}
+              {{publication.instance.identifier}}
+            {{/if}}
+          </td>
+          <td>
+            {{publication.description}}
+          </td>
+          <td>
+            {{publication.instance.location.name}}
+          </td>
+          <td>
+            {{#if (eq publication.status "pending")}}
+              <span class="uk-icon-button" uk-icon="clock" title="Die Gemeinde bearbeitet ihre Anfrage"></span>
+            {{else if (eq publication.status "accepted")}}
+              <button
+                title="Klicken Sie um das Gesuch zu bearbeiten"
+                class="uk-icon-button"
+                uk-icon="file-text"
+                onclick={{action (perform navigate) publication.instance}}></button>
+            {{else if (eq publication.status "denied")}}
+              <span class="uk-icon-button" uk-icon="minus-circle" title="Ihnen wurde der Zugriff verwiesen"></span>
+            {{else}}
+              <button title="Zugriff anfordern" class="uk-icon-button" uk-icon="pull" onclick={{perform requestPermission publication}}></button>
+            {{/if}}
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td class="uk-text-center" colspan="4">Keine laufende Publikation vorhanden</td>
+        </tr>
+      {{/each}}
+    {{/if}}
+  </tbody>
+</table>
+

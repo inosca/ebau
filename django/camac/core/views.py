@@ -1,9 +1,10 @@
 import requests
 from django.conf import settings
+from django.utils import timezone
 from pyproj import CRS, Transformer
-from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework_json_api import views
 
 from camac.instance.models import FormField
 from camac.user.permissions import permission_aware
@@ -11,26 +12,31 @@ from camac.user.permissions import permission_aware
 from . import filters, models, serializers
 
 
-class PublicationEntryView(viewsets.ModelViewSet):
+class PublicationEntryView(views.ModelViewSet):
     swagger_schema = None
     filterset_class = filters.PublicationEntryFilterSet
     serializer_class = serializers.PublicationEntrySerializer
     queryset = models.PublicationEntry.objects.all()
+    prefetch_for_includes = {"instance": ["instance"]}
 
     @permission_aware
     def get_queryset(self):
-        return models.PublicationEntry.objects.none()
-
-    def get_queryset_for_canton(self):
-        return models.PublicationEntry.objects.none()
-
-    def get_queryset_for_service(self):
-        return models.PublicationEntry.objects.none()
+        return models.PublicationEntry.objects.filter(
+            publication_date__gt=timezone.now()
+            - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            is_published=True,
+        )
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntry.objects.filter(
             instance__group=self.request.group
         )
+
+    def get_queryset_for_service(self):
+        return models.PublicationEntry.objects.none()
+
+    def get_queryset_for_canton(self):
+        return models.PublicationEntry.objects.none()
 
     @permission_aware
     def has_create_permission(self):
@@ -169,3 +175,59 @@ class PublicationEntryView(viewsets.ModelViewSet):
             return Response(response.text, 400)
 
         return Response([], 204)
+
+
+class PublicationEntryUserPermissionView(views.ModelViewSet):
+    swagger_schema = None
+    filterset_class = filters.PublicationEntryUserPermissionFilterSet
+    serializer_class = serializers.PublicationEntryUserPermissionSerializer
+    queryset = models.PublicationEntryUserPermission.objects.all()
+    prefetch_for_includes = {"user": ["user"]}
+
+    @permission_aware
+    def get_queryset(self):
+        return models.PublicationEntryUserPermission.objects.filter(
+            user=self.request.user,
+            publication_entry__publication_date__gt=timezone.now()
+            - settings.APPLICATION.get("PUBLICATION_DURATION"),
+        )
+
+    def get_queryset_for_municipality(self):
+        return models.PublicationEntryUserPermission.objects.filter(
+            publication_entry__instance__group=self.request.group
+        )
+
+    def get_queryset_for_canton(self):
+        return models.PublicationEntryUserPermission.objects.none()
+
+    def get_queryset_for_service(self):
+        return models.PublicationEntryUserPermission.objects.none()
+
+    @permission_aware
+    def has_create_permission(self):
+        return True
+
+    def has_create_permission_for_municipality(self):
+        return False
+
+    def has_create_permission_for_service(self):
+        return False
+
+    def has_create_permission_for_canton(self):
+        return False
+
+    @permission_aware
+    def has_update_permission(self):
+        return False
+
+    def has_update_permission_for_municipality(self):
+        return True
+
+    def has_update_permission_for_service(self):
+        return False
+
+    def has_update_permission_for_canton(self):
+        return False
+
+    def has_destroy_permission(self):
+        return False

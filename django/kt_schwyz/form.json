@@ -30,8 +30,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "projektanderung": [
       "projektanderung",
@@ -45,8 +44,7 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "vorentscheid-gemass-ss84-pbg": [
       "vorentscheid",
@@ -78,14 +76,12 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
       "grundinformationen",
@@ -112,8 +108,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "technische-bewilligung": [
       "technische-bewilligung",
@@ -142,8 +137,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "konzession-fur-wasserentnahme": [
       "konzession-fur-wasserentnahme",
@@ -151,8 +145,7 @@
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.konzessionsnehmer",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
@@ -160,8 +153,7 @@
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.gesuchsteller",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "plangenehmigungsgesuch": [
       "grundinformationen",
@@ -169,8 +161,7 @@
       "personalien",
       "personalien.bewilligungsnehmer",
       "plangenehmigungsverfahren",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "projektgenehmigungsgesuch-gemass-ss15-strag": [
       "grundinformationen",
@@ -196,8 +187,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ]
   },
   "modules": {
@@ -855,13 +845,6 @@
       "parent": null,
       "questions": [
         "ve-verbindlich"
-      ]
-    },
-    "freigegebene-unterlagen": {
-      "title": "Freigegebene Unterlagen",
-      "parent": null,
-      "questions": [
-        "dokument-freigegeben"
       ]
     }
   },

@@ -191,7 +191,7 @@ module("Unit | Controller | instances/edit", function(hooks) {
 
     controller.set("model", {
       ...this.model,
-      meta: { editable: ["document"] }
+      meta: { editable: ["document"], "is-applicant": true }
     });
     controller.set("router", this.router);
 

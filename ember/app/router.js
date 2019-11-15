@@ -16,6 +16,7 @@ Router.map(function() {
 
   this.route("protected", { path: "/" }, function() {
     this.route("index", { path: "/", resetNamespace });
+    this.route("publications", { path: "/publikationen", resetNamespace });
     this.route("instances", { path: "/gesuche", resetNamespace }, function() {
       this.route("new");
       this.route("edit", { path: "/:instance_id" }, function() {

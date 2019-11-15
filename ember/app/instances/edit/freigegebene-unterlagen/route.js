@@ -6,14 +6,22 @@ export default Route.extend({
   store: service(),
   questionStore: service("question-store"),
 
-  setupController(controller, model) {
+  afterModel(model) {
+    if (!model.meta["is-applicant"]) {
+      this.transitionTo("instances.edit.index");
+    }
+  },
+
+  async setupController(controller, model) {
     // Get Question and set its model to the right attachments,
     // determined through the attachment section id,
     // which is set in ENV.APP
-    let question = this.questionStore.peek(
+    const question = await this.questionStore.buildQuestion(
       "dokument-freigegeben",
       model.instance.id
     );
+    this.questionStore._store.pushObject(question);
+
     question.set(
       "model",
       this.store.peekAll("attachment").filter(attachment => {
