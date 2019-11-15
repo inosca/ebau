@@ -51,8 +51,21 @@ class InstanceQuerysetMixin(object):
     @permission_aware
     def get_queryset(self, group=None):
         queryset = self.get_base_queryset()
-        user_field = self._get_instance_filter_expr("involved_applicants__invitee")
-        return queryset.filter(**{user_field: self.request.user})
+        applicants_expr = self._get_instance_filter_expr("involved_applicants__invitee")
+        publication_user_permission_expr = self._get_instance_filter_expr(
+            "publication_entries__user_permissions__user"
+        )
+        publication_user_permission_status_expr = self._get_instance_filter_expr(
+            "publication_entries__user_permissions__status"
+        )
+
+        return queryset.filter(
+            Q(**{applicants_expr: self.request.user})
+            | (
+                Q(**{publication_user_permission_status_expr: "accepted"})
+                & Q(**{publication_user_permission_expr: self.request.user})
+            )
+        )
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
