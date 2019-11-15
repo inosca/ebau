@@ -60,7 +60,7 @@ documents:
   hint3: "sont remplis et téléchargés si nécessaire."
 
   tags:
-    beilagen-vorabklaerung: "Annexes à l'étude préalable"
+    beilagen-vorabklaerung: "Annexes à la demande préalable"
     allgemeine-informationen: "Informations générales"
     bauwerk-allgemein: "Ouvrage - Généralités"
     informationen-ueber-grundstueck: "Informations sur l'immeuble"
@@ -143,7 +143,7 @@ instances:
   new:
     title: "Nouveau dossier"
     kind: "De quel type de dossier s'agit-il?"
-    preClarification: "Etude préalable"
+    preClarification: "Demande préalable"
     application: "Requête"
     preClarificationInfo: "Si la situation de départ n'est pas claire
     (en particulier dans le cas de projets de construction complexes et

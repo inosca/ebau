@@ -51,7 +51,7 @@ Parzellen-Nr. / Liegenschaftsnummer,N° de parcelle / de bien-fonds,40010
 BE-GID,BE-GID,40011
 GWR-EGID-Nr.,N° RegBL-EGID,40012
 E-GRID-Nr.,N° E-GRID,40013
-Anfrage zur Vorabklärung,Question sur l'étude préalable,40014
+Anfrage zur Vorabklärung,Question sur la demande préalable,40014
 temporaneo,temporaneo,40015
 Um was für ein Gebäude handelt es sich?,De quel type de bâtiment s'agit-il?,40016
 Beinhaltet das Bauvorhaben Nutzungen mit Brandbelastung von über 1000 MJ/m²?,Le projet de construction comprend-il des affectations dont la charge thermique excède 1000 MJ/m²?,40017
@@ -115,7 +115,7 @@ Verlassen mehr als 1500 m³ Bodenmaterial den Projektperimeter?,Des matériaux t
 Gesamte beanspruchte Fläche mit Ober-/Unterboden > 2000 m²?,Total de la surface utilisée (couches supérieure et sous-jacente) > 2000 m²?,40075
 "Findet eine Terrainveränderung < 2000 m², welche zu einer Bodenaufwertung führt?",Une modification de terrain < 2000 m² aboutissant à une valorisation du sol est-elle prévue?,40076
 Ist die betroffene Fläche als Fruchtfolgefläche (FFF) ausgeschieden?,La surface concernée est-elle une surface d'assolement (SDA)?,40077
-Wurden Vorabklärungen durchgeführt?,Des études préalables ont-elles été réalisées?,40078
+Wurden Vorabklärungen durchgeführt?,Des demandes préalables ont-elles été réalisées?,40078
 Welche Aspekte des  generellen Baugesuches müssen geprüft werden?,Quels aspects de la demande de permis de construire général doivent-ils être examinés?,40079
 Sind neben den Gesuchstellenden weitere Personen beteiligt?,"Outre les requérant/e/s, d'autres personnes participent-elles à la procédure?",40080
 Zulässige Geschosszahl,Nombre d’étages admis,40081
