@@ -6,6 +6,9 @@ from rest_framework import exceptions
 from rest_framework_json_api import relations, serializers
 
 from camac.instance.models import Instance
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
 
 from . import models
 
@@ -58,6 +61,7 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
     publication_entry = relations.ResourceRelatedField(
         queryset=models.PublicationEntry.objects
     )
+    status = serializers.ChoiceField(choices=("pending", "accepted", "denied"))
 
     included_serializers = {"user": "camac.user.serializers.UserSerializer"}
 
@@ -71,8 +75,32 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
 
         validated_data["user"] = self.context["request"].user
         validated_data["status"] = "pending"
+        permission = super().create(validated_data)
 
-        return super().create(validated_data)
+        # send notification email when configured
+        notification_template = settings.APPLICATION["NOTIFICATIONS"].get(
+            "PUBLICATION_PERMISSION"
+        )
+
+        if notification_template:
+            sendmail_data = {
+                "recipient_types": ["municipality"],
+                "notification_template": {
+                    "type": "notification-templates",
+                    "id": notification_template,
+                },
+                "instance": {
+                    "id": validated_data["publication_entry"].instance.pk,
+                    "type": "instances",
+                },
+            }
+            sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+                data=sendmail_data, context=self.context
+            )
+            sendmail_serializer.is_valid(raise_exception=True)
+            sendmail_serializer.save()
+
+        return permission
 
     @transaction.atomic
     def update(self, instance, validated_data):

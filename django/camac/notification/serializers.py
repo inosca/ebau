@@ -442,3 +442,10 @@ class NotificationTemplateSendmailSerializer(
 
     class Meta:
         resource_name = "notification-template-sendmails"
+
+
+class PermissionlessNotificationTemplateSendmailSerializer(
+    NotificationTemplateSendmailSerializer
+):
+    def validate_instance(self, instance):
+        return instance
