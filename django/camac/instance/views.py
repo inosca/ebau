@@ -72,6 +72,7 @@ class InstanceView(
             "responsible_services",
             "responsible_services__responsible_user",
         ],
+        "location": ["location"],
     }
     ordering_fields = (
         "instance_id",

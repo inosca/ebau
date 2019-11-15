@@ -77,6 +77,13 @@ class InstanceSerializer(
         default=NewInstanceStateDefault(),
     )
 
+    is_applicant = serializers.SerializerMethodField()
+
+    def get_is_applicant(self, obj):
+        return obj.involved_applicants.filter(
+            invitee=self.context["request"].user
+        ).exists()
+
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
         "user": "camac.user.serializers.UserSerializer",
@@ -146,7 +153,7 @@ class InstanceSerializer(
 
     class Meta:
         model = models.Instance
-        meta_fields = ("editable",)
+        meta_fields = ("editable", "is_applicant")
         fields = (
             "instance_id",
             "instance_state",

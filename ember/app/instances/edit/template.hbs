@@ -1,11 +1,16 @@
 {{#with model.instance as |instance|}}
   <ul class="uk-width-1-1" uk-tab>
-    <li class={{if (eq router.currentRouteName 'instances.edit.index') 'uk-active'}}>
-      {{link-to 'Gesuch' 'instances.edit.index' class='uk-text-bold'}}
+    <li class={{if (eq currentPage "form") 'uk-active'}}>
+      {{link-to 'Gesuch' 'instances.edit.index' class='uk-text-bolder'}}
     </li>
-    <li class={{if (eq router.currentRouteName 'instances.edit.involvierte-personen') 'uk-active'}}>
-      {{link-to 'Involvierte Personen' 'instances.edit.involvierte-personen' class='uk-text-bold'}}
-    </li>
+    {{#if model.meta.is-applicant}}
+      <li class={{if (eq router.currentRouteName 'instances.edit.involvierte-personen') 'uk-active'}}>
+        {{link-to 'Involvierte Personen' 'instances.edit.involvierte-personen' class='uk-text-bolder'}}
+      </li>
+      <li class={{if (eq router.currentRouteName 'instances.edit.freigegebene-unterlagen') 'uk-active'}}>
+        {{link-to 'Freigegebene Unterlagen' 'instances.edit.freigegebene-unterlagen' class='uk-text-bolder'}}
+      </li>
+    {{/if}}
   </ul>
 
   {{#if (eq currentPage "form")}}
@@ -13,7 +18,7 @@
       <div class="uk-width-1-1 uk-width-1-3@m">
         <ul class="uk-tab uk-tab-left">
           <li class={{if (eq router.currentRouteName 'instances.edit.index') 'uk-active'}}>
-            {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bold'}}
+            {{link-to 'Allgemeine Informationen' 'instances.edit.index' class='uk-text-bolder'}}
           </li>
           {{#each navigation as |m|}}
             {{#if m.state}}
@@ -22,7 +27,7 @@
           {{/each}}
           {{#if model.meta.editable.length}}
             <li class={{if (eq router.currentRouteName 'instances.edit.submit') 'uk-active'}}>
-              {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bold'}}
+              {{link-to 'Einreichen' 'instances.edit.submit' class='uk-text-bolder'}}
             </li>
           {{/if}}
         </ul>

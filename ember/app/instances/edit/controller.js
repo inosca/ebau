@@ -21,7 +21,11 @@ const Module = EmberObject.extend({
     ];
   }),
 
-  editable: computed("editableTypes.[]", function() {
+  editable: computed("editableTypes.[]", "isApplicant", function() {
+    if (!this.get("isApplicant")) {
+      return false;
+    }
+
     let questions = this.questionStore.peekSet(
       this.getWithDefault("allQuestions", []),
       this.instance
@@ -95,6 +99,7 @@ export default Controller.extend({
           link: `instances.edit.${name}`,
           instance: this.get("model.instance.id"),
           editableTypes: this.get("model.meta.editable"),
+          isApplicant: this.get("model.meta.is-applicant"),
           name,
           title,
           questions,
@@ -173,7 +178,13 @@ export default Controller.extend({
       "instances.edit.involvierte-personen"
     ) {
       return "applicants";
+    } else if (
+      this.get("router.currentRouteName") ===
+      "instances.edit.freigegebene-unterlagen"
+    ) {
+      return "documents";
     }
+
     return "form";
   }),
 
