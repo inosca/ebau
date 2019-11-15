@@ -41,7 +41,18 @@ def test_publication_permission_list(
         ("Service", status.HTTP_403_FORBIDDEN),
     ],
 )
-def test_publication_permission_create(admin_client, publication_entry, status_code):
+def test_publication_permission_create(
+    application_settings,
+    admin_client,
+    publication_entry,
+    status_code,
+    notification_template,
+    mailoutbox,
+):
+    application_settings["NOTIFICATIONS"][
+        "PUBLICATION_PERMISSION"
+    ] = notification_template.pk
+
     url = reverse("publication-permissions-list")
 
     data = {
@@ -63,6 +74,10 @@ def test_publication_permission_create(admin_client, publication_entry, status_c
         assert json["data"]["relationships"]["publication-entry"]["data"]["id"] == (
             str(publication_entry.pk)
         )
+
+        assert len(mailoutbox) == 1
+        mail = mailoutbox[0]
+        mail.subject == notification_template.subject
 
         response = admin_client.post(url, data=data)
         assert response.status_code == status.HTTP_400_BAD_REQUEST
