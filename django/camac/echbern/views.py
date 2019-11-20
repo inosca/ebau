@@ -83,7 +83,7 @@ last_param = openapi.Parameter(
     "last",
     openapi.IN_QUERY,
     description=(
-        "UUID of last message. Can be found in `headerType.messageId`. "
+        "UUID of last message. Can be found in `delivery.deliveryHeader.messageId`. "
         "If omitted, first message is returned"
     ),
     type=openapi.TYPE_STRING,
