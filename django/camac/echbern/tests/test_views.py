@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 
 from camac.constants.kt_bern import (
-    INSTANCE_STATE_FORMELLE_PRUEFUNG,
+    INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
 )
@@ -171,7 +171,7 @@ def test_send(
         group.role = role_factory(name="support")
         group.save()
 
-    state = instance_state_factory(pk=INSTANCE_STATE_FORMELLE_PRUEFUNG)
+    state = instance_state_factory(pk=INSTANCE_STATE_DOSSIERPRUEFUNG)
     expected_state = instance_state_factory(pk=INSTANCE_STATE_REJECTED)
     ech_instance.instance_state = state
     ech_instance.save()

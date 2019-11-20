@@ -12,14 +12,14 @@ def migrate_instance_states(apps, schema_editor):
         instance_state__in=(
             constants.INSTANCE_STATE_SELBSTDEKLARATION_FREIGABEQUITTUNG,
         )
-    ).update(instance_state=constants.INSTANCE_STATE_SELBSTDEKLARATION_AUSSTEHEND)
+    ).update(instance_state=constants.INSTANCE_STATE_SB1)
 
     Instance.objects.filter(
         instance_state__in=(
             constants.INSTANCE_STATE_ABSCHLUSS_DOKUMENTE,
             constants.INSTANCE_STATE_ABSCHLUSS_FREIGABEQUITTUNG,
         )
-    ).update(instance_state=constants.INSTANCE_STATE_ABSCHLUSS_AUSSTEHEND)
+    ).update(instance_state=constants.INSTANCE_STATE_SB2)
 
 
 class Migration(migrations.Migration):
