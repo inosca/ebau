@@ -14,7 +14,10 @@
   {{else}}
     {{#if file}}
       <div class="uk-margin">
-        <label class="uk-form-label uk-text-bold">{{t "claims.contents"}}</label>
+        <label class="uk-form-label">
+          <span class="uk-text-bold">{{t "claims.contents"}}</span>
+          <span class="uk-margin-small-left uk-text-muted uk-text-lowercase">({{t "caluma.form.optional"}})</span>
+        </label>
         <div class="uk-form-controls">
           <div class="uk-grid-small" uk-grid>
             <div class="uk-width-expand">
