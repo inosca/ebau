@@ -1067,6 +1067,34 @@
   },
   {
     "fields": {
+      "available_action": "formtransition",
+      "button": 150000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 0,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150003
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 150000,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150004
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -2075,6 +2103,42 @@
   },
   {
     "fields": {
+      "action": 150003,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Go to state \"Archiviert\"",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150003
+  },
+  {
+    "fields": {
+      "action": 150004,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: Archiviert",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150004
+  },
+  {
+    "fields": {
+      "action": 150004,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Entr\u00e9e de journal: Archiv\u00e9",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150005
+  },
+  {
+    "fields": {
       "current_instance_state": null,
       "next_instance_state": 20006
     },
@@ -2176,6 +2240,14 @@
     },
     "model": "core.aformtransition",
     "pk": 130002
+  },
+  {
+    "fields": {
+      "current_instance_state": null,
+      "next_instance_state": 20009
+    },
+    "model": "core.aformtransition",
+    "pk": 150003
   },
   {
     "fields": {
@@ -41391,6 +41463,132 @@
   },
   {
     "fields": {
+      "button": 150000,
+      "instance_state": 1,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20000,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20006,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150016
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20003,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150017
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20004,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150018
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20005,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150019
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20010,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150020
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20011,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150021
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20013,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150022
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20014,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150023
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 10000,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150024
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20007,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150025
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 20008,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150026
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "instance_state": 120000,
+      "role": 10000
+    },
+    "model": "core.broleacl",
+    "pk": 150027
+  },
+  {
+    "fields": {
       "class_field": "next-arrows",
       "description": null,
       "hidden": 0,
@@ -41736,6 +41934,18 @@
     },
     "model": "core.button",
     "pk": 130000
+  },
+  {
+    "fields": {
+      "class_field": null,
+      "description": null,
+      "hidden": 0,
+      "instance_resource": 150001,
+      "name": null,
+      "sort": 0
+    },
+    "model": "core.button",
+    "pk": 150000
   },
   {
     "fields": {
@@ -42316,6 +42526,26 @@
     },
     "model": "core.buttont",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "description": null,
+      "language": "de",
+      "name": "Dossier archivieren"
+    },
+    "model": "core.buttont",
+    "pk": 150002
+  },
+  {
+    "fields": {
+      "button": 150000,
+      "description": null,
+      "language": "fr",
+      "name": "Archiver le dossier"
+    },
+    "model": "core.buttont",
+    "pk": 150003
   },
   {
     "fields": {
@@ -58777,6 +59007,13 @@
   },
   {
     "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
+    "pk": 150004
+  },
+  {
+    "fields": {
       "action": 20027,
       "language": "de",
       "text": "Dossier eingereicht"
@@ -58954,6 +59191,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 150001
+  },
+  {
+    "fields": {
+      "action": 150004,
+      "language": "de",
+      "text": "Archiviert"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150002
+  },
+  {
+    "fields": {
+      "action": 150004,
+      "language": "fr",
+      "text": "Archiv\u00e9"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150003
   },
   {
     "fields": {
