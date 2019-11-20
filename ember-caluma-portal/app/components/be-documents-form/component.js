@@ -28,10 +28,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
 
-    this.set(
-      "allowedMimetypes",
-      config.environment.ebau.attachments.allowedMimetypes
-    );
+    this.set("allowedMimetypes", config.ebau.attachments.allowedMimetypes);
   },
 
   rootFormSlug: reads("fieldset.document.rootForm.slug"),
@@ -135,9 +132,7 @@ export default Component.extend({
 
   saveFile: task(function*() {
     if (
-      !config.environment.ebau.attachments.allowedMimetypes.includes(
-        this.file.blob.type
-      )
+      !config.ebau.attachments.allowedMimetypes.includes(this.file.blob.type)
     ) {
       this.notification.danger(this.intl.t("documents.wrongMimeType"));
 
