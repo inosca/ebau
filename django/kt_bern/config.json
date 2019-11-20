@@ -1031,7 +1031,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1092,6 +1092,20 @@
     },
     "model": "core.action",
     "pk": 150004
+  },
+  {
+    "fields": {
+      "available_action": "addjournal",
+      "button": 20047,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150005
   },
   {
     "fields": {
@@ -2136,6 +2150,30 @@
     },
     "model": "core.actiont",
     "pk": 150005
+  },
+  {
+    "fields": {
+      "action": 150005,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Journaleintrag: Korrigiert",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150006
+  },
+  {
+    "fields": {
+      "action": 150005,
+      "description": null,
+      "error_message": null,
+      "language": "fr",
+      "name": "Entr\u00e9e de journal: Corrig\u00e9",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150007
   },
   {
     "fields": {
@@ -59014,6 +59052,13 @@
   },
   {
     "fields": {
+      "text": null
+    },
+    "model": "core.journalactionconfig",
+    "pk": 150005
+  },
+  {
+    "fields": {
       "action": 20027,
       "language": "de",
       "text": "Dossier eingereicht"
@@ -59209,6 +59254,24 @@
     },
     "model": "core.journalactionconfigt",
     "pk": 150003
+  },
+  {
+    "fields": {
+      "action": 150005,
+      "language": "de",
+      "text": "Korrigiert"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150004
+  },
+  {
+    "fields": {
+      "action": 150005,
+      "language": "fr",
+      "text": "Corrig\u00e9"
+    },
+    "model": "core.journalactionconfigt",
+    "pk": 150005
   },
   {
     "fields": {
