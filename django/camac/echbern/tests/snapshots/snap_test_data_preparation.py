@@ -114,7 +114,7 @@ snapshots["test_get_document 1"] = {
         "Berechnung Kinderspielplätze / Aufenthaltsbereiche"
     ],
     "berechnungen-abstellplaetze-dokument": ["Berechnungen Abstellplätze"],
-    "beschreibung-bauvorhaben": "Testbeschreibung",
+    "beschreibung-bauvorhaben": "Testbeschreibung&#13;&#10;blabla&#13;&#10;multiline",
     "beschreibung-boden-untergrund": "Testanderebeschreibung",
     "beschreibung-der-prozessart-tabelle": [
         {
