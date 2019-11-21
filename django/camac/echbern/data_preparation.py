@@ -18,10 +18,21 @@ class DocumentParser:
         self.answers = self.parse_answers(self.document)
         self.answers["ech-subject"] = document["form"]["name"]
 
+    def handle_string_values(self, value):
+        value = self.strip_whitespace(value)
+        value = self.handle_line_breaks(value)
+        return value
+
     @staticmethod
     def strip_whitespace(value):
         if isinstance(value, str):
             return value.strip(" ")
+        return value
+
+    @staticmethod
+    def handle_line_breaks(value):
+        if isinstance(value, str):
+            return value.replace("\n", "&#13;&#10;")
         return value
 
     def parse_answers(self, data):
@@ -44,13 +55,13 @@ class DocumentParser:
             question_type_name = answer["node"]["question"]["__typename"]
 
             if question_type_name in simple_questions:
-                answers[answer["node"]["question"]["slug"]] = self.strip_whitespace(
+                answers[answer["node"]["question"]["slug"]] = self.handle_string_values(
                     answer["node"][simple_questions[question_type_name]]
                 )
 
             elif question_type_name in choice_questions:
                 options = {
-                    option["node"]["slug"]: self.strip_whitespace(
+                    option["node"]["slug"]: self.handle_string_values(
                         option["node"]["label"]
                     )
                     for option in answer["node"]["question"][
@@ -59,7 +70,9 @@ class DocumentParser:
                 }
 
                 if question_type_name in ["ChoiceQuestion", "DynamicChoiceQuestion"]:
-                    answers[answer["node"]["question"]["slug"]] = self.strip_whitespace(
+                    answers[
+                        answer["node"]["question"]["slug"]
+                    ] = self.handle_string_values(
                         options[answer["node"]["stringValue"]]
                     )
 
@@ -68,7 +81,7 @@ class DocumentParser:
                     "DynamicMultipleChoiceQuestion",
                 ]:
                     answers[answer["node"]["question"]["slug"]] = [
-                        self.strip_whitespace(options[slug])
+                        self.handle_string_values(options[slug])
                         for slug in answer["node"]["listValue"]
                     ]
             elif question_type_name == "TableQuestion":
