@@ -108,5 +108,15 @@
       "engine": "docx-template",
       "group": null
     }
+  },
+  {
+    "model": "api.template",
+    "pk": "de-publikation",
+    "fields": {
+      "description": "Publikation",
+      "template": "de-publikation.docx",
+      "engine": "docx-template",
+      "group": null
+    }
   }
 ]
