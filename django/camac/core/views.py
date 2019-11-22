@@ -78,6 +78,9 @@ class PublicationEntryView(viewsets.ModelViewSet):
             person["adresse"] = person["strasse"]
             del person["strasse"]
 
+            person["nachname"] = person["name"]
+            del person["name"]
+
             person.pop("email", None)
             person.pop("tel", None)
 
