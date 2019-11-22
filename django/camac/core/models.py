@@ -3231,8 +3231,9 @@ class Publication(models.Model):
 
 
 class PublicationEntryUserPermission(models.Model):
-    STATES = [("pending", "Pending"), ("accepted", "Accepted"), ("denied", "Denied")]
-    status = models.CharField(max_length=10, choices=STATES, default="pending")
+    PENDING = "pending"
+    STATES = [(PENDING, "Pending"), ("accepted", "Accepted"), ("denied", "Denied")]
+    status = models.CharField(max_length=10, choices=STATES, default=PENDING)
     publication_entry = models.ForeignKey(
         PublicationEntry, models.DO_NOTHING, related_name="user_permissions"
     )

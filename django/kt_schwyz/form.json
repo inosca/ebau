@@ -4466,6 +4466,13 @@
       "active-expression": "state != 'new'",
       "config": {}
     },
+    "dokument-publikation": {
+      "label": "Publikationsdokumente",
+      "type": "document",
+      "required": false,
+      "active-expression": "state != 'new'",
+      "config": {}
+    },
     "av-art": {
       "label": "Welche Art von Bewilligung hat Ihr Gesuch zum Inhalt?",
       "hint": "**Grossveranstaltung im Wald:** Über die Bewilligungspflicht für Veranstaltungen im Wald gibt § 7 der Vollzugsverordnung zum Kantonalen Waldgesetz (VVzKWaG, SRSZ 313.111) Auskunft.\n\n**Anlassbewilligung:** Erkundigen Sie sich zuerst in der jeweiligen Gemeinde, ob eine Bewilligung nötig ist und ob es ein separates, kommunales Formular für Anlassbewilligungen gibt.\n\n**Verkehrsbewilligung:** Verkehrsbewilligungen sind erforderlich für Umzüge, Veranstaltungen und dergleichen, welche Verkehrsbeschränkungen oder Verkehrsumleitungen erfordern sowie für motor- und radsportliche Veranstaltungen.",
