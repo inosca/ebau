@@ -378,6 +378,10 @@ export default Component.extend({
   addPointSet: task(function*() {
     if (this.get("points.lastObject.length")) {
       yield this.points.pushObject([]);
+
+      this.notification.success(
+        "Ein zusätzlicher Standort kann jetzt erfasst werden"
+      );
     }
   }),
 
