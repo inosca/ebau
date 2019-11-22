@@ -3,7 +3,7 @@
     <label class="uk-form-label uk-text-bold">
       Lokalisierung Ihres Vorhabens:
       <span class="uk-text-primary"> *</span>
-      {{camac-hint-dialog "Die Lokalisierung ist ein wichtiger Schritt beim Ausfüllen des Formulars. Versuchen Sie die räumliche Ausdehnung und Lage Ihres Vorhabens treffend darzustellen. Dadurch liefert der automatisch ausgeführte Datenverschnitt die besseren Ergebnisse und kann die nötigen Fragen auslösen. Eine ungenaue Lokalisierung führt hingegen dazu, dass Informationen, Nachweise oder andere Unterlagen fehlen und während des Beurteilungsprozesses nachgefordert werden müssen. Dies hat unweigerlich eine Verlängerung des Verfahrens zur Folge. Grundvoraussetzung für eine treffende Lokalisierung ist die passende Wahl des Geometrieelements. So soll beispielsweise für eine einzelne Reklametafel das Punktelement gewählt werden. Gehört die Reklametafel jedoch zu einer geplanten Autowerkstatt, ist das Flächenelement geeignet, um Gebäude und Reklame aufzunehmen. Das Linienelement dürfte eher selten die richtige Wahl sein, weil damit nur Vorhaben lokalisiert werden können, die geradlinig, lang und schmal sind (z. B. Leitungen, Wege u. ä.)."}}
+      {{camac-hint-dialog "Mit Lokalisierung bezeichnen wir die räumliche Anordnung und Ausdehnung eines Vorhabens. Dabei kann eine Lokalisierung mehrere Standorte umfassen, wobei jeder Standort, unabhängig von den anderen, durch ein eigenes Geometrieelement dargestellt wird. Die Lokalisierung ist ein wichtiger Schritt beim Ausfüllen des Formulars. Versuchen Sie die räumliche Ausdehnung und Lage Ihres Vorhabens treffend darzustellen. Dadurch liefert der automatisch ausgeführte Datenverschnitt die besseren Ergebnisse und kann die nötigen Fragen auslösen. Eine ungenaue Lokalisierung führt hingegen dazu, dass Informationen, Nachweise oder andere Unterlagen fehlen und während des Beurteilungsprozesses nachgefordert werden müssen. Dies hat unweigerlich eine Verlängerung des Verfahrens zur Folge. Grundvoraussetzung für eine treffende Lokalisierung ist die passende Wahl des Geometrieelements. So soll beispielsweise für eine einzelne Reklametafel das Punktelement gewählt werden. Gehört die Reklametafel jedoch zu einer geplanten Autowerkstatt, ist das Flächenelement geeignet, um Gebäude und Reklame aufzunehmen. Und falls Reklametafel und Autowerkstatt nicht unmittelbar beieinander sind, soll die Lokalisierung in zwei Standorte aufgeteilt werden: ein Standort als Flächenelement für die Autowerkstatt und ein weiterer Standort als Punktelement für die Reklametafel. Das Linienelement dürfte eher selten die richtige Wahl sein, weil damit nur Vorhaben lokalisiert werden können, die geradlinig, lang und schmal sind (z. B. Leitungen, Wege u. ä.)."}}
     </label>
     <p>
     Folgende Arbeitsschritte sind nötig:
@@ -17,7 +17,8 @@
           <li>Flächenelement (Polygon): für alle Vorhaben, die nicht mit einem einzelnen Punkt oder einer Geraden lokalisiert werden können .</li>
         </ol>
       </li>
-      <li>Falls nötig können die gesetzten Punkte noch verschoben werden. Danach auf „AUSWAHL ABFRAGEN“ klicken.</li>
+      <li>Falls Ihr Vorhaben räumlich verteilt ist, können Sie mit der Lokalisierung mehrere separate Standorte erfassen. Für jeden zusätzlichen Standort auf «ZUSÄTZLICHER STANDORT» klicken und Punkt(e) absetzen.</li>
+      <li>Falls nötig können die gesetzten Punkte noch verschoben werden. Danach auf „LOKALISIERUNG ABFRAGEN“ klicken.</li>
       <li>Lokalisierung wird bestätigt durch Mausklick auf „BESTÄTIGEN“.</li>
     </ol>
     </p>
@@ -127,18 +128,18 @@
 {{#unless readonly}}
   <div class="uk-text-right">
     {{#if selected.parcels.length}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform reset)}}Gespeicherte Auswahl laden{{/uk-button}}
+      {{#uk-button class="uk-margin-small-bottom" on-click=(perform reset)}}Gespeicherte Lokalisierung laden{{/uk-button}}
     {{/if}}
     {{#if points.firstObject.length}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform addPointSet)}}Neue Auswahl{{/uk-button}}
-      {{#uk-button class="uk-margin-small-bottom" on-click=(perform clear)}}Auswahl löschen{{/uk-button}}
-      {{#uk-button class="uk-margin-small-bottom" color='secondary' on-click=(perform getLayers)}}Auswahl abfragen{{/uk-button}}
+      {{#uk-button class="uk-margin-small-bottom" on-click=(perform addPointSet)}}Zusätzlicher Standort{{/uk-button}}
+      {{#uk-button class="uk-margin-small-bottom" on-click=(perform clear)}}Lokalisierung löschen{{/uk-button}}
+      {{#uk-button class="uk-margin-small-bottom" color='secondary' on-click=(perform getLayers)}}Lokalisierung abfragen{{/uk-button}}
     {{/if}}
   </div>
   <div class="uk-text-right uk-margin-small-top">
     {{#if parcels.length}}
       {{camac-hint-dialog "Falls mehrere Gemeinden betroffen sind, wählen Sie bitte jene Gemeinde aus, deren Gebiet durch Ihr Vorhaben am stärksten betroffen ist. Diese Gemeinde ist dann die Leitbehörde, welche die Koordinationsaufgaben übernimmt."}}
-      Auswahl in
+      Auswahl Leitbehörde
       <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
         {{#each municipalities as |municipality|}}
         <option value="{{municipality}}" selected={{eq selectedMunicipality municipality}}>{{municipality}}</option>
@@ -169,10 +170,12 @@
       </p>
     </div>
   {{/if}}
+{{/unless}}
 
+{{#if readonly}}
   <div class="uk-alert uk-alert-danger">
     <p>
       <strong>Achtung:</strong> Nach dem Einreichen des Gesuchs kann diese Auswahl <u>nicht mehr verändert</u> werden!
     </p>
   </div>
-{{/unless}}
+{{/if}}
