@@ -99,7 +99,7 @@
 
       {{#each coordinates.points as |pointSet index|}}
         {{#each pointSet as |point|}}
-          {{map.marker lat=point.lat lng=point.lng draggable=(or (not readonly) (eq (sub points.length 1)) index) onDragend=(action (perform updatePoint point))}}
+          {{map.marker lat=point.lat lng=point.lng draggable=(eq (sub coordinates.points.length 1) index) interactive=(not readonly) onDragend=(action (perform updatePoint point))}}
         {{/each}}
 
         {{#if (eq pointSet.length 2)}}
