@@ -17,6 +17,7 @@
       "fachthemen.umweltschutz",
       "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
+      "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
@@ -64,6 +65,7 @@
       "fachthemen.umweltschutz",
       "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
+      "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
@@ -97,6 +99,7 @@
       "fachthemen.umweltschutz",
       "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
+      "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
@@ -126,6 +129,7 @@
       "fachthemen.umweltschutz",
       "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
+      "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
@@ -179,6 +183,7 @@
       "fachthemen.umweltschutz",
       "fachthemen.natur-und-landschaftsschutz",
       "fachthemen.wald",
+      "fachthemen.naturgefahren",
       "fachthemen.verkehr",
       "fachthemen.energie",
       "fachthemen.arbeitssicherheit-und-gesundheitsschutz",
@@ -395,6 +400,13 @@
         "wald-forstlich",
         "wald-auswirkungen",
         "datenverschnitt-reptilien"
+      ]
+    },
+    "fachthemen.naturgefahren": {
+      "title": "Naturgefahren",
+      "parent": "fachthemen",
+      "questions": [
+        "datenverschnitt-naturgefahren"
       ]
     },
     "fachthemen.verkehr": {
@@ -625,7 +637,6 @@
         "info-wald-forstlich",
         "info-wald-auswirkungen",
         "info-wald-auswirkungen-roden",
-        "info-naturgefahren",
         "info-energie-dachaufstellung",
         "info-arbeitssicherheit-sicherheitsdatenblatter",
         "info-zivilschutz-elementarschaden",
@@ -4418,10 +4429,21 @@
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.a049.fischgewaesser' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.a049.fischgewaesser_bestehend' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischgewaesser_pot' in 'layer'|value|mapby('name') || 'ms:ch.sz.a049.fischregionen' in 'layer'|value|mapby('name')",
       "config": {
         "options": [
           "Erledigt"
+        ]
+      }
+    },
+    "datenverschnitt-naturgefahren": {
+      "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ergibt sich, dass die vorhandenen Naturgefahren zu berücksichtigen sind. Zur Beurteilung Ihres Gesuches ist ein Objektschutznachweis erforderlich.",
+      "type": "checkbox",
+      "required": false,
+      "active-expression": "'ms:ch.sz.a012.naturgefahrenkarte.synoptisch' in 'layer'|value|mapby('name') && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value)",
+      "config": {
+        "options": [
+          "Vorhanden"
         ]
       }
     },
@@ -6015,7 +6037,7 @@
       "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'vorhaben-mit-baute'|value && 'vorhaben-mit-baute'|value != 'Abbruch / Rückbau' && 'baukosten'|value > 250000",
+      "active-expression": "'vorhaben-mit-baute'|value && !('Abbruch / Rückbau' in 'vorhaben-mit-baute'|value)  && 'baukosten'|value > 250000",
       "config": {
         "options": [
           "Vorhanden"
@@ -6233,17 +6255,6 @@
           "Situationsplan 1:25‘000 (Ausschnitt Landeskarte) mit eingezeichnetem Standort der Rodung und Ersatzaufforstung",
           "Detailpläne (Massstab 1:500 bis 1:2‘000) der Rodungs- und Ersatzflächen",
           "Unterschrift aller betroffenen Grundeigentümer"
-        ]
-      }
-    },
-    "info-naturgefahren": {
-      "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ergibt sich, dass die vorhandenen Naturgefahren zu berücksichtigen sind. Zur Beurteilung Ihres Gesuches ist ein Objektschutznachweis erforderlich.",
-      "type": "checkbox",
-      "required": false,
-      "active-expression": "true == false",
-      "config": {
-        "options": [
-          "Vorhanden"
         ]
       }
     },
