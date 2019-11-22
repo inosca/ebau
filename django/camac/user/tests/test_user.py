@@ -45,3 +45,13 @@ def test_user_list(admin_client, size):
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == size
+
+
+@pytest.mark.parametrize("role__name,size", [("Service", 1), ("Municipality", 0)])
+def test_user_role_filter(admin_client, admin_user, group, user_group_factory, size):
+    url = reverse("user-list")
+
+    response = admin_client.get(url, {"exclude_primary_role": "Municipality"})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == size
