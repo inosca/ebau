@@ -1,6 +1,11 @@
 import pytest
 from django.conf import settings
 
+from camac.constants.kt_bern import (
+    CIRCULATION_ANSWER_POSITIV,
+    NOTICE_TYPE_NEBENBESTIMMUNG,
+    NOTICE_TYPE_STELLUNGNAHME,
+)
 from camac.echbern import data_preparation
 from camac.echbern.signals import instance_submitted
 
@@ -32,7 +37,6 @@ def test_submit_event(ech_instance, role_factory, group_factory, requests_mock, 
         ("FileSubsequently", "Leitbehörde Burgdorf"),
         ("WithdrawPlanningPermissionApplication", "Leitbehörde Burgdorf"),
         ("StatusNotification", "Leitbehörde Burgdorf"),
-        ("AccompanyingReport", "Leitbehörde Burgdorf"),
         ("Claim", "Leitbehörde Burgdorf"),
         ("ChangeResponsibility", "Leitbehörde Madiswil"),
     ],
@@ -41,8 +45,6 @@ def test_event_handlers(
     event_type,
     expected_receiver,
     ech_instance,
-    attachment,
-    attachment_section_factory,
     role_factory,
     instance_service_factory,
     instance_state_factory,
@@ -58,12 +60,6 @@ def test_event_handlers(
     if event_type == "StatusNotification":
         ech_instance.previous_instance_state = instance_state_factory(pk=20000)
         ech_instance.save()
-
-    if event_type == "AccompanyingReport":
-        attachment.instance = ech_instance
-        attachment.save()
-        attachment_section = attachment_section_factory(pk=7)
-        attachment.attachment_sections.add(attachment_section)
 
     if event_type == "ChangeResponsibility":
         instance_service = InstanceService.objects.filter(
@@ -87,6 +83,51 @@ def test_event_handlers(
     assert Message.objects.count() == 1
     message = Message.objects.first()
     assert message.receiver.name == expected_receiver
+
+
+@pytest.mark.parametrize("notices_exists", [True, False])
+@pytest.mark.parametrize("circulation_answer_exists", [True, False])
+def test_accompanying_report_event_handler(
+    notices_exists,
+    circulation_answer_exists,
+    ech_instance,
+    attachment,
+    attachment_section_factory,
+    activation_factory,
+    notice_factory,
+    notice_type_factory,
+    circulation_answer_factory,
+):
+    attachment.instance = ech_instance
+    attachment.save()
+    attachment_section = attachment_section_factory(pk=7)
+    attachment.attachment_sections.add(attachment_section)
+    activation = activation_factory(
+        circulation__instance=ech_instance, circulation_answer=None
+    )
+
+    if notices_exists:
+        notice_factory(
+            activation=activation,
+            notice_type=notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME),
+            content="stellungnahme\r\nblablabla\r\nblu",
+        )
+        notice_factory(
+            activation=activation,
+            notice_type=notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG),
+            content="nebenbestimmung\r\nblablabla\r\nblu; yeah",
+        )
+
+    if circulation_answer_exists:
+        circulation_answer_factory(pk=CIRCULATION_ANSWER_POSITIV)
+
+    eh = event_handlers.AccompanyingReportEventHandler(
+        ech_instance, None, None, context={"activation-id": activation.pk}
+    )
+    eh.run()
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert message.receiver.name == "Leitbehörde Burgdorf"
 
 
 def test_task_event_handler(
