@@ -1,6 +1,8 @@
 import sys
 
+from django.urls import reverse
 from django.utils import timezone
+from rest_framework.test import APIClient
 
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
@@ -245,6 +247,7 @@ class TaskSendHandler(BaseSendHandler):
             version=1,
             circulation_state=circulation_state,
             service_parent=self.instance.active_service,
+            email_sent=0,
         )
 
     def apply(self):
@@ -258,6 +261,31 @@ class TaskSendHandler(BaseSendHandler):
             user_pk=self.user.pk,
             group_pk=self.group.pk,
         )
+
+        mail_data = {
+            "data": {
+                "type": "notification-template-sendmails",
+                "id": None,
+                "attributes": {"recipient-types": ["unnotified_service"]},
+                "relationships": {
+                    "instance": {"data": {"type": "instances", "id": self.instance.pk}}
+                },
+            }
+        }
+        url = reverse("notificationtemplate-sendmail", args=[11])
+        client = APIClient()
+        client.force_authenticate(user=self.user)
+        resp = client.post(url, data=mail_data)
+        if not resp.status_code == 204:
+            raise SendHandlerException("Failed to send mails!")
+
+        # This doesn't happen in the NotificationTemplateSendmailSerializer but in php (ffs!). So we do it here.
+        activations = Activation.objects.filter(
+            circulation__instance_id=self.instance.pk, email_sent=0
+        )
+        for a in activations:
+            a.email_sent = 1
+            a.save()
 
 
 def get_send_handler(data, instance, user, group, auth_header):
