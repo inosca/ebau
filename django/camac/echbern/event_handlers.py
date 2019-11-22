@@ -3,18 +3,15 @@ from uuid import uuid4
 
 from django.conf import settings
 from django.dispatch import receiver
-from django.urls import reverse
 from django.utils import timezone
 from pyxb import (
     IncompleteElementContentError,
     UnprocessedElementContentError,
     UnprocessedKeywordContentError,
 )
-from rest_framework.test import APIClient
 
 from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
 from camac.core.models import Activation
-from camac.user.models import User
 
 from .data_preparation import get_document
 from .formatters import (
@@ -225,32 +222,6 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
             xml = self.get_xml(data, self.get_url(a.pk))
             msgs.append(self.create_message(xml, a.service))
             a.ech_msg_created = True
-            a.save()
-
-        mail_data = {
-            "data": {
-                "type": "notification-template-sendmails",
-                "id": None,
-                "attributes": {"recipient-types": ["unnotified_service"]},
-                "relationships": {
-                    "instance": {"data": {"type": "instances", "id": self.instance.pk}}
-                },
-            }
-        }
-        url = reverse("notificationtemplate-sendmail", args=[11])
-        client = APIClient()
-        user = User.objects.get(pk=self.user_pk)
-        client.force_authenticate(user=user)
-        resp = client.post(url, data=mail_data)
-        if not resp.status_code == 204:
-            raise EventHandlerException("Failed to send mails!")
-
-        # This doesn't happen in the NotificationTemplateSendmailSerializer but in php (ffs!). So we do it here.
-        activations = Activation.objects.filter(
-            circulation__instance_id=self.instance.pk, email_sent=0
-        )
-        for a in activations:
-            a.email_sent = 1
             a.save()
 
         return msgs
