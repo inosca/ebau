@@ -5,8 +5,7 @@ from rest_framework import status
 
 
 @pytest.mark.parametrize(
-    "role__name,size",
-    [("Applicant", 1), ("Canton", 0), ("Municipality", 2), ("Service", 0)],
+    "role__name,size", [("Applicant", 1), ("Municipality", 2), ("Service", 0)]
 )
 def test_publication_permission_list(
     admin_client,
@@ -37,7 +36,6 @@ def test_publication_permission_list(
     [
         ("Applicant", status.HTTP_201_CREATED),
         ("Municipality", status.HTTP_403_FORBIDDEN),
-        ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
     ],
 )
@@ -88,7 +86,6 @@ def test_publication_permission_create(
     [
         ("Applicant", status.HTTP_403_FORBIDDEN),
         ("Municipality", status.HTTP_200_OK),
-        ("Canton", status.HTTP_403_FORBIDDEN),
         ("Service", status.HTTP_403_FORBIDDEN),
     ],
 )
@@ -126,21 +123,13 @@ def test_publication_permission_update(
         assert response.status_code == status.HTTP_400_BAD_REQUEST
 
 
-@pytest.mark.parametrize(
-    "role__name,status_code",
-    [
-        ("Applicant", status.HTTP_403_FORBIDDEN),
-        ("Municipality", status.HTTP_403_FORBIDDEN),
-        ("Canton", status.HTTP_403_FORBIDDEN),
-        ("Service", status.HTTP_403_FORBIDDEN),
-    ],
-)
+@pytest.mark.parametrize("role__name", ["Applicant", "Municipality", "Service"])
 def test_publication_permission_destroy(
-    admin_client, publication_entry_user_permission, activation, status_code
+    admin_client, publication_entry_user_permission, activation
 ):
     url = reverse(
         "publication-permissions-detail", args=[publication_entry_user_permission.pk]
     )
 
     response = admin_client.delete(url)
-    assert response.status_code == status_code
+    assert response.status_code == status.HTTP_403_FORBIDDEN

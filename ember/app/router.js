@@ -59,7 +59,6 @@ Router.map(function() {
         });
         this.route("gesuchsunterlagen");
         this.route("gesuchsunterlagen-ve-va");
-        this.route("freigegebene-unterlagen");
         this.route("anlassbewilligungen-verkehrsbewilligungen");
         this.route("baumeldung-fur-geringfugige-vorhaben");
         this.route("konzession-fur-wasserentnahme");
@@ -69,7 +68,11 @@ Router.map(function() {
         this.route("technische-bewilligung");
         this.route("vorentscheid");
         this.route("submit");
+
+        // Routes for the horizontal nav
         this.route("involvierte-personen");
+        this.route("freigegebene-unterlagen");
+        this.route("publikationsdokumente");
       });
     });
   });

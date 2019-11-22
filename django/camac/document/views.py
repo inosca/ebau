@@ -87,10 +87,37 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
     }
     ordering_fields = ("name", "date", "size")
 
+    @permission_aware
     def get_queryset(self):
         if getattr(self, "swagger_fake_view", False):
             return models.Attachment.objects.none()
-        return super().get_queryset()
+        queryset = self.get_base_queryset()
+
+        sections_all = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=self.request.group)
+            & ~Q(group_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(service_acls__service=self.request.group.service)
+            & ~Q(service_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(role_acls__role=self.request.group.role)
+            & ~Q(role_acls__mode=models.PUBLIC_PERMISSION)
+        )
+
+        sections_public = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=self.request.group)
+            & Q(group_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(service_acls__service=self.request.group.service)
+            & Q(service_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(role_acls__role=self.request.group.role)
+            & Q(role_acls__mode=models.PUBLIC_PERMISSION)
+        )
+
+        return queryset.filter(
+            Q(attachment_sections__in=sections_public)
+            | Q(
+                attachment_sections__in=sections_all,
+                instance__involved_applicants__invitee=self.request.user,
+            )
+        )
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
@@ -132,6 +159,7 @@ class AttachmentView(InstanceEditableMixin, InstanceQuerysetMixin, views.ModelVi
         attachment_admin_permissions = section_modes - {
             models.READ_PERMISSION,
             models.WRITE_PERMISSION,
+            models.PUBLIC_PERMISSION,
         }
 
         if models.ADMINSERVICE_PERMISSION in attachment_admin_permissions:
@@ -238,9 +266,40 @@ class AttachmentDownloadView(InstanceQuerysetMixin, ReadOnlyModelViewSet):
         queryset = super().get_base_queryset()
         return queryset.filter_group(self.request.group).distinct()
 
+    @permission_aware
+    def get_queryset(self):
+        queryset = self.get_base_queryset()
+
+        sections_all = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=self.request.group)
+            & ~Q(group_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(service_acls__service=self.request.group.service)
+            & ~Q(service_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(role_acls__role=self.request.group.role)
+            & ~Q(role_acls__mode=models.PUBLIC_PERMISSION)
+        )
+
+        sections_public = models.AttachmentSection.objects.filter(
+            Q(group_acls__group=self.request.group)
+            & Q(group_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(service_acls__service=self.request.group.service)
+            & Q(service_acls__mode=models.PUBLIC_PERMISSION)
+            | Q(role_acls__role=self.request.group.role)
+            & Q(role_acls__mode=models.PUBLIC_PERMISSION)
+        )
+
+        return queryset.filter(
+            Q(attachment_sections__in=sections_public)
+            | Q(
+                attachment_sections__in=sections_all,
+                instance__involved_applicants__invitee=self.request.user,
+            )
+        )
+
     @swagger_auto_schema(auto_schema=None)
     def retrieve(self, request, **kwargs):
         attachment = self.get_object()
+
         download_path = kwargs.get(self.lookup_field)
 
         models.AttachmentDownloadHistory.objects.create(

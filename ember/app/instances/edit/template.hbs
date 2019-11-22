@@ -10,6 +10,10 @@
       <li class={{if (eq router.currentRouteName 'instances.edit.freigegebene-unterlagen') 'uk-active'}}>
         {{link-to 'Freigegebene Unterlagen' 'instances.edit.freigegebene-unterlagen' class='uk-text-bolder'}}
       </li>
+    {{else}}
+      <li class={{if (eq router.currentRouteName 'instances.edit.publikationsdokumente') 'uk-active'}}>
+        {{link-to 'Publikationsdokumente' 'instances.edit.publikationsdokumente' class='uk-text-bolder'}}
+      </li>
     {{/if}}
   </ul>
 

@@ -130,6 +130,10 @@ export default Controller.extend({
               .filter(sub => sub.get("name") !== mod.get("name")),
             mod
           ]);
+        } else if (!this.get("model.meta.is-applicant")) {
+          if (mod.get("name") !== "gesuchsunterlagen") {
+            nav.push(mod);
+          }
         } else {
           nav.push(mod);
         }
@@ -173,19 +177,16 @@ export default Controller.extend({
   ),
 
   currentPage: computed("router.currentRouteName", function() {
-    if (
-      this.get("router.currentRouteName") ===
-      "instances.edit.involvierte-personen"
-    ) {
-      return "applicants";
-    } else if (
-      this.get("router.currentRouteName") ===
-      "instances.edit.freigegebene-unterlagen"
-    ) {
-      return "documents";
+    switch (this.get("router.currentRouteName")) {
+      case "instances.edit.involvierte-personen":
+        return "applicants";
+      case "instances.edit.freigegebene-unterlagen":
+        return "documents";
+      case "instances.edit.publikationsdokumente":
+        return "documents";
+      default:
+        return "form";
     }
-
-    return "form";
   }),
 
   prev: task(function*() {

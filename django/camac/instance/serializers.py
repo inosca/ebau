@@ -64,6 +64,7 @@ class InstanceSerializer(
     InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
 ):
     editable = serializers.SerializerMethodField()
+    is_applicant = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
@@ -76,8 +77,6 @@ class InstanceSerializer(
         queryset=models.InstanceState.objects.filter(name="new"),
         default=NewInstanceStateDefault(),
     )
-
-    is_applicant = serializers.SerializerMethodField()
 
     def get_is_applicant(self, obj):
         return obj.involved_applicants.filter(
