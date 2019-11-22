@@ -6,8 +6,10 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_ZIRKULATION,
+    NOTICE_TYPE_NEBENBESTIMMUNG,
+    NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, InstanceService
+from camac.core.models import Activation, InstanceService, Notice
 from camac.echbern.tests.utils import xml_data
 from camac.instance.models import Instance
 
@@ -173,7 +175,7 @@ def test_task_send_handler(
         queryset=Instance.objects,
         user=admin_user,
         group=group,
-        auth_header=None,
+        auth_header="Bearer: some token",
     )
     assert dh.has_permission() is True
 
@@ -224,8 +226,12 @@ def test_accompanying_report_send_handler(
     instance_state_factory,
     activation_factory,
     user_group_factory,
+    notice_type_factory,
 ):
     user_group = user_group_factory(default_group=1)
+
+    notice_type_factory(pk=NOTICE_TYPE_STELLUNGNAHME)
+    notice_type_factory(pk=NOTICE_TYPE_NEBENBESTIMMUNG)
 
     if has_activation:
         activation_factory(
@@ -233,6 +239,7 @@ def test_accompanying_report_send_handler(
             circulation_state=circulation_state_factory(pk=1, name="RUN"),
             service=user_group.group.service,
             user=user_group.user,
+            circulation_answer=None,
         )
 
     done_state = circulation_state_factory(pk=2, name="DONE")
@@ -275,6 +282,7 @@ def test_accompanying_report_send_handler(
         assert Activation.objects.count() == 1
         activation = Activation.objects.first()
         assert activation.circulation_state == done_state
+        assert Notice.objects.count() == 2
 
     else:
         with pytest.raises(SendHandlerException):

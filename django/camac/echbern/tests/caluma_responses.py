@@ -2150,7 +2150,7 @@ full_document = {
                                             "slug": "beschreibung-bauvorhaben",
                                             "__typename": "TextareaQuestion",
                                         },
-                                        "stringValue": "Testbeschreibung\nblabla\nmultiline",
+                                        "stringValue": "Testbeschreibung\r\nblabla\r\nmultiline",
                                         "__typename": "StringAnswer",
                                     },
                                     "__typename": "AnswerEdge",
