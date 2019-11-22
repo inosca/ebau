@@ -117,18 +117,20 @@ def test_close_dossier_send_handler(ech_instance, admin_user, instance_state_fac
 
 
 @pytest.mark.parametrize(
-    "has_circulation,has_service,valid_service_id,success",
+    "has_circulation,has_service,valid_service_id,has_template,success",
     [
-        (True, True, True, True),
-        (False, True, True, True),
-        (True, False, True, False),
-        (True, True, False, False),
+        (True, True, True, True, True),
+        (False, True, True, True, True),
+        (True, False, True, True, False),
+        (True, True, False, True, False),
+        (True, True, True, False, False),
     ],
 )
 def test_task_send_handler(
     has_circulation,
     has_service,
     valid_service_id,
+    has_template,
     success,
     admin_user,
     circulation_factory,
@@ -138,8 +140,10 @@ def test_task_send_handler(
     circulation_state_factory,
     instance_resource_factory,
     notification_template_factory,
+    mailoutbox,
 ):
-    notification_template_factory(pk=11)
+    if has_template:
+        notification_template_factory(pk=11)
 
     instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
     circulation_state_factory(pk=1, name="RUN")
@@ -152,7 +156,7 @@ def test_task_send_handler(
     group.save()
 
     if has_service:
-        service = service_factory(pk=23)
+        service = service_factory(pk=23, email="s1@example.com")
 
     if has_circulation:
         circulation_factory(instance=ech_instance)  # dummy
@@ -183,6 +187,12 @@ def test_task_send_handler(
         assert activation.service == service
         if has_circulation:
             assert activation.circulation == circulation
+
+        assert len(mailoutbox) == 1
+
+        assert activation.ech_msg_created is True
+        assert "s1@example.com" in mailoutbox[0].bcc
+
     else:
         with pytest.raises(SendHandlerException):
             dh.apply()

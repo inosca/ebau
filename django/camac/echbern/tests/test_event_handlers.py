@@ -89,42 +89,22 @@ def test_event_handlers(
     assert message.receiver.name == expected_receiver
 
 
-@pytest.mark.parametrize("fail_mail", [False, True])
 def test_task_event_handler(
-    fail_mail,
-    ech_instance,
-    service_factory,
-    circulation_factory,
-    notification_template_factory,
-    activation_factory,
-    admin_user,
-    mailoutbox,
+    ech_instance, service_factory, circulation_factory, activation_factory, admin_user
 ):
     s1 = service_factory(email="s1@example.com")
     s2 = service_factory(email="s2@example.com")
     s3 = service_factory(email="s3@example.com")
-    if not fail_mail:
-        notification_template_factory(pk=11)
+
     circulation = circulation_factory(instance=ech_instance)
-    a1 = activation_factory(circulation=circulation, service=s1, email_sent=0)
-    a2 = activation_factory(circulation=circulation, service=s2, email_sent=0)
+    activation_factory(circulation=circulation, service=s1, email_sent=0)
+    activation_factory(circulation=circulation, service=s2, email_sent=0)
     activation_factory(circulation=circulation, service=s3, ech_msg_created=True)
 
     eh = event_handlers.TaskEventHandler(ech_instance, user_pk=admin_user.pk)
 
-    if fail_mail:
-        with pytest.raises(event_handlers.EventHandlerException):
-            eh.run()
-    else:
-        assert len(eh.run()) == 2
-        assert Message.objects.count() == 2
-        assert Message.objects.filter(receiver__in=[s1, s2]).count() == 2
-
-        assert len(mailoutbox) == 1
-        assert len(mailoutbox[0].bcc) == 2
-
-        for a in [a1, a2]:
-            a.refresh_from_db()
-            assert a.ech_msg_created is True
-            assert "s1@example.com" in mailoutbox[0].bcc
-            assert "s2@example.com" in mailoutbox[0].bcc
+    assert len(eh.run()) == 2
+    assert Message.objects.count() == 2
+    assert Message.objects.filter(receiver=s1)
+    assert Message.objects.filter(receiver=s2)
+    assert not Message.objects.filter(receiver=s3)
