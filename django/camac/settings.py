@@ -181,7 +181,10 @@ PUBLIC_BASE_URL = env.str(
 
 INTERNAL_BASE_URL = env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
 
-PUBLIC_INSTANCE_URL_TEMPLATE = "{public_base_url}/instances/{instance_id}"
+PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
+    "DJANGO_PUBLIC_INSTANCE_URL_TEMPLATE",
+    default="{public_base_url}/instances/{instance_id}",
+)
 INTERNAL_INSTANCE_URL_TEMPLATE = (
     "{internal_base_url}/index/redirect-to-instance-resource/instance-id/{instance_id}"
 )
