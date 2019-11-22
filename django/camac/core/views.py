@@ -22,8 +22,9 @@ class PublicationEntryView(views.ModelViewSet):
     @permission_aware
     def get_queryset(self):
         return models.PublicationEntry.objects.filter(
-            publication_date__gt=timezone.now()
+            publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            publication_date__lt=timezone.now(),
             is_published=True,
         )
 
@@ -45,24 +46,12 @@ class PublicationEntryView(views.ModelViewSet):
     def has_create_permission_for_municipality(self):
         return True
 
-    def has_create_permission_for_service(self):
-        return False
-
-    def has_create_permission_for_canton(self):
-        return False
-
     @permission_aware
     def has_update_permission(self):
         return False
 
     def has_update_permission_for_municipality(self):
         return True
-
-    def has_update_permission_for_service(self):
-        return False
-
-    def has_update_permission_for_canton(self):
-        return False
 
     def has_destroy_permission(self):
         return False
@@ -188,17 +177,15 @@ class PublicationEntryUserPermissionView(views.ModelViewSet):
     def get_queryset(self):
         return models.PublicationEntryUserPermission.objects.filter(
             user=self.request.user,
-            publication_entry__publication_date__gt=timezone.now()
+            publication_entry__publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            publication_entry__publication_date__lt=timezone.now(),
         )
 
     def get_queryset_for_municipality(self):
         return models.PublicationEntryUserPermission.objects.filter(
             publication_entry__instance__group=self.request.group
         )
-
-    def get_queryset_for_canton(self):
-        return models.PublicationEntryUserPermission.objects.none()
 
     def get_queryset_for_service(self):
         return models.PublicationEntryUserPermission.objects.none()
@@ -213,21 +200,12 @@ class PublicationEntryUserPermissionView(views.ModelViewSet):
     def has_create_permission_for_service(self):
         return False
 
-    def has_create_permission_for_canton(self):
-        return False
-
     @permission_aware
     def has_update_permission(self):
         return False
 
     def has_update_permission_for_municipality(self):
         return True
-
-    def has_update_permission_for_service(self):
-        return False
-
-    def has_update_permission_for_canton(self):
-        return False
 
     def has_destroy_permission(self):
         return False

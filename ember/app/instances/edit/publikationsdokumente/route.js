@@ -6,18 +6,12 @@ export default Route.extend({
   store: service(),
   questionStore: service("question-store"),
 
-  afterModel(model) {
-    if (!model.meta["is-applicant"]) {
-      this.transitionTo("instances.edit.index");
-    }
-  },
-
   async setupController(controller, model) {
     // Get Question and set its model to the right attachments,
     // determined through the attachment section id,
     // which is set in ENV.APP
     const question = await this.questionStore.buildQuestion(
-      "dokument-freigegeben",
+      "dokument-publikation",
       model.instance.id
     );
     this.questionStore._store.pushObject(question);
@@ -28,7 +22,7 @@ export default Route.extend({
         return attachment
           .hasMany("attachmentSections")
           .ids()
-          .includes(ENV.APP.attachmentSections.readOnly);
+          .includes(ENV.APP.attachmentSections.publication);
       })
     );
 

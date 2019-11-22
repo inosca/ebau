@@ -3,12 +3,14 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.utils import timezone
 from rest_framework import exceptions
+from rest_framework.validators import UniqueTogetherValidator
 from rest_framework_json_api import relations, serializers
 
 from camac.instance.models import Instance
 from camac.notification.serializers import (
     PermissionlessNotificationTemplateSendmailSerializer,
 )
+from camac.user.models import User
 
 from . import models
 
@@ -61,20 +63,18 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
     publication_entry = relations.ResourceRelatedField(
         queryset=models.PublicationEntry.objects
     )
-    status = serializers.ChoiceField(choices=("pending", "accepted", "denied"))
+    user = relations.ResourceRelatedField(
+        queryset=User.objects, default=serializers.CurrentUserDefault()
+    )
+    status = serializers.ChoiceField(
+        choices=models.PublicationEntryUserPermission.STATES
+    )
 
     included_serializers = {"user": "camac.user.serializers.UserSerializer"}
 
     @transaction.atomic
     def create(self, validated_data):
-        if models.PublicationEntryUserPermission.objects.filter(
-            publication_entry=validated_data["publication_entry"],
-            user=self.context["request"].user,
-        ).exists():
-            raise exceptions.ValidationError("Entry already exists")
-
-        validated_data["user"] = self.context["request"].user
-        validated_data["status"] = "pending"
+        validated_data["status"] = models.PublicationEntryUserPermission.PENDING
         permission = super().create(validated_data)
 
         # send notification email when configured
@@ -104,7 +104,7 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        if validated_data["status"] == "pending":
+        if validated_data["status"] == models.PublicationEntryUserPermission.PENDING:
             raise exceptions.ValidationError("Invalid State")
 
         return super().update(instance, validated_data)
@@ -113,3 +113,9 @@ class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
         model = models.PublicationEntryUserPermission
         fields = ("status", "publication_entry", "user")
         read_only_fields = ("publication_entry", "user")
+        validators = [
+            UniqueTogetherValidator(
+                queryset=models.PublicationEntryUserPermission.objects.all(),
+                fields=["publication_entry", "user"],
+            )
+        ]
