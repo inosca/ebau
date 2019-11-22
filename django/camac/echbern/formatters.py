@@ -18,6 +18,13 @@ from django.utils import timezone
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
 from camac import camac_metadata
+from camac.constants.kt_bern import (
+    CIRCULATION_ANSWER_NACHFORDERUNG,
+    CIRCULATION_ANSWER_NEGATIV,
+    CIRCULATION_ANSWER_NICHT_BETROFFEN,
+    CIRCULATION_ANSWER_POSITIV,
+    DECISIONS_BEWILLIGT,
+)
 from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
 
@@ -369,7 +376,7 @@ def application(instance: Instance, answers: dict):
         # directive  minOccurs=0
         decisionRuling=[
             ns_application.decisionRulingType(
-                judgement=1 if decision.decision == "accepted" else 4,
+                judgement=1 if decision.decision == DECISIONS_BEWILLIGT else 4,
                 date=decision.decision_date,
                 ruling=decision.decision_type,
                 rulingAuthority=authority(instance.active_service),
@@ -465,13 +472,32 @@ def request(instance: Instance, event_type: str):
     )
 
 
-def accompanying_report(instance: Instance, event_type: str, attachments):
+def accompanying_report(
+    instance: Instance,
+    event_type: str,
+    attachments,
+    circulation_answer,
+    stellungnahme,
+    nebenbestimmung,
+):
+    judgement_mapping = {
+        CIRCULATION_ANSWER_POSITIV: 1,
+        CIRCULATION_ANSWER_NEGATIV: 4,
+        CIRCULATION_ANSWER_NICHT_BETROFFEN: 1,
+        CIRCULATION_ANSWER_NACHFORDERUNG: 4,
+    }
+
     return ns_application.eventAccompanyingReportType(
         eventType=ns_application.eventTypeType(event_type),
         planningPermissionApplicationIdentification=permission_application_identification(
             instance
         ),
         document=get_documents(attachments),
+        remark=[stellungnahme] if stellungnahme else [],
+        ancillaryClauses=[nebenbestimmung] if nebenbestimmung else [],
+        judgement=judgement_mapping[circulation_answer.pk]
+        if circulation_answer
+        else None,
     )
 
 

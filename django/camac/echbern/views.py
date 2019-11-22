@@ -7,6 +7,7 @@ from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 from rest_framework.authentication import get_authorization_header
 from rest_framework.generics import get_object_or_404
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
+from rest_framework.parsers import JSONParser
 from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
@@ -132,6 +133,7 @@ class MessageView(RetrieveModelMixin, GenericViewSet):
 
 class EventView(GenericViewSet):
     swagger_schema = None
+    parser_classes = (JSONParser,)
 
     def has_create_permission(self):
         if self.request.group.role.name == "support":
@@ -145,7 +147,10 @@ class EventView(GenericViewSet):
         except AttributeError:
             return HttpResponse(status=404)
         eh = EventHandler(
-            instance=instance, user_pk=request.user.pk, group_pk=request.group.pk
+            instance=instance,
+            user_pk=request.user.pk,
+            group_pk=request.group.pk,
+            context=request.data,
         )
         try:
             eh.run()
