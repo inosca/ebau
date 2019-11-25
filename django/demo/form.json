@@ -1,6 +1,12 @@
 {
   "forms": {
-    "baugesuch": ["grundinformationen", "grundinformationen.kategorisierung", "personalien", "personalien.grundeigentumerschaft"]
+    "baugesuch": [
+      "grundinformationen",
+      "grundinformationen.kategorisierung",
+      "personalien",
+      "personalien.grundeigentumerschaft",
+      "freigegebene-unterlagen"
+    ]
   },
   "modules": {
     "grundinformationen": {
@@ -48,6 +54,11 @@
       "questions": [
         "grundeigentumerschaft"
       ]
+    },
+    "freigegebene-unterlagen": {
+      "title": "Freigegebene Unterlagen",
+      "parent": null,
+      "questions": []
     }
   },
   "questions": {

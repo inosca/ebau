@@ -198,26 +198,25 @@ class FormDataValidator(object):
         return form_def
 
     def get_active_modules_questions(self):  # noqa: C901
-        QUESTION_COORDINATES = "punkte"
-        DOCUMENT_QUESTIONS = [
-            "dokument-grundstucksangaben",
-            "dokument-gutachten-nachweise-begrundungen",
-            "dokument-projektplane-projektbeschrieb",
-            "dokument-weitere-gesuchsunterlagen",
-        ]
+        COORDINATE_QUESTION = "punkte"
+        DOCUMENT_TYPE = "document"
+        IGNORED_MODULE = "freigegebene-unterlagen"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
         signature = {"slug": "signature", "title": "Unterschriften", "people": {}}
 
         for module_name in form_def:
-            if module_name == "freigegebene-unterlagen":
+            if module_name == IGNORED_MODULE:
                 continue
 
             active_questions = []
             module = self.forms_def["modules"][module_name]
 
             for question_name in module["questions"]:
-                if question_name != "layer" and question_name.split("-")[0] != "info":
+                if (
+                    not question_name == "layer"
+                    and not question_name.split("-")[0] == "info"
+                ):
                     question = self.forms_def["questions"][question_name]
 
                     if self._check_question_active(question_name, question):
@@ -225,7 +224,7 @@ class FormDataValidator(object):
                         label = question["label"]
                         type = question["type"]
 
-                        if question_name == QUESTION_COORDINATES and value is not None:
+                        if question_name == COORDINATE_QUESTION and value is not None:
                             """
                             This converts the coordinates of the set points on the GIS map from
                             GPS(EPSG:4326) coordinates to the coordinate system Schwyz uses
@@ -252,7 +251,7 @@ class FormDataValidator(object):
                             value = converted_values
                             label = "Koordinaten"
                             type = "coordinates"
-                        elif question_name in DOCUMENT_QUESTIONS and value is not None:
+                        elif type == DOCUMENT_TYPE and value is not None:
                             value = value.name.split("/")[-1]
 
                         active_questions.append(
