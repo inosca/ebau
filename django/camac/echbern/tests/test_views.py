@@ -259,7 +259,7 @@ def test_send_403(admin_client, admin_user, ech_instance):
     assert response.status_code == 403
 
 
-def test_send_unknown_message_type(admin_client, admin_user, ech_instance):
+def test_send_unparseable_message(admin_client, admin_user, ech_instance):
     group = admin_user.groups.first()
     group.service = ech_instance.services.first()
     group.save()
@@ -267,11 +267,11 @@ def test_send_unknown_message_type(admin_client, admin_user, ech_instance):
     url = reverse("send")
     response = admin_client.post(
         url,
-        data=xml_data("notice_ruling").replace("5100010", "blablabla"),
+        data=xml_data("notice_ruling").replace("eventNotice", "blablabla"),
         content_type="application/xml",
     )
 
-    assert response.status_code == 404
+    assert response.status_code == 400
 
 
 def test_send_unknown_instance(admin_client, admin_user):
