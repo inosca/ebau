@@ -352,7 +352,9 @@ def application(instance: Instance, answers: dict):
         ),
         realestateInformation=get_realestateinformation(answers),
         zone=[
-            ns_application.zoneType(zoneDesignation=answers["nutzungszone"][:25])
+            ns_application.zoneType(
+                zoneDesignation=answers["nutzungszone"][:255].strip()
+            )
         ]  # eCH allows for max 25 chars
         if "nutzungszone" in answers
         else [],
