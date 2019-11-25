@@ -195,6 +195,13 @@ kt_bern: ## Set APPLICATION to kt_uri
 demo: ## Set APPLICATION to kt_uri
 	$(call set_env,demo)
 
+.PHONY: clean
+clean: ## Remove temporary files / build artefacts etc
+	@find . -name node_modules -type d | xargs rm -rf
+	@rm -rf ./ember/dist ./ember-caluma-portal/dist ./php/kt_uri/public/js/dist ./php/kt_schwyz/public/js/dist
+	@rm -rf ./ember/tmp ./ember-caluma-portal/tmp
+	@rm -rf ./ember/build ./ember-caluma-portal/build
+
 .PHONY: release
 release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
