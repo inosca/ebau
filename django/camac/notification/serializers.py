@@ -154,7 +154,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             form_names = [
                 doc["node"]["form"]["name"]
                 for doc in documents
-                if doc["node"]["form"]["meta"]["is-main-form"] is True
+                if doc["node"]["form"]["meta"].get("is-main-form") is True
             ]
             return form_names[0]
         except (KeyError, IndexError):  # pragma: no cover
