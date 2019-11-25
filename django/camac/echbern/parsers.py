@@ -1,3 +1,5 @@
+from pyxb.exceptions_ import PyXBException
+from rest_framework.exceptions import ParseError
 from rest_framework_xml.parsers import XMLParser
 
 from .schema.ech_0211_2_0 import CreateFromDocument
@@ -10,5 +12,7 @@ class ECHXMLParser(XMLParser):
 
     def parse(self, stream, media_type=None, parser_context=None):
         """Parse the incoming bytestream as XML and return the resulting data."""
-        data = CreateFromDocument(stream.read())
-        return data
+        try:
+            return CreateFromDocument(stream.read())
+        except PyXBException as exc:
+            raise ParseError(f"eCH XML parse error - {str(exc)}")
