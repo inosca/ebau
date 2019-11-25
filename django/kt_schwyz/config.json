@@ -8579,6 +8579,33 @@
   },
   {
     "fields": {
+      "instance_resource": 4,
+      "instance_state": 7,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 500
+  },
+  {
+    "fields": {
+      "instance_resource": 4,
+      "instance_state": 9,
+      "role": 3
+    },
+    "model": "core.irroleacl",
+    "pk": 501
+  },
+  {
+    "fields": {
+      "instance_resource": 4,
+      "instance_state": 9,
+      "role": 8
+    },
+    "model": "core.irroleacl",
+    "pk": 502
+  },
+  {
+    "fields": {
       "instance_resource": 43,
       "instance_state": 5,
       "service": 7
@@ -11170,6 +11197,78 @@
     },
     "model": "document.attachmentsectionroleacl",
     "pk": 45
+  },
+  {
+    "fields": {
+      "attachment_section": 1,
+      "language": "de",
+      "name": "Dokumente des Gesuchstellers"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "attachment_section": 2,
+      "language": "de",
+      "name": "Dokumente Fachstellen"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "attachment_section": 4,
+      "language": "de",
+      "name": "Publikation"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "attachment_section": 5,
+      "language": "de",
+      "name": "Einsprachen"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 4
+  },
+  {
+    "fields": {
+      "attachment_section": 6,
+      "language": "de",
+      "name": "Bauentscheid und Merkbl\u00e4tter"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "attachment_section": 7,
+      "language": "de",
+      "name": "Dokumente Gemeinde"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "attachment_section": 8,
+      "language": "de",
+      "name": "Schriftenverkehr"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "attachment_section": 9,
+      "language": "de",
+      "name": "Dokumente f\u00fcr Gesuchsteller"
+    },
+    "model": "document.attachmentsectiont",
+    "pk": 8
   },
   {
     "fields": {
