@@ -274,6 +274,7 @@ class TaskSendHandler(BaseSendHandler):
         }
         url = reverse("notificationtemplate-sendmail", args=[11])
         client = APIClient()
+        client.credentials(HTTP_AUTHORIZATION=self.auth_header)
         client.force_authenticate(user=self.user)
         resp = client.post(url, data=mail_data)
         if not resp.status_code == 204:
