@@ -3,7 +3,7 @@
     <ns1:deliveryHeader>
         <ns2:senderId>gemdat://test-123</ns2:senderId>
         <ns2:messageId>c5940234-48ad-48a1-a4a8-95872416b2aa</ns2:messageId>
-        <ns2:messageType>5100011</ns2:messageType>
+        <ns2:messageType>eventChangeResponsibility</ns2:messageType>
         <ns2:sendingApplication>
             <ns2:manufacturer>GemDat Informatik AG</ns2:manufacturer>
             <ns2:product>eBaugesucheZH</ns2:product>

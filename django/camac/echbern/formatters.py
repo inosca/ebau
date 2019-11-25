@@ -540,22 +540,12 @@ def delivery(
     """
     assert len(args) == 1, "Exactly one delivery param required"
 
-    message_types = {
-        "eventBaseDelivery": "5100000",
-        "eventSubmitPlanningPermissionApplication": "5100000",
-        "eventStatusNotification": "custom",  # 😈
-        "eventRequest": "custom",  # 😈
-        "eventAccompanyingReport": "custom",  # 😈
-        "eventChangeResponsibility": "custom",  # 😈
-    }
-    message_type = message_types[list(args.keys())[0]]
-
     try:
         return ns_application.delivery(
             deliveryHeader=ech_0058_5_0.headerType(
                 senderId="https://ebau.apps.be.ch",
                 messageId=message_id or str(id(instance)),
-                messageType=message_type,
+                messageType=list(args.keys())[0],
                 sendingApplication=pyxb.BIND(
                     manufacturer=camac_metadata.__author__,
                     product=camac_metadata.__title__,
