@@ -12,6 +12,7 @@ from pyxb import (
 
 from camac.constants.kt_bern import (
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
+    INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
@@ -29,6 +30,7 @@ from .formatters import (
 from .models import Message
 from .signals import (
     accompanying_report_send,
+    circulation_started,
     instance_submitted,
     sb1_submitted,
     sb2_submitted,
@@ -147,6 +149,9 @@ class StatusNotificationEventHandler(BaseEventHandler):
         ):
             # send link to Dossierprüfung
             url = f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}"
+        elif self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
+            # send link to Zirkulation
+            url = f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/20004/instance-id/{self.instance.pk}"
         return url
 
     def get_xml(self, data, url):
@@ -363,6 +368,7 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
+@receiver(circulation_started)
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
         handler = StatusNotificationEventHandler(
