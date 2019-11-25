@@ -5,11 +5,12 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
+    INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, InstanceService, Notice
+from camac.core.models import Activation, Circulation, InstanceService, Notice
 from camac.echbern.tests.utils import xml_data
 from camac.instance.models import Instance
 
@@ -19,6 +20,7 @@ from ..send_handlers import (
     AccompanyingReportSendHandler,
     ChangeResponsibilitySendHandler,
     CloseDossierSendHandler,
+    NoticeKindOfProceedingsSendHandler,
     NoticeRulingSendHandler,
     SendHandlerException,
     TaskSendHandler,
@@ -211,6 +213,41 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
     assert dh.has_permission() is False
+
+
+def test_notice_kind_of_proceedings_send_handler(
+    admin_user, ech_instance, instance_state_factory, instance_resource_factory
+):
+    group = admin_user.groups.first()
+    group.service = ech_instance.services.first()
+    group.save()
+
+    state = instance_state_factory(pk=INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT)
+    ech_instance.instance_state = state
+    ech_instance.save()
+
+    instance_state_factory(pk=INSTANCE_STATE_ZIRKULATION)
+    instance_resource_factory(pk=INSTANCE_STATE_ZIRKULATION)
+
+    data = CreateFromDocument(xml_data("kind_of_proceedings"))
+
+    dh = NoticeKindOfProceedingsSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
+    )
+    assert dh.has_permission() is True
+
+    dh.apply()
+    assert Circulation.objects.count() == 1
+    ech_instance.refresh_from_db()
+    assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
+
+    assert Message.objects.count() == 1
+    message = Message.objects.first()
+    assert message.receiver == ech_instance.active_service
 
 
 @pytest.mark.parametrize("has_attachment", [True, False])
