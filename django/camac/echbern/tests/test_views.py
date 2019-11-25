@@ -1,3 +1,5 @@
+import json
+
 import pytest
 from django.urls import reverse
 from rest_framework import status
@@ -118,7 +120,9 @@ def test_event_post(support, admin_client, admin_user, ech_instance, role_factor
         group.role = role_factory(name="support")
         group.save()
     url = reverse("event", args=[ech_instance.pk, "StatusNotification"])
-    response = admin_client.post(url)
+    response = admin_client.post(
+        url, data=json.dumps({"activation_id": 23}), content_type="application/json"
+    )
 
     status_code = status.HTTP_403_FORBIDDEN
     if support:
