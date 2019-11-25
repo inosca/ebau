@@ -9,6 +9,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -28,13 +29,14 @@ from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
 from .data_preparation import get_form_slug
-from .signals import accompanying_report_send, task_send
+from .signals import accompanying_report_send, circulation_started, task_send
 
 ECH_MESSAGE_MAPPING = {
     "5100004": "AccompanyingReport",
     "5100010": "NoticeRuling",
     "5100011": "ChangeResponsibility",
     "5100013": "CloseDossier",
+    "eventKindOfProceedings": "NoticeKindOfProceedings",
 }
 
 
@@ -304,6 +306,33 @@ class TaskSendHandler(BaseSendHandler):
         for a in activations:
             a.email_sent = 1
             a.save()
+
+
+class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
+    def get_instance_id(self):
+        return self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.localID[
+            0
+        ].Id
+
+    def has_permission(self):
+        if not self.instance.active_service == self.group.service:  # pragma: no cover
+            return False
+        return self.instance.instance_state.pk == INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT
+
+    def apply(self):
+        circulation = self._get_circulation()
+        instance_state = InstanceState.objects.get(pk=INSTANCE_STATE_ZIRKULATION)
+        self.instance.instance_state = instance_state
+        self.instance.save()
+
+        circulation_started.send(
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.user.pk,
+            group_pk=self.group.pk,
+        )
+
+        return circulation
 
 
 def get_send_handler(data, instance, user, group, auth_header):
