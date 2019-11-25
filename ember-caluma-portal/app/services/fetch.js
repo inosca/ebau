@@ -8,13 +8,15 @@ export default Service.extend({
   router: service(),
 
   token: reads("session.data.authenticated.access_token"),
-  group: reads("router.currentRoute.queryParams.group"),
+  language: reads("session.language"),
+  group: reads("session.group"),
 
   headers: computed("token", "group", function() {
     return {
       authorization: `Bearer ${this.token}`,
       accept: "application/vnd.api+json",
       "content-type": "application/vnd.api+json",
+      "accept-language": this.language,
       ...(this.group ? { "x-camac-group": this.group } : {})
     };
   }),
