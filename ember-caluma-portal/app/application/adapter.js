@@ -13,8 +13,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter.extend(
   @service intl;
 
   @reads("session.data.authenticated.access_token") token;
-  @reads("router.currentRoute.queryParams.group") group;
-  @reads("intl.locale") locale;
+  @reads("session.group") group;
+  @reads("session.language") language;
 
   authorize(request) {
     if (this.token) {
@@ -25,8 +25,8 @@ export default class ApplicationAdapter extends JSONAPIAdapter.extend(
       request.setRequestHeader("x-camac-group", this.group);
     }
 
-    if (this.locale) {
-      request.setRequestHeader("accept-language", this.locale);
+    if (this.language) {
+      request.setRequestHeader("accept-language", this.language);
     }
   }
 

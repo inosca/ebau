@@ -10,6 +10,7 @@ module("Unit | Service | fetch", function(hooks) {
     const session = this.owner.lookup("service:session");
 
     session.set("data.authenticated.access_token", "opensesame");
+    session.set("data.language", "de");
   });
 
   test("it computes the headers", function(assert) {
@@ -20,6 +21,7 @@ module("Unit | Service | fetch", function(hooks) {
     assert.equal(service.token, "opensesame");
     assert.deepEqual(service.headers, {
       authorization: "Bearer opensesame",
+      "accept-language": "de",
       accept: "application/vnd.api+json",
       "content-type": "application/vnd.api+json"
     });
@@ -33,6 +35,7 @@ module("Unit | Service | fetch", function(hooks) {
     this.server.get("/foo", function(_, { requestHeaders }) {
       assert.deepEqual(requestHeaders, {
         authorization: "changed",
+        "accept-language": "de",
         accept: "application/vnd.api+json",
         "content-type": "application/vnd.api+json",
         "x-some-header": "changed"
