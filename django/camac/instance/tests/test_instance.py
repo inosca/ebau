@@ -378,6 +378,7 @@ def test_instance_export_list(
     assert "Bezeichnung" in row
 
 
+@pytest.mark.parametrize("attachment__question", ["dokument-parzellen"])
 @pytest.mark.parametrize(
     "role__name,instance__user,form__name,status_code,to_type",
     [
@@ -405,7 +406,7 @@ def test_instance_export_list(
     ],
 )
 def test_instance_export_detail(
-    admin_client, form, instance, form_field_factory, status_code, to_type
+    admin_client, form, instance, form_field_factory, status_code, to_type, attachment
 ):
     url = reverse("instance-export-detail", args=[instance.pk])
 
