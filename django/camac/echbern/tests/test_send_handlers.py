@@ -19,12 +19,35 @@ from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (
     AccompanyingReportSendHandler,
     ChangeResponsibilitySendHandler,
-    CloseDossierSendHandler,
+    CloseArchiveDossierSendHandler,
     NoticeKindOfProceedingsSendHandler,
     NoticeRulingSendHandler,
     SendHandlerException,
     TaskSendHandler,
+    resolve_send_handler,
 )
+
+
+@pytest.mark.parametrize(
+    "xml_file,expected_send_handler",
+    [
+        ("accompanying_report", AccompanyingReportSendHandler),
+        ("change_responsibility", ChangeResponsibilitySendHandler),
+        ("close_dossier", CloseArchiveDossierSendHandler),
+        ("notice_ruling", NoticeRulingSendHandler),
+        ("task", TaskSendHandler),
+        ("kind_of_proceedings", NoticeKindOfProceedingsSendHandler),
+        ("accompanying_report", None),
+    ],
+)
+def test_resolve_send_handler(xml_file, expected_send_handler):
+    data = CreateFromDocument(xml_data(xml_file))
+    if not expected_send_handler:
+        data.eventAccompanyingReport = None
+        with pytest.raises(SendHandlerException):
+            resolve_send_handler(data)
+    else:
+        assert resolve_send_handler(data) == expected_send_handler
 
 
 @pytest.mark.parametrize(
@@ -108,7 +131,7 @@ def test_close_dossier_send_handler(ech_instance, admin_user, instance_state_fac
 
     data = CreateFromDocument(xml_data("close_dossier"))
 
-    dh = CloseDossierSendHandler(
+    dh = CloseArchiveDossierSendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
 
