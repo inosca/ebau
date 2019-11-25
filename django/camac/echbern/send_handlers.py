@@ -1,5 +1,3 @@
-import sys
-
 from django.urls import reverse
 from django.utils import timezone
 from rest_framework.test import APIClient
@@ -30,14 +28,6 @@ from camac.user.models import Service
 
 from .data_preparation import get_form_slug
 from .signals import accompanying_report_send, circulation_started, task_send
-
-ECH_MESSAGE_MAPPING = {
-    "5100004": "AccompanyingReport",
-    "5100010": "NoticeRuling",
-    "5100011": "ChangeResponsibility",
-    "5100013": "CloseDossier",
-    "eventKindOfProceedings": "NoticeKindOfProceedings",
-}
 
 
 class SendHandlerException(Exception):
@@ -205,7 +195,7 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         )
 
 
-class CloseDossierSendHandler(BaseSendHandler):
+class CloseArchiveDossierSendHandler(BaseSendHandler):
     def get_instance_id(self):
         return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.localID[
             0
@@ -335,12 +325,20 @@ class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
         return circulation
 
 
+def resolve_send_handler(data):
+    handler_mapping = {
+        "eventAccompanyingReport": AccompanyingReportSendHandler,
+        "eventChangeResponsibility": ChangeResponsibilitySendHandler,
+        "eventCloseArchiveDossier": CloseArchiveDossierSendHandler,
+        "eventNotice": NoticeRulingSendHandler,
+        "eventRequest": TaskSendHandler,
+        "eventKindOfProceedings": NoticeKindOfProceedingsSendHandler,
+    }
+    for event in handler_mapping:
+        if getattr(data, event) is not None:
+            return handler_mapping[event]
+    raise SendHandlerException("Message type not supported!")
+
+
 def get_send_handler(data, instance, user, group, auth_header):
-    try:
-        prefix = ECH_MESSAGE_MAPPING[data.deliveryHeader.messageType]
-    except KeyError:
-        raise SendHandlerException("Message type not implemented!")
-    sh = getattr(sys.modules[__name__], f"{prefix}SendHandler")(
-        data, instance, user, group, auth_header
-    )
-    return sh
+    return resolve_send_handler(data)(data, instance, user, group, auth_header)
