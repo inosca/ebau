@@ -4,6 +4,7 @@ from camac.caluma import get_admin_token
 from camac.user.models import Role
 
 from ..caluma import CalumaClient
+from .utils import xml_encode_newlines
 
 
 def query_from_file(file_name):
@@ -20,19 +21,13 @@ class DocumentParser:
 
     def handle_string_values(self, value):
         value = self.strip_whitespace(value)
-        value = self.handle_line_breaks(value)
+        value = xml_encode_newlines(value)
         return value
 
     @staticmethod
     def strip_whitespace(value):
         if isinstance(value, str):
             return value.strip(" ")
-        return value
-
-    @staticmethod
-    def handle_line_breaks(value):
-        if isinstance(value, str):
-            return value.replace("\n", "&#13;&#10;")
         return value
 
     def parse_answers(self, data):
