@@ -14,5 +14,5 @@ sb2_submitted = django.dispatch.Signal(
 task_send = django.dispatch.Signal(providing_args=["instance", "user_pk", "group_pk"])
 
 accompanying_report_send = django.dispatch.Signal(
-    providing_args=["instance", "user_pk", "group_pk", "attachments"]
+    providing_args=["instance", "user_pk", "group_pk", "context", "attachments"]
 )

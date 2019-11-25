@@ -10,8 +10,12 @@ from pyxb import (
     UnprocessedKeywordContentError,
 )
 
-from camac.constants.kt_bern import INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
-from camac.core.models import Activation
+from camac.constants.kt_bern import (
+    INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
+    NOTICE_TYPE_NEBENBESTIMMUNG,
+    NOTICE_TYPE_STELLUNGNAHME,
+)
+from camac.core.models import Activation, Notice
 
 from .data_preparation import get_document
 from .formatters import (
@@ -30,6 +34,7 @@ from .signals import (
     sb2_submitted,
     task_send,
 )
+from .utils import xml_encode_newlines
 
 logger = logging.getLogger(__name__)
 
@@ -39,10 +44,11 @@ class EventHandlerException(BaseException):
 
 
 class BaseEventHandler:
-    def __init__(self, instance, user_pk=None, group_pk=None):
+    def __init__(self, instance, user_pk=None, group_pk=None, context=None):
         self.instance = instance
         self.user_pk = user_pk
         self.group_pk = group_pk
+        self.context = context
 
         self.message_date = timezone.now()
         self.message_id = uuid4()
@@ -258,10 +264,36 @@ class ClaimEventHandler(BaseEventHandler):
 class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
 
+    def __init__(self, instance, user_pk=None, group_pk=None, context=None):
+        super().__init__(instance, user_pk, group_pk, context)
+        self.activation = self._get_activation()
+
     def get_data(self):
         return {"ech-subject": self.event_type}
 
-    def get_xml(self, data, url, attachments):
+    def _get_activation(self):
+        return Activation.objects.get(pk=self.context["activation-id"])
+
+    def _get_notices(self):
+        def prepare(notice):
+            if notice:
+                return xml_encode_newlines(notice.content)
+            return notice
+
+        stellungnahme = prepare(
+            Notice.objects.filter(
+                activation=self.activation, notice_type__pk=NOTICE_TYPE_STELLUNGNAHME
+            ).first()
+        )
+        nebenbestimmung = prepare(
+            Notice.objects.filter(
+                activation=self.activation, notice_type__pk=NOTICE_TYPE_NEBENBESTIMMUNG
+            ).first()
+        )
+
+        return stellungnahme, nebenbestimmung
+
+    def get_xml(self, data, url, attachments, stellungnahme, nebenbestimmung):
         attachments = (
             attachments
             if attachments
@@ -275,7 +307,12 @@ class AccompanyingReportEventHandler(BaseEventHandler):
                 message_id=str(self.message_id),
                 url=url,
                 eventAccompanyingReport=accompanying_report(
-                    self.instance, self.event_type, attachments
+                    self.instance,
+                    self.event_type,
+                    attachments,
+                    self.activation.circulation_answer,
+                    stellungnahme,
+                    nebenbestimmung,
                 ),
             ).toxml()
         except (
@@ -288,7 +325,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
 
     def run(self, attachments=None):
         data = self.get_data()
-        xml = self.get_xml(data, self.get_url(), attachments)
+        xml = self.get_xml(data, self.get_url(), attachments, *self._get_notices())
         return self.create_message(xml)
 
 
@@ -343,10 +380,10 @@ def task_callback(sender, instance, user_pk, group_pk, **kwargs):
 
 @receiver(accompanying_report_send)
 def accompanying_report_callback(
-    sender, instance, user_pk, group_pk, attachments, **kwargs
+    sender, instance, user_pk, group_pk, context, attachments, **kwargs
 ):
     if settings.ECH_API:
         handler = AccompanyingReportEventHandler(
-            instance, user_pk=user_pk, group_pk=group_pk
+            instance, user_pk=user_pk, group_pk=group_pk, context=context
         )
         handler.run(attachments)

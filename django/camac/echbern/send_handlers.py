@@ -10,6 +10,8 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
     INSTANCE_STATE_ZIRKULATION,
+    NOTICE_TYPE_NEBENBESTIMMUNG,
+    NOTICE_TYPE_STELLUNGNAHME,
 )
 from camac.core.models import (
     Activation,
@@ -18,6 +20,8 @@ from camac.core.models import (
     DocxDecision,
     InstanceResource,
     InstanceService,
+    Notice,
+    NoticeType,
 )
 from camac.document.models import Attachment
 from camac.instance.models import Instance, InstanceState
@@ -176,6 +180,18 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         documents = self._get_documents()
         self.activation.circulation_state = CirculationState.objects.get(name="DONE")
         self.activation.save()
+        answer = "; ".join(self.data.eventAccompanyingReport.remark)
+        clause = "; ".join(self.data.eventAccompanyingReport.ancillaryClauses)
+        stellungnahme = NoticeType.objects.get(pk=NOTICE_TYPE_STELLUNGNAHME)
+        nebenbestimmung = NoticeType.objects.get(pk=NOTICE_TYPE_NEBENBESTIMMUNG)
+
+        Notice.objects.create(
+            notice_type=stellungnahme, activation=self.activation, content=answer
+        )
+
+        Notice.objects.create(
+            notice_type=nebenbestimmung, activation=self.activation, content=clause
+        )
 
         accompanying_report_send.send(
             sender=self.__class__,
@@ -183,6 +199,7 @@ class AccompanyingReportSendHandler(BaseSendHandler):
             user_pk=self.user.pk,
             group_pk=self.group.pk,
             attachments=documents,
+            context={"activation-id": self.activation.pk},
         )
 
 
