@@ -3,7 +3,7 @@
     <div>
       {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
         <div class="uk-width-1-1">
-          <img src="/assets/images/logo-ebau-bern-1-{{intl.primaryLocale}}.svg" alt={{t "global.title"}} class="uk-image-responsive">
+          <img src="/assets/images/logo-ebau-bern-1-{{session.language}}.svg" alt={{t "global.title"}} class="uk-image-responsive">
         </div>
       {{/link-to}}
       {{#if (not-eq environment "production")}}
@@ -13,39 +13,7 @@
         </div>
       {{/if}}
     </div>
-    <ul class="uk-subnav uk-subnav-divider">
-      {{#link-to "index" tagName="li" activeClass="uk-active"}}
-        <a href="#">
-          {{t "nav.index"}}
-        </a>
-      {{/link-to}}
-      {{#link-to "support" tagName="li" activeClass="uk-active"}}
-        <a href="#">
-          {{t "nav.support"}}
-        </a>
-      {{/link-to}}
-      <li>
-        <a href="#">
-          {{t "nav.language"}}
-        </a>
-        <div uk-drop="mode: hover;">
-          <ul class="uk-list">
-            {{#each languages as |language|}}
-              <li>
-                <a href="#" class="uk-link-muted {{eq language intl.primaryLocale "uk-active"}}" {{action "setLanguage" language}}>
-                  {{t (concat "nav." language)}}
-                </a>
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-      </li>
-      {{#link-to "logout" tagName="li" activeClass="uk-active"}}
-        <a href="#">
-          {{uk-icon "sign-out"}}
-        </a>
-      {{/link-to}}
-    </ul>
+    <Navbar />
   </header>
   {{outlet}}
 </main>

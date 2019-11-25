@@ -1,48 +1,21 @@
 import Route from "@ember/routing/route";
 import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
+import { get } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
-import config from "../config/environment";
 
-const { languages, fallbackLanguage } = config;
+const RouteClass = Route.extend(OIDCApplicationRouteMixin);
 
-export default Route.extend(OIDCApplicationRouteMixin, {
-  intl: service(),
-  moment: service(),
-  session: service(),
-  calumaOptions: service(),
-
-  getBrowserLanguage() {
-    const preferred = (navigator.languages || [navigator.language]).map(
-      locale => locale.split("-")[0]
-    );
-
-    return preferred.find(lang => languages.includes(lang));
-  },
-
-  getLocalStorageLanguage() {
-    if (languages.includes(localStorage.getItem("language"))) {
-      return localStorage.getItem("language");
-    }
-  },
-
-  getLanguage(queryParamLanguage) {
-    if (languages.includes(queryParamLanguage)) {
-      return queryParamLanguage;
-    }
-
-    return (
-      this.getLocalStorageLanguage() ||
-      this.getBrowserLanguage() ||
-      fallbackLanguage
-    );
-  },
+export default class ApplicationRouter extends RouteClass {
+  @service session;
+  @service router;
+  @service calumaOptions;
 
   beforeModel(transition) {
-    const locale = this.getLanguage(transition.to.queryParams.language);
+    const { language, group } = get(transition, "to.queryParams") || {};
 
-    this.intl.setLocale([locale, fallbackLanguage]);
-    this.moment.setLocale(locale);
+    this.session.set("language", language || this.session.language);
+    this.session.set("data.group", group || this.session.group);
 
     if (window.top !== window) {
       getOwner(this)
@@ -81,4 +54,4 @@ export default Route.extend(OIDCApplicationRouteMixin, {
       type: "Form"
     });
   }
-});
+}

@@ -8,12 +8,7 @@ import { queryManager } from "ember-apollo-client";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
-const queryParams = new QueryParams({
-  group: {
-    default: null,
-    refresh: true
-  }
-});
+const queryParams = new QueryParams({});
 
 export default Controller.extend(queryParams.Mixin, {
   fetch: service(),
