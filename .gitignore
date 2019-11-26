@@ -30,3 +30,4 @@ postgres-data
 staticfiles/
 tmp
 tools/software/
+/db_snapshots
