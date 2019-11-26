@@ -368,12 +368,7 @@ class NotificationTemplateSendmailSerializer(
         ]
 
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
-        instance_service = core_models.InstanceService.objects.filter(
-            instance=instance, service__service_group__name="municipality", active=1
-        ).first()
-        if not instance_service:
-            return []
-        return [instance_service.service.email]
+        return [instance.active_service.email]
 
     def _get_recipients_municipality(self, instance):
         return [instance.group.service.email]
