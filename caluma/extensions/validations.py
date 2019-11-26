@@ -28,7 +28,8 @@ class CustomValidation(BaseValidation):
     def validate_answer_mutation(self, mutation, data, info):
         # TODO (validation SaveAnswer mutation): check if "gesuchsteller" email
         # question. If yes, validate email exists in NG user database
-
+        if not common.ECH_API:
+            return data
         if (
             data["question"].slug == "nfd-tabelle-status"
             and data["value"] == "nfd-tabelle-status-beantwortet"
