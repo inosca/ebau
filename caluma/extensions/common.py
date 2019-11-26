@@ -24,7 +24,7 @@ CAMAC_SUPPORT_GROUP = 10000
 DASHBOARD_FORM_SLUG = "dashboard"
 
 
-ECH_API = os.environ.get("ECH_API").lower() == "true"
+ECH_API = os.environ.get("ECH_API", "True").lower() == "true"
 
 
 def get_admin_token():
