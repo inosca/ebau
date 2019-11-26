@@ -6,6 +6,10 @@ export default function() {
   this.namespace = "";
   this.timing = 400;
 
+  this.get("/api/v1/me", function({ users }) {
+    return users.create();
+  });
+
   this.get("/api/v1/attachments");
 
   this.get("/api/v1/instances");
