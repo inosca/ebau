@@ -1,5 +1,5 @@
 import Controller from "@ember/controller";
 
-export default Controller.extend({
-  queryParams: ["language"]
-});
+export default class ApplicationController extends Controller {
+  queryParams = ["language", "group"];
+}
