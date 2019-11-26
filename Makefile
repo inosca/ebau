@@ -162,8 +162,7 @@ db_snapshot: _db_snapshots_dir  ## Make a snapshot of the current state of the d
 	@docker-compose exec db  pg_dump -Ucamac -c > db_snapshots/$(shell date -Iseconds).sql
 
 .PHONY: db_restore
-db_restore:  ## Restore latest DB snapshot created with `make db_snapshot`
-	@mkdir -p db_snapshots
+db_restore:  _db_snapshots_dir ## Restore latest DB snapshot created with `make db_snapshot`
 	@echo "restoring from $(SNAPSHOT)"
 	@docker-compose exec -T db psql -Ucamac < $(SNAPSHOT) > /dev/null
 
@@ -207,7 +206,7 @@ release: ## Draft a new release
 	@if [ -z $(version) ]; then echo "Please pass a version: make release version=x.x.x"; exit 1; fi
 	@mkdir -p "releases/$(version)"
 	@echo "# Neu\n-\n# Korrekturen\n-" >> "releases/$(version)/CHANGELOG.md"
-	@prettier --loglevel=silent --write "releases/$(version)/CHANGELOG.md" 
+	@prettier --loglevel=silent --write "releases/$(version)/CHANGELOG.md"
 	@echo $(version) > VERSION.txt
 	@sed -i -e 's/"version": ".*",/"version": "$(version)",/g' ember-caluma-portal/package.json
 	@sed -i -e 's/appVersion = ".*"/appVersion = "$(version)"/g' php/kt_bern/configs/application.ini
