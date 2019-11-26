@@ -5,16 +5,8 @@ from __future__ import unicode_literals
 from django.db import migrations
 
 
-def migrate_attachment_sections(apps, schema_editor):
-    AttachmentSection = apps.get_model("document", "AttachmentSection")
-    for section in AttachmentSection.objects.all():
-        section.trans.create(name=section.name, language="de")
-        section.name = ""
-        section.save()
-
-
 class Migration(migrations.Migration):
 
     dependencies = [("document", "0019_auto_20191023_1213")]
 
-    operations = [migrations.RunPython(migrate_attachment_sections)]
+    operations = []
