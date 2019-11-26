@@ -4437,7 +4437,7 @@
       }
     },
     "datenverschnitt-naturgefahren": {
-      "label": "Gemäss Lokalisierung und Inhalt Ihres Vorhabens ergibt sich, dass die vorhandenen Naturgefahren zu berücksichtigen sind. Zur Beurteilung Ihres Gesuches ist ein Objektschutznachweis erforderlich.",
+      "label": "Gemäss Lokalisierung befindet sich Ihr Vorhaben an einem Ort mit Einflüssen durch Naturgefahren. Allfällige Schutzmassnahmen sind in der Planung zu berücksichtigen und mit einem Objektschutznachweis darzulegen.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a012.naturgefahrenkarte.synoptisch' in 'layer'|value|mapby('name') && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value)",
