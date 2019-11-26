@@ -400,7 +400,7 @@ def office(service):
         entryOfficeIdentification=authority(service),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName=service.city,
+            municipalityName=service.get_trans_attr("city") or "-",
             cantonAbbreviation="BE",
         ),
     )
@@ -578,7 +578,7 @@ def decision_authority(service):
             # contactPerson minOccurs=0
             # contact minOccurs=0
             address=ns_address.addressInformationType(
-                town=service.city,
+                town=service.get_trans_attr("city") or "-",
                 swissZipCode=service.zip,
                 street=service.address,
                 country="CH",
