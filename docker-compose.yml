@@ -139,7 +139,7 @@ services:
             - KEYCLOAK_USER=admin
 
     document-merge-service:
-        image: adfinissygroup/document-merge-service
+        image: adfinissygroup/document-merge-service:v1.0.0
         depends_on:
             - db
             - unoconv
