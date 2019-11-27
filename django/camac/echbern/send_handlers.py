@@ -102,6 +102,7 @@ class NoticeRulingSendHandler(BaseSendHandler):
         DocxDecision.objects.create(
             instance=self.instance.pk,
             decision=decision,
+            # TODO use decisionRuling.date instead?
             decision_date=timezone.now().date(),
         )
 

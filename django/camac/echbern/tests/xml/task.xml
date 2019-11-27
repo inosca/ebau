@@ -48,8 +48,9 @@
         </ns11:keywords>
         <ns11:documentKind>Weitere Dokumente</ns11:documentKind>
       </ns2:document>
-      <ns2:remark>This is a longer text that any user may have entered in the dialog on the Portal. This may have several lines.</ns2:remark>
+      <ns2:remark>Wird ignoriert.</ns2:remark>
       <ns2:extension>
+        <!-- ID der eingeladenen Organisation. -->
         <serviceId>23</serviceId>
       </ns2:extension>
     </ns2:eventRequest>
