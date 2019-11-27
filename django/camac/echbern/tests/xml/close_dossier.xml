@@ -27,6 +27,6 @@
         </ns2:otherID>
         <ns2:dossierIdentification>1111-111111-1111-11111111</ns2:dossierIdentification>
       </ns2:planningPermissionApplicationIdentification>
-      <ns2:remark>This is a longer text that any user may have entered in the dialog on the Portal. This may have several lines.</ns2:remark>
+      <ns2:remark>Wird ignoriert.</ns2:remark>
     </ns2:eventCloseArchiveDossier>
   </ns2:delivery>
