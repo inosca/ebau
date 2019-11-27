@@ -110,10 +110,10 @@ class SubmitEventHandler(BaseEventHandler):
 
 class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
-    uri_instance_resource_id = 20004
+    uri_instance_resource_id = 150000
 
     def get_url(self):
-        return f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
+        return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
 
     def get_xml(self, data, url):
         try:
@@ -142,7 +142,7 @@ class StatusNotificationEventHandler(BaseEventHandler):
 
     def get_url(self):
         # TODO: handle more states and corresponding urls
-        url = settings.INTERNAL_BASE_URL
+        url = f"{settings.INTERNAL_BASE_URL}/page/index/instance-id/{self.instance.pk}/instance-resource-id/20074"
         if (
             self.instance.previous_instance_state.pk
             == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
