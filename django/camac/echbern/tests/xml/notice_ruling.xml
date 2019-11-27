@@ -28,10 +28,11 @@
         <ns2:dossierIdentification>1111-111111-1111-11111111</ns2:dossierIdentification>
       </ns2:planningPermissionApplicationIdentification>
       <ns2:decisionRuling>
+        <!-- wird auf Entscheid/Beurteilung abgebildet -->
         <ns2:judgement>4</ns2:judgement>
-        <ns2:ruling>Kurze Beschreibung des Entscheids.</ns2:ruling>
+        <ns2:ruling>Beschreibung des Entscheids, wird ignoriert.</ns2:ruling>
         <ns2:date>2019-11-04Z</ns2:date>
-        <ns2:rulingAuthority>
+		<ns2:rulingAuthority><!-- wird ignoriert -->
           <ns7:uid>
             <ns7:uidOrganisationIdCategorie>CHE</ns7:uidOrganisationIdCategorie>
             <ns7:uidOrganisationId>123</ns7:uidOrganisationId>
@@ -64,9 +65,6 @@
         </ns11:keywords>
         <ns11:documentKind>Weitere Dokumente</ns11:documentKind>
       </ns2:document>
-      <ns2:remark>This is a longer text that any user may have entered in the dialog on the Portal. This may have several lines.</ns2:remark>
-      <ns2:extension xsi:type="ns11:applicationCustomType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-        <decisionType>Beispielentscheid</decisionType>
-      </ns2:extension>
+      <ns2:remark>Wird ignoriert.</ns2:remark>
     </ns2:eventNotice>
   </ns2:delivery>
