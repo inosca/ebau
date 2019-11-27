@@ -126,7 +126,7 @@ build-kt_uri-stage:
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml -f docker-compose.uri-stage.yml
         CONTAINERS: ember django php db iweb_mock
     only:
-        - stage
+        - stage-ur
 
 
 build-kt_uri-production:
@@ -135,7 +135,7 @@ build-kt_uri-production:
         APPLICATION: kt_uri
         COMPOSE: docker-compose -f docker-compose.yml -f docker-compose.production.yml
     only:
-        - production
+        - production-ur
 
 
 # Create a minimal tarball which is deployable by
@@ -179,13 +179,13 @@ build-kt_bern-master:
 build-kt_bern-stage:
   extends: .build-tarball
   only:
-    - stage
+    - stage-be
 
 
 build-kt_bern-production:
   extends: .build-tarball
   only:
-    - production
+    - production-be
 
 
 .deploy:
@@ -238,7 +238,7 @@ deploy-kt_uri-stage:
     after_script:
         - eval $COMPOSE stop keycloak
     only:
-        - stage
+        - stage-ur
 
 
 deploy-kt_bern-production:
@@ -258,5 +258,5 @@ deploy-kt_bern-production:
     - rsync ./camac-be-$(cat VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz ${PUBLISH_RSYNC_TARGET}
     - sha256sum ./camac-be-$(cat VERSION.txt)+${CI_COMMIT_SHORT_SHA}.tar.gz
   only:
-    - production
+    - production-be
   when: manual
