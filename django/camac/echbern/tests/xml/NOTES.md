@@ -12,4 +12,4 @@
 </ns2:extension>
 ```
 
-- Der eCH-Standard forciert, dass in jeder meldung ein `document` mitgeschickt wird. In den meisten Fällen ignorieren wir das Dokument (Ausnahme: Accompanying Report)
+- Der eCH-Standard forciert, dass bei den meisten Meldungen ein `document` mitgeschickt wird. Dieses `document` wird (mit Ausnahme von `accompanyingReport`) von eBau ignoriert.
