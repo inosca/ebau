@@ -256,7 +256,7 @@ class AttachmentSectionServiceAcl(models.Model):
 
 class Template(models.Model):
     template_id = models.AutoField(db_column="TEMPLATE_ID", primary_key=True)
-    name = models.CharField(max_length=255, unique=True, db_column="NAME")
+    name = models.CharField(max_length=255, db_column="NAME")
     path = models.FileField(max_length=1024, upload_to="templates", db_column="PATH")
     group = models.ForeignKey(
         "user.Group", models.CASCADE, null=True, blank=True, related_name="templates"
@@ -267,6 +267,7 @@ class Template(models.Model):
 
     class Meta:
         db_table = "TEMPLATE"
+        unique_together = ["name", "service"]
 
 
 class AttachmentDownloadHistory(models.Model):
