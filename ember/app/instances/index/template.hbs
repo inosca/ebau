@@ -9,14 +9,14 @@
 
     <table class="uk-table uk-table-striped uk-table-hover uk-table-responsive">
       <thead>
-        <tr>
-          <th class="uk-width-1-5">
+      <tr class="uk-child-width-auto">
+          <th class="uk-width-expand">
             <div class="uk-flex-inline uk-width-1-1 uk-flex-between" data-toggle-search='identifier-search'>
-              <span>
+              <span class="white-space-nowrap">
                 Gesuchsnummer
                 {{camac-sort-icon key='identifier' sort=sort on-click=(action (mut sort))}}
               </span>
-              <div class="uk-margin-left">
+              <div class="uk-margin-small-left">
                 <a
                   uk-search-icon
                   uk-toggle="target: [data-toggle-search='identifier-search']; animation: uk-animation-slide-left-small uk-animation-fast"
@@ -45,23 +45,30 @@
               </a>
             </div>
           </th>
-          <th>
-            Gesuchsart
-            {{camac-sort-icon key='form__description' sort=sort on-click=(action (mut sort))}}
+          <th class="white-space-nowrap">
+            Projektnummer
+            {{camac-sort-icon key='projektnummer' sort=sort_form_field on-click=(action (mut sort_form_field))}}
+          </th>
+          <th class="white-space-nowrap">
+            Gemeinde
+            {{camac-sort-icon key='location__name' sort=sort on-click=(action (mut sort))}}
+          </th>
+          <th class="white-space-nowrap">
+            Vorhaben
+            {{camac-sort-icon key='bezeichnung' sort=sort_form_field on-click=(action (mut sort_form_field))}}
           </th>
           <th>
+            Bauherrschaft
+          </th>
+          <th class="white-space-nowrap">
             Status
             {{camac-sort-icon key='instance_state__description' sort=sort on-click=(action (mut sort))}}
           </th>
-          <th>
-            Gemeinde
-            {{camac-sort-icon key='location__communal_federal_number' sort=sort on-click=(action (mut sort))}}
-          </th>
-          <th class="uk-text-right">
+          <th class="white-space-nowrap">
             Erstelldatum
             {{camac-sort-icon key='creation_date' sort=sort on-click=(action (mut sort))}}
           </th>
-          <th class="uk-width-small"></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -73,26 +80,37 @@
           {{#each data.lastSuccessful.value as |instance|}}
             <tr>
               <td>
-                <a
-                  title="Klicken Sie um das Gesuch zu bearbeiten"
-                  {{action (perform navigate) instance on='click'}}
-                >{{instance.identifier}}</a>
+                {{#link-to "instances.edit" instance title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.identifier}}{{/link-to}}
               </td>
               <td>
-                <a
-                  title="Klicken Sie um das Gesuch zu bearbeiten"
-                  {{action (perform navigate) instance on='click'}}
-                >{{instance.form.description}}</a>
-              </td>
-              <td>
-                {{instance.instanceState.description}}
+                {{#with (find-by "name" "projektnummer" instance.fields) as |field|}}
+                  {{field.value}}
+                {{/with}}
               </td>
               <td class="uk-text-nowrap">
                 {{#if instance.location}}
-                  {{instance.location.communalFederalNumber}} - {{instance.location.name}}
+                  {{instance.location.name}}
                 {{/if}}
               </td>
-              <td class="uk-text-right uk-text-nowrap">
+              <td>
+                {{#with (find-by "name" "bezeichnung" instance.fields) as |field|}}
+                  {{field.value}}
+                {{/with}}
+              </td>
+              <td>
+                {{#with (find-by "name" "bauherrschaft" instance.fields) as |field|}}
+                  {{#each (slice 0 3 field.value) as |person|}}
+                    {{person.vorname}}&nbsp;{{person.name}}<br>
+                  {{/each}}
+                  {{#if (gt field.value.length 3)}}
+                    <span title="Weitere Bauherrschaften im Gesuch zu sehen">...</span>
+                  {{/if}}
+                {{/with}}
+              </td>
+              <td>
+                {{#link-to "instances.edit" instance title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.instanceState.description}}{{/link-to}}
+              </td>
+              <td class="uk-text-nowrap">
                 {{format-date instance.creationDate}}
               </td>
               <td class="uk-text-center">
@@ -121,14 +139,14 @@
             </tr>
           {{^}}
             <tr>
-              <td class="uk-text-center" colspan="6">
+              <td class="uk-text-center" colspan="8">
                 <i>Kein Gesuch mit dieser Gesuchsnummer gefunden</i>
               </td>
             </tr>
           {{/each}}
         {{/if}}
         <tr role="link" title="Klicken Sie um ein neues Gesuch zu erstellen" class="pointer" {{action (transition-to 'instances.new') on='click'}}>
-          <td class="uk-text-center" colspan="6">
+          <td class="uk-text-center" colspan="8">
             {{uk-icon 'plus' scale=2}}
           </td>
         </tr>
