@@ -2,7 +2,7 @@
 
 ## Authentifizierung
 
-Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/) genutzt. Pro Gemeindesoftware wird eine `client-id` und ein `client-secret` vergeben, mit welchen Tokens bezogen werden können:
+Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/) genutzt. Pro Gemeinde wird eine `client-id` und ein `client-secret` vergeben, mit welchen Tokens bezogen werden können:
 
 ```bash
 curl --request POST \
@@ -27,9 +27,9 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Aut
 curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
 ```
 
-## Abweichungen udn Besonderheiten
+## Abweichungen und Besonderheiten
 
-- Der Typ `planningPermissionAplicationIdentifier` enthält unter `localId` unsere Dossiernummer ("Instance id")
+- Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` unsere Dossiernummer ("Instance id")
 
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/ech/v1/public-services/` endpoint abgefragt werden.
 
@@ -47,6 +47,17 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - `messageType` beinhaltet bei den von uns generierten Meldungen immer den Meldungstyp (`changeResponsibility`, `statusNotification`, etc). Bei empfangenen Meldungen wird das property ignoriert.
 
+- `buildingCategory` wird immer auf `1040` gesetzt.
+
+- `documentStatusType` wird immer auf `signed` gesetzt.
+
+- `realestateType` wird immer auf `8` gesetzt.
+
+- Properties, die in eCH zwingend sind, in eBau jedoch nicht, werden bei nichtvorhandensein mit `unknown` befüllt.
+
+- In eBau ist es möglich, auch ausländische Adressen zu erfassen. Bei solchen wird die Postleitzahl auf `9999` gesetzt, falls sie nicht vierstellig sein sollte.
+
+- In eCH ist es nicht möglich, Kosten von unter 1000.- zu erfassen. Sollten die in eBau erfassten Kosten tiefer als 1000.- sein, wird `1000` eingetragen.
 
 ## Messages
 
