@@ -15,14 +15,19 @@ def test_get_full_name(admin_user):
     assert admin_user.get_full_name() == "Muster Hans"
 
 
-def test_me(admin_client, admin_user):
+def test_me(admin_client, admin_user, user_group_factory, group_factory):
     admin_user.groups.all().delete()
+
+    user_group_factory(user=admin_user, group=group_factory(disabled=0))
+    user_group_factory(user=admin_user, group=group_factory(disabled=1))
+
     url = reverse("me")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert json["data"]["attributes"]["username"] == admin_user.username
+    assert len(json["data"]["relationships"]["groups"]) == 1
 
 
 def test_me_group(admin_client, admin_user, service):
