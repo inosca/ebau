@@ -102,7 +102,7 @@ class NoticeRulingSendHandler(BaseSendHandler):
         DocxDecision.objects.create(
             instance=self.instance.pk,
             decision=decision,
-            decision_date=timezone.now().date(),
+            decision_date=self.data.eventNotice.decisionRuling.date,
         )
 
 
