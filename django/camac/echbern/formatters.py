@@ -556,7 +556,7 @@ def delivery(
                 subject=answers["ech-subject"],
                 messageDate=message_date or timezone.now(),
                 action="1",
-                testDeliveryFlag=True,
+                testDeliveryFlag=settings.ENV != "production",
                 extension=url or settings.INTERNAL_BASE_URL,
             ),
             **args,
