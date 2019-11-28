@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.conf.urls import include, url
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
@@ -8,36 +9,8 @@ from camac.user.permissions import ViewPermissions
 # settings.APPLICATION_NAME
 
 
-SWAGGER_DESCRIPTION = """\
-# Gemeindeschnittstelle eBau
-
-## Authentifizierung
-
-Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/connect/) genutzt. Pro Gemeindesoftware wird eine `client-id` und ein `client-secret` vergeben, mit welchen Tokens bezogen werden können:
-
-```bash
-curl --request POST \
---url 'https://ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
---header 'content-type: application/x-www-form-urlencoded' \
---data grant_type=client_credentials \
---data client_id='${client-id}' \
---data client_secret=${client-secret}
-```
-
-Mit einem gültigen Token können API-Abfragen gemacht werden. Nachfolgend ein paar Beispiele:
-
-**Sichtbare Gesuche auflisten:**
-
-```bash
-curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Authorization: Bearer ${TOKEN}"
-```
-
-**Gesuch-Details abfragen (BaseDelivery):**
-
-```bash
-curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
-```
-"""
+with open(str(settings.ROOT_DIR(f"camac/echbern/docs/NOTES.md")), "r") as myfile:
+    SWAGGER_DESCRIPTION = myfile.read()
 
 schema_view = get_schema_view(
     openapi.Info(
