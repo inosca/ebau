@@ -196,6 +196,11 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
+    def has_permission(self):
+        return InstanceService.objects.filter(
+            instance=self.instance, active=True, service=self.group.service
+        ).exists()
+
     def get_instance_id(self):
         return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.localID[
             0
