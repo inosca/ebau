@@ -29,8 +29,15 @@ class FormDataValidator(object):
             },
             # handle attachments like fields
             **{
-                attachment.question: attachment.path
-                for attachment in Attachment.objects.filter(instance=instance)
+                _attachment.question: [
+                    attachment.name
+                    for attachment in Attachment.objects.filter(
+                        instance=instance, question=_attachment.question
+                    )
+                ]
+                for _attachment in Attachment.objects.filter(
+                    instance=instance
+                ).distinct("question")
             },
         }
         self.jexl = JEXL()
@@ -199,7 +206,6 @@ class FormDataValidator(object):
 
     def get_active_modules_questions(self):  # noqa: C901
         COORDINATE_QUESTION = "punkte"
-        DOCUMENT_TYPE = "document"
         IGNORED_MODULE = "freigegebene-unterlagen"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
@@ -251,8 +257,6 @@ class FormDataValidator(object):
                             value = converted_values
                             label = "Koordinaten"
                             type = "coordinates"
-                        elif type == DOCUMENT_TYPE and value is not None:
-                            value = value.name.split("/")[-1]
 
                         active_questions.append(
                             {
