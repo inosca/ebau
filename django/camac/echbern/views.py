@@ -14,7 +14,7 @@ from rest_framework_xml.renderers import XMLRenderer
 
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
-from camac.swagger_params import group_param
+from camac.swagger_utils import group_param
 
 from . import event_handlers, formatters
 from .data_preparation import get_document
