@@ -4705,10 +4705,10 @@ ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-caluma@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-4.0.0.tgz#d2ce4c825735d1e0dd9c92f47420cbc0a888788d"
-  integrity sha512-6tjqs/Sbatl/eym0873k9f7Jy4eOydmMoRFLluX0ByqUqUnIsi3piftceQ2sRba9TfrQGAWjdd9HgjP+ozok2Q==
+ember-caluma@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ember-caluma/-/ember-caluma-4.0.1.tgz#bc4e812e767ab9682b332497ae2c83e3aa7be9bd"
+  integrity sha512-Qq26Vli49xCpUoZzgDNhtthFXFuusVLxCy+Eln82sRMAmQF53H/4Ktq8qgeanIHUsOzZ9H/gqrA4A9Bz0I7eSg==
   dependencies:
     apollo-cache-inmemory "^1.6.2"
     apollo-link-context "^1.0.18"
@@ -4724,12 +4724,12 @@ ember-caluma@^4.0.0:
     ember-cli-showdown "^4.4.4"
     ember-cli-string-helpers "^4.0.5"
     ember-composable-helpers "^2.2.0"
-    ember-concurrency "^1.1.2"
+    ember-concurrency "^1.1.3"
     ember-fetch "^6.7.2"
-    ember-intl "^4.2.0"
+    ember-intl "^4.2.2"
     ember-math-helpers "^2.12.0"
     ember-power-select "^2.3.5"
-    ember-test-selectors "^2.1.0"
+    ember-test-selectors "^3.0.0"
     ember-uikit "^1.0.0"
     ember-validated-form "^2.0.0-alpha.5"
     faker "4.1.0"
@@ -5303,10 +5303,19 @@ ember-concurrency-decorators@^1.0.0:
     ember-cli-babel "^7.9.0"
     ember-cli-typescript "^2.0.2"
 
-"ember-concurrency@^0.8.27 || ^0.9.0 || ^0.10.0 || ^1.0.0", ember-concurrency@^1.1.2:
+"ember-concurrency@^0.8.27 || ^0.9.0 || ^0.10.0 || ^1.0.0":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.1.2.tgz#73de1f3e41b983af531a17596853ed9614c24107"
   integrity sha512-GiASMU4GH4yDALR3vbAl6THYXSv+XUzjcF+4uPMgw1VxQmSde/oXTFdz/Z9QMetJ7Hhz7nYQcknWj471Lg9aEg==
+  dependencies:
+    ember-cli-babel "^7.7.3"
+    ember-compatibility-helpers "^1.2.0"
+    ember-maybe-import-regenerator "^0.1.6"
+
+ember-concurrency@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.1.3.tgz#3e0a2c77eb5d2d8b8dc75f0ea91fdb97dfa3e6f1"
+  integrity sha512-U/a345q6OjkcRa3ziXHYFD9yB5V8guX68k1EAlLLtbtbswWAawvT/mKiPnhejuENiG6jICEc9AT0IXmVamu1+w==
   dependencies:
     ember-cli-babel "^7.7.3"
     ember-compatibility-helpers "^1.2.0"
@@ -5456,6 +5465,39 @@ ember-intl@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/ember-intl/-/ember-intl-4.2.0.tgz#378f241ef85dc82f1f0f8925098a2398cbaa766f"
   integrity sha512-rWryTl+aczDNM3j3OKvdgFouJ3Ho1aO36itElfybOxxKdFSJeL3zE5cEi8OtBu8ABrGi81zyDNlY5I+1aIV/Tg==
+  dependencies:
+    "@ember-intl/broccoli-cldr-data" "^3.1.0"
+    "@ember-intl/intl-messageformat" "^2.5.0"
+    "@ember-intl/intl-messageformat-parser" "^1.5.0"
+    "@ember-intl/intl-relativeformat" "^2.1.0"
+    broccoli-caching-writer "^3.0.3"
+    broccoli-funnel "^2.0.2"
+    broccoli-merge-trees "^3.0.2"
+    broccoli-source "^3.0.0"
+    broccoli-stew "^3.0.0"
+    calculate-cache-key-for-tree "^2.0.0"
+    cldr-core "^35.1.0"
+    ember-auto-import "^1.5.2"
+    ember-cli-babel "^7.10.0"
+    extend "^3.0.2"
+    fast-memoize "^2.5.1"
+    has-unicode "^2.0.1"
+    intl "^1.2.5"
+    js-yaml "^3.12.2"
+    json-stable-stringify "^1.0.1"
+    locale-emoji "^0.3.0"
+    lodash.castarray "^4.4.0"
+    lodash.get "^4.4.2"
+    lodash.last "^3.0.0"
+    lodash.omit "^4.5.0"
+    mkdirp "^0.5.1"
+    silent-error "^1.1.1"
+    walk-sync "^2.0.1"
+
+ember-intl@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/ember-intl/-/ember-intl-4.2.2.tgz#6ad2dc136a1b48a168a1ff6c8dc4b9d1737cdfef"
+  integrity sha512-5G6BYC69R02TmDohas5J1avtivATMyr3xi93I283ovYHcgE0q9wJ+6PYqOBZrLsz4waEEzcBVbgjcUXyeZmziw==
   dependencies:
     "@ember-intl/broccoli-cldr-data" "^3.1.0"
     "@ember-intl/intl-messageformat" "^2.5.0"
@@ -5723,13 +5765,14 @@ ember-template-lint@^1.1.0:
     resolve "^1.1.3"
     strip-bom "^3.0.0"
 
-ember-test-selectors@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-2.1.0.tgz#faebdf06702aaa0bc510d55eb721ce54d2e85793"
-  integrity sha512-c5HmvefmeABH8hg380TSNZiE9VAK1CBeXWrgyXy+IXHtsew4lZHHw7GnqCAqsakxwvmaMARbAKY9KfSAE91s1g==
+ember-test-selectors@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-3.0.0.tgz#5be818cd4c10a3154e72ac5abc982e712c3514bf"
+  integrity sha512-yKCURzLx+mQfqL4ts4oIYobXZVhOAXDwsObdVVTY9+UuzH0xdZEpIx37nCXV7UugP/vCoaUN3YruYZKgqxWQpg==
   dependencies:
-    ember-cli-babel "^6.8.2"
-    ember-cli-version-checker "^3.1.2"
+    calculate-cache-key-for-tree "^2.0.0"
+    ember-cli-babel "^7.12.0"
+    ember-cli-version-checker "^3.1.3"
 
 ember-test-waiters@^1.1.1:
   version "1.1.1"
