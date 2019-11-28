@@ -46,3 +46,14 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
 - `messageType` beinhaltet bei den von uns generierten Meldungen immer den Meldungstyp (`changeResponsibility`, `statusNotification`, etc). Bei empfangenen Meldungen wird das property ignoriert.
+
+
+## Messages
+
+### GET
+
+{get_messages}
+
+### POST
+
+{post_messages}
