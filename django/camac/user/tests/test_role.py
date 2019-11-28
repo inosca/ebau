@@ -16,15 +16,10 @@ def test_role_list(admin_client, role, role_factory):
     assert json["data"][0]["id"] == str(role.pk)
 
 
-@pytest.mark.parametrize("is_multilingual", [False, True])
 @pytest.mark.parametrize(
     "role__name,permission", list(settings.APPLICATION["ROLE_PERMISSIONS"].items())
 )
-def test_role_detail(
-    admin_client, role, permission, is_multilingual, application_settings
-):
-    application_settings["IS_MULTILINGUAL"] = is_multilingual
-
+def test_role_detail(admin_client, role, permission, multilang, application_settings):
     url = reverse("role-detail", args=[role.pk])
 
     response = admin_client.get(url)

@@ -36,6 +36,9 @@ class InstanceQuerysetMixin(object):
 
         return result
 
+    def _get_group(self, group):
+        return group or self.request.group
+
     def get_base_queryset(self):
         """Get base query queryset for role specific filters.
 
@@ -46,12 +49,12 @@ class InstanceQuerysetMixin(object):
         return super().get_queryset().select_related(instance_state_expr)
 
     @permission_aware
-    def get_queryset(self):
+    def get_queryset(self, group=None):
         queryset = self.get_base_queryset()
         user_field = self._get_instance_filter_expr("involved_applicants__invitee")
         return queryset.filter(**{user_field: self.request.user})
 
-    def get_queryset_for_public_reader(self):
+    def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
@@ -65,22 +68,24 @@ class InstanceQuerysetMixin(object):
 
         return queryset.filter(**{instance_field: instances})
 
-    def get_queryset_for_reader(self):
+    def get_queryset_for_reader(self, group=None):
         return self.get_queryset_for_municipality()
 
-    def get_queryset_for_municipality(self):
+    def get_queryset_for_municipality(self, group=None):
+        group = self._get_group(group)
+
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
         instances_for_location = models.Instance.objects.filter(
-            location__in=self.request.group.locations.all()
+            location__in=group.locations.all()
         )
 
         instances_for_service = InstanceService.objects.filter(
-            service=self.request.group.service
-        ).values("instance")
+            service=group.service
+        ).values("instance_id")
 
-        instances_for_activation = self._instances_with_activation()
+        instances_for_activation = self._instances_with_activation(group)
 
         return queryset.filter(
             Q(**{instance_field: instances_for_location})
@@ -88,23 +93,24 @@ class InstanceQuerysetMixin(object):
             | Q(**{instance_field: instances_for_activation})
         )
 
-    def get_queryset_for_service(self):
+    def get_queryset_for_service(self, group=None):
+        group = self._get_group(group)
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
-        instances = self._instances_with_activation()
+        instances = self._instances_with_activation(group)
         # use subquery to avoid duplicates
         return queryset.filter(**{instance_field: instances})
 
-    def get_queryset_for_canton(self):
+    def get_queryset_for_canton(self, group=None):
         return self.get_base_queryset()
 
-    def get_queryset_for_support(self):
+    def get_queryset_for_support(self, group=None):
         return self.get_base_queryset()
 
-    def _instances_with_activation(self):
-        return Circulation.objects.filter(
-            activations__service=self.request.group.service
-        ).values("instance")
+    def _instances_with_activation(self, group):
+        return Circulation.objects.filter(activations__service=group.service).values(
+            "instance_id"
+        )
 
 
 class InstanceEditableMixin(AttributeMixin):
