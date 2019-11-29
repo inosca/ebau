@@ -22,16 +22,19 @@ class FormDataValidator(object):
     def __init__(self, instance):
         self.forms_def = settings.FORM_CONFIG
         self.instance = instance
+
+        attachments = {}
+        for attachment in Attachment.objects.filter(instance=instance):
+            if attachment.question not in attachments:
+                attachments[attachment.question] = []
+            attachments[attachment.question].append(attachment.name)
         self.fields = {
             **{
                 field.name: field.value
                 for field in models.FormField.objects.filter(instance=instance)
             },
             # handle attachments like fields
-            **{
-                attachment.question: attachment.path
-                for attachment in Attachment.objects.filter(instance=instance)
-            },
+            **attachments,
         }
         self.jexl = JEXL()
         self.jexl.add_transform("value", lambda name: self.fields.get(name))
@@ -199,7 +202,6 @@ class FormDataValidator(object):
 
     def get_active_modules_questions(self):  # noqa: C901
         COORDINATE_QUESTION = "punkte"
-        DOCUMENT_TYPE = "document"
         IGNORED_MODULE = "freigegebene-unterlagen"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
@@ -251,8 +253,6 @@ class FormDataValidator(object):
                             value = converted_values
                             label = "Koordinaten"
                             type = "coordinates"
-                        elif type == DOCUMENT_TYPE and value is not None:
-                            value = value.name.split("/")[-1]
 
                         active_questions.append(
                             {
