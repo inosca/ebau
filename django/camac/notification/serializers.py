@@ -472,7 +472,11 @@ class NotificationTemplateSendmailSerializer(
                     subject=subject,
                     body=body,
                     # EmailMessage needs "to" and "cc" to be lists
-                    **{k: [v] for (k, v) in recipient.items()},
+                    **{
+                        k: [e.strip() for e in email.split(",")]
+                        for (k, email) in recipient.items()
+                        if email
+                    },
                 )
 
                 result = email.send()
