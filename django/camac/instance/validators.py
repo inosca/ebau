@@ -22,23 +22,19 @@ class FormDataValidator(object):
     def __init__(self, instance):
         self.forms_def = settings.FORM_CONFIG
         self.instance = instance
+
+        attachments = {}
+        for attachment in Attachment.objects.filter(instance=instance):
+            if attachment.question not in attachments:
+                attachments[attachment.question] = []
+            attachments[attachment.question].append(attachment.name)
         self.fields = {
             **{
                 field.name: field.value
                 for field in models.FormField.objects.filter(instance=instance)
             },
             # handle attachments like fields
-            **{
-                _attachment.question: [
-                    attachment.name
-                    for attachment in Attachment.objects.filter(
-                        instance=instance, question=_attachment.question
-                    )
-                ]
-                for _attachment in Attachment.objects.filter(
-                    instance=instance
-                ).distinct("question")
-            },
+            **attachments,
         }
         self.jexl = JEXL()
         self.jexl.add_transform("value", lambda name: self.fields.get(name))
