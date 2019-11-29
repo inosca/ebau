@@ -1,6 +1,6 @@
 import Component from "@ember/component";
 import { action } from "@ember/object";
-import { alias } from "@ember/object/computed";
+import { alias, reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import config from "ember-caluma-portal/config/environment";
 
@@ -13,6 +13,9 @@ export default class NavbarComponent extends Component {
   @service notification;
   @service store;
 
+  @reads("router.currentRoute.queryParams.language") languageQP;
+  @reads("router.currentRoute.queryParams.group") groupQP;
+
   // in preparation of glimmer components (outer HTML)
   tagName = "";
 
@@ -24,11 +27,7 @@ export default class NavbarComponent extends Component {
 
   @action
   setGroup(group) {
-    if (this.get("router.currentRoute.queryParams.group")) {
-      this.notification.danger(this.intl.t("nav.canNotChangeGroup"));
-
-      return;
-    }
+    if (this.groupQP) return;
 
     // This needs to be set directly on session.data since ember simple auths
     // session storage does not support setting on an alias
@@ -42,11 +41,7 @@ export default class NavbarComponent extends Component {
 
   @action
   setLanguage(language) {
-    if (this.get("router.currentRoute.queryParams.language")) {
-      this.notification.danger(this.intl.t("nav.canNotChangeLanguage"));
-
-      return;
-    }
+    if (this.languageQP) return;
 
     this.set("language", language);
 
