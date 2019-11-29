@@ -3,15 +3,15 @@ import fetch from "fetch";
 import { reads } from "@ember/object/computed";
 import { computed } from "@ember/object";
 
-export default Service.extend({
-  session: service(),
-  router: service(),
+export default class FetchService extends Service {
+  @service session;
 
-  token: reads("session.data.authenticated.access_token"),
-  language: reads("session.language"),
-  group: reads("session.group"),
+  @reads("session.data.authenticated.access_token") token;
+  @reads("session.language") language;
+  @reads("session.group") group;
 
-  headers: computed("token", "group", function() {
+  @computed("token", "group")
+  get headers() {
     return {
       authorization: `Bearer ${this.token}`,
       accept: "application/vnd.api+json",
@@ -19,15 +19,39 @@ export default Service.extend({
       "accept-language": this.language,
       ...(this.group ? { "x-camac-group": this.group } : {})
     };
-  }),
+  }
 
-  fetch(resource, init = {}) {
+  async fetch(resource, init = {}) {
     init.headers = Object.assign({}, this.headers, init.headers);
 
+    // clean out undefined headers
     Object.keys(init.headers).forEach(
       k => init.headers[k] === undefined && delete init.headers[k]
     );
 
-    return fetch(resource, init);
+    const response = await fetch(resource, init);
+
+    if (!response.ok) {
+      // invalidate the session on 401 requests
+      if (response.status === 401 && this.session.isAuthenticated) {
+        this.session.invalidate();
+      }
+
+      const contentType = response.headers.map["content-type"];
+      let body = "";
+
+      if (/^application\/(vnd\.api+)?json$/.test(contentType)) {
+        body = await response.json();
+      } else if (contentType === "text/plain") {
+        body = await response.text();
+      }
+
+      // throw an error containing a human readable message
+      throw new Error(
+        `Fetch request to URL ${response.url} returned ${response.status} ${response.statusText}:\n\n${body}`
+      );
+    }
+
+    return response;
   }
-});
+}
