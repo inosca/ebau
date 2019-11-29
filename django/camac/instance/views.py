@@ -294,7 +294,7 @@ class InstanceView(
             instance=instance,
             size=0,
             mime_type="application/pdf",
-            question="dokument-weitere-gesuchsunterlagen",
+            question="dokument-projektplane-projektbeschrieb",
             user=request.user,
             group=request.group,
         )
