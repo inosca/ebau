@@ -1,7 +1,11 @@
 <ul class="uk-subnav uk-subnav-divider">
   <LinkTo @route="index" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.index"}}</a></LinkTo>
   <LinkTo @route="support" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.support"}}</a></LinkTo>
-  <Navbar::LanguageSelector @languages={{this.languages}} @currentLanguage={{this.language}} @onSelect={{fn this.setLanguage}} />
-  <Navbar::GroupSelector @groups={{this.user.groups}} @currentGroup={{this.group}} @onSelect={{fn this.setGroup}} />
+  {{#unless languageQP}}
+    <Navbar::LanguageSelector @languages={{this.languages}} @currentLanguage={{this.language}} @onSelect={{fn this.setLanguage}} />
+  {{/unless}}
+  {{#unless groupQP}}
+    <Navbar::GroupSelector @groups={{this.user.groups}} @currentGroup={{this.group}} @onSelect={{fn this.setGroup}} />
+  {{/unless}}
   <LinkTo @route="logout" @tagName="li" @activeClass="uk-active"><a href="#"><UkIcon @icon="sign-out" /></a></LinkTo>
 </ul>
