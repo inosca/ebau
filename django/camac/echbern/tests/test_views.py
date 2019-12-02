@@ -40,6 +40,7 @@ def test_application_retrieve_full(
     i = instance_factory()
 
     attachment.instance = ech_instance
+    attachment.context = {"tags": ["some", "tags"]}
     attachment.save()
     attachment.attachment_sections.add(attachment_section)
 
