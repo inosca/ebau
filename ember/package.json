@@ -88,7 +88,7 @@
     "ember-test-selectors": "^1.0.0",
     "ember-transition-helper": "^1.0.0",
     "ember-truth-helpers": "^2.0.0",
-    "ember-uikit": "1.0.0",
+    "ember-uikit": "2.0.1",
     "ember-validated-form": "^1.4.2",
     "ember-web-app": "^2.3.0",
     "eslint-config-prettier": "^3.0.1",

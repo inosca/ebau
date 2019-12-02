@@ -53,7 +53,7 @@ module.exports = function(environment) {
       css: {
         group: "uk-margin",
         control: "uk-input",
-        label: "uk-form-label uk-text-bold",
+        label: "uk-form-label uk-text-bolder",
         checkbox: "uk-checkbox",
         radio: "uk-radio",
         button: "uk-button uk-button-default",
