@@ -101,6 +101,12 @@ def get_cost(value):
     return value
 
 
+def get_keywords(attachment):
+    tags = attachment.context.get("tags")
+    if tags:
+        return pyxb.BIND(keyword=tags)
+
+
 def get_documents(attachments):
     documents = [
         ns_document.documentType(
@@ -108,6 +114,7 @@ def get_documents(attachments):
             titles=pyxb.BIND(title=[attachment.name]),
             status="signed",  # ech0039 documentStatusType
             documentKind=get_document_sections(attachment),
+            keywords=get_keywords(attachment),
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
