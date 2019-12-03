@@ -237,6 +237,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         **InstanceSerializer.included_serializers,
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "responsible_service_users": "camac.user.serializers.UserSerializer",
+        "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
     }
 
     @permission_aware
@@ -457,11 +458,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "public_status",
             "active_service",
             "responsible_service_users",
+            "involved_applicants",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "public_status",
             "active_service",
             "responsible_service_users",
+            "involved_applicants",
         )
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 

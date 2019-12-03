@@ -1,45 +1,26 @@
 import Controller, { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { reads } from "@ember/object/computed";
-import { task } from "ember-concurrency";
-import QueryParams from "ember-parachute";
+import { dropTask } from "ember-concurrency-decorators";
 import parseError from "ember-caluma-portal/utils/parse-error";
 
-const queryParams = new QueryParams({});
+export default class InstancesEditApplicantsController extends Controller {
+  @service intl;
+  @service notification;
 
-export default Controller.extend(queryParams.Mixin, {
-  fetch: service(),
-  intl: service(),
-  notification: service(),
-  store: service(),
+  @controller("instances.edit") editController;
+  @reads("editController.instance.involvedApplicants") applicants;
 
-  editController: controller("instances.edit"),
-  instanceId: reads("editController.model"),
-
-  setup() {
-    this.applicantsTask.perform();
-  },
-
-  reset() {
-    this.applicantsTask.cancelAll({ reset: true });
-  },
-
-  applicants: reads("applicantsTask.lastSuccessful.value"),
-  applicantsTask: task(function*() {
-    yield this.store.query("applicant", {
-      instance: this.instanceId,
-      include: "invitee,user"
-    });
-
-    return this.store.peekAll("applicant");
-  }).drop(),
-
-  add: task(function*(event) {
+  @dropTask
+  *add(event) {
     event.preventDefault();
 
     const user = this.store.createRecord("applicant", {
       email: event.srcElement.querySelector("input[name=email]").value,
-      instance: this.store.peekRecord("instance", this.instanceId)
+      instance: this.store.peekRecord(
+        "instance",
+        this.get("editController.instance.id")
+      )
     });
 
     try {
@@ -55,9 +36,10 @@ export default Controller.extend(queryParams.Mixin, {
         parseError(error) || this.intl.t("instances.applicants.addError")
       );
     }
-  }).drop(),
+  }
 
-  delete: task(function*(applicant) {
+  @dropTask
+  *delete(applicant) {
     if (this.applicants.length < 2) return;
 
     try {
@@ -72,5 +54,5 @@ export default Controller.extend(queryParams.Mixin, {
         parseError(error) || this.intl.t("instances.applicants.deleteError")
       );
     }
-  }).drop()
-});
+  }
+}

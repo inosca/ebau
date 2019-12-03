@@ -1,18 +1,23 @@
 import Controller from "@ember/controller";
-import { task } from "ember-concurrency";
 import { inject as service } from "@ember/service";
+import { restartableTask, dropTask } from "ember-concurrency-decorators";
 import { queryManager } from "ember-apollo-client";
+import { withParachute } from "ember-parachute/decorators";
 
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 
-export default Controller.extend({
-  fetch: service(),
+@withParachute
+class InstancesNewController extends Controller {
+  @service fetch;
+  @queryManager apollo;
 
-  apollo: queryManager(),
+  setup() {
+    this.set("selectedForm", null);
+    this.forms.perform();
+  }
 
-  selectedForm: null,
-
-  forms: task(function*() {
+  @restartableTask
+  *forms() {
     const forms = yield this.apollo.query(
       {
         query: getRootFormsQuery
@@ -33,10 +38,10 @@ export default Controller.extend({
         column2: []
       }
     );
-  }),
+  }
 
-  save: task(function*() {
-    // create instance in CAMAC
+  @dropTask
+  *save() {
     const response = yield this.fetch.fetch(`/api/v1/instances`, {
       method: "POST",
       body: JSON.stringify({
@@ -60,5 +65,7 @@ export default Controller.extend({
     } = yield response.json();
 
     yield this.transitionToRoute("instances.edit", instanceId);
-  }).drop()
-});
+  }
+}
+
+export default InstancesNewController;

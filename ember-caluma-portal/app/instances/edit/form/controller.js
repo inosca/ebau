@@ -36,6 +36,8 @@ export default class InstancesEditFormController extends Controller {
   get pdfField() {
     const slug = ["sb1", "sb2"].includes(this.model)
       ? "formulardownload-pdf-selbstdeklaration"
+      : this.model === "vorabklaerung-einfach"
+      ? "formulardownload-pdf-vorabklaerung"
       : "formulardownload-pdf";
 
     const field = this.instance.findCalumaField(slug, this.model);
