@@ -251,3 +251,9 @@ pdf:
   personalities: "Personalien"
   signature: "Unterschrift"
   signatureMetadata: "Ort und Datum"
+
+notfound:
+  title: "404"
+  subtitle: "Die Seite wurde nicht gefunden"
+  link: "Zurück zur"
+  home: "Startseite"

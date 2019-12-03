@@ -1,10 +1,7 @@
 import Route from "@ember/routing/route";
+import { can } from "ember-caluma-portal/-private/decorators";
 
-export default Route.extend({
-  setupController(controller) {
-    this._super(...arguments);
+@can("create instance")
+class InstancesNewRoute extends Route {}
 
-    controller.set("selectedForm", null);
-    controller.forms.perform();
-  }
-});
+export default InstancesNewRoute;

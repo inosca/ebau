@@ -1,10 +1,6 @@
-body.embedded {
-  main.uk-container {
+body.embedded main {
+  > section.uk-container {
     padding: 0;
-
-    > header {
-      display: none;
-    }
 
     .embedded-content {
       margin-left: 25px;

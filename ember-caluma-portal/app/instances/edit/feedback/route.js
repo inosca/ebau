@@ -1,3 +1,10 @@
 import Route from "@ember/routing/route";
+import { can } from "ember-caluma-portal/-private/decorators";
 
-export default Route.extend({});
+@can("read feedback of instance", {
+  model: "controller.editController.instance",
+  loading: "controller.editController.instanceTask.isRunning"
+})
+class InstancesEditFeedbackRoute extends Route {}
+
+export default InstancesEditFeedbackRoute;
