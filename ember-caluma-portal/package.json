@@ -23,6 +23,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@ember/jquery": "^1.1.0",
     "@ember/optional-features": "^1.1.0",
+    "@ember/render-modifiers": "^1.0.2",
     "apollo-link-context": "^1.0.19",
     "apollo-link-error": "^1.1.12",
     "babel-eslint": "^10.0.3",
