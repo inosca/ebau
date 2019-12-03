@@ -4,7 +4,7 @@
   {{#if embedded}}
     {{#cf-content
       documentId=(decode-id document.id)
-      disabled=disabled
+      disabled=(cannot "write form of instance" instance form=document.form)
       context=(hash
         instance=instance
         instanceId=instance.id
@@ -37,7 +37,7 @@
   {{else}}
     {{cf-content
       documentId=(decode-id document.id)
-      disabled=disabled
+      disabled=(cannot "write form of instance" instance form=document.form)
       context=(hash
         instance=instance
         instanceId=instance.id

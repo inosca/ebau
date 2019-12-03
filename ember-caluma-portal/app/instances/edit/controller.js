@@ -1,46 +1,48 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { computed, getWithDefault } from "@ember/object";
-import { reads } from "@ember/object/computed";
-import { task } from "ember-concurrency";
-import QueryParams from "ember-parachute";
+import { computed } from "@ember/object";
+import { dropTask, lastValue } from "ember-concurrency-decorators";
+import { withParachute } from "ember-parachute/decorators";
 import { queryManager } from "ember-apollo-client";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
-const queryParams = new QueryParams({});
+@withParachute
+class InstancesEditController extends Controller {
+  @service fetch;
+  @service can;
 
-export default Controller.extend(queryParams.Mixin, {
-  fetch: service(),
-
-  apollo: queryManager(),
+  @queryManager apollo;
 
   setup() {
     this.instanceTask.perform();
     this.feedbackTask.perform();
-  },
+  }
 
   reset() {
     this.instanceTask.cancelAll({ resetState: true });
     this.feedbackTask.cancelAll({ resetState: true });
 
     this.resetQueryParams();
-  },
+  }
 
-  embedded: computed(function() {
+  @computed
+  get embedded() {
     return window !== window.top;
-  }),
+  }
 
-  additionalForms: computed("instance.meta.permissions", function() {
-    const permissions = this.getWithDefault("instance.meta.permissions", {});
-
+  @computed("instance.meta.permissions")
+  get additionalForms() {
     return ["nfd", "sb1", "sb2"].filter(form =>
-      getWithDefault(permissions, form, []).includes("read")
+      this.can.can("read form of instance", this.instance, {
+        form: { slug: form }
+      })
     );
-  }),
+  }
 
-  instance: reads("instanceTask.lastSuccessful.value"),
-  instanceTask: task(function*() {
+  @lastValue("instanceTask") instance;
+  @dropTask
+  *instanceTask() {
     const instance = yield this.store.findRecord("instance", this.model, {
       include: "instance_state"
     });
@@ -48,14 +50,17 @@ export default Controller.extend(queryParams.Mixin, {
     yield instance.getDocuments.perform();
 
     return instance;
-  }).drop(),
+  }
 
-  feedback: reads("feedbackTask.lastSuccessful.value"),
-  feedbackTask: task(function*() {
+  @lastValue("feedbackTask") feedback;
+  @dropTask
+  *feedbackTask() {
     return yield this.store.query("attachment", {
       instance: this.model,
       attachment_sections: FEEDBACK_ATTACHMENT_SECTION,
       include: "attachment_sections"
     });
-  }).drop()
-});
+  }
+}
+
+export default InstancesEditController;
