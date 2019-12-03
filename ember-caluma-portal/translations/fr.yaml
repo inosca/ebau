@@ -253,3 +253,10 @@ pdf:
   personalities: "Données personnelles"
   signature: "Signature"
   signatureMetadata: "Lieu et date"
+
+notfound:
+  title: "404"
+  subtitle: "La page n'a pas été trouvée"
+  link: "Retour à"
+  home: "la page principale"
+

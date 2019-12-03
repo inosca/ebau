@@ -12,8 +12,11 @@ module("Acceptance | applicants", function(hooks) {
 
   hooks.beforeEach(async function() {
     // camac data
-    this.instance = this.server.create("instance");
-    this.server.createList("applicant", 2, { instance: this.instance });
+    const user = this.server.create("user");
+    const instance = this.server.create("instance");
+
+    this.server.create("applicant", { instance });
+    this.server.create("applicant", { instance, invitee: user });
 
     // caluma data
     this.server.create("document", {
@@ -22,7 +25,7 @@ module("Acceptance | applicants", function(hooks) {
 
     await authenticateSession({ access_token: "123qweasdyxc" });
 
-    await visit(`/instances/${this.instance.id}/applicants`);
+    await visit(`/instances/${instance.id}/applicants`);
   });
 
   test("can list applicants", async function(assert) {
