@@ -88,4 +88,4 @@ class GroupFilterSet(FilterSet):
 
     class Meta:
         model = models.Group
-        fields = ("accessible_instance",)
+        fields = ("accessible_instance", "service__service_group")
