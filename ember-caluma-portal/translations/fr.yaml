@@ -15,8 +15,7 @@ nav:
   logout: "Déconnexion"
   applicants: "Autorisation"
   language: "Langue"
-  de: "Allemand"
-  fr: "Français"
+  instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
 

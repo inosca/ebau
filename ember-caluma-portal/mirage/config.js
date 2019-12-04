@@ -7,8 +7,10 @@ export default function() {
   this.timing = 400;
 
   this.get("/api/v1/me", function({ users }) {
-    return users.create();
+    return users.first();
   });
+
+  this.get("/api/v1/groups");
 
   this.get("/api/v1/attachments");
 

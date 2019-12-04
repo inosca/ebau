@@ -20,15 +20,10 @@ export default class CustomSession extends Session {
   @restartableTask
   *fetchUser() {
     const response = yield this.fetch
-      .fetch("/api/v1/me?include=groups")
+      .fetch("/api/v1/me")
       .then(res => res.json());
 
     this.store.push(this.store.normalize("user", response.data));
-    this.store.push({
-      data: (response.included || [])
-        .map(group => this.store.normalize("group", group))
-        .map(({ data }) => data)
-    });
 
     return this.store.peekRecord("user", response.data.id);
   }
