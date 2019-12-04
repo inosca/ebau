@@ -16,6 +16,7 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
 from camac.caluma import CalumaSerializerMixin
+from camac.constants import kt_bern as be_constants
 from camac.core.models import Activation, Answer, Journal, JournalT
 from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
@@ -81,6 +82,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
+
+    # TODO: these is currently bern specific, as it depends on instance state
+    # identifiers. This will likely need some client-specific switch logic
+    # some time in the future
+    total_activations = serializers.SerializerMethodField()
+    completed_activations = serializers.SerializerMethodField()
+    pending_activations = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -218,6 +226,26 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
+
+    def _activations(self, instance):
+        return core_models.Activation.objects.filter(circulation__instance=instance)
+
+    def get_total_activations(self, instance):
+        return self._activations(instance).count()
+
+    def get_completed_activations(self, instance):
+        return (
+            self._activations(instance)
+            .filter(circulation_state_id=be_constants.CIRCULATION_STATE_DONE)
+            .count()
+        )
+
+    def get_pending_activations(self, instance):
+        return (
+            self._activations(instance)
+            .filter(circulation_state_id=be_constants.CIRCULATION_STATE_WORKING)
+            .count()
+        )
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
