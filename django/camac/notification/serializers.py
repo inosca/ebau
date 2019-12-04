@@ -1,4 +1,3 @@
-import itertools
 from collections import namedtuple
 from datetime import date, timedelta
 from html import escape
@@ -21,6 +20,7 @@ from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
 from camac.user.models import Service
+from camac.utils import flatten
 
 from ..core import models as core_models
 from . import models
@@ -362,16 +362,30 @@ class NotificationTemplateSendmailSerializer(
 
     def _get_recipients_applicant(self, instance):
         return [
-            applicant.invitee.email
+            {"to": applicant.invitee.email}
             for applicant in instance.involved_applicants.all()
             if applicant.invitee
         ]
 
+    def _get_responsible(self, instance, service):
+        responsible_old = instance.responsible_services.filter(
+            service=service
+        ).values_list("responsible_user__email", flat=True)
+        responsible_new = instance.responsibilities.filter(service=service).values_list(
+            "user__email", flat=True
+        )
+        responsibles = responsible_new.union(responsible_old)
+
+        try:
+            return [{"to": responsibles[0], "cc": service.email}]
+        except IndexError:
+            return [{"to": service.email}]
+
     def _get_recipients_leitbehoerde(self, instance):  # pragma: no cover
-        return [instance.active_service.email]
+        return self._get_responsible(instance, instance.active_service)
 
     def _get_recipients_municipality(self, instance):
-        return [instance.group.service.email]
+        return self._get_responsible(instance, instance.group.service)
 
     def _get_recipients_unnotified_service(self, instance):
         activations = Activation.objects.filter(
@@ -379,64 +393,86 @@ class NotificationTemplateSendmailSerializer(
         )
         services = {a.service for a in activations}
 
-        return [service.email for service in services]
+        return flatten(
+            [self._get_responsible(instance, service) for service in services]
+        )
 
     def _get_recipients_service(self, instance):
         services = Service.objects.filter(
             pk__in=instance.circulations.values("activations__service")
         )
 
-        return [service.email for service in services]
+        return flatten(
+            [self._get_responsible(instance, service) for service in services]
+        )
 
     def _get_recipients_construction_control(self, instance):
-        return core_models.InstanceService.objects.filter(
+        instance_services = core_models.InstanceService.objects.filter(
             instance=instance,
             service__service_group__name="construction-control",
             active=1,
-        ).values_list("service__email", flat=True)
+        )
+        return flatten(
+            [
+                self._get_responsible(instance, instance_service.service)
+                for instance_service in instance_services
+            ]
+        )
 
     def _get_recipients_email_list(self, instance):
-        return self.validated_data["email_list"].split(",")
+        return [{"to": to} for to in self.validated_data["email_list"].split(",")]
+
+    def _recipient_log(self, recipient):
+        return recipient["to"] + (
+            f" (CC: {recipient['cc']})" if "cc" in recipient else ""
+        )
 
     def create(self, validated_data):
         subj_prefix = settings.EMAIL_PREFIX_SUBJECT
         body_prefix = settings.EMAIL_PREFIX_BODY
 
         instance = validated_data["instance"]
-        recipients = itertools.chain(
-            *[
-                getattr(self, "_get_recipients_%s" % recipient_type)(instance)
-                for recipient_type in validated_data["recipient_types"]
-            ]
-        )
 
-        subject = subj_prefix + validated_data["subject"]
-        body = body_prefix + validated_data["body"]
-        bcc = set(recipients)
+        for recipient_type in sorted(validated_data["recipient_types"]):
+            recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
+            subject = subj_prefix + validated_data["subject"]
+            body = body_prefix + validated_data["body"]
 
-        email = EmailMessage(subject=subject, body=body, bcc=bcc)
-
-        result = email.send()
-
-        request_logger.info(f'Sent email "{subject}" to {bcc}')
-
-        if settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
-            journal_entry = Journal.objects.create(
-                instance=instance,
-                mode="auto",
-                additional_text=body,
-                created=timezone.now(),
-                user=self.context["request"].user,
-            )
-            for (lang, text) in get_translations(
-                gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
-            ):
-                JournalT.objects.create(
-                    journal=journal_entry,
-                    text=text % {"receiver": ", ".join(bcc), "subject": subject},
-                    additional_text=body,
-                    language=lang,
+            valid_recipients = [r for r in recipients if r.get("to")]
+            for recipient in valid_recipients:
+                email = EmailMessage(
+                    subject=subject,
+                    body=body,
+                    # EmailMessage needs "to" and "cc" to be lists
+                    **{k: [v] for (k, v) in recipient.items()},
                 )
+
+                result = email.send()
+
+                request_logger.info(
+                    f'Sent email "{subject}" to {self._recipient_log(recipient)}'
+                )
+
+            if settings.APPLICATION_NAME == "kt_bern":  # pragma: no cover
+                journal_entry = Journal.objects.create(
+                    instance=instance,
+                    mode="auto",
+                    additional_text=body,
+                    created=timezone.now(),
+                    user=self.context["request"].user,
+                )
+                for (lang, text) in get_translations(
+                    gettext_noop("Notification sent to %(receiver)s (%(subject)s)")
+                ):
+                    recipients_log = ", ".join(
+                        [self._recipient_log(r) for r in recipients]
+                    )
+                    JournalT.objects.create(
+                        journal=journal_entry,
+                        text=text % {"receiver": recipients_log, "subject": subject},
+                        additional_text=body,
+                        language=lang,
+                    )
 
         return result
 
