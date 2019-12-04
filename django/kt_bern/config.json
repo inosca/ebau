@@ -311,6 +311,34 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 20048,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10060
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10061
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 20005,
       "description": null,
@@ -919,7 +947,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -1386,6 +1414,30 @@
     },
     "model": "core.actiont",
     "pk": 10059
+  },
+  {
+    "fields": {
+      "action": 10060,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10060
+  },
+  {
+    "fields": {
+      "action": 10058,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Notification: Bericht erstellt",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10061
   },
   {
     "fields": {
@@ -40356,6 +40408,13 @@
     },
     "model": "core.aphp",
     "pk": 10059
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10060
   },
   {
     "fields": {
