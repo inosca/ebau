@@ -233,7 +233,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 2,
+      "sort": 3,
       "success_message": null
     },
     "model": "core.action",
@@ -280,6 +280,20 @@
     },
     "model": "core.action",
     "pk": 10057
+  },
+  {
+    "fields": {
+      "available_action": "notification",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10058
   },
   {
     "fields": {
@@ -1334,6 +1348,18 @@
     },
     "model": "core.actiont",
     "pk": 10057
+  },
+  {
+    "fields": {
+      "action": 10058,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Notification: Bericht erstellt",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10058
   },
   {
     "fields": {
@@ -3402,6 +3428,15 @@
     },
     "model": "core.anotification",
     "pk": 10041
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
+      "template": 33
+    },
+    "model": "core.anotification",
+    "pk": 10058
   },
   {
     "fields": {
