@@ -16,8 +16,7 @@ nav:
   logout: "Ausloggen"
   applicants: "Berechtigungen"
   language: "Sprache"
-  de: "Deutsch"
-  fr: "Französisch"
+  instances: "Dossiers"
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
 
