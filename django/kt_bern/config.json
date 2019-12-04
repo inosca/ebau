@@ -149,7 +149,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -1031,7 +1031,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
