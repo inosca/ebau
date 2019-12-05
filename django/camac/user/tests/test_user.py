@@ -52,8 +52,22 @@ def test_user_list(admin_client, size):
     assert len(json["data"]) == size
 
 
-@pytest.mark.parametrize("role__name,size", [("Service", 1), ("Municipality", 0)])
-def test_user_role_filter(admin_client, admin_user, group, user_group_factory, size):
+@pytest.mark.parametrize("role__name,size", [("Service", 2), ("Municipality", 0)])
+def test_user_role_filter(
+    admin_client,
+    admin_user,
+    user,
+    group,
+    user_group_factory,
+    group_factory,
+    role_factory,
+    size,
+):
+    user_group_factory(user=user, group=group, default_group=1)
+    user_group_factory(
+        user=user, group=group_factory(role=role_factory(name="Municipality"))
+    )
+
     url = reverse("user-list")
 
     response = admin_client.get(url, {"exclude_primary_role": "Municipality"})
