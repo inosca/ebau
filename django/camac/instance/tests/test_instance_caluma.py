@@ -324,7 +324,6 @@ def test_instance_submit(
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "isValid": True,
                                     "errors": [],
-                                    # "errors": [{"slug": None, "errorMsg": None}],
                                 }
                             }
                         ]
@@ -547,7 +546,6 @@ def test_instance_finalize(
                                     "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
                                     "isValid": True,
                                     "errors": [],
-                                    # "errors": [{"slug": None, "errorMsg": None}],
                                 }
                             }
                         ]
