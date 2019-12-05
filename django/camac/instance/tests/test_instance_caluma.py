@@ -16,6 +16,7 @@ from camac.instance.serializers import (
     SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
 )
+from camac.utils import flatten
 
 MAIN_FORMS = [
     "baugesuch",
@@ -471,9 +472,9 @@ def test_instance_report(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_200_OK:
-        assert len(mail.outbox) == 1
+        assert len(mail.outbox) == 2
 
-        recipients = mail.outbox[0].recipients()
+        recipients = flatten([m.to for m in mail.outbox])
 
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
@@ -561,9 +562,9 @@ def test_instance_finalize(
     assert response.status_code == expected_status
 
     if expected_status == status.HTTP_200_OK:
-        assert len(mail.outbox) == 1
+        assert len(mail.outbox) == 2
 
-        recipients = mail.outbox[0].recipients()
+        recipients = flatten([m.to for m in mail.outbox])
 
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients

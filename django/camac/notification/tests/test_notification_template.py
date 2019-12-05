@@ -135,6 +135,7 @@ def test_notification_template_merge(
     "notification_template__subject,instance__identifier",
     [("{{identifier}}", "identifer")],
 )
+@pytest.mark.parametrize("new_responsible_model", [True, False])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
@@ -146,14 +147,27 @@ def test_notification_template_merge(
 )
 def test_notification_template_sendmail(
     admin_client,
-    instance,
+    instance_service,
+    responsible_service_factory,
+    instance_responsibility_factory,
     notification_template,
     status_code,
     mailoutbox,
     activation,
+    new_responsible_model,
     settings,
 ):
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+    if new_responsible_model:
+        responsible = instance_responsibility_factory(
+            instance=instance_service.instance, service=instance_service.service
+        )
+        responsible_email = responsible.user.email
+    else:
+        responsible = responsible_service_factory(
+            instance=instance_service.instance, service=instance_service.service
+        )
+        responsible_email = responsible.responsible_user.email
 
     data = {
         "data": {
@@ -164,12 +178,15 @@ def test_notification_template_sendmail(
                 "recipient-types": [
                     "applicant",
                     "municipality",
+                    "leitbehoerde",
                     "service",
                     "unnotified_service",
                 ],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
+                "instance": {
+                    "data": {"type": "instances", "id": instance_service.instance.pk}
+                }
             },
         }
     }
@@ -177,15 +194,20 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 1
-        mail = mailoutbox[0]
-        assert set(mail.bcc) == {
-            "user@example.com",
-            "service@example.com",
-            "service@example.com",
-        }
-        assert mail.subject == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
-        assert mail.body == settings.EMAIL_PREFIX_BODY + "Test body"
+        assert len(mailoutbox) == 4
+
+        # recipient types are sorted alphabetically
+        assert [(m.to, m.cc) for m in mailoutbox] == [
+            (["user@example.com"], []),  # applicant
+            ([responsible_email], ["service@example.com"]),  # leitbehoerde
+            ([responsible_email], ["service@example.com"]),  # municipality
+            ([responsible_email], ["service@example.com"]),  # service
+        ]
+        assert (
+            mailoutbox[0].subject
+            == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
+        )
+        assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
 
 
 @pytest.mark.parametrize(
