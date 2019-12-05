@@ -20,6 +20,9 @@ nav:
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
 
+  canNotChangeLanguage: "Die Sprache kann nicht geändert werden, da bereits eine Sprache in der URL vorgegeben ist"
+  canNotChangeGroup: "Die Gruppe kann nicht geändert werden, da bereits eine Gruppe in der URL vorgegeben ist"
+
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
 
