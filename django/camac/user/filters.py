@@ -47,8 +47,10 @@ class UserFilterSet(FilterSet):
     )
 
     def _exclude_primary_role(self, queryset, name, value):
-        lookup = {f"{name}__default_group": 1, f"{name}__group__role__name": value}
-        return queryset.exclude(**lookup).distinct()
+        user_groups = models.UserGroup.objects.filter(
+            default_group=1, group__role__name=value
+        )
+        return queryset.exclude(user_groups__in=user_groups).distinct()
 
     class Meta:
         model = get_user_model()
