@@ -249,6 +249,9 @@ def test_notification_placeholders(
                 LEITBEHOERDE_NAME: {{LEITBEHOERDE_NAME}}
                 INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
                 PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
+                COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
+                TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
+                PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
             """,
         )
     ],
@@ -325,4 +328,7 @@ def test_notification_caluma_placeholders(
         f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
         f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
         f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
+        f"COMPLETED_ACTIVATIONS: 0",
+        f"TOTAL_ACTIVATIONS: 1",
+        f"PENDING_ACTIVATIONS: 0",
     ]
