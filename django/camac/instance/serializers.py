@@ -575,7 +575,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         if not data["isValid"]:
             raise exceptions.ValidationError(
                 _("Error while validating caluma document: %(errors)s")
-                % {"errors": ", ".join(map(lambda e: e["errorMsg"], data["errors"]))}
+                % {"errors": ", ".join([e["errorMsg"] for e in data["errors"]])}
             )
 
     def validate(self, data):
