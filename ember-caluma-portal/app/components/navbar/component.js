@@ -58,7 +58,11 @@ export default class NavbarComponent extends Component {
 
   @action
   setGroup(group) {
-    if (this.groupQP) return;
+    if (this.groupQP) {
+      this.notification.warning(this.intl.t("nav.canNotChangeGroup"));
+
+      return;
+    }
 
     // This needs to be set directly on session.data since ember simple auths
     // session storage does not support setting on an alias
@@ -72,7 +76,11 @@ export default class NavbarComponent extends Component {
 
   @action
   setLanguage(language) {
-    if (this.languageQP) return;
+    if (this.languageQP) {
+      this.notification.warning(this.intl.t("nav.canNotChangeLanguage"));
+
+      return;
+    }
 
     this.set("language", language);
 
