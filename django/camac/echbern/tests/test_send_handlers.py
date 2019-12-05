@@ -240,7 +240,7 @@ def test_task_send_handler(
         assert len(mailoutbox) == 1
 
         assert activation.ech_msg_created is True
-        assert "s1@example.com" in mailoutbox[0].bcc
+        assert "s1@example.com" in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):
