@@ -4,7 +4,7 @@ import { task } from "ember-concurrency";
 import QueryParams from "ember-parachute";
 import Document from "ember-caluma-portal/lib/document";
 import { getOwner } from "@ember/application";
-import { computed } from "@ember/object";
+import { computed, set } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import moment from "moment";
 import { isEmpty } from "@ember/utils";
@@ -228,7 +228,7 @@ export default Controller.extend(queryParams.Mixin, {
 
       this.set("documents", [...this.documents, ...documents]);
 
-      Object.assign(raw.pageInfo, { totalCount: raw.totalCount });
+      set(raw, "pageInfo", { ...raw.pageInfo, totalCount: raw.totalCount });
 
       return raw;
     } catch (e) {
