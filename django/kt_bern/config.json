@@ -41275,24 +41275,6 @@
   },
   {
     "fields": {
-      "button": 20006,
-      "instance_state": 20004,
-      "role": 4
-    },
-    "model": "core.broleacl",
-    "pk": 20008
-  },
-  {
-    "fields": {
-      "button": 20007,
-      "instance_state": 20004,
-      "role": 4
-    },
-    "model": "core.broleacl",
-    "pk": 20009
-  },
-  {
-    "fields": {
       "button": 20008,
       "instance_state": 20003,
       "role": 3
@@ -41317,24 +41299,6 @@
     },
     "model": "core.broleacl",
     "pk": 20012
-  },
-  {
-    "fields": {
-      "button": 20006,
-      "instance_state": 20004,
-      "role": 20000
-    },
-    "model": "core.broleacl",
-    "pk": 20013
-  },
-  {
-    "fields": {
-      "button": 20007,
-      "instance_state": 20004,
-      "role": 20000
-    },
-    "model": "core.broleacl",
-    "pk": 20014
   },
   {
     "fields": {
@@ -41830,7 +41794,7 @@
   },
   {
     "fields": {
-      "class_field": null,
+      "class_field": "btn buttonstyle success",
       "description": null,
       "hidden": 0,
       "instance_resource": 20039,
@@ -146932,7 +146896,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt.\r\n\r\nVon {{TOTAL_ACTIVATIONS}} Stellungnahmen sind {{COMPLETED_ACTIVATIONS}} erledigt, {{PENDING_ACTIVATIONS}} sind noch offen.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions. \r\n\r\nSur {{TOTAL_ACTIVATIONS}} prises de position, {{COMPLETED_ACTIVATIONS}} sont finalis\u00e9s, {{PENDING_ACTIVATIONS}} sont encore ouverts.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n",
+      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt.\r\n\r\nVon {{TOTAL_ACTIVATIONS}} Stellungnahmen sind {{COMPLETED_ACTIVATIONS}} erledigt, {{PENDING_ACTIVATIONS}} sind noch offen.\r\n\r\nFreundliche Gr\u00fcsse\r\n{{LEITBEHOERDE_NAME}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions. \r\n\r\nSur {{TOTAL_ACTIVATIONS}} rapports officiels, {{COMPLETED_ACTIVATIONS}} sont r\u00e9gl\u00e9s, {{PENDING_ACTIVATIONS}} sont encore ouverts.\r\n\r\nVeuillez agr\u00e9er, Madame, Monsieur, nos salutations les meilleures.\r\n{{LEITBEHOERDE_NAME}}\r\n",
       "language": "de",
       "purpose": "05 Bericht Erstellt",
       "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
