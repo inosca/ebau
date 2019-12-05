@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
+import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
 import { inject as service } from "@ember/service";
 import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
@@ -20,6 +20,7 @@ export default class Instance extends Model {
   @attr("date") modificationDate;
   @attr("string") publicStatus;
   @belongsTo("instance-state") instanceState;
+  @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
 
   @computed("intl.locale", "publicStatus")
   get status() {

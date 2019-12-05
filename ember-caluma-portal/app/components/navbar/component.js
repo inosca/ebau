@@ -23,6 +23,11 @@ export default class NavbarComponent extends Component {
   languages = languages;
   environment = environment;
 
+  @computed
+  get embedded() {
+    return window !== window.top;
+  }
+
   @alias("session.user") user;
   @alias("session.language") language;
 

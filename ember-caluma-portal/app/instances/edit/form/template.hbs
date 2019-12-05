@@ -1,6 +1,4 @@
-{{#if instanceTask.isRunning}}
-  <div class="uk-text-center">{{uk-spinner ratio=2}}</div>
-{{else if document}}
+{{#if document}}
   {{#if embedded}}
     {{#cf-content
       documentId=(decode-id document.id)

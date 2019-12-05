@@ -1,7 +1,7 @@
 import Session from "ember-simple-auth/services/session";
 import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
-import { alias } from "@ember/object/computed";
+import { alias, notEmpty } from "@ember/object/computed";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
 import config from "../config/environment";
 import { getUserLocales } from "get-user-locale";
@@ -37,6 +37,7 @@ export default class CustomSession extends Session {
   }
 
   @alias("data.group") group;
+  @notEmpty("group") isInternal;
 
   @computed("data.language")
   get language() {

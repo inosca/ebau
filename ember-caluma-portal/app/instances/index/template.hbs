@@ -1,8 +1,10 @@
 <h1 class="uk-flex uk-flex-between">
   {{t "instances.title"}}
-  <span>
-    {{#link-to "instances.new" class="uk-button uk-button-secondary"}}{{t "instances.new.title"}}{{/link-to}}
-  </span>
+  {{#if (can "create instance")}}
+    <span>
+      {{#link-to "instances.new" class="uk-button uk-button-secondary"}}{{t "instances.new.title"}}{{/link-to}}
+    </span>
+  {{/if}}
 </h1>
 
 <form onsubmit={{perform applyFilters}}>
