@@ -15,18 +15,20 @@
     {{/link-to}}
   {{/each}}
 
-  {{#unless embedded}}
+  {{#if (can "read feedback of instance" instance)}}
     {{#link-to "instances.edit.feedback" tagName="li" activeClass="uk-active"}}
       <a href="#">
         {{t "nav.feedback"}} {{#if feedback}}{{uk-badge label=feedback.length class="uk-margin-small-left"}}{{/if}}
       </a>
     {{/link-to}}
+  {{/if}}
+  {{#if (can "manage applicants of instance" instance)}}
     {{#link-to "instances.edit.applicants" tagName="li" activeClass="uk-active"}}
       <a href="#">
         {{t "nav.applicants"}}
       </a>
     {{/link-to}}
-  {{/unless}}
+  {{/if}}
 </ul>
 
 {{outlet}}

@@ -1,51 +1,53 @@
-<nav uk-navbar class="uk-box-shadow-small" {{did-insert (perform this.fetchGroups)}}>
-  <LinkTo @route="index" class="uk-navbar-item uk-logo">
-    <img src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg" alt={{t "global.title"}}>
-  </LinkTo>
+{{#unless embedded}}
+  <nav uk-navbar class="uk-box-shadow-small" {{did-insert (perform this.fetchGroups)}}>
+    <LinkTo @route="index" class="uk-navbar-item uk-logo">
+      <img src="/assets/images/logo-ebau-bern-1-{{this.language}}.svg" alt={{t "global.title"}}>
+    </LinkTo>
 
-  <div class="uk-navbar-left">
-    <ul class="uk-navbar-nav">
-      <LinkTo @route="index" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.index"}}</a></LinkTo>
-      <LinkTo @route="instances" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.instances"}}</a></LinkTo>
-      <LinkTo @route="support" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.support"}}</a></LinkTo>
-    </ul>
-  </div>
-
-  {{#if (not-eq environment "production")}}
-    <div class="uk-navbar-center">
-      <UkLabel @color="success">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</UkLabel>
-      <UkLabel @label={{environment}} class="uk-margin-small-left" />
+    <div class="uk-navbar-left">
+      <ul class="uk-navbar-nav">
+        <LinkTo @route="index" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.index"}}</a></LinkTo>
+        <LinkTo @route="instances" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.instances"}}</a></LinkTo>
+        <LinkTo @route="support" @tagName="li" @activeClass="uk-active"><a href="#">{{t "nav.support"}}</a></LinkTo>
+      </ul>
     </div>
-  {{/if}}
 
-  <div class="uk-navbar-right">
-    <ul class="uk-navbar-nav">
-      <li>
-        <a href="#">{{this.user.fullName}} {{#if this.group}}({{this.group.name}}){{/if}}</a>
-        {{#if this.groups.length}}
-          <div class="uk-navbar-dropdown">
-            <ul class="uk-nav uk-navbar-dropdown-nav">
-              <li class={{unless this.group "uk-active"}}>
-                <a data-test-no-group href="#" {{on "click" (fn this.setGroup null)}}>
-                  {{t "nav.applicant"}}
-                </a>
-              </li>
-              <li class="uk-nav-divider"></li>
-              {{#each this.groups as |g|}}
-                <li class={{if (eq g.id this.group.id) "uk-active"}}>
-                  <a data-test-group={{g.id}} href="#" {{on "click" (fn this.setGroup g.id)}}>
-                    {{g.name}}
+    {{#if (not-eq environment "production")}}
+      <div class="uk-navbar-center">
+        <UkLabel @color="success">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</UkLabel>
+        <UkLabel @label={{environment}} class="uk-margin-small-left" />
+      </div>
+    {{/if}}
+
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li>
+          <a href="#">{{this.user.fullName}} {{#if this.group}}({{this.group.name}}){{/if}}</a>
+          {{#if this.groups.length}}
+            <div class="uk-navbar-dropdown">
+              <ul class="uk-nav uk-navbar-dropdown-nav">
+                <li class={{unless this.group "uk-active"}}>
+                  <a data-test-no-group href="#" {{on "click" (fn this.setGroup null)}}>
+                    {{t "nav.applicant"}}
                   </a>
                 </li>
-              {{/each}}
-            </ul>
-          </div>
-        {{/if}}
-      </li>
-      {{#each this.languages as |lang|}}
-        <li class={{if (eq lang this.language) "uk-active"}}><a href="#" {{on "click" (fn this.setLanguage lang)}}>{{lang}}</a></li>
-      {{/each}}
-      <LinkTo @route="logout" @tagName="li" @activeClass="uk-active"><a href="#"><UkIcon @icon="sign-out" /></a></LinkTo>
-    </ul>
-  </div>
-</nav>
+                <li class="uk-nav-divider"></li>
+                {{#each this.groups as |g|}}
+                  <li class={{if (eq g.id this.group.id) "uk-active"}}>
+                    <a data-test-group={{g.id}} href="#" {{on "click" (fn this.setGroup g.id)}}>
+                      {{g.name}}
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          {{/if}}
+        </li>
+        {{#each this.languages as |lang|}}
+          <li class={{if (eq lang this.language) "uk-active"}}><a href="#" {{on "click" (fn this.setLanguage lang)}}>{{lang}}</a></li>
+        {{/each}}
+        <LinkTo @route="logout" @tagName="li" @activeClass="uk-active"><a href="#"><UkIcon @icon="sign-out" /></a></LinkTo>
+      </ul>
+    </div>
+  </nav>
+{{/unless}}

@@ -26,11 +26,6 @@ class InstancesEditController extends Controller {
     this.resetQueryParams();
   }
 
-  @computed
-  get embedded() {
-    return window !== window.top;
-  }
-
   @computed("instance.meta.permissions")
   get additionalForms() {
     return ["nfd", "sb1", "sb2"].filter(form =>
@@ -44,7 +39,7 @@ class InstancesEditController extends Controller {
   @dropTask
   *instanceTask() {
     const instance = yield this.store.findRecord("instance", this.model, {
-      include: "instance_state"
+      include: "instance_state,involved_applicants,involved_applicants.invitee"
     });
 
     yield instance.getDocuments.perform();
