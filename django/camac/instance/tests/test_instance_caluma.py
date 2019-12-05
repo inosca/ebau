@@ -1,4 +1,5 @@
 import json
+import re
 
 import pytest
 from django.core import mail
@@ -35,6 +36,21 @@ def submit_date_question(db):
     question.trans.create(language="de", name="Einreichedatum")
 
     return question
+
+
+def match_body(search):
+    """Return a matcher for requests_mock.
+
+    This can be used to pass as additional_matcher:
+    >>> requests_mock.register_uri(
+    ...     "POST",
+    ...     "http://caluma:8000/graphql/",
+    ...     additional_matcher=match_body("allDocuments"),
+    ... # ...
+    ... )
+    """
+
+    return lambda request: bool(re.match(f".*{search}.*", request.text))
 
 
 @pytest.fixture
@@ -257,8 +273,10 @@ def test_instance_submit(
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
     ]
 
-    requests_mock.post(
+    requests_mock.register_uri(
+        "POST",
         "http://caluma:8000/graphql/",
+        additional_matcher=match_body("allDocuments"),
         text=json.dumps(
             {
                 "data": {
@@ -292,6 +310,36 @@ def test_instance_submit(
         ),
     )
 
+    requests_mock.register_uri(
+        "POST",
+        "http://caluma:8000/graphql/",
+        additional_matcher=match_body("documentValidity"),
+        text=json.dumps(
+            {
+                "data": {
+                    "documentValidity": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "isValid": True,
+                                    "errors": [],
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
+    requests_mock.register_uri(
+        "POST",
+        "http://caluma:8000/graphql/",
+        additional_matcher=match_body("SaveDocumentMeta"),
+        text=json.dumps(
+            {"data": {"saveDocument": {"node": {"clientMutationId": "foobar"}}}}
+        ),
+    )
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
         DocumentParser,
@@ -337,8 +385,12 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
 
 
 @pytest.mark.parametrize(
-    "instance_state__name,expected_status",
-    [("sb1", status.HTTP_200_OK), ("new", status.HTTP_403_FORBIDDEN)],
+    "instance_state__name,document_validity,expected_status",
+    [
+        ("sb1", True, status.HTTP_200_OK),
+        ("new", True, status.HTTP_403_FORBIDDEN),
+        ("sb1", False, status.HTTP_400_BAD_REQUEST),
+    ],
 )
 @pytest.mark.parametrize("new_instance_state_name", ["sb2"])
 @pytest.mark.parametrize(
@@ -360,6 +412,7 @@ def test_instance_report(
     use_caluma_form,
     multilang,
     mock_nfd_permissions,
+    document_validity,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -370,6 +423,7 @@ def test_instance_report(
 
     requests_mock.post(
         "http://caluma:8000/graphql/",
+        additional_matcher=match_body("allDocuments"),
         text=json.dumps(
             {
                 "data": {
@@ -388,7 +442,28 @@ def test_instance_report(
             }
         ),
     )
-
+    requests_mock.register_uri(
+        "POST",
+        "http://caluma:8000/graphql/",
+        additional_matcher=match_body("documentValidity"),
+        text=json.dumps(
+            {
+                "data": {
+                    "documentValidity": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "isValid": document_validity,
+                                    "errors": [{"slug": "foo", "errorMsg": "no good"}],
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
     instance_state_factory(name=new_instance_state_name)
 
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
@@ -438,6 +513,7 @@ def test_instance_finalize(
 
     requests_mock.post(
         "http://caluma:8000/graphql/",
+        additional_matcher=match_body("allDocuments"),
         text=json.dumps(
             {
                 "data": {
@@ -456,7 +532,28 @@ def test_instance_finalize(
             }
         ),
     )
-
+    requests_mock.register_uri(
+        "POST",
+        "http://caluma:8000/graphql/",
+        additional_matcher=match_body("documentValidity"),
+        text=json.dumps(
+            {
+                "data": {
+                    "documentValidity": {
+                        "edges": [
+                            {
+                                "node": {
+                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
+                                    "isValid": True,
+                                    "errors": [],
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ),
+    )
     instance_state_factory(name=new_instance_state_name)
 
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
