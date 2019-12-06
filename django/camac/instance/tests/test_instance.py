@@ -295,7 +295,7 @@ def test_instance_submit(
 ):
 
     settings.APPLICATION["NOTIFICATIONS"]["SUBMIT"] = notification_template.pk
-    settings.APPLICATION["SUBMIT"]["WORKFLOW_ITEM"] = workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_item.pk
 
     # only create group in a successful run
     if status_code == status.HTTP_200_OK:
@@ -406,8 +406,17 @@ def test_instance_export_list(
     ],
 )
 def test_instance_export_detail(
-    admin_client, form, instance, form_field_factory, status_code, to_type, attachment
+    application_settings,
+    admin_client,
+    form,
+    instance,
+    form_field_factory,
+    status_code,
+    to_type,
+    attachment,
 ):
+    application_settings["COORDINATE_QUESTION"] = "punkte"
+
     url = reverse("instance-export-detail", args=[instance.pk])
 
     add_field = functools.partial(form_field_factory, instance=instance)

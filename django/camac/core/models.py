@@ -3907,7 +3907,9 @@ class BillingV2Entry(models.Model):
         ("hourly", "Hourly"),
     )
 
-    ORGANIZATION_CHOICES = (("municipal", "Municipal"), ("cantonal", "Cantonal"))
+    MUNICIPAL = "municipal"
+    CANTONAL = "cantonal"
+    ORGANIZATION_CHOICES = ((MUNICIPAL, "Municipal"), (CANTONAL, "Cantonal"))
 
     DECIMAL_FORMAT = {"max_digits": 10, "decimal_places": 2, "null": True}
 
