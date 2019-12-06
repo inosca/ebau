@@ -1,7 +1,10 @@
+import functools
 import json
+from datetime import datetime
 
 import pytest
 from django.urls import reverse
+from django.utils import timezone
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
@@ -112,8 +115,15 @@ def test_notification_template_merge(
     status_code,
     activation,
     billing_entry,
-    settings,
+    application_settings,
+    form_field_factory,
 ):
+    application_settings["COORDINATE_QUESTION"] = "punkte"
+    add_field = functools.partial(form_field_factory, instance=instance)
+    add_field(
+        name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
+    )
+
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
     response = admin_client.get(url, data={"instance": instance.pk})
@@ -228,6 +238,12 @@ def test_notification_template_sendmail(
             "Municipality",
             """
                 REGISTRATION_LINK: {{registration_link}}
+                DATE_DOSSIERVOLLSTANDIG: {{date_dossiervollstandig}}
+                DATE_DOSSIEREINGANG: {{date_dossiereingang}}
+                DATE_START_ZIRKULATION: {{date_start_zirkulation}}
+                BILLING_TOTAL_KOMMUNAL: {{billing_total_kommunal}}
+                BILLING_TOTAL_KANTON: {{billing_total_kanton}}
+                BILLING_TOTAL: {{billing_total}}
             """,
         )
     ],
@@ -240,7 +256,28 @@ def test_notification_placeholders(
     mailoutbox,
     activation,
     settings,
+    workflow_entry_factory,
+    billing_v2_entry_factory,
 ):
+    settings.APPLICATION["WORKFLOW_ITEMS"]["SUBMIT"] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 7, 22, 10))
+    ).workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"][
+        "INSTANCE_COMPLETE"
+    ] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 8, 23, 10))
+    ).workflow_item.pk
+    settings.APPLICATION["WORKFLOW_ITEMS"]["START_CIRC"] = workflow_entry_factory(
+        instance=instance, workflow_date=timezone.make_aware(datetime(2019, 9, 24, 10))
+    ).workflow_item.pk
+
+    kommunal_amount = billing_v2_entry_factory(
+        instance=instance, organization="municipal"
+    ).final_rate
+    kanton_amount = billing_v2_entry_factory(
+        instance=instance, organization="cantonal"
+    ).final_rate
+
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
 
     data = {
@@ -261,10 +298,20 @@ def test_notification_placeholders(
 
     mail = mailoutbox[0]
 
-    assert (
-        mail.body.replace(settings.EMAIL_PREFIX_BODY, "").strip()
-        == f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac"
-    )
+    assert [
+        placeholder.strip()
+        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        .strip()
+        .split("\n")
+    ] == [
+        f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac",
+        "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
+        "DATE_DOSSIEREINGANG: 22.07.2019",
+        "DATE_START_ZIRKULATION: 24.09.2019",
+        f"BILLING_TOTAL_KOMMUNAL: {kommunal_amount}",
+        f"BILLING_TOTAL_KANTON: {kanton_amount}",
+        f"BILLING_TOTAL: {round(kommunal_amount + kanton_amount, 2)}",
+    ]
 
 
 @pytest.mark.parametrize(

@@ -110,11 +110,15 @@ APPLICATIONS = {
             "Support": "support",
         },
         "IS_MULTILINGUAL": False,
-        "SUBMIT": {"WORKFLOW_ITEM": None},
         "NOTIFICATIONS": {"SUBMIT": None, "APPLICANT": {"NEW": None, "EXISTING": None}},
         "PUBLICATION_DURATION": timedelta(days=30),
-        "PUBLICATION": {"WORKFLOW_ITEM": None},
         "FORM_BACKEND": "camac-ng",
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": None,
+            "INSTANCE_COMPLETE": None,
+            "PUBLICATION": None,
+            "START_CIRC": None,
+        },
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -131,11 +135,16 @@ APPLICATIONS = {
             "APPLICANT": {"NEW": 19, "EXISTING": 20},
             "PUBLICATION_PERMISSION": 21,
         },
-        "SUBMIT": {"WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
-        "PUBLICATION": {"WORKFLOW_ITEM": 15},
         "IS_MULTILINGUAL": False,
         "FORM_BACKEND": "camac-ng",
+        "COORDINATE_QUESTION": "punkte",
+        "WORKFLOW_ITEMS": {
+            "SUBMIT": 10,
+            "INSTANCE_COMPLETE": 14,
+            "PUBLICATION": 15,
+            "START_CIRC": 44,
+        },
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
