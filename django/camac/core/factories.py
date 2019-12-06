@@ -4,7 +4,7 @@ from factory import Faker, SubFactory, fuzzy
 from factory.django import DjangoModelFactory
 
 from camac.instance.factories import InstanceFactory
-from camac.user.factories import ServiceFactory, UserFactory
+from camac.user.factories import GroupFactory, ServiceFactory, UserFactory
 
 from . import models
 
@@ -223,3 +223,15 @@ class PublicationEntryUserPermissionFactory(DjangoModelFactory):
 
     class Meta:
         model = models.PublicationEntryUserPermission
+
+
+class BillingV2EntryFactory(DjangoModelFactory):
+    instance = SubFactory(InstanceFactory)
+    user = SubFactory(UserFactory)
+    group = SubFactory(GroupFactory)
+    date_added = Faker("past_datetime", tzinfo=pytz.UTC)
+    final_rate = Faker("pyfloat", left_digits=3, right_digits=2, positive=True)
+    organization = fuzzy.FuzzyChoice(["municipal", "cantonal"])
+
+    class Meta:
+        model = models.BillingV2Entry
