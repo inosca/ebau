@@ -310,7 +310,7 @@ class Service(core_models.MultilingualModel, models.Model):
     address = models.CharField(
         db_column="ADDRESS", max_length=100, blank=True, null=True
     )
-    email = models.CharField(db_column="EMAIL", max_length=100, blank=True, null=True)
+    email = models.CharField(db_column="EMAIL", max_length=1000, blank=True, null=True)
     website = models.CharField(
         db_column="WEBSITE", max_length=1000, blank=True, null=True
     )
