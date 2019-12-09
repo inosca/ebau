@@ -16,6 +16,7 @@ services:
             - /srv/www/htdocs:/var/www/letsencrypt:ro
             - /etc/camac/nginx:/etc/nginx/conf.d:ro
             - djangomedia:/var/lib/camac/media:ro
+            - djangotmpmedia:/tmp/camac/tmpfiles:ro
 
     django:
         image: acr.run/camac-ng/camac-ng/django:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -34,6 +35,7 @@ services:
         volumes:
             - /etc/camac/django.env:/run/secrets/django.env:ro
             - djangomedia:/var/lib/camac/media
+            - djangotmpmedia:/tmp/camac/tmpfiles
 
     ember:
         image: acr.run/camac-ng/camac-ng/ember:${CI_COMMIT_REF_SLUG}-${APPLICATION}
@@ -101,6 +103,10 @@ volumes:
     djangomedia:
         external:
             name: camacdjangomedia
+
+    djangotmpmedia:
+        external:
+            name: camacdjangotmpmedia
 
     phpsessions:
         external:
