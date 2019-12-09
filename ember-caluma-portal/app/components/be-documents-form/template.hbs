@@ -104,10 +104,13 @@
   onDelete=(perform delete false)
 }}
 
-{{#uk-modal visible=attachmentToDelete on-hide=(action (mut attachmentToDelete) null)}}
-  <h3>{{t "documents.deleteInfo" filename=attachmentToDelete.name}}</h3>
-  <div class="uk-text-right uk-margin-top">
-    {{uk-button color="default" on-click=(action (mut attachmentToDelete) null) label=(t "global.cancel")}}
-    {{uk-button color="primary" loading=delete.isRunning on-click=(perform delete true attachmentToDelete) label=(t "global.delete")}}
-  </div>
-{{/uk-modal}}
+<UkModal @visible={{attachmentToDelete}} @on-hide={{fn (mut attachmentToDelete) null}} as |Modal|>
+  <Modal.body>
+    <h3>{{t "documents.deleteInfo" filename=attachmentToDelete.name}}</h3>
+  </Modal.body>
+
+  <Modal.footer class="uk-text-right">
+    <UkButton @color="default" @label={{t "global.cancel"}} @on-click={{fn (mut attachmentToDelete) null}} />
+    <UkButton @color="primary" @label={{t "global.delete"}} @loading={{delete.isRunning}} @on-click={{perform delete true attachmentToDelete}} />
+  </Modal.footer>
+</UkModal>
