@@ -28,9 +28,7 @@ module.exports = function(environment) {
       // when it is created
 
       // special attachment section mapping
-      readonlyAttachments: {
-        attachmentSectionId: "9"
-      },
+      attachmentSections: { readOnly: "9", publication: "4" },
 
       // array of active municipality names,
       // used in submit and camac-property-selector

@@ -43,7 +43,8 @@ export default Controller.extend(queryParams.Mixin, {
   data: task(function*() {
     return yield this.store.query("instance", {
       ...this.allQueryParams,
-      include: "form,instance-state,location"
+      include: "form,instance-state,location",
+      is_applicant: 1
     });
   }).restartable(),
 
