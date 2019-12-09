@@ -51,18 +51,49 @@ class InstanceQuerysetMixin(object):
     @permission_aware
     def get_queryset(self, group=None):
         queryset = self.get_base_queryset()
-        user_field = self._get_instance_filter_expr("involved_applicants__invitee")
-        return queryset.filter(**{user_field: self.request.user})
+        applicants_expr = self._get_instance_filter_expr("involved_applicants__invitee")
+        publication_user_permission_expr = self._get_instance_filter_expr(
+            "publication_entries__user_permissions__user"
+        )
+        publication_user_permission_status_expr = self._get_instance_filter_expr(
+            "publication_entries__user_permissions__status"
+        )
+        publication_date_gte = self._get_instance_filter_expr(
+            "publication_entries__publication_date", "gte"
+        )
+        publication_date_lt = self._get_instance_filter_expr(
+            "publication_entries__publication_date", "lt"
+        )
+        publication_published = self._get_instance_filter_expr(
+            "publication_entries__is_published"
+        )
+
+        return queryset.filter(
+            Q(**{applicants_expr: self.request.user})
+            | (
+                Q(**{publication_user_permission_status_expr: "accepted"})
+                & Q(**{publication_user_permission_expr: self.request.user})
+                & Q(
+                    **{
+                        publication_date_gte: timezone.now()
+                        - settings.APPLICATION.get("PUBLICATION_DURATION")
+                    }
+                )
+                & Q(**{publication_date_lt: timezone.now()})
+                & Q(**{publication_published: True})
+            )
+        )
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
         instance_field = self._get_instance_filter_expr("pk", "in")
 
-        # instances from municipality
+        # instances from municipality in publication period
         instances = models.Instance.objects.filter(
             location__in=self.request.group.locations.all(),
-            publication_entries__publication_date__gt=timezone.now()
+            publication_entries__publication_date__gte=timezone.now()
             - settings.APPLICATION.get("PUBLICATION_DURATION"),
+            publication_entries__publication_date__lt=timezone.now(),
             publication_entries__is_published=True,
         )
 

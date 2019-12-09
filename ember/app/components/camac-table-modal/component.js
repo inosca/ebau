@@ -18,13 +18,17 @@ export default Component.extend(CamacMultipleQuestionRowMixin, {
   },
 
   _show() {
-    this.set("visible", true);
+    if (!this.get("isDestroyed")) {
+      this.set("visible", true);
+    }
   },
 
   _hide() {
     this._value.rollback();
 
-    this.set("visible", false);
+    if (!this.get("isDestroyed")) {
+      this.set("visible", false);
+    }
   },
 
   didInsertElement() {

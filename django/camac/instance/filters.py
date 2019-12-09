@@ -3,6 +3,7 @@ import re
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
 from django_filters.rest_framework import (
+    BooleanFilter,
     CharFilter,
     DateFilter,
     FilterSet,
@@ -110,6 +111,15 @@ class InstanceFilterSet(FilterSet):
     responsible_service = ResponsibleServiceFilter()
     responsible_service_user = ResponsibleServiceUserFilter()
     circulation_state = CirculationStateFilter()
+    is_applicant = BooleanFilter(
+        field_name="involved_applicants__invitee", method="filter_is_applicant"
+    )
+
+    def filter_is_applicant(self, queryset, name, value):
+        if value:
+            return queryset.filter(**{name: self.request.user})
+
+        return queryset.exclude(**{name: self.request.user})
 
     class Meta:
         model = models.Instance
@@ -126,6 +136,7 @@ class InstanceFilterSet(FilterSet):
             "responsible_instance_user",
             "responsible_service",
             "responsible_service_user",
+            "is_applicant",
         )
 
 
