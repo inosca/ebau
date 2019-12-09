@@ -676,3 +676,33 @@ def test_instance_filter_is_applicant(admin_client, instance):
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert len(json["data"]) == 0
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_instance_form_field_ordering(
+    admin_client, admin_user, instance_factory, form_field_factory
+):
+    url = reverse("instance-list")
+
+    instances = instance_factory.create_batch(2, user=admin_user)
+
+    add_field = functools.partial(form_field_factory, instance=instances[0])
+    add_field(name="bezeichnung", value="ABC")
+    add_field = functools.partial(form_field_factory, instance=instances[1])
+    add_field(name="bezeichnung", value="ZYX")
+
+    response = admin_client.get(url, {"sort_form_field": "bezeichnung"})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+    assert data[0]["id"] == str(instances[0].pk)
+    assert data[1]["id"] == str(instances[1].pk)
+
+    response = admin_client.get(url, {"sort_form_field": "-bezeichnung"})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+    assert data[0]["id"] == str(instances[1].pk)
+    assert data[1]["id"] == str(instances[0].pk)

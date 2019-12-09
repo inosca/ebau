@@ -55,7 +55,7 @@ module("Acceptance | instance list", function(hooks) {
 
     assert.ok(/(\?|&)identifier=123/.test(currentURL()));
 
-    await click("table > thead > tr > th:nth-of-type(5) > span.pointer");
+    await click("table > thead > tr > th:nth-of-type(7) > span.pointer");
 
     assert.ok(/(\?|&)sort=creation_date/.test(currentURL()));
   });
