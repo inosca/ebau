@@ -44,10 +44,7 @@
             {{else if (eq publication.status "denied")}}
               <span class="uk-icon-button" uk-icon="minus-circle" title="Ihnen wurde der Zugriff verwiesen"></span>
             {{else}}
-            {{!--
-            <button title="Zugriff anfordern" class="uk-icon-button" uk-icon="pull" uk-toggle="target: #modal-publication"></button>
-            --}}
-            <button title="Zugriff anfordern" class="uk-icon-button" uk-icon="pull" onclick={{perform requestPermission publication}}></button>
+              <button title="Zugriff anfordern" class="uk-icon-button" uk-icon="pull" onclick={{perform requestPermission publication}}></button>
             {{/if}}
           </td>
         </tr>
