@@ -149,7 +149,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 7,
+      "sort": 6,
       "success_message": null
     },
     "model": "core.action",
@@ -283,6 +283,48 @@
   },
   {
     "fields": {
+      "available_action": "php",
+      "button": 120001,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10058
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20019,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 4,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10059
+  },
+  {
+    "fields": {
+      "available_action": "php",
+      "button": 20048,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 1,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 10060
+  },
+  {
+    "fields": {
       "available_action": "notification",
       "button": 20038,
       "description": null,
@@ -293,7 +335,7 @@
       "success_message": null
     },
     "model": "core.action",
-    "pk": 10058
+    "pk": 10061
   },
   {
     "fields": {
@@ -905,7 +947,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 1,
+      "sort": 2,
       "success_message": null
     },
     "model": "core.action",
@@ -989,7 +1031,7 @@
       "error_message": null,
       "execute_always": 0,
       "name": null,
-      "sort": 6,
+      "sort": 7,
       "success_message": null
     },
     "model": "core.action",
@@ -1355,11 +1397,47 @@
       "description": null,
       "error_message": null,
       "language": "de",
-      "name": "Notification: Bericht erstellt",
+      "name": "ECH0211 - Status Notification",
       "success_message": null
     },
     "model": "core.actiont",
     "pk": 10058
+  },
+  {
+    "fields": {
+      "action": 10059,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10059
+  },
+  {
+    "fields": {
+      "action": 10060,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "ECH0211 - Status Notification",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10060
+  },
+  {
+    "fields": {
+      "action": 10058,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Notification: Bericht erstellt",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 10061
   },
   {
     "fields": {
@@ -40319,6 +40397,27 @@
   },
   {
     "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10058
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10059
+  },
+  {
+    "fields": {
+      "php_class": "TriggerECH0211StatusNotification"
+    },
+    "model": "core.aphp",
+    "pk": 10060
+  },
+  {
+    "fields": {
       "php_class": "NewEbauNumber"
     },
     "model": "core.aphp",
@@ -41275,6 +41374,24 @@
   },
   {
     "fields": {
+      "button": 20006,
+      "instance_state": 20004,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "button": 20007,
+      "instance_state": 20004,
+      "role": 4
+    },
+    "model": "core.broleacl",
+    "pk": 20009
+  },
+  {
+    "fields": {
       "button": 20008,
       "instance_state": 20003,
       "role": 3
@@ -41299,6 +41416,24 @@
     },
     "model": "core.broleacl",
     "pk": 20012
+  },
+  {
+    "fields": {
+      "button": 20006,
+      "instance_state": 20004,
+      "role": 20000
+    },
+    "model": "core.broleacl",
+    "pk": 20013
+  },
+  {
+    "fields": {
+      "button": 20007,
+      "instance_state": 20004,
+      "role": 20000
+    },
+    "model": "core.broleacl",
+    "pk": 20014
   },
   {
     "fields": {
