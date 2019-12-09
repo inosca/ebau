@@ -39,7 +39,7 @@ export default Controller.extend(queryParams.Mixin, {
     }
 
     if (changed.sort) {
-      this.set("sort_form_field", "");
+      this.resetQueryParams(["sort_form_field"]);
     }
   },
 
