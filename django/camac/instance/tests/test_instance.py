@@ -19,12 +19,12 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 10, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 9, set()),
-        ("Canton", LazyFixture("user"), 9, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
-        ("Service", LazyFixture("user"), 9, {"document"}),
+        ("Reader", LazyFixture("user"), 10, set()),
+        ("Canton", LazyFixture("user"), 10, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 10, {"form", "document"}),
+        ("Service", LazyFixture("user"), 10, {"document"}),
     ],
 )
 def test_instance_list(
@@ -659,3 +659,20 @@ def test_responsible_instance_user(
     )
     assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 0
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_filter_is_applicant(admin_client, instance):
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"is_applicant": 1})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
+
+    response = admin_client.get(url, {"is_applicant": 0})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 0
