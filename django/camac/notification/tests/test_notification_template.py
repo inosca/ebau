@@ -284,22 +284,45 @@ def test_notification_placeholders(
                 COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
                 TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
                 PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
+                ACTIVATION_STATEMENT: {{ACTIVATION_STATEMENT}}
+                CURRENT_SERVICE: {{CURRENT_SERVICE}}
             """,
         )
     ],
 )
+@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
 def test_notification_caluma_placeholders(
     admin_client,
+    admin_user,
     instance,
     instance_service,
     notification_template,
     mailoutbox,
-    activation,
+    activation_factory,
     settings,
     requests_mock,
     use_caluma_form,
+    total_activations,
+    circulation,
+    done_activations,
+    circulation_state_factory,
+    mocker,
 ):
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+
+    STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
+
+    assert not len(mailoutbox)
+
+    activations = [
+        activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
+        for _ in range(total_activations)
+    ]
+    for i in range(done_activations):
+        activations[i].circulation_state = STATE_DONE
+        activations[i].save()
 
     requests_mock.post(
         "http://caluma:8000/graphql/",
@@ -345,11 +368,23 @@ def test_notification_caluma_placeholders(
 
     assert len(mailoutbox) == 1
 
-    mail = mailoutbox[0]
+    if total_activations == 0:
+        activation_statement = "No statements in circulation"
+    elif done_activations == 1:
+        pending_activations = total_activations - done_activations
+        activation_statement = (
+            f"{pending_activations} out "
+            f"of {total_activations} statements are still pending"
+        )
+    else:
+        activation_statement = f"All {total_activations} statements have been completed"
 
+    service_name = admin_user.groups.first().service.get_name()
+
+    mail = mailoutbox[0]
     assert [
-        placeholder.strip()
-        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        line.strip()
+        for line in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
         .strip()
         .split("\n")
     ] == [
@@ -360,7 +395,9 @@ def test_notification_caluma_placeholders(
         f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
         f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
         f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
-        f"COMPLETED_ACTIVATIONS: 0",
-        f"TOTAL_ACTIVATIONS: 1",
-        f"PENDING_ACTIVATIONS: 0",
+        f"COMPLETED_ACTIVATIONS: {done_activations}",
+        f"TOTAL_ACTIVATIONS: {total_activations}",
+        f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
+        f"ACTIVATION_STATEMENT: {activation_statement}",
+        f"CURRENT_SERVICE: {service_name}",
     ]
