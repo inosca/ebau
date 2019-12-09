@@ -1,9 +1,11 @@
 import django_excel
 from django.db.models import OuterRef, Subquery
 from rest_framework.decorators import action
+from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
 from camac.core.models import Activation, Circulation
+from camac.instance.filters import FormFieldOrdering
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import FormField
 
@@ -48,6 +50,7 @@ class ActivationView(InstanceQuerysetMixin, views.ReadOnlyModelViewSet):
         "@circulation__instance__form__description",
         "circulation__instance__fields__value",
     )
+    filter_backends = api_settings.DEFAULT_FILTER_BACKENDS + [FormFieldOrdering]
 
     def get_base_queryset(self):
         queryset = super().get_base_queryset()
