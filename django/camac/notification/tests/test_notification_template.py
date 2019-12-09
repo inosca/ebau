@@ -129,7 +129,8 @@ def test_notification_template_merge(
 
 
 @pytest.mark.parametrize(
-    "user__email,service__email", [("user@example.com", "service@example.com")]
+    "user__email,service__email",
+    [("user@example.com", "service@example.com, service2@example.com")],
 )
 @pytest.mark.parametrize(
     "notification_template__subject,instance__identifier",
@@ -199,9 +200,18 @@ def test_notification_template_sendmail(
         # recipient types are sorted alphabetically
         assert [(m.to, m.cc) for m in mailoutbox] == [
             (["user@example.com"], []),  # applicant
-            ([responsible_email], ["service@example.com"]),  # leitbehoerde
-            ([responsible_email], ["service@example.com"]),  # municipality
-            ([responsible_email], ["service@example.com"]),  # service
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # leitbehoerde
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # municipality
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # service
         ]
         assert (
             mailoutbox[0].subject
