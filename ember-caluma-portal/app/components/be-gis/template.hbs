@@ -29,38 +29,39 @@
   </div>
 </div>
 
-{{#uk-modal visible=showInstructions on-hide=(action (mut showInstructions) false)}}
-  {{t "gis.info-override"}}
-{{/uk-modal}}
+<UkModal @visible={{showInstructions}} @on-hide={{fn (mut showInstructions) false}} as |Modal|>
+  <Modal.body>{{t "gis.info-override"}}</Modal.body>
+</UkModal>
 
-{{#uk-modal
-  visible=showConfirmation
-  on-hide=(action (mut showConfirmation) false)
-  escClose=false
-  bgClose=false
-}}
-  <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
+<UkModal
+  @visible={{showConfirmation}}
+  @escClose={{false}}
+  @bgClose={{false}}
+  @on-hide={{fn (mut showConfirmation) false}}
+as |Modal|>
+  <Modal.body>
+    <h1 class="uk-modal-title">{{t "gis.additional.title"}}</h1>
 
-  <ul class="uk-list uk-list-divider">
-    {{#each gisData as |data|}}
-      <li>
-        <strong>{{data.field.question.label}}</strong><br>
-        {{data.valuePretty}}
-      </li>
-    {{/each}}
-  </ul>
+    <ul class="uk-list uk-list-divider">
+      {{#each gisData as |data|}}
+        <li>
+          <strong>{{data.field.question.label}}</strong><br>
+          {{data.valuePretty}}
+        </li>
+      {{/each}}
+    </ul>
+  </Modal.body>
 
-  <div class="uk-text-right uk-margin-top">
-    {{uk-button
-      label=(t "gis.additional.no")
-      on-click=(action (mut showConfirmation) false)
-    }}
-
-    {{uk-button
-      label=(t "gis.additional.yes")
-      color="primary"
-      loading=saveAdditionalData.isRunning
-      on-click=(perform saveAdditionalData)
-    }}
-  </div>
-{{/uk-modal}}
+  <Modal.footer class="uk-text-right">
+    <UkButton
+      @label={{t "gis.additional.no"}}
+      @on-click={{fn (mut showConfirmation) false}}
+    />
+    <UkButton
+      @color="primary"
+      @label={{t "gis.additional.yes"}}
+      @loading={{saveAdditionalData.isRunning}}
+      @on-click={{perform saveAdditionalData}}
+    />
+  </Modal.footer>
+</UkModal>
