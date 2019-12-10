@@ -11200,6 +11200,15 @@
   },
   {
     "fields": {
+      "attachment_section": 4,
+      "mode": "read",
+      "role": 4
+    },
+    "model": "document.attachmentsectionroleacl",
+    "pk": 46
+  },
+  {
+    "fields": {
       "attachment_section": 1,
       "language": "de",
       "name": "Dokumente des Gesuchstellers"
@@ -11562,6 +11571,17 @@
     },
     "model": "notification.notificationtemplate",
     "pk": 20
+  },
+  {
+    "fields": {
+      "body": "Bewilligen oder weisen Sie diese Anfrage ab.",
+      "purpose": "Publikation Einsehen",
+      "service": null,
+      "subject": "Zur Publiaktion vom Gesuch {{identifier}} wurde Zugriff angefordert",
+      "type": "email"
+    },
+    "model": "notification.notificationtemplate",
+    "pk": 21
   },
   {
     "fields": {

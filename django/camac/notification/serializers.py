@@ -472,7 +472,11 @@ class NotificationTemplateSendmailSerializer(
                     subject=subject,
                     body=body,
                     # EmailMessage needs "to" and "cc" to be lists
-                    **{k: [v] for (k, v) in recipient.items()},
+                    **{
+                        k: [e.strip() for e in email.split(",")]
+                        for (k, email) in recipient.items()
+                        if email
+                    },
                 )
 
                 result = email.send()
@@ -506,3 +510,18 @@ class NotificationTemplateSendmailSerializer(
 
     class Meta:
         resource_name = "notification-template-sendmails"
+
+
+class PermissionlessNotificationTemplateSendmailSerializer(
+    NotificationTemplateSendmailSerializer
+):
+    """
+    Send emails without checking for instance permission.
+
+    This serializer subclasses NotificationTemplateSendmailSerializer and
+    overloads the validate_instance method of the InstanceEditableMixin to
+    disable permission checking the instance and allow anyone to send a email.
+    """
+
+    def validate_instance(self, instance):
+        return instance

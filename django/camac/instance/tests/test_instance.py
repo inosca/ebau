@@ -19,12 +19,12 @@ from camac.instance import serializers
 @pytest.mark.parametrize(
     "role__name,instance__user,num_queries,editable",
     [
-        ("Applicant", LazyFixture("admin_user"), 9, {"instance", "form", "document"}),
+        ("Applicant", LazyFixture("admin_user"), 10, {"instance", "form", "document"}),
         # reader should see instances from other users but has no editables
-        ("Reader", LazyFixture("user"), 9, set()),
-        ("Canton", LazyFixture("user"), 9, {"form", "document"}),
-        ("Municipality", LazyFixture("user"), 9, {"form", "document"}),
-        ("Service", LazyFixture("user"), 9, {"document"}),
+        ("Reader", LazyFixture("user"), 10, set()),
+        ("Canton", LazyFixture("user"), 10, {"form", "document"}),
+        ("Municipality", LazyFixture("user"), 10, {"form", "document"}),
+        ("Service", LazyFixture("user"), 10, {"document"}),
     ],
 )
 def test_instance_list(
@@ -659,3 +659,50 @@ def test_responsible_instance_user(
     )
     assert resp.status_code == status.HTTP_200_OK and resp.content
     assert len(resp.json()["data"]) == 0
+
+
+@pytest.mark.parametrize(
+    "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
+)
+def test_instance_filter_is_applicant(admin_client, instance):
+    url = reverse("instance-list")
+
+    response = admin_client.get(url, {"is_applicant": 1})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
+
+    response = admin_client.get(url, {"is_applicant": 0})
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 0
+
+
+@pytest.mark.parametrize("role__name", ["Applicant"])
+def test_instance_form_field_ordering(
+    admin_client, admin_user, instance_factory, form_field_factory
+):
+    url = reverse("instance-list")
+
+    instances = instance_factory.create_batch(2, user=admin_user)
+
+    add_field = functools.partial(form_field_factory, instance=instances[0])
+    add_field(name="bezeichnung", value="ABC")
+    add_field = functools.partial(form_field_factory, instance=instances[1])
+    add_field(name="bezeichnung", value="ZYX")
+
+    response = admin_client.get(url, {"sort_form_field": "bezeichnung"})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+    assert data[0]["id"] == str(instances[0].pk)
+    assert data[1]["id"] == str(instances[1].pk)
+
+    response = admin_client.get(url, {"sort_form_field": "-bezeichnung"})
+
+    assert response.status_code == status.HTTP_200_OK
+    data = response.json()["data"]
+    assert len(data) == 2
+    assert data[0]["id"] == str(instances[1].pk)
+    assert data[1]["id"] == str(instances[0].pk)
