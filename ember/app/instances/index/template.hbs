@@ -80,7 +80,7 @@
           {{#each data.lastSuccessful.value as |instance|}}
             <tr>
               <td>
-                {{#link-to "instances.edit" instance title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.identifier}}{{/link-to}}
+                {{#link-to "instances.edit" instance.id title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.identifier}}{{/link-to}}
               </td>
               <td>
                 {{#with (find-by "name" "projektnummer" instance.fields) as |field|}}
@@ -108,7 +108,7 @@
                 {{/with}}
               </td>
               <td>
-                {{#link-to "instances.edit" instance title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.instanceState.description}}{{/link-to}}
+                {{#link-to "instances.edit" instance.id title="Klicken Sie um das Gesuch zu bearbeiten"}}{{instance.instanceState.description}}{{/link-to}}
               </td>
               <td class="uk-text-nowrap">
                 {{format-date instance.creationDate}}
