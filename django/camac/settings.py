@@ -126,7 +126,11 @@ APPLICATIONS = {
             "Lesezugriff": "reader",
             "Publikation": "public_reader",
         },
-        "NOTIFICATIONS": {"SUBMIT": 16, "APPLICANT": {"NEW": 19, "EXISTING": 20}},
+        "NOTIFICATIONS": {
+            "SUBMIT": 16,
+            "APPLICANT": {"NEW": 19, "EXISTING": 20},
+            "PUBLICATION_PERMISSION": 21,
+        },
         "SUBMIT": {"WORKFLOW_ITEM": 10},
         "PUBLICATION_DURATION": timedelta(days=30),
         "PUBLICATION": {"WORKFLOW_ITEM": 15},

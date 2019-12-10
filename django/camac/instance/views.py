@@ -72,6 +72,7 @@ class InstanceView(
             "responsible_services",
             "responsible_services__responsible_user",
         ],
+        "location": ["location"],
     }
     ordering_fields = (
         "instance_id",
@@ -92,7 +93,10 @@ class InstanceView(
     )
     filter_backends = api_settings.DEFAULT_FILTER_BACKENDS
     if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
-        filter_backends = filter_backends + [filters.InstanceFormFieldFilterBackend]
+        filter_backends = filter_backends + [
+            filters.InstanceFormFieldFilterBackend,
+            filters.FormFieldOrdering,
+        ]
 
     def get_serializer_class(self):
         backend = settings.APPLICATION["FORM_BACKEND"]

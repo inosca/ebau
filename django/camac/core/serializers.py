@@ -1,9 +1,16 @@
 from django.conf import settings
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 from django.utils import timezone
+from rest_framework import exceptions
+from rest_framework.validators import UniqueTogetherValidator
 from rest_framework_json_api import relations, serializers
 
 from camac.instance.models import Instance
+from camac.notification.serializers import (
+    PermissionlessNotificationTemplateSendmailSerializer,
+)
+from camac.user.models import User
 
 from . import models
 
@@ -16,7 +23,17 @@ class MultilingualSerializer(serializers.Serializer):
 
 
 class PublicationEntrySerializer(serializers.ModelSerializer):
-    instance = relations.ResourceRelatedField(queryset=Instance.objects.all())
+    instance = relations.ResourceRelatedField(queryset=Instance.objects)
+    description = serializers.SerializerMethodField()
+
+    def get_description(self, obj):
+        # We include this form field to avoid creating a whitelist for fields
+        try:
+            return obj.instance.fields.get(name="bezeichnung").value
+        except ObjectDoesNotExist:
+            return ""
+
+    included_serializers = {"instance": "camac.instance.serializers.InstanceSerializer"}
 
     @transaction.atomic
     def update(self, instance, validated_data):
@@ -38,4 +55,67 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.PublicationEntry
-        fields = ("instance", "publication_date", "is_published")
+        fields = ("instance", "publication_date", "is_published", "description")
+        read_only_fields = ("description",)
+
+
+class PublicationEntryUserPermissionSerializer(serializers.ModelSerializer):
+    publication_entry = relations.ResourceRelatedField(
+        queryset=models.PublicationEntry.objects
+    )
+    user = relations.ResourceRelatedField(
+        queryset=User.objects, default=serializers.CurrentUserDefault()
+    )
+    status = serializers.ChoiceField(
+        choices=models.PublicationEntryUserPermission.STATES
+    )
+
+    included_serializers = {"user": "camac.user.serializers.UserSerializer"}
+
+    @transaction.atomic
+    def create(self, validated_data):
+        validated_data["status"] = models.PublicationEntryUserPermission.PENDING
+        permission = super().create(validated_data)
+
+        # send notification email when configured
+        notification_template = settings.APPLICATION["NOTIFICATIONS"].get(
+            "PUBLICATION_PERMISSION"
+        )
+
+        if notification_template:
+            sendmail_data = {
+                "recipient_types": ["municipality"],
+                "notification_template": {
+                    "type": "notification-templates",
+                    "id": notification_template,
+                },
+                "instance": {
+                    "id": validated_data["publication_entry"].instance.pk,
+                    "type": "instances",
+                },
+            }
+            sendmail_serializer = PermissionlessNotificationTemplateSendmailSerializer(
+                data=sendmail_data, context=self.context
+            )
+            sendmail_serializer.is_valid(raise_exception=True)
+            sendmail_serializer.save()
+
+        return permission
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        if validated_data["status"] == models.PublicationEntryUserPermission.PENDING:
+            raise exceptions.ValidationError("Invalid State")
+
+        return super().update(instance, validated_data)
+
+    class Meta:
+        model = models.PublicationEntryUserPermission
+        fields = ("status", "publication_entry", "user")
+        read_only_fields = ("publication_entry", "user")
+        validators = [
+            UniqueTogetherValidator(
+                queryset=models.PublicationEntryUserPermission.objects.all(),
+                fields=["publication_entry", "user"],
+            )
+        ]

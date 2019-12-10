@@ -64,6 +64,7 @@ class InstanceSerializer(
     InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
 ):
     editable = serializers.SerializerMethodField()
+    is_applicant = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
@@ -76,6 +77,11 @@ class InstanceSerializer(
         queryset=models.InstanceState.objects.filter(name="new"),
         default=NewInstanceStateDefault(),
     )
+
+    def get_is_applicant(self, obj):
+        return obj.involved_applicants.filter(
+            invitee=self.context["request"].user
+        ).exists()
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
@@ -146,7 +152,7 @@ class InstanceSerializer(
 
     class Meta:
         model = models.Instance
-        meta_fields = ("editable",)
+        meta_fields = ("editable", "is_applicant")
         fields = (
             "instance_id",
             "instance_state",

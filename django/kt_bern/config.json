@@ -104590,7 +104590,7 @@
       "default_answer": "NEI",
       "description": null,
       "language": "de",
-      "name": "Anstand von Strassen",
+      "name": "Abstand von Strassen",
       "question": 40639
     },
     "model": "core.questiont",
@@ -104601,7 +104601,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Anstand von Strassen rating",
+      "name": "Abstand von Strassen rating",
       "question": 40640
     },
     "model": "core.questiont",
@@ -104612,7 +104612,7 @@
       "default_answer": null,
       "description": null,
       "language": "de",
-      "name": "Anstand von Strassen Bemerkungen",
+      "name": "Abstand von Strassen Bemerkungen",
       "question": 40641
     },
     "model": "core.questiont",

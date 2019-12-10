@@ -14,6 +14,11 @@ export const queryParams = new QueryParams({
     refresh: true,
     replace: true
   },
+  sort_form_field: {
+    defaultValue: "",
+    refresh: true,
+    replace: true
+  },
   identifier: {
     defaultValue: "",
     refresh: true,
@@ -28,9 +33,13 @@ export default Controller.extend(queryParams.Mixin, {
     this.data.perform();
   },
 
-  queryParamsDidChange({ shouldRefresh }) {
+  queryParamsDidChange({ shouldRefresh, changed }) {
     if (shouldRefresh) {
       this.data.perform();
+    }
+
+    if (changed.sort) {
+      this.resetQueryParams(["sort_form_field"]);
     }
   },
 
@@ -41,19 +50,17 @@ export default Controller.extend(queryParams.Mixin, {
   },
 
   data: task(function*() {
-    return yield this.store.query("instance", {
+    const instances = yield this.store.query("instance", {
       ...this.allQueryParams,
-      include: "form,instance-state,location"
+      include: "form,instance-state,location",
+      is_applicant: 1
     });
+    yield this.store.query("form-field", {
+      instance: instances.mapBy("id").join(","),
+      name: "bezeichnung,projektnummer,bauherrschaft"
+    });
+    return instances;
   }).restartable(),
-
-  navigate: task(function*(instance) {
-    let group = this.group;
-
-    yield this.transitionToRoute("instances.edit", instance.id, {
-      queryParams: group ? { group } : {}
-    });
-  }),
 
   search: task(function*(term) {
     yield timeout(500);
