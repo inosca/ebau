@@ -167,6 +167,7 @@ APPLICATIONS = {
             "END_CLAIM": [{"template_id": 32, "recipient_types": ["leitbehoerde"]}],
             "APPLICANT": {"NEW": 40, "EXISTING": 39},
         },
+        "PUBLICATION_DURATION": timedelta(),
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
