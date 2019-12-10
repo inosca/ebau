@@ -214,3 +214,12 @@ class PublicationEntryFactory(DjangoModelFactory):
 
     class Meta:
         model = models.PublicationEntry
+
+
+class PublicationEntryUserPermissionFactory(DjangoModelFactory):
+    status = "pending"
+    publication_entry = SubFactory(PublicationEntryFactory)
+    user = SubFactory(UserFactory)
+
+    class Meta:
+        model = models.PublicationEntryUserPermission

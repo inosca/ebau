@@ -8,7 +8,7 @@
 
         {{#each columns as |column|}}
           <div class={{if column.config.otherField "uk-margin uk-margin-left" "uk-margin"}}>
-            <label class="uk-form-label uk-text-bold {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
+            <label class="uk-form-label uk-text-bolder {{if (get this (concat '_value.error.' column.name)) 'uk-text-danger'}}">
               {{column.label}}
               {{#if column.required}}
                 <span class="uk-text-danger">*</span>

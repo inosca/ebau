@@ -188,6 +188,7 @@ READ_PERMISSION = "read"
 ADMIN_PERMISSION = "admin"
 ADMINSERVICE_PERMISSION = "adminsvc"
 ADMININTERNAL_PERMISSION = "adminint"
+PUBLIC_PERMISSION = "public"
 
 ATTACHMENT_MODE = (
     (READ_PERMISSION, "Read permissions"),
@@ -201,6 +202,7 @@ ATTACHMENT_MODE = (
         ADMININTERNAL_PERMISSION,
         "Read, write and delete permission only on service attachments",
     ),
+    (PUBLIC_PERMISSION, "Read permission without restrictions"),
 )
 
 
