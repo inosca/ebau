@@ -9,7 +9,7 @@ import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.utils import timezone
-from django.utils.translation import gettext_noop
+from django.utils.translation import gettext_lazy as _, gettext_noop
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
@@ -82,6 +82,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     ebau_number = serializers.SerializerMethodField()
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
+    current_service = serializers.SerializerMethodField()
 
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
@@ -89,6 +90,7 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     total_activations = serializers.SerializerMethodField()
     completed_activations = serializers.SerializerMethodField()
     pending_activations = serializers.SerializerMethodField()
+    activation_statement = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -128,7 +130,28 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         )
 
     def get_leitbehoerde_name(self, instance):
+        """Return current active service of the instance."""
         return instance.active_service or "-"
+
+    def get_current_service(self, instance):
+        """Return current service of the active user."""
+        try:
+            return self.context["request"].group.service.get_name()
+        except KeyError:
+            return "-"
+
+    def get_activation_statement(self, instance):
+        total = self.get_total_activations(instance)
+        pending = self.get_pending_activations(instance)
+
+        if total == 0:
+            message = _("No statements in circulation")
+        elif pending == 0:
+            message = _("All {total} statements have been completed")
+        else:  # pending > 0:
+            message = _("{pending} out of {total} statements are still pending")
+
+        return message.format(pending=pending, total=total)
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
