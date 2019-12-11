@@ -20,13 +20,13 @@
         <ns1:planningPermissionApplicationIdentification>
             <ns1:localID>
                 <ns3:IdCategory>instanceID</ns3:IdCategory>
-                <ns3:Id>2323</ns3:Id>
+                <ns3:Id>unkown</ns3:Id>
             </ns1:localID>
             <ns1:otherID>
                 <ns3:IdCategory>instanceID</ns3:IdCategory>
-                <ns3:Id>2323</ns3:Id>
+                <ns3:Id>unknown</ns3:Id>
             </ns1:otherID>
-            <ns1:dossierIdentification>unknown</ns1:dossierIdentification>
+            <ns1:dossierIdentification>2323</ns1:dossierIdentification>
         </ns1:planningPermissionApplicationIdentification>
         <ns1:entryOffice>
             <ns1:entryOfficeIdentification>
