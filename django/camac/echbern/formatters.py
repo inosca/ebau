@@ -406,18 +406,11 @@ def office(service):
 
 
 def permission_application_identification(instance: Instance):
+    ebau_nr = get_ebau_nr(instance) or "unknown"
     return ns_application.planningPermissionApplicationIdentificationType(
-        localID=[
-            ns_objektwesen.namedIdType(
-                IdCategory="instanceID", Id=str(instance.instance_id)
-            )
-        ],
-        otherID=[
-            ns_objektwesen.namedIdType(
-                IdCategory="instanceID", Id=str(instance.instance_id)
-            )
-        ],
-        dossierIdentification=get_ebau_nr(instance) or "unknown",
+        localID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
+        otherID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
+        dossierIdentification=str(instance.instance_id),
     )
 
 
