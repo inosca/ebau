@@ -29,7 +29,7 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 ## Abweichungen und Besonderheiten
 
-- Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` unsere Dossiernummer ("Instance id")
+- Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
 
 - Der Type `localOrganisationId` enthält unter `organisationId` unsere Service id. Service ids können über den `/ech/v1/public-services/` endpoint abgefragt werden.
 
