@@ -1,5 +1,11 @@
+from django.apps import apps
 from django.core.management.base import BaseCommand
 from django.db import connection
+
+from camac.core.management.commands.dumpconfig import (
+    models_referencing_data,
+    pure_config_models,
+)
 
 
 class Command(BaseCommand):
@@ -58,8 +64,16 @@ class Command(BaseCommand):
             f'UPDATE "{table}" SET "{column}" = {target} WHERE "{column}" = {source};'
         )
 
+    def _filter(self, data):
+        """Only change tables that handle `data`, not `configuration`."""
+        config_tables = [
+            apps.get_model(m)._meta.db_table
+            for m in pure_config_models + models_referencing_data
+        ]
+        return [(table, cols) for table, cols in data if table not in config_tables]
+
     def handle(self, *args, **options):
-        for table, columns in self._get_all_service_foreign_keys():
+        for table, columns in self._filter(self._get_all_service_foreign_keys()):
             for column in columns.split(";"):
                 self.queries.append(
                     self._get_query(table, column, options["source"], options["target"])
