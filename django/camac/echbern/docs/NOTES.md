@@ -64,6 +64,8 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - In eCH ist es nicht möglich, Kosten von unter 1000.- zu erfassen. Sollten die in eBau erfassten Kosten tiefer als 1000.- sein, wird `1000` eingetragen.
 
+- Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
+
 ## Messages
 
 ### GET
