@@ -40,6 +40,17 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
+    # Caluma and it's dependencies:
+    # we don't use caluma.core and caluma.user as they conflict
+    # with camac.core and camac.user, respectively.
+    "caluma.form",
+    "caluma.workflow",
+    "caluma.data_source",
+    "graphene_django",
+    "localized_fields",
+    "psqlextra",
+    "simple_history",
+    # Camac and it's dependencies
     "drf_yasg",
     "camac.core.apps.DefaultConfig",
     "camac.user.apps.DefaultConfig",
@@ -275,7 +286,7 @@ UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000")
 
 DATABASES = {
     "default": {
-        "ENGINE": "camac.core.postgresql_dbdefaults",
+        "ENGINE": "camac.core.postgresql_dbdefaults.psqlextra",
         "NAME": env.str("DJANGO_DATABASE_NAME", default=APPLICATION_NAME),
         "USER": env.str("DJANGO_DATABASE_USER", default="camac"),
         "PASSWORD": env.str("DJANGO_DATABASE_PASSWORD", default=default("camac")),
@@ -507,3 +518,34 @@ PUBLICATION_API_URL = env.str(
 )
 PUBLICATION_API_USER = env.str("PUBLICATION_API_USER", "")
 PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
+
+# Caluma settings
+
+VISIBILITY_CLASSES = env.list(
+    "VISIBILITY_CLASSES", default=default(["caluma.core.visibilities.Any"])
+)
+
+PERMISSION_CLASSES = env.list(
+    "PERMISSION_CLASSES", default=default(["caluma.core.permissions.AllowAny"])
+)
+
+VALIDATION_CLASSES = env.list("VALIDATION_CLASSES", default=[])
+
+DATA_SOURCE_CLASSES = env.list("DATA_SOURCE_CLASSES", default=[])
+
+FORMAT_VALIDATOR_CLASSES = env.list("FORMAT_VALIDATOR_CLASSES", default=[])
+
+SIMPLE_HISTORY_HISTORY_ID_USE_UUID = True
+
+MEDIA_STORAGE_SERVICE = env.str("MEDIA_STORAGE_SERVICE", default="minio")
+MINIO_STORAGE_ENDPOINT = env.str("MINIO_STORAGE_ENDPOINT", default="minio:9000")
+MINIO_STORAGE_ACCESS_KEY = env.str("MINIO_STORAGE_ACCESS_KEY", default="minio")
+MINIO_STORAGE_SECRET_KEY = env.str("MINIO_STORAGE_SECRET_KEY", default="minio123")
+MINIO_STORAGE_USE_HTTPS = env.str("MINIO_STORAGE_USE_HTTPS", default=False)
+MINIO_STORAGE_MEDIA_BUCKET_NAME = env.str(
+    "MINIO_STORAGE_MEDIA_BUCKET_NAME", default="caluma-media"
+)
+MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET = env.str(
+    "MINIO_STORAGE_AUTO_CREATE_MEDIA_BUCKET", default=True
+)
+MINIO_PRESIGNED_TTL_MINUTES = env.str("MINIO_PRESIGNED_TTL_MINUTES", default=15)
