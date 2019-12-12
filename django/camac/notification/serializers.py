@@ -136,7 +136,9 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_current_service(self, instance):
         """Return current service of the active user."""
         try:
-            return self.context["request"].group.service.get_name()
+            service = self.context["request"].group.service
+
+            return service.get_name() if service else "-"
         except KeyError:
             return "-"
 
