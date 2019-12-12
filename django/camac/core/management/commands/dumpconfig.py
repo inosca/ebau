@@ -260,6 +260,9 @@ class Command(BaseCommand):
         " given format."
     )
 
+    def add_arguments(self, parser):
+        parser.add_argument("--output", type=str, help="Output")
+
     def handle(self, *app_labels, **options):
         options["indent"] = 2
 

@@ -15,6 +15,9 @@ from .dumpconfig import (
 class Command(BaseCommand):
     help = "Output the camac data of the database as a fixture of the " "given format."
 
+    def add_arguments(self, parser):
+        parser.add_argument("--output", type=str, help="Output")
+
     def handle(self, *app_labels, **options):
         options["indent"] = 2
 
