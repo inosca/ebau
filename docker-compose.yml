@@ -37,7 +37,7 @@ services:
         environment:
             - DATABASE_HOST=db
             - DATABASE_PORT=5432
-            - DATABASE_NAME=caluma
+            - DATABASE_NAME=${APPLICATION}
             - DATABASE_PASSWORD=camac
             - DATABASE_USER=camac
             - CACHE_BACKEND=django.core.cache.backends.memcached.MemcachedCache
