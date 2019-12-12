@@ -41,19 +41,27 @@ export default class NavbarComponent extends Component {
   @lastValue("fetchGroups") groups;
   @dropTask
   *fetchGroups() {
-    const groups = yield this.store.query("group", {
-      service__service_group: 2 // municipalities
-    });
+    try {
+      const groups = yield this.store.query("group", {
+        service__service_group: 2 // municipalities
+      });
 
-    if (
-      this.session.group &&
-      !groups.find(group => group.id === this.session.group)
-    ) {
-      // if a group is set but is not selectable, reset to null
-      this.setGroup(null);
+      if (
+        this.session.group &&
+        !groups.find(
+          group => parseInt(group.id) === parseInt(this.session.group)
+        )
+      ) {
+        // if a group is set but is not selectable, reset to null
+        this.setGroup(null);
+      }
+
+      return groups;
+    } catch (e) {
+      if (this.session.group) {
+        this.setGroup(null);
+      }
     }
-
-    return groups;
   }
 
   @action
