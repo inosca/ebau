@@ -111,6 +111,7 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
 
 class GroupView(viewsets.ReadOnlyModelViewSet):
     swagger_schema = None
+    group_required = False
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.all()
