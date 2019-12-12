@@ -37,7 +37,6 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 INSTALLED_APPS = [
     "django.contrib.auth",
-    "django.contrib.admin",
     "django.contrib.postgres",
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
