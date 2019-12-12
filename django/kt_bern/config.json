@@ -325,20 +325,6 @@
   },
   {
     "fields": {
-      "available_action": "notification",
-      "button": 20038,
-      "description": null,
-      "error_message": null,
-      "execute_always": 0,
-      "name": null,
-      "sort": 2,
-      "success_message": null
-    },
-    "model": "core.action",
-    "pk": 10061
-  },
-  {
-    "fields": {
       "available_action": "formtransition",
       "button": 20005,
       "description": null,
@@ -1165,6 +1151,20 @@
   },
   {
     "fields": {
+      "available_action": "notification",
+      "button": 20038,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": null,
+      "sort": 2,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 150006
+  },
+  {
+    "fields": {
       "action": 10013,
       "description": null,
       "error_message": null,
@@ -1426,18 +1426,6 @@
     },
     "model": "core.actiont",
     "pk": 10060
-  },
-  {
-    "fields": {
-      "action": 10058,
-      "description": null,
-      "error_message": null,
-      "language": "de",
-      "name": "Notification: Bericht erstellt",
-      "success_message": null
-    },
-    "model": "core.actiont",
-    "pk": 10061
   },
   {
     "fields": {
@@ -2278,6 +2266,18 @@
     },
     "model": "core.actiont",
     "pk": 150007
+  },
+  {
+    "fields": {
+      "action": 150006,
+      "description": null,
+      "error_message": null,
+      "language": "de",
+      "name": "Notification: Bericht erstellt",
+      "success_message": null
+    },
+    "model": "core.actiont",
+    "pk": 150008
   },
   {
     "fields": {
@@ -3551,6 +3551,15 @@
     },
     "model": "core.anotification",
     "pk": 150000
+  },
+  {
+    "fields": {
+      "processor": "Notification_Processor_SendEmailAPI",
+      "recipient_type": "Custom_Plugin_Notification_Recipient_Leitbehoerde",
+      "template": 33
+    },
+    "model": "core.anotification",
+    "pk": 150006
   },
   {
     "fields": {
@@ -147031,7 +147040,7 @@
   },
   {
     "fields": {
-      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt.\r\n\r\n{{ACTIVATION_STATEMENT_DE}}\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions. \r\n\r\n{{ACTIVATION_STATEMENT_FR}}\r\n\r\n{{CURRENT_SERVICE}}",
+      "body": "Guten Tag\r\n\r\nF\u00fcr das Baugesuch mit der eBau-Nr. {{EBAU_NUMBER}} wurden die gem\u00e4ss Leitverfahren eingeforderten\r\nStellungnahmen, Amts- und Fachberichte und Verf\u00fcgungen erstellt.\r\n\r\n{{ACTIVATION_STATEMENT_DE}}.\r\n\r\n{{CURRENT_SERVICE}}\r\n\r\n*** version fran\u00e7aise ***\r\n\r\nMadame, Monsieur,\r\n\r\nPour l'application de construction avec le num\u00e9ro eBau {{EBAU_NUMBER}}, les codes de construction suivants \u00e9taient requis selon la proc\u00e9dure principale\r\navis, rapports officiels et techniques et d\u00e9cisions. \r\n\r\n{{ACTIVATION_STATEMENT_FR}}.\r\n\r\n{{CURRENT_SERVICE}}",
       "language": "de",
       "purpose": "05 Bericht Erstellt",
       "subject": "Bericht erstellt (eBau-Nr. {{EBAU_NUMBER}}) / Rapport cr\u00e9\u00e9 (n\u00b0 eBau {{EBAU_NUMBER}})",
