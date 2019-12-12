@@ -1,9 +1,9 @@
 babel==2.7.0
-django==1.11.22
+django==2.2.8
 django-clamd==0.4.0
 django-environ==0.4.5
 django-filter==2.2.0
-djangorestframework==3.10.1
+djangorestframework==3.10.3
 djangorestframework-jsonapi==2.8.0
 djangorestframework-xml==1.4.0
 docxtpl==0.6.3
@@ -15,7 +15,7 @@ pyexcel-webio==0.1.4
 pyexcel-io==0.5.20
 django-excel==0.0.10
 pyexcel-xlsx==0.5.7
-psycopg2-binary==2.8.3
+psycopg2-binary==2.8.4
 python-dateutil==2.8.0
 python-keycloak==0.17.4
 python-memcached==1.59
