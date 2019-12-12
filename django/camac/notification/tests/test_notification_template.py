@@ -284,7 +284,8 @@ def test_notification_placeholders(
                 COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
                 TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
                 PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
-                ACTIVATION_STATEMENT: {{ACTIVATION_STATEMENT}}
+                ACTIVATION_STATEMENT_DE: {{ACTIVATION_STATEMENT_DE}}
+                ACTIVATION_STATEMENT_FR: {{ACTIVATION_STATEMENT_FR}}
                 CURRENT_SERVICE: {{CURRENT_SERVICE}}
             """,
         )
@@ -369,15 +370,23 @@ def test_notification_caluma_placeholders(
     assert len(mailoutbox) == 1
 
     if total_activations == 0:
-        activation_statement = "No statements in circulation"
+        activation_statement_de = (
+            "Keine offenen Stellungnahmen oder keine aktive Zirkulation"
+        )
+        activation_statement_fr = (
+            "Aucun rapports officiels ouvert ou pas de circulation active"
+        )
     elif done_activations == 1:
         pending_activations = total_activations - done_activations
-        activation_statement = (
-            f"{pending_activations} out "
-            f"of {total_activations} statements are still pending"
-        )
+        activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen stehen noch aus"
+        activation_statement_fr = f"{pending_activations} des {total_activations} rapports officiels sont toujours en attente"
     else:
-        activation_statement = f"All {total_activations} statements have been completed"
+        activation_statement_de = (
+            f"Alle {total_activations} Stellungnahmen sind nun eingegangen"
+        )
+        activation_statement_fr = (
+            f"Tout les {total_activations} rapports officiels ont maintenant été reçus"
+        )
 
     service_name = admin_user.groups.first().service.get_name()
 
@@ -398,6 +407,7 @@ def test_notification_caluma_placeholders(
         f"COMPLETED_ACTIVATIONS: {done_activations}",
         f"TOTAL_ACTIVATIONS: {total_activations}",
         f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
-        f"ACTIVATION_STATEMENT: {activation_statement}",
+        f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
+        f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
         f"CURRENT_SERVICE: {service_name}",
     ]
