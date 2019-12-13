@@ -482,11 +482,11 @@ SWAGGER_SETTINGS = {
         }
     },
     "DEFAULT_PAGINATOR_INSPECTORS": [
-        "camac.swagger.DjangoRestJsonApiResponsePagination",
+        "camac.swagger.schema.DjangoRestJsonApiResponsePagination",
         "drf_yasg.inspectors.CoreAPICompatInspector",
     ],
     "DEFAULT_FIELD_INSPECTORS": [
-        "camac.swagger.ModelSerializerInspector",
+        "camac.swagger.schema.ModelSerializerInspector",
         "drf_yasg.inspectors.CamelCaseJSONFilter",
         "drf_yasg.inspectors.ReferencingSerializerInspector",
         "drf_yasg.inspectors.RelatedFieldInspector",
