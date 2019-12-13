@@ -150,6 +150,7 @@ def test_publication_publish(
     add_field(name="bauherrschaft", value=persons)
     add_field(name="projektverfasser-planer", value=persons)
     add_field(name="grundeigentumerschaft", value=persons)
+    add_field(name="grundeigentumerschaft-override", value=persons)
     add_field(name="bezeichnung", value="Ein Auto")
     add_field(name="bezeichnung-override", value="Ein Haus")
     add_field(name="parzellen", value=[{"number": 6}])

@@ -73,8 +73,9 @@ class PublicationEntryView(views.ModelViewSet):
             person["adresse"] = person["strasse"]
             del person["strasse"]
 
-            person["nachname"] = person["name"]
-            del person["name"]
+            if "name" in person:
+                person["nachname"] = person["name"]
+                del person["name"]
 
             person.pop("email", None)
             person.pop("tel", None)
@@ -97,14 +98,26 @@ class PublicationEntryView(views.ModelViewSet):
             payload["bauzone"] = bauzone if bauzone != "beides" else "ausserhalb"
 
         bauherrschaften = formFieldQuery.filter(name="bauherrschaft").first()
+        bauherrschaften_override = formFieldQuery.filter(
+            name="bauherrschaft-override"
+        ).first()
+        bauherrschaften = bauherrschaften_override or bauherrschaften
         if bauherrschaften:
             payload["bauherrschaften"] = self._clean_persons(bauherrschaften.value)
 
         projektverfasser = formFieldQuery.filter(name="projektverfasser-planer").first()
+        projektverfasser_override = formFieldQuery.filter(
+            name="projektverfasser-planer-override"
+        ).first()
+        projektverfasser = projektverfasser_override or projektverfasser
         if projektverfasser:
             payload["projektverfasser"] = self._clean_persons(projektverfasser.value)
 
         grundeigentuemer = formFieldQuery.filter(name="grundeigentumerschaft").first()
+        grundeigentuemer_override = formFieldQuery.filter(
+            name="grundeigentumerschaft-override"
+        ).first()
+        grundeigentuemer = grundeigentuemer_override or grundeigentuemer
         if grundeigentuemer:
             payload["grundeigentuemer"] = self._clean_persons(
                 grundeigentuemer.value, "grundeigentuemer"
