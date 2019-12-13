@@ -1,7 +1,7 @@
 import Session from "ember-simple-auth/services/session";
 import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
-import { alias } from "@ember/object/computed";
+import { alias, notEmpty } from "@ember/object/computed";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
 import config from "../config/environment";
 import { getUserLocales } from "get-user-locale";
@@ -20,15 +20,10 @@ export default class CustomSession extends Session {
   @restartableTask
   *fetchUser() {
     const response = yield this.fetch
-      .fetch("/api/v1/me?include=groups")
+      .fetch("/api/v1/me")
       .then(res => res.json());
 
     this.store.push(this.store.normalize("user", response.data));
-    this.store.push({
-      data: (response.included || [])
-        .map(group => this.store.normalize("group", group))
-        .map(({ data }) => data)
-    });
 
     return this.store.peekRecord("user", response.data.id);
   }
@@ -42,6 +37,7 @@ export default class CustomSession extends Session {
   }
 
   @alias("data.group") group;
+  @notEmpty("group") isInternal;
 
   @computed("data.language")
   get language() {

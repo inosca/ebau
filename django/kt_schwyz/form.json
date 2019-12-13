@@ -30,8 +30,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "projektanderung": [
       "projektanderung",
@@ -45,8 +44,7 @@
       "personalien.grundeigentumerschaft",
       "personalien.bauherrschaft",
       "personalien.projektverfasser-planer",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "vorentscheid-gemass-ss84-pbg": [
       "vorentscheid",
@@ -78,14 +76,12 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "vorabklarung": [
       "grundinformationen",
       "grundinformationen.lokalisierung",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "baumeldung-fur-geringfugiges-vorhaben": [
       "grundinformationen",
@@ -112,8 +108,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "technische-bewilligung": [
       "technische-bewilligung",
@@ -142,8 +137,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "konzession-fur-wasserentnahme": [
       "konzession-fur-wasserentnahme",
@@ -151,8 +145,7 @@
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.konzessionsnehmer",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "anlassbewilligungen-verkehrsbewilligungen": [
       "anlassbewilligungen-verkehrsbewilligungen",
@@ -160,8 +153,7 @@
       "grundinformationen.lokalisierung",
       "personalien",
       "personalien.gesuchsteller",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "plangenehmigungsgesuch": [
       "grundinformationen",
@@ -169,8 +161,7 @@
       "personalien",
       "personalien.bewilligungsnehmer",
       "plangenehmigungsverfahren",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ],
     "projektgenehmigungsgesuch-gemass-ss15-strag": [
       "grundinformationen",
@@ -196,8 +187,7 @@
       "fachthemen.denkmalschutz-und-archaeologie",
       "fachthemen.lebensmittel-und-hygienesicherheit",
       "fachthemen.fischerei",
-      "gesuchsunterlagen",
-      "freigegebene-unterlagen"
+      "gesuchsunterlagen"
     ]
   },
   "modules": {
@@ -855,13 +845,6 @@
       "parent": null,
       "questions": [
         "ve-verbindlich"
-      ]
-    },
-    "freigegebene-unterlagen": {
-      "title": "Freigegebene Unterlagen",
-      "parent": null,
-      "questions": [
-        "dokument-freigegeben"
       ]
     }
   },
@@ -4437,7 +4420,7 @@
       }
     },
     "datenverschnitt-naturgefahren": {
-      "label": "Gemäss Lokalisierung befindet sich Ihr Vorhaben an einem Ort mit Einflüssen durch Naturgefahren. Allfällige Schutzmassnahmen sind in der Planung zu berücksichtigen und mit einem Objektschutznachweis darzulegen.",
+      "label": "Gemäss Lokalisierung befindet sich Ihr Vorhaben an einem Ort mit Einflüssen durch Naturgefahren. Allfällige Schutzmassnahmen sind in der Planung zu berücksichtigen und mit einem Objektschutznachweis darzulegen. Weitere Informationen sind dem Infoblatt <a href='/assets/documents/Bauvorhaben-und-Naturgefahren.pdf' title='Herunterladen'>\"Bauvorhaben und Naturgefahren\"</a> zu entnehmen.",
       "type": "checkbox",
       "required": false,
       "active-expression": "'ms:ch.sz.a012.naturgefahrenkarte.synoptisch' in 'layer'|value|mapby('name') && ('Neubau' in 'vorhaben-mit-baute'|value || 'Anbau / Erweiterung' in 'vorhaben-mit-baute'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-baute'|value || 'Nutzungsänderung' in 'vorhaben-mit-baute'|value || 'Neubau' in 'vorhaben-mit-anlage'|value || 'Erweiterung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value || 'Umbau / Erneuerung / Sanierung' in 'vorhaben-mit-anlage'|value)",
@@ -4478,6 +4461,13 @@
     "dokument-freigegeben": {
       "label": "Freigegebene Unterlagen",
       "hint": "Unter dem Titel *Freigegebene Unterlagen* finden Sie alle Dokumente, welche Ihnen durch die zuständige Behörde elektronisch zugestellt worden sind. Durch Klicken auf das \"Wolken-Symbol\" können Sie das jeweilige Dokument herunterladen.",
+      "type": "document",
+      "required": false,
+      "active-expression": "state != 'new'",
+      "config": {}
+    },
+    "dokument-publikation": {
+      "label": "Publikationsdokumente",
       "type": "document",
       "required": false,
       "active-expression": "state != 'new'",

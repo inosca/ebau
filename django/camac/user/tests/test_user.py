@@ -15,14 +15,19 @@ def test_get_full_name(admin_user):
     assert admin_user.get_full_name() == "Muster Hans"
 
 
-def test_me(admin_client, admin_user):
+def test_me(admin_client, admin_user, user_group_factory, group_factory):
     admin_user.groups.all().delete()
+
+    user_group_factory(user=admin_user, group=group_factory(disabled=0))
+    user_group_factory(user=admin_user, group=group_factory(disabled=1))
+
     url = reverse("me")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
     json = response.json()
     assert json["data"]["attributes"]["username"] == admin_user.username
+    assert len(json["data"]["relationships"]["groups"]) == 1
 
 
 def test_me_group(admin_client, admin_user, service):
@@ -47,8 +52,22 @@ def test_user_list(admin_client, size):
     assert len(json["data"]) == size
 
 
-@pytest.mark.parametrize("role__name,size", [("Service", 1), ("Municipality", 0)])
-def test_user_role_filter(admin_client, admin_user, group, user_group_factory, size):
+@pytest.mark.parametrize("role__name,size", [("Service", 2), ("Municipality", 0)])
+def test_user_role_filter(
+    admin_client,
+    admin_user,
+    user,
+    group,
+    user_group_factory,
+    group_factory,
+    role_factory,
+    size,
+):
+    user_group_factory(user=user, group=group, default_group=1)
+    user_group_factory(
+        user=user, group=group_factory(role=role_factory(name="Municipality"))
+    )
+
     url = reverse("user-list")
 
     response = admin_client.get(url, {"exclude_primary_role": "Municipality"})

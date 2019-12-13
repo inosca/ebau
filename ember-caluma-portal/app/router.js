@@ -32,6 +32,8 @@ Router.map(function() {
 
     this.route("support", { resetNamespace });
   });
+
+  this.route("notfound", { path: "/*path" });
 });
 
 export default Router;
