@@ -12,6 +12,7 @@ from rest_framework.serializers import Serializer
 from rest_framework.viewsets import GenericViewSet
 from rest_framework_xml.renderers import XMLRenderer
 
+from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.instance.mixins import InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.swagger_utils import group_param
@@ -48,6 +49,7 @@ class ApplicationView(InstanceQuerysetMixin, RetrieveModelMixin, GenericViewSet)
             xml_data = formatters.delivery(
                 instance,
                 document,
+                message_type=ECH_BASE_DELIVERY,
                 eventBaseDelivery=formatters.base_delivery(instance, document),
             ).toxml()
         except (
