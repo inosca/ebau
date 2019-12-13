@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
 
-from camac.swagger_utils import SCHEMA_VIEW
+from camac.swagger.views import SCHEMA_VIEW
 
 # TODO: Ensure that only the necessary routes are registered dependening on
 # settings.APPLICATION_NAME
