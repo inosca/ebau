@@ -43,7 +43,8 @@ export default class NavbarComponent extends Component {
   *fetchGroups() {
     try {
       const groups = yield this.store.query("group", {
-        service__service_group: 2 // municipalities
+        service__service_group: 2, // Gemeinde
+        role: [3, 20004].join(",") // Leitung / Sachbearbeiter Leitbehörde
       });
 
       if (
