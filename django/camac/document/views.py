@@ -25,7 +25,7 @@ from sorl.thumbnail import delete, get_thumbnail
 from camac.instance.mixins import InstanceEditableMixin, InstanceQuerysetMixin
 from camac.instance.models import Instance
 from camac.notification.serializers import InstanceMergeSerializer
-from camac.swagger_utils import group_param
+from camac.swagger.utils import group_param
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
