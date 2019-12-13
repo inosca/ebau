@@ -66,7 +66,7 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
 
-## Messages
+## Message Typen
 
 ### GET
 
