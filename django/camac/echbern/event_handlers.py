@@ -11,7 +11,25 @@ from pyxb import (
 )
 
 from camac.constants.kt_bern import (
+    ECH_ACCOMPANYING_REPORT,
+    ECH_CHANGE_RESPONSIBILITY,
+    ECH_CLAIM,
+    ECH_FILE_SUBSEQUENTLY,
+    ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
+    ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
+    ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
+    ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+    ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
+    ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+    ECH_SUBMIT,
+    ECH_TASK,
+    ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
+    INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
+    INSTANCE_STATE_FINISHED,
+    INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_SB2,
+    INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
@@ -83,6 +101,7 @@ class BaseEventHandler:
 class SubmitEventHandler(BaseEventHandler):
     event_type = "submit"
     uri_instance_resource_id = 20014
+    message_type = ECH_SUBMIT
 
     def get_url(self):
         return f"{settings.INTERNAL_BASE_URL}/form/edit-page/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
@@ -92,6 +111,7 @@ class SubmitEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -111,6 +131,7 @@ class SubmitEventHandler(BaseEventHandler):
 class FileSubsequentlyEventHandler(BaseEventHandler):
     event_type = "file subsequently"
     uri_instance_resource_id = 150000
+    message_type = ECH_FILE_SUBSEQUENTLY
 
     def get_url(self):
         return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/{self.uri_instance_resource_id}/instance-id/{self.instance.pk}"
@@ -120,6 +141,7 @@ class FileSubsequentlyEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -140,25 +162,46 @@ class StatusNotificationEventHandler(BaseEventHandler):
     def get_data(self):
         return {"ech-subject": "status notification"}
 
-    def get_url(self):
+    def get_url_and_message_type(self):
         # TODO: handle more states and corresponding urls
         url = f"{settings.INTERNAL_BASE_URL}/page/index/instance-id/{self.instance.pk}/instance-resource-id/20074"
+        message_type = "unkown"  # this should never be used
+
         if (
             self.instance.previous_instance_state.pk
             == INSTANCE_STATE_EBAU_NUMMER_VERGEBEN
         ):
             # send link to Dossierprüfung
             url = f"{settings.INTERNAL_BASE_URL}/form/edit-pages/instance-resource-id/40008/instance-id/{self.instance.pk}"
+            message_type = ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN
+        elif (
+            self.instance.previous_instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG
+            and not self.instance.instance_state.pk == INSTANCE_STATE_REJECTED
+        ):  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN
         elif self.instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION:
             # send link to Zirkulation
             url = f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/20004/instance-id/{self.instance.pk}"
-        return url
+            message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
+        elif self.instance.instance_state.pk == INSTANCE_STATE_SB2:  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND
+        elif (
+            self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED
+        ):  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND
+        elif (
+            self.instance.instance_state.pk == INSTANCE_STATE_FINISHED
+        ):  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
 
-    def get_xml(self, data, url):
+        return url, message_type
+
+    def get_xml(self, data, url, message_type):
         try:
             return delivery(
                 self.instance,
                 data,
+                message_type=message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -172,9 +215,15 @@ class StatusNotificationEventHandler(BaseEventHandler):
             logger.error(e.details())
             raise
 
+    def run(self):
+        data = self.get_data()
+        xml = self.get_xml(data, *self.get_url_and_message_type())
+        return self.create_message(xml)
+
 
 class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
     event_type = "withdraw planning permission application"
+    message_type = ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION
 
     def get_data(self):
         return {"ech-subject": self.event_type}
@@ -184,6 +233,7 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -200,28 +250,11 @@ class WithdrawPlanningPermissionApplicationEventHandler(BaseEventHandler):
 
 class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
     event_type = "task"
+    message_type = ECH_TASK
 
     def get_url(self, activation_id):
         # send link to Stellungnahme abgeben
         return f"{settings.INTERNAL_BASE_URL}/circulation/edit-notice/instance-resource-id/20039/instance-id/{self.instance.pk}/activation-id/{activation_id}"
-
-    def get_xml(self, data, url):
-        try:
-            return delivery(
-                self.instance,
-                data,
-                message_date=self.message_date,
-                message_id=str(self.message_id),
-                url=url,
-                eventRequest=request(self.instance, self.event_type),
-            ).toxml()
-        except (
-            IncompleteElementContentError,
-            UnprocessedElementContentError,
-            UnprocessedKeywordContentError,
-        ) as e:  # pragma: no cover
-            logger.error(e.details())
-            raise
 
     def run(self):
         msgs = []
@@ -240,6 +273,7 @@ class TaskEventHandler(WithdrawPlanningPermissionApplicationEventHandler):
 
 class ClaimEventHandler(BaseEventHandler):
     event_type = "claim"
+    message_type = ECH_CLAIM
 
     def get_url(self):
         return f"{settings.INTERNAL_BASE_URL}/claim/claim/index/instance-resource-id/150000/instance-id/{self.instance.pk}"
@@ -252,6 +286,7 @@ class ClaimEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -268,6 +303,7 @@ class ClaimEventHandler(BaseEventHandler):
 
 class AccompanyingReportEventHandler(BaseEventHandler):
     event_type = "accompanying report"
+    message_type = ECH_ACCOMPANYING_REPORT
 
     def __init__(self, instance, user_pk=None, group_pk=None, context=None):
         super().__init__(instance, user_pk, group_pk, context)
@@ -308,6 +344,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,
@@ -336,6 +373,7 @@ class AccompanyingReportEventHandler(BaseEventHandler):
 
 class ChangeResponsibilityEventHandler(BaseEventHandler):
     event_type = "change responsibility"
+    message_type = ECH_CHANGE_RESPONSIBILITY
 
     def get_data(self):
         return {"ech-subject": self.event_type}
@@ -345,6 +383,7 @@ class ChangeResponsibilityEventHandler(BaseEventHandler):
             return delivery(
                 self.instance,
                 data,
+                message_type=self.message_type,
                 message_date=self.message_date,
                 message_id=str(self.message_id),
                 url=url,

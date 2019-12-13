@@ -518,6 +518,7 @@ def change_responsibility(instance: Instance):
 def delivery(
     instance: Instance,
     answers: dict,
+    message_type: str,
     message_date=None,
     message_id=None,
     url=None,
@@ -539,7 +540,7 @@ def delivery(
             deliveryHeader=ech_0058_5_0.headerType(
                 senderId="https://ebau.apps.be.ch",
                 messageId=message_id or str(id(instance)),
-                messageType=list(args.keys())[0],
+                messageType=message_type,
                 sendingApplication=pyxb.BIND(
                     manufacturer=camac_metadata.__author__,
                     product=camac_metadata.__title__,
