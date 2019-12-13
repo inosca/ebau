@@ -337,7 +337,7 @@ def application(instance: Instance, answers: dict):
         # publication minOccurs=0
         namedMetaData=[
             ns_objektwesen.namedMetaDataType(
-                metaDataName="status", metaDataValue=instance.instance_state.name
+                metaDataName="status", metaDataValue=instance.instance_state.get_name()
             )
         ],
         locationAddress=ns_address.swissAddressInformationType(
@@ -408,8 +408,8 @@ def office(service):
 def permission_application_identification(instance: Instance):
     ebau_nr = get_ebau_nr(instance) or "unknown"
     return ns_application.planningPermissionApplicationIdentificationType(
-        localID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
-        otherID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
+        localID=[ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)],
+        otherID=[ns_objektwesen.namedIdType(IdCategory="eBauNr", Id=ebau_nr)],
         dossierIdentification=str(instance.instance_id),
     )
 
