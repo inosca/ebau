@@ -84,14 +84,9 @@ class CustomVisibility(BaseVisibility):
 
         resp = requests.get(
             f"{common.CAMAC_NG_URL}/api/v1/instances",
-            # forward filters and group via query params
-            {
-                **common.filters(info),
-                "group": common.group(info),
-                "fields[instances]": "id",
-            },
-            # Forward authorization header
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+            # forward filters via query params
+            {**common.filters(info), "fields[instances]": "id"},
+            headers=common.headers(info),
         )
 
         try:
