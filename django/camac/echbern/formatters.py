@@ -1,12 +1,4 @@
-"""
-Helpers for exporting instance data to eCH-0211.
-
-Note: This is currently only structurally an export,
-it doesn't really render any data from the instance
-to the XML just yet. This will need to be done at a
-later point in time
-
-"""
+"""Helpers for exporting instance data to eCH-0211."""
 
 
 import logging
@@ -109,6 +101,12 @@ def get_cost(value):
     return value
 
 
+def get_keywords(attachment):
+    tags = attachment.context.get("tags")
+    if tags:
+        return pyxb.BIND(keyword=tags)
+
+
 def get_documents(attachments):
     documents = [
         ns_document.documentType(
@@ -116,6 +114,7 @@ def get_documents(attachments):
             titles=pyxb.BIND(title=[attachment.name]),
             status="signed",  # ech0039 documentStatusType
             documentKind=get_document_sections(attachment),
+            keywords=get_keywords(attachment),
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
@@ -355,13 +354,13 @@ def application(instance: Instance, answers: dict):
             ns_application.zoneType(
                 zoneDesignation=answers["nutzungszone"][:255].strip()
             )
-        ]  # eCH allows for max 25 chars
+        ]  # eCH allows for max 225 chars
         if "nutzungszone" in answers
         else [],
         constructionProjectInformation=ns_application.constructionProjectInformationType(
             constructionProject=ns_objektwesen.constructionProject(
                 status=6701,  # we always send this. The real status is in namedMetaData
-                description=answers.get("beschreibung-bauvorhaben", "None"),
+                description=answers.get("beschreibung-bauvorhaben", "unknown"),
                 projectStartDate=answers.get("geplanter-baustart"),
                 durationOfConstructionPhase=answers.get("dauer-in-monaten"),
                 totalCostsOfProject=get_cost(answers.get("baukosten-in-chf")),
@@ -400,25 +399,18 @@ def office(service):
         entryOfficeIdentification=authority(service),
         municipality=ech_0007_6_0.swissMunicipalityType(
             # municipalityId minOccurs 0
-            municipalityName=service.get_trans_attr("city") or "-",
+            municipalityName=service.get_trans_attr("city") or "unknown",
             cantonAbbreviation="BE",
         ),
     )
 
 
 def permission_application_identification(instance: Instance):
+    ebau_nr = get_ebau_nr(instance) or "unknown"
     return ns_application.planningPermissionApplicationIdentificationType(
-        localID=[
-            ns_objektwesen.namedIdType(
-                IdCategory="instanceID", Id=str(instance.instance_id)
-            )
-        ],
-        otherID=[
-            ns_objektwesen.namedIdType(
-                IdCategory="instanceID", Id=str(instance.instance_id)
-            )
-        ],
-        dossierIdentification=get_ebau_nr(instance) or "unknown",
+        localID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
+        otherID=[ns_objektwesen.namedIdType(IdCategory="instanceID", Id=ebau_nr)],
+        dossierIdentification=str(instance.instance_id),
     )
 
 
@@ -556,7 +548,7 @@ def delivery(
                 subject=answers["ech-subject"],
                 messageDate=message_date or timezone.now(),
                 action="1",
-                testDeliveryFlag=True,
+                testDeliveryFlag=settings.ENV != "production",
                 extension=url or settings.INTERNAL_BASE_URL,
             ),
             **args,
@@ -578,7 +570,7 @@ def decision_authority(service):
             # contactPerson minOccurs=0
             # contact minOccurs=0
             address=ns_address.addressInformationType(
-                town=service.get_trans_attr("city") or "-",
+                town=service.get_trans_attr("city") or "unknown",
                 swissZipCode=service.zip,
                 street=service.address,
                 country="CH",

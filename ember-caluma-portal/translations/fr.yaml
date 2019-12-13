@@ -15,12 +15,12 @@ nav:
   logout: "Déconnexion"
   applicants: "Autorisation"
   language: "Langue"
-  de: "Allemand"
-  fr: "Français"
-  canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
-  canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
+  instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
+
+  canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
+  canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
 
 feedback:
   info: "Vous n'avez pas de commentaires pour le moment. Dès que le dossier aura été soumis, les réactions éventuelles de l'autorité chef de file ou des agences spécialisées seront affichées ici."
@@ -256,3 +256,10 @@ pdf:
   personalities: "Données personnelles"
   signature: "Signature"
   signatureMetadata: "Lieu et date"
+
+notfound:
+  title: "404"
+  subtitle: "La page n'a pas été trouvée"
+  link: "Retour à"
+  home: "la page principale"
+

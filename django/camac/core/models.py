@@ -3230,6 +3230,19 @@ class Publication(models.Model):
         db_table = "PUBLICATION"
 
 
+class PublicationEntryUserPermission(models.Model):
+    PENDING = "pending"
+    STATES = [(PENDING, "Pending"), ("accepted", "Accepted"), ("denied", "Denied")]
+    status = models.CharField(max_length=10, choices=STATES, default=PENDING)
+    publication_entry = models.ForeignKey(
+        PublicationEntry, models.DO_NOTHING, related_name="user_permissions"
+    )
+    user = models.ForeignKey("user.User", models.DO_NOTHING, related_name="+")
+
+    class Meta:
+        unique_together = ["publication_entry", "user"]
+
+
 class Question(MultilingualModel, models.Model):
     question_id = models.AutoField(db_column="QUESTION_ID", primary_key=True)
     question_type = models.ForeignKey(
@@ -3794,6 +3807,14 @@ class Sanction(models.Model):
         db_column="DEADLINE_DATE", blank=True, null=True
     )
     end_date = models.DateTimeField(db_column="END_DATE", blank=True, null=True)
+    control_instance = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="CONTROL_INSTANCE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
     notice = models.CharField(db_column="NOTICE", max_length=500, blank=True, null=True)
     is_finished = models.PositiveSmallIntegerField(db_column="IS_FINISHED")
     finished_by_user = models.ForeignKey(

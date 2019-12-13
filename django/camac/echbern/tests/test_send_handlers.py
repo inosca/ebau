@@ -123,10 +123,31 @@ def test_change_responsibility_send_handler(
             dh.apply()
 
 
-def test_close_dossier_send_handler(ech_instance, admin_user, instance_state_factory):
+@pytest.mark.parametrize(
+    "requesting_service,success",
+    [("leitbehörde", True), ("baukontrolle", True), ("nobody", False)],
+)
+def test_close_dossier_send_handler(
+    requesting_service,
+    success,
+    ech_instance,
+    admin_user,
+    instance_service_factory,
+    instance_state_factory,
+):
     instance_state_factory(pk=INSTANCE_STATE_FINISHED)
+
+    inst_serv = instance_service_factory(
+        instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
+    )
+
     group = admin_user.groups.first()
-    group.service = ech_instance.services.first()
+
+    if requesting_service == "leitbehörde":
+        group.service = ech_instance.services.first()
+    elif requesting_service == "baukontrolle":
+        group.service = inst_serv.service
+
     group.save()
 
     data = CreateFromDocument(xml_data("close_dossier"))
@@ -135,12 +156,13 @@ def test_close_dossier_send_handler(ech_instance, admin_user, instance_state_fac
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
 
-    assert dh.has_permission() is True
+    assert dh.has_permission() is success
 
-    dh.apply()
-    ech_instance.refresh_from_db()
+    if success:
+        dh.apply()
+        ech_instance.refresh_from_db()
 
-    assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
+        assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
 
 
 @pytest.mark.parametrize(
@@ -218,7 +240,7 @@ def test_task_send_handler(
         assert len(mailoutbox) == 1
 
         assert activation.ech_msg_created is True
-        assert "s1@example.com" in mailoutbox[0].bcc
+        assert "s1@example.com" in mailoutbox[0].to
 
     else:
         with pytest.raises(SendHandlerException):

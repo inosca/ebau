@@ -16,12 +16,12 @@ nav:
   logout: "Ausloggen"
   applicants: "Berechtigungen"
   language: "Sprache"
-  de: "Deutsch"
-  fr: "Französisch"
-  canNotChangeLanguage: "Die Sprache kann nicht geändert werden, da bereits eine Sprache in der URL vorgegeben ist"
-  canNotChangeGroup: "Die Gruppe kann nicht geändert werden, da bereits eine Gruppe in der URL vorgegeben ist"
+  instances: "Dossiers"
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
+
+  canNotChangeLanguage: "Die Sprache kann nicht geändert werden, da bereits eine Sprache in der URL vorgegeben ist"
+  canNotChangeGroup: "Die Gruppe kann nicht geändert werden, da bereits eine Gruppe in der URL vorgegeben ist"
 
 feedback:
   info: "Sie haben momentan keine Rückmeldungen. Sobald das Dossier eingereicht wurde, werden Ihnen hier mögliche Rückmeldungen der Leitbehörde oder Fachstellen angezeigt."
@@ -254,3 +254,9 @@ pdf:
   personalities: "Personalien"
   signature: "Unterschrift"
   signatureMetadata: "Ort und Datum"
+
+notfound:
+  title: "404"
+  subtitle: "Die Seite wurde nicht gefunden"
+  link: "Zurück zur"
+  home: "Startseite"

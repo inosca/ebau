@@ -107,3 +107,17 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(pk__in=self.request.user.groups.values("role"))
+
+
+class GroupView(viewsets.ReadOnlyModelViewSet):
+    swagger_schema = None
+    group_required = False
+    filterset_class = filters.GroupFilterSet
+    serializer_class = serializers.GroupSerializer
+    queryset = models.Group.objects.all()
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(
+            pk__in=self.request.user.groups.values("pk"), disabled=False
+        )

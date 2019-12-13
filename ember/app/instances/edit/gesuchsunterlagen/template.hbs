@@ -55,3 +55,65 @@
     {{form.document 'dokument-weitere-gesuchsunterlagen' group=params.group}}
   </div>
 {{/camac-form}}
+
+{{uk-button label="Informationen zu Gesuchsunterlagen" on-click=(action (queue (action (mut visible) false) (action (mut visible) true)))}}
+
+{{#uk-modal visible=visible on-hide=(action (mut visible) false) as |modal|}}
+  {{#modal.header}}
+    <h2 class="uk-modal-title">Informationen zu Gesuchsunterlagen</h2>
+  {{/modal.header}}
+  <div class="uk-modal-body" uk-overflow-auto>
+    <ul>
+      <li>Die Unterlagen sind als pdf-Dokumente hochzuladen.</li>
+      <li>Der Dateiname soll folgende Struktur entsprechen: <span class="uk-text-bolder">Titel_Datum.pdf</span></li>
+      <li>Zusätzliche Informationen können über die Infobuttons der 4 Dokumentenkategorien bezogen werden.</li>
+    </ul>
+    <h3 class="uk-margin-small-top uk-margin-small-bottom">Titel Vorschläge</h3>
+    <h4 class="uk-margin-remove-top">Grundstücksangaben</h4>
+    <ul>
+      <li>Dienstbarkeitsvertrag</li>
+      <li>Grundbuchauszug</li>
+      <li>Katasterplan</li>
+    </ul>
+    <h4 class="uk-margin-remove-top">Projektpläne und Projektbeschrieb</h4>
+    <ul>
+      <li>Ansichten</li>
+      <li>Attikageschoss</li>
+      <li>Dachaufsicht</li>
+      <li>Dachgeschoss</li>
+      <li>Detailplan</li>
+      <li>Erdgeschoss</li>
+      <li>Farb-_und_Materialkonzept</li>
+      <li>Fassaden</li>
+      <li>Grundrisse</li>
+      <li>Kanalisationsplan</li>
+      <li>Obergeschoss</li>
+      <li>Pfählungsplan</li>
+      <li>Fotomontage</li>
+      <li>Projektbeschrieb</li>
+      <li>Projektplan</li>
+      <li>Querprofile</li>
+      <li>Schnitte</li>
+      <li>Situation</li>
+      <li>Situation_Sondenstandorte</li>
+      <li>Untergeschoss</li>
+    </ul>
+    <h4 class="uk-margin-remove-top">Gutachten, Nachweise, Begründungen</h4>
+    <ul>
+      <li>Ausnahme_Unterschreitung</li>
+      <li>AZ-Berechnung</li>
+      <li>Geologischer_Bericht</li>
+      <li>Kubische_Berechnungen</li>
+      <li>Lärmschutznachweis</li>
+      <li>Parkplatzberechnung</li>
+      <li>Technische_Angaben_Heizung</li>
+      <li>Technischer_Bericht</li>
+    </ul>
+    <h4 class="uk-margin-remove-top">Weitere Gesuchsunterlagen</h4>
+    <p>Keine Vorgaben</p>
+  </div>
+  {{#modal.footer class="uk-text-right"}}
+    <label class="uk-margin-small-right">{{input type="checkbox" checked=hideDocumentInfo class="uk-checkbox"}} Dieses Fenster nicht mehr Anzeigen</label>
+    {{uk-button color="primary" label="Schliessen" on-click=(action (queue (action (mut visible) false) (action "hideModal")))}}
+  {{/modal.footer}}
+{{/uk-modal}}

@@ -129,12 +129,14 @@ def test_notification_template_merge(
 
 
 @pytest.mark.parametrize(
-    "user__email,service__email", [("user@example.com", "service@example.com")]
+    "user__email,service__email",
+    [("user@example.com", "service@example.com, service2@example.com")],
 )
 @pytest.mark.parametrize(
     "notification_template__subject,instance__identifier",
     [("{{identifier}}", "identifer")],
 )
+@pytest.mark.parametrize("new_responsible_model", [True, False])
 @pytest.mark.parametrize(
     "role__name,status_code",
     [
@@ -146,14 +148,27 @@ def test_notification_template_merge(
 )
 def test_notification_template_sendmail(
     admin_client,
-    instance,
+    instance_service,
+    responsible_service_factory,
+    instance_responsibility_factory,
     notification_template,
     status_code,
     mailoutbox,
     activation,
+    new_responsible_model,
     settings,
 ):
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+    if new_responsible_model:
+        responsible = instance_responsibility_factory(
+            instance=instance_service.instance, service=instance_service.service
+        )
+        responsible_email = responsible.user.email
+    else:
+        responsible = responsible_service_factory(
+            instance=instance_service.instance, service=instance_service.service
+        )
+        responsible_email = responsible.responsible_user.email
 
     data = {
         "data": {
@@ -164,12 +179,15 @@ def test_notification_template_sendmail(
                 "recipient-types": [
                     "applicant",
                     "municipality",
+                    "leitbehoerde",
                     "service",
                     "unnotified_service",
                 ],
             },
             "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
+                "instance": {
+                    "data": {"type": "instances", "id": instance_service.instance.pk}
+                }
             },
         }
     }
@@ -177,15 +195,29 @@ def test_notification_template_sendmail(
     response = admin_client.post(url, data=data)
     assert response.status_code == status_code
     if status_code == status.HTTP_204_NO_CONTENT:
-        assert len(mailoutbox) == 1
-        mail = mailoutbox[0]
-        assert set(mail.bcc) == {
-            "user@example.com",
-            "service@example.com",
-            "service@example.com",
-        }
-        assert mail.subject == settings.EMAIL_PREFIX_SUBJECT + instance.identifier
-        assert mail.body == settings.EMAIL_PREFIX_BODY + "Test body"
+        assert len(mailoutbox) == 4
+
+        # recipient types are sorted alphabetically
+        assert [(m.to, m.cc) for m in mailoutbox] == [
+            (["user@example.com"], []),  # applicant
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # leitbehoerde
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # municipality
+            (
+                [responsible_email],
+                ["service@example.com", "service2@example.com"],
+            ),  # service
+        ]
+        assert (
+            mailoutbox[0].subject
+            == settings.EMAIL_PREFIX_SUBJECT + instance_service.instance.identifier
+        )
+        assert mailoutbox[0].body == settings.EMAIL_PREFIX_BODY + "Test body"
 
 
 @pytest.mark.parametrize(
@@ -249,22 +281,49 @@ def test_notification_placeholders(
                 LEITBEHOERDE_NAME: {{LEITBEHOERDE_NAME}}
                 INTERNAL_DOSSIER_LINK: {{INTERNAL_DOSSIER_LINK}}
                 PUBLIC_DOSSIER_LINK: {{PUBLIC_DOSSIER_LINK}}
+                COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
+                TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
+                PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
+                ACTIVATION_STATEMENT_DE: {{ACTIVATION_STATEMENT_DE}}
+                ACTIVATION_STATEMENT_FR: {{ACTIVATION_STATEMENT_FR}}
+                CURRENT_SERVICE: {{CURRENT_SERVICE}}
             """,
         )
     ],
 )
+@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
 def test_notification_caluma_placeholders(
     admin_client,
+    admin_user,
     instance,
     instance_service,
     notification_template,
     mailoutbox,
-    activation,
+    activation_factory,
     settings,
     requests_mock,
     use_caluma_form,
+    total_activations,
+    circulation,
+    done_activations,
+    circulation_state_factory,
+    mocker,
 ):
     url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+
+    STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
+
+    assert not len(mailoutbox)
+
+    activations = [
+        activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
+        for _ in range(total_activations)
+    ]
+    for i in range(done_activations):
+        activations[i].circulation_state = STATE_DONE
+        activations[i].save()
 
     requests_mock.post(
         "http://caluma:8000/graphql/",
@@ -310,11 +369,31 @@ def test_notification_caluma_placeholders(
 
     assert len(mailoutbox) == 1
 
-    mail = mailoutbox[0]
+    if total_activations == 0:
+        activation_statement_de = (
+            "Keine offenen Stellungnahmen oder keine aktive Zirkulation"
+        )
+        activation_statement_fr = (
+            "Aucun rapports officiels ouvert ou pas de circulation active"
+        )
+    elif done_activations == 1:
+        pending_activations = total_activations - done_activations
+        activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen stehen noch aus"
+        activation_statement_fr = f"{pending_activations} des {total_activations} rapports officiels sont toujours en attente"
+    else:
+        activation_statement_de = (
+            f"Alle {total_activations} Stellungnahmen sind nun eingegangen"
+        )
+        activation_statement_fr = (
+            f"Tout les {total_activations} rapports officiels ont maintenant été reçus"
+        )
 
+    service_name = admin_user.groups.first().service.get_name()
+
+    mail = mailoutbox[0]
     assert [
-        placeholder.strip()
-        for placeholder in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        line.strip()
+        for line in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
         .strip()
         .split("\n")
     ] == [
@@ -325,4 +404,10 @@ def test_notification_caluma_placeholders(
         f"LEITBEHOERDE_NAME: {instance_service.service.get_name()}",
         f"INTERNAL_DOSSIER_LINK: http://camac-ng.local/index/redirect-to-instance-resource/instance-id/{instance.pk}",
         f"PUBLIC_DOSSIER_LINK: http://caluma-portal.local/instances/{instance.pk}",
+        f"COMPLETED_ACTIVATIONS: {done_activations}",
+        f"TOTAL_ACTIVATIONS: {total_activations}",
+        f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
+        f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
+        f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
+        f"CURRENT_SERVICE: {service_name}",
     ]

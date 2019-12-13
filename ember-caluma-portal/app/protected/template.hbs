@@ -1,19 +1,4 @@
-<main class="uk-container">
-  <header class="uk-padding uk-flex uk-flex-center uk-flex-middle uk-flex-column">
-    <div>
-      {{#link-to "index" class="uk-padding uk-link-reset uk-width-1-1 uk-width-large@m"}}
-        <div class="uk-width-1-1">
-          <img src="/assets/images/logo-ebau-bern-1-{{session.language}}.svg" alt={{t "global.title"}} class="uk-image-responsive">
-        </div>
-      {{/link-to}}
-      {{#if (not-eq environment "production")}}
-        <div class="uk-width-1-1">
-          <span>{{t "global.versionPrefix"}}{{app-version hideSha=true}}</span>
-          {{uk-label label=environment}}
-        </div>
-      {{/if}}
-    </div>
-    <Navbar />
-  </header>
-  {{outlet}}
+<main>
+  <Navbar />
+  <section class="uk-container uk-padding uk-padding-remove-horizontal">{{outlet}}</section>
 </main>

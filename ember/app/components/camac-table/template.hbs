@@ -2,7 +2,7 @@
   {{#with question.field.config.columns as |columns|}}
     <div class="uk-animation-fade">
       {{yield}}
-      <label class="uk-form-label uk-text-bold {{if error.length 'uk-text-danger'}}">
+      <label class="uk-form-label uk-text-bolder {{if error.length 'uk-text-danger'}}">
         {{question.field.label}}
         {{#if question.field.required}}
           <span class="uk-text-primary">*</span>
