@@ -3807,6 +3807,14 @@ class Sanction(models.Model):
         db_column="DEADLINE_DATE", blank=True, null=True
     )
     end_date = models.DateTimeField(db_column="END_DATE", blank=True, null=True)
+    control_instance = models.ForeignKey(
+        "user.Service",
+        models.DO_NOTHING,
+        db_column="CONTROL_INSTANCE_ID",
+        related_name="+",
+        blank=True,
+        null=True,
+    )
     notice = models.CharField(db_column="NOTICE", max_length=500, blank=True, null=True)
     is_finished = models.PositiveSmallIntegerField(db_column="IS_FINISHED")
     finished_by_user = models.ForeignKey(
