@@ -20,14 +20,14 @@
     <ns1:judgement>1</ns1:judgement>
     <ns1:planningPermissionApplicationIdentification>
       <ns1:localID>
-        <ns3:IdCategory>instanceID</ns3:IdCategory>
-        <ns3:Id>1</ns3:Id>
+        <ns3:IdCategory>eBauNr</ns3:IdCategory>
+        <ns3:Id>2019-001</ns3:Id>
       </ns1:localID>
       <ns1:otherID>
-        <ns3:IdCategory>instanceID</ns3:IdCategory>
-        <ns3:Id>1</ns3:Id>
+        <ns3:IdCategory>eBauNr</ns3:IdCategory>
+        <ns3:Id>2019-001</ns3:Id>
       </ns1:otherID>
-      <ns1:dossierIdentification>2019-1</ns1:dossierIdentification>
+      <ns1:dossierIdentification>2323</ns1:dossierIdentification>
     </ns1:planningPermissionApplicationIdentification>
     <ns1:document>
       <ns4:uuid>00000000-0000-0000-0000-000000000000</ns4:uuid>
