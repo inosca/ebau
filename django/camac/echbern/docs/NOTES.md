@@ -6,7 +6,7 @@ Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/conn
 
 ```bash
 curl --request POST \
---url 'https://ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
+--url 'https://portal.ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
 --data grant_type=client_credentials \
 --data client_id='${client-id}' \
