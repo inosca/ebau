@@ -91,9 +91,12 @@ class Command(BaseCommand):
                     )
 
         if options["disable"]:
-            self.queries.append("\n-- disable old services")
+            self.queries.append("\n-- disable old services and groups")
             self.queries.append(
                 f'UPDATE "SERVICE" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
+            )
+            self.queries.append(
+                f'UPDATE "GROUP" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
             )
 
         queries = "\n".join(self.queries)
