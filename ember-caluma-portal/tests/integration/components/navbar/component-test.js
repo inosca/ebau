@@ -108,15 +108,10 @@ module("Integration | Component | navbar", function(hooks) {
   });
 
   test("it renders meta informations about the application", async function(assert) {
-    assert.expect(2);
-
-    const version = this.owner.application.version.replace(/\+.*$/, "");
+    assert.expect(1);
 
     await render(hbs`<Navbar />`);
 
-    assert
-      .dom(".uk-navbar-center .uk-label:nth-of-type(1)")
-      .hasText(`t:global.versionPrefix:()${version}`);
     assert.dom(".uk-navbar-center .uk-label:nth-of-type(2)").hasText("test");
   });
 });
