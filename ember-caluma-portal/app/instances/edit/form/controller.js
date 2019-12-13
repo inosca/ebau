@@ -3,54 +3,41 @@ import { inject as controller } from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { assert } from "@ember/debug";
 import { reads } from "@ember/object/computed";
-import { computed, getWithDefault } from "@ember/object";
-import QueryParams from "ember-parachute";
+import { computed } from "@ember/object";
+import { queryParam } from "ember-parachute/decorators";
 
-const queryParams = new QueryParams({
-  displayedForm: {
-    default: "",
-    refresh: true
-  }
-});
+export default class InstancesEditFormController extends Controller {
+  @queryParam({ refresh: true }) displayedForm = "";
 
-export default Controller.extend(queryParams.Mixin, {
-  calumaStore: service(),
+  @service calumaStore;
 
-  editController: controller("instances.edit"),
-  instanceId: reads("editController.model"),
-  instance: reads("editController.instance"),
-  instanceTask: reads("editController.instanceTask"),
-
-  embedded: computed(function() {
-    return window !== window.top;
-  }),
+  @controller("instances.edit") editController;
+  @reads("editController.model") instanceId;
+  @reads("editController.instance") instance;
+  @reads("editController.instanceTask") instanceTask;
 
   reset() {
     this.resetQueryParams();
-  },
+  }
 
-  document: computed("model", "instance.documents.[]", function() {
+  @computed
+  get embedded() {
+    return window !== window.top;
+  }
+
+  @computed("model", "instance.documents.[]")
+  get document() {
     return this.getWithDefault("instance.documents", []).find(
       document => document.form.slug === this.model
     );
-  }),
+  }
 
-  disabled: computed(
-    "document.form.{slug,meta.is-main-form}",
-    "instance.meta.permissions",
-    function() {
-      const form = this.get("document.form.meta.is-main-form")
-        ? "main"
-        : this.get("document.form.slug");
-      const permissions = this.getWithDefault("instance.meta.permissions", {});
-
-      return !getWithDefault(permissions, form, []).includes("write");
-    }
-  ),
-
-  pdfField: computed("model", "instance.documents.[]", function() {
+  @computed("model", "instance.documents.[]")
+  get pdfField() {
     const slug = ["sb1", "sb2"].includes(this.model)
       ? "formulardownload-pdf-selbstdeklaration"
+      : this.model === "vorabklaerung-einfach"
+      ? "formulardownload-pdf-vorabklaerung"
       : "formulardownload-pdf";
 
     const field = this.instance.findCalumaField(slug, this.model);
@@ -58,5 +45,5 @@ export default Controller.extend(queryParams.Mixin, {
     assert(`Did not find field ${slug} in form ${this.model}`, field);
 
     return field;
-  })
-});
+  }
+}

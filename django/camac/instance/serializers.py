@@ -64,6 +64,7 @@ class InstanceSerializer(
     InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
 ):
     editable = serializers.SerializerMethodField()
+    is_applicant = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
     group = GroupResourceRelatedField(default=CurrentGroupDefault())
 
@@ -76,6 +77,11 @@ class InstanceSerializer(
         queryset=models.InstanceState.objects.filter(name="new"),
         default=NewInstanceStateDefault(),
     )
+
+    def get_is_applicant(self, obj):
+        return obj.involved_applicants.filter(
+            invitee=self.context["request"].user
+        ).exists()
 
     included_serializers = {
         "location": "camac.user.serializers.LocationSerializer",
@@ -146,7 +152,7 @@ class InstanceSerializer(
 
     class Meta:
         model = models.Instance
-        meta_fields = ("editable",)
+        meta_fields = ("editable", "is_applicant")
         fields = (
             "instance_id",
             "instance_state",
@@ -237,6 +243,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
         **InstanceSerializer.included_serializers,
         "active_service": "camac.user.serializers.PublicServiceSerializer",
         "responsible_service_users": "camac.user.serializers.UserSerializer",
+        "involved_applicants": "camac.applicants.serializers.ApplicantSerializer",
     }
 
     @permission_aware
@@ -457,11 +464,13 @@ class CalumaInstanceSerializer(InstanceSerializer):
             "public_status",
             "active_service",
             "responsible_service_users",
+            "involved_applicants",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
             "public_status",
             "active_service",
             "responsible_service_users",
+            "involved_applicants",
         )
         meta_fields = InstanceSerializer.Meta.meta_fields + ("permissions",)
 
@@ -547,34 +556,33 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         )
 
     def _validate_document_validity(self, document_id):
-        # TODO: reenable this when caluma document validity is fixed
-        # validity = self.query_caluma(
-        #     """
-        #         query GetDocumentValidity($id: ID!) {
-        #             documentValidity(id: $id) {
-        #                 edges {
-        #                     node {
-        #                         id
-        #                         isValid
-        #                         errors {
-        #                             slug
-        #                             errorMsg
-        #                         }
-        #                     }
-        #                 }
-        #             }
-        #         }
-        #     """,
-        #     {"id": document_id},
-        # )
+        validity = self.query_caluma(
+            """
+                query GetDocumentValidity($id: ID!) {
+                    documentValidity(id: $id) {
+                        edges {
+                            node {
+                                id
+                                isValid
+                                errors {
+                                    slug
+                                    errorMsg
+                                }
+                            }
+                        }
+                    }
+                }
+            """,
+            {"id": document_id},
+        )
 
-        # if not validity["edges"]["node"][0]["isValid"]:
-        #     errors = ", ".join(map(lambda e: e["errorMsg"], validity["edges"]["node"][0]["errors"]))
-        #     raise exceptions.ValidationError(
-        #         _("Error while validating caluma document: %(errors)s") % { "errors": errors }
-        #     )
+        data = validity["data"]["documentValidity"]["edges"][0]["node"]
 
-        pass
+        if not data["isValid"]:
+            raise exceptions.ValidationError(
+                _("Error while validating caluma document: %(errors)s")
+                % {"errors": ", ".join([e["errorMsg"] for e in data["errors"]])}
+            )
 
     def validate(self, data):
         caluma_resp = self.query_caluma(

@@ -6,6 +6,7 @@ from . import views
 r = SimpleRouter(trailing_slash=False)
 
 r.register(r"locations", views.LocationView)
+r.register(r"groups", views.GroupView)
 r.register(r"roles", views.RoleView)
 r.register(r"services", views.ServiceView)
 r.register(r"public-services", views.PublicServiceView, basename="publicservice")

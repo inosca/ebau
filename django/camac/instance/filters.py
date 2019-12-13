@@ -2,13 +2,16 @@ import re
 
 from django.conf import settings
 from django.core.validators import EMPTY_VALUES
+from django.db.models import OuterRef, Subquery
+from django.db.models.constants import LOOKUP_SEP
 from django_filters.rest_framework import (
+    BooleanFilter,
     CharFilter,
     DateFilter,
     FilterSet,
     NumberFilter,
 )
-from rest_framework.filters import BaseFilterBackend
+from rest_framework.filters import BaseFilterBackend, OrderingFilter
 
 from camac.filters import (
     CharMultiValueFilter,
@@ -110,6 +113,15 @@ class InstanceFilterSet(FilterSet):
     responsible_service = ResponsibleServiceFilter()
     responsible_service_user = ResponsibleServiceUserFilter()
     circulation_state = CirculationStateFilter()
+    is_applicant = BooleanFilter(
+        field_name="involved_applicants__invitee", method="filter_is_applicant"
+    )
+
+    def filter_is_applicant(self, queryset, name, value):
+        if value:
+            return queryset.filter(**{name: self.request.user})
+
+        return queryset.exclude(**{name: self.request.user})
 
     class Meta:
         model = models.Instance
@@ -126,6 +138,7 @@ class InstanceFilterSet(FilterSet):
             "responsible_instance_user",
             "responsible_service",
             "responsible_service_user",
+            "is_applicant",
         )
 
 
@@ -204,3 +217,46 @@ class IssueTemplateSetFilterSet(FilterSet):
     class Meta:
         model = models.IssueTemplateSet
         fields = ["name"]
+
+
+class FormFieldOrdering(OrderingFilter):
+    ordering_param = "sort_form_field"
+    ordering_fields = None
+
+    def _get_instance_pk_filter_expr(self, view):
+        instance_field_name = getattr(view, "instance_field")
+        return (
+            "pk"
+            if not instance_field_name
+            else f"{instance_field_name.replace('.', LOOKUP_SEP)}__pk"
+        )
+
+    def get_ordering(self, request, queryset, view):
+        """
+        Ordering is set by a ?sort_form_field=... query parameter.
+
+        Only one form_field can be ordered at a time,
+        by appending a - infront the ordering will be inverted.
+        """
+        param = request.query_params.get(self.ordering_param)
+        if param:
+            return param.strip()
+
+        # No ordering was included, or all the ordering fields were invalid
+        return self.get_default_ordering(view)
+
+    def filter_queryset(self, request, queryset, view):
+        param = self.get_ordering(request, queryset, view)
+
+        if param:
+            ordering = "-field_val" if param.startswith("-") else "field_val"
+
+            outer_ref = OuterRef(self._get_instance_pk_filter_expr(view))
+            form_field = models.FormField.objects.filter(
+                instance=outer_ref, name=param.lstrip("-")
+            )
+            queryset = queryset.annotate(
+                field_val=Subquery(form_field.values("value")[:1])
+            ).order_by(ordering)
+
+        return queryset

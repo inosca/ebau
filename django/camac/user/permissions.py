@@ -29,17 +29,25 @@ def permission_aware(func):
     def wrapper(self, *args, **kwargs):
         # on view request is directly on instance
         request = get_request(self)
-        role = request.group.role
-        perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
-        perm = perms.get(role.name)
-        if perm:
-            perm_func = "{0}_for_{1}".format(func.__name__, perm)
-            if hasattr(self, perm_func):
-                return getattr(self, perm_func)(*args, **kwargs)
+        permission_func = get_permission_func(self, func.__name__, request.group)
+        if permission_func:
+            return permission_func(*args, **kwargs)
 
         return func(self, *args, **kwargs)
 
     return wrapper
+
+
+def get_permission_func(cls, name, group):
+    role = group.role
+    perms = settings.APPLICATION.get("ROLE_PERMISSIONS", {})
+    perm = perms.get(role.name)
+    if perm:
+        perm_func = "{0}_for_{1}".format(name, perm)
+        if hasattr(cls, perm_func):
+            return getattr(cls, perm_func)
+
+    return None
 
 
 class IsGroupMember(permissions.BasePermission):

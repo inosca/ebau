@@ -27,16 +27,14 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
     }));
 
     const afterware = onError(error => {
-      const { networkError, graphQLErrors } = error;
+      const { networkError } = error;
 
       if (
-        (graphQLErrors &&
-          graphQLErrors.some(({ message }) =>
-            /^401 Client Error/.test(message)
-          )) ||
-        (networkError && networkError.statusCode === 401)
+        networkError &&
+        networkError.statusCode === 401 &&
+        this.session.isAuthenticated
       ) {
-        this.router.transitionTo("logout");
+        this.session.invalidate();
       }
     });
 

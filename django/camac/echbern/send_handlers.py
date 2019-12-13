@@ -49,9 +49,9 @@ class BaseSendHandler:
             raise SendHandlerException("Unknown instance")
 
     def get_instance_id(self):
-        return self.data.eventNotice.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventNotice.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def has_permission(self):
         if not self.instance.active_service == self.group.service:
@@ -102,15 +102,15 @@ class NoticeRulingSendHandler(BaseSendHandler):
         DocxDecision.objects.create(
             instance=self.instance.pk,
             decision=decision,
-            decision_date=timezone.now().date(),
+            decision_date=self.data.eventNotice.decisionRuling.date,
         )
 
 
 class ChangeResponsibilitySendHandler(BaseSendHandler):
     def get_instance_id(self):
-        return self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventChangeResponsibility.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def apply(self):
         old_id = (
@@ -145,9 +145,9 @@ class AccompanyingReportSendHandler(BaseSendHandler):
         return bool(self.activation)
 
     def get_instance_id(self):
-        return self.data.eventAccompanyingReport.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventAccompanyingReport.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def _get_documents(self):
         uuids = [d.uuid for d in self.data.eventAccompanyingReport.document]
@@ -196,10 +196,15 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
+    def has_permission(self):
+        return InstanceService.objects.filter(
+            instance=self.instance, active=True, service=self.group.service
+        ).exists()
+
     def get_instance_id(self):
-        return self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventCloseArchiveDossier.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def apply(self):
         state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
@@ -209,9 +214,9 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
 
 class TaskSendHandler(BaseSendHandler):
     def get_instance_id(self):
-        return self.data.eventRequest.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventRequest.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def has_permission(self):
         if not super().has_permission():  # pragma: no cover
@@ -300,9 +305,9 @@ class TaskSendHandler(BaseSendHandler):
 
 class NoticeKindOfProceedingsSendHandler(TaskSendHandler):
     def get_instance_id(self):
-        return self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.localID[
-            0
-        ].Id
+        return (
+            self.data.eventKindOfProceedings.planningPermissionApplicationIdentification.dossierIdentification
+        )
 
     def has_permission(self):
         if not self.instance.active_service == self.group.service:  # pragma: no cover
