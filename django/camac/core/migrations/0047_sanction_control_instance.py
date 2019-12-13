@@ -10,7 +10,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('user', '0009_usergrouplog'),
-        ('core', '0045_activation_ech_msg_created'),
+        ('core', '0046_create_publication_entry_user_permission'),
     ]
 
     operations = [
