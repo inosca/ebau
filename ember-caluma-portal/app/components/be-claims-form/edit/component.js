@@ -66,7 +66,6 @@ export default class BeClaimsFormEditComponent extends Component {
       );
 
       yield this.updateClaim.perform();
-      yield this.notifyMunicipality.perform();
 
       this.onCancel();
     } catch (error) {
@@ -123,32 +122,6 @@ export default class BeClaimsFormEditComponent extends Component {
           await field.save.perform();
         }
       )
-    );
-  }
-
-  @task
-  *notifyMunicipality() {
-    yield this.fetch.fetch(
-      `/api/v1/notification-templates/${config.ebau.claims.notificationTemplateId}/sendmail`,
-      {
-        method: "post",
-        body: JSON.stringify({
-          data: {
-            type: "notification-template-sendmails",
-            attributes: {
-              "recipient-types": ["leitbehoerde"]
-            },
-            relationships: {
-              instance: {
-                data: {
-                  type: "instances",
-                  id: this.instanceId
-                }
-              }
-            }
-          }
-        })
-      }
     );
   }
 }
