@@ -72,6 +72,9 @@ def filters(info):
     )
 
 
-def group(info):
-    """Extract group name from request."""
-    return info.context.META.get("HTTP_X_CAMAC_GROUP", None)
+def headers(info):
+    """Extract headers from request."""
+    return {
+        "x-camac-group": info.context.META.get("HTTP_X_CAMAC_GROUP", None),
+        "authorization": info.context.META.get("HTTP_AUTHORIZATION", None),
+    }
