@@ -19,8 +19,10 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
     ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+    ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+    ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
     ECH_SUBMIT,
     ECH_TASK,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
@@ -28,6 +30,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_SB1,
     INSTANCE_STATE_SB2,
     INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_ZIRKULATION,
@@ -49,7 +52,9 @@ from .models import Message
 from .signals import (
     accompanying_report_send,
     circulation_started,
+    finished,
     instance_submitted,
+    ruling,
     sb1_submitted,
     sb2_submitted,
     task_send,
@@ -183,6 +188,8 @@ class StatusNotificationEventHandler(BaseEventHandler):
             # send link to Zirkulation
             url = f"{settings.INTERNAL_BASE_URL}/circulation/edit/instance-resource-id/20004/instance-id/{self.instance.pk}"
             message_type = ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET
+        elif self.instance.instance_state.pk == INSTANCE_STATE_SB1:  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND
         elif self.instance.instance_state.pk == INSTANCE_STATE_SB2:  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND
         elif (
@@ -193,6 +200,10 @@ class StatusNotificationEventHandler(BaseEventHandler):
             self.instance.instance_state.pk == INSTANCE_STATE_FINISHED
         ):  # pragma: no cover
             message_type = ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN
+        elif (
+            self.instance.instance_state.pk == INSTANCE_STATE_REJECTED
+        ):  # pragma: no cover
+            message_type = ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN
 
         return url, message_type
 
@@ -408,6 +419,8 @@ def submit_callback(sender, instance, user_pk, group_pk, **kwargs):
 @receiver(sb1_submitted)
 @receiver(sb2_submitted)
 @receiver(circulation_started)
+@receiver(ruling)
+@receiver(finished)
 def send_status_notification(sender, instance, user_pk, group_pk, **kwargs):
     if settings.ECH_API:
         handler = StatusNotificationEventHandler(
