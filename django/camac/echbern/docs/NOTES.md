@@ -50,8 +50,6 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
-- `messageType` beinhaltet bei den von uns generierten Meldungen immer den Meldungstyp (`changeResponsibility`, `statusNotification`, etc). Bei empfangenen Meldungen wird das property ignoriert.
-
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
 - `documentStatusType` wird immer auf `signed` gesetzt.
@@ -66,13 +64,15 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
 
+- 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
+
+- 5.3.5 Rückzug des Baugesuchs: Diese Funktion ist nicht in eBau implementiert, darum kann diese Message nicht ausgeliefert werden.
+
 ## Message Typen
 
 ### GET
 
 {get_messages}
-
-Hinweis zu 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
 
 ### POST
 
