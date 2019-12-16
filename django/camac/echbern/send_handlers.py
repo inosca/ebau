@@ -7,6 +7,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
@@ -205,9 +206,12 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
-        return InstanceService.objects.filter(
-            instance=self.instance, active=True, service=self.group.service
-        ).exists()
+        return (
+            InstanceService.objects.filter(
+                instance=self.instance, active=True, service=self.group.service
+            ).exists()
+            and self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED
+        )
 
     def get_instance_id(self):
         return (
@@ -224,7 +228,6 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
             user_pk=self.user.pk,
             group_pk=self.group.pk,
         )
-        # TODO: Only allow if Status "abschluss ausstehend"
 
 
 class TaskSendHandler(BaseSendHandler):

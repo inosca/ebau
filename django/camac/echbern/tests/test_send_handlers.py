@@ -6,6 +6,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
@@ -147,11 +148,17 @@ def test_change_responsibility_send_handler(
 
 
 @pytest.mark.parametrize(
-    "requesting_service,success",
-    [("leitbehörde", True), ("baukontrolle", True), ("nobody", False)],
+    "requesting_service,state_pk,success",
+    [
+        ("leitbehörde", INSTANCE_STATE_TO_BE_FINISHED, True),
+        ("baukontrolle", INSTANCE_STATE_TO_BE_FINISHED, True),
+        ("leitbehörde", INSTANCE_STATE_KOORDINATION, False),
+        ("nobody", INSTANCE_STATE_TO_BE_FINISHED, False),
+    ],
 )
 def test_close_dossier_send_handler(
     requesting_service,
+    state_pk,
     success,
     ech_instance,
     admin_user,
@@ -163,6 +170,9 @@ def test_close_dossier_send_handler(
     inst_serv = instance_service_factory(
         instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
     )
+
+    ech_instance.instance_state = instance_state_factory(pk=state_pk)
+    ech_instance.save()
 
     group = admin_user.groups.first()
 
