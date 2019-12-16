@@ -2963,7 +2963,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bauprofile-bleiben-bis-bauentscheid-stehen",
-      "sort": 10
+      "sort": 11
     }
   },
   {
@@ -2976,6 +2976,19 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-generalvollmacht",
+      "sort": 2
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "7-bestaetigung.bestaetigung-gis",
+    "fields": {
+      "created_at": "2019-12-16T16:23:22.489Z",
+      "modified_at": "2019-12-16T16:23:22.489Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "7-bestaetigung",
+      "question": "bestaetigung-gis",
       "sort": 1
     }
   },
@@ -2989,7 +3002,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-liegenschaftsentwaesserung",
-      "sort": 4
+      "sort": 5
     }
   },
   {
@@ -3002,7 +3015,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "bestaetigung-mit-unterschrift",
-      "sort": 2
+      "sort": 3
     }
   },
   {
@@ -3015,7 +3028,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-asbestvorgaben",
-      "sort": 5
+      "sort": 6
     }
   },
   {
@@ -3028,7 +3041,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "einhaltung-radonvorgaben",
-      "sort": 6
+      "sort": 7
     }
   },
   {
@@ -3041,7 +3054,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "keine-rueckhiebe-oder-aushiebe",
-      "sort": 8
+      "sort": 9
     }
   },
   {
@@ -3054,7 +3067,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "keine-tangierung-natur-wild-vogelschutz",
-      "sort": 3
+      "sort": 4
     }
   },
   {
@@ -3067,7 +3080,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "verpflichtung-bei-handaenderung",
-      "sort": 7
+      "sort": 8
     }
   },
   {
@@ -3080,7 +3093,7 @@
       "created_by_group": null,
       "form": "7-bestaetigung",
       "question": "verzicht-schadensersatz-naturereignisse",
-      "sort": 9
+      "sort": 10
     }
   },
   {
@@ -3679,6 +3692,19 @@
       "form": "allgemeine-informationen-vorabklaerung",
       "question": "be-gid",
       "sort": 5
+    }
+  },
+  {
+    "model": "form.formquestion",
+    "pk": "allgemeine-informationen-vorabklaerung.bestaetigung-gis",
+    "fields": {
+      "created_at": "2019-12-16T16:28:26.501Z",
+      "modified_at": "2019-12-16T16:28:26.501Z",
+      "created_by_user": null,
+      "created_by_group": null,
+      "form": "allgemeine-informationen-vorabklaerung",
+      "question": "bestaetigung-gis",
+      "sort": 1
     }
   },
   {
@@ -15556,6 +15582,31 @@
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "configuration": {},
       "meta": { "hideLabel": true, "widgetOverride": null },
+      "data_source": null,
+      "row_form": null,
+      "sub_form": null,
+      "source": null,
+      "format_validators": "[]"
+    }
+  },
+  {
+    "model": "form.question",
+    "pk": "bestaetigung-gis",
+    "fields": {
+      "created_at": "2019-12-16T16:23:22.351Z",
+      "modified_at": "2019-12-17T14:02:20.078Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\"}",
+      "type": "multiple_choice",
+      "is_required": "true",
+      "is_hidden": "false",
+      "is_archived": false,
+      "placeholder": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
+      "static_content": "{\"de\": \"\", \"fr\": \"\"}",
+      "configuration": {},
+      "meta": { "hideLabel": true },
       "data_source": null,
       "row_form": null,
       "sub_form": null,
@@ -35560,6 +35611,19 @@
   },
   {
     "model": "form.questionoption",
+    "pk": "bestaetigung-gis.bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2019-12-17T14:02:20.088Z",
+      "modified_at": "2019-12-17T14:02:20.088Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "bestaetigung-gis",
+      "option": "bestaetigung-gis-ja",
+      "sort": 1
+    }
+  },
+  {
+    "model": "form.questionoption",
     "pk": "bestaetigung-hydrogeo-begleitung-dokument.bestaetigung-hydrogeo-begleitung-dokument-ja",
     "fields": {
       "created_at": "2019-05-23T07:52:23.271Z",
@@ -45472,6 +45536,20 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "created_by_group": "[]",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt mit seiner/ihrer Unterschrift die Generalvollmacht an Bevollm\\u00e4chtigte.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme pas sa signature le mandat g\\u00e9n\\u00e9ral accord\\u00e9 \\u00e0 son/sa repr\\u00e9sentant/e.\"}",
+      "is_archived": false,
+      "meta": {},
+      "source": null
+    }
+  },
+  {
+    "model": "form.option",
+    "pk": "bestaetigung-gis-ja",
+    "fields": {
+      "created_at": "2019-12-16T16:23:22.199Z",
+      "modified_at": "2019-12-17T14:02:19.835Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\"}",
       "is_archived": false,
       "meta": {},
       "source": null
