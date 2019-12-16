@@ -95,8 +95,7 @@ class CustomPermission(BasePermission):
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
-            f"{common.CAMAC_NG_URL}/api/v1/me",
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+            f"{common.CAMAC_NG_URL}/api/v1/me", headers=common.headers(info)
         )
 
         response.raise_for_status()
@@ -123,10 +122,7 @@ class CustomPermission(BasePermission):
 
         resp = requests.get(
             f"{common.CAMAC_NG_URL}/api/v1/instances/{instance_id}",
-            # forward group as filter
-            {"group": common.group(info)},
-            # Forward authorization header
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+            headers=common.headers(info),
         )
 
         resp.raise_for_status()

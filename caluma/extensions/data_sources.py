@@ -4,6 +4,8 @@ from caluma.data_source.utils import data_source_cache
 import os
 import requests
 
+from . import common
+
 camac_api = os.environ.get("CAMAC_NG_URL", "http://camac-ng.local").strip("/")
 
 SERVICE_GROUP_MUNICIPALITY = 2
@@ -17,7 +19,7 @@ class Municipalities(BaseDataSource):
     def get_data(self, info):
         response = requests.get(
             f"{camac_api}/api/v1/public-services?has_parent=0&service_group={SERVICE_GROUP_MUNICIPALITY}",
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+            headers=common.headers(info),
         )
 
         response.raise_for_status()
@@ -41,7 +43,7 @@ class Services(BaseDataSource):
     def get_data(self, info):
         response = requests.get(
             f"{camac_api}/api/v1/public-services?service_group={SERVICE_GROUP_SERVICE}",
-            headers={"Authorization": info.context.META.get("HTTP_AUTHORIZATION")},
+            headers=common.headers(info),
         )
 
         response.raise_for_status()
