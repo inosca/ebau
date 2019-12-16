@@ -92,20 +92,20 @@ def test_notice_ruling_send_handler(
     group.service = ech_instance.services.first()
     group.save()
 
-    dh = NoticeRulingSendHandler(
+    handler = NoticeRulingSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
         group=admin_user.groups.first(),
         auth_header=None,
     )
-    assert dh.has_permission() == has_permission
+    assert handler.has_permission() == has_permission
 
     if has_permission:
         expected_state = instance_state_factory(pk=expected_state_pk)
         mocker.patch.object(views, "get_authorization_header", return_value="token")
         requests_mock.post("http://caluma:8000/graphql/", json=document_form)
-        dh.apply()
+        handler.apply()
         ech_instance.refresh_from_db()
         assert ech_instance.instance_state == expected_state
         assert DocxDecision.objects.get(instance=ech_instance.pk)
@@ -128,13 +128,13 @@ def test_change_responsibility_send_handler(
 
     data = CreateFromDocument(xml_data("change_responsibility"))
 
-    dh = ChangeResponsibilitySendHandler(
+    handler = ChangeResponsibilitySendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if not fail:
-        dh.apply()
+        handler.apply()
         assert ech_instance.active_service == madiswil
         assert InstanceService.objects.get(
             instance=ech_instance, service=burgdorf, active=0
@@ -144,7 +144,7 @@ def test_change_responsibility_send_handler(
         )
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
 
 
 @pytest.mark.parametrize(
@@ -185,7 +185,7 @@ def test_close_dossier_send_handler(
 
     data = CreateFromDocument(xml_data("close_dossier"))
 
-    dh = CloseArchiveDossierSendHandler(
+    handler = CloseArchiveDossierSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
@@ -193,10 +193,10 @@ def test_close_dossier_send_handler(
         auth_header=None,
     )
 
-    assert dh.has_permission() is success
+    assert handler.has_permission() is success
 
     if success:
-        dh.apply()
+        handler.apply()
         ech_instance.refresh_from_db()
 
         assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
@@ -256,17 +256,17 @@ def test_task_send_handler(
 
     data = CreateFromDocument(xml)
 
-    dh = TaskSendHandler(
+    handler = TaskSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
         group=group,
         auth_header="Bearer: some token",
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if success:
-        dh.apply()
+        handler.apply()
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == service
@@ -283,7 +283,7 @@ def test_task_send_handler(
 
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
 
 
 def test_task_send_handler_no_permission(admin_user, ech_instance):
@@ -293,10 +293,10 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
 
     data = CreateFromDocument(xml_data("task"))
 
-    dh = TaskSendHandler(
+    handler = TaskSendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert dh.has_permission() is False
+    assert handler.has_permission() is False
 
 
 def test_notice_kind_of_proceedings_send_handler(
@@ -315,16 +315,16 @@ def test_notice_kind_of_proceedings_send_handler(
 
     data = CreateFromDocument(xml_data("kind_of_proceedings"))
 
-    dh = NoticeKindOfProceedingsSendHandler(
+    handler = NoticeKindOfProceedingsSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
         group=group,
         auth_header=None,
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
-    dh.apply()
+    handler.apply()
     assert Circulation.objects.count() == 1
     ech_instance.refresh_from_db()
     assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
@@ -381,7 +381,7 @@ def test_accompanying_report_send_handler(
 
     data = CreateFromDocument(xml_data("accompanying_report"))
 
-    dh = AccompanyingReportSendHandler(
+    handler = AccompanyingReportSendHandler(
         data=data,
         queryset=Instance.objects,
         user=user_group.user,
@@ -389,13 +389,13 @@ def test_accompanying_report_send_handler(
         auth_header=None,
     )
     if not has_activation:
-        assert dh.has_permission() is False
+        assert handler.has_permission() is False
         return
 
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if has_attachment:
-        dh.apply()
+        handler.apply()
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
@@ -407,4 +407,4 @@ def test_accompanying_report_send_handler(
 
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
