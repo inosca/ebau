@@ -3,7 +3,7 @@
   <ns1:deliveryHeader>
     <ns2:senderId>https://ebau.apps.be.ch</ns2:senderId>
     <ns2:messageId>25a2aca8-fa4b-41bc-a494-9151db3b34f7</ns2:messageId>
-    <ns2:messageType>5200034</ns2:messageType>
+    <ns2:messageType>5200037</ns2:messageType>
     <ns2:sendingApplication>
       <ns2:manufacturer>Adfinis Sygroup AG</ns2:manufacturer>
       <ns2:product>camac</ns2:product>
@@ -29,6 +29,6 @@
       <ns1:dossierIdentification>2323</ns1:dossierIdentification>
     </ns1:planningPermissionApplicationIdentification>
     <ns1:status>status</ns1:status>
-    <ns1:remark>In Koordination</ns1:remark>
+    <ns1:remark>Zurückgewiesen</ns1:remark>
   </ns1:eventStatusNotification>
 </ns1:delivery>

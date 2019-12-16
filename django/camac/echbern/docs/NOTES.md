@@ -72,6 +72,8 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 {get_messages}
 
+Hinweis zu 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
+
 ### POST
 
 {post_messages}

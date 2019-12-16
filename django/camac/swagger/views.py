@@ -14,8 +14,10 @@ from camac.constants.kt_bern import (
     ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_EBAU_NR_VERGEBEN,
     ECH_STATUS_NOTIFICATION_PRUEFUNG_ABGESCHLOSSEN,
+    ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
     ECH_STATUS_NOTIFICATION_ZIRKULATION_GESTARTET,
+    ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
     ECH_SUBMIT,
     ECH_TASK,
     ECH_WITHDRAW_PLANNING_PERMISSION_APPLICATION,
@@ -110,6 +112,13 @@ GET_TABLE_DATA = [
     ],
     [
         "StatusNotification",
+        "Selbstdeklaration 1 ausstehend melden",
+        "4.1",
+        ECH_STATUS_NOTIFICATION_SB1_AUSSTEHEND,
+        f"[status_notification_sebstdeklaration_1_ausstehend]({static('xml/get/status_notification_sebstdeklaration_1_ausstehend.xml')})",
+    ],
+    [
+        "StatusNotification",
         "Selbstdeklaration 2 ausstehend melden",
         "4.1",
         ECH_STATUS_NOTIFICATION_SB2_AUSSTEHEND,
@@ -120,14 +129,21 @@ GET_TABLE_DATA = [
         "Abschluss ausstehend melden",
         "4.1",
         ECH_STATUS_NOTIFICATION_ABSCHLUSS_AUSSTEHEND,
-        f"[status_notification_abschluss_ausstehend_melden]({static('xml/get/status_notification_abschluss_ausstehend_melden.xml')})",
+        f"[status_notification_abschluss_ausstehend]({static('xml/get/status_notification_abschluss_ausstehend.xml')})",
     ],
     [
         "StatusNotification",
         "Abgeschlossen melden",
         "4.2",
         ECH_STATUS_NOTIFICATION_ABGESCHLOSSEN,
-        f"[status_notification_abgeschlossen_melden]({static('xml/get/status_notification_abgeschlossen_melden.xml')})",
+        f"[status_notification_abgeschlossen]({static('xml/get/status_notification_abgeschlossen.xml')})",
+    ],
+    [
+        "StatusNotification",
+        "Zurückgewiesen melden",
+        "3.1",
+        ECH_STATUS_NOTIFICATION_ZURUECKGEWIESEN,
+        f"[status_notification_zurueckgewiesen]({static('xml/get/status_notification_zurückgewiesen.xml')})",
     ],
 ]
 
