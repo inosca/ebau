@@ -5,15 +5,24 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
+    INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
     NOTICE_TYPE_STELLUNGNAHME,
 )
-from camac.core.models import Activation, Circulation, InstanceService, Notice
+from camac.core.models import (
+    Activation,
+    Circulation,
+    DocxDecision,
+    InstanceService,
+    Notice,
+)
 from camac.echbern.tests.utils import xml_data
 from camac.instance.models import Instance
 
+from .. import views
 from ..models import Message
 from ..schema.ech_0211_2_0 import CreateFromDocument
 from ..send_handlers import (
@@ -26,6 +35,7 @@ from ..send_handlers import (
     TaskSendHandler,
     resolve_send_handler,
 )
+from .caluma_responses import document_form
 
 
 @pytest.mark.parametrize(
@@ -51,21 +61,24 @@ def test_resolve_send_handler(xml_file, expected_send_handler):
 
 
 @pytest.mark.parametrize(
-    "judgement,instance_state_pk,has_permission",
+    "judgement,instance_state_pk,has_permission,expected_state_pk",
     [
-        (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True),
-        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False),
-        (1, INSTANCE_STATE_KOORDINATION, True),
-        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False),
+        (4, INSTANCE_STATE_DOSSIERPRUEFUNG, True, INSTANCE_STATE_REJECTED),
+        (3, INSTANCE_STATE_DOSSIERPRUEFUNG, False, None),
+        (1, INSTANCE_STATE_KOORDINATION, True, INSTANCE_STATE_FINISHED),
+        (4, INSTANCE_STATE_EBAU_NUMMER_VERGEBEN, False, None),
     ],
 )
-def test_ruling_notice_permissions(
+def test_notice_ruling_send_handler(
     judgement,
     instance_state_pk,
     has_permission,
+    expected_state_pk,
     admin_user,
     ech_instance,
     instance_state_factory,
+    mocker,
+    requests_mock,
 ):
     data = CreateFromDocument(xml_data("notice_ruling"))
 
@@ -79,14 +92,25 @@ def test_ruling_notice_permissions(
     group.service = ech_instance.services.first()
     group.save()
 
-    dh = NoticeRulingSendHandler(
+    handler = NoticeRulingSendHandler(
         data=data,
         queryset=Instance.objects,
-        user=None,
+        user=admin_user,
         group=admin_user.groups.first(),
         auth_header=None,
     )
-    assert dh.has_permission() == has_permission
+    assert handler.has_permission() == has_permission
+
+    if has_permission:
+        expected_state = instance_state_factory(pk=expected_state_pk)
+        mocker.patch.object(views, "get_authorization_header", return_value="token")
+        requests_mock.post("http://caluma:8000/graphql/", json=document_form)
+        handler.apply()
+        ech_instance.refresh_from_db()
+        assert ech_instance.instance_state == expected_state
+        assert DocxDecision.objects.get(instance=ech_instance.pk)
+        assert Message.objects.count() == 1
+        assert Message.objects.first().receiver == group.service
 
 
 @pytest.mark.parametrize("fail", [False, True])
@@ -104,13 +128,13 @@ def test_change_responsibility_send_handler(
 
     data = CreateFromDocument(xml_data("change_responsibility"))
 
-    dh = ChangeResponsibilitySendHandler(
+    handler = ChangeResponsibilitySendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if not fail:
-        dh.apply()
+        handler.apply()
         assert ech_instance.active_service == madiswil
         assert InstanceService.objects.get(
             instance=ech_instance, service=burgdorf, active=0
@@ -120,15 +144,21 @@ def test_change_responsibility_send_handler(
         )
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
 
 
 @pytest.mark.parametrize(
-    "requesting_service,success",
-    [("leitbehörde", True), ("baukontrolle", True), ("nobody", False)],
+    "requesting_service,state_pk,success",
+    [
+        ("leitbehörde", INSTANCE_STATE_TO_BE_FINISHED, True),
+        ("baukontrolle", INSTANCE_STATE_TO_BE_FINISHED, True),
+        ("leitbehörde", INSTANCE_STATE_KOORDINATION, False),
+        ("nobody", INSTANCE_STATE_TO_BE_FINISHED, False),
+    ],
 )
 def test_close_dossier_send_handler(
     requesting_service,
+    state_pk,
     success,
     ech_instance,
     admin_user,
@@ -141,6 +171,9 @@ def test_close_dossier_send_handler(
         instance=ech_instance, service__name="Baukontrolle Burgdorf", active=1
     )
 
+    ech_instance.instance_state = instance_state_factory(pk=state_pk)
+    ech_instance.save()
+
     group = admin_user.groups.first()
 
     if requesting_service == "leitbehörde":
@@ -152,17 +185,23 @@ def test_close_dossier_send_handler(
 
     data = CreateFromDocument(xml_data("close_dossier"))
 
-    dh = CloseArchiveDossierSendHandler(
-        data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
+    handler = CloseArchiveDossierSendHandler(
+        data=data,
+        queryset=Instance.objects,
+        user=admin_user,
+        group=group,
+        auth_header=None,
     )
 
-    assert dh.has_permission() is success
+    assert handler.has_permission() is success
 
     if success:
-        dh.apply()
+        handler.apply()
         ech_instance.refresh_from_db()
 
         assert ech_instance.instance_state.pk == INSTANCE_STATE_FINISHED
+        assert Message.objects.count() == 1
+        assert Message.objects.first().receiver == ech_instance.active_service
 
 
 @pytest.mark.parametrize(
@@ -217,17 +256,17 @@ def test_task_send_handler(
 
     data = CreateFromDocument(xml)
 
-    dh = TaskSendHandler(
+    handler = TaskSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
         group=group,
         auth_header="Bearer: some token",
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if success:
-        dh.apply()
+        handler.apply()
         assert Message.objects.count() == 1
         message = Message.objects.first()
         assert message.receiver == service
@@ -244,7 +283,7 @@ def test_task_send_handler(
 
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
 
 
 def test_task_send_handler_no_permission(admin_user, ech_instance):
@@ -254,10 +293,10 @@ def test_task_send_handler_no_permission(admin_user, ech_instance):
 
     data = CreateFromDocument(xml_data("task"))
 
-    dh = TaskSendHandler(
+    handler = TaskSendHandler(
         data=data, queryset=Instance.objects, user=None, group=group, auth_header=None
     )
-    assert dh.has_permission() is False
+    assert handler.has_permission() is False
 
 
 def test_notice_kind_of_proceedings_send_handler(
@@ -276,16 +315,16 @@ def test_notice_kind_of_proceedings_send_handler(
 
     data = CreateFromDocument(xml_data("kind_of_proceedings"))
 
-    dh = NoticeKindOfProceedingsSendHandler(
+    handler = NoticeKindOfProceedingsSendHandler(
         data=data,
         queryset=Instance.objects,
         user=admin_user,
         group=group,
         auth_header=None,
     )
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
-    dh.apply()
+    handler.apply()
     assert Circulation.objects.count() == 1
     ech_instance.refresh_from_db()
     assert ech_instance.instance_state.pk == INSTANCE_STATE_ZIRKULATION
@@ -342,7 +381,7 @@ def test_accompanying_report_send_handler(
 
     data = CreateFromDocument(xml_data("accompanying_report"))
 
-    dh = AccompanyingReportSendHandler(
+    handler = AccompanyingReportSendHandler(
         data=data,
         queryset=Instance.objects,
         user=user_group.user,
@@ -350,13 +389,13 @@ def test_accompanying_report_send_handler(
         auth_header=None,
     )
     if not has_activation:
-        assert dh.has_permission() is False
+        assert handler.has_permission() is False
         return
 
-    assert dh.has_permission() is True
+    assert handler.has_permission() is True
 
     if has_attachment:
-        dh.apply()
+        handler.apply()
 
         assert Message.objects.count() == 1
         message = Message.objects.first()
@@ -368,4 +407,4 @@ def test_accompanying_report_send_handler(
 
     else:
         with pytest.raises(SendHandlerException):
-            dh.apply()
+            handler.apply()
