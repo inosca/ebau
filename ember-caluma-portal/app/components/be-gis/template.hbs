@@ -50,6 +50,8 @@ as |Modal|>
         </li>
       {{/each}}
     </ul>
+
+    <CfField @field={{confirmField}} />
   </Modal.body>
 
   <Modal.footer class="uk-text-right">
@@ -60,6 +62,7 @@ as |Modal|>
     <UkButton
       @color="primary"
       @label={{t "gis.additional.yes"}}
+      @disabled={{confirmFieldUnchecked}}
       @loading={{saveAdditionalData.isRunning}}
       @on-click={{perform saveAdditionalData}}
     />
