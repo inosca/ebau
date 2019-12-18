@@ -2,6 +2,7 @@ import inspect
 import logging
 
 import pytest
+from caluma.core.faker import MultilangProvider
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
@@ -39,7 +40,11 @@ register_module(applicant_factories)
 register_module(responsible_factories)
 register_module(ech_factories)
 
-
+# TODO: Somehow the ordering of those two calls is relevant.
+# Need to figure out why exactly (FreezegunAwareDatetimeProvider's
+# methods aren't invoked if it's added first). This is some weird
+# bug that I couldn't track down yet.
+Faker.add_provider(MultilangProvider)
 Faker.add_provider(FreezegunAwareDatetimeProvider)
 
 
