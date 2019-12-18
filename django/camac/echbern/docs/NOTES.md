@@ -27,6 +27,27 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Aut
 curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
 ```
 
+## Group Parameter
+
+Bei den meisten Endpunkten, lässt sich über den `group` Parameter angeben, im Namen welcher Gruppe ein Request gemacht werden soll.
+
+Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden.
+
+### Beispiel
+
+ - Gemeinde client `A` hat als Standardgruppe `Leitung Leitbehörde Gemeinde A`
+ - Zusätzlich besteht noch eine Mitgliedschaft in der Gruppe `Leitung Baukontrolle Gemeinde A`
+ - Requests mit dem client dieser Gemeinde werden standardmässig im Namen der Gruppe `Leitung Leitbehörde Gemeinde A` gemacht
+ - Sollen nun beispielsweise Meldungen für die Gruppe `Leitung Baukontrolle Gemeinde A` abgeholt werden, muss der `group` Parameter entsprechend gesetzt werden
+
+### Abfragen von Gruppen IDs
+
+Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrage von Gruppenmitgliedschaften und -IDs ermöglichen:
+
+ - [/me](#/User/api_v1_me_read) zeigt Informationen zum aktuellen User, inklusive Gruppenmitgliedschaften, an
+ - [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
+ - [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
+
 ## Abweichungen und Besonderheiten
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
