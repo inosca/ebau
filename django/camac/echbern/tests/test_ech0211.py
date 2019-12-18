@@ -2,6 +2,7 @@ import os.path
 
 import xmlschema
 
+from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.echbern import formatters
 
 
@@ -9,6 +10,7 @@ def test_generate_delivery(ech_mandatory_answers_einfache_vorabklaerung, ech_ins
     xml_data = formatters.delivery(
         ech_instance,
         ech_mandatory_answers_einfache_vorabklaerung,
+        ECH_BASE_DELIVERY,
         eventBaseDelivery=formatters.base_delivery(
             ech_instance, ech_mandatory_answers_einfache_vorabklaerung
         ),
