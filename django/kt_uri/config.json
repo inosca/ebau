@@ -44518,9 +44518,9 @@
   },
   {
     "fields": {
-      "class_field": "",
+      "class_field": null,
       "field_name": "sanction",
-      "label": "Pendenzen AC",
+      "label": "Auflagen nach Erfasser",
       "query": "(? = 0 OR \"SANCTION\".\"SERVICE_ID\" = ?) AND \"SANCTION\".\"IS_FINISHED\" = 0",
       "question": null,
       "resource": 311,
@@ -44611,7 +44611,7 @@
     "fields": {
       "class_field": null,
       "field_name": "sanctionControlInstance",
-      "label": "Auflagen Kontrollinstanz",
+      "label": "Auflagen nach Kontrollinstanz",
       "query": "\"SANCTION_CONTROL_INSTANCE\".\"SERVICE_ID\" = ?",
       "question": null,
       "resource": 311,
