@@ -472,6 +472,7 @@ ECH_API = env.bool("ECH_API", default=ENV != "production")
 # Swagger settings
 SWAGGER_SETTINGS = {
     "USE_SESSION_AUTH": False,
+    "DEEP_LINKING": True,
     "SECURITY_DEFINITIONS": {
         "oauth2": {
             "type": "oauth2",
