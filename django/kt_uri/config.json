@@ -37827,6 +37827,33 @@
   },
   {
     "fields": {
+      "instance_resource": 3,
+      "instance_state": 21,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 994
+  },
+  {
+    "fields": {
+      "instance_resource": 3,
+      "instance_state": 32,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 995
+  },
+  {
+    "fields": {
+      "instance_resource": 46,
+      "instance_state": 32,
+      "role": 7
+    },
+    "model": "core.irroleacl",
+    "pk": 996
+  },
+  {
+    "fields": {
       "instance_resource": 744,
       "instance_state": 21,
       "service": 261
@@ -44518,9 +44545,9 @@
   },
   {
     "fields": {
-      "class_field": "",
+      "class_field": null,
       "field_name": "sanction",
-      "label": "Pendenzen AC",
+      "label": "Auflagen nach Erfasser",
       "query": "(? = 0 OR \"SANCTION\".\"SERVICE_ID\" = ?) AND \"SANCTION\".\"IS_FINISHED\" = 0",
       "question": null,
       "resource": 311,
@@ -44611,7 +44638,7 @@
     "fields": {
       "class_field": null,
       "field_name": "sanctionControlInstance",
-      "label": "Auflagen Kontrollinstanz",
+      "label": "Auflagen nach Kontrollinstanz",
       "query": "\"SANCTION_CONTROL_INSTANCE\".\"SERVICE_ID\" = ?",
       "question": null,
       "resource": 311,
