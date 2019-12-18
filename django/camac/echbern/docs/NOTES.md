@@ -6,7 +6,7 @@ Zur Authentifizierung wird der Standard [OpenID Connect](https://openid.net/conn
 
 ```bash
 curl --request POST \
---url 'https://ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
+--url 'https://portal.ebau-test.sycloud.ch/auth/realms/camac/protocol/openid-connect/token' \
 --header 'content-type: application/x-www-form-urlencoded' \
 --data grant_type=client_credentials \
 --data client_id='${client-id}' \
@@ -26,6 +26,27 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/applications?group=123" -H "Aut
 ```bash
 curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "Authorization: Bearer ${TOKEN}"
 ```
+
+## Group Parameter
+
+Bei den meisten Endpunkten, lässt sich über den `group` Parameter angeben, im Namen welcher Gruppe ein Request gemacht werden soll.
+
+Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden.
+
+### Beispiel
+
+ - Gemeinde client `A` hat als Standardgruppe `Leitung Leitbehörde Gemeinde A`
+ - Zusätzlich besteht noch eine Mitgliedschaft in der Gruppe `Leitung Baukontrolle Gemeinde A`
+ - Requests mit dem client dieser Gemeinde werden standardmässig im Namen der Gruppe `Leitung Leitbehörde Gemeinde A` gemacht
+ - Sollen nun beispielsweise Meldungen für die Gruppe `Leitung Baukontrolle Gemeinde A` abgeholt werden, muss der `group` Parameter entsprechend gesetzt werden
+
+### Abfragen von Gruppen IDs
+
+Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrage von Gruppenmitgliedschaften und -IDs ermöglichen:
+
+ - [/me](#/User/api_v1_me_read) zeigt Informationen zum aktuellen User, inklusive Gruppenmitgliedschaften, an
+ - [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
+ - [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
 
 ## Abweichungen und Besonderheiten
 
@@ -50,8 +71,6 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - In einer `application` wird immer der Status `6701` gesetzt. Der korrekte Status aus dem eBau findet sich unter `namedMetaData.status`. Bei einer `statusNotification` wird immer der Status `in progress` gesetzt. Der korrekte Status findet sich im `remark`.
 
-- `messageType` beinhaltet bei den von uns generierten Meldungen immer den Meldungstyp (`changeResponsibility`, `statusNotification`, etc). Bei empfangenen Meldungen wird das property ignoriert.
-
 - `buildingCategory` wird immer auf `1040` gesetzt.
 
 - `documentStatusType` wird immer auf `signed` gesetzt.
@@ -66,7 +85,11 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 - Relevante URLs finden sich in den Meldungen im `HeaderType` unter `extension`.
 
-## Messages
+- 4.2 Bauverfahren abschliessen: Bei Voranfragen wird der Prozess mit einem Entscheid (bzw. fachlich einer Beurteilung) abgeschlossen. "close dossier" hat entgegen der Spezifikation für Voranfragen also keine Bedeutung. Stattdessen wird der Prozess mit "notice ruling" abgeschlossen (siehe Kap. 3.2).
+
+- 5.3.5 Rückzug des Baugesuchs: Diese Funktion ist nicht in eBau implementiert, darum kann diese Message nicht ausgeliefert werden.
+
+## Message Typen
 
 ### GET
 
