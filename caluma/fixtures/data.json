@@ -149,6 +149,22 @@
   },
   {
     "model": "form.answer",
+    "pk": "115ad01e-78b2-4b45-a8ef-17ba8f67a2a7",
+    "fields": {
+      "created_at": "2019-12-18T14:20:16.528Z",
+      "modified_at": "2019-12-18T14:20:16.528Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "bestaetigung-gis",
+      "value": ["bestaetigung-gis-ja"],
+      "meta": {},
+      "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
     "pk": "11badb9b-18e2-4b3a-a37c-50426dc02267",
     "fields": {
       "created_at": "2019-07-04T06:44:43.119Z",
@@ -319,6 +335,22 @@
       "value": "Max",
       "meta": {},
       "document": "4fa101d2-d6fb-4f29-a1ab-c89eacb4fa0b",
+      "date": null,
+      "file": null
+    }
+  },
+  {
+    "model": "form.answer",
+    "pk": "386f82a4-7f31-4518-b699-dcaefd3e6c9c",
+    "fields": {
+      "created_at": "2019-12-18T14:23:52.637Z",
+      "modified_at": "2019-12-18T14:23:52.637Z",
+      "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
+      "created_by_group": null,
+      "question": "bestaetigung-gis",
+      "value": ["bestaetigung-gis-ja"],
+      "meta": {},
+      "document": "d6bc70b6-8598-4dda-8ae8-078280a34fc5",
       "date": null,
       "file": null
     }
