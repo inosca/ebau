@@ -502,6 +502,8 @@ class NotificationTemplateSendmailSerializer(
 
         instance = validated_data["instance"]
 
+        result = 0
+
         for recipient_type in sorted(validated_data["recipient_types"]):
             recipients = getattr(self, "_get_recipients_%s" % recipient_type)(instance)
             subject = subj_prefix + validated_data["subject"]
@@ -520,7 +522,7 @@ class NotificationTemplateSendmailSerializer(
                     },
                 )
 
-                result = email.send()
+                result += email.send()
 
                 request_logger.info(
                     f'Sent email "{subject}" to {self._recipient_log(recipient)}'
