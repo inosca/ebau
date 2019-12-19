@@ -31,7 +31,7 @@ curl -X GET "https://ebau-test.sycloud.ch/ech/v1/application/XYZ?group=123" -H "
 
 Bei den meisten Endpunkten, lässt sich über den `group` Parameter angeben, im Namen welcher Gruppe ein Request gemacht werden soll.
 
-Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden.
+Dies ist notwendig, um die verschiedenen Stellen innerhalb einer Gemeinde zu unterscheiden. Alle Meldungen nach Erteilung eines positiven Bauentscheids werden an die Baukontrolle adressiert.
 
 ### Beispiel
 
