@@ -118592,7 +118592,7 @@
       "description": null,
       "hidden": 0,
       "name": null,
-      "sort": 6,
+      "sort": 5,
       "template": null
     },
     "model": "core.resource",
@@ -118642,9 +118642,9 @@
       "available_resource": "documentmergeservice",
       "class_field": null,
       "description": null,
-      "hidden": 1,
+      "hidden": 0,
       "name": null,
-      "sort": 8,
+      "sort": 6,
       "template": null
     },
     "model": "core.resource",
@@ -118713,7 +118713,7 @@
     "fields": {
       "description": null,
       "language": "de",
-      "name": "Administration",
+      "name": "Berechtigungen",
       "resource": 20005
     },
     "model": "core.resourcet",
@@ -118753,7 +118753,7 @@
     "fields": {
       "description": null,
       "language": "de",
-      "name": "Vorlagenverwaltung",
+      "name": "Vorlagen",
       "resource": 20009
     },
     "model": "core.resourcet",
@@ -118803,7 +118803,7 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Administration",
+      "name": "Droits d'acc\u00e8s",
       "resource": 20005
     },
     "model": "core.resourcet",
@@ -118863,7 +118863,7 @@
     "fields": {
       "description": null,
       "language": "fr",
-      "name": "Gestion des mod\u00e8les",
+      "name": "Mod\u00e8les",
       "resource": 20009
     },
     "model": "core.resourcet",
