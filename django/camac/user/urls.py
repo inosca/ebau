@@ -12,6 +12,6 @@ r.register(r"services", views.ServiceView)
 r.register(r"public-services", views.PublicServiceView, basename="publicservice")
 r.register(r"users", views.UserView)
 
-urlpatterns = [url(r"^me", views.MeView.as_view(), name="me")]
+urlpatterns = [url(r"^me", views.MeView.as_view({"get": "retrieve"}), name="me")]
 
 urlpatterns.extend(r.urls)

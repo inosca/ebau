@@ -472,6 +472,7 @@ ECH_API = env.bool("ECH_API", default=ENV != "production")
 # Swagger settings
 SWAGGER_SETTINGS = {
     "USE_SESSION_AUTH": False,
+    "DEEP_LINKING": True,
     "SECURITY_DEFINITIONS": {
         "oauth2": {
             "type": "oauth2",
@@ -482,11 +483,11 @@ SWAGGER_SETTINGS = {
         }
     },
     "DEFAULT_PAGINATOR_INSPECTORS": [
-        "camac.swagger.DjangoRestJsonApiResponsePagination",
+        "camac.swagger.schema.DjangoRestJsonApiResponsePagination",
         "drf_yasg.inspectors.CoreAPICompatInspector",
     ],
     "DEFAULT_FIELD_INSPECTORS": [
-        "camac.swagger.ModelSerializerInspector",
+        "camac.swagger.schema.ModelSerializerInspector",
         "drf_yasg.inspectors.CamelCaseJSONFilter",
         "drf_yasg.inspectors.ReferencingSerializerInspector",
         "drf_yasg.inspectors.RelatedFieldInspector",

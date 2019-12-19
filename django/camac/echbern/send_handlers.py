@@ -7,6 +7,7 @@ from camac.constants.kt_bern import (
     INSTANCE_STATE_FINISHED,
     INSTANCE_STATE_KOORDINATION,
     INSTANCE_STATE_REJECTED,
+    INSTANCE_STATE_TO_BE_FINISHED,
     INSTANCE_STATE_VERFAHRENSPROGRAMM_INIT,
     INSTANCE_STATE_ZIRKULATION,
     NOTICE_TYPE_NEBENBESTIMMUNG,
@@ -27,7 +28,13 @@ from camac.instance.models import Instance, InstanceState
 from camac.user.models import Service
 
 from .data_preparation import get_form_slug
-from .signals import accompanying_report_send, circulation_started, task_send
+from .signals import (
+    accompanying_report_send,
+    circulation_started,
+    finished,
+    ruling,
+    task_send,
+)
 
 
 class SendHandlerException(Exception):
@@ -67,12 +74,8 @@ class NoticeRulingSendHandler(BaseSendHandler):
         if not super().has_permission():
             return False
         if self.instance.instance_state.pk == INSTANCE_STATE_DOSSIERPRUEFUNG:
-            if self.data.eventNotice.decisionRuling.judgement == 4:
-                return True
-            return False
-        if not self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION:
-            return False
-        return True
+            return self.data.eventNotice.decisionRuling.judgement == 4
+        return self.instance.instance_state.pk == INSTANCE_STATE_KOORDINATION
 
     def apply(self):
         status = {
@@ -103,6 +106,12 @@ class NoticeRulingSendHandler(BaseSendHandler):
             instance=self.instance.pk,
             decision=decision,
             decision_date=self.data.eventNotice.decisionRuling.date,
+        )
+        ruling.send(
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.user.pk,
+            group_pk=self.group.pk,
         )
 
 
@@ -197,9 +206,12 @@ class AccompanyingReportSendHandler(BaseSendHandler):
 
 class CloseArchiveDossierSendHandler(BaseSendHandler):
     def has_permission(self):
-        return InstanceService.objects.filter(
-            instance=self.instance, active=True, service=self.group.service
-        ).exists()
+        return (
+            InstanceService.objects.filter(
+                instance=self.instance, active=True, service=self.group.service
+            ).exists()
+            and self.instance.instance_state.pk == INSTANCE_STATE_TO_BE_FINISHED
+        )
 
     def get_instance_id(self):
         return (
@@ -210,6 +222,12 @@ class CloseArchiveDossierSendHandler(BaseSendHandler):
         state = InstanceState.objects.get(pk=INSTANCE_STATE_FINISHED)
         self.instance.instance_state = state
         self.instance.save()
+        finished.send(
+            sender=self.__class__,
+            instance=self.instance,
+            user_pk=self.user.pk,
+            group_pk=self.group.pk,
+        )
 
 
 class TaskSendHandler(BaseSendHandler):
