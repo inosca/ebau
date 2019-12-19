@@ -17,9 +17,9 @@ class Command(BaseCommand):
         parser.add_argument(
             "-s",
             "--source",
-            type=int,
+            type=str,
             dest="source",
-            help="Source service PK",
+            help="Source service PKs (comma-separated)",
             required=True,
         )
         parser.add_argument(
@@ -37,6 +37,14 @@ class Command(BaseCommand):
             dest="exec",
             action="store_true",
             help="Directly execute the query instead of just printing it",
+        )
+        parser.add_argument(
+            "-d",
+            "--disable",
+            default=False,
+            dest="disable",
+            action="store_true",
+            help="Disable 'source' services",
         )
 
     @staticmethod
@@ -73,11 +81,23 @@ class Command(BaseCommand):
         return [(table, cols) for table, cols in data if table not in config_tables]
 
     def handle(self, *args, **options):
-        for table, columns in self._filter(self._get_all_service_foreign_keys()):
-            for column in columns.split(";"):
-                self.queries.append(
-                    self._get_query(table, column, options["source"], options["target"])
-                )
+        sources = options["source"].split(",")
+        for source in sources:
+            self.queries.append(f'\n-- source: {source}, target: {options["target"]}')
+            for table, columns in self._filter(self._get_all_service_foreign_keys()):
+                for column in columns.split(";"):
+                    self.queries.append(
+                        self._get_query(table, column, source, options["target"])
+                    )
+
+        if options["disable"]:
+            self.queries.append("\n-- disable old services and groups")
+            self.queries.append(
+                f'UPDATE "SERVICE" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
+            )
+            self.queries.append(
+                f'UPDATE "GROUP" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
+            )
 
         queries = "\n".join(self.queries)
 

@@ -5,6 +5,7 @@ import pytest
 import xmlschema
 from pyxb import IncompleteElementContentError, UnprocessedElementContentError
 
+from camac.constants.kt_bern import ECH_BASE_DELIVERY
 from camac.echbern import formatters
 
 logger = logging.getLogger(__name__)
@@ -31,6 +32,7 @@ def test_base_delivery(
     xml = formatters.delivery(
         ech_instance,
         ech_mandatory_answers,
+        ECH_BASE_DELIVERY,
         eventBaseDelivery=formatters.base_delivery(ech_instance, ech_mandatory_answers),
     )
 
