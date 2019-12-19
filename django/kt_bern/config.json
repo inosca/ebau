@@ -118913,30 +118913,6 @@
   },
   {
     "fields": {
-      "resource": 20005,
-      "role": 3
-    },
-    "model": "core.rroleacl",
-    "pk": 20012
-  },
-  {
-    "fields": {
-      "resource": 20005,
-      "role": 5
-    },
-    "model": "core.rroleacl",
-    "pk": 20013
-  },
-  {
-    "fields": {
-      "resource": 20005,
-      "role": 4
-    },
-    "model": "core.rroleacl",
-    "pk": 20014
-  },
-  {
-    "fields": {
       "resource": 20006,
       "role": 3
     },
@@ -118990,22 +118966,6 @@
     },
     "model": "core.rroleacl",
     "pk": 20021
-  },
-  {
-    "fields": {
-      "resource": 20009,
-      "role": 3
-    },
-    "model": "core.rroleacl",
-    "pk": 20022
-  },
-  {
-    "fields": {
-      "resource": 20009,
-      "role": 4
-    },
-    "model": "core.rroleacl",
-    "pk": 20023
   },
   {
     "fields": {
@@ -119158,6 +119118,46 @@
     },
     "model": "core.rroleacl",
     "pk": 150011
+  },
+  {
+    "fields": {
+      "resource": 20005,
+      "role": 20009
+    },
+    "model": "core.rroleacl",
+    "pk": 150012
+  },
+  {
+    "fields": {
+      "resource": 20005,
+      "role": 20008
+    },
+    "model": "core.rroleacl",
+    "pk": 150013
+  },
+  {
+    "fields": {
+      "resource": 20005,
+      "role": 20007
+    },
+    "model": "core.rroleacl",
+    "pk": 150014
+  },
+  {
+    "fields": {
+      "resource": 20009,
+      "role": 20008
+    },
+    "model": "core.rroleacl",
+    "pk": 150015
+  },
+  {
+    "fields": {
+      "resource": 20009,
+      "role": 20007
+    },
+    "model": "core.rroleacl",
+    "pk": 150016
   },
   {
     "fields": {
@@ -147270,6 +147270,30 @@
   },
   {
     "fields": {
+      "name": null,
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 20007
+  },
+  {
+    "fields": {
+      "name": null,
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 20008
+  },
+  {
+    "fields": {
+      "name": null,
+      "role_parent": null
+    },
+    "model": "user.role",
+    "pk": 20009
+  },
+  {
+    "fields": {
       "language": "de",
       "name": "Admin",
       "role": 1
@@ -147537,6 +147561,60 @@
     },
     "model": "user.rolet",
     "pk": 20020
+  },
+  {
+    "fields": {
+      "language": "de",
+      "name": "Administration Leitbeh\u00f6rde",
+      "role": 20007
+    },
+    "model": "user.rolet",
+    "pk": 20021
+  },
+  {
+    "fields": {
+      "language": "de",
+      "name": "Administration Fachstelle",
+      "role": 20008
+    },
+    "model": "user.rolet",
+    "pk": 20022
+  },
+  {
+    "fields": {
+      "language": "de",
+      "name": "Administration Baukontrolle",
+      "role": 20009
+    },
+    "model": "user.rolet",
+    "pk": 20023
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Administration: contrôle des constructions",
+      "role": 20009
+    },
+    "model": "user.rolet",
+    "pk": 20024
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Administration: service",
+      "role": 20008
+    },
+    "model": "user.rolet",
+    "pk": 20025
+  },
+  {
+    "fields": {
+      "language": "fr",
+      "name": "Administration: autorité directrice",
+      "role": 20007
+    },
+    "model": "user.rolet",
+    "pk": 20026
   },
   {
     "fields": {
