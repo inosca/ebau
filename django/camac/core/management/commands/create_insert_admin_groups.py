@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from camac.user.models import Service, Role, Group, User
-
+from camac.user.models import Group, Role, Service, User
 
 ADMIN_ROLE_MAPPING = {
     # service group: admin role
