@@ -65,10 +65,13 @@ export default Component.extend({
   }),
 
   allVisibleTags: computed(
-    "fieldset.fields.@each.{hidden,isNew,questionType}",
+    "fieldset.fields.@each.{hidden,value,questionType}",
     function() {
       return this.fieldset.fields.filter(
-        f => !f.hidden && f.isNew && f.questionType === "MultipleChoiceQuestion"
+        f =>
+          !f.hidden &&
+          (!f.value || !f.value.length) &&
+          f.questionType === "MultipleChoiceQuestion"
       );
     }
   ),
@@ -227,14 +230,9 @@ export default Component.extend({
         attachment.tags
           .map(({ slug }) => this.fieldset.document.findField(slug))
           .map(async field => {
-            field.set("answer.value", null);
+            field.set("answer.value", []);
 
             await field.save.perform();
-
-            // something with the isNew property of the field isn't quite right
-            // yet so we need to trigger it's update manually for now
-            // See https://github.com/projectcaluma/ember-caluma/issues/459
-            field.notifyPropertyChange("isNew");
           })
       );
 

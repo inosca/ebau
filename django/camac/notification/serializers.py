@@ -9,7 +9,7 @@ import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _, gettext_noop
+from django.utils.translation import gettext_noop
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
@@ -90,7 +90,8 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     total_activations = serializers.SerializerMethodField()
     completed_activations = serializers.SerializerMethodField()
     pending_activations = serializers.SerializerMethodField()
-    activation_statement = serializers.SerializerMethodField()
+    activation_statement_de = serializers.SerializerMethodField()
+    activation_statement_fr = serializers.SerializerMethodField()
 
     def __init__(self, instance, *args, escape=False, **kwargs):
         self.escape = escape
@@ -136,22 +137,39 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_current_service(self, instance):
         """Return current service of the active user."""
         try:
-            return self.context["request"].group.service.get_name()
+            service = self.context["request"].group.service
+
+            return service.get_name() if service else "-"
         except KeyError:
             return "-"
 
-    def get_activation_statement(self, instance):
+    def get_activation_statement_de(self, instance):
+        return self._get_activation_statement(instance, "de")
+
+    def get_activation_statement_fr(self, instance):
+        return self._get_activation_statement(instance, "fr")
+
+    def _get_activation_statement(self, instance, language):
         total = self.get_total_activations(instance)
         pending = self.get_pending_activations(instance)
 
         if total == 0:
-            message = _("No statements in circulation")
+            message = {
+                "de": "Keine offenen Stellungnahmen oder keine aktive Zirkulation",
+                "fr": "Aucun rapports officiels ouvert ou pas de circulation active",
+            }
         elif pending == 0:
-            message = _("All {total} statements have been completed")
+            message = {
+                "de": f"Alle {total} Stellungnahmen sind nun eingegangen",
+                "fr": f"Tout les {total} rapports officiels ont maintenant été reçus",
+            }
         else:  # pending > 0:
-            message = _("{pending} out of {total} statements are still pending")
+            message = {
+                "de": f"{pending} von {total} Stellungnahmen stehen noch aus",
+                "fr": f"{pending} des {total} rapports officiels sont toujours en attente",
+            }
 
-        return message.format(pending=pending, total=total)
+        return message.get(language).format(pending=pending, total=total)
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":

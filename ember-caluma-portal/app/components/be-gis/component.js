@@ -169,6 +169,14 @@ export default Component.extend({
   showInstructions: false,
   showConfirmation: false,
 
+  confirmField: computed("field", function() {
+    return this.field.document.findField("bestaetigung-gis");
+  }),
+
+  confirmFieldUnchecked: computed("confirmField.value.[]", function() {
+    return this.get("confirmField.value.length") !== 1;
+  }),
+
   link: computed(function() {
     // This try/catch block is necessary as long as we don't have a mock
     // backend for the integration tests.
@@ -490,6 +498,7 @@ export default Component.extend({
 
         this.gisData.pushObject({ field, value, valuePretty });
       });
+
       this.set("showConfirmation", true);
     } else {
       this.notification.danger(

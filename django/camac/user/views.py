@@ -1,6 +1,8 @@
 from django.contrib.auth import get_user_model
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import generics, viewsets
+from rest_framework import viewsets
+from rest_framework.mixins import RetrieveModelMixin
+from rest_framework.viewsets import GenericViewSet
 
 from camac.user.permissions import permission_aware
 
@@ -86,10 +88,9 @@ class PublicServiceView(viewsets.ReadOnlyModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
-class MeView(generics.RetrieveAPIView):
+class MeView(RetrieveModelMixin, GenericViewSet):
     """Me view returns current user."""
 
-    swagger_schema = None
     model = get_user_model()
     serializer_class = serializers.CurrentUserSerializer
     group_required = False
@@ -97,6 +98,10 @@ class MeView(generics.RetrieveAPIView):
 
     def get_object(self, *args, **kwargs):
         return self.request.user
+
+    @swagger_auto_schema(tags=["User"], operation_summary="Get current user")
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
 
 
 class RoleView(viewsets.ReadOnlyModelViewSet):
@@ -110,7 +115,7 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
 
 
 class GroupView(viewsets.ReadOnlyModelViewSet):
-    swagger_schema = None
+    group_required = False
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.all()
@@ -120,3 +125,13 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
         return queryset.filter(
             pk__in=self.request.user.groups.values("pk"), disabled=False
         )
+
+    @swagger_auto_schema(tags=["User"], operation_summary="Get group information")
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    @swagger_auto_schema(
+        tags=["User"], operation_summary="Get list of group information"
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)

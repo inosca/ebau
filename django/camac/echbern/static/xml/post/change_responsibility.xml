@@ -2,8 +2,8 @@
 <ns1:delivery xmlns:ns1="http://www.ech.ch/xmlns/eCH-0211/2" xmlns:ns2="http://www.ech.ch/xmlns/eCH-0058/5" xmlns:ns3="http://www.ech.ch/xmlns/eCH-0129/5" xmlns:ns4="http://www.ech.ch/xmlns/eCH-0097/2" xmlns:ns5="http://www.ech.ch/xmlns/eCH-0007/6" xmlns:ns6="http://www.ech.ch/xmlns/eCH-0010/6">
     <ns1:deliveryHeader>
         <ns2:senderId>gemdat://test-123</ns2:senderId>
-        <ns2:messageId>c5940234-48ad-48a1-a4a8-95872416b2aa</ns2:messageId>
-        <ns2:messageType>eventChangeResponsibility</ns2:messageType>
+        <ns2:messageId>ignored</ns2:messageId>
+        <ns2:messageType>ignored</ns2:messageType>
         <ns2:sendingApplication>
             <ns2:manufacturer>GemDat Informatik AG</ns2:manufacturer>
             <ns2:product>eBaugesucheZH</ns2:product>
