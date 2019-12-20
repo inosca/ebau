@@ -458,3 +458,91 @@ def test_notification_caluma_placeholders(
         f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
         f"CURRENT_SERVICE: {service_name}",
     ]
+
+
+@pytest.mark.parametrize(
+    "user__email,role__name,notification_template__body",
+    [
+        (
+            "user@example.com",
+            "Municipality",
+            """
+                COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
+                TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
+                PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
+            """,
+        )
+    ],
+)
+@pytest.mark.parametrize("only_top_level_circulation", [True, False])
+@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
+def test_notification_activation_count(
+    admin_client,
+    instance,
+    notification_template,
+    mailoutbox,
+    activation_factory,
+    settings,
+    total_activations,
+    circulation_factory,
+    done_activations,
+    only_top_level_circulation,
+    circulation_state_factory,
+    mocker,
+):
+    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
+
+    STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
+    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
+
+    assert not len(mailoutbox)
+
+    circulation = circulation_factory(instance=instance, pk=23)
+    sub_circulation = circulation_factory(instance=instance)
+
+    activations = [
+        activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
+        for _ in range(total_activations)
+    ]
+    for i in range(done_activations):
+        activations[i].circulation_state = STATE_DONE
+        activations[i].save()
+
+    activation_factory(circulation=sub_circulation, circulation_state=STATE_WORKING)
+
+    if not only_top_level_circulation:
+        total_activations += 1
+
+    data = {
+        "data": {
+            "type": "notification-template-sendmails",
+            "attributes": {"recipient-types": ["applicant"]},
+            "relationships": {
+                "instance": {"data": {"type": "instances", "id": instance.pk}}
+            },
+        }
+    }
+
+    if only_top_level_circulation:
+        data["data"]["relationships"]["circulation"] = {
+            "data": {"type": "circulations", "id": 23}
+        }
+
+    response = admin_client.post(url, data=data)
+
+    assert response.status_code == status.HTTP_204_NO_CONTENT
+
+    assert len(mailoutbox) == 1
+
+    mail = mailoutbox[0]
+    assert [
+        line.strip()
+        for line in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
+        .strip()
+        .split("\n")
+    ] == [
+        f"COMPLETED_ACTIVATIONS: {done_activations}",
+        f"TOTAL_ACTIVATIONS: {total_activations}",
+        f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
+    ]
