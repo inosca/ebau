@@ -346,10 +346,13 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             value = field.value
 
             if (
-                name == f"field_{settings.APPLICATION.get('COORDINATE_QUESTION', '')}"
-                and field.value is not None
+                field.name == settings.APPLICATION.get("COORDINATE_QUESTION", "")
+                and value is not None
             ):
                 value = "\n".join(transform_coordinates(value))
+            elif field.name in settings.APPLICATION.get("QUESTIONS_WITH_OVERRIDE", []):
+                override = instance.fields.filter(name=f"{field.name}-override").first()
+                value = override.value if override else value
 
             ret[name] = value
 
