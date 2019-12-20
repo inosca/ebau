@@ -1,6 +1,7 @@
 import json
 from logging import getLogger
 
+from caluma.form import models as caluma_form_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction
@@ -337,62 +338,26 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
-        resp = self.query_caluma(
-            """
-                query GetNfdDocument($instanceId: GenericScalar!) {
-                    allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}], form: "nfd") {
-                        edges {
-                            node {
-                                id
-                                answers {
-                                    edges {
-                                        node {
-                                            id
-                                            ...on TableAnswer {
-                                                value {
-                                                    id
-                                                    answers(question: "nfd-tabelle-status") {
-                                                        edges {
-                                                            node {
-                                                                ...on StringAnswer {
-                                                                    value
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            """,
-            {"instanceId": instance.pk},
+
+        try:
+            nfd_document = caluma_form_models.Document.objects.filter(
+                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
+            ).get()
+        except caluma_form_models.Document.DoesNotExist:
+            return []
+        answers = caluma_form_models.Answer.objects.filter(
+            question_id="nfd-tabelle-status", document__family=nfd_document.pk
         )
+        if not answers:
+            return []
 
         permissions = []
 
-        try:
-
-            status = [
-                row["answers"]["edges"][0]["node"]["value"]
-                for row in resp["data"]["allDocuments"]["edges"][0]["node"]["answers"][
-                    "edges"
-                ][0]["node"]["value"]
-            ]
-
-            if any(map(lambda s: s != "nfd-tabelle-status-entwurf", status)):
-                permissions += ["read"]
-
-            if any(map(lambda s: s == "nfd-tabelle-status-in-bearbeitung", status)):
-                permissions += ["write"]
-
-            return permissions
-        except (IndexError, KeyError):
-            return []
+        if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
+            permissions.append("read")
+        if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
+            permissions.append("write")
+        return permissions
 
     def _get_nfd_form_permissions_for_service(self, instance):
         return []
