@@ -53,6 +53,20 @@
   },
   {
     "fields": {
+      "available_action": "journal",
+      "button": 3,
+      "description": null,
+      "error_message": null,
+      "execute_always": 0,
+      "name": "Journal Eintrag erstellen",
+      "sort": 3,
+      "success_message": null
+    },
+    "model": "core.action",
+    "pk": 3
+  },
+  {
+    "fields": {
       "available_action": "formtransition",
       "button": 3,
       "description": "Nachforderungen vorhanden, Dossier zur\u00fcck an den Gesuchsteller",
@@ -1709,6 +1723,14 @@
     },
     "model": "core.availableaction",
     "pk": "workflow"
+  },
+  {
+    "fields": {
+      "description": "Generate Journal Entry",
+      "module_name": "journal"
+    },
+    "model": "core.availableaction",
+    "pk": "journal"
   },
   {
     "fields": {
