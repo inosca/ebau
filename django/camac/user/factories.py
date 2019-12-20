@@ -6,9 +6,19 @@ from . import models
 
 class ServiceGroupFactory(DjangoModelFactory):
     name = Faker("name")
+    trans = RelatedFactory("camac.user.factories.ServiceGroupTFactory", "service_group")
 
     class Meta:
         model = models.ServiceGroup
+
+
+class ServiceGroupTFactory(DjangoModelFactory):
+    name = Faker("name")
+    service_group = SubFactory(ServiceGroupFactory)
+    language = "de"
+
+    class Meta:
+        model = models.ServiceGroupT
 
 
 class ServiceFactory(DjangoModelFactory):
@@ -16,6 +26,7 @@ class ServiceFactory(DjangoModelFactory):
     sort = 0
     email = Faker("email")
     service_group = SubFactory(ServiceGroupFactory)
+    trans = RelatedFactory("camac.user.factories.ServiceTFactory", "service")
 
     class Meta:
         model = models.Service
@@ -23,6 +34,7 @@ class ServiceFactory(DjangoModelFactory):
 
 class ServiceTFactory(DjangoModelFactory):
     name = Faker("name")
+    city = Faker("city")
     service = SubFactory(ServiceFactory)
     language = "de"
 
