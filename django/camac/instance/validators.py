@@ -18,6 +18,26 @@ from . import models
 locale.setlocale(locale.LC_ALL, f"{settings.LOCALE_NAME}.UTF-8")
 
 
+def transform_coordinates(coordinates):
+    """Convert a list of GPS(EPSG:4326) coordinates to the Schwyz Cooridnate System."""
+    converted_values = []
+    transformer = Transformer.from_crs(
+        "EPSG:4326",
+        CRS.from_proj4(
+            "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
+        ),
+    )
+
+    for coord_set in coordinates:
+        if not isinstance(coord_set, list):
+            coord_set = [coord_set]
+        for coord in coord_set:
+            lat, lng = transformer.transform(coord["lat"], coord["lng"])
+            converted_values.append(f"{int(float(lat)):n} / {int(float(lng)):n}")
+
+    return converted_values
+
+
 class FormDataValidator(object):
     def __init__(self, instance):
         self.forms_def = settings.FORM_CONFIG
@@ -201,7 +221,6 @@ class FormDataValidator(object):
         return form_def
 
     def get_active_modules_questions(self):  # noqa: C901
-        COORDINATE_QUESTION = "punkte"
         IGNORED_MODULE = "freigegebene-unterlagen"
         form_def = self.get_form_def(self.instance.form.name)
         relevant_data = []
@@ -226,31 +245,12 @@ class FormDataValidator(object):
                         label = question["label"]
                         type = question["type"]
 
-                        if question_name == COORDINATE_QUESTION and value is not None:
-                            """
-                            This converts the coordinates of the set points on the GIS map from
-                            GPS(EPSG:4326) coordinates to the coordinate system Schwyz uses
-                            """
-                            converted_values = []
-                            transformer = Transformer.from_crs(
-                                "EPSG:4326",
-                                CRS.from_proj4(
-                                    "+proj=somerc +lat_0=46.95240555555556 +lon_0=7.439583333333333 +k_0=1 +x_0=2600000 +y_0=1200000 +ellps=bessel +towgs84=674.374,15.056,405.346,0,0,0,0 +units=m +no_defs"
-                                ),
-                            )
-
-                            for coord_set in value:
-                                if not isinstance(coord_set, list):
-                                    coord_set = [coord_set]
-                                for coord in coord_set:
-                                    lat, lng = transformer.transform(
-                                        coord["lat"], coord["lng"]
-                                    )
-                                    converted_values.append(
-                                        f"{int(float(lat)):n} / {int(float(lng)):n}"
-                                    )
-
-                            value = converted_values
+                        if (
+                            question_name
+                            == settings.APPLICATION.get("COORDINATE_QUESTION", "")
+                            and value is not None
+                        ):
+                            value = transform_coordinates(value)
                             label = "Koordinaten"
                             type = "coordinates"
 
