@@ -124777,7 +124777,7 @@
   {
     "fields": {
       "attachment_section": 8,
-      "mode": "admin",
+      "mode": "read",
       "role": 10000
     },
     "model": "document.attachmentsectionroleacl",
@@ -124786,7 +124786,7 @@
   {
     "fields": {
       "attachment_section": 8,
-      "mode": "admin",
+      "mode": "read",
       "role": 3
     },
     "model": "document.attachmentsectionroleacl",
@@ -124795,7 +124795,7 @@
   {
     "fields": {
       "attachment_section": 8,
-      "mode": "write",
+      "mode": "read",
       "role": 20004
     },
     "model": "document.attachmentsectionroleacl",
