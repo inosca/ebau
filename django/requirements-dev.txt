@@ -30,3 +30,4 @@ pytest-vcr==1.0.2
 requests-mock==1.6.0
 snapshottest==0.5.1
 werkzeug==0.16.0
+pytest-lazy-fixture==0.6.2
