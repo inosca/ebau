@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.templatetags.static import static
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from tabulate import tabulate

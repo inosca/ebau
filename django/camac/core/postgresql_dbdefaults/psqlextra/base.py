@@ -1,4 +1,4 @@
-from django.db.backends.postgresql.base import *  # NOQA
+from psqlextra.backend.base import *  # NOQA
 
 from .schema import DatabaseSchemaEditor
 
