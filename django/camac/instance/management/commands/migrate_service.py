@@ -11,8 +11,6 @@ from camac.core.management.commands.dumpconfig import (
 class Command(BaseCommand):
     help = "Moves all responsibilities from source service to target service"
 
-    queries = []
-
     def add_arguments(self, parser):
         parser.add_argument(
             "-s",
@@ -82,27 +80,28 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         sources = options["source"].split(",")
+        queries = []
         for source in sources:
-            self.queries.append(f'\n-- source: {source}, target: {options["target"]}')
+            queries.append(f'\n-- source: {source}, target: {options["target"]}')
             for table, columns in self._filter(self._get_all_service_foreign_keys()):
                 for column in columns.split(";"):
-                    self.queries.append(
+                    queries.append(
                         self._get_query(table, column, source, options["target"])
                     )
 
         if options["disable"]:
-            self.queries.append("\n-- disable old services and groups")
-            self.queries.append(
+            queries.append("\n-- disable old services and groups")
+            queries.append(
                 f'UPDATE "SERVICE" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
             )
-            self.queries.append(
+            queries.append(
                 f'UPDATE "GROUP" SET "DISABLED"=1 WHERE "SERVICE_ID" IN ({options["source"]});'
             )
 
-        queries = "\n".join(self.queries)
+        script = "\n".join(queries)
 
-        self.stdout.write(queries)
+        self.stdout.write(script)
 
         if options["exec"]:
             with connection.cursor() as cursor:
-                cursor.execute(queries)
+                cursor.execute(script)
