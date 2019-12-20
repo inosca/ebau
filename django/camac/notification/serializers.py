@@ -8,6 +8,7 @@ import jinja2
 import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
+from django.db.models import Sum
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
@@ -16,10 +17,18 @@ from rest_framework_json_api import serializers
 
 from camac.caluma import CalumaSerializerMixin
 from camac.constants import kt_bern as be_constants
-from camac.core.models import Activation, Answer, Journal, JournalT
+from camac.core.models import (
+    Activation,
+    Answer,
+    BillingV2Entry,
+    Journal,
+    JournalT,
+    WorkflowEntry,
+)
 from camac.core.translations import get_translations
 from camac.instance.mixins import InstanceEditableMixin
 from camac.instance.models import Instance
+from camac.instance.validators import transform_coordinates
 from camac.user.models import Service
 from camac.utils import flatten
 
@@ -83,6 +92,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     base_url = serializers.SerializerMethodField()
     rejection_feedback = serializers.SerializerMethodField()
     current_service = serializers.SerializerMethodField()
+    date_dossiervollstandig = serializers.SerializerMethodField()
+    date_dossiereingang = serializers.SerializerMethodField()
+    date_start_zirkulation = serializers.SerializerMethodField()
+    billing_total_kommunal = serializers.SerializerMethodField()
+    billing_total_kanton = serializers.SerializerMethodField()
+    billing_total = serializers.SerializerMethodField()
 
     # TODO: these is currently bern specific, as it depends on instance state
     # identifiers. This will likely need some client-specific switch logic
@@ -268,6 +283,44 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_base_url(self, instance):
         return settings.INTERNAL_BASE_URL
 
+    def _get_workflow_entry_date(self, instance, item_id):
+        entry = WorkflowEntry.objects.filter(
+            instance=instance, workflow_item=item_id
+        ).first()
+        if entry:
+            return entry.workflow_date.strftime(settings.MERGE_DATE_FORMAT)
+        return "---"
+
+    def get_date_dossiervollstandig(self, instance):
+        return self._get_workflow_entry_date(
+            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("INSTANCE_COMPLETE")
+        )
+
+    def get_date_dossiereingang(self, instance):
+        return self._get_workflow_entry_date(
+            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("SUBMIT")
+        )
+
+    def get_date_start_zirkulation(self, instance):
+        return self._get_workflow_entry_date(
+            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("START_CIRC")
+        )
+
+    def get_billing_total_kommunal(self, instance):
+        return BillingV2Entry.objects.filter(
+            instance=instance, organization=BillingV2Entry.MUNICIPAL
+        ).aggregate(total=Sum("final_rate"))["total"]
+
+    def get_billing_total_kanton(self, instance):
+        return BillingV2Entry.objects.filter(
+            instance=instance, organization=BillingV2Entry.CANTONAL
+        ).aggregate(total=Sum("final_rate"))["total"]
+
+    def get_billing_total(self, instance):
+        return BillingV2Entry.objects.filter(instance=instance).aggregate(
+            total=Sum("final_rate")
+        )["total"]
+
     def _activations(self, instance):
         return core_models.Activation.objects.filter(circulation__instance=instance)
 
@@ -293,7 +346,15 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
         for field in instance.fields.all():
             name = inflection.underscore("field-" + field.name)
-            ret[name] = field.value
+            value = field.value
+
+            if (
+                name == f"field_{settings.APPLICATION.get('COORDINATE_QUESTION', '')}"
+                and field.value is not None
+            ):
+                value = "\n".join(transform_coordinates(value))
+
+            ret[name] = value
 
         if self.escape:
             ret = self._escape(ret)
