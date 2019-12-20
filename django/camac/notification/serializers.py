@@ -21,6 +21,7 @@ from camac.core.models import (
     Activation,
     Answer,
     BillingV2Entry,
+    Circulation,
     Journal,
     JournalT,
     WorkflowEntry,
@@ -108,9 +109,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activation_statement_de = serializers.SerializerMethodField()
     activation_statement_fr = serializers.SerializerMethodField()
 
-    def __init__(self, instance, *args, escape=False, **kwargs):
+    def __init__(self, instance, *args, circulation=None, escape=False, **kwargs):
         self.escape = escape
-        instance.activations = Activation.objects.filter(circulation__instance=instance)
+        lookup = {"circulation__instance": instance}
+        if circulation:
+            lookup["circulation"] = circulation
+        instance.activations = Activation.objects.filter(**lookup)
         super().__init__(instance, *args, **kwargs)
 
     def _escape(self, data):
@@ -321,25 +325,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             total=Sum("final_rate")
         )["total"]
 
-    def _activations(self, instance):
-        return core_models.Activation.objects.filter(circulation__instance=instance)
-
     def get_total_activations(self, instance):
-        return self._activations(instance).count()
+        return instance.activations.count()
 
     def get_completed_activations(self, instance):
-        return (
-            self._activations(instance)
-            .filter(circulation_state_id=be_constants.CIRCULATION_STATE_DONE)
-            .count()
-        )
+        return instance.activations.filter(
+            circulation_state_id=be_constants.CIRCULATION_STATE_DONE
+        ).count()
 
     def get_pending_activations(self, instance):
-        return (
-            self._activations(instance)
-            .filter(circulation_state_id=be_constants.CIRCULATION_STATE_WORKING)
-            .count()
-        )
+        return instance.activations.filter(
+            circulation_state_id=be_constants.CIRCULATION_STATE_WORKING
+        ).count()
 
     def to_representation(self, instance):
         ret = super().to_representation(instance)
@@ -394,16 +391,21 @@ class NotificationTemplateMergeSerializer(
     """
 
     instance = serializers.ResourceRelatedField(queryset=Instance.objects.all())
+    circulation = serializers.ResourceRelatedField(
+        queryset=Circulation.objects.all(), required=False
+    )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
     )
     subject = serializers.CharField(required=False)
     body = serializers.CharField(required=False)
 
-    def _merge(self, value, instance):
+    def _merge(self, value, instance, circulation=None):
         try:
             value_template = jinja2.Template(value)
-            data = InstanceMergeSerializer(instance, context=self.context).data
+            data = InstanceMergeSerializer(
+                instance, context=self.context, circulation=circulation
+            ).data
 
             # some cantons use uppercase placeholders. be as compatible as possible
             data.update({k.upper(): v for k, v in data.items()})
@@ -414,13 +416,17 @@ class NotificationTemplateMergeSerializer(
     def validate(self, data):
         notification_template = data["notification_template"]
         instance = data["instance"]
+        circulation = data.get("circulation")
 
         data["subject"] = self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
             instance,
+            circulation=circulation,
         )
         data["body"] = self._merge(
-            data.get("body", notification_template.get_trans_attr("body")), instance
+            data.get("body", notification_template.get_trans_attr("body")),
+            instance,
+            circulation=circulation,
         )
         data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
 
