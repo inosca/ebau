@@ -41,7 +41,7 @@ def test_publication_update(
     activation,
     status_code,
 ):
-    application_settings["PUBLICATION"]["WORKFLOW_ITEM"] = workflow_item.pk
+    application_settings["WORKFLOW_ITEMS"]["PUBLICATION"] = workflow_item.pk
 
     url = reverse("publication-detail", args=[publication_entry.pk])
     data = {
