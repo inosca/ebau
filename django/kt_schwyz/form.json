@@ -6023,6 +6023,267 @@
       "required": false,
       "config": {}
     },
+    "grundeigentumerschaft-override": {
+      "restrict": [
+        "municipality",
+        "service"
+      ],
+      "label": "Grundeigentümerschaft:",
+      "type": "table",
+      "required": false,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "bauherrschaft-override": {
+      "restrict": [
+        "municipality",
+        "service"
+      ],
+      "label": "Bauherrschaft:",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
+    "projektverfasser-planer-override": {
+      "restrict": [
+        "municipality",
+        "service"
+      ],
+      "label": "Projektverfasser / Planer:",
+      "type": "table",
+      "required": true,
+      "config": {
+        "columns": [
+          {
+            "name": "anrede",
+            "label": "Anrede",
+            "type": "radio",
+            "required": true,
+            "config": {
+              "options": [
+                "Herr",
+                "Frau",
+                "Firma"
+              ]
+            }
+          },
+          {
+            "name": "firma",
+            "label": "Firma/ Körperschaft",
+            "table-label": "Firma",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "name",
+            "label": "Name",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "vorname",
+            "label": "Vorname",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "strasse",
+            "label": "Strasse, Nr.",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "plz",
+            "label": "PLZ",
+            "type": "number",
+            "required": true,
+            "config": {
+              "min": 1000,
+              "max": 9999,
+              "step": 1
+            }
+          },
+          {
+            "name": "ort",
+            "label": "Ort",
+            "type": "text",
+            "required": true,
+            "config": {}
+          },
+          {
+            "name": "email",
+            "label": "E-Mail",
+            "type": "text",
+            "required": false,
+            "config": {}
+          },
+          {
+            "name": "tel",
+            "label": "Tel. Nr.",
+            "type": "text",
+            "required": false,
+            "config": {}
+          }
+        ]
+      }
+    },
     "info-vorhaben-mit-baute": {
       "label": "Es ist ein Energienachweis erforderlich.",
       "type": "checkbox",

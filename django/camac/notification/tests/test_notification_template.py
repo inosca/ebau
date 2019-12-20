@@ -119,10 +119,14 @@ def test_notification_template_merge(
     form_field_factory,
 ):
     application_settings["COORDINATE_QUESTION"] = "punkte"
+    application_settings["QUESTIONS_WITH_OVERRIDE"] = ["bezeichnung"]
+
     add_field = functools.partial(form_field_factory, instance=instance)
     add_field(
         name="punkte", value=[{"lat": 47.02433179952733, "lng": 8.634144559228435}]
     )
+    add_field(name="bezeichnung", value="abc")
+    add_field(name="bezeichnung-override", value="abc")
 
     url = reverse("notificationtemplate-merge", args=[notification_template.pk])
 
