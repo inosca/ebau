@@ -155,6 +155,12 @@ APPLICATIONS = {
             "PUBLICATION": 15,
             "START_CIRC": 44,
         },
+        "QUESTIONS_WITH_OVERRIDE": [
+            "bezeichnung",
+            "bauherrschaft",
+            "projektverfasser-planer",
+            "grundeigentumerschaft",
+        ],
     },
     "kt_bern": {
         "ROLE_PERMISSIONS": {
