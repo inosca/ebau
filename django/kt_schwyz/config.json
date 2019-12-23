@@ -10784,7 +10784,7 @@
   },
   {
     "fields": {
-      "name": "Publikation",
+      "name": "Auflagendokumente",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 5
@@ -10814,7 +10814,7 @@
   },
   {
     "fields": {
-      "name": "Dokumente Gemeinde",
+      "name": "Dokumente Gemeinde (intern)",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 3
@@ -11251,7 +11251,7 @@
     "fields": {
       "attachment_section": 4,
       "language": "de",
-      "name": "Publikation"
+      "name": "Auflagendokumente"
     },
     "model": "document.attachmentsectiont",
     "pk": 3
@@ -11278,7 +11278,7 @@
     "fields": {
       "attachment_section": 7,
       "language": "de",
-      "name": "Dokumente Gemeinde"
+      "name": "Dokumente Gemeinde (intern)"
     },
     "model": "document.attachmentsectiont",
     "pk": 6

@@ -290,7 +290,9 @@ class InstanceView(
             sendmail_serializer.is_valid(raise_exception=True)
             sendmail_serializer.save()
 
-        filename = "{0}.pdf".format(instance.form.description)
+        filename = "{0}_{1:%d.%m.%Y}.pdf".format(
+            instance.form.description, timezone.now()
+        )
         file = File(self.get_export_detail_data(instance, "pdf"))
 
         attachment = Attachment(
