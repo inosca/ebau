@@ -82,7 +82,7 @@ class InstanceQuerysetMixin(object):
                 & Q(**{publication_date_lt: timezone.now()})
                 & Q(**{publication_published: True})
             )
-        )
+        ).distinct()
 
     def get_queryset_for_public_reader(self, group=None):
         queryset = self.get_base_queryset()
