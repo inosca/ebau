@@ -754,9 +754,9 @@
       "document": "ade01883-ddd0-4c8a-8ded-632814f29bf9",
       "file": null,
       "meta": {},
-      "modified_at": "2019-07-04T06:46:07.284Z",
+      "modified_at": "2020-01-10T12:41:58.057Z",
       "question": "grenzwerte-ueberschritten",
-      "value": "grenzwerte-ueberschritten-nicht-ueberpruft"
+      "value": "grenzwerte-ueberschritten-nein"
     },
     "model": "caluma_form.answer",
     "pk": "8e5b6aa9-86c9-4bc1-a51a-9df6a98b8ef6"

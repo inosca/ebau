@@ -3,9 +3,11 @@ import logging
 
 import pytest
 from caluma.caluma_core.faker import MultilangProvider
+from caluma.caluma_form import factories as caluma_form_factories
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
+from pytest_factoryboy.fixture import get_model_name
 from rest_framework.test import APIClient, APIRequestFactory
 
 from camac.applicants import factories as applicant_factories
@@ -19,10 +21,15 @@ from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 
 
-def register_module(module):
+def register_module(module, prefix=""):
     for name, obj in inspect.getmembers(module):
         if isinstance(obj, FactoryMetaClass) and not obj._meta.abstract:
-            register(obj)
+            if prefix:
+                # This prefixes only the model fixtures, not the factories
+                model_name = get_model_name(obj)
+                register(obj, _name=f"{prefix}_{model_name}")
+            else:
+                register(obj)
 
 
 factory_logger = logging.getLogger("factory")
@@ -39,6 +46,9 @@ register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
 register_module(ech_factories)
+
+# caluma factories
+register_module(caluma_form_factories, prefix="caluma")
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
