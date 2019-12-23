@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Grund-OK-Antwort-Amt-Allgemein-Gebuehren-Canton-template__path0-instance__user0-200-docx] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
@@ -101,7 +102,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         <w:szCs w:val="24"/>
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
-      <w:t>Publikationsdatum: 03.10.1997</w:t>
+      <w:t>Publikationsdatum: 26.12.1989</w:t>
     </w:r>
   </w:p>
   <w:p>
@@ -2014,7 +2015,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">845.98</w:t>
+            <w:t xml:space="preserve">31.66</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2040,7 +2041,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">20.11.2014</w:t>
+            <w:t xml:space="preserve">26.09.1999</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2322,7 +2323,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>02.06.2018</w:t>
+            <w:t>28.05.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2370,7 +2371,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>08.10.2005</w:t>
+            <w:t>06.03.2004</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2394,7 +2395,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>12.06.2018</w:t>
+            <w:t>02.06.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
