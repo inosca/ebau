@@ -263,7 +263,7 @@ class InstanceView(
         camac_now = timezone.now().replace(microsecond=0)
 
         # create workflow item when configured
-        workflow_item = settings.APPLICATION["WORKFLOW_ITEMS"].get("SUBMIT")
+        workflow_item = settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("SUBMIT")
         if workflow_item:
             WorkflowEntry.objects.create(
                 group=1,
