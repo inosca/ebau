@@ -44,7 +44,7 @@ class Command(BaseCommand):
                 ],
             )
 
-            if service.groups.filter(role=role).exists():
+            if service.groups.filter(role=role).exists():  # pragma: no cover
                 continue
 
             de = service.trans.filter(language="de").first()
@@ -62,7 +62,7 @@ class Command(BaseCommand):
                 queries.append(
                     f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({id}), \'de\', \'{escape(de.city)}\', \'Administration {escape(de.name)}\');'
                 )
-            if fr:
+            if fr:  # pragma: no cover
                 queries.append(
                     f'INSERT INTO "GROUP_T" ("GROUP_ID", "LANGUAGE", "CITY", "NAME") VALUES (({id}), \'fr\', \'{escape(fr.city)}\', \'Administration: {escape(fr.name)}\');'
                 )
