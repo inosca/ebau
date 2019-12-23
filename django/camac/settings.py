@@ -501,6 +501,9 @@ GIS_SKIP_BOOLEAN_LAYERS = env.list("GIS_SKIP_BOOLEAN_LAYERS", default=[])
 GIS_SKIP_SPECIAL_LAYERS = env.list("GIS_SKIP_SPECIAL_LAYERS", default=[])
 
 CALUMA_URL = env.str("CALUMA_URL", "http://caluma:8000/graphql/")
+DOCUMENT_MERGE_SERVICE_URL = env.str(
+    "DOCUMENT_MERGE_SERVICE_URL", "http://document-merge-service:8000/api/v1/"
+)
 
 ECH_API = env.bool("ECH_API", default=ENV != "production")
 

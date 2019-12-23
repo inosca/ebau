@@ -4,11 +4,14 @@ from logging import getLogger
 from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models import Max
 from django.utils import timezone
+from django.utils.text import slugify
 from django.utils.translation import gettext as _, gettext_noop
 from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
 from camac.caluma import CalumaSerializerMixin
@@ -22,6 +25,7 @@ from camac.core.models import (
 )
 from camac.core.serializers import MultilingualSerializer
 from camac.core.translations import get_translations
+from camac.document.models import AttachmentSection
 from camac.echbern.signals import instance_submitted, sb1_submitted, sb2_submitted
 from camac.instance.mixins import InstanceEditableMixin
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
@@ -35,7 +39,7 @@ from camac.user.relations import (
 )
 from camac.user.serializers import CurrentGroupDefault, CurrentServiceDefault
 
-from . import models, validators
+from . import document_merge_service, models, validators
 
 SUBMIT_DATE_CHAPTER = 100001
 SUBMIT_DATE_QUESTION_ID = 20036
@@ -624,6 +628,55 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return data
 
+    def _generate_and_store_pdf(self, instance, exclude_slugs=[]):
+        # get caluma document and generate data for document merge service
+        doc = caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk}
+        ).first()
+        if doc is None:
+            return
+
+        template = doc.form.meta.get("template")
+        if template is None:
+            raise exceptions.ValidationError(
+                _(
+                    "Meta field for document of instance %(instance) specifies no template."
+                )
+                % {"instance": self.instance.pk}
+            )
+
+        visitor = document_merge_service.DMSVisitor(exclude_slugs)
+        sections = visitor.visit(doc, append_receipt_page=True)
+
+        data = {
+            "caseId": instance.pk,
+            "caseType": str(doc.form.name),
+            "sections": sections,
+            "signatureTitle": _("Signature"),
+            "signatureMetadata": _("Place and date"),
+        }
+
+        # merge pdf and store as attachment
+        request = self.context["request"]
+        auth = get_authorization_header(request)
+        dms_client = document_merge_service.DMSClient(auth)
+        result = dms_client.merge(data, template)
+
+        _file = ContentFile(result, slugify(f"{instance.pk}-{doc.form.name}") + ".pdf")
+        _file.content_type = "application/pdf"
+
+        # apparently this is always attachment-section 1
+        attachment_section = AttachmentSection.objects.get(pk=1)
+        attachment_section.attachments.create(
+            instance=instance,
+            path=_file,
+            name=_file.name,
+            size=_file.size,
+            mime_type=_file.content_type,
+            user=request.user,
+            group=request.group,
+        )
+
     @transaction.atomic
     def update(self, instance, validated_data):
         request_logger.info(f"Submitting instance {instance.pk}")
@@ -647,6 +700,9 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 active=1,
                 activation_date=None,
             )
+
+        # generate and submit pdf
+        self._generate_and_store_pdf(instance, ["8-freigabequittung"])
 
         self._set_submit_date(validated_data)
 
@@ -719,6 +775,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
+        self._generate_and_store_pdf(instance, ["freigabequittung-vorabklaerung-form"])
+
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
         # send out emails upon submission
@@ -787,6 +845,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
         instance.instance_state = models.InstanceState.objects.get(name="conclusion")
 
         instance.save()
+
+        self._generate_and_store_pdf(instance, ["freigabequittung-vorabklaerung-form"])
 
         self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
 
