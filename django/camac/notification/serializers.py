@@ -297,17 +297,18 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def get_date_dossiervollstandig(self, instance):
         return self._get_workflow_entry_date(
-            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("INSTANCE_COMPLETE")
+            instance,
+            settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("INSTANCE_COMPLETE"),
         )
 
     def get_date_dossiereingang(self, instance):
         return self._get_workflow_entry_date(
-            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("SUBMIT")
+            instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("SUBMIT")
         )
 
     def get_date_start_zirkulation(self, instance):
         return self._get_workflow_entry_date(
-            instance, settings.APPLICATION["WORKFLOW_ITEMS"].get("START_CIRC")
+            instance, settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get("START_CIRC")
         )
 
     def get_billing_total_kommunal(self, instance):
