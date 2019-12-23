@@ -1,4 +1,6 @@
-FROM python:3.7
+# TODO: change back to 3.7 after https://github.com/minio/minio-py/issues/835
+# is resolved
+FROM python:3.7.5
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 	ghostscript \
