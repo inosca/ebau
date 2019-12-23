@@ -44,7 +44,7 @@ class PublicationEntrySerializer(serializers.ModelSerializer):
 
             models.WorkflowEntry.objects.create(
                 group=instance.instance.group.pk,
-                workflow_item_id=settings.APPLICATION["WORKFLOW_ITEMS"].get(
+                workflow_item_id=settings.APPLICATION.get("WORKFLOW_ITEMS", {}).get(
                     "PUBLICATION"
                 ),
                 instance_id=instance.instance.pk,
