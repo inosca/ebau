@@ -933,21 +933,21 @@
             "name": "adresse",
             "label": "Gebäudeadresse",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "vers-nr",
             "label": "Gebäudevers. Nr.",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
             "name": "kataster-nr",
             "label": "Kataster Nr.",
             "type": "text",
-            "required": true,
+            "required": false,
             "config": {}
           },
           {
@@ -955,7 +955,7 @@
             "label": "Gebäudekategorie",
             "hint": "**Provisorische Unterkünfte:**\nMobile oder provisorische Unterkünfte die dauernd bewohnt sind oder als Arbeitsstätte dienen.\n*Beispiele: Wohnwagen, Waggons, Wohnschiff e, Baracken , Verkaufsstände, Baustellenbaracken.*\n\n**Gebäude mit ausschliesslicher Wohnnutzung:**\nGebäude mit reiner Wohnnutzung bestehen ausschliesslich aus Wohnungen und haben keine Nebennutzung. Zu dieser Kategorie gehören sowohl Einfamilien- als auch Mehrfamilienhäuser.\n*Beispiele: Villen, Mehrfamilienhäuser ohne Geschäfte, Büroräumlichkeiten u.dgl., Chalets, Wochenendhäuser, Doppel- und Reiheneinfamilienhäuser, Terrassenhäuser usw.*\n\n**Andere Wohngebäude (Wohngebäude mit Nebennutzung):**\nWohngebäude mit Nebennutzung bestehen mehrheitlich aus Wohnungen, enthalten aber auch industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Wohngebäude mit Wohnungen und z.B. einem Geschäft, einer Werkstatt oder einer Bank im Erdgeschoss, Wohngebäude mit Wohnungen und Arztpraxen oder Büroräumlichkeiten im Gebäude, Landwirtschaftliche Betriebsgebäude mit Wohnteil, Ferienhäuser mit Sportgeschäft im Erdgeschoss.*\n\n**Gebäude mit teilweiser Wohnnutzung:**\nGebäude mit teilweiser Wohnnutzung enthalten Wohnungen, bestehen aber mehrheitlich aus industriellen, gewerblichen, kommerziellen oder landwirtschaftlichen Räumlichkeiten.\n*Beispiele: Schulhäuser, Fabriken, Verwaltungsgebäude usw. mit einer Abwartswohnung o.dgl., Gebäude mit Räumlichkeiten für Kollektivhaushalte bzw. für gemeinschaftliches Wohnen wie Kliniken, Heime, Internate, Strafanstalten usw. Gebäude für touristische Zwecke fallen ebenfalls in diese Kategorie.*\n\n**Gebäude ohne Wohnnutzung:**\nGebäude ohne Wohnnutzung umfassen ausschliesslich Räumlichkeiten ohne Wohnnutzung wie industrielle, gewerbliche, kommerzielle oder landwirtschaftliche Räumlichkeiten.\n*Beispiele: Schul- , Kultur- , Industrie- , Lager- , Büro- oder Verwaltungsgebäude, Kirchen, Sporthallen, landwirtschaftliche Betriebsgebäude, Nebenbauten wie Garagen, Kleintierställe, Bienenhäuser usw.*\n\n**Sonderbauten:**\nSonderbauten sind Bauwerke, die nicht zur Beherbergung von Menschen, Tieren oder Sachen bestimmt sind.\n*Beispiele: Telefonkabinen, offene Hallen, Carports, Parkhäuser, Perronüberdachungen usw.*",
             "type": "radio",
-            "required": true,
+            "required": false,
             "config": {
               "options": [
                 "Provisorische Unterkünfte",
@@ -994,7 +994,7 @@
             "label": "Heizungsart",
             "hint": "Falls mehrere Heizungsarten geplant sind, ist die überwiegende Art anzugeben.",
             "type": "radio",
-            "required": true,
+            "required": false,
             "config": {
               "options": [
                 "Einzelofenheizung",
@@ -1011,7 +1011,7 @@
             "label": "Wichtigster Energieträger für Heizung",
             "hint": "Falls mehrere Energieträger für Heizung vorgesehen sind, ist der wichtigste anzugeben.",
             "type": "radio",
-            "required": true,
+            "required": false,
             "config": {
               "options": [
                 "Heizöl",
@@ -1031,7 +1031,7 @@
             "label": "Wichtigster Energieträger für Warmwasser",
             "hint": "Falls mehrere Energieträger für Warmwasser vorgesehen sind, ist der wichtigste anzugeben.",
             "type": "radio",
-            "required": true,
+            "required": false,
             "config": {
               "options": [
                 "Heizöl",
@@ -1050,7 +1050,7 @@
             "name": "leistung",
             "label": "Leistung in kW",
             "type": "number",
-            "required": true,
+            "required": false,
             "config": {
               "min": 0
             }
@@ -1060,7 +1060,7 @@
             "label": "Anzahl Geschosse",
             "hint": "Das Parterre ist bei der Anzahl Geschosse mitzuzählen. Dach- /Untergeschosse sind nur mitzuzählen, wenn sie teilweise für Wohnzwecke vorgesehen sind. Kellergeschosse sind nicht zu berücksichtigen.",
             "type": "number",
-            "required": true,
+            "required": false,
             "config": {
               "min": 1
             }
@@ -1070,7 +1070,7 @@
             "label": "Wohnungsliste",
             "hint": "Bitte geben Sie pro Wohnung dieses Gebäudes die verlangten Informationen an. Durch Anklicken des Quadrats mit dem «Plus-Zeichen» können Sie die Eingabemaske öffnen – pro Wohnung jeweils eine Eingabemaske.",
             "type": "table",
-            "required": true,
+            "required": false,
             "config": {
               "columns": [
                 {
@@ -1078,7 +1078,7 @@
                   "label": "Stockwerk",
                   "hint": "Geben Sie bitte an, auf welchem Stockwerk sich die Wohnung befindet. Dazu können Sie Angaben verwenden wie:\n- Einfamilienhaus\n- Parterre\n- Hochparterre\n- 1., 2., 3. Stock usw.\n- 1., 2. Untergeschoss usw.",
                   "type": "text",
-                  "required": true,
+                  "required": false,
                   "config": {}
                 },
                 {
@@ -1086,7 +1086,7 @@
                   "label": "Maisonette",
                   "hint": "Falls die Wohnung mehrere Geschosse umfasst, wählen Sie bitte «Ja».",
                   "type": "radio",
-                  "required": true,
+                  "required": false,
                   "config": {
                     "options": [
                       "Ja",
@@ -1098,7 +1098,7 @@
                   "name": "eingangs-nr",
                   "label": "Eingangs Nr",
                   "type": "text",
-                  "required": true,
+                  "required": false,
                   "config": {}
                 },
                 {
@@ -1106,7 +1106,7 @@
                   "label": "Lage",
                   "hint": "Mit «Lage» ist die Position der Wohnung auf dem Stockwerk gemeint (z.B. links, nordwest).",
                   "type": "text",
-                  "required": true,
+                  "required": false,
                   "config": {}
                 },
                 {
@@ -1114,7 +1114,7 @@
                   "label": "Anzahl Zimmer",
                   "hint": "Bei der Anzahl Zimmer sind Küchen, Badezimmer, halbe Zimmer, Reduits, Korridore, Veranden, Mansarden wegzulassen.",
                   "type": "number",
-                  "required": true,
+                  "required": false,
                   "config": {
                     "min": 0
                   }
@@ -1124,7 +1124,7 @@
                   "label": "Fläche",
                   "hint": "Bei der Angabe der Wohnungsfläche ist die bewohnbare Bruttofläche in m² anzugeben. Alle Zimmer, Küchen, Kochnischen, Badezimmer, Abstellräume, Gänge, Veranden usw. sind einzurechnen (offene Balkone/Terrassen, unbewohnbare Keller- oder Dachräume gehören nicht dazu).",
                   "type": "number",
-                  "required": true,
+                  "required": false,
                   "config": {
                     "min": 0
                   }
@@ -1133,7 +1133,7 @@
                   "name": "kuchenart",
                   "label": "Küchenart",
                   "type": "radio",
-                  "required": true,
+                  "required": false,
                   "config": {
                     "options": [
                       "Küche (min. 4m²)",
