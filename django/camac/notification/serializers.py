@@ -111,9 +111,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
 
     def __init__(self, instance, *args, circulation=None, escape=False, **kwargs):
         self.escape = escape
+        self.circulation = circulation
         lookup = {"circulation__instance": instance}
-        if circulation:
-            lookup["circulation"] = circulation
+        if self.circulation:
+            lookup["circulation"] = self.circulation
         instance.activations = Activation.objects.filter(**lookup)
         super().__init__(instance, *args, **kwargs)
 
@@ -172,23 +173,33 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         total = self.get_total_activations(instance)
         pending = self.get_pending_activations(instance)
 
+        if not self.circulation:
+            return "-"
+
+        created = date.fromtimestamp(int(self.circulation.name)).strftime("%d.%m.%Y")
+
+        circulation_name = {
+            "de": f"Zirkulation vom {created}",
+            "fr": f"la circulation du {created}",
+        }
+
         if total == 0:
             message = {
-                "de": "Keine offenen Stellungnahmen oder keine aktive Zirkulation",
-                "fr": "Aucun rapports officiels ouvert ou pas de circulation active",
+                "de": f"Keine offenen Stellungnahmen in der {circulation_name.get('de')}",
+                "fr": f"--",
             }
         elif pending == 0:
             message = {
-                "de": f"Alle {total} Stellungnahmen sind nun eingegangen",
-                "fr": f"Tout les {total} rapports officiels ont maintenant été reçus",
+                "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen",
+                "fr": f"--",
             }
         else:  # pending > 0:
             message = {
-                "de": f"{pending} von {total} Stellungnahmen stehen noch aus",
-                "fr": f"{pending} des {total} rapports officiels sont toujours en attente",
+                "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus",
+                "fr": f"--",
             }
 
-        return message.get(language).format(pending=pending, total=total)
+        return message.get(language)
 
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":

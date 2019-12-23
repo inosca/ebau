@@ -1,6 +1,7 @@
 import functools
 import json
-from datetime import datetime
+from datetime import date, datetime
+from time import mktime
 
 import pytest
 from django.urls import reverse
@@ -343,6 +344,7 @@ def test_notification_placeholders(
     ],
 )
 @pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
+@pytest.mark.parametrize("only_top_level_circulation", [True, False])
 def test_notification_caluma_placeholders(
     admin_client,
     admin_user,
@@ -355,7 +357,8 @@ def test_notification_caluma_placeholders(
     requests_mock,
     use_caluma_form,
     total_activations,
-    circulation,
+    only_top_level_circulation,
+    circulation_factory,
     done_activations,
     circulation_state_factory,
     mocker,
@@ -367,6 +370,15 @@ def test_notification_caluma_placeholders(
     mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
 
     assert not len(mailoutbox)
+
+    circulation = circulation_factory(
+        instance=instance, name=int(mktime(date(2020, 1, 2).timetuple()))
+    )
+    sub_circulation = circulation_factory(
+        instance=instance, name=int(mktime(date(2020, 1, 3).timetuple()))
+    )
+
+    activation_factory(circulation=sub_circulation, circulation_state=STATE_WORKING)
 
     activations = [
         activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
@@ -414,30 +426,35 @@ def test_notification_caluma_placeholders(
         }
     }
 
+    if only_top_level_circulation:
+        data["data"]["relationships"]["circulation"] = {
+            "data": {"type": "circulations", "id": circulation.pk}
+        }
+    else:
+        total_activations += 1
+
     response = admin_client.post(url, data=data)
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
 
     assert len(mailoutbox) == 1
 
-    if total_activations == 0:
-        activation_statement_de = (
-            "Keine offenen Stellungnahmen oder keine aktive Zirkulation"
-        )
-        activation_statement_fr = (
-            "Aucun rapports officiels ouvert ou pas de circulation active"
-        )
-    elif done_activations == 1:
-        pending_activations = total_activations - done_activations
-        activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen stehen noch aus"
-        activation_statement_fr = f"{pending_activations} des {total_activations} rapports officiels sont toujours en attente"
-    else:
-        activation_statement_de = (
-            f"Alle {total_activations} Stellungnahmen sind nun eingegangen"
-        )
-        activation_statement_fr = (
-            f"Tout les {total_activations} rapports officiels ont maintenant été reçus"
-        )
+    activation_statement_de = "-"
+    activation_statement_fr = "-"
+
+    if only_top_level_circulation:
+        if total_activations == 0:
+            activation_statement_de = (
+                f"Keine offenen Stellungnahmen in der Zirkulation vom 02.01.2020"
+            )
+            activation_statement_fr = f"--"
+        elif done_activations == total_activations:
+            activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen"
+            activation_statement_fr = f"--"
+        else:
+            pending_activations = total_activations - done_activations
+            activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 stehen noch aus"
+            activation_statement_fr = f"--"
 
     service_name = admin_user.groups.first().service.get_name()
 
@@ -461,92 +478,4 @@ def test_notification_caluma_placeholders(
         f"ACTIVATION_STATEMENT_DE: {activation_statement_de}",
         f"ACTIVATION_STATEMENT_FR: {activation_statement_fr}",
         f"CURRENT_SERVICE: {service_name}",
-    ]
-
-
-@pytest.mark.parametrize(
-    "user__email,role__name,notification_template__body",
-    [
-        (
-            "user@example.com",
-            "Municipality",
-            """
-                COMPLETED_ACTIVATIONS: {{COMPLETED_ACTIVATIONS}}
-                TOTAL_ACTIVATIONS: {{TOTAL_ACTIVATIONS}}
-                PENDING_ACTIVATIONS: {{PENDING_ACTIVATIONS}}
-            """,
-        )
-    ],
-)
-@pytest.mark.parametrize("only_top_level_circulation", [True, False])
-@pytest.mark.parametrize("total_activations,done_activations", [(2, 2), (2, 1), (0, 0)])
-def test_notification_activation_count(
-    admin_client,
-    instance,
-    notification_template,
-    mailoutbox,
-    activation_factory,
-    settings,
-    total_activations,
-    circulation_factory,
-    done_activations,
-    only_top_level_circulation,
-    circulation_state_factory,
-    mocker,
-):
-    url = reverse("notificationtemplate-sendmail", args=[notification_template.pk])
-
-    STATE_DONE, STATE_WORKING = circulation_state_factory.create_batch(2)
-    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_DONE", STATE_DONE.pk)
-    mocker.patch("camac.constants.kt_bern.CIRCULATION_STATE_WORKING", STATE_WORKING.pk)
-
-    assert not len(mailoutbox)
-
-    circulation = circulation_factory(instance=instance, pk=23)
-    sub_circulation = circulation_factory(instance=instance)
-
-    activations = [
-        activation_factory(circulation=circulation, circulation_state=STATE_WORKING)
-        for _ in range(total_activations)
-    ]
-    for i in range(done_activations):
-        activations[i].circulation_state = STATE_DONE
-        activations[i].save()
-
-    activation_factory(circulation=sub_circulation, circulation_state=STATE_WORKING)
-
-    if not only_top_level_circulation:
-        total_activations += 1
-
-    data = {
-        "data": {
-            "type": "notification-template-sendmails",
-            "attributes": {"recipient-types": ["applicant"]},
-            "relationships": {
-                "instance": {"data": {"type": "instances", "id": instance.pk}}
-            },
-        }
-    }
-
-    if only_top_level_circulation:
-        data["data"]["relationships"]["circulation"] = {
-            "data": {"type": "circulations", "id": 23}
-        }
-
-    response = admin_client.post(url, data=data)
-
-    assert response.status_code == status.HTTP_204_NO_CONTENT
-
-    assert len(mailoutbox) == 1
-
-    mail = mailoutbox[0]
-    assert [
-        line.strip()
-        for line in mail.body.replace(settings.EMAIL_PREFIX_BODY, "")
-        .strip()
-        .split("\n")
-    ] == [
-        f"COMPLETED_ACTIVATIONS: {done_activations}",
-        f"TOTAL_ACTIVATIONS: {total_activations}",
-        f"PENDING_ACTIVATIONS: {total_activations-done_activations}",
     ]
