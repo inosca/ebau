@@ -84,12 +84,12 @@
       "created_at": "2019-05-13T10:23:35.774Z",
       "created_by_group": "[]",
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "description": "{\"de\": \"\", \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2019-05-13T10:23:35.774Z",
-      "name": "{\"de\": \"6. Dokumente\", \"fr\": \"Documents\"}",
+      "modified_at": "2019-12-24T11:22:33.767Z",
+      "name": "{\"de\": \"6. Dokumente\", \"fr\": \"6. Documents\"}",
       "source": null
     },
     "model": "form.form",
@@ -15797,7 +15797,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-09-18T10:51:06.513Z",
+      "modified_at": "2019-12-24T11:32:49.122Z",
       "source": null
     },
     "model": "form.option",
@@ -15811,7 +15811,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-09-18T10:51:06.523Z",
+      "modified_at": "2019-12-24T11:32:49.120Z",
       "source": null
     },
     "model": "form.option",
@@ -15825,7 +15825,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-09-18T10:47:43.405Z",
+      "modified_at": "2019-12-24T11:30:06.592Z",
       "source": null
     },
     "model": "form.option",
@@ -15839,7 +15839,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-09-18T10:47:43.384Z",
+      "modified_at": "2019-12-24T11:30:06.585Z",
       "source": null
     },
     "model": "form.option",
@@ -15850,10 +15850,10 @@
       "created_at": "2019-04-02T11:12:04.539Z",
       "created_by_group": null,
       "created_by_user": null,
-      "is_archived": false,
+      "is_archived": true,
       "label": "{\"de\": \"Nicht \\u00fcberpr\\u00fcft\", \"fr\": \"Non v\\u00e9rifi\\u00e9\"}",
       "meta": {},
-      "modified_at": "2019-09-18T10:47:43.371Z",
+      "modified_at": "2019-12-24T11:30:06.559Z",
       "source": null
     },
     "model": "form.option",
@@ -17799,7 +17799,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nachweis Anforderungen gem\\u00e4ss Art 31 LSV\", \"fr\": \"Preuve du respect des exigences \\u00e9nonc\\u00e9es \\u00e0 l'article 31 OPB\"}",
       "meta": {},
-      "modified_at": "2019-05-23T08:11:38.929Z",
+      "modified_at": "2019-12-24T11:48:15.227Z",
       "source": null
     },
     "model": "form.option",
@@ -32167,15 +32167,15 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Bei Bauvorhaben auf l\\u00e4rmvorbelasteten Standorten m\\u00fcssen im Baugesuch\\n  \\n- die L\\u00e4rmbelastung im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume;\\n  \\n- allf\\u00e4llige L\\u00e4rmschutzmassnahmen;\\n  \\n- die Schalld\\u00e4mmmasse der Aussenbauteile;\\n  \\nausgewiesen werden (Art. 34 LSV).\\n  \\nNach Art. 22 USG und Art. 31 LSV m\\u00fcssen die Immissionsgrenzwerte bei allen Fenstern der l\\u00e4rmempfindlichen R\\u00e4ume eingehalten sein.\\n  \\n[Bauen auf l\\u00e4rmvorbelasteten Standorten im Kanton Bern (L\\u00e4rmschutznachweis, Massnahmen, Anforderungen an die Schalld\\u00e4mmung)](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\", \"fr\": \"S'agissant des secteurs p\\u00e9nalis\\u00e9s par le bruit\\n\\n- le ma\\u00eetre de l'ouvrage doit (art. 34 OPB) indiquer dans la demande de permis de construire les nuisances sonores devant les fen\\u00eatres ouvertes des locaux \\u00e0 usage sensible au bruit;\\n\\n- les \\u00e9ventuelles mesures de protection contre le bruit;\\n\\n- l'insonorisation des \\u00e9l\\u00e9ments ext\\u00e9rieurs.\\n\\n\\u00eatre expuls\\u00e9 (article 34 OPB)\\n\\nEn vertu des articles 22 LPE et 31 OPB, les valeurs limites d'immission doivent \\u00eatre respect\\u00e9es devant toutes les fen\\u00eatres des locaux \\u00e0 usage sensible au bruit.\\n\\n[Construire dans des secteurs p\\u00e9nalis\\u00e9s par le bruit dans le canton de Berne (preuves de protection contre le bruit, mesures et exigences en mati\\u00e8re d\\u2019insonorisation)](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\"}",
+      "info_text": "{\"de\": \"Bei Bauvorhaben auf l\\u00e4rmvorbelasteten Standorten m\\u00fcssen im Baugesuch\\n\\n- Die L\\u00e4rmbelastung im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume;\\n- Allf\\u00e4llige L\\u00e4rmschutzmassnahmen\\n- Die Schalld\\u00e4mmmasse der Aussenbauteile;\\nausgewiesen werden (Art. 34 LSV).\\n\\nFalls die Parzelle bereits erschlossen ist, m\\u00fcssen nach Art. 22 USG und Art. 31 LSV die Immissionsgrenzwerte bei allen Fenstern der l\\u00e4rmempfindlichen R\\u00e4ume eingehalten sein.\\n\\n[Bauen auf l\\u00e4rmvorbelasteten Standorten im Kanton Bern (L\\u00e4rmschutznachweis, Massnahmen, Anforderungen an die Schalld\\u00e4mmung)](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm/belastetes_gebiet.html)\", \"fr\": \"Pour les secteurs expos\\u00e9s au bruit, le ma\\u00eetre de l\\u2019ouvrage doit indiquer dans la demande de permis de construire (art. 34 OPB)\\u00a0:\\n\\n- les immissions de bruit au milieu des fen\\u00eatres ouvertes des locaux \\u00e0 usage sensible au bruit;\\n- les \\u00e9ventuelles mesures de protection contre le bruit;\\n- l\\u2019indice d\\u2019affaiblissement acoustique des \\u00e9l\\u00e9ments de construction ext\\u00e9rieurs.\\n\\nSi la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d'immission doivent \\u00eatre respect\\u00e9es pour toutes les fen\\u00eatres des locaux \\u00e0 usage sensible au bruit en vertu des articles 22 LPE et 31 OPB.\\n\\n[Construire dans des secteurs p\\u00e9nalis\\u00e9s par le bruit dans le canton de Berne (preuves de protection contre le bruit, mesures et exigences en mati\\u00e8re d\\u2019insonorisation)](https://www.bve.be.ch/bve/fr/index/umwelt/umwelt/laerm/belastetes_gebiet.html)\"}",
       "is_archived": false,
       "is_hidden": "!(\n  'grenzwerte-ueberschritten-ja' == 'grenzwerte-ueberschritten'|answer\n)",
       "is_required": "!('vorabklaerung' in form)",
-      "label": "{\"de\": \"Werden die Immissionsgrenzwerte der Empfindlichkeitsstufe im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume \\u00fcberschritten?\", \"fr\": \"Les valeurs limites d'immission selon le degr\\u00e9 de sensibilit\\u00e9 applicable qui sont mesur\\u00e9es au milieu de la fen\\u00eatre ouverte des locaux \\u00e0 usage sensible au bruit sont-elles d\\u00e9pass\\u00e9es?\"}",
+      "label": "{\"de\": \"Werden die massgebenden Grenzwerte der Empfindlichkeitsstufe im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume \\u00fcberschritten?\", \"fr\": \"Les valeurs limites d'exposition d\\u00e9terminantes du degr\\u00e9 de sensibilit\\u00e9 sont-elles d\\u00e9pass\\u00e9es au milieu de la fen\\u00eatre ouverte des locaux \\u00e0 usage sensible au bruit ?\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-09-18T10:51:06.656Z",
+      "modified_at": "2019-12-24T11:32:49.320Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -32194,15 +32194,15 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Bei Parzellen im Emissionsbereich von Strassen, Bahnlinien, Sportanlagen, Betrieben, Schiessanlagen, Flugh\\u00e4fen muss \\u00fcberpr\\u00fcft werden, ob die Aussenl\\u00e4rmbelastung unter den massgebenden Immissionsgrenzwerten (IGW) liegt. Wenn die IGW auf der bebaubaren Fl\\u00e4che \\u00fcberschritten sind, handelt es sich um einen l\\u00e4rmvorbelasteten Standort. Die L\\u00e4rmbelastung auf einer Parzelle ist in den jeweiligen L\\u00e4rmbelastungskatastern erfasst.\\n  \\n[Informationen zur L\\u00e4rmbelastung Kanton Bern/L\\u00e4rmbelastungskataster](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\", \"fr\": \"S\\u2019agissant des parcelles situ\\u00e9es dans la zone d\\u2019immission des routes, des lignes de chemin de fer, des installations sportives, des industries, des installations de tir et des a\\u00e9roports, il convient d\\u2019examiner si le bruit ext\\u00e9rieur se situe en dessous des valeurs limites d\\u2019immission. Si ces valeurs sont d\\u00e9pass\\u00e9es, le site concern\\u00e9 est consid\\u00e9r\\u00e9 comme un secteur p\\u00e9nalis\\u00e9 par le bruit. Les nuisances sonores sur une parcelle doivent \\u00eatre consign\\u00e9es dans le cadastre de bruit correspondant.\\n\\n[Informations concernant les probl\\u00e8mes de bruit dans le canton de Berne / cadastre de bruit](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\"}",
+      "info_text": "{\"de\": \"Bei Parzellen im Emissionsbereich von Strassen, Bahnlinien, Sportanlagen, Betrieben, Schiessanlagen, Flugh\\u00e4fen muss \\u00fcberpr\\u00fcft werden, ob die Aussenl\\u00e4rmbelastung unter den massgebenden Belastungsgrenzwerte liegt (falls Parzelle bereits erschlossen ist, gelten die Immissionsgrenzwerte, ansonsten die Planungswerte). Wenn diese massgebenden Grenzwerte auf der bebaubaren Fl\\u00e4che \\u00fcberschritten sind, handelt es sich um einen l\\u00e4rmvorbelasteten Standort.\\n  \\n[Informationen zur L\\u00e4rmbelastung Kanton Bern/L\\u00e4rmbelastungskataster](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\", \"fr\": \"S\\u2019agissant de parcelles situ\\u00e9es dans la zone d\\u2019immission de routes, de lignes de chemin de fer, d\\u2019infrastructures sportives, d\\u2019entreprises, d\\u2019installations de tir ou d\\u2019a\\u00e9roports, il convient de v\\u00e9rifier si l\\u2019exposition au bruit ext\\u00e9rieur est inf\\u00e9rieure aux valeurs limites d\\u2019exposition d\\u00e9terminantes (les valeurs limites d\\u2019immission s'appliquent si la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e et les valeurs de planification dans les autres cas). Si ces valeurs limites d\\u2019exposition sont d\\u00e9pass\\u00e9es, le site concern\\u00e9 est consid\\u00e9r\\u00e9 comme un secteur expos\\u00e9 au bruit.\\n\\n[Informations concernant les probl\\u00e8mes de bruit dans le canton de Berne / cadastre de bruit](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form)",
-      "label": "{\"de\": \"Werden die Immissionsgrenzwerte der Empfindlichkeitsstufe auf der bebaubaren Fl\\u00e4che \\u00fcberschritten?\", \"fr\": \"Les valeurs limites d'immission selon le degr\\u00e9 de sensibilit\\u00e9 applicable sont-elles d\\u00e9pass\\u00e9es sur la surface constructible?\"}",
+      "label": "{\"de\": \"Werden die Planungs- oder Immissionsgrenzwerte der massgebenden Empfindlichkeitsstufe auf der bebaubaren Fl\\u00e4che \\u00fcberschritten?\", \"fr\": \"Les valeurs de planification ou les valeurs limites d'immission du degr\\u00e9 de sensibilit\\u00e9 d\\u00e9terminant sont-elles d\\u00e9pass\\u00e9es sur la surface constructible?\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-09-18T10:47:43.514Z",
+      "modified_at": "2019-12-24T11:30:06.701Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -33269,13 +33269,13 @@
       "format_validators": "[]",
       "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
-      "is_hidden": "!(\n  'bauten-mit-mehr-als-30-grossvieheinheiten-ja' == 'bauten-mit-mehr-als-30-grossvieheinheiten'|answer ||\n  'werden-neue-hofduengeranlagen-erstellt-ja' ==\n'werden-neue-hofduengeranlagen-erstellt'|answer ||\n[\n  'baubeschrieb-neubau', \n  'baubeschrieb-um-ausbau', \n  'baubeschrieb-erweiterung-anbau'\n] intersects 'baubeschrieb'|answer ||\n[\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-landwirtschaft',\n  'nutzungsart-dienstleistung'\n] intersects 'nutzungsart'|answer ||\n[\n  'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw',\n  'feuerungsanlagen-holzfeuerungen'\n] intersects 'feuerungsanlagen'|answer)",
+      "is_hidden": "!(\n  'bauten-mit-mehr-als-30-grossvieheinheiten-ja' == 'bauten-mit-mehr-als-30-grossvieheinheiten'|answer ||\n  'werden-neue-hofduengeranlagen-erstellt-ja' ==\n'werden-neue-hofduengeranlagen-erstellt'|answer ||\n[\n  'baubeschrieb-neubau', \n  'baubeschrieb-um-ausbau', \n  'baubeschrieb-erweiterung-anbau',\n  'baubeschrieb-umnutzung'\n] intersects 'baubeschrieb'|answer ||\n[\n  'nutzungsart-industrie',\n  'nutzungsart-gewerbe',\n  'nutzungsart-gastgewerbe',\n  'nutzungsart-landwirtschaft',\n  'nutzungsart-dienstleistung'\n] intersects 'nutzungsart'|answer ||\n[\n  'feuerungsanlagen-ol-oder-gasfeuerungen-350-kw',\n  'feuerungsanlagen-holzfeuerungen'\n] intersects 'feuerungsanlagen'|answer)",
       "is_required": "false",
       "label": "{\"de\": \"Immissionsschutz I\", \"fr\": \"Protection contre les immissions\"}",
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-09T10:56:57.654Z",
+      "modified_at": "2019-12-24T09:29:16.056Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -36519,17 +36519,17 @@
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"\", \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "'grenzwerte-fenster-ueberschritten-ja' == 'grenzwerte-fenster-ueberschritten'|answer",
-      "label": "{\"de\": \"Nachweis Anforderungen gem\\u00e4ss Art 31 LSV\", \"fr\": \"Preuve du respect des exigences \\u00e9nonc\\u00e9es \\u00e0 l'article 31 OPB\"}",
+      "is_required": "(\n  'grenzwerte-ueberschritten-ja' == 'grenzwerte-ueberschritten'|answer ||\n  'grenzwerte-fenster-ueberschritten-ja'== 'grenzwerte-fenster-ueberschritten'|answer\n)",
+      "label": "{\"de\": \"L\\u00e4rmgutachten\", \"fr\": \"Relev\\u00e9 de bruit\"}",
       "meta": {
         "documentCategory": "spezialformulare-immissionsschutz",
         "hideLabel": true,
         "widgetOverride": null
       },
-      "modified_at": "2019-05-23T08:11:39.602Z",
+      "modified_at": "2019-12-24T11:48:15.337Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -50250,10 +50250,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-18T10:51:06.665Z",
+      "created_at": "2019-12-24T11:32:49.331Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-09-18T10:51:06.665Z",
+      "modified_at": "2019-12-24T11:32:49.331Z",
       "option": "grenzwerte-fenster-ueberschritten-ja",
       "question": "grenzwerte-fenster-ueberschritten",
       "sort": 2
@@ -50263,10 +50263,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-18T10:51:06.662Z",
+      "created_at": "2019-12-24T11:32:49.327Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-09-18T10:51:06.662Z",
+      "modified_at": "2019-12-24T11:32:49.327Z",
       "option": "grenzwerte-fenster-ueberschritten-nein",
       "question": "grenzwerte-fenster-ueberschritten",
       "sort": 1
@@ -50276,10 +50276,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-18T10:47:43.527Z",
+      "created_at": "2019-12-24T11:30:06.714Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-09-18T10:47:43.527Z",
+      "modified_at": "2019-12-24T11:30:06.714Z",
       "option": "grenzwerte-ueberschritten-ja",
       "question": "grenzwerte-ueberschritten",
       "sort": 3
@@ -50289,10 +50289,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-18T10:47:43.523Z",
+      "created_at": "2019-12-24T11:30:06.710Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-09-18T10:47:43.523Z",
+      "modified_at": "2019-12-24T11:30:06.710Z",
       "option": "grenzwerte-ueberschritten-nein",
       "question": "grenzwerte-ueberschritten",
       "sort": 2
@@ -50302,10 +50302,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-09-18T10:47:43.520Z",
+      "created_at": "2019-12-24T11:30:06.707Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-09-18T10:47:43.520Z",
+      "modified_at": "2019-12-24T11:30:06.707Z",
       "option": "grenzwerte-ueberschritten-nicht-ueberpruft",
       "question": "grenzwerte-ueberschritten",
       "sort": 1
@@ -52070,10 +52070,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-05-23T08:11:39.607Z",
-      "created_by_group": "[]",
+      "created_at": "2019-12-24T11:48:15.343Z",
+      "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-05-23T08:11:39.607Z",
+      "modified_at": "2019-12-24T11:48:15.343Z",
       "option": "nachweis-anforderungen-dokument-ja",
       "question": "nachweis-anforderungen-dokument",
       "sort": 1
