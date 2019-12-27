@@ -8,15 +8,22 @@ from requests_oauthlib import OAuth2Session
 from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 
+APPLICANT_GROUP_ID = 6
+
 
 class CalumaClient:
-    def __init__(self, auth_token):
+    def __init__(self, auth_token, group_id=None):
         self.auth_token = auth_token
+        self.group_id = group_id
 
     def query_caluma(self, query, variables=None, add_headers=None):
         variables = variables if variables is not None else {}
         add_headers = add_headers if add_headers is not None else {}
-        headers = {"Authorization": self.auth_token}
+        headers = {"authorization": self.auth_token}
+
+        if self.group_id and self.group_id != APPLICANT_GROUP_ID:  # pragma: no cover
+            headers["x-camac-group"] = str(self.group_id)
+
         headers.update(add_headers)
 
         response = requests.post(
@@ -40,7 +47,13 @@ class CalumaSerializerMixin:
     def query_caluma(self, query, variables=None, add_headers=None):
         variables = variables if variables is not None else {}
         add_headers = add_headers if add_headers is not None else {}
-        client = CalumaClient(get_authorization_header(self.context["request"]))
+        request = self.context["request"]
+
+        client = CalumaClient(
+            get_authorization_header(request),
+            request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP")),
+        )
+
         return client.query_caluma(query, variables, add_headers)
 
 
