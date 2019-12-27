@@ -7,14 +7,17 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
-snapshots["test_create_instance[new] 1"] = [
+snapshots['test_create_instance[new] 1'] = [
     (
-        "http://caluma:8000/graphql/",
-        (),
+        'http://caluma:8000/graphql/',
+        (
+        ),
         {
-            "headers": {"Authorization": b""},
-            "json": {
-                "query": """
+            'headers': {
+                'authorization': b''
+            },
+            'json': {
+                'query': '''
                 query GetMainForm($slug: String!) {
                     allForms(slug: $slug, metaValue: [{key: "is-main-form", value: true}]) {
                         edges {
@@ -25,28 +28,36 @@ snapshots["test_create_instance[new] 1"] = [
                         }
                     }
                 }
-            """,
-                "variables": {"slug": "test"},
-            },
-        },
+            ''',
+                'variables': {
+                    'slug': 'test'
+                }
+            }
+        }
     ),
     (
-        "http://caluma:8000/graphql/",
-        (),
+        'http://caluma:8000/graphql/',
+        (
+        ),
         {
-            "headers": {"Authorization": b""},
-            "json": {
-                "query": """
+            'headers': {
+                'authorization': b''
+            },
+            'json': {
+                'query': '''
             mutation CreateDocument($input: SaveDocumentInput!) {
                 saveDocument(input: $input) {
                     clientMutationId
                 }
             }
-            """,
-                "variables": {
-                    "input": {"form": "test", "meta": '{"camac-instance-id": "XXX"}'}
-                },
-            },
-        },
-    ),
+            ''',
+                'variables': {
+                    'input': {
+                        'form': 'test',
+                        'meta': '{"camac-instance-id": "XXX"}'
+                    }
+                }
+            }
+        }
+    )
 ]
