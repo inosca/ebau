@@ -47,9 +47,10 @@ services:
         volumes:
             - ./caluma/extensions:/app/caluma/extensions:ro
             - ./caluma/fixtures:/app/caluma/fixtures:ro
-        command: /bin/sh -c "wait-for-it.sh db:5432 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
+        command: /bin/sh -c "wait-for-it.sh db:5432 -- wait-for-it.sh -t 300 django:80 -- ./manage.py migrate && ./manage.py runserver 0.0.0.0:8000"
         depends_on:
-            - php
+            - keycloak
+            - django
             - db
 
     django:
@@ -92,6 +93,7 @@ services:
             cache_from:
                 - acr.run/camac-ng/camac-ng/ember-caluma-portal:master
         depends_on:
+            - keycloak
             - django
             - caluma
         environment:
