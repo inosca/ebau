@@ -14,10 +14,9 @@ ENV META_FIELDS camac-instance-id,ebau-number,submit-date
 ENV ENABLE_HISTORICAL_API true
 
 COPY extensions /app/caluma/extensions
-COPY fixtures /app/caluma/fixtures
 
 USER 0
 RUN pip install -r /app/caluma/extensions/requirements.txt
 USER 1000
 
-CMD /bin/sh -c "wait-for-it.sh $DATABASE_HOST:${DATABASE_PORT:-5432} -- ./manage.py migrate && ./manage.py loaddata caluma/fixtures/config.json && uwsgi"
+CMD /bin/sh -c "wait-for-it.sh $DATABASE_HOST:${DATABASE_PORT:-5432} -- ./manage.py migrate && uwsgi"
