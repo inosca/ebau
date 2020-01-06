@@ -434,7 +434,7 @@ def base_delivery(instance: Instance, answers: dict):
                     planningPermissionApplication=application(instance, answers),
                     relationshipToPerson=[
                         ns_application.relationshipToPersonType(
-                            role="applicant", person=requestor(instance)
+                            role="applicant", person=requestor(answers)
                         )
                     ],
                     decisionAuthority=decision_authority(instance.active_service),
@@ -451,7 +451,7 @@ def submit(instance: Instance, answers: dict, event_type: str):
         planningPermissionApplication=application(instance, answers),
         relationshipToPerson=[
             ns_application.relationshipToPersonType(
-                role="applicant", person=requestor(instance)
+                role="applicant", person=requestor(answers)
             )
         ],
     )
@@ -580,14 +580,18 @@ def decision_authority(service):
     )
 
 
-def requestor(instance: Instance):
+def requestor(answers: dict):
+    first_name = answers.get("vorname-gesuchstellerin-vorabklaerung")
+    last_name = answers.get("name-gesuchstellerin-vorabklaerung")
+    if "personalien-gesuchstellerin" in answers:
+        first_name = answers["personalien-gesuchstellerin"][0][
+            "vorname-gesuchstellerin"
+        ]
+        last_name = answers["personalien-gesuchstellerin"][0]["name-gesuchstellerin"]
     return ns_objektwesen.personType(
         identification=pyxb.BIND(
             personIdentification=ech_0044_4_1.personIdentificationLightType(
-                officialName=instance.user.surname
-                if instance.user.surname
-                else "unknown",
-                firstName=instance.user.name if instance.user.name else "unknown",
+                officialName=last_name, firstName=first_name
             )
         )
     )
