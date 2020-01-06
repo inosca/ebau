@@ -49,57 +49,18 @@ generate-api-doc: ## generates documentation for the i-web portal API
 clear-cache: ## Clear the memcache
 	@docker-compose exec php php -d xdebug.remote_enable=off /var/www/camac/cronjob/clear-cache.php
 
-.PHONY: dumpconfig-camac
-dumpconfig-camac:
+.PHONY: dumpconfig
+dumpconfig: ## Dump the current camac and caluma configuration
 	docker-compose exec django python manage.py dumpconfig
 
-.PHONY: dumpconfig-caluma
-dumpconfig-caluma:
-	docker-compose exec caluma python manage.py dumpdata \
-		form.form \
-		form.formquestion \
-		form.question \
-		form.questionoption \
-		form.option \
-		> caluma/fixtures/config.json && prettier --write caluma/fixtures/config.json
-
-.PHONY: dumpconfig
-dumpconfig: dumpconfig-caluma dumpconfig-camac
-
-.PHONY: dumpdata-camac
-dumpdata-camac: ## Dump the data tables
+.PHONY: dumpdata
+dumpdata: ## Dump the current camac and caluma data
 	docker-compose exec django /app/manage.py dumpcamacdata
 
-.PHONY: dumpdata-caluma
-dumpdata-caluma:
-	docker-compose exec caluma python manage.py dumpdata \
-		form.document \
-		form.answer \
-		form.answerdocument \
-		> caluma/fixtures/data.json && prettier --write caluma/fixtures/data.json
-
-
-.PHONY: dumpdata
-dumpdata: dumpdata-caluma dumpdata-camac
-
-.PHONY: loadconfig-camac
-loadconfig-camac:
-	@docker-compose exec django python manage.py loadconfig --user $(GIT_USER)
-
-.PHONY: loadconfig-caluma
-loadconfig-caluma:
-	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/config.json
-
-.PHONY: loadconfig-dms
-loadconfig-dms:
-	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
-
-.PHONY: loaddata-caluma
-loaddata-caluma:
-	@docker-compose exec caluma python manage.py loaddata caluma/fixtures/data.json
-
 .PHONY: loadconfig
-loadconfig: loadconfig-caluma loadconfig-camac loadconfig-dms
+loadconfig: ## Load the camac and caluma configuration and test data
+	@docker-compose exec django ./wait-for-it.sh -t 300 0.0.0.0:80 -- python manage.py loadconfig --user $(GIT_USER)
+	@docker-compose exec document-merge-service python manage.py loaddata /tmp/document-merge-service/dump.json
 
 .PHONY: dbshell
 dbshell: ## Start a psql shell
@@ -141,16 +102,9 @@ prettier-format:
 makemigrations: ## Create schema migrations
 	docker-compose exec django /app/manage.py makemigrations
 
-.PHONY: flush-camac
-flush-camac:
-	@docker-compose exec django /app/manage.py flush --no-input
-
-.PHONY: flush-caluma
-flush-caluma:
-	@docker-compose exec caluma python manage.py flush --no-input
-
 .PHONY: flush
-flush: flush-caluma flush-camac
+flush:
+	@docker-compose exec django /app/manage.py flush --no-input
 
 # Directory for DB snapshots
 .PHONY: _db_snapshots_dir
