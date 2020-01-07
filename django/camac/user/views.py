@@ -115,7 +115,6 @@ class RoleView(viewsets.ReadOnlyModelViewSet):
 
 
 class GroupView(viewsets.ReadOnlyModelViewSet):
-    group_required = False
     filterset_class = filters.GroupFilterSet
     serializer_class = serializers.GroupSerializer
     queryset = models.Group.objects.all()
@@ -135,3 +134,13 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
     )
     def list(self, request, *args, **kwargs):
         return super().list(request, *args, **kwargs)
+
+
+class PublicGroupView(viewsets.ReadOnlyModelViewSet):
+    group_required = False
+    filterset_class = filters.PublicGroupFilterSet
+    serializer_class = serializers.PublicGroupSerializer
+    queryset = models.Group.objects.all()
+
+    def get_queryset(self):
+        return self.request.user.groups.filter(disabled=False)

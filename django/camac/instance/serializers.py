@@ -13,7 +13,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma import CalumaApi
+from camac.caluma import CalumaApi, get_paper_settings
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -193,6 +193,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
     )
 
     caluma_form = serializers.CharField(required=True, write_only=True)
+    is_paper = serializers.SerializerMethodField()
 
     public_status = serializers.SerializerMethodField()
 
@@ -206,6 +207,9 @@ class CalumaInstanceSerializer(InstanceSerializer):
         many=True,
         read_only=True,
     )
+
+    def get_is_paper(self, instance):
+        return CalumaApi().is_paper(instance)
 
     def get_active_service(self, instance):
         return instance.active_service
@@ -250,61 +254,87 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def _get_main_form_permissions(self, instance):
-        permissions = ["read"]
+        permissions = set(["read"])
 
         if instance.instance_state.name in ["new", "rejected"]:
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_main_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "new":
-            return []
+            return set()
 
-        return ["read"]
+        return set(["read"])
 
     def _get_main_form_permissions_for_municipality(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
+        permissions = set()
 
         if state != "new":
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "subm":
-            permissions += ["write-meta"]
+            permissions.add("write-meta")
 
         if state == "correction":
-            permissions += ["write"]
+            permissions.add("write")
+
+        if (
+            is_paper
+            and service_group in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings()["ALLOWED_ROLES"]
+            and state in ["new", "rejected"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
 
         return permissions
 
     def _get_main_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return set(["read", "write", "write-meta"])
 
     @permission_aware
     def _get_sb1_form_permissions(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        permissions = set()
 
         if state in ["sb1", "sb2", "conclusion"]:
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "sb1":
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_sb1_form_permissions_for_service(self, instance):
         if instance.instance_state.name in ["sb2", "conclusion"]:
-            return ["read"]
+            return set(["read"])
 
-        return []
+        return set()
 
     def _get_sb1_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name in ["sb2", "conclusion"]:
-            return ["read"]
+        state = instance.instance_state.name
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
 
-        return []
+        permissions = set()
+
+        if state in ["sb2", "conclusion"]:
+            permissions.add("read")
+
+        if (
+            state == "sb1"
+            and is_paper
+            and service_group in get_paper_settings("sb1")["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings("sb1")["ALLOWED_ROLES"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
+
+        return permissions
 
     def _get_sb1_form_permissions_for_support(self, instance):
         return ["read", "write", "write-meta"]
@@ -312,27 +342,42 @@ class CalumaInstanceSerializer(InstanceSerializer):
     @permission_aware
     def _get_sb2_form_permissions(self, instance):
         state = instance.instance_state.name
-        permissions = []
+        permissions = set()
 
         if state in ["sb2", "conclusion"]:
-            permissions += ["read"]
+            permissions.add("read")
 
         if state == "sb2":
-            permissions += ["write", "write-meta"]
+            permissions.update(["write", "write-meta"])
 
         return permissions
 
     def _get_sb2_form_permissions_for_service(self, instance):
         if instance.instance_state.name == "conclusion":
-            return ["read"]
+            return set(["read"])
 
-        return []
+        return set()
 
     def _get_sb2_form_permissions_for_municipality(self, instance):
-        if instance.instance_state.name == "conclusion":
-            return ["read"]
+        state = instance.instance_state.name
+        is_paper = CalumaApi().is_paper(instance)
+        service_group = self.context["request"].group.service.service_group.pk
+        role = self.context["request"].group.role.pk
 
-        return []
+        permissions = set()
+
+        if state == "conclusion":
+            permissions.add("read")
+
+        if (
+            state == "sb2"
+            and is_paper
+            and service_group in get_paper_settings("sb2")["ALLOWED_SERVICE_GROUPS"]
+            and role in get_paper_settings("sb2")["ALLOWED_ROLES"]
+        ):
+            permissions.update(["read", "write", "write-meta"])
+
+        return permissions
 
     def _get_sb2_form_permissions_for_support(self, instance):
         return ["read", "write", "write-meta"]
@@ -342,19 +387,24 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return CalumaApi().get_nfd_form_permissions(instance)
 
     def _get_nfd_form_permissions_for_service(self, instance):
-        return []
+        return set()
 
     def _get_nfd_form_permissions_for_municipality(self, instance):
-        return ["write", "write-meta"]
+        permissions = set(["write", "write-meta"])
+
+        if CalumaApi().is_paper(instance):
+            permissions.update(CalumaApi().get_nfd_form_permissions(instance))
+
+        return permissions
 
     def _get_nfd_form_permissions_for_support(self, instance):
-        return ["read", "write", "write-meta"]
+        return set(["read", "write", "write-meta"])
 
     def get_permissions(self, instance):
         return {
-            form: getattr(self, f"_get_{form}_form_permissions")(instance)
+            form: sorted(getattr(self, f"_get_{form}_form_permissions")(instance))
             for form in settings.APPLICATION.get("CALUMA", {}).get(
-                "FORM_PERMISSIONS", []
+                "FORM_PERMISSIONS", set()
             )
         }
 
@@ -370,22 +420,60 @@ class CalumaInstanceSerializer(InstanceSerializer):
         return data
 
     def create(self, validated_data):
-        form_slug = validated_data.pop("caluma_form")
+        form = validated_data.pop("caluma_form")
         instance = super().create(validated_data)
 
-        CalumaApi().create_document(form_slug, meta={"camac-instance-id": instance.pk})
+        group = self.context["request"].group
+        is_paper = (
+            group.service  # group needs to have a service
+            and group.service.service_group.pk
+            in get_paper_settings()["ALLOWED_SERVICE_GROUPS"]
+            and group.role.pk in get_paper_settings()["ALLOWED_ROLES"]
+        )
+
+        caluma_documents = {}
+
+        for form_slug in [form, "sb1", "sb2", "nfd"]:
+            caluma_documents[form_slug] = CalumaApi().create_document(
+                form_slug, meta={"camac-instance-id": instance.pk}
+            )
+
+        if is_paper:
+            # remove the previously created applicants
+            instance.involved_applicants.all().delete()
+
+            # mark documents as paper instance
+            for index, document in caluma_documents.items():
+                CalumaApi().update_or_create_answer(
+                    document.pk, "papierdossier", "papierdossier-ja"
+                )
+
+            # prefill municipality question
+            CalumaApi().update_or_create_answer(
+                caluma_documents[form].pk, "gemeinde", str(group.service.pk)
+            )
+
+            # create instance service for permissions
+            InstanceService.objects.create(
+                instance=instance,
+                service_id=group.service.pk,
+                active=1,
+                activation_date=None,
+            )
 
         return instance
 
     class Meta(InstanceSerializer.Meta):
         fields = InstanceSerializer.Meta.fields + (
             "caluma_form",
+            "is_paper",
             "public_status",
             "active_service",
             "responsible_service_users",
             "involved_applicants",
         )
         read_only_fields = InstanceSerializer.Meta.read_only_fields + (
+            "is_paper",
             "public_status",
             "active_service",
             "responsible_service_users",
@@ -503,6 +591,14 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return data
 
+    def _get_pdf_section(self, instance, form_slug):
+        form_name = form_slug.upper() if form_slug else "MAIN"
+        section_type = "PAPER" if CalumaApi().is_paper(instance) else "DEFAULT"
+
+        return AttachmentSection.objects.get(
+            pk=settings.APPLICATION["PDF"]["SECTION"][form_name][section_type]
+        )
+
     def _generate_and_store_pdf(self, instance, form_slug=None):
         # get caluma document and generate data for document merge service
         _filter = {"meta__camac-instance-id": instance.pk}
@@ -553,8 +649,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         _file = ContentFile(result, slugify(f"{instance.pk}-{doc.form.name}") + ".pdf")
         _file.content_type = "application/pdf"
 
-        # apparently this is always attachment-section 1
-        attachment_section = AttachmentSection.objects.get(pk=1)
+        attachment_section = self._get_pdf_section(instance, form_slug)
         attachment_section.attachments.create(
             instance=instance,
             path=_file,
@@ -635,6 +730,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
+        # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb1")
 
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
@@ -678,6 +774,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
+        # generate and submit pdf
         self._generate_and_store_pdf(instance, "sb2")
 
         self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))

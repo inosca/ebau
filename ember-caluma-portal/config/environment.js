@@ -1,8 +1,15 @@
 "use strict";
 
+const clean = str => str.replace(/\/$/, "");
+
 module.exports = function(environment) {
-  const oidcHost =
-    process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth";
+  const oidcHost = clean(
+    process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth"
+  );
+
+  const internalURL = clean(
+    process.env.INTERNAL_URL || "http://camac-ng.local"
+  );
 
   const ENV = {
     modulePrefix: "ember-caluma-portal",
@@ -10,12 +17,8 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     historySupportMiddleware: true,
-    oidcHost,
     "ember-simple-auth-oidc": {
-      host: `${oidcHost.replace(
-        /\/$/,
-        ""
-      )}/realms/ebau/protocol/openid-connect`,
+      host: `${oidcHost}/realms/ebau/protocol/openid-connect`,
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",
@@ -50,12 +53,35 @@ module.exports = function(environment) {
     fallbackLanguage: "de",
 
     ebau: {
+      internalURL,
       claims: {
-        notificationTemplateId: 32,
-        attachmentSectionId: 7
+        notificationTemplateId: 32
       },
       attachments: {
         allowedMimetypes: ["image/png", "image/jpeg", "application/pdf"]
+      },
+      selectableGroups: {
+        roles: [
+          3, // Leitung Leitbehörde
+          5, // Leitung Baukontrolle
+          20004, // Sachbearbeiter Leitbehörde
+          20005 // Sachbearbeiter Baukontrolle
+        ],
+        serviceGroups: [
+          2, // Gemeinde
+          3 // Baukontrolle
+        ]
+      },
+      paperInstances: {
+        allowedGroups: {
+          roles: [
+            3, // Leitung Leitbehörde
+            20004 // Sachbearbeiter Leitbehörde
+          ],
+          serviceGroups: [
+            2 // Gemeinde
+          ]
+        }
       }
     }
   };

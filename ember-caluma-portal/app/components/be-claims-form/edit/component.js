@@ -1,10 +1,11 @@
 import Component from "@ember/component";
 import { computed, action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import config from "ember-caluma-portal/config/environment";
 import { task, dropTask } from "ember-concurrency-decorators";
 import moment from "moment";
 import { all } from "rsvp";
+
+import config from "../../../config/environment";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
@@ -26,6 +27,14 @@ export default class BeClaimsFormEditComponent extends Component {
   @computed("claim.comment.answer.value.length", "files.length")
   get canSubmit() {
     return this.get("claim.comment.answer.value.length") || this.files.length;
+  }
+
+  @computed("document.{jexl,jexlContext}", "form.meta.attachment-section")
+  get attachmentSection() {
+    return this.document.jexl.evalSync(
+      this.get("form.meta.attachment-section"),
+      this.document.jexlContext
+    );
   }
 
   @action
@@ -78,10 +87,7 @@ export default class BeClaimsFormEditComponent extends Component {
     const formData = new FormData();
 
     formData.append("instance", this.instanceId);
-    formData.append(
-      "attachment_sections",
-      config.ebau.claims.attachmentSectionId
-    );
+    formData.append("attachment_sections", this.attachmentSection);
     formData.append("path", file.blob, file.name);
     formData.append(
       "context",

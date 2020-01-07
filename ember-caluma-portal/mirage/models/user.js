@@ -1,5 +1,3 @@
-import { Model, hasMany } from "ember-cli-mirage";
+import { Model } from "ember-cli-mirage";
 
-export default Model.extend({
-  groups: hasMany("group")
-});
+export default Model.extend({});

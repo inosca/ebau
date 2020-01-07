@@ -11,7 +11,7 @@ export default function() {
     return users.first();
   });
 
-  this.get("/api/v1/groups");
+  this.get("/api/v1/public-groups");
 
   this.get("/api/v1/attachments");
 

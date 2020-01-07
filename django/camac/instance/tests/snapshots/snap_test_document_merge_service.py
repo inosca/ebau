@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
+
 snapshots = Snapshot()
 
 snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
@@ -840,6 +841,22 @@ snapshots['test_document_merge_service_snapshot[1-baugesuch] 1'] = [
                         'hidden': False,
                         'label': 'Rechtliche Sicherung fremden Bodens?',
                         'slug': 'rechtliche-sicherung-fremden-bodens',
+                        'type': 'ChoiceQuestion'
+                    },
+                    {
+                        'choices': [
+                            {
+                                'checked': False,
+                                'label': 'Ja'
+                            },
+                            {
+                                'checked': False,
+                                'label': 'Nein'
+                            }
+                        ],
+                        'hidden': False,
+                        'label': 'Papierdossier',
+                        'slug': 'papierdossier',
                         'type': 'ChoiceQuestion'
                     }
                 ],
@@ -2941,6 +2958,22 @@ snapshots['test_document_merge_service_snapshot[3-None] 1'] = [
                 'label': 'Der/die Gesuchsteller/in bestätigt, dass die vom GIS-System übernommen Daten mit den baurechtlichen Grundlagen übereinstimmen.',
                 'slug': 'bestaetigung-gis',
                 'type': 'MultipleChoiceQuestion'
+            },
+            {
+                'choices': [
+                    {
+                        'checked': False,
+                        'label': 'Ja'
+                    },
+                    {
+                        'checked': False,
+                        'label': 'Nein'
+                    }
+                ],
+                'hidden': False,
+                'label': 'Papierdossier',
+                'slug': 'papierdossier',
+                'type': 'ChoiceQuestion'
             }
         ],
         'hidden': False,
