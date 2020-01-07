@@ -537,11 +537,11 @@ PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
 # Caluma settings
 
 VISIBILITY_CLASSES = env.list(
-    "VISIBILITY_CLASSES", default=default(["caluma.core.visibilities.Any"])
+    "VISIBILITY_CLASSES", default=["caluma.core.visibilities.Any"]
 )
 
 PERMISSION_CLASSES = env.list(
-    "PERMISSION_CLASSES", default=default(["caluma.core.permissions.AllowAny"])
+    "PERMISSION_CLASSES", default=["caluma.core.permissions.AllowAny"]
 )
 
 VALIDATION_CLASSES = env.list("VALIDATION_CLASSES", default=[])
