@@ -19,6 +19,7 @@ nav:
   instances: "Dossiers"
   applicant: "Gesuchsteller/in"
   group: "Gruppe"
+  internal: "Interner Bereich"
 
   canNotChangeLanguage: "Die Sprache kann nicht geändert werden, da bereits eine Sprache in der URL vorgegeben ist"
   canNotChangeGroup: "Die Gruppe kann nicht geändert werden, da bereits eine Gruppe in der URL vorgegeben ist"
@@ -95,6 +96,7 @@ freigabequittung:
   downloadError: "Beim Export ist ein Problem aufgetreten. Bitte versuchen Sie es erneut."
 
 gis:
+  title: "Karte"
   apply-button: "Daten übernehmen"
   no-map:
     message: "Wird die Karte nicht richtig dargestellt?"
@@ -260,3 +262,11 @@ notfound:
   subtitle: "Die Seite wurde nicht gefunden"
   link: "Zurück zur"
   home: "Startseite"
+
+paper:
+  type: "(Papier)"
+  noteTitle: "Hinweis:"
+  noteBody: "Sie erstellen ein Dossier, dass in Ihrer Gemeinde in
+  Papierform eingereicht wurde (Papierdossier). Falls Sie ein normales
+  Dossier als Gesuchsteller erstellen wollen, wählen Sie 'Gesuchsteller/in'
+  im Gruppenmenu am rechten oberen Rand der Seite"

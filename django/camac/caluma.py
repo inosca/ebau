@@ -68,29 +68,35 @@ class CalumaApi:
         return answer.value if answer else None
 
     def get_nfd_form_permissions(self, instance):
-        try:
-            nfd_document = caluma_form_models.Document.objects.filter(
-                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
-            ).get()
-        except caluma_form_models.Document.DoesNotExist:
-            return []
-        answers = caluma_form_models.Answer.objects.filter(
-            question_id="nfd-tabelle-status", document__family=nfd_document.pk
-        )
-        if not answers:
-            return []
+        permissions = set()
 
-        permissions = []
+        try:
+            nfd_document = caluma_form_models.Document.objects.get(
+                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
+            )
+            answers = caluma_form_models.Answer.objects.filter(
+                question_id="nfd-tabelle-status", document__family=nfd_document.pk
+            )
+        except caluma_form_models.Document.DoesNotExist:
+            return permissions
 
         if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
-            permissions.append("read")
+            permissions.add("read")
+
         if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
-            permissions.append("write")
+            permissions.add("write")
+
         return permissions
 
     def create_document(self, form_slug, **kwargs):
-        form = caluma_form_models.Form.objects.get(slug=form_slug)
-        return caluma_form_models.Document.objects.create(form=form, **kwargs)
+        return caluma_form_models.Document.objects.create(form_id=form_slug, **kwargs)
+
+    def update_or_create_answer(self, document_id, question_slug, value):
+        return caluma_form_models.Answer.objects.update_or_create(
+            document_id=document_id,
+            question_id=question_slug,
+            defaults={"value": value},
+        )
 
     def set_submit_date(self, document_pk, submit_date):
         document = caluma_form_models.Document.objects.get(pk=document_pk)
@@ -109,6 +115,16 @@ class CalumaApi:
         document.meta = new_meta
         document.save()
         return True
+
+    def is_paper(self, instance):
+        return caluma_form_models.Answer.objects.filter(
+            **{
+                "document__meta__camac-instance-id": instance.pk,
+                "document__form__meta__is-main-form": True,
+                "question_id": "papierdossier",
+                "value": "papierdossier-ja",
+            }
+        ).exists()
 
 
 class CalumaClient:
@@ -174,3 +190,17 @@ def get_admin_token():
     cache.set("camac-admin-auth-token", auth_token)
 
     return auth_token["access_token"]
+
+
+def get_paper_settings(instance_state=None):
+    _roles = settings.APPLICATION["PAPER"]["ALLOWED_ROLES"]
+    _service_groups = settings.APPLICATION["PAPER"]["ALLOWED_SERVICE_GROUPS"]
+
+    key = instance_state.upper() if instance_state else "DEFAULT"
+
+    return {
+        "ALLOWED_ROLES": _roles.get(key, _roles.get("DEFAULT")),
+        "ALLOWED_SERVICE_GROUPS": _service_groups.get(
+            key, _service_groups.get("DEFAULT")
+        ),
+    }

@@ -1,4 +1,4 @@
-FROM node:8
+FROM node:lts
 
 # Install nginx
 RUN \
