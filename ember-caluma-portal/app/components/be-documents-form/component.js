@@ -1,12 +1,13 @@
-import Component from "@ember/component";
-import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
-import { computed } from "@ember/object";
-import { reads, filterBy } from "@ember/object/computed";
 import { A } from "@ember/array";
-import { all } from "rsvp";
-import { queryManager } from "ember-apollo-client";
+import Component from "@ember/component";
 import { assert } from "@ember/debug";
+import { computed, getWithDefault } from "@ember/object";
+import { reads } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import { queryManager } from "ember-apollo-client";
+import { task } from "ember-concurrency";
+import { all } from "rsvp";
+
 import config from "ember-caluma-portal/config/environment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
@@ -39,16 +40,16 @@ export default Component.extend({
   section: reads("fieldset.field.question.meta.attachment-section"),
   deletable: computed(
     "disabled",
-    "context.instance.instanceState.name",
+    "context.instance.instanceState.id",
     function() {
-      const state = this.get("context.instance.instanceState.name");
+      const state = this.get("context.instance.instanceState.id");
 
-      // in certain states the form will be editable but deleting is disallowed
-      return (
-        !this.disabled &&
-        state &&
-        !["Zurückgewiesen", "In Korrektur"].includes(state)
-      );
+      // In certain states the form will be editable but deleting is disallowed.
+      //   State IDs according to /admin/resource_instance-state
+      //   10000: Zurückgewiesen
+      //   20007: In Korrektur
+
+      return !this.disabled && !["10000", "20007"].includes(state);
     }
   ),
 
@@ -68,16 +69,33 @@ export default Component.extend({
     "fieldset.fields.@each.{hidden,value,questionType}",
     function() {
       return this.fieldset.fields.filter(
-        f =>
-          !f.hidden &&
-          (!f.value || !f.value.length) &&
-          f.questionType === "MultipleChoiceQuestion"
+        field =>
+          !field.hidden && field.questionType === "MultipleChoiceQuestion"
       );
     }
   ),
 
-  allRequiredTags: filterBy("allVisibleTags", "optional", false),
-  allOptionalTags: filterBy("allVisibleTags", "optional", true),
+  savedTags: computed("data.lastSuccessful.value.content", function() {
+    return [
+      ...new Set(
+        this.getWithDefault("data.lastSuccessful.value", [])
+          .map(attachment => getWithDefault(attachment, "context.tags", []))
+          .reduce((tags, tag) => tags.concat(tag), [])
+      )
+    ];
+  }),
+
+  allRequiredTags: computed("allVisibleTags.[]", "savedTags.[]", function() {
+    return this.allVisibleTags.filter(
+      tag => !tag.optional && !this.savedTags.includes(tag.question.slug)
+    );
+  }),
+
+  allOptionalTags: computed("allVisibleTags.[]", "savedTags.[]", function() {
+    return this.allVisibleTags.filter(
+      tag => tag.optional || this.savedTags.includes(tag.question.slug)
+    );
+  }),
 
   requiredTags: computed("allRequiredTags.[]", function() {
     return this.allRequiredTags.reduce((tree, tag) => {
@@ -166,34 +184,38 @@ export default Component.extend({
 
     if (!response.ok) {
       const {
-        errors: [{ detail: e }]
+        errors: [{ detail: error }]
       } = yield response.json();
 
-      throw new Error(e);
+      throw new Error(error);
     }
   }),
 
   saveFields: task(function*(clear = false) {
     const fields = this.allSelectedTags.filter(
-      t => t.question.slug && t.question.__typename === "MultipleChoiceQuestion"
+      tag =>
+        tag.question.slug &&
+        tag.question.__typename === "MultipleChoiceQuestion"
     );
 
     yield all(
-      fields.map(async field => {
-        field.set(
-          "answer.value",
-          clear
-            ? []
-            : [
-                field.get(
-                  "question.multipleChoiceOptions.edges.firstObject.node.slug"
-                )
-              ]
-        );
+      fields
+        .filter(field => field.isNew)
+        .map(async field => {
+          field.set(
+            "answer.value",
+            clear
+              ? []
+              : [
+                  field.get(
+                    "question.multipleChoiceOptions.edges.firstObject.node.slug"
+                  )
+                ]
+          );
 
-        await field.save.perform();
-        await field.validate.perform();
-      })
+          await field.save.perform();
+          await field.validate.perform();
+        })
     );
   }),
 
@@ -207,9 +229,9 @@ export default Component.extend({
       yield this.data.perform();
 
       this.notification.success(this.intl.t("documents.uploadSuccess"));
-    } catch (e) {
+    } catch (error) {
       /* eslint-disable-next-line no-console */
-      console.error(e);
+      console.error(error);
       this.notification.danger(this.intl.t("documents.uploadError"));
 
       yield this.saveFields.perform(true);
@@ -218,7 +240,9 @@ export default Component.extend({
 
   delete: task(function*(confirmed = false, attachment) {
     try {
-      if (!this.deletable) return;
+      if (!this.deletable) {
+        return;
+      }
 
       if (!confirmed) {
         this.set("attachmentToDelete", attachment);
@@ -226,9 +250,13 @@ export default Component.extend({
         return;
       }
 
+      yield attachment.destroyRecord();
+      yield this.data.perform();
+
       yield all(
         attachment.tags
           .map(({ slug }) => this.fieldset.document.findField(slug))
+          .filter(field => !this.savedTags.includes(field.question.slug))
           .map(async field => {
             field.set("answer.value", []);
 
@@ -236,15 +264,12 @@ export default Component.extend({
           })
       );
 
-      yield attachment.destroyRecord();
-      yield this.data.perform();
-
       this.notification.success(this.intl.t("documents.deleteSuccess"));
 
       this.set("attachmentToDelete", null);
-    } catch (e) {
+    } catch (error) {
       /* eslint-disable-next-line no-console */
-      console.error(e);
+      console.error(error);
       this.notification.danger(this.intl.t("documents.deleteError"));
     }
   }),
