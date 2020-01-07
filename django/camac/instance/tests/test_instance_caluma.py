@@ -6,7 +6,6 @@ from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.core.models import Chapter, Question, QuestionType
-from camac.document.models import AttachmentSection
 from camac.echbern import data_preparation
 from camac.echbern.data_preparation import DocumentParser
 from camac.echbern.tests.caluma_responses import full_document
@@ -25,6 +24,38 @@ MAIN_FORMS = [
     "vorabklaerung-einfach",
     "vorabklaerung-vollstaendig",
 ]
+
+
+@pytest.fixture
+def caluma_forms():
+    # forms
+    caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}
+    )
+    caluma_form_models.Form.objects.create(slug="sb1")
+    caluma_form_models.Form.objects.create(slug="sb2")
+    caluma_form_models.Form.objects.create(slug="nfd")
+
+    # questions
+    caluma_form_models.Question.objects.create(slug="gemeinde")
+    caluma_form_models.Question.objects.create(slug="papierdossier")
+
+    # link questions with forms
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="main-form", question_id="gemeinde"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="main-form", question_id="papierdossier"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="sb1", question_id="papierdossier"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="sb2", question_id="papierdossier"
+    )
+    caluma_form_models.FormQuestion.objects.create(
+        form_id="nfd", question_id="papierdossier"
+    )
 
 
 @pytest.fixture
@@ -75,18 +106,34 @@ def mock_generate_and_store_pdf(mocker):
 
 
 @pytest.mark.freeze_time("2019-05-02")
-@pytest.mark.parametrize("instance_state__name", ["new"])
+@pytest.mark.parametrize("paper,instance_state__name", [(True, "new"), (False, "new")])
 def test_create_instance(
-    db, admin_client, instance_state, form, use_caluma_form, mock_nfd_permissions
+    db,
+    admin_client,
+    instance_state,
+    form,
+    use_caluma_form,
+    mock_nfd_permissions,
+    paper,
+    group,
+    caluma_forms,
+    application_settings,
 ):
-    caluma_form_models.Form.objects.create(slug="test", meta={"is-main-form": True})
+    headers = {}
+
+    if paper:
+        application_settings["PAPER"] = {
+            "ALLOWED_ROLES": {"DEFAULT": [group.role.pk]},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": [group.service.service_group.pk]},
+        }
+        headers.update({"x-camac-group": group.pk})
 
     create_resp = admin_client.post(
         reverse("instance-list"),
         {
             "data": {
                 "type": "instances",
-                "attributes": {"caluma-form": "test"},
+                "attributes": {"caluma-form": "main-form"},
                 "relationships": {
                     "form": {"data": {"id": form.form_id, "type": "forms"}},
                     "instance-state": {
@@ -98,8 +145,25 @@ def test_create_instance(
                 },
             }
         },
+        **headers,
     )
+
     assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
+
+    instance_id = int(create_resp.json()["data"]["id"])
+    documents = caluma_form_models.Document.objects.filter(
+        **{"meta__camac-instance-id": instance_id}
+    )
+
+    assert set([doc.form_id for doc in documents]) == set(
+        ["main-form", "sb1", "sb2", "nfd"]
+    )
+
+    if paper:
+        for doc in documents:
+            assert doc.answers.filter(
+                question_id="papierdossier", value="papierdossier-ja"
+            ).exists()
 
 
 @pytest.mark.parametrize(
@@ -202,22 +266,18 @@ def test_instance_submit(
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
     requests_mock,
+    caluma_forms,
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
     ]
 
-    form = caluma_form_models.Form.objects.create(
-        slug="main-form", meta={"is-main-form": True}
-    )
-    question = caluma_form_models.Question.objects.create(slug="gemeinde")
-    caluma_form_models.FormQuestion.objects.create(form=form, question=question)
     document = caluma_form_models.Document.objects.create(
-        form=form, meta={"camac-instance-id": instance.pk}
+        form_id="main-form", meta={"camac-instance-id": instance.pk}
     )
     caluma_form_models.Answer.objects.create(
-        document=document, value=service.pk, question=question
+        document=document, value=service.pk, question_id="gemeinde"
     )
 
     group_factory(role=role_factory(name="support"))
@@ -296,6 +356,7 @@ def test_instance_report(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     document_validity,
+    caluma_forms,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
         {
@@ -304,9 +365,8 @@ def test_instance_report(
         }
     ]
 
-    form = caluma_form_models.Form.objects.create(slug="sb1", name="Baugesuch")
     caluma_form_models.Document.objects.create(
-        form=form, meta={"camac-instance-id": instance.pk}
+        form_id="sb1", meta={"camac-instance-id": instance.pk}
     )
 
     instance_state_factory(name=new_instance_state_name)
@@ -348,6 +408,7 @@ def test_instance_finalize(
     multilang,
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
+    caluma_forms,
 ):
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
@@ -356,9 +417,8 @@ def test_instance_finalize(
         }
     ]
 
-    form = caluma_form_models.Form.objects.create(slug="sb2", name="Baugesuch")
     caluma_form_models.Document.objects.create(
-        form=form, meta={"camac-instance-id": instance.pk}
+        form_id="sb2", meta={"camac-instance-id": instance.pk}
     )
 
     instance_state_factory(name=new_instance_state_name)
@@ -376,6 +436,7 @@ def test_instance_finalize(
         assert instance_service_construction_control.service.email in recipients
 
 
+@pytest.mark.parametrize("paper", [(True, False)])
 @pytest.mark.parametrize(
     "has_template,matching_documents,raise_error,form_slug",
     [
@@ -399,7 +460,25 @@ def test_generate_and_store_pdf(
     matching_documents,
     raise_error,
     form_slug,
+    paper,
+    application_settings,
 ):
+    mocker.patch("camac.caluma.CalumaApi.is_paper", lambda s, i: paper)
+
+    attachment_section_default = attachment_section_factory()
+    attachment_section_paper = attachment_section_factory()
+
+    application_settings["PDF"] = {
+        "SECTION": {
+            form_slug.upper()
+            if form_slug
+            else "MAIN": {
+                "DEFAULT": attachment_section_default.pk,
+                "PAPER": attachment_section_paper.pk,
+            }
+        }
+    }
+
     client = mocker.patch(
         "camac.instance.document_merge_service.DMSClient"
     ).return_value
@@ -412,7 +491,6 @@ def test_generate_and_store_pdf(
     context["request"].group = group
     mocker.patch("rest_framework.authentication.get_authorization_header")
 
-    attachment_section_factory(pk=1)
     serializer = CalumaInstanceSubmitSerializer()
 
     form = caluma_form_models.Form.objects.create(slug="some-form", meta={})
@@ -435,5 +513,5 @@ def test_generate_and_store_pdf(
 
     serializer._generate_and_store_pdf(instance, form_slug=form_slug)
 
-    attachment_section = AttachmentSection.objects.get(pk=1)
-    assert attachment_section.attachments.count() == 1
+    assert attachment_section_paper.attachments.count() == 1 if paper else 0
+    assert attachment_section_default.attachments.count() == 0 if paper else 1

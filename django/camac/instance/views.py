@@ -16,7 +16,8 @@ from rest_framework.generics import RetrieveAPIView
 from rest_framework.settings import api_settings
 from rest_framework_json_api import views
 
-from camac.core.models import WorkflowEntry
+from camac.caluma import CalumaApi, get_paper_settings
+from camac.core.models import InstanceService, WorkflowEntry
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.unoconv import convert
@@ -118,8 +119,23 @@ class InstanceView(
             self.action, SERIALIZER_CLASS[backend]["default"]
         )
 
+    @permission_aware
     def has_base_permission(self, instance):
         return instance.involved_applicants.filter(invitee=self.request.user).exists()
+
+    def has_base_permission_for_municipality(self, instance):
+        state = instance.instance_state.name
+        group = self.request.group
+
+        return (
+            CalumaApi().is_paper(instance)
+            and group.service.service_group.pk
+            in get_paper_settings(state)["ALLOWED_SERVICE_GROUPS"]
+            and group.role.pk in get_paper_settings(state)["ALLOWED_ROLES"]
+            and InstanceService.objects.filter(
+                active=1, instance=instance, service=group.service
+            ).exists()
+        )
 
     def has_object_destroy_permission(self, instance):
         return (

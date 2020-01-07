@@ -2,6 +2,7 @@ import Controller from "@ember/controller";
 import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
+import config from "ember-caluma-portal/config/environment";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
@@ -12,8 +13,11 @@ export default class InstancesEditController extends Controller.extend(
 ) {
   @service fetch;
   @service can;
+  @service session;
 
   @queryManager apollo;
+
+  internalURL = config.ebau.internalURL;
 
   setup() {
     this.instanceTask.perform();
@@ -27,13 +31,9 @@ export default class InstancesEditController extends Controller.extend(
     this.resetQueryParams();
   }
 
-  @computed("instance.meta.permissions")
-  get additionalForms() {
-    return ["nfd", "sb1", "sb2"].filter(form =>
-      this.can.can("read form of instance", this.instance, {
-        form: { slug: form }
-      })
-    );
+  @computed
+  get embedded() {
+    return window !== window.top;
   }
 
   @lastValue("instanceTask") instance;
