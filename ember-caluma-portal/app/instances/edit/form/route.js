@@ -4,7 +4,7 @@ import { can } from "ember-caluma-portal/-private/decorators";
 @can("read form of instance", {
   model: "controller.editController.instance",
   loading: "controller.editController.instanceTask.isRunning",
-  additionalAttributes: { form: "controller.document.form" }
+  additionalAttributes: { form: "controller.form" }
 })
 class InstancesEditFormRoute extends Route {
   model({ form }) {
