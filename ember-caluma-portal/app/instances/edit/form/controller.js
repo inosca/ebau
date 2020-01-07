@@ -32,6 +32,11 @@ export default class InstancesEditFormController extends Controller {
     );
   }
 
+  @computed("model", "document.form")
+  get form() {
+    return this.document ? this.document.form : { slug: this.model };
+  }
+
   @computed("model", "instance.documents.[]")
   get pdfField() {
     const slug = ["sb1", "sb2"].includes(this.model)
