@@ -15,7 +15,7 @@
       <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>
     </ns2:deliveryHeader>
     <ns2:eventAccompanyingReport>
-      <ns2:eventType>accompanying report</ns2:eventType>
+      <ns2:eventType>accompanying report</ns2:eventType><!-- wird ignoriert -->
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
           <ns3:IdCategory>Category</ns3:IdCategory>
