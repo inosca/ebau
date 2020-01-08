@@ -21,7 +21,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "--output",
             type=str,
-            default=settings.APPLICATION_DIR("data-caluma.json"),
+            default=settings.APPLICATION_DIR("data.json"),
             help="Output file for camac data",
         )
         parser.add_argument(
