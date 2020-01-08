@@ -19,7 +19,7 @@ LEAD_ROLE_MAPPING = {
 
 
 def escape(string):
-    return string.replace("'", "''")
+    return string.replace("'", "''") if string else None
 
 
 class Command(BaseCommand):
@@ -31,6 +31,13 @@ class Command(BaseCommand):
             dest="exec",
             action="store_true",
             help="Directly execute the query instead of just printing it",
+        )
+        parser.add_argument(
+            "--no-transaction",
+            default=True,
+            dest="use_transaction",
+            action="store_false",
+            help="Suppress transaction usage in generated SQL output (needed for tests)",
         )
 
     def handle(self, *args, **options):
@@ -87,6 +94,9 @@ class Command(BaseCommand):
                 queries.append(
                     f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({id}), 0, {user.pk});'
                 )
+
+        if len(queries) and options["use_transaction"]:  # pragma: no cover
+            queries = ["BEGIN;", *queries, "COMMIT;"]
 
         script = "\n".join(queries)
 

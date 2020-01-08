@@ -51,7 +51,12 @@ def test_create_admin_groups(
     lead_role = role_factory(trans__name=lead_role_name)
     user_group = user_group_factory(group__service=service, group__role=lead_role)
 
-    call_command("create_admin_groups", "--exec", stdout=open(os.devnull, "w"))
+    call_command(
+        "create_admin_groups",
+        "--exec",
+        "--no-transaction",
+        stdout=open(os.devnull, "w"),
+    )
 
     new_group = service.groups.get(role=admin_role)
 
