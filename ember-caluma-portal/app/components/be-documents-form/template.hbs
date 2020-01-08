@@ -10,7 +10,10 @@
 
         <div class="uk-margin">
           {{#if allRequiredTags.length}}
-            <label class="uk-text-bold uk-margin">{{t "documents.requiredContent"}}</label>
+            <label class="uk-text-bold uk-margin">
+              {{t "documents.requiredContent"}}
+            </label>
+
             {{#each-in requiredTags as |title fields|}}
               <div class="uk-margin">
                 <label>{{t (concat "documents.tags." title)}}</label>
@@ -34,7 +37,10 @@
 
           {{#if allOptionalTags.length}}
             <div class="uk-margin">
-              <label class="uk-text-bold">{{t "documents.optionalContent"}}</label>
+              <label class="uk-text-bold">
+                {{t "documents.optionalContent"}}
+              </label>
+
               {{#power-select-multiple
                 multiple=true
                 selected=selectedOptionalTags
