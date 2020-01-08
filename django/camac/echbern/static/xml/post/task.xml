@@ -15,7 +15,7 @@
       <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>
     </ns2:deliveryHeader>
     <ns2:eventRequest>
-      <ns2:eventType>task</ns2:eventType>
+      <ns2:eventType>task</ns2:eventType><!-- wird ignoriert -->
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
           <ns3:IdCategory>Category</ns3:IdCategory>
