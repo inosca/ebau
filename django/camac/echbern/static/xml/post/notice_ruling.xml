@@ -15,7 +15,7 @@
       <ns9:testDeliveryFlag>true</ns9:testDeliveryFlag>
     </ns2:deliveryHeader>
     <ns2:eventNotice>
-      <ns2:eventType>notice ruling</ns2:eventType>
+      <ns2:eventType>notice ruling</ns2:eventType><!-- wird ignoriert -->
       <ns2:planningPermissionApplicationIdentification>
         <ns2:localID>
           <ns3:IdCategory>Category</ns3:IdCategory>
@@ -32,7 +32,7 @@
         <ns2:judgement>4</ns2:judgement>
         <ns2:ruling>Beschreibung des Entscheids, wird ignoriert.</ns2:ruling>
         <ns2:date>2019-11-04Z</ns2:date>
-		<ns2:rulingAuthority><!-- wird ignoriert -->
+        <ns2:rulingAuthority><!-- wird ignoriert -->
           <ns7:uid>
             <ns7:uidOrganisationIdCategorie>CHE</ns7:uidOrganisationIdCategorie>
             <ns7:uidOrganisationId>123</ns7:uidOrganisationId>
