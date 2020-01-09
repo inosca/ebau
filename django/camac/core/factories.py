@@ -119,6 +119,7 @@ class CirculationFactory(DjangoModelFactory):
     name = Faker("name")
     instance_resource_id = 0
     instance = SubFactory(InstanceFactory)
+    service = SubFactory(ServiceFactory)
 
     class Meta:
         model = models.Circulation
