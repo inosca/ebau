@@ -1,5 +1,5 @@
 import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
 import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { all } from "rsvp";
@@ -7,6 +7,9 @@ import { next } from "@ember/runloop";
 import { assert } from "@ember/debug";
 import { queryManager } from "ember-apollo-client";
 import slugify from "slugify";
+import config from "ember-caluma-portal/config/environment";
+
+const { environment } = config;
 
 export default InViewportComponent.extend({
   intl: service(),
@@ -65,6 +68,11 @@ export default InViewportComponent.extend({
       const action = this.get("field.question.meta.action");
 
       assert("Field must have a meta property `action`", action);
+
+      // simulate waiting, until actual backend implementation has landed
+      if (environment === "production") {
+        yield timeout(8000 + Math.random() * 4000);
+      }
 
       // submit instance in CAMAC
       const camacResponse = yield this.fetch.fetch(
