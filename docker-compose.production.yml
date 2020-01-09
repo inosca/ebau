@@ -88,6 +88,11 @@ services:
   mailhog:
     restart: always
 
+  metabase:
+    environment:
+      - MB_DB_PASS=${METABASE_DB_PASS_STAGE}
+    restart: always
+
 volumes:
   pgdata:
     external:
