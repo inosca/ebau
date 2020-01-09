@@ -16,6 +16,23 @@ def test_service_list(admin_client, service, size):
     assert len(json["data"]) == size
     if size > 0:
         assert json["data"][0]["attributes"]["name"] == service.name
+        assert json["data"][0]["attributes"]["city"] == service.get_trans_attr("city")
+
+
+@pytest.mark.parametrize(
+    "role__name",
+    [
+        "Municipality" 
+    ],
+)
+def test_service_filter(admin_client, service_factory):
+    service = service_factory()
+    url = f"{reverse('service-list')}?name={service.name}"
+
+    response = admin_client.get(url)
+    assert response.status_code == status.HTTP_200_OK
+    json = response.json()
+    assert len(json["data"]) == 1
 
 
 @pytest.mark.parametrize(
