@@ -180,5 +180,11 @@ services:
         "wait-for-it.sh db:5432 -- ./manage.py migrate && uwsgi",
       ]
 
+  metabase:
+    environment:
+      - MB_DB_PASS=camac
+    networks:
+      - camac-ng.local
+
 networks:
   camac-ng.local:
