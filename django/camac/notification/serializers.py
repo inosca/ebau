@@ -21,7 +21,6 @@ from camac.core.models import (
     Activation,
     Answer,
     BillingV2Entry,
-    Circulation,
     Journal,
     JournalT,
     WorkflowEntry,
@@ -109,13 +108,23 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     activation_statement_de = serializers.SerializerMethodField()
     activation_statement_fr = serializers.SerializerMethodField()
 
-    def __init__(self, instance, *args, circulation=None, escape=False, **kwargs):
+    def __init__(self, instance, *args, activation=None, escape=False, **kwargs):
         self.escape = escape
-        self.circulation = circulation
+
         lookup = {"circulation__instance": instance}
-        if self.circulation:
-            lookup["circulation"] = self.circulation
+        if activation:
+            self.activation = activation
+            self.circulation = self.activation.circulation
+
+            lookup.update(
+                {
+                    "circulation": self.activation.circulation,
+                    "service_parent": self.activation.service_parent,
+                }
+            )
+
         instance.activations = Activation.objects.filter(**lookup)
+
         super().__init__(instance, *args, **kwargs)
 
     def _escape(self, data):
@@ -170,11 +179,11 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return self._get_activation_statement(instance, "fr")
 
     def _get_activation_statement(self, instance, language):
+        if not getattr(self, "circulation", None):
+            return ""
+
         total = self.get_total_activations(instance)
         pending = self.get_pending_activations(instance)
-
-        if not self.circulation:
-            return "-"
 
         created = date.fromtimestamp(int(self.circulation.name)).strftime("%d.%m.%Y")
 
@@ -183,20 +192,17 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
             "fr": f"la circulation du {created}",
         }
 
-        if total == 0:
-            message = {
-                "de": f"Keine offenen Stellungnahmen in der {circulation_name.get('de')}",
-                "fr": f"Pas des prises de position dans {circulation_name.get('fr')}",
-            }
+        if total == 0:  # pragma: no cover (this should never happen)
+            return ""
         elif pending == 0:
             message = {
-                "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen",
-                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} sont maintenant arrivés",
+                "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen.",
+                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} sont maintenant arrivés.",
             }
         else:  # pending > 0:
             message = {
-                "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus",
-                "fr": f"{pending} prises de position de {total} dans {circulation_name.get('fr')} sont toujours en attente",
+                "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus.",
+                "fr": f"{pending} prises de position de {total} dans {circulation_name.get('fr')} sont toujours en attente.",
             }
 
         return message.get(language)
@@ -406,8 +412,8 @@ class NotificationTemplateMergeSerializer(
     """
 
     instance = serializers.ResourceRelatedField(queryset=Instance.objects.all())
-    circulation = serializers.ResourceRelatedField(
-        queryset=Circulation.objects.all(), required=False
+    activation = serializers.ResourceRelatedField(
+        queryset=Activation.objects.all(), required=False
     )
     notification_template = serializers.ResourceRelatedField(
         queryset=models.NotificationTemplate.objects.all()
@@ -415,11 +421,11 @@ class NotificationTemplateMergeSerializer(
     subject = serializers.CharField(required=False)
     body = serializers.CharField(required=False)
 
-    def _merge(self, value, instance, circulation=None):
+    def _merge(self, value, instance, activation=None):
         try:
             value_template = jinja2.Template(value)
             data = InstanceMergeSerializer(
-                instance, context=self.context, circulation=circulation
+                instance, context=self.context, activation=activation
             ).data
 
             # some cantons use uppercase placeholders. be as compatible as possible
@@ -431,17 +437,17 @@ class NotificationTemplateMergeSerializer(
     def validate(self, data):
         notification_template = data["notification_template"]
         instance = data["instance"]
-        circulation = data.get("circulation")
+        activation = data.get("activation")
 
         data["subject"] = self._merge(
             data.get("subject", notification_template.get_trans_attr("subject")),
             instance,
-            circulation=circulation,
+            activation=activation,
         )
         data["body"] = self._merge(
             data.get("body", notification_template.get_trans_attr("body")),
             instance,
-            circulation=circulation,
+            activation=activation,
         )
         data["pk"] = "{0}-{1}".format(notification_template.pk, instance.pk)
 
