@@ -447,14 +447,16 @@ def test_notification_caluma_placeholders(
             activation_statement_de = (
                 f"Keine offenen Stellungnahmen in der Zirkulation vom 02.01.2020"
             )
-            activation_statement_fr = f"--"
+            activation_statement_fr = (
+                f"Pas des prises de position dans la circulation du 02.01.2020"
+            )
         elif done_activations == total_activations:
             activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen"
-            activation_statement_fr = f"--"
+            activation_statement_fr = f"Tous les {total_activations} prises de position de la circulation du 02.01.2020 sont maintenant arrivés"
         else:
             pending_activations = total_activations - done_activations
             activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 stehen noch aus"
-            activation_statement_fr = f"--"
+            activation_statement_fr = f"{pending_activations} prises de position de {total_activations} dans la circulation du 02.01.2020 sont toujours en attente"
 
     service_name = admin_user.groups.first().service.get_name()
 
