@@ -89,7 +89,7 @@ class Command(BaseCommand):
                         ],
                     ),
                 )
-            ):
+            ).distinct():
                 # add those users to the new admin group
                 queries.append(
                     f'INSERT INTO "USER_GROUP" ("GROUP_ID", "DEFAULT_GROUP", "USER_ID") VALUES (({id}), 0, {user.pk});'
