@@ -38,6 +38,8 @@ lint-php:
     name: node:lts
   script:
     - if git grep -I -e ä  -e ö  -e ü   -- './*' ':!.gitlab-ci.yml'; then exit 1; else echo "No composite umlaute found"; fi
+    - npm install
+    - npm run prettier-check
     - cd php/public
     - npm install
     - npm run lint
