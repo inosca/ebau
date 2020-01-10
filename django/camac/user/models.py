@@ -46,7 +46,7 @@ class User(AbstractBaseUser):
     )
     city = models.CharField(db_column="CITY", max_length=100, blank=True, null=True)
     zip = models.CharField(db_column="ZIP", max_length=10, blank=True, null=True)
-    groups = models.ManyToManyField("Group", through="UserGroup")
+    groups = models.ManyToManyField("Group", through="UserGroup", related_name="users")
 
     def _make_password(self, raw_password):
         salted = settings.AUTH_PASSWORT_SALT + raw_password
