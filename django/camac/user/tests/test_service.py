@@ -22,7 +22,7 @@ def test_service_list(admin_client, service, size):
 @pytest.mark.parametrize(
     "role__name",
     [
-        "Municipality" 
+        "Municipality"
     ],
 )
 def test_service_filter(admin_client, service_factory):
