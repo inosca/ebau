@@ -177,8 +177,10 @@ export default Component.extend({
     return { points: this.points.map(p => p.toArray()), flat: this.pointsFlat };
   }),
 
-  municipalities: computed("parcels.[]", function() {
-    return [...new Set(this.get("parcels").map(p => p.municipality))];
+  municipalities: computed("parcels.[],specialForm", function() {
+    return this.specialForm
+      ? [this.specialForm]
+      : [...new Set(this.get("parcels").map(p => p.municipality))];
   }),
 
   setMunicipality: task(function*(municipality) {

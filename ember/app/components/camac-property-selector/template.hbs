@@ -140,7 +140,7 @@
     {{#if parcels.length}}
       {{camac-hint-dialog "Falls mehrere Gemeinden betroffen sind, wählen Sie bitte jene Gemeinde aus, deren Gebiet durch Ihr Vorhaben am stärksten betroffen ist. Diese Gemeinde ist dann die Leitbehörde, welche die Koordinationsaufgaben übernimmt."}}
       Auswahl Leitbehörde
-      <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}}>
+      <select class="uk-select uk-form-width-medium" onchange={{perform setMunicipality value="target.value"}} disabled={{specialForm}}>
         {{#each municipalities as |municipality|}}
         <option value="{{municipality}}" selected={{eq selectedMunicipality municipality}}>{{municipality}}</option>
         {{/each}}

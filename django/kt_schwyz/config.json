@@ -1646,6 +1646,14 @@
   },
   {
     "fields": {
+      "description": "Generate Journal Entry",
+      "module_name": "journal"
+    },
+    "model": "core.availableaction",
+    "pk": "journal"
+  },
+  {
+    "fields": {
       "description": "Set location of instance",
       "module_name": "default"
     },
@@ -1723,14 +1731,6 @@
     },
     "model": "core.availableaction",
     "pk": "workflow"
-  },
-  {
-    "fields": {
-      "description": "Generate Journal Entry",
-      "module_name": "journal"
-    },
-    "model": "core.availableaction",
-    "pk": "journal"
   },
   {
     "fields": {
@@ -2738,6 +2738,46 @@
   {
     "fields": {
       "circulation_answer_type": 1,
+      "circulation_type": 2,
+      "name": "Fachbereich nicht betroffen",
+      "sort": 1
+    },
+    "model": "core.circulationanswer",
+    "pk": 5
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 2,
+      "name": "Unterlagenerg\u00e4nzung",
+      "sort": 2
+    },
+    "model": "core.circulationanswer",
+    "pk": 6
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 2,
+      "name": "Rechtliches Geh\u00f6r",
+      "sort": 3
+    },
+    "model": "core.circulationanswer",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
+      "circulation_type": 2,
+      "name": "Unterlagenerg\u00e4nzung & Rechtliches Geh\u00f6r",
+      "sort": 4
+    },
+    "model": "core.circulationanswer",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "circulation_answer_type": 1,
       "circulation_type": 1,
       "name": "Abschliessend beurteilbar",
       "sort": 5
@@ -2838,6 +2878,15 @@
     },
     "model": "core.circulationtype",
     "pk": 1
+  },
+  {
+    "fields": {
+      "name": "Zirkulation des Kantons",
+      "page_id": 2,
+      "parent_specific_activations": 0
+    },
+    "model": "core.circulationtype",
+    "pk": 2
   },
   {
     "fields": {
@@ -8662,11 +8711,27 @@
   },
   {
     "fields": {
+      "circulation_type": 2,
+      "name": "Antrag"
+    },
+    "model": "core.noticetype",
+    "pk": 2
+  },
+  {
+    "fields": {
       "circulation_type": 1,
       "name": "Nebenbestimmungen"
     },
     "model": "core.noticetype",
     "pk": 3
+  },
+  {
+    "fields": {
+      "circulation_type": 2,
+      "name": "Nebenbestimmungen"
+    },
+    "model": "core.noticetype",
+    "pk": 4
   },
   {
     "fields": {
@@ -8691,6 +8756,30 @@
     },
     "model": "core.noticetype",
     "pk": 7
+  },
+  {
+    "fields": {
+      "circulation_type": 2,
+      "name": "Begr\u00fcndung"
+    },
+    "model": "core.noticetype",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "circulation_type": 2,
+      "name": "Empfehlung"
+    },
+    "model": "core.noticetype",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "circulation_type": 2,
+      "name": "Hinweis"
+    },
+    "model": "core.noticetype",
+    "pk": 10
   },
   {
     "fields": {
@@ -12054,6 +12143,51 @@
     },
     "model": "user.location",
     "pk": 30
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "KAPO",
+      "commune_name": "Kantonspolizei Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Kantonspolizei Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "AWB",
+      "commune_name": "Amt f\u00fcr Wasserbau",
+      "district_name": null,
+      "district_number": null,
+      "name": "Amt f\u00fcr Wasserbau",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "communal_cantonal_number": null,
+      "communal_federal_number": "TBA",
+      "commune_name": "Tiefbauamt des Kantons Schwyz",
+      "district_name": null,
+      "district_number": null,
+      "name": "Tiefbauamt des Kantons Schwyz",
+      "section_name": null,
+      "section_number": null,
+      "zip": null
+    },
+    "model": "user.location",
+    "pk": 33
   },
   {
     "fields": {
