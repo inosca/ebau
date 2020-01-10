@@ -153545,15 +153545,6 @@
     "fields": {
       "default_group": 0,
       "group": 22507,
-      "user": 9
-    },
-    "model": "user.usergroup",
-    "pk": 20123
-  },
-  {
-    "fields": {
-      "default_group": 0,
-      "group": 22507,
       "user": 8
     },
     "model": "user.usergroup",
