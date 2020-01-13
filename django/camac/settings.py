@@ -196,8 +196,8 @@ APPLICATIONS = {
         "IS_MULTILINGUAL": True,
         "FORM_BACKEND": "caluma",
         "CALUMA": {"FORM_PERMISSIONS": ["main", "sb1", "sb2", "nfd"]},
-        "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069],  # DE
-        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078],  # FR
+        "DEMO_MODE_GROUPS": [20003, 20006, 20096, 20144, 20069, 22648],  # DE
+        # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
         "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
