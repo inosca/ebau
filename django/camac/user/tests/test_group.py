@@ -49,4 +49,4 @@ def test_group_instance_filter(
     assert response.status_code == status.HTTP_200_OK
     data = response.json()["data"]
     assert len(data) == count
-    assert data[0]["id"] == str(group_with_access.pk)
+    assert str(group_with_access.pk) in [e["id"] for e in data]
