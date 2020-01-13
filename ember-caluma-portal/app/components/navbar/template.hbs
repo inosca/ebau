@@ -12,13 +12,6 @@
       </ul>
     </div>
 
-    {{#if (not-eq environment "production")}}
-      <div class="uk-navbar-center">
-        <UkLabel @color="success">{{t "global.versionPrefix"}}{{app-version hideSha=true}}</UkLabel>
-        <UkLabel @label={{environment}} class="uk-margin-small-left" />
-      </div>
-    {{/if}}
-
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li>
