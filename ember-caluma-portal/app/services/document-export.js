@@ -109,7 +109,7 @@ export default Service.extend({
       data = this._prepareReceiptPage(data);
     }
 
-    const template = field.question.meta.template;
+    const { template } = field.question.meta;
 
     assert("A template must be passed to the fields meta", template);
 
@@ -128,14 +128,13 @@ export default Service.extend({
 
     if (response.ok) {
       return response.blob();
-    } else {
-      throw new Error(response.statusText || response.status);
     }
+    throw new Error(response.statusText || response.status);
   }
 });
 
 function parseDocument(document, navigation) {
-  const fieldsets = document.fieldsets;
+  const { fieldsets } = document;
 
   if (fieldsets.length === 1) {
     return [

@@ -1,13 +1,12 @@
 import Model, { attr, belongsTo, hasMany } from "@ember-data/model";
-import { inject as service } from "@ember/service";
 import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
-import { dropTask } from "ember-concurrency-decorators";
-import { decodeId } from "ember-caluma/helpers/decode-id";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-
-import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
 import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
+import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
+import { decodeId } from "ember-caluma/helpers/decode-id";
+import { dropTask } from "ember-concurrency-decorators";
 
 export default class Instance extends Model {
   @service intl;

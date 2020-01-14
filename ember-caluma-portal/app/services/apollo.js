@@ -1,8 +1,8 @@
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import ApolloService from "ember-apollo-client/services/apollo";
 import { setContext } from "apollo-link-context";
 import { onError } from "apollo-link-error";
+import ApolloService from "ember-apollo-client/services/apollo";
 import CalumaApolloServiceMixin from "ember-caluma/mixins/caluma-apollo-service-mixin";
 
 export default ApolloService.extend(CalumaApolloServiceMixin, {
@@ -13,8 +13,8 @@ export default ApolloService.extend(CalumaApolloServiceMixin, {
   language: reads("session.language"),
   group: reads("session.group"),
 
-  link() {
-    const httpLink = this._super(...arguments);
+  link(...args) {
+    const httpLink = this._super(...args);
 
     const middleware = setContext(async (request, context) => ({
       ...context,

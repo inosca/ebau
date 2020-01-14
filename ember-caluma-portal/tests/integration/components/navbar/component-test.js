@@ -1,9 +1,9 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, settled, click } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
-import { setupIntl } from "ember-intl/test-support";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import { setupIntl } from "ember-intl/test-support";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | navbar", function(hooks) {
   setupRenderingTest(hooks);

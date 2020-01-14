@@ -1,13 +1,13 @@
-import CfFormComponent from "ember-caluma/components/cf-form";
-import EmberObject, { computed } from "@ember/object";
 import { getOwner } from "@ember/application";
-import { inject as service } from "@ember/service";
+import EmberObject, { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import { queryManager } from "ember-apollo-client";
+import config from "ember-caluma-portal/config/environment";
+import CfFormComponent from "ember-caluma/components/cf-form";
 import { dropTask } from "ember-concurrency-decorators";
 import gql from "graphql-tag";
-import { queryManager } from "ember-apollo-client";
 import moment from "moment";
-import config from "ember-caluma-portal/config/environment";
 
 const field = fieldName =>
   computed("document", function() {
@@ -69,8 +69,8 @@ export default class BeClaimsFormComponent extends CfFormComponent {
 
   @queryManager apollo;
 
-  init() {
-    super.init(...arguments);
+  init(...args) {
+    super.init(...args);
 
     this.setProperties({
       claimTypes: ["pending", "answered"],
