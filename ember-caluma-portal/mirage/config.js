@@ -1,5 +1,6 @@
-import config from "../config/environment";
 import graphqlHandler from "ember-caluma/mirage-graphql";
+
+import config from "../config/environment";
 
 export default function() {
   this.urlPrefix = "";

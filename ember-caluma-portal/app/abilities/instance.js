@@ -1,7 +1,7 @@
-import { Ability } from "ember-can";
 import { computed } from "@ember/object";
-import { inject as service } from "@ember/service";
 import { not } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
+import { Ability } from "ember-can";
 
 export default class InstanceAbility extends Ability {
   @service session;

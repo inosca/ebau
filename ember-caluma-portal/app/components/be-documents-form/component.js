@@ -5,10 +5,9 @@ import { computed, getWithDefault } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
+import config from "ember-caluma-portal/config/environment";
 import { task } from "ember-concurrency";
 import { all } from "rsvp";
-
-import config from "ember-caluma-portal/config/environment";
 
 const DEFAULT_CATEGORY = "weitere-unterlagen";
 
@@ -20,14 +19,15 @@ export default Component.extend({
 
   apollo: queryManager(),
 
-  didReceiveAttrs() {
-    this._super(...arguments);
+  /* eslint-disable-next-line ember/no-attrs-snapshot */
+  didReceiveAttrs(...args) {
+    this._super(...args);
 
     this.data.perform();
   },
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set("allowedMimetypes", config.ebau.attachments.allowedMimetypes);
   },

@@ -1,10 +1,10 @@
 import { decoratorWithRequiredParams } from "@ember-decorators/utils/decorator";
-import { computed, observer } from "@ember/object";
-import normalizeAbilityString from "ember-can/utils/normalize";
-import { classify } from "@ember/string";
 import { getOwner } from "@ember/application";
-import { reads } from "@ember/object/computed";
 import { assert } from "@ember/debug";
+import { computed, observer } from "@ember/object";
+import { reads } from "@ember/object/computed";
+import { classify } from "@ember/string";
+import normalizeAbilityString from "ember-can/utils/normalize";
 
 /**
  * A decorator to require a certain ember-can permission for a route. If the

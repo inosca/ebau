@@ -1,6 +1,6 @@
-import { module, test } from "qunit";
-import { setupTest } from "ember-qunit";
 import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { setupTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Unit | Service | fetch", function(hooks) {
   setupTest(hooks);

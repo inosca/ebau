@@ -1,10 +1,10 @@
 "use strict";
 
 module.exports = function(environment) {
-  let oidcHost =
+  const oidcHost =
     process.env.KEYCLOAK_URL || "http://camac-ng-keycloak.local/auth";
 
-  let ENV = {
+  const ENV = {
     modulePrefix: "ember-caluma-portal",
     environment,
     rootURL: "/",
@@ -12,8 +12,10 @@ module.exports = function(environment) {
     historySupportMiddleware: true,
     oidcHost,
     "ember-simple-auth-oidc": {
-      host:
-        oidcHost.replace(/\/$/, "") + "/realms/ebau/protocol/openid-connect",
+      host: `${oidcHost.replace(
+        /\/$/,
+        ""
+      )}/realms/ebau/protocol/openid-connect`,
       clientId: "portal",
       authEndpoint: "/auth",
       tokenEndpoint: "/token",

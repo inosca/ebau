@@ -1,8 +1,8 @@
 import Component from "@ember/component";
 
 export default Component.extend({
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
 
     const observer = new IntersectionObserver(entries => {
       const action = this.getWithDefault("onEnter");
@@ -23,8 +23,8 @@ export default Component.extend({
     this.set("observer", observer);
   },
 
-  willDestroyObject() {
-    this._super(...arguments);
+  willDestroyObject(...args) {
+    this._super(...args);
 
     this.observer.disconnect();
   }

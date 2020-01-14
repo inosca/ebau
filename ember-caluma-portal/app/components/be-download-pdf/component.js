@@ -1,7 +1,7 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
-import { saveAs } from "file-saver";
 import { task } from "ember-concurrency";
+import { saveAs } from "file-saver";
 import slugify from "slugify";
 
 export default Component.extend({
