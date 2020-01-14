@@ -1,5 +1,6 @@
 import EmberRouter from "@ember/routing/router";
 import RouterScroll from "ember-router-scroll";
+
 import config from "./config/environment";
 
 const Router = EmberRouter.extend(RouterScroll, {
@@ -9,6 +10,7 @@ const Router = EmberRouter.extend(RouterScroll, {
 
 const resetNamespace = true;
 
+/* eslint-disable-next-line array-callback-return */
 Router.map(function() {
   this.route("login");
   this.route("logout");

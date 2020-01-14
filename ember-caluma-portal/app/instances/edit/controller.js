@@ -1,9 +1,9 @@
 import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
+import { inject as service } from "@ember/service";
+import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 import { withParachute } from "ember-parachute/decorators";
-import { queryManager } from "ember-apollo-client";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 

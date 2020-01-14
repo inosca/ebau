@@ -1,19 +1,18 @@
-import Controller from "@ember/controller";
-import { inject as service } from "@ember/service";
-import { task } from "ember-concurrency";
-import QueryParams from "ember-parachute";
-import Document from "ember-caluma-portal/lib/document";
 import { getOwner } from "@ember/application";
+import Controller from "@ember/controller";
 import { computed, set } from "@ember/object";
 import { reads } from "@ember/object/computed";
-import moment from "moment";
+import { inject as service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
-import formDataEntries from "form-data-entries";
 import { queryManager } from "ember-apollo-client";
-
 import getDocumentsQuery from "ember-caluma-portal/gql/queries/get-documents";
 import getMunicipalitiesQuery from "ember-caluma-portal/gql/queries/get-municipalities";
 import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
+import Document from "ember-caluma-portal/lib/document";
+import { task } from "ember-concurrency";
+import QueryParams from "ember-parachute";
+import formDataEntries from "form-data-entries";
+import moment from "moment";
 
 const getHasAnswerFilters = ({ parcel: value }) =>
   [

@@ -1,13 +1,13 @@
-import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
-import { task, timeout } from "ember-concurrency";
-import { inject as service } from "@ember/service";
-import { computed } from "@ember/object";
-import { all } from "rsvp";
-import { next } from "@ember/runloop";
 import { assert } from "@ember/debug";
+import { computed } from "@ember/object";
+import { next } from "@ember/runloop";
+import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import slugify from "slugify";
+import InViewportComponent from "ember-caluma-portal/components/in-viewport/component";
 import config from "ember-caluma-portal/config/environment";
+import { task, timeout } from "ember-concurrency";
+import { all } from "rsvp";
+import slugify from "slugify";
 
 const { environment } = config;
 

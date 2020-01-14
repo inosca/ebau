@@ -1,7 +1,7 @@
+import { computed } from "@ember/object";
+import { reads } from "@ember/object/computed";
 import Service, { inject as service } from "@ember/service";
 import fetch from "fetch";
-import { reads } from "@ember/object/computed";
-import { computed } from "@ember/object";
 
 export default class FetchService extends Service {
   @service session;

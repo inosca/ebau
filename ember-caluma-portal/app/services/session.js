@@ -1,10 +1,11 @@
-import Session from "ember-simple-auth/services/session";
-import { inject as service } from "@ember/service";
 import { computed } from "@ember/object";
 import { alias, notEmpty } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { lastValue, restartableTask } from "ember-concurrency-decorators";
-import config from "../config/environment";
+import Session from "ember-simple-auth/services/session";
 import { getUserLocales } from "get-user-locale";
+
+import config from "../config/environment";
 
 const { languages, fallbackLanguage } = config;
 

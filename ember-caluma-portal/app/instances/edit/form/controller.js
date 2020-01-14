@@ -1,9 +1,8 @@
-import Controller from "@ember/controller";
-import { inject as controller } from "@ember/controller";
-import { inject as service } from "@ember/service";
+import Controller, { inject as controller } from "@ember/controller";
 import { assert } from "@ember/debug";
-import { reads } from "@ember/object/computed";
 import { computed } from "@ember/object";
+import { reads } from "@ember/object/computed";
+import { inject as service } from "@ember/service";
 import { queryParam } from "ember-parachute/decorators";
 
 export default class InstancesEditFormController extends Controller {

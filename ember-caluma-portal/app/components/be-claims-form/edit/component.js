@@ -1,10 +1,10 @@
 import Component from "@ember/component";
 import { computed, action } from "@ember/object";
-import { task, dropTask } from "ember-concurrency-decorators";
 import { inject as service } from "@ember/service";
-import { all } from "rsvp";
-import moment from "moment";
 import config from "ember-caluma-portal/config/environment";
+import { task, dropTask } from "ember-concurrency-decorators";
+import moment from "moment";
+import { all } from "rsvp";
 
 export default class BeClaimsFormEditComponent extends Component {
   @service notification;
@@ -12,8 +12,8 @@ export default class BeClaimsFormEditComponent extends Component {
   @service fetch;
   @service store;
 
-  init() {
-    super.init(...arguments);
+  init(...args) {
+    super.init(...args);
 
     this.setProperties({
       files: [],

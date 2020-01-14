@@ -1,7 +1,7 @@
-import { module, skip } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import { module, skip } from "qunit";
 
 module("Integration | Component | be-claims-form/list/item", function(hooks) {
   setupRenderingTest(hooks);

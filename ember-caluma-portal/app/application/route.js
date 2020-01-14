@@ -1,8 +1,8 @@
-import Route from "@ember/routing/route";
-import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
-import { get } from "@ember/object";
-import { inject as service } from "@ember/service";
 import { getOwner } from "@ember/application";
+import { get } from "@ember/object";
+import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
+import OIDCApplicationRouteMixin from "ember-simple-auth-oidc/mixins/oidc-application-route-mixin";
 
 const RouteClass = Route.extend(OIDCApplicationRouteMixin);
 
