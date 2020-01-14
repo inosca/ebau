@@ -3,11 +3,18 @@ import { assert } from "@ember/debug";
 import { computed } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
-import { queryParam } from "ember-parachute/decorators";
+import QueryParams from "ember-parachute";
 
-export default class InstancesEditFormController extends Controller {
-  @queryParam({ refresh: true }) displayedForm = "";
+const queryParams = new QueryParams({
+  displayedForm: {
+    default: "",
+    refresh: true
+  }
+});
 
+export default class InstancesEditFormController extends Controller.extend(
+  queryParams.Mixin
+) {
   @service calumaStore;
 
   @controller("instances.edit") editController;
