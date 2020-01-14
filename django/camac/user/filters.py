@@ -33,7 +33,6 @@ class PublicServiceFilterSet(FilterSet):
 
 class ServiceFilterSet(FilterSet):
     service_id = NumberMultiValueFilter()
-    name = CharMultiValueFilter()
 
     class Meta:
         model = models.Service
