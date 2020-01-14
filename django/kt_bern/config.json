@@ -147592,7 +147592,7 @@
   {
     "fields": {
       "language": "fr",
-      "name": "Administration: contrôle des constructions",
+      "name": "Administration: contr\u00f4le des constructions",
       "role": 20009
     },
     "model": "user.rolet",
@@ -147610,7 +147610,7 @@
   {
     "fields": {
       "language": "fr",
-      "name": "Administration: autorité directrice",
+      "name": "Administration: autorit\u00e9 directrice",
       "role": 20007
     },
     "model": "user.rolet",
