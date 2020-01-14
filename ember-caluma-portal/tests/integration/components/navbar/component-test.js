@@ -106,12 +106,4 @@ module("Integration | Component | navbar", function(hooks) {
       .dom(".uk-navbar-right ul > li:nth-of-type(1) > a")
       .hasText("Doe John");
   });
-
-  test("it renders meta informations about the application", async function(assert) {
-    assert.expect(1);
-
-    await render(hbs`<Navbar />`);
-
-    assert.dom(".uk-navbar-center .uk-label:nth-of-type(2)").hasText("test");
-  });
 });
