@@ -91,10 +91,15 @@ class LocationSerializer(serializers.ModelSerializer):
 
 
 class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    city = serializers.SerializerMethodField()
+
+    def get_city(self, obj):
+        return obj.get_trans_attr("city")
+
     class Meta:
         model = models.Service
-        fields = ("name", "email", "notification")
-        read_only_fields = ("name",)
+        fields = ("name", "email", "notification", "zip", "city", "address")
+        read_only_fields = ("name", "zip", "city", "address")
 
 
 class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):

@@ -16,6 +16,7 @@ def test_service_list(admin_client, service, size):
     assert len(json["data"]) == size
     if size > 0:
         assert json["data"][0]["attributes"]["name"] == service.name
+        assert json["data"][0]["attributes"]["city"] == service.get_trans_attr("city")
 
 
 @pytest.mark.parametrize(
