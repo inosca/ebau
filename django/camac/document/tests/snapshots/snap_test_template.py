@@ -102,7 +102,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
         <w:szCs w:val="24"/>
         <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
       </w:rPr>
-      <w:t>Publikationsdatum: 26.12.1989</w:t>
+      <w:t>Publikationsdatum: 28.05.2018</w:t>
     </w:r>
   </w:p>
   <w:p>
@@ -2015,7 +2015,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">31.66</w:t>
+            <w:t xml:space="preserve">646.95</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2041,7 +2041,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">26.09.1999</w:t>
+            <w:t xml:space="preserve">28.05.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2371,7 +2371,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>06.03.2004</w:t>
+            <w:t>28.05.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2395,7 +2395,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>02.06.2018</w:t>
+            <w:t>28.05.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
