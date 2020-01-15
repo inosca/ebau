@@ -3,12 +3,13 @@ import { computed } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
-import { withParachute } from "ember-parachute/decorators";
+import QueryParams from "ember-parachute";
 
 const FEEDBACK_ATTACHMENT_SECTION = 3;
 
-@withParachute
-class InstancesEditController extends Controller {
+export default class InstancesEditController extends Controller.extend(
+  new QueryParams().Mixin
+) {
   @service fetch;
   @service can;
 
@@ -57,5 +58,3 @@ class InstancesEditController extends Controller {
     });
   }
 }
-
-export default InstancesEditController;

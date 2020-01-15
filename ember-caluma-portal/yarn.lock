@@ -830,7 +830,7 @@
     ember-cli-typescript "^2.0.2"
     heimdalljs "^0.3.0"
 
-"@ember-decorators/utils@^6.1.0", "@ember-decorators/utils@^6.1.1":
+"@ember-decorators/utils@^6.1.0":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-6.1.1.tgz#6b619814942b4fb3747cfa9f540c9f05283d7c5e"
   integrity sha512-0KqnoeoLKb6AyoSU65TRF5T85wmS4uDn06oARddwNPxxf/lt5jQlh41uX3W7V/fWL9tPu8x1L1Vvpc80MN1+YA==
@@ -5773,12 +5773,12 @@ ember-one-way-select@^4.0.0:
     ember-cli-htmlbars "^2.0.1"
     ember-invoke-action "^1.5.0"
 
-ember-parachute@anehx/ember-parachute#legacy-decorators:
+ember-parachute@^1.0.2:
   version "1.0.2"
-  resolved "https://codeload.github.com/anehx/ember-parachute/tar.gz/2c77ddc588408c93410215d47260a453d321170b"
+  resolved "https://registry.yarnpkg.com/ember-parachute/-/ember-parachute-1.0.2.tgz#f147f6b29df100d467acc1ddf13761aef92e95de"
+  integrity sha512-wpTn179au/BE2+p4z9mQRh2Cy/a5J038oPpY2Buja3gDO/Qh64ny3klr4dxMRQ5GePniglkWK/LW3qitcs902A==
   dependencies:
-    "@ember-decorators/utils" "^6.1.1"
-    ember-cli-babel "^7.12.0"
+    ember-cli-babel "^7.1.2"
 
 ember-pikaday@^2.4.1:
   version "2.4.1"
