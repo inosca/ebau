@@ -7,7 +7,7 @@ import QueryParams from "ember-parachute";
 
 const queryParams = new QueryParams({
   displayedForm: {
-    default: "",
+    defaultValue: "",
     refresh: true
   }
 });
