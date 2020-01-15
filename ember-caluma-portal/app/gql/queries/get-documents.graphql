@@ -1,4 +1,4 @@
-#import 'ember-caluma/gql/fragments/field-answer'
+# import * from 'ember-caluma/gql/fragments/field-answer'
 
 query GetDocuments(
   $cursor: String
