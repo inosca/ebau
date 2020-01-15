@@ -3,8 +3,8 @@ import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document.graphql";
-import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents.graphql";
+import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
+import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
 
