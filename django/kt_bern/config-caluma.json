@@ -26949,7 +26949,7 @@
       "info_text": "{\"de\": \"\", \"fr\": \"\"}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "true",
+      "is_required": "!('vorabklaerung' in form)",
       "label": "{\"de\": \"Der/die Gesuchsteller/in best\\u00e4tigt, dass die vom GIS-System \\u00fcbernommen Daten mit den baurechtlichen Grundlagen \\u00fcbereinstimmen.\", \"fr\": \"Le/la requ\\u00e9rant/e confirme que les donn\\u00e9es reprises du SIG sont conformes \\u00e0 la r\\u00e9glementation fondamentale en mati\\u00e8re de construction.\"}",
       "meta": {
         "hideLabel": true
