@@ -7,10 +7,10 @@
 
 
 import json
-import requests
 
+import requests
 from caluma.caluma_core.validations import BaseValidation, validation_for
-from caluma.caluma_form.models import Document, Answer
+from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
 from django.conf import settings
 

@@ -8,7 +8,7 @@ from rest_framework import status
 from camac.core.models import Chapter, Question, QuestionType
 from camac.echbern import data_preparation
 from camac.echbern.data_preparation import DocumentParser
-from camac.echbern.tests.caluma_responses import full_document
+from camac.echbern.tests.caluma_responses import document_validity, full_document
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -290,7 +290,17 @@ def test_instance_submit(
 
     instance_state_factory(name=new_instance_state_name)
 
-    requests_mock.post("http://camac-ng.local/graphql/", json=full_document)
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        additional_matcher=lambda rq: b"allDocuments" in rq.body,
+        json=full_document,
+    )
+    requests_mock.post(
+        "http://caluma:8000/graphql/",
+        additional_matcher=lambda rq: b"documentValidity" in rq.body,
+        json=document_validity,
+    )
+
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
@@ -332,7 +342,7 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
     [
         ("sb1", True, status.HTTP_200_OK),
         ("new", True, status.HTTP_403_FORBIDDEN),
-        # ("sb1", False, status.HTTP_400_BAD_REQUEST), TODO: reenable this when caluma document validity is fixed
+        ("sb1", False, status.HTTP_400_BAD_REQUEST),
     ],
 )
 @pytest.mark.parametrize("new_instance_state_name", ["sb2"])
