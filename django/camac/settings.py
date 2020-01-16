@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "camac.applicants.apps.DefaultConfig",
     "camac.auditlog.apps.DefaultConfig",
     "camac.tags.apps.DefaultConfig",
+    "camac.objection.apps.DefaultConfig",
     "camac.echbern.apps.EchbernConfig",
     "sorl.thumbnail",
     "django_clamd",
