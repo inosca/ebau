@@ -94,9 +94,17 @@ grunt-build-sz: ## Grunt build
 grunt-watch-sz: ## Grunt watch
 	docker-compose exec php sh -c "cd ../camac/public && npm run build-sz && npm run watch-sz"
 
-.PHONY: prettier-format
-prettier-format:
-	docker-compose exec php sh -c "cd ../camac/public && npm run prettier-format"
+.PHONY: format
+format:
+	@yarn --cwd=php install
+	@yarn --cwd=php lint --fix
+	@yarn --cwd=php prettier-format
+	@yarn --cwd=ember-caluma-portal install
+	@yarn --cwd=ember-caluma-portal lint:js --fix
+	@yarn --cwd=ember install
+	@yarn --cwd=ember lint:js --fix
+	@black django
+	@black caluma
 
 .PHONY: makemigrations
 makemigrations: ## Create schema migrations
