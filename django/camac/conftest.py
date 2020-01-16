@@ -15,6 +15,7 @@ from camac.echbern import factories as ech_factories
 from camac.faker import FreezegunAwareDatetimeProvider
 from camac.instance import factories as instance_factories
 from camac.notification import factories as notification_factories
+from camac.objection import factories as objection_factories
 from camac.responsible import factories as responsible_factories
 from camac.user import factories as user_factories
 
@@ -39,6 +40,7 @@ register_module(notification_factories)
 register_module(applicant_factories)
 register_module(responsible_factories)
 register_module(ech_factories)
+register_module(objection_factories)
 
 # TODO: Somehow the ordering of those two calls is relevant.
 # Need to figure out why exactly (FreezegunAwareDatetimeProvider's
