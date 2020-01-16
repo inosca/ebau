@@ -28874,9 +28874,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-04-03T08:09:30.526Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -28905,9 +28903,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ],
+        "formatValidators": ["email"],
         "widgetOverride": null
       },
       "modified_at": "2019-05-03T08:34:21.791Z",
@@ -28937,9 +28933,7 @@
       "is_required": "false",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-04-05T08:16:05.179Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -28968,9 +28962,7 @@
       "is_required": "true",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2020-01-13T13:52:39.442Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -28999,9 +28991,7 @@
       "is_required": "true",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2020-01-13T13:54:09.184Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -29030,9 +29020,7 @@
       "is_required": "false",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-04-08T15:35:47.343Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -29061,9 +29049,7 @@
       "is_required": "true",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2020-01-13T13:55:48.390Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -29092,9 +29078,7 @@
       "is_required": "false",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-07-10T07:34:05.051Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -29123,9 +29107,7 @@
       "is_required": "true",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2020-01-13T13:57:24.127Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -29154,9 +29136,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-04-04T08:11:52.704Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -29185,9 +29165,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ],
+        "formatValidators": ["email"],
         "widgetOverride": null
       },
       "modified_at": "2019-05-03T15:03:03.962Z",
@@ -29217,9 +29195,7 @@
       "is_required": "true",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2020-01-13T13:58:49.639Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -29248,9 +29224,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"E-Mail\", \"fr\": \"Courriel\"}",
       "meta": {
-        "formatValidators": [
-          "email"
-        ]
+        "formatValidators": ["email"]
       },
       "modified_at": "2019-06-14T12:57:51.429Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43131,9 +43105,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-04-03T08:09:04.352Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43162,9 +43134,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ],
+        "formatValidators": ["phone-number"],
         "widgetOverride": null
       },
       "modified_at": "2019-07-10T07:50:26.121Z",
@@ -43194,9 +43164,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-04-05T08:15:24.280Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43225,9 +43193,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T13:52:25.797Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43256,9 +43222,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T13:53:59.518Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43287,9 +43251,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-04-08T15:32:59.589Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43318,9 +43280,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T13:55:42.543Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43349,9 +43309,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-04-08T15:20:51.497Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43380,9 +43338,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T13:57:18.329Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43411,9 +43367,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-04-04T08:10:46.824Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
@@ -43442,9 +43396,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ],
+        "formatValidators": ["phone-number"],
         "widgetOverride": null
       },
       "modified_at": "2019-05-03T15:02:55.171Z",
@@ -43474,9 +43426,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T13:58:43.915Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43505,9 +43455,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2020-01-13T14:01:27.213Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
@@ -43536,9 +43484,7 @@
       "is_required": "!('vorabklaerung' in form || 'papierdossier'|answer == 'papierdossier-ja')",
       "label": "{\"de\": \"Telefon oder Mobile\", \"fr\": \"T\\u00e9l\\u00e9phone fixe ou mobile\"}",
       "meta": {
-        "formatValidators": [
-          "phone-number"
-        ]
+        "formatValidators": ["phone-number"]
       },
       "modified_at": "2019-06-14T12:54:54.421Z",
       "placeholder": "{\"de\": null, \"fr\": null}",

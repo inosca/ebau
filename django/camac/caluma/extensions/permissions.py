@@ -2,6 +2,7 @@ import json
 from logging import getLogger
 
 import requests
+
 from caluma.caluma_core.mutation import Mutation
 from caluma.caluma_core.permissions import (
     BasePermission,
