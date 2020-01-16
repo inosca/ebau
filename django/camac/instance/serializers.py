@@ -13,7 +13,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma.api import CalumaApi, get_paper_settings
+from camac.caluma.api import CalumaApi, CalumaClient, get_paper_settings
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -540,36 +540,35 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
     def _validate_document_validity(self, document_id):
-        # TODO: reenable this when caluma document validity is fixed
-        # validity = self.query_caluma(
-        #     """
-        #         query GetDocumentValidity($id: ID!) {
-        #             documentValidity(id: $id) {
-        #                 edges {
-        #                     node {
-        #                         id
-        #                         isValid
-        #                         errors {
-        #                             slug
-        #                             errorMsg
-        #                         }
-        #                     }
-        #                 }
-        #             }
-        #         }
-        #     """,
-        #     {"id": document_id},
-        # )
+        request = self.context["request"]
+        caluma = CalumaClient(get_authorization_header(request))
+        validity = caluma.query_caluma(
+            """
+                query GetDocumentValidity($id: ID!) {
+                    documentValidity(id: $id) {
+                        edges {
+                            node {
+                                id
+                                isValid
+                                errors {
+                                    slug
+                                    errorMsg
+                                }
+                            }
+                        }
+                    }
+                }
+            """,
+            {"id": str(document_id)},
+        )
 
-        # data = validity["data"]["documentValidity"]["edges"][0]["node"]
+        data = validity["data"]["documentValidity"]["edges"][0]["node"]
 
-        # if not data["isValid"]:
-        #     raise exceptions.ValidationError(
-        #         _("Error while validating caluma document: %(errors)s")
-        #         % {"errors": ", ".join([e["errorMsg"] for e in data["errors"]])}
-        #     )
-
-        pass
+        if not data["isValid"]:
+            raise exceptions.ValidationError(
+                _("Error while validating caluma document: %(errors)s")
+                % {"errors": ", ".join([e["errorMsg"] for e in data["errors"]])}
+            )
 
     def validate(self, data):
         data["caluma_document"] = CalumaApi().get_main_document(self.instance)
