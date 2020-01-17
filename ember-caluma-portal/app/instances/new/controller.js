@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms.graphql";
+import getRootFormsQuery from "ember-caluma-portal/gql/queries/get-root-forms";
 import { restartableTask, dropTask } from "ember-concurrency-decorators";
 import QueryParams from "ember-parachute";
 
