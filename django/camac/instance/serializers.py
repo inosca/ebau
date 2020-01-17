@@ -628,25 +628,38 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
 
         return data
 
-    def _generate_and_store_pdf(self, instance, exclude_slugs=[]):
+    def _generate_and_store_pdf(self, instance, form_slug=None):
         # get caluma document and generate data for document merge service
-        doc = caluma_form_models.Document.objects.filter(
-            **{"meta__camac-instance-id": instance.pk}
-        ).first()
-        if doc is None:
-            return
+        _filter = {"meta__camac-instance-id": instance.pk}
+
+        if form_slug:
+            _filter["form__slug"] = form_slug
+        else:
+            _filter["form__meta__is-main-form"] = True
+
+        try:
+            doc = caluma_form_models.Document.objects.get(**_filter)
+        except (
+            caluma_form_models.Document.DoesNotExist,
+            caluma_form_models.Document.MultipleObjectsReturned,
+        ):
+            message = _(
+                "None or multiple caluma Documents found for instance: %(instance)s"
+            ) % {"instance": instance.pk}
+            request_logger.error(message)
+            raise
 
         template = doc.form.meta.get("template")
         if template is None:
             raise exceptions.ValidationError(
-                _(
-                    "Meta field for document of instance %(instance) specifies no template."
-                )
-                % {"instance": self.instance.pk}
+                _("Meta field for form '%(form_slug)' specifies no template.")
+                % {"form_slug": doc.form.slug}
             )
 
-        visitor = document_merge_service.DMSVisitor(exclude_slugs)
-        sections = visitor.visit(doc, append_receipt_page=True)
+        visitor = document_merge_service.DMSVisitor()
+        sections = visitor.visit(
+            doc, append_receipt_page=(form_slug not in ["sb1", "sb2"])
+        )
 
         data = {
             "caseId": instance.pk,
@@ -702,7 +715,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
             )
 
         # generate and submit pdf
-        self._generate_and_store_pdf(instance, ["8-freigabequittung"])
+        self._generate_and_store_pdf(instance)
 
         self._set_submit_date(validated_data)
 
@@ -775,7 +788,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        self._generate_and_store_pdf(instance, ["freigabequittung-vorabklaerung-form"])
+        self._generate_and_store_pdf(instance, "sb1")
 
         self._create_journal_entry(get_translations(gettext_noop("SB1 submitted")))
 
@@ -846,7 +859,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
 
         instance.save()
 
-        self._generate_and_store_pdf(instance, ["freigabequittung-vorabklaerung-form"])
+        self._generate_and_store_pdf(instance, "sb2")
 
         self._create_journal_entry(get_translations(gettext_noop("SB2 submitted")))
 
