@@ -282,11 +282,11 @@
       "created_at": "2019-03-11T09:21:12.560Z",
       "created_by_group": null,
       "created_by_user": null,
-      "description": "{\"de\": null, \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2019-03-11T09:21:12.561Z",
+      "modified_at": "2020-01-14T15:05:03.715Z",
       "name": "{\"de\": \"Bauvorhaben\", \"fr\": \"Projet de construction\"}",
       "source": null
     },
@@ -896,7 +896,7 @@
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2019-03-28T14:11:40.223Z",
+      "modified_at": "2020-01-14T13:44:01.576Z",
       "name": "{\"de\": \"Parzelle Tabelle\", \"fr\": \"parcelle\"}",
       "source": null
     },
@@ -956,11 +956,11 @@
       "created_at": "2019-03-25T10:06:27.325Z",
       "created_by_group": null,
       "created_by_user": null,
-      "description": "{\"de\": null, \"fr\": null}",
+      "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
       "meta": {},
-      "modified_at": "2019-03-25T10:06:27.325Z",
+      "modified_at": "2020-01-14T14:01:56.277Z",
       "name": "{\"de\": \"Personalien Tabelle\", \"fr\": \"Donn\\u00e9es personnelles\"}",
       "source": null
     },
@@ -15825,7 +15825,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Ja\", \"fr\": \"Oui\"}",
       "meta": {},
-      "modified_at": "2019-12-24T11:30:06.592Z",
+      "modified_at": "2020-01-16T13:45:45.055Z",
       "source": null
     },
     "model": "form.option",
@@ -15839,7 +15839,7 @@
       "is_archived": false,
       "label": "{\"de\": \"Nein\", \"fr\": \"Non\"}",
       "meta": {},
-      "modified_at": "2019-12-24T11:30:06.585Z",
+      "modified_at": "2020-01-16T13:45:45.062Z",
       "source": null
     },
     "model": "form.option",
@@ -15853,7 +15853,7 @@
       "is_archived": true,
       "label": "{\"de\": \"Nicht \\u00fcberpr\\u00fcft\", \"fr\": \"Non v\\u00e9rifi\\u00e9\"}",
       "meta": {},
-      "modified_at": "2019-12-24T11:30:06.559Z",
+      "modified_at": "2020-01-16T13:45:45.048Z",
       "source": null
     },
     "model": "form.option",
@@ -26183,21 +26183,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 1000
       },
       "created_at": "2019-03-11T07:07:00.723Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "false",
+      "is_required": "true",
       "label": "{\"de\": \"Bemerkungen\", \"fr\": \"Remarques\"}",
       "meta": {},
-      "modified_at": "2019-04-02T14:08:14.122Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-15T07:57:19.454Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -26484,7 +26484,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 1000
       },
       "created_at": "2019-04-12T08:18:11.316Z",
       "created_by_group": "[]",
@@ -26499,7 +26499,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-04-18T14:32:46.009Z",
+      "modified_at": "2020-01-14T14:07:42.039Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -28057,22 +28057,22 @@
   {
     "fields": {
       "configuration": {
-        "max_value": null,
-        "min_value": null
+        "max_value": 999,
+        "min_value": 1
       },
       "created_at": "2019-03-11T09:29:52.669Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Dauer in Monaten\", \"fr\": \"Dur\\u00e9e en mois\"}",
       "meta": {},
-      "modified_at": "2019-03-11T09:29:52.669Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T15:05:01.488Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -28730,7 +28730,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 14
       },
       "created_at": "2019-03-28T14:13:11.177Z",
       "created_by_group": null,
@@ -28745,7 +28745,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-04-18T14:15:15.821Z",
+      "modified_at": "2020-01-14T13:42:46.745Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -29191,22 +29191,22 @@
   {
     "fields": {
       "configuration": {
-        "max_value": null,
-        "min_value": null
+        "max_value": 99,
+        "min_value": 1
       },
       "created_at": "2019-03-28T15:13:23.069Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Effektive Geschosszahl\", \"fr\": \"Nombre effectif d'\\u00e9tages\"}",
       "meta": {},
-      "modified_at": "2019-03-28T15:13:23.069Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-15T08:33:31.987Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -32167,7 +32167,7 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Bei Bauvorhaben auf l\\u00e4rmvorbelasteten Standorten m\\u00fcssen im Baugesuch\\n\\n- Die L\\u00e4rmbelastung im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume;\\n- Allf\\u00e4llige L\\u00e4rmschutzmassnahmen\\n- Die Schalld\\u00e4mmmasse der Aussenbauteile;\\nausgewiesen werden (Art. 34 LSV).\\n\\nFalls die Parzelle bereits erschlossen ist, m\\u00fcssen nach Art. 22 USG und Art. 31 LSV die Immissionsgrenzwerte bei allen Fenstern der l\\u00e4rmempfindlichen R\\u00e4ume eingehalten sein.\\n\\n[Bauen auf l\\u00e4rmvorbelasteten Standorten im Kanton Bern (L\\u00e4rmschutznachweis, Massnahmen, Anforderungen an die Schalld\\u00e4mmung)](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm/belastetes_gebiet.html)\", \"fr\": \"Pour les secteurs expos\\u00e9s au bruit, le ma\\u00eetre de l\\u2019ouvrage doit indiquer dans la demande de permis de construire (art. 34 OPB)\\u00a0:\\n\\n- les immissions de bruit au milieu des fen\\u00eatres ouvertes des locaux \\u00e0 usage sensible au bruit;\\n- les \\u00e9ventuelles mesures de protection contre le bruit;\\n- l\\u2019indice d\\u2019affaiblissement acoustique des \\u00e9l\\u00e9ments de construction ext\\u00e9rieurs.\\n\\nSi la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d'immission doivent \\u00eatre respect\\u00e9es pour toutes les fen\\u00eatres des locaux \\u00e0 usage sensible au bruit en vertu des articles 22 LPE et 31 OPB.\\n\\n[Construire dans des secteurs p\\u00e9nalis\\u00e9s par le bruit dans le canton de Berne (preuves de protection contre le bruit, mesures et exigences en mati\\u00e8re d\\u2019insonorisation)](https://www.bve.be.ch/bve/fr/index/umwelt/umwelt/laerm/belastetes_gebiet.html)\"}",
+      "info_text": "{\"de\": \"Bei Bauvorhaben auf l\\u00e4rmvorbelasteten Standorten m\\u00fcssen im Baugesuch\\n\\n- Die L\\u00e4rmbelastung im offenen Fenster l\\u00e4rmempfindlicher R\\u00e4ume;\\n- Allf\\u00e4llige L\\u00e4rmschutzmassnahmen\\n- Die Schalld\\u00e4mmmasse der Aussenbauteile;\\nausgewiesen werden (Art. 34 LSV).\\n\\nFalls die Parzelle bereits erschlossen ist, m\\u00fcssen nach Art. 22 USG und Art. 31 LSV die Immissionsgrenzwerte bei allen Fenstern der l\\u00e4rmempfindlichen R\\u00e4ume eingehalten sein.\\n\\n[Bauen auf l\\u00e4rmvorbelasteten Standorten im Kanton Bern (L\\u00e4rmschutznachweis, Massnahmen, Anforderungen an die Schalld\\u00e4mmung)](https://www.vol.be.ch/vol/de/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\", \"fr\": \"Pour les secteurs expos\\u00e9s au bruit, le ma\\u00eetre de l\\u2019ouvrage doit indiquer dans la demande de permis de construire (art. 34 OPB)\\u00a0:\\n\\n- les immissions de bruit au milieu des fen\\u00eatres ouvertes des locaux \\u00e0 usage sensible au bruit;\\n- les \\u00e9ventuelles mesures de protection contre le bruit;\\n- l\\u2019indice d\\u2019affaiblissement acoustique des \\u00e9l\\u00e9ments de construction ext\\u00e9rieurs.\\n\\nSi la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d'immission doivent \\u00eatre respect\\u00e9es pour toutes les fen\\u00eatres des locaux \\u00e0 usage sensible au bruit en vertu des articles 22 LPE et 31 OPB.\\n\\n[Construire dans des secteurs p\\u00e9nalis\\u00e9s par le bruit dans le canton de Berne (preuves de protection contre le bruit, mesures et exigences en mati\\u00e8re d\\u2019insonorisation)](https://www.vol.be.ch/vol/fr/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\"}",
       "is_archived": false,
       "is_hidden": "!(\n  'grenzwerte-ueberschritten-ja' == 'grenzwerte-ueberschritten'|answer\n)",
       "is_required": "!('vorabklaerung' in form)",
@@ -32194,7 +32194,7 @@
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": \"Bei Parzellen im Emissionsbereich von Strassen, Bahnlinien, Sportanlagen, Betrieben, Schiessanlagen, Flugh\\u00e4fen muss \\u00fcberpr\\u00fcft werden, ob die Aussenl\\u00e4rmbelastung unter den massgebenden Belastungsgrenzwerte liegt (falls Parzelle bereits erschlossen ist, gelten die Immissionsgrenzwerte, ansonsten die Planungswerte). Wenn diese massgebenden Grenzwerte auf der bebaubaren Fl\\u00e4che \\u00fcberschritten sind, handelt es sich um einen l\\u00e4rmvorbelasteten Standort.\\n  \\n[Informationen zur L\\u00e4rmbelastung Kanton Bern/L\\u00e4rmbelastungskataster](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\", \"fr\": \"S\\u2019agissant de parcelles situ\\u00e9es dans la zone d\\u2019immission de routes, de lignes de chemin de fer, d\\u2019infrastructures sportives, d\\u2019entreprises, d\\u2019installations de tir ou d\\u2019a\\u00e9roports, il convient de v\\u00e9rifier si l\\u2019exposition au bruit ext\\u00e9rieur est inf\\u00e9rieure aux valeurs limites d\\u2019exposition d\\u00e9terminantes (les valeurs limites d\\u2019immission s'appliquent si la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e et les valeurs de planification dans les autres cas). Si ces valeurs limites d\\u2019exposition sont d\\u00e9pass\\u00e9es, le site concern\\u00e9 est consid\\u00e9r\\u00e9 comme un secteur expos\\u00e9 au bruit.\\n\\n[Informations concernant les probl\\u00e8mes de bruit dans le canton de Berne / cadastre de bruit](https://www.bve.be.ch/bve/de/index/umwelt/umwelt/laerm.html)\"}",
+      "info_text": "{\"de\": \"Bei Parzellen im Emissionsbereich von Strassen, Bahnlinien, Sportanlagen, Betrieben, Schiessanlagen, Flugh\\u00e4fen muss \\u00fcberpr\\u00fcft werden, ob die Aussenl\\u00e4rmbelastung unter den massgebenden Belastungsgrenzwerte liegt (falls Parzelle bereits erschlossen ist, gelten die Immissionsgrenzwerte, ansonsten die Planungswerte). Wenn diese massgebenden Grenzwerte auf der bebaubaren Fl\\u00e4che \\u00fcberschritten sind, handelt es sich um einen l\\u00e4rmvorbelasteten Standort.\\n  \\n[Informationen zur L\\u00e4rmbelastung Kanton Bern/L\\u00e4rmbelastungskataster](https://www.vol.be.ch/vol/de/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\", \"fr\": \"S\\u2019agissant de parcelles situ\\u00e9es dans la zone d\\u2019immission de routes, de lignes de chemin de fer, d\\u2019installations sportives, d\\u2019industries, d\\u2019installations de tir ou d\\u2019a\\u00e9roports, il convient de v\\u00e9rifier si l\\u2019exposition au bruit ext\\u00e9rieur est inf\\u00e9rieure aux valeurs limites d\\u2019exposition d\\u00e9terminantes (si la parcelle est d\\u00e9j\\u00e0 \\u00e9quip\\u00e9e, les valeurs limites d\\u2019immission sont applicables, autrement ce sont les valeurs de planification). Si ces valeurs limites d\\u2019exposition sont d\\u00e9pass\\u00e9es, le site concern\\u00e9 est consid\\u00e9r\\u00e9 comme un secteur expos\\u00e9 au bruit.\\n\\n[Informations concernant les probl\\u00e8mes de bruit dans le canton de Berne / cadastre de bruit](https://www.vol.be.ch/vol/fr/index/umwelt/laerm/laermschutz/belastetes_gebiet.html)\"}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form)",
@@ -32202,7 +32202,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-12-24T11:30:06.701Z",
+      "modified_at": "2020-01-16T13:45:45.188Z",
       "placeholder": "{\"de\": null, \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -32600,7 +32600,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 9
       },
       "created_at": "2019-03-28T14:56:20.402Z",
       "created_by_group": null,
@@ -32615,7 +32615,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-04-18T14:14:54.756Z",
+      "modified_at": "2020-01-14T13:46:54.277Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -35286,7 +35286,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 10
       },
       "created_at": "2019-03-28T14:14:29.069Z",
       "created_by_group": null,
@@ -35299,7 +35299,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Lagekoordinaten - Nord\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques - nord\"}",
       "meta": {},
-      "modified_at": "2020-01-13T13:50:58.460Z",
+      "modified_at": "2020-01-14T13:43:48.418Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -35313,7 +35313,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 10
       },
       "created_at": "2019-05-09T10:46:01.220Z",
       "created_by_group": "[]",
@@ -35328,7 +35328,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-10T15:02:13.089Z",
+      "modified_at": "2020-01-14T15:06:51.592Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -35342,7 +35342,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 10
       },
       "created_at": "2019-03-28T14:14:04.276Z",
       "created_by_group": null,
@@ -35355,7 +35355,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Lagekoordinaten - Ost\", \"fr\": \"Coordonn\\u00e9es planim\\u00e9triques - Est\"}",
       "meta": {},
-      "modified_at": "2020-01-13T13:50:50.072Z",
+      "modified_at": "2020-01-14T13:43:43.444Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -35369,7 +35369,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 10
       },
       "created_at": "2019-05-09T10:43:28.861Z",
       "created_by_group": "[]",
@@ -35384,7 +35384,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2019-05-10T15:02:05.155Z",
+      "modified_at": "2020-01-14T15:06:44.650Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -36852,7 +36852,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 30
       },
       "created_at": "2019-04-04T07:52:20.078Z",
       "created_by_group": null,
@@ -36867,7 +36867,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2020-01-13T13:53:28.578Z",
+      "modified_at": "2020-01-14T14:01:02.614Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -36881,21 +36881,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 30
       },
       "created_at": "2019-04-11T12:34:23.414Z",
       "created_by_group": "[]",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "true",
       "label": "{\"de\": \"Name\", \"fr\": \"Nom\"}",
       "meta": {},
-      "modified_at": "2019-04-11T12:34:23.414Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T14:02:31.219Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -37711,21 +37711,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 12
       },
       "created_at": "2019-03-28T14:15:25.544Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Nr.\", \"fr\": \"N\\u00b0\"}",
       "meta": {},
-      "modified_at": "2019-03-28T14:15:25.544Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T15:05:17.265Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -37848,21 +37848,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 12
       },
       "created_at": "2019-04-04T07:53:45.186Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Nummer\", \"fr\": \"Num\\u00e9ro\"}",
       "meta": {},
-      "modified_at": "2019-04-04T07:53:45.186Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T14:01:39.853Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -38504,21 +38504,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 40
       },
       "created_at": "2019-04-04T07:54:43.501Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "true",
       "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
       "meta": {},
-      "modified_at": "2019-04-04T07:54:43.501Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T14:01:48.834Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -38558,21 +38558,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 40
       },
       "created_at": "2019-04-04T09:17:54.620Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form)",
       "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
       "meta": {},
-      "modified_at": "2019-04-04T09:17:54.621Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T15:04:20.365Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -38585,21 +38585,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 40
       },
       "created_at": "2019-04-04T09:24:26.527Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "false",
       "label": "{\"de\": \"Ort\", \"fr\": \"Localit\\u00e9\"}",
       "meta": {},
-      "modified_at": "2019-04-04T09:24:26.527Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T15:05:42.465Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -38890,7 +38890,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null,
+        "max_length": 12,
         "max_value": null,
         "min_value": null
       },
@@ -38905,7 +38905,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Parzellennummer\", \"fr\": \"n\\u00b0 de parcelle\"}",
       "meta": {},
-      "modified_at": "2020-01-13T13:50:31.888Z",
+      "modified_at": "2020-01-14T13:43:09.536Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -42252,21 +42252,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 60
       },
       "created_at": "2019-03-28T14:15:10.806Z",
       "created_by_group": null,
       "created_by_user": null,
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "!('vorabklaerung' in form)",
       "label": "{\"de\": \"Strasse/Flurname\", \"fr\": \"Rue/lieu-dit\"}",
       "meta": {},
-      "modified_at": "2019-03-28T14:15:10.806Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T15:04:10.836Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -42333,7 +42333,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 60
       },
       "created_at": "2019-04-04T07:53:17.574Z",
       "created_by_group": null,
@@ -42346,7 +42346,7 @@
       "is_required": "true",
       "label": "{\"de\": \"Strasse\", \"fr\": \"Rue\"}",
       "meta": {},
-      "modified_at": "2020-01-13T13:53:45.060Z",
+      "modified_at": "2020-01-14T14:01:14.866Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -44981,7 +44981,7 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 30
       },
       "created_at": "2019-04-04T07:51:39.379Z",
       "created_by_group": null,
@@ -44996,7 +44996,7 @@
       "meta": {
         "widgetOverride": null
       },
-      "modified_at": "2020-01-13T13:53:36.218Z",
+      "modified_at": "2020-01-14T14:00:57.752Z",
       "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
@@ -45010,21 +45010,21 @@
   {
     "fields": {
       "configuration": {
-        "max_length": null
+        "max_length": 30
       },
       "created_at": "2019-04-11T12:35:41.821Z",
       "created_by_group": "[]",
       "created_by_user": "462afaba-aeb7-494a-8596-3497b81ed701",
       "data_source": null,
       "format_validators": "[]",
-      "info_text": "{\"de\": null, \"fr\": null}",
+      "info_text": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
       "is_required": "true",
       "label": "{\"de\": \"Vorname\", \"fr\": \"Pr\\u00e9nom\"}",
       "meta": {},
-      "modified_at": "2019-04-11T12:35:41.821Z",
-      "placeholder": "{\"de\": null, \"fr\": null}",
+      "modified_at": "2020-01-14T14:02:36.092Z",
+      "placeholder": "{\"de\": \"\", \"fr\": null}",
       "row_form": null,
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
@@ -50277,10 +50277,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-12-24T11:30:06.714Z",
+      "created_at": "2020-01-16T13:45:45.200Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-12-24T11:30:06.714Z",
+      "modified_at": "2020-01-16T13:45:45.200Z",
       "option": "grenzwerte-ueberschritten-ja",
       "question": "grenzwerte-ueberschritten",
       "sort": 3
@@ -50290,10 +50290,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-12-24T11:30:06.710Z",
+      "created_at": "2020-01-16T13:45:45.197Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-12-24T11:30:06.710Z",
+      "modified_at": "2020-01-16T13:45:45.197Z",
       "option": "grenzwerte-ueberschritten-nein",
       "question": "grenzwerte-ueberschritten",
       "sort": 2
@@ -50303,10 +50303,10 @@
   },
   {
     "fields": {
-      "created_at": "2019-12-24T11:30:06.707Z",
+      "created_at": "2020-01-16T13:45:45.193Z",
       "created_by_group": null,
       "created_by_user": "855a5ba0-cdcc-48d5-ab7c-4fc55cbe0754",
-      "modified_at": "2019-12-24T11:30:06.707Z",
+      "modified_at": "2020-01-16T13:45:45.194Z",
       "option": "grenzwerte-ueberschritten-nicht-ueberpruft",
       "question": "grenzwerte-ueberschritten",
       "sort": 1
