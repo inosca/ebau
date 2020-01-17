@@ -1,87 +1,51 @@
+import re
+
 import requests
-from caluma.form.validators import DocumentValidator
+from caluma.caluma_form.models import Question
+from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
 from django.utils.translation import gettext as _
 
 from camac.user.models import Service
 
-PEOPLE_SOURCES = {
-    "personalien-gesuchstellerin": {
-        "familyName": "name-gesuchstellerin",
-        "givenName": "vorname-gesuchstellerin",
+SLUGS = {
+    "baugesuch": {
+        "allgemeine_info": "1-allgemeine-informationen",
+        "personalien": "personalien",
+        "people_sources": {
+            "personalien-gesuchstellerin": {
+                "familyName": "name-gesuchstellerin",
+                "givenName": "vorname-gesuchstellerin",
+            },
+            "personalien-vertreterin-mit-vollmacht": {
+                "familyName": "name-vertreterin",
+                "givenName": "vorname-vertreterin",
+            },
+            "personalien-grundeigentumerin": {
+                "familyName": "name-grundeigentuemerin",
+                "givenName": "vorname-grundeigentuemerin",
+            },
+            "personalien-gebaudeeigentumerin": {
+                "familyName": "name-gebaeudeeigentuemerin",
+                "givenName": "vorname-gebaeudeeigentuemerin",
+            },
+            "personalien-projektverfasserin": {
+                "familyName": "name-projektverfasserin",
+                "givenName": "vorname-projektverfasserin",
+            },
+        },
+        "exclude_slugs": ["8-freigabequittung"],
     },
-    "personalien-vertreterin-mit-vollmacht": {
-        "familyName": "name-vertreterin",
-        "givenName": "vorname-vertreterin",
+    "vorabklaerung-einfach": {
+        "allgemeine_info": "allgemeine-informationen-vorabklaerung-form",
+        "givenName": "vorname-gesuchstellerin-vorabklaerung",
+        "familyName": "name-gesuchstellerin-vorabklaerung",
+        "exclude_slugs": ["freigabequittung-vorabklaerung-form"],
     },
-    "personalien-grundeigentumerin": {
-        "familyName": "name-grundeigentuemerin",
-        "givenName": "vorname-grundeigentuemerin",
-    },
-    "personalien-gebaudeeigentumerin": {
-        "familyName": "name-gebaeudeeigentuemerin",
-        "givenName": "vorname-gebaeudeeigentuemerin",
-    },
-    "personalien-projektverfasserin": {
-        "familyName": "name-projektverfasserin",
-        "givenName": "vorname-projektverfasserin",
+    "selbstdeklaration": {
+        "exclude_slugs": ["freigabequittung-sb1", "freigabequittung-sb2"]
     },
 }
-
-
-def prepare_receipt_page(sections):
-    try:
-        allgemeine_informationen = next(
-            section
-            for section in sections
-            if section["slug"] == "1-allgemeine-informationen"
-        )
-        personalien = next(
-            child
-            for child in allgemeine_informationen["children"]
-            if child["slug"] == "personalien"
-        )
-        people_sources = [
-            source
-            for source in personalien["children"]
-            if source["slug"] in PEOPLE_SOURCES.keys()
-        ]
-
-        personalities_t = _("Personalities")
-        children = [
-            {
-                "label": table["label"].replace(f"{personalities_t} -", ""),
-                "people": [
-                    {
-                        "familyName": next(
-                            field["value"]
-                            for field in row
-                            if field["slug"]
-                            == PEOPLE_SOURCES[table["slug"]]["familyName"]
-                        ),
-                        "givenName": next(
-                            field["value"]
-                            for field in row
-                            if field["slug"]
-                            == PEOPLE_SOURCES[table["slug"]]["givenName"]
-                        ),
-                    }
-                    for row in table["rows"]
-                ],
-                "type": "SignatureQuestion",
-            }
-            for table in people_sources
-        ]
-        target = {
-            "slug": "8-unterschriften",
-            "label": _("Signatures"),
-            "children": children,
-            "type": "FormQuestion",
-        }
-    except (ValueError, StopIteration):
-        raise RuntimeError("Coudn't prepare receipt page")
-
-    return target
 
 
 class DMSClient:
@@ -92,7 +56,7 @@ class DMSClient:
     def merge(self, data, template, convert="pdf", add_headers={}):
         headers = {"authorization": self.auth_token}
         headers.update(add_headers)
-        url = f"{self.url}template/{template}/merge/"
+        url = f"{self.url}/template/{template}/merge/"
 
         response = requests.post(
             url, json={"convert": convert, "data": data}, headers=headers
@@ -104,9 +68,30 @@ class DMSClient:
 
 class DMSVisitor:
     def __init__(self, exclude_slugs=[]):
-        self.exclude_slugs = exclude_slugs
+        self._exclude_slugs = exclude_slugs
         self.root_document = None
         self.visible_questions = []
+
+    @property
+    def template_type(self):
+        """Group similar forms as they use the same template."""
+        form_slug = self.root_document.form.slug
+
+        if form_slug in ["baugesuch", "vorabklaerung-vollstaendig"]:
+            return "baugesuch"
+        elif form_slug == "vorabklaerung-einfach":
+            return form_slug
+        elif form_slug in ["sb1", "sb2"]:
+            return "selbstdeklaration"
+
+    @property
+    def exclude_slugs(self):
+        if self._exclude_slugs:  # pragma: no cover
+            return self._exclude_slugs
+        if not self.template_type:  # pragma: no cover
+            return []
+
+        return SLUGS[self.template_type]["exclude_slugs"]
 
     def visit(self, node, append_receipt_page=False):
         cls_name = type(node).__name__.lower()
@@ -114,12 +99,10 @@ class DMSVisitor:
         result = visit_func(node)
 
         if append_receipt_page:
-            result.append(prepare_receipt_page(result))
+            result.append(self.prepare_receipt_page())
         return result
 
     def _is_visible_question(self, node):
-        if node.slug == "einreichen-button":
-            return False
         if not self.visible_questions:
             validator = DocumentValidator()
             self.visible_questions = validator.visible_questions(self.root_document)
@@ -190,7 +173,7 @@ class DMSVisitor:
         answers = answer.value if answer else []
         options = node.options.all().order_by("-questionoption__sort")
 
-        if flatten:
+        if flatten:  # pragma: no cover
             return {
                 "type": "TextQuestion",
                 "value": ", ".join(
@@ -218,7 +201,7 @@ class DMSVisitor:
 
     def _visit_dynamic_multiple_choice_question(
         self, node, parent_doc=None, answer=None, **_
-    ):
+    ):  # pragma: no cover
         answers = answer.value if answer else []
         options = self._get_dynamic_options(node)
 
@@ -241,13 +224,13 @@ class DMSVisitor:
         is_service = False
         _filter = {"disabled": False}
 
-        if question.data_source == "Service":
+        if question.data_source == "Service":  # pragma: no cover
             is_service = True
             _filter["service_group"] = 1
         elif question.data_source == "Municipalities":
             _filter["service_group"] = 2
             _filter["service_parent__isnull"] = True
-        else:
+        else:  # pragma: no cover
             raise ValueError(
                 "Unknown data_source encountered in question {question.slug}: {question.data_source}"
             )
@@ -263,8 +246,9 @@ class DMSVisitor:
             ]
 
         options.sort(key=lambda entry: entry[1].casefold())
-        if is_service:
+        if is_service:  # pragma: no cover
             options.append((-1, "Andere"))
+
         return options
 
     def _visit_question(self, node, parent_doc=None, flatten=False):
@@ -285,19 +269,98 @@ class DMSVisitor:
         answer = parent_doc.answers.filter(question=node).first()
 
         fns = {
-            "text": self._visit_simple_question,
-            "textarea": self._visit_simple_question,
-            "integer": self._visit_simple_question,
-            "float": self._visit_simple_question,
-            "date": self._visit_simple_question,
-            "choice": self._visit_choice_question,
-            "dynamic_choice": self._visit_dynamic_choice_question,
-            "multiple_choice": self._visit_multiple_choice_question,
-            "dynamic_multiple_choice": self._visit_dynamic_multiple_choice_question,
-            "static": self._visit_static_question,
-            "table": self._visit_table_question,
-            "form": self._visit_form_question,
+            Question.TYPE_DATE: self._visit_simple_question,
+            Question.TYPE_FLOAT: self._visit_simple_question,
+            Question.TYPE_INTEGER: self._visit_simple_question,
+            Question.TYPE_TEXT: self._visit_simple_question,
+            Question.TYPE_TEXTAREA: self._visit_simple_question,
+            Question.TYPE_CHOICE: self._visit_choice_question,
+            Question.TYPE_MULTIPLE_CHOICE: self._visit_multiple_choice_question,
+            Question.TYPE_DYNAMIC_CHOICE: self._visit_dynamic_choice_question,
+            Question.TYPE_DYNAMIC_MULTIPLE_CHOICE: self._visit_dynamic_multiple_choice_question,
+            Question.TYPE_STATIC: self._visit_static_question,
+            Question.TYPE_TABLE: self._visit_table_question,
+            Question.TYPE_FORM: self._visit_form_question,
         }
         fn = fns.get(node.type, lambda *_, **__: {})
         ret.update(fn(node, parent_doc=parent_doc, answer=answer, flatten=flatten))
         return ret
+
+    def prepare_receipt_page(self):
+        slugs = SLUGS[self.template_type]
+
+        allgemeine_info = self.root_document.form.questions.get(
+            slug=slugs["allgemeine_info"]
+        ).sub_form
+
+        if self.template_type == "vorabklaerung-einfach":
+
+            def _get_person_value(slug_key):
+                question = allgemeine_info.questions.get(slug=slugs[slug_key])
+                return self._visit_question(question, parent_doc=self.root_document)[
+                    "value"
+                ]
+
+            given_name, family_name = [
+                _get_person_value(key) for key in ["givenName", "familyName"]
+            ]
+
+            return {
+                "label": _("Applicant"),
+                "people": [{"familyName": family_name, "givenName": given_name}],
+                "type": "SignatureQuestion",
+            }
+
+        elif self.template_type == "baugesuch":
+            personalien = allgemeine_info.questions.get(
+                slug=slugs["personalien"]
+            ).sub_form
+
+            children = []
+            for question in personalien.questions.all():
+                table = self._visit_question(question, parent_doc=self.root_document)
+                if (
+                    table["hidden"]
+                    or table["slug"] not in slugs["people_sources"]
+                    or "rows" in table
+                    and not table["rows"]
+                ):  # pragma: no cover
+                    continue
+
+                children.append(
+                    {
+                        "label": re.match(r".* - (.*)$", table["label"]).group(1),
+                        "people": [
+                            {
+                                "familyName": next(
+                                    field["value"]
+                                    for field in row
+                                    if field["slug"]
+                                    == slugs["people_sources"][table["slug"]][
+                                        "familyName"
+                                    ]
+                                ),
+                                "givenName": next(
+                                    field["value"]
+                                    for field in row
+                                    if field["slug"]
+                                    == slugs["people_sources"][table["slug"]][
+                                        "givenName"
+                                    ]
+                                ),
+                            }
+                            for row in table["rows"]
+                        ],
+                        "type": "SignatureQuestion",
+                    }
+                )
+
+            return {
+                "slug": "8-unterschriften",
+                "label": _("Signatures"),
+                "children": children,
+                "type": "FormQuestion",
+            }
+
+        else:  # pragma: no cover
+            raise ValueError("No matching form found for receipt page")

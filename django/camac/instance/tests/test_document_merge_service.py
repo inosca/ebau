@@ -1,96 +1,65 @@
 from pathlib import Path
 
 import pytest
-from caluma.form.models import Document
+from caluma.caluma_form.models import Document
+from django.conf import settings
 from django.core.management import call_command
 
-from ..document_merge_service import DMSVisitor
+from ..document_merge_service import DMSClient, DMSVisitor
 
 
 @pytest.fixture
-def dms_visitor():
-    return DMSVisitor()
-
-
-@pytest.fixture
-def full_document(db):
-    path = Path(__file__).parent / "fixtures/form-fixture.json"
+def caluma_form_fixture(db):
+    # load caluma config
+    path = Path(settings.ROOT_DIR) / "kt_bern" / "config-caluma.json"
     call_command("loaddata", path)
 
-    root_doc = Document.objects.get(form__slug="test-form")
-    root_doc.form.meta["is-main-form"] = True
-    root_doc.form.save()
+    # load custom caluma data (includes sb1 and sb2)
+    path = Path(__file__).parent / "fixtures" / "data-caluma.json"
+    call_command("loaddata", path)
 
 
-# @pytest.mark.parametrize(
-#     "caluma_question__type",
-#     [
-#         (Question.TYPE_INTEGER),
-#         (Question.TYPE_FLOAT),
-#         (Question.TYPE_DATE),
-#         (Question.TYPE_TEXT),
-#         (Question.TYPE_TEXTAREA),
-#     ],
-# )
-# def test_document_merge_service_simple_question(
-#     db, dms_visitor, caluma_question, answer_factory
-# ):
-#     answer = answer_factory(question=caluma_question)
-#     result = dms_visitor.visit(answer)
-#     assert result["value"] == answer.value
+@pytest.mark.parametrize(
+    "instance_id,form_slug", [(1, "baugesuch"), (1, "sb1"), (1, "sb2"), (3, None)]
+)
+def test_document_merge_service_snapshot(
+    db,
+    snapshot,
+    service_factory,
+    service_group_factory,
+    caluma_form_fixture,
+    instance_id,
+    form_slug,
+):
+
+    service_group = service_group_factory(pk=2)
+    service_factory(pk=2, service_group=service_group, name="Leitbehörde Burgdorf")
+
+    _filter = {"meta__camac-instance-id": instance_id}
+    if form_slug:
+        _filter["form__slug"] = form_slug
+
+    root_document = Document.objects.get(**_filter)
+
+    visitor = DMSVisitor()
+    snapshot.assert_match(
+        visitor.visit(
+            root_document, append_receipt_page=(form_slug not in ["sb1", "sb2"])
+        )
+    )
 
 
-# @pytest.mark.parametrize("caluma_question__type", [(Question.TYPE_STATIC)])
-# def test_document_merge_service_static_question(
-#     db, dms_visitor, caluma_question, answer_factory
-# ):
-#     answer = answer_factory(question=caluma_question)
-#     result = dms_visitor.visit(answer)
-#     assert result["content"] == answer.value
+def test_document_merge_service_client(db, requests_mock):
+    template = "some-template"
+    faked_result = b"foo\nNot a pdf"
 
+    requests_mock.register_uri(
+        "POST",
+        f"{settings.DOCUMENT_MERGE_SERVICE_URL}/template/{template}/merge/",
+        content=faked_result,
+    )
 
-# @pytest.mark.parametrize("caluma_question__type", [(Question.TYPE_CHOICE)])
-# def test_document_merge_service_choice_question(
-#     db, dms_visitor, caluma_question, answer_factory, question_option_factory
-# ):
-#     opt1, *_ = question_option_factory.create_batch(5, question=caluma_question)
-#     answer = answer_factory(question=caluma_question, value=opt1.option.slug)
-#     result = dms_visitor.visit(answer)
+    client = DMSClient("some token")
+    result = client.merge({"foo": "some data"}, template)
 
-#     checked_choices = [choice for choice in result["choices"] if choice["checked"]]
-#     assert len(checked_choices) == 1
-#     assert checked_choices[0]["label"] == str(opt1.option.label)
-
-
-# @pytest.mark.parametrize(
-#     "caluma_question__type,checked",
-#     [
-#         (Question.TYPE_MULTIPLE_CHOICE, 0),
-#         (Question.TYPE_MULTIPLE_CHOICE, 1),
-#         (Question.TYPE_MULTIPLE_CHOICE, 2),
-#     ],
-# )
-# def test_document_merge_service_multiple_choice_question(
-#     db, dms_visitor, caluma_question, answer_factory, question_option_factory, checked
-# ):
-#     question_options = question_option_factory.create_batch(5, question=caluma_question)
-#     answer = answer_factory(
-#         question=caluma_question,
-#         value=[opt.option.slug for opt in question_options[:checked]],
-#     )
-#     result = dms_visitor.visit(answer)
-
-#     checked_choices = [
-#         choice["label"] for choice in result["choices"] if choice["checked"]
-#     ]
-#     assert len(checked_choices) == checked
-#     assert set(checked_choices) == set(
-#         str(opt.option.label) for opt in question_options[:checked]
-#     )
-
-
-def test_document_merge_service_full_document(db, snapshot, full_document, dms_visitor):
-    root_doc = Document.objects.get(form__slug="test-form")
-    result = dms_visitor.visit(root_doc)
-
-    snapshot.assert_match(result)
+    assert result == faked_result
