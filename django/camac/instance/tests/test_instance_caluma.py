@@ -2,12 +2,14 @@ import json
 import re
 
 import pytest
+from caluma.caluma_form import models as caluma_form_models
 from django.core import mail
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
 
 from camac.core.models import Chapter, Question, QuestionType
+from camac.document.models import AttachmentSection
 from camac.echbern import data_preparation
 from camac.echbern.data_preparation import DocumentParser
 from camac.instance.models import Instance
@@ -15,6 +17,7 @@ from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
     CalumaInstanceSerializer,
+    CalumaInstanceSubmitSerializer,
 )
 from camac.utils import flatten
 
@@ -79,6 +82,13 @@ def mock_nfd_permissions(mocker):
     mocker.patch(
         "camac.instance.serializers.CalumaInstanceSerializer._get_nfd_form_permissions",
         lambda s, i: [],
+    )
+
+
+@pytest.fixture
+def mock_generate_and_store_pdf(mocker):
+    mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer._generate_and_store_pdf"
     )
 
 
@@ -267,6 +277,7 @@ def test_instance_submit(
     multilang,
     application_settings,
     mock_nfd_permissions,
+    mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
 ):
 
@@ -413,6 +424,7 @@ def test_instance_report(
     use_caluma_form,
     multilang,
     mock_nfd_permissions,
+    mock_generate_and_store_pdf,
     document_validity,
 ):
     application_settings["NOTIFICATIONS"]["REPORT"] = [
@@ -504,6 +516,7 @@ def test_instance_finalize(
     use_caluma_form,
     multilang,
     mock_nfd_permissions,
+    mock_generate_and_store_pdf,
 ):
     application_settings["NOTIFICATIONS"]["FINALIZE"] = [
         {
@@ -568,3 +581,66 @@ def test_instance_finalize(
 
         assert instance.user.email in recipients
         assert instance_service_construction_control.service.email in recipients
+
+
+@pytest.mark.parametrize(
+    "has_template,matching_documents,raise_error,form_slug",
+    [
+        (False, 1, True, None),
+        (False, 0, True, None),
+        (False, 2, True, None),
+        (True, 1, False, None),
+        (True, 1, False, "some-form"),
+        (True, 1, True, "some-other-form"),
+    ],
+)
+def test_generate_and_store_pdf(
+    db,
+    instance,
+    admin_user,
+    group,
+    attachment_section_factory,
+    document_factory,
+    mocker,
+    has_template,
+    matching_documents,
+    raise_error,
+    form_slug,
+):
+    client = mocker.patch(
+        "camac.instance.document_merge_service.DMSClient"
+    ).return_value
+    client.merge.return_value = b"some binary data"
+    mocker.patch("camac.instance.document_merge_service.DMSVisitor.visit")
+    context = mocker.patch(
+        "camac.instance.serializers.CalumaInstanceSubmitSerializer.context"
+    )
+    context["request"].user = admin_user
+    context["request"].group = group
+    mocker.patch("rest_framework.authentication.get_authorization_header")
+
+    attachment_section_factory(pk=1)
+    serializer = CalumaInstanceSubmitSerializer()
+
+    form = caluma_form_models.Form.objects.create(slug="some-form", meta={})
+    if not form_slug:
+        form.meta["is-main-form"] = True
+    if has_template:
+        form.meta["template"] = "some-template"
+
+    form.save()
+
+    for _ in range(matching_documents):
+        document = document_factory(form=form)
+        document.meta = {"camac-instance-id": instance.pk}
+        document.save()
+
+    if raise_error:
+        with pytest.raises(Exception):
+            serializer._generate_and_store_pdf(instance, form_slug=form_slug)
+        return
+
+    serializer._generate_and_store_pdf(instance, form_slug=form_slug)
+
+    attachment_section = AttachmentSection.objects.get(pk=1)
+    assert attachment_section.attachments.count() == 1

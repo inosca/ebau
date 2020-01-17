@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-16 10:25+0100\n"
+"POT-Creation-Date: 2020-01-24 09:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:50
-msgid "Personalities"
+#: camac/instance/document_merge_service.py:311
+msgid "Applicant"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:77
+#: camac/instance/document_merge_service.py:362
 msgid "Signatures"
 msgstr ""
 
@@ -93,77 +93,76 @@ msgstr ""
 msgid "Cannot send email: %(errors)s"
 msgstr ""
 
-#: camac/instance/serializers.py:552
-#, python-format
-msgid "Error while validating caluma document: %(errors)s"
-msgstr ""
-
-#: camac/instance/serializers.py:603
+#: camac/instance/serializers.py:606
 #, python-format
 msgid "Could not find caluma main document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:619
+#: camac/instance/serializers.py:622
 #, python-format
 msgid ""
 "Could not find municipality in caluma document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:639
+#: camac/instance/serializers.py:647
 #, python-format
-msgid "Meta field for document of instance %(instance) specifies no template."
+msgid "None or multiple caluma Documents found for instance: %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:650
+#: camac/instance/serializers.py:655
+msgid "Meta field for form '%(form_slug)' specifies no template."
+msgstr ""
+
+#: camac/instance/serializers.py:668
 msgid "Signature"
 msgstr ""
 
-#: camac/instance/serializers.py:651
+#: camac/instance/serializers.py:669
 msgid "Place and date"
 msgstr ""
 
-#: camac/instance/serializers.py:705
+#: camac/instance/serializers.py:722
 msgid "Dossier submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:759
+#: camac/instance/serializers.py:776
 #, python-format
 msgid "Could not find caluma `sb1` document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:776
+#: camac/instance/serializers.py:793
 msgid "SB1 submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:830
+#: camac/instance/serializers.py:847
 #, python-format
 msgid "Could not find caluma `sb2` document for instance %(instance)s"
 msgstr ""
 
-#: camac/instance/serializers.py:847
+#: camac/instance/serializers.py:864
 msgid "SB2 submitted"
 msgstr ""
 
-#: camac/instance/serializers.py:875
+#: camac/instance/serializers.py:892
 #, python-format
 msgid "User %(user)s does not belong to service %(service)s."
 msgstr ""
 
-#: camac/instance/serializers.py:931
+#: camac/instance/serializers.py:948
 msgid "No location assigned."
 msgstr ""
 
-#: camac/instance/serializers.py:951
+#: camac/instance/serializers.py:968
 #, python-format
 msgid "No group found for location %(name)s."
 msgstr ""
 
-#: camac/instance/serializers.py:973
+#: camac/instance/serializers.py:990
 #, python-format
 msgid "invalid question %(question)s."
 msgstr ""
 
-#: camac/instance/serializers.py:980
+#: camac/instance/serializers.py:997
 #, python-format
 msgid "%(permission)s is not allowed to edit question %(question)s."
 msgstr ""
@@ -200,7 +199,7 @@ msgstr ""
 msgid "Invalid form type %(form)s."
 msgstr ""
 
-#: camac/notification/serializers.py:611
+#: camac/notification/serializers.py:628
 #, python-format
 msgid "Notification sent to %(receiver)s (%(subject)s)"
 msgstr ""
