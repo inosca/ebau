@@ -234,11 +234,11 @@ models_referencing_data = [
 
 pure_config_models_caluma = []
 models_referencing_data_caluma = [
-    "form.Option",
-    "form.Question",
-    "form.Form",
-    "form.QuestionOption",
-    "form.FormQuestion",
+    "caluma_form.Option",
+    "caluma_form.Question",
+    "caluma_form.Form",
+    "caluma_form.QuestionOption",
+    "caluma_form.FormQuestion",
 ]
 
 # exclude models which are managed by the customer alone from sync

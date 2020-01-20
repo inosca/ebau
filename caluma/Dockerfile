@@ -1,4 +1,4 @@
-FROM projectcaluma/caluma:version-4.3.0
+FROM projectcaluma/caluma:version-5.0.0
 
 ENV VISIBILITY_CLASSES caluma.extensions.visibilities.CustomVisibility
 ENV PERMISSION_CLASSES caluma.extensions.permissions.CustomPermission
