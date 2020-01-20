@@ -82,7 +82,7 @@ class Command(BaseCommand):
         if options["caluma"]:
             self.dump_data(
                 # apps which include data models
-                ("form",),
+                ("caluma_form",),
                 pure_config_models_caluma + models_referencing_data_caluma,
                 options["output_caluma"],
             )

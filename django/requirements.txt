@@ -1,5 +1,5 @@
 babel==2.7.0
-django==2.2.8
+django==2.2.9
 django-clamd==0.4.0
 django-environ==0.4.5
 django-filter==2.2.0
@@ -29,4 +29,4 @@ tabulate==0.8.6
 xmlschema==1.0.14
 requests==2.22.0
 PyXB==1.2.6
-https://github.com/projectcaluma/caluma/archive/v4.3.0.tar.gz#egg_name=caluma
+https://github.com/projectcaluma/caluma/archive/v5.0.0.tar.gz#egg_name=caluma

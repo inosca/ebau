@@ -7,11 +7,11 @@
 
 
 import json
-import requests
 
-from caluma.core.validations import BaseValidation, validation_for
-from caluma.form.models import Document, Answer
-from caluma.form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
+import requests
+from caluma.caluma_core.validations import BaseValidation, validation_for
+from caluma.caluma_form.models import Answer, Document
+from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
 
 from . import common
 
