@@ -515,7 +515,7 @@ class NotificationTemplateSendmailSerializer(
 
         service = Service.objects.filter(pk=municipality_service_id).first()
 
-        return [service.email]
+        return [{"to": service.email}]
 
     def _get_recipients_applicant(self, instance):
         return [
