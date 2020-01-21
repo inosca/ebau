@@ -4364,7 +4364,7 @@
       "hint": "Dieser Hinweis erfolgt, damit Sie schon vor Einreichen des Gesuchs auf diese Anforderungen aufmerksam gemacht worden sind. Ohne vorgängige Berücksichtigung dieser Anforderungen ist davon auszugehen, dass für Ihr Vorhaben eine Projektanpassung erforderlich sein wird.",
       "type": "checkbox",
       "required": false,
-      "active-expression": "'ms:ch.sz.afk.afk_kigbo' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_bhf' in 'layer'|value|mapby('name') || 'ms:ch.sz.a132b.bauernhausinventar' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_isos' in 'layer'|value|mapby('name') || 'ms:ch.sz.a081a.icomos.gaerten' in 'layer'|value|mapby('name')",
+      "active-expression": "'ms:ch.sz.afk.afk_kigbo' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_bhf' in 'layer'|value|mapby('name') || 'ms:ch.sz.a132b.bauernhausinventar' in 'layer'|value|mapby('name') || 'ms:ch.sz.afk.afk_isos' in 'layer'|value|mapby('name') || 'ms:ch.sz.a081a.icomos.gaerten' in 'layer'|value|mapby('name') || 'ms:ch.sz.a133a.kantonales_schutzinventar' in 'layer'|value|mapby('name')",
       "config": {
         "options": [
           "Erledigt"

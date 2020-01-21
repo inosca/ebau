@@ -32,7 +32,7 @@ const LAYERS = [
 
 const QUERY_LAYERS = [
   "ch.sz.a018.amtliche_vermessung.liegenschaften.liegenschaft.polygon",
-  "ch.sz.afk.afk_kigbo",
+  "ch.sz.a133a.kantonales_schutzinventar",
   "ch.sz.a132b.bauernhausinventar",
   "ch.sz.afk.afk_isos",
   "ch.sz.a081a.icomos.gaerten",
