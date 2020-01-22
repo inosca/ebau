@@ -197,12 +197,12 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         elif pending == 0:
             message = {
                 "de": f"Alle {total} Stellungnahmen der {circulation_name.get('de')} sind nun eingegangen.",
-                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} sont maintenant arrivés.",
+                "fr": f"Tous les {total} prises de position de {circulation_name.get('fr')} ont été reçues.",
             }
         else:  # pending > 0:
             message = {
                 "de": f"{pending} von {total} Stellungnahmen der {circulation_name.get('de')} stehen noch aus.",
-                "fr": f"{pending} prises de position de {total} dans {circulation_name.get('fr')} sont toujours en attente.",
+                "fr": f"{pending} de {total} prises de position de {circulation_name.get('fr')} sont toujours en attente.",
             }
 
         return message.get(language)
