@@ -3,6 +3,8 @@ import { inject as service } from "@ember/service";
 import { task } from "ember-concurrency";
 import { computed } from "@ember/object";
 
+import ENV from "citizen-portal/config/environment";
+
 export default Controller.extend({
   questionStore: service(),
   ajax: service(),
@@ -41,6 +43,10 @@ export default Controller.extend({
 
     formData.append("instance", attachment.get("instanceId"));
     formData.append("question", attachment.get("name"));
+    formData.append(
+      "attachment_sections",
+      ENV.APP.attachmentSections.applicant
+    );
     formData.append("path", image, filename);
 
     let response = yield this.ajax.request("/api/v1/attachments", {
