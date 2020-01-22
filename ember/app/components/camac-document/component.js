@@ -7,12 +7,12 @@ import { task } from "ember-concurrency";
 import fetch from "fetch";
 import Ember from "ember";
 import download from "downloadjs";
+import ENV from "citizen-portal/config/environment";
 
 const { testing } = Ember;
 
 const ALLOWED_MIME_TYPES = ["application/pdf", "image/png", "image/jpeg"];
 const MAX_FILE_SIZE = 60 * 1024 * 1024;
-const ATTACHMENT_SECTION_APPLICANT = 1;
 
 export default CamacInputComponent.extend({
   ajax: service(),
@@ -66,7 +66,7 @@ export default CamacInputComponent.extend({
           params: {
             instance: this.instance.id,
             question: this.identifier,
-            attachment_sections: ATTACHMENT_SECTION_APPLICANT
+            attachment_sections: ENV.APP.attachmentSections.applicant
           },
           createImageThumbnails: false,
           previewsContainer: false,
@@ -158,7 +158,10 @@ export default CamacInputComponent.extend({
         let formData = new FormData();
         formData.append("instance", this.instance.id);
         formData.append("question", this.identifier);
-        formData.append("attachment_sections", ATTACHMENT_SECTION_APPLICANT);
+        formData.append(
+          "attachment_sections",
+          ENV.APP.attachmentSections.applicant
+        );
         formData.append(
           "path",
           file,
