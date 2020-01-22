@@ -48,7 +48,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ("name", "surname", "username", "language", "service")
+        fields = ("name", "surname", "username", "language", "service", "email")
 
 
 class CurrentUserSerializer(UserSerializer):
@@ -64,12 +64,6 @@ class CurrentUserSerializer(UserSerializer):
     class Meta(UserSerializer.Meta):
         fields = UserSerializer.Meta.fields + ("groups", "phone", "email")
         read_only_fields = ("groups", "phone", "email")
-
-
-class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = models.Group
-        fields = ("name",)
 
 
 class RoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
@@ -107,3 +101,11 @@ class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerialize
         model = models.Service
         fields = ("name",)
         resource_name = "public-services"
+
+
+class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {"users": UserSerializer, "service": ServiceSerializer}
+
+    class Meta:
+        model = models.Group
+        fields = ("name", "users", "service")
