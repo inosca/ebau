@@ -439,11 +439,11 @@ def test_notification_caluma_placeholders(
 
         if done_activations == total_activations:
             activation_statement_de = f"Alle {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 sind nun eingegangen."
-            activation_statement_fr = f"Tous les {total_activations} prises de position de la circulation du 02.01.2020 sont maintenant arrivés."
+            activation_statement_fr = f"Tous les {total_activations} prises de position de la circulation du 02.01.2020 ont été reçues."
         else:
             pending_activations = total_activations - done_activations
             activation_statement_de = f"{pending_activations} von {total_activations} Stellungnahmen der Zirkulation vom 02.01.2020 stehen noch aus."
-            activation_statement_fr = f"{pending_activations} prises de position de {total_activations} dans la circulation du 02.01.2020 sont toujours en attente."
+            activation_statement_fr = f"{pending_activations} de {total_activations} prises de position de la circulation du 02.01.2020 sont toujours en attente."
 
     else:
         activation_statement_de = ""
