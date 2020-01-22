@@ -1,5 +1,6 @@
 import functools
 import mimetypes
+from datetime import datetime
 from io import BytesIO
 
 import pytest
@@ -89,6 +90,9 @@ def test_template_destroy(admin_client, template, status_code):
 
 
 @pytest.mark.freeze_time("2018-05-28")
+@pytest.mark.parametrize(
+    "publication_entry__publication_date", [datetime.strptime("2018-05-28", "%Y-%m-%d")]
+)
 @pytest.mark.parametrize(
     "role__name,template__path,instance__user,status_code,to_type",
     [
