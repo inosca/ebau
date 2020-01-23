@@ -90,21 +90,11 @@ def test_template_destroy(admin_client, template, status_code):
 
 
 @pytest.mark.freeze_time("2018-05-28")
-@pytest.mark.parametrize(
-    "publication_entry__publication_date", [datetime.strptime("2018-05-28", "%Y-%m-%d")]
-)
-@pytest.mark.parametrize(
-    "billing_entry__created", [datetime.strptime("2018-05-28", "%Y-%m-%d")]
-)
-@pytest.mark.parametrize(
-    "activation__start_date", [datetime.strptime("2018-03-15", "%Y-%m-%d")]
-)
-@pytest.mark.parametrize(
-    "activation__end_date", [datetime.strptime("2018-04-15", "%Y-%m-%d")]
-)
-@pytest.mark.parametrize(
-    "activation__deadline_date", [datetime.strptime("2018-04-30", "%Y-%m-%d")]
-)
+@pytest.mark.parametrize("publication_entry__publication_date", [datetime(2018, 5, 28)])
+@pytest.mark.parametrize("billing_entry__created", [datetime(2018, 5, 28)])
+@pytest.mark.parametrize("activation__start_date", [datetime(2018, 3, 15)])
+@pytest.mark.parametrize("activation__end_date", [datetime(2018, 4, 15)])
+@pytest.mark.parametrize("activation__deadline_date", [datetime(2018, 4, 30)])
 @pytest.mark.parametrize("billing_entry__amount", ["99.66"])
 @pytest.mark.parametrize(
     "role__name,template__path,instance__user,status_code,to_type",
