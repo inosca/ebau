@@ -1,13 +1,20 @@
 import re
+from logging import getLogger
 
 import requests
-from caluma.caluma_form.models import Question
+from caluma.caluma_form.models import Document, Question
 from caluma.caluma_form.validators import DocumentValidator
 from django.conf import settings
+from django.core.files.base import ContentFile
+from django.utils.text import slugify
 from django.utils.translation import gettext as _
+from rest_framework import exceptions
+from rest_framework.authentication import get_authorization_header
 
 from camac.user.models import Service
 from camac.utils import build_url
+
+request_logger = getLogger("django.request")
 
 SLUGS = {
     "baugesuch": {
@@ -47,6 +54,58 @@ SLUGS = {
         "exclude_slugs": ["freigabequittung-sb1", "freigabequittung-sb2"]
     },
 }
+
+
+class DMSHandler:
+    def __init__(self):
+        self.visitor = DMSVisitor()
+
+    def generate_pdf(self, instance, form_slug, request):
+        # get caluma document and generate data for document merge service
+        _filter = {"meta__camac-instance-id": instance.pk}
+
+        if form_slug:
+            _filter["form__slug"] = form_slug
+        else:
+            _filter["form__meta__is-main-form"] = True
+
+        try:
+            doc = Document.objects.get(**_filter)
+        except (Document.DoesNotExist, Document.MultipleObjectsReturned):
+            message = _(
+                "None or multiple caluma Documents found for instance: %(instance)s"
+            ) % {"instance": instance.pk}
+            request_logger.error(message)
+            raise
+
+        template = doc.form.meta.get("template")
+        if template is None:
+            raise exceptions.ValidationError(
+                _("Meta field for form '%(form_slug)' specifies no template.")
+                % {"form_slug": doc.form.slug}
+            )
+
+        sections = self.visitor.visit(
+            doc, append_receipt_page=(form_slug not in ["sb1", "sb2"])
+        )
+
+        data = {
+            "caseId": instance.pk,
+            "caseType": str(doc.form.name),
+            "sections": sections,
+            "signatureTitle": _("Signature"),
+            "signatureMetadata": _("Place and date"),
+        }
+
+        # merge pdf and store as attachment
+        auth = get_authorization_header(request)
+        dms_client = DMSClient(auth)
+        pdf = dms_client.merge(data, template)
+
+        _file = ContentFile(pdf, slugify(f"{instance.pk}-{doc.form.name}") + ".pdf")
+        _file.content_type = "application/pdf"
+
+        return _file
 
 
 class DMSClient:
