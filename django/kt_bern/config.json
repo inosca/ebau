@@ -53543,7 +53543,7 @@
       "description": null,
       "instance_resource": 20008,
       "language": "de",
-      "name": "Stellungnahme verfassen"
+      "name": "Stellungnahme / Nachforderung verfassen"
     },
     "model": "core.instanceresourcet",
     "pk": 20008
@@ -53663,7 +53663,7 @@
       "description": null,
       "instance_resource": 20036,
       "language": "de",
-      "name": "Stellungnahmen"
+      "name": "R\u00fcckmeldungen Fachstellen"
     },
     "model": "core.instanceresourcet",
     "pk": 20036
@@ -54003,7 +54003,7 @@
       "description": null,
       "instance_resource": 20036,
       "language": "fr",
-      "name": "Prises de position"
+      "name": "Pr\u00e9avis offices/services sp\u00e9cialis\u00e9s"
     },
     "model": "core.instanceresourcet",
     "pk": 120039
