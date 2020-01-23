@@ -18,13 +18,14 @@ from rest_framework_json_api import views
 
 from camac.caluma.api import CalumaApi, get_paper_settings
 from camac.core.models import InstanceService, WorkflowEntry
+from camac.core.views import SendfileHttpResponse
 from camac.document.models import Attachment, AttachmentSection
 from camac.notification.serializers import NotificationTemplateSendmailSerializer
 from camac.unoconv import convert
 from camac.user.permissions import permission_aware
 
 from ..jinja import get_jinja_env
-from . import filters, mixins, models, serializers, validators
+from . import document_merge_service, filters, mixins, models, serializers, validators
 
 
 class InstanceStateView(viewsets.ReadOnlyModelViewSet):
@@ -256,8 +257,7 @@ class InstanceView(
     @transaction.atomic
     def submit(self, request, pk=None):
         if settings.APPLICATION["FORM_BACKEND"] == "caluma":
-            return self._submit_caluma(request, pk)
-
+            return self._custom_serializer_action(request, pk)
         return self._submit_camac_ng(request, pk)
 
     def _submit_camac_ng(self, request, pk=None):
@@ -342,9 +342,6 @@ class InstanceView(
 
         return response.Response(data=serializer.data)
 
-    def _submit_caluma(self, request, pk=None):
-        return self._custom_serializer_action(request, pk)
-
     @action(methods=["post"], detail=True)
     def report(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
@@ -352,6 +349,20 @@ class InstanceView(
     @action(methods=["post"], detail=True)
     def finalize(self, request, pk=None):
         return self._custom_serializer_action(request, pk)
+
+    @action(methods=["get"], detail=True)
+    def generate_pdf(self, request, pk=None):
+        form_slug = self.request.query_params.get("form-slug")
+        instance = self.get_object()
+
+        pdf = document_merge_service.DMSHandler().generate_pdf(
+            instance, form_slug, request
+        )
+
+        response = SendfileHttpResponse(
+            content_type="application/pdf", filename=pdf.name, file_obj=pdf.file
+        )
+        return response
 
 
 class InstanceResponsibilityView(mixins.InstanceQuerysetMixin, views.ModelViewSet):

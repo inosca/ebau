@@ -76,7 +76,7 @@ class DMSHandler:
                 "None or multiple caluma Documents found for instance: %(instance)s"
             ) % {"instance": instance.pk}
             request_logger.error(message)
-            raise
+            raise exceptions.ValidationError(message)
 
         template = doc.form.meta.get("template")
         if template is None:
