@@ -1,10 +1,9 @@
 import json.decoder
 
 import requests
+from caluma.caluma_core.visibilities import BaseVisibility, filter_queryset_for
+from caluma.caluma_form import models as form_models, schema as form_schema
 from django.db.models import F, Q
-
-from caluma.core.visibilities import BaseVisibility, filter_queryset_for
-from caluma.form import models as form_models, schema as form_schema
 
 from . import common
 
