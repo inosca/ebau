@@ -3230,7 +3230,9 @@ class Publication(models.Model):
     publication_anzeiger_2 = models.DateField(
         db_column="PUBLICATION_DATE_2_ANZEIGER", null=True, blank=True
     )
-    publication_amtsblatt = models.DateField(db_column="PUBLICATION_DATE_AMTSBLATT")
+    publication_amtsblatt = models.DateField(
+        db_column="PUBLICATION_DATE_AMTSBLATT", null=True, blank=True
+    )
 
     class Meta:
         managed = True
