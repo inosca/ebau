@@ -10774,7 +10774,7 @@
   },
   {
     "fields": {
-      "name": "Dokumente Fachstellen",
+      "name": "Dokumente Fachstellen (interne Ablage)",
       "notification_template": null,
       "recipient_types": null,
       "sort": 4
@@ -10784,7 +10784,7 @@
   },
   {
     "fields": {
-      "name": "Auflagendokumente",
+      "name": "Auflagedokumente",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 5
@@ -10814,7 +10814,7 @@
   },
   {
     "fields": {
-      "name": "Dokumente Gemeinde (intern)",
+      "name": "Dokumente Gemeinde (interne Ablage)",
       "notification_template": null,
       "recipient_types": "[]",
       "sort": 3
@@ -11251,7 +11251,7 @@
     "fields": {
       "attachment_section": 4,
       "language": "de",
-      "name": "Auflagendokumente"
+      "name": "Auflagedokumente"
     },
     "model": "document.attachmentsectiont",
     "pk": 3
