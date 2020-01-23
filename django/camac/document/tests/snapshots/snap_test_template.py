@@ -4,10 +4,9 @@ from __future__ import unicode_literals
 
 from snapshottest import Snapshot
 
-
 snapshots = Snapshot()
 
-snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Grund-OK-Antwort-Amt-Allgemein-Gebuehren-Canton-template__path0-instance__user0-200-docx-publication_entry__publication_date0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
+snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Grund-OK-Antwort-Amt-Allgemein-Gebuehren-Canton-template__path0-instance__user0-200-docx-99.66-activation__deadline_date0-activation__end_date0-activation__start_date0-billing_entry__created0-publication_entry__publication_date0] 1'] = '''<w:body xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:wps="http://schemas.microsoft.com/office/word/2010/wordprocessingShape" xmlns:wpg="http://schemas.microsoft.com/office/word/2010/wordprocessingGroup" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:wp14="http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing" xmlns:w14="http://schemas.microsoft.com/office/word/2010/wordml">
   <w:p>
     <w:pPr>
       <w:pStyle w:val="Heading2"/>
@@ -2015,7 +2014,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t xml:space="preserve">646.95</w:t>
+            <w:t xml:space="preserve">99.66</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2323,7 +2322,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>28.05.2018</w:t>
+            <w:t>30.04.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2371,7 +2370,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>28.05.2018</w:t>
+            <w:t>15.03.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
@@ -2395,7 +2394,7 @@ snapshots['test_template_merge[testname-11-18-011-Schwyz-activation__service0-Gr
             <w:rPr>
               <w:lang w:val="de-CH" w:eastAsia="zh-CN" w:bidi="hi-IN"/>
             </w:rPr>
-            <w:t>28.05.2018</w:t>
+            <w:t>15.04.2018</w:t>
           </w:r>
         </w:p>
       </w:tc>
