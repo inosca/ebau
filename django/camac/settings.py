@@ -41,11 +41,11 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.staticfiles",
     # Caluma and it's dependencies:
-    # we don't use caluma.core and caluma.user as they conflict
-    # with camac.core and camac.user, respectively.
-    "caluma.form",
-    "caluma.workflow",
-    "caluma.data_source",
+    "caluma.caluma_core",
+    "caluma.caluma_user",
+    "caluma.caluma_form",
+    "caluma.caluma_workflow",
+    "caluma.caluma_data_source",
     "graphene_django",
     "localized_fields",
     "psqlextra",
@@ -547,11 +547,11 @@ PUBLICATION_API_PASSWORD = env.str("PUBLICATION_API_PASSWORD", "")
 # Caluma settings
 
 VISIBILITY_CLASSES = env.list(
-    "VISIBILITY_CLASSES", default=["caluma.core.visibilities.Any"]
+    "VISIBILITY_CLASSES", default=["caluma.caluma_core.visibilities.Any"]
 )
 
 PERMISSION_CLASSES = env.list(
-    "PERMISSION_CLASSES", default=["caluma.core.permissions.AllowAny"]
+    "PERMISSION_CLASSES", default=["caluma.caluma_core.permissions.AllowAny"]
 )
 
 VALIDATION_CLASSES = env.list("VALIDATION_CLASSES", default=[])

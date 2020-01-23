@@ -2,7 +2,7 @@ import inspect
 import logging
 
 import pytest
-from caluma.core.faker import MultilangProvider
+from caluma.caluma_core.faker import MultilangProvider
 from factory import Faker
 from factory.base import FactoryMetaClass
 from pytest_factoryboy import register
