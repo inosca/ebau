@@ -1,7 +1,7 @@
 import json
 from logging import getLogger
 
-from caluma.form import models as caluma_form_models
+from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.db import transaction

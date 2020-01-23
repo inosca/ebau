@@ -2,15 +2,14 @@ import json
 from logging import getLogger
 
 import requests
-
-from caluma.core.mutation import Mutation
-from caluma.core.permissions import (
+from caluma.caluma_core.mutation import Mutation
+from caluma.caluma_core.permissions import (
     BasePermission,
     object_permission_for,
     permission_for,
 )
-from caluma.form.models import Document
-from caluma.form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
+from caluma.caluma_form.models import Document
+from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 
 from . import common
 

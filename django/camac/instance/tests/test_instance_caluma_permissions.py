@@ -1,7 +1,7 @@
 import json
 
 import pytest
-from caluma.form import factories as caluma_form_factories
+from caluma.caluma_form import factories as caluma_form_factories
 from django.urls import reverse
 from pytest_factoryboy import LazyFixture
 from rest_framework import status
