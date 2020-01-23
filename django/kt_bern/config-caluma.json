@@ -25492,8 +25492,7 @@
   {
     "fields": {
       "configuration": {
-        "max_value": null,
-        "min_value": null
+        "min_value": 1000
       },
       "created_at": "2019-03-11T09:29:34.526Z",
       "created_by_group": null,
@@ -32600,7 +32599,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 9
+        "max_value": 900000000,
+        "min_value": 1
       },
       "created_at": "2019-03-28T14:56:20.402Z",
       "created_by_group": null,
@@ -32621,7 +32621,7 @@
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
-      "type": "text"
+      "type": "integer"
     },
     "model": "caluma_form.question",
     "pk": "gwr-egid"
@@ -35286,7 +35286,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 10
+        "max_value": 1300000.999,
+        "min_value": 1070000.0
       },
       "created_at": "2019-03-28T14:14:29.069Z",
       "created_by_group": null,
@@ -35305,7 +35306,7 @@
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
-      "type": "text"
+      "type": "float"
     },
     "model": "caluma_form.question",
     "pk": "lagekoordinaten-nord"
@@ -35313,7 +35314,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 10
+        "max_value": 1300000.999,
+        "min_value": 1070000.0
       },
       "created_at": "2019-05-09T10:46:01.220Z",
       "created_by_group": "[]",
@@ -35334,7 +35336,7 @@
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
-      "type": "text"
+      "type": "float"
     },
     "model": "caluma_form.question",
     "pk": "lagekoordinaten-nord-einfache-vorabklaerung"
@@ -35342,7 +35344,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 10
+        "max_value": 2840000.999,
+        "min_value": 2480000.0
       },
       "created_at": "2019-03-28T14:14:04.276Z",
       "created_by_group": null,
@@ -35361,7 +35364,7 @@
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
-      "type": "text"
+      "type": "float"
     },
     "model": "caluma_form.question",
     "pk": "lagekoordinaten-ost"
@@ -35369,7 +35372,8 @@
   {
     "fields": {
       "configuration": {
-        "max_length": 10
+        "max_value": 2840000.999,
+        "min_value": 2480000.0
       },
       "created_at": "2019-05-09T10:43:28.861Z",
       "created_by_group": "[]",
@@ -35390,7 +35394,7 @@
       "source": null,
       "static_content": "{\"de\": \"\", \"fr\": \"\"}",
       "sub_form": null,
-      "type": "text"
+      "type": "float"
     },
     "model": "caluma_form.question",
     "pk": "lagekoordinaten-ost-einfache-vorabklaerung"
