@@ -28,6 +28,16 @@ lint-yml:
   script:
     - prettier -c *.yml
 
+lint-ember-camac-ng:
+  stage: lint
+  image: node:lts
+  before_script:
+    - cd ember-camac-ng
+    - yarn
+  script:
+    - yarn lint:js
+    - yarn lint:hbs
+
 lint-ember-caluma-portal:
   stage: lint
   image: node:lts
@@ -58,6 +68,16 @@ test-ember:
     - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember"
     - eval $COMPOSE build --pull ember
     - eval $COMPOSE run --rm --no-deps ember yarn test
+
+test-ember-camac-ng:
+  stage: test
+  services:
+    - docker:dind
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN acr.run
+    - sh -c "export CI_COMMIT_REF_SLUG=master; eval $COMPOSE pull --ignore-pull-failures --quiet ember-camac-ng"
+    - eval $COMPOSE build --pull ember-camac-ng
+    - eval $COMPOSE run --rm --no-deps ember-camac-ng yarn test
 
 test-ember-caluma-portal:
   stage: test

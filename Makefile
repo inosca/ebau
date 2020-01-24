@@ -105,6 +105,8 @@ format:
 	@yarn --cwd=php install
 	@yarn --cwd=php lint --fix
 	@yarn --cwd=php prettier-format
+	@yarn --cwd=ember-camac-ng install
+	@yarn --cwd=ember-camac-ng lint:js --fix
 	@yarn --cwd=ember-caluma-portal install
 	@yarn --cwd=ember-caluma-portal lint:js --fix
 	@yarn --cwd=ember install
