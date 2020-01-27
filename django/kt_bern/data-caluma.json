@@ -10,7 +10,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:45:15.340Z",
       "question": "lagekoordinaten-ost",
-      "value": "2614411"
+      "value": 2614411.0
     },
     "model": "caluma_form.answer",
     "pk": "000e9be0-a9e4-4bf1-99ee-f9d7b2752841"
@@ -26,7 +26,7 @@
       "meta": {},
       "modified_at": "2019-07-04T06:45:15.391Z",
       "question": "lagekoordinaten-nord",
-      "value": "1211395"
+      "value": 1211395.0
     },
     "model": "caluma_form.answer",
     "pk": "023e164e-bce8-47c2-b1d0-a6222a101d7c"

@@ -68,9 +68,11 @@ export default InViewportComponent.extend({
 
       assert("Field must have a meta property `action`", action);
 
-      // simulate waiting, until actual backend implementation has landed
+      // Simulate between 4 and 6 seconds waiting, until actual backend
+      // implementation has landed. This will result in ~17 seconds loading time
+      // until this action is completed (~12s real, ~5s faked).
       if (environment === "production") {
-        yield timeout(8000 + Math.random() * 4000);
+        yield timeout(4000 + Math.random() * 2000);
       }
 
       // submit instance in CAMAC
