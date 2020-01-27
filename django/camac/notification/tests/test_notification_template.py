@@ -1,9 +1,9 @@
 import functools
-import json
 from datetime import date, datetime
 from time import mktime
 
 import pytest
+from caluma.caluma_form import models as caluma_form_models
 from django.urls import reverse
 from django.utils import timezone
 from pytest_factoryboy import LazyFixture
@@ -394,32 +394,11 @@ def test_notification_caluma_placeholders(
         service_parent=activations[0].service,
     )
 
-    requests_mock.post(
-        "http://caluma:8000/graphql/",
-        text=json.dumps(
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "meta": {
-                                        "camac-instance-id": instance.pk,
-                                        "ebau-number": "2019-01",
-                                    },
-                                    "form": {
-                                        "slug": "baugesuch",
-                                        "name": "Baugesuch",
-                                        "meta": {"is-main-form": True},
-                                    },
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
+    form = caluma_form_models.Form.objects.create(
+        slug="baugesuch", name="Baugesuch", meta={"is-main-form": True}
+    )
+    caluma_form_models.Document.objects.create(
+        form=form, meta={"camac-instance-id": instance.pk, "ebau-number": "2019-01"}
     )
 
     data = {
