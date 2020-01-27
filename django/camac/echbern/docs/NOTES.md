@@ -48,6 +48,15 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
  - [/groups](#/User/api_v1_groups_list) zeigt alle Gruppen an, für welche eine Mitgliedschaft besteht
  - [/groups/{group_id}](#/User/api_v1_groups_read) zeigt Informationen zu einer spezifischen Gruppe an
 
+### Direktlinks in eBau
+
+Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unterstützt werden folgende Links:
+
+- `instance/<instance_id>/`: Allgemeiner Link auf ein Dossier, Einstieg für Dossierkorrektur (Kap. 3.1)
+- `ebau-number/<instance_id>/`: eBau-Nummer vergeben (Kap. 3.1)
+- `claim/<instance_id>/`: Nachforderungsseite (Kap. 3.1, 3.3.2)
+- `dossier-check/<instance_id>/`: Dossierprüfung (formelle und materielle Prüfung, Kap. 3.1)
+
 ## Abweichungen und Besonderheiten
 
 - Der Type `planningPermissionAplicationIdentifier` enthält unter `localId` die eBau-Nummer und unter `dossierIdentification` unsere Dossiernummer ("Instance id")
@@ -96,5 +105,7 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 {get_messages}
 
 ### POST
+
+Der Parameter `messageType` wird bei der Auswertung ignoriert - entscheidend ist der `event type` sowie, falls nötig, zusätzliche Parameter (z.B. `judgement` bei `NoticeRuling`).
 
 {post_messages}
