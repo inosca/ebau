@@ -147,43 +147,69 @@ GET_TABLE_DATA = [
     ],
 ]
 
-POST_TABLE_HEADERS = ["Typ", "Beschreibung", "Kapitel in Spezifikation", "Beispiel"]
+POST_TABLE_HEADERS = [
+    "Typ",
+    "Beschreibung",
+    "Kapitel in Spezifikation",
+    "messageType",
+    "Beispiel",
+]
 
 POST_TABLE_DATA = [
     [
         "NoticeRuling",
         "Entscheid zurückweisen fällen",
         "3.1",
+        "5100018",
+        f"[notice_ruling]({static('xml/post/notice_ruling.xml')})",
+    ],
+    [
+        "NoticeRuling",
+        "Entscheid verfügen",
+        "3.2",
+        "5100010",
+        f"[notice_ruling]({static('xml/post/notice_ruling_2.xml')})",
+    ],
+    [
+        "NoticeRuling",
+        "Rückzugsverfügung durch Gemeinde (identisch 'Entscheid zurückweisen fällen')",
+        "3.3.7",
+        "5100008",
         f"[notice_ruling]({static('xml/post/notice_ruling.xml')})",
     ],
     [
         "ChangeResponsibility",
         "Zuständige Behörde melden",
         "3.1",
+        "5100011",
         f"[change_responsibility]({static('xml/post/change_responsibility.xml')})",
     ],
     [
         "KindOfProceedings",
         "Verfahrensprogramm erstellen",
         "3.2",
+        "5200110",
         f"[kind_of_proceedings]({static('xml/post/kind_of_proceedings.xml')})",
     ],
     [
         "Task",
         "Stellungnahme anfordern",
         "3.2",
+        "5200111",
         f"[task]({static('xml/post/task.xml')})",
     ],
     [
         "CloseDossier",
         "Abschluss melden",
         "4.2",
+        "5100013",
         f"[close_dossier]({static('xml/post/close_dossier.xml')})",
     ],
     [
         "AccompanyingReport",
         "Stellungnahme abgeben",
         "5.1",
+        "5200112",
         f"[accompanying_report]({static('xml/post/accompanying_report.xml')})",
     ],
 ]
