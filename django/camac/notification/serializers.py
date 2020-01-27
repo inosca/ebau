@@ -5,17 +5,15 @@ from logging import getLogger
 
 import inflection
 import jinja2
-import requests
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.db.models import Sum
 from django.utils import timezone
 from django.utils.translation import gettext_noop
 from rest_framework import exceptions
-from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import serializers
 
-from camac.caluma import CalumaSerializerMixin
+from camac.caluma import CalumaApi
 from camac.constants import kt_bern as be_constants
 from camac.core.models import (
     Activation,
@@ -210,83 +208,14 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
     def get_form_name(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] == "camac-ng":
             return instance.form.get_name()
-        try:
-            caluma_resp = requests.post(
-                settings.CALUMA_URL,
-                json={
-                    "query": """,
-                        query GetMainFormName($instanceId: GenericScalar!) {
-                          allDocuments(metaValue: [{ key: "camac-instance-id", value: $instanceId}]) {
-                            edges {
-                              node {
-                                id
-                                form {
-                                  name
-                                  meta
-                                }
-                              }
-                            }
-                          }
-                        }
-                    """,
-                    "variables": {"instanceId": instance.pk},
-                },
-                headers={
-                    "Authorization": get_authorization_header(self.context["request"])
-                },
-            )
-            documents = caluma_resp.json()["data"]["allDocuments"]["edges"]
-            form_names = [
-                doc["node"]["form"]["name"]
-                for doc in documents
-                if doc["node"]["form"]["meta"].get("is-main-form") is True
-            ]
-            return form_names[0]
-        except (KeyError, IndexError):  # pragma: no cover
-            request_logger.error(
-                "get_form_name(): Caluma did not respond with a valid response"
-            )
-            return "-"
+
+        return CalumaApi().get_form_name(instance) or "-"
 
     def get_ebau_number(self, instance):
         if settings.APPLICATION["FORM_BACKEND"] != "caluma":
             return "-"
 
-        try:
-            resp = requests.post(
-                settings.CALUMA_URL,
-                json={
-                    "query": """,
-                        query GetEbauNumber($instanceId: GenericScalar!) {
-                          allDocuments(
-                            metaHasKey: "ebau-number"
-                            metaValue: [{ key: "camac-instance-id", value: $instanceId}]
-                          ) {
-                            edges {
-                              node {
-                                id
-                                form {
-                                  name
-                                  meta
-                                }
-                                meta
-                              }
-                            }
-                          }
-                        }
-                    """,
-                    "variables": {"instanceId": instance.pk},
-                },
-                headers={
-                    "Authorization": get_authorization_header(self.context["request"])
-                },
-            )
-
-            return resp.json()["data"]["allDocuments"]["edges"][0]["node"]["meta"][
-                "ebau-number"
-            ]
-        except (KeyError, IndexError):  # pragma: no cover
-            return "-"
+        return CalumaApi().get_ebau_number(instance) or "-"
 
     def get_internal_dossier_link(self, instance):
         return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(
@@ -465,9 +394,7 @@ class NotificationTemplateMergeSerializer(
         resource_name = "notification-template-merges"
 
 
-class NotificationTemplateSendmailSerializer(
-    NotificationTemplateMergeSerializer, CalumaSerializerMixin
-):
+class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer):
     recipient_types = serializers.MultipleChoiceField(
         choices=(
             "applicant",
@@ -483,39 +410,11 @@ class NotificationTemplateSendmailSerializer(
     email_list = serializers.CharField(required=False)
 
     def _get_recipients_caluma_municipality(self, instance):  # pragma: no cover
+        municipality_service_id = CalumaApi().get_municipality(instance)
 
-        resp = self.query_caluma(
-            """
-            query GetMuniciaplity($instanceId: GenericScalar!) {
-              allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
-                edges {
-                  node {
-                    answers(question: "gemeinde") {
-                      edges {
-                        node {
-                          ...on StringAnswer {
-                            value
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            """,
-            {"instanceId": instance.pk},
-        )
-
-        municipality_service_id = int(
-            resp["data"]["allDocuments"]["edges"][0]["node"]["answers"]["edges"][0][
-                "node"
-            ]["value"]
-        )
-
-        service = Service.objects.filter(pk=municipality_service_id).first()
-
-        return [{"to": service.email}]
+        if municipality_service_id:
+            service = Service.objects.filter(pk=municipality_service_id).first()
+            return [{"to": service.email}]
 
     def _get_recipients_applicant(self, instance):
         return [
