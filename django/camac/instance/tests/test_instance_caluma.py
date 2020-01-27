@@ -1,6 +1,3 @@
-import json
-import re
-
 import pytest
 from caluma.caluma_form import models as caluma_form_models
 from django.core import mail
@@ -12,7 +9,7 @@ from camac.core.models import Chapter, Question, QuestionType
 from camac.document.models import AttachmentSection
 from camac.echbern import data_preparation
 from camac.echbern.data_preparation import DocumentParser
-from camac.instance.models import Instance
+from camac.echbern.tests.caluma_responses import full_document
 from camac.instance.serializers import (
     SUBMIT_DATE_CHAPTER,
     SUBMIT_DATE_QUESTION_ID,
@@ -40,21 +37,6 @@ def submit_date_question(db):
     question.trans.create(language="de", name="Einreichedatum")
 
     return question
-
-
-def match_body(search):
-    """Return a matcher for requests_mock.
-
-    This can be used to pass as additional_matcher:
-    >>> requests_mock.register_uri(
-    ...     "POST",
-    ...     "http://caluma:8000/graphql/",
-    ...     additional_matcher=match_body("allDocuments"),
-    ... # ...
-    ... )
-    """
-
-    return lambda request: bool(re.match(f".*{search}.*", request.text))
 
 
 @pytest.fixture
@@ -95,57 +77,9 @@ def mock_generate_and_store_pdf(mocker):
 @pytest.mark.freeze_time("2019-05-02")
 @pytest.mark.parametrize("instance_state__name", ["new"])
 def test_create_instance(
-    db,
-    admin_client,
-    mocker,
-    instance_state,
-    form,
-    snapshot,
-    use_caluma_form,
-    mock_nfd_permissions,
+    db, admin_client, instance_state, form, use_caluma_form, mock_nfd_permissions
 ):
-    recorded_requests = []
-
-    def last_inst_id():
-        return Instance.objects.order_by("-instance_id").first().instance_id
-
-    mock_responses = [
-        # first response: NG asks caluma if the form is a main form
-        mocker.MagicMock(
-            json=lambda: {
-                "data": {
-                    "allForms": {
-                        "edges": [
-                            {"node": {"slug": "test", "meta": {"is-main-form": True}}}
-                        ]
-                    }
-                }
-            },
-            status_code=status.HTTP_200_OK,
-        ),
-        # second response: NG updates case with instance id
-        mocker.MagicMock(
-            json=lambda: {
-                "data": {
-                    "saveDocument": {
-                        "document": {
-                            "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                            "meta": {"camac-instance-id": last_inst_id()},
-                        }
-                    }
-                }
-            },
-            status_code=status.HTTP_200_OK,
-        ),
-    ]
-
-    def mock_post(url, *args, **kwargs):
-        recorded_requests.append((url, args, kwargs))
-        resp = mock_responses.pop(0)
-
-        return resp
-
-    mocker.patch("requests.post", mock_post)
+    caluma_form_models.Form.objects.create(slug="test", meta={"is-main-form": True})
 
     create_resp = admin_client.post(
         reverse("instance-list"),
@@ -166,17 +100,6 @@ def test_create_instance(
         },
     )
     assert create_resp.status_code == status.HTTP_201_CREATED, create_resp.content
-
-    # make sure meta is updated correctly
-    assert json.loads(
-        recorded_requests[1][2]["json"]["variables"]["input"]["meta"]
-    ) == {"camac-instance-id": last_inst_id()}
-
-    # to validate the rest, we need to "fix" the instance id to use snapshot
-    recorded_requests[1][2]["json"]["variables"]["input"]["meta"] = json.dumps(
-        {"camac-instance-id": "XXX"}
-    )
-    snapshot.assert_match(recorded_requests)
 
 
 @pytest.mark.parametrize(
@@ -258,7 +181,6 @@ def test_instance_list(
     ],
 )
 def test_instance_submit(
-    requests_mock,
     mocker,
     admin_client,
     role,
@@ -279,79 +201,25 @@ def test_instance_submit(
     mock_nfd_permissions,
     mock_generate_and_store_pdf,
     ech_mandatory_answers_einfache_vorabklaerung,
+    requests_mock,
 ):
 
     application_settings["NOTIFICATIONS"]["SUBMIT"] = [
         {"template_id": notification_template.pk, "recipient_types": ["applicant"]}
     ]
 
-    requests_mock.register_uri(
-        "POST",
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("allDocuments"),
-        text=json.dumps(
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "meta": {"camac-instance-id": instance.pk},
-                                    "form": {
-                                        "slug": "vorabklaerung-einfach",
-                                        "name": "Baugesuch",
-                                        "meta": {"is-main-form": True},
-                                    },
-                                    "answers": {
-                                        "edges": [
-                                            {
-                                                "node": {
-                                                    "question": {"slug": "gemeinde"},
-                                                    "value": service.pk,
-                                                }
-                                            }
-                                        ]
-                                    },
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
+    form = caluma_form_models.Form.objects.create(
+        slug="main-form", meta={"is-main-form": True}
+    )
+    question = caluma_form_models.Question.objects.create(slug="gemeinde")
+    caluma_form_models.FormQuestion.objects.create(form=form, question=question)
+    document = caluma_form_models.Document.objects.create(
+        form=form, meta={"camac-instance-id": instance.pk}
+    )
+    caluma_form_models.Answer.objects.create(
+        document=document, value=service.pk, question=question
     )
 
-    requests_mock.register_uri(
-        "POST",
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("documentValidity"),
-        text=json.dumps(
-            {
-                "data": {
-                    "documentValidity": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "isValid": True,
-                                    "errors": [],
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
-    )
-    requests_mock.register_uri(
-        "POST",
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("SaveDocumentMeta"),
-        text=json.dumps(
-            {"data": {"saveDocument": {"node": {"clientMutationId": "foobar"}}}}
-        ),
-    )
     group_factory(role=role_factory(name="support"))
     mocker.patch.object(
         DocumentParser,
@@ -361,6 +229,9 @@ def test_instance_submit(
     mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     instance_state_factory(name=new_instance_state_name)
+
+    requests_mock.post("http://caluma:8000/graphql/", json=full_document)
+    mocker.patch.object(data_preparation, "get_admin_token", return_value="token")
 
     response = admin_client.post(reverse("instance-submit", args=[instance.pk]))
 
@@ -409,7 +280,6 @@ def test_responsible_user(admin_client, instance, user, service, multilang):
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_report(
-    requests_mock,
     admin_client,
     role,
     instance,
@@ -434,49 +304,11 @@ def test_instance_report(
         }
     ]
 
-    requests_mock.post(
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("allDocuments"),
-        text=json.dumps(
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb1", "name": "Baugesuch"},
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
+    form = caluma_form_models.Form.objects.create(slug="sb1", name="Baugesuch")
+    caluma_form_models.Document.objects.create(
+        form=form, meta={"camac-instance-id": instance.pk}
     )
-    requests_mock.register_uri(
-        "POST",
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("documentValidity"),
-        text=json.dumps(
-            {
-                "data": {
-                    "documentValidity": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "isValid": document_validity,
-                                    "errors": [{"slug": "foo", "errorMsg": "no good"}],
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
-    )
+
     instance_state_factory(name=new_instance_state_name)
 
     response = admin_client.post(reverse("instance-report", args=[instance.pk]))
@@ -501,7 +333,6 @@ def test_instance_report(
     "role__name,instance__user", [("Applicant", LazyFixture("admin_user"))]
 )
 def test_instance_finalize(
-    requests_mock,
     admin_client,
     role,
     instance,
@@ -525,49 +356,11 @@ def test_instance_finalize(
         }
     ]
 
-    requests_mock.post(
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("allDocuments"),
-        text=json.dumps(
-            {
-                "data": {
-                    "allDocuments": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "meta": {"camac-instance-id": instance.pk},
-                                    "form": {"slug": "sb2", "name": "Baugesuch"},
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
+    form = caluma_form_models.Form.objects.create(slug="sb2", name="Baugesuch")
+    caluma_form_models.Document.objects.create(
+        form=form, meta={"camac-instance-id": instance.pk}
     )
-    requests_mock.register_uri(
-        "POST",
-        "http://caluma:8000/graphql/",
-        additional_matcher=match_body("documentValidity"),
-        text=json.dumps(
-            {
-                "data": {
-                    "documentValidity": {
-                        "edges": [
-                            {
-                                "node": {
-                                    "id": "RG9jdW1lbnQ6NjYxOGU5YmQtYjViZi00MTU2LWI0NWMtZTg0M2Y2MTFiZDI2",
-                                    "isValid": True,
-                                    "errors": [],
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-        ),
-    )
+
     instance_state_factory(name=new_instance_state_name)
 
     response = admin_client.post(reverse("instance-finalize", args=[instance.pk]))
