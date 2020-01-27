@@ -550,7 +550,6 @@ def delivery(
                 messageDate=message_date or timezone.now(),
                 action="1",
                 testDeliveryFlag=settings.ENV != "production",
-                extension=url or settings.INTERNAL_BASE_URL,
             ),
             **args,
         )
