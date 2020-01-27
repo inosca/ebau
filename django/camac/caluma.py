@@ -1,4 +1,5 @@
 import requests
+from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone
@@ -6,9 +7,108 @@ from django.utils.translation import gettext as _
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
 from rest_framework import exceptions
-from rest_framework.authentication import get_authorization_header
 
 APPLICANT_GROUP_ID = 6
+
+
+class CalumaApi:
+    """
+    Class with methods to interact with the caluma apps.
+
+    We try to not use caluma components (models, etc.) outside of this module.
+    For some usecases this is too cumbersome (e.g. PDF generation).
+    """
+
+    def is_main_form(self, form_slug):
+        forms = caluma_form_models.Form.objects.filter(
+            slug=form_slug, **{"meta__is-main-form": True}
+        )
+        if not forms.count() == 1:  # pragma: no cover
+            return False
+
+        return True
+
+    def get_form_name(self, instance):
+        document = caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk},
+            **{"form__meta__is-main-form": True},
+        ).first()
+        return document.form.name if document else None
+
+    def get_document_by_form_slug(self, instance, form_slug: str):
+        document = caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk}, form__slug=form_slug
+        ).first()
+        return document.pk if document else None
+
+    def get_main_document(self, instance):
+        document = caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk},
+            **{"form__meta__is-main-form": True},
+        ).first()
+        return document.pk if document else None
+
+    def get_ebau_number(self, instance):
+        document = caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk}
+        ).first()
+        return document.meta.get("ebau-number", "-") if document else None
+
+    def get_municipality(self, instance):
+        caluma_form_models.Document.objects.filter(
+            **{"meta__camac-instance-id": instance.pk},
+            **{"form__meta__is-main-form": True},
+        ).first()
+
+        answer = caluma_form_models.Answer.objects.filter(
+            **{"document__meta__camac-instance-id": instance.pk},
+            question__slug="gemeinde",
+        ).first()
+
+        return answer.value if answer else None
+
+    def get_nfd_form_permissions(self, instance):
+        try:
+            nfd_document = caluma_form_models.Document.objects.filter(
+                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
+            ).get()
+        except caluma_form_models.Document.DoesNotExist:
+            return []
+        answers = caluma_form_models.Answer.objects.filter(
+            question_id="nfd-tabelle-status", document__family=nfd_document.pk
+        )
+        if not answers:
+            return []
+
+        permissions = []
+
+        if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
+            permissions.append("read")
+        if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
+            permissions.append("write")
+        return permissions
+
+    def create_document(self, form_slug, **kwargs):
+        form = caluma_form_models.Form.objects.get(slug=form_slug)
+        return caluma_form_models.Document.objects.create(form=form, **kwargs)
+
+    def set_submit_date(self, document_pk, submit_date):
+        document = caluma_form_models.Document.objects.get(pk=document_pk)
+
+        if "submit-date" in document.meta:  # pragma: no cover
+            # instance was already submitted, this is probably a re-submit
+            # after correction.
+            return False
+
+        new_meta = {
+            **document.meta,
+            # Caluma date is formatted yyyy-mm-dd so it can be sorted
+            "submit-date": submit_date,
+        }
+
+        document.meta = new_meta
+        document.save()
+        return True
 
 
 class CalumaClient:
@@ -41,20 +141,6 @@ class CalumaClient:
             )
 
         return result
-
-
-class CalumaSerializerMixin:
-    def query_caluma(self, query, variables=None, add_headers=None):
-        variables = variables if variables is not None else {}
-        add_headers = add_headers if add_headers is not None else {}
-        request = self.context["request"]
-
-        client = CalumaClient(
-            get_authorization_header(request),
-            request.GET.get("group", request.META.get("HTTP_X_CAMAC_GROUP")),
-        )
-
-        return client.query_caluma(query, variables, add_headers)
 
 
 def get_admin_token():
