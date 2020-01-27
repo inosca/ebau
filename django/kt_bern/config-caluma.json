@@ -232,7 +232,8 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "template": "export-1"
       },
       "modified_at": "2019-04-01T15:25:51.743Z",
       "name": "{\"de\": \"Baugesuch\", \"fr\": \"Demande de permis de construire\"}",
@@ -250,7 +251,8 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "template": "export-1"
       },
       "modified_at": "2019-06-18T07:19:42.781Z",
       "name": "{\"de\": \"Generelles Baugesuch\", \"fr\": \"Demande de permis de construire g\\u00e9n\\u00e9ral\"}",
@@ -268,7 +270,8 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "template": "export-1"
       },
       "modified_at": "2019-06-18T07:19:59.155Z",
       "name": "{\"de\": \"Baugesuch mit UVP\", \"fr\": \"Demande de permis de construire avec EIE\"}",
@@ -1023,7 +1026,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
-      "meta": {},
+      "meta": {"template": "selbstdeklaration"},
       "modified_at": "2019-06-17T10:53:08.243Z",
       "name": "{\"de\": \"SB1\", \"fr\": \"DC1 \"}",
       "source": null
@@ -1039,7 +1042,7 @@
       "description": "{\"de\": \"\", \"fr\": null}",
       "is_archived": false,
       "is_published": true,
-      "meta": {},
+      "meta": {"template": "selbstdeklaration"},
       "modified_at": "2019-06-17T10:53:32.170Z",
       "name": "{\"de\": \"SB2\", \"fr\": \"DC2\"}",
       "source": null
@@ -1136,7 +1139,8 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "template": "vorabklaerung"
       },
       "modified_at": "2019-04-18T07:53:31.841Z",
       "name": "{\"de\": \"Einfache Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables simples\"}",
@@ -1154,7 +1158,8 @@
       "is_archived": false,
       "is_published": true,
       "meta": {
-        "is-main-form": true
+        "is-main-form": true,
+        "template": "export-1"
       },
       "modified_at": "2019-04-18T07:53:08.979Z",
       "name": "{\"de\": \"Vollst\\u00e4ndige Vorabkl\\u00e4rung\", \"fr\": \"Demandes pr\\u00e9alables compl\\u00e8tes\"}",
