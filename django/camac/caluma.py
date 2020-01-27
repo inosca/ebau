@@ -1,3 +1,6 @@
+from base64 import urlsafe_b64encode
+from hashlib import sha256
+
 import requests
 from caluma.caluma_form import models as caluma_form_models
 from django.conf import settings
@@ -111,6 +114,25 @@ class CalumaApi:
         return True
 
 
+class CalumaSession:
+    """ContextManager for handling cached `requests.Session()`."""
+
+    def __init__(self, token):
+        if isinstance(token, str):
+            token = token.encode()
+        _hash = sha256(token)
+        _id = urlsafe_b64encode(_hash.digest()).decode()
+        self.key = f"caluma_session_{_id}"
+        self.session = cache.get(self.key, requests.session())
+
+    def __enter__(self):
+        return self.session
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_type is None:
+            cache.set(self.key, self.session, 7200)
+
+
 class CalumaClient:
     def __init__(self, auth_token, group_id=None):
         self.auth_token = auth_token
@@ -126,11 +148,12 @@ class CalumaClient:
 
         headers.update(add_headers)
 
-        response = requests.post(
-            settings.CALUMA_URL,
-            json={"query": query, "variables": variables},
-            headers=headers,
-        )
+        with CalumaSession(self.auth_token) as session:
+            response = session.post(
+                settings.CALUMA_URL,
+                json={"query": query, "variables": variables},
+                headers=headers,
+            )
 
         response.raise_for_status()
         result = response.json()
