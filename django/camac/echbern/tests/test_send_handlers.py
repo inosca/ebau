@@ -1,5 +1,7 @@
 import pytest
+import requests
 
+from camac.caluma import CalumaSession
 from camac.constants.kt_bern import (
     INSTANCE_STATE_DOSSIERPRUEFUNG,
     INSTANCE_STATE_EBAU_NUMMER_VERGEBEN,
@@ -104,6 +106,9 @@ def test_notice_ruling_send_handler(
     if has_permission:
         expected_state = instance_state_factory(pk=expected_state_pk)
         mocker.patch.object(views, "get_authorization_header", return_value="token")
+        mocker.patch.object(CalumaSession, "__init__", return_value=None)
+        mocker.patch.object(CalumaSession, "__enter__", return_value=requests.session())
+        mocker.patch.object(CalumaSession, "__exit__", return_value=None)
         requests_mock.post("http://caluma:8000/graphql/", json=document_form)
         handler.apply()
         ech_instance.refresh_from_db()
