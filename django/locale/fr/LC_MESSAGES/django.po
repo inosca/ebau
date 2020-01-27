@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-24 09:56+0100\n"
+"POT-Creation-Date: 2020-01-27 09:34+0100\n"
 "PO-Revision-Date: 2020-01-24 09:58+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -66,11 +66,11 @@ msgstr ""
 msgid "Specifying an \"attachments\" filter is mandatory!"
 msgstr ""
 
-#: camac/instance/document_merge_service.py:311
+#: camac/instance/document_merge_service.py:309
 msgid "Applicant"
 msgstr "Requérant/e"
 
-#: camac/instance/document_merge_service.py:362
+#: camac/instance/document_merge_service.py:360
 msgid "Signatures"
 msgstr "Signatures"
 
