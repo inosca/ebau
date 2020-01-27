@@ -1,4 +1,3 @@
-import json
 from logging import getLogger
 
 from caluma.caluma_form import models as caluma_form_models
@@ -14,7 +13,7 @@ from rest_framework import exceptions
 from rest_framework.authentication import get_authorization_header
 from rest_framework_json_api import relations, serializers
 
-from camac.caluma import CalumaSerializerMixin
+from camac.caluma import CalumaApi
 from camac.constants import kt_bern as constants
 from camac.core.models import (
     Answer,
@@ -65,9 +64,7 @@ class FormSerializer(serializers.ModelSerializer):
         fields = ("name", "description")
 
 
-class InstanceSerializer(
-    InstanceEditableMixin, serializers.ModelSerializer, CalumaSerializerMixin
-):
+class InstanceSerializer(InstanceEditableMixin, serializers.ModelSerializer):
     editable = serializers.SerializerMethodField()
     is_applicant = serializers.SerializerMethodField()
     user = CurrentUserResourceRelatedField()
@@ -342,26 +339,7 @@ class CalumaInstanceSerializer(InstanceSerializer):
 
     @permission_aware
     def _get_nfd_form_permissions(self, instance):
-
-        try:
-            nfd_document = caluma_form_models.Document.objects.filter(
-                **{"form_id": "nfd", "meta__camac-instance-id": instance.pk}
-            ).get()
-        except caluma_form_models.Document.DoesNotExist:
-            return []
-        answers = caluma_form_models.Answer.objects.filter(
-            question_id="nfd-tabelle-status", document__family=nfd_document.pk
-        )
-        if not answers:
-            return []
-
-        permissions = []
-
-        if answers.exclude(value="nfd-tabelle-status-entwurf").exists():
-            permissions.append("read")
-        if answers.filter(value="nfd-tabelle-status-in-bearbeitung").exists():
-            permissions.append("write")
-        return permissions
+        return CalumaApi().get_nfd_form_permissions(instance)
 
     def _get_nfd_form_permissions_for_service(self, instance):
         return []
@@ -381,49 +359,21 @@ class CalumaInstanceSerializer(InstanceSerializer):
         }
 
     def validate(self, data):
-        form = data.get("caluma_form")
-        caluma_resp = self.query_caluma(
-            """
-                query GetMainForm($slug: String!) {
-                    allForms(slug: $slug, metaValue: [{key: "is-main-form", value: true}]) {
-                        edges {
-                            node {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            """,
-            {"slug": form},
-        )
+        form_slug = data.get("caluma_form")
 
-        if len(caluma_resp["data"]["allForms"]["edges"]) != 1:  # pragma: no cover
+        if not CalumaApi().is_main_form(form_slug):  # pragma: no cover
             raise exceptions.ValidationError(
-                _("Passed caluma form is not a main form: %(form)s") % {"form": form}
+                _("Passed caluma form is not a main form: %(form)s")
+                % {"form": form_slug}
             )
 
         return data
 
     def create(self, validated_data):
-        form = validated_data.pop("caluma_form")
+        form_slug = validated_data.pop("caluma_form")
         instance = super().create(validated_data)
 
-        self.query_caluma(
-            """
-            mutation CreateDocument($input: SaveDocumentInput!) {
-                saveDocument(input: $input) {
-                    clientMutationId
-                }
-            }
-            """,
-            {
-                "input": {
-                    "form": form,
-                    "meta": json.dumps({"camac-instance-id": instance.pk}),
-                }
-            },
-        )
+        CalumaApi().create_document(form_slug, meta={"camac-instance-id": instance.pk})
 
         return instance
 
@@ -483,46 +433,21 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         mail_serializer.create(mail_serializer.validated_data)
 
     def _set_submit_date(self, validated_data):
-        document = validated_data["caluma_document"]
+        document_pk = validated_data["caluma_document"]
+        submit_date = timezone.now().strftime(SUBMIT_DATE_FORMAT)
+        changed = CalumaApi().set_submit_date(document_pk, submit_date)
 
-        if "submit-date" in document["meta"]:  # pragma: no cover
-            # instance was already submitted, this is probably a re-submit
-            # after correction.
-            return
-
-        # Set submit date in Camac first...
-        # TODO drop this after this is not used anymore in Camac
-        Answer.objects.get_or_create(
-            instance=self.instance,
-            question_id=SUBMIT_DATE_QUESTION_ID,
-            item=1,
-            chapter_id=SUBMIT_DATE_CHAPTER,
-            # CAMAC date is formatted in "dd.mm.yyyy"
-            defaults={"answer": timezone.now().strftime(SUBMIT_DATE_FORMAT)},
-        )
-
-        new_meta = {
-            **document["meta"],
-            # Caluma date is formatted yyyy-mm-dd so it can be sorted
-            "submit-date": timezone.now().strftime(SUBMIT_DATE_FORMAT),
-        }
-
-        self.query_caluma(
-            """
-                mutation SaveDocumentMeta($input: SaveDocumentInput!) {
-                    saveDocument(input: $input) {
-                        clientMutationId
-                    }
-                }
-            """,
-            {
-                "input": {
-                    "id": document["id"],
-                    "form": document["form"]["slug"],
-                    "meta": json.dumps(new_meta),
-                }
-            },
-        )
+        if changed:
+            # Set submit date in Camac first...
+            # TODO drop this after this is not used anymore in Camac
+            Answer.objects.get_or_create(
+                instance=self.instance,
+                question_id=SUBMIT_DATE_QUESTION_ID,
+                item=1,
+                chapter_id=SUBMIT_DATE_CHAPTER,
+                # CAMAC date is formatted in "dd.mm.yyyy"
+                defaults={"answer": submit_date},
+            )
 
     def _validate_document_validity(self, document_id):
         # TODO: reenable this when caluma document validity is fixed
@@ -557,49 +482,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
         pass
 
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(metaValue: [{key: "camac-instance-id", value: $instanceId}]) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                            answers(questions: ["gemeinde"]) {
-                                edges {
-                                    node {
-                                        id
-                                        question {
-                                            slug
-                                        }
-                                        ...on StringAnswer {
-                                            value
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        documents = caluma_resp["data"]["allDocuments"]["edges"]
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in documents
-                if document["node"]["form"]["meta"].get("is-main-form", False)
-            ),
-            None,
-        )
+        data["caluma_document"] = CalumaApi().get_main_document(self.instance)
 
         if not data["caluma_document"]:  # pragma: no cover
             raise exceptions.ValidationError(
@@ -607,15 +490,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        data["caluma_municipality"] = next(
-            (
-                answer["node"]["value"]
-                for answer in data["caluma_document"]["answers"]["edges"]
-                if answer["node"]["question"]["slug"] == "gemeinde"
-            ),
-            None,
-        )
-
+        data["caluma_municipality"] = CalumaApi().get_municipality(self.instance)
         if not data["caluma_municipality"]:  # pragma: no cover
             raise exceptions.ValidationError(
                 _(
@@ -624,7 +499,7 @@ class CalumaInstanceSubmitSerializer(CalumaInstanceSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
 
@@ -739,36 +614,8 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB1" form."""
 
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(
-                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
-                    form: "sb1"
-                ) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in caluma_resp["data"]["allDocuments"]["edges"]
-                if document["node"]["form"]["slug"] == "sb1"
-            ),
-            None,
+        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
+            self.instance, "sb1"
         )
 
         if not data["caluma_document"]:  # pragma: no cover
@@ -777,7 +624,7 @@ class CalumaInstanceReportSerializer(CalumaInstanceSubmitSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
 
@@ -810,36 +657,8 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
     """Handle submission of "SB2" form."""
 
     def validate(self, data):
-        caluma_resp = self.query_caluma(
-            """
-            query GetDocument($instanceId: GenericScalar!) {
-                allDocuments(
-                    metaValue: [{key: "camac-instance-id", value: $instanceId}]
-                    form: "sb2"
-                ) {
-                    edges {
-                        node {
-                            id
-                            meta
-                            form {
-                                slug
-                                meta
-                            }
-                        }
-                    }
-                }
-            }
-            """,
-            {"instanceId": self.instance.pk},
-        )
-
-        data["caluma_document"] = next(
-            (
-                document["node"]
-                for document in caluma_resp["data"]["allDocuments"]["edges"]
-                if document["node"]["form"]["slug"] == "sb2"
-            ),
-            None,
+        data["caluma_document"] = CalumaApi().get_document_by_form_slug(
+            self.instance, "sb2"
         )
 
         if not data["caluma_document"]:  # pragma: no cover
@@ -848,7 +667,7 @@ class CalumaInstanceFinalizeSerializer(CalumaInstanceSubmitSerializer):
                 % {"instance": self.instance.pk}
             )
 
-        self._validate_document_validity(data["caluma_document"]["id"])
+        self._validate_document_validity(data["caluma_document"])
 
         return data
 
