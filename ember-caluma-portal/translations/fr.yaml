@@ -18,6 +18,7 @@ nav:
   instances: "Dossiers"
   applicant: "Requérant/e"
   group: "Groupe"
+  internal: "#TODO"
 
   canNotChangeLanguage: "La langue ne peut pas être modifiée, car il y a déjà une langue dans l'URL"
   canNotChangeGroup: "Le groupe ne peut pas être modifiée, car il y a déjà un groupe dans l'URL"
@@ -94,6 +95,7 @@ freigabequittung:
   downloadError: "Un problème est survenu lors de l'exportation. Veuillez réessayer."
 
 gis:
+  title: "Carte"
   apply-button: "Reprendre les données"
   no-map:
     message: "La carte ne s'affiche pas correctement?"
@@ -263,3 +265,7 @@ notfound:
   link: "Retour à"
   home: "la page principale"
 
+paper:
+  type: "#TODO"
+  noteTitle: "#TODO"
+  noteBody: "#TODO"

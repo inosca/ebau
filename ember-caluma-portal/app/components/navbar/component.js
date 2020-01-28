@@ -5,7 +5,11 @@ import { inject as service } from "@ember/service";
 import config from "ember-caluma-portal/config/environment";
 import { dropTask, lastValue } from "ember-concurrency-decorators";
 
-const { languages, environment } = config;
+const {
+  languages,
+  environment,
+  ebau: { selectableGroups }
+} = config;
 
 export default class NavbarComponent extends Component {
   @service session;
@@ -34,7 +38,8 @@ export default class NavbarComponent extends Component {
   @computed("groups.[]", "session.group")
   get group() {
     return (
-      this.session.group && this.store.peekRecord("group", this.session.group)
+      this.session.group &&
+      this.store.peekRecord("public-group", this.session.group)
     );
   }
 
@@ -42,9 +47,10 @@ export default class NavbarComponent extends Component {
   @dropTask
   *fetchGroups() {
     try {
-      const groups = yield this.store.query("group", {
-        service__service_group: 2, // Gemeinde
-        role: [3, 20004].join(",") // Leitung / Sachbearbeiter Leitbehörde
+      const groups = yield this.store.query("public-group", {
+        service_group: selectableGroups.serviceGroups.join(","),
+        role: selectableGroups.roles.join(","),
+        include: ["service", "service.service_group", "role"].join(",")
       });
 
       if (
