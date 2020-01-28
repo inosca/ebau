@@ -96,16 +96,44 @@ class ServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
         read_only_fields = ("name", "zip", "city", "address")
 
 
-class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
-    class Meta:
-        model = models.Service
-        fields = ("name",)
-        resource_name = "public-services"
-
-
 class GroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
     included_serializers = {"users": UserSerializer, "service": ServiceSerializer}
 
     class Meta:
         model = models.Group
         fields = ("name", "users", "service")
+
+
+class PublicRoleSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.Role
+        fields = ("name",)
+        resource_name = "public-role"
+
+
+class PublicServiceGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    class Meta:
+        model = models.ServiceGroup
+        fields = ("name",)
+        resource_name = "public-service-groups"
+
+
+class PublicServiceSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {"service_group": PublicServiceGroupSerializer}
+
+    class Meta:
+        model = models.Service
+        fields = ("name", "service_group")
+        resource_name = "public-services"
+
+
+class PublicGroupSerializer(MultilingualSerializer, serializers.ModelSerializer):
+    included_serializers = {
+        "service": PublicServiceSerializer,
+        "role": PublicRoleSerializer,
+    }
+
+    class Meta:
+        model = models.Group
+        fields = ("name", "service", "role")
+        resource_name = "public-groups"

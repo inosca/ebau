@@ -129,6 +129,10 @@ APPLICATIONS = {
             "PUBLICATION": None,
             "START_CIRC": None,
         },
+        "PAPER": {
+            "ALLOWED_ROLES": {"DEFAULT": []},
+            "ALLOWED_SERVICE_GROUPS": {"DEFAULT": []},
+        },
     },
     "kt_schwyz": {
         "ROLE_PERMISSIONS": {
@@ -209,6 +213,21 @@ APPLICATIONS = {
         ],  # DE
         # "DEMO_MODE_GROUPS": [22274, 22271, 20099, 20078, 23248],  # FR
         "ACTIVE_SERVICE_FILTERS": {"service__service_group__pk__in": [2, 20000]},
+        "PDF": {
+            "SECTION": {
+                "MAIN": {"DEFAULT": 1, "PAPER": 13},
+                "SB1": {"DEFAULT": 6, "PAPER": 10},
+                "SB2": {"DEFAULT": 5, "PAPER": 11},
+            }
+        },
+        "PAPER": {
+            "ALLOWED_ROLES": {
+                "SB1": [5, 20005],
+                "SB2": [5, 20005],
+                "DEFAULT": [3, 20004],
+            },
+            "ALLOWED_SERVICE_GROUPS": {"SB1": [3], "SB2": [3], "DEFAULT": [2]},
+        },
     },
     "kt_uri": {"FORM_BACKEND": "camac"},
 }

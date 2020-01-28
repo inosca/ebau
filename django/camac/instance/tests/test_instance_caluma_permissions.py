@@ -308,3 +308,73 @@ def test_instance_nfd_permissions(
         response.json()["data"]["meta"]["permissions"]["nfd"]
         == expected_nfd_permissions
     )
+
+
+@pytest.mark.parametrize("role__name", ["Municipality"])
+@pytest.mark.parametrize(
+    "instance_state__name,group_name,form_slug,expected_permissions",
+    [
+        ("new", "municipality", "main", ["read", "write", "write-meta"]),
+        ("new", "construction-control", "main", []),
+        ("rejected", "municipality", "main", ["read", "write", "write-meta"]),
+        ("rejected", "construction-control", "main", ["read"]),
+        ("sb1", "municipality", "sb1", []),
+        ("sb1", "construction-control", "sb1", ["read", "write", "write-meta"]),
+        ("sb2", "municipality", "sb2", []),
+        ("sb2", "construction-control", "sb2", ["read", "write", "write-meta"]),
+    ],
+)
+def test_instance_paper_permissions(
+    admin_client,
+    admin_user,
+    role,
+    instance,
+    instance_state,
+    group_name,
+    form_slug,
+    expected_permissions,
+    use_caluma_form,
+    mocker,
+    group_factory,
+    service_factory,
+    user_group_factory,
+    application_settings,
+    instance_service_factory,
+):
+    mocker.patch("camac.caluma.CalumaApi.is_paper", lambda s, i: True)
+
+    groups = {
+        "municipality": group_factory(role=role),
+        "construction-control": group_factory(role=role),
+    }
+
+    municipality_group = groups["municipality"]
+    construction_control_group = groups["construction-control"]
+
+    for name, group in groups.items():
+        user_group_factory(group=group, user=admin_user)
+        instance_service_factory(instance=instance, service=group.service)
+
+    application_settings["PAPER"] = {
+        "ALLOWED_ROLES": {
+            "SB1": [construction_control_group.role.pk],
+            "SB2": [construction_control_group.role.pk],
+            "DEFAULT": [municipality_group.role.pk],
+        },
+        "ALLOWED_SERVICE_GROUPS": {
+            "SB1": [construction_control_group.service.service_group.pk],
+            "SB2": [construction_control_group.service.service_group.pk],
+            "DEFAULT": [municipality_group.service.service_group.pk],
+        },
+    }
+
+    response = admin_client.get(
+        reverse("instance-detail", args=[instance.pk]),
+        data={"group": groups.get(group_name).pk},
+    )
+
+    assert response.status_code == status.HTTP_200_OK
+    assert (
+        response.json()["data"]["meta"]["permissions"][form_slug]
+        == expected_permissions
+    )

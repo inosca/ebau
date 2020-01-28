@@ -37,7 +37,17 @@ export default Component.extend({
     return this.get("rootFormSlug").includes("baugesuch");
   }),
 
-  section: reads("fieldset.field.question.meta.attachment-section"),
+  section: computed(
+    "document.{jexl,jexlContext}",
+    "fieldset.field.question.meta.attachment-section",
+    function() {
+      return this.document.jexl.evalSync(
+        this.get("fieldset.field.question.meta.attachment-section"),
+        this.document.jexlContext
+      );
+    }
+  ),
+
   deletable: computed(
     "disabled",
     "context.instance.instanceState.id",
