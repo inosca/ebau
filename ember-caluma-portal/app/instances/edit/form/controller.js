@@ -38,22 +38,27 @@ export default class InstancesEditFormController extends Controller.extend(
     );
   }
 
-  @computed("model", "document.form")
-  get form() {
-    return this.document ? this.document.form : { slug: this.model };
+  @computed("model")
+  get pdfFieldSlug() {
+    switch (this.model) {
+      case "sb1":
+      case "sb2":
+        return "formulardownload-pdf-selbstdeklaration";
+      case "vorabklaerung-einfach":
+        return "formulardownload-pdf-vorabklaerung";
+      default:
+        return "formulardownload-pdf";
+    }
   }
 
-  @computed("model", "instance.documents.[]")
+  @computed("pdfFieldSlug", "model", "instance.documents.[]")
   get pdfField() {
-    const slug = ["sb1", "sb2"].includes(this.model)
-      ? "formulardownload-pdf-selbstdeklaration"
-      : this.model === "vorabklaerung-einfach"
-      ? "formulardownload-pdf-vorabklaerung"
-      : "formulardownload-pdf";
+    const field = this.instance.findCalumaField(this.pdfFieldSlug, this.model);
 
-    const field = this.instance.findCalumaField(slug, this.model);
-
-    assert(`Did not find field ${slug} in form ${this.model}`, field);
+    assert(
+      `Did not find field ${this.pdfFieldSlug} in form ${this.model}`,
+      field
+    );
 
     return field;
   }

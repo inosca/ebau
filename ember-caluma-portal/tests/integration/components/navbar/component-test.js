@@ -80,7 +80,7 @@ module("Integration | Component | navbar", function(hooks) {
   test("it renders a group switcher", async function(assert) {
     assert.expect(4);
 
-    this.server.create("group", { name: "Test Group" });
+    this.server.create("public-group", { name: "Test Group" });
 
     await render(hbs`<Navbar />`);
 

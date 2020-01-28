@@ -53,5 +53,9 @@ export default class ApplicationRouter extends RouteClass {
       component: "be-claims-form",
       type: "Form"
     });
+    this.calumaOptions.registerComponentOverride({
+      label: "Versteckt",
+      component: "be-hidden-input"
+    });
   }
 }

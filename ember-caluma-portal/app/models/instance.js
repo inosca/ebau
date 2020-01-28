@@ -3,7 +3,6 @@ import { computed, get } from "@ember/object";
 import { reads } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 import { queryManager } from "ember-apollo-client";
-import saveDocumentMutation from "ember-caluma-portal/gql/mutations/save-document";
 import getInstanceDocumentsQuery from "ember-caluma-portal/gql/queries/get-instance-documents";
 import { decodeId } from "ember-caluma/helpers/decode-id";
 import { dropTask } from "ember-concurrency-decorators";
@@ -18,6 +17,7 @@ export default class Instance extends Model {
   @attr("date") creationDate;
   @attr("date") modificationDate;
   @attr("string") publicStatus;
+  @attr("boolean") isPaper;
   @belongsTo("instance-state") instanceState;
   @hasMany("applicant", { inverse: "instance" }) involvedApplicants;
 
@@ -56,21 +56,6 @@ export default class Instance extends Model {
     });
 
     return raw.allDocuments.edges.map(({ node }) => node);
-  }
-
-  @dropTask
-  *createDocument(form) {
-    yield this.apollo.mutate({
-      mutation: saveDocumentMutation,
-      variables: {
-        input: {
-          form,
-          meta: JSON.stringify({ "camac-instance-id": parseInt(this.id) })
-        }
-      }
-    });
-
-    yield this.getDocuments.perform();
   }
 
   findCalumaField(slug, form = null) {

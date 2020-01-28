@@ -2,7 +2,7 @@
   {{t "instances.title"}}
   {{#if (can "create instance")}}
     <span>
-      {{#link-to "instances.new" class="uk-button uk-button-secondary"}}{{t "instances.new.title"}}{{/link-to}}
+      <LinkTo @route="instances.new" class="uk-button uk-button-secondary">{{t "instances.new.title"}}</LinkTo>
     </span>
   {{/if}}
 </h1>
@@ -107,7 +107,7 @@
             {{/link-to}}
           </td>
           <td class="uk-text-nowrap">{{document.ebau}}</td>
-          <td class="uk-text-nowrap">{{document.type}}</td>
+          <td class="uk-text-nowrap">{{document.type}} {{if document.isPaper (t "paper.type")}}</td>
           <td>{{document.municipality}}</td>
           <td class="uk-text-truncate" title={{document.address}}>{{document.address}}</td>
           <td>{{if document.submitDate (moment-format document.submitDate "DD.MM.YYYY")}}</td>
@@ -129,7 +129,7 @@
 {{else}}
   {{#uk-flex horizontal="center" vertical="middle" direction="column"}}
     <div class="uk-text-center uk-width-large">
-      <object data="/assets/images/stamp-document.svg" class="uk-width-medium"></object>
+      <object data="/assets/images/stamp-document.svg" class="uk-width-medium">{{t "instances.new.title"}}</object>
       <h4 class="uk-margin-remove-top">{{t "instances.emptyTitle"}}</h4>
       <p>{{t "instances.emptyText"}}</p>
       {{#link-to "instances.new" class="uk-button uk-button-primary uk-button-large"}}{{t "instances.new.title"}}{{/link-to}}

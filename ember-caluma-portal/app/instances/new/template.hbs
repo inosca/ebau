@@ -1,34 +1,60 @@
-<h4 class="uk-text-center">
-  {{t "instances.new.kind"}}
-</h4>
+<h3 class="uk-text-center">{{t "instances.new.kind"}}</h3>
 
-<div uk-grid class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-margin uk-margin-large-top">
-  <div uk-margin>
-    <h4 class="uk-text-center uk-flex uk-flex-middle uk-flex-center">{{t "instances.new.preClarification"}} {{cf-field/info text=(t "instances.new.preClarificationInfo")}}</h4>
-    {{#each forms.lastSuccessful.value.column1 as |form|}}
-      {{new-form-grid-entry
-        form=form.slug
-        label=form.name
-        onSetForm=(action (mut selectedForm))
-        selectedForm=selectedForm
-      }}
-    {{/each}}
-  </div>
-  <div uk-margin>
-    <h4 class="uk-text-center uk-flex uk-flex-middle uk-flex-center">{{t "instances.new.application"}} {{cf-field/info text=(t "instances.new.applicationInfo")}}</h4>
-    {{#each forms.lastSuccessful.value.column2 as |form|}}
-      {{new-form-grid-entry
-        form=form.slug
-        label=form.name
-        onSetForm=(action (mut selectedForm))
-        selectedForm=selectedForm
-      }}
-    {{/each}}
-  </div>
-</div>
+{{#let (can "create paper instance") as |isPaper|}}
+  {{#if isPaper}}
+    <div class="uk-flex uk-flex-center uk-margin-large-top">
+      <div class="uk-alert uk-alert-warning uk-width-large">
+        <strong>{{t "paper.noteTitle"}}</strong> {{t "paper.noteBody"}}
+      </div>
+    </div>
+  {{/if}}
 
-<div class="uk-text-right">
-  {{#uk-button disabled=(or (not selectedForm) save.isRunning) loading=save.isRunning color="primary" on-click=(perform save)}}
-    {{t "global.continue"}}
-  {{/uk-button}}
-</div>
+  <div uk-grid class="uk-grid-small uk-child-width-1-1 uk-child-width-1-2@s uk-margin-bottom uk-margin-large-top">
+    <div class="uk-text-center">
+      <h4 class="uk-flex-inline uk-flex-middle">
+        {{t "instances.new.preClarification"}}
+        <CfField::info @text={{t "instances.new.preClarificationInfo"}} />
+      </h4>
+      <div>
+        {{#each forms.lastSuccessful.value.column1 as |form|}}
+          <UkButton
+            @width="1-1"
+            @label={{concat form.name " " (if isPaper (t "paper.type"))}}
+            @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
+            @on-click={{fn (mut this.selectedForm) form.slug}}
+
+            class="uk-margin-small-bottom"
+          />
+        {{/each}}
+      </div>
+    </div>
+    <div class="uk-text-center">
+      <h4 class="uk-flex-inline uk-flex-middle">
+        {{t "instances.new.application"}}
+        <CfField::info @text={{t "instances.new.applicationInfo"}} />
+      </h4>
+      <div>
+        {{#each forms.lastSuccessful.value.column2 as |form|}}
+          <UkButton
+            @width="1-1"
+            @label={{concat form.name " " (if isPaper (t "paper.type"))}}
+            @color={{if (eq form.slug this.selectedForm) "secondary" "default"}}
+            @on-click={{fn (mut this.selectedForm) form.slug}}
+
+            class="uk-margin-small-bottom"
+          />
+        {{/each}}
+      </div>
+    </div>
+  </div>
+
+  <div class="uk-text-right">
+    <UkButton
+      @color="primary"
+      @label={{t "global.continue"}}
+      @disabled={{or (not this.selectedForm) this.save.isRunning}}
+      @loading={{this.save.isRunning}}
+      @on-click={{perform save}}
+    />
+  </div>
+{{/let}}
