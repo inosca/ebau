@@ -217,9 +217,11 @@ APPLICATION = APPLICATIONS.get(APPLICATION_NAME, {})
 
 PUBLIC_BASE_URL = env.str(
     "DJANGO_PUBLIC_BASE_URL", default="http://caluma-portal.local"
-)
+).strip("/")
 
-INTERNAL_BASE_URL = env.str("DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local")
+INTERNAL_BASE_URL = env.str(
+    "DJANGO_INTERNAL_BASE_URL", default="http://camac-ng.local"
+).strip("/")
 
 PUBLIC_INSTANCE_URL_TEMPLATE = env.str(
     "DJANGO_PUBLIC_INSTANCE_URL_TEMPLATE",
@@ -303,7 +305,7 @@ ALLOWED_DOCUMENT_MIMETYPES = env.list(
 # Unoconv webservice
 # https://github.com/zrrrzzt/tfk-api-unoconv
 
-UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000")
+UNOCONV_URL = env.str("DJANGO_UNOCONV_URL", default="http://localhost:3000").strip("/")
 
 
 # Database
@@ -419,14 +421,16 @@ CLAMD_ENABLED = env.bool("DJANGO_CLAMD_ENABLED", default=True)
 
 # Keycloak service
 
-KEYCLOAK_URL = env.str("KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/")
+KEYCLOAK_URL = env.str(
+    "KEYCLOAK_URL", default="http://camac-ng-keycloak.local/auth/"
+).strip("/")
 KEYCLOAK_REALM = env.str("KEYCLOAK_REALM", default="ebau")
 KEYCLOAK_CLIENT = env.str("KEYCLOAK_CLIENT", default="camac")
 KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET = env.str(
     "KEYCLOAK_CAMAC_ADMIN_CLIENT_SECRET", default="a7d2be1b-6a7a-4f28-a978-10a63b1e9850"
 )
 KEYCLOAK_OIDC_TOKEN_URL = (
-    f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
+    f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token"
 )
 
 OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
@@ -434,7 +438,7 @@ OIDC_BEARER_TOKEN_REVALIDATION_TIME = env.int(
 )
 REGISTRATION_URL = env.str(
     "DJANGO_REGISTRATION_URL",
-    default=f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
+    default=f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/login-actions/registration?client_id={KEYCLOAK_CLIENT}",
 )
 
 # Email definition
@@ -492,7 +496,7 @@ def parse_admins(admins):
 ADMINS = parse_admins(env.list("DJANGO_ADMINS", default=[]))
 
 # GIS API (Kt. BE)
-GIS_BASE_URL = env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch")
+GIS_BASE_URL = env.str("GIS_BASE_URL", "https://www.geoservice.apps.be.ch").strip("/")
 GIS_API_USER = env.str("GIS_API_USER", "")
 GIS_API_PASSWORD = env.str("GIS_API_PASSWORD", "")
 
@@ -514,8 +518,8 @@ SWAGGER_SETTINGS = {
     "SECURITY_DEFINITIONS": {
         "oauth2": {
             "type": "oauth2",
-            "tokenUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
-            "authorizationUrl": f"{KEYCLOAK_URL}realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
+            "tokenUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/token",
+            "authorizationUrl": f"{KEYCLOAK_URL}/realms/{KEYCLOAK_REALM}/protocol/openid-connect/auth",
             "flow": "application",
             "scopes": {},
         }

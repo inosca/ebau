@@ -309,7 +309,7 @@ def test_notification_placeholders(
         .strip()
         .split("\n")
     ] == [
-        f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}realms/ebau/login-actions/registration?client_id=camac",
+        f"REGISTRATION_LINK: {settings.KEYCLOAK_URL}/realms/ebau/login-actions/registration?client_id=camac",
         "DATE_DOSSIERVOLLSTANDIG: 23.08.2019",
         "DATE_DOSSIEREINGANG: 22.07.2019",
         "DATE_START_ZIRKULATION: 24.09.2019",
