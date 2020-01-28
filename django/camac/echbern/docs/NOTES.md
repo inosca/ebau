@@ -52,10 +52,10 @@ Unter dem Tag [User](#/User) sind die Endpunkte zusammengefasst, die eine Abfrag
 
 Verschiedene Aufgaben werden gemäss Spezifikation direkt in eBau erledigt. Unterstützt werden folgende Links:
 
-- `instance/<instance_id>/`: Allgemeiner Link auf ein Dossier, Einstieg für Dossierkorrektur (Kap. 3.1)
-- `ebau-number/<instance_id>/`: eBau-Nummer vergeben (Kap. 3.1)
-- `claim/<instance_id>/`: Nachforderungsseite (Kap. 3.1, 3.3.2)
-- `dossier-check/<instance_id>/`: Dossierprüfung (formelle und materielle Prüfung, Kap. 3.1)
+- `/ech/v1/instance/<instance_id>/`: Allgemeiner Link auf ein Dossier, Einstieg für Dossierkorrektur (Kap. 3.1)
+- `/ech/v1/ebau-number/<instance_id>/`: eBau-Nummer vergeben (Kap. 3.1)
+- `/ech/v1/claim/<instance_id>/`: Nachforderungsseite (Kap. 3.1, 3.3.2)
+- `/ech/v1/dossier-check/<instance_id>/`: Dossierprüfung (formelle und materielle Prüfung, Kap. 3.1)
 
 ## Abweichungen und Besonderheiten
 
