@@ -5,6 +5,8 @@ from caluma.caluma_form.models import Document
 from django.conf import settings
 from django.core.management import call_command
 
+from camac.utils import build_url
+
 from ..document_merge_service import DMSClient, DMSVisitor
 
 
@@ -55,7 +57,11 @@ def test_document_merge_service_client(db, requests_mock):
 
     requests_mock.register_uri(
         "POST",
-        f"{settings.DOCUMENT_MERGE_SERVICE_URL}/template/{template}/merge/",
+        build_url(
+            settings.DOCUMENT_MERGE_SERVICE_URL,
+            f"/template/{template}/merge",
+            trailing=True,
+        ),
         content=faked_result,
     )
 

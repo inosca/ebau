@@ -19,6 +19,7 @@ from camac.constants.kt_bern import (
 )
 from camac.core.models import Answer, DocxDecision, InstanceService
 from camac.instance.models import Instance
+from camac.utils import build_url
 
 from .schema import (
     ech_0007_6_0,
@@ -118,7 +119,10 @@ def get_documents(attachments):
             files=ns_document.filesType(
                 file=[
                     ns_document.fileType(
-                        pathFileName=f"{settings.INTERNAL_BASE_URL}{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        pathFileName=build_url(
+                            settings.INTERNAL_BASE_URL,
+                            f"{reverse('multi-attachment-download')}?attachments={attachment.pk}",
+                        ),
                         mimeType=attachment.mime_type,
                         # internalSortOrder minOccurs=0
                         # version minOccurs=0
