@@ -122,7 +122,7 @@ class GroupView(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.filter(
-            pk__in=self.request.user.groups.values("pk"), disabled=False
+            service__in=self.request.user.groups.values("service"), disabled=False
         )
 
     @swagger_auto_schema(tags=["User"], operation_summary="Get group information")
