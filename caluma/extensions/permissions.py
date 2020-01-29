@@ -12,6 +12,7 @@ from caluma.caluma_form.models import Document
 from caluma.caluma_form.schema import RemoveAnswer, SaveDocument, SaveDocumentAnswer
 
 from . import common
+from .utils import build_url
 
 log = getLogger()
 
@@ -94,7 +95,7 @@ class CustomPermission(BasePermission):
 
     def has_camac_group_permission(self, info, required_group):
         response = requests.get(
-            f"{common.CAMAC_NG_URL}/api/v1/me", headers=common.headers(info)
+            build_url(common.CAMAC_NG_URL, "/api/v1/me"), headers=common.headers(info)
         )
 
         response.raise_for_status()
@@ -120,7 +121,7 @@ class CustomPermission(BasePermission):
             return True
 
         resp = requests.get(
-            f"{common.CAMAC_NG_URL}/api/v1/instances/{instance_id}",
+            build_url(common.CAMAC_NG_URL, f"/api/v1/instances/{instance_id}"),
             headers=common.headers(info),
         )
 

@@ -14,6 +14,7 @@ from caluma.caluma_form.models import Answer, Document
 from caluma.caluma_form.schema import SaveDocumentStringAnswer, SaveDocumentTableAnswer
 
 from . import common
+from .utils import build_url
 
 CLAIM_QUESTION = "nfd-tabelle-table"
 CLAIM_STATUS_QUESTION = "nfd-tabelle-status"
@@ -28,7 +29,10 @@ ECH_EVENT_CLAIM_ANSWERED = "FileSubsequently"
 class CustomValidation(BaseValidation):
     def _send_claim_notification(self, info, instance_id, template_id, recipient_types):
         requests.post(
-            f"{common.CAMAC_NG_URL}/api/v1/notification-templates/{template_id}/sendmail",
+            build_url(
+                common.CAMAC_NG_URL,
+                "/api/v1/notification-templates/{template_id}/sendmail",
+            ),
             headers={
                 "content-type": "application/vnd.api+json",
                 **common.headers(info),
@@ -51,7 +55,7 @@ class CustomValidation(BaseValidation):
     def _send_claim_ech_event(self, info, instance_id, event):
         if common.ECH_API:
             requests.post(
-                f"{common.CAMAC_NG_URL}/ech/v1/event/{instance_id}/{event}",
+                build_url(common.CAMAC_NG_URL, f"/ech/v1/event/{instance_id}/{event}"),
                 headers={"authorization": f"Bearer {common.get_admin_token()}"},
             )
 
