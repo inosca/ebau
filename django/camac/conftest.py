@@ -142,3 +142,26 @@ def ech_mandatory_answers_vollstaendige_vorabklaerung():
             }
         ],
     }
+
+
+@pytest.fixture
+def support_role(role):
+    role.name = "support"
+    role.save()
+    return role
+
+
+@pytest.fixture
+def system_operation_group(support_role, group):
+    group.role = support_role
+    group.name = "System-Betrieb"
+    group.save()
+    return group
+
+
+@pytest.fixture
+def system_operation_user(system_operation_group, user, user_group_factory):
+    user_group_factory(group=system_operation_group, user=user, default_group=1)
+    user.username = "System-Betrieb"
+    user.save()
+    return user
