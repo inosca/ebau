@@ -6,6 +6,7 @@ from caluma.caluma_form import models as form_models, schema as form_schema
 from django.db.models import F, Q
 
 from . import common
+from .utils import build_url
 
 
 class CustomVisibility(BaseVisibility):
@@ -82,7 +83,7 @@ class CustomVisibility(BaseVisibility):
             return result
 
         resp = requests.get(
-            f"{common.CAMAC_NG_URL}/api/v1/instances",
+            build_url(common.CAMAC_NG_URL, "/api/v1/instances"),
             # forward filters via query params
             {**common.filters(info), "fields[instances]": "id"},
             headers=common.headers(info),
