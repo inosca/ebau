@@ -6,14 +6,19 @@ from rest_framework import status
 
 def test_group_list(admin_client, group, group_factory):
     group_factory()  # new group which may not appear in result
+    other_group = group_factory(
+        service=group.service
+    )  # new group of same service, which should appear in list
     url = reverse("group-list")
 
     response = admin_client.get(url)
     assert response.status_code == status.HTTP_200_OK
 
     json = response.json()
-    assert len(json["data"]) == 1
-    assert json["data"][0]["id"] == str(group.pk)
+    assert len(json["data"]) == 2
+    assert {int(entry["id"]) for entry in json["data"]} == set(
+        [group.pk, other_group.pk]
+    )
 
 
 def test_group_detail(admin_client, group, multilang, application_settings):
