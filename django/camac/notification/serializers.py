@@ -3,14 +3,16 @@ from datetime import date, timedelta
 from html import escape
 from logging import getLogger
 
+import inflection
+import jinja2
 from django.conf import settings
 from django.core.mail import EmailMessage
 from django.db.models import Q, Sum
 from django.utils import timezone
 from django.utils.translation import gettext_noop
+from rest_framework import exceptions
+from rest_framework_json_api import serializers
 
-import inflection
-import jinja2
 from camac.caluma import CalumaApi
 from camac.constants import kt_bern as be_constants
 from camac.core.models import (
@@ -27,8 +29,6 @@ from camac.instance.models import Instance
 from camac.instance.validators import transform_coordinates
 from camac.user.models import Role, Service
 from camac.utils import flatten
-from rest_framework import exceptions
-from rest_framework_json_api import serializers
 
 from ..core import models as core_models
 from . import models
@@ -425,8 +425,7 @@ class NotificationTemplateSendmailSerializer(NotificationTemplateMergeSerializer
         ]
 
     def _get_recipients_activation_deadline_today(self, instance):
-        """Return recipients of activations for an instance which  deadline expires exactly today.
-        """
+        """Return recipients of activations for an instance which  deadline expires exactly today."""
         activations = Activation.objects.filter(
             ~Q(circulation_state__name="DONE"),
             deadline_date__date=date.today(),
