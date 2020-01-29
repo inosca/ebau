@@ -192,15 +192,18 @@ def get_admin_token():
     return auth_token["access_token"]
 
 
-def get_paper_settings(instance_state=None):
-    _roles = settings.APPLICATION["PAPER"]["ALLOWED_ROLES"]
-    _service_groups = settings.APPLICATION["PAPER"]["ALLOWED_SERVICE_GROUPS"]
+def get_paper_settings(key=None):
+    roles = settings.APPLICATION.get("PAPER", {}).get("ALLOWED_ROLES", {})
+    service_groups = settings.APPLICATION.get("PAPER", {}).get(
+        "ALLOWED_SERVICE_GROUPS", {}
+    )
 
-    key = instance_state.upper() if instance_state else "DEFAULT"
+    if isinstance(key, str):
+        key = key.upper()
 
     return {
-        "ALLOWED_ROLES": _roles.get(key, _roles.get("DEFAULT")),
-        "ALLOWED_SERVICE_GROUPS": _service_groups.get(
-            key, _service_groups.get("DEFAULT")
+        "ALLOWED_ROLES": roles.get(key, roles.get("DEFAULT", [])),
+        "ALLOWED_SERVICE_GROUPS": service_groups.get(
+            key, service_groups.get("DEFAULT", [])
         ),
     }
