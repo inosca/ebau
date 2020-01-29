@@ -38918,7 +38918,7 @@
       "info_text": "{\"de\": null, \"fr\": null}",
       "is_archived": false,
       "is_hidden": "false",
-      "is_required": "false",
+      "is_required": "true",
       "label": "{\"de\": \"Papierdossier\", \"fr\": null}",
       "meta": {
         "hideLabel": true,
