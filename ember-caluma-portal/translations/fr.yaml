@@ -1,4 +1,6 @@
-"caluma.form.optional": "si nécessaire"
+caluma:
+  form:
+    optional: "si nécessaire"
 
 global:
   title: "eBau Berne"
@@ -6,6 +8,7 @@ global:
   continue: "Suivante"
   delete: "Effacer"
   cancel: "Casser"
+  back: "Retour"
 
 nav:
   form: "Formulaire"
@@ -266,6 +269,9 @@ notfound:
   home: "la page principale"
 
 paper:
-  type: "#TODO"
-  noteTitle: "#TODO"
-  noteBody: "#TODO"
+  type: "(papier)"
+  noteTitle: "Note:"
+  noteBody: "Vous créez un dossier qui a été soumis sous forme papier dans
+  votre commune (dossier papier). Si vous souhaitez créer un dossier normal
+  en tant que requérant/e, sélectionnez \"Requérant/e\" dans le menu de
+  groupe en haut à droite de la page."
