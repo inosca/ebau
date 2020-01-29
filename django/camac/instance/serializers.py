@@ -434,19 +434,21 @@ class CalumaInstanceSerializer(InstanceSerializer):
         caluma_documents = {}
 
         for form_slug in [form, "sb1", "sb2", "nfd"]:
-            caluma_documents[form_slug] = CalumaApi().create_document(
+            document = CalumaApi().create_document(
                 form_slug, meta={"camac-instance-id": instance.pk}
             )
+
+            CalumaApi().update_or_create_answer(
+                document.pk,
+                "papierdossier",
+                "papierdossier-ja" if is_paper else "papierdossier-nein",
+            )
+
+            caluma_documents[form_slug] = document
 
         if is_paper:
             # remove the previously created applicants
             instance.involved_applicants.all().delete()
-
-            # mark documents as paper instance
-            for index, document in caluma_documents.items():
-                CalumaApi().update_or_create_answer(
-                    document.pk, "papierdossier", "papierdossier-ja"
-                )
 
             # prefill municipality question
             CalumaApi().update_or_create_answer(
