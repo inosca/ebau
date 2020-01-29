@@ -1,10 +1,3 @@
-import itertools
-
-
-def flatten(data):
-    return list(itertools.chain(*data))
-
-
 def build_url(*fragments, **options):
     separator = options.get("separator", "/")
 

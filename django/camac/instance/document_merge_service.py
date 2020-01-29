@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils.translation import gettext as _
 
 from camac.user.models import Service
+from camac.utils import build_url
 
 SLUGS = {
     "baugesuch": {
@@ -56,7 +57,7 @@ class DMSClient:
     def merge(self, data, template, convert="pdf", add_headers={}):
         headers = {"authorization": self.auth_token}
         headers.update(add_headers)
-        url = f"{self.url}/template/{template}/merge/"
+        url = build_url(self.url, f"/template/{template}/merge", trailing=True)
 
         response = requests.post(
             url, json={"convert": convert, "data": data}, headers=headers

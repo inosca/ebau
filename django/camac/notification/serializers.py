@@ -218,14 +218,10 @@ class InstanceMergeSerializer(InstanceEditableMixin, serializers.Serializer):
         return CalumaApi().get_ebau_number(instance) or "-"
 
     def get_internal_dossier_link(self, instance):
-        return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(
-            internal_base_url=settings.INTERNAL_BASE_URL, instance_id=(instance.pk)
-        )
+        return settings.INTERNAL_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
 
     def get_public_dossier_link(self, instance):
-        return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(
-            public_base_url=settings.PUBLIC_BASE_URL, instance_id=(instance.pk)
-        )
+        return settings.PUBLIC_INSTANCE_URL_TEMPLATE.format(instance_id=instance.pk)
 
     def get_registration_link(self, instance):
         return settings.REGISTRATION_URL

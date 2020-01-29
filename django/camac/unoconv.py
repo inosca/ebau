@@ -1,6 +1,8 @@
 import requests
 from django.conf import settings
 
+from camac.utils import build_url
+
 
 def convert(from_file, to_type):
     """
@@ -10,7 +12,7 @@ def convert(from_file, to_type):
 
     See: https://github.com/zrrrzzt/tfk-api-unoconv
     """
-    url = settings.UNOCONV_URL + "/unoconv/{0}".format(to_type)
+    url = build_url(settings.UNOCONV_URL, f"/unoconv/{to_type}")
 
     response = requests.post(url, files={"file": from_file})
 
